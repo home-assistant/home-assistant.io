@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Internet-of-Things | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/internet-of-things/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2016-12-06T19:56:33+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Your hub should be local and open]]></title>
+    <link href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"/>
+    <updated>2016-04-05T04:11:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open</id>
+    <content type="html"><![CDATA[Today the news spread that Google will be [shutting down the Revolv hubs][medium-revolv]. And shutting down here doesn't mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as [ninjasphere]: open it all up and let people decide on the fate of their _own_ hub.
+
+I've said it [before][perfect-cloud] but I'll repeat it again:
+
+<blockquote>
+The cloud should be treated as an extension to your smart home instead of running it.
+</blockquote>
+
+Your hub should not be affected when your internet breaks down or the company that sold you your hub goes out of business. It should work locally so that it can continue to work even long after the vendor goes out of business or decides to kill it. Preferably, your hub should also be open so that the community can take over development after the vendor stops caring.
+
+Unless you can afford losing a product here and there, be cautious when buying IoT products that depend on the cloud from companies that are not well established. The chances are high that they go bankrupt or get acquired and closed. This however is easier said than done as [Gartner] predicts that by 2017, 50 percent of IoT solutions will originate in startups that are less than three years old.
+
+[medium-revolv]: https://medium.com/@arlogilbert/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1#.rmppks86a
+[ninjasphere]: https://discuss.ninjablocks.com/t/ninja-blocks-whats-been-happening-whats-happening-next/3608
+[perfect-cloud]: /blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud
+[Gartner]: http://www.gartner.com/newsroom/id/2869521
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Classifying the Internet of Things]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/"/>
+    <updated>2016-02-12T06:31:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things</id>
+    <content type="html"><![CDATA[The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.
+
+Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.
+
+State describes what a device is up to right now. For example, a light can be on with a red color and a medium brightness.
+
+Control is about controlling the smart device by sending commands via an API. These commands can vary from configuring how a device works till mimicking how a user would interact with a device. A media player can allow skipping to the next track and a sensor could allow to configure its sensitivity or polling interval.
+
+The Home Assistant APIs are setup to be as convenient as possible. However, a network is always as weak as it’s weakest link. In our case these are the integrations. Take for example controlling a light that does not report state. The only state Home Assistant can report on after sending a command is the assumed state: what do we expect the state of the light to be if the command worked.
+
+We want our users to get the best home automation experience out there and this starts with making sure they have devices that work well with Home Assistant. That’s why we will start applying the following classifiers to our integrations:
+
+<a name='classifiers'>
+<table>
+  <tr>
+    <th colspan='2'>Classifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><i class="icon-adjust"></i></td>
+    <td style='white-space: nowrap;'>Assumed State</td>
+    <td>
+      We are unable to get the state of the device. Best we can do is to assume the state based on our last command.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-upload"></i></td>
+    <td>Cloud Polling</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-download"></i></td>
+    <td>Cloud Push</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-download-alt"></i></td>
+    <td>Local Polling</td>
+    <td>
+      Offers direct communication with device. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-upload-alt"></i></td>
+    <td>Local Push</td>
+    <td>
+      Offers direct communication with device. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+</table>
+
+The background to how we got to these classifiers can be read after the break.
+<!--more-->
+
+## <a class='title-link' name='state' href='#state'></a> State 
+
+How state is communicated can be broken down into 5 categories. They are not mutually exclusive - a device state can be available both via the cloud and local connectivity.
+
+### <a class='title-link' name='no-state-available' href='#no-state-available'></a> No state available 
+These are devices that do not have the capabilities to make their state available. They only allow to be controlled. For example, devices with infrared remote controls like TVs and ACs. You can press the turn on button on the remote but can only assume that your command was received and executed successfully. The device might not be powered or something is blocking the infrared receiver.
+
+Home automation will have to approach such devices based on the assumption that it’s commands are received correctly: using optimistic updates. This means that after sending a command it will update the state of the device as if the command was received successfully.
+
+Advantages:
+
+ - None
+
+Disadvantages:
+
+ - Home automation will assume the wrong state if the the command is not received correctly or if the device is controlled in any other way outside of the home automation system.
+
+### <a class='title-link' name='polling-the-cloud' href='#polling-the-cloud'></a> Polling the cloud 
+These are devices that will only report their state to their own cloud backend. The cloud backend will allow reading the state but will not notify when a new state has arrived. This requires the home automation to check frequently if the state has been updated.
+
+Advantages:
+
+ - Able to control devices while at home or away.
+ - Cloud has access to more computing power to mine the device data to suggest optimizations to the user.
+
+Disadvantages:
+
+ - It doesn’t work if the internet is down or the company stops support.
+ - You are no longer in control about who has access to your data.
+
+### <a class='title-link' name='cloud-pushing-new-state' href='#cloud-pushing-new-state'></a> Cloud pushing new state 
+All off the previous section applies to this one. On top of that the cloud will now notify the home automation when a new state has arrived. This means that as soon as the cloud knows, the home automation knows.
+
+Advantages:
+
+ - New state known as soon as available in the cloud.
+
+### <a class='title-link' name='polling-the-local-device' href='#polling-the-local-device'></a> Polling the local device 
+These devices will offer an API that is locally accessible. The home automation will have to frequently check if the state has been updated.
+
+Advantages:
+
+ - Does not depend on the internet
+
+Disadvantages:
+
+ - To be pollable, a device needs to be always online which requires the device to be connected to a power source.
+
+### <a class='title-link' name='local-device-pushing-new-state' href='#local-device-pushing-new-state'></a> Local device pushing new state 
+The best of the best. These devices will send out a notice when they get to a new state. These devices usually use a home automation protocol to pass it’s message to a hub that will do the heavy lifting of managing and notifying subscribers
+
+Advantages:
+
+ - Near instant delivery of new states.
+ - Able to get a long battery life by going into deep sleep between state updates.
+
+Disadvantages:
+
+ - If it does not also support polling, home automation will not be made aware of the state after booting up until it changes.
+ - If using deep sleep and wifi, will suffer a delay when waking up because connecting to WiFi and receiving an IP takes time.
+
+
+## <a class='title-link' name='control' href='#control'></a> Control 
+
+Controlling a device can, just like state, be done through cloud and/or local connectivity. But the more important part of control is knowing if your command was a success and the new state of the device.
+
+### <a class='title-link' name='no-control-available' href='#no-control-available'></a> No control available 
+These devices are not able to be controlled. They will only offer state.
+
+### <a class='title-link' name='poll-state-after-sending-command' href='#poll-state-after-sending-command'></a> Poll State after sending command 
+These devices will require the state to be polled after sending a command to see if a command was successfull.
+
+Advantages:
+
+ - The state will be known right after the command was issued.
+
+Disadvantages:
+
+ - It can take time before the state gets updated. How often do we poll and how long do we wait till we consider the command failed? Also, a state may change because of other factors. Difficult to determine if the updated state is because of our command.
+
+### <a class='title-link' name='device-pushes-state-update' href='#device-pushes-state-update'></a> Device pushes state update 
+These devices will not return a new state as a result of the command but instead will push a new state right away. The downside of this approach is that we have to assume that a state update coming in within a certain period of time after a command is related to the command.
+
+### <a class='title-link' name='command-returns-new-state' href='#command-returns-new-state'></a> Command returns new state 
+The very best. These devices will answer the command with the new state after executing the command.
+
+## <a class='title-link' name='classifying-home-assistant' href='#classifying-home-assistant'></a> Classifying Home Assistant 
+Home Assistant tries to offer the best experience possible via its APIs. There are different ways of interacting with Home Assistant but all are local.
+
+ - State polling is available via the REST API
+ - There is a stream API that will push new states as soon as they arrive to subscribers. This is how the frontend is able to always stay in sync.
+ - Calling a service on Home Assistant will return all states that changed while the service was executing. This sadly does not always include the new state of devices that push their new state, as they might arrive after the service has finished.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Perfect Home Automation]]></title>
+    <link href="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/"/>
+    <updated>2016-01-19T08:20:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/01/19/perfect-home-automation</id>
+    <content type="html"><![CDATA[People often ask me about my vision for Home Assistant. Before I can describe where I want to go with Home Assistant, I should first talk about how home automation would look in my ideal world. This will be the aim of this post. I’m not going to focus on protocols, networks or specific hubs. That's all implementation details. Instead, this post will focus on what is most important: the interaction between the users and their home.
+
+### <a class='title-link' name='you-should-not-have-to-adapt-to-technology' href='#you-should-not-have-to-adapt-to-technology'></a> You should not have to adapt to technology. 
+
+When people start using home automation, they always experience home control first: being able to control devices in new ways using a phone or computer. They believe the future is now and their app will be their remote for their lives. They only focus on what they are getting, not on what they are losing. You install some light bulbs and all of a sudden you are no longer able to use the light switches. You'll arrive at home at night and have to pull out your phone, open the app, let it connect and finally you'll be able to turn on the light. All while turning the light on could have been a switch away.
+
+Yes, you can solve this with presence detection. What if  your phone runs out of battery? You’ll have to resort to the switch again.
+
+If you find that using your new home devices is cumbersome, the promise of home automation technology has failed you. Your lights should work with both a switch (or button) at the entrance of your room and via presence detection. Honestly, there are hardly any valid use cases for being able to control lights from your phone except for showing off.
+<!--more-->
+
+### <a class='title-link' name='you-are-not-the-only-user-of-your-home-automation' href='#you-are-not-the-only-user-of-your-home-automation'></a> You are not the only user of your home automation. 
+
+People tend to forget that they are not the only ones in their home. As the developer of your house you're enthusiastic about the possibilities and are willing to overlook flaws. Chances are very high that the other people in your household have different hobbies and just want to mind their own business.
+
+This means that everything you automate has to work flawlessly. If you successfully manage to cause a response to some stimulus 90% of the time, you’re going to have a disproportionately poor experience 10% of the time.  A common automation that fits this pattern is to fade the lights when you start watching a movie or series in the living room. It only works if everyone is watching.
+
+### <a class='title-link' name='limit-the-impact-of-false-positives-and-negatives' href='#limit-the-impact-of-false-positives-and-negatives'></a> Limit the impact of false positives and negatives. 
+
+With every automation, you always have to think: what will be the impact if it doesn’t work? Home automation is composed of many different systems by many different vendors that speak many different protocols: things will go wrong. It’s up to you to make sure that they have a limited impact when they fail. Ideally, devices should fall back to a pre-smart home experience. A Philips Hue bulb will act like a standard white light if turned on/off using a normal switch or when not connected to a hub. If things get worse when your system is out of order, your users will revolt. Take for example the Nest thermostat that [had a bug in the beginning of January][nest-bug] which caused it to stop heating the house, yikes!
+
+[nest-bug]: http://www.nytimes.com/2016/01/14/fashion/nest-thermostat-glitch-battery-dies-software-freeze.html
+
+### <a class='title-link' name='the-perfect-app-is-no-app' href='#the-perfect-app-is-no-app'></a> The perfect app is no app. 
+
+Home automation should blend with your current workflow, not replace it. For most devices, there is no faster way to control most devices than how you are already doing it today. Most of the time, the best app is no app. The only interface that can be more convenient, and is accessible for visitors of your home of all ages is a voice interface. The industry has realized this too and there are some major players focussing on voice interaction. Take Apple for example: the only way to control your HomeKit devices is with Siri.  Amazon has taken it one step further with the Amazon Echo, providing an always-listening connected speaker/microphone for the living room. I expect a lot more companies to join this segment in 2016.
+
+Voice interfaces are not perfect either. The speed at which you can issue commands is low because you have to wait for a response. There are also issues with the discoverability of commands, recognition of accents and dependency on the cloud for processing your voice. I believe that all but the first one are problems that are going to be solved eventually.
+
+This however doesn’t mean there isn’t a place for apps, there definitely is. They are perfectly well-suited for checking in while you’re away, browsing  the state changes of your house or making  the lights go all funky when there are kids visiting.
+
+### <a class='title-link' name='your-system-should-run-at-home-not-in-the-cloud' href='#your-system-should-run-at-home-not-in-the-cloud'></a> Your system should run at home, not in the cloud. 
+
+The cloud is a magical thing. Somewhere in the world there are computers collecting the data that your house generates, testing them against your automation rules and sending commands back when needed.  The cloud will receive updates and improve itself over time so it is able to serve you better. Until it’s not. There are many reasons why your home might lose its connection to the cloud. The internet can stop working, an update might have gone wrong or the servers running the cloud crash.
+
+When this happens, your house should be able to keep functioning. The cloud should be treated as an extension to your smart home instead of running it. That way you’ll avoid awkward situations like when Amazon AWS was down and the [Amazon Echo stopped working][echo-crash].
+
+[echo-crash]: http://www.zdnet.com/article/the-night-alexa-lost-her-mind/
+
+**Good home automation never annoys but is missed when it is not working.**
+
+*Thanks to Chris LaRose for this feedback and comments.*
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Home Control, Automation &amp; the Smart Home]]></title>
+    <link href="https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home/"/>
+    <updated>2014-12-26T18:23:13+00:00</updated>
+    <id>https://home-assistant.io/blog/2014/12/26/home-control-home-automation-and-the-smart-home</id>
+    <content type="html"><![CDATA[The internet has been buzzing over the last year about home automation. A lot of different terms fly around like the internet of things, home automation and the smart home.
+This article will try to explain how they all relate.
+
+The first thing to introduce is the **Internet of Things** (IoT). This refers to a new generation of devices that cannot only be controlled by humans via buttons or remotes but also provide an interface to communicate with other devices and applications. For example, an IoT-capable coffee machine could receive commands to create different types of coffee and be able to broadcast the amount of water left in its resevoir.
+
+There is no widely adopted open standard for smart device communication. This prevents a lot of devices to communicate with one another. And even if they could, most devices are not designed to manage other devices. To solve this we need a device to be able to communicate with and manage all these connected devices. This device is called a **hub**. 
+
+As a bare minimum a hub has to keep track of the state of each device and should be able to control them if possible. For example, it has to know which lights are on or off and offer a way to control the lights. For a sensor it only has to know the value. A hub with these capabilities offers **home control**.
+
+<p class='img'>
+  <a href='/images/screenshots/nexus_7_dashboard.png'>
+    <img alt='Hub dashboard example'
+         src='/images/screenshots/nexus_7_dashboard.png' />
+  </a>
+  Example of a hub's dashboard. Showing the state of 2 persons, 4 lights and the sun.
+</p>
+<!--more-->
+A step up from home control is to have the user setup triggers to send commands based on information in the home control layer. For example, to turn on the lights when a person arrives home. A hub with these capabilities is capable of **home automation**.
+
+Most hubs on the market today offer this in various degrees of functionality and usability. Some IoT-capable devices offer this too, but only control themselves and are usually limited to location and time-based events.
+
+The last category, and this is still very much in the future, is the **smart home**. A self-learning and adopting system that will decide which events should impact other devices.
+
+An example of a smart home in action is that it observes that when person A comes home, the lights in the living room and the kitchen switch on. While if person B comes home, the lights in the living room and the study room are switched on. The next time person A or B comes home, the smart home will turn on its preferred lights without any configuration being set by the user.
+
+A glimpse today at how the future can look is the [Nest thermostat](https://nest.com/). A thermostat smart enough to learn your schedule and adjust its own temperature accordingly.
+
+All this results in the following overview of Home Automation.
+
+<p class='img'>
+  <a href='/images/architecture/home_automation_landscape.png'>
+    <img alt='Home Automation landscape'
+         src='/images/architecture/home_automation_landscape.png' />
+  </a>
+  Overview of the home automation landscape.
+</p>
+
+### Challenges
+
+You are probably wondering, this all seems relatively simple, why don't I have my very own smart home yet? There are a couple of challenges today that keep us from stepping into the future.
+
+#### More Internet of Things-capable devices
+
+The majority of the IoT products out there are either lights, switches or presence detection. That's not enough for your home to be very smart about. We need televisions, fridges, ovens and more to join the party to increase the number of devices that we can control.
+
+#### More data
+
+Most first generation IoT devices are only exposing information that is needed for controlling it. We need to be able to track all interactions with each device for our smart home to learn how interaction with devices influence other things. For example, we need to be able to track how many cups of coffee were made or how often the fridge was open. This will increase the information flow and open up a whole bunch of new possibilities. For example, the smart home can order new coffee when you're running low.
+
+#### Easy to use, open software that we can trust
+
+To increase adoption we will need people to trust their smart home system. It will be very tough to convince people to upgrade all their devices and upload all interactions with each of them to the cloud. This data could reveal their whole life including all bad habits. That's why such a system should be simple and open-source so people can validate that their data generated at home stays home.
+
+Anoter important booster for adoption is that the software should be easy to set up and use by the average user. A lot of people are not burning their hands yet on Home Automation because they are scared of configurating it.
+
+Home Assistant is trying to be this software. It is not there yet but trying hard. Device discovery and a user interface for configuring home automation are problems we hope to tackle in 2015 while not sacrificing any modularity or usability.
+
+Happy new year!
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,462 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installation on a Synology NAS - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions to install Home Assistant on a Synology NAS.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/installation-synology/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Installation on a Synology NAS">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/installation-synology/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Instructions to install Home Assistant on a Synology NAS.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Installation on a Synology NAS">
+    <meta name="twitter:description" content="Instructions to install Home Assistant on a Synology NAS.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Installation on a Synology NAS
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.</p>
+
+<p>Running these commands will:</p>
+
+<ul>
+  <li>Install Home Assistant</li>
+  <li>Enable Home Assistant to be launched on <a href="http://localhost:8123">http://localhost:8123</a></li>
+</ul>
+
+<p>Using the Synology webadmin:</p>
+
+<ul>
+  <li>Install python3 using the Synology Package Center</li>
+  <li>Create homeassistant user and add to the “users” group</li>
+</ul>
+
+<p>SSH onto your synology &amp; login as admin or root</p>
+
+<ul>
+  <li>Log in with your own administrator account</li>
+  <li>Switch to root using:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo -i
+</code></pre>
+</div>
+
+<p>Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /volume1/@appstore/py3k/usr/local/bin
+</code></pre>
+</div>
+
+<p>Install PIP (Python’s package management system)</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./python3 -m ensurepip
+</code></pre>
+</div>
+
+<p>Use PIP to install Homeassistant package</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./python3 -m pip install homeassistant
+</code></pre>
+</div>
+
+<p>Create homeassistant config directory &amp; switch to it</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir /volume1/homeassistant
+<span class="gp">$ </span><span class="nb">cd</span> /volume1/homeassistant
+</code></pre>
+</div>
+
+<p>Create hass-daemon file using the following code (edit the variables in uppercase if necessary)</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="c"># Package</span>
+<span class="nv">PACKAGE</span><span class="o">=</span><span class="s2">"homeassistant"</span>
+<span class="nv">DNAME</span><span class="o">=</span><span class="s2">"Home Assistant"</span>
+
+<span class="c"># Others</span>
+<span class="nv">USER</span><span class="o">=</span><span class="s2">"homeassistant"</span>
+<span class="nv">PYTHON_DIR</span><span class="o">=</span><span class="s2">"/volume1/@appstore/py3k/usr/local/bin"</span>
+<span class="nv">PYTHON</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PYTHON_DIR</span><span class="s2">/python3"</span>
+<span class="nv">HASS</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PYTHON_DIR</span><span class="s2">/hass"</span>
+<span class="nv">INSTALL_DIR</span><span class="o">=</span><span class="s2">"/volume1/homeassistant"</span>
+<span class="nv">PID_FILE</span><span class="o">=</span><span class="s2">"</span><span class="nv">$INSTALL_DIR</span><span class="s2">/home-assistant.pid"</span>
+<span class="nv">FLAGS</span><span class="o">=</span><span class="s2">"-v --config </span><span class="nv">$INSTALL_DIR</span><span class="s2"> --pid-file </span><span class="nv">$PID_FILE</span><span class="s2"> --daemon"</span>
+<span class="gp">REDIRECT="&gt; </span><span class="nv">$INSTALL_DIR</span>/home-assistant.log 2&gt;&amp;1<span class="s2">"
+
+start_daemon ()
+{
+    sudo -u </span><span class="k">${</span><span class="nv">USER</span><span class="k">}</span><span class="s2"> /bin/sh -c "</span><span class="nv">$PYTHON</span> <span class="nv">$HASS</span> <span class="nv">$FLAGS</span> <span class="nv">$REDIRECT</span>;<span class="s2">"
+}
+
+stop_daemon ()
+{
+    kill </span><span class="sb">`</span>cat <span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="sb">`</span><span class="s2">
+    wait_for_status 1 20 || kill -9 </span><span class="sb">`</span>cat <span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="sb">`</span><span class="s2">
+    rm -f </span><span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="s2">
+}
+
+daemon_status ()
+{
+    if [ -f </span><span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="s2"> ] &amp;&amp; kill -0 </span><span class="sb">`</span>cat <span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="sb">`</span><span class="s2"> &gt; /dev/null 2&gt;&amp;1; then
+        return
+    fi
+    rm -f </span><span class="k">${</span><span class="nv">PID_FILE</span><span class="k">}</span><span class="s2">
+    return 1
+}
+
+wait_for_status ()
+{
+    counter=</span><span class="nv">$2</span><span class="s2">
+    while [ </span><span class="k">${</span><span class="nv">counter</span><span class="k">}</span><span class="s2"> -gt 0 ]; do
+        daemon_status
+        [ </span><span class="nv">$?</span><span class="s2"> -eq </span><span class="nv">$1</span><span class="s2"> ] &amp;&amp; return
+        let counter=counter-1
+        sleep 1
+    done
+    return 1
+}
+
+case </span><span class="nv">$1</span><span class="s2"> in
+    start)
+        if daemon_status; then
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is already running
+            exit 0
+        else
+            echo Starting </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
+            start_daemon
+            exit </span><span class="nv">$?</span><span class="s2">
+        fi
+        ;;
+    stop)
+        if daemon_status; then
+            echo Stopping </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
+            stop_daemon
+            exit </span><span class="nv">$?</span><span class="s2">
+        else
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is not running
+            exit 0
+        fi
+        ;;
+        restart)
+        if daemon_status; then
+            echo Stopping </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
+            stop_daemon
+            echo Starting </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
+            start_daemon
+            exit </span><span class="nv">$?</span><span class="s2">
+        else
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is not running
+            echo Starting </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> ...
+            start_daemon
+            exit </span><span class="nv">$?</span><span class="s2">
+        fi
+        ;;
+    status)
+        if daemon_status; then
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is running
+            exit 0
+        else
+            echo </span><span class="k">${</span><span class="nv">DNAME</span><span class="k">}</span><span class="s2"> is not running
+            exit 1
+        fi
+        ;;
+    log)
+        echo </span><span class="k">${</span><span class="nv">LOG_FILE</span><span class="k">}</span><span class="s2">
+        exit 0
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+</span></code></pre>
+</div>
+
+<p>Create links to python folders to make things easier in the future:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /volume1/@appstore/py3k/usr/local/bin python3
+<span class="gp">$ </span>ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
+</code></pre>
+</div>
+
+<p>Set the owner and permissions on your config folder</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chown -R homeassistant:users /volume1/homeassistant
+<span class="gp">$ </span>chmod -R 664 /volume1/homeassistant
+</code></pre>
+</div>
+
+<p>Make the daemon file executable:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod 777 /volume1/homeassistant/hass-daemon
+</code></pre>
+</div>
+
+<p>Update your firewall (if it is turned on on the Synology device):</p>
+
+<ul>
+  <li>Go to your Synology control panel</li>
+  <li>Go to security</li>
+  <li>Go to firewall</li>
+  <li>Go to Edit Rules</li>
+  <li>Click Create</li>
+  <li>Select Custom: Destination port “TCP”</li>
+  <li>Type “8123” in port</li>
+  <li>Click on OK</li>
+  <li>Click on OK again</li>
+</ul>
+
+<p>Copy your configuration.yaml file into the config folder
+That’s it… you’re all set to go</p>
+
+<p>Here are some useful commands:</p>
+
+<ul>
+  <li>Start Home Assistant:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo /volume1/homeassistant/hass-daemon start
+</code></pre>
+</div>
+
+<ul>
+  <li>Stop Home Assistant:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo /volume1/homeassistant/hass-daemon stop
+</code></pre>
+</div>
+
+<ul>
+  <li>Restart Home Assistant:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo /volume1/homeassistant/hass-daemon restart
+</code></pre>
+</div>
+
+<ul>
+  <li>Upgrade Home Assistant::</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>/volume1/@appstore/py3k/usr/local/bin/python3 -m pip install --upgrade homeassistant
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
+
+<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many of the more commonly encountered issues.</p>
+
+<p>In addition to this site, check out these sources for additional help:</p>
+
+<ul>
+  <li><a href="https://community.home-assistant.io">Forum</a> for Home Assistant discussions and questions.</li>
+  <li><a href="https://gitter.im/balloob/home-assistant">Gitter Chat Room</a> for real-time chat about Home Assistant.</li>
+  <li><a href="https://github.com/home-assistant/home-assistant/issues">GitHub Page</a> for issue reporting.</li>
+</ul>
+
+<h3><a class="title-link" name="whats-next" href="#whats-next"></a> What’s next</h3>
+
+<p>If you want to have Home Assistant start on boot, <a href="/getting-started/autostart-synology/">autostart instructions can be found here</a>.</p>
+
+<p>To see what Home Assistant can do, launch demo mode: <code class="highlighter-rouge">hass --demo-mode</code> or visit the <a href="/demo">demo page</a>.</p>
+
+<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/installation-synology.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a class='active' href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

@@ -1,0 +1,576 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MySensors Switch - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate MySensors switches into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/switch.mysensors/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="MySensors Switch">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/switch.mysensors/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate MySensors switches into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="MySensors Switch">
+    <meta name="twitter:description" content="Instructions how to integrate MySensors switches into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      MySensors Switch
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Integrates MySensors switches into Home Assistant. See the <a href="/components/mysensors/">main component</a> for configuration instructions.</p>
+
+<p>The following actuator types are supported:</p>
+
+<h5>MySensors version 1.4 and higher</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>S_TYPE</th>
+      <th>V_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S_DOOR</td>
+      <td>V_ARMED</td>
+    </tr>
+    <tr>
+      <td>S_MOTION</td>
+      <td>V_ARMED</td>
+    </tr>
+    <tr>
+      <td>S_SMOKE</td>
+      <td>V_ARMED</td>
+    </tr>
+    <tr>
+      <td>S_LIGHT</td>
+      <td>V_LIGHT</td>
+    </tr>
+    <tr>
+      <td>S_LOCK</td>
+      <td>V_LOCK_STATUS</td>
+    </tr>
+    <tr>
+      <td>S_IR</td>
+      <td>V_IR_SEND, V_LIGHT</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5>MySensors version 1.5 and higher</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>S_TYPE</th>
+      <th>V_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S_LIGHT</td>
+      <td>V_STATUS</td>
+    </tr>
+    <tr>
+      <td>S_BINARY</td>
+      <td>[V_STATUS or V_LIGHT]</td>
+    </tr>
+    <tr>
+      <td>S_SPRINKLER</td>
+      <td>V_STATUS</td>
+    </tr>
+    <tr>
+      <td>S_WATER_LEAK</td>
+      <td>V_ARMED</td>
+    </tr>
+    <tr>
+      <td>S_SOUND</td>
+      <td>V_ARMED</td>
+    </tr>
+    <tr>
+      <td>S_VIBRATION</td>
+      <td>V_ARMED</td>
+    </tr>
+    <tr>
+      <td>S_MOISTURE</td>
+      <td>V_ARMED</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5>MySensors version 2.0 and higher</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>S_TYPE</th>
+      <th>V_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S_WATER_QUALITY</td>
+      <td>V_STATUS</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All V_TYPES for each S_TYPE above are required to activate the actuator for the platform. Use either V_LIGHT or V_STATUS depending on library version for cases where that V_TYPE is required.</p>
+
+<p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
+
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
+
+<p>The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if <code class="highlighter-rouge">optimistic</code> is set to <code class="highlighter-rouge">true</code> in the <a href="/components/mysensors/#configuration">config</a> for the MySensors component. This will simulate a push button on a remote. If <code class="highlighter-rouge">optimistic</code> is <code class="highlighter-rouge">false</code>, the MySensors device will have to report its updated state to reset the switch. See the <a href="#ir-switch-sketch">example sketch</a> for the IR switch below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mysensors_send_ir_code</td>
+      <td>Set an IR code as a state attribute for a MySensors IR device switch and turn the switch on.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The service can be used as part of an automation script. For example:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">turn hvac on</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5:30:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.mysensors_send_ir_code</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hvac_1_1</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">V_IR_SEND</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0xC284'</span>  <span class="c1"># the IR code to send</span>
+
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">turn hvac off</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0:30:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.mysensors_send_ir_code</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hvac_1_1</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">V_IR_SEND</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0xC288'</span>  <span class="c1"># the IR code to send</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="example-sketches" href="#example-sketches"></a> Example sketches</h3>
+
+<h4><a class="title-link" name="switch-sketch" href="#switch-sketch"></a> Switch sketch</h4>
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/relay
+ */</span>
+
+<span class="cp">#include &lt;MySensor.h&gt;
+#include &lt;SPI.h&gt;
+</span>
+<span class="cp">#define SN "Relay"
+#define SV "1.0"
+#define CHILD_ID 1
+#define RELAY_PIN 3
+</span>
+<span class="n">MySensor</span> <span class="n">gw</span><span class="p">;</span>
+<span class="n">MyMessage</span> <span class="n">msgRelay</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_STATUS</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">incomingMessage</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">SV</span><span class="p">);</span>
+  <span class="c1">// Initialize the digital pin as an output.
+</span>  <span class="n">pinMode</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">S_BINARY</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgRelay</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">process</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">incomingMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_STATUS</span><span class="p">)</span> <span class="p">{</span>
+     <span class="c1">// Change relay state.
+</span>     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span> <span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">()</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
+     <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgRelay</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">()</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="ir-switch-sketch" href="#ir-switch-sketch"></a> IR switch sketch</h4>
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/ir
+ */</span>
+
+<span class="cp">#include &lt;MySensor.h&gt;
+#include &lt;SPI.h&gt;
+#include &lt;IRLib.h&gt;
+</span>
+<span class="cp">#define SN "IR Sensor"
+#define SV "1.0"
+#define CHILD_ID 1
+</span>
+<span class="n">MySensor</span> <span class="n">gw</span><span class="p">;</span>
+
+<span class="kt">char</span> <span class="n">code</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">"abcd01234"</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">oldCode</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">"abcd01234"</span><span class="p">;</span>
+<span class="n">MyMessage</span> <span class="n">msgCodeRec</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_IR_RECEIVE</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgCode</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_IR_SEND</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgSendCode</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_LIGHT</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">incomingMessage</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">SV</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">S_IR</span><span class="p">);</span>
+  <span class="c1">// Send initial values.
+</span>  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCodeRec</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgSendCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">process</span><span class="p">();</span>
+  <span class="c1">// IR receiver not implemented, just a dummy report of code when it changes
+</span>  <span class="k">if</span> <span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">code</span><span class="p">)</span> <span class="o">!=</span> <span class="n">String</span><span class="p">(</span><span class="n">oldCode</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Code received "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCodeRec</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">oldCode</span><span class="p">,</span> <span class="n">code</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">incomingMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span><span class="o">==</span><span class="n">V_LIGHT</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// IR sender not implemented, just a dummy print.
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Sending code "</span><span class="p">);</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgSendCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">getBool</span><span class="p">()</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">));</span>
+    <span class="c1">// Always turn off device
+</span>    <span class="n">gw</span><span class="p">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgSendCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_IR_SEND</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Retrieve the IR code value from the incoming message.
+</span>    <span class="n">String</span> <span class="n">codestring</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">getString</span><span class="p">();</span>
+    <span class="n">codestring</span><span class="p">.</span><span class="n">toCharArray</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Changing code to "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">msgCode</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">code</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/switch.mysensors.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/mysensors.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/switch/'>the Switches component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/mysensors/'>
+          MySensors
+        </a></li>
+        <li><a href='/components/binary_sensor.mysensors/'>
+          MySensors Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.mysensors/'>
+          MySensors Cover
+        </a></li>
+        <li><a href='/components/climate.mysensors/'>
+          MySensors HVAC
+        </a></li>
+        <li><a href='/components/light.mysensors/'>
+          MySensors Light
+        </a></li>
+        <li><a href='/components/sensor.mysensors/'>
+          MySensors Sensor
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Switch</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.wemo/'>Belkin WeMo Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.command_line/'>Command line Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.dlink/'>D-Link Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.edimax/'>Edimax Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.enocean/'>EnOcean Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.hikvision/'>Hikvision Camera Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.homematic/'>Homematic Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.hook/'>Hook Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.isy994/'>ISY994 Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.litejet/'>LiteJet Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mqtt/'>MQTT Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mochad/'>Mochad Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.modbus/'>Modbus Switch</a>
+        </li>
+        <li>
+            MySensors Switch
+        </li>
+        <li>
+            <a href='/components/switch.neato/'>Neato Robotics Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.netio/'>Netio Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.orvibo/'>Orvibo Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.pilight/'>Pilight Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.pulseaudio_loopback/'>PulseAudio Loopback Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.qwikswitch/'>QwikSwitch Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.rest/'>RESTful Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.rfxtrx/'>RFXtrx Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.rpi_rf/'>Raspberry Pi RF Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.scsgate/'>SCSGate Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.tplink/'>TPLink Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.tellstick/'>TellStick Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.tellduslive/'>Telldus Live Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.template/'>Template switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.thinkingcleaner/'>Thinking Cleaner Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.vera/'>Vera Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.verisure/'>Verisure SmartPlug</a>
+        </li>
+        <li>
+            <a href='/components/switch.wake_on_lan/'>Wake on LAN Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.wink/'>Wink Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.zwave/'>Z-Wave Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.zigbee/'>ZigBee Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.zoneminder/'>ZoneMinder Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.arest/'>aREST Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mfi/'>mFi Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mystrom/'>myStrom Switch</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

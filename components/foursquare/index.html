@@ -1,0 +1,236 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Foursquare - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to the Foursquare API into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/foursquare/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Foursquare">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/foursquare/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to the Foursquare API into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Foursquare">
+    <meta name="twitter:description" content="Instructions how to the Foursquare API into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Foursquare
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">foursquare</code> component accepts pushes from the Foursquare <a href="https://developer.foursquare.com/overview/realtime">Real-Time API</a> and a service to check users in on Swarm.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">foursquare</span><span class="pi">:</span>
+  <span class="s">access_token</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;foursquare</span><span class="nv"> </span><span class="s">access</span><span class="nv"> </span><span class="s">token&gt;"</span>
+  <span class="s">push_secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;foursquare</span><span class="nv"> </span><span class="s">push</span><span class="nv"> </span><span class="s">secret&gt;"</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>access_token</strong> (<em>Required</em>): A Foursquare API access token.</li>
+  <li><strong>push_secret</strong> (<em>Required</em>): The push secret that Foursquare provides to you in the app dashboard.</li>
+</ul>
+
+<h4>Getting the access token</h4>
+
+<p>After you have registered your APP on your <a href="https://foursquare.com/developers/apps">My Apps Page</a> you get a <code class="highlighter-rouge">CLIENT_ID</code> and you have specified a
+<code class="highlighter-rouge">REDIRECT_URL</code> which can be any URL you like, but since it will get your access token via a HTTP GET request, it should be a URL which will ignore the <code class="highlighter-rouge">access_token</code> HTTP GET variable. A good idea is to choose the URL of your Home Assistant. 
+Visit the following URL in your browser:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&amp;response_type=token&amp;redirect_uri=YOUR_REGISTERED_REDIRECT_URI
+</code></pre>
+</div>
+
+<p>and change the <code class="highlighter-rouge">CLIENT_ID</code> and <code class="highlighter-rouge">YOUR_REGISTERED_REDIRECT_URL</code> to your actual values. 
+You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say “Yes”.
+After that, you will get redirected to your <code class="highlighter-rouge">REDIRECT_URL</code> with the <code class="highlighter-rouge">access_token</code> as a HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the <code class="highlighter-rouge">access_token</code>.</p>
+
+<h3><a class="title-link" name="real-time-api" href="#real-time-api"></a> Real-Time API</h3>
+
+<p>The component accepts pushes from Foursquare at <code class="highlighter-rouge">/api/foursquare</code>. The route does not require authentication.</p>
+
+<p>Foursquare checkin events can be used out of the box to trigger automation actions, e.g.:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Trigger action when you check into a venue.</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">foursquare.push</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.my_action</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="check-ins" href="#check-ins"></a> Check ins</h3>
+
+<p>To check a user in, use the <code class="highlighter-rouge">foursquare/checkin</code> service.</p>
+
+<p>Parameters:</p>
+
+<ul>
+  <li><strong>venueId</strong> (<em>Required</em>): The Foursquare venue where the user is checking in.</li>
+  <li><strong>eventId</strong> (<em>Optional</em>): The event the user is checking in to.</li>
+  <li><strong>shout</strong> (<em>Optional</em>): A message about your check-in. The maximum length of this field is 140 characters.</li>
+  <li><strong>mentions</strong> (<em>Optional</em>): Mentions in your check-in. This parameter is a semicolon-delimited list of mentions. A single mention is of the form “start,end,userid”, where start is the index of the first character in the shout representing the mention, end is the index of the first character in the shout after the mention, and userid is the userid of the user being mentioned. If userid is prefixed with “fbu-“, this indicates a Facebook userid that is being mention. Character indices in shouts are 0-based.</li>
+  <li><strong>broadcast</strong> (<em>Optional</em>): “Who to broadcast this check-in to. Accepts a comma-delimited list of values: private (off the grid) or public (share with friends), facebook share on facebook, twitter share on twitter, followers share with followers (celebrity mode users only), If no valid value is found, the default is public.”</li>
+  <li><strong>ll</strong> (<em>Optional</em>): Latitude and longitude of the user’s location. Only specify this field if you have a GPS or other device reported location for the user at the time of check-in.</li>
+  <li><strong>llAcc</strong> (<em>Optional</em>): Accuracy of the user’s latitude and longitude, in meters.</li>
+  <li><strong>alt</strong> (<em>Optional</em>): Altitude of the user’s location, in meters.</li>
+  <li><strong>altAcc</strong> (<em>Optional</em>): Vertical accuracy of the user’s location, in meters.</li>
+</ul>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/foursquare.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/foursquare.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling and Cloud Push
+    </div>
+    <div class='section'>
+    Introduced in release: 0.26
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Social</h1>
+    <ul class='divided'>
+        <li>
+            Foursquare
+        </li>
+        <li>
+            <a href='/components/sensor.lastfm/'>Last.fm</a>
+        </li>
+        <li>
+            <a href='/components/sensor.steam_online/'>Steam</a>
+        </li>
+        <li>
+            <a href='/components/sensor.twitch/'>Twitch</a>
+        </li>
+        <li>
+            <a href='/components/sensor.xbox_live/'>Xbox Live</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

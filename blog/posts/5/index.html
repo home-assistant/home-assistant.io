@@ -1,0 +1,979 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Home Assistant is an open-source home automation platform running on Python 3.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/posts/5/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Home Assistant">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/posts/5/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Home Assistant">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+            
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/">0.17: Onkyo, Panasonic, GTFS and config validation</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-04-09T06:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 9, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we’ve been hard at work to introduce config validation! Especially huge thanks to <a href="https://github.com/jaharkes/">@jaharkes</a> for his hard work on this. Config validation is still in it’s early stages. More common platforms and components have been added but we didn’t do everything yet.</p>
+
+<p>When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We’re looking into options to make it more clear - it is a work in progress.</p>
+
+<p>Another big thing is the addition of GTFS support. You probably don’t know it, but GTFS is the standard that public transit companies all over the world use to distribute their schedule. This means that you can now have the time of the next bus/train/etc right in your frontend.</p>
+
+<p><img src="/images/supported_brands/onkyo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/loop.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/panasonic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Config validation (<a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/jaharkes/">@jaharkes</a>)</li>
+  <li>Sensor: <a href="/components/sensor.gtfs/">GTFS</a> support (public transit open standard) (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Camera: <a href="/components/camera.rpi_camera/">Raspberry PI</a> support added (<a href="https://github.com/LucaSoldi/">@LucaSoldi</a>)</li>
+  <li>Z-Wave: improved startup reliability (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
+  <li>Media Player: <a href="/components/media_player.onkyo/">Onkyo receiver</a> now supported (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
+  <li>Sensor: <a href="/components/sensor.loop_energy/">Loop Energy</a> now supported (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.zwave/">Z-Wave</a> now supported (<a href="https://github.com/coteyr/">@coteyr</a>, <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/luxus/">@luxus</a>)</li>
+  <li>Sensor: <a href="/components/sensor.nzbget/">NZBGet</a> now supported (<a href="https://github.com/justyns/">@justyns</a>)</li>
+  <li>Media Player: <a href="/components/media_player.panasonic_viera/">Panasonic Viera TV</a> now supported (<a href="https://github.com/florianholzapfel/">@florianholzapfel</a>)</li>
+  <li>Thermostats: Use whole degrees if user uses Fahrenheit (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
+  <li>Frontend: more material love (<a href="https://github.com/balloob/">@balloob</a>)</li>
+</ul>
+
+<h3>Breaking changes</h3>
+
+<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code class="highlighter-rouge">execute_service</code> in their script configs. This should be <code class="highlighter-rouge">service</code>.</p>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/04/07/static-website/">Static website</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-04-07T06:28:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 7, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>How-To</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/04/07/static-website/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>The frontend of Home Assistant is served with the help of a local web server. If you have <a href="/getting-started/devices/#customizing-devices-and-services">customized</a> your installation you already use this functionality. The content of your folder <code class="highlighter-rouge">www</code> in your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>) is available under <code class="highlighter-rouge">/local</code> (eg. <a href="https://localhost:8123/local">https://localhost:8123/local</a>).</p>
+
+<p>But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript.</p>
+
+<p class="img">
+<img src="/images/blog/2016-04-display/ha-display.png" />
+</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/04/07/static-website/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/04/05/your-hub-should-be-local-and-open/">Your hub should be local and open</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-04-05T04:11:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 5, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Internet-of-Things</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/04/05/your-hub-should-be-local-and-open/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Today the news spread that Google will be <a href="https://medium.com/@arlogilbert/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1#.rmppks86a">shutting down the Revolv hubs</a>. And shutting down here doesn’t mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as <a href="https://discuss.ninjablocks.com/t/ninja-blocks-whats-been-happening-whats-happening-next/3608">ninjasphere</a>: open it all up and let people decide on the fate of their <em>own</em> hub.</p>
+
+<p>I’ve said it <a href="/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud">before</a> but I’ll repeat it again:</p>
+
+<blockquote>
+  <p>The cloud should be treated as an extension to your smart home instead of running it.</p>
+</blockquote>
+
+<p>Your hub should not be affected when your internet breaks down or the company that sold you your hub goes out of business. It should work locally so that it can continue to work even long after the vendor goes out of business or decides to kill it. Preferably, your hub should also be open so that the community can take over development after the vendor stops caring.</p>
+
+<p>Unless you can afford losing a product here and there, be cautious when buying IoT products that depend on the cloud from companies that are not well established. The chances are high that they go bankrupt or get acquired and closed. This however is easier said than done as <a href="http://www.gartner.com/newsroom/id/2869521">Gartner</a> predicts that by 2017, 50 percent of IoT solutions will originate in startups that are less than three years old.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl/">0.16: Embedded MQTT broker, Uber, Yamaha receivers and Growl</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-03-26T07:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 26, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: <a href="https://github.com/beerfactory/hbmqtt">hbMQTT</a>. Just add <code class="highlighter-rouge">mqtt:</code> to your config and a broker is launched and connected with Home Assistant. See the <a href="/components/mqtt/#use-the-embedded-broker">documentation</a> for more info.</p>
+
+<p>Further in this release a bunch of cool new stuff, bug fixes and rewrites for the Vera and Tellstick component (see breaking changes section at bottom for this!).</p>
+
+<p>Rock on.</p>
+
+<p><img src="/images/supported_brands/message_bird.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/pulseaudio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/uber.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/gntp.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/yamaha.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Device Tracker - <a href="/components/device_tracker.owntracks/">OwnTracks</a>: Allow entry into passive zones using iBeacons (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Tellstick: rewrite to <a href="/components/tellstick/">component</a> to address concurrency issues (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
+  <li>Z-Wave: add <a href="/components/zwave/#services">services</a> to heal and soft reset network (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
+  <li>New component <a href="/components/input_slider/">input_slider</a> added (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Light - <a href="/components/light.hue/">Hue</a>: Option added to ignore unreachable property (<a href="https://github.com/maddox">@maddox</a>)</li>
+  <li>Notify: <a href="/components/notify.message_bird/">MessageBird</a> support added (<a href="https://github.com/florianholzapfel">@florianholzapfel</a>)</li>
+  <li>HTTP: Failed login attempts are now logged (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Vera: rewrite to <a href="/components/vera/">component</a> to simplify code and organize for reusability (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Discovery: support for Squeezebox (Logitech media) server added (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Discovery: fix uPNP discovery crashing some routers (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Switch: <a href="/components/switch.wake_on_lan/">Wake on LAN</a> platform added (<a href="https://github.com/joopert">@joopert</a>)</li>
+  <li>Services for thermostats, notify and media player will now validate passed in parameters (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Switch - <a href="/components/switch.arduino/">Arduino</a>: support for default state and negate port functionality (<a href="https://github.com/tilutza">@tilutza</a>)</li>
+  <li>Switch: <a href="/components/switch.pulseaudio_loopback/">PulseAudio loopback</a> now supported (<a href="https://github.com/Cinntax">@Cinntax</a>)</li>
+  <li>Sensor: <a href="/components/sensor.uber/">Uber</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Notify: <a href="/components/notify.gntp/">Growl (GNTP)</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Media Player: <a href="/components/media_player.yamaha/">Yamaha receivers</a> now supported (<a href="https://github.com/aoakeson">@aoakeson</a>)</li>
+</ul>
+
+<h3>Breaking changes</h3>
+<ul>
+  <li>
+    <p>Automation: support for old deprecated config has been removed</p>
+  </li>
+  <li>
+    <p>Tellstick configuration has changed</p>
+  </li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">tellstick</span><span class="pi">:</span>
+  <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">X</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Vera configuration has changed</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vera</span><span class="pi">:</span>
+  <span class="s">vera_controller_url</span><span class="pi">:</span> <span class="s">http://192.168.1.161:3480/</span>
+  <span class="c1"># Optional to exclude devices - this is a list of vera device ids</span>
+  <span class="s">exclude</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">13</span><span class="pi">,</span> <span class="nv">14</span><span class="pi">,</span> <span class="nv">16</span><span class="pi">,</span> <span class="nv">20</span><span class="pi">,</span> <span class="nv">23</span><span class="pi">,</span> <span class="nv">72</span><span class="pi">,</span> <span class="nv">73</span><span class="pi">,</span> <span class="nv">74</span><span class="pi">,</span> <span class="nv">75</span><span class="pi">,</span> <span class="nv">76</span><span class="pi">,</span> <span class="nv">77</span><span class="pi">,</span> <span class="nv">78</span><span class="pi">,</span> <span class="nv">88</span><span class="pi">,</span> <span class="nv">89</span><span class="pi">,</span> <span class="nv">99</span><span class="pi">]</span>
+  <span class="c1"># Optional to import switches as lights - this is a list of vera device ids</span>
+  <span class="s">lights</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">15</span><span class="pi">,</span> <span class="nv">17</span><span class="pi">,</span> <span class="nv">19</span><span class="pi">,</span> <span class="nv">21</span><span class="pi">,</span> <span class="nv">22</span><span class="pi">,</span> <span class="nv">24</span><span class="pi">,</span> <span class="nv">26</span><span class="pi">,</span> <span class="nv">43</span><span class="pi">,</span> <span class="nv">64</span><span class="pi">,</span> <span class="nv">70</span><span class="pi">,</span> <span class="nv">87</span><span class="pi">]</span>
+</code></pre>
+</div>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/">0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-03-12T18:55:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 12, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!</p>
+
+<ul>
+  <li><a href="https://github.com/fabaff">@fabaff</a> has upgraded the codebase to follow the PEP257 documentation standard.</li>
+  <li><a href="https://github.com/PartOfTheThing">@partofthething</a> has migrated us to use the main Python Open Z-Wave library instead of our forked version.</li>
+  <li>To make our automations more powerful, <a href="https://github.com/persandstrom">@persandstrom</a> added the option to use templates to dynamically create service calls. This works for automation, Alexa, universal media player, template switch. <a href="/topics/service_calls/#use-templates-to-decide-which-service-to-call">Learn more.</a></li>
+  <li><a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> has upgraded our scene support to now support all built-in services and components.</li>
+</ul>
+
+<p>Besides bug fixes, this release also brings:</p>
+
+<p><img src="/images/supported_brands/hunter-douglas-powerview.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Scene: Converted to a platform based component (<a href="https://github.com/sander76">@sander76</a>)</li>
+  <li>Scene: <a href="/components/scene.hunterdouglas_powerview/">Hunter Douglas Powerview</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
+  <li>Lock: <a href="/components/lock.mqtt/">MQTT</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> will allow filtering inaccurate GPS locations (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example using templates for service and data in service call.</span>
+<span class="c1"># Works for automation, Alexa, universal media player, template switch.</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.bathroom</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{% if is_state('switch.bathroom', 'on') %}</span>
+          <span class="no">switch.turn_on</span>
+        <span class="no">{% else %}</span>
+          <span class="no">switch.turn_off</span>
+        <span class="no">{% endif %}</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.{{ states('input_select.is') }}</span>
+</code></pre>
+</div>
+
+<h3>Breaking Changes</h3>
+
+<ul>
+  <li>Media Player: Attributes to call service play_media has been renamed to
+<code class="highlighter-rouge">media_content_type</code> and <code class="highlighter-rouge">media_content_id</code>, to match the corresponding media
+player state attributes. This change affects automations, scripts and scenes.</li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/02/27/steam-d-link-smart-plugs-and-neurio-energy-sensors/">0.14: Steam, D-Link smart plugs and Neurio Energy Sensors</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-27T22:15:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 28, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/27/steam-d-link-smart-plugs-and-neurio-energy-sensors/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s been another two weeks which means it’s time for release: 0.14!</p>
+
+<p><img src="/images/supported_brands/neurio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/dlink.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/steam.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="90" /></p>
+
+<ul>
+  <li>Notify: <a href="/components/notify.command_line/">Command line platform</a> added (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
+  <li>Sensor: <a href="/components/sensor.verisure/">Verisure</a> mousedetectors now supported (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Core: Entities can now expose if they assume their state representation is correct (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Sensor: <a href="/components/sensor.tcp/">TCP</a> platform added (<a href="https://github.com/flyte">@flyte</a>)</li>
+  <li>Binary Sensor: <a href="/components/binary_sensor.tcp/">TCP</a> platform added (<a href="https://github.com/flyte">@flyte</a>)</li>
+  <li>Sensor: <a href="/components/sensor.neurio_energy/">Neurio energy sensor</a> now supported (<a href="https://github.com/infamy">@infamy</a>)</li>
+  <li>Binary Sensor: <a href="/components/binary_sensor.nx584/">nx584</a> support added (<a href="https://github.com/kk7ds">@kk7ds</a>)</li>
+  <li>Improve and clarify CI testing (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Automation: State <a href="/getting-started/automation-trigger/#state-trigger">triggers</a> and <a href="/getting-started/automation-condition/#state-condition">conditions</a> now takes optional <code class="highlighter-rouge">for</code> config parameter to only trigger when a state hasn’t changed for a certain period of time (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
+  <li>Sensor: <a href="/components/sensor.nest/">Nest</a> weather data added (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.unifi/">Ubiquiti Unifi</a> now supported (<a href="https://github.com/kk7ds">@kk7ds</a>)</li>
+  <li>Binary Sensor: <a href="/components/binary_sensor.mysensors/">MySensors</a> now supported (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Binary Sensor: <a href="/components/binary_sensor.bloomsky/">Bloomsky</a> now supported (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Binary Sensor: <a href="/components/binary_sensor.zwave/">Z-Wave</a> now supported (<a href="https://github.com/tpatja">@tpatja</a>)</li>
+  <li>Switch: <a href="/components/switch.dlink/">D-Link smart plugs</a> now supported (<a href="https://github.com/LinuxChristian">@LinuxChristian</a>)</li>
+  <li>Script: Toggle support added (<a href="https://github.com/Andythigpen">@Andythigpen</a>)</li>
+  <li>Light: <a href="/components/light.wemo/">Wemo</a> now supported (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Rollershutter: <a href="/components/rollershutter.command_line/">Command line platform</a> added (<a href="https://github.com/t30">@t30</a>)</li>
+  <li>Sensor: <a href="/components/sensor.steam_online/">Steam</a> now supported (<a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
+  <li>Binary Sensor: <a href="/components/binary_sensor.wink/">Wink</a> now supported (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Demo has been updated (<a href="https://github.com/kfgoode">@kfgoode</a>)</li>
+  <li>Frontend: new UI for camera’s (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<p class="img">
+  <img src="/images/blog/2016-02-release-14/screenshot-webcam.png" />
+  Camera feeds are now directly embedded in the frontend.
+</p>
+
+<h3>Backwards incompatible changes</h3>
+<ul>
+  <li>Component: Simple Alarm has been removed. Still available in <a href="https://home-assistant.io/cookbook/python_component_simple_alarm/">the cookbook</a>.</li>
+  <li>Script: Turning on a <a href="/components/script/">script</a> that is already on is now a no-op instead of skipping current delay.</li>
+  <li>Wemo switches now have to be set up via the main <a href="/components/wemo/">Wemo component</a></li>
+  <li>Command line platforms for <a href="/components/switch.command_line/">switch</a>, <a href="/components/sensor.command_line/">sensor</a> and <a href="/components/binary_sensor.command_line/">binary_sensor</a> have been renamed to <code class="highlighter-rouge">command_line</code>.</li>
+  <li>The rfxtrx sensors entity ids will incur a one time change to move to a stable format. See <a href="/components/sensor.rfxtrx/">the docs</a> for more details.</li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/02/20/community-highlights/">Community Highlights</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-20T09:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 20, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Community</li>
+      
+        <li>Video</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/20/community-highlights/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Home Assistant land has been busy and a lot of people have been creating awesome stuff. We’ve added <a href="/cookbook/">a cookbook section</a> to the website full of examples how you can automate different things. Make sure you take a look and share your own recipes too!</p>
+
+<h3><a class="title-link" name="home-automation-demo-by-part-of-the-thing" href="#home-automation-demo-by-part-of-the-thing"></a> Home automation demo by Part of the Thing</h3>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Mc_29EC3aZw" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h3><a class="title-link" name="haaska---alexa-skill-adapter-for-home-assistant" href="#haaska---alexa-skill-adapter-for-home-assistant"></a> Haaska - Alexa Skill Adapter for Home Assistant</h3>
+
+<p>Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own <a href="/components/alexa/">Alexa</a> component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the ‘Ask Home Assistant’ part when giving commands:</p>
+
+<ul>
+  <li>“Alexa, set kitchen to twenty percent”</li>
+  <li>“Alexa, turn on evening scene”</li>
+  <li>“Alexa, turn off bedroom light”</li>
+</ul>
+
+<p><a href="https://github.com/auchter/haaska">Haaska on GitHub</a></p>
+
+<h3><a class="title-link" name="integrating-home-assistant-with-homekit" href="#integrating-home-assistant-with-homekit"></a> Integrating Home Assistant with HomeKit</h3>
+
+<p>Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you’ll have to install the plugin separately with the homebridge-homeassistant npm package.</p>
+
+<p>Example config.json entry to load Home Assistant:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"platforms"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HomeAssistant"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HomeAssistant"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://192.168.1.50:8123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"supported_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"light"</span><span class="p">,</span><span class="w"> </span><span class="s2">"switch"</span><span class="p">,</span><span class="w"> </span><span class="s2">"media_player"</span><span class="p">,</span><span class="w"> </span><span class="s2">"scene"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a href="https://github.com/nfarina/homebridge">HomeBridge on GitHub</a>
+<a href="https://github.com/maddox/homebridge-homeassistant">HomeBridge Home Assistant Plugin</a></p>
+
+<h3><a class="title-link" name="custom-alarm-system-with-home-assistant" href="#custom-alarm-system-with-home-assistant"></a> Custom alarm system with Home Assistant</h3>
+
+<p>User thaijames <a href="https://community.home-assistant.io/t/controlling-house-alarm-from-ha/67">describes in the Home Assistant forums</a> how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.</p>
+
+<p class="img">
+<img src="/images/blog/2016-02-community-highlights/garfield-nfc.png" />
+Hold your NFC tag against the belly of Garfield to unlock the alarm.
+</p>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/02/18/multi-room-audio-with-snapcast/">Multi-room audio with Snapcast, Mopidy, and Home Assistant</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-18T05:10:56+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 18, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> happyleavesaoc</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>How-To</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/18/multi-room-audio-with-snapcast/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.</p>
+
+<p>Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.</p>
+
+<p>You’ll need two key software packages, besides Home Assistant. The first is <a href="https://www.mopidy.com/">Mopidy</a>, a music server that can play local files, or connect to streaming music services like Spotify. The second is <a href="https://github.com/badaix/snapcast/">Snapcast</a>, which enables synchronized audio streaming across your network. Both can be integrated into Home Assistant. Each room audio device will run an instance of the Snapcast client, and optionally a Mopidy instance. Your server will run a special instance of Mopidy and the Snapcast server.</p>
+
+<p>Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several <a href="https://docs.mopidy.com/en/latest/ext/web/#ext-web">Mopidy-only web-based options</a> available. On Android, <a href="https://play.google.com/store/apps/details?id=se.anil.remotedy">Remotedy</a> is particularly nice since you can access multiple Mopidy instances in one place.</p>
+
+<p>Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you’re using a web UI for Mopidy, you can add links to each instance in Home Assistant with the <a href="/components/weblink/">weblink</a> component.</p>
+
+<p class="img">
+  <img src="/images/blog/2016-02-snapcast/diagram.png" />
+</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/02/18/multi-room-audio-with-snapcast/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/">0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-13T06:15:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 13, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>The focus of 0.13 was on test coverage, big cheers to <a href="https://github.com/rmkraus/">@rmkraus</a> for his hard work on this. I’m proud to announce that we’ve hit the 90% test coverage of the core + important components. A big milestone for the project.</p>
+
+<p class="img">
+  <img src="/images/blog/2016-02-release-13/input_select__input_boolean__weblink.png" />
+  Examples of the new <a href="/components/input_select/">input_select</a> and <a href="/components/weblink/">weblink</a> components.
+</p>
+
+<p>Not only did we gain a lot of test coverage, we also attracted a lot of new developers that contributed a variety of components and platforms:</p>
+
+<p><img src="/images/supported_brands/speedtest.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="70" /><img src="/images/supported_brands/apcupsd.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/splunk.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/bloomsky.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/ubiquiti.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/networx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/samsung.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Core: Add service to restart Home Assistant (<a href="https://github.com/rmkraus/">@rmkraus</a>)</li>
+  <li>Core: Allow device to report as unavailable (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Core: Allow overriding polling interval in platforms and <a href="/cookbook/customize_polling_interval/">via config</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Frontend: support for a <a href="/components/group/">default view</a> have been added to replace the show all view (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Component: Added <a href="/components/apcupsd/">apcupsd</a> component (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Component: Added component to log values to <a href="/components/splunk/">Splunk</a> (<a href="https://github.com/miniconfig/">@miniconfig</a>)</li>
+  <li>Component: Added <a href="/components/garage_door/">garage door</a> component including <a href="/components/garage_door.wink/">Wink</a> support (<a href="https://github.com/xrolfex/">@xrolfex</a>)</li>
+  <li>Component: Added <a href="/components/input_select/">input_select</a> component (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Component: Added <a href="/components/proximity/">proximity</a> component to track people closest to a location (<a href="https://github.com/nickwaring/">@nickwaring</a>, <a href="https://github.com/Bart274/">@Bart274</a> )</li>
+  <li>Component: Added support for <a href="/components/bloomsky/">Bloomsky Weather Station</a> (<a href="https://github.com/haraldnagel/">@haraldnagel</a>)</li>
+  <li>Component: Added support for pushing stats to <a href="/components/graphite/">graphite</a> (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Component: Added support for <a href="/components/scsgate/">SCSGate</a> devices (<a href="https://github.com/flavio/">@flavio</a>)</li>
+  <li>Component: Added <a href="/components/weblink/">weblink</a> component to link to other pages (<a href="https://github.com/MagnusKnutas/">@MagnusKnutas</a>)</li>
+  <li>Component: Support for Ubiquiti mFI <a href="/components/sensor.mfi/">sensors</a> and <a href="/components/switch.mfi/">switchable devices</a> added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Alarm control panel: Added <a href="/components/alarm_control_panel.nx584/">Caddx/GE/Interlogix NetworX</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Camera: <a href="/components/camera.mjpeg/">MJPEG</a> camera’s will now show real stream instead of a 2fps stream (<a href="https://github.com/stjohnjohnson/">@stjohnjohnson</a>)</li>
+  <li>Camera: Added <a href="/components/camera.uvc/">Unifi video cameras</a> support (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.aruba/">Aruba</a> platform now uses SSH instead of telnet (<a href="https://github.com/carlosmgr/">@carlosmgr</a>)</li>
+  <li>History: Show correct graphs for thermostats (<a href="https://github.com/sdague/">@sdague</a>)</li>
+  <li>Light: Added <a href="/components/light.mysensors/">MySensors</a> support (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Lock: Added <a href="/components/lock.verisure/">Verisure</a> support (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Media Player: Added <a href="/components/media_player.samsungtv/">Samsung TV</a> support (<a href="https://github.com/stefan-jonasson/">@stefan-jonasson</a>)</li>
+  <li>Media Player: Added <a href="/components/media_player.snapcast/">Snapcast</a> support (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>)</li>
+  <li>MQTT: Allow using templates in <a href="/components/mqtt/#publish-service">publish service</a> (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Notify: Added <a href="/components/notify.rest/">REST</a> support (<a href="https://github.com/Theb-1/">@Theb-1</a>)</li>
+  <li>Sensor: Added <a href="/components/sensor.speedtest/">Speedtest.net</a> support (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
+  <li>Switch: Added <a href="/components/switch.template/">template</a> platform (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
+  <li>Thermostat: Support for <a href="/components/thermostat.honeywell/">Honeywell</a> in the US added (<a href="https://github.com/kk7ds/">@kk7ds</a>)</li>
+  <li>Z-Wave: Allow <a href="/components/zwave/#configuration">configuring polling</a> and <a href="/components/zwave/#events">support scenes</a> (<a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
+  <li>Bug fixes and improvements by <a href="https://github.com/persandstrom/">@persandstrom</a>, <a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/pavoni/">@pavoni</a>, <a href="https://github.com/philipbl/">@philipbl</a>, <a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>, <a href="https://github.com/rmkraus/">@rmkraus</a>, <a href="https://github.com/molobrakos/">@molobrakos</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>, <a href="https://github.com/TangoAlpha/">@TangoAlpha</a>, <a href="https://github.com/deisi/">@deisi</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>, <a href="https://github.com/roqeer/">@roqeer</a>, <a href="https://github.com/jaharkes/">@jaharkes</a></li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
+    <a href="/blog/2016/02/12/classifying-the-internet-of-things/">Classifying the Internet of Things</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-12T06:31:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 12, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> seven minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Internet-of-Things</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/12/classifying-the-internet-of-things/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.</p>
+
+<p>Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.</p>
+
+<p>State describes what a device is up to right now. For example, a light can be on with a red color and a medium brightness.</p>
+
+<p>Control is about controlling the smart device by sending commands via an API. These commands can vary from configuring how a device works till mimicking how a user would interact with a device. A media player can allow skipping to the next track and a sensor could allow to configure its sensitivity or polling interval.</p>
+
+<p>The Home Assistant APIs are setup to be as convenient as possible. However, a network is always as weak as it’s weakest link. In our case these are the integrations. Take for example controlling a light that does not report state. The only state Home Assistant can report on after sending a command is the assumed state: what do we expect the state of the light to be if the command worked.</p>
+
+<p>We want our users to get the best home automation experience out there and this starts with making sure they have devices that work well with Home Assistant. That’s why we will start applying the following classifiers to our integrations:</p>
+
+<p><a name="classifiers"></a></p>
+<table>
+  <tr>
+    <th colspan="2">Classifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><i class="icon-adjust"></i></td>
+    <td style="white-space: nowrap;">Assumed State</td>
+    <td>
+      We are unable to get the state of the device. Best we can do is to assume the state based on our last command.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-upload"></i></td>
+    <td>Cloud Polling</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-cloud-download"></i></td>
+    <td>Cloud Push</td>
+    <td>
+      Integration of this device happens via the cloud and requires an active internet connection. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-download-alt"></i></td>
+    <td>Local Polling</td>
+    <td>
+      Offers direct communication with device. Polling the state means that an update might be noticed later.
+    </td>
+  </tr>
+
+  <tr>
+    <td><i class="icon-upload-alt"></i></td>
+    <td>Local Push</td>
+    <td>
+      Offers direct communication with device. Home Assistant will be notified as soon as a new state is available.
+    </td>
+  </tr>
+</table>
+
+<p>The background to how we got to these classifiers can be read after the break.</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/02/12/classifying-the-internet-of-things/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+
+  <div class="pagination">
+    
+      <a class="btn pull-left" href="/blog/posts/6">&larr; Older</a>
+    
+
+    
+    <a class="btn pull-right" href="/blog/posts/4">Newer &rarr;</a>
+    
+  </div>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Categories</h1>
+  <ul class="divided">
+    
+    
+      <li><a href="/blog/categories/community/">Community</a></li>
+    
+      <li><a href="/blog/categories/device-tracking/">Device Tracking</a></li>
+    
+      <li><a href="/blog/categories/esp8266/">ESP8266</a></li>
+    
+      <li><a href="/blog/categories/how-to/">How To</a></li>
+    
+      <li><a href="/blog/categories/internet-of-things/">Internet of Things</a></li>
+    
+      <li><a href="/blog/categories/iot-data/">IoT Data</a></li>
+    
+      <li><a href="/blog/categories/mqtt/">MQTT</a></li>
+    
+      <li><a href="/blog/categories/micropython/">Micropython</a></li>
+    
+      <li><a href="/blog/categories/organisation/">Organisation</a></li>
+    
+      <li><a href="/blog/categories/owntracks/">OwnTracks</a></li>
+    
+      <li><a href="/blog/categories/presence-detection/">Presence Detection</a></li>
+    
+      <li><a href="/blog/categories/public-service-announcement/">Public Service Announcement</a></li>
+    
+      <li><a href="/blog/categories/release-notes/">Release Notes</a></li>
+    
+      <li><a href="/blog/categories/survey/">Survey</a></li>
+    
+      <li><a href="/blog/categories/talks/">Talks</a></li>
+    
+      <li><a href="/blog/categories/technology/">Technology</a></li>
+    
+      <li><a href="/blog/categories/user-stories/">User Stories</a></li>
+    
+      <li><a href="/blog/categories/video/">Video</a></li>
+    
+      <li><a href="/blog/categories/website/">Website</a></li>
+    
+      <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    var disqus_script = 'count.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

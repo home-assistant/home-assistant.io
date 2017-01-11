@@ -9,23 +9,47 @@ sharing: true
 footer: true
 ---
 
-Many linux distributions use the Upstart system (or similar) for managing daemons. Typically, systems based on Debian 7 or previous use Upstart. This includes Ubuntu releases before 15.04. If you are unsure if your system is using Upstart, you may check with the following command:
+Many linux distributions use the <a href="http://upstart.ubuntu.com/cookbook/" target="_blank">Upstart</a> system (or similar) for managing daemons. Typically, systems based on Debian 7 or previous use Upstart. This includes Ubuntu releases before 15.04. If you are unsure if your system is using Upstart, you may check with the following command:
 
 ```bash
 $ ps -p 1 -o comm=
 ```
 
-If the preceding command returns the string `init`, you are likely using Upstart.
-
-Upstart will launch init scripts that are located in the directory `/etc/init.d/`. A sample init script for systems using Upstart is <a href="https://raw.githubusercontent.com/home-assistant/home-assistant/dev/script/hass-daemon">maintained by this project</a>.
-
-To install this script, download it, tweak it to you liking, and install it by following the directions in the header. This script will setup Home Assistant to run when the system boots. To start/stop Home Assistant manually, issue the following commands:
+If the preceding command returns the string `init`, you are likely using Upstart. Just to be really sure, request the Upstart version with:
 
 ```bash
-$ sudo service hass-daemon start
-$ sudo service hass-daemon stop
+$ init --version
 ```
 
-When running Home Assistant with this script, the configuration directory will be located at `/var/opt/homeassistant`. This directory will contain a verbose log rather than simply an error log.
+The output should mention something similar to `init (upstart 1.12.1)`. If it doesn't, you're dealing with a traditional (SysV-style) init system and you should follow [these instructions](/getting-started/autostart-init).
 
-When running daemons, it is good practice to have the daemon run under its own user name rather than the default user's name. Instructions for setting this up are outside the scope of this document.
+Upstart will use configuration files in `/etc/init/`. A sample Upstart configuration is included in the <a href="https://github.com/home-assistant/home-assistant/blob/dev/script/hass.conf">Home Assistant source code</a>.
+
+Installation
+-------------
+Create a file named `/etc/init/hass.conf` with the following contents:
+
+```
+description "Home Assistant"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+setuid hass
+
+# change paths according to your situation:
+exec /srv/hass/bin/python3 /srv/hass/bin/hass -c /home/hass/homeassistant --pid-file /home/hass/homeassistant/hass.pid
+```
+
+Be sure to check the paths in the last line. That is where it all gets toghether. That's it! From now on, Upstart will make sure Home Assistant is started at boot and stopped when shutting down the system. To start Home Assistent manually, use:
+
+```bash
+$ sudo start hass
+```
+
+Likewise for stopping and, important when tweaking your Home Assistant configuration, restarting:
+
+```
+$ sudo stop hass
+$ sudo restart hass
+```

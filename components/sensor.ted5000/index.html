@@ -1,0 +1,43 @@
+<hr />
+<p>layout: page
+title: “TED5000 electricity monitoring”
+description: “How to add a TED5000 to Home Assistant.”
+date: 2016-09-27 11:19
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: ted.png
+ha_category: Sensor
+ha_release: 0.30</p>
+
+<p>The <code class="highlighter-rouge">ted 5000</code> monitors electricity consumption/production by connecting to the
+<a href="http://www.theenergydetective.com/home">TED</a> gateway, itself connected to one
+or several Measuring Transmitting Units (MTU).
+The platform creates up to two sensors per MTU, one for Wattage the other for
+Voltage.  If you want to enable the ted5000 sensor, add the following lines to
+your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">ted5000</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">main</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">80</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of your ted gateway.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of your ted gateway. Defaults to 80.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the ted gateway. Defaults to ted.</li>
+</ul>
+
+<p>For each plugged MTU, using an index starting at 1, the platform creates 2 sensors:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor.&lt;name&gt;_mtu&lt;MTU id&gt;_power</span>
+<span class="s">sensor.&lt;name&gt;_mtu&lt;MTU id&gt;_voltage</span>
+</code></pre>
+</div>
+

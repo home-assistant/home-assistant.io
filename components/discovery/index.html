@@ -1,0 +1,236 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Discovery - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to setup Home Assistant to discover new devices.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/discovery/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Discovery">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/discovery/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to setup Home Assistant to discover new devices.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Discovery">
+    <meta name="twitter:description" content="Instructions how to setup Home Assistant to discover new devices.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Discovery
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP devices on your network. Currently the <code class="highlighter-rouge">discovery</code> component can detect:</p>
+
+<ul>
+  <li>Google Chromecast</li>
+  <li>Belkin WeMo switches</li>
+  <li>Philips Hue</li>
+  <li>Netgear routers</li>
+  <li>Plex media server</li>
+  <li>Panasonic Viera</li>
+  <li>Roku media player</li>
+  <li>Sono Speaker</li>
+  <li>Yamaha media player</li>
+  <li>Logitech media server (Squeezebox)</li>
+  <li>DirecTV</li>
+</ul>
+
+<p>It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.</p>
+
+<p>To load this component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">discovery</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<p class="note">
+Home Assistant must be on the same network as the devices for uPnP discovery to work. 
+If running Home Assistant in a Docker container use switch <code class="highlighter-rouge">--net=host</code> to put it on the host’s network.
+</p>
+
+<p>If you are developing a new platform, please read <a href="/developers/add_new_platform/#discovery">how to make your platform discoverable</a>.</p>
+
+<p class="note warning">
+There is currently a <a href="https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit">known issue</a> with running this platform on a 64-bit version of Python and Windows.
+</p>
+
+<p class="note">
+If you are on Windows and you’re using Python 3.5, download the Netifaces dependency <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces">here</a>.
+</p>
+
+<p class="note">
+If you see <code class="highlighter-rouge">Not initializing discovery because could not install dependency netdisco==0.6.1</code> in the logs, you will need to install the <code class="highlighter-rouge">python3-dev</code> or <code class="highlighter-rouge">python3-devel</code> package on your system manually (eg. <code class="highlighter-rouge">sudo apt-get install python3-dev</code> or <code class="highlighter-rouge">sudo dnf -y install python3-devel</code>). On the next restart of home-assistant, discovery should work. If you still get an error, check if you have a compiler (<code class="highlighter-rouge">gcc</code>) available on your system.
+</p>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/discovery.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/home-assistant.png' />
+  </div>
+    <div class='section'>
+    <h1 class="title delta">Category Other</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/browser/'>Browser</a>
+        </li>
+        <li>
+            <a href='/components/configurator/'>Configurator</a>
+        </li>
+        <li>
+            <a href='/components/demo/'>Demo platforms</a>
+        </li>
+        <li>
+            Discovery
+        </li>
+        <li>
+            <a href='/components/feedreader/'>Feedreader</a>
+        </li>
+        <li>
+            <a href='/components/http/'>HTTP</a>
+        </li>
+        <li>
+            <a href='/components/introduction/'>Introduction</a>
+        </li>
+        <li>
+            <a href='/components/keyboard_remote/'>Keyboard</a>
+        </li>
+        <li>
+            <a href='/components/logger/'>Logger</a>
+        </li>
+        <li>
+            <a href='/components/mqtt_eventstream/'>MQTT Eventstream</a>
+        </li>
+        <li>
+            <a href='/components/persistent_notification/'>Persistent notification</a>
+        </li>
+        <li>
+            <a href='/components/upnp/'>UPnP</a>
+        </li>
+        <li>
+            <a href='/components/updater/'>Updater</a>
+        </li>
+        <li>
+            <a href='/components/zeroconf/'>Zeroconf/Avahi/Bonjour</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

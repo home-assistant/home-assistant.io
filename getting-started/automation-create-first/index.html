@@ -1,0 +1,317 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Your First Automation - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Step by step guiding through making your first automation.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/automation-create-first/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Your First Automation">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/automation-create-first/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Step by step guiding through making your first automation.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Your First Automation">
+    <meta name="twitter:description" content="Step by step guiding through making your first automation.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Your First Automation
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Before we dive deeper into what every piece of automation <em>can</em> do, let’s look at a simple automation rule: <strong>Turn on the lights when the sun sets</strong></p>
+
+<p>In this example, we are defining a trigger to track the sunset and tell it to fire when the sun is setting. When this event is triggered, the service <code class="highlighter-rouge">light.turn_on</code> is called without any parameters. Because we specify no parameters, it will turn on all the lights.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
+  <span class="s">initial_state</span><span class="pi">:</span> <span class="s">True</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+</code></pre>
+</div>
+
+<p>Starting with 0.28 automation rules can be reloaded from the <a href="/components/automation/">frontend</a> and are shown by default. With <a href="/components/automation/"><code class="highlighter-rouge">hide_entity:</code></a> you can control this behaviour. It’s very handy if you are working on your rules but when a rule is finished and you don’t want to see that rule in your frontend, you can set <code class="highlighter-rouge">hide_entity:</code> to <code class="highlighter-rouge">True</code>. To set an automation to be disabled when HASS starts set <code class="highlighter-rouge">initial_state:</code> to <code class="highlighter-rouge">False</code>.</p>
+
+<p>After a few days of running this automation rule, you come to realize that this automation rule is not good enough. It was already dark when the lights went on and the one day you weren’t home, the lights turned on anyway. Time for some tweaking. Let’s add an offset to the sunset trigger and a condition to only turn on the lights if anyone is home.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+    <span class="s">offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-01:00:00"</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+</code></pre>
+</div>
+
+<p>Now you’re happy and all is good. You start to like this automation business and buy some more lights, this time you put them in the bedroom. But what you now realize is that when the sun is setting, the lights in the bedroom are also being turned on! Time to tweak the automation to only turn on the living room lights.</p>
+
+<p>The first thing you do is to look at the entities in the developer tools (second icon) in the app. You see the names of your lights and you write them down: <code class="highlighter-rouge">light.table_lamp</code>, <code class="highlighter-rouge">light.bedroom</code>, <code class="highlighter-rouge">light.ceiling</code>.</p>
+
+<p>Instead of hard coding the entity IDs of the lights in the automation rule, we will set up a group. This will allow us to see the living room separate in the app and be able to address it from automation rules.</p>
+
+<p>So we tweak the config to add the group and have the automation rule only turn on the group.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">living_room</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">light.table_lamp</span>
+    <span class="pi">-</span> <span class="s">light.ceiling</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+    <span class="s">offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-01:00:00"</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
+</div>
+
+<p>Christmas is coming along and you decide to buy a remote switch to control the Christmas lights from Home Assistant. You can’t claim to live in the house of the future if you’re still manually turning on your Christmas lights!</p>
+
+<p>We hook the switch up to Home Assistant and grab the entity ID from the developer tools: <code class="highlighter-rouge">switch.christmas_lights</code>. We will update the group to include the switch and will change our action. We are no longer able to call <code class="highlighter-rouge">light.turn_on</code> because we also want to turn on a switch. This is where <code class="highlighter-rouge">homeassistant.turn_on</code> comes to the rescue. This service is capable of turning any entity on.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">living_room</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">light.table_lamp</span>
+    <span class="pi">-</span> <span class="s">light.ceiling</span>
+    <span class="pi">-</span> <span class="s">switch.christmas_lights</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">True</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+    <span class="s">offset</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-01:00:00"</span>
+  <span class="s">condition</span><span class="pi">:</span>
+    <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="learn-more" href="#learn-more"></a> Learn more</h3>
+
+<ul>
+  <li><a href="/getting-started/automation-trigger/">Triggers</a></li>
+  <li><a href="/getting-started/automation-condition/">Conditions</a></li>
+  <li><a href="/getting-started/automation-action/">Actions</a></li>
+  <li><a href="/getting-started/automation-templating/">Templating</a> (advanced)</li>
+</ul>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/automation-create-first.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a class='active' href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

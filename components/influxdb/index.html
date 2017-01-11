@@ -1,0 +1,246 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>InfluxDB - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Record events in InfluxDB.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/influxdb/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="InfluxDB">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/influxdb/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Record events in InfluxDB.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="InfluxDB">
+    <meta name="twitter:description" content="Record events in InfluxDB.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      InfluxDB
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">influxdb</code> component makes it possible to transfer all state changes to an external <a href="https://influxdb.com/">InfluxDB</a> database. For more details, <a href="/blog/2015/12/07/influxdb-and-grafana/">see the blog post on InfluxDB</a>.</p>
+
+<p>The default InfluxDB configuration doesn’t enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven’t made any configuration changes, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">influxdb</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<p>You will still need to create a database named <code class="highlighter-rouge">home_assistant</code> via InfluxDB’s web interface or command line. For instructions how to create a database check the <a href="https://docs.influxdata.com/influxdb/v1.0/introduction/getting_started/#creating-a-database">InfluxDB documentation</a> relevant to the version you have installed.</p>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>host</strong> (<em>Optional</em>): IP address of your database host, eg. 192.168.1.10. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 8086.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username of the database user.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password for the database user account.</li>
+  <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code class="highlighter-rouge">home_assistant</code>. The database must already exist.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
+  <li><strong>default_measurement</strong> (<em>Optional</em>): Measurement name to use when an entity doesn’t have a unit. Defaults to entity id.</li>
+  <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to InfluxDB.</li>
+  <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
+  <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
+</ul>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">influxdb</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.190</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">20000</span>
+  <span class="s">database</span><span class="pi">:</span> <span class="s">DB_TO_STORE_EVENTS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">MY_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">MY_PASSWORD</span>
+  <span class="s">ssl</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">default_measurement</span><span class="pi">:</span> <span class="s">state</span>
+  <span class="s">blacklist</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">entity.id1</span>
+     <span class="pi">-</span> <span class="s">entity.id2</span>
+  <span class="s">whitelist</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">entity.id3</span>
+     <span class="pi">-</span> <span class="s">entity.id4</span>
+  <span class="s">tags</span><span class="pi">:</span>
+    <span class="s">instance</span><span class="pi">:</span> <span class="s">prod</span>
+    <span class="s">source</span><span class="pi">:</span> <span class="s">hass</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/influxdb.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/influxdb.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.9
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/sensor.influxdb/'>
+          InfluxDB Sensor
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category History</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/dweet/'>Dweet.io</a>
+        </li>
+        <li>
+            <a href='/components/emoncms_history/'>Emoncms history</a>
+        </li>
+        <li>
+            <a href='/components/graphite/'>Graphite</a>
+        </li>
+        <li>
+            <a href='/components/history/'>History</a>
+        </li>
+        <li>
+            InfluxDB
+        </li>
+        <li>
+            <a href='/components/logbook/'>Logbook</a>
+        </li>
+        <li>
+            <a href='/components/logentries/'>Logentries</a>
+        </li>
+        <li>
+            <a href='/components/recorder/'>Recorder</a>
+        </li>
+        <li>
+            <a href='/components/splunk/'>Splunk</a>
+        </li>
+        <li>
+            <a href='/components/statsd/'>StatsD</a>
+        </li>
+        <li>
+            <a href='/components/thingspeak/'>ThingSpeak</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

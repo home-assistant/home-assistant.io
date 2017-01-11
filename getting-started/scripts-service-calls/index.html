@@ -1,0 +1,284 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Service Calls - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to call services in Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/scripts-service-calls/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Service Calls">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/scripts-service-calls/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Instructions how to call services in Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Service Calls">
+    <meta name="twitter:description" content="Instructions how to call services in Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Service Calls
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Various components allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.</p>
+
+<p>The configuration options to call a config are the same between all components and are described on this page.</p>
+
+<p>Examples on this page will be given as part of an automation component configuration but different approaches can be used for other components too.</p>
+
+<p class="note">
+Use the <img src="/images/screenshots/developer-tool-services-icon.png" class="no-shadow" height="38" /> service developer tool in the frontend to discover available services.
+</p>
+
+<h3><a class="title-link" name="the-basics" href="#the-basics"></a> The basics</h3>
+
+<p>Call the service <code class="highlighter-rouge">homeassistant.turn_on</code> on the entity <code class="highlighter-rouge">group.living_room</code>. This will turn all members of <code class="highlighter-rouge">group.living_room</code> on. You can also omit <code class="highlighter-rouge">entity_id</code> and it will turn on all possible entities.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+<span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="passing-data-to-the-service-call" href="#passing-data-to-the-service-call"></a> Passing data to the service call</h3>
+
+<p>You can also specify other parameters beside the entity to target. For example, the light turn on service allows specifying the brightness.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+<span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
+<span class="s">data</span><span class="pi">:</span>
+  <span class="s">brightness</span><span class="pi">:</span> <span class="s">120</span>
+  <span class="s">rgb_color</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">255</span><span class="pi">,</span> <span class="nv">0</span><span class="pi">,</span> <span class="nv">0</span><span class="pi">]</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="use-templates-to-decide-which-service-to-call" href="#use-templates-to-decide-which-service-to-call"></a> Use templates to decide which service to call</h3>
+
+<p>You can use <a href="/topics/templating/">templating</a> support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+  <span class="no">{% if states.sensor.temperature | float &gt; 15 %}</span>
+    <span class="no">switch.turn_on</span>
+  <span class="no">{% else %}</span>
+    <span class="no">switch.turn_off</span>
+  <span class="no">{% endif %}</span>
+<span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.ac</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="using-the-services-developer-tool" href="#using-the-services-developer-tool"></a> Using the Services Developer Tool</h3>
+
+<p>You can use the Services Developer Tool to test data to pass in a service call.
+For example, you may test turning on or off a ‘group’ (See [groups] for more info)</p>
+
+<p>To turn a group on or off, pass the following info:
+Domain: <code class="highlighter-rouge">homeassistant</code>
+Service: <code class="highlighter-rouge">turn_on</code>
+Service Data: <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"group.kitchen"</span><span class="w"> </span><span class="p">}</span></code></p>
+
+<h3><a class="title-link" name="use-templates-to-determine-the-attributes" href="#use-templates-to-determine-the-attributes"></a> Use templates to determine the attributes</h3>
+
+<p>Templates can also be used for the data that you pass to the service call.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">thermostat.set_temperature</span>
+<span class="s">data_template</span><span class="pi">:</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">&gt;</span>
+    <span class="no">{% if is_state('device_tracker.paulus', 'home') %}</span>
+      <span class="no">thermostat.upstairs</span>
+    <span class="no">{% else %}</span>
+      <span class="no">thermostat.downstairs</span>
+    <span class="no">{% endif %}</span>
+  <span class="s">temperature</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">22 - distance(states.device_tracker.paulus)</span> <span class="pi">}}</span>
+</code></pre>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/scripts-service-calls.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a class='active' href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

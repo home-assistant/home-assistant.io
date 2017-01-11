@@ -1,0 +1,427 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Dashboard Configuration - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Dashboard Configuration">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/ecosystem/hadashboard/dash_config/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Dashboard Configuration">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/ecosystem/hadashboard/dash_config/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Dashboard Configuration">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Dashboard Configuration">
+    <meta name="twitter:description" content="Dashboard Configuration">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Dashboard Configuration
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>(All installations)</p>
+
+<p>Hadashboard is a Dashing app, so make sure to read all the instructions on http://dashing.io to learn how to add widgets to your dashboard, as well as how to create new widgets.</p>
+
+<p>Make a copy of dashboards/example.erb and call it ‘main.erb’, then edit this file to reference the items you want to display and control and to get the layout that you want. Leave the original example.erb intact and unchanged so that you don’t run into problems when trying to update using the git commands mentioned later in “Updating the Dashboard”.</p>
+
+<p>The basic anatomy of a widget is this:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code> 	<span class="nt">&lt;li</span> <span class="na">data-row=</span><span class="s">""</span> <span class="na">data-col=</span><span class="s">"1"</span> <span class="na">data-sizex=</span><span class="s">"1"</span> <span class="na">data-sizey=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">data-id=</span><span class="s">"office"</span> <span class="na">data-view=</span><span class="s">"Hadimmer"</span> <span class="na">data-title=</span><span class="s">"Office Lamp"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>data-row</strong>, <strong>data-col</strong>: The position of the widget in the grid.</li>
+  <li><strong>data-sizex</strong>, <strong>data-sizey</strong>: The size of the widget in terms of grid tile.</li>
+  <li><strong>data-id</strong>: The homeassitant entity id without the entity type (e.g. <code class="highlighter-rouge">light.office</code> becomes <code class="highlighter-rouge">office</code>).</li>
+  <li><strong>data-view</strong>: The type of widget to be used (Haswitch, Hadimmer, Hatemp etc.)</li>
+  <li><strong>data-icon</strong>: The icon displayed on the tile. See http://fontawesome.io for an icon cheatsheet.</li>
+  <li><strong>data-title</strong>: The title to be displayed on the tile.</li>
+  <li><strong><em>data-bgcolor</em></strong> (optional) - the background color of the widget.</li>
+</ul>
+
+<p>Note that although it is legal in XML terms to split the inner <code class="highlighter-rouge">&lt;div&gt;</code> like this:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>    <span class="nt">&lt;li</span> <span class="na">data-row=</span><span class="s">""</span> <span class="na">data-col=</span><span class="s">"1"</span> <span class="na">data-sizex=</span><span class="s">"1"</span> <span class="na">data-sizey=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">data-id=</span><span class="s">"office"</span>
+            <span class="na">data-view=</span><span class="s">"Hadimmer"</span>
+            <span class="na">data-title=</span><span class="s">"Office Lamp"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+</code></pre>
+</div>
+
+<p>This may break <code class="highlighter-rouge">hapush</code>’s parsing of the file, so keep to the line format first presented.</p>
+
+<p>Please, refer to the Dashing website for instructions on how to change the grid and tile size, as well as more general instructions about widgets, their properties, and how to create new widgets.</p>
+
+<h1>Supported Widgets</h1>
+
+<p>At this time I have provided support for the following Home Assistant entity types.</p>
+
+<h2>switch</h2>
+<p>Widget type <strong><em>Haswitch</em></strong></p>
+<h2>lock</h2>
+<p>Widget type <strong><em>Halock</em></strong></p>
+<h2>devicetracker</h2>
+<p>Widget type <strong><em>Hadevicetracker</em></strong></p>
+<h2>light</h2>
+<p>Widget type  <strong><em>Hadimmer</em></strong></p>
+<h2>cover</h2>
+<p>Widget type <strong><em>Hacover</em></strong></p>
+<h2>input_boolean</h2>
+<p>Widget type <strong><em>Hainputboolean</em></strong></p>
+<h2>scene</h2>
+<p>Widget type <strong><em>Hascene</em></strong></p>
+
+<p><strong>data-ontime</strong> (optional): The amount of time the scene icon lights up when pressed, in milliseconds, default 1000.</p>
+
+<h2>script</h2>
+
+<p>Widget type <strong><em>Hascript</em></strong></p>
+
+<p><strong>data-ontime</strong> (optional): The amount of time the scene icon lights up when pressed, in milliseconds, default 1000.</p>
+
+<h2>mode</h2>
+
+<p>The <code class="highlighter-rouge">Hamode</code> widget alows you to run a script on activation and to link it with a specified <code class="highlighter-rouge">input_select</code> so the button will be highlighted for certain values of that input select. The usecase for this is that I maintain an <code class="highlighter-rouge">input_select</code> as a flag for the state of the house to simplify other automations. I use scripts to switch between the states, and this feature provides feedback as to the current state by lighting up the appropriate mode button.</p>
+
+<p>A <code class="highlighter-rouge">Hamode</code> widget using this feature will look like this:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;li</span> <span class="na">data-row=</span><span class="s">"5"</span> <span class="na">data-col=</span><span class="s">"3"</span> <span class="na">data-sizex=</span><span class="s">"2"</span> <span class="na">data-sizey=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">data-id=</span><span class="s">"day"</span> <span class="na">data-view=</span><span class="s">"Hamode"</span> <span class="na">data-title=</span><span class="s">"Good Day"</span> <span class="na">data-icon=</span><span class="s">"sun-o"</span> <span class="na">data-changemode=</span><span class="s">"Day"</span> <span class="na">data-input=</span><span class="s">"house_mode"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+</code></pre>
+</div>
+<p><strong>data-changemode</strong>: The value of the <code class="highlighter-rouge">input_select</code> for which this script button will light up</p>
+
+<p><strong>data-input</strong>: The <code class="highlighter-rouge">input_select</code> entity to use (minus the leading entity type)</p>
+
+<h2>input_select (read only)</h2>
+<p>Widget type <strong><em>Hainputselect</em></strong></p>
+
+<h2>sensor</h2>
+<p>Widget type <strong><em>Hasensor</em></strong></p>
+
+<p>Text based output of the value of a particular sensor.</p>
+
+<p>The Hasensor widget supports an additional paramater  <code class="highlighter-rouge">data-unit</code> - this allows you to set the unit to whatever you want - Centigrade, %, lux or whatever you need for the sensor in question. For a temperature sensor you will need to explicitly include the degree symbol like this:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>data-unit="<span class="ni">&amp;deg;</span>F"
+</code></pre>
+</div>
+<p>If omitted, no units will be shown.</p>
+
+<h2>sensor</h2>
+<p>Widget type <strong><em>Hameter</em></strong></p>
+
+<p>An alternative to the text based <code class="highlighter-rouge">Hasensor</code> that works for numeric values only.</p>
+
+<p>The Hameter widget supports an additional paramater  <code class="highlighter-rouge">data-unit</code> - this allows you to set the unit to whatever you want - Centigrade, %, lux or whatever you need for the sensor in question. For a temperature sensor you will need to explicitly include the degree symbol like this:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>data-unit="<span class="ni">&amp;deg;</span>F"
+</code></pre>
+</div>
+<p>If omitted, no units will be shown.</p>
+
+<h2>binary_sensor</h2>
+<p>Widget type <strong><em>Habinary</em></strong></p>
+
+<p>An icon-based option for generic binary sensors. Useful for things like door contact sensors. In addition to the standard widget parameters, Habinary supports two additional parameters:</p>
+
+<ul>
+  <li><strong>data-iconon</strong>: the icon to display when the sensor state is “on”</li>
+  <li><strong>data-iconoff</strong>: the icon to display when the sensor state if “off”</li>
+</ul>
+
+<p>If no icons are specified, the widget defaults to a flat gray line for “off” and a green bullseye for “on”.</p>
+
+<h2>group</h2>
+<p>Widget type <strong><em>Hagroup</em></strong></p>
+
+<p>The Hagroup widget uses the homeassistant/turn_on and homeassistant/turn_off API call, so certain functionality will be lost.  For example, you will not be able to use control groups of locks or dim lights.</p>
+
+<h1>Alarm Control Panel</h1>
+
+<p>These widgets allow the user to create a working control panel that can be used to control the Manual Alarm Control Panel component (https://home-assistant.io/components/alarm_control_panel.manual). The example dashboard contains an arrangement similar to this:</p>
+
+<p class="img">
+    <img src="/images/hadashboard/alarm_panel.png" />
+    The Alarm Panel
+</p>
+
+<p>Widget type <strong><em>Haalarmstatus</em></strong></p>
+
+<p>The Haalarmstatus widget displays the current status of the alarm_control_panel entity. It will also display the code as it is being entered by the user.</p>
+
+<p>The data-id must be the same as the alarm_control_panel entity_id in Home Assistant.</p>
+
+<p>Widget type <strong><em>Haalarmdigit</em></strong></p>
+
+<p>The Haalarmdigit widget is used to create the numeric keypad for entering alarm codes.</p>
+
+<p>data-digit holds the numeric value you wish to enter. The special value of “-“ creates a ‘clear’ button which will wipe the code and return the Haalarmstatus widget display back to the current alarm state.</p>
+
+<p>data-alarmentity holds the data-id of the Haalarmstatus widget, so that the status widget can be correctly updated. It is mandatory for a ‘clear’ type digit and optional for normal numeric buttons.</p>
+
+<p>Widget type <strong><em>Haalarmaction</em></strong></p>
+
+<p>The Haalarmaction widget creates the arm/disarm/trigger buttons. Bear in mind that alarm triggering does not require a code, so you may not want to put this button near the other buttons in case it is pressed accidentally.</p>
+
+<p>data-action must contain one of the following: arm_home/arm_away/trigger/disarm.</p>
+
+<h1>weather (requires dark sky)</h1>
+
+<p>Widget type <strong><em>Haweather</em></strong></p>
+
+<p>In order to use the weather widget you must configure the dark sky component, and ensure that you configure at least the following monitored conditions in your Home Assistant sensor config:</p>
+
+<ul>
+  <li>temperature</li>
+  <li>humidity</li>
+  <li>precip_probability</li>
+  <li>precip_intensity</li>
+  <li>wind_speed</li>
+  <li>pressure</li>
+  <li>wind_bearing</li>
+  <li>apparent_temperature</li>
+  <li>icon</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">data-id</code> of the Haweather widget must be set to <code class="highlighter-rouge">weather</code> or the widget will not work.</p>
+
+<p>The Hatemp widget supports an additional paramater  <code class="highlighter-rouge">data-unit</code> - this allows you to set the unit to whatever you want - Centigrade, Farenheight or even Kelvin if you prefer ;) You will need to explicitly include the degree symbol like this:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>data-unit="<span class="ni">&amp;deg;</span>F"
+</code></pre>
+</div>
+<p>If omitted, no units will be shown.</p>
+
+<h2>news</h2>
+<p>Widget type <strong><em>News</em></strong> (contributed by <a href="https://community.home-assistant.io/users/kris/activity">KRiS</a>)</p>
+
+<p>This is an RSS widget that can be used for displaying travel information, news etc. on the dashboard. The RSS feed will update every 6o minutes. To configure this, first it is necessary to add your desired feeds in <code class="highlighter-rouge">homeassistant/lib/ha_conf.rb</code> in the <code class="highlighter-rouge">$news_feeds</code> section. By default it comes with 2 sample feeds:</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vg">$news_feeds</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"Traffic"</span> <span class="o">=&gt;</span> <span class="s2">"http://api.sr.se/api/rss/traffic/2863"</span><span class="p">,</span>
+  <span class="s2">"News"</span> <span class="o">=&gt;</span> <span class="s2">"http://feeds.bbci.co.uk/news/rss.xml"</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>You can add as many as you want. The important point is that the key value (e.g. “Traffic” or “News” in the example above is used to tie the feed to your widget in the dashboard file. Here is an example of the Traffic widget that displays the first feed in the list:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;li</span> <span class="na">data-row=</span><span class="s">"3"</span> <span class="na">data-col=</span><span class="s">"2"</span> <span class="na">data-sizex=</span><span class="s">"2"</span> <span class="na">data-sizey=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">data-id=</span><span class="s">"Traffic"</span> <span class="na">data-view=</span><span class="s">"News"</span> <span class="na">data-title=</span><span class="s">"Traffic"</span> <span class="na">data-interval=</span><span class="s">"30"</span> <span class="na">data-bgcolor=</span><span class="s">"#643EBF"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</code></pre>
+</div>
+<p>The value of thee <code class="highlighter-rouge">data-id</code> tag must match the key value in the <code class="highlighter-rouge">$news_feeds</code> configuration.</p>
+
+<ul>
+  <li><strong><em>data-interval</em></strong> (optional) - the time in seconds that each entry in the RSS feed is displayed before the next one is shown, default is 30 seconds.</li>
+</ul>
+
+<p><strong><em>The follwing widget types have been deprecated in favor of the more flexible <code class="highlighter-rouge">Hasensor</code> and <code class="highlighter-rouge">Hameter</code> widgets. They will be removed in a future release.</em></strong></p>
+
+<h2>sensor (humidity)</h2>
+<p>Widget type <strong><em>Hahumidity</em></strong></p>
+
+<h2>sensor (humidity)</h2>
+<p>Widget type <strong><em>Hahumiditymeter</em></strong> (contributed by <a href="https://community.home-assistant.io/users/chanders/activity">Shiv Chanders</a>)</p>
+
+<p>This is an alternative to the the text based humidity widget above, it display the humidity as an animated meter from 0 to 100%.</p>
+
+<h2>sensor (luminance)</h2>
+<p>Widget type <strong><em>Halux</em></strong></p>
+
+<h2>sensor (temperature)</h2>
+<p>Widget type <strong><em>Hatemp</em></strong></p>
+
+<p>The Hatemp widget supports an additional paramater  <code class="highlighter-rouge">data-unit</code> - this allows you to set the unit to whatever you want - Centigrade, Farenheight or even Kelvin if you prefer ;) You will need to explicitly include the degree symbol like this:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>data-unit="<span class="ni">&amp;deg;</span>F"
+</code></pre>
+</div>
+<p>If omitted, no units will be shown.</p>
+
+<h1>Customizing CSS styles</h1>
+<p>If you want to customize the styles of your dashboard and widgets, there are two options:</p>
+
+<ol>
+  <li>You can edit the application.scss file (and the individual widget .scss files) directly (not recommended; if you pull down updates from the master repository, your changes might conflict/be overwritten)</li>
+  <li><strong>Create override files (recommended)</strong>
+    <ol>
+      <li>Create a couple of additional files in the <em>assets/stylesheets</em> directory: <code class="highlighter-rouge">_application_custom.scss</code> and <code class="highlighter-rouge">_variables_custom.scss</code>.</li>
+      <li>Open <code class="highlighter-rouge">application.scss</code> and go to the bottom of the file. Uncomment the @import line.</li>
+      <li>Open <code class="highlighter-rouge">_variables.scss</code> and go to the bottom of the file. Uncomment the @import line.</li>
+      <li>Write your own SASS styles in <code class="highlighter-rouge">_application_custom.scss</code> (for general style customization) and <code class="highlighter-rouge">_variables_custom.scss</code> (for colors). You can customize those files without worrying about your changes getting overwritten if you pull down an update. The most you may have to do, if you update, will be to uncomment the @import lines again from steps 2 and 3.</li>
+    </ol>
+  </li>
+</ol>
+
+<p><strong>Note: The <code class="highlighter-rouge">_variables.scss</code> file (and your customizations from <code class="highlighter-rouge">_variables_custom.scss</code>) get imported into nearly every widget’s SCSS file, so it is a best practice to define varaibles for colors in <code class="highlighter-rouge">_variables.scss</code> or <code class="highlighter-rouge">_variables_custom.scss</code> and reference those variables in the widget SCSS.</strong></p>
+
+<h1>Changes and Restarting</h1>
+
+<p>When you make changes to a dashboard, Dashing and <code class="highlighter-rouge">hapush</code> will both automatically reload and apply the changes without a need to restart.</p>
+
+<p>Note: The first time you start Dashing, it can take up to a minute for the initial compilation of the pages to occur. You might get a timeout from your browser. If this occurs, be patient and reload. Subsequent reloads will be a lot quicker.</p>
+
+<h1>Multiple Pages</h1>
+
+<p>It is possible to have multiple pages within a dashboard. To do this, you can add an arbitary number of gridster divisions (you need at least one).</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gridster"</span><span class="nt">&gt;</span> <span class="c">&lt;!-- Main Panel - PAGE 1 --&gt;</span>
+  <span class="nt">&lt;some</span> <span class="na">widgets</span><span class="nt">&gt;</span>
+<span class="err">&lt;</span>/div
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gridster"</span><span class="nt">&gt;</span> <span class="c">&lt;!-- More Stuff - PAGE 2 --&gt;</span>
+  <span class="nt">&lt;more</span> <span class="na">widgets</span><span class="nt">&gt;</span>
+<span class="err">&lt;</span>/div
+</code></pre>
+</div>
+
+<p>The divisions are implicitly numbered from 1 so it is a good idea to comment them. You can then add a widget to switch between pages like so:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;li</span> <span class="na">data-row=</span><span class="s">"1"</span> <span class="na">data-col=</span><span class="s">"1"</span> <span class="na">data-sizex=</span><span class="s">"1"</span> <span class="na">data-sizey=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">data-id=</span><span class="s">"cpage1"</span> <span class="na">data-view=</span><span class="s">"ChangePage"</span> <span class="na">data-icon=</span><span class="s">"cogs"</span> <span class="na">data-title=</span><span class="s">"Upstairs"</span> <span class="na">data-page=</span><span class="s">"3"</span> <span class="na">data-stagger=</span><span class="s">"false"</span> <span class="na">data-fasttransition=</span><span class="s">"true"</span> <span class="na">data-event-click=</span><span class="s">"onClick"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong><em>data-page</em></strong> : The name of the page to switch to</li>
+</ul>
+
+<h1>Multiple Dashboards</h1>
+<p>You can also have multiple dashboards, by simply adding a new .erb file to the dashboards directory and navigating to the dashboards via <code class="highlighter-rouge">http://&lt;IP address&gt;:3030/dashboard-file-name-without-extension</code></p>
+
+<p>For example, if you want to deploy multiple devices, you could have one dashboard per room and still only use one hadashboard app installation.</p>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class="section">
+    <h1 class="title delta">HADashboard</h1>
+    <ul class="divided sidebar-menu">
+      <li><a  href='/ecosystem/hadashboard/'>General </a></li>
+      <li><a  href='/ecosystem/hadashboard/installation/'>Installation </a></li>
+      <li><a class='active' href='/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+      <li><a  href='/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+      <li><a  href='/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+      <li><a  href='/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

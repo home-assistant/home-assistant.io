@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Talks | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/talks/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2016-12-06T19:56:33+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Talk: Automating your home with Home Assistant (OpenIoT Summit)]]></title>
+    <link href="https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk/"/>
+    <updated>2016-05-06T14:09:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/05/06/open-iot-summit-talk</id>
+    <content type="html"><![CDATA[At the beginning of April I gave a talk about Home Assistant at the OpenIoT summit in San Diego. I talk about the Home Assistant architecture and explain how to get started integrating your devices. Big thanks to my employer AppFolio ([we're hiring!]) for letting me attend. [Slides.]
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4-6rTwKl6ww" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+[Slides.]: https://docs.google.com/presentation/d/1P2WsmwGSSni4gAriY5IA0-m-FUGO1kno3gIkRYz20Kw/edit#slide=id.p
+[we're hiring!]: http://www.appfolioinc.com/jobs-openings
+]]></content>
+  </entry>
+  
+</feed>

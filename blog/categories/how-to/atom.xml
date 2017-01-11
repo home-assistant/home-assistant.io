@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: How-To | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2016-12-06T19:56:33+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/"/>
+    <updated>2016-08-31T04:17:25+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2</id>
+    <content type="html"><![CDATA[<img src='https://home-assistant.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+So, part 1 of [ESP8266 and MicroPython](/blog/2016/07/28/esp8266-and-micropython-part1/) was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.
+
+<!--more-->
+
+Beside [HTTP POST](https://en.wikipedia.org/wiki/POST_(HTTP)) requests, MQTT is the quickest way (from the author's point of view) to publish information with DIY devices. 
+
+You have to make a decision: Do you want to pull or to poll? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly. This means the sensor must take initiative. 
+
+An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
+
+### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
+
+You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
+
+The example below is adopted from the work of [@davea](https://github.com/davea) as we don't want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called `/config.json` which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.
+
+
+```python
+import machine
+import time
+import ubinascii
+import webrepl
+
+from umqtt.simple import MQTTClient
+
+# These defaults are overwritten with the contents of /config.json by load_config()
+CONFIG = {
+    "broker": "192.168.1.19",
+    "sensor_pin": 0, 
+    "client_id": b"esp8266_" + ubinascii.hexlify(machine.unique_id()),
+    "topic": b"home",
+}
+
+client = None
+sensor_pin = None
+
+def setup_pins():
+    global sensor_pin
+    sensor_pin = machine.ADC(CONFIG['sensor_pin'])
+
+def load_config():
+    import ujson as json
+    try:
+        with open("/config.json") as f:
+            config = json.loads(f.read())
+    except (OSError, ValueError):
+        print("Couldn't load /config.json")
+        save_config()
+    else:
+        CONFIG.update(config)
+        print("Loaded config from /config.json")
+
+def save_config():
+    import ujson as json
+    try:
+        with open("/config.json", "w") as f:
+            f.write(json.dumps(CONFIG))
+    except OSError:
+        print("Couldn't save /config.json")
+
+def main():
+    client = MQTTClient(CONFIG['client_id'], CONFIG['broker'])
+    client.connect()
+    print("Connected to {}".format(CONFIG['broker']))
+    while True:
+        data = sensor_pin.read()
+        client.publish('{}/{}'.format(CONFIG['topic'],
+                                          CONFIG['client_id']),
+                                          bytes(str(data), 'utf-8'))
+        print('Sensor state: {}'.format(data))
+        time.sleep(5)
+
+if __name__ == '__main__':
+    load_config()
+    setup_pins()
+    main()
+```
+
+Subscribe to the topic `home/#` or create a [MQTT sensor](/components/sensor.mqtt/) to check if the sensor values are published.
+
+```bash
+$ mosquitto_sub -h 192.168.1.19 -v -t "home/#"
+```
+
+```yaml
+sensor:
+  - platform: mqtt
+    state_topic: "home/esp8266_[last part of the MAC address]"
+    name: "MicroPython"
+```
+
+[@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too and shows how to use a button to control a relay.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Github-style calendar heatmap of device data]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data/"/>
+    <updated>2016-08-19T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data</id>
+    <content type="html"><![CDATA[Thanks to [Anton Kireyeu](https://github.com/kireyeu) we are able to present another awesome [Jupyter notebook]. I guess that you all know the graph which Github is using to visualize your commits per day over a time-line. It's a so-called [heatmap]. If there are more commits, it's getting hotter. The latest [notebook][nb-prev] is capable to do the same thing for your devices. To be more precise, for the hours your devices are home. 
+
+<p class='img'>
+<img src='https://home-assistant.io/images/blog/2016-08-data-exploration/heatmap.png'>
+Heatmap
+</p>
+
+[heatmap]: https://en.wikipedia.org/wiki/Heat_map
+[Jupyter notebook]: https://jupyter.org/
+[nb-prev]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-2/DataExploration-2.ipynb
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[We Have Apps Now]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/16/we-have-apps-now/"/>
+    <updated>2016-08-16T10:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/16/we-have-apps-now</id>
+    <content type="html"><![CDATA[I have been working on a new subsystem to complement Home Assistant's Automation and Scripting components. `AppDaemon` is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called "Apps". An App is a Python class that is instantiated possibly multiple times from `AppDaemon` and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.
+
+<!--more-->
+
+## <a class='title-link' name='another-take-on-automation' href='#another-take-on-automation'></a> Another Take on Automation 
+
+If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation to bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
+
+So given the importance of Automation, what should Automation allow us to do? I am a pragmatist at heart so I judge individual systems by the ease of accomplishing a few basic but representative tasks:
+
+- Can the system respond to presence or absence of people?
+- Can I turn a light on at Sunset +/- a certain amount of time?
+- Can I arrive home in light or dark and have the lights figure out if they should be on or off?
+- As I build my system out, can I get the individual pieces to co-operate and use and re-use (potentially complex) logic to make sure everything works smoothly?
+- Is it open and expandable?
+- Does it run locally without any reliance on the cloud?
+
+In my opinion, Home Assistant accomplishes the majority of these very well with a combination of Automations, Scripts and Templates, and it's Restful API.
+
+So why `AppDaemon`? `AppDaemon` is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:
+
+- New paradigm - some problems require a procedural and/or iterative approach, and `AppDaemon` Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can't
+- Ease of use - `AppDaemon`'s API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as "Pythonic" as possible, experienced Python programmers should feel right at home.
+- Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g. a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the config file
+- Dynamic - `AppDaemon` has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to it's loose coupling. However, it is better than that - the user can make changes to code and `AppDaemon` will automatically reload the code, figure out which Apps were using it and restart them to use the new code without the need to restart `AppDaemon` itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.
+- Complex logic - Python's If/Else constructs are clearer and easier to code for arbitrarily complex nested logic
+- Durable variables and state - variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened
+- All the power of Python - use any of Python's libraries, create your own modules, share variables, refactor and re-use code, create a single app to do everything, or multiple apps for individual tasks - nothing is off limits!
+
+It is in fact a testament to Home Assistant's open nature that a component like `AppDaemon` can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant's underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for `AppDaemon` - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.
+
+## <a class='title-link' name='how-it-works' href='#how-it-works'></a> How it Works 
+
+The best way to show what `AppDaemon` does is through a few simple examples.
+
+### <a class='title-link' name='sunrisesunset-lighting' href='#sunrisesunset-lighting'></a> Sunrise/Sunset Lighting 
+
+Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its `initialize()` function called which gives it a chance to register a callback for `AppDaemons`'s scheduler for a specific time. In this case we are using `run_at_sunrise()` and `run_at_sunset()` to register 2 separate callbacks. The argument `0` is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python's `datetime.timedelta` class for calculations. When sunrise or sunset occurs, the appropriate callback function, `sunrise_cb()` or `sunset_cb()`  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables `args["on_scene"]` and `args["off_scene"]` are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.
+
+```python
+import appapi
+
+class OutsideLights(appapi.AppDaemon):
+
+  def initialize(self):
+    self.run_at_sunrise(self.sunrise_cb, 0)
+    self.run_at_sunset(self.sunset_cb, 0)
+
+  def sunrise_cb(self, args, kwargs):
+    self.turn_on(self.args["off_scene"])
+
+  def sunset_cb(self, args, kwargs):
+    self.turn_on(self.args["on_scene"])
+```
+
+This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.
+
+### <a class='title-link' name='motion-light' href='#motion-light'></a> Motion Light 
+
+Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the `initialize()` function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell `AppDaemon` that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - `new = "on"`. When the motion is detected, the callack function `motion()` is called, and we check whether or not the sun has set using a built-in convenience function: `sun_down()`. Next, we turn the light on with `turn_on()`, then set a timer using `run_in()` to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in `AppDaemon` calling `light_off()` 60 seconds later using the `turn_off()` call to actually turn the light off. This is still pretty simple in code terms:
+
+```python
+import appapi
+
+class MotionLights(appapi.AppDaemon):
+
+  def initialize(self):
+    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+  
+  def motion(self, entity, attribute, old, new, kwargs):
+    if self.sun_down():
+      self.turn_on("light.drive")
+      self.run_in(self.light_off, 60)
+  
+  def light_off(self, kwargs):
+    self.turn_off("light.drive")
+```
+
+This is starting to get a little more complex in Home Assistant automations requiring an Automation rule and two separate scripts.
+
+Now lets extend this with a somewhat artificial example to show something that is simple in `AppDaemon` but very difficult if not impossible using automations. Lets warn someone inside the house that there has been motion outside by flashing a lamp on and off 10 times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1 second timer to run `flash_warning()` which when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after 10 iterations.
+
+```python
+import appapi
+
+class FlashyMotionLights(appapi.AppDaemon):
+
+  def initialize(self):
+    self.listen_state(self.motion, "binary_sensor.drive", new = "on")
+  
+  def motion(self, entity, attribute, old, new, kwargs):
+    if self.self.sun_down():
+      self.turn_on("light.drive")
+      self.run_in(self.light_off, 60)
+      self.flashcount = 0
+      self.run_in(self.flash_warning, 1)
+  
+  def light_off(self, kwargs):
+    self.turn_off("light.drive")
+    
+  def flash_warning(self, kwargs):
+    self.toggle("light.living_room")
+    self.flashcount += 1
+    if self.flashcount < 10:
+      self.run_in(self.flash_warning, 1)
+```
+
+Of course if I wanted to make this App or its predecessor reusable I would have provided parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.
+
+In addition, Apps can write to `AppDaemon`'s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.
+
+I have spent the last few weeks moving all of my (fairly complex) automations over to `APPDaemon` and so far it is working very reliably.
+
+Some people will maybe look at all of this and say "what use is this, I can already do all of this", and that is fine, as I said this is an alternative not a replacement, but I am hopeful that for some users this will seem a more natural, powerful and nimble way of building potentially very complex automations.
+
+If this has whet your appetite, feel free to give it a try. You can find it, [here](https://github.com/acockburn/appdaemon), including full installation instructions, an API reference, and a number of fully fleshed out examples.
+
+Happy Automating!
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 1]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/"/>
+    <updated>2016-07-28T04:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1</id>
+    <content type="html"><![CDATA[<img src='https://home-assistant.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html) covers a lot of ground. This post is providing only a little summary which should get you started.
+
+Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers of the Kickstarter campaign. This has changed now and it is available to the public for [download](https://micropython.org/download/#esp8266).
+
+<!--more-->
+
+The easiest way is to use [esptool.py](https://github.com/themadinventor/esptool) for firmware handling tasks. First erase the flash:
+
+```bash
+$ sudo python esptool.py --port /dev/ttyUSB0 erase_flash
+esptool.py v1.0.2-dev
+Connecting...
+Erasing flash (this may take a while)...
+```
+
+and then load the firmware. You may adjust the file name of the firmware binary. 
+
+```bash
+$ sudo python esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=8m 0 esp8266-2016-07-10-v1.8.2.bin
+esptool.py v1.2-dev
+Connecting...
+Running Cesanta flasher stub...
+Flash params set to 0x0020
+Writing 540672 @ 0x0... 540672 (100 %)
+Wrote 540672 bytes at 0x0 in 13.1 seconds (330.8 kbit/s)...
+Leaving...
+```
+
+Now reset the device. You should then be able to use the [REPL (Read Evaluate Print Loop)](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt). On Linux there is `minicom` or `picocom`, on a Mac you can use `screen` (eg. `screen /dev/tty.SLAB_USBtoUART 115200`), and on Windows there is Putty to open a serial connection and get the REPL prompt.
+
+The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is neccessary if your want to use the command-line tool `webrepl_cli.py` which is mentionend later in this post.
+
+```bash
+$ sudo minicom -D /dev/ttyUSB0
+#4 ets_task(4020e374, 29, 3fff70e8, 10)                                                          
+WebREPL daemon started on ws://192.168.4.1:8266
+Started webrepl in setup mode
+could not open file 'main.py' for reading
+
+#5 ets_task(4010035c, 3, 3fff6360, 4)
+MicroPython v1.8.2-9-g805c2b9 on 2016-07-10; ESP module with ESP8266
+Type "help()" for more information.
+>>> 
+```
+
+<p class='note'>
+The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/py-modindex.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
+</p>
+
+Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected. 
+
+```python
+>>> import machine
+>>> pin = machine.Pin(5, machine.Pin.OUT)
+>>> pin.high()
+```
+
+You can toogle the LED by changing its state with `pin.high()` and `pin.low()`.
+
+Various ESP8266 development board are shipped with an onboard photocell or a light dependent resistors (LDR) connected to the analog pin of your ESP8266 check if you are able to obtain a value.
+
+```python
+>>> import machine
+>>> brightness = machine.ADC(0)
+>>> brightness.read()
+```
+
+Make sure that you are familiar with REPL and WebREPL because this will be needed soon. Keep in mind the password for the WebREPL access.
+
+Read the [instructions](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html) about how to setup your wireless connection. Basically you need to upload a `boot.py` file to the microcontroller and this file is taking care of the connection setup. Below you find a sample which is more or less the same as shown in the [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/network_basics.html#configuration-of-the-wifi).
+
+```python
+def do_connect():
+    import network
+
+    SSID = 'SSID'
+    PASSWORD = 'PASSWORD'
+
+    sta_if = network.WLAN(network.STA_IF)
+    ap_if = network.WLAN(network.AP_IF)
+    if ap_if.active():
+        ap_if.active(False)
+    if not sta_if.isconnected():
+        print('connecting to network...')
+        sta_if.active(True)
+        sta_if.connect(SSID, PASSWORD)
+        while not sta_if.isconnected():
+            pass
+    print('Network configuration:', sta_if.ifconfig())
+```
+
+Upload this file with `webrepl_cli.py` or the WebREPL:
+
+```bash
+$ python webrepl_cli.py boot.py 192.168.4.1:/boot.py
+```
+
+If you reboot, you should see your current IP address in the terminal.
+
+```bash
+>>> Network configuration: ('192.168.0.10', '255.255.255.0', '192.168.0.1', '192.168.0.1')
+```
+
+First let's create a little consumer for Home Assistant sensor's state. The code to place in `main.py` is a mixture of code from above and the [RESTful API](/developers/rest_api/) of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on. 
+
+<p class='note'>
+If a module is missing then you need to download it from the [MicroPython Library overview](https://github.com/micropython/micropython-lib) and upload it to the ESP8266 with `webrepl_cli.py` manually.
+</p>
+
+```python
+# Sample code to request the state of a Home Assistant entity.
+
+API_PASSWORD = 'YOUR_PASSWORD'
+URL = 'http://192.168.0.5:8123/api/states/'
+ENTITY = 'sensor.kitchen_temperature'
+TIMEOUT = 30
+PIN = 5
+
+def get_data():
+    import urequests
+    url = '{}{}'.format(URL, ENTITY)
+    headers = {'x-ha-access': API_PASSWORD,
+               'content-type': 'application/json'}
+    resp = urequests.get(URL, headers=headers)
+    return resp.json()['state']
+
+def main():
+    import machine
+    import time
+
+    pin = machine.Pin(PIN, machine.Pin.OUT)
+    while True:
+        try:
+            if int(get_data()) >= 20:
+                pin.high()
+            else:
+                pin.low()
+        except TypeError:
+            pass
+        time.sleep(TIMEOUT)
+
+if __name__ == '__main__':
+    print('Get the state of {}'.format(ENTITY))
+    main()
+```
+
+Upload `main.py` the same way as `boot.py`. After a reboot (`>>> import machine` and `>>> machine.reboot()`) or power-cycling your physical notifier is ready.
+
+If you run into trouble, press "Ctrl+c" in the REPL to stop the execution of the code, enter `>>> import webrepl` and `>>> webrepl.start()`, and upload your fixed file.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IoT Data Exploration with Jupyter Notebooks]]></title>
+    <link href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/"/>
+    <updated>2016-07-23T18:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks</id>
+    <content type="html"><![CDATA[_This is the first blog post by Anton Kireyeu. A new contributor to Home Assistant who will focus on exploring and visualizing Home Assistant data._
+
+As we learned in the recent [blog post by Fabian], all operational data of your Home Assistant application is stored locally and is available for exploration. Our first steps were querying data with the [DB Browser for SQLite], exporting the data extract as a CSV file and graphing in LibreOffice. But what else can be done with this data and what tools are there available?
+
+This post will help you get set up using a few popular data scientist tools to allow you to locally process your data:
+
+ - &nbsp;[Pandas]: an open source tool for data analysis for Python
+ - &nbsp;[matplotlib]: a Python plotting library
+ - &nbsp;[Jupyter notebook]: application for creation and sharing of documents containing live code, visualizations and explanatory text
+
+<p class='img'>
+<img src='https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png'>
+One of the graphs created with this tutorial.
+</p>
+
+_TL; DR: Use [this Jupyter Notebook][nb-prev] to visualize of your data_
+
+[blog post by Fabian]: https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/
+[DB Browser for SQLite]: http://sqlitebrowser.org/
+[Pandas]: http://pandas.pydata.org/
+[matplotlib]: http://matplotlib.org/
+[Jupyter notebook]: https://jupyter.org/
+[nb-prev]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb
+
+<!--more-->
+
+### <a class='title-link' name='dependencies' href='#dependencies'></a> Dependencies 
+
+In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:
+
+- Pandas
+- NumPy
+- Matplotlib
+- SQLAlchemy
+- Jupyter
+
+As a Windows user myself, I find the easiest, quickest and most hassle-free way of installing all of these dependencies is to use [WinPython]. This free open-source portable distribution includes all of the dependencies required for this notebook, as well as a few other essential Python libraries you may require for data exploration in the future.
+
+[WinPython]: https://winpython.github.io/
+
+#### <a class='title-link' name='why-jupyter' href='#why-jupyter'></a> Why Jupyter? 
+
+While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!
+
+#### <a class='title-link' name='where-do-i-start' href='#where-do-i-start'></a> Where do I start? 
+
+This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:
+
+ - [download the tutorial Jupyter Notebook][nb-prev] (leads to preview page, from there click download top-right)
+ - launch the Jupyter Notebook App
+ - Click the 'upload' button to add the downloaded notebook to Jupyter
+ - Adjust the `DB_URL` at the beginning of the notebook to point at your Home Assistant database
+ - Select in top menu: Cell -> Run All
+
+That’s it! The included code will walk you through importing the required libraries, show running raw SQL against your local database, plotting basic data from the states table, and in the end output a few plots of changes for every entity in your system as well as the mean daily value for the past 20 days.
+
+After just those few steps, you will be greeted with beautiful formatted data like this:
+
+<p class='img'>
+<img src='https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png'>
+One of the graphs created with this tutorial.
+</p>
+
+#### <a class='title-link' name='whats-next' href='#whats-next'></a> What’s next? 
+
+Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!
+
+While you learn and explore your IoT data, we will be working on providing more ready-to-use Jupyter Notebooks. Feel free to ask questions or provide suggestions. Would you like to see a specific visualization? Is there a particular facet of data you’re interested in? Let’s talk about it, let’s dive into the world of data together!
+]]></content>
+  </entry>
+  
+</feed>

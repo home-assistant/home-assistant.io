@@ -1,0 +1,266 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>YAML - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Details about YAML to configure Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/yaml/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="YAML">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/yaml/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Details about YAML to configure Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="YAML">
+    <meta name="twitter:description" content="Details about YAML to configure Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      YAML
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Home Assistant uses the <a href="http://yaml.org/">YAML</a> syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.</p>
+
+<p>For each component that you want to use in Home Assistant, you add code in your <code class="highlighter-rouge">configuration.yaml</code> file to specify its settings.
+The following example entry specifies that you want to use the <a href="/components/notify">notify component</a> with the <a href="/components/notify.pushbullet">pushbullet platform</a>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">pushbullet</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">o.1234abcd"</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">pushbullet</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>A <strong>component</strong> provides the core logic for some functionality (like <code class="highlighter-rouge">notify</code> provides sending notifications).</li>
+  <li>A <strong>platform</strong> makes the connection to a specific software or hardware platform (like <code class="highlighter-rouge">pushbullet</code> works with the service from pushbullet.com).</li>
+</ul>
+
+<p>The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a <code class="highlighter-rouge">-</code> while mappings have the format <code class="highlighter-rouge">key: value</code>. If you specify duplicate keys, the last value for a key is used.</p>
+
+<p>Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested “inside” things that are one level higher. So in the above example, <code class="highlighter-rouge">platform: pushbullet</code> is a property of (nested inside) the <code class="highlighter-rouge">notify</code> component.
+Getting the right indentation can be tricky if you’re not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.
+You can use <a href="http://www.yamllint.com/">YAMLLint</a> to check if your YAML-syntax is correct before loading it into Home Assistant which will save you some time. 
+<em>Please pay attention on not putting in private data, as it is a 3rd-party website not maintained by Home Assistant.</em></p>
+
+<p>Lines that start with <strong>#</strong> are comments and are ignored by the system.</p>
+
+<p>The next example shows an <a href="/components/input_select">input_select</a> component that uses a block collection for the options values.
+The other properties (like name) are specified using mappings. Note that the second line just has <code class="highlighter-rouge">threat:</code> with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_select</span><span class="pi">:</span>
+  <span class="s">threat</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Threat level</span>
+<span class="c1"># A collection is used for options</span>
+    <span class="s">options</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">0</span>
+     <span class="pi">-</span> <span class="s">1</span>
+     <span class="pi">-</span> <span class="s">2</span>
+     <span class="pi">-</span> <span class="s">3</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
+</div>
+
+<p>The following example shows nesting a collection of mappings in a mapping. In Home Assistant, this would create two sensors that each use the MQTT platform but have different values for their <code class="highlighter-rouge">state_topic</code> (one of the properties used for MQTT sensors).</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">sensor/topic</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">sensor2/topic</span>
+</code></pre>
+</div>
+
+<h3><a href="/getting-started/basic/">Next step: Setting up the basics »</a></h3>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/yaml.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a class='active' href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

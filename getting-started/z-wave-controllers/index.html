@@ -1,0 +1,272 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Z-Wave Controllers - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Extended instructions how to setup Z-Wave.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/z-wave-controllers/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Z-Wave Controllers">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/z-wave-controllers/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Extended instructions how to setup Z-Wave.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Z-Wave Controllers">
+    <meta name="twitter:description" content="Extended instructions how to setup Z-Wave.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Z-Wave Controllers
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Z-Wave is a popular home automation protocol that is not always straightforward to setup. This page will try to help you make sense of it all.</p>
+
+<p class="note">
+Upon first run, the <code class="highlighter-rouge">zwave</code> component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may expedite this process.
+</p>
+
+<h2><a class="title-link" name="supported-z-wave-usb-sticks--hardware-modules" href="#supported-z-wave-usb-sticks--hardware-modules"></a> Supported Z-Wave USB Sticks &amp; Hardware Modules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Works on Linux</th>
+      <th>Works on Windows</th>
+      <th>Works on OSX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aeotec Z-Stick Series 2</td>
+      <td>✓</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Aeotec Z-Stick Series 5</td>
+      <td>✓</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Pine64 Z-Wave Module</td>
+      <td>✓</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Razberry GPIO Module</td>
+      <td>✓</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ZWave.me UZB1</td>
+      <td>✓</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2><a class="title-link" name="stick-alternatives" href="#stick-alternatives"></a> Stick Alternatives</h2>
+
+<p>The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:</p>
+
+<ul>
+  <li><a href="/components/vera/">Vera</a></li>
+  <li><a href="/components/wink/">Wink</a></li>
+</ul>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/z-wave-controllers.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a class='active' href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

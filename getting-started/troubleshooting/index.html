@@ -1,0 +1,280 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Troubleshooting installation problems - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Common installation problems and their solutions.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/troubleshooting/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Troubleshooting installation problems">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/troubleshooting/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Common installation problems and their solutions.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Troubleshooting installation problems">
+    <meta name="twitter:description" content="Common installation problems and their solutions.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Troubleshooting Installation Problems
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>It can happen that you run into trouble while installing Home Assistant. This page is here to help you solve the most common problems.</p>
+
+<h4><a class="title-link" name="pip3-command-not-found" href="#pip3-command-not-found"></a> pip3: command not found</h4>
+<p>This utility should have been installed as part of the Python 3.4 installation. Check if Python 3.4 is installed by running <code class="highlighter-rouge">python3 --version</code>. If it is not installed, <a href="https://www.python.org/getit/">download it here</a>.</p>
+
+<p>If you are able to successfully run <code class="highlighter-rouge">python3 --version</code> but not <code class="highlighter-rouge">pip3</code>, install Home Assistant by running the following command instead:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m pip install homeassistant
+</code></pre>
+</div>
+
+<p>On a Debian system, you can also install python3 by <code class="highlighter-rouge">sudo apt-get install python3</code>, and pip3 by <code class="highlighter-rouge">sudo apt-get install python3-pip</code>.</p>
+
+<h4><a class="title-link" name="no-module-named-pip" href="#no-module-named-pip"></a> No module named pip</h4>
+<p><a href="https://pip.pypa.io/en/stable/">Pip</a> should come bundled with the latest Python 3 but is omitted by some distributions. If you are unable to run <code class="highlighter-rouge">python3 -m pip --version</code> you can install <code class="highlighter-rouge">pip</code> by <a href="https://bootstrap.pypa.io/get-pip.py">downloading the installer</a> and running it with Python 3:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 get-pip.py
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="libyaml-is-not-found-or-a-compiler-error" href="#libyaml-is-not-found-or-a-compiler-error"></a> libyaml is not found or a compiler error</h4>
+
+<p>On a Debian system, install the Python 3 YAML library by <code class="highlighter-rouge">sudo apt-get install python3-yaml</code>.</p>
+
+<h4><a class="title-link" name="distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both" href="#distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both"></a> distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix – not both</h4>
+<p>This is a known issue if you’re on a Mac using Homebrew to install Python. Please follow <a href="https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md#note-on-pip-install---user">these instructions</a> to resolve it.</p>
+
+<h4><a class="title-link" name="centos-and-python-3" href="#centos-and-python-3"></a> CentOS and Python 3</h4>
+<p>To run Python 3.x on <a href="https://www.centos.org/">CentOS</a> or RHEL, <a href="https://www.softwarecollections.org/en/scls/rhscl/rh-python34/">Software Collections</a> needs to be activated.</p>
+
+<h4><a class="title-link" name="no-access-to-the-frontend" href="#no-access-to-the-frontend"></a> No access to the frontend</h4>
+<p>In newer Linux distributions (at least Fedora 22/CentOS 7) the access to a host is very limited. This means that you can’t access the Home Assistant frontend that is running on a host outside of the host machine. Windows and OSX machines may also have issues with this.</p>
+
+<p>To fix this you will need to open your machine’s firewall for TCP traffic over port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.</p>
+
+<ul>
+  <li><a href="http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7">Windows instructions</a></li>
+  <li><a href="https://support.apple.com/en-us/HT201642">Mac OSX instructions</a></li>
+</ul>
+
+<p>For systems with <strong>firewalld</strong> (Fedora, CentOS/RHEL, etc.):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo firewall-cmd --permanent --add-port<span class="o">=</span>8123/tcp
+<span class="gp">$ </span>sudo firewall-cmd --reload
+</code></pre>
+</div>
+
+<p>For UFW systems (Ubuntu, Debian, Raspbian, etc.):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo ufw allow 8123/tcp
+</code></pre>
+</div>
+
+<p>For <code class="highlighter-rouge">iptables</code> systems (was the default for older distributions):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
+<span class="gp">$ </span>iptables-save &gt; /etc/network/iptables.rules  <span class="c"># your rules may be saved elsewhere</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="after-upgrading-your-browser-login-gets-stuck-at-the-loading-data-step" href="#after-upgrading-your-browser-login-gets-stuck-at-the-loading-data-step"></a> After upgrading, your browser login gets stuck at the “loading data” step</h4>
+<p>After upgrading to a new version, you may notice your browser gets stuck at the “loading data” login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work.</p>
+
+<p>Android Chrome 
+chrome -&gt; settings -&gt; site settings -&gt; storage -&gt; search for your URL for home assistant-&gt; “clear &amp; reset”</p>
+
+<h3><a href="/getting-started/">« Back to Getting Started</a></h3>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/troubleshooting.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/getting-started/'>Installation </a>
+        <ul>
+          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
+          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
+          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
+          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
+          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
+          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/updating/'>Updating </a></li>
+          <li><a class='active' href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/getting-started/yaml/'>YAML </a></li>
+          <li><a  href='/getting-started/basic/'>Basic information </a></li>
+          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
+          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
+          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
+          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
+          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
+          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
+          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
+          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
+          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
+          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/autostart/'>Autostart </a>
+        <ul>
+          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
+          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
+          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
+        </ul>
+      </li>
+      <li><a  href='/topics/'>Advanced Topics </a></li>
+      <li><a  href='/details/'>Details </a></li>
+      <li><a  href='/getting-started/android/'>Add to Android Homescreen </a></li>
+      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
