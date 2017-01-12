@@ -20,9 +20,11 @@ Hyperion is an open source Ambilight implementation which runs on many platforms
 # Example configuration.yaml entry
 light:
   - platform: hyperion
+    host: 
 ```
 
 Configuration variables:
 
-- **host** (*Optional*): IP Address of the device the Hyperion service is running on.
-- **port** (*Optional*): The Port used to comunicate with the Hyperion service (defualt is 19444).
+- **host** (*Required*): IP Address of the device the Hyperion service is running on.
+- **port** (*Optional*): The Port used to communicate with the Hyperion service (default is 19444).
+- **name** (*Optional*): The Name of the device used in the frontend.
