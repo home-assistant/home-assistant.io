@@ -97,14 +97,16 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hyperion</span>
+    <span class="s">host</span><span class="pi">:</span> 
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): IP Address of the device the Hyperion service is running on.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The Port used to comunicate with the Hyperion service (defualt is 19444).</li>
+  <li><strong>host</strong> (<em>Required</em>): IP Address of the device the Hyperion service is running on.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The Port used to communicate with the Hyperion service (default is 19444).</li>
+  <li><strong>name</strong> (<em>Optional</em>): The Name of the device used in the frontend.</li>
 </ul>
 
 
