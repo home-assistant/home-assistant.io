@@ -139,7 +139,7 @@ automation:
   trigger:
     platform: zone
     entity_id: device_tracker.paulus
-    zone: zone.home
+    zone: zone.home # or zone.* for all zones
     # Event is either enter or leave
     event: enter  # or "leave"
 ```
