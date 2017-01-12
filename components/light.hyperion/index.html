@@ -90,23 +90,24 @@
   <hr class="divider">
   
 
-  <p>This platform allows you to integrate your <a href="https://hyperion-project.org/wiki">Hyperion</a> into Home Assistant.</p>
+  <p>This platform allows you to integrate your <a href="https://hyperion-project.org/wiki">Hyperion</a> into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.</p>
 
-<p>Hyperion is an open source Ambilight implementation which runs on many platforms.</p>
+<p>To use your Hyperion light in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hyperion</span>
-    <span class="s">host</span><span class="pi">:</span> 
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): IP Address of the device the Hyperion service is running on.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The Port used to communicate with the Hyperion service (default is 19444).</li>
-  <li><strong>name</strong> (<em>Optional</em>): The Name of the device used in the frontend.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of the device the Hyperion service is running on.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port used to communicate with the Hyperion service. Defaults to <code class="highlighter-rouge">19444</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend.</li>
+  <li><strong>default_color</strong> (<em>Optional</em>): The color of the light. Defaults to <code class="highlighter-rouge">[255, 255, 255]</code>.</li>
 </ul>
 
 
