@@ -5,7 +5,7 @@
   "release_notes_path": "/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/",
   "release_title": "0.35: Text-to-speech, VLC, Flic, netdata",
   "release_description": "Home Assistant learned to speak, VLC and AquosTV mediaplayer, Netdata, ZMAG, Flic, and Broadlink",
-  "patch_version_notes": "#release-0352---december-19",
+  "patch_version_notes": "#release-0353---december-23",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
