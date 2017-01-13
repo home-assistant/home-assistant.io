@@ -63,7 +63,7 @@ Configuration variables:
 
 - **api_key** (*Required*): Your API key.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
-- **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Requires at least one of the following `monitored_conditions`; `temperature_max`, `temperature_min`, `apparent_temperature_max`, `apparent_temperature_min`, `precip_intensity_max`
+- **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary of the current conditions.
   - **precip_type**: The type of precipitation occurring.
