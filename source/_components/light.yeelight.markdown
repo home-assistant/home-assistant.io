@@ -18,10 +18,13 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 
 ```yaml
 # Example configuration.yaml entry
-  - platform: yeelight
+light:
+  platform: yeelight
     devices:
       192.168.1.25:
-        name: palier
+        name: Front Door
+      192.168.1.13
+        name: Living Room
 ```
 
 Configuration variables:
