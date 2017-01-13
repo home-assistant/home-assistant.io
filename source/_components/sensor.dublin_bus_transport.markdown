@@ -10,7 +10,7 @@ footer: true
 logo: train.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 0.35.4
+ha_release: 0.36
 ---
 
 
@@ -26,15 +26,13 @@ Then add the data to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: dublin_bus_transport
-    stopid: [Stop ID]
-    route: [Route]
-    name: [Friendly Name]
+    stopid: STOP_ID
 ```
 
 Configuration variables:
 
-- **stopid** (*Required*): The ID of the bust stop to get the informaion for.
-- **route** (*Optional*): Only show a single bus route at the stop. This is the same as the bus number, e.g. 83
+- **stopid** (*Required*): The ID of the bust stop to get the information for.
+- **route** (*Optional*): Only show a single bus route at the stop. This is the same as the bus number, e.g. `83`.
 - **name** (*Optional*): A friendly name for this sensor.
 
 The public RTPI information is coming from [Dub Linked](https://data.dublinked.ie/).
