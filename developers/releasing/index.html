@@ -108,7 +108,7 @@
 <ol>
   <li>Create a blog post in <code class="highlighter-rouge">next</code> and base it on the text of the PR in the main repository. Add images, additional text, links, etc. if it adds value. Tag each platform/component in a message to documentation.</li>
   <li>Create missing documentation as stumbs in <code class="highlighter-rouge">next</code>.</li>
-  <li>Update the link on the frontpage (<code class="highlighter-rouge">source/index.html</code>) to link to the new release blog post and version number.</li>
+  <li>Update <code class="highlighter-rouge">config.yml</code> with link to the new release blog post and version number (at the bottom of the file).</li>
   <li>Create a pull request from <code class="highlighter-rouge">next</code> to <code class="highlighter-rouge">current</code> with the upcoming release number as the title.</li>
   <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code> (<code class="highlighter-rouge">$ git checkout next &amp;&amp; git merge current</code>) to make the PR mergeable.</li>
   <li>Merge pull request (blog post, updated frontpage, and all new documentation) to <code class="highlighter-rouge">current</code>.</li>
