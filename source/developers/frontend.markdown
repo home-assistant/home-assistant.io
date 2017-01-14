@@ -31,6 +31,12 @@ http:
 
 As everything is compiled into the file `frontend.html` you do not want to work with the compiled version but with the separate files during development.
 
+Node.js is required to setup the frontend development environment. The preferred method of installing node.js is [nvm](https://github.com/creationix/nvm). Install nvm using the instructions in the [README](https://github.com/creationix/nvm#install-script), and install node.js by running the following command:
+
+```bash
+$ nvm install node
+```
+
 Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:
 
 ```bash
