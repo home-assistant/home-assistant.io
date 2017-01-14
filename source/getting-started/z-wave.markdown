@@ -110,6 +110,10 @@ $ ls /dev/cu.usbmodem*
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
 </p>
 
+### {% linkable_title Adding Devices %}
+
+To add a Z-Wave device to your system, go to the Services menu and select the `zwave` domain, and select the `add-node` service. Then find your device's add button and press that as well. 
+
 ### {% linkable_title Adding Security Devices %}
 
 Security Z-Wave devices require a network key before being added to the network using the `zwave.add_node_secure` service. You must edit the `options.xml` file, located in your `python-openzwave config_path` to use a network key before adding these devices.
