@@ -29,6 +29,8 @@ nest:
       - 'target'
 ```
 
+By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/components/nest/).
+
 Configuration variables:
 
 - **monitored_conditions** array (*Optional*): States to monitor.
