@@ -9,9 +9,7 @@ sharing: true
 footer: true
 ---
 
-## {% linkable_title About %}
-
-Packages in Home Assistant provides a way to bundle different component's configuration together. We were already introduced to the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/getting-started/devices) page. Both of these configuration methods require you to create the component key in the main `configuration.yaml` file. With packages we have a way to include different components, or parts of configuration using any of the `!include` directives introduced in [splitting the configuration](/topics/splitting_configuration).
+Packages in Home Assistant provides a way to bundle different component's configuration together. We were already introduced to the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/getting-started/devices/) page. Both of these configuration methods require you to create the component key in the main `configuration.yaml` file. With packages we have a way to include different components, or parts of configuration using any of the `!include` directives introduced in [splitting the configuration](/topics/splitting_configuration).
 
 Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a packages name (no spaces, all lower case) followed by a dictionary with the package config. For example, package `pack_1` would be created as:
 
@@ -20,12 +18,12 @@ homeassistant:
   ...
   packages: 
     pack_1:
-      ...package config here...
+      ...package configuration here...
 ```
 
 The package configuration can include: `switch`, `light`, `automation`, `groups` or the majority of the Home Assistant components. 
 
-It can be specified inline, or in a seperate yaml file using `!include`
+It can be specified inline, or in a seperate YAML file using `!include`
 
 Inline example, main `configuration.yaml`:
 
@@ -43,13 +41,16 @@ homeassistant:
 ```
 
 Include example, main `configuration.yaml`:
+
 ```yaml
 homeassistant:
   ...
   packages: 
     pack_1: !include my_package.yaml
 ```
+
 The file `my_package.yaml` contains the "top-level" configuration:
+
 ```
 switch:
   - platform: rest
@@ -73,15 +74,13 @@ There are some rules for packages that will be merged:
     ```
 4. Any component that is not a platform [2], or dictionaries with Entity ID keys [3] cannot be merged and can only occur once between all packages and the main config
 
-
 <p class='note tip'>
 Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the component name.
 </p>
 
-
 ### {% linkable_title Create a packages folder %}
 
-One way to organise packages would be to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a yaml file. This entry in your `configuration.yaml` will load all packages:
+One way to organise packages would be to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
 
 ```yaml
 homeassistant:
@@ -89,4 +88,4 @@ homeassistant:
 ```
 
 This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
-See the documentation about [splitting the configuration](/topics/splitting_configuration) for more information about `!include_dir_named` and other include statements that might be helpful.
+See the documentation about [splitting the configuration](/topics/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful.
