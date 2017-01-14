@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Beaglebone Black GPIO Switch"
-description: "Instructions how to integrate the GPIO of a Beaglebone Black into Home Assistant as a switch."
+title: "BeagleBone Black GPIO Switch"
+description: "Instructions how to integrate the GPIO of a BeagleBone Black into Home Assistant as a switch."
 date: 2017-01-14 10:00
 sidebar: true
 comments: false
@@ -12,9 +12,9 @@ ha_category: Switch
 ha_release: 0.36
 ---
 
-The `bbb_gpio` switch platform allows you to control the GPIOs of your [Beaglebone Black](https://beagleboard.org/black).
+The `bbb_gpio` switch platform allows you to control the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-To use yourBeaglebone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
+To use yourBeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,5 +37,5 @@ Configuration variables:
     - **initial** (*Optional*): Initial state of the pin. Defaults to `False`.
     - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is `false` (ACTIVE HIGH).
 
-For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the Beaglebone Black.
+For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
 
