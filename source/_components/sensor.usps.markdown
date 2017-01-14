@@ -12,7 +12,7 @@ ha_category: Sensor
 ha_release: 0.36
 ---
 
-The `usps` platform allows one to track [US POstal Service (USPS)](https://www.usps.com/).
+The `usps` platform allows one to track deliveries by the [US Postal Service (USPS)](https://www.usps.com/).
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
