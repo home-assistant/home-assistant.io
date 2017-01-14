@@ -12,35 +12,19 @@ ha_category: Climate
 ha_iot_class: "Local Poll"
 ---
 
-
 The `eq3btsmart` climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.
 
-The current functionality allows setting the temperature as well as controlling the supported modes with help of [bluepy_devices](https://github.com/bimbar/bluepy_devices) library.
+The current functionality allows setting the temperature as well as controlling the supported modes with help of [python-eq3bt](https://github.com/rytilahti/python-eq3bt) library.
 As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)),
 we report target temperature also as current one.
 
-### Initial setup ###
-Setup is a bit more cumbersome than for most other thermostats. It has to be paired first:
-
-```bash
-bluetoothctl
-scan on
-<Wait for the thermostat to be found, which looks like this: [NEW] Device 00:11:22:33:44:55 CC-RT-BLE>
-scan off
-<Set the thermostat to pairing mode.>
-pair <MAC>
-trust <MAC>
-disconnect <MAC>
-exit
-```
-
 ### Testing the connectivity ###
-Connectivity can be tested with eq3cli tool:.
+Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can can be done with the eq3cli tool:
 
 ```bash
 eq3cli --mac 00:11:22:33:44:55
 
-MAC: 00:11:22:33:44:55 Mode: 2 = auto dst T: 21.0
+[00:1A:22:XX:XX:XX] Target 17.0 (mode: auto dst, away: no)
 Locked: False
 Batter low: False
 Window open: False
@@ -49,11 +33,6 @@ Current target temp: 21.0
 Current mode: auto dst
 Valve: 0
 ``` 
-Important: The thermostat can only be connected by one device at a time, so it needs to be connected from bluetoothd.
-
-```bash
-/usr/bin/bt-device -d CC-RT-BLE
-```
 
 ### Configuration ###
 
