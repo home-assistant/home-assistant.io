@@ -195,6 +195,10 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
 Depending on what’s plugged into your USB ports, the name found above may change. You can lock in a name, such as <code class="highlighter-rouge">/dev/zwave</code>, by following <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">these instructions</a>. 
 </p>
 
+<h3><a class="title-link" name="adding-devices" href="#adding-devices"></a> Adding Devices</h3>
+
+<p>To add a Z-Wave device to your system, go to the Services menu and select the <code class="highlighter-rouge">zwave</code> domain, and select the <code class="highlighter-rouge">add-node</code> service. Then find your device’s add button and press that as well.</p>
+
 <h3><a class="title-link" name="adding-security-devices" href="#adding-security-devices"></a> Adding Security Devices</h3>
 
 <p>Security Z-Wave devices require a network key before being added to the network using the <code class="highlighter-rouge">zwave.add_node_secure</code> service. You must edit the <code class="highlighter-rouge">options.xml</code> file, located in your <code class="highlighter-rouge">python-openzwave config_path</code> to use a network key before adding these devices.</p>
