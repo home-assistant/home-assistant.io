@@ -15,7 +15,7 @@ There's currently three documented ways to install Home Assistant on a Raspberry
  - [Manual installation](/getting-started/installation-raspberry-pi/#Manual-Installation). Following this guide doing each step manually. This is highly recommended as a first installation since you get a good overview of the installation.
  - [Hassbian image](/getting-started/installation-raspberry-pi-image). Basic installation with the same settings as following the manual installation guide. Some additional software is preinstalled to make installation quicker and easier. Installation uses `homeassistant` user.
  - [All-in-One Installer](/getting-started/installation-raspberry-pi-all-in-one/). Fabric based installation script that installs and compiles many of the things an advanced Home Assistant install is likely to need. Installation uses `hass` user.
- 
+
  <p class='note note'>
   Since each installation type uses a different user for Home Assistant, be sure to note and use the correct username for the `adduser` commands listed below for camera and GPIO extensions.
 </p>
@@ -50,7 +50,7 @@ $ sudo apt-get install python3 python3-venv python3-pip
 Add an account for Home Assistant called `homeassistant`.  
 Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory.
 ```bash
-$ sudo useradd -rm homeassistant
+$ sudo adduser --group --system homeassistant
 ```
 
 Next we will create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
@@ -62,7 +62,7 @@ $ sudo chown homeassistant:homeassistant homeassistant
 
 Next up is to create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account.
 ```bash
-$ sudo su -s /bin/bash homeassistant 
+$ sudo su -s /bin/bash homeassistant
 $ cd /srv/homeassistant
 $ python3 -m venv homeassistant_venv
 $ source /srv/homeassistant/homeassistant_venv/bin/activate
@@ -77,7 +77,7 @@ Start Home Assistant for the first time. This will complete the installation, cr
 (homeassistant_venv) $ hass
 ```
 
-You can now reach your installation on your raspberry pi over the web interface on [http://ipaddress:8123](http://ipaddress:8123). 
+You can now reach your installation on your raspberry pi over the web interface on [http://ipaddress:8123](http://ipaddress:8123).
 For instruction on how to configure Home Assistant continue on with [Configuring Home Assistant](/getting-started/configuration/).
 
 ### {% linkable_title Raspberry Pi Hardware Specific Components %}
@@ -110,7 +110,7 @@ After this follow the [Raspberry Pi Camera component](/components/camera.rpi_cam
 
 ### {% linkable_title Raspberry Pi GPIO %}
 Each of the following devices are connected to the GPIO pins on the Raspberry Pi.
-For more details about the GPIO layout, visit the [documentation](https://www.raspberrypi.org/documentation/usage/gpio/) from the Raspberry 
+For more details about the GPIO layout, visit the [documentation](https://www.raspberrypi.org/documentation/usage/gpio/) from the Raspberry
 Pi foundation.  
 Since these are not normally used some extra permission will need to be added.
 In general the permission that is needed is granted by adding the `homeassistant` account to the `gpio` group.
