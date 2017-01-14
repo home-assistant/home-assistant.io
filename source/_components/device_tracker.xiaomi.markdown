@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Presence Detection
+ha_release: 0.36
 ---
 
 
@@ -21,7 +22,6 @@ To use an Xiaomi router in your installation, add the following to your `configu
 device_tracker:
   - platform: xiaomi
     host: YOUR_ROUTER_IP
-    username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
 ```
 
