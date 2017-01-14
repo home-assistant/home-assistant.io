@@ -126,7 +126,9 @@ if under server key is button Regenerate key, click that</p>
 <ul>
   <li>You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.</li>
   <li>Your Home Assistant instance is exposed to the world.</li>
-  <li>You have configured SSL for your Home Assistant. It doesn’t need to be configured in Home Assistant though, i.e. you can be running nginx in front of Home Assistant and this will still work.</li>
+  <li>If using a proxy, basic auth must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.</li>
+  <li>pywebpush must be installed. libffi-dev, libpython-dev, and libssl-dev must be installed prior to pywebpush (i.e. pywebpush probably won’t automatically install).</li>
+  <li>You have configured SSL for your Home Assistant. It doesn’t need to be configured in Home Assistant though, i.e. you can be running nginx in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed)</li>
   <li>You are willing to accept the notification permission in your browser.</li>
 </ul>
 
@@ -146,6 +148,8 @@ if under server key is button Regenerate key, click that</p>
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
 
 <p>The <code class="highlighter-rouge">html5</code> platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.</p>
+
+<p>Any json examples below can be <a href="https://www.json2yaml.com/">converted to YAML</a> for automations.</p>
 
 <h4><a class="title-link" name="actions" href="#actions"></a> Actions</h4>
 
