@@ -46,7 +46,9 @@ The `html5` platform can only function if all of the following requirements are 
 
 * You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
 * Your Home Assistant instance is exposed to the world.
-* You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running nginx in front of Home Assistant and this will still work.
+* If using a proxy, basic auth must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
+* pywebpush must be installed. libffi-dev, libpython-dev, and libssl-dev must be installed prior to pywebpush (i.e. pywebpush probably won't automatically install).
+* You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running nginx in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed)
 * You are willing to accept the notification permission in your browser.
 
 ### {% linkable_title Setting up %}
@@ -63,6 +65,8 @@ Assuming you have already added the platform to your configuration:
 ### {% linkable_title Usage %}
 
 The `html5` platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.
+
+Any json examples below can be [converted to YAML](https://www.json2yaml.com/) for automations.
 
 #### {% linkable_title Actions %}
 
