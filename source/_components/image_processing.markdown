@@ -10,16 +10,16 @@ footer: true
 ha_release: 0.36
 ---
 
-Image processing enables Home Assistant to process image from cameras.
-As source is only supported camera entities.
+Image processing enables Home Assistant to process image from [cameras][/components/#camera]. Only camera entities are supported as sources.
 
-For interval controll, use `scan_interval` in platform.
+For interval control, use `scan_interval` in platform.
 
-## {% linkable_title Alpr %}
+## {% linkable_title ALPR %}
 
 Alpr entities attribute have a vehicle counter `vehicles` and all found plates as `plates`.
 
-This event is trigger after openalpr found a new licence plate.
+This event is trigger after OpenALPR found a new licence plate.
+
 ```yaml
 # Example configuration.yaml automation entry
 automation:
@@ -33,4 +33,4 @@ automation:
 ...
 ```
 
-follow event data while be present: `entity_id`, `plate`, `confidence`
+The following event attributes will be present: `entity_id`, `plate`, `confidence`

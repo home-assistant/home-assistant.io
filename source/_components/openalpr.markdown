@@ -22,17 +22,17 @@ If you want use a video stream. You need setup the [ffmpeg](/components/ffmpeg) 
 
 ### {% linkable_title Local installation %}
 
-If you want process all data local you need the commandline tool `alpr` in version > 2.3.1
+If you want process all data locally, you need version 2.3.1 or higher of the `alpr` commandline tool.
 
 If you don't find binaries for your distribution you can compile from source. Documention of how to build OpenALPR is found [here](https://github.com/openalpr/openalpr/wiki).
 
-On a Debian system you can use this `cmake` command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):
+On a Debian system you can use this `cmake` command to build only the command line tool:
 
 ```bash
 $ cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 ```
 
-Verify your alpr installation with:
+Verify your `alpr` installation with:
 
 ```
 $ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
@@ -63,7 +63,7 @@ openalpr:
 Configuration variables:
 
 - **engine** (*Required*): `local` or `cloud` for processing
-- **region** (*Required*): Country or region. List of supported [value](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
+- **region** (*Required*): Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
 - **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80. 
 - **entities** (*Required*): A list of device to add in Home Assistant.
 - **name** (*Optional*): This parameter allows you to override the name of your OpenALPR entity.
