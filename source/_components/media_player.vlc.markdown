@@ -29,7 +29,7 @@ media_player:
 Configuration variables:
 
 - **name** (*Optional*): The name to use in the frontend.
-- **arguments** (*Optional*): additional arguments to be passed to VLC.
+- **arguments** (*Optional*): Additional arguments to be passed to VLC.
 
 Only "music" media type is supported for now.
 
