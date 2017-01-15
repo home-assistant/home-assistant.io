@@ -3,12 +3,11 @@ layout: post
 title: "0.36: ISS, USPS, Image processing, Insteon"
 description: "Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes"
 date: 2017-01-14 08:04:05 +0000
-date_formatted: "January 14, 2017"
+date_formatted: "January 15, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2016-12-0.35/social.png
 ---
 
 Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and a lot of bug fixes.
