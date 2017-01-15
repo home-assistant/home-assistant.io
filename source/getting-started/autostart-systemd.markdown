@@ -63,7 +63,7 @@ After=docker.service
 [Service]
 Restart=always
 RestartSec=3
-ExecStart=/usr/bin/docker run --name="home-assistant-%i" -v /home/%i/.homeassistant/:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant 
+ExecStart=/usr/bin/docker run --name="home-assistant-%i" -v /home/%i/.homeassistant/:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ExecStop=/usr/bin/docker stop -t 2 home-assistant-%i
 ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
 
