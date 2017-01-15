@@ -1160,7 +1160,7 @@ Each service has different parameter requirements. This argument allows you to s
 #### {% linkable_title Examples %}
 
 ```python
-self.call_service("light.turn_on", entity_id = "light/office_lamp", color_name = "red")
+self.call_service("light/turn_on", entity_id = "light.office_lamp", color_name = "red")
 self.call_service("notify/notify", title = "Hello", message = "Hello World")
 ```
 ### {% linkable_title turn_on() %}
