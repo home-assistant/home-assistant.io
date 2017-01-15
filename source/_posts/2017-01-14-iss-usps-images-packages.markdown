@@ -16,19 +16,19 @@ Welcome to 2017 and 0.36. We are proud to announce the first release for this ye
 [Packages][packages] are providing a new way to organize different component's configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the `!include` directives.
 
 ## {% linkable_title InfluxDB export %}
-The [InfluxDB][influx] component was causing problems in a wide variety of use cases. [@titilambert] improved our InfluxDB exporter feature. It might be that you need to run the migration script to update your InfluxDB database.
+The [InfluxDB][influx] component was causing problems in a wide variety of use cases. [@titilambert] improved our InfluxDB exporter feature. It might be that you need to run the [migration script](/components/influxdb/#migration-script) to update your InfluxDB database.
 
 ```bash
 $ hass --script influxdb_migrator \
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
-    -o test_series -d INFLUXDB_DB_NAME
+    -d INFLUXDB_DB_NAME
 ```
 
 ## {% linkable_title International Space Station (ISS) %}
-No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives you some details. 
+No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives you some details.
 
 ## {% linkable_title Insteon local %}
-The support for Insteon was removed due to issues a while ago. With the `insteon_local` component support for [Insteon][insteon] is back and let one work locally with an Insteon setup. 
+The support for Insteon was removed due to issues a while ago. With the `insteon_local` component support for [Insteon][insteon] is back and let one work locally with an Insteon setup.
 
 ## {% linkable_title Image processing %}
 The new [image processing component][image] currently works with [number plates][plates]. But this could level the way to integrate feature like facial recognition, motion detection, or gestures control.
@@ -69,10 +69,10 @@ The new [image processing component][image] currently works with [number plates]
 - Scripts: Support for `last_triggered` ([@Danielhiversen])
 - Media player: Support for `SUPPORT_PLAY` flag ([@armills])
 - Minor and not so minor features and bug fixes by [@balloob], [@pvizeli], [@fabaff], [@mezz64], [@andrey-git], [@aequitas], [@abmantis], [@turbokongen], [@jabesq], [@michaelarnauts], [@kellerza], [@titilambert], [@btorresgil], [@henworth], [@armills], [@mjg59], [@Giannie], [@n8henrie], [@magicus], [@florianholzapfel], [@MrMep], [@bah2830], [@happyleavesaoc], [@lwis], [@glance-], [@markferry], and [@nikdoof].
- 
+
 ## {% linkable_title Breaking changes %}
 - [APNS][apns] service was moved to the `notify` domain. Use `notify.apns_NOTIFIER_NAME` instead of `apns.NOTIFIER_NAME`.
-- [InfluxDB][influx] component has a new schema to store values in the InfluxDB database. You may require to run the `influxdb_migrator` script.
+- [InfluxDB][influx] component has a new [schema](/components/influxdb/#data-migration) to store values in the InfluxDB database. You may require to run the [`influxdb_migrator`](/components/influxdb/#migration-script) script.
   You have to note:
   - There will not be any tags/fields named time anymore.
   - All numeric fields (int/float/bool) will be stored as float inside influx db.
@@ -139,7 +139,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wardcraigj]: https://github.com/wardcraigj
 [@webworxshop]: https://github.com/webworxshop
-[@Zac-HD]: https://github.com/Zac-HD 
+[@Zac-HD]: https://github.com/Zac-HD
 
 [apns]: https://home-assistant.io/components/notify.apns/
 [beaglebone]: https://home-assistant.io/components/bbb_gpio/
@@ -170,4 +170,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [yandex]: https://home-assistant.io/components/tts.yandextts/
 [yeelight]: https://home-assistant.io/components/light.yeelight/
 [zengge]: https://home-assistant.io/components/light.zengge/
-
