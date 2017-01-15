@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Keyboard"
+title: "Keyboard Remote"
 description: "Instructions how to use a keyboard to remote control Home Assistant."
 date: 2016-09-28 14:39
 sidebar: true
