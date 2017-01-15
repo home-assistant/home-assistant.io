@@ -112,23 +112,25 @@
 </ul>
 
 <h3><a class="title-link" name="getting-ready-for-chrome" href="#getting-ready-for-chrome"></a> Getting ready for Chrome</h3>
-<p>Create new project at <a href="https://console.cloud.google.com/home/dashboard">https://console.cloud.google.com/home/dashboard</a>
-Go to <a href="https://console.cloud.google.com/apis/credentials/domainverification">https://console.cloud.google.com/apis/credentials/domainverification</a> and verify your domain 
-After that, go to <a href="https://console.firebase.google.com">https://console.firebase.google.com</a> and select import Google project, select the project you created
-Then, click the clogwheel on top left and select Project settings
-Select Cloud messaging tab
-if under server key is button Regenerate key, click that</p>
+
+<ul>
+  <li>Create new project at <a href="https://console.cloud.google.com/home/dashboard">https://console.cloud.google.com/home/dashboard</a>.</li>
+  <li>Go to <a href="https://console.cloud.google.com/apis/credentials/domainverification">https://console.cloud.google.com/apis/credentials/domainverification</a> and verify your domain.</li>
+  <li>After that, go to <a href="https://console.firebase.google.com">https://console.firebase.google.com</a> and select import Google project, select the project you created.</li>
+  <li>Then, click the clogwheel on top left and select “Project settings”.</li>
+  <li>Select Cloud messaging tab if under server key is button Regenerate key, click that.</li>
+</ul>
 
 <h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
 
 <p>The <code class="highlighter-rouge">html5</code> platform can only function if all of the following requirements are met:</p>
 
 <ul>
-  <li>You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.</li>
+  <li>You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.</li>
   <li>Your Home Assistant instance is exposed to the world.</li>
-  <li>If using a proxy, basic auth must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.</li>
-  <li>pywebpush must be installed. libffi-dev, libpython-dev, and libssl-dev must be installed prior to pywebpush (i.e. pywebpush probably won’t automatically install).</li>
-  <li>You have configured SSL for your Home Assistant. It doesn’t need to be configured in Home Assistant though, i.e. you can be running nginx in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed)</li>
+  <li>If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.</li>
+  <li><code class="highlighter-rouge">pywebpush</code> must be installed. <code class="highlighter-rouge">libffi-dev</code>, <code class="highlighter-rouge">libpython-dev</code>, and <code class="highlighter-rouge">libssl-dev</code> must be installed prior to <code class="highlighter-rouge">pywebpush</code> (i.e. <code class="highlighter-rouge">pywebpush</code> probably won’t automatically install).</li>
+  <li>You have configured SSL for your Home Assistant. It doesn’t need to be configured in Home Assistant though, i.e. you can be running <a href="/ecosystem/nginx/">NGINX</a> in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).</li>
   <li>You are willing to accept the notification permission in your browser.</li>
 </ul>
 
@@ -149,7 +151,7 @@ if under server key is button Regenerate key, click that</p>
 
 <p>The <code class="highlighter-rouge">html5</code> platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.</p>
 
-<p>Any json examples below can be <a href="https://www.json2yaml.com/">converted to YAML</a> for automations.</p>
+<p>Any JSON examples below can be <a href="https://www.json2yaml.com/">converted to YAML</a> for automations.</p>
 
 <h4><a class="title-link" name="actions" href="#actions"></a> Actions</h4>
 

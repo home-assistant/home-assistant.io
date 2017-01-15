@@ -205,21 +205,29 @@
   </tbody>
 </table>
 
-<p><strong>Windows Specific:</strong></p>
+<h2><a class="title-link" name="linux-specific" href="#linux-specific"></a> Linux specific</h2>
 
-<p>When running this component on windows, <code class="highlighter-rouge">eth0</code> is not valid a valid network name. Typically, the default interface would be called <code class="highlighter-rouge">Local Area Connection</code>, so your config might look like</p>
+<p>To retrieve all available network interfaces on a Linux System, execute the <code class="highlighter-rouge">ifconfig</code> command.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sensor:
-  - platform: systemmonitor
-    resources:
-      - type: network_in
-        arg: 'Local Area Connection'
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ifconfig -a | sed <span class="s1">'s/[ \t].*//;/^$/d'</span>
 </code></pre>
 </div>
 
-<p>If you need to use some other interface, open a command prompt and type <code class="highlighter-rouge">ipconfig</code> to list all interface names. For example a wireless connection output from <code class="highlighter-rouge">ip_config</code> might look like</p>
+<h2><a class="title-link" name="windows-specific" href="#windows-specific"></a> Windows specific</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Wireless LAN adapter Wireless Network Connection:
+<p>When running this platform on Microsoft Windows, Typically, the default interface would be called <code class="highlighter-rouge">Local Area Connection</code>, so your configuration might look like:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">systemmonitor</span>
+    <span class="s">resources</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">type</span><span class="pi">:</span> <span class="s">network_in</span>
+        <span class="s">arg</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Local</span><span class="nv"> </span><span class="s">Area</span><span class="nv"> </span><span class="s">Connection'</span>
+</code></pre>
+</div>
+
+<p>If you need to use some other interface, open a commandline prompt and type <code class="highlighter-rouge">ipconfig</code> to list all interface names. For example a wireless connection output from <code class="highlighter-rouge">ifconfig</code> might look like:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Wireless LAN adapter Wireless Network Connection:
 
    Media State . . . . . . . . . . . : Media disconnected
    Connection-specific DNS Suffix  . :
