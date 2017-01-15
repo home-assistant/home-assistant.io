@@ -5,7 +5,7 @@
   "release_notes_path": "/blog/2017/01/14/iss-usps-images-packages/",
   "release_title": "0.36: ISS, USPS, Image processing, Insteon",
   "release_description": "Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes",
-  "patch_version_notes": "#release-0353---december-23",
+  "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
