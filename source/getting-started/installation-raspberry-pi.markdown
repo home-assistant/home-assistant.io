@@ -26,7 +26,7 @@ There's currently three documented ways to install Home Assistant on a Raspberry
 This installation of Home Assistant requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/).
 The installation will be installed in a [Virtual Environment](/getting-started/installation-virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
 
-Connect to the Raspberry Pi over ssh. Default password is `raspberry`.
+Connect to the Raspberry Pi over ssh. Default password is `raspberry`. If you are using the Raspberry Pi 3, you will need to enable ssh access. The raspberry pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/)
 ```bash
 $ ssh pi@ipadress
 ```
