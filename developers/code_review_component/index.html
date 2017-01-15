@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Asynchronous Programming - Home Assistant</title>
+    <title>Checklist for creating a component - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Introduction to the asynchronous core of Home Assistant.">
+    <meta name="description" content="A list of things to pay attention to when code reviewing a component.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/asyncio/">
+    <link rel="canonical" href="https://home-assistant.io/developers/code_review_component/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Asynchronous Programming">
+    <meta property="og:title" content="Checklist for creating a component">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/asyncio/">
+    <meta property="og:url" content="https://home-assistant.io/developers/code_review_component/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Introduction to the asynchronous core of Home Assistant.">
+    <meta property="og:description" content="A list of things to pay attention to when code reviewing a component.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Asynchronous Programming">
-    <meta name="twitter:description" content="Introduction to the asynchronous core of Home Assistant.">
+    <meta name="twitter:title" content="Checklist for creating a component">
+    <meta name="twitter:description" content="A list of things to pay attention to when code reviewing a component.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,26 +84,49 @@
   
   <header>
     <h1 class="title indent">
-      Asynchronous Programming
+      Checklist for Creating a Component
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>On September 29, 2016 we released <a href="https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks/">Home Assistant 0.29</a> as part of our bi-weekly release schedule. This release introduced a complete overhaul of the core spearheaded by <a href="https://github.com/bbangert/">Ben Bangert</a>.</p>
+  <p>A checklist of things to do when you’re adding a new component.</p>
 
-<p>The old core was set up like a “traditional” threaded application. Each resource that was not thread safe (ie. the state of entities) would be protected by a lock. This caused a lot of waiting and potential inconsistency because a task could now end up waiting halfway through it’s job until some resource got freed.</p>
+<h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
 
-<p>Our new core is based on an Python’s built-in asyncio module. Instead of having all threads have access to the core API objects, access is now limited to a special thread called the event loop. All components will now schedule themselves as a task to be executed by the event loop. This gives us the guarantee that only one task is executed at once, meaning we no longer need any locks.</p>
+<ol>
+  <li>Requirement version pinned: <code class="highlighter-rouge">REQUIREMENTS = ['phue==0.8.1']</code></li>
+  <li>If requirement hosted on GitHub:
+    <ul>
+      <li>Point at a zip archive of a release tag or commit SHA.</li>
+      <li>Add version found in zip-archive as hash to url.</li>
+    </ul>
+  </li>
+</ol>
 
-<p>The only problem with running everything inside the event loop is when a task is doing blocking I/O, what most third-party Python libraries are doing. For example while requesting new information from a device, the core will stop running until we get a response from the device. To handle this, a task is able to suspend itself until the response is available after which it will be enqueued for the event loop to process the result.</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'http://github.com/technicalpickles/python-nest'</span>
+    <span class="s">'/archive/e6c9d56a8df455d4d7746389811f2c1387e8cb33.zip'</span>
+    <span class="s">'#python-nest==3.0.3'</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p>For a task to be able to suspend itself, all code that it calls has to have this capability added. This means in practice that each device integration will need a full rewrite of the library that offers the integration! As this is not something that can be achieved, ever, a 100% backwards compatible API has been added so that no platform will require updating.</p>
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 
-<p>The backwards compatible API works by scheduling a task from a different thread and blocking that thread until the task has been processed by the event loop.</p>
+<ol>
+  <li>Volutpuous schema present for config validation</li>
+  <li>Default parameters specified in voluptuous schema, not in <code class="highlighter-rouge">setup_platform(…)</code></li>
+  <li>Schema using as many generic config keys as possible from <code class="highlighter-rouge">homeassistant.const</code></li>
+  <li>If having platforms, have a <code class="highlighter-rouge">PLATFORM_SCHEMA</code>, otherwise <code class="highlighter-rouge">CONFIG_SCHEMA</code>.</li>
+  <li>If <code class="highlighter-rouge">PLATFORM_SCHEMA</code>, import base from <code class="highlighter-rouge">homeassistant.helpers.config_validation</code></li>
+</ol>
 
-<h3><a href="/developers/asyncio_categorizing_functions/">Next step: Categorizing Functions »</a></h3>
+<h3><a class="title-link" name="componentplatform-communication" href="#componentplatform-communication"></a> Component/platform communication</h3>
 
+<ol>
+  <li>If you need to share global data with platforms, use the dictionary <code class="highlighter-rouge">hass.data</code>.</li>
+  <li>If the component fetches data that causes related platform entities to update,</li>
+</ol>
 
 
 </article>
@@ -117,7 +140,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/asyncio.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/code_review_component.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -150,7 +173,7 @@
       <li>
         <a  href='/developers/creating_components/'>Adding a new component </a>
         <ul>
-          <li><a  href='/developers/code_review_component/'>Checklist creating a component </a></li>
+          <li><a class='active' href='/developers/code_review_component/'>Checklist creating a component </a></li>
           <li><a  href='/developers/component_loading/'>Loading components </a></li>
           <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
           <li><a  href='/developers/component_initialization/'>Initialization </a></li>
@@ -162,7 +185,7 @@
         </ul>
       </li>
       <li>
-        <a class='active' href='/developers/asyncio/'>Asynchronous Programming </a>
+        <a  href='/developers/asyncio/'>Asynchronous Programming </a>
         <ul>
           <li><a  href='/developers/asyncio_categorizing_functions/'>Categorizing Functions </a></li>
           <li><a  href='/developers/asyncio_working_with_async/'>Working with Async </a></li>
