@@ -47,7 +47,7 @@ automation:
     entity_id: light.all
 ```
 
-{% linkable_title Disconnections %}
+## {% linkable_title Disconnections %}
 This component manages disconnections and re-connections of the keyboard, for example in the case of a bluetooth device that turns off automatically to preserve battery.
 
 If the keyboard disconnects, the component will fire an event `keyboard_remote_disconnected`.
@@ -78,7 +78,7 @@ automation:
           media_content_type: music
 ```
 
-{% linkable_title Permissions %}
+## {% linkable_title Permissions %}
 There might be permissions problems with the event input device file. If this is the case, the user that hass runs as must be allowed read and write permissions with:
 ```
 sudo setfacl -m u:HASS_USER:rw /dev/input/event*
