@@ -25,7 +25,7 @@ $ hass --script influxdb_migrator \
 ```
 
 ## {% linkable_title International Space Station (ISS) %}
-No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives your some details. 
+No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives you some details. 
 
 ## {% linkable_title Insteon local %}
 The support for Insteon was removed due to issues a while ago. With the `insteon_local` component support for [Insteon][insteon] is back and let one work locally with an Insteon setup. 
@@ -80,6 +80,7 @@ The new [image processing component][image] currently works with [number plates]
   - All string fields corresponding to a state will be renamed as state (former value).
   - Fields named value will always be stored as float.
   - Fields named state will always be stored as string.
+- TTS cache files use now the language abbreviation as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_PLATFORM.xxx` -> `HASH_LANG_PLATFORM.xxx`.
 
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -113,9 +114,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jjensn]: https://github.com/jjensn
 [@kellerza]: https://github.com/kellerza
 [@kk7ds]: https://github.com/kk7ds
+[@lupin-de-mid]: https://github.com/lupin-de-mid
 [@lwis]: https://github.com/lwis
 [@magicus]: https://github.com/magicus
 [@markferry]: https://github.com/markferry
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MatoKafkac]: https://github.com/MatoKafkac
 [@mezz64]: https://github.com/mezz64
 [@michaelarnauts]: https://github.com/michaelarnauts
@@ -130,23 +133,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@rmkraus]: https://github.com/rmkraus
 [@scmmmh]: https://github.com/scmmmh
 [@technicalpickles]: https://github.com/technicalpickles
+[@titilambert]: https://github.com/titilambert
 [@ttroy50]: https://github.com/ttroy50
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wardcraigj]: https://github.com/wardcraigj
 [@webworxshop]: https://github.com/webworxshop
-[@titilambert]: https://github.com/titilambert
 [@Zac-HD]: https://github.com/Zac-HD 
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@lupin-de-mid]: https://github.com/lupin-de-mid
 
+[apns]: https://home-assistant.io/components/notify.apns/
 [beaglebone]: https://home-assistant.io/components/bbb_gpio/
 [bl-switch]: https://home-assistant.io/components/switch.broadlink/
+[bom]: https://home-assistant.io/components/weather.bom/
 [dublin]: https://home-assistant.io/components/sensor.dublin_public_transport/
 [image]: https://home-assistant.io/components/image_processing/
+[influx]: https://home-assistant.io/components/influxdb/
 [insteon]: https://home-assistant.io/components/insteon_local/
+[iss]: https://home-assistant.io/components/sensor.iss/
 [kankun]: https://home-assistant.io/components/switch.kankun/
 [lannouncer]: https://home-assistant.io/components/notify.lannouncer/
+[mysensors]: https://home-assistant.io/components/notify.mysensors/
 [packages]: https://home-assistant.io/topics/packages/
 [pico]: https://home-assistant.io/components/tts.picotts/
 [ping]: https://home-assistant.io/components/device_tracker.ping/
@@ -161,11 +167,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [usps]: https://home-assistant.io/components/sensor.usps/
 [wink-fan]: https://home-assistant.io/components/fan.wink/
 [xiaomi]: https://home-assistant.io/components/device_tracker.xiaomi/
+[yandex]: https://home-assistant.io/components/tts.yandextts/
 [yeelight]: https://home-assistant.io/components/light.yeelight/
 [zengge]: https://home-assistant.io/components/light.zengge/
-[bom]: https://home-assistant.io/components/weather.bom/
-[apns]: https://home-assistant.io/components/notify.apns/
-[mysensors]: https://home-assistant.io/components/notify.mysensors/
-[influx]: https://home-assistant.io/components/influxdb/
-[iss]: https://home-assistant.io/components/sensor.iss/
-[yandex]: https://home-assistant.io/components/tts.yandextts/
+
