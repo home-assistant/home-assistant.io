@@ -205,6 +205,28 @@
   </tbody>
 </table>
 
+<p><strong>Windows Specific:</strong></p>
+
+<p>When running this component on windows, <code class="highlighter-rouge">eth0</code> is not valid a valid network name. Typically, the default interface would be called <code class="highlighter-rouge">Local Area Connection</code>, so your config might look like</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sensor:
+  - platform: systemmonitor
+    resources:
+      - type: network_in
+        arg: 'Local Area Connection'
+</code></pre>
+</div>
+
+<p>If you need to use some other interface, open a command prompt and type <code class="highlighter-rouge">ipconfig</code> to list all interface names. For example a wireless connection output from <code class="highlighter-rouge">ip_config</code> might look like</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Wireless LAN adapter Wireless Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+</code></pre>
+</div>
+
+<p>Where the name is <code class="highlighter-rouge">Wireless Network Connection</code></p>
 
 
 </article>
