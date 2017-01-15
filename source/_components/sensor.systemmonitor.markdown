@@ -58,3 +58,26 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | last_boot           |                          |
 | since_last_boot     |                          |
 
+
+**Windows Specific:**
+
+When running this component on windows, `eth0` is not valid a valid network name. Typically, the default interface would be called `Local Area Connection`, so your config might look like
+
+```
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: network_in
+        arg: 'Local Area Connection'
+```
+
+If you need to use some other interface, open a command prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ip_config` might look like
+
+```
+Wireless LAN adapter Wireless Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+```
+
+Where the name is `Wireless Network Connection`
