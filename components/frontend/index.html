@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Configurator - Home Assistant</title>
+    <title>Frontend - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate the configurator in your components.">
+    <meta name="description" content="Offers a web framework to serve files.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/configurator/">
+    <link rel="canonical" href="https://home-assistant.io/components/frontend/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Configurator">
+    <meta property="og:title" content="Frontend">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/configurator/">
+    <meta property="og:url" content="https://home-assistant.io/components/frontend/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate the configurator in your components.">
+    <meta property="og:description" content="Offers a web framework to serve files.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Configurator">
-    <meta name="twitter:description" content="Instructions how to integrate the configurator in your components.">
+    <meta name="twitter:title" content="Frontend">
+    <meta name="twitter:description" content="Offers a web framework to serve files.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,27 +84,23 @@
   
   <header>
     <h1 class="title indent">
-      Configurator
+      Frontend
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p class="note">
-This component is intended for developers.
+  <p>The <code class="highlighter-rouge">http</code> component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.</p>
+
+<p class="note warning">
+It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_password</code>, especially if you are planning to expose your installation to the internet.
 </p>
 
-<p>The configurator component allows components to request information from the user. It is currently implemented as the minimum viable product:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">frontend</span><span class="pi">:</span>
+</code></pre>
+</div>
 
-<ul>
-  <li>It supports showing a text, image and button to the user</li>
-  <li>Input fields can be defined with a description, and optional type</li>
-  <li>It will trigger a callback when the button is pressed</li>
-</ul>
-
-<p>The Hue component in <a href="/demo">the demo</a> and Plex are implemented using the configurator. See <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/demo.py#L132">the source of the demo component</a> for a simple example.</p>
-
-<p>See <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/configurator.py#L39">the source</a> for more details on how to use the configurator component.</p>
 
 
 </article>
@@ -118,7 +114,7 @@ This component is intended for developers.
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/configurator.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/frontend.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/home-assistant.png' />
   </div>
@@ -129,7 +125,7 @@ This component is intended for developers.
             <a href='/components/browser/'>Browser</a>
         </li>
         <li>
-            Configurator
+            <a href='/components/configurator/'>Configurator</a>
         </li>
         <li>
             <a href='/components/demo/'>Demo platforms</a>
@@ -141,7 +137,7 @@ This component is intended for developers.
             <a href='/components/feedreader/'>Feedreader</a>
         </li>
         <li>
-            <a href='/components/frontend/'>Frontend</a>
+            Frontend
         </li>
         <li>
             <a href='/components/http/'>HTTP</a>
