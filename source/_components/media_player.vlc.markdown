@@ -22,11 +22,14 @@ To add a VLC media player to your installation, add the following to your `confi
 # Example configuration.yaml entry
 media_player:
   - platform: vlc
+    name: speaker_1
+    arguments: '--alsa-audio-device=hw:1,0'
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): The name to use in the frontend.
+- **arguments** (*Optional*): Additional arguments to be passed to VLC.
 
 Only "music" media type is supported for now.
 
