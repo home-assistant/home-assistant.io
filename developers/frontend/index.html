@@ -105,15 +105,18 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
 
 <h2><a class="title-link" name="setting-up-the-environment" href="#setting-up-the-environment"></a> Setting up the environment</h2>
 
-<p>Home Assistant will by default serve the compiled version of the frontend. To enable development mode for Home Assistant, update your <code class="highlighter-rouge">configuration.yaml</code> to have these lines:</p>
+<p>Home Assistant will by default serve the compiled version of the frontend. As everything is compiled into the file <code class="highlighter-rouge">frontend.html</code> you do not want to work with the compiled version but with the separate files during development. To enable development mode for Home Assistant, update your <code class="highlighter-rouge">configuration.yaml</code> to have these lines:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
   <span class="s">development</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
 </div>
 
-<p>As everything is compiled into the file <code class="highlighter-rouge">frontend.html</code> you do not want to work with the compiled version but with the separate files during development.</p>
+<p>Node.js is required to setup the frontend development environment. The preferred method of installing node.js is <a href="https://github.com/creationix/nvm">nvm</a>. Install nvm using the instructions in the <a href="https://github.com/creationix/nvm#install-script">README</a>, and install node.js by running the following command:</p>
 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>nvm install node
+</code></pre>
+</div>
 <p>Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/setup
