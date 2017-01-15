@@ -32,10 +32,15 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
 ```
+### {% linkable_title Enabling the web interface %}
+To enable the frontend, add a `frontend` section to `configuration.yaml`:
+```yaml
+frontend:
+```
 
 ### {% linkable_title Password protecting the web interface %}
 
-First, you'll want to add a password for the Home Assistant web interface. Use your favourite text editor to open `configuration.yaml` and edit the `http` section:
+You will probably want to add a password for the Home Assistant web interface. Use your favourite text editor to open `configuration.yaml` and edit the `http` section:
 
 ```yaml
 http:
