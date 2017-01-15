@@ -83,7 +83,6 @@ data_template:
   cache: false
 ```
 
-
 ## {% linkable_title Cache %}
 
 The component have two caches. Both caches can be controlled with the `cache` option in the  platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
