@@ -58,12 +58,19 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | last_boot           |                          |
 | since_last_boot     |                          |
 
+## {% linkable_title Linux specific %}
 
-**Windows Specific:**
+To retrieve all available network interfaces on a Linux System, execute the `ifconfig` command.
 
-When running this component on windows, `eth0` is not valid a valid network name. Typically, the default interface would be called `Local Area Connection`, so your config might look like
-
+```bash
+$ ifconfig -a | sed 's/[ \t].*//;/^$/d'
 ```
+
+## {% linkable_title Windows specific %}
+
+When running this platform on Microsoft Windows, Typically, the default interface would be called `Local Area Connection`, so your configuration might look like:
+
+```yaml
 sensor:
   - platform: systemmonitor
     resources:
@@ -71,9 +78,9 @@ sensor:
         arg: 'Local Area Connection'
 ```
 
-If you need to use some other interface, open a command prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ip_config` might look like
+If you need to use some other interface, open a commandline prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ifconfig` might look like:
 
-```
+```bash
 Wireless LAN adapter Wireless Network Connection:
 
    Media State . . . . . . . . . . . : Media disconnected
