@@ -35,8 +35,12 @@ WantedBy=multi-user.target
 EOF'
 ```
 
-If you've setup Home Assistant in `virtualenv` following our [manual installation guide](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following template should work for you.
+If you've setup Home Assistant in `virtualenv` following our [manual installation guide](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following command and template should work for you.
 
+```
+sudo nano /lib/systemd/system/home-assistant@pi.service
+```
+Template:
 ```
 [Unit]
 Description=Home Assistant
@@ -51,6 +55,9 @@ ExecStart=/srv/homeassistant/homeassistant_venv/bin/hass -c "/home/homeassistant
 [Install]
 WantedBy=multi-user.target
 ```
+
+
+
 
 You need to reload `systemd` to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.
 
