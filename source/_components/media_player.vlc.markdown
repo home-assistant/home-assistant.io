@@ -22,8 +22,6 @@ To add a VLC media player to your installation, add the following to your `confi
 # Example configuration.yaml entry
 media_player:
   - platform: vlc
-    name: speaker_1
-    arguments: '--alsa-audio-device=hw:1,0'
 ```
 
 Configuration variables:
@@ -34,3 +32,15 @@ Configuration variables:
 Only "music" media type is supported for now.
 
 This service will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
+
+## {% linkable_title Full configuration %}
+
+A full configuration for VLC could llok like the one below:
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  - platform: vlc
+    name: speaker_1
+    arguments: '--alsa-audio-device=hw:1,0'
+```
