@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Home Assistant 0.35"
+title: "Home Assistant 0.36"
 description: ""
 date: 2016-12-16 17:00
 sidebar: true
