@@ -165,6 +165,7 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
       <li><strong>delay</strong> (<em>Optional</em>): Specify the delay to wait for refresh of node value if you want other than 2 seconds.</li>
     </ul>
   </li>
+  <li><strong>debug</strong> (<em>Optional</em>): Print verbose z-wave info to log. Defaults to False.</li>
 </ul>
 
 <p>To find the path of your Z-Wave USB stick or module, run:</p>
@@ -324,20 +325,28 @@ You can use this for automations.</p>
       <td>Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network.</td>
     </tr>
     <tr>
-      <td>change_association</td>
-      <td>Add or remove an association in the Z-Wave network</td>
-    </tr>
-    <tr>
       <td>cancel_command</td>
       <td>Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command.</td>
+    </tr>
+    <tr>
+      <td>change_association</td>
+      <td>Add or remove an association in the Z-Wave network</td>
     </tr>
     <tr>
       <td>heal_network</td>
       <td>Tells the controller to “heal” the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.</td>
     </tr>
     <tr>
+      <td>print_config_parameter</td>
+      <td>Prints Z-wave node’s config parameter value to the log.</td>
+    </tr>
+    <tr>
       <td>remove_node</td>
       <td>Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>rename_node</td>
+      <td>Sets a node’s name. Requires an <code class="highlighter-rouge">entity_id</code> and <code class="highlighter-rouge">name</code> field.</td>
     </tr>
     <tr>
       <td>set_config_parameter</td>
@@ -358,10 +367,6 @@ You can use this for automations.</p>
     <tr>
       <td>test_network</td>
       <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead”.</td>
-    </tr>
-    <tr>
-      <td>rename_node</td>
-      <td>Sets a node’s name. Requires an <code class="highlighter-rouge">entity_id</code> and <code class="highlighter-rouge">name</code> field.</td>
     </tr>
   </tbody>
 </table>
