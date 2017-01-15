@@ -92,6 +92,8 @@
 
   <p>The <code class="highlighter-rouge">influxdb</code> component makes it possible to transfer all state changes to an external <a href="https://influxdb.com/">InfluxDB</a> database. For more details, <a href="/blog/2015/12/07/influxdb-and-grafana/">see the blog post on InfluxDB</a>.</p>
 
+<h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
+
 <p>The default InfluxDB configuration doesn’t enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven’t made any configuration changes, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -112,10 +114,13 @@
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
   <li><strong>default_measurement</strong> (<em>Optional</em>): Measurement name to use when an entity doesn’t have a unit. Defaults to entity id.</li>
+  <li><strong>override_measurement</strong> (<em>Optional</em>): Measurement name to use instead of unit or default measurement. This will store all data points in the singel same measurement.</li>
   <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to InfluxDB.</li>
   <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
   <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
 </ul>
+
+<h2><a class="title-link" name="data-migration" href="#data-migration"></a> Data migration</h2>
 
 <p>Starting with 0.36 the InfluxDB component has a new schema to store values in the InfluxDB databases.</p>
 
@@ -128,13 +133,55 @@
   <li>Fields named state will always be stored as string.</li>
 </ul>
 
-<p>If you need to migrate your database, you may require to run the <code class="highlighter-rouge">influxdb_migrator</code> script.</p>
+<h3><a class="title-link" name="migration-script" href="#migration-script"></a> Migration script</h3>
+
+<p>If you need to migrate your database, you may require to run the <code class="highlighter-rouge">influxdb_migrator</code> script. Run the script after upgrade to 0.36 but before first regular start of <code class="highlighter-rouge">hass</code> version 0.36.</p>
+
+<p>These are the steps the script will perform:</p>
+<ol>
+  <li>Create a new database (called <code class="highlighter-rouge">DBNAME__old</code>) to store old data.</li>
+  <li>Copy data from <code class="highlighter-rouge">DBNAME</code> database to <code class="highlighter-rouge">DBNAME__old</code> database.</li>
+  <li>Empty <code class="highlighter-rouge">DBNAME</code> database (using <code class="highlighter-rouge">drop</code> then <code class="highlighter-rouge">create</code>). <code class="highlighter-rouge">DBNAME</code> database is now considered as the new database.</li>
+  <li>For each measurement of <code class="highlighter-rouge">DBNAME__old</code> database:</li>
+  <li>Read all points from the current measuremnt (by group of <code class="highlighter-rouge">1000</code> points by default) and convert them.</li>
+  <li>Send group of points to <code class="highlighter-rouge">DBNAME</code> database.</li>
+  <li>Delete the <code class="highlighter-rouge">DBNAME__old</code> database if needed.</li>
+</ol>
+
+<p>Example to run the script:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script influxdb_migrator <span class="se">\</span>
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD <span class="se">\</span>
-    -o test_series -d INFLUXDB_DB_NAME
+    -d INFLUXDB_DB_NAME
 </code></pre>
 </div>
+<p>Script arguments:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>required arguments:
+  -d dbname, --dbname dbname  InfluxDB database name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -H host, --host host  InfluxDB host address
+  -P port, --port port  InfluxDB host port
+  -u username, --username username
+                        InfluxDB username
+  -p password, --password password
+                        InfluxDB password
+  -s step, --step step  How many points to migrate at the same time
+  -o override_measurement, --override-measurement override_measurement
+                        Store all your points in the same measurement
+  -D, --delete          Delete old database
+</code></pre>
+</div>
+
+<ul>
+  <li>If you run the script with only the <code class="highlighter-rouge">-h</code> option, you will get a help printout with a short explanation of the different options.</li>
+  <li>The host option defaults to <code class="highlighter-rouge">'127.0.0.1'</code>.</li>
+  <li>The port option defaults to <code class="highlighter-rouge">8086</code>.</li>
+  <li>You should be able to omit username and password, if InfluxDB authentication is disabled, which it is by default.</li>
+  <li>The step option defaults to <code class="highlighter-rouge">1000</code>.</li>
+</ul>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
