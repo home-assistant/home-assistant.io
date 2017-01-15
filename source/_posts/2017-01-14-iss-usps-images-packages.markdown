@@ -13,19 +13,19 @@ og_image: /images/blog/2016-12-0.35/social.png
 
 Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and bug fixes.
 
-## Packages
+## {% linkable_title Packages %}
 [Packages][packages] are providing a new way to organize different component's configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the `!include` directives.
 
-## International Space Station (ISS)
-No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives your some details. 
+## {% linkable_title International Space Station (ISS) %}
+No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives your some details.
 
-## Insteon local
-The support for Insteon was removed due to issues. With the `insteon_local` component support for [Insteon][insteon] is back. 
+## {% linkable_title Insteon local %}
+The support for Insteon was removed due to issues. With the `insteon_local` component support for [Insteon][insteon] is back.
 
-## Image processing
+## {% linkable_title Image processing %}
 The new [image processing component][image] currently works with [number plates][plates]. But this could level the way to integrate feature like facial recognition or gestures control.
 
-## All changes
+## {% linkable_title All changes %}
 - Sensor: Support for [HydroQuebec][quebec] ([@titilambert])
 - Sensor: Tracking the [ISS][iss] ([@HydrelioxGitHub])
 - Sensor: [USPS][usps] deliveries tracking ([@happyleavesaoc])
@@ -57,11 +57,24 @@ The new [image processing component][image] currently works with [number plates]
 - Scripts: Support for `last_triggered` ([@Danielhiversen])
 - Media player: Support for `SUPPORT_PLAY` flag ([@armills])
 - Minor and not so minor features and bug fixes by [@balloob], [@pvizeli], [@fabaff], [@mezz64], [@andrey-git], [@aequitas], [@abmantis], [@turbokongen], [@jabesq], [@michaelarnauts], [@kellerza], [@titilambert], [@btorresgil], [@henworth], [@armills], [@mjg59], [@Giannie], [@n8henrie], [@magicus], [@florianholzapfel], [@MrMep], [@bah2830], [@happyleavesaoc], [@lwis], [@glance-], [@markferry], and [@nikdoof].
- 
-### If you need help...
+
+### {% linkable_title Breaking Changes %}
+
+- [APNS][apns] service was moved to the `notify` domain. Use `notify.apns_NOTIFIER_NAME` instead of `apns.NOTIFIER_NAME`.
+- InfluxDB component has a new schema to store values in the influx db. You may require to run the `influxdb_migrator` script.
+  You have to note:
+  - There will not be any tags/fields named time anymore.
+  - All numeric fields (int/float/bool) will be stored as float inside influx db.
+  - All string fields corresponding to state attributes will be renamed as FIELDNAME_str, where FIELDNAME is the state attribute, to avoid type conflicts.
+  - All string fields corresponding to a state will be renamed as state (former value).
+  - Fields named value will always be stored as float.
+  - Fields named state will always be stored as string.
+
+
+### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-### Reporting Issues
+### {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 [@abmantis]: https://github.com/abmantis
@@ -137,4 +150,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi]: https://home-assistant.io/components/device_tracker.xiaomi/
 [yeelight]: https://home-assistant.io/components/light.yeelight/
 [zengge]: https://home-assistant.io/components/light.zengge/
-
+[apns]: https://home-assistant.io/components/notify.apns/
