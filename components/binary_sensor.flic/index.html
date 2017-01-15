@@ -108,6 +108,7 @@
   <li><strong>host</strong> (<em>Optional</em>): The IP or hostname of the flic service server. (default: <code class="highlighter-rouge">localhost</code>)</li>
   <li><strong>port</strong> (<em>Optional</em>): The port of the flic service. (default: <code class="highlighter-rouge">5551</code>)</li>
   <li><strong>discovery</strong> (<em>Optional</em>): If <code class="highlighter-rouge">true</code>, the component is configured to constantly scan for new buttons. (default: <code class="highlighter-rouge">true</code>)</li>
+  <li><strong>ignored_click_types</strong>: List of click types whose occurrence should not trigger and <code class="highlighter-rouge">flic_click</code> event.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): Maximum time in seconds an event can be queued locally on a button before discarding the event. (default: <code class="highlighter-rouge">3</code>)</li>
 </ul>
 
@@ -145,6 +146,10 @@
   <li><strong>click_type</strong>: The type of click. Possible values are <code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">double</code> and <code class="highlighter-rouge">hold</code>.</li>
   <li><strong>queued_time</strong>: The amount of time this event was queued on the button, in seconds.</li>
 </ul>
+
+<h5><a class="title-link" name="ignoring-click-types" href="#ignoring-click-types"></a> Ignoring Click Types</h5>
+
+<p>For some purposes it might make sense to exclude a specific click type from triggering click events. For example when ignoring double clicks, pressing the button twice fast results in two <code class="highlighter-rouge">single</code> instead of a <code class="highlighter-rouge">double</code> click event. This is very useful for applications where you want to click fast.</p>
 
 
 </article>

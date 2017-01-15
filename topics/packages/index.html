@@ -1,0 +1,218 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Packages - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Describes all there is to know about configuration packages in Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/topics/packages/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Packages">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/topics/packages/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Describes all there is to know about configuration packages in Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Packages">
+    <meta name="twitter:description" content="Describes all there is to know about configuration packages in Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_topics/packages.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Packages
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Packages in Home Assistant provides a way to bundle different component’s configuration together. We were already introduced to the two configuration styles (specifying platforms entries together or individually) on the <a href="/getting-started/devices/">adding devices</a> page. Both of these configuration methods require you to create the component key in the main <code class="highlighter-rouge">configuration.yaml</code> file. With packages we have a way to include different components, or parts of configuration using any of the <code class="highlighter-rouge">!include</code> directives introduced in <a href="/topics/splitting_configuration">splitting the configuration</a>.</p>
+
+<p>Packages are configured under the core <code class="highlighter-rouge">homeassistant/packages</code> in the configuration and take the format of a packages name (no spaces, all lower case) followed by a dictionary with the package config. For example, package <code class="highlighter-rouge">pack_1</code> would be created as:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">...</span>
+  <span class="s">packages</span><span class="pi">:</span> 
+    <span class="s">pack_1</span><span class="pi">:</span>
+      <span class="s">...package configuration here...</span>
+</code></pre>
+</div>
+
+<p>The package configuration can include: <code class="highlighter-rouge">switch</code>, <code class="highlighter-rouge">light</code>, <code class="highlighter-rouge">automation</code>, <code class="highlighter-rouge">groups</code> or the majority of the Home Assistant components.</p>
+
+<p>It can be specified inline or in a seperate YAML file using <code class="highlighter-rouge">!include</code>.</p>
+
+<p>Inline example, main <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">...</span>
+  <span class="s">packages</span><span class="pi">:</span> 
+    <span class="s">pack_1</span><span class="pi">:</span>
+      <span class="s">switch</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+          <span class="s">...</span>
+      <span class="s">light</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi</span>
+          <span class="s">...</span>
+</code></pre>
+</div>
+
+<p>Include example, main <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">...</span>
+  <span class="s">packages</span><span class="pi">:</span> 
+    <span class="s">pack_1</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">my_package.yaml</span>
+</code></pre>
+</div>
+
+<p>The file <code class="highlighter-rouge">my_package.yaml</code> contains the “top-level” configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>switch:
+  - platform: rest
+    ...
+light:
+  - platform: rpi
+    ...
+</code></pre>
+</div>
+
+<p>There are some rules for packages that will be merged:</p>
+
+<ol>
+  <li>Component names may only use the basic form (e.g. <code class="highlighter-rouge">switch</code> and <code class="highlighter-rouge">switch 1</code> or <code class="highlighter-rouge">switch aa</code> is not accepted).</li>
+  <li>Platform based components (<code class="highlighter-rouge">light</code>, <code class="highlighter-rouge">switch</code>, etc) can always be merged.</li>
+  <li>
+    <p>Components where entities are identified by a key that will represent the entity_id (<code class="highlighter-rouge"><span class="p">{</span><span class="err">key:</span><span class="w"> </span><span class="err">config</span><span class="p">}</span></code>) need to have unique ‘keys’ between packages and the main configuration file.</p>
+
+    <p>For example if we have the following in the main config. You are not allowed to re-use “my_input” again for <code class="highlighter-rouge">input_boolean</code> in a package:</p>
+
+    <p><code class="highlighter-rouge">yaml
+ input_boolean:
+   my_input:
+</code></p>
+  </li>
+  <li>Any component that is not a platform [2], or dictionaries with Entity ID keys [3] cannot be merged and can only occur once between all packages and the main configuration.</li>
+</ol>
+
+<p class="note tip">
+Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the component name.
+</p>
+
+<h3><a class="title-link" name="create-a-packages-folder" href="#create-a-packages-folder"></a> Create a packages folder</h3>
+
+<p>One way to organise packages would be to create a folder named “packages” in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your <code class="highlighter-rouge">configuration.yaml</code> will load all packages:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">packages</span><span class="pi">:</span> <span class="kt">!include_dir_named</span> <span class="s">packages</span>
+</code></pre>
+</div>
+
+<p>This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
+See the documentation about <a href="/topics/splitting_configuration/">splitting the configuration</a> for more information about <code class="highlighter-rouge">!include_dir_named</code> and other include statements that might be helpful.</p>
+
+
+</article>
+
+
+        </div>
+
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

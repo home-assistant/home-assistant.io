@@ -99,6 +99,7 @@
   <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">apns</span>
   <span class="s">cert_file</span><span class="pi">:</span> <span class="s">cert_file.pem</span>
+  <span class="s">topic</span><span class="pi">:</span> <span class="s">topic</span>
 </code></pre>
 </div>
 
@@ -106,13 +107,14 @@
 
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The name of the notifier. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>sandbox</strong> (<em>Optional</em>): If true notifications will be sent to the sandbox (test) notification service. Default false.</li>
   <li><strong>cert_file</strong> (<em>Required</em>): The certificate to use to authenticate with the APNS service.</li>
+  <li><strong>topic</strong> (<em>Required</em>): The app bundle ID specified in the certificate.</li>
+  <li><strong>sandbox</strong> (<em>Optional</em>): If true notifications will be sent to the sandbox (test) notification service. Default false.</li>
 </ul>
 
-<p>The APNS platform will register two services, <code class="highlighter-rouge">notify.NOTIFIER_NAME</code> and <code class="highlighter-rouge">apns.NOTIFIER_NAME</code>.</p>
+<p>The APNS platform will register two services, <code class="highlighter-rouge">notify.NOTIFIER_NAME</code> and <code class="highlighter-rouge">notify.apns_NOTIFIER_NAME</code>.</p>
 
-<h3>apns.NOTIFIER_NAME</h3>
+<h3>notify.apns_NOTIFIER_NAME</h3>
 
 <p>This service will register device id’s with home assistant. In order to receive a notification a device must be registered. The app on the device can use this service to send an ID to Home Assistant during startup, the ID will be stored in <code class="highlighter-rouge">[NOTIFIER_NAME]_apns.yaml</code>.</p>
 
@@ -208,6 +210,9 @@
             <a href='/components/notify.webostv/'>LG WebOS TV notifications</a>
         </li>
         <li>
+            <a href='/components/notify.lannouncer/'>Lannouncer</a>
+        </li>
+        <li>
             <a href='/components/notify.llamalab_automate/'>LlamaLab Automate</a>
         </li>
         <li>
@@ -218,6 +223,9 @@
         </li>
         <li>
             <a href='/components/notify.message_bird/'>MessageBird</a>
+        </li>
+        <li>
+            <a href='/components/notify.mysensors/'>MySensors Notify</a>
         </li>
         <li>
             <a href='/components/notify.nfandroidtv/'>Notifications for Android TV / FireTV</a>

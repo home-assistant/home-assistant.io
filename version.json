@@ -1,15 +1,15 @@
 {
-  "current_version": "0.35.3",
-  "release_date": "2016-12-23T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/",
-  "release_notes_path": "/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/",
-  "release_title": "0.35: Text-to-speech, VLC, Flic, netdata",
-  "release_description": "Home Assistant learned to speak, VLC and AquosTV mediaplayer, Netdata, ZMAG, Flic, and Broadlink",
+  "current_version": "0.36.0",
+  "release_date": "2017-01-15T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/",
+  "release_notes_path": "/blog/2017/01/14/iss-usps-images-packages/",
+  "release_title": "0.36: ISS, USPS, Image processing, Insteon",
+  "release_description": "Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes",
   "patch_version_notes": "#release-0353---december-23",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
-    "minor": 35,
-    "patch": 3
+    "minor": 36,
+    "patch": 0
   }
 }

@@ -1,0 +1,227 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RESTful Command - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate REST commands into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/rest_command/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="RESTful Command">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/rest_command/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate REST commands into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="RESTful Command">
+    <meta name="twitter:description" content="Instructions how to integrate REST commands into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      RESTful Command
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>This component can expose regular REST commands as services. Services can be called from a <a href="/components/script/">script</a> or in <a href="/getting-started/automation/">automation</a>.</p>
+
+<p>To enable this switch, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">rest_command</span><span class="pi">:</span>
+  <span class="s">example_request</span><span class="pi">:</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">http://example.com/'</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>[service_name]</strong> (<em>Required</em>): The name used to expose the service. E.g. in the above example would it be ` rest_command.example_request`.
+    <ul>
+      <li><strong>url</strong> (<em>Required</em>): The URL (support template) for sending request.</li>
+      <li><strong>method</strong> (<em>Optional</em>): HTTP method (get, post, put, delete). Default is get.</li>
+      <li><strong>payload</strong> (<em>Optional</em>): A string/template to send with request.</li>
+      <li><strong>username</strong> (<em>Optional</em>): The username for HTTP authentication.</li>
+      <li><strong>password</strong> (<em>Optional</em>): The password for HTTP authentication.</li>
+      <li><strong>timeout</strong> (<em>Optional</em>): Timeout for requests. Defaults to 10 seconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The commands can be dynamic, using templates to insert values of other entities. Service call support variables for template stuff.</p>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/rest_command.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/restful.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.36
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Automation</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/automation/'>Automation</a>
+        </li>
+        <li>
+            <a href='/components/switch.flux/'>Flux Light Adjustment</a>
+        </li>
+        <li>
+            <a href='/components/hdmi_cec/'>HDMI CEC</a>
+        </li>
+        <li>
+            <a href='/components/ifttt/'>IFTTT</a>
+        </li>
+        <li>
+            <a href='/components/input_boolean/'>Input Boolean</a>
+        </li>
+        <li>
+            <a href='/components/input_select/'>Input Select</a>
+        </li>
+        <li>
+            <a href='/components/input_slider/'>Input Slider</a>
+        </li>
+        <li>
+            <a href='/components/keyboard/'>Keyboard</a>
+        </li>
+        <li>
+            <a href='/components/lirc/'>LIRC</a>
+        </li>
+        <li>
+            <a href='/components/openalpr/'>OpenALPR</a>
+        </li>
+        <li>
+            <a href='/components/device_sun_light_trigger/'>Presence based lights</a>
+        </li>
+        <li>
+            <a href='/components/proximity/'>Proximity</a>
+        </li>
+        <li>
+            RESTful Command
+        </li>
+        <li>
+            <a href='/components/script/'>Scripts</a>
+        </li>
+        <li>
+            <a href='/components/shell_command/'>Shell command</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

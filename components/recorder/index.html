@@ -107,15 +107,70 @@
 
 <ul>
   <li><strong>purge_days</strong> (<em>Optional</em>): Delete events and states older than x days.</li>
+  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should be excluded from recordings.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from recordings.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from recordings.</li>
+    </ul>
+  </li>
+  <li><strong>include</strong> (<em>Optional</em>): Configure which components should be included in recordings. If set, all other entities will not be recorded.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from the history.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from the history.</li>
+    </ul>
+  </li>
   <li><strong>db_url</strong> (<em>Optional</em>): The URL which point to your database.</li>
 </ul>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<p>Define domains and entities to <code class="highlighter-rouge">exclude</code> (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like <code class="highlighter-rouge">weblink</code>) or rarely change (<code class="highlighter-rouge">updater</code> or <code class="highlighter-rouge">automation</code>).</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with exclude</span>
 <span class="s">recorder</span><span class="pi">:</span>
   <span class="s">purge_days</span><span class="pi">:</span> <span class="s">5</span>
   <span class="s">db_url</span><span class="pi">:</span> <span class="s">sqlite:///home/user/.homeassistant/test</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">automation</span>
+      <span class="pi">-</span> <span class="s">weblink</span>
+      <span class="pi">-</span> <span class="s">updater</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sun.sun</span>   <span class="c1"># Don't record sun data</span>
+      <span class="pi">-</span> <span class="s">sensor.last_boot</span>
+      <span class="pi">-</span> <span class="s">sensor.date</span>
 </code></pre>
 </div>
+
+<p>Define domains and entities to record by using the <code class="highlighter-rouge">include</code> configuration (aka. whitelist). If you have a lot of entities in your system and your <code class="highlighter-rouge">exclude</code> lists possibly get very large, it might be better just to define the entities or domains to record.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with include</span>
+<span class="s">history</span><span class="pi">:</span>
+  <span class="s">include</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor</span>
+      <span class="pi">-</span> <span class="s">switch</span>
+      <span class="pi">-</span> <span class="s">media_player</span>
+</code></pre>
+</div>
+
+<p>Use the <code class="highlighter-rouge">include</code> list to define the domains/entities to record, and exclude some of them with in the <code class="highlighter-rouge">exclude</code> list. This makes sense if you for instance include the <code class="highlighter-rouge">sensor</code> domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the <code class="highlighter-rouge">include</code> <code class="highlighter-rouge">entities</code> list just include the <code class="highlighter-rouge">sensor</code> domain and exclude the sensor entities you are not interested in.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with include and exclude</span>
+<span class="s">history</span><span class="pi">:</span>
+  <span class="s">include</span><span class="pi">:</span>
+    <span class="s">domains</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor</span>
+      <span class="pi">-</span> <span class="s">switch</span>
+      <span class="pi">-</span> <span class="s">media_player</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">sensor.last_boot</span>
+     <span class="pi">-</span> <span class="s">sensor.date</span>
+</code></pre>
+</div>
+
+<p>If you only want to hide events from e.g. your history, take a look at the <a href="/components/history/"><code class="highlighter-rouge">history</code> component</a>. Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the <code class="highlighter-rouge">exclude</code>/<code class="highlighter-rouge">include</code> options of the <code class="highlighter-rouge">recorder</code> component, that they aren’t even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like <code class="highlighter-rouge">sensor.last_boot</code>).</p>
+
+<h2>Custom database engines</h2>
 
 <table>
   <thead>

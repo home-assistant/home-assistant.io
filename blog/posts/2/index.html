@@ -83,6 +83,71 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/10/02/hacktoberfest/">Participating in Hacktoberfest</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-10-02T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 2, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Community</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/10/02/hacktoberfest/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Home Assistant will join this year for <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>, an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!</p>
+
+<p>Why contribute to Home Assistant:</p>
+
+<ul>
+  <li>Written in Python3 with 94% test coverage</li>
+  <li>Active and helpful community</li>
+  <li>Friendly to new contributors</li>
+</ul>
+
+<p>Resources to get started:</p>
+
+<ul>
+  <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
+  <li><a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">List of entry-level issues for Home Assistant</a></li>
+  <li><a href="/developers/development_environment/">Instructions to setup your development environment</a></li>
+  <li><a href="https://gitter.im/home-assistant/home-assistant/devs">Home Assistant Development Chat</a></li>
+  <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
+  <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
+</ul>
+
+<p>Are you not a programmer but still want to contribute to Home Assistant? Check out our <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">list of entry-level issues for the Home Assistant website</a>.</p>
+
+<p><a href="https://hacktoberfest.digitalocean.com/"><img src="/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/10/01/we-have-raspberry-image-now/">We have a Raspberry Pi image now</a>
   </h1>
   
@@ -1000,59 +1065,6 @@ Heatmap
 
     
       <a class="btn pull-right" href="/blog/2016/08/07/optimizing-the-home-assistant-mobile-web-app/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/08/03/laundry-automation-update/">Laundry Sensors with NodeMCU and Home Assistant</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-08-03T17:22:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 2, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Nolan Gilley</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>User-Stories</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/08/03/laundry-automation-update/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><em>This is a guest post by Home Assistant user and contributor <a href="https://github.com/nkgilley">Nolan Gilley</a>.</em></p>
-
-<p>Today I’ll show you how I used Home Assistant, a NodeMCU (ESP8266), and a couple of accelerometers to automate our laundry room.  This is a rewrite of an <a href="https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/">old post</a> where I did the same thing using a Moteino &amp; Raspberry Pi.  This version only requires a NodeMCU.</p>
-
-<p>We have an older washer and dryer which doesn’t have any form of notification when cycles complete.  Home Assistant was the obvious solution, I just needed to create sensors for the washer and dryer.  I tried using sound sensors but found them unreliable.  I ended up using an accelerometer attached to the back of each appliance.  I also added magnetic reed switches on the doors of the washer and dryer to detect whether they’re open or closed.  I connected the accelerometers and reed switches to an NodeMCU which will relay the data to my MQTT broker.</p>
-
-<p class="img">
-  <img src="/images/blog/2016-07-laundry-automation/block-diagram.png" />
-  Block diagram of schematic
-</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/08/03/laundry-automation-update/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

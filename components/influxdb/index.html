@@ -117,6 +117,25 @@
   <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
 </ul>
 
+<p>Starting with 0.36 the InfluxDB component has a new schema to store values in the InfluxDB databases.</p>
+
+<ul>
+  <li>There will not be any tags/fields named time anymore.</li>
+  <li>All numeric fields (int/float/bool) will be stored as float inside InfluxDB database.</li>
+  <li>All string fields corresponding to state attributes will be renamed as <code class="highlighter-rouge">FIELDNAME_str</code>, where <code class="highlighter-rouge">FIELDNAME</code> is the state attribute, to avoid type conflicts.</li>
+  <li>All string fields corresponding to a state will be renamed as state (former value).</li>
+  <li>Fields named value will always be stored as float.</li>
+  <li>Fields named state will always be stored as string.</li>
+</ul>
+
+<p>If you need to migrate your database, you may require to run the <code class="highlighter-rouge">influxdb_migrator</code> script.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script influxdb_migrator <span class="se">\</span>
+    -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD <span class="se">\</span>
+    -o test_series -d INFLUXDB_DB_NAME
+</code></pre>
+</div>
+
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
 <h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>

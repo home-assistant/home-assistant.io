@@ -97,7 +97,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">http://192.168.0.123</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
 </code></pre>
 </div>
 
@@ -105,7 +105,7 @@
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The host name or address of the device that is running XBMC/Kodi</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port number. Defaults to 8080.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The http port number. Defaults to 8080.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend.</li>
   <li><strong>username</strong> (<em>Optional</em>): The XBMC/Kodi HTTP username.</li>
   <li><strong>password</strong> (<em>Optional</em>): The XBMC/Kodi HTTP password.</li>
@@ -187,6 +187,9 @@
         </li>
         <li>
             <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nad/'>NAD</a>
         </li>
         <li>
             <a href='/components/media_player.onkyo/'>Onkyo</a>

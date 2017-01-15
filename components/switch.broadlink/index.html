@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>This <code class="highlighter-rouge">Broadlink</code> switch platform allow to you control Broadlink RM2 Pro and RM mini IR+RF <a href="http://www.ibroadlink.com/rm/">devices</a>.</p>
+  <p>This <code class="highlighter-rouge">Broadlink</code> switch platform allow to you control Broadlink <a href="http://www.ibroadlink.com/rm/">devices</a>.</p>
 
 <p>To enable it, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
@@ -107,10 +107,13 @@
 </div>
 
 <p>Configuration variables:</p>
+
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
   <li><strong>mac</strong> (<em>Required</em>):  Device mac address.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): Timeout in seconds for the connection to the device</li>
+  <li><strong>friendly_name</strong> (<em>Optional</em>): The name used to display the switch in the frontend.</li>
+  <li><strong>types</strong> (<em>Optional</em>): Switch type. (rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl, rm_mini_shate, sp1, sp2, honeywell_sp2, sp3, spmini2 or spminiplus)</li>
   <li><strong>switches</strong> (<em>Optional</em>): The array that contains all switches.
     <ul>
       <li><strong>identifier</strong> (<em>Required</em>): Name of the command switch as slug. Multiple entries are possible.
@@ -128,9 +131,10 @@
 
 <p>Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of Available services:  and hit CALL SERVICE. Press the button on your remote with in 20 seconds. The packet will be printed in the log and as a persistent notification.</p>
 
-<p>Example config:</p>
+<p>Example config for rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl and rm_mini_shate devices:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch 2</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
   <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">B4:43:0D:CC:0F:58'</span>
   <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
@@ -159,6 +163,38 @@
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv"</span>
       <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABIpQPFBITETgSEw8UEhQSEhEVDzgSOBAUETgQOQ84EjgRNxITETgSExA5EDgREhI3EhMROBMSEDkQFBETEjYTEhE4EQANBQ=='</span>
       <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABH5YPFBETETgUERAUEBURFBATETgROBEUETcSNxE4ETcSOBISEBUQFREUEjUSFBA5ETcRNxE4ETkQOBAUEjcRFRAUEQANBQ=='</span>
+
+
+<span class="s">switch 2</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
+  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">B4:43:0D:CC:0F:58'</span>
+  <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
+<span class="c1"># Will work on most Phillips tvs:</span>
+    <span class="s">tv</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Phillips</span><span class="nv"> </span><span class="s">Tv"</span>
+      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='</span>
+
+
+</code></pre>
+</div>
+
+<p>Example config for sp1, sp2, honeywell_sp2, sp3, spmini2 and spminiplus devices:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch 1</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+  <span class="s">type</span><span class="pi">:</span>  <span class="s">sp1</span>
+  <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidifier'</span>
+  
+<span class="s">switch 2</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+  <span class="s">type</span><span class="pi">:</span>  <span class="s">sp2</span>
+  <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidifier'</span>
+
 </code></pre>
 </div>
 
@@ -203,6 +239,9 @@
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>
         <li>
+            <a href='/components/switch.bbb_gpio/'>BeagleBone Black GPIO Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.wemo/'>Belkin WeMo Switch</a>
         </li>
         <li>
@@ -237,6 +276,12 @@
         </li>
         <li>
             <a href='/components/switch.isy994/'>ISY994 Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.insteon_local/'>Insteon (Local) Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.kankun/'>Kankun SP3 Wifi Switch</a>
         </li>
         <li>
             <a href='/components/switch.litejet/'>LiteJet Switch</a>

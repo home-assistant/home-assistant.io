@@ -90,16 +90,28 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">broadlink</code> sensor platform let you monitor data from an RM2 and A1 E-air.
-There is currently no support for the cloud API.</p>
+  <p>The <code class="highlighter-rouge">broadlink</code> sensor platform let you monitor data from an RM2 and A1 E-air. There is currently no support for the cloud API.</p>
+
+<p>To enable it, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">temperature'</span>
+</code></pre>
+</div>
 
 <p>Configuration options:</p>
+
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Default BL. Sensor name</li>
-  <li><strong>update_interval</strong> (<em>Optional</em>): Default 300. Time in seconds to fetch data from sensors</li>
   <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
   <li><strong>mac</strong> (<em>Required</em>):  Device mac address.</li>
-  <li><strong>timeout</strong> (<em>Optional</em>): Timeout in seconds for the connection to the device</li>
+  <li><strong>name</strong> (<em>Optional</em>): Default BL. Sensor name</li>
+  <li><strong>update_interval</strong> (<em>Optional</em>): Time in seconds to fetch data from sensors. Default 300.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): Timeout in seconds for the connection to the device.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): States to monitor.
     <ul>
       <li>‘temperature’</li>
@@ -114,8 +126,9 @@ There is currently no support for the cloud API.</p>
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <p>Obtain sensor data from an A1:</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
     <span class="s">update_interval</span><span class="pi">:</span> <span class="s">60</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
     <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
@@ -129,13 +142,28 @@ There is currently no support for the cloud API.</p>
 </div>
 
 <p>Obtain temperature data from an RM2:</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
     <span class="s">update_interval</span><span class="pi">:</span> <span class="s">60</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
     <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">temperature</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="microsoft-windows-installation" href="#microsoft-windows-installation"></a> Microsoft Windows installation</h3>
+
+<p class="note">
+The pycrypto library needs to be available on your platform. On a typical windows sysytem <code class="highlighter-rouge">pip install pycrypto</code> will fail, as a compiler needs to be installed first.
+</p>
+
+<p>The quickest way around this is to use a pre-built binary, e.g. from https://github.com/sfbahr/PyCrypto-Wheels</p>
+
+<p>Be sure to get the correct 64 or 32-bit binary for your system, the full commandline will look something like the sample below for a 64-bit system:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip install --use-wheel --no-index --find-links<span class="o">=</span>https://github.com/sfbahr/PyCrypto-Wheels/raw/master/pycrypto-2.6.1-cp35-none-win_amd64.whl pycrypto
 </code></pre>
 </div>
 
@@ -227,6 +255,9 @@ There is currently no support for the cloud API.</p>
             <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.iss/'>International Space Station Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
         </li>
         <li>
@@ -306,6 +337,9 @@ There is currently no support for the cloud API.</p>
         </li>
         <li>
             <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.usps/'>USPS Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.vera/'>Vera Sensor</a>

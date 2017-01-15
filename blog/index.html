@@ -83,6 +83,131 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2017/01/14/iss-usps-images-packages/">0.36: ISS, USPS, Image processing, Insteon</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2017-01-14T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 15, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2017/01/14/iss-usps-images-packages/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and a lot of bug fixes.</p>
+
+<h2><a class="title-link" name="packages" href="#packages"></a> Packages</h2>
+<p><a href="https://home-assistant.io/topics/packages/">Packages</a> are providing a new way to organize different component’s configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the <code class="highlighter-rouge">!include</code> directives.</p>
+
+<h2><a class="title-link" name="influxdb-export" href="#influxdb-export"></a> InfluxDB export</h2>
+<p>The <a href="https://home-assistant.io/components/influxdb/">InfluxDB</a> component was causing problems in a wide variety of use cases. <a href="https://github.com/titilambert">@titilambert</a> improved our InfluxDB exporter feature. It might be that you need to run the migration script to update your InfluxDB database.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script influxdb_migrator <span class="se">\</span>
+    -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD <span class="se">\</span>
+    -o test_series -d INFLUXDB_DB_NAME
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="international-space-station-iss" href="#international-space-station-iss"></a> International Space Station (ISS)</h2>
+<p>No, unfortunately we are not going to space. The <code class="highlighter-rouge">iss</code> sensor is tracking the position of the International Space Station and gives your some details.</p>
+
+<h2><a class="title-link" name="insteon-local" href="#insteon-local"></a> Insteon local</h2>
+<p>The support for Insteon was removed due to issues a while ago. With the <code class="highlighter-rouge">insteon_local</code> component support for <a href="https://home-assistant.io/components/insteon_local/">Insteon</a> is back and let one work locally with an Insteon setup.</p>
+
+<h2><a class="title-link" name="image-processing" href="#image-processing"></a> Image processing</h2>
+<p>The new <a href="https://home-assistant.io/components/image_processing/">image processing component</a> currently works with <a href="https://home-assistant.io/components/openalpr/">number plates</a>. But this could level the way to integrate feature like facial recognition, motion detection, or gestures control.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+<ul>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.hydroquebec/">HydroQuebec</a> (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Sensor: Tracking the <a href="https://home-assistant.io/components/sensor.iss/">ISS</a> (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.usps/">USPS</a> deliveries tracking (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Device tracker: New <a href="https://home-assistant.io/components/device_tracker.ping/">ping-based</a> tracker (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
+  <li>TTS: Support for <a href="https://home-assistant.io/components/tts.picotts/">Pico</a> (<a href="https://github.com/doudz">@doudz</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/bbb_gpio/">BeagleBone Black</a> GPIO are supported now (<a href="https://github.com/MatoKafkac">@MatoKafkac</a>)</li>
+  <li>Light: New support for <a href="https://home-assistant.io/components/light.tikteck/">Tikteck</a> Bluetooth bulbs (<a href="https://github.com/mjg59">@mjg59</a>)</li>
+  <li>Switch: Support for customised <a href="https://home-assistant.io/components/switch.kankun/">Kankun SP3 Wifi</a> switches (<a href="https://github.com/webworxshop">@webworxshop</a>)</li>
+  <li>Insteon local: Local <a href="https://home-assistant.io/components/insteon_local/">insteon</a> support(<a href="https://github.com/wardcraigj">@wardcraigj</a>)</li>
+  <li><code class="highlighter-rouge">rest_command</code>: Support for using <a href="https://home-assistant.io/components/rest_command/">REST</a> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sensor: Show details of the <a href="https://home-assistant.io/components/sensor.dublin_public_transport/">Dublin RTPI</a> information (<a href="https://github.com/ttroy50">@ttroy50</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.zengge/">Zengge Bluetooth</a> bulbs (<a href="https://github.com/mjg59">@mjg59</a>)</li>
+  <li>Fan: Wink support for <a href="https://home-assistant.io/components/fan.wink/">fans</a> (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Device tracker: New <a href="https://home-assistant.io/components/device_tracker.trackr/">TrackR</a> device tracker support (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.xiaomi/">Xiaomi router</a> (<a href="https://github.com/RiRomain">@RiRomain</a>)</li>
+  <li>Sensor: New <a href="https://home-assistant.io/components/sensor.sma/">SMA Solar Webconnect</a> sensor (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io/components/notify.lannouncer/">Lannouncer</a> TTS support (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
+  <li>Image processing: Support for <a href="https://home-assistant.io/components/image_processing/">Image processing</a> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.upc_connect/">UPC</a> Connect box platform support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Weather: <a href="https://home-assistant.io/components/weather.bom/">Australian BOM</a> (Bureau of Meteorology) support (<a href="https://github.com/Zac-HD">@Zac-HD</a>)</li>
+  <li>Notify: Support for <a href="https://home-assistant.io/components/notify.mysensors/">MySensors</a> notifications (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>
+    <p>TTS: New <a href="https://home-assistant.io/components/tts.yandextts/">Yandex SpeechKit TTS</a> integration (<a href="https://github.com/lupin-de-mid">@lupin-de-mid</a>)</p>
+  </li>
+  <li>Sensor - sonarr: Add <code class="highlighter-rouge">urlbase</code> to <a href="https://home-assistant.io/components/sensor.sonarr/">Sonarr</a> (<a href="https://github.com/quadportnick">@quadportnick</a>)</li>
+  <li>Switch - broadlink: Support for <a href="https://home-assistant.io/components/switch.broadlink/">SP</a> devices (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Homematic: Support for HMIP-PSM or HMWIOSwitch (<a href="https://github.com/danielperna84">@danielperna84</a>, <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Light - flux: Ledenet protocol support by Flux LED (<a href="https://github.com/bah2830">@bah2830</a>)</li>
+  <li>Device tracker: Support for longer intervals (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>ISY994: Weather sensors added (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li>InfluxDB: Improvements to avoid issues with storing details (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Light - Yeelight: Auto discovery support and color temperature feature for <a href="https://home-assistant.io/components/light.yeelight/">Yeelight</a> (<a href="https://github.com/jjensn">@jjensn</a>)</li>
+  <li>Media player - SqueezeBox: Switch to JSON-RPC (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Scripts: Support for <code class="highlighter-rouge">last_triggered</code> (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Media player: Support for <code class="highlighter-rouge">SUPPORT_PLAY</code> flag (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/abmantis">@abmantis</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/titilambert">@titilambert</a>, <a href="https://github.com/btorresgil">@btorresgil</a>, <a href="https://github.com/henworth">@henworth</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/mjg59">@mjg59</a>, <a href="https://github.com/Giannie">@Giannie</a>, <a href="https://github.com/n8henrie">@n8henrie</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/florianholzapfel">@florianholzapfel</a>, <a href="https://github.com/MrMep">@MrMep</a>, <a href="https://github.com/bah2830">@bah2830</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/glance-">@glance-</a>, <a href="https://github.com/markferry">@markferry</a>, and <a href="https://github.com/nikdoof">@nikdoof</a>.</li>
+</ul>
+
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+<ul>
+  <li><a href="https://home-assistant.io/components/notify.apns/">APNS</a> service was moved to the <code class="highlighter-rouge">notify</code> domain. Use <code class="highlighter-rouge">notify.apns_NOTIFIER_NAME</code> instead of <code class="highlighter-rouge">apns.NOTIFIER_NAME</code>.</li>
+  <li><a href="https://home-assistant.io/components/influxdb/">InfluxDB</a> component has a new schema to store values in the InfluxDB database. You may require to run the <code class="highlighter-rouge">influxdb_migrator</code> script.
+You have to note:
+    <ul>
+      <li>There will not be any tags/fields named time anymore.</li>
+      <li>All numeric fields (int/float/bool) will be stored as float inside influx db.</li>
+      <li>All string fields corresponding to state attributes will be renamed as FIELDNAME_str, where FIELDNAME is the state attribute, to avoid type conflicts.</li>
+      <li>All string fields corresponding to a state will be renamed as state (former value).</li>
+      <li>Fields named value will always be stored as float.</li>
+      <li>Fields named state will always be stored as string.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2017/01/03/control-my-christmas-tree-stats/">Control My Christmas Tree Stats</a>
   </h1>
   
@@ -1415,71 +1540,6 @@
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/10/02/hacktoberfest/">Participating in Hacktoberfest</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-10-02T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 2, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Community</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/10/02/hacktoberfest/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Home Assistant will join this year for <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>, an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!</p>
-
-<p>Why contribute to Home Assistant:</p>
-
-<ul>
-  <li>Written in Python3 with 94% test coverage</li>
-  <li>Active and helpful community</li>
-  <li>Friendly to new contributors</li>
-</ul>
-
-<p>Resources to get started:</p>
-
-<ul>
-  <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
-  <li><a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">List of entry-level issues for Home Assistant</a></li>
-  <li><a href="/developers/development_environment/">Instructions to setup your development environment</a></li>
-  <li><a href="https://gitter.im/home-assistant/home-assistant/devs">Home Assistant Development Chat</a></li>
-  <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
-  <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
-</ul>
-
-<p>Are you not a programmer but still want to contribute to Home Assistant? Check out our <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">list of entry-level issues for the Home Assistant website</a>.</p>
-
-<p><a href="https://hacktoberfest.digitalocean.com/"><img src="/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
 
 
     

@@ -83,6 +83,63 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/06/13/home-assistant-at-pycon-2016/">Home Assistant at PyCon 2016</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-06-13T01:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 13, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Video</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/06/13/home-assistant-at-pycon-2016/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s been already almost two weeks ago that a few of the Home Assistant developers headed towards Portland for <a href="https://us.pycon.org/2016/">PyCon 2016</a> - the conference about everything Python. We were there to learn all the nifty tricks to make our code better but most of all, to talk Home Automation.</p>
+
+<p class="img">
+  <img src="/images/blog/2016-06-pycon/crew.jpg" alt="Home Assistant developers" />
+  Couple of Home Assistant devs. Left to right: <a href="https://github.com/balloob/">Paulus (@balloob)</a>, <a href="https://github.com/infamy/">Alex (@infamy)</a>, <a href="https://github.com/rmkraus/">Ryan (@rmkraus)</a>.
+</p>
+
+<p>On Monday I (Paulus) gave a presentation about Home Assistant to an audience of over 400 people! It was a bit scary at first but after a couple of minutes it went all great including some great questions afterwards. Slides can be found <a href="https://docs.google.com/presentation/d/1F1pGOoSf0dD79Dl5dgys0ll7xiuIA4XiQeNeJ-xlqMg/edit">here</a> and the talk is embedded right below:</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/UhccJacWhdM" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<p>One of the things that really impressed me was the amount of people that approached us to tell how they love Home Assistant, how it has replaced their previous solution, how they enjoyed contributing to Home Assistant and how helpful our community is. It makes me proud of Home Assistant and especially our community.</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/06/13/home-assistant-at-pycon-2016/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/06/08/super-fast-web-enocean-lirc/">0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify</a>
   </h1>
   
@@ -717,64 +774,6 @@
 </div>
 
 
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/">iBeacons: Making presence detection work better (part I)</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-04-30T06:50:09+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 30, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Greg Dowling</span>
-    <span><i class='icon-time'></i> nine minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>OwnTracks</li>
-      
-        <li>Presence-Detection</li>
-      
-        <li>iBeacons</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><em>This post is by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
-
-<p>In 2013 Apple introduced iBeacons: a class of Bluetooth low energy (LE) devices that broadcast their identifier to nearby devices, including most smartphones. At first glance it’s hard to imagine why they might be useful. In this two part blog I’ll try and explain why they are useful and how you can use them with Home Assistant.</p>
-
-<p>The reason I started using iBeacons was to improve presence detection (and I think that’s the case with most people) so that’s what I’ll discuss in <em>part 1</em>. In <em>part 2</em> I’ll talk about using iBeacons to track devices that can’t track themselves.</p>
-
-<h3><a class="title-link" name="using-beacons-to-improve-owntracks-location-data" href="#using-beacons-to-improve-owntracks-location-data"></a> Using beacons to improve OwnTracks location data</h3>
-
-<p>When you use OwnTracks in standard <em>major move</em> mode (which is kind to your phone battery) it sometimes fails to update when you’d like it to. In my case I found that it would often send a location update as I was on my way home, but then not update when I got home. The result would be that Home Assistant would think I was 500M away from home, and take quite a while to notice I was home. It would also mean that the automation that should turn on my lights when I got home didn’t work very well! There were a few times when my phone location updated at 2am and turned the lights on for me. Fortunately my wife is very patient!</p>
-
-<p>Luckily, OwnTracks supports iBeacons so I could use them to make presence detection more reliable. When OwnTracks sees a beacon it recognises, it will send an update. This means that if you put a beacon at your front door - OwnTracks will see it within a few seconds of you arriving home - and send an update saying it has seen this iBeacon.</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

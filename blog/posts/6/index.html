@@ -83,6 +83,97 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/02/20/community-highlights/">Community Highlights</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-02-20T09:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 20, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Community</li>
+      
+        <li>Video</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/02/20/community-highlights/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Home Assistant land has been busy and a lot of people have been creating awesome stuff. We’ve added <a href="/cookbook/">a cookbook section</a> to the website full of examples how you can automate different things. Make sure you take a look and share your own recipes too!</p>
+
+<h3><a class="title-link" name="home-automation-demo-by-part-of-the-thing" href="#home-automation-demo-by-part-of-the-thing"></a> Home automation demo by Part of the Thing</h3>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Mc_29EC3aZw" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h3><a class="title-link" name="haaska---alexa-skill-adapter-for-home-assistant" href="#haaska---alexa-skill-adapter-for-home-assistant"></a> Haaska - Alexa Skill Adapter for Home Assistant</h3>
+
+<p>Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own <a href="/components/alexa/">Alexa</a> component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the ‘Ask Home Assistant’ part when giving commands:</p>
+
+<ul>
+  <li>“Alexa, set kitchen to twenty percent”</li>
+  <li>“Alexa, turn on evening scene”</li>
+  <li>“Alexa, turn off bedroom light”</li>
+</ul>
+
+<p><a href="https://github.com/auchter/haaska">Haaska on GitHub</a></p>
+
+<h3><a class="title-link" name="integrating-home-assistant-with-homekit" href="#integrating-home-assistant-with-homekit"></a> Integrating Home Assistant with HomeKit</h3>
+
+<p>Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you’ll have to install the plugin separately with the homebridge-homeassistant npm package.</p>
+
+<p>Example config.json entry to load Home Assistant:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"platforms"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HomeAssistant"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HomeAssistant"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://192.168.1.50:8123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"supported_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"light"</span><span class="p">,</span><span class="w"> </span><span class="s2">"switch"</span><span class="p">,</span><span class="w"> </span><span class="s2">"media_player"</span><span class="p">,</span><span class="w"> </span><span class="s2">"scene"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><a href="https://github.com/nfarina/homebridge">HomeBridge on GitHub</a>
+<a href="https://github.com/maddox/homebridge-homeassistant">HomeBridge Home Assistant Plugin</a></p>
+
+<h3><a class="title-link" name="custom-alarm-system-with-home-assistant" href="#custom-alarm-system-with-home-assistant"></a> Custom alarm system with Home Assistant</h3>
+
+<p>User thaijames <a href="https://community.home-assistant.io/t/controlling-house-alarm-from-ha/67">describes in the Home Assistant forums</a> how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.</p>
+
+<p class="img">
+<img src="/images/blog/2016-02-community-highlights/garfield-nfc.png" />
+Hold your NFC tag against the belly of Garfield to unlock the alarm.
+</p>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/02/18/multi-room-audio-with-snapcast/">Multi-room audio with Snapcast, Mopidy, and Home Assistant</a>
   </h1>
   
@@ -695,57 +786,6 @@ Example of the new views in the frontend. <a href="/components/group/">Learn mor
 
     
       <a class="btn pull-right" href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/">[Update: decision reversed!] Philips Hue blocks 3rd party lights</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2015-12-12T18:44:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 12, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Public-Service-Announcement</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><strong>Update Dec 16</strong>: Great news! Philips has decided to <a href="http://www.developers.meethue.com/documentation/friends-hue-update">reverse their decision</a> and is working on a software update to allow 3rd party light bulbs again.</p>
-
-<p class="img">
-<img src="/images/blog/2015-12-philips-hue-3rd-party/philips-hue-reversed-faq.png" />
-Philips Hue FAQ entries regarding reversing the decision.
-</p>
-
-<p><em>Original post:</em></p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

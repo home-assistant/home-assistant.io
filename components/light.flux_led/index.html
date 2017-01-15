@@ -99,6 +99,7 @@
   <li><a href="https://www.amazon.com/gp/product/B00NOC93NG">MagicLight® Plus - WiFi Smart LED Light Bulb4</a></li>
   <li><a href="http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE">Flux WiFi Smart LED Light Bulb4</a></li>
   <li><a href="http://smile.amazon.com/gp/product/B01CS1EZYK">WIFI smart LED light Bulb1</a></li>
+  <li><a href="https://www.amazon.com/gp/product/B01DY56N8U">Ledenet WiFi RGBW Controller</a></li>
 </ul>
 
 <p>The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.</p>
@@ -141,7 +142,7 @@
         <span class="s">name</span><span class="pi">:</span> <span class="s">flux_living_room_lamp</span>
 
 <span class="s">automation</span><span class="pi">:</span>
-  <span class="s">random_flux_living_room_lamp</span><span class="pi">:</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">random_flux_living_room_lamp</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
     <span class="s">seconds</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/45'</span>
@@ -166,6 +167,17 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">192.168.1.10</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
       <span class="s">mode</span><span class="pi">:</span> <span class="s2">"</span><span class="s">rgbw"</span>
+</code></pre>
+</div>
+
+<p>Some devices such as the Ledenet RGBW controller use a slightly difference protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">flux_led</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">192.168.1.10</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
+        <span class="s">protocol</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ledenet'</span>
 </code></pre>
 </div>
 
@@ -220,6 +232,9 @@
             <a href='/components/light.isy994/'>ISY994 Light</a>
         </li>
         <li>
+            <a href='/components/light.insteon_local/'>Insteon (Local) Light</a>
+        </li>
+        <li>
             <a href='/components/light.insteon_hub/'>Insteon Hub Light</a>
         </li>
         <li>
@@ -262,6 +277,9 @@
             <a href='/components/light.tellstick/'>TellStick Light</a>
         </li>
         <li>
+            <a href='/components/light.tikteck/'>Tikteck</a>
+        </li>
+        <li>
             <a href='/components/light.vera/'>Vera Light</a>
         </li>
         <li>
@@ -275,6 +293,9 @@
         </li>
         <li>
             <a href='/components/light.zwave/'>Z-Wave Light</a>
+        </li>
+        <li>
+            <a href='/components/light.zengge/'>Zengge</a>
         </li>
         <li>
             <a href='/components/light.zigbee/'>ZigBee Light</a>

@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-15T17:19:03+00:00</updated>
+  <updated>2017-01-15T17:46:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,99 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.36: ISS, USPS, Image processing, Insteon]]></title>
+    <link href="https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/"/>
+    <updated>2017-01-14T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages</id>
+    <content type="html"><![CDATA[<p>Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and a lot of bug fixes.</p>
+
+<h2><a class="title-link" name="packages" href="#packages"></a> Packages</h2>
+<p><a href="https://home-assistant.io/topics/packages/">Packages</a> are providing a new way to organize different component’s configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the <code class="highlighter-rouge">!include</code> directives.</p>
+
+<h2><a class="title-link" name="influxdb-export" href="#influxdb-export"></a> InfluxDB export</h2>
+<p>The <a href="https://home-assistant.io/components/influxdb/">InfluxDB</a> component was causing problems in a wide variety of use cases. <a href="https://github.com/titilambert">@titilambert</a> improved our InfluxDB exporter feature. It might be that you need to run the migration script to update your InfluxDB database.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script influxdb_migrator <span class="se">\</span>
+    -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD <span class="se">\</span>
+    -o test_series -d INFLUXDB_DB_NAME
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="international-space-station-iss" href="#international-space-station-iss"></a> International Space Station (ISS)</h2>
+<p>No, unfortunately we are not going to space. The <code class="highlighter-rouge">iss</code> sensor is tracking the position of the International Space Station and gives your some details.</p>
+
+<h2><a class="title-link" name="insteon-local" href="#insteon-local"></a> Insteon local</h2>
+<p>The support for Insteon was removed due to issues a while ago. With the <code class="highlighter-rouge">insteon_local</code> component support for <a href="https://home-assistant.io/components/insteon_local/">Insteon</a> is back and let one work locally with an Insteon setup.</p>
+
+<h2><a class="title-link" name="image-processing" href="#image-processing"></a> Image processing</h2>
+<p>The new <a href="https://home-assistant.io/components/image_processing/">image processing component</a> currently works with <a href="https://home-assistant.io/components/openalpr/">number plates</a>. But this could level the way to integrate feature like facial recognition, motion detection, or gestures control.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+<ul>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.hydroquebec/">HydroQuebec</a> (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Sensor: Tracking the <a href="https://home-assistant.io/components/sensor.iss/">ISS</a> (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.usps/">USPS</a> deliveries tracking (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Device tracker: New <a href="https://home-assistant.io/components/device_tracker.ping/">ping-based</a> tracker (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
+  <li>TTS: Support for <a href="https://home-assistant.io/components/tts.picotts/">Pico</a> (<a href="https://github.com/doudz">@doudz</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/bbb_gpio/">BeagleBone Black</a> GPIO are supported now (<a href="https://github.com/MatoKafkac">@MatoKafkac</a>)</li>
+  <li>Light: New support for <a href="https://home-assistant.io/components/light.tikteck/">Tikteck</a> Bluetooth bulbs (<a href="https://github.com/mjg59">@mjg59</a>)</li>
+  <li>Switch: Support for customised <a href="https://home-assistant.io/components/switch.kankun/">Kankun SP3 Wifi</a> switches (<a href="https://github.com/webworxshop">@webworxshop</a>)</li>
+  <li>Insteon local: Local <a href="https://home-assistant.io/components/insteon_local/">insteon</a> support(<a href="https://github.com/wardcraigj">@wardcraigj</a>)</li>
+  <li><code class="highlighter-rouge">rest_command</code>: Support for using <a href="https://home-assistant.io/components/rest_command/">REST</a> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sensor: Show details of the <a href="https://home-assistant.io/components/sensor.dublin_public_transport/">Dublin RTPI</a> information (<a href="https://github.com/ttroy50">@ttroy50</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.zengge/">Zengge Bluetooth</a> bulbs (<a href="https://github.com/mjg59">@mjg59</a>)</li>
+  <li>Fan: Wink support for <a href="https://home-assistant.io/components/fan.wink/">fans</a> (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Device tracker: New <a href="https://home-assistant.io/components/device_tracker.trackr/">TrackR</a> device tracker support (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.xiaomi/">Xiaomi router</a> (<a href="https://github.com/RiRomain">@RiRomain</a>)</li>
+  <li>Sensor: New <a href="https://home-assistant.io/components/sensor.sma/">SMA Solar Webconnect</a> sensor (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io/components/notify.lannouncer/">Lannouncer</a> TTS support (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
+  <li>Image processing: Support for <a href="https://home-assistant.io/components/image_processing/">Image processing</a> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.upc_connect/">UPC</a> Connect box platform support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Weather: <a href="https://home-assistant.io/components/weather.bom/">Australian BOM</a> (Bureau of Meteorology) support (<a href="https://github.com/Zac-HD">@Zac-HD</a>)</li>
+  <li>Notify: Support for <a href="https://home-assistant.io/components/notify.mysensors/">MySensors</a> notifications (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>
+    <p>TTS: New <a href="https://home-assistant.io/components/tts.yandextts/">Yandex SpeechKit TTS</a> integration (<a href="https://github.com/lupin-de-mid">@lupin-de-mid</a>)</p>
+  </li>
+  <li>Sensor - sonarr: Add <code class="highlighter-rouge">urlbase</code> to <a href="https://home-assistant.io/components/sensor.sonarr/">Sonarr</a> (<a href="https://github.com/quadportnick">@quadportnick</a>)</li>
+  <li>Switch - broadlink: Support for <a href="https://home-assistant.io/components/switch.broadlink/">SP</a> devices (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Homematic: Support for HMIP-PSM or HMWIOSwitch (<a href="https://github.com/danielperna84">@danielperna84</a>, <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Light - flux: Ledenet protocol support by Flux LED (<a href="https://github.com/bah2830">@bah2830</a>)</li>
+  <li>Device tracker: Support for longer intervals (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>ISY994: Weather sensors added (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li>InfluxDB: Improvements to avoid issues with storing details (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Light - Yeelight: Auto discovery support and color temperature feature for <a href="https://home-assistant.io/components/light.yeelight/">Yeelight</a> (<a href="https://github.com/jjensn">@jjensn</a>)</li>
+  <li>Media player - SqueezeBox: Switch to JSON-RPC (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Scripts: Support for <code class="highlighter-rouge">last_triggered</code> (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Media player: Support for <code class="highlighter-rouge">SUPPORT_PLAY</code> flag (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/abmantis">@abmantis</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/titilambert">@titilambert</a>, <a href="https://github.com/btorresgil">@btorresgil</a>, <a href="https://github.com/henworth">@henworth</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/mjg59">@mjg59</a>, <a href="https://github.com/Giannie">@Giannie</a>, <a href="https://github.com/n8henrie">@n8henrie</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/florianholzapfel">@florianholzapfel</a>, <a href="https://github.com/MrMep">@MrMep</a>, <a href="https://github.com/bah2830">@bah2830</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/glance-">@glance-</a>, <a href="https://github.com/markferry">@markferry</a>, and <a href="https://github.com/nikdoof">@nikdoof</a>.</li>
+</ul>
+
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+<ul>
+  <li><a href="https://home-assistant.io/components/notify.apns/">APNS</a> service was moved to the <code class="highlighter-rouge">notify</code> domain. Use <code class="highlighter-rouge">notify.apns_NOTIFIER_NAME</code> instead of <code class="highlighter-rouge">apns.NOTIFIER_NAME</code>.</li>
+  <li><a href="https://home-assistant.io/components/influxdb/">InfluxDB</a> component has a new schema to store values in the InfluxDB database. You may require to run the <code class="highlighter-rouge">influxdb_migrator</code> script.
+You have to note:
+    <ul>
+      <li>There will not be any tags/fields named time anymore.</li>
+      <li>All numeric fields (int/float/bool) will be stored as float inside influx db.</li>
+      <li>All string fields corresponding to state attributes will be renamed as FIELDNAME_str, where FIELDNAME is the state attribute, to avoid type conflicts.</li>
+      <li>All string fields corresponding to a state will be renamed as state (former value).</li>
+      <li>Fields named value will always be stored as float.</li>
+      <li>Fields named state will always be stored as string.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Control My Christmas Tree Stats]]></title>
@@ -2048,121 +2141,6 @@ Heatmap
   <li>Embed initial API response in served page if not using a service worker.</li>
   <li>Reduce size of initial bundle by moving out all things that are not visible for initial paint. For example the dialogs that show more info about entities.</li>
   <li>Prefetch the other pages using <code class="highlighter-rouge">&lt;link rel="preload" …&gt;</code></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Laundry Sensors with NodeMCU and Home Assistant]]></title>
-    <link href="https://home-assistant.io/blog/2016/08/03/laundry-automation-update/"/>
-    <updated>2016-08-03T17:22:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/08/03/laundry-automation-update</id>
-    <content type="html"><![CDATA[<p><em>This is a guest post by Home Assistant user and contributor <a href="https://github.com/nkgilley">Nolan Gilley</a>.</em></p>
-
-<p>Today I’ll show you how I used Home Assistant, a NodeMCU (ESP8266), and a couple of accelerometers to automate our laundry room.  This is a rewrite of an <a href="https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/">old post</a> where I did the same thing using a Moteino &amp; Raspberry Pi.  This version only requires a NodeMCU.</p>
-
-<p>We have an older washer and dryer which doesn’t have any form of notification when cycles complete.  Home Assistant was the obvious solution, I just needed to create sensors for the washer and dryer.  I tried using sound sensors but found them unreliable.  I ended up using an accelerometer attached to the back of each appliance.  I also added magnetic reed switches on the doors of the washer and dryer to detect whether they’re open or closed.  I connected the accelerometers and reed switches to an NodeMCU which will relay the data to my MQTT broker.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-07-laundry-automation/block-diagram.png" />
-  Block diagram of schematic
-</p>
-
-<!--more-->
-
-<p>After taking some sample data from the accelerometers while each appliance was in operation, I decided to plot the data to help determine the proper thresholds of when the devices were running or off.  I had to do this in order to get precise ranges so the dryer sensor wouldn’t get tripped by the washer or vice versa.  In the plot below you can see the acceleration in each direction for the accelerometer connected to the dryer.   It’s easy to see when the dryer is in operation here.  I used the same technique for the washer’s accelerometer.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-07-laundry-automation/data-graph.png" />
-  Graph showing the accelerometer data
-</p>
-
-<p>Next it was just a matter of integrating everything with Home Assistant.  I was able to use the <a href="https://home-assistant.io/components/mqtt/">MQTT component</a> to read the washer and dryer states from the Moteino and display it in Home Assistant.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2016-07-laundry-automation/screenshot-ha.png" />
-  Status of the dryer and washer in Home Assistant
-</p>
-
-<p>Next I wrote <a href="https://home-assistant.io/components/script/">scripts</a> that are run whenever the washer or dryer completes a load.  This is triggered by the <a href="https://home-assistant.io/getting-started/automation/">automation component</a>.  When the laundry is complete I have the lights in the house turn red and <a href="https://home-assistant.io/components/notify.joaoapps_join/">notify me via Join</a>.  Once the door is opened and laundry emptied another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.</p>
-
-<p class="img">
-  <a href="https://home-assistant.io/images/blog/2016-07-laundry-automation/protoboard.jpg">
-    <img src="https://home-assistant.io/images/blog/2016-07-laundry-automation/protoboard.jpg" />
-  </a>
-  NodeMCU connected to MPU-6050 accelerometer.
-</p>
-
-<p>Materials used:</p>
-
-<ul>
-  <li><a href="https://www.amazon.com/gp/product/B010O1G1ES">NodeMCU</a></li>
-  <li><a href="http://www.amazon.com/gp/product/B008BOPN40">2 x Accelerometers</a></li>
-  <li><a href="http://www.amazon.com/gp/product/B004PARDRO">2 x Reed switch</a></li>
-</ul>
-
-<p><a href="https://github.com/nkgilley/nodemcu-laundry/blob/master/nodemcu-laundry.ino">Sketch for the NodeMCU is available here.</a></p>
-
-<p>Home Assistant Configuration:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
-  <span class="s">broker</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
-  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
-  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
-
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Dryer</span><span class="nv"> </span><span class="s">Status"</span>
-    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor/dryer"</span>
-    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Washer</span><span class="nv"> </span><span class="s">Status"</span>
-    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sensor/washer"</span>
-    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-
-<span class="s">automation</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer complete</span>
-    <span class="s">trigger</span><span class="pi">:</span>
-      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.washer_status</span>
-      <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Running'</span>
-      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Complete'</span>
-    <span class="s">action</span><span class="pi">:</span>
-      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.washer_complete</span>
-
-  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer emptied</span>
-    <span class="s">trigger</span><span class="pi">:</span>
-      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.washer_status</span>
-      <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Complete'</span>
-      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Empty'</span>
-    <span class="s">action</span><span class="pi">:</span>
-      <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.normal</span>
-
-<span class="s">script</span><span class="pi">:</span>
-  <span class="s">washer_complete</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s">Washer Complete</span>
-    <span class="s">sequence</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Join Notification</span>
-        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.join</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">washing</span><span class="nv"> </span><span class="s">machine</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">finished</span><span class="nv"> </span><span class="s">its</span><span class="nv"> </span><span class="s">cycle,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">empty</span><span class="nv"> </span><span class="s">it!"</span>
-      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Living Room Lights Blue</span>
-        <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.blue</span>
-</code></pre>
-</div>
-
-<p>Resources used:</p>
-
-<ul>
-  <li><a href="http://www.instructables.com/id/Uber-Home-Automation-w-Arduino-Pi/step13/Washer-Dryer-Smartifier-Water-Leak-Sensor/">Inspiration and Help with Arduino code</a></li>
 </ul>
 
 ]]></content>

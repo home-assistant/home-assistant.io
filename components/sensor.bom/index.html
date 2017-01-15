@@ -90,28 +90,12 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">bom</code> platform allows you to get the current weather conditions from the <a href="http://www.bom.gov.au/">Bureau of Meteorology (BOM)</a> Australia.</p>
+  <p>The <code class="highlighter-rouge">bom</code> sensor platform uses the <a href="http://www.bom.gov.au">Australian Bureau of Meteorology (BOM)</a> as a source for current (half-hourly) meteorological data.</p>
 
 <ul>
   <li>Each sensor will be given the <code class="highlighter-rouge">device_id</code> of “bom [optionalname] friendlyname units”</li>
   <li>A name is optional but if multiple BOM weather stations are used a name will be required.</li>
-  <li>The sensor will update every minute 35 minutes after last data timestamp. This allows for the 30 minute observation cycle and the approximate 5 minute update delay in publishing the data.</li>
-</ul>
-
-<p>To get the station ID <code class="highlighter-rouge">[zone_id]</code> and <code class="highlighter-rouge">[wmo_id]</code> for your local BOM station:</p>
-<ul>
-  <li>Find your station on these maps:</li>
-  <li>NSW: http://www.bom.gov.au/nsw/observations/map.shtml</li>
-  <li>QLD: http://www.bom.gov.au/qld/observations/map.shtml</li>
-  <li>VIC: http://www.bom.gov.au/vic/observations/map.shtml</li>
-  <li>WA: http://www.bom.gov.au/wa/observations/map.shtml</li>
-  <li>SA: http://www.bom.gov.au/sa/observations/map.shtml</li>
-  <li>TAS: http://www.bom.gov.au/tas/observations/map.shtml</li>
-  <li>ACT: http://www.bom.gov.au/act/observations/canberramap.shtml</li>
-  <li>NT: http://www.bom.gov.au/nt/observations/map.shtml</li>
-  <li>alternatively, from the <a href="http://www.bom.gov.au/">BOM website</a>, navigate to State -&gt; Observations -&gt; Latest Observations -&gt; Choose the station.</li>
-  <li>The URL will look like: http://www.bom.gov.au/products/[zone_id]/[zone_id].[wmo_id].shtml</li>
-  <li>For Adelaide, the URL will look like http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml.</li>
+  <li>The sensor checks for new data every minute, starting 30 minutes after the timestamp of the most recent data as the data is updated every half-hour.</li>
 </ul>
 
 <p>To add the BOM weather observation to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -119,17 +103,9 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bom</span>
-    <span class="s">zone_id</span><span class="pi">:</span> <span class="s">IDS60801</span>
-    <span class="s">wmo_id</span><span class="pi">:</span> <span class="s">94675</span>
+    <span class="s">station</span><span class="pi">:</span> <span class="s">IDS60801.94675</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Adelaide</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">wmo</span>
-      <span class="pi">-</span> <span class="s">name</span>
-      <span class="pi">-</span> <span class="s">history_product</span>
-      <span class="pi">-</span> <span class="s">local_date_time</span>
-      <span class="pi">-</span> <span class="s">local_date_time_full</span>
-      <span class="pi">-</span> <span class="s">aifstime_utc</span>
-      <span class="pi">-</span> <span class="s">lat</span>
-      <span class="pi">-</span> <span class="s">lon</span>
       <span class="pi">-</span> <span class="s">apparent_t</span>
       <span class="pi">-</span> <span class="s">cloud</span>
       <span class="pi">-</span> <span class="s">cloud_base_m</span>
@@ -159,14 +135,26 @@
 </code></pre>
 </div>
 
+<p>To get the station ID for any BOM station:</p>
+<ul>
+  <li>Find your station on these maps: <a href="http://www.bom.gov.au/nsw/observations/map.shtml">NSW</a>, <a href="http://www.bom.gov.au/qld/observations/map.shtml">QLD</a>, <a href="http://www.bom.gov.au/vic/observations/map.shtml">VIC</a>, <a href="http://www.bom.gov.au/wa/observations/map.shtml">WA</a>, <a href="http://www.bom.gov.au/sa/observations/map.shtml">SA</a>, <a href="http://www.bom.gov.au/tas/observations/map.shtml">TAS</a>, <a href="http://www.bom.gov.au/act/observations/canberramap.shtml">ACT</a>, <a href="http://www.bom.gov.au/nt/observations/map.shtml">NT</a>.</li>
+  <li>alternatively, from the <a href="http://www.bom.gov.au/">BOM website</a>, navigate to State -&gt; Observations -&gt; Latest Observations -&gt; Choose the station.</li>
+  <li>The URL will look like: http://www.bom.gov.au/products/IDx60801/[station].shtml</li>
+  <li>For Adelaide, the URL will look like <code class="highlighter-rouge">http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml</code>; the station ID is <code class="highlighter-rouge">IDS60801.94675</code>.</li>
+</ul>
+
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>zone_id</strong> (<em>Required</em>): The zone_id as identified from the BOM website.</li>
-  <li><strong>wmo_id</strong> (<em>Required</em>): The wmo as identified from the BOM website.</li>
+  <li><strong>station</strong> (<em>Optional</em>): The station ID string as identified from the BOM website.  If not given, defaults to the closest station.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the weather station.</li>
   <li><strong>monitored_conditions</strong> (<em>Required</em>): A list of the conditions to monitor.</li>
 </ul>
+
+<p class="note">
+This sensor is an alternative to the <a href="/components/weather.bom/"><code class="highlighter-rouge">bom</code></a> weather platform.
+The weather platform is easier to configure but less customisable.
+</p>
 
 
 </article>
@@ -187,11 +175,22 @@
     <div class='section'>
     Introduced in release: 0.29
     </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/weather.bom/'>
+          Bureau of Meteorology (BOM) Australia
+        </a></li>
+    </ul>
+    </div>
     <div class='section'>
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
         <li>
             Bureau of Meteorology (BOM) Australia
+        </li>
+        <li>
+            <a href='/components/weather.bom/'>Bureau of Meteorology (BOM) Australia</a>
         </li>
         <li>
             <a href='/components/sensor.darksky/'>Dark Sky</a>

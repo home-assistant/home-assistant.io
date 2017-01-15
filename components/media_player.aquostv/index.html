@@ -111,7 +111,14 @@
   <li><strong>username</strong> (<em>Optional</em>): The username of the Samsung Smart TV. Defaults to admin.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password of the Samsung Smart TV. Defaults to password.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Sharp Aquos TV.</li>
+  <li><strong>power_on_enabled</strong> (<em>Optional</em>): If you want to be able to turn on your TV. Defaults to False.</li>
 </ul>
+
+<p class="note warning">
+When you set <strong>power_on_enabled</strong> as True, you have to turn on your TV on the first time with the remote.
+Then you will be able to turn on with Home-Assistant.
+Also, with <strong>power_on_enabled</strong> as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consumes more power.
+</p>
 
 <p>Currently known supported models:</p>
 
@@ -194,6 +201,9 @@
         </li>
         <li>
             <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nad/'>NAD</a>
         </li>
         <li>
             <a href='/components/media_player.onkyo/'>Onkyo</a>

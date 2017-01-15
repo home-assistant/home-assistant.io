@@ -113,6 +113,7 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
       <span class="s">protocol</span><span class="pi">:</span> <span class="s">5</span>
       <span class="s">code_on</span><span class="pi">:</span> <span class="s">654321</span>
       <span class="s">code_off</span><span class="pi">:</span> <span class="s">654320</span>
+      <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">15</span>
 </code></pre>
 </div>
 
@@ -128,12 +129,12 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
           <li><strong>code_off</strong> (<em>Required</em>): Decimal code to switch the device off.</li>
           <li><strong>protocol</strong> (<em>Optional</em>): RF Protocol (Default is <code class="highlighter-rouge">1</code>).</li>
           <li><strong>pulselength</strong> (<em>Optional</em>): Pulselength (Default is the protocol default).</li>
+          <li><strong>signal_repetitions</strong> (<em>Optional</em>): Number of times to repeat transmission (default is 10, can increase to try to improve reliability).</li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
-
 
 
 </article>
@@ -166,6 +167,9 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
         </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.bbb_gpio/'>BeagleBone Black GPIO Switch</a>
         </li>
         <li>
             <a href='/components/switch.wemo/'>Belkin WeMo Switch</a>
@@ -202,6 +206,12 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
         </li>
         <li>
             <a href='/components/switch.isy994/'>ISY994 Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.insteon_local/'>Insteon (Local) Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.kankun/'>Kankun SP3 Wifi Switch</a>
         </li>
         <li>
             <a href='/components/switch.litejet/'>LiteJet Switch</a>

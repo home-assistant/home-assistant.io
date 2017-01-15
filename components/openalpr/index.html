@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>OpenAlpr - Home Assistant</title>
+    <title>OpenALPR - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate licences plates with OpenAlpr into Home Assistant.">
+    <meta name="description" content="Instructions how to integrate licences plates with OpenALPR into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/openalpr/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="OpenAlpr">
+    <meta property="og:title" content="OpenALPR">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/openalpr/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate licences plates with OpenAlpr into Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate licences plates with OpenALPR into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="OpenAlpr">
-    <meta name="twitter:description" content="Instructions how to integrate licences plates with OpenAlpr into Home Assistant.">
+    <meta name="twitter:title" content="OpenALPR">
+    <meta name="twitter:description" content="Instructions how to integrate licences plates with OpenALPR into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,13 +84,13 @@
   
   <header>
     <h1 class="title indent">
-      OpenAlpr
+      OpenALPR
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p><a href="http://www.openalpr.com/">OpenAlpr</a> integration for Home Assistant allows you to process licences plates from a camera. You can use them to open a garage door or trigger any other <a href="https://home-assistant.io/components/automation/">automation</a>.</p>
+  <p><a href="http://www.openalpr.com/">OpenALPR</a> integration for Home Assistant allows you to process licences plates recorded with a  camera. You can use them to open a garage door or trigger any other <a href="https://home-assistant.io/components/automation/">automation</a>.</p>
 
 <p class="note">
 If you want use a video stream. You need setup the <a href="/components/ffmpeg">ffmpeg</a> component. See also there for troubleshooting local ffmpeg installation.
@@ -98,17 +98,19 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
 
 <h3><a class="title-link" name="local-installation" href="#local-installation"></a> Local installation</h3>
 
-<p>If you want process all data local you need the command line tool <code class="highlighter-rouge">alpr</code> in version &gt; 2.3.1</p>
+<p>If you want process all data locally, you need version 2.3.1 or higher of the <code class="highlighter-rouge">alpr</code> commandline tool.</p>
 
-<p>If you don’t find binaries for your distribution you can compile from source. Documention of how to build openalpr is found <a href="https://github.com/openalpr/openalpr/wiki">here</a>.</p>
+<p>If you don’t find binaries for your distribution you can compile from source. Documention of how to build OpenALPR is found <a href="https://github.com/openalpr/openalpr/wiki">here</a>.</p>
 
-<p>On a debian system you can use this cmake command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cmake -DWITH_TEST<span class="o">=</span>FALSE -DWITH_BINDING_JAVA<span class="o">=</span>FALSE --DWITH_BINDING_PYTHON<span class="o">=</span>FALSE --DWITH_BINDING_GO<span class="o">=</span>FALSE -DWITH_DAEMON<span class="o">=</span>FALSE -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/usr ..
+<p>On a Debian system you can use this <code class="highlighter-rouge">cmake</code> command to build only the command line tool:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cmake -DWITH_TEST<span class="o">=</span>FALSE -DWITH_BINDING_JAVA<span class="o">=</span>FALSE --DWITH_BINDING_PYTHON<span class="o">=</span>FALSE --DWITH_BINDING_GO<span class="o">=</span>FALSE -DWITH_DAEMON<span class="o">=</span>FALSE -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/usr ..
 </code></pre>
 </div>
 
-<p>Verify your alpr installation with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
+<p>Verify your <code class="highlighter-rouge">alpr</code> installation with:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 </code></pre>
 </div>
 
@@ -133,20 +135,21 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
      <span class="s">password</span><span class="pi">:</span> <span class="s">bla</span>
 </code></pre>
 </div>
+
 <p>Configuration variables:</p>
 
 <ul>
   <li><strong>engine</strong> (<em>Required</em>): <code class="highlighter-rouge">local</code> or <code class="highlighter-rouge">cloud</code> for processing</li>
-  <li><strong>region</strong> (<em>Required</em>): Country or region. List of Supported <a href="https://github.com/openalpr/openalpr/tree/master/runtime_data/config">value</a>.</li>
-  <li><strong>confidence</strong> (<em>Optional</em>): Default 80. The minimum of confidence in percent to process with Home-Assistant.</li>
-  <li><strong>entities</strong> (<em>Required</em>): A list of device to add in Home-Assistant.</li>
-  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your openalpr entity.</li>
-  <li><strong>interval</strong> (<em>Optional</em>): Default 2. Time in seconds to poll a picture. If the interval is 0 It don’t poll and it only process data with <code class="highlighter-rouge">openalpr.scan</code> service.</li>
-  <li><strong>render</strong> (<em>Optional</em>): default is with ffmpeg. How is Home-Assistant to get a picture from. It support <code class="highlighter-rouge">ffmpeg</code> for video streams and <code class="highlighter-rouge">image</code> for a still image.</li>
-  <li><strong>input</strong> (<em>Required</em>): The source from getting pictures. With ffmpeg it could by all supported input. Image only support a url.</li>
-  <li><strong>extra_arguments</strong> (<em>Optional</em>): Only available with ffmpeg.</li>
-  <li><strong>username</strong> (<em>Optional</em>): Only available with image for http authentification.</li>
-  <li><strong>password</strong> (<em>Optional</em>): Only available with image for http authentification.</li>
+  <li><strong>region</strong> (<em>Required</em>): Country or region. List of supported <a href="https://github.com/openalpr/openalpr/tree/master/runtime_data/config">values</a>.</li>
+  <li><strong>confidence</strong> (<em>Optional</em>): The minimum of confidence in percent to process with Home Assistant. Defaults to 80.</li>
+  <li><strong>entities</strong> (<em>Required</em>): A list of device to add in Home Assistant.</li>
+  <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your OpenALPR entity.</li>
+  <li><strong>interval</strong> (<em>Optional</em>): Time in seconds to poll a picture. If the interval is 0 It don’t poll and it only process data with <code class="highlighter-rouge">openalpr.scan</code> service. Default is 2 seconds.</li>
+  <li><strong>render</strong> (<em>Optional</em>): How is Home Assistant to get a picture from. It support <code class="highlighter-rouge">ffmpeg</code> for video streams and <code class="highlighter-rouge">image</code> for a still image. Default is with <code class="highlighter-rouge">ffmpeg</code>.</li>
+  <li><strong>input</strong> (<em>Required</em>): The source from getting pictures. With <code class="highlighter-rouge">ffmpeg</code> it could by all supported input. Image only support an URL.</li>
+  <li><strong>extra_arguments</strong> (<em>Optional</em>): Only available with <code class="highlighter-rouge">ffmpeg</code>.</li>
+  <li><strong>username</strong> (<em>Optional</em>): Only available with image for HTTP authentification.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Only available with image for HTTP authentification.</li>
 </ul>
 
 <h3><a class="title-link" name="configuration-home-assistant-local-processing" href="#configuration-home-assistant-local-processing"></a> Configuration Home Assistant local processing</h3>
@@ -163,7 +166,7 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>alpr_binary</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">alpr</code>. The command line tool alpr from OpenAlpr software for local processing.</li>
+  <li><strong>alpr_binary</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">alpr</code>. The command line tool <code class="highlighter-rouge">alpr</code> from OpenALPR software for local processing.</li>
 </ul>
 
 <h3><a class="title-link" name="configuration-home-assistant-cloud-processing" href="#configuration-home-assistant-cloud-processing"></a> Configuration Home Assistant cloud processing</h3>
@@ -177,10 +180,11 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
 <span class="nn">...</span>
 </code></pre>
 </div>
+
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>api_key</strong> (<em>Required</em>): You need a api key from  <a href="https://cloud.openalpr.com/">OpenAlpr Cloud</a>.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): You need an API key from  <a href="https://cloud.openalpr.com/">OpenALPR Cloud</a>.</li>
 </ul>
 
 <h4><a class="title-link" name="service" href="#service"></a> Service</h4>
@@ -205,7 +209,7 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
 </code></pre>
 </div>
 
-<p>This event is trigger after openalpr found a new licence plate.</p>
+<p>This event is trigger after OpenALPR found a new licence plate.</p>
 
 
 </article>
@@ -260,13 +264,16 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
             <a href='/components/lirc/'>LIRC</a>
         </li>
         <li>
-            OpenAlpr
+            OpenALPR
         </li>
         <li>
             <a href='/components/device_sun_light_trigger/'>Presence based lights</a>
         </li>
         <li>
             <a href='/components/proximity/'>Proximity</a>
+        </li>
+        <li>
+            <a href='/components/rest_command/'>RESTful Command</a>
         </li>
         <li>
             <a href='/components/script/'>Scripts</a>
