@@ -21,6 +21,7 @@ ha_release: 0.36
 # Example configuration.yaml entry
 image_processing:
  - platform: openalpr_cloud
+   api_key: 'sk_abcxyz123456'
    region: eu
    source:
     - entity_id: camera.garage
@@ -28,8 +29,8 @@ image_processing:
 Configuration variables:
 
 - **region** (*Required*): Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
-- **alpr_bin** (*Optional*): The command line tool alpr from OpenALPR software for local processing. Defaults to `alpr`.
-- **confidence** (*Optional*):  The minimum of confidence in percent to process with Home Assistant. Defaults to 80.
+- **api_key** (*Required*): You need an API key from [OpenALPR Cloud](https://cloud.openalpr.com/).
+- **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80. 
 - **source** array (*Required*): List of image sources.
   - **entities** (*Required*): A list of devices to add in Home Assistant.
   - **name** (*Optional*): This parameter allows you to override the name of your OpenALPR entity.
