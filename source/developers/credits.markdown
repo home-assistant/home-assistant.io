@@ -104,6 +104,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Giel Janssens](https://github.com/gieljnssns)
 - [Gilles Margerie](https://github.com/Gilles95)
 - [goir](https://github.com/goir)
+- [Gopal Kildoliya](https://github.com/gopalkildoliya)
 - [Greg Dowling](https://github.com/pavoni)
 - [gross1989](https://github.com/gross1989)
 - [Guillem Barba](https://github.com/gbarba)
@@ -273,6 +274,5 @@ This page contains a list of people who have contributed in one way or another t
 - [wind-rider](https://github.com/wind-rider)
 - [wokar](https://github.com/wokar)
 - [Zac Mrowicki](https://github.com/zmrow)
-
 
 This page is irregularly updated. As a base we use the Github [contributors overview](https://github.com/home-assistant/home-assistant/graphs/contributors) of the Home Assistant git repository and the [overview](https://github.com/home-assistant/home-assistant.io/graphs/contributors) for [home-assistant.io](https://home-assistant.io). If you think that you are missing, please let us know or add yourself.
