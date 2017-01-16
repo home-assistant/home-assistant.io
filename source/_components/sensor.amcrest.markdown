@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: amcrest.png
 ha_category: Sensor
-ha_release: 0.36
+ha_release: 0.37
 ---
 
 The `amcrest` sensor allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
@@ -36,6 +36,7 @@ Configuration variables:
 - **password** (*Required*): The password for accessing your camera.
 - **name** (*Optional*): This parameter allows you to override the name of your camera. The default is "Amcrest Camera".
 - **port** (*Optional*): The port that the camera is running on. The default is 80.
+- **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. The default is 10 seconds.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **motion_detector**: Return True/False when a motion is detected
   - **sdcard**: Return the SD card usage by reporting the total and used space
