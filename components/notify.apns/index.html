@@ -92,7 +92,7 @@
 
   <p>The <code class="highlighter-rouge">apns</code> platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.</p>
 
-<p>To use the APNS service you will need an Apple developer account and you will need to create an App to receive push notifications. For more information see the apple developer documentation.</p>
+<p>To use the APNS service you will need an Apple developer account and you will need to create an app to receive push notifications. For more information, see the Apple developer documentation.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
@@ -116,9 +116,9 @@
 
 <h3>notify.apns_NOTIFIER_NAME</h3>
 
-<p>This service will register device id’s with home assistant. In order to receive a notification a device must be registered. The app on the device can use this service to send an ID to Home Assistant during startup, the ID will be stored in <code class="highlighter-rouge">[NOTIFIER_NAME]_apns.yaml</code>.</p>
+<p>This service will register device IDs with Home Assistant. In order to receive a notification a device must be registered. The app on the device can use this service to send an ID to Home Assistant during startup, the ID will be stored in <code class="highlighter-rouge">[NOTIFIER_NAME]_apns.yaml</code>.</p>
 
-<p>See didRegisterForRemoteNotificationsWithDeviceToken in the <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/#//apple_ref/occ/intfm/UIApplicationDelegate/application:didRegisterForRemoteNotificationsWithDeviceToken:">Apple developer documentation</a> for more information about how to obtain a device id.</p>
+<p>See <code class="highlighter-rouge">didRegisterForRemoteNotificationsWithDeviceToken</code> in the <a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/#//apple_ref/occ/intfm/UIApplicationDelegate/application:didRegisterForRemoteNotificationsWithDeviceToken:">Apple developer documentation</a> for more information about how to obtain a device ID.</p>
 
 <h3>notify.NOTIFIER_NAME</h3>
 
@@ -126,7 +126,7 @@
 
 <ul>
   <li>
-    <p><strong>message</strong>: The message to send</p>
+    <p><strong>message</strong>: The message to send.</p>
   </li>
   <li>
     <p><strong>target</strong>: The desired state of the device, only devices that match the state will receive messages. To enable state tracking a registered device must have a <code class="highlighter-rouge">tracking_device_id</code> attribute added to the <code class="highlighter-rouge">[NOTIFIER_NAME]_apns.yaml</code> file. If this ID matches a device in <code class="highlighter-rouge">known_devices.yaml</code> the device state will be tracked.</p>
@@ -134,9 +134,9 @@
   <li>
     <p><strong>data</strong>:</p>
     <ul>
-      <li><strong>badge</strong>: The number to display as the badge of the app ic.</li>
+      <li><strong>badge</strong>: The number to display as the badge of the app icon.</li>
       <li><strong>sound</strong>: The name of a sound file in the app bundle or in the Library/Sounds folder.</li>
-      <li><strong>category</strong>: Provide this key with a string value that represents the identifier property of the UIMutableUserNotificationCategory.</li>
+      <li><strong>category</strong>: Provide this key with a string value that represents the identifier property of the <code class="highlighter-rouge">UIMutableUserNotificationCategory</code>.</li>
       <li><strong>content_available</strong>: Provide this key with a value of 1 to indicate that new content is available.</li>
     </ul>
   </li>
