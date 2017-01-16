@@ -1,7 +1,7 @@
 ---
 layout: page
 title: USPS Sensor
-description: "Instructions on how to set up USP sensors within Home Assistant."
+description: "Instructions on how to set up USPS sensors within Home Assistant."
 date: 2017-01-06 08:00
 sidebar: true
 comments: false
@@ -24,7 +24,7 @@ sensor:
     password: YOUR_PASSWORD
 ```
 
-Configuration options for the a TCP Sensor:
+Configuration options for the USPS Sensor:
 
 - **username** (*Required*): The username to access the USPS service.
 - **password** (*Required*): The password for the given username.
