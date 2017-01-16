@@ -57,6 +57,7 @@ The new [image processing component][image] currently works with [number plates]
 - Weather: [Australian BOM][bom] (Bureau of Meteorology) support ([@Zac-HD])
 - Notify: Support for [MySensors][mysensors] notifications ([@MartinHjelmare])
 - TTS: New [Yandex SpeechKit TTS][yandex] integration ([@lupin-de-mid])
+- Notify: [Facebook Messenger][facebook] support ([@gopalkildoliya])
 
 - Sensor - sonarr: Add `urlbase` to [Sonarr][] ([@quadportnick])
 - Switch - broadlink: Support for [SP][bl-switch] devices ([@Danielhiversen])
@@ -110,6 +111,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@florianholzapfel]: https://github.com/florianholzapfel
 [@Giannie]: https://github.com/Giannie
 [@glance-]: https://github.com/glance-
+[@gopalkildoliya]: https://github.com/gopalkildoliya
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@henworth]: https://github.com/henworth
 [@HydrelioxGitHub]: https://github.com/HydrelioxGitHub
@@ -149,6 +151,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [bl-switch]: https://home-assistant.io/components/switch.broadlink/
 [bom]: https://home-assistant.io/components/weather.bom/
 [dublin]: https://home-assistant.io/components/sensor.dublin_public_transport/
+[facebook]: https://home-assistant.io/components/notify.facebook/
 [image]: https://home-assistant.io/components/image_processing/
 [influx]: https://home-assistant.io/components/influxdb/
 [insteon]: https://home-assistant.io/components/insteon_local/
@@ -173,3 +176,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [yandex]: https://home-assistant.io/components/tts.yandextts/
 [yeelight]: https://home-assistant.io/components/light.yeelight/
 [zengge]: https://home-assistant.io/components/light.zengge/
+
