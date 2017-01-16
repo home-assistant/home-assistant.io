@@ -1,7 +1,7 @@
 ---
 layout: page
 title: USPS Sensor
-description: "Instructions on how to set up USP sensors within Home Assistant."
+description: "Instructions on how to set up USPS sensors within Home Assistant."
 date: 2017-01-06 08:00
 sidebar: true
 comments: false
