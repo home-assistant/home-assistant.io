@@ -11,6 +11,8 @@ footer: true
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
+`customize` consists of a list of attribute customization blocks
+
 ```yaml
 # Example configuration.yaml entry
 homeassistant:
@@ -20,18 +22,18 @@ homeassistant:
 
   customize:
     # Only the 'entity_id' is required.  All other options are optional.
-    sensor.living_room_motion:
+    - entity_id: sensor.living_room_motion
       hidden: true
-    thermostat.family_roomfamily_room:
+    - entity_id: thermostat.family_roomfamily_room
       entity_picture: https://example.com/images/nest.jpg
       friendly_name: Nest
-    switch.wemo_switch_1:
+    - entity_id: switch.wemo_switch_1:
       friendly_name: Toaster
       entity_picture: /local/toaster.jpg
-    switch.wemo_switch_2:
+    - entity_id: switch.wemo_switch_2:
       friendly_name: Kitchen kettle
       icon: mdi:kettle
-    switch.rfxtrx_switch:
+    - entity_id: switch.rfxtrx_switch:
       assumed_state: false
 ```
 
@@ -46,9 +48,26 @@ homeassistant:
 | `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
 | `sensor_class` | Sets the [class of the sensor](/components/binary_sensor/), changing the device state and icon that is displayed on the UI (see below).
 
+### {% linkable_title Advanced example %}
+
+You can also specify attributes for all devices in a domain, use wildcards, use several entity IDs as a list or comma separated list. 
+
+```yaml
+homeassistant:
+  customize:
+    - entity_id: sensor
+      icon: mdi:kettle # Give all sensor the kettle icon
+    - entity_id_glob: light.family*
+      hidden: true # Hide all lights that have an ID starting with 'family'
+    - entity_id: switch.wemo_switch_1,switch.wemo_switch_2,switch.wemo_switch_3
+      entity_picture: /local/toaster.jpg # Set picture on multiple devices
+```
+
+Either `entity_id` or `entity_id_glob` (or both) must be present in each customization block.
+
 
 ### {% linkable_title Reloading customize %}
-
+in each 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant/reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/reload_core_config` and click "Call Service".
 
 <p class='note warning'>
