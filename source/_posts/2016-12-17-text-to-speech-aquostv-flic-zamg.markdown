@@ -60,8 +60,33 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 - Media player - Emby: New support for trailer and media position ([@mezz64])
 - Camera - Amcrest: Support for resolution ([@tchellomello])
 - Media player - Kodi: Authentification fixed and fan art ([@balloob], [@joopert])
-- Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], and [@danielperna84].
+- Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], [@r-jordan] and [@danielperna84].
 
+### {% linkable_title Release 0.35.1 - December 18 %}
+
+Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what url you use for hosting Home Assistant:
+
+```yaml
+http:
+  base_url: example.duckdns.org
+```
+
+ - Fix exit hanging on OS X with async logging ([@balloob])
+ - Fix Text to speech clearing cache ([@pvizeli])
+ - Allow setting a base API url in HTTP component ([@balloob])
+ - Fix occasional errors in automation ([@pvizeli])
+
+### {% linkable_title Release 0.35.2 - December 19 %}
+
+ - When base url specified, do not combine it with `server_port` ([@balloob])
+
+### {% linkable_title Release 0.35.3 - December 23 %}
+
+ - Fix issue with voicerrs and post api ([@pvizeli])
+ - Fix async component update on service calls ([@pvizeli])
+ - Fix async log handle do not close ([@pvizeli])
+ - Fix nest component with various KeyError exceptions ([@technicalpickles])
+ 
 ### {% linkable_title  If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -69,6 +94,7 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 
+[@r-jordan]: https://github.com/r-jordan
 [@aequitas]: https://github.com/aequitas
 [@armills]: https://github.com/armills
 [@auduny]: https://github.com/auduny
@@ -85,8 +111,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@farminf]: https://github.com/farminf
 [@jabesq]: https://github.com/jabesq
 [@janLo]: https://github.com/janLo
-[@janLo]: https://github.com/janLo
-[@jawilson]: https://github.com/jawilson
 [@jawilson]: https://github.com/jawilson
 [@jminn]: https://github.com/jminn
 [@joerocklin]: https://github.com/joerocklin
@@ -107,7 +131,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@nkgilley]: https://github.com/nkgilley
 [@pvizeli]: https://github.com/pvizeli
 [@rubund]: https://github.com/rubund
-[@rubund]: https://github.com/rubund
 [@soldag]: https://github.com/soldag
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@tchellomello]: https://github.com/tchellomello
@@ -121,7 +144,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vlc-media]: https://home-assistant.io/components/media_player.vlc/
 [aquostv]: https://home-assistant.io/components/media_player.aquostv/
 [digitalloggers]: https://home-assistant.io/components/switch.digitalloggers/
-[netdata]: https://home-assistant.io/components/switch.digitalloggers/
+[netdata]: https://home-assistant.io/components/sensor.netdata/
 [bl-sensor]: https://home-assistant.io/components/sensor.broadlink/
 [bl-switch]: https://home-assistant.io/components/switch.broadlink/
 [hikvision]: https://home-assistant.io/components/binary_sensor.hikvision/

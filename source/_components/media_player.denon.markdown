@@ -28,7 +28,7 @@ Supported devices:
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
-Telnet interface
+**Telnet interface**
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -36,7 +36,20 @@ media_player:
     host: IP_ADDRESS
 ```
 
-denonavr interface
+Configuration variables:
+
+- **host** (*Required*): IP address of the device. Example: 192.168.1.32
+- **name** (*Optional*): Name of the device.
+
+A few notes for platform: denon
+- The receiver handles only one telnet connection and refuses others.
+- Be careful with the volume. 100% or even 50% is very loud.
+- To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
+- Play and pause are supported, toggling is not possible.
+- Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
+
+
+**denonavr interface**
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -46,15 +59,10 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): IP address of the device. Example: 192.168.1.32
-- **name** (*Optional*): Name of the device
+- **host** (*Optional*): IP address of the device. Example: 192.168.1.32. If not set, auto discovery is used.
+- **name** (*Optional*): Name of the device. If not set, friendlyName of receiver is used.
 
-A few notes:
-
-- The receiver handles only one telnet connection and refuses others.
-- Be careful with the volume. 100% or even 50% is very loud.
-- To be able to wake up the receiver, activate the "remote" setting in the receiver's settings.
-- Play and pause are supported, toggling is not possible.
-- Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
+A few notes for platform: denonavr
 - Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform
-- denonavr platform supports some additional functionalities like album covers and is supporting more than simultaneous one connection
+- denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery
+- Still be careful with the volume. 100% in an action movie will tear down your walls.

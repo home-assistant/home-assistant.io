@@ -32,6 +32,10 @@ device_tracker:
   - platform: bluetooth_le_tracker
 ```
 
+Configuration variables:
+
+- **device_id** (*Optional*): The device ID for the bluetooth device to be used for tracking. Defaults to `hci0`.
+
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
@@ -49,7 +53,7 @@ $ sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
 If you have installed Home Assistant with [AIO](/getting-started/installation-raspberry-pi-all-in-one/), you need to do the following command, this will grant access to Home Assistant to run the required command.
 
 ```bash
-$ sudo setcap cap_net_raw,cap_net_admin+eip /srv/hass/hass_venv/bin/python3
+$ sudo setcap cap_net_raw,cap_net_admin+eip /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 
 A restart of Home Assistant is required.

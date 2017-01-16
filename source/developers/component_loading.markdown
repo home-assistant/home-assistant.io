@@ -17,7 +17,7 @@ A component will be loaded on start if a section (ie. `light:`) for it exists in
 Once loaded, a component will only be setup if all dependencies can be loaded and are able to setup. Keep an eye on the logs to see if your component could be loaded and initialized.
 
 <p class='note warning'>
-You can override a built-in component by having a component with the same name in your <code>config/custom_components</code> folder. This is not recommended and will probably break things!
+You can override a built-in component by having a component with the same name in your <code>config/custom_components</code> folder. If the build-in component is inside a subfolder, take care to place your customization in a folder with the same name in <code>config/custom_components/*folder*</code>. Note that overriding build-in components is not recommended and will probably break things!
 </p>
 
 <p class='note'>

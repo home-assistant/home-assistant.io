@@ -59,6 +59,7 @@ Configuration variables:
   - `group`
   - `input_boolean`
   - `media_player`
+  - `fan`
 
 A full configuration sample looks like the one below.
 
