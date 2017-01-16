@@ -27,7 +27,7 @@ REQUIREMENTS = [
 
 ### {% linkable_title Configuration %}
 
- 1. Volutpuous schema present for config validation
+ 1. Voluptuous schema present for config validation
  2. Default parameters specified in voluptuous schema, not in `setup_platform(…)`
  3. Schema using as many generic config keys as possible from `homeassistant.const`
  4. If having platforms, have a `PLATFORM_SCHEMA`, otherwise `CONFIG_SCHEMA`.
