@@ -13,7 +13,7 @@ ha_release: "0.30"
 ---
 
 
-The `volvooncall` platform offers presence detection by retrieving your car's information from the [Volvo On Call](http://www.volvocars.com/intl/own/owner-info/volvo-on-call#) cloud service.
+The `volvooncall` platform offers presence detection by retrieving your car's information from the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service.
 
 To use Volvo On Call in your installation, add the following to your `configuration.yaml` file:
 
