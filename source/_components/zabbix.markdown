@@ -7,22 +7,24 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: g
-ha_category: 
+logo: zabbix.png
+ha_category: System Monitor
 featured: false
-ha_release: 0.35
+ha_release: 0.37
 ---
 
-The Zabbix component is the main component to connect to a Zabbix monitoring instance via the Zabbix API.
+The `zabbix` component is the main component to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.
+
+To set the Zabbix component up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 zabbix:
   host: 192.168.0.100
-  username: zabbix_user
-  password: zabbix_password
 ```
 
 Configuration variables:
+
 - **host** (*Required*): Your Zabbix server.
 - **path** (*Optional*): Path to your Zabbix install. Defaults to `/zabbix/`.
 - **ssl** (*Optional*): Set to `True` if your Zabbix installation is using SSL. Default to `False`.
