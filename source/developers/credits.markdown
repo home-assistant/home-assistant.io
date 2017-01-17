@@ -143,6 +143,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Jesse Newland](https://github.com/jnewland)
 - [jgriff2](https://github.com/jgriff2)
 - [jnimmo](https://github.com/jnimmo)
+- [Job Vermeulen](https://github.com/jmvermeulen)
 - [Joel Asher Friedman](https://github.com/joelash)
 - [Joe McMonagle](https://github.com/joemcmonagle)
 - [Johan Bloemberg](https://github.com/aequitas)
@@ -273,6 +274,5 @@ This page contains a list of people who have contributed in one way or another t
 - [wind-rider](https://github.com/wind-rider)
 - [wokar](https://github.com/wokar)
 - [Zac Mrowicki](https://github.com/zmrow)
-
 
 This page is irregularly updated. As a base we use the Github [contributors overview](https://github.com/home-assistant/home-assistant/graphs/contributors) of the Home Assistant git repository and the [overview](https://github.com/home-assistant/home-assistant.io/graphs/contributors) for [home-assistant.io](https://home-assistant.io). If you think that you are missing, please let us know or add yourself.
