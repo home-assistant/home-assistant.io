@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Bureau of Meteorology (BOM) Australia"
+title: "BOM Australia Sensor"
 description: "Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant."
 date: 2016-09-13 18:00
 sidebar: true
