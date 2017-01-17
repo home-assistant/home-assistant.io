@@ -55,7 +55,7 @@ service: tts.google_say
 data:
   message: 'May the Force be with you.'
 ```
-Say to the `media_player.floor` device entitie:
+Say to the `media_player.floor` device entity:
 
 ```yaml
 service: tts.google_say
@@ -64,7 +64,7 @@ data:
   message: 'May the Force be with you.'
 ```
 
-Say to the `media_player.floor` device entitie in french:
+Say to the `media_player.floor` device entity in French:
 
 ```yaml
 service: tts.google_say
@@ -85,4 +85,4 @@ data_template:
 
 ## {% linkable_title Cache %}
 
-The component have two caches. Both caches can be controlled with the `cache` option in the  platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
+The component has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
