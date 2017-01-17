@@ -93,6 +93,9 @@ Or, on some other systems (such as Raspberry Pi), use:
 
 ```bash
 $ ls /dev/ttyACM*
+
+# If `hass` runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
+$ sudo usermod -a -G dialout homeassistant
 ```
 
 Or, on some other systems (such as Pine 64), use:
