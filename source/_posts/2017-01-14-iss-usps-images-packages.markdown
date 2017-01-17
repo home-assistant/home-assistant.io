@@ -13,10 +13,10 @@ og_image: /images/blog/2016-01-0.36/social.png
 
 Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and a lot of bug fixes.
 
-## {% linkable_title Packages %}
+### {% linkable_title Packages %}
 [Packages][packages] are providing a new way to organize different component's configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the `!include` directives.
 
-## {% linkable_title InfluxDB export %}
+### {% linkable_title InfluxDB export %}
 The [InfluxDB][influx] component was causing problems in a wide variety of use cases. [@titilambert] improved our InfluxDB exporter feature. It might be that you need to run the [migration script](/components/influxdb/#migration-script) to update your InfluxDB database.
 
 ```bash
@@ -25,16 +25,17 @@ $ hass --script influxdb_migrator \
     -d INFLUXDB_DB_NAME
 ```
 
-## {% linkable_title International Space Station (ISS) %}
+### {% linkable_title International Space Station (ISS) %}
 No, unfortunately we are not going to space. The `iss` sensor is tracking the position of the International Space Station and gives you some details.
 
-## {% linkable_title Insteon local %}
+### {% linkable_title Insteon local %}
 The support for Insteon was removed due to issues a while ago. With the `insteon_local` component support for [Insteon][insteon] is back and let one work locally with an Insteon setup.
 
-## {% linkable_title Image processing %}
+### {% linkable_title Image processing %}
 The new [image processing component][image] currently works with [number plates][plates]. But this could level the way to integrate feature like facial recognition, motion detection, or gestures control.
 
 ## {% linkable_title All changes %}
+
 - Sensor: Support for [HydroQuebec][quebec] ([@titilambert])
 - Sensor: Tracking the [ISS][iss] ([@HydrelioxGitHub])
 - Sensor: [USPS][usps] deliveries tracking ([@happyleavesaoc])
@@ -73,7 +74,19 @@ The new [image processing component][image] currently works with [number plates]
 - Docker: `ffmpeg` is now included by default ([@colinodell])
 - Minor and not so minor features and bug fixes by [@balloob], [@pvizeli], [@fabaff], [@mezz64], [@andrey-git], [@aequitas], [@abmantis], [@turbokongen], [@jabesq], [@michaelarnauts], [@kellerza], [@titilambert], [@btorresgil], [@henworth], [@armills], [@mjg59], [@Giannie], [@n8henrie], [@magicus], [@florianholzapfel], [@MrMep], [@bah2830], [@happyleavesaoc], [@lwis], [@glance-], [@markferry], and [@nikdoof].
 
-## {% linkable_title Breaking changes %}
+### {% linkable_title Release 0.36.1 - January 17 %}
+
+ - Fix load_yaml default value ([@balloob])
+ - Fix discovery of flux_led ([@Danielhiversen])
+ - Fix Python Nest dependency re-installation ([@Danielhiversen])
+ - Make USPS to use absolute path to save cookie ([@tchellomello])
+ - Fix UPC_connect cookies ([@pvizeli])
+ - Fix Eq3bt import issues ([@rytilahti])
+ - Fix Bluetooth and Volvo trackers ([@pvizeli])
+ - Fix lannouncer notify platform ([@mKeRix])
+
+### {% linkable_title Breaking changes %}
+
 - [APNS][apns] service was moved to the `notify` domain. Use `notify.apns_NOTIFIER_NAME` instead of `apns.NOTIFIER_NAME`.
 - [InfluxDB][influx] component has a new [schema](/components/influxdb/#data-migration) to store values in the InfluxDB database. You may require to run the [`influxdb_migrator`](/components/influxdb/#migration-script) script.
   You have to note:
@@ -85,12 +98,15 @@ The new [image processing component][image] currently works with [number plates]
   - Fields named state will always be stored as string.
 - TTS cache files use now the language abbreviation as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. `HASH_PLATFORM.xxx` -> `HASH_LANG_PLATFORM.xxx`.
 
-## {% linkable_title If you need help... %}
+### {% linkable_title If you need help... %}
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+### {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+[@tchellomello]: https://github.com/tchellomello
+[@rytilahti]: https://github.com/rytilahti
+[@mKeRix]: https://github.com/mKeRix
 [@abmantis]: https://github.com/abmantis
 [@aequitas]: https://github.com/aequitas
 [@andrey-git]: https://github.com/andrey-git
