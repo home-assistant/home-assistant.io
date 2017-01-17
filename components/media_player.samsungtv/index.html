@@ -107,7 +107,7 @@
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP of the Samsung Smart TV, eg. <code class="highlighter-rouge">192.168.0.10</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port of the Samsung Smart TV. Defaults to 55000.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of the Samsung Smart TV. Defaults to 55000. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Samsung Smart TV.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): The time-out for the communication with the TV. Defaults to 0.</li>
 </ul>
@@ -131,16 +131,14 @@
 <p>Currently tested but not working models:</p>
 
 <ul>
-  <li>KU6300 - Shows in GUI but unable to control.</li>
-  <li>H6400 - Shows in GUI but unable to control.</li>
   <li>J5200 - Unable to see state and unable to control</li>
-  <li>JU6400 - Shows in GUI but unable to control</li>
-  <li>KU6000 - Shows in the GUI but unable to control</li>
 </ul>
 
 <p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown">GitHub</a>.
 The first letter (U, P, L, H &amp; K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia &amp; Australia. The two numbers following that represent the screen size.
 If you add your model remember to remove these before adding them to the list.</p>
+
+<p>Currently the ability to select a source is not implemented.</p>
 
 <p>There’s currently a <a href="https://github.com/home-assistant/home-assistant/issues/2098">known issue</a> with some TV’s receiving a <em>Key press UP</em> that can interrupt certain applications.</p>
 
