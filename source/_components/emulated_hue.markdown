@@ -42,6 +42,7 @@ Configuration variables:
 - **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`.
 - **host_ip** (*Optional*): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
 - **listen_port** (*Optional*): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.
+- **upnp_bind_multicast** (*Optional*): Whether or not to bind the UPNP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work for most situations.  In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.
 - **off_maps_to_on_domains** (*Optional*): The domains that maps an "off" command to an "on" command.
   
   For example, if `script` is included in the list, and you ask Alexa to "turn off the *water plants* script," the command will be handled as if you asked her to turn on the script.
