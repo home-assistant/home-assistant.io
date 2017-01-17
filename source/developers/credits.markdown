@@ -269,6 +269,7 @@ This page contains a list of people who have contributed in one way or another t
 - [vladonemo](https://github.com/vladonemo)
 - [Warren Konkel](https://github.com/wkonkel)
 - [webworxshop](https://github.com/webworxshop)
+- [Whytey](https://github.com/Whytey)
 - [Willems Davy](https://github.com/joyrider3774)
 - [William Scanlon](https://github.com/w1ll1am23)
 - [wind-rider](https://github.com/wind-rider)
