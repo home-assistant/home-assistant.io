@@ -29,6 +29,10 @@ This page describes the steps for publishing a new Home Assistant release.
 5. Merge `current` into `next` (`$ git checkout next && git merge current`) to make the PR mergeable.
 6. Merge pull request (blog post, updated frontpage, and all new documentation) to `current`.
 
+### {% linkable_title Docker Hub %}
+
+Create a new [tag](https://hub.docker.com/r/homeassistant/home-assistant/tags/) at https://hub.docker.com for the release.
+
 ### {% linkable_title Python Package Index %}
 
 Checkout the `master` branch and run `script/release` to publish the new release on [Python Package Index](https://pypi.python.org).
