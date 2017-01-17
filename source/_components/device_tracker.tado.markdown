@@ -31,4 +31,7 @@ Configuration variables:
 - **username** (*Required*): The username for your Tado account.
 - **password** (*Required*): The password for your Tado account.
 
+After configuration, your device has to be at home at least once before showing up as 'home' or 'away'.
+Polling Tado API for presence information will occure at most once every 30 seconds.
+
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
