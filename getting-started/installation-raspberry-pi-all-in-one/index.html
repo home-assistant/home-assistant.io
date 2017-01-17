@@ -205,7 +205,9 @@ If you deployed Home Assistant via the AiO installer prior to December 2016, rep
 
 <h3><a class="title-link" name="winscp" href="#winscp"></a> WinSCP</h3>
 
-<p>If you are Windows users who is using <a href="https://winscp.net/">WinSCP</a>, please note that after running the installer, you will need to modify settings allowing you to “switch users” to edit your configuration files. The needed change within WinSCP is: <strong>Environment</strong> -&gt; <strong>SCP/Shell</strong> -&gt; <strong>Shell</strong> and set it to <code class="highlighter-rouge">sudo su -</code>.</p>
+<p>If you are Windows users who is using <a href="https://winscp.net/">WinSCP</a>, please note that after running the installer, you will need to modify settings allowing you to “switch users” to edit your configuration files.</p>
+
+<p>First create a new session on WinSCP using Protocol <strong>SCP</strong> pointing to your Pi IP address and port 22 and then modify the needed setting by click on <strong>Advanced…</strong> -&gt; <strong>Environment</strong> -&gt; <strong>SCP/Shell</strong> -&gt; <strong>Shell</strong> and selecting <code class="highlighter-rouge">sudo su -</code>.</p>
 
 
 </article>
