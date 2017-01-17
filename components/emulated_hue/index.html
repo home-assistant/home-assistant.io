@@ -121,6 +121,7 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
   <li><strong>type</strong> (<em>Optional</em>): The type of assistant who we are emulated for. Either <code class="highlighter-rouge">alexa</code> or <code class="highlighter-rouge">google_home</code>.</li>
   <li><strong>host_ip</strong> (<em>Optional</em>): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.</li>
   <li><strong>listen_port</strong> (<em>Optional</em>): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.</li>
+  <li><strong>upnp_bind_multicast</strong> (<em>Optional</em>): Whether or not to bind the UPNP (SSDP) listener to the multicast address (239.255.255.250) or instead to the (unicast) host_ip address specified above (or automatically determined). The default is true, which will work for most situations.  In special circumstances, like running in a FreeBSD or FreeNAS jail, you may need to disable this.</li>
   <li>
     <p><strong>off_maps_to_on_domains</strong> (<em>Optional</em>): The domains that maps an “off” command to an “on” command.</p>
 

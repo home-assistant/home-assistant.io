@@ -156,7 +156,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
   <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">May</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Force</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">you.'</span>
 </code></pre>
 </div>
-<p>Say to the <code class="highlighter-rouge">media_player.floor</code> device entitie:</p>
+<p>Say to the <code class="highlighter-rouge">media_player.floor</code> device entity:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
 <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.floor</span>
@@ -165,7 +165,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
 </code></pre>
 </div>
 
-<p>Say to the <code class="highlighter-rouge">media_player.floor</code> device entitie in french:</p>
+<p>Say to the <code class="highlighter-rouge">media_player.floor</code> device entity in French:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
 <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.floor</span>
@@ -186,7 +186,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 <h2><a class="title-link" name="cache" href="#cache"></a> Cache</h2>
 
-<p>The component have two caches. Both caches can be controlled with the <code class="highlighter-rouge">cache</code> option in the  platform configuration or the service call <code class="highlighter-rouge">say</code>. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.</p>
+<p>The component has two caches. Both caches can be controlled with the <code class="highlighter-rouge">cache</code> option in the platform configuration or the service call <code class="highlighter-rouge">say</code>. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.</p>
 
 
 </article>
