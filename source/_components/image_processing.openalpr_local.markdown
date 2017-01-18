@@ -38,11 +38,10 @@ $ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```yaml
 # Example configuration.yaml entry
 image_processing:
- - platform: openalpr_cloud
-   api_key: 'sk_abcxyz123456'
+ - platform: openalpr_local
    region: eu
    source:
-    - entity_id: camera.garage
+    - entity_id: camera.yourCam
 ```
 Configuration variables:
 
