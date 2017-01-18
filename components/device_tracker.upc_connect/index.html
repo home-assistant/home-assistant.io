@@ -90,17 +90,23 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">upc_connect</code> platform offers presence detection by looking at connected devices to an <a href="https://www.upc.ch/de/internet/connectbox/">ConnectBox</a> router from <a href="http://www.libertyglobal.com/">Liberty Global</a>, which is a Internet provider in Switzerland, Austria.</p>
+  <p>The <code class="highlighter-rouge">upc_connect</code> platform offers presence detection by looking at connected devices to a <a href="https://www.upc.ch/de/internet/connectbox/">Connect Box</a> from <a href="http://www.libertyglobal.com/">Liberty Global</a> (also known as UPC Cablecom in Switzerland) which is a Internet provider in Switzerland and Austria.</p>
 
-<p>To use an Internet-Box router in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To use a Connect Box in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">upc_connect</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s1">'</span><span class="s">123456'</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s2">"</span><span class="s">192.168.0.1"</span> <span class="c1"># only required if not 192.168.0.1</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">upc_connect</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>password</strong> (<em>Required</em>): The password for your Connect Box.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The IP address of your router. Set it if you are not using <code class="highlighter-rouge">192.168.0.1</code>.</li>
+</ul>
 
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
 

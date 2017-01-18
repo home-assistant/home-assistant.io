@@ -92,43 +92,27 @@
 
   <p>The <code class="highlighter-rouge">eq3btsmart</code> climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.</p>
 
-<p>The only functionality is to set the temperature, there doesn’t seem to be any way to query the temperature sensor or battery level (<a href="https://forum.fhem.de/index.php/topic,39308.15.html">read more</a>).</p>
+<p>The current functionality allows setting the temperature as well as controlling the supported modes with help of <a href="https://github.com/rytilahti/python-eq3bt">python-eq3bt</a> library.
+As the device doesn’t contain a temperature sensor (<a href="https://forum.fhem.de/index.php/topic,39308.15.html">read more</a>),
+we report target temperature also as current one.</p>
 
-<p>Setup is a bit more cumbersome than for most other thermostats. It has to be paired first:</p>
+<h3>Testing the connectivity</h3>
+<p>Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can can be done with the eq3cli tool:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>bluetoothctl
-scan on
-&lt;Wait <span class="k">for </span>the thermostat to be found, which looks like this: <span class="o">[</span>NEW] Device 00:11:22:33:44:55 CC-RT-BLE&gt;
-scan off
-&lt;Set the thermostat to pairing mode.&gt;
-pair &lt;MAC&gt;
-trust &lt;MAC&gt;
-disconnect &lt;MAC&gt;
-<span class="nb">exit</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>eq3cli --mac 00:11:22:33:44:55
+
+<span class="o">[</span>00:1A:22:XX:XX:XX] Target 17.0 <span class="o">(</span>mode: auto dst, away: no<span class="o">)</span>
+Locked: False
+Batter low: False
+Window open: False
+Boost: False
+Current target temp: 21.0
+Current mode: auto dst
+Valve: 0
 </code></pre>
 </div>
 
-<p>Then check with gatttool if the connection works as expected:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>gatttool -b 00:11:22:33:44:55 -I
-<span class="gp">[00:11:22:33:44:55][LE]&gt; </span>connect
-Attempting to connect to 00:11:22:33:44:55
-Connection successful
-<span class="gp">[00:11:22:33:44:55][LE]&gt; </span>char-write-req 0x0411 03
-Characteristic value was written successfully
-Notification handle <span class="o">=</span> 0x0421 value: 02 01 09 14 04 2d
-<span class="gp">[00:11:22:33:44:55][LE]&gt; </span>disconnect
-<span class="gp">[00:11:22:33:44:55][LE]&gt; </span><span class="nb">exit</span>
-</code></pre>
-</div>
-
-<p>Important: For gatttool or homeassistant to work, the thermostat needs to be disconnected from bluetoothd, so I found it best to modify the hass-daemon startscript by adding:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/usr/bin/bt-device -d CC-RT-BLE
-</code></pre>
-</div>
-
-<p>to the start function of /etc/init.d/hass-daemon.</p>
+<h3>Configuration</h3>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">climate</span><span class="pi">:</span>
