@@ -97,6 +97,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">image_processing</span><span class="pi">:</span>
  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">openalpr_cloud</span>
+   <span class="s">api_key</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sk_abcxyz123456'</span>
    <span class="s">region</span><span class="pi">:</span> <span class="s">eu</span>
    <span class="s">source</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">camera.garage</span>
@@ -106,8 +107,8 @@
 
 <ul>
   <li><strong>region</strong> (<em>Required</em>): Country or region. List of supported <a href="https://github.com/openalpr/openalpr/tree/master/runtime_data/config">values</a>.</li>
-  <li><strong>alpr_bin</strong> (<em>Optional</em>): The command line tool alpr from OpenALPR software for local processing. Defaults to <code class="highlighter-rouge">alpr</code>.</li>
-  <li><strong>confidence</strong> (<em>Optional</em>):  The minimum of confidence in percent to process with Home Assistant. Defaults to 80.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): You need an API key from <a href="https://cloud.openalpr.com/">OpenALPR Cloud</a>.</li>
+  <li><strong>confidence</strong> (<em>Optional</em>): The minimum of confidence in percent to process with Home Assistant. Defaults to 80.</li>
   <li><strong>source</strong> array (<em>Required</em>): List of image sources.
     <ul>
       <li><strong>entities</strong> (<em>Required</em>): A list of devices to add in Home Assistant.</li>
