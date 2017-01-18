@@ -26,7 +26,7 @@ automation:
 - alias: Open garage door
   trigger:
     platform: event
-    event_type: openalpr.found
+    event_type: found_plate
     event_data:
       entity_id: openalpr.camera_garage_1
       plate: BE2183423
