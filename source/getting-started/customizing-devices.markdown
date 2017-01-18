@@ -57,13 +57,13 @@ homeassistant:
   customize:
     - entity_id: sensor
       icon: mdi:kettle # Give all sensor the kettle icon
-    - entity_id_glob: light.family*
+    - entity_id: light.family*
       hidden: true # Hide all lights that have an ID starting with 'family'
     - entity_id: switch.wemo_switch_1,switch.wemo_switch_2,switch.wemo_switch_3
       entity_picture: /local/toaster.jpg # Set picture on multiple devices
 ```
 
-Either `entity_id` or `entity_id_glob` (or both) must be present in each customization block.
+Either `entity_id` must be present in each customization block.
 
 
 ### {% linkable_title Reloading customize %}
