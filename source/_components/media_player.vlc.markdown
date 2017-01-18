@@ -44,3 +44,11 @@ media_player:
     name: speaker_1
     arguments: '--alsa-audio-device=hw:1,0'
 ```
+
+##### {% linkable_title Additional configuration on macOS %}
+
+On macOS phython-vlc won’t find the VLC plugin directory unless you add this to the user’s `.bash_profile` that is running Home Assistant:
+
+```bash
+export VLC_PLUGIN_PATH=$VLC_PLUGIN_PATH:/Applications/VLC.app/Contents/MacOS/plugins
+```
