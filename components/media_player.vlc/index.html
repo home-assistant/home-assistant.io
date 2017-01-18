@@ -123,6 +123,14 @@
 </code></pre>
 </div>
 
+<h5><a class="title-link" name="additional-configuration-on-macos" href="#additional-configuration-on-macos"></a> Additional configuration on macOS</h5>
+
+<p>On macOS phython-vlc won’t find the VLC plugin directory unless you add this to the user’s <code class="highlighter-rouge">.bash_profile</code> that is running Home Assistant:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">VLC_PLUGIN_PATH</span><span class="o">=</span><span class="nv">$VLC_PLUGIN_PATH</span>:/Applications/VLC.app/Contents/MacOS/plugins
+</code></pre>
+</div>
+
 
 </article>
 
