@@ -48,6 +48,6 @@ Configuration variables:
 - **start_colortemp** (*Optional*): The color temperature at the start. Defaults to `4000`.
 - **sunset_colortemp** (*Optional*): The sun set color temperature. Defaults to `3000`.
 - **stop_colortemp** (*Optional*): The color temperature at the end. Defaults to `1900`.
-- **brightness** (*Optional*): The brightness of the lights. Calculated with `RGB_to_xy` by default.
+- **brightness** (*Optional*): The brightness of the lights. Calculated with `RGB_to_xy` by default. Setting to -1 disables brightness updates.
 - **mode** (*Optional*): Select how color temperature is passed to lights. Valid values are `xy` and `mired`. Defaults to `xy`.
 
