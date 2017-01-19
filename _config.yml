@@ -136,4 +136,4 @@ date_released: 2017-01-15
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
-patch_version_notes: "#release-0353---december-23"
+patch_version_notes: "#"

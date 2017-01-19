@@ -104,6 +104,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Giel Janssens](https://github.com/gieljnssns)
 - [Gilles Margerie](https://github.com/Gilles95)
 - [goir](https://github.com/goir)
+- [Gopal Kildoliya](https://github.com/gopalkildoliya)
 - [Greg Dowling](https://github.com/pavoni)
 - [gross1989](https://github.com/gross1989)
 - [Guillem Barba](https://github.com/gbarba)
