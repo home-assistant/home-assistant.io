@@ -23,7 +23,7 @@ automation
     action:
       service: notify.iOSApp
       data:
-        message: "request_location_updates"
+        message: "request_location_update"
 ```
 
 Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
