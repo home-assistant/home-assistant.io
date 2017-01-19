@@ -111,7 +111,7 @@
   <li><strong>device_id</strong> (<em>Required</em>): The device id to track for this sensor.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the sensor.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The topic that contains all subtopics for the rooms.</li>
-  <li><strong>timeout</strong> (<em>Optional</em>): The time in seconds after which a room presence state is considered old. An example: device1 is reported at scanner1 with a distance of 1. No further updates are sent from scanner1. After 5 seconds scanner2 reports device with a distance of 2. The old location info is discarded in favor of the new scanner2 information as the timeout has passed.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): The time in seconds after which a room presence state is considered old. An example: device1 is reported at scanner1 with a distance of 1. No further updates are sent from scanner1. After 5 seconds scanner2 reports device1 with a distance of 2. The old location info is discarded in favor of the new scanner2 information as the timeout has passed.</li>
   <li><strong>away_timeout</strong> (<em>Optional</em>): The time in seconds after which the state should be set to <code class="highlighter-rouge">away</code> if there were no updates. <code class="highlighter-rouge">0</code> disables the check and is the default.</li>
 </ul>
 
