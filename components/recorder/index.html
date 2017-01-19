@@ -186,11 +186,11 @@
     </tr>
     <tr>
       <td style="text-align: left">MySQL</td>
-      <td style="text-align: left"><code class="highlighter-rouge">mysql://SERVER_IP/DB_NAME</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql+pymysql://SERVER_IP/DB_NAME</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">MySQL</td>
-      <td style="text-align: left"><code class="highlighter-rouge">mysql://user:password@SERVER_IP/DB_NAME</code></td>
+      <td style="text-align: left">MySQL          </td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql+pymysql://user:password@SERVER_IP/DB_NAME</code>      </td>
     </tr>
     <tr>
       <td style="text-align: left">PostgreSQL</td>
@@ -212,15 +212,23 @@
 <p>For MySQL you may have to install a few dependencies:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libmysqlclient-dev
-<span class="gp">$ </span>pip3 install mysqlclient
+<span class="gp">$ </span>pip3 install pymysql
 </code></pre>
 </div>
+<p>If you are in a virtual environment, don’t forget to activate it before installing the pymysql package.</p>
 
-<h3><a class="title-link" name="postgresql" href="#postgresql"></a> PostgreSQL</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pi@homeassistant:~ <span class="nv">$ </span>sudo -i
+<span class="gp">root@homeassistant:~# </span>su homeassistant  
+<span class="gp">homeassistant@homeassistant:/root$ </span><span class="nb">cd</span> /srv/homeassistant/homeassistant_venv/
+<span class="gp">homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ </span><span class="nb">source </span>bin/activate
+<span class="o">(</span>homeassistant_venv<span class="o">)</span> homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv<span class="nv">$ </span>pip3 install pymysql
 
-<p>For PostgreSQL you may have to install a few dependencies:</p>
+<span class="c">### &lt;a class='title-link' name='postgresql' href='#postgresql'&gt;&lt;/a&gt; PostgreSQL </span>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install postgresql-server-dev-X.Y
+For PostgreSQL you may have to install a few dependencies:
+
+<span class="sb">```</span>bash
+<span class="gp">$ </span>sudo apt-get install postgresql-server-dev-X.Y
 <span class="gp">$ </span>pip3 install psycopg2
 </code></pre>
 </div>
