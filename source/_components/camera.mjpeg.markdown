@@ -29,6 +29,7 @@ camera:
 Configuration variables:
 
 - **mjpeg_url** (*Required*): The URL your camera serves the video on, eg. http://192.168.1.21:2112/
+- **still_image_url** (*Optional*): The URL for thumpmail picture if camera support that.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
