@@ -25,7 +25,11 @@ device_tracker:
 
 - [GPSLogger for Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger)
 
-To configure GPSLogger, you must set up the app to send a `GET` request to your Home Assistant server at `http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&battery=%BATT&device=%SER&accuracy=%ACC`. Make sure to include the API password if you have configured a password in Home Assistant (add `&api_password=<password>` to the end of the URL). Configure that options under "General Options":
+To configure GPSLogger, you must set up the app to send a `GET` request to your Home Assistant server at 
+```yaml
+`http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT`
+```
+. Make sure to include the API password if you have configured a password in Home Assistant (add `&api_password=<password>` to the end of the URL). Configure that options under "General Options":
 
 - Start on boot: yes
 - Start on app launch: yes
@@ -34,7 +38,10 @@ Set the URL under "General Options -> Logging details":
 
 - Log to GPX: no
 - Log to KML: no
-- Log to custom URL: yes and set `http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&battery=%BATT&device=%SER&accuracy=%ACC` (be sure you include API password (`&api_password=<password>`) if needed, or you can also use HTTP Basic authentication `http://<username>:<password>@<ha_server>/api/gpslogger...`)
+- Log to custom URL: yes and set 
+```yaml
+`http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT` (be sure you include API password (`&api_password=<password>`) if needed, or you can also use HTTP Basic authentication `http://<username>:<password>@<ha_server>/api/gpslogger...`)
+```
 - Log to OpenGTS Server: no
 - Log to Plain Text: no
 - Log to NMEA: no

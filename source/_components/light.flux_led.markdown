@@ -22,6 +22,7 @@ Example of bulbs:
 - [MagicLight® Plus - WiFi Smart LED Light Bulb4](https://www.amazon.com/gp/product/B00NOC93NG)
 - [Flux WiFi Smart LED Light Bulb4](http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE)
 - [WIFI smart LED light Bulb1](http://smile.amazon.com/gp/product/B01CS1EZYK)
+- [Ledenet WiFi RGBW Controller](https://www.amazon.com/gp/product/B01DY56N8U)
 
 The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
 
@@ -63,7 +64,7 @@ light:
         name: flux_living_room_lamp
 
 automation:
-  random_flux_living_room_lamp:
+  alias: random_flux_living_room_lamp
   trigger:
     platform: time
     seconds: '/45'
@@ -88,4 +89,15 @@ Will add a light with white mode (default). Changing the brightness will set the
     192.168.1.10:
       name: NAME
       mode: "rgbw"
+```
+
+Some devices such as the Ledenet RGBW controller use a slightly difference protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.
+
+```yaml
+light:
+  - platform: flux_led
+    devices:
+      192.168.1.10:
+        name: NAME
+        protocol: 'ledenet'
 ```

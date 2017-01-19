@@ -34,6 +34,13 @@ Configuration variables:
 - **username** (*Optional*): The username of the Samsung Smart TV. Defaults to admin.
 - **password** (*Optional*): The password of the Samsung Smart TV. Defaults to password.
 - **name** (*Optional*): The name you would like to give to the Sharp Aquos TV.
+- **power_on_enabled** (*Optional*): If you want to be able to turn on your TV. Defaults to False.
+
+<p class='note warning'>
+When you set **power_on_enabled** as True, you have to turn on your TV on the first time with the remote.
+Then you will be able to turn on with Home-Assistant.
+Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consumes more power.
+</p>
 
 
 Currently known supported models:
@@ -44,5 +51,6 @@ Currently known supported models:
 - LC-60LE830U
 - LC-52LE925UN
 - LC-60LE925UN
+- LC-60LE857U
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.aquostv.markdown).

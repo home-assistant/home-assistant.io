@@ -171,6 +171,11 @@ void receive(const MyMessage &message) {
 }
 ```
 
+### {% linkable_title Heartbeats %}
+
+Sending a heartbeat from the MySensors device to Home Assistant activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands.  See the MySensors library API for information on how to send heartbeats and sleep device.  
+
+
 Visit the [library api] of MySensors for more information.
 
-[library api]: https://www.mysensors.org/download/sensor_api_15
+[MySensors library api]: http://www.mysensors.org/download

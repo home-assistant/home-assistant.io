@@ -192,7 +192,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" http://localhost:8123/api/services
 ```
 
-#### {% linkable_title GET /api/history %}
+#### {% linkable_title GET /api/history/period/&lt;timestamp> %}
 Returns an array of state changes in the past. Each object contains further details for the entities.
 
 ```json
@@ -227,13 +227,13 @@ Sample `curl` commands:
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       http://localhost:8123/api/history/period/2016-02-06
+       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00
 ```
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00?filter_entity_id=sensor.temperature
 ```
 
 #### {% linkable_title GET /api/states %}

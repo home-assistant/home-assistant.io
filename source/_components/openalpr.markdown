@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "OpenAlpr"
-description: "Instructions how to integrate licences plates with OpenAlpr into Home Assistant."
+title: "OpenALPR"
+description: "Instructions how to integrate licences plates with OpenALPR into Home Assistant."
 date: 2016-09-22 00:00
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.29
 ha_iot_class: "Local Push"
 ---
 
-[OpenAlpr](http://www.openalpr.com/) integration for Home Assistant allows you to process licences plates from a camera. You can use them to open a garage door or trigger any other [automation](https://home-assistant.io/components/automation/).
+[OpenALPR](http://www.openalpr.com/) integration for Home Assistant allows you to process licences plates recorded with a  camera. You can use them to open a garage door or trigger any other [automation](https://home-assistant.io/components/automation/).
 
 <p class='note'>
 If you want use a video stream. You need setup the [ffmpeg](/components/ffmpeg) component. See also there for troubleshooting local ffmpeg installation.
@@ -22,18 +22,20 @@ If you want use a video stream. You need setup the [ffmpeg](/components/ffmpeg) 
 
 ### {% linkable_title Local installation %}
 
-If you want process all data local you need the command line tool `alpr` in version > 2.3.1
+If you want process all data locally, you need version 2.3.1 or higher of the `alpr` commandline tool.
 
-If you don't find binaries for your distribution you can compile from source. Documention of how to build openalpr is found [here](https://github.com/openalpr/openalpr/wiki).
+If you don't find binaries for your distribution you can compile from source. Documention of how to build OpenALPR is found [here](https://github.com/openalpr/openalpr/wiki).
 
-On a debian system you can use this cmake command to build only the command line tool (which second part on linux build instruction - ubuntu 14.04+):
+On a Debian system you can use this `cmake` command to build only the command line tool:
+
 ```bash
-cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+$ cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 ```
 
-Verify your alpr installation with:
+Verify your `alpr` installation with:
+
 ```
-wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
+$ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
 ### {% linkable_title Configuration Home Assistant %}
@@ -57,19 +59,20 @@ openalpr:
      username: admin
      password: bla
 ```
+
 Configuration variables:
 
 - **engine** (*Required*): `local` or `cloud` for processing
-- **region** (*Required*): Country or region. List of Supported [value](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
-- **confidence** (*Optional*): Default 80. The minimum of confidence in percent to process with Home-Assistant.
-- **entities** (*Required*): A list of device to add in Home-Assistant.
-- **name** (*Optional*): This parameter allows you to override the name of your openalpr entity.
-- **interval** (*Optional*): Default 2. Time in seconds to poll a picture. If the interval is 0 It don't poll and it only process data with `openalpr.scan` service.
-- **render** (*Optional*): default is with ffmpeg. How is Home-Assistant to get a picture from. It support `ffmpeg` for video streams and `image` for a still image.
-- **input** (*Required*): The source from getting pictures. With ffmpeg it could by all supported input. Image only support a url.
-- **extra_arguments** (*Optional*): Only available with ffmpeg.
-- **username** (*Optional*): Only available with image for http authentification.
-- **password** (*Optional*): Only available with image for http authentification.
+- **region** (*Required*): Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
+- **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80. 
+- **entities** (*Required*): A list of device to add in Home Assistant.
+- **name** (*Optional*): This parameter allows you to override the name of your OpenALPR entity.
+- **interval** (*Optional*): Time in seconds to poll a picture. If the interval is 0 It don't poll and it only process data with `openalpr.scan` service. Default is 2 seconds.
+- **render** (*Optional*): How is Home Assistant to get a picture from. It support `ffmpeg` for video streams and `image` for a still image. Default is with `ffmpeg`.
+- **input** (*Required*): The source from getting pictures. With `ffmpeg` it could by all supported input. Image only support an URL.
+- **extra_arguments** (*Optional*): Only available with `ffmpeg`.
+- **username** (*Optional*): Only available with image for HTTP authentification.
+- **password** (*Optional*): Only available with image for HTTP authentification.
 
 ### {% linkable_title Configuration Home Assistant local processing %}
 
@@ -84,7 +87,7 @@ openalpr:
 ```
 Configuration variables:
 
-- **alpr_binary** (*Optional*): Default `alpr`. The command line tool alpr from OpenAlpr software for local processing.
+- **alpr_binary** (*Optional*): Default `alpr`. The command line tool `alpr` from OpenALPR software for local processing.
 
 ### {% linkable_title Configuration Home Assistant cloud processing %}
 
@@ -97,9 +100,10 @@ openalpr:
   entities:
 ...
 ```
+
 Configuration variables:
 
-- **api_key** (*Required*): You need a api key from  [OpenAlpr Cloud](https://cloud.openalpr.com/).
+- **api_key** (*Required*): You need an API key from  [OpenALPR Cloud](https://cloud.openalpr.com/).
 
 #### {% linkable_title Service %}
 
@@ -121,4 +125,4 @@ automation:
 ...
 ```
 
-This event is trigger after openalpr found a new licence plate.
+This event is trigger after OpenALPR found a new licence plate.

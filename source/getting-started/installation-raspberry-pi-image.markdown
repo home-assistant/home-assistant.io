@@ -37,7 +37,7 @@ Some extra tips:
 
 ### {% linkable_title Technical Details %}
 
- - Home Assistant is installed in a virtual Python environment at `/src/homeassistant/`
+ - Home Assistant is installed in a virtual Python environment at `/srv/homeassistant/`
  - Home Assistant will be started as a service run by the user `homeassistant`
  - The configuration is located at `/home/homeassistant/.homeassistant`
 
@@ -83,7 +83,7 @@ This will in order do the following:
 
 - Stop the Home Assistant service running on HASSbian
 - Open a shell as the `homeassistant` user running the Homeassistant service and that has ownership over the Home Assistant installation.
-- Change into the virtual Python environment at `/src/homeassistant/` containing the Home Assistant installation.
+- Change into the virtual Python environment at `/srv/homeassistant/` containing the Home Assistant installation.
 - Upgrade the Home Assistant installation to the latest release.
 - Exit the shell and return to the `pi` user.
 - Restart the Home Assistant service.
