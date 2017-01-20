@@ -10,12 +10,12 @@ footer: true
 logo: anthemav.png
 ha_category: Media Player
 ha_iot_class: "Local Push"
-ha_release: 0.35
+ha_release: 0.36
 ---
 
 Both [Anthem]'s current and last generation of A/V Receivers and and Processors
 support IP-based, network control.  This Home Assistant platform adds proper
-"local push" support for and of these receivers on your network.
+"local push" support for any of these receivers on your network.
 
 ## {% linkable_title Supported Models %}
 
@@ -36,18 +36,15 @@ currently supported.
 # Example configuration.yaml entry
 media_player:
   - platform: anthemav
-    host: IP_ADDRESS
+    host: 10.0.0.42
     port: 14999
 ```
 
-### Supported Options
+### Configuration Variables
 
-Item Name       | Type | Required?   | Description
-----------------|------|-------------|-------------------------------------------
-`host`          | str  | *required*  | Hostname or IP Address of device
-`port`          | int  | *required*  | TCP port number of device
-`name`          | str  |  optional   | Defaults to model name if not provided
-`scan_interval` | int  |  optional   | Unused.  Defaults to 120 (seconds)
+- **host** (*Required*): The host name or address of the device.
+- **port** (*Optional*): The port number. Defaults to 14999.
+- **name** (*Optional*): The name of the device used in the frontend.
 
 ## Notes and Limitations
 
