@@ -16,33 +16,25 @@ ha_release: pre 0.7
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use these sensors.  The `nest` binary sensor will automatically be setup when you do.
+You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` component is configured and the required configuration for the `nest binary sensor` is set.
 </p>
 
-To customize which binary sensors are enabled, you can add the following to your `configuration.yaml` file:
+To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: nest
+nest:
+  binary_sensors:
     monitored_conditions:
       - 'fan'
-      - 'is_using_emergency_heat'
+      - 'target'
 ```
 
-If you leave `monitored_conditions` blank, all sensors that are available for your devices will be used.
+By default all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/components/nest/).
 
 Configuration variables:
 
 - **monitored_conditions** array (*Optional*): States to monitor.
-  - online
-  - fan
-  - is\_using\_emergency\_heat
-  - is\_locked
-  - has\_leaf
-  - motion\_detected
-  - person\_detected
-  - sound\_detected
 
 The following conditions are available by device:
 

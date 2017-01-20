@@ -28,6 +28,7 @@ Configuration variables:
 - **api_password** (*Optional*): Protect Home Assistant with a password.
 - **server_host** (*Optional*): Only listen to incoming requests on specific ip/host (default: accept all)
 - **server_port** (*Optional*): Let you set a port to use. Defaults to 8123.
+- **base_url** (*Optional*): The url that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. Defaults to local IP address.
 - **development** (*Optional*): Disable caching and load unvulcanized assets. Useful for Frontend development.
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.

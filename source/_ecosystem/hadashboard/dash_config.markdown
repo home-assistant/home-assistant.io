@@ -158,7 +158,7 @@ data-action must contain one of the following: arm_home/arm_away/trigger/disarm.
 
 Widget type **Haweather**.
 
-In order to use the weather widget you must configure the [DarkSky component](/component/senor.darksky/), and ensure that you configure at least the following monitored conditions in your Home Assistant sensor configuration:
+In order to use the weather widget you must configure the [DarkSky component](/components/sensor.darksky/), and ensure that you configure at least the following monitored conditions in your Home Assistant sensor configuration:
 
 - temperature
 - humidity

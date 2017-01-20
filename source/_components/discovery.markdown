@@ -21,7 +21,7 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Plex media server
  * Panasonic Viera
  * Roku media player
- * Sono Speaker
+ * Sonos Speakers
  * Yamaha media player
  * Logitech media server (Squeezebox)
  * DirecTV

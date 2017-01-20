@@ -29,17 +29,17 @@ Home Assistant is open source software and available under the [MIT](https://ope
 
 ### {% linkable_title Numbers %} 
 
-This sections just contains some random numbers of the Home Assistant eco-system.
+This sections just contains some random numbers of the Home Assistant eco-system. Sorry, only the main repository counts.
 
-| Description | 2015 |
+| Description | 2015 | 2016 |
 |---|---|
-| [Gitter.io](https://gitter.im/home-assistant/home-assistant) | 334 |
-| [Forum posts](https://community.home-assistant.io/) | 352 |
-| [Forum topics](https://community.home-assistant.io/) | 83 |
-| [Forum members](https://community.home-assistant.io/) | 92 |
-| [Github stars](https://github.com/home-assistant/home-assistant/stargazers)  | 2519 |
-| [Github forks](https://github.com/home-assistant/home-assistant/network) | 374 |
-| Page views [ha.io](https://home-assistant.io) | 190'271|
+| [Gitter.io](https://gitter.im/home-assistant/home-assistant) | 334 | 2367 |
+| [Forum posts](https://community.home-assistant.io/) | 352 | 33004 |
+| [Forum topics](https://community.home-assistant.io/) | 83 | 4863 |
+| [Forum members](https://community.home-assistant.io/) | 92 | 3931 | 
+| [Github stars](https://github.com/home-assistant/home-assistant/stargazers)  | 2519 | 5239 | 
+| [Github forks](https://github.com/home-assistant/home-assistant/network) | 374 | 1424 |
+| Page views [ha.io](https://home-assistant.io) | 190,271 | 1,284,855 | 
 
 ### {% linkable_title Commit per year %}
 
@@ -49,16 +49,10 @@ The numbers below only covers the [main git repository](https://github.com/home-
 2013: 147
 2014: 328
 2015: 2963
-2016: 1439 (so far)
+2016: 4299
 ```
 
 More details and statistics can be found on [Github](https://github.com/home-assistant/home-assistant/graphs/contributors).
-
-[RocketGraph](https://rocketgraph.com) reports shows commit stats for the last 90 days and a neat visual calendar for the current calendar year.
-
-- [home-assistant](https://rocketgraph.com/s/O163F6yWdgR)
-- [home-assistant-polymer](https://rocketgraph.com/s/AfvsRKE_WfB)
-- [home-assistant.io](https://rocketgraph.com/s/PvCS9rv7ODL)
 
 ### {% linkable_title First commit %}
 

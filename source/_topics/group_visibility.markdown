@@ -56,7 +56,7 @@ automation 2:
 
 ## {% linkable_title Easier automations %}
 
-One of the most common uses cases are to show groups during certain times of day, maybe commuting information durig a work day morning or light switches when it is getting dark. The complexity of automations needed to make this happen will quickly get out of hands. So, one way to make the automations easier is to create a sensor that alters its state depending on time of day. One way of doing that is using a `command_line` sensor and a script:
+One of the most common uses cases are to show groups during certain times of day, maybe commuting information during a work day morning or light switches when it is getting dark. The complexity of automations needed to make this happen will quickly get out of hand. So, one way to make the automations easier is to create a sensor that alters its state depending on time of day. One way of doing that is using a `command_line` sensor and a script:
 
 ```python
 #!/usr/bin/env python3
@@ -103,7 +103,7 @@ sensor:
     command: "python3 occasion.py"
 ```
 
-To simplify things, we create a Home Assistant script that change visibility of a group but also verifies that an entity is in a specific state:
+To simplify things, we create a Home Assistant script that changes the visibility of a group, but also verifies that an entity is in a specific state:
 
 ```yaml
 script:

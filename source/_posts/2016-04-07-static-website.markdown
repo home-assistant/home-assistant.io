@@ -11,7 +11,7 @@ categories: How-To
 og_image: /images/blog/2016-04-display/ha-display.png
 ---
 
-The frontend of Home Assistant is served with the help of a local web server. If you have [customized](/getting-started/devices/#customizing-devices-and-services) your installation you already use this functionality. The content of your folder `www` in your Home Assistant configuration directory (`.homeassistant`) is available under `/local` (eg. [https://localhost:8123/local](https://localhost:8123/local)).
+The frontend of Home Assistant is served with the help of a local web server. If you have [customized](/getting-started/devices/#customizing-devices-and-services) your installation you already use this functionality. The content of your folder `www` in your Home Assistant configuration directory (`.homeassistant`) is available under `/local` (eg. [http://localhost:8123/local](https://localhost:8123/local/index.html) for an `index.html` file).
 
 But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript. 
 

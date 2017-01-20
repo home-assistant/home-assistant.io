@@ -12,10 +12,6 @@ ha_release: 0.35
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.
 
-## {% linkable_title Cache %}
-
-The component have two caches. Both caches can be controlled with the `cache` option in the  platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
-
 ## {% linkable_title Configuring a `tts` platform %}
 
 To get started, add the following lines to your `configuration.yaml` (example for google):
@@ -45,29 +41,48 @@ tts:
     time_memory: 300
 ```
 
+<p class='note'>
+If you are running Home Assistant over SSL or from within a container, you will have to setup a base url inside the [http component](/components/http/).
+</p>
+
 ## {% linkable_title Service say %}
 
 Say to all `media_player` device entities:
 
 ```yaml
-service: tts.platform_say
+# Replace google_say with <platform>_say when you use a different platform.
+service: tts.google_say
 data:
   message: 'May the Force be with you.'
 ```
+Say to the `media_player.floor` device entitie:
 
 ```yaml
-service: tts.platform_say
+service: tts.google_say
 entity_id: media_player.floor
 data:
   message: 'May the Force be with you.'
 ```
 
+Say to the `media_player.floor` device entitie in french:
+
+```yaml
+service: tts.google_say
+entity_id: media_player.floor
+data:
+  message: 'Que la force soit avec toi.'
+  language: 'fr'
+```
+
 With a template:
 
 ```yaml
-service: tts.platform_say
+service: tts.google_say
 data_template:
   message: 'Temperature is {% raw %}{{ sensor.temperature }}{% endraw %}.'
   cache: false
 ```
 
+## {% linkable_title Cache %}
+
+The component have two caches. Both caches can be controlled with the `cache` option in the  platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
