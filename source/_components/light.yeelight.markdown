@@ -25,7 +25,7 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
       192.168.1.25:
         name: palier
         transition: 1000
-        music_mode: True (defaults to False)
+        use_music_mode: True (defaults to False)
         save_on_change: False (defaults to True)
 ```
 
@@ -34,7 +34,7 @@ Configuration variables:
 - **ip** (*Required*): IP(s) of your wifi bulbs
 - **name** (*Optional*): A friendly name for the device.
 - **transition** (*Optional*, default 350): Smooth transitions over time (in ms).
-- **music_mode** (*Optional*, default False): Enable music mode.
+- **use_music_mode** (*Optional*, default False): Enable music mode.
 - **save_on_change** (*Optional*, default True): Saves the bulb state when changed from Home Assistant.
 
 #### {% linkable_title Music mode  %}
