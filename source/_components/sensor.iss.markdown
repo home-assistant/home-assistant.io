@@ -23,4 +23,6 @@ sensor:
   - platform: iss
 ```
 
+Configuration variables:
 
+- **show_on_map** (*Optional*): Option to show the position of the ISS on the map. Defaults to `False`.
