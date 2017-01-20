@@ -10,6 +10,7 @@ footer: true
 logo: arest.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
+ha_release: pre 0.7
 ---
 
 
@@ -19,8 +20,9 @@ To use your aREST enabled device in your installation, add the following to your
 
 ```yaml
 # Example configuration.yaml entry
+sensor:
   - platform: arest
-    resource: http://10.100.0.117
+    resource: http://IP_ADDRESS
     monitored_variables:
       temperature:
         name: temperature
@@ -34,13 +36,15 @@ Configuration variables:
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, e.g. http://192.168.1.10.
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
 - **monitored_variables** array (*Optional*): List of exposed variables.
-  - **name** (*Required*): The name of the variable you wish to monitor.
-  - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **[variable]** (*Required*): Name of the variable to monitor.
+    - **name** (*Required*): The name to use for the frontend.
+    - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
+    - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 - **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
-  - **name** (*Optional*): The name of the variable you wish to monitor.
-  - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **[pin]** (*Required*): Pin number to use.
+    - **name** (*Required*): The name of the variable you wish to monitor.
+    - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
+    - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 
 The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  [Ethernet](https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino) for an Arduino with Ethernet shield). In those sketches are two variables (`temperature` and `humidity`) available which will act as endpoints. 
 
