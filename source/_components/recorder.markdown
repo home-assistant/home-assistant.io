@@ -115,6 +115,7 @@ root@homeassistant:~# su homeassistant
 homeassistant@homeassistant:/root$ cd /srv/homeassistant/homeassistant_venv/
 homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/activate
 (homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install pymysql
+```
 
 ### {% linkable_title PostgreSQL %}
 
