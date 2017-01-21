@@ -91,7 +91,7 @@ Will add a light with white mode (default). Changing the brightness will set the
       mode: "rgbw"
 ```
 
-Some devices such as the Ledenet RGBW controller use a slightly difference protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.
+Some devices such as the Ledenet RGBW controller use a slightly different protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.
 
 ```yaml
 light:
