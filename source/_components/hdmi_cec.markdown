@@ -13,7 +13,7 @@ ha_release: 0.23
 ha_iot_class: "Local Push"
 ---
 
-The CEC component provides services that allow selecting the active device, powering on all devices, and setting all devices to standby. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
+The HDMI CEC component provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entites for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
 
 ## {% linkable_title CEC Setup %}
 
@@ -78,6 +78,18 @@ language:      ???
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
 
+You can use either direct mapping name to physical address of device
+```yaml
+hdmi_cec:
+  devices:
+    TV: 0.0.0.0
+    Pi Zero: 1.0.0.0
+    Fire TV Stick: 2.1.0.0
+    Chromecast: 2.2.0.0
+    Another Device: 2.3.0.0
+    BlueRay player: 3.0.0.0
+```
+or port mapping tree
 ```yaml
 hdmi_cec:
   devices:
@@ -88,18 +100,46 @@ hdmi_cec:
       3: Another Device
     3: BlueRay player
 ```
+Choose just one schema. Mixing both approaches is not possible.
+
+Another option you can use in config is `platform` which specifying of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
+```yaml
+hdmi_cec:
+  platform: media_player
+```
+Then you set individual platform for devices in customizations:
+```yaml
+homeassistant:
+  customize:
+    hdmi_cec.hdmi_5:
+      platform: media_player
+```
+
+And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
+```yaml
+hdmi_cec:
+  host: 192.168.1.3
+```
+
 
 ## {% linkable_title Services %}
 
 ### {% linkable_title Select Device %}
 
-Call the `hdmi_cec/select_device` service with the name of the device to select, for example:
+Call the `hdmi_cec/select_device` service with the name of the device from config or entity_id or physical address"to select it, for example:
 
 ```json
-{
-  "device": "Chromecast"
-}
+{"device": "Chromecast"}
 ```
+
+```json
+{"device": "switch.hdmi_3"}
+```
+
+```json
+{"device": "1.1.0.0"}
+```
+
 So an Automation action using the example above would look something like this.
 
 ```yaml
@@ -116,6 +156,47 @@ Call the `hdmi_cec/power_on` service (no arguments) to power on any devices that
 ### {% linkable_title Standby %}
 
 Call the `hdmi_cec/standby` service (no arguments) to place in standby any devices that support this function.
+
+### {% linkable_title Change volume level %}
+
+Call the `hdmi_cec/volume` service with one of following commands:
+
+#### Volume up
+Increase volume three times:
+```json
+{"up": 3}
+```
+Keep increasing volume until release is called:
+```json
+{"up": "press"}
+```
+Stop increasing volume:
+```json
+{"up": "release"}
+```
+
+
+#### Volume down
+Decrease volume three times:
+```json
+{"down": 3}
+```
+Keep decreasing volume until release is called:
+```json
+{"down": "press"}
+```
+Stop decreasing volume:
+```json
+{"down": "release"}
+```
+
+#### Volume mute
+Toggle mute:
+```json
+{"mute": ""}
+```
+value is ignores.
+
 
 ## {% linkable_title Useful References %}
 
