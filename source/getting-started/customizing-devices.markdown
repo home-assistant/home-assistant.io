@@ -27,13 +27,13 @@ homeassistant:
     - entity_id: thermostat.family_roomfamily_room
       entity_picture: https://example.com/images/nest.jpg
       friendly_name: Nest
-    - entity_id: switch.wemo_switch_1:
+    - entity_id: switch.wemo_switch_1
       friendly_name: Toaster
       entity_picture: /local/toaster.jpg
-    - entity_id: switch.wemo_switch_2:
+    - entity_id: switch.wemo_switch_2
       friendly_name: Kitchen kettle
       icon: mdi:kettle
-    - entity_id: switch.rfxtrx_switch:
+    - entity_id: switch.rfxtrx_switch
       assumed_state: false
 ```
 
@@ -65,6 +65,42 @@ homeassistant:
 
 Either `entity_id` must be present in each customization block.
 
+### {% linkable_title Older format %}
+
+In the previous version of customize format the keys were the IDs:
+```yaml
+homeassistant:
+  name: Home
+  unit_system: metric
+  # etc
+
+  customize:
+    # Only the 'entity_id' is required.  All other options are optional.
+    sensor.living_room_motion:
+      hidden: true
+    thermostat.family_roomfamily_room:
+      entity_picture: https://example.com/images/nest.jpg
+      friendly_name: Nest
+    switch.wemo_switch_1:
+      friendly_name: Toaster
+      entity_picture: /local/toaster.jpg
+    switch.wemo_switch_2:
+      friendly_name: Kitchen kettle
+      icon: mdi:kettle
+    - entity_id: switch.rfxtrx_switch:
+      assumed_state: false
+```
+This format doesn't support comma-separated IDs, wildcards or domain matching.
+
+The formats can't be mixed
+```yaml
+  # NOT A VALID CONFIGURATION
+  customize:
+    sensor.living_room_motion:
+      hidden: true
+    - entity_id: thermostat.family_roomfamily_room
+      friendly_name: Nest
+```
 
 ### {% linkable_title Reloading customize %}
  
