@@ -36,3 +36,5 @@ Configuration variables:
 - **stream_source** (*Optional*): The data source for the live stream. `mjpeg` will use the camera's native MJPEG stream, whereas `snapshot` will use the camera's snapshot API to create a stream from still images. If omitted, it defaults to *mjpeg*.
 
 **Note:** Amcrest cameras with newer firmwares no longer have the ability to stream `high` definition video with MJPEG encoding. You may need to use `low` resolution stream or the `snapshot` stream source instead.  If the quality seems too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in your camera's configuration manager.
+
+To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
