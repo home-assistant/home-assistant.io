@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Once you have [NGINX](https://home-assistant.io/ecosystem/nginx/) set up with Home Assistant, your own domain, and an SSL Certificate, you can set up authentication to require sign in with an oauth2 authentication provider suchas Google, Github, Linkedin, and others using [bitly\oauth2_proxy](https://github.com/bitly/oauth2_proxy).
+Once you have [NGINX](https://home-assistant.io/ecosystem/nginx/) set up with Home Assistant, your own domain, and an SSL Certificate, you can set up authentication to require sign in with an oauth2 authentication provider suchas Google, Github, Linkedin, and others using [bitly/oauth2_proxy](https://github.com/bitly/oauth2_proxy).
 
 This also allows 2-factor authentication when using an oauth2 providers that support it.
 
@@ -50,7 +50,7 @@ If you are using docker, you can use this command to run it and reference the co
 
 We are going to create 2 files, "oauth2_proxy.cfg" and "auth_emails", which will contain a list of email addresses that will be allowed in.
 
-In oauth2_proxy.cfg, the biggest non-standard thing we are going to do is to proxy it to file:///dev/null so that it doesn't attempt to return anything other than the 200 OK response to nginx because oauth2_proxy is only being used to auth, not to proxy.
+In oauth2_proxy.cfg, the biggest non-standard thing we are going to do is to proxy it to `file:///dev/null` so that it doesn't attempt to return anything other than the 200 OK response to nginx because oauth2_proxy is only being used to auth, not to proxy.
 
 ```
 http_address = "0.0.0.0:8095"
@@ -74,7 +74,7 @@ We need to add several things to the nginx configuration. If you are currently u
 
 ### {% linkable_title Oauth2 Locations %}
 
-We need to create locations to proxy the /oauth2 commands through nginx when they are requested.
+We need to create locations to proxy the `/oauth2` commands through nginx when they are requested.
 ```
   location = /oauth2/auth {
       internal;
@@ -103,7 +103,7 @@ We need to create locations to proxy the /oauth2 commands through nginx when the
 
 Most external uses of the Home Assistant API are not going to be able to authenticate through the oauth2 layer. To get around this, we need to configure nginx to recognize the Home Assistant api_password and skip the oauth layer if that happens.
 
-To accomplish this, we need to add 2 location definitions in your nginx configuration to process the /api requests. Keep in mind that the api_password is statically coded into the nginx configuration and would need to be updated here if you change it in Home Assistant. Or you can disable it altogether, but you need to uncomment the section in the /_api location
+To accomplish this, we need to add 2 location definitions in your nginx configuration to process the `/api` requests. Keep in mind that the api_password is statically coded into the nginx configuration and would need to be updated here if you change it in Home Assistant. Or you can disable it altogether, but you need to uncomment the section in the `/_api` location
 
 ```
   location /api {
@@ -145,7 +145,7 @@ To accomplish this, we need to add 2 location definitions in your nginx configur
 
 ### {% linkable_title notify.html5 %}
 
-If you are using the notify.html5, you have to add 2 special locations before the /api location. The /api/notify.html5/callback uses its own authentication, and is safe to skip the oauth2_proxy step, and /manifest.json needs to be available with no authentication.
+If you are using the notify.html5, you have to add 2 special locations before the `/api` location. The `/api/notify.html5/callback` uses its own authentication, and is safe to skip the oauth2_proxy step, and `/manifest.json` needs to be available with no authentication.
 
 ```
   location /manifest.json {
@@ -196,7 +196,5 @@ So that it will look something like this:
       proxy_set_header Connection "upgrade";
   }
 ```
-
-There is a section you can uncomment if you want to disable the Home Assistant authentication altogether and use only this authentication and no password when accessing internally.
 
 Please let me know if you know of any improvements to this setup or any caveats I left out.
