@@ -21,7 +21,7 @@ This is taken directly from the oauth2_proxy [Github Page](https://github.com/bi
 
 For Google, the registration steps are:
 
-1. Create a new project: https://console.developers.google.com/project
+1. Create a new project: [https://console.developers.google.com/project](https://console.developers.google.com/project)
 2. Choose the new project from the top right project dropdown (only if another project is selected)
 3. In the project Dashboard center pane, choose **"Enable and manage APIs"**
 4. In the left Nav pane, choose **"Credentials"**
@@ -43,7 +43,7 @@ I am going to take the cheap route and send you directly to the [Github Page](ht
 If you are using docker, you can use this command to run it and reference the configuration files we create in the next step:
 
 ```
- docker run -d --name="oauth2_proxy" --net="bridge" -e -p 8095:8095/tcp -v "/path/to/appdata/oauth2_proxy":"/config":rw bitly/oauth2_proxy -config="/config/oauth2_proxy.cfg"
+docker run -d --name="oauth2_proxy" --net="bridge" -e -p 8095:8095/tcp -v "/path/to/appdata/oauth2_proxy":"/config":rw bitly/oauth2_proxy -config="/config/oauth2_proxy.cfg"
 ```
 
 ### {% linkable_title 3. Configure oauth2_proxy %}
