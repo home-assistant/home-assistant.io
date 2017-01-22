@@ -25,8 +25,6 @@ switch:
        name: LED Red
      P9_12:
        name: LED Green
-       initial: true
-       invert_logic: true
 ```
 
 Configuration variables:
