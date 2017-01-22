@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "oauth2"
+title: "Oauth2"
 description: "Documentation about setting up Home Assistant with an oauth2 Auth provider using nginx and bitly/oauth2_proxy."
 release_date: 2017-1-22 12:00:00 -0600
 sidebar: true
