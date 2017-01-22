@@ -35,9 +35,6 @@ alert:
     entity_id: input_boolean.garage_door
     state: 'on'   # Optional, 'on' is the default value
     repeat: 30
-    backoff: 1.0  # Optional, default is 1
-    max_repeat: 120  # Optional, default is 1440
-    min_repeat: 15  # Optional, default is 1
     can_acknowledge: True  # Optional, default is True
     skip_first: True  # Optional, false is the default
     notifiers:
@@ -49,12 +46,9 @@ Configuration variables:
 - **name** (*Required*): The friendly name of the alert.
 - **entity_id** (*Required*): The ID of the entity to watch.
 - **state** (*Optional*): The problem condition for the entity.
-- **repeat** (*Required*): Number of minutes the notification should be repeated.
-- **backoff** (*Optional*): Factor to allow the repeat delay to be dynamically changed.
-- **max_repeat** (*Optional*): Maximum possible delay when `backoff` is used.
-- **min_repeat** (*Optional*): Minimum possible delay when `backoff` is used.
+- **repeat** (*Required*): Number of minutes before the notification should be repeated. Can be either a number or a list of numbers.
 - **can_acknowledge** (*Optional*): Allows the alert to be unacknowledgable.
-- **skip_first** (*Optional*): Controls whether the notification should be sent immediately.
+- **skip_first** (*Optional*): Controls whether the notification should be sent immediately or after the first delay.
 - **notifiers** (*Required*): List of `notification` components to use for alerts.
 
 In this example, the garage door status (`input_boolean.garage_door`) is
@@ -99,17 +93,29 @@ attribute raises above 15 or the alert is acknowledged on the frontend.
 
 ### {% linkable_title Dynamic Notification Delay Times %}
 
-In some use cases, you may desire a notification to become either more or less
-frequent every time it is sent. The alert component supports this with a
-configuration option called `backoff`. This is a factor that the repeat
-interval is multiplied by every time the notification is sent. A `backoff`
-factor greater than 1 will elongate the delays between notifications.
-Similarly, a backoff factor less than 1 will make the notification more
-frequent as time goes on. To prevent the notifications from becoming too
-freequent or too far apart, the `min_repeat` and `max_repeat` options are used.
-By default, the notifications are allowed as frequently as every minute or as
-infrequently as one per day.
+It may be desireable to have the delays between alert notifications dynamically
+change as the alert continues to fire. This can be done by setting the `repeat`
+configuration key to a list of numbers rather than a single number. Altering
+the first example would look like the following.
 
-If you desire you delays to become incresingly further apart, start with a
-`backoff` factor of 1.5 and adjust to fit your needs. If you desire reducing
-delays, start with a factor of 0.75 and tweak as necessary.
+```yaml
+# Example configuration.yaml entry
+alert:
+  garage_door:
+    name: Garage is open
+    entity_id: input_boolean.garage_door
+    state: 'on'   # Optional, 'on' is the default value
+    repeat:
+      - 15
+      - 30
+      - 60
+    can_acknowledge: True  # Optional, default is True
+    skip_first: True  # Optional, false is the default
+    notifiers:
+      - ryans_phone
+      - kristens_phone
+```
+
+Now, the first message will be sent after a 15 minute delay. The second will be
+sent after a 30 minute delay. A 60 minute delay will fall between every
+following notification.
