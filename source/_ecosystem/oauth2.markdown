@@ -2,7 +2,7 @@
 layout: page
 title: "Oauth2"
 description: "Documentation about setting up Home Assistant with an oauth2 Auth provider using nginx and bitly/oauth2_proxy."
-release_date: 2017-1-22 12:00:00 -0600
+release_date: 2017-01-22 12:00:00 -0600
 sidebar: true
 comments: true
 sharing: true
@@ -101,7 +101,7 @@ We need to create locations to proxy the `/oauth2` commands through nginx when t
 
 ### {% linkable_title Home Assistant API %}
 
-Most external uses of the Home Assistant API are not going to be able to authenticate through the oauth2 layer. To get around this, we need to configure nginx to recognize the Home Assistant api_password and skip the oauth layer if that happens.
+Most external uses of the Home Assistant API are not going to be able to authenticate through the oauth2 layer. To get around this, we need to configure nginx to recognize the Home Assistant `api_password` and skip the oauth layer if that happens.
 
 To accomplish this, we need to add 2 location definitions in your nginx configuration to process the `/api` requests. Keep in mind that the api_password is statically coded into the nginx configuration and would need to be updated here if you change it in Home Assistant. Or you can disable it altogether, but you need to uncomment the section in the `/_api` location
 
