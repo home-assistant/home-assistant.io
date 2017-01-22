@@ -143,9 +143,9 @@ To accomplish this, we need to add 2 location definitions in your nginx configur
   }
 ```
 
-### {% linkable_title notify.html5 %}
+### {% linkable_title notify.html5 platform%}
 
-If you are using the notify.html5, you have to add 2 special locations before the `/api` location. The `/api/notify.html5/callback` uses its own authentication, and is safe to skip the oauth2_proxy step, and `/manifest.json` needs to be available with no authentication.
+If you are using the notify.html5 platform, you have to add 2 special locations before the `/api` location. The `/api/notify.html5/callback` uses its own authentication, and is safe to skip the oauth2 auth step, and `/manifest.json` needs to be available with no authentication.
 
 ```
   location /manifest.json {
