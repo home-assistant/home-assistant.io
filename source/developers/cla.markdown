@@ -1,4 +1,4 @@
----
+----
 layout: page
 title: "Contributor License Agreement"
 description: "The Code of Conduct for Home Assistant projects."
@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
----
+----
 
 The following terms are used throughout this agreement:
 
@@ -51,8 +51,13 @@ restriction (like related patents, trademarks, and license agreements) of which 
 
 This Contributor License Agreement is adapted from the [GitHub CLA][github-cla].
 
-[github-cla]: https://cla.github.com/agreement
+## Signing
+
+To sign this CLA you must first submit a pull request to a repository under the Home Assistant organization.
 
 ## Adoption
 
-This Contributor License Agreement (CLA) was first announced on January 21st, 2017 in [this](/2017/01/21/home-assistant-governance/) blog post and adopted January 28th, 2017.
+This Contributor License Agreement (CLA) was first announced on January 21st, 2017 in [this][cla-blog] blog post and adopted January 28th, 2017.
+
+[github-cla]: https://cla.github.com/agreement
+[cla-blog]: https://home-assistant.io/blog/2017/01/21/home-assistant-governance/

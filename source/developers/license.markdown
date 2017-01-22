@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Copyright © `2017` `Paulus Schoutsen`
+Copyright © `2013-2017` `Paulus Schoutsen`
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

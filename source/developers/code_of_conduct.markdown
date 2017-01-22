@@ -81,8 +81,9 @@ available [here][version].
 
 ## Adoption
 
-This Code of Conduct was first adopted January 21st, 2017 and announced in [this](/2017/01/21/home-assistant-governance/) blog post.
+This Code of Conduct was first adopted January 21st, 2017 and announced in [this][coc-blog] blog post.
 
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/
 [email]: mailto:safety@home-assistant.io
+[coc-blog]: https://home-assistant.io/blog/2017/01/21/home-assistant-governance/
