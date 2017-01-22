@@ -29,6 +29,9 @@ Install the core dependencies.
 ```bash
 $ sudo apt-get install python3-pip python3-dev libssl-dev
 ```
+<p class='note'>
+Different distributions have different package installation mechanisms and sometimes packages names as well. For example Centos would use: `sudo yum install epel-release python34 python34-devel mysql-devel`
+</p>
 
 #### {% linkable_title Frontend dependencies (optional) %} 
 
@@ -51,7 +54,7 @@ $ source venv/bin/activate
 
 ### {% linkable_title Setup and Run %}
 
-* On Mac OS X and Linux 
+* On Mac OS X and Linux (remember to activate your virtual environment before running setup, if you are using one):
 ```bash
 $ cd home-assistant
 $ script/setup
