@@ -10,13 +10,13 @@ comments: true
 categories: Organisation
 ---
 
-The Home Assistant project and community has seen enormous growth in the last three years. Hundreds, if not thousands, of volunteers have and are working tirelessly every day on giving you all the awesomeness that you see today. That's not just the code but also all the related projects, documentation, examples, release blog posts and help in our forums and chat. And this is something that we want to keep safe and functional, even as we grow.
+The Home Assistant project and community has seen enormous growth in the last three years. Many volunteers work tirelessly everyday to give you all the awesomeness that you see today. Much more work is involved than many people realize. Beyond simply coding Home Assistant, volunteers continually maintain related projects, update documentation, post examples, author blog posts, and moderate the forums and chat. This is something that we want to keep safe and functional, even as we grow.
 
 Starting today we are announcing a few initiatives to help protect our users, contributors and community members.
 
 ## Code of Conduct
 
-More and more people are getting to know and love Home Assistant. Our community keeps growing and growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
+More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
 
 Moving forward this Code of Conduct will be active for all projects within the Home Assistant organisation.
 
@@ -28,7 +28,7 @@ Moving forward this Code of Conduct will be active for all projects within the H
 
 Moving forward we will also require that all contributors to any project have electronically signed a contributor license agreement (CLA). We have adopted the CLA that GitHub uses for their projects. Currently we have no plans to retroactively require a CLA for previous contributions, only those going forward.
 
-Until a signed CLA is on file your pull request will not be reviewed or accepted. Simply open a new pull request and if a CLA does not exist for you our helpful bot will walk you through the steps to complete the process.
+Until a signed CLA is on file your pull request will not be reviewed or accepted. When you open a new pull request, if you do not have a CLA on file, our helpful bot will walk you through the steps to complete the process.
 
 **We intend to require an electronically signed contributor licensing agreement for all contributors beginning with our next release (0.37), currently scheduled for release on Saturday, January 28th, 2017 (one week from today).** The CLA is being added to all repositories today.
 
