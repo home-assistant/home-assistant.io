@@ -48,9 +48,9 @@ docker run -d --name="oauth2_proxy" --net="bridge" -e -p 8095:8095/tcp -v "/path
 
 ### {% linkable_title 3. Configure oauth2_proxy %}
 
-We are going to create 2 files, "oauth2_proxy.cfg" and "auth_emails", which will contain a list of email addresses that will be allowed in.
+We are going to create 2 files, `oauth2_proxy.cfg` and `auth_emails`, which will contain a list of email addresses that will be allowed in.
 
-In oauth2_proxy.cfg, the biggest non-standard thing we are going to do is to proxy it to `file:///dev/null` so that it doesn't attempt to return anything other than the 200 OK response to nginx because oauth2_proxy is only being used to auth, not to proxy.
+In `oauth2_proxy.cfg`, the biggest non-standard thing we are going to do is to proxy it to `file:///dev/null` so that it doesn't attempt to return anything other than the 200 OK response to nginx because oauth2_proxy is only being used to auth, not to proxy.
 
 ```
 http_address = "0.0.0.0:8095"
