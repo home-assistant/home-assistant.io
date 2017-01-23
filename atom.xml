@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-23T01:02:04+00:00</updated>
+  <updated>2017-01-23T01:17:06+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -28,7 +28,7 @@
 
 <p>Moving forward this Code of Conduct will be active for all projects within the Home Assistant organisation.</p>
 
-<p><a href="http://contributor-covenant.org/version/1/4/">Read the Code of Conduct</a></p>
+<p><a href="https://home-assistant.io/developers/code_of_conduct/">Read the Code of Conduct</a></p>
 
 <h2>Contributor License Agreement</h2>
 
