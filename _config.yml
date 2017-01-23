@@ -49,6 +49,7 @@ kramdown:
 highlighter: rouge
 
 gems:
+  - jekyll-redirect-from
   - jekyll-time-to-read
   - octopress-filters
   - octopress-include-tag
