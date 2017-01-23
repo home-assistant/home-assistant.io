@@ -83,6 +83,115 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/">0.26: Foursquare, Fast.com, FFMPEG and GPSD</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-08-13T19:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 13, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/08/13/foursquare-fast-com-ffmpeg-gpsd/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s time for 0.26 and it’s again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It’s been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.</p>
+
+<p>This release includes code contributed by 31 different people. The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you’ll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to <a href="https://github.com/Teagan42">@Teagan42</a> for her hard work on this!</p>
+
+<p><img src="/images/supported_brands/foursquare.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/ohmconnect.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/fastdotcom.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/gpsd.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/ffmpeg.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<ul>
+  <li>Core: Introduce notion of unit system (deprecates temperature unit option) (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Front end: Speed improvements (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Front end: Improve layout of state dev tool (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li><a href="/components/proximity/">Proximity</a>: Allow definition of unit of measurement (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li><a href="/components/switch.flux/">Flux</a>: Add mired and kelvin mode (<a href="https://github.com/HBDK">@HBDK</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.proliphix/">Proliphix</a>: Support for cooling (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Media Player - <a href="/components/media_player.lg_netcast/">LG Netcast TV</a>: Show screenshot of what is currently playing (<a href="https://github.com/shmuelzon">@shmuelzon</a>)</li>
+  <li>Z-Wave improvements (<a href="https://github.com/jnewland">@jnewland</a>, <a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.heat_control/">heat control</a>: now also able to control an AC (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.heat_control/">heat control</a>: allow specifying a minimum duration before switching (<a href="https://github.com/mtreinish">@mtreinish</a>)</li>
+  <li><a href="/components/influxdb/">InfluxDB</a>: Whitelist entities option added (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Sensor: Serial <a href="/components/sensor.serial_pm/">particulate matters</a> sensors now supported (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Sensor - <a href="/components/sensor.fitbit/">Fitbit</a>: Fix unit system (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Light - <a href="/components/light.flux_led/">Flux LED</a>: Add support for [color and brightness][color] (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Media Player - <a href="/components/media_player.plex/">Plex</a>: Now able to report on music (<a href="https://github.com/abcminiuser">@abcminiuser</a>)</li>
+  <li>Alarm Control Panel - <a href="/components/alarm_control_panel.verisure/">Verisure</a>: Now able to see who changed the alarm (<a href="https://github.com/persandtrom">@persandtrom</a>)</li>
+  <li>Thermostat - <a href="/components/thermostat.honeywell/">Honeywell</a>: Add option to read and control HVAC mode (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li><a href="/components/foursquare/">Foursquare</a> component to receive instant notifications of checkins (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Camera: New <a href="/components/camera.ffmpeg/">FFMPEG</a> platform allows to stream anything through front end (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Manage <a href="/topics/secrets/">secrets</a> with new command line script (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Notify - <a href="/components/notify.smtp/">SMTP</a>: Allow embedding of images (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>Sensor: <a href="/components/sensor.ohmconnect/">OhmConnect</a> is now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li><a href="/components/panel_custom/">panel_custom</a> component allows the registering of new panels (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Light: New <a href="/components/light.mqtt_json/">mqtt_json</a> platform for working with JSON payload (<a href="https://github.com/corbanmailloux">@corbanmailloux</a>)</li>
+  <li>Sensor: New <a href="/components/sensor.fastdotcom/">Fast.com</a> platform to measure network bandwidth performance (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>New <a href="/components/pilight/">pilight</a> component to control 433 Mz devices (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>Sensor: <a href="/components/sensor.gpsd/">GPSD</a> now supported (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0261---august-14" href="#hotfix-0261---august-14"></a> Hotfix 0.26.1 - August 14</h3>
+
+<ul>
+  <li>Fix serial_pm config validation (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Check for existence of system mode on Honeywell thermostats (<a href="https://github.com/mKeRix">@mKeRix</a>)</li>
+  <li>Fix unknown unit of measurement for hvac and thermostat component (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0262---august-15" href="#hotfix-0262---august-15"></a> Hotfix 0.26.2 - August 15</h3>
+
+<ul>
+  <li>Fix Wemo: have PyWemo play nicely with the latest Requests (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0263---august-19" href="#hotfix-0263---august-19"></a> Hotfix 0.26.3 - August 19</h3>
+
+<ul>
+  <li>Media Player cover art would not work when an API password was set. Thanks to <a href="https://github.com/maddox">@maddox</a> for reporting it and <a href="https://github.com/balloob">@balloob</a> for the fix.</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Configuration.yaml example</span>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="c1"># 'metric' for the metric system, 'imperial' for the imperial system</span>
+  <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
+</code></pre>
+</div>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/08/07/optimizing-the-home-assistant-mobile-web-app/">Optimizing the Home Assistant mobile web app</a>
   </h1>
   
@@ -705,53 +814,6 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/06/23/usb-webcams-and-home-assistant/">Using USB webcams with Home Assistant</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-06-23T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 23, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>How-To</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/06/23/usb-webcams-and-home-assistant/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><img src="/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
-In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
-
-<p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/06/23/usb-webcams-and-home-assistant/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -860,6 +922,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
     Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
   </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 </div>
     </div>
   </div>

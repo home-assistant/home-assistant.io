@@ -83,6 +83,135 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/05/07/empowering-scripts-and-alexa/">0.19: Empowering scripts and Alexa</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-05-07T18:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 7, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/05/07/empowering-scripts-and-alexa/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>This release is big. Until now, our automations and scripts have been very static. Starting today it should all be a bit more dynamic.</p>
+
+<p><strong>Scripts</strong> are now available in automations and when responding to Alexa/Amazon Echo. Both of these components will now expose data to be used in script templates (including <code class="highlighter-rouge">from_state</code> !). Passing data to script entities is available by passing the data to the script services.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s">some/notify/topic</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> 
+
+<span class="s">automation 2</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.hue</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span>  <span class="s">is now</span> 
+</code></pre>
+</div>
+
+<p><strong>Entity Namespaces</strong> allow you to influence the entity ids for a specific platform. For example you can turn <code class="highlighter-rouge">light.living_room</code> into <code class="highlighter-rouge">light.holiday_home_living_room</code> with the following config:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
+  <span class="s">entity_namespace</span><span class="pi">:</span> <span class="s">holiday_home</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Automation: allow <a href="/getting-started/scripts/">script syntax</a> for action (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Automation: expose <a href="/getting-started/automation-templating/#available-trigger-data"><code class="highlighter-rouge">trigger</code> variable</a> to script templates (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Script: allow passing variables for script templates in the <a href="/components/script/#passing-parameters-in-service-calls">script service calls</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Alexa/Amazon Echo: allow <a href="/getting-started/scripts/">script syntax</a> for action (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Alexa/Amazon Echo: <a href="/components/alexa/#configuring-home-assistant">expose intent variables</a> to script templates (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Script syntax: <a href="/getting-started/scripts-conditions/">conditions now supported</a> to interrupt execution (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Automation: use <a href="/getting-started/scripts-conditions/">new condition syntax</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Script syntax: two new conditions <a href="/getting-started/scripts-conditions/#and-condition"><code class="highlighter-rouge">and</code></a> and <a href="/getting-started/scripts-conditions/#or-condition"><code class="highlighter-rouge">or</code></a> to combine conditions (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Any platform: Allow setting <a href="/topics/platform_options/#entity-namespace">entity namespace</a> to prefix entity_ids. (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Switch: <a href="/components/switch.rpi_rf/">Raspberry Pi generic 433 Mhz GPIO adapters</a> now supported (<a href="https://github.com/milaq/">@milaq</a>)</li>
+  <li>Z-Wave: use more sane defaults (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
+  <li>Media Player: <a href="/components/media_player.snapcast/">Snapcast</a> now supports picking a source (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>)</li>
+  <li>MySensors: major cleanup (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Binary Sensor: <a href="/components/sensor.command_line/">Command line sensor</a> now supports classes (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>MQTT: <a href="/components/mqtt/">allow client key authentication</a> (<a href="https://github.com/timharton/">@timharton</a>)</li>
+  <li>Sensor: <a href="/components/sensor.forecast/">Forecast.io</a> now supports minutely, hourly and daily summaries (<a href="https://github.com/aceat64/">@aceat64</a>)</li>
+  <li>Media Player: <a href="/components/media_player.pioneer/">Pioneer AVR</a> now supported (<a href="https://github.com/kylehendricks/">@kylehendricks</a>)</li>
+  <li>Switch: <a href="/components/switch.acer_projector/">Acer Projectors</a> now supported (<a href="https://github.com/deisi/">@deisi</a>)</li>
+  <li>New <a href="/components/hvac/">HVAC component</a> added with Z-Wave support (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Support added for <a href="/components/octoprint/">OctoPrint</a> (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+  <li>Configuration.yaml can now refer to environment variables using <code class="highlighter-rouge">!env_var</code> (<a href="https://github.com/bah2830/">@bah2830</a>)</li>
+  <li>Lock: <a href="/components/lock.zwave/">Z-Wave</a> now supported (<a href="https://github.com/devdelay/">@devdelay</a>)</li>
+  <li>New <a href="/components/dweet/">Dweet component</a> to export data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>Media Player now supports stop command + initial kodi support (<a href="https://github.com/hmronline/">@hmronline</a>)</li>
+  <li>Zigbee: push updates now supported (<a href="https://github.com/flyte/">@flyte</a>)</li>
+  <li>Wink devices with battery level will now show these (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+  <li>Templates: new <a href="/topics/templating/#home-assistant-template-extensions"><code class="highlighter-rouge">as_timestamp</code></a> method now available (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
+  <li>API: Add [<code class="highlighter-rouge">/api/discovery_info</code>] with basic instance info (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Sensor: <a href="/components/sensor.google_travel_time/">Google Maps travel time</a> added (<a href="https://github.com/Danielhiversen/">@Danielhiversen</a>)</li>
+  <li>HTTP: Allow adding <a href="/components/http/">CORS headers</a> (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Sensor: <a href="/components/sensor.fitbit/">Fitbit</a> support added (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Bug fixes and tweaks by <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/danieljkemp/">@danieljkemp</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>, <a href="https://github.com/TheRealLink/">@TheRealLink</a>, <a href="https://github.com/persandstrom/">@persandstrom</a>, <a href="https://github.com/sander76/">@sander76</a>, <a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/ishults/">@ishults</a>, <a href="https://github.com/Bart274/">@Bart274</a>, <a href="https://github.com/robbiet480/">@robbiet480</a>, <a href="https://github.com/Cinntax/">@Cinntax</a>, <a href="https://github.com/blackdog70/">@blackdog70</a>, <a href="https://github.com/gwendalg/">@gwendalg</a>, <a href="https://github.com/JshWright/">@JshWright</a>, <a href="https://github.com/kylehendricks/">@kylehendricks</a>, <a href="https://github.com/bradsk88/">@bradsk88</a>, <a href="https://github.com/shaftoe/">@shaftoe</a>, <a href="https://github.com/molobrakos/">@molobrakos</a>, <a href="https://github.com/bah2830/">@bah2830</a>, <a href="https://github.com/nkgilley/">@nkgilley</a></li>
+</ul>
+
+<h3>Deprecations</h3>
+<ul>
+  <li>Conditions in automations should now specify which condition to use with <code class="highlighter-rouge">condition:</code> instead of <code class="highlighter-rouge">platform:</code>. For example <code class="highlighter-rouge">condition: state</code>.</li>
+  <li>RFXtrx has a new config format.</li>
+</ul>
+
+<p>Old RFXtrx config format:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">123efab1</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My DI.0 light device</span>
+      <span class="s">packetid</span><span class="pi">:</span> <span class="s">1b2200000890efab1213f60</span>
+</code></pre>
+</div>
+
+<p>New RFXtrx config format:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">1b2200000890efab1213f60</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">My DI.0 light device</span>
+</code></pre>
+</div>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/05/06/open-iot-summit-talk/">Talk: Automating your home with Home Assistant (OpenIoT Summit)</a>
   </h1>
   
@@ -647,93 +776,6 @@
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/">0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-03-12T18:55:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 12, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!</p>
-
-<ul>
-  <li><a href="https://github.com/fabaff">@fabaff</a> has upgraded the codebase to follow the PEP257 documentation standard.</li>
-  <li><a href="https://github.com/PartOfTheThing">@partofthething</a> has migrated us to use the main Python Open Z-Wave library instead of our forked version.</li>
-  <li>To make our automations more powerful, <a href="https://github.com/persandstrom">@persandstrom</a> added the option to use templates to dynamically create service calls. This works for automation, Alexa, universal media player, template switch. <a href="/topics/service_calls/#use-templates-to-decide-which-service-to-call">Learn more.</a></li>
-  <li><a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> has upgraded our scene support to now support all built-in services and components.</li>
-</ul>
-
-<p>Besides bug fixes, this release also brings:</p>
-
-<p><img src="/images/supported_brands/hunter-douglas-powerview.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Scene: Converted to a platform based component (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Scene: <a href="/components/scene.hunterdouglas_powerview/">Hunter Douglas Powerview</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
-  <li>Lock: <a href="/components/lock.mqtt/">MQTT</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> will allow filtering inaccurate GPS locations (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
-  <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
-</ul>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example using templates for service and data in service call.</span>
-<span class="c1"># Works for automation, Alexa, universal media player, template switch.</span>
-<span class="s">automation</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">trigger</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.bathroom</span>
-    <span class="s">action</span><span class="pi">:</span>
-      <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-        <span class="no">{% if is_state('switch.bathroom', 'on') %}</span>
-          <span class="no">switch.turn_on</span>
-        <span class="no">{% else %}</span>
-          <span class="no">switch.turn_off</span>
-        <span class="no">{% endif %}</span>
-      <span class="s">data_template</span><span class="pi">:</span>
-        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.{{ states('input_select.is') }}</span>
-</code></pre>
-</div>
-
-<h3>Breaking Changes</h3>
-
-<ul>
-  <li>Media Player: Attributes to call service play_media has been renamed to
-<code class="highlighter-rouge">media_content_type</code> and <code class="highlighter-rouge">media_content_id</code>, to match the corresponding media
-player state attributes. This change affects automations, scripts and scenes.</li>
-</ul>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -842,6 +884,7 @@ player state attributes. This change affects automations, scripts and scenes.</l
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
     Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
   </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 </div>
     </div>
   </div>
