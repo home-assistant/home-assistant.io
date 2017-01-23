@@ -19,8 +19,9 @@ To add ISS sensor to your installation, add the following to your `configuration
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   - platform: iss
+    show_on_map: True
 ```
 
 
