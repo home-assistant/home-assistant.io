@@ -42,6 +42,9 @@ Configuration variables:
     - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
 
 
+Information about how to install on Windows can be found here: https://home-assistant.io/components/sensor.broadlink/#microsoft-windows-installation
+
+
 ### {% linkable_title How to obtain IR/RF packets? %}
 
 Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of Available services:  and hit CALL SERVICE. Press the button on your remote with in 20 seconds. The packet will be printed in the log and as a persistent notification.
