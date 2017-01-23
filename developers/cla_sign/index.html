@@ -108,10 +108,22 @@
   #company_name_group {
     display: none;
   }
+
+  #signature_form {
+    display: none;
+  }
+
+  #complete {
+    display: none;
+  }
 </style>
 
+<div id="loading">
+  <div id="spinner"></div>
+  <p>Please wait while we complete authentication and load data from GitHub...</p>
+</div>
 
-<form action="#">
+<form action="#" id="signature_form">
   <div class="wrapper">
     <div>
       <label>I am signing for:</label>
@@ -128,7 +140,8 @@
     </div>
     <div>
       <label>Email:</label>
-      <input type="email" id="email" placeholder="Email" required>
+      <!-- <input type="email" id="email" placeholder="Email" required> -->
+      <select name="email" id="email" required></select>
     </div>
     <div>
       <label>GitHub Username:</label>
@@ -142,13 +155,21 @@
       <label>State/Region</label>
       <select name="region" id="region" required></select>
     </div>
-    <input type="checkbox" id="i_agree" required> <strong>I have read and agreed to the <a href="/developers/cla/">Home Assistant Contributor License Agreement</a></strong>
+    <input type="checkbox" id="i_agree" required> <strong>I have read and agreed to the <a href="/developers/cla/" target="_blank">Home Assistant Contributor License Agreement</a></strong>
     <br>
+    <input type="hidden" id="github_user_id">
     <button type="submit" class="btn btn-danger" id="submit">Sign CLA</button>
   </div>
 </form>
 
+<div id="complete">
+  <h1>Thanks!</h1>
+  <p>Thank you for signing the Home Assistant Contributor license agreement. We are now redirecting you back to your pull request.</p>
+</div>
+
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://unpkg.com/github-api/dist/GitHub.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js" integrity="sha256-PieqE0QdEDMppwXrTzSZQr6tWFX3W5KkyRVyF1zN3eg=" crossorigin="anonymous"></script>
 <script type="text/javascript">
   // Countries
   var country_arr = new Array("Afghanistan", "Albania", "Algeria", "American Samoa", "Angola", "Anguilla", "Antartica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Ashmore and Cartier Island", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Clipperton Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czeck Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Europa Island", "Falkland Islands (Islas Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern and Antarctic Lands", "Gabon", "Gambia, The", "Gaza Strip", "Georgia", "Germany", "Ghana", "Gibraltar", "Glorioso Islands", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island and McDonald Islands", "Holy See (Vatican City)", "Honduras", "Hong Kong", "Howland Island", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Ireland, Northern", "Israel", "Italy", "Jamaica", "Jan Mayen", "Japan", "Jarvis Island", "Jersey", "Johnston Atoll", "Jordan", "Juan de Nova Island", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Man, Isle of", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Midway Islands", "Moldova", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcaim Islands", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romainia", "Russia", "Rwanda", "Saint Helena", "Saint Kitts and Nevis", "Saint Lucia", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Scotland", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and South Sandwich Islands", "Spain", "Spratly Islands", "Sri Lanka", "Sudan", "Suriname", "Svalbard", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Tobago", "Toga", "Tokelau", "Tonga", "Trinidad", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "United States of America", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands", "Wales", "Wallis and Futuna", "West Bank", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
@@ -452,8 +473,56 @@
 
 <script type="text/javascript">
 
+  function fill_fields(){
+    var token = localStorage.getItem("gh_token");
+    var gh = new GitHub({ token: token });
+    var currentUser = gh.getUser();
+    currentUser.getProfile(function(err, profile){
+      if(err){
+        console.error('Got an error when attempting to load users profile', err);
+      } else {
+        $("#name").val(profile.name);
+        $('#github_user_id').val(profile.id);
+        $("#github_username").val(profile.login).prop('disabled', true);
+      }
+      currentUser.getEmails(function(err, emails){
+        if(err){
+          console.error('Got an error when attempting to load users emails', err);
+        } else {
+          $.each(emails, function (i, item) {
+            $('#email').append($('<option>', { value: item.email, text: item.email }));
+          });
+          $('#loading').hide();
+          $('#signature_form').show();
+        }
+      });
+    });
+  }
+
   $(document).ready(function(){
     populateCountries("country", "region");
+    var spinner = new Spinner().spin(document.getElementById('spinner'));
+    var codeCheck = window.location.href.match(/\?code=(.*)/);
+    if (codeCheck && codeCheck.length > 0) {
+      $.ajax({
+        type: "POST",
+        url: "https://cla.home-assistant.io/github/exchange",
+        data: JSON.stringify({"code": codeCheck[1]}),
+        contentType: "application/json",
+      }).done(function(data){
+        var uri = window.location.toString();
+        if (uri.indexOf("?") > 0) {
+          var clean_uri = uri.substring(0, uri.indexOf("?"));
+          window.history.replaceState({}, document.title, clean_uri);
+        }
+        localStorage.setItem("gh_token", data.token);
+        fill_fields();
+      });
+    } else if (localStorage.getItem("gh_token") != null) {
+      fill_fields();
+    } else {
+      window.location = '/developers/cla_sign_start/';
+    }
     $('input[name="signing_for"]').click(function(){
       if($(this).attr('value') === "company") {
         $('#company_name_group').show();
@@ -471,7 +540,8 @@
           "github_username": $("#github_username").val(),
           "region": $("#region").val(),
           "signing_for": $('input[name="signing_for"]:checked').val(),
-          "i_agree": $("#i_agree").val()
+          "i_agree": $("#i_agree").val(),
+          "github_user_id": $("#github_user_id").val()
         };
         if ($("#company_name").val() != "") {
           payload.company_name = $("#company_name").val();
@@ -483,6 +553,18 @@
           contentType: "application/json",
         }).done(function(data){
           console.log("Signed!", data);
+          $('#signature_form').hide();
+          $('#complete').show();
+          if(localStorage.getItem("pr") != null) {
+            var prPieces = localStorage.getItem("pr").split("#");
+            var repo = prPieces[0];
+            var prNumber = prPieces[1];
+            setTimeout(function(){
+              window.location = 'https://github.com/'+repo+'/pull/'+prNumber;
+            }, 5000);
+          }
+          localStorage.removeItem("pr");
+          localStorage.removeItem("gh_token");
         });
       }
     });
