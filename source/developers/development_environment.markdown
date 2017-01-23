@@ -62,7 +62,7 @@ $ script/setup
 
 * On Windows, you can use `python setup.py develop` instead of the setup script.
 
-* Run `hass` to invoke your local installation of the backend server or `hass --open-ui` to start the server and serve the web interface on http://localhost:8123
+* Run `hass` to invoke your local installation.
 
 ### {% linkable_title Logging %}
 
