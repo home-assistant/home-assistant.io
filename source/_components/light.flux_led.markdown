@@ -14,7 +14,7 @@ featured: false
 ha_release: 0.25
 ---
 
-The `flux_led` support is integrated into Home Assistant as a light platform. Several brands use the same protocol and they have the HF-LPB100 chipset in common.
+The `flux_led` support is integrated into Home Assistant as a light platform. Several brands of both bulbs and controllers use the same protocol and they have the HF-LPB100 chipset in common. The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
 
 Example of bulbs:
 
@@ -22,9 +22,12 @@ Example of bulbs:
 - [MagicLight® Plus - WiFi Smart LED Light Bulb4](https://www.amazon.com/gp/product/B00NOC93NG)
 - [Flux WiFi Smart LED Light Bulb4](http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE)
 - [WIFI smart LED light Bulb1](http://smile.amazon.com/gp/product/B01CS1EZYK)
-- [Ledenet WiFi RGBW Controller](https://www.amazon.com/gp/product/B01DY56N8U)
 
-The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
+Examples of controllers:
+
+- [Ledenet WiFi RGBW Controller](https://www.amazon.com/gp/product/B01DY56N8U)
+- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://www.amazon.com/dp/B01JZ2SI6Q)
+
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
@@ -37,7 +40,19 @@ light:
 Configuration variables:
 
 - **automatic_add** (*Optional*): To enable the automatic addition of lights on startup.
-- **devices** (*Optional*): A list of devices with their ip address and a custom name to use in the frontend.
+- **devices** (*Optional*): A list of devices with their ip address
+
+Configuration variables within devices list:
+
+- **name**  (*Optional*): A friendly name for the device.
+- **mode**  (*Optional*): The chosen brightness mode; options are 'rgbw' and 'rgb', defaults to rgbw.
+- **protocol**  (*Optional*): Set this to 'ledenet' if you are using a ledenet bulb.
+
+
+<p class='note'>
+Depending on your controller or bulb type, there are two ways to configure brightness. 
+The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the brighness will set the device to white with your chosen brightness. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
+</p>
 
 
 ### {% linkable_title Example configuration %}
@@ -75,7 +90,7 @@ automation:
       effect: random
 ```
 
-Will add a light with out the white mode:
+Will add a light without the white mode:
 
 ```yaml
     192.168.1.10:
