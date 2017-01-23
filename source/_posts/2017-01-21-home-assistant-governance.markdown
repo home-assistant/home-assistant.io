@@ -76,9 +76,21 @@ With more collaborators involved with Home Assistant we are also exposing oursel
 
 ## Licensing
 
-We will now ensure that a `LICENSE` file exists in all project repositories is an MIT license. The core Home Assistant project has been licensed under MIT almost since the beginning of the project and is the most chosen license for open source projects. Wikipedia has this to say about it:
+We will now ensure that a `LICENSE.md` file exists in all projects under the Home Assistant organization and is an [OSI approved open source license](https://opensource.org/licenses) or a [Creative Commons](https://creativecommons.org) license.
+
+### Code License
+
+The chosen license for all code projects under the Home Assistant organization is The MIT License.
+
+The core Home Assistant project has been licensed under the MIT license since almost the beginning of the project and is the most chosen license for open source projects.
+
+Wikipedia has this to say about it:
 
 > The MIT License is a permissive free software license originating at the Massachusetts Institute of Technology (MIT). As a permissive license, it puts only very limited restriction on reuse and has therefore an excellent license compatibility. The MIT license permits reuse within proprietary software provided that all copies of the licensed software include a copy of the MIT License terms and the copyright notice. The MIT license is also compatible with many copyleft licenses, such as the GNU General Public License (GPL); MIT licensed software can be integrated into GPL software, but not the other way around.
+
+### Documentation License
+
+All content on home-assistant.io and all other documentation/asset projects under the Home Assistant organization will be licensed under the Creative Commons License, specifically the [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 ## Crediting contributors
 
