@@ -11,9 +11,9 @@ footer: true
 
 Once you have [NGINX](https://home-assistant.io/ecosystem/nginx/) set up with Home Assistant, your own domain, and an SSL Certificate, you can set up authentication to require sign in with an oauth2 authentication provider suchas Google, Github, Linkedin, and others using [bitly/oauth2_proxy](https://github.com/bitly/oauth2_proxy).
 
-This also allows 2-factor authentication when using an oauth2 providers that support it.
+This also allows 2-factor authentication when using an oauth2 provider that support it.
 
-These instructions will walk you through modifying your nginx configuration to support one of these providers by setting up your own oauth2_proxy and using the auth_request directive.
+These instructions will walk you through modifying your nginx configuration to support one of these providers by setting up your own `oauth2_proxy` and using the `auth_request` directive in nginx.
 
 ### {% linkable_title 1. Pick your oauth provider and acquire the authentication keys. %}
 
@@ -145,7 +145,7 @@ To accomplish this, we need to add 2 location definitions in your nginx configur
 
 ### {% linkable_title notify.html5 platform%}
 
-If you are using the notify.html5 platform, you have to add 2 special locations before the `/api` location. The `/api/notify.html5/callback` uses its own authentication, and is safe to skip the oauth2 auth step, and `/manifest.json` needs to be available with no authentication.
+If you are using the notify.html5 platform, you have to add 2 special locations before the `/api` location. The `/api/notify.html5/callback` uses its own authentication, and is safe to skip the oauth2 auth step, and `/manifest.json` needs to be available with no authentication. Defining these sections can also be useful if you aren't using oauth2 and are only using the nginx basic auth.
 
 ```
   location /manifest.json {
