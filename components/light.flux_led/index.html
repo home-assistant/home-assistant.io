@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">flux_led</code> support is integrated into Home Assistant as a light platform. Several brands use the same protocol and they have the HF-LPB100 chipset in common.</p>
+  <p>The <code class="highlighter-rouge">flux_led</code> support is integrated into Home Assistant as a light platform. Several brands of both bulbs and controllers use the same protocol and they have the HF-LPB100 chipset in common. The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.</p>
 
 <p>Example of bulbs:</p>
 
@@ -99,10 +99,14 @@
   <li><a href="https://www.amazon.com/gp/product/B00NOC93NG">MagicLight® Plus - WiFi Smart LED Light Bulb4</a></li>
   <li><a href="http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE">Flux WiFi Smart LED Light Bulb4</a></li>
   <li><a href="http://smile.amazon.com/gp/product/B01CS1EZYK">WIFI smart LED light Bulb1</a></li>
-  <li><a href="https://www.amazon.com/gp/product/B01DY56N8U">Ledenet WiFi RGBW Controller</a></li>
 </ul>
 
-<p>The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.</p>
+<p>Examples of controllers:</p>
+
+<ul>
+  <li><a href="https://www.amazon.com/gp/product/B01DY56N8U">Ledenet WiFi RGBW Controller</a></li>
+  <li><a href="https://www.amazon.com/dp/B01JZ2SI6Q">SUPERNIGHT WiFi Wireless LED Smart Controller</a></li>
+</ul>
 
 <p>To enable those lights, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -116,8 +120,21 @@
 
 <ul>
   <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of lights on startup.</li>
-  <li><strong>devices</strong> (<em>Optional</em>): A list of devices with their ip address and a custom name to use in the frontend.</li>
+  <li><strong>devices</strong> (<em>Optional</em>): A list of devices with their ip address</li>
 </ul>
+
+<p>Configuration variables within devices list:</p>
+
+<ul>
+  <li><strong>name</strong>  (<em>Optional</em>): A friendly name for the device.</li>
+  <li><strong>mode</strong>  (<em>Optional</em>): The chosen brightness mode; options are ‘rgbw’ and ‘rgb’, defaults to rgbw.</li>
+  <li><strong>protocol</strong>  (<em>Optional</em>): Set this to ‘ledenet’ if you are using a ledenet bulb.</li>
+</ul>
+
+<p class="note">
+Depending on your controller or bulb type, there are two ways to configure brightness. 
+The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the brighness will set the device to white with your chosen brightness. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
+</p>
 
 <h3><a class="title-link" name="example-configuration" href="#example-configuration"></a> Example configuration</h3>
 
@@ -154,7 +171,7 @@
 </code></pre>
 </div>
 
-<p>Will add a light with out the white mode:</p>
+<p>Will add a light without the white mode:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">192.168.1.10</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
