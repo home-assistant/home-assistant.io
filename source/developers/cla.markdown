@@ -1,4 +1,4 @@
-----
+---
 layout: page
 title: "Contributor License Agreement"
 description: "The Code of Conduct for Home Assistant projects."
@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-----
+---
 
 The following terms are used throughout this agreement:
 

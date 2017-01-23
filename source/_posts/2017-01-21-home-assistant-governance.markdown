@@ -22,7 +22,7 @@ Moving forward this Code of Conduct will be active for all projects within the H
 
 [Read the Code of Conduct][coc]
 
-[coc]: http://contributor-covenant.org/version/1/4/
+[coc]: /developers/code_of_conduct/
 
 ## Contributor License Agreement
 
