@@ -42,13 +42,18 @@ $ nvm install node
 
 #### {% linkable_title Setting up virtual environment (optional) %} 
 
-If you plan on providing isolation to your environment using [`venv`](https://docs.python.org/3.4/library/venv.html). You'll need to install the python3-venv package:
+If you plan on providing isolation to your environment using [`venv`](https://docs.python.org/3.4/library/venv.html). Within the `home-assistant` directory, create and activate your virtual environment.
+
+If using Python < 3.6 `pyvenv` is the recommended method of setting up virtual environments, you'll need to install the `python3-venv` package.
 ```bash
 $ sudo apt-get install python3-venv
-```
-Within the `home-assistant` directory, create and activate your virtual environment using the commands:
-```bash
 $ pyvenv venv
+$ source venv/bin/activate
+```
+
+If using Python 3.6 `pyvenv` has been deprecated:
+```bash
+$ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
