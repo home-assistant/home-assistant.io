@@ -67,15 +67,15 @@ Configuration variables:
 
 - **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
 - **tool** (*Required*): `motion`.
-- **name** (*Optional*): Override the name of your camera.
-- **initial_state** (*Optional*): Default true. Start ffmpeg with home-assistant.
-- **changes** (*Optional*): Default 10%. How much needs to change between two frames to detect it as motion (a lower value is more sensitive).
-- **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new motion is detected.
-- **repeat** (*Optional*): Default 0 repeats (deactivate). How many events need to be detected in *repeat_time* in order to trigger a motion.
-- **repeat_time** (*Optional*): Default 0 seconds (deactivate). The span of time *repeat* events need to occur in before triggering a motion.
-- **extra_arguments** (*Optional*): Extra options to pass to FFmpeg, e.g. video denoise filtering.
+- **name** (*Optional*): Override the name of your camera for the frontend.
+- **initial_state** (*Optional*): Start `ffmpeg` with Home Assistant. Defaults to `true`. 
+- **changes** (*Optional*): How much needs to change between two frames to detect it as motion (a lower value is more sensitive). Defaults to 10%.
+- **reset** (*Optional*): The time to reset the state after no new motion is detected. Defaults to 20 seconds.
+- **repeat** (*Optional*): How many events need to be detected in *repeat_time* in order to trigger a motion. Defaults to 0 repeats (deactivated).
+- **repeat_time** (*Optional*): The span of time *repeat* events need to occur in before triggering a motion. Defaults to 0 seconds (deactivated).
+- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. video denoise filtering.
 
-To experiment with values (changes/100 is the scene value in FFmpeg):
+To experiment with values (changes/100 is the scene value in `ffmpeg`):
 
 ```bash
 $ ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
@@ -85,4 +85,8 @@ If you are running into trouble with this sensor, please refer to the [troublesh
 
 #### {% linkable_title Tipps %}
 
-- Use motion only in a customer area with [crop filter](https://ffmpeg.org/ffmpeg-filters.html#crop): ```extra_arguments: -filter:v "crop=100:100:12:34"```
+- Use motion only in a customer area with [crop filter](https://ffmpeg.org/ffmpeg-filters.html#crop): 
+
+```yaml
+extra_arguments: -filter:v "crop=100:100:12:34"
+```
