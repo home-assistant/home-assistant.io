@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](http://www.ffmpeg.org/) for various sensors in Home Assistant. Available are: **noise**, **motion**. 
 
 <p class='note'>
-If the `ffmpeg` process is broken, the sensor will be unavailable.   To restart it, use the service *binary_sensor.ffmpeg_restart*.
+If the `ffmpeg` process is broken, the sensor will be unavailable. To controll the ffmpeg process of sensor, use the service *binary_sensor.ffmpeg_start*, *binary_sensor.ffmpeg_stop*, *binary_sensor.ffmpeg_restart*.
 </p>
 
 ### {% linkable_title Noise %}
@@ -36,6 +36,7 @@ Configuration variables:
 - **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
 - **tool** (*Required*): `noise`.
 - **name** (*Optional*): Override the name of your camera.
+- **initial_state** (*Optional*): Default true. Start ffmpeg with home-assistant.
 - **peak** (*Optional*): Default -30. The threshold of detecting noise, in dB. 0 is very loud and -100 is low.
 - **duration** (*Optional*): Default 1 second. How long the noise needs to be over the peak to trigger the state.
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new noise is over the peak.
@@ -67,6 +68,7 @@ Configuration variables:
 - **input** (*Required*): An FFmpeg-compatible input file, stream, or feed.
 - **tool** (*Required*): `motion`.
 - **name** (*Optional*): Override the name of your camera.
+- **initial_state** (*Optional*): Default true. Start ffmpeg with home-assistant.
 - **changes** (*Optional*): Default 10%. How much needs to change between two frames to detect it as motion (a lower value is more sensitive).
 - **reset** (*Optional*): Default 20 seconds. The time to reset the state after no new motion is detected.
 - **repeat** (*Optional*): Default 0 repeats (deactivate). How many events need to be detected in *repeat_time* in order to trigger a motion.
