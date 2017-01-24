@@ -117,3 +117,45 @@ switch 2:
   friendly_name: 'Humidifier'
 
 ``` 
+
+
+How to use E-CONTROL remotes on Home Assistant
+
+If you already have your remotes learned on E-Control app you can use this method to "copy" trem to HA.
+
+First get or learn all the remotes you want to add on HA in E-CONTROL
+
+1) download script from https://github.com/NightRang3r/Broadlink-e-control-db-dump5
+
+2) open the e-control app and on the left side menu choose "Share" and then "Share to other phones in WLAN" it should generate the files you will need on the script.
+
+3) Connect your Android device to your computer and browse the SD card / External Storage folder "/broadlink/newremote/SharedData/" You need to get the following files:
+jsonSubIr
+jsonButton
+jsonIrCode
+and put them in the same folder as this script.
+
+4) Install Requirement: simplejson
+pip install simplejson
+(you must install simplejson in the same python version you will use to run the scripts)
+(to check the version it is installed, you simple try to install again and will get the "already satisfied")
+(some one got it installed on 2.7 with 'sudo easy_install simplejson')
+
+5) Navigate to the fold you have downloaded and run:
+python getBroadlinkSharedData.py
+Follow the screen steps.
+(those scripts were tested on python2.7)
+
+6) Install python broadlink library:
+git clone https://github.com/mjg59/python-broadlink.git1
+(navigate to folder you downloaded)
+sudo python setup.py install
+
+7) Test the codes you got by using sendcode script you have already downloded.
+You need to edit the script with your RM Pro IP Address and MAC Address and with the code in hex format.
+When run the script, you know the code works when get message 
+Code sent...
+Not every code works.
+
+8) Convert the working HEX codes to Base64 here: http://tomeko.net/online_tools/hex_to_base64.php?lang=en1
+and use on HA.
