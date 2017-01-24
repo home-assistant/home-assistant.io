@@ -58,6 +58,7 @@ switch 2:
   host: 192.168.1.2
   mac: 'B4:43:0D:CC:0F:58'
   timeout: 15
+  switches:
 # Will work on most Phillips tvs:
     tv:
       friendly_name: "Phillips Tv"
@@ -90,11 +91,12 @@ switch 2:
   host: 192.168.1.2
   mac: 'B4:43:0D:CC:0F:58'
   timeout: 15
+  switches:
 # Will work on most Phillips tvs:
     tv:
       friendly_name: "Phillips Tv"
       command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
-
+      command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
 
 ``` 
 
