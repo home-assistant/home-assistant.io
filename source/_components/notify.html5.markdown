@@ -36,7 +36,7 @@ Configuration variables:
 - Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
 - Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
 - After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
-- Then, click the clogwheel on top left and select "Project settings".
+- Then, click the cogwheel on top left and select "Project settings".
 - Select Cloud messaging tab if under server key is button Regenerate key, click that.
 
 
