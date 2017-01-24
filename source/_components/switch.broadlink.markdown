@@ -119,43 +119,48 @@ switch 2:
 ``` 
 
 
-How to use E-CONTROL remotes on Home Assistant
+### {% linkable_title Using E-Control Remotes %}
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" trem to HA.
 
-First get or learn all the remotes you want to add on HA in E-CONTROL
+First get or learn all the remotes you want to add on HA in E-Control
 
-1) download script from https://github.com/NightRang3r/Broadlink-e-control-db-dump5
+1. Download
 
-2) open the e-control app and on the left side menu choose "Share" and then "Share to other phones in WLAN" it should generate the files you will need on the script.
+    Get the script from [here](https://github.com/NightRang3r/Broadlink-e-control-db-dump5).
 
-3) Connect your Android device to your computer and browse the SD card / External Storage folder "/broadlink/newremote/SharedData/" You need to get the following files:
-jsonSubIr
-jsonButton
-jsonIrCode
-and put them in the same folder as this script.
+2. Dump the data from the app
 
-4) Install Requirement: simplejson
-pip install simplejson
-(you must install simplejson in the same python version you will use to run the scripts)
-(to check the version it is installed, you simple try to install again and will get the "already satisfied")
-(some one got it installed on 2.7 with 'sudo easy_install simplejson')
+    Open the E-Control app on your mobile device. On the left side menu choose "Share" and then "Share to other phones in WLAN". It will generate the files you will need for the script.
 
-5) Navigate to the fold you have downloaded and run:
-python getBroadlinkSharedData.py
-Follow the screen steps.
-(those scripts were tested on python2.7)
+3. Get data from your Android device
 
-6) Install python broadlink library:
-git clone https://github.com/mjg59/python-broadlink.git1
-(navigate to folder you downloaded)
-sudo python setup.py install
+    Connect your Android device to your computer and browse the SD card / External Storage folder "/broadlink/newremote/SharedData/". You need to get the following files and put them in the same folder as this script.:
 
-7) Test the codes you got by using sendcode script you have already downloded.
+    jsonSubIr
+    jsonButton
+    jsonIrCode
+  
+4. Install Requirements
+
+    Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+
+5. Get the data from the device
+
+    Navigate to the folder you downloaded and run `python getBroadlinkSharedData.py`. Follow the steps on screen. NOTE: These scripts were only tested with Python 2.7.
+
+6. Install python-broadlink library:
+
+  1. `git clone https://github.com/mjg59/python-broadlink.git`
+  2. `cd python-broadlink`
+  3. `sudo python setup.py install`
+
+7. Test the codes
+Use the `sendcode` script you have already downloded to test the codes you got from the device
 You need to edit the script with your RM Pro IP Address and MAC Address and with the code in hex format.
 When run the script, you know the code works when get message 
 Code sent...
 Not every code works.
 
-8) Convert the working HEX codes to Base64 here: http://tomeko.net/online_tools/hex_to_base64.php?lang=en1
-and use on HA.
+8. Convert the hex codes to base64
+Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to conver the hex codes to base64 for use with Home Assistant.
