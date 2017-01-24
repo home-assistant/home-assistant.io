@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Turn on lights for 10 minutes after motion detected - Home Assistant</title>
+    <title>Sonos say script to speak with text-to-speech - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Turn on lights for 10 minutes when motion detected.">
+    <meta name="description" content="Sonos say script to speak with text-to-speech.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/cookbook/turn_on_light_for_10_minutes_when_motion_detected/">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/sonos_say/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Turn on lights for 10 minutes after motion detected">
+    <meta property="og:title" content="Sonos say script to speak with text-to-speech">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/cookbook/turn_on_light_for_10_minutes_when_motion_detected/">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/sonos_say/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Turn on lights for 10 minutes when motion detected.">
+    <meta property="og:description" content="Sonos say script to speak with text-to-speech.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Turn on lights for 10 minutes after motion detected">
-    <meta name="twitter:description" content="Turn on lights for 10 minutes when motion detected.">
+    <meta name="twitter:title" content="Sonos say script to speak with text-to-speech">
+    <meta name="twitter:description" content="Sonos say script to speak with text-to-speech.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,50 +84,47 @@
   
   <header>
     <h1 class="title indent">
-      Turn on Lights for 10 Minutes After Motion Detected
+      Sonos Say Script to Speak With Text-to-speech
     </h1>
   </header>
   <hr class="divider">
   
 
-  <h4><a class="title-link" name="turn-on-lights-with-a-resettable-off-timer" href="#turn-on-lights-with-a-resettable-off-timer"></a> Turn on lights with a resettable off timer</h4>
+  <h4><a class="title-link" name="sonos-say-script-to-speak-with-text-to-speech" href="#sonos-say-script-to-speak-with-text-to-speech"></a> Sonos say script to speak with text-to-speech</h4>
 
-<p>This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.</p>
+<p>This script allow you to use TTS on sonos in a easy way with all features.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
-  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on kitchen lights when there is movement</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.motion_sensor</span>
-      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timed_lamp</span>
-
-<span class="s">script</span><span class="pi">:</span>
-  <span class="s">timed_lamp</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Turn</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">timer"</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">sonos_say</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Sonos</span><span class="nv"> </span><span class="s">TTS</span><span class="nv"> </span><span class="s">script"</span>
     <span class="s">sequence</span><span class="pi">:</span>
-      <span class="c1"># Cancel ev. old timers</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_off</span>
-        <span class="s">data</span><span class="pi">:</span>
-           <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timer_off</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
-      <span class="c1"># Set new timer</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timer_off</span>
+     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.sonos_snapshot</span>
+       <span class="s">data_template</span><span class="pi">:</span>
+         <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">sonos_entity</span> <span class="pi">}}</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.sonos_unjoin</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">sonos_entity</span> <span class="pi">}}</span>
+  <span class="err"> </span><span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.volume_set</span>
+     <span class="s">data_template</span><span class="pi">:</span>
+       <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">sonos_entity</span> <span class="pi">}}</span>
+       <span class="s">volume_level</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">volume</span> <span class="pi">}}</span>
+   <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">tts.voicerss_say</span>
+     <span class="s">data_template</span><span class="pi">:</span>
+       <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">sonos_entity</span> <span class="pi">}}</span>
+       <span class="s">message</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">message</span> <span class="pi">}}</span>
+   <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:00:10'</span>
+   <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.sonos_restore</span>
+     <span class="s">data_template</span><span class="pi">:</span>
+       <span class="s">entity_id</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">sonos_entity</span> <span class="pi">}}</span>
+</code></pre>
+</div>
 
-  <span class="s">timer_off</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Turn</span><span class="nv"> </span><span class="s">off</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">after</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">minutes"</span>
-    <span class="s">sequence</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
-          <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
+<p>We call this now with:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">script.sonos_say</span>
+<span class="s">data</span><span class="pi">:</span>
+  <span class="s">sonos_entity</span><span class="pi">:</span> <span class="s">media_player.kitchen</span>
+  <span class="s">volume</span><span class="pi">:</span> <span class="s">0.3</span>
+  <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Your</span><span class="nv"> </span><span class="s">husband</span><span class="nv"> </span><span class="s">comming</span><span class="nv"> </span><span class="s">home!"</span>
 </code></pre>
 </div>
 
@@ -143,7 +140,7 @@
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/turn_on_light_for_10_minutes_when_motion_detected.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/sonos_say.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>
   </div>
@@ -184,7 +181,7 @@
               <a href='/cookbook/notify_if__new_ha_release/'>Send notification if new Home Assistant release</a>
           </li>
           <li>
-              <a href='/cookbook/sonos_say/'>Sonos say script to speak with text-to-speech</a>
+              Sonos say script to speak with text-to-speech
           </li>
           <li>
               <a href='/cookbook/automation_enocean_phue/'>Switch Philips Hue with enocean</a>
@@ -193,7 +190,7 @@
               <a href='/cookbook/track_battery_level/'>Track your battery level</a>
           </li>
           <li>
-              Turn on lights for 10 minutes after motion detected
+              <a href='/cookbook/turn_on_light_for_10_minutes_when_motion_detected/'>Turn on lights for 10 minutes after motion detected</a>
           </li>
           <li>
               <a href='/cookbook/automation_using_timeinterval_inputboolean/'>Using time interval and input boolean</a>
