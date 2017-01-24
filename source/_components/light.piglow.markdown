@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Light
+ha_release: 0.37
 ---
 
 
