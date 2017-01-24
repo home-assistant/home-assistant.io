@@ -37,7 +37,7 @@ Configuration variables:
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
 - **monitored_variables** array (*Optional*): List of exposed variables.
   - **[variable]** (*Required*): Name of the variable to monitor.
-    - **name** (*Required*): The name to use for the frontend.
+    - **name** (*Optional*): The name to use for the frontend.
     - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
     - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 - **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
