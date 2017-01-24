@@ -13,7 +13,7 @@ ha_release: 0.29
 ---
 
 
-The `Kodi` platform allows you so send messages to your  [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
+The `Kodi` platform allows you to send messages to your  [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
 To add Kodi to your installation, add the following to your `configuration.yaml` file:
 
