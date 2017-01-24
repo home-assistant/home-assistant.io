@@ -21,22 +21,22 @@ script:
     sequence:
      - service: media_player.sonos_snapshot
        data_template:
-         entity_id: {{ sonos_entity }}
+         entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
     - service: media_player.sonos_unjoin
       data_template:
-        entity_id: {{ sonos_entity }}
+        entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
    - service: media_player.volume_set
      data_template:
-       entity_id: {{ sonos_entity }}
-       volume_level: {{ volume }}
+       entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
+       volume_level: {% raw %}{{ volume }}{% endraw %}
    - service: tts.voicerss_say
      data_template:
-       entity_id: {{ sonos_entity }}
-       message: {{ message }}
+       entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
+       message: {% raw %}{{ message }}{% endraw %}
    - delay: '00:00:10'
    - service: media_player.sonos_restore
      data_template:
-       entity_id: {{ sonos_entity }}
+       entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
 ```
 
 We call this now with:
