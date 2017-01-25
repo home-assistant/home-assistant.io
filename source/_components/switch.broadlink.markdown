@@ -119,3 +119,50 @@ switch 2:
   friendly_name: 'Humidifier'
 
 ``` 
+
+
+### {% linkable_title Using E-Control Remotes %}
+
+If you already have your remotes learned on E-Control app you can use this method to "copy" trem to HA.
+
+First get or learn all the remotes you want to add on HA in E-Control
+
+1. Download
+
+    Get the script from [here](https://github.com/NightRang3r/Broadlink-e-control-db-dump5).
+
+2. Dump the data from the app
+
+    Open the E-Control app on your mobile device. On the left side menu choose "Share" and then "Share to other phones in WLAN". It will generate the files you will need for the script.
+
+3. Get data from your Android device
+
+    Connect your Android device to your computer and browse the SD card / External Storage folder "/broadlink/newremote/SharedData/". You need to get the following files and put them in the same folder as this script.:
+
+    jsonSubIr
+    jsonButton
+    jsonIrCode
+  
+4. Install Requirements
+
+    Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+
+5. Get the data from the device
+
+    Navigate to the folder you downloaded and run `python getBroadlinkSharedData.py`. Follow the steps on screen. NOTE: These scripts were only tested with Python 2.7.
+
+6. Install python-broadlink library:
+
+  1. `git clone https://github.com/mjg59/python-broadlink.git`
+  2. `cd python-broadlink`
+  3. `sudo python setup.py install`
+
+7. Test the codes
+Use the `sendcode` script you have already downloded to test the codes you got from the device
+You need to edit the script with your RM Pro IP Address and MAC Address and with the code in hex format.
+When run the script, you know the code works when get message 
+Code sent...
+Not every code works.
+
+8. Convert the hex codes to base64
+Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
