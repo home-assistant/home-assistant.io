@@ -14,5 +14,19 @@ ha_category: Sensor
 
 The Wink sensor platform allows you to get data from your [Wink](http://www.wink.com/) sensors.
 
-The requirement is that you have setup your [Wink hub](/components/wink/).
+The requirement is that you have setup [Wink](/components/wink/).
+
+
+### Supported sensor devices
+
+- Wink Relay temperature, proximity, and humidity
+- Wink Spotter temperature, humidity, and brightness (No Wink hub required)
+- Wink Porkfolio balance (No Wink hub required)
+- Wink eggminder (No Wink hub required)
+- Nest protect Smoke and CO severity (No confirmation that this is actually reported) (No Wink hub required)
+- Motion sensor temperature
+
+<p class='note'>
+The above devices are confimed to work, but others may work as well.
+</p>
 
