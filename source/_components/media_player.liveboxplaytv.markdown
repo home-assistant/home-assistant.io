@@ -27,8 +27,9 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The IP or hostname of the Orange Livebox Play TV appliance
+- **host** (*Required*): The IP or hostname of the Orange Livebox Play TV appliance.
 - **name** (*Optional*): The name to use in the frontend. Defaults to `Livebox Play TV`.
+- **port** (*Optional*): The port on which the Livebox is listening on. Defaults to 8080.
 
 ## {% linkable_title Full configuration %}
 
@@ -39,5 +40,6 @@ Here's a full configuration example for an Orange TV appliance:
 media_player:
   - platform: liveboxplaytv
     host: 192.168.1.3
+    port: 8080
     name: Orange Livebox Play TV
 ```
