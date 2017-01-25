@@ -12,9 +12,9 @@ ha_category: Hub
 ha_release: "0.37"
 ---
 
-The `microsoft_face` component platform is the main component for Microsoft Azure Cognitive service [Face](https://azure.microsoft.com/en-us/services/cognitive-services/face/). All data are in a own private instance in the azure cloud.
+The `microsoft_face` component platform is the main component for Microsoft Azure Cognitive service [Face](https://www.microsoft.com/cognitive-services/en-us/face-api). All data are in a own private instance in the azure cloud.
 
-You need an API key which is free but requires a [Azure registration](https://azure.microsoft.com/de-de/free/) with your microsoft ID. The free resource (*F0*) is limit to 30K request in a month and 20 per minute.
+You need an API key which is free but requires a [Azure registration](https://azure.microsoft.com/de-de/free/) with your microsoft ID. The free resource (*F0*) is limit to 30K request in a month and 20 per minute. If you don't want use a azure cloud, you can also get a API key with registration on [cognitive-services](https://www.microsoft.com/cognitive-services/en-us/subscriptions) but they need to recreate all 90 days.
 
 To enable the Microsoft Face component, add the following lines to your `configuration.yaml`:
 
@@ -76,27 +76,3 @@ After we done with changes on a group, we need train this group to make our AI f
 service: microsoft_face.train_group
 data:
   group: family
-
-### {% linkable_title Get API and Secret Key %}
-
-To get your API credentials, you have to declare a new application in the [NetAtmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular NetAtmo account.
-Click on 'Create an App' at the top of the page.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_create.png' />
-</p>
-You have to fill the form, but only two fields are required : Name and Description. It doesn't really matter what you put into those. Just write something that make sense to you. To submit your new app, click on create at the bottom of the form.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_app.png' />
-</p>
-
-That's it. You can copy and paste your new API and secret keys in your Home Assistant configuration file just as said above.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_api.png' />
-</p>
-
-<p class='note'>
-The Home Assistant Netatmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
-</p>

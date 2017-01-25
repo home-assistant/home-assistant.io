@@ -34,3 +34,24 @@ automation:
 ```
 
 The following event attributes will be present: `entity_id`, `plate`, `confidence`
+
+## {% linkable_title Face identify %}
+
+Face entities attribute have a face counter `total_faces` and all validated person as `known_faces`.
+
+This event is trigger after Microsoft Face identify found a known faces.
+
+```yaml
+# Example configuration.yaml automation entry
+automation:
+- alias: Known person in front of my door
+  trigger:
+    platform: event
+    event_type: identify_face
+    event_data:
+      entity_id: image_processing.door
+      name: 'Hans Maier'
+...
+```
+
+The following event attributes will be present: `entity_id`, `name`, `confidence`
