@@ -165,4 +165,4 @@ Code sent...
 Not every code works.
 
 8. Convert the hex codes to base64
-Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to conver the hex codes to base64 for use with Home Assistant.
+Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
