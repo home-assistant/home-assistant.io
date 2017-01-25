@@ -81,7 +81,7 @@ With a template:
 ```yaml
 service: tts.google_say
 data_template:
-  message: 'Temperature is {% raw %}{{ sensor.temperature }}{% endraw %}.'
+  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
   cache: false
 ```
 
