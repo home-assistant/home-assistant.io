@@ -42,6 +42,8 @@ Configuration variables:
 - **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`.
 - **host_ip** (*Optional*): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
 - **listen_port** (*Optional*): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.
+- **advertise_ip** (*Optional*): If you need to override the IP address used for UPNP discovery. (For example, using network isolation in Docker)
+- **advertise_port** (*Optional*): If you need to specifically override the advertised UPNP port.
 - **off_maps_to_on_domains** (*Optional*): The domains that maps an "off" command to an "on" command.
   
   For example, if `script` is included in the list, and you ask Alexa to "turn off the *water plants* script," the command will be handled as if you asked her to turn on the script.
@@ -68,6 +70,8 @@ A full configuration sample looks like the one below.
 emulated_hue:
   host_ip: 192.168.1.186
   listen_port: 8300
+  advertise_ip: 10.0.0.10
+  advertise_port: 8080
   off_maps_to_on_domains:
     - script
     - scene
