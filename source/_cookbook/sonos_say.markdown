@@ -33,7 +33,6 @@ script:
      data_template:
        entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
        message: {% raw %}{{ message }}{% endraw %}
-   - delay: '00:00:10'
    - service: media_player.sonos_restore
      data_template:
        entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
