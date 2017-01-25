@@ -34,5 +34,5 @@ Configuration variables:
 - **api_key** (*Required*): You need an API key from [OpenALPR Cloud](https://cloud.openalpr.com/).
 - **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80.
 - **source** array (*Required*): List of image sources.
-  - **entities** (*Required*): A list of devices to add in Home Assistant.
+  - **entity_id** (*Required*): A list of devices to add in Home Assistant.
   - **name** (*Optional*): This parameter allows you to override the name of your OpenALPR entity.
