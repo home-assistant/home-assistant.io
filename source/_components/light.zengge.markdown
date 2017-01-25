@@ -27,4 +27,4 @@ Configuration variables:
 
 - **devices** array (*Required*): List of your devices/bulbs.
   - **MAC address** (*Required*): The MAC address of the bulb.
-    - **MAC address** (*Optional*): Friendly name for the frontend.
+    - **name** (*Optional*): Friendly name for the frontend.
