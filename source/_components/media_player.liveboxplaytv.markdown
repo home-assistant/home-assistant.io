@@ -33,7 +33,7 @@ Configuration variables:
 
 ## {% linkable_title Full configuration %}
 
-Here's a full configuration example for an Orange TV appliance:
+A full configuration example for an Orange TV appliance can look like this:
 
 ```yaml
 # Example configuration.yaml entry
