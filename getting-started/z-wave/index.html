@@ -161,8 +161,8 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
     <ul>
       <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.</li>
       <li><strong>ignored</strong> (<em>Optional</em>): Ignore this entitiy completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
-      <li><strong>refresh_value</strong> (<em>Optional</em>): Enable refreshing of the node value. Only light component uses this. Defaults to 2 second delay.</li>
-      <li><strong>delay</strong> (<em>Optional</em>): Specify the delay to wait for refresh of node value if you want other than 2 seconds.</li>
+      <li><strong>refresh_value</strong> (<em>Optional</em>): Enable refreshing of the node value. Only the light component uses this. Defaults to False.</li>
+      <li><strong>delay</strong> (<em>Optional</em>): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.</li>
     </ul>
   </li>
   <li><strong>debug</strong> (<em>Optional</em>): Print verbose z-wave info to log. Defaults to False.</li>
@@ -374,7 +374,7 @@ You can use this for automations.</p>
   </tbody>
 </table>
 
-<p>The <code class="highlighter-rouge">soft_reset</code> and <code class="highlighter-rouge">heal_network</code> commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a <code class="highlighter-rouge">heal_network</code> at midnight.  This is a configuration option for the <code class="highlighter-rouge">zwave</code> component, the option defaults to <code class="highlighter-rouge">true</code> but can be disabled by setting <code class="highlighter-rouge">auto_heal</code> to false.  Using the <code class="highlighter-rouge">soft_reset</code> function with some Z-Wave controllers can cause the Z-Wave network to hang. If you’re having issues with your Z-Wave network try disabling this automation.</p>
+<p>The <code class="highlighter-rouge">soft_reset</code> and <code class="highlighter-rouge">heal_network</code> commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a <code class="highlighter-rouge">heal_network</code> at midnight.  This is a configuration option for the <code class="highlighter-rouge">zwave</code> component, the option defaults to <code class="highlighter-rouge">true</code> but can be disabled by setting <code class="highlighter-rouge">autoheal</code> to false.  Using the <code class="highlighter-rouge">soft_reset</code> function with some Z-Wave controllers can cause the Z-Wave network to hang. If you’re having issues with your Z-Wave network try disabling this automation.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
