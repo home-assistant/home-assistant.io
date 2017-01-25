@@ -142,7 +142,7 @@
       <span class="s">command_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/1"</span>
       <span class="s">command_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4/0"</span>
       <span class="s">command_state</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/usr/bin/curl</span><span class="nv"> </span><span class="s">-X</span><span class="nv"> </span><span class="s">GET</span><span class="nv"> </span><span class="s">http://192.168.1.10/digital/4"</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"1"</span><span class="nv"> </span><span class="s">}}'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">return_value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"1"</span><span class="nv"> </span><span class="s">}}'</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen Lightswitch</span>
 </code></pre>
 </div>
