@@ -52,3 +52,11 @@ On macOS phython-vlc won’t find the VLC plugin directory unless you add this t
 ```bash
 export VLC_PLUGIN_PATH=$VLC_PLUGIN_PATH:/Applications/VLC.app/Contents/MacOS/plugins
 ```
+
+##### {% linkable_title Additional configuration for Rasperry Pi %}
+
+You need to add `homeassistant` user to `audio` group:
+
+```bash
+sudo usermod -a -G audio homeassistant
+```
