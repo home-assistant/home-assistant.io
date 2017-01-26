@@ -50,11 +50,13 @@ $ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/pytho
 ```bash
 ssh pi@your_raspberry_pi_ip
 ```
+
 *  at the command line type: 
 
 ```bash
 echo scan | cec-client -s -d 1
 ```
+
 *  This will give you the list of devices that are on the bus
 
 ```bash
@@ -72,13 +74,15 @@ power status:  on
 language:      ???
 ```
 
-**Note the address: line above this will be used to configure HA, this address is represented below as 3: BlueRay player**
+<p class='note'>`address:` entry above this will be used to configure Home Assistant, this address is represented below as 3: BlueRay player.
+</p>
 
 ## {% linkable_title Configuration Example %}
 
 In the following example, a Pi Zero running Home Assistant is on a TV's HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.
 
 You can use either direct mapping name to physical address of device
+
 ```yaml
 hdmi_cec:
   devices:
@@ -89,7 +93,9 @@ hdmi_cec:
     Another Device: 2.3.0.0
     BlueRay player: 3.0.0.0
 ```
-or port mapping tree
+
+or port mapping tree:
+
 ```yaml
 hdmi_cec:
   devices:
@@ -100,14 +106,18 @@ hdmi_cec:
       3: Another Device
     3: BlueRay player
 ```
+
 Choose just one schema. Mixing both approaches is not possible.
 
 Another option you can use in config is `platform` which specifying of default platform of HDMI devices. "switch" and "media_player" are supported. Switch is default.
+
 ```yaml
 hdmi_cec:
   platform: media_player
 ```
+
 Then you set individual platform for devices in customizations:
+
 ```yaml
 homeassistant:
   customize:
@@ -116,6 +126,7 @@ homeassistant:
 ```
 
 And the last option is `host`. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (`python -m pycec`), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:
+
 ```yaml
 hdmi_cec:
   host: 192.168.1.3
@@ -161,40 +172,52 @@ Call the `hdmi_cec/standby` service (no arguments) to place in standby any devic
 
 Call the `hdmi_cec/volume` service with one of following commands:
 
-#### Volume up
+#### {% linkable_title Volume up %}
 Increase volume three times:
+
 ```json
 {"up": 3}
 ```
+
 Keep increasing volume until release is called:
+
 ```json
 {"up": "press"}
 ```
+
 Stop increasing volume:
+
 ```json
 {"up": "release"}
 ```
 
 
-#### Volume down
+#### {% linkable_title Volume down %}
 Decrease volume three times:
+
 ```json
 {"down": 3}
 ```
+
 Keep decreasing volume until release is called:
+
 ```json
 {"down": "press"}
 ```
+
 Stop decreasing volume:
+
 ```json
 {"down": "release"}
 ```
 
-#### Volume mute
+#### {% linkable_title Volume mute %}
 Toggle mute:
+
 ```json
 {"mute": ""}
 ```
+
 value is ignores.
 
 
