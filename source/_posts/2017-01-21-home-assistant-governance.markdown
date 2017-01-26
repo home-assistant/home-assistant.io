@@ -14,7 +14,7 @@ The Home Assistant project and community has seen enormous growth in the last th
 
 Starting today we are announcing a few initiatives to help protect our users, contributors and community members.
 
-## Code of Conduct
+## {% linkable_title Code of Conduct %}
 
 More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
 
@@ -24,7 +24,7 @@ Moving forward this Code of Conduct will be active for all projects within the H
 
 [coc]: /developers/code_of_conduct/
 
-## Contributor License Agreement
+## {% linkable_title Contributor License Agreement %}
 
 Moving forward we will also require that all contributors to any project have electronically signed a contributor license agreement (CLA). We have adopted the CLA that GitHub uses for their projects. Currently we have no plans to retroactively require a CLA for previous contributions, only those going forward.
 
@@ -34,7 +34,7 @@ Until a signed CLA is on file your pull request will not be reviewed or accepted
 
 A CLA is difficult to describe but GitHub did an excellent job so this next section is taken from [https://cla.github.com][gh-cla]:
 
-### What is a Contributor License Agreement?
+### {% linkable_title What is a Contributor License Agreement? %}
 
 A Contributor License Agreement, known as a CLA, asks contributors to confirm that:
 
@@ -43,42 +43,42 @@ A Contributor License Agreement, known as a CLA, asks contributors to confirm th
 
 The GitHub CLA helps ensure the smooth operation and usability of the open source projects that we maintain.
 
-### Why is a CLA necessary?
+### {% linkable_title Why is a CLA necessary? %}
 
 It depends on the jurisdiction, but in the United States, contributions are owned by the author or their employer. When the contribution is accepted, the project becomes a bundle of derivative works. The agreement of all contributors are necessary to maintain distribution of the complete project and to any licensing agreement.
 
-### Isn’t that the purpose of an open source license?
+### {% linkable_title Isn’t that the purpose of an open source license?v
 
 Most open source licenses deal with use of the original code, and don’t refer to contributions, or derivatives of the original.
 
-### How does a CLA protect a project?
+### {% linkable_title How does a CLA protect a project? %}
 
 If the owner of a contribution decides that they don’t want the contribution to be part of the project or in any given distribution, the law is on their side. The project, contributors, and users may be subject to legal action. This may require payment of damages and could prevent further usage or contributions until the matter is resolved.
 
 Even when there is no legal pursuit, too much ambiguity can jeopardize or doom a project by preventing those that can’t risk legal action from getting involved.
 
-### Why does it seem like only “corporate” projects have a CLA?
+### {% linkable_title Why does it seem like only "corporate" projects have a CLA? %}
 
-There are many projects without corporate ownership that use a CLA or even a copyright assignment–jQuery and Eclipse, for example. However, it is true that projects with financial backing tend to be at a higher risk of becoming a target, so they may have a lower tolerance for legal ambiguity.
+There are many projects without corporate ownership that use a CLA or even a copyright assignment: jQuery and Eclipse, for example. However, it is true that projects with financial backing tend to be at a higher risk of becoming a target, so they may have a lower tolerance for legal ambiguity.
 
-### What makes the GitHub CLA different from other CLAs?
+### {% linkable_title What makes the GitHub CLA different from other CLAs? %}
 
 The GitHub CLA does not include benign terms that serve no purpose, nor does it include pernicious terms that try to grab more rights than necessary to protect users of the project. Accepting the CLA is a low-overhead click-through when making a pull request, and it only needs to be accepted on the first contribution to a project or organization.
 
 [gh-cla]: https://cla.github.com/
 
-## Security requirements
+## {% linkable_title Security requirements %}
 
 With more collaborators involved with Home Assistant we are also exposing ourselves to more risk as more people have write access. As such we taking the following steps.
 
  1. As of November 3rd, 2016, all collaborators have been required to have 2 factor authentication (2FA) enabled on their GitHub account.
  2. Going forward, we will do an audit from time to time and strip collaborators from write access if they haven't contributed for a while. This is in no sense meant to boot people, and you are absolutely eligible to get it back in the future when you wish start contributing again.
 
-## Licensing
+## {% linkable_title Licensing %}
 
 We will now ensure that a `LICENSE.md` file exists in all projects under the Home Assistant organization and is an [OSI approved open source license](https://opensource.org/licenses) or a [Creative Commons](https://creativecommons.org) license.
 
-### Code License
+### {% linkable_title Code License %}
 
 The chosen license for all code projects under the Home Assistant organization is The MIT License.
 
@@ -88,14 +88,14 @@ Wikipedia has this to say about it:
 
 > The MIT License is a permissive free software license originating at the Massachusetts Institute of Technology (MIT). As a permissive license, it puts only very limited restriction on reuse and has therefore an excellent license compatibility. The MIT license permits reuse within proprietary software provided that all copies of the licensed software include a copy of the MIT License terms and the copyright notice. The MIT license is also compatible with many copyleft licenses, such as the GNU General Public License (GPL); MIT licensed software can be integrated into GPL software, but not the other way around.
 
-### Documentation License
+### {% linkable_title Documentation License %}
 
 All content on home-assistant.io and all other documentation/asset projects under the Home Assistant organization will be licensed under the Creative Commons License, specifically the [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-## Crediting contributors
+## {% linkable_title Crediting contributors %}
 
 We have now mostly automated updating the [Credits](/developers/credits/) page so that contributors get their attribution more quickly.
 
-## In closing
+## {% linkable_title In closing %}
 
 We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact me via email, Twitter or Gitter.
