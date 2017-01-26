@@ -10,7 +10,7 @@ footer: true
 logo: anthemav.png
 ha_category: Media Player
 ha_iot_class: "Local Push"
-ha_release: 0.36
+ha_release: 0.37
 ---
 
 Both [Anthem]'s current and last generation of A/V Receivers and and Processors
