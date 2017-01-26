@@ -47,7 +47,7 @@ The GitHub CLA helps ensure the smooth operation and usability of the open sourc
 
 It depends on the jurisdiction, but in the United States, contributions are owned by the author or their employer. When the contribution is accepted, the project becomes a bundle of derivative works. The agreement of all contributors are necessary to maintain distribution of the complete project and to any licensing agreement.
 
-### {% linkable_title Isn’t that the purpose of an open source license?v
+### {% linkable_title Isn’t that the purpose of an open source license? %}
 
 Most open source licenses deal with use of the original code, and don’t refer to contributions, or derivatives of the original.
 
