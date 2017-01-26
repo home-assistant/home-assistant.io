@@ -13,9 +13,7 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.37
 ---
 
-The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation](http://wsdot.com/). 
-
-
+The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation (WSDOT)](http://wsdot.com/). 
 
 First, you need to get a free Traveler Information `api_key` from the [WSDOT API webpage](http://wsdot.com/traffic/api/). Just enter your email address to instantly get the key. 
 
@@ -37,21 +35,22 @@ Configuration variables:
 - **api_key** (*Required*): Your `api_key` from WSDOT.
 - **scan_interval** (*Optional*): How frequently to query for new data. Default: 3 minutes. 
 - **travel_time** array (*Required*): List of routes.
-  - **id** (*Required*): Name of the route.  
+  - **id** (*Required*): Name of the route.
   - **name** (*Optional*): Name of the route. Default just uses `id`.
 
 Figuring out which Travel Time ID (`id`) is associated with your routes is a bit of a challenge. If you visit `http://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]` substituting your `api_key`, you will get a list of all available routes. Search through it and then find the key `TravelTimeID`. That tells you the number you need. 
 
 Some common examples include:
+
 ```
- 73 Issaquah-Seattle (WB PM)      
- 74 Seattle-Issaquah (EB AM)      
+ 73 Issaquah-Seattle (WB PM)
+ 74 Seattle-Issaquah (EB AM)
  75 HOV Issaquah-Seattle (WB REV) 
- 76 Issaquah-Seattle (WB REV)     
- 77 HOV Redmond-Seattle (WB PM)   
- 78 HOV Seattle-Redmond (EB AM)   
- 79 Redmond-Seattle (WB PM)       
- 80 Seattle-Redmond (EB AM)       
+ 76 Issaquah-Seattle (WB REV)
+ 77 HOV Redmond-Seattle (WB PM)
+ 78 HOV Seattle-Redmond (EB AM)
+ 79 Redmond-Seattle (WB PM)
+ 80 Seattle-Redmond (EB AM)
  81 HOV Redmond-Seattle via I-90 (WB PM)
  82 HOV Seattle-Redmond via I-90 (EB AM)
  83 Redmond-Seattle via I-90 (WB PM)
@@ -71,7 +70,7 @@ Some common examples include:
 ```
 
 <p class='note info'>
-WSDOT does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available in this component.
+WSDOT does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available in this platform.
 </p>
 
 Here's an example of the sensor in use:
