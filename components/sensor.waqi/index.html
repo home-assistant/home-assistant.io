@@ -98,14 +98,21 @@
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">waqi</span>
     <span class="s">locations</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">beijin</span>
+      <span class="pi">-</span> <span class="s">beijing</span>
+    <span class="s">stations</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">Beijing US Embassy</span>
 </code></pre>
 </div>
 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>locations</strong> (<em>Required</em>): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant</li>
+  <li>
+    <p><strong>locations</strong> (<em>Required</em>): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant</p>
+  </li>
+  <li>
+    <p><strong>stations</strong> (<em>Optional</em>): a list of station names to look for air quality data. Station should be within locations specified above.</p>
+  </li>
 </ul>
 
 <p>The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:</p>
@@ -166,7 +173,7 @@
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.waqi.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/smtp.png' />
+      <img src='/images/supported_brands/waqi.png' />
   </div>
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
@@ -175,178 +182,13 @@
     Introduced in release: 0.34
     </div>
     <div class='section'>
-    <h1 class="title delta">Category Sensor</h1>
+    <h1 class="title delta">Category Health</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.apcupsd/'>APCUPSd Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.api_stream/'>API Stream Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.arwn/'>ARWN Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bbox/'>Bbox Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.command_line/'>Command line Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.dweet/'>Dweet.io</a>
-        </li>
-        <li>
-            <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.gpsd/'>GPSD</a>
-        </li>
-        <li>
-            <a href='/components/sensor.http/'>HTTP Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.haveibeenpwned/'>HaveIBeenPwned Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.homematic/'>Homematic Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.imap_email_content/'>IMAP Email Content</a>
-        </li>
-        <li>
-            <a href='/components/sensor.imap/'>IMAP Unread E-mail</a>
-        </li>
-        <li>
-            <a href='/components/sensor.isy994/'>ISY994 Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.iss/'>International Space Station Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.mqtt/'>MQTT Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.min_max/'>Min/max Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.modbus/'>Modbus Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.moldindicator/'>Mold Indicator</a>
-        </li>
-        <li>
-            <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.nut/'>NUT Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.nest/'>Nest Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.onewire/'>One wire Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.pilight/'>Pilight Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.rest/'>RESTful Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.random/'>Random Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.scrape/'>Scrape Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.sensehat/'>Sense HAT</a>
-        </li>
-        <li>
-            <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.sonarr/'>Sonarr Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.tcp/'>TCP Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.temper/'>TEMPer Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.tellduslive/'>Telldus Live sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.template/'>Template Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.usps/'>USPS Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.vera/'>Vera Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.verisure/'>Verisure Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.wink/'>Wink Sensor</a>
+            <a href='/components/sensor.fitbit/'>Fitbit</a>
         </li>
         <li>
             World Air Quality Index
-        </li>
-        <li>
-            <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.zigbee/'>ZigBee Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.zoneminder/'>ZoneMinder Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.arest/'>aREST Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.mfi/'>mFi Sensor</a>
         </li>
     </ul>
     </div>
