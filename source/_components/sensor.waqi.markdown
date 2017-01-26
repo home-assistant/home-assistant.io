@@ -7,8 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: smtp.png
-ha_category: Sensor
+logo: waqi.png
+ha_category: Health
 ha_release: 0.34
 ha_iot_class: "Local Polling"
 ---
