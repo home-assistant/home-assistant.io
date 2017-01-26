@@ -33,12 +33,7 @@ $ sudo apt-get install python3-pip python3-dev libssl-dev
 Different distributions have different package installation mechanisms and sometimes packages names as well. For example Centos would use: `sudo yum install epel-release python34 python34-devel mysql-devel`
 </p>
 
-#### {% linkable_title Frontend dependencies (optional) %} 
-
-In order to run or develop the [Frontend](https://home-assistant.io/developers/frontend/) you will need node.js. The preferred method of installing node is [nvm](https://github.com/creationix/nvm). Install nvm using the instructions in the [README](https://github.com/creationix/nvm#install-script), and install node.js by running the following command:
-```bash
-$ nvm install node
-```
+Additional dependencies exist if you you plan to perform Frontend Development, please read the [Frontend](https://home-assistant.io/developers/frontend/) section to learn more.
 
 #### {% linkable_title Setting up virtual environment (optional) %} 
 
