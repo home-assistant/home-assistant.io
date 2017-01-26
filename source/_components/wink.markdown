@@ -32,10 +32,10 @@ To use this form of authentication obtain a token from the form below and insert
 <iframe src="https://winkbearertoken.appspot.com"
         style='width: 100%; height: 200px; border: 0; margin: 0 auto 15px; border-left: 2px solid #049cdb; padding-left: 15px;'></iframe>
 
-    ```yaml
-    wink:
-      access_token: YOUR_ACCESS_TOKEN
-    ```
+```yaml
+wink:
+  access_token: YOUR_ACCESS_TOKEN
+```
 
 ### Authentication with your Wink email and password.
 
@@ -43,11 +43,11 @@ To use this form of authentication obtain a token from the form below and insert
 This method uses the same form from above to obtain an access token, but does so without the user needing to manually do so.
 This method pulls a new token on every startup of Home Assistant.
 
-    ```yaml
-    wink:
-      email: YOUR_WINK_EMAIL_ADDRESS
-      password: YOUR_WINK_PASSWORD
-    ```
+```yaml
+wink:
+  email: YOUR_WINK_EMAIL_ADDRESS
+  password: YOUR_WINK_PASSWORD
+```
 
 ### Full oath authentication. (This is the best option!)
 
@@ -56,13 +56,13 @@ You can also request API access via Wink's [contact us](http://www.wink.com/help
 
 You will be provided with a client ID and a client secret via email. These can then be used in your configuration in place of the access_token this will prevent you from having to manually refresh your access token.
 
-    ```yaml
-    wink:
-      email: YOUR_WINK_EMAIL_ADDRESS
-      password: YOUR_WINK_PASSWORD
-      client_id: YOUR_WINK_CLIENT_ID
-      client_secret: YOUR_WINK_CLIENT_SECRET
-    ```
+```yaml
+wink:
+  email: YOUR_WINK_EMAIL_ADDRESS
+  password: YOUR_WINK_PASSWORD
+  client_id: YOUR_WINK_CLIENT_ID
+  client_secret: YOUR_WINK_CLIENT_SECRET
+```
 
 Configuration variables:
 
