@@ -115,7 +115,7 @@
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the homeservers certificate. Defaults to <code class="highlighter-rouge">true</code>.</li>
 </ul>
 
-<p>The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form <code class="highlighter-rouge">!&lt;randomid&gt;:homeserver.tld</code>, but can also be allocated aliases like <code class="highlighter-rouge">#roomname:homeserver.tld</code>. The notifying account may need to be invited to the room, depending on the individual rooms policies.</p>
+<p>The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form <code class="highlighter-rouge">"!&lt;randomid&gt;:homeserver.tld"</code>, but can also be allocated aliases like <code class="highlighter-rouge">"#roomname:homeserver.tld"</code>. Make sure to use quotes around the room id or alias to escape special characters (<code class="highlighter-rouge">!</code>, and <code class="highlighter-rouge">#</code>) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.</p>
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 
