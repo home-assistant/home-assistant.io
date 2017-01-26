@@ -30,7 +30,7 @@ Install the core dependencies.
 $ sudo apt-get install python3-pip python3-dev libssl-dev
 ```
 <p class='note'>
-Different distributions have different package installation mechanisms and sometimes packages names as well. For example Centos would use: `sudo yum install epel-release python34 python34-devel mysql-devel`
+Different distributions have different package installation mechanisms and sometimes packages names as well. For example Centos would use: `sudo yum install epel-release && sudo yum install python34 python34-devel mysql-devel`
 </p>
 
 Additional dependencies exist if you you plan to perform Frontend Development, please read the [Frontend](https://home-assistant.io/developers/frontend/) section to learn more.
