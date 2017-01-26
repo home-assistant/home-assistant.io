@@ -42,7 +42,7 @@ Configuration variables:
     - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
 
 
-Information about how to install on Windows can be found here: https://home-assistant.io/components/sensor.broadlink/#microsoft-windows-installation
+Information about how to install on Windows can be found [here](https://home-assistant.io/components/sensor.broadlink/#microsoft-windows-installation)
 
 
 ### {% linkable_title How to obtain IR/RF packets? %}
