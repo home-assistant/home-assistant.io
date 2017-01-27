@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">history</code> component will track everything that is going on within Home Assistant and allows the user to browse through it.</p>
+  <p>The <code class="highlighter-rouge">history</code> component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the <code class="highlighter-rouge">recorder</code> component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities as well.</p>
 
 <p>To enable the history option in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -173,7 +173,7 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
 
 <h4><a class="title-link" name="implementation-details" href="#implementation-details"></a> Implementation details</h4>
 
-<p>The history is stored in a SQLite database <code class="highlighter-rouge">home-assistant_v2.db</code> within your configuration directory.</p>
+<p>The history is stored in a SQLite database <code class="highlighter-rouge">home-assistant_v2.db</code> within your configuration directory if the <code class="highlighter-rouge">recorder</code> component is not set up differently.</p>
 
 <ul>
   <li>events table is all events except <code class="highlighter-rouge">time_changed</code> that happened while recorder component was running.</li>
