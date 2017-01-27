@@ -18,7 +18,7 @@ Integrate your [Hydro-Québec](https://www.hydroquebec.com/portail/) consumption
 
 ```yaml
 # Example configuration.yaml entry
-ensor:
+sensor:
   - platform: hydroquebec
     username: MYUSERNAME
     password: MYPASSWORD
