@@ -17,7 +17,7 @@ The `microsoft_face_identify` image processing platform lets you use [Microsoft 
 
 Please refer to the [component](/components/microsoft_face/) configuration on how to setup the API key.
 
-For using inside automation look on [component](/components/image_processing) page.
+For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
 
 ### {% linkable_title Configuration Home Assistant %}
 
