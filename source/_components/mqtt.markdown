@@ -280,7 +280,7 @@ It is also possible to extract JSON values by using a value template:
 ```yaml
 switch:
   platform: mqtt
-  value_template: '{{ value_json.somekey[0].value }}'
+  value_template: '{% raw %}{{ value_json.somekey[0].value }}{% endraw %}'
 ```
 
 More information about the full JSONPath syntax can be found [here][JSONPath syntax].
