@@ -149,6 +149,20 @@
   </li>
 </ul>
 
+<p class="note warning">
+Not every hardware supports all values.
+</p>
+
+<h3><a class="title-link" name="hp-microserver-gen8" href="#hp-microserver-gen8"></a> HP Microserver gen8</h3>
+
+<p>On this hardware you need to remove the below listed variables from <code class="highlighter-rouge">monitored_variables:</code> to avoid errors.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">server_oa_info</code></li>
+  <li><code class="highlighter-rouge">server_power_readings</code></li>
+  <li><code class="highlighter-rouge">server_power_on_time</code></li>
+</ul>
+
 
 </article>
 
