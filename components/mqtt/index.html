@@ -229,6 +229,10 @@ This broker does not currently work with OwnTracks because of a protocol version
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify <code class="highlighter-rouge">protocol: 3.1</code> in your MQTT configuration to work around this issue.
 </p>
 
+<p class="note">
+If you are running a mosquitto instance on a different server with proper SSL encryption using a service like letsencrypt you may have to set the certificate to the operating systems own <code class="highlighter-rouge">.crt</code> certificates file. In the instance of ubuntu this would be <code class="highlighter-rouge">certificate: /etc/ssl/certs/ca-certificates.crt</code>
+</p>
+
 <h3><a class="title-link" name="public-broker" href="#public-broker"></a> Public broker</h3>
 
 <p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.</p>
