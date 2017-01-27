@@ -24,6 +24,7 @@ media_player:
   - platform: sonos
 ```
 
+
 If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.
 
 ```yaml
@@ -61,6 +62,7 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `with_group` | yes | Should be also snapshot the group state of the speaker.
 
 ### {% linkable_title Service `sonos_restore` %}
 
@@ -69,14 +71,16 @@ Restore a previously taken snapshot of one or more speakers. If no `entity_id` i
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `with_group` | yes | Should be also restore the group state of the speaker. Only if was snapshot with group.
 
-### {% linkable_title Service `sonos_group_players` %}
+### {% linkable_title Service `sonos_join` %}
 
-Group all players together under a single coordinator.
+Do group players together under a single coordinator. That will make a new group or join to exists group.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of a single `entity_id` that will become the coordinator speaker.
+| `master` | no | A single `entity_id` that will become/hold the coordinator speaker.
+| `entity_id` | no | String or list of a single `entity_id` that will group to master speaker.
 
 ### {% linkable_title Service `sonos_unjoin` %}
 
