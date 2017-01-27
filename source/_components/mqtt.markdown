@@ -275,6 +275,13 @@ switch:
   platform: mqtt
   state_format: 'json:somekey[0].value'
 ```
+It is also possible to extract JSON values by using a value template:
+
+```yaml
+switch:
+  platform: mqtt
+  value_template: '{{ value_json.somekey[0].value }}'
+```
 
 More information about the full JSONPath syntax can be found [here][JSONPath syntax].
 
