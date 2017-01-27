@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the `recorder` component for storing the data. This means that if the `recorder` component is set up to use e.g. mySQL as data store, the `history` component does not use the default SQLite database to store data.
+The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the `recorder` component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities as well.
 
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
 
