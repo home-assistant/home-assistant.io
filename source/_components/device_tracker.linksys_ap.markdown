@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Presence Detection
 featured: false
-ha_release: 0.35
+ha_release: 0.37
 ---
 
 The `linksys_ap` platform offers presence detection by looking at connected devices to a Linksys based access point.
@@ -24,7 +24,6 @@ device_tracker:
     host: 192.168.1.1
     username: admin
     password: password
-    verify_ssl: true
 ```
 
 Configuration variables:
