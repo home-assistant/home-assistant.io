@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Release
+ha_category: Other
 ha_release: 0.37
 ---
 
