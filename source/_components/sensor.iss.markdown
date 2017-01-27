@@ -7,10 +7,14 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: bbox.png
-ha_category: Sensor
+logo: nasa.png
+ha_category: Deprecated
 ha_release: 0.36
 ---
+
+<p class='note warning'>
+**This platform has been deprecated in favor of the "[ISS](/components/binary_sensor.iss/)" platform and will be removed in the future. Please use the "iss" binary sensor platform.**
+</p>
 
 The `iss` platform uses the [Open Notify API](http://open-notify.org/Open-Notify-API/ISS-Location-Now/) to let you know if the station is above your home location. This means that ISS is 10° above the horizon of your home.
 You can check in the attributes of the sensor how many minutes you have to wait until the next rise of the station and the number of people in space.
@@ -22,5 +26,3 @@ To add ISS sensor to your installation, add the following to your `configuration
 sensor:
   - platform: iss
 ```
-
-

@@ -41,3 +41,5 @@ Configuration variables:
   - **motion_detector**: Return True/False when a motion is detected
   - **sdcard**: Return the SD card usage by reporting the total and used space
   - **ptz_preset**: Return the number of PTZ preset positions configured for the given camera
+
+To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
