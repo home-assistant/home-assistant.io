@@ -22,13 +22,15 @@ To use a Linksys Access Point in your installation, add the following to your `c
 device_tracker:
   - platform: linksys_ap
     host: 192.168.1.1
+    username: admin
+    password: password
 ```
 
 Configuration variables:
 
 - **host** (*Required*): The hostname or IP address of your access point, eg. `192.168.1.1`.
-- **username** (*Optional*: The username of an user with administrative privileges (read-only is sufficient).
-- **password** (*Optional*): The password for your given admin account.
+- **username** (*Required*: The username of an user with administrative privileges (read-only is sufficient).
+- **password** (*Required*): The password for your given admin account.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to true.
 
 Example for all configuration options:
