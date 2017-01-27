@@ -119,6 +119,10 @@ mqtt:
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
 </p>
 
+<p class='note'>
+If you are running a mosquitto instance on a different server with proper SSL encryption using a service like letsencrypt you may have to set the certificate to the operating systems own `.crt` certificates file. In the instance of ubuntu this would be `certificate: /etc/ssl/certs/ca-certificates.crt`
+</p>
+
 ### {% linkable_title Public broker %}
 
 The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.
