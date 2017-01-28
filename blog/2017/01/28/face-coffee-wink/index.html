@@ -88,7 +88,7 @@
   <div class="meta clearfix">
     <time datetime="2017-01-28T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 28, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
-    <span><i class='icon-time'></i> eight minutes reading time</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -124,6 +124,9 @@
 <p>After a security audit by Stephen O’Conner, he found that our source for randomly generated access tokens for camera feeds were reasonable predictable and could be brute force attacked in 2.5 weeks. A fix has been included in this release that uses the system provided random number generator for maximum randomness and rotates the keys every 10 minutes to reduce the window in which a brute force attack can happen.</p>
 
 <p>Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.</p>
+
+<h3><a class="title-link" name="new-customization-options" href="#new-customization-options"></a> New customization options</h3>
+<p><a href="https://github.com/andrey-git">@Andrey-git</a> has added some great new options to the customize functionality. It is now possible to specify customizations as a wildcard for entities or for a specific domain.</p>
 
 <h3><a class="title-link" name="major-wink-and-hdmi-cec-improvements" href="#major-wink-and-hdmi-cec-improvements"></a> Major Wink and HDMI CEC improvements</h3>
 <p><a href="https://github.com/w1ll1am23">@w1ll1am23</a> did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your <code class="highlighter-rouge">configuration.yaml</code> file, no <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">client_secret</code> are needed, and token which was generated with the generator located in the <a href="https://home-assistant.io/components/wink/">Wink</a> documentation.</p>

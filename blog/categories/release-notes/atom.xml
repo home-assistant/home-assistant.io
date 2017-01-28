@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-28T23:48:44+00:00</updated>
+  <updated>2017-01-28T23:52:58+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -33,6 +33,9 @@ Want to play a personalized tune when someone enters the house? It is now possib
 After a security audit by Stephen O'Conner, he found that our source for randomly generated access tokens for camera feeds were reasonable predictable and could be brute force attacked in 2.5 weeks. A fix has been included in this release that uses the system provided random number generator for maximum randomness and rotates the keys every 10 minutes to reduce the window in which a brute force attack can happen.
 
 Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.
+
+### <a class='title-link' name='new-customization-options' href='#new-customization-options'></a> New customization options 
+[@Andrey-git] has added some great new options to the customize functionality. It is now possible to specify customizations as a wildcard for entities or for a specific domain.
 
 ### <a class='title-link' name='major-wink-and-hdmi-cec-improvements' href='#major-wink-and-hdmi-cec-improvements'></a> Major Wink and HDMI CEC improvements 
 [@w1ll1am23] did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your `configuration.yaml` file, no `client_id` and `client_secret` are needed, and token which was generated with the generator located in the [Wink][wink] documentation.

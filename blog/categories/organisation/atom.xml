@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Organisation | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/organisation/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-28T23:48:44+00:00</updated>
+  <updated>2017-01-28T23:52:58+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -30,6 +30,7 @@ The Home Assistant project and community has seen enormous growth in the last th
 
 Starting today we are announcing a few initiatives to help protect our users, contributors and community members.
 
+<!--more-->
 ## <a class='title-link' name='code-of-conduct' href='#code-of-conduct'></a> Code of Conduct 
 
 More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
@@ -118,6 +119,7 @@ We hope you understand that our desire with these changes is only to help protec
     <id>https://home-assistant.io/blog/2016/10/25/explaining-the-updater</id>
     <content type="html"><![CDATA[On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
 
+<!--more-->
 ## <a class='title-link' name='why-we-changed-the-updater' href='#why-we-changed-the-updater'></a> Why we changed the updater 
 This change was driven by two important factors.
 

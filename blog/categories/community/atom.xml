@@ -4,7 +4,7 @@
   <title><![CDATA[Category: community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-28T23:48:44+00:00</updated>
+  <updated>2017-01-28T23:52:58+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -31,6 +31,7 @@ I added three devices to the Home Assistant instance - a Wemo Insight, Sonoff Sw
   The Christmas tree in action.
 </p>
 
+<!--more-->
 During the time by tree was set up, I had 7,366 visitors from 88 countries connect to my Home Assistant instance. This generated an estimated 100,000 clicks on the switches in my Home Assistant instance - thanks in part to some folks who posted up with macros for 6-8 hour stretches. 
 
 <p class='img'>

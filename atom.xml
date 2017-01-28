@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-28T23:48:44+00:00</updated>
+  <updated>2017-01-28T23:52:58+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -33,6 +33,9 @@
 <p>After a security audit by Stephen O’Conner, he found that our source for randomly generated access tokens for camera feeds were reasonable predictable and could be brute force attacked in 2.5 weeks. A fix has been included in this release that uses the system provided random number generator for maximum randomness and rotates the keys every 10 minutes to reduce the window in which a brute force attack can happen.</p>
 
 <p>Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.</p>
+
+<h3><a class="title-link" name="new-customization-options" href="#new-customization-options"></a> New customization options</h3>
+<p><a href="https://github.com/andrey-git">@Andrey-git</a> has added some great new options to the customize functionality. It is now possible to specify customizations as a wildcard for entities or for a specific domain.</p>
 
 <h3><a class="title-link" name="major-wink-and-hdmi-cec-improvements" href="#major-wink-and-hdmi-cec-improvements"></a> Major Wink and HDMI CEC improvements</h3>
 <p><a href="https://github.com/w1ll1am23">@w1ll1am23</a> did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your <code class="highlighter-rouge">configuration.yaml</code> file, no <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">client_secret</code> are needed, and token which was generated with the generator located in the <a href="https://home-assistant.io/components/wink/">Wink</a> documentation.</p>
@@ -170,6 +173,7 @@ Climate - EQ3 BT smart: Add reporting for availability (<a href="https://github.
 
 <p>Starting today we are announcing a few initiatives to help protect our users, contributors and community members.</p>
 
+<!--more-->
 <h2><a class="title-link" name="code-of-conduct" href="#code-of-conduct"></a> Code of Conduct</h2>
 
 <p>More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we’re introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.</p>
@@ -401,6 +405,7 @@ You have to note:
   The Christmas tree in action.
 </p>
 
+<!--more-->
 <p>During the time by tree was set up, I had 7,366 visitors from 88 countries connect to my Home Assistant instance. This generated an estimated 100,000 clicks on the switches in my Home Assistant instance - thanks in part to some folks who posted up with macros for 6-8 hour stretches.</p>
 
 <p class="img">
@@ -924,6 +929,7 @@ You have to note:
     <id>https://home-assistant.io/blog/2016/10/25/explaining-the-updater</id>
     <content type="html"><![CDATA[<p>On Saturday, we released <a href="https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/#comment-2965607849/">Home Assistant 0.31</a> which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.</p>
 
+<!--more-->
 <h2><a class="title-link" name="why-we-changed-the-updater" href="#why-we-changed-the-updater"></a> Why we changed the updater</h2>
 <p>This change was driven by two important factors.</p>
 
