@@ -17,7 +17,7 @@ No stats, no numbers, and alike this time. Ok, just one number: 0.37. We are bac
 ### {% linkable_title Governance %}
 As announced, the new [Governance][gov] requires for developers to sign the CLA. [Code of Conduct][coc], [Contributor License Agreement][cla], and proper [Licensing][license] will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors. 
  
-### Face recognition using the Microsoft Face API %}
+### {% linkable_title Face recognition using the Microsoft Face API %}
 [@pvizeli] has been on a roll with the image processing integrations. This time it's the [Microsoft Face API][face]. This means that now it will be possible to train the API with the people you want to recognize and send images from your camera to the API as another source of automation.
 
 Want to play a personalized tune when someone enters the house? It is now possible 😎
