@@ -28,6 +28,9 @@ After a security audit by Stephen O'Conner, he found that our source for randoml
 
 Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.
 
+### {% linkable_title New customization options %}
+[@Andrey-git] has added some great new options to the customize functionality. It is now possible to specify customizations as a wildcard for entities or for a specific domain.
+
 ### {% linkable_title Major Wink and HDMI CEC improvements %}
 [@w1ll1am23] did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your `configuration.yaml` file, no `client_id` and `client_secret` are needed, and token which was generated with the generator located in the [Wink][wink] documentation.
 
