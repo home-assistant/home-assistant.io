@@ -71,6 +71,7 @@ The new [image processing component][image] currently works with [number plates]
 - Media player - SqueezeBox: Switch to JSON-RPC ([@dasos])
 - Scripts: Support for `last_triggered` ([@Danielhiversen])
 - Media player: Support for `SUPPORT_PLAY` flag ([@armills])
+- Docker: `ffmpeg` is now included by default ([@colinodell])
 - Minor and not so minor features and bug fixes by [@balloob], [@pvizeli], [@fabaff], [@mezz64], [@andrey-git], [@aequitas], [@abmantis], [@turbokongen], [@jabesq], [@michaelarnauts], [@kellerza], [@titilambert], [@btorresgil], [@henworth], [@armills], [@mjg59], [@Giannie], [@n8henrie], [@magicus], [@florianholzapfel], [@MrMep], [@bah2830], [@happyleavesaoc], [@lwis], [@glance-], [@markferry], and [@nikdoof].
 
 ### {% linkable_title Release 0.36.1 - January 17 %}
@@ -114,6 +115,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@brandonweeks]: https://github.com/brandonweeks
 [@btorresgil]: https://github.com/btorresgil
+[@colinodell]: https://github.com/colinodell
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@danieljkemp]: https://github.com/danieljkemp
 [@danielperna84]: https://github.com/danielperna84

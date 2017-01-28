@@ -47,6 +47,8 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 ## {% linkable_title Service say %}
 
+The `say` service support `language` and on some platforms also `options` for set i.e. *voice, motion, speed, etc*. The text for speech is set with `message`.
+
 Say to all `media_player` device entities:
 
 ```yaml
@@ -79,7 +81,7 @@ With a template:
 ```yaml
 service: tts.google_say
 data_template:
-  message: 'Temperature is {% raw %}{{ sensor.temperature }}{% endraw %}.'
+  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
   cache: false
 ```
 
