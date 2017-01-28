@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Home Assistant Governance"
+title: "Home Assistant Governance [updated]"
 description: "Protecting Home Assistant for all, now and into the future"
 date: 2017-01-21 15:05:00 -0800
 date_formatted: "January 21, 2017"
@@ -8,6 +8,12 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Organisation
+---
+
+### {% linkable_title UPDATE JAN 28, 2017 %}
+
+After feedback from the community we have updated [the CLA][cla] and the license that Home Assistant is distributed under. For the CLA, instead of enforcing requirements on the grants and code, we now require contributions to be licensed under the Apache 2.0 license. Special thanks to [Matthew Garrett][mjg59] for his feedback and advice. This also means that starting with release 0.37, Home Assistant will re-license the current code under [the Apache 2.0 license][license].
+
 ---
 
 The Home Assistant project and community has seen enormous growth in the last three years. Many volunteers work tirelessly everyday to give you all the awesomeness that you see today. Much more work is involved than many people realize. Beyond simply coding Home Assistant, volunteers continually maintain related projects, update documentation, post examples, author blog posts, and moderate the forums and chat. This is something that we want to keep safe and functional, even as we grow.
@@ -26,7 +32,7 @@ Moving forward this Code of Conduct will be active for all projects within the H
 
 ## {% linkable_title Contributor License Agreement %}
 
-Moving forward we will also require that all contributors to any project have electronically signed a contributor license agreement (CLA). We have adopted the CLA that GitHub uses for their projects. Currently we have no plans to retroactively require a CLA for previous contributions, only those going forward.
+Moving forward we will also require that all contributors to any project have electronically signed our [contributor license agreement (CLA)][cla]. ~~We have adopted the CLA that GitHub uses for their projects~~ (see update at the top). Currently we have no plans to retroactively require a CLA for previous contributions, only those going forward.
 
 Until a signed CLA is on file your pull request will not be reviewed or accepted. When you open a new pull request, if you do not have a CLA on file, our helpful bot will walk you through the steps to complete the process.
 
@@ -61,12 +67,6 @@ Even when there is no legal pursuit, too much ambiguity can jeopardize or doom a
 
 There are many projects without corporate ownership that use a CLA or even a copyright assignment: jQuery and Eclipse, for example. However, it is true that projects with financial backing tend to be at a higher risk of becoming a target, so they may have a lower tolerance for legal ambiguity.
 
-### {% linkable_title What makes the GitHub CLA different from other CLAs? %}
-
-The GitHub CLA does not include benign terms that serve no purpose, nor does it include pernicious terms that try to grab more rights than necessary to protect users of the project. Accepting the CLA is a low-overhead click-through when making a pull request, and it only needs to be accepted on the first contribution to a project or organization.
-
-[gh-cla]: https://cla.github.com/
-
 ## {% linkable_title Security requirements %}
 
 With more collaborators involved with Home Assistant we are also exposing ourselves to more risk as more people have write access. As such we taking the following steps.
@@ -80,13 +80,7 @@ We will now ensure that a `LICENSE.md` file exists in all projects under the Hom
 
 ### {% linkable_title Code License %}
 
-The chosen license for all code projects under the Home Assistant organization is The MIT License.
-
-The core Home Assistant project has been licensed under the MIT license since almost the beginning of the project and is the most chosen license for open source projects.
-
-Wikipedia has this to say about it:
-
-> The MIT License is a permissive free software license originating at the Massachusetts Institute of Technology (MIT). As a permissive license, it puts only very limited restriction on reuse and has therefore an excellent license compatibility. The MIT license permits reuse within proprietary software provided that all copies of the licensed software include a copy of the MIT License terms and the copyright notice. The MIT license is also compatible with many copyleft licenses, such as the GNU General Public License (GPL); MIT licensed software can be integrated into GPL software, but not the other way around.
+The chosen license for all code projects under the Home Assistant organization is [the Apache 2.0 license][license].
 
 ### {% linkable_title Documentation License %}
 
@@ -98,4 +92,9 @@ We have now mostly automated updating the [Credits](/developers/credits/) page s
 
 ## {% linkable_title In closing %}
 
-We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact me via email, Twitter or Gitter.
+We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact us via email, Twitter or Gitter.
+
+[cla]: /developers/cla/
+[mjg59]: https://twitter.com/mjg59
+[gh-cla]: https://cla.github.com/
+[license]: /developers/license/
