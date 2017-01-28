@@ -54,12 +54,17 @@ automation:
 
 ### {% linkable_title Service `climate.set_away_mode` %}
 
-Turn away mode on/off for climate device
+This service has been deprecated. Use `climate.set_hold_mode` instead.
+
+
+### {% linkable_title Service `climate.set_hold_mode` %}
+
+Set hold mode for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `away_mode` | no | New value of away mode.
+| `hold_mode` | no | New value of hold mode.
 
 #### {% linkable_title Automation example  %}
 
@@ -69,10 +74,10 @@ automation:
     platform: time
     after: "07:15:00"
   action:
-    - service: climate.set_away_mode
+    - service: climate.set_hold_mode
       data:
         entity_id: climate.kitchen
-        away_mode: true
+        hold_mode: 'away'
 ```
 
 ### {% linkable_title Service `climate.set_temperature` %}
