@@ -12,7 +12,9 @@ categories: Organisation
 
 ### {% linkable_title UPDATE JAN 28, 2017 %}
 
-After feedback from the community we have updated [the CLA][cla] and the license that Home Assistant is distributed under. For the CLA, instead of enforcing requirements on the grants and code, we now require contributions to be licensed under the Apache 2.0 license. Special thanks to [Matthew Garrett][mjg59] for his feedback and advice. This also means that starting with release 0.37, Home Assistant will re-license the current code under [the Apache 2.0 license][license].
+After feedback from the community we have updated [the CLA][cla] and the license that Home Assistant is distributed under. For the CLA, instead of enforcing requirements on the grants and code, we now require contributions to be licensed under the Apache 2.0 license. Special thanks to [Matthew Garrett][mjg59] for his feedback and advice.
+
+Starting with release 0.37, Home Assistant will re-license the current code under [the Apache 2.0 license][license]. This is the license that will be used moving forward for all projects under our organization.
 
 ---
 
