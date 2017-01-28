@@ -106,11 +106,30 @@ In addition to having a USPS account, you will need to complete the “Opt-In”
 <p>Configuration options for the USPS Sensor:</p>
 
 <ul>
-  <li><strong>username</strong> (<em>Required</em>): The username to access the USPS service.</li>
+  <li><strong>username</strong> (<em>Required</em>): The username to access the MyUSPS service.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for the given username.</li>
-  <li><strong>update_interval</strong> (<em>Optional</em>): Interval in minutes for the updates.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name the sensor (default: your mailing address).</li>
+  <li><strong>update_inverval</strong> (<em>Optional</em>): Minimum time interval between updates. Default is 1 hour. Supported formats:
+    <ul>
+      <li><code class="highlighter-rouge">update_interval: 'HH:MM:SS'</code></li>
+      <li><code class="highlighter-rouge">update_interval: 'HH:MM'</code></li>
+      <li>Time period dictionary, e.g.:
+        <pre>update_interval:
+    # At least one of these must be specified:
+    days: 0
+    hours: 0
+    minutes: 3
+    seconds: 30
+    milliseconds: 0
+</pre>
+      </li>
+    </ul>
+  </li>
 </ul>
 
+<p class="note warning">
+The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
+</p>
 
 
 </article>
@@ -142,6 +161,9 @@ In addition to having a USPS account, you will need to complete the “Opt-In”
         </li>
         <li>
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
         </li>
         <li>
             <a href='/components/sensor.bbox/'>Bbox Sensor</a>
@@ -190,9 +212,6 @@ In addition to having a USPS account, you will need to complete the “Opt-In”
         </li>
         <li>
             <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.iss/'>International Space Station Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>

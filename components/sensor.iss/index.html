@@ -90,7 +90,11 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">iss</code> platform uses the <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/">Open Notify API</a> to let you know if the station is above your home location. This means that ISS is 10° above the horizon of your home.
+  <p class="note warning">
+<strong>This platform has been deprecated in favor of the “<a href="/components/binary_sensor.iss/">ISS</a>” platform and will be removed in the future. Please use the “iss” binary sensor platform.</strong>
+</p>
+
+<p>The <code class="highlighter-rouge">iss</code> platform uses the <a href="http://open-notify.org/Open-Notify-API/ISS-Location-Now/">Open Notify API</a> to let you know if the station is above your home location. This means that ISS is 10° above the horizon of your home.
 You can check in the attributes of the sensor how many minutes you have to wait until the next rise of the station and the number of people in space.</p>
 
 <p>To add ISS sensor to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -100,7 +104,6 @@ You can check in the attributes of the sensor how many minutes you have to wait 
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">iss</span>
 </code></pre>
 </div>
-
 
 
 </article>
@@ -116,181 +119,30 @@ You can check in the attributes of the sensor how many minutes you have to wait 
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.iss.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/bbox.png' />
+      <img src='/images/supported_brands/nasa.png' />
   </div>
     <div class='section'>
     Introduced in release: 0.36
     </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/binary_sensor.iss/'>
+          International Space Station
+        </a></li>
+    </ul>
+    </div>
     <div class='section'>
-    <h1 class="title delta">Category Sensor</h1>
+    <h1 class="title delta">Category Deprecated</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/sensor.apcupsd/'>APCUPSd Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.api_stream/'>API Stream Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.arwn/'>ARWN Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bbox/'>Bbox Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.command_line/'>Command line Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.dweet/'>Dweet.io</a>
-        </li>
-        <li>
-            <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.gpsd/'>GPSD</a>
-        </li>
-        <li>
-            <a href='/components/sensor.http/'>HTTP Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.haveibeenpwned/'>HaveIBeenPwned Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.homematic/'>Homematic Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.imap_email_content/'>IMAP Email Content</a>
-        </li>
-        <li>
-            <a href='/components/sensor.imap/'>IMAP Unread E-mail</a>
-        </li>
-        <li>
-            <a href='/components/sensor.isy994/'>ISY994 Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
+            <a href='/components/sensor.forecast/'>Forecast.io</a>
         </li>
         <li>
             International Space Station Sensor
         </li>
         <li>
-            <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.mqtt/'>MQTT Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.min_max/'>Min/max Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.modbus/'>Modbus Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.moldindicator/'>Mold Indicator</a>
-        </li>
-        <li>
-            <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.nut/'>NUT Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.nest/'>Nest Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.onewire/'>One wire Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.pilight/'>Pilight Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.rest/'>RESTful Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.random/'>Random Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.scrape/'>Scrape Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.sensehat/'>Sense HAT</a>
-        </li>
-        <li>
-            <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.sonarr/'>Sonarr Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.tcp/'>TCP Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.temper/'>TEMPer Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.tellduslive/'>Telldus Live sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.template/'>Template Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.usps/'>USPS Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.vera/'>Vera Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.verisure/'>Verisure Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.wink/'>Wink Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.zigbee/'>ZigBee Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.zoneminder/'>ZoneMinder Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.arest/'>aREST Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.mfi/'>mFi Sensor</a>
+            <a href='/components/openalpr/'>OpenALPR</a>
         </li>
     </ul>
     </div>

@@ -112,11 +112,18 @@
   <li>Kamstrup 382JxC (DSMR 2.2)</li>
 </ul>
 
-<p>And USB serial converters:</p>
+<p>,USB serial converters:</p>
 
 <ul>
   <li>Cheap (Banggood/ebay) Generic PL2303</li>
   <li>https://sites.google.com/site/nta8130p1smartmeter/webshop</li>
+  <li>https://www.sossolutions.nl/slimme-meter-kabel</li>
+</ul>
+
+<p>And Serial to network proxies:</p>
+
+<ul>
+  <li>ser2net - http://ser2net.sourceforge.net/</li>
 </ul>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -128,13 +135,14 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>port</strong> string (<em>Optional</em>): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0).</li>
-  <li><strong>dsmr_version_</strong> string (<em>Optional</em>): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).</li>
+  <li><strong>port</strong> string (<em>Optional</em>): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).</li>
+  <li><strong>host</strong> string (<em>Optional</em>): Host to which Smartmeter is connected (default: ‘’ (connected via serial or USB, see <strong>port</strong>)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).</li>
+  <li><strong>dsmr_version</strong> string (<em>Optional</em>): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).</li>
 </ul>
 
-<p>A full configuration example can be found below:</p>
+<p>Full configuration examples can be found below:</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for USB/serial connected Smartmeter</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">dsmr</span>
     <span class="s">port</span><span class="pi">:</span> <span class="s">/dev/ttyUSB1</span>
@@ -149,6 +157,31 @@
       <span class="pi">-</span> <span class="s">sensor.power_production_low</span>
       <span class="pi">-</span> <span class="s">sensor.power_production_normal</span>
       <span class="pi">-</span> <span class="s">sensor.gas_consumption</span>
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for remote (TCP/IP, i.e. via ser2net) connection to host which is connected to Smartmeter</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">dsmr</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.13</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">2001</span>
+    <span class="s">dsmr_version</span><span class="pi">:</span> <span class="s">4</span>
+
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">meter_readings</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Meter readings</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.power_consumption_low</span>
+      <span class="pi">-</span> <span class="s">sensor.power_consumption_normal</span>
+      <span class="pi">-</span> <span class="s">sensor.power_production_low</span>
+      <span class="pi">-</span> <span class="s">sensor.power_production_normal</span>
+      <span class="pi">-</span> <span class="s">sensor.gas_consumption</span>
+</code></pre>
+</div>
+
+<p>Optional configuration example for ser2net:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c"># Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv4 smart meters</span>
+2001:raw:600:/dev/ttyUSB0:115200 NONE 1STOPBIT 8DATABITS XONXOFF LOCAL -RTSCTS
 </code></pre>
 </div>
 

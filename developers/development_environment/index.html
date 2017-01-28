@@ -92,29 +92,60 @@
 
   <p>You’ll need to set up a development environment if you want to develop a new feature or component for Home Assistant. Read on to learn how to set up.</p>
 
-<ul>
-  <li>
-    <p>Visit the <a href="https://github.com/home-assistant/home-assistant">Home Assistant repository</a> and click <strong>Fork</strong>.</p>
-  </li>
-  <li>
-    <p>Consider setting up a virtual environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a> before running the setup script.</p>
-  </li>
-</ul>
+<h3><a class="title-link" name="setup-local-repository" href="#setup-local-repository"></a> Setup Local Repository</h3>
 
+<p>Visit the <a href="https://github.com/home-assistant/home-assistant">Home Assistant repository</a> and click <strong>Fork</strong>.
+Once forked, setup your local copy of the source using the commands:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/YOUR_GIT_USERNAME/home-assistant.git
 <span class="gp">$ </span><span class="nb">cd </span>home-assistant
 <span class="gp">$ </span>git remote add upstream https://github.com/home-assistant/home-assistant.git
-<span class="gp">$ </span>script/setup
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="prepare-your-environment" href="#prepare-your-environment"></a> Prepare Your Environment</h3>
+
+<h4><a class="title-link" name="core-dependencies" href="#core-dependencies"></a> Core dependencies</h4>
+
+<p>Install the core dependencies.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-pip python3-dev libssl-dev
+</code></pre>
+</div>
+<p class="note">
+Different distributions have different package installation mechanisms and sometimes packages names as well. For example Centos would use: <code class="highlighter-rouge">sudo yum install epel-release &amp;&amp; sudo yum install python34 python34-devel mysql-devel</code>
+</p>
+
+<p>Additional dependencies exist if you you plan to perform Frontend Development, please read the <a href="https://home-assistant.io/developers/frontend/">Frontend</a> section to learn more.</p>
+
+<h4><a class="title-link" name="setting-up-virtual-environment-optional" href="#setting-up-virtual-environment-optional"></a> Setting up virtual environment (optional)</h4>
+
+<p>If you plan on providing isolation to your environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a>. Within the <code class="highlighter-rouge">home-assistant</code> directory, create and activate your virtual environment.</p>
+
+<p>If using Python &lt; 3.6 <code class="highlighter-rouge">pyvenv</code> is the recommended method of setting up virtual environments, you’ll need to install the <code class="highlighter-rouge">python3-venv</code> package.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-venv
+<span class="gp">$ </span>pyvenv venv
+<span class="gp">$ </span><span class="nb">source </span>venv/bin/activate
+</code></pre>
+</div>
+
+<p>If using Python 3.6 <code class="highlighter-rouge">pyvenv</code> has been deprecated:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv venv
+<span class="gp">$ </span><span class="nb">source </span>venv/bin/activate
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="setup-and-run" href="#setup-and-run"></a> Setup and Run</h3>
+
 <ul>
+  <li>On Mac OS X and Linux (remember to activate your virtual environment before running setup, if you are using one):
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>home-assistant
+<span class="gp">$ </span>script/setup
+</code></pre>
+    </div>
+  </li>
   <li>
     <p>On Windows, you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</p>
   </li>
-  <li>
-    <p>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</p>
-  </li>
+  <li>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</li>
 </ul>
 
 <h3><a class="title-link" name="logging" href="#logging"></a> Logging</h3>

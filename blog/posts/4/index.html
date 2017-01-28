@@ -83,6 +83,102 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/">0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-07-01T00:31:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 1, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s time for Home Assistant 0.23 and it’s full of goodies. It’s also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.</p>
+
+<p>This release brings support for two new ecosystems: <a href="/components/envisalink/">Envisalink</a> and <a href="/components/homematic/">Homematic</a>. We can now also control your TV via HDMI using <a href="/components/hdmi_cec/">HDMI-CEC</a> (which works on the Pi!) and another cool feature is the <a href="/components/persistent_notification/">persistent notifications</a> which allow you to add a notification to the frontend till dismissed.</p>
+
+<p><a href="/components/wink/">Wink</a> support has been dramatically improved by migrating to the PubNub API. This allows Wink to push changes from their system to Home Assistant. This change came just in time as somehow our Wink integration was causing a lot of requests to their servers. Thanks to Wink for letting us know so we could solve it instead of blocking us.</p>
+
+<p>On the config side, you can now <a href="/topics/secrets/">store your passwords</a> in your OS keyring or just in a standalone file. We also got a new service to reload the core config so no reboots needed anymore after changing customize settings!</p>
+
+<p><img src="/images/supported_brands/bravia.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/eyezon.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/homematic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/openexchangerates.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Support for <a href="/components/envisalink/">Envisalink</a> added (<a href="/components/alarm_control_panel.envisalink/">alarm control panel</a>, <a href="/components/binary_sensor.envisalink/">binary sensor</a>, <a href="/components/sensor.envisalink/">sensor</a>) (<a href="https://github.com/cinntax/">@cinntax</a>)</li>
+  <li>Support for <a href="/components/homematic/">Homematic</a> added (<a href="/components/binary_sensor.homematic/">binary sensor</a>, <a href="/components/light.homematic/">light</a>, <a href="/components/rollershutter.homematic/">rollershutter</a>, <a href="/components/sensor.homematic/">sensor</a>, <a href="/components/switch.homematic/">switch</a>) (<a href="https://github.com/pvizeli/">@pvizeli</a>, <a href="https://github.com/danielperna84/">@danielperna84</a>)</li>
+  <li>New <a href="/components/hdmi_cec/">HDMI-CEC</a> component (<a href="https://github.com/happyleavesaoc/">@happyleavesaoc</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
+  <li>Major rewrite of <a href="/components/wink/">Wink</a> which now pushes changes to Home Assistant (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+  <li>Core: new add <a href="/getting-started/customizing-devices/#reloading-customize">reload core config service</a> (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Support for <a href="/components/persistent_notification/">persistent notifications</a> added (<a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Garage door: <a href="/components/garage_door.zwave/">Z-Wave</a> support added (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Rollershutter: <a href="/components/rollershutter.zwave/">Z-Wave</a> support added (<a href="https://github.com/turbokongen/">@turbokongen</a>)</li>
+  <li>Media Player: <a href="/components/media_player.braviatv/">Sony Bravia TV</a> now supported (<a href="https://github.com/aparraga/">@aparraga</a>)</li>
+  <li>Sensor: <a href="/components/sensor.fixer/">Fixer.io</a> now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>Garage door: Control any garage door using <a href="/components/garage_door.rpi_gpio/">Raspberry Pi GPIO pins</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
+  <li>Sensor: <a href="/components/sensor.openexchangerates/">OpenExchangeRates</a> support added (<a href="https://github.com/arsaboo/">@arsaboo</a>)</li>
+  <li>Notify: <a href="/components/notify.pushover/">Pushover</a> now supports target device, sound, url and priority (<a href="https://github.com/dale3h/">@dale3h</a>)</li>
+  <li>Sensor: <a href="/components/sensor.netatmo/">Netatmo</a> now supports wind, battery and radio signals (<a href="https://github.com/Jypy/">@Jypy</a>)</li>
+  <li>Log successful and failed login attemps (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>Config: allow <a href="/topics/secrets/">extracting account info</a> into OS keyring or separate YAML file (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
+  <li>Core: add option to not filter out duplicate states per entity (<a href="https://github.com/philipbl/">@philipbl</a>)</li>
+  <li>HTTP: Follow Mozilla SSL recommendations (<a href="https://github.com/danieljkemp/">@danieljkemp</a>, <a href="https://github.com/AlucardZero/">@AlucardZero</a>)</li>
+  <li>Light: <a href="/components/light.zwave/">Z-Wave colorbulb</a> support added (<a href="https://github.com/armills/">@armills</a>)</li>
+  <li>Core: new elevation config option added (<a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>Sensor: <a href="/components/sensor.onewire/">OneWire</a> support extended with support for DS18S20, DS1822, DS1825 and DS28EA00 temperature sensors + support for bus masters which use fuse to mount device tree. (<a href="https://github.com/Ardetus/">@Ardetus</a>)</li>
+  <li>Lock: <a href="/components/lock.vera/">Vera</a> now supported (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
+  <li>HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems (<a href="https://github.com/balloob/">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>Homematic thermostat configuration has changed and now depends on the new <a href="/components/homematic/">Homematic</a> component.</li>
+</ul>
+
+<h3><a class="title-link" name="hotfix-0231---july-2" href="#hotfix-0231---july-2"></a> Hotfix 0.23.1 - July 2</h3>
+
+<ul>
+  <li>Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
+  <li>HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it (<a href="https://github.com/AlucardZero/">@AlucardZero</a>)</li>
+  <li>Wink: Downgraded pubnub to work around pycryptodome conflicts (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="faq" href="#faq"></a> FAQ</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code class="highlighter-rouge">[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/06/23/usb-webcams-and-home-assistant/">Using USB webcams with Home Assistant</a>
   </h1>
   
@@ -692,53 +788,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
 
     
       <a class="btn pull-right" href="/blog/2016/05/18/why-we-use-polymer/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/05/12/video-configuring-home-assistant/">Video: How To Configure Home Assistant</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-05-12T00:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 12, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Video</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/05/12/video-configuring-home-assistant/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a> authors a lot of great video’s about how he is using Home Assistant and how you can get started with it too. The video below will walk you through how to configure Home Assistant. Enjoy!</p>
-
-<p>Make sure to subscribe to <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">his YouTube channel</a> for more Home Assistant video’s.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/hFDVB2H6TNo" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
     
   </div>
   </article>

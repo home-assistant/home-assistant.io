@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-28T08:05:02+00:00</updated>
+  <updated>2017-01-28T23:48:44+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.37: Face, Coffee, Wink]]></title>
+    <link href="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/"/>
+    <updated>2017-01-28T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/01/28/face-coffee-wink</id>
+    <content type="html"><![CDATA[<p>No stats, no numbers, and alike this time. Ok, just one number: 0.37. We are back on track with our bi-weekly release cycle. Beside some organizational changes is this release shipping again cool features and new integrations. Please keep an eye on the “Breaking changes” section because there are also massive improvements for some platforms and components.</p>
+
+<h3><a class="title-link" name="governance" href="#governance"></a> Governance</h3>
+<p>As announced, the new <a href="https://home-assistant.io/blog/2017/01/21/home-assistant-governance/">Governance</a> requires for developers to sign the CLA. <a href="https://home-assistant.io/developers/code_of_conduct/">Code of Conduct</a>, <a href="https://home-assistant.io/developers/cla/">Contributor License Agreement</a>, and proper <a href="https://home-assistant.io/developers/license/">Licensing</a> will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors.</p>
+
+<h3>Face recognition using the Microsoft Face API %}</h3>
+<p><a href="https://github.com/pvizeli">@pvizeli</a> has been on a roll with the image processing integrations. This time it’s the <a href="https://home-assistant.io/components/microsoft_face/">Microsoft Face API</a>. This means that now it will be possible to train the API with the people you want to recognize and send images from your camera to the API as another source of automation.</p>
+
+<p>Want to play a personalized tune when someone enters the house? It is now possible 😎</p>
+
+<h3><a class="title-link" name="improved-camera-security" href="#improved-camera-security"></a> Improved camera security</h3>
+
+<p>After a security audit by Stephen O’Conner, he found that our source for randomly generated access tokens for camera feeds were reasonable predictable and could be brute force attacked in 2.5 weeks. A fix has been included in this release that uses the system provided random number generator for maximum randomness and rotates the keys every 10 minutes to reduce the window in which a brute force attack can happen.</p>
+
+<p>Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.</p>
+
+<h3><a class="title-link" name="major-wink-and-hdmi-cec-improvements" href="#major-wink-and-hdmi-cec-improvements"></a> Major Wink and HDMI CEC improvements</h3>
+<p><a href="https://github.com/w1ll1am23">@w1ll1am23</a> did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your <code class="highlighter-rouge">configuration.yaml</code> file, no <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">client_secret</code> are needed, and token which was generated with the generator located in the <a href="https://home-assistant.io/components/wink/">Wink</a> documentation.</p>
+
+<p>The new Wink support will cause renaming of all the binary sensors and will also create new sensors for devices that weren’t previously detected or supported in the older version.</p>
+
+<p>Thanks to <a href="https://github.com/konikvranik">@konikvranik</a> the <a href="https://home-assistant.io/components/hdmi_cec/">HDMI CEC</a> integration got a huge update with a lot of improvements. This update should make it easier to work with HDMI CEC and give you more control.</p>
+
+<h3><a class="title-link" name="first-coffee-maker-supported" href="#first-coffee-maker-supported"></a> First Coffee Maker supported</h3>
+<p><a href="https://github.com/stu-gott">@stu-gott</a> has added support for the first coffee maker in Home Assistant: <a href="https://home-assistant.io/components/switch.wemo/">Mr. Coffee Smart Optimal Brew</a>. Happy brewing!</p>
+
+<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
+<h4><a class="title-link" name="new-platformscomponents" href="#new-platformscomponents"></a> New platforms/components</h4>
+
+<p>Netatmo: <a href="https://home-assistant.io/components/netatmo/">Netatmo</a> Presence support (<a href="https://github.com/gieljnssns">@gieljnssns</a>)
+Sensor: <a href="https://home-assistant.io/components/binary_sensor.arest/">Amcrest</a> camera sensors (<a href="https://github.com/tchellomello">@tchellomello</a>)
+Notify: New <a href="https://home-assistant.io/components/notify.discord/">Discord</a> notification component (<a href="https://github.com/Deinara">@Deinara</a>)
+Device tracker: <a href="https://home-assistant.io/components/device_tracker.tado/">Tado</a> device tracker support (<a href="https://github.com/jmvermeulen">@jmvermeulen</a>)
+Sensor: Add <a href="https://home-assistant.io/components/sensor.skybeacon/">Skybeacon</a> BLE temperature/humidity sensor (<a href="https://github.com/anpetrov">@anpetrov</a>)
+New <a href="https://home-assistant.io/components/zabbix/">Zabbix</a> component (<a href="https://github.com/Whytey">@Whytey</a>)
+Media  player: New platform <a href="https://home-assistant.io/components/media_player.anthemav/">Anthemav</a> Media player (<a href="https://github.com/nugget">@nugget</a>)
+Light: Add support for <a href="https://home-assistant.io/components/light.avion/">Avion</a> Bluetooth dimmer switches (<a href="https://github.com/mjg59">@mjg59</a>)
+Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.bbb_gpio/">Beaglebone Black</a> binary sensor (<a href="https://github.com/MatoKafkac">@MatoKafkac</a>)
+Light: <a href="https://home-assistant.io/components/light.piglow/">Piglow</a> support (<a href="https://github.com/xarnze">@xarnze</a>)
+<a href="https://home-assistant.io/components/microsoft_face/">Face</a> recognition for automation (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Sensor: New <a href="https://home-assistant.io/components/sensor.wsdot/">Washington State DOT</a> sensor (<a href="https://github.com/partofthething">@partofthething</a>)
+Support for Wemo CoffeeMaker devices (<a href="https://github.com/stu-gott">@stu-gott</a>)
+Device tracker: <a href="https://home-assistant.io/components/device_tracker.sky_hub/">Sky hub</a> support (<a href="https://github.com/alexmogavero">@alexmogavero</a>)
+Support for <a href="https://home-assistant.io/components/lutron/">Lutron</a> RadioRA 2 (<a href="https://github.com/thecynic">@thecynic</a>)
+TTS: Amazon <a href="https://home-assistant.io/components/tts.amazon_polly/">Polly TTS</a> platform (<a href="https://github.com/robbiet480">@robbiet480</a>)
+Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.linksys_ap/">Linksys</a> Access Points (<a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>)
+Notify: Make calls with <a href="https://home-assistant.io/components/notify.twilio_call/">Twilio</a> (<a href="https://github.com/fakezeta">@fakezeta</a>)</p>
+
+<h4>Improvements %}</h4>
+
+<p>Script: Fix script release (<a href="https://github.com/balloob">@balloob</a>)
+Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras (<a href="https://github.com/colinodell">@colinodell</a>)
+Sensor - Miflora: Removing throttle decorator (<a href="https://github.com/freol35241">@freol35241</a>)
+Notify - Lannouncer: Fix <code class="highlighter-rouge">get_service</code> method (<a href="https://github.com/mKeRix">@mKeRix</a>)
+Sensor - WAQI: Add station parameter to waqi sensor (<a href="https://github.com/whhsw">@whhsw</a>)
+Sensor - USPS: Absolute path to save cookie used by USPS sensor (<a href="https://github.com/tchellomello">@tchellomello</a>)
+Nest: Fix python-nest release number (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)
+Keyboard remote: Improve support (<a href="https://github.com/MrMep">@MrMep</a>)
+Device tracker - VolvoOnCall: Fix timedelta (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Climate - eq3btsmart: Expose away attribute (<a href="https://github.com/rytilahti">@rytilahti</a>)
+Remote: Reserve a test port for broken API to fix race (<a href="https://github.com/armills">@armills</a>)
+Climate - Ecobee: Made target temperature sensitive to auto mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)
+Configuration: Fix load_yaml default value (<a href="https://github.com/balloob">@balloob</a>)
+Notify - Facebook: Fix encoding error (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)
+Emulated_hue: Add <code class="highlighter-rouge">upnp_bind_multicast</code> option, default type to Google, and persist emulated hue IDs (<a href="https://github.com/hoopty">@hoopty</a>, <a href="https://github.com/balloob">@balloob</a>)
+Docker: Install phantomjs in Docker container (<a href="https://github.com/jnewland">@jnewland</a>)
+Media player - MPD: Add listing and selection of available MPD playlists (<a href="https://github.com/partofthething">@partofthething</a>)
+Media player - Denon AVR: Denon improvements (<a href="https://github.com/glance-">@glance-</a>)
+Light - x10.py: Improved x10 state monitoring (<a href="https://github.com/martst">@martst</a>)
+Sensor - DSMR: TCP, reconnecting and V4 CRC support (<a href="https://github.com/aequitas">@aequitas</a>)
+Media player - Yamaha.py: Fix Yamaha doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a>)
+Device tracker UPC: Make upc more robust (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Climate - Generic thermostat: Update (<a href="https://github.com/MrMep">@MrMep</a>)
+Device tracker - Xiaomi.py: Xiaomi Mi Router token refresh (<a href="https://github.com/RiRomain">@RiRomain</a>)
+Camera - MJPEG: Support still image for thumbmail (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Sensor - ZAMG: Updated valid station id list (<a href="https://github.com/HerrHofrat">@HerrHofrat</a>)
+Light - ISY994: Not overwrite <code class="highlighter-rouge">state_attributes</code> (<a href="https://github.com/rmkraus">@rmkraus</a>)<a href="https://home-assistant.io/components/emulated_hue/">emul-hue</a>
+Light - Zwave: Use only supported features for devices (<a href="https://github.com/turbokongen">@turbokongen</a>)
+Media player - Kodi: Support for volume stepping (<a href="https://github.com/armills">@armills</a>)
+Media player- roku: Use <code class="highlighter-rouge">is_screensaver</code>, update IDLE state, and use device name (<a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/xhostplus">@xhostplus</a>)
+Switch - HDMI CEC: Support for devices and commands (<a href="https://github.com/konikvranik">@konikvranik</a>)
+Lock - Zwave: Improvements to Zwave lock platform (<a href="https://github.com/turbokongen">@turbokongen</a>)
+TTS: Invalidate broken file cache entries (<a href="https://github.com/stu-gott">@stu-gott</a>)
+Light - Hue: Improvements (<a href="https://github.com/robbiet480">@robbiet480</a>)
+TTS - YandexTTS: Added speed and emotion to Yandex TTS (<a href="https://github.com/lupin-de-mid">@lupin-de-mid</a>)
+Light - tellstick.py: Tellstick light fix (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)
+Switch - insteon_local.py: only check for devices when not defined in config (<a href="https://github.com/wardcraigj">@wardcraigj</a>)
+Notify - Twitter: Allow direct messaging to user (<a href="https://github.com/fabaff">@fabaff</a>)
+Fan - MQTT: Dont set a speed when fan turns on (<a href="https://github.com/robbiet480">@robbiet480</a>)
+Config: Allow easier customization of whole domain, entity lists, globs (<a href="https://github.com/andrey-git">@andrey-git</a>)
+Sensor - Homematic: Update device support (<a href="https://github.com/danielperna84">@danielperna84</a>)
+Binary sensor - ISS: Add location to attributes and option to show position on the map (<a href="https://github.com/fabaff">@fabaff</a>)
+Media player - Kodi: Add SSL configuration option (<a href="https://github.com/ecksun">@ecksun</a>)
+Sensor - WAQI: Add missing particle value (<a href="https://github.com/fabaff">@fabaff</a>)
+Wink: Support for python-wink 1.0.0 (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)
+Binary sensor - RPi GPIO: Add a small sleep before reading the sensor (<a href="https://github.com/snagytx">@snagytx</a>)
+Sensor - USPS: Add name to configuration (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)
+Sensor - Miflora: Remove throttle decorator from miflora platform (<a href="https://github.com/freol35241">@freol35241</a>)
+Device tracker - asuswrt.py: Add IPv6 support when parsing neighbors (<a href="https://github.com/leppa">@leppa</a>)
+iOS: Discover notify.ios when iOS component loads (<a href="https://github.com/robbiet480">@robbiet480</a>)
+Homematic: Add MAX shutter contact class (<a href="https://github.com/jannau">@jannau</a>)
+Sensor - Darksky: Added forecast support (<a href="https://github.com/nordlead2005">@nordlead2005</a>)
+Switch - Pilight: Implement echo config option (<a href="https://github.com/janLo">@janLo</a>)
+Core: Support customize in packages (<a href="https://github.com/kellerza">@kellerza</a>)
+Switch - Flux: Allow disabling setting the brightness (<a href="https://github.com/rytilahti">@rytilahti</a>)
+Media player - Sonos: Add <code class="highlighter-rouge">is_coordinator</code>, set coordinator after join/unjoin, and no emtpy image (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/robbiet480">@robbiet480</a>)
+Climate: Hold mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)
+Switch - TPlink: No longer doing I/O in event bus (<a href="https://github.com/balloob">@balloob</a>)
+Light - Insteon local: Improve Insteon configuration (<a href="https://github.com/wardcraigj">@wardcraigj</a>)
+Emulated Hue: Emulated Hue “host-ip” fails to bind when running in docker without <code class="highlighter-rouge">--net=host</code> (<a href="https://github.com/jeremydk">@jeremydk</a>)
+Climate - EQ3 BT smart: Add reporting for availability (<a href="https://github.com/rytilahti">@rytilahti</a>)</p>
+
+<p>Bugfix: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/freol35241">@freol35241</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/tdickman">@tdickman</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/rytilahti">@rytilahti</a>, <a href="https://github.com/R1chardTM">@R1chardTM</a>, <a href="https://github.com/asbach">@asbach</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/colinodell">@colinodell</a>, <a href="https://github.com/joopert">@joopert</a>, <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/jaharkes">@jaharkes</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/jabesq">@jabesq</a>, and you if you are missing in this list.</p>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+<ul>
+  <li>A <strong>major</strong> breaking change in the <a href="https://home-assistant.io/components/emulated_hue/"><code class="highlighter-rouge">emulated_hue</code></a> component means that without changing a configuration value before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups. Find out about the <a href="emul_hue">details</a>.</li>
+  <li>The platform of the <a href="https://home-assistant.io/components/binary_sensor.iss/">ISS</a> integration was change to <code class="highlighter-rouge">binary_sensor</code>. Please check the platform documentation.</li>
+  <li>The <a href="https://home-assistant.io/components/media_player.roku/">Roku</a> media uses now a new format for the entity IDs.</li>
+  <li><a href="https://home-assistant.io/components/#image-processing">OpenALPR</a> is no longer a component. It’s now a platform for <a href="https://home-assistant.io/components/image_processing/">Image processing</a>.</li>
+  <li>Due to massive improvements of the <a href="https://home-assistant.io/components/wink/">Wink</a> integration, the names of your binary sensors will change and new devices can show up.</li>
+  <li>The <a href="https://home-assistant.io/components/mysensors/">MySensors</a> component now requires all persistence file paths to be set if any is set by the user. This is to avoid name conflicts for the paths. If no path is set Home Assistant will set all paths for you.</li>
+  <li>The <a href="https://home-assistant.io/components/media_player.sonos/">Sonos</a> service <code class="highlighter-rouge">sonos_group_players</code> was removed. Use now <code class="highlighter-rouge">sonos_join</code> for this function.</li>
+  <li>TTS cache have change for the last time. Files use now also a option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. <code class="highlighter-rouge">HASH_LANG_PLATFORM.xxx</code> -&gt; <code class="highlighter-rouge">HASH_LANG_OPTIONS_PLATFORM.xxx</code>, replace <em>OPTIONS</em> with <code class="highlighter-rouge">-</code> on exiting platforms.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant Governance [updated]]]></title>
@@ -199,6 +339,7 @@
   <li>Media player - SqueezeBox: Switch to JSON-RPC (<a href="https://github.com/dasos">@dasos</a>)</li>
   <li>Scripts: Support for <code class="highlighter-rouge">last_triggered</code> (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
   <li>Media player: Support for <code class="highlighter-rouge">SUPPORT_PLAY</code> flag (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Docker: <code class="highlighter-rouge">ffmpeg</code> is now included by default (<a href="https://github.com/colinodell">@colinodell</a>)</li>
   <li>Minor and not so minor features and bug fixes by <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/abmantis">@abmantis</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/titilambert">@titilambert</a>, <a href="https://github.com/btorresgil">@btorresgil</a>, <a href="https://github.com/henworth">@henworth</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/mjg59">@mjg59</a>, <a href="https://github.com/Giannie">@Giannie</a>, <a href="https://github.com/n8henrie">@n8henrie</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/florianholzapfel">@florianholzapfel</a>, <a href="https://github.com/MrMep">@MrMep</a>, <a href="https://github.com/bah2830">@bah2830</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/glance-">@glance-</a>, <a href="https://github.com/markferry">@markferry</a>, and <a href="https://github.com/nikdoof">@nikdoof</a>.</li>
 </ul>
 
@@ -1921,136 +2062,6 @@ So, part 1 of <a href="https://home-assistant.io/blog/2016/07/28/esp8266-and-mic
 Heatmap
 </p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[We Have Apps Now]]></title>
-    <link href="https://home-assistant.io/blog/2016/08/16/we-have-apps-now/"/>
-    <updated>2016-08-16T10:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/08/16/we-have-apps-now</id>
-    <content type="html"><![CDATA[<p>I have been working on a new subsystem to complement Home Assistant’s Automation and Scripting components. <code class="highlighter-rouge">AppDaemon</code> is a python daemon that consumes events from Home Assistant and feeds them to snippets of python code called “Apps”. An App is a Python class that is instantiated possibly multiple times from <code class="highlighter-rouge">AppDaemon</code> and registers callbacks for various system events. It is also able to inspect and set state and call services. The API provides a rich environment suited to home automation tasks that can also leverage all the power of Python.</p>
-
-<!--more-->
-
-<h2><a class="title-link" name="another-take-on-automation" href="#another-take-on-automation"></a> Another Take on Automation</h2>
-
-<p>If you haven’t yet read Paulus’ excellent Blog entry on <a href="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/">Perfect Home Automation</a> I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the “Automation” in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation to bring this all together in the vast and chaotic ecosystem that is the “Internet of Things”.</p>
-
-<p>So given the importance of Automation, what should Automation allow us to do? I am a pragmatist at heart so I judge individual systems by the ease of accomplishing a few basic but representative tasks:</p>
-
-<ul>
-  <li>Can the system respond to presence or absence of people?</li>
-  <li>Can I turn a light on at Sunset +/- a certain amount of time?</li>
-  <li>Can I arrive home in light or dark and have the lights figure out if they should be on or off?</li>
-  <li>As I build my system out, can I get the individual pieces to co-operate and use and re-use (potentially complex) logic to make sure everything works smoothly?</li>
-  <li>Is it open and expandable?</li>
-  <li>Does it run locally without any reliance on the cloud?</li>
-</ul>
-
-<p>In my opinion, Home Assistant accomplishes the majority of these very well with a combination of Automations, Scripts and Templates, and it’s Restful API.</p>
-
-<p>So why <code class="highlighter-rouge">AppDaemon</code>? <code class="highlighter-rouge">AppDaemon</code> is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:</p>
-
-<ul>
-  <li>New paradigm - some problems require a procedural and/or iterative approach, and <code class="highlighter-rouge">AppDaemon</code> Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can’t</li>
-  <li>Ease of use - <code class="highlighter-rouge">AppDaemon</code>’s API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as “Pythonic” as possible, experienced Python programmers should feel right at home.</li>
-  <li>Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g. a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the config file</li>
-  <li>Dynamic - <code class="highlighter-rouge">AppDaemon</code> has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to it’s loose coupling. However, it is better than that - the user can make changes to code and <code class="highlighter-rouge">AppDaemon</code> will automatically reload the code, figure out which Apps were using it and restart them to use the new code without the need to restart <code class="highlighter-rouge">AppDaemon</code> itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.</li>
-  <li>Complex logic - Python’s If/Else constructs are clearer and easier to code for arbitrarily complex nested logic</li>
-  <li>Durable variables and state - variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened</li>
-  <li>All the power of Python - use any of Python’s libraries, create your own modules, share variables, refactor and re-use code, create a single app to do everything, or multiple apps for individual tasks - nothing is off limits!</li>
-</ul>
-
-<p>It is in fact a testament to Home Assistant’s open nature that a component like <code class="highlighter-rouge">AppDaemon</code> can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant’s underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for <code class="highlighter-rouge">AppDaemon</code> - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.</p>
-
-<h2><a class="title-link" name="how-it-works" href="#how-it-works"></a> How it Works</h2>
-
-<p>The best way to show what <code class="highlighter-rouge">AppDaemon</code> does is through a few simple examples.</p>
-
-<h3><a class="title-link" name="sunrisesunset-lighting" href="#sunrisesunset-lighting"></a> Sunrise/Sunset Lighting</h3>
-
-<p>Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its <code class="highlighter-rouge">initialize()</code> function called which gives it a chance to register a callback for <code class="highlighter-rouge">AppDaemons</code>’s scheduler for a specific time. In this case we are using <code class="highlighter-rouge">run_at_sunrise()</code> and <code class="highlighter-rouge">run_at_sunset()</code> to register 2 separate callbacks. The argument <code class="highlighter-rouge">0</code> is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python’s <code class="highlighter-rouge">datetime.timedelta</code> class for calculations. When sunrise or sunset occurs, the appropriate callback function, <code class="highlighter-rouge">sunrise_cb()</code> or <code class="highlighter-rouge">sunset_cb()</code>  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables <code class="highlighter-rouge">args["on_scene"]</code> and <code class="highlighter-rouge">args["off_scene"]</code> are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appapi</span>
-
-<span class="k">class</span> <span class="nc">OutsideLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunrise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunrise_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunset_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-  <span class="k">def</span> <span class="nf">sunrise_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s">"off_scene"</span><span class="p">])</span>
-
-  <span class="k">def</span> <span class="nf">sunset_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s">"on_scene"</span><span class="p">])</span>
-</code></pre>
-</div>
-
-<p>This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.</p>
-
-<h3><a class="title-link" name="motion-light" href="#motion-light"></a> Motion Light</h3>
-
-<p>Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the <code class="highlighter-rouge">initialize()</code> function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell <code class="highlighter-rouge">AppDaemon</code> that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - <code class="highlighter-rouge">new = "on"</code>. When the motion is detected, the callack function <code class="highlighter-rouge">motion()</code> is called, and we check whether or not the sun has set using a built-in convenience function: <code class="highlighter-rouge">sun_down()</code>. Next, we turn the light on with <code class="highlighter-rouge">turn_on()</code>, then set a timer using <code class="highlighter-rouge">run_in()</code> to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in <code class="highlighter-rouge">AppDaemon</code> calling <code class="highlighter-rouge">light_off()</code> 60 seconds later using the <code class="highlighter-rouge">turn_off()</code> call to actually turn the light off. This is still pretty simple in code terms:</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appapi</span>
-
-<span class="k">class</span> <span class="nc">MotionLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">listen_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span> <span class="s">"binary_sensor.drive"</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="s">"on"</span><span class="p">)</span>
-  
-  <span class="k">def</span> <span class="nf">motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sun_down</span><span class="p">():</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-  
-  <span class="k">def</span> <span class="nf">light_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">turn_off</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>This is starting to get a little more complex in Home Assistant automations requiring an Automation rule and two separate scripts.</p>
-
-<p>Now lets extend this with a somewhat artificial example to show something that is simple in <code class="highlighter-rouge">AppDaemon</code> but very difficult if not impossible using automations. Lets warn someone inside the house that there has been motion outside by flashing a lamp on and off 10 times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1 second timer to run <code class="highlighter-rouge">flash_warning()</code> which when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after 10 iterations.</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appapi</span>
-
-<span class="k">class</span> <span class="nc">FlashyMotionLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">listen_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span> <span class="s">"binary_sensor.drive"</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="s">"on"</span><span class="p">)</span>
-  
-  <span class="k">def</span> <span class="nf">motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="bp">self</span><span class="o">.</span><span class="n">sun_down</span><span class="p">():</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flash_warning</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-  
-  <span class="k">def</span> <span class="nf">light_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">turn_off</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
-    
-  <span class="k">def</span> <span class="nf">flash_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s">"light.living_room"</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flash_warning</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<p>Of course if I wanted to make this App or its predecessor reusable I would have provided parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.</p>
-
-<p>In addition, Apps can write to <code class="highlighter-rouge">AppDaemon</code>’s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.</p>
-
-<p>I have spent the last few weeks moving all of my (fairly complex) automations over to <code class="highlighter-rouge">APPDaemon</code> and so far it is working very reliably.</p>
-
-<p>Some people will maybe look at all of this and say “what use is this, I can already do all of this”, and that is fine, as I said this is an alternative not a replacement, but I am hopeful that for some users this will seem a more natural, powerful and nimble way of building potentially very complex automations.</p>
-
-<p>If this has whet your appetite, feel free to give it a try. You can find it, <a href="https://github.com/acockburn/appdaemon">here</a>, including full installation instructions, an API reference, and a number of fully fleshed out examples.</p>
-
-<p>Happy Automating!</p>
 ]]></content>
   </entry>
   

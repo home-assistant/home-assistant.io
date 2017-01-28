@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Keyboard - Home Assistant</title>
+    <title>Keyboard Remote - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to use a keyboard to remote control Home Assistant.">
     
@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://home-assistant.io/components/keyboard_remote/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Keyboard">
+    <meta property="og:title" content="Keyboard Remote">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/keyboard_remote/">
     <meta property="og:type" content="article">
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Keyboard">
+    <meta name="twitter:title" content="Keyboard Remote">
     <meta name="twitter:description" content="Instructions how to use a keyboard to remote control Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
@@ -84,7 +84,7 @@
   
   <header>
     <h1 class="title indent">
-      Keyboard
+      Keyboard Remote
     </h1>
   </header>
   <hr class="divider">
@@ -98,7 +98,6 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">keyboard_remote</span><span class="pi">:</span>
-  <span class="s">device_descriptor</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/input/by-id/foo'</span>
   <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">key_up'</span>
 </code></pre>
 </div>
@@ -106,9 +105,31 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>device_descriptor</strong> (<em>Required</em>): List of URLS for your feeds.</li>
   <li><strong>type</strong> (<em>Required</em>): Possible values are <code class="highlighter-rouge">key_up</code>, <code class="highlighter-rouge">key_down</code>, and <code class="highlighter-rouge">key_hold</code>. Be careful, <code class="highlighter-rouge">key_hold</code> will fire a lot of events.</li>
+  <li><strong>device_descriptor</strong> (<em>Optional</em>): Path to the local event input device file that corresponds to the keyboard.</li>
+  <li><strong>device_name</strong> (<em>Optional</em>): Name of the keyboard device.</li>
 </ul>
+
+<p>Either <code class="highlighter-rouge">device_name</code> or <code class="highlighter-rouge">device_descriptor</code> must be present in the configuration entry. Indicating a device name is useful in case of repeating disconnections and re-connections of the device (for example, a bluetooth keyboard): the local input device file might change, thus breaking the configuration, while the name remains the same.
+In case of presence of multiple devices of the same model, <code class="highlighter-rouge">device_descriptor</code> must be used.</p>
+
+<p>A list of possible device descriptors and names is reported in the debug log at startup when the device indicated in the configuration entry could not be found.</p>
+
+<p>A full configuration for Keyboard Remote could look like the one below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">keyboard_remote</span><span class="pi">:</span>
+  <span class="s">device_descriptor</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/input/by-id/bluetooth-keyboard'</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">key_up'</span>
+</code></pre>
+</div>
+
+<p>or like the following:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">keyboard_remote</span><span class="pi">:</span>
+  <span class="s">device_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Bluetooth</span><span class="nv"> </span><span class="s">Keyboard'</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">key_down'</span>
+</code></pre>
+</div>
 
 <p>And an automation rule to breathe life into it:</p>
 
@@ -122,6 +143,54 @@
   <span class="s">action</span><span class="pi">:</span>
     <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.all</span>
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="disconnections" href="#disconnections"></a> Disconnections</h2>
+<p>This component manages disconnections and re-connections of the keyboard, for example in the case of a bluetooth device that turns off automatically to preserve battery.</p>
+
+<p>If the keyboard disconnects, the component will fire an event <code class="highlighter-rouge">keyboard_remote_disconnected</code>.
+When the keyboard reconnects, an event <code class="highlighter-rouge">keyboard_remote_connected</code> will be fired.</p>
+
+<p>Here’s an automation example that plays a sound through a media player whenever the keyboard connects/disconnects:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Keyboard Connected</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">keyboard_remote_connected</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.speaker</span>
+          <span class="s">media_content_id</span><span class="pi">:</span> <span class="s">keyboard_connected.wav</span>
+          <span class="s">media_content_type</span><span class="pi">:</span> <span class="s">music</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Keyboard Disconnected</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">keyboard_remote_disconnected</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.speaker</span>
+          <span class="s">media_content_id</span><span class="pi">:</span> <span class="s">keyboard_disconnected.wav</span>
+          <span class="s">media_content_type</span><span class="pi">:</span> <span class="s">music</span>
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="permissions" href="#permissions"></a> Permissions</h2>
+<p>There might be permissions problems with the event input device file. If this is the case, the user that hass runs as must be allowed read and write permissions with:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo setfacl -m u:HASS_USER:rw /dev/input/event*
+</code></pre>
+</div>
+<p>where <code class="highlighter-rouge">HASS_USER</code> is the user hass runs as.</p>
+
+<p>If you want to make this permanent, you can use a udev rule that sets it for all event input devices. Add a file <code class="highlighter-rouge">/etc/udev/rules.d/99-userdev-input.rules</code> containing:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>KERNEL=="event*", SUBSYSTEM=="input", RUN+="/usr/bin/setfacl -m u:HASS_USER:rw $env{DEVNAME}"
+</code></pre>
+</div>
+
+<p>You can check ACLs permissions with</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>getfacl /dev/input/event*
 </code></pre>
 </div>
 
@@ -172,10 +241,13 @@
             <a href='/components/http/'>HTTP</a>
         </li>
         <li>
+            <a href='/components/ha/'>Home Assistant 0.37</a>
+        </li>
+        <li>
             <a href='/components/introduction/'>Introduction</a>
         </li>
         <li>
-            Keyboard
+            Keyboard Remote
         </li>
         <li>
             <a href='/components/logger/'>Logger</a>

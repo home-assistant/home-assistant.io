@@ -92,7 +92,7 @@
 
   <h3><a class="title-link" name="basic-configuration" href="#basic-configuration"></a> Basic Configuration</h3>
 
-<p>The <code class="highlighter-rouge">netatmo</code> binary sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo Welcome</a> camera. This component allows you to get the latest event seen by the camera.</p>
+<p>The <code class="highlighter-rouge">netatmo</code> binary sensor platform is consuming the information provided by a <a href="https://www.netatmo.com">Netatmo</a> camera. This component allows you to get the latest event seen by the camera.</p>
 
 <p>To enable the Netatmo binary sensor, you have to set up <a href="/components/netatmo/">netatmo</a>, this will use discovery to add your binary sensor.</p>
 
@@ -105,12 +105,18 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">netatmo</span>
   <span class="s">home</span><span class="pi">:</span> <span class="s">home_name</span>
   <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
+  <span class="s">offset</span><span class="pi">:</span> <span class="s">90</span>
   <span class="s">cameras</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">camera_name1</span>
-  <span class="s">monitored_conditions</span><span class="pi">:</span>
+  <span class="s">welcome_sensors</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">Someone known</span>
-    <span class="pi">-</span> <span class="s">Someone unknown</span> 
+    <span class="pi">-</span> <span class="s">Someone unknown</span>
     <span class="pi">-</span> <span class="s">Motion</span>
+  <span class="s">presence_sensors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">Outdoor motion</span>
+    <span class="pi">-</span> <span class="s">Outdoor human</span>
+    <span class="pi">-</span> <span class="s">Outdoor animal</span>
+    <span class="pi">-</span> <span class="s">Outdoor vehicle</span>
 </code></pre>
 </div>
 
@@ -118,26 +124,31 @@
 
 <ul>
   <li><strong>home</strong> (<em>Optional</em>): Will use the cameras of this home only.</li>
-  <li><strong>timeout</strong> (<em>Optional</em>): The binary sensors will reflect the events from the last X minutes (default: 15)</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): The Welcome binary sensors will reflect the events from the last X minutes. (default: 15)</li>
+  <li><strong>offset</strong> (<em>Optional</em>): The Presence binary sensors will stay on for X seconds after detection. (default: 90)</li>
   <li><strong>cameras</strong> array (<em>Optional</em>): Cameras to use. Multiple entities allowed.
     <ul>
       <li>‘camera_name’: Name of the camera to display.</li>
     </ul>
   </li>
-  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): List of monitored conditions.
+  <li><strong>welcome_sensors</strong> array (<em>Optional</em>): List of monitored conditions.
     <ul>
       <li>‘Someone known’</li>
       <li>‘Someone unknown’</li>
       <li>‘Motion’</li>
     </ul>
   </li>
+  <li><strong>presence_sensors</strong> array (<em>Optional</em>): List of monitored conditions.
+    <ul>
+      <li>‘Outdoor motion’</li>
+      <li>‘Outdoor human’</li>
+      <li>‘Outdoor animal’</li>
+      <li>‘Outdoor vehicle’</li>
+    </ul>
+  </li>
 </ul>
 
 <p>If <strong>home</strong> and <strong>cameras</strong> is not provided, all cameras will be used. If multiple cameras are available then each monitored conditions will create a specific sensor for each camera</p>
-
-<p class="note">
-<a href="https://www.netatmo.com/product/security/welcome/tags">Welcome tags</a> are not yet supported, but will be in a next update.
-</p>
 
 
 </article>
@@ -186,6 +197,9 @@
             <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
         </li>
         <li>
@@ -220,6 +234,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.isy994/'>ISY994 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.iss/'>International Space Station</a>
         </li>
         <li>
             <a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a>

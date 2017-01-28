@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>Image processing enables Home Assistant to process image from <a href="/components/#camera">cameras</a>. Only camera entities are supported as sources.</p>
+  <p>Image processing enables Home Assistant to process images from [cameras][/components/#camera]. Only camera entities are supported as sources.</p>
 
 <p>For interval control, use <code class="highlighter-rouge">scan_interval</code> in platform.</p>
 
@@ -115,6 +115,27 @@
 
 <p>The following event attributes will be present: <code class="highlighter-rouge">entity_id</code>, <code class="highlighter-rouge">plate</code>, <code class="highlighter-rouge">confidence</code></p>
 
+<h2><a class="title-link" name="face-identify" href="#face-identify"></a> Face identify</h2>
+
+<p>Face entities attribute have a face counter <code class="highlighter-rouge">total_faces</code> and all validated person as <code class="highlighter-rouge">known_faces</code>.</p>
+
+<p>This event is trigger after Microsoft Face identify found a known faces.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Known person in front of my door</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">identify_face</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">image_processing.door</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Hans</span><span class="nv"> </span><span class="s">Maier'</span>
+<span class="nn">...</span>
+</code></pre>
+</div>
+
+<p>The following event attributes will be present: <code class="highlighter-rouge">entity_id</code>, <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">confidence</code></p>
+
 
 </article>
 
@@ -135,6 +156,9 @@
     </div>
             <h1 class='title delta'>Platforms</h1>
             <ul class='divided'>
+          <li><a href='/components/image_processing.microsoft_face_identify/'>
+            Microsoft Face identify
+          </a></li>
           <li><a href='/components/image_processing.openalpr_cloud/'>
             OpenALPR Cloud
           </a></li>

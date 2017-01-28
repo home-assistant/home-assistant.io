@@ -105,9 +105,11 @@
 
 <ul>
   <li><strong>api_key</strong> (<em>Requered</em>): API Key for use this service.</li>
-  <li><strong>language</strong> (<em>Optional</em>): The language to use. Defaults to <code class="highlighter-rouge">en-us</code>. Supported en-EN, ru-RU, uk-UK, tr-TR</li>
-  <li><strong>codec</strong> (<em>Optional</em>): Audo codec. Default is ‘mp3’. Supported us mp3, wav, opus.</li>
-  <li><strong>voice</strong> (<em>Optional</em>): Speaker voice. Default is ‘zahar’. Supported female voices are jane, oksana, alyss, omazh and male voices are zahar and ermil</li>
+  <li><strong>language</strong> (<em>Optional</em>): The language to use. Defaults to <code class="highlighter-rouge">en-us</code>. Supported <code class="highlighter-rouge">en-EN</code>, <code class="highlighter-rouge">ru-RU</code>, <code class="highlighter-rouge">uk-UK</code>, <code class="highlighter-rouge">tr-TR</code>.</li>
+  <li><strong>codec</strong> (<em>Optional</em>): Audo codec. Default is <code class="highlighter-rouge">mp3</code>. Supported us <code class="highlighter-rouge">mp3</code>, <code class="highlighter-rouge">wav</code>, <code class="highlighter-rouge">opus</code>.</li>
+  <li><strong>voice</strong> (<em>Optional</em>): Speaker voice. Default is <code class="highlighter-rouge">zahar</code>. Supported female voices are <code class="highlighter-rouge">jane</code>, <code class="highlighter-rouge">oksana</code>, <code class="highlighter-rouge">alyss</code>, ‘omazh<code class="highlighter-rouge"> and male voices are </code>zahar<code class="highlighter-rouge"> and </code>ermil`.</li>
+  <li><strong>emotion</strong> (<em>Optional</em>): Speaker emotional intonation. Default is <code class="highlighter-rouge">neutral</code>. Also supported are <code class="highlighter-rouge">good</code> (freindly) and <code class="highlighter-rouge">evil</code> (angry)</li>
+  <li><strong>speed</strong> (<em>Optional</em>): Speech speed. Default value is <code class="highlighter-rouge">1</code>. Highest speed is <code class="highlighter-rouge">3</code> and lowest <code class="highlighter-rouge">0,1</code></li>
 </ul>
 
 <p>See on api <a href="https://tech.yandex.com/speechkit/cloud/doc/dg/concepts/speechkit-dg-tts-docpage/">documentation</a> for details. N.B. english version of documentation is outdated. So you could receive api key <a href="https://developer.tech.yandex.ru/">here</a></p>
@@ -121,6 +123,8 @@
     <span class="s">language</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ru-RU'</span>
     <span class="s">codec</span><span class="pi">:</span> <span class="s">mp3</span>
     <span class="s">voice</span><span class="pi">:</span> <span class="s">oksana</span>
+    <span class="s">emotion</span><span class="pi">:</span> <span class="s">evil</span>
+    <span class="s">speed</span><span class="pi">:</span> <span class="s">2</span>
 </code></pre>
 </div>
 
@@ -150,6 +154,9 @@
     <div class='section'>
     <h1 class="title delta">Category Text-to-speech</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/tts.amazon_polly/'>Amazon Polly</a>
+        </li>
         <li>
             <a href='/components/tts.google/'>Google Text-to-Speech</a>
         </li>

@@ -148,6 +148,8 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 <h2><a class="title-link" name="service-say" href="#service-say"></a> Service say</h2>
 
+<p>The <code class="highlighter-rouge">say</code> service support <code class="highlighter-rouge">language</code> and on some platforms also <code class="highlighter-rouge">options</code> for set i.e. <em>voice, motion, speed, etc</em>. The text for speech is set with <code class="highlighter-rouge">message</code>.</p>
+
 <p>Say to all <code class="highlighter-rouge">media_player</code> device entities:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Replace google_say with &lt;platform&gt;_say when you use a different platform.</span>
@@ -179,7 +181,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">tts.google_say</span>
 <span class="s">data_template</span><span class="pi">:</span>
-  <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temperature</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">sensor.temperature</span><span class="nv"> </span><span class="s">}}.'</span>
+  <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Temperature</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{states('sensor.temperature')}}."</span>
   <span class="s">cache</span><span class="pi">:</span> <span class="s">false</span>
 </code></pre>
 </div>
@@ -208,6 +210,9 @@ If you are running Home Assistant over SSL or from within a container, you will 
     </div>
             <h1 class='title delta'>Platforms</h1>
             <ul class='divided'>
+          <li><a href='/components/tts.amazon_polly/'>
+            Amazon Polly
+          </a></li>
           <li><a href='/components/tts.google/'>
             Google Text-to-Speech
           </a></li>

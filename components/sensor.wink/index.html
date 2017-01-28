@@ -92,7 +92,22 @@
 
   <p>The Wink sensor platform allows you to get data from your <a href="http://www.wink.com/">Wink</a> sensors.</p>
 
-<p>The requirement is that you have setup your <a href="/components/wink/">Wink hub</a>.</p>
+<p>The requirement is that you have setup <a href="/components/wink/">Wink</a>.</p>
+
+<h3>Supported sensor devices</h3>
+
+<ul>
+  <li>Wink Relay temperature, proximity, and humidity</li>
+  <li>Wink Spotter temperature, humidity, and brightness (No Wink hub required)</li>
+  <li>Wink Porkfolio balance (No Wink hub required)</li>
+  <li>Wink eggminder (No Wink hub required)</li>
+  <li>Nest protect Smoke and CO severity (No confirmation that this is actually reported) (No Wink hub required)</li>
+  <li>Motion sensor temperature</li>
+</ul>
+
+<p class="note">
+The above devices are confimed to work, but others may work as well.
+</p>
 
 
 
@@ -116,6 +131,9 @@
           <ul class='divided'>
         <li><a href='/components/wink/'>
           Wink
+        </a></li>
+        <li><a href='/components/alarm_control_panel.wink/'>
+          Wink Alarm
         </a></li>
         <li><a href='/components/binary_sensor.wink/'>
           Wink Binary Sensor
@@ -151,6 +169,9 @@
         </li>
         <li>
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
         </li>
         <li>
             <a href='/components/sensor.bbox/'>Bbox Sensor</a>
@@ -199,9 +220,6 @@
         </li>
         <li>
             <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.iss/'>International Space Station Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>

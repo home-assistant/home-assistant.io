@@ -1,0 +1,382 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>0.37: Face, Coffee, Wink - Home Assistant</title>
+    <meta name="author" content="Fabian Affolter et al.">
+    <meta name="description" content="Governance, Face recognition, improved camera security, and a coffee maker">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="0.37: Face, Coffee, Wink">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Governance, Face recognition, improved camera security, and a coffee maker">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2016-01-0.37/social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@fabaff">
+    <meta name="twitter:title" content="0.37: Face, Coffee, Wink">
+    <meta name="twitter:description" content="Governance, Face recognition, improved camera security, and a coffee maker">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-01-0.37/social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  
+  <header>
+  
+  <h1 class="title indent">0.37: Face, Coffee, Wink</h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2017-01-28T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 28, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
+    <span><i class='icon-time'></i> eight minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <p>No stats, no numbers, and alike this time. Ok, just one number: 0.37. We are back on track with our bi-weekly release cycle. Beside some organizational changes is this release shipping again cool features and new integrations. Please keep an eye on the “Breaking changes” section because there are also massive improvements for some platforms and components.</p>
+
+<h3><a class="title-link" name="governance" href="#governance"></a> Governance</h3>
+<p>As announced, the new <a href="https://home-assistant.io/blog/2017/01/21/home-assistant-governance/">Governance</a> requires for developers to sign the CLA. <a href="https://home-assistant.io/developers/code_of_conduct/">Code of Conduct</a>, <a href="https://home-assistant.io/developers/cla/">Contributor License Agreement</a>, and proper <a href="https://home-assistant.io/developers/license/">Licensing</a> will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors.</p>
+
+<h3>Face recognition using the Microsoft Face API %}</h3>
+<p><a href="https://github.com/pvizeli">@pvizeli</a> has been on a roll with the image processing integrations. This time it’s the <a href="https://home-assistant.io/components/microsoft_face/">Microsoft Face API</a>. This means that now it will be possible to train the API with the people you want to recognize and send images from your camera to the API as another source of automation.</p>
+
+<p>Want to play a personalized tune when someone enters the house? It is now possible 😎</p>
+
+<h3><a class="title-link" name="improved-camera-security" href="#improved-camera-security"></a> Improved camera security</h3>
+
+<p>After a security audit by Stephen O’Conner, he found that our source for randomly generated access tokens for camera feeds were reasonable predictable and could be brute force attacked in 2.5 weeks. A fix has been included in this release that uses the system provided random number generator for maximum randomness and rotates the keys every 10 minutes to reduce the window in which a brute force attack can happen.</p>
+
+<p>Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.</p>
+
+<h3><a class="title-link" name="major-wink-and-hdmi-cec-improvements" href="#major-wink-and-hdmi-cec-improvements"></a> Major Wink and HDMI CEC improvements</h3>
+<p><a href="https://github.com/w1ll1am23">@w1ll1am23</a> did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your <code class="highlighter-rouge">configuration.yaml</code> file, no <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">client_secret</code> are needed, and token which was generated with the generator located in the <a href="https://home-assistant.io/components/wink/">Wink</a> documentation.</p>
+
+<p>The new Wink support will cause renaming of all the binary sensors and will also create new sensors for devices that weren’t previously detected or supported in the older version.</p>
+
+<p>Thanks to <a href="https://github.com/konikvranik">@konikvranik</a> the <a href="https://home-assistant.io/components/hdmi_cec/">HDMI CEC</a> integration got a huge update with a lot of improvements. This update should make it easier to work with HDMI CEC and give you more control.</p>
+
+<h3><a class="title-link" name="first-coffee-maker-supported" href="#first-coffee-maker-supported"></a> First Coffee Maker supported</h3>
+<p><a href="https://github.com/stu-gott">@stu-gott</a> has added support for the first coffee maker in Home Assistant: <a href="https://home-assistant.io/components/switch.wemo/">Mr. Coffee Smart Optimal Brew</a>. Happy brewing!</p>
+
+<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
+<h4><a class="title-link" name="new-platformscomponents" href="#new-platformscomponents"></a> New platforms/components</h4>
+
+<p>Netatmo: <a href="https://home-assistant.io/components/netatmo/">Netatmo</a> Presence support (<a href="https://github.com/gieljnssns">@gieljnssns</a>)
+Sensor: <a href="https://home-assistant.io/components/binary_sensor.arest/">Amcrest</a> camera sensors (<a href="https://github.com/tchellomello">@tchellomello</a>)
+Notify: New <a href="https://home-assistant.io/components/notify.discord/">Discord</a> notification component (<a href="https://github.com/Deinara">@Deinara</a>)
+Device tracker: <a href="https://home-assistant.io/components/device_tracker.tado/">Tado</a> device tracker support (<a href="https://github.com/jmvermeulen">@jmvermeulen</a>)
+Sensor: Add <a href="https://home-assistant.io/components/sensor.skybeacon/">Skybeacon</a> BLE temperature/humidity sensor (<a href="https://github.com/anpetrov">@anpetrov</a>)
+New <a href="https://home-assistant.io/components/zabbix/">Zabbix</a> component (<a href="https://github.com/Whytey">@Whytey</a>)
+Media  player: New platform <a href="https://home-assistant.io/components/media_player.anthemav/">Anthemav</a> Media player (<a href="https://github.com/nugget">@nugget</a>)
+Light: Add support for <a href="https://home-assistant.io/components/light.avion/">Avion</a> Bluetooth dimmer switches (<a href="https://github.com/mjg59">@mjg59</a>)
+Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.bbb_gpio/">Beaglebone Black</a> binary sensor (<a href="https://github.com/MatoKafkac">@MatoKafkac</a>)
+Light: <a href="https://home-assistant.io/components/light.piglow/">Piglow</a> support (<a href="https://github.com/xarnze">@xarnze</a>)
+<a href="https://home-assistant.io/components/microsoft_face/">Face</a> recognition for automation (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Sensor: New <a href="https://home-assistant.io/components/sensor.wsdot/">Washington State DOT</a> sensor (<a href="https://github.com/partofthething">@partofthething</a>)
+Support for Wemo CoffeeMaker devices (<a href="https://github.com/stu-gott">@stu-gott</a>)
+Device tracker: <a href="https://home-assistant.io/components/device_tracker.sky_hub/">Sky hub</a> support (<a href="https://github.com/alexmogavero">@alexmogavero</a>)
+Support for <a href="https://home-assistant.io/components/lutron/">Lutron</a> RadioRA 2 (<a href="https://github.com/thecynic">@thecynic</a>)
+TTS: Amazon <a href="https://home-assistant.io/components/tts.amazon_polly/">Polly TTS</a> platform (<a href="https://github.com/robbiet480">@robbiet480</a>)
+Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.linksys_ap/">Linksys</a> Access Points (<a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>)
+Notify: Make calls with <a href="https://home-assistant.io/components/notify.twilio_call/">Twilio</a> (<a href="https://github.com/fakezeta">@fakezeta</a>)</p>
+
+<h4>Improvements %}</h4>
+
+<p>Script: Fix script release (<a href="https://github.com/balloob">@balloob</a>)
+Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras (<a href="https://github.com/colinodell">@colinodell</a>)
+Sensor - Miflora: Removing throttle decorator (<a href="https://github.com/freol35241">@freol35241</a>)
+Notify - Lannouncer: Fix <code class="highlighter-rouge">get_service</code> method (<a href="https://github.com/mKeRix">@mKeRix</a>)
+Sensor - WAQI: Add station parameter to waqi sensor (<a href="https://github.com/whhsw">@whhsw</a>)
+Sensor - USPS: Absolute path to save cookie used by USPS sensor (<a href="https://github.com/tchellomello">@tchellomello</a>)
+Nest: Fix python-nest release number (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)
+Keyboard remote: Improve support (<a href="https://github.com/MrMep">@MrMep</a>)
+Device tracker - VolvoOnCall: Fix timedelta (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Climate - eq3btsmart: Expose away attribute (<a href="https://github.com/rytilahti">@rytilahti</a>)
+Remote: Reserve a test port for broken API to fix race (<a href="https://github.com/armills">@armills</a>)
+Climate - Ecobee: Made target temperature sensitive to auto mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)
+Configuration: Fix load_yaml default value (<a href="https://github.com/balloob">@balloob</a>)
+Notify - Facebook: Fix encoding error (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)
+Emulated_hue: Add <code class="highlighter-rouge">upnp_bind_multicast</code> option, default type to Google, and persist emulated hue IDs (<a href="https://github.com/hoopty">@hoopty</a>, <a href="https://github.com/balloob">@balloob</a>)
+Docker: Install phantomjs in Docker container (<a href="https://github.com/jnewland">@jnewland</a>)
+Media player - MPD: Add listing and selection of available MPD playlists (<a href="https://github.com/partofthething">@partofthething</a>)
+Media player - Denon AVR: Denon improvements (<a href="https://github.com/glance-">@glance-</a>)
+Light - x10.py: Improved x10 state monitoring (<a href="https://github.com/martst">@martst</a>)
+Sensor - DSMR: TCP, reconnecting and V4 CRC support (<a href="https://github.com/aequitas">@aequitas</a>)
+Media player - Yamaha.py: Fix Yamaha doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a>)
+Device tracker UPC: Make upc more robust (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Climate - Generic thermostat: Update (<a href="https://github.com/MrMep">@MrMep</a>)
+Device tracker - Xiaomi.py: Xiaomi Mi Router token refresh (<a href="https://github.com/RiRomain">@RiRomain</a>)
+Camera - MJPEG: Support still image for thumbmail (<a href="https://github.com/pvizeli">@pvizeli</a>)
+Sensor - ZAMG: Updated valid station id list (<a href="https://github.com/HerrHofrat">@HerrHofrat</a>)
+Light - ISY994: Not overwrite <code class="highlighter-rouge">state_attributes</code> (<a href="https://github.com/rmkraus">@rmkraus</a>)<a href="https://home-assistant.io/components/emulated_hue/">emul-hue</a>
+Light - Zwave: Use only supported features for devices (<a href="https://github.com/turbokongen">@turbokongen</a>)
+Media player - Kodi: Support for volume stepping (<a href="https://github.com/armills">@armills</a>)
+Media player- roku: Use <code class="highlighter-rouge">is_screensaver</code>, update IDLE state, and use device name (<a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/xhostplus">@xhostplus</a>)
+Switch - HDMI CEC: Support for devices and commands (<a href="https://github.com/konikvranik">@konikvranik</a>)
+Lock - Zwave: Improvements to Zwave lock platform (<a href="https://github.com/turbokongen">@turbokongen</a>)
+TTS: Invalidate broken file cache entries (<a href="https://github.com/stu-gott">@stu-gott</a>)
+Light - Hue: Improvements (<a href="https://github.com/robbiet480">@robbiet480</a>)
+TTS - YandexTTS: Added speed and emotion to Yandex TTS (<a href="https://github.com/lupin-de-mid">@lupin-de-mid</a>)
+Light - tellstick.py: Tellstick light fix (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)
+Switch - insteon_local.py: only check for devices when not defined in config (<a href="https://github.com/wardcraigj">@wardcraigj</a>)
+Notify - Twitter: Allow direct messaging to user (<a href="https://github.com/fabaff">@fabaff</a>)
+Fan - MQTT: Dont set a speed when fan turns on (<a href="https://github.com/robbiet480">@robbiet480</a>)
+Config: Allow easier customization of whole domain, entity lists, globs (<a href="https://github.com/andrey-git">@andrey-git</a>)
+Sensor - Homematic: Update device support (<a href="https://github.com/danielperna84">@danielperna84</a>)
+Binary sensor - ISS: Add location to attributes and option to show position on the map (<a href="https://github.com/fabaff">@fabaff</a>)
+Media player - Kodi: Add SSL configuration option (<a href="https://github.com/ecksun">@ecksun</a>)
+Sensor - WAQI: Add missing particle value (<a href="https://github.com/fabaff">@fabaff</a>)
+Wink: Support for python-wink 1.0.0 (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)
+Binary sensor - RPi GPIO: Add a small sleep before reading the sensor (<a href="https://github.com/snagytx">@snagytx</a>)
+Sensor - USPS: Add name to configuration (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)
+Sensor - Miflora: Remove throttle decorator from miflora platform (<a href="https://github.com/freol35241">@freol35241</a>)
+Device tracker - asuswrt.py: Add IPv6 support when parsing neighbors (<a href="https://github.com/leppa">@leppa</a>)
+iOS: Discover notify.ios when iOS component loads (<a href="https://github.com/robbiet480">@robbiet480</a>)
+Homematic: Add MAX shutter contact class (<a href="https://github.com/jannau">@jannau</a>)
+Sensor - Darksky: Added forecast support (<a href="https://github.com/nordlead2005">@nordlead2005</a>)
+Switch - Pilight: Implement echo config option (<a href="https://github.com/janLo">@janLo</a>)
+Core: Support customize in packages (<a href="https://github.com/kellerza">@kellerza</a>)
+Switch - Flux: Allow disabling setting the brightness (<a href="https://github.com/rytilahti">@rytilahti</a>)
+Media player - Sonos: Add <code class="highlighter-rouge">is_coordinator</code>, set coordinator after join/unjoin, and no emtpy image (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/robbiet480">@robbiet480</a>)
+Climate: Hold mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)
+Switch - TPlink: No longer doing I/O in event bus (<a href="https://github.com/balloob">@balloob</a>)
+Light - Insteon local: Improve Insteon configuration (<a href="https://github.com/wardcraigj">@wardcraigj</a>)
+Emulated Hue: Emulated Hue “host-ip” fails to bind when running in docker without <code class="highlighter-rouge">--net=host</code> (<a href="https://github.com/jeremydk">@jeremydk</a>)
+Climate - EQ3 BT smart: Add reporting for availability (<a href="https://github.com/rytilahti">@rytilahti</a>)</p>
+
+<p>Bugfix: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/freol35241">@freol35241</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/tdickman">@tdickman</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/rytilahti">@rytilahti</a>, <a href="https://github.com/R1chardTM">@R1chardTM</a>, <a href="https://github.com/asbach">@asbach</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/colinodell">@colinodell</a>, <a href="https://github.com/joopert">@joopert</a>, <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/jaharkes">@jaharkes</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/jabesq">@jabesq</a>, and you if you are missing in this list.</p>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+<ul>
+  <li>A <strong>major</strong> breaking change in the <a href="https://home-assistant.io/components/emulated_hue/"><code class="highlighter-rouge">emulated_hue</code></a> component means that without changing a configuration value before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups. Find out about the <a href="emul_hue">details</a>.</li>
+  <li>The platform of the <a href="https://home-assistant.io/components/binary_sensor.iss/">ISS</a> integration was change to <code class="highlighter-rouge">binary_sensor</code>. Please check the platform documentation.</li>
+  <li>The <a href="https://home-assistant.io/components/media_player.roku/">Roku</a> media uses now a new format for the entity IDs.</li>
+  <li><a href="https://home-assistant.io/components/#image-processing">OpenALPR</a> is no longer a component. It’s now a platform for <a href="https://home-assistant.io/components/image_processing/">Image processing</a>.</li>
+  <li>Due to massive improvements of the <a href="https://home-assistant.io/components/wink/">Wink</a> integration, the names of your binary sensors will change and new devices can show up.</li>
+  <li>The <a href="https://home-assistant.io/components/mysensors/">MySensors</a> component now requires all persistence file paths to be set if any is set by the user. This is to avoid name conflicts for the paths. If no path is set Home Assistant will set all paths for you.</li>
+  <li>The <a href="https://home-assistant.io/components/media_player.sonos/">Sonos</a> service <code class="highlighter-rouge">sonos_group_players</code> was removed. Use now <code class="highlighter-rouge">sonos_join</code> for this function.</li>
+  <li>TTS cache have change for the last time. Files use now also a option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. <code class="highlighter-rouge">HASH_LANG_PLATFORM.xxx</code> -&gt; <code class="highlighter-rouge">HASH_LANG_OPTIONS_PLATFORM.xxx</code>, replace <em>OPTIONS</em> with <code class="highlighter-rouge">-</code> on exiting platforms.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+</article>
+
+
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/"
+     data-counturl="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/" >Tweet</a>
+  
+  
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/"
+         data-layout="button_count">
+    </div>
+  
+  
+  <div class="g-plusone" data-size="standard"></div>
+  
+</section>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/21/home-assistant-governance/">Home Assistant Governance [updated]</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/18/numbers/">Numbers</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/14/iss-usps-images-packages/">0.36: ISS, USPS, Image processing, Insteon</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/03/control-my-christmas-tree-stats/">Control My Christmas Tree Stats</a>
+        </li>
+      
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/01/28/face-coffee-wink/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/01/28/face-coffee-wink/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

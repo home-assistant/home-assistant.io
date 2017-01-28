@@ -90,7 +90,11 @@
   <hr class="divider">
   
 
-  <p><a href="http://www.openalpr.com/">OpenALPR</a> integration for Home Assistant allows you to process licences plates recorded with a  camera. You can use them to open a garage door or trigger any other <a href="https://home-assistant.io/components/automation/">automation</a>.</p>
+  <p class="note warning">
+<strong>This platform has been deprecated in favor of the “<a href="/components/image_processing.openalpr_local/">OpenALPR image processing</a>” platform and will be removed in the future. Please use the “OpenALPR image processing” platform.</strong>
+</p>
+
+<p><a href="http://www.openalpr.com/">OpenALPR</a> integration for Home Assistant allows you to process licences plates recorded with a  camera. You can use them to open a garage door or trigger any other <a href="https://home-assistant.io/components/automation/">automation</a>.</p>
 
 <p class="note">
 If you want use a video stream. You need setup the <a href="/components/ffmpeg">ffmpeg</a> component. See also there for troubleshooting local ffmpeg installation.
@@ -234,52 +238,16 @@ If you want use a video stream. You need setup the <a href="/components/ffmpeg">
     Introduced in release: 0.29
     </div>
     <div class='section'>
-    <h1 class="title delta">Category Automation</h1>
+    <h1 class="title delta">Category Deprecated</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/automation/'>Automation</a>
+            <a href='/components/sensor.forecast/'>Forecast.io</a>
         </li>
         <li>
-            <a href='/components/switch.flux/'>Flux Light Adjustment</a>
-        </li>
-        <li>
-            <a href='/components/hdmi_cec/'>HDMI CEC</a>
-        </li>
-        <li>
-            <a href='/components/ifttt/'>IFTTT</a>
-        </li>
-        <li>
-            <a href='/components/input_boolean/'>Input Boolean</a>
-        </li>
-        <li>
-            <a href='/components/input_select/'>Input Select</a>
-        </li>
-        <li>
-            <a href='/components/input_slider/'>Input Slider</a>
-        </li>
-        <li>
-            <a href='/components/keyboard/'>Keyboard</a>
-        </li>
-        <li>
-            <a href='/components/lirc/'>LIRC</a>
+            <a href='/components/sensor.iss/'>International Space Station Sensor</a>
         </li>
         <li>
             OpenALPR
-        </li>
-        <li>
-            <a href='/components/device_sun_light_trigger/'>Presence based lights</a>
-        </li>
-        <li>
-            <a href='/components/proximity/'>Proximity</a>
-        </li>
-        <li>
-            <a href='/components/rest_command/'>RESTful Command</a>
-        </li>
-        <li>
-            <a href='/components/script/'>Scripts</a>
-        </li>
-        <li>
-            <a href='/components/shell_command/'>Shell command</a>
         </li>
     </ul>
     </div>

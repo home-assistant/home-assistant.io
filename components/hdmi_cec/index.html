@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The CEC component provides services that allow selecting the active device, powering on all devices, and setting all devices to standby. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use <code class="highlighter-rouge">cec-client</code> (part of the <code class="highlighter-rouge">libcec</code> package) to listen to traffic on the CEC bus and discover the correct numbers.</p>
+  <p>The HDMI CEC component provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entites for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use <code class="highlighter-rouge">cec-client</code> (part of the <code class="highlighter-rouge">libcec</code> package) to listen to traffic on the CEC bus and discover the correct numbers.</p>
 
 <h2><a class="title-link" name="cec-setup" href="#cec-setup"></a> CEC Setup</h2>
 
@@ -129,6 +129,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>ssh pi@your_raspberry_pi_ip
 </code></pre>
 </div>
+
 <ul>
   <li>at the command line type:</li>
 </ul>
@@ -136,6 +137,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo </span>scan | cec-client -s -d 1
 </code></pre>
 </div>
+
 <ul>
   <li>This will give you the list of devices that are on the bus</li>
 </ul>
@@ -155,11 +157,27 @@ language:      ???
 </code></pre>
 </div>
 
-<p><strong>Note the address: line above this will be used to configure HA, this address is represented below as 3: BlueRay player</strong></p>
+<p class="note"><code class="highlighter-rouge">address:</code> entry above this will be used to configure Home Assistant, this address is represented below as 3: BlueRay player.
+</p>
 
 <h2><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration Example</h2>
 
 <p>In the following example, a Pi Zero running Home Assistant is on a TV’s HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.</p>
+
+<p>You can use either direct mapping name to physical address of device</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">TV</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
+    <span class="s">Pi Zero</span><span class="pi">:</span> <span class="s">1.0.0.0</span>
+    <span class="s">Fire TV Stick</span><span class="pi">:</span> <span class="s">2.1.0.0</span>
+    <span class="s">Chromecast</span><span class="pi">:</span> <span class="s">2.2.0.0</span>
+    <span class="s">Another Device</span><span class="pi">:</span> <span class="s">2.3.0.0</span>
+    <span class="s">BlueRay player</span><span class="pi">:</span> <span class="s">3.0.0.0</span>
+</code></pre>
+</div>
+
+<p>or port mapping tree:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
   <span class="s">devices</span><span class="pi">:</span>
@@ -172,17 +190,49 @@ language:      ???
 </code></pre>
 </div>
 
+<p>Choose just one schema. Mixing both approaches is not possible.</p>
+
+<p>Another option you can use in config is <code class="highlighter-rouge">platform</code> which specifying of default platform of HDMI devices. “switch” and “media_player” are supported. Switch is default.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">media_player</span>
+</code></pre>
+</div>
+
+<p>Then you set individual platform for devices in customizations:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">hdmi_cec.hdmi_5</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">media_player</span>
+</code></pre>
+</div>
+
+<p>And the last option is <code class="highlighter-rouge">host</code>. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (<code class="highlighter-rouge">python -m pycec</code>), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.3</span>
+</code></pre>
+</div>
+
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
 <h3><a class="title-link" name="select-device" href="#select-device"></a> Select Device</h3>
 
-<p>Call the <code class="highlighter-rouge">hdmi_cec/select_device</code> service with the name of the device to select, for example:</p>
+<p>Call the <code class="highlighter-rouge">hdmi_cec/select_device</code> service with the name of the device from config or entity_id or physical address”to select it, for example:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chromecast"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chromecast"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"switch.hdmi_3"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.1.0.0"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
 <p>So an Automation action using the example above would look something like this.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
@@ -199,6 +249,57 @@ language:      ???
 <h3><a class="title-link" name="standby" href="#standby"></a> Standby</h3>
 
 <p>Call the <code class="highlighter-rouge">hdmi_cec/standby</code> service (no arguments) to place in standby any devices that support this function.</p>
+
+<h3><a class="title-link" name="change-volume-level" href="#change-volume-level"></a> Change volume level</h3>
+
+<p>Call the <code class="highlighter-rouge">hdmi_cec/volume</code> service with one of following commands:</p>
+
+<h4><a class="title-link" name="volume-up" href="#volume-up"></a> Volume up</h4>
+<p>Increase volume three times:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Keep increasing volume until release is called:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="s2">"press"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Stop increasing volume:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="s2">"release"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4><a class="title-link" name="volume-down" href="#volume-down"></a> Volume down</h4>
+<p>Decrease volume three times:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Keep decreasing volume until release is called:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="s2">"press"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Stop decreasing volume:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="s2">"release"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4><a class="title-link" name="volume-mute" href="#volume-mute"></a> Volume mute</h4>
+<p>Toggle mute:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"mute"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>value is ignores.</p>
 
 <h2><a class="title-link" name="useful-references" href="#useful-references"></a> Useful References</h2>
 
@@ -258,9 +359,6 @@ language:      ???
         </li>
         <li>
             <a href='/components/lirc/'>LIRC</a>
-        </li>
-        <li>
-            <a href='/components/openalpr/'>OpenALPR</a>
         </li>
         <li>
             <a href='/components/device_sun_light_trigger/'>Presence based lights</a>

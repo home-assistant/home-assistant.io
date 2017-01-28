@@ -148,6 +148,11 @@
       <td>no</td>
       <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of coordinator speakers.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">with_group</code></td>
+      <td>yes</td>
+      <td>Should be also snapshot the group state of the speaker.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -169,12 +174,17 @@
       <td>no</td>
       <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of coordinator speakers.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">with_group</code></td>
+      <td>yes</td>
+      <td>Should be also restore the group state of the speaker. Only if was snapshot with group.</td>
+    </tr>
   </tbody>
 </table>
 
-<h3><a class="title-link" name="service-sonos_group_players" href="#service-sonos_group_players"></a> Service <code class="highlighter-rouge">sonos_group_players</code></h3>
+<h3><a class="title-link" name="service-sonos_join" href="#service-sonos_join"></a> Service <code class="highlighter-rouge">sonos_join</code></h3>
 
-<p>Group all players together under a single coordinator.</p>
+<p>Do group players together under a single coordinator. That will make a new group or join to exists group.</p>
 
 <table>
   <thead>
@@ -186,9 +196,14 @@
   </thead>
   <tbody>
     <tr>
+      <td><code class="highlighter-rouge">master</code></td>
+      <td>no</td>
+      <td>A single <code class="highlighter-rouge">entity_id</code> that will become/hold the coordinator speaker.</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">entity_id</code></td>
       <td>no</td>
-      <td>String or list of a single <code class="highlighter-rouge">entity_id</code> that will become the coordinator speaker.</td>
+      <td>String or list of a single <code class="highlighter-rouge">entity_id</code> that will group to master speaker.</td>
     </tr>
   </tbody>
 </table>
@@ -291,6 +306,9 @@
     <div class='section'>
     <h1 class="title delta">Category Media Player</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/media_player.anthemav/'>Anthem A/V Receivers</a>
+        </li>
         <li>
             <a href='/components/media_player.denon/'>Denon Network Receivers</a>
         </li>

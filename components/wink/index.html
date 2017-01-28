@@ -96,18 +96,35 @@
   <p>Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.</p>
 </blockquote>
 
-<p>Home Assistant integrates the Wink hub and allows you to get the status and control connected switches, lights, locks, and sensors.</p>
+<p>Home Assistant integrates with the Wink API and allows you to get the status and control connected switches, lights, locks, fan, climate devices, covers, and sensors.</p>
 
-<p>To get started with the Wink API, you will first need to get yourself an API access token. Because it is very difficult right now to get access to their API, John McLaughlin has created the form below to get you one.</p>
+<p>Check the related componets pages for actual devices that are support.</p>
+
+<p>Home Assistant offers multiple ways to authenticate to the Wink API. Each authentication method is described below.</p>
+
+<h3>Authentication with an access token.</h3>
+
+<p>To use this form of authentication obtain a token from the form below and insert it into your <code class="highlighter-rouge">configuration.yaml</code></p>
 
 <iframe src="https://winkbearertoken.appspot.com" style="width: 100%; height: 200px; border: 0; margin: 0 auto 15px; border-left: 2px solid #049cdb; padding-left: 15px;"></iframe>
-
-<p>After you have gotten your access token, add the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
   <span class="s">access_token</span><span class="pi">:</span> <span class="s">YOUR_ACCESS_TOKEN</span>
 </code></pre>
 </div>
+
+<h3>Authentication with your Wink email and password.</h3>
+
+<p>This method uses the same form from above to obtain an access token, but does so without the user needing to manually do so.
+This method pulls a new token on every startup of Home Assistant.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
+  <span class="s">email</span><span class="pi">:</span> <span class="s">YOUR_WINK_EMAIL_ADDRESS</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_WINK_PASSWORD</span>
+</code></pre>
+</div>
+
+<h3>Full oath authentication. (This is the best option!)</h3>
 
 <p>You can also request API access via Wink’s <a href="http://www.wink.com/help/contact/">contact us</a> page.</p>
 
@@ -118,13 +135,6 @@
   <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_WINK_PASSWORD</span>
   <span class="s">client_id</span><span class="pi">:</span> <span class="s">YOUR_WINK_CLIENT_ID</span>
   <span class="s">client_secret</span><span class="pi">:</span> <span class="s">YOUR_WINK_CLIENT_SECRET</span>
-</code></pre>
-</div>
-
-<p>The following can also be provided to allow access to the Wink Relay sensors. This value could change at any time.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
-  <span class="s">user_agent</span><span class="pi">:</span> <span class="s">Manufacturer/Home-Assistant WinkAndroid/4</span>
 </code></pre>
 </div>
 
@@ -139,7 +149,7 @@
   <li><strong>user_agent</strong> (<em>Optional</em>): The user-agent passed in the API calls to Wink.</li>
 </ul>
 
-<p>This will connect to the Wink hub and automatically set up any lights, switches and sensors that it finds.</p>
+<p>This will connect to the Wink API and automatically set up any switches, lights, locks, fans, climate devices, covers, and sensors.</p>
 
 <p class="note">
 The Wink hub can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
@@ -164,6 +174,9 @@ The Wink hub can only be accessed via the cloud. This means it requires an activ
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/alarm_control_panel.wink/'>
+          Wink Alarm
+        </a></li>
         <li><a href='/components/binary_sensor.wink/'>
           Wink Binary Sensor
         </a></li>
@@ -234,6 +247,9 @@ The Wink hub can only be accessed via the cloud. This means it requires an activ
         </li>
         <li>
             <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
         </li>
         <li>
             <a href='/components/mochad/'>Mochad</a>

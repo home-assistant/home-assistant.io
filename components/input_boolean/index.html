@@ -132,7 +132,7 @@
 </code></pre>
 </div>
 
-<p>You can also set or change the status of an <code class="highlighter-rouge">input_boolean</code> by using <code class="highlighter-rouge">input_boolean.turn_on</code> and <code class="highlighter-rouge">input_boolean.turn_off</code> in your automations.</p>
+<p>You can also set or change the status of an <code class="highlighter-rouge">input_boolean</code> by using <code class="highlighter-rouge">input_boolean.turn_on</code>, <code class="highlighter-rouge">input_boolean.turn_off</code> or <code class="highlighter-rouge">input_boolean.toggle</code> in your automations.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.turn_on</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -185,9 +185,6 @@
         </li>
         <li>
             <a href='/components/lirc/'>LIRC</a>
-        </li>
-        <li>
-            <a href='/components/openalpr/'>OpenALPR</a>
         </li>
         <li>
             <a href='/components/device_sun_light_trigger/'>Presence based lights</a>

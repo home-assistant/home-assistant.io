@@ -83,6 +83,101 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl/">0.16: Embedded MQTT broker, Uber, Yamaha receivers and Growl</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-03-26T07:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 26, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: <a href="https://github.com/beerfactory/hbmqtt">hbMQTT</a>. Just add <code class="highlighter-rouge">mqtt:</code> to your config and a broker is launched and connected with Home Assistant. See the <a href="/components/mqtt/#use-the-embedded-broker">documentation</a> for more info.</p>
+
+<p>Further in this release a bunch of cool new stuff, bug fixes and rewrites for the Vera and Tellstick component (see breaking changes section at bottom for this!).</p>
+
+<p>Rock on.</p>
+
+<p><img src="/images/supported_brands/message_bird.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/pulseaudio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/uber.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/gntp.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/yamaha.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Device Tracker - <a href="/components/device_tracker.owntracks/">OwnTracks</a>: Allow entry into passive zones using iBeacons (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Tellstick: rewrite to <a href="/components/tellstick/">component</a> to address concurrency issues (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
+  <li>Z-Wave: add <a href="/components/zwave/#services">services</a> to heal and soft reset network (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
+  <li>New component <a href="/components/input_slider/">input_slider</a> added (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Light - <a href="/components/light.hue/">Hue</a>: Option added to ignore unreachable property (<a href="https://github.com/maddox">@maddox</a>)</li>
+  <li>Notify: <a href="/components/notify.message_bird/">MessageBird</a> support added (<a href="https://github.com/florianholzapfel">@florianholzapfel</a>)</li>
+  <li>HTTP: Failed login attempts are now logged (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Vera: rewrite to <a href="/components/vera/">component</a> to simplify code and organize for reusability (<a href="https://github.com/pavoni">@pavoni</a>)</li>
+  <li>Discovery: support for Squeezebox (Logitech media) server added (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Discovery: fix uPNP discovery crashing some routers (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Switch: <a href="/components/switch.wake_on_lan/">Wake on LAN</a> platform added (<a href="https://github.com/joopert">@joopert</a>)</li>
+  <li>Services for thermostats, notify and media player will now validate passed in parameters (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Switch - <a href="/components/switch.arduino/">Arduino</a>: support for default state and negate port functionality (<a href="https://github.com/tilutza">@tilutza</a>)</li>
+  <li>Switch: <a href="/components/switch.pulseaudio_loopback/">PulseAudio loopback</a> now supported (<a href="https://github.com/Cinntax">@Cinntax</a>)</li>
+  <li>Sensor: <a href="/components/sensor.uber/">Uber</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Notify: <a href="/components/notify.gntp/">Growl (GNTP)</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Media Player: <a href="/components/media_player.yamaha/">Yamaha receivers</a> now supported (<a href="https://github.com/aoakeson">@aoakeson</a>)</li>
+</ul>
+
+<h3>Breaking changes</h3>
+<ul>
+  <li>
+    <p>Automation: support for old deprecated config has been removed</p>
+  </li>
+  <li>
+    <p>Tellstick configuration has changed</p>
+  </li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">tellstick</span><span class="pi">:</span>
+  <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">X</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Vera configuration has changed</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vera</span><span class="pi">:</span>
+  <span class="s">vera_controller_url</span><span class="pi">:</span> <span class="s">http://192.168.1.161:3480/</span>
+  <span class="c1"># Optional to exclude devices - this is a list of vera device ids</span>
+  <span class="s">exclude</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">13</span><span class="pi">,</span> <span class="nv">14</span><span class="pi">,</span> <span class="nv">16</span><span class="pi">,</span> <span class="nv">20</span><span class="pi">,</span> <span class="nv">23</span><span class="pi">,</span> <span class="nv">72</span><span class="pi">,</span> <span class="nv">73</span><span class="pi">,</span> <span class="nv">74</span><span class="pi">,</span> <span class="nv">75</span><span class="pi">,</span> <span class="nv">76</span><span class="pi">,</span> <span class="nv">77</span><span class="pi">,</span> <span class="nv">78</span><span class="pi">,</span> <span class="nv">88</span><span class="pi">,</span> <span class="nv">89</span><span class="pi">,</span> <span class="nv">99</span><span class="pi">]</span>
+  <span class="c1"># Optional to import switches as lights - this is a list of vera device ids</span>
+  <span class="s">lights</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">15</span><span class="pi">,</span> <span class="nv">17</span><span class="pi">,</span> <span class="nv">19</span><span class="pi">,</span> <span class="nv">21</span><span class="pi">,</span> <span class="nv">22</span><span class="pi">,</span> <span class="nv">24</span><span class="pi">,</span> <span class="nv">26</span><span class="pi">,</span> <span class="nv">43</span><span class="pi">,</span> <span class="nv">64</span><span class="pi">,</span> <span class="nv">70</span><span class="pi">,</span> <span class="nv">87</span><span class="pi">]</span>
+</code></pre>
+</div>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/">0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.</a>
   </h1>
   
@@ -766,81 +861,6 @@ Example of the new views in the frontend. <a href="/components/group/">Learn mor
 
     
       <a class="btn pull-right" href="/blog/2016/01/19/perfect-home-automation/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/01/17/extended-support-for-diy-solutions/">0.11: Extended support for DIY solutions</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-01-17T23:20:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 17, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/01/17/extended-support-for-diy-solutions/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>First release of 2016 and we are on 🔥! The <a href="https://github.com/home-assistant/home-assistant/">main repository</a> has passed 2500 ⭐ on GitHub (2596 ⭐ as of now). This release also has a <a href="https://github.com/home-assistant/home-assistant/pull/883#partial-users-participants">record number</a> of 20 contributors all working on improving and extending Home Assistant. With the continued growth, I am very excited to see what 2016 will bring us 🤘.</p>
-
-<p><img src="/images/supported_brands/mysensors.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/raspberry-pi.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="50" /><img src="/images/supported_brands/yr.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/telldus.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/free_mobile.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/netatmo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/alarmdotcom.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/proliphix.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li><a href="/components/mysensors/">MySensors</a> revamped and switch support added (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
-  <li>Full refactor of RPi GPIO. Now includes <a href="/components/binary_sensor.rpi_gpio/">binary sensor</a> and <a href="/components/switch.rpi_gpio/">switch</a> (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Sensor: <a href="/components/sensor.yr/">YR</a> platform added (<a href="https://github.com/danielhiversen">@danielhiversen</a>)</li>
-  <li>Device Tracker: Geofancy platform has been renamed to <a href="/components/device_tracker.locative/">Locative</a> (<a href="https://github.com/philipbl">@philipbl</a>)</li>
-  <li>Automation: Add <a href="/getting-started/automation-condition/#sun-condition">sun condition</a> (<a href="https://github.com/philipbl">@philipbl</a>)</li>
-  <li>Switch: <a href="/components/switch.command_switch/">command_switch</a> can now poll for state (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li>Switch: <a href="/components/switch.wemo/">wemo</a> now uses subscription to states instead of polling (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li><a href="/components/tellduslive/">Telldus Live</a> support added (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
-  <li><a href="/components/vera/">Vera</a> now uses subscription to states instead of polling (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>New <a href="/topics/templating/#home-assistant-template-extensions">template helper method</a> <code class="highlighter-rouge">is_state_attr(entity_id, name, value)</code> added (<a href="https://github.com/andythigpen">@andythigpen</a>)</li>
-  <li>Device tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> transition events now supported (<a href="https://github.com/xifle">@xifle</a>)</li>
-  <li>Light: <a href="/components/light.hue/">Philips Hue</a> platform now supports multiple hubs (<a href="https://github.com/rhooper">@rhooper</a>)</li>
-  <li>Notify: <a href="/components/notify.free_mobile/">Free Mobile</a> platform added (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
-  <li>New <a href="/components/mqtt_eventstream/">MQTT Eventstream</a> component to connect two Home Assistant instances over MQTT (<a href="https://github.com/moonshot">@moonshot</a>)</li>
-  <li>Media player: <a href="/components/media_player.cast/">Cast</a> huge stability improvements (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
-  <li>Media Player: <a href="/components/media_player.universal/">Universal media player</a> added to combine multiple media players (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
-  <li>Sensor: <a href="/components/sensor.netatmo/">Netatmo</a> platform added (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
-  <li>Alarm Control Panel: <a href="/components/alarm_control_panel.alarmdotcom/">Alarm.com</a> platform added (<a href="https://github.com/Xorso">@Xorso</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.proliphix/">Proliphix</a> platform added (<a href="https://github.com/sdague">@sdague</a>)</li>
-  <li>New component <a href="/components/input_boolean/">input_boolean</a> will allow for customizing automation (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Support calling services via <a href="/components/alexa/">Amazon Echo</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h3>Backwards incompatible changes</h3>
-<ul>
-  <li>The <a href="/components/binary_sensor.rpi_gpio/">RPi.GPIO sensor platform</a> has been moved to the <code class="highlighter-rouge">binary_sensor</code> component.</li>
-  <li><a href="/components/sensor.mysensors/">MySensors sensor platform</a> now requires the <a href="/components/mysensors/">MySensors</a> component to be configured.</li>
-  <li>Geofancy platform has been renamed to <a href="/components/device_tracker.locative/">Locative</a>.</li>
-</ul>
-
-
     
   </div>
   </article>

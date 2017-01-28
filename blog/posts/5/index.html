@@ -83,6 +83,53 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/05/12/video-configuring-home-assistant/">Video: How To Configure Home Assistant</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-05-12T00:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 12, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Video</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/05/12/video-configuring-home-assistant/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a> authors a lot of great video’s about how he is using Home Assistant and how you can get started with it too. The video below will walk you through how to configure Home Assistant. Enjoy!</p>
+
+<p>Make sure to subscribe to <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">his YouTube channel</a> for more Home Assistant video’s.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/hFDVB2H6TNo" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/05/07/empowering-scripts-and-alexa/">0.19: Empowering scripts and Alexa</a>
   </h1>
   
@@ -675,101 +722,6 @@
 
 <p>Unless you can afford losing a product here and there, be cautious when buying IoT products that depend on the cloud from companies that are not well established. The chances are high that they go bankrupt or get acquired and closed. This however is easier said than done as <a href="http://www.gartner.com/newsroom/id/2869521">Gartner</a> predicts that by 2017, 50 percent of IoT solutions will originate in startups that are less than three years old.</p>
 
-
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl/">0.16: Embedded MQTT broker, Uber, Yamaha receivers and Growl</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-03-26T07:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 26, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/03/26/embedded-mqtt-broker-uber-yamaha-growl/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Party people, 0.16 is here! The big thing with this release is that we have completely removed the barrier to get started by MQTT by being able to launch an embedded MQTT server: <a href="https://github.com/beerfactory/hbmqtt">hbMQTT</a>. Just add <code class="highlighter-rouge">mqtt:</code> to your config and a broker is launched and connected with Home Assistant. See the <a href="/components/mqtt/#use-the-embedded-broker">documentation</a> for more info.</p>
-
-<p>Further in this release a bunch of cool new stuff, bug fixes and rewrites for the Vera and Tellstick component (see breaking changes section at bottom for this!).</p>
-
-<p>Rock on.</p>
-
-<p><img src="/images/supported_brands/message_bird.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/pulseaudio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/uber.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/gntp.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/yamaha.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
-<ul>
-  <li>Device Tracker - <a href="/components/device_tracker.owntracks/">OwnTracks</a>: Allow entry into passive zones using iBeacons (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Tellstick: rewrite to <a href="/components/tellstick/">component</a> to address concurrency issues (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
-  <li>Z-Wave: add <a href="/components/zwave/#services">services</a> to heal and soft reset network (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
-  <li>New component <a href="/components/input_slider/">input_slider</a> added (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Light - <a href="/components/light.hue/">Hue</a>: Option added to ignore unreachable property (<a href="https://github.com/maddox">@maddox</a>)</li>
-  <li>Notify: <a href="/components/notify.message_bird/">MessageBird</a> support added (<a href="https://github.com/florianholzapfel">@florianholzapfel</a>)</li>
-  <li>HTTP: Failed login attempts are now logged (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Vera: rewrite to <a href="/components/vera/">component</a> to simplify code and organize for reusability (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Discovery: support for Squeezebox (Logitech media) server added (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
-  <li>Discovery: fix uPNP discovery crashing some routers (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
-  <li>Switch: <a href="/components/switch.wake_on_lan/">Wake on LAN</a> platform added (<a href="https://github.com/joopert">@joopert</a>)</li>
-  <li>Services for thermostats, notify and media player will now validate passed in parameters (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
-  <li>Switch - <a href="/components/switch.arduino/">Arduino</a>: support for default state and negate port functionality (<a href="https://github.com/tilutza">@tilutza</a>)</li>
-  <li>Switch: <a href="/components/switch.pulseaudio_loopback/">PulseAudio loopback</a> now supported (<a href="https://github.com/Cinntax">@Cinntax</a>)</li>
-  <li>Sensor: <a href="/components/sensor.uber/">Uber</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Notify: <a href="/components/notify.gntp/">Growl (GNTP)</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Media Player: <a href="/components/media_player.yamaha/">Yamaha receivers</a> now supported (<a href="https://github.com/aoakeson">@aoakeson</a>)</li>
-</ul>
-
-<h3>Breaking changes</h3>
-<ul>
-  <li>
-    <p>Automation: support for old deprecated config has been removed</p>
-  </li>
-  <li>
-    <p>Tellstick configuration has changed</p>
-  </li>
-</ul>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">tellstick</span><span class="pi">:</span>
-  <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">X</span>
-</code></pre>
-</div>
-
-<ul>
-  <li>Vera configuration has changed</li>
-</ul>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vera</span><span class="pi">:</span>
-  <span class="s">vera_controller_url</span><span class="pi">:</span> <span class="s">http://192.168.1.161:3480/</span>
-  <span class="c1"># Optional to exclude devices - this is a list of vera device ids</span>
-  <span class="s">exclude</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">13</span><span class="pi">,</span> <span class="nv">14</span><span class="pi">,</span> <span class="nv">16</span><span class="pi">,</span> <span class="nv">20</span><span class="pi">,</span> <span class="nv">23</span><span class="pi">,</span> <span class="nv">72</span><span class="pi">,</span> <span class="nv">73</span><span class="pi">,</span> <span class="nv">74</span><span class="pi">,</span> <span class="nv">75</span><span class="pi">,</span> <span class="nv">76</span><span class="pi">,</span> <span class="nv">77</span><span class="pi">,</span> <span class="nv">78</span><span class="pi">,</span> <span class="nv">88</span><span class="pi">,</span> <span class="nv">89</span><span class="pi">,</span> <span class="nv">99</span><span class="pi">]</span>
-  <span class="c1"># Optional to import switches as lights - this is a list of vera device ids</span>
-  <span class="s">lights</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">15</span><span class="pi">,</span> <span class="nv">17</span><span class="pi">,</span> <span class="nv">19</span><span class="pi">,</span> <span class="nv">21</span><span class="pi">,</span> <span class="nv">22</span><span class="pi">,</span> <span class="nv">24</span><span class="pi">,</span> <span class="nv">26</span><span class="pi">,</span> <span class="nv">43</span><span class="pi">,</span> <span class="nv">64</span><span class="pi">,</span> <span class="nv">70</span><span class="pi">,</span> <span class="nv">87</span><span class="pi">]</span>
-</code></pre>
-</div>
 
     
   </div>

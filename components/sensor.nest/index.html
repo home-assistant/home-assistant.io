@@ -93,21 +93,20 @@
   <p>The <code class="highlighter-rouge">nest</code> sensor platform lets you monitor sensors connected to your <a href="https://nest.com">Nest</a> devices.</p>
 
 <p class="note">
-You must have the <a href="/components/nest/">Nest component</a> configured to use these sensors.  The <code class="highlighter-rouge">nest</code> binary sensor will automatically be setup when you do.
+You must have the <a href="/components/nest/">Nest component</a> configured to use these sensors. The sensors will be setup if the <code class="highlighter-rouge">nest</code> component is configured and the required configuration for the <code class="highlighter-rouge">nest sensor</code> is set.
 </p>
 
-<p>To customize which sensors are enabled, you can add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
+<p>To enable sensors and customize which sensors are setup, you can extend the <a href="/components/nest/">Nest component</a> configuration in your <code class="highlighter-rouge">configuration.yaml</code> file with the following settings:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nest</span>
+<span class="s">nest</span><span class="pi">:</span>
+  <span class="s">sensors</span><span class="pi">:</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s1">'</span><span class="s">temperature'</span>
       <span class="pi">-</span> <span class="s1">'</span><span class="s">target'</span>
 </code></pre>
 </div>
 
-<p>If you leave <code class="highlighter-rouge">monitored_conditions</code> blank, all sensors that are available for your devices will be included.</p>
+<p>By default all sensors for your available Nest devices will be monitored. Leave <code class="highlighter-rouge">monitored_conditions</code> blank to disable all sensors for the <a href="/components/nest/">Nest component</a>.</p>
 
 <p>Configuration variables:</p>
 
@@ -131,6 +130,7 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
     <ul>
       <li>co_status</li>
       <li>smoke_status</li>
+      <li>batter_health</li>
     </ul>
   </li>
   <li>Nest Camera: none</li>
@@ -186,6 +186,9 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
             <a href='/components/sensor.bbox/'>Bbox Sensor</a>
         </li>
         <li>
@@ -232,9 +235,6 @@ You must have the <a href="/components/nest/">Nest component</a> configured to u
         </li>
         <li>
             <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.iss/'>International Space Station Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>

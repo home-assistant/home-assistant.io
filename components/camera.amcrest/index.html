@@ -112,8 +112,12 @@
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera. The default is “Amcrest Camera”.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port that the camera is running on. The default is 80.</li>
   <li><strong>resolution</strong> (<em>Optional</em>): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option <code class="highlighter-rouge">high</code>. For VGA resolution (640x480p), specify the option <code class="highlighter-rouge">low</code>. If omitted, it defaults to <em>high</em>.</li>
+  <li><strong>stream_source</strong> (<em>Optional</em>): The data source for the live stream. <code class="highlighter-rouge">mjpeg</code> will use the camera’s native MJPEG stream, whereas <code class="highlighter-rouge">snapshot</code> will use the camera’s snapshot API to create a stream from still images. If omitted, it defaults to <em>mjpeg</em>.</li>
 </ul>
 
+<p><strong>Note:</strong> Amcrest cameras with newer firmwares no longer have the ability to stream <code class="highlighter-rouge">high</code> definition video with MJPEG encoding. You may need to use <code class="highlighter-rouge">low</code> resolution stream or the <code class="highlighter-rouge">snapshot</code> stream source instead.  If the quality seems too poor, lower the <code class="highlighter-rouge">Frame Rate (FPS)</code> and max out the <code class="highlighter-rouge">Bit Rate</code> settings in your camera’s configuration manager.</p>
+
+<p>To check if your Amcrest camera is supported/tested, visit the <a href="https://github.com/tchellomello/python-amcrest#supportability-matrix">supportability matrix</a> link from the <code class="highlighter-rouge">python-amcrest</code> project.</p>
 
 
 </article>
@@ -137,6 +141,14 @@
     <div class='section'>
       This is a platform for
       <a href='/components/camera/'>the Camera component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/sensor.amcrest/'>
+          Amcrest IP Camera
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Camera</h1>

@@ -92,6 +92,8 @@
 
   <p>By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.</p>
 
+<p><code class="highlighter-rouge">customize</code> consists of a list of attribute customization blocks</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
@@ -100,18 +102,18 @@
 
   <span class="s">customize</span><span class="pi">:</span>
     <span class="c1"># Only the 'entity_id' is required.  All other options are optional.</span>
-    <span class="s">sensor.living_room_motion</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.living_room_motion</span>
       <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
-    <span class="s">thermostat.family_roomfamily_room</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">thermostat.family_roomfamily_room</span>
       <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">https://example.com/images/nest.jpg</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Nest</span>
-    <span class="s">switch.wemo_switch_1</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.wemo_switch_1</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Toaster</span>
       <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">/local/toaster.jpg</span>
-    <span class="s">switch.wemo_switch_2</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.wemo_switch_2</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen kettle</span>
       <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:kettle</span>
-    <span class="s">switch.rfxtrx_switch</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.rfxtrx_switch</span>
       <span class="s">assumed_state</span><span class="pi">:</span> <span class="s">false</span>
 </code></pre>
 </div>
@@ -152,6 +154,60 @@
     </tr>
   </tbody>
 </table>
+
+<h3><a class="title-link" name="advanced-example" href="#advanced-example"></a> Advanced example</h3>
+
+<p>You can also specify attributes for all devices in a domain, use wildcards, use several entity IDs as a list or comma separated list.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:kettle</span> <span class="c1"># Give all sensor the kettle icon</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.family*</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span> <span class="c1"># Hide all lights that have an ID starting with 'family'</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.wemo_switch_1,switch.wemo_switch_2,switch.wemo_switch_3</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">/local/toaster.jpg</span> <span class="c1"># Set picture on multiple devices</span>
+</code></pre>
+</div>
+
+<p>Either <code class="highlighter-rouge">entity_id</code> must be present in each customization block.</p>
+
+<h3><a class="title-link" name="older-format" href="#older-format"></a> Older format</h3>
+
+<p>In the previous version of customize format the keys were the IDs:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
+  <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
+  <span class="c1"># etc</span>
+
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="c1"># Only the 'entity_id' is required.  All other options are optional.</span>
+    <span class="s">sensor.living_room_motion</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">thermostat.family_roomfamily_room</span><span class="pi">:</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">https://example.com/images/nest.jpg</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Nest</span>
+    <span class="s">switch.wemo_switch_1</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Toaster</span>
+      <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">/local/toaster.jpg</span>
+    <span class="s">switch.wemo_switch_2</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kitchen kettle</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:kettle</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.rfxtrx_switch</span><span class="pi">:</span>
+      <span class="s">assumed_state</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
+</div>
+<p>This format doesn’t support comma-separated IDs, wildcards or domain matching.</p>
+
+<p>The formats can’t be mixed</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="c1"># NOT A VALID CONFIGURATION</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">sensor.living_room_motion</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">thermostat.family_roomfamily_room</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Nest</span>
+</code></pre>
+</div>
 
 <h3><a class="title-link" name="reloading-customize" href="#reloading-customize"></a> Reloading customize</h3>
 

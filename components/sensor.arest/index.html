@@ -95,8 +95,9 @@
 <p>To use your aREST enabled device in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">arest</span>
-    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://10.100.0.117</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS</span>
     <span class="s">monitored_variables</span><span class="pi">:</span>
       <span class="s">temperature</span><span class="pi">:</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">temperature</span>
@@ -113,16 +114,24 @@
   <li><strong>name</strong> (<em>Optional</em>): Let you overwrite the the name of the device. By default <em>name</em> from the device is used.</li>
   <li><strong>monitored_variables</strong> array (<em>Optional</em>): List of exposed variables.
     <ul>
-      <li><strong>name</strong> (<em>Required</em>): The name of the variable you wish to monitor.</li>
-      <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
-      <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+      <li><strong>[variable]</strong> (<em>Required</em>): Name of the variable to monitor.
+        <ul>
+          <li><strong>name</strong> (<em>Optional</em>): The name to use for the frontend.</li>
+          <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
+          <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><strong>pins</strong> array (<em>Optional</em>): List of pins to monitor. Analog pins need a leading <strong>A</strong> for the pin number.
     <ul>
-      <li><strong>name</strong> (<em>Optional</em>): The name of the variable you wish to monitor.</li>
-      <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
-      <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+      <li><strong>[pin]</strong> (<em>Required</em>): Pin number to use.
+        <ul>
+          <li><strong>name</strong> (<em>Required</em>): The name of the variable you wish to monitor.</li>
+          <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
+          <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
@@ -175,6 +184,9 @@
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
     </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
@@ -197,6 +209,9 @@
         </li>
         <li>
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
         </li>
         <li>
             <a href='/components/sensor.bbox/'>Bbox Sensor</a>
@@ -245,9 +260,6 @@
         </li>
         <li>
             <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.iss/'>International Space Station Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
