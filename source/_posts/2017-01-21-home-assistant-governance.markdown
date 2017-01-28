@@ -22,6 +22,7 @@ The Home Assistant project and community has seen enormous growth in the last th
 
 Starting today we are announcing a few initiatives to help protect our users, contributors and community members.
 
+<!--more-->
 ## {% linkable_title Code of Conduct %}
 
 More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
