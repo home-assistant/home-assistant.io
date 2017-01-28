@@ -54,3 +54,4 @@ Configuration variables:
 - **source** array (*Required*): List of image sources.
   - **entities** (*Required*): A list of devices to add in Home Assistant.
   - **name** (*Optional*): This parameter allows you to override the name of your OpenALPR entity.
+

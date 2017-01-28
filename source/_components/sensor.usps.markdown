@@ -12,7 +12,8 @@ ha_category: Sensor
 ha_release: 0.36
 ---
 
-The `usps` platform allows one to track deliveries by the [US Postal Service (USPS)](https://www.usps.com/). You must opt-in to [MyUSPS](https://my.usps.com/mobileWeb/pages/intro/start.action) prior to using this sensor. Doing so will confirm your address.
+The `usps` platform allows one to track deliveries by the [US Postal Service (USPS)](https://www.usps.com/).
+In addition to having a USPS account, you will need to complete the "Opt-In" process by clicking "Get Started Now" on [this page](https://my.usps.com/mobileWeb/pages/intro/start.action). Currently, you also will need to have a package listed in the "Package Dashboard" in order for the component to complete set-up.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

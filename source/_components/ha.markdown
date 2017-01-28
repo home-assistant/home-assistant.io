@@ -17,4 +17,3 @@ Details about the latest release can always be found at:
 - [Release blog posts](https://home-assistant.io/blog/categories/release-notes/)
 - [GitHub releases](https://github.com/home-assistant/home-assistant/releases)
 - [Python Package Index](https://pypi.python.org/pypi/homeassistant/)
-
