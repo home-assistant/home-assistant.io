@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-28T23:57:36+00:00</updated>
+  <updated>2017-01-29T00:02:42+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[0.37: Face, Coffee, Wink]]></title>
+    <title type="html"><![CDATA[0.37: Face detection, Coffee, Wink]]></title>
     <link href="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/"/>
     <updated>2017-01-28T08:04:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/01/28/face-coffee-wink</id>
@@ -22,7 +22,7 @@
 
 ### <a class='title-link' name='governance' href='#governance'></a> Governance 
 As announced, the new [Governance][gov] requires for developers to sign the CLA. [Code of Conduct][coc], [Contributor License Agreement][cla], and proper [Licensing][license] will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors. 
- 
+
 ### <a class='title-link' name='face-recognition-using-the-microsoft-face-api' href='#face-recognition-using-the-microsoft-face-api'></a> Face recognition using the Microsoft Face API 
 [@pvizeli] has been on a roll with the image processing integrations. This time it's the [Microsoft Face API][face]. This means that now it will be possible to train the API with the people you want to recognize and send images from your camera to the API as another source of automation.
 
@@ -50,88 +50,88 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 ### <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 #### <a class='title-link' name='new-platformscomponents' href='#new-platformscomponents'></a> New platforms/components 
 
-Netatmo: [Netatmo][netatmo] Presence support ([@gieljnssns])
-Sensor: [Amcrest][amcrest] camera sensors ([@tchellomello])
-Notify: New [Discord][discord] notification component ([@Deinara])
-Device tracker: [Tado][tado] device tracker support ([@jmvermeulen])
-Sensor: Add [Skybeacon][skybeacon] BLE temperature/humidity sensor ([@anpetrov])
-New [Zabbix][zabbix] component ([@Whytey])
-Media  player: New platform [Anthemav][anthem] Media player ([@nugget])
-Light: Add support for [Avion][avion] Bluetooth dimmer switches ([@mjg59])
-Binary sensor: [Beaglebone Black][bb-bin] binary sensor ([@MatoKafkac])
-Light: [Piglow][piglow] support ([@xarnze])
-[Face][face] recognition for automation ([@pvizeli])
-Sensor: New [Washington State DOT][wsdot] sensor ([@partofthething])
-Support for Wemo CoffeeMaker devices ([@stu-gott])
-Device tracker: [Sky hub][sky] support ([@alexmogavero])
-Support for [Lutron][lutron] RadioRA 2 ([@thecynic])
-TTS: Amazon [Polly TTS][polly] platform ([@robbiet480])
-Device tracker: Support for [Linksys][linksys] Access Points ([@lukas-hetzenecker])
-Notify: Make calls with [Twilio][twilio] ([@fakezeta])
+- Netatmo: [Netatmo][netatmo] Presence support ([@gieljnssns])
+- Sensor: [Amcrest][amcrest] camera sensors ([@tchellomello])
+- Notify: New [Discord][discord] notification component ([@Deinara])
+- Device tracker: [Tado][tado] device tracker support ([@jmvermeulen])
+- Sensor: Add [Skybeacon][skybeacon] BLE temperature/humidity sensor ([@anpetrov])
+- New [Zabbix][zabbix] component ([@Whytey])
+- Media  player: New platform [Anthemav][anthem] Media player ([@nugget])
+- Light: Add support for [Avion][avion] Bluetooth dimmer switches ([@mjg59])
+- Binary sensor: [Beaglebone Black][bb-bin] binary sensor ([@MatoKafkac])
+- Light: [Piglow][piglow] support ([@xarnze])
+- [Face][face] recognition for automation ([@pvizeli])
+- Sensor: New [Washington State DOT][wsdot] sensor ([@partofthething])
+- Support for Wemo CoffeeMaker devices ([@stu-gott])
+- Device tracker: [Sky hub][sky] support ([@alexmogavero])
+- Support for [Lutron][lutron] RadioRA 2 ([@thecynic])
+- TTS: Amazon [Polly TTS][polly] platform ([@robbiet480])
+- Device tracker: Support for [Linksys][linksys] Access Points ([@lukas-hetzenecker])
+- Notify: Make calls with [Twilio][twilio] ([@fakezeta])
 
 #### Improvements %}
 
-Script: Fix script release ([@balloob])
-Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras ([@colinodell])
-Sensor - Miflora: Removing throttle decorator ([@freol35241])
-Notify - Lannouncer: Fix `get_service` method ([@mKeRix])
-Sensor - WAQI: Add station parameter to waqi sensor ([@whhsw])
-Sensor - USPS: Absolute path to save cookie used by USPS sensor ([@tchellomello])
-Nest: Fix python-nest release number ([@Danielhiversen])
-Keyboard remote: Improve support ([@MrMep])
-Device tracker - VolvoOnCall: Fix timedelta ([@pvizeli])
-Climate - eq3btsmart: Expose away attribute ([@rytilahti])
-Remote: Reserve a test port for broken API to fix race ([@armills])
-Climate - Ecobee: Made target temperature sensitive to auto mode ([@Duoxilian])
-Configuration: Fix load_yaml default value ([@balloob])
-Notify - Facebook: Fix encoding error ([@Danielhiversen])
-Emulated_hue: Add `upnp_bind_multicast` option, default type to Google, and persist emulated hue IDs ([@hoopty], [@balloob])
-Docker: Install phantomjs in Docker container ([@jnewland])
-Media player - MPD: Add listing and selection of available MPD playlists ([@partofthething])
-Media player - Denon AVR: Denon improvements ([@glance-])
-Light - x10.py: Improved x10 state monitoring ([@martst])
-Sensor - DSMR: TCP, reconnecting and V4 CRC support ([@aequitas])
-Media player - Yamaha.py: Fix Yamaha doing I/O in event loop ([@balloob])
-Device tracker UPC: Make upc more robust ([@pvizeli])
-Climate - Generic thermostat: Update ([@MrMep])
-Device tracker - Xiaomi.py: Xiaomi Mi Router token refresh ([@RiRomain])
-Camera - MJPEG: Support still image for thumbmail ([@pvizeli])
-Sensor - ZAMG: Updated valid station id list ([@HerrHofrat])
-Light - ISY994: Not overwrite `state_attributes` ([@rmkraus])[emul-hue]
-Light - Zwave: Use only supported features for devices ([@turbokongen])
-Media player - Kodi: Support for volume stepping ([@armills])
-Media player- roku: Use `is_screensaver`, update IDLE state, and use device name ([@robbiet480], [@xhostplus])
-Switch - HDMI CEC: Support for devices and commands ([@konikvranik])
-Lock - Zwave: Improvements to Zwave lock platform ([@turbokongen])
-TTS: Invalidate broken file cache entries ([@stu-gott])
-Light - Hue: Improvements ([@robbiet480])
-TTS - YandexTTS: Added speed and emotion to Yandex TTS ([@lupin-de-mid])
-Light - tellstick.py: Tellstick light fix ([@stefan-jonasson])
-Switch - insteon_local.py: only check for devices when not defined in config ([@wardcraigj])
-Notify - Twitter: Allow direct messaging to user ([@fabaff])
-Fan - MQTT: Dont set a speed when fan turns on ([@robbiet480])
-Config: Allow easier customization of whole domain, entity lists, globs ([@andrey-git])
-Sensor - Homematic: Update device support ([@danielperna84])
-Binary sensor - ISS: Add location to attributes and option to show position on the map ([@fabaff])
-Media player - Kodi: Add SSL configuration option ([@ecksun])
-Sensor - WAQI: Add missing particle value ([@fabaff])
-Wink: Support for python-wink 1.0.0 ([@w1ll1am23])
-Binary sensor - RPi GPIO: Add a small sleep before reading the sensor ([@snagytx])
-Sensor - USPS: Add name to configuration ([@happyleavesaoc])
-Sensor - Miflora: Remove throttle decorator from miflora platform ([@freol35241])
-Device tracker - asuswrt.py: Add IPv6 support when parsing neighbors ([@leppa])
-iOS: Discover notify.ios when iOS component loads ([@robbiet480])
-Homematic: Add MAX shutter contact class ([@jannau])
-Sensor - Darksky: Added forecast support ([@nordlead2005])
-Switch - Pilight: Implement echo config option ([@janLo])
-Core: Support customize in packages ([@kellerza])
-Switch - Flux: Allow disabling setting the brightness ([@rytilahti])
-Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no emtpy image ([@pvizeli], [@andrey-git], [@robbiet480])
-Climate: Hold mode ([@Duoxilian])
-Switch - TPlink: No longer doing I/O in event bus ([@balloob])
-Light - Insteon local: Improve Insteon configuration ([@wardcraigj])
-Emulated Hue: Emulated Hue "host-ip" fails to bind when running in docker without `--net=host` ([@jeremydk])
-Climate - EQ3 BT smart: Add reporting for availability ([@rytilahti])
+- Script: Fix script release ([@balloob])
+- Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras ([@colinodell])
+- Sensor - Miflora: Removing throttle decorator ([@freol35241])
+- Notify - Lannouncer: Fix `get_service` method ([@mKeRix])
+- Sensor - WAQI: Add station parameter to waqi sensor ([@whhsw])
+- Sensor - USPS: Absolute path to save cookie used by USPS sensor ([@tchellomello])
+- Nest: Fix python-nest release number ([@Danielhiversen])
+- Keyboard remote: Improve support ([@MrMep])
+- Device tracker - VolvoOnCall: Fix timedelta ([@pvizeli])
+- Climate - eq3btsmart: Expose away attribute ([@rytilahti])
+- Remote: Reserve a test port for broken API to fix race ([@armills])
+- Climate - Ecobee: Made target temperature sensitive to auto mode ([@Duoxilian])
+- Configuration: Fix load_yaml default value ([@balloob])
+- Notify - Facebook: Fix encoding error ([@Danielhiversen])
+- Emulated_hue: Add `upnp_bind_multicast` option, default type to Google, and persist emulated hue IDs ([@hoopty], [@balloob])
+- Docker: Install phantomjs in Docker container ([@jnewland])
+- Media player - MPD: Add listing and selection of available MPD playlists ([@partofthething])
+- Media player - Denon AVR: Denon improvements ([@glance-])
+- Light - x10.py: Improved x10 state monitoring ([@martst])
+- Sensor - DSMR: TCP, reconnecting and V4 CRC support ([@aequitas])
+- Media player - Yamaha.py: Fix Yamaha doing I/O in event loop ([@balloob])
+- Device tracker UPC: Make upc more robust ([@pvizeli])
+- Climate - Generic thermostat: Update ([@MrMep])
+- Device tracker - Xiaomi.py: Xiaomi Mi Router token refresh ([@RiRomain])
+- Camera - MJPEG: Support still image for thumbmail ([@pvizeli])
+- Sensor - ZAMG: Updated valid station id list ([@HerrHofrat])
+- Light - ISY994: Not overwrite `state_attributes` ([@rmkraus])[emul-hue]
+- Light - Zwave: Use only supported features for devices ([@turbokongen])
+- Media player - Kodi: Support for volume stepping ([@armills])
+- Media player- roku: Use `is_screensaver`, update IDLE state, and use device name ([@robbiet480], [@xhostplus])
+- Switch - HDMI CEC: Support for devices and commands ([@konikvranik])
+- Lock - Zwave: Improvements to Zwave lock platform ([@turbokongen])
+- TTS: Invalidate broken file cache entries ([@stu-gott])
+- Light - Hue: Improvements ([@robbiet480])
+- TTS - YandexTTS: Added speed and emotion to Yandex TTS ([@lupin-de-mid])
+- Light - tellstick.py: Tellstick light fix ([@stefan-jonasson])
+- Switch - insteon_local.py: only check for devices when not defined in config ([@wardcraigj])
+- Notify - Twitter: Allow direct messaging to user ([@fabaff])
+- Fan - MQTT: Dont set a speed when fan turns on ([@robbiet480])
+- Config: Allow easier customization of whole domain, entity lists, globs ([@andrey-git])
+- Sensor - Homematic: Update device support ([@danielperna84])
+- Binary sensor - ISS: Add location to attributes and option to show position on the map ([@fabaff])
+- Media player - Kodi: Add SSL configuration option ([@ecksun])
+- Sensor - WAQI: Add missing particle value ([@fabaff])
+- Wink: Support for python-wink 1.0.0 ([@w1ll1am23])
+- Binary sensor - RPi GPIO: Add a small sleep before reading the sensor ([@snagytx])
+- Sensor - USPS: Add name to configuration ([@happyleavesaoc])
+- Sensor - Miflora: Remove throttle decorator from miflora platform ([@freol35241])
+- Device tracker - asuswrt.py: Add IPv6 support when parsing neighbors ([@leppa])
+- iOS: Discover notify.ios when iOS component loads ([@robbiet480])
+- Homematic: Add MAX shutter contact class ([@jannau])
+- Sensor - Darksky: Added forecast support ([@nordlead2005])
+- Switch - Pilight: Implement echo config option ([@janLo])
+- Core: Support customize in packages ([@kellerza])
+- Switch - Flux: Allow disabling setting the brightness ([@rytilahti])
+- Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no emtpy image ([@pvizeli], [@andrey-git], [@robbiet480])
+- Climate: Hold mode ([@Duoxilian])
+- Switch - TPlink: No longer doing I/O in event bus ([@balloob])
+- Light - Insteon local: Improve Insteon configuration ([@wardcraigj])
+- Emulated Hue: Emulated Hue "host-ip" fails to bind when running in docker without `--net=host` ([@jeremydk])
+- Climate - EQ3 BT smart: Add reporting for availability ([@rytilahti])
 
 Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@tdickman], [@armills], [@rytilahti], [@R1chardTM], [@asbach], [@happyleavesaoc], [@robbiet480], [@colinodell], [@joopert], [@dale3h], [@pavoni], [@jaharkes], [@MartinHjelmare], [@mezz64], [@jabesq], and you if you are missing in this list.
 

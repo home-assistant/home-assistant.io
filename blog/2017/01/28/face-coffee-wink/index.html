@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>0.37: Face, Coffee, Wink - Home Assistant</title>
+    <title>0.37: Face detection, Coffee, Wink - Home Assistant</title>
     <meta name="author" content="Fabian Affolter et al.">
     <meta name="description" content="Governance, Face recognition, improved camera security, and a coffee maker">
     
@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="0.37: Face, Coffee, Wink">
+    <meta property="og:title" content="0.37: Face detection, Coffee, Wink">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/">
     <meta property="og:type" content="article">
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@fabaff">
-    <meta name="twitter:title" content="0.37: Face, Coffee, Wink">
+    <meta name="twitter:title" content="0.37: Face detection, Coffee, Wink">
     <meta name="twitter:description" content="Governance, Face recognition, improved camera security, and a coffee maker">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-01-0.37/social.png">
 
@@ -81,7 +81,7 @@
   
   <header>
   
-  <h1 class="title indent">0.37: Face, Coffee, Wink</h1>
+  <h1 class="title indent">0.37: Face detection, Coffee, Wink</h1>
   
 
   
@@ -141,88 +141,92 @@
 <h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
 <h4><a class="title-link" name="new-platformscomponents" href="#new-platformscomponents"></a> New platforms/components</h4>
 
-<p>Netatmo: <a href="https://home-assistant.io/components/netatmo/">Netatmo</a> Presence support (<a href="https://github.com/gieljnssns">@gieljnssns</a>)
-Sensor: <a href="https://home-assistant.io/components/binary_sensor.arest/">Amcrest</a> camera sensors (<a href="https://github.com/tchellomello">@tchellomello</a>)
-Notify: New <a href="https://home-assistant.io/components/notify.discord/">Discord</a> notification component (<a href="https://github.com/Deinara">@Deinara</a>)
-Device tracker: <a href="https://home-assistant.io/components/device_tracker.tado/">Tado</a> device tracker support (<a href="https://github.com/jmvermeulen">@jmvermeulen</a>)
-Sensor: Add <a href="https://home-assistant.io/components/sensor.skybeacon/">Skybeacon</a> BLE temperature/humidity sensor (<a href="https://github.com/anpetrov">@anpetrov</a>)
-New <a href="https://home-assistant.io/components/zabbix/">Zabbix</a> component (<a href="https://github.com/Whytey">@Whytey</a>)
-Media  player: New platform <a href="https://home-assistant.io/components/media_player.anthemav/">Anthemav</a> Media player (<a href="https://github.com/nugget">@nugget</a>)
-Light: Add support for <a href="https://home-assistant.io/components/light.avion/">Avion</a> Bluetooth dimmer switches (<a href="https://github.com/mjg59">@mjg59</a>)
-Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.bbb_gpio/">Beaglebone Black</a> binary sensor (<a href="https://github.com/MatoKafkac">@MatoKafkac</a>)
-Light: <a href="https://home-assistant.io/components/light.piglow/">Piglow</a> support (<a href="https://github.com/xarnze">@xarnze</a>)
-<a href="https://home-assistant.io/components/microsoft_face/">Face</a> recognition for automation (<a href="https://github.com/pvizeli">@pvizeli</a>)
-Sensor: New <a href="https://home-assistant.io/components/sensor.wsdot/">Washington State DOT</a> sensor (<a href="https://github.com/partofthething">@partofthething</a>)
-Support for Wemo CoffeeMaker devices (<a href="https://github.com/stu-gott">@stu-gott</a>)
-Device tracker: <a href="https://home-assistant.io/components/device_tracker.sky_hub/">Sky hub</a> support (<a href="https://github.com/alexmogavero">@alexmogavero</a>)
-Support for <a href="https://home-assistant.io/components/lutron/">Lutron</a> RadioRA 2 (<a href="https://github.com/thecynic">@thecynic</a>)
-TTS: Amazon <a href="https://home-assistant.io/components/tts.amazon_polly/">Polly TTS</a> platform (<a href="https://github.com/robbiet480">@robbiet480</a>)
-Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.linksys_ap/">Linksys</a> Access Points (<a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>)
-Notify: Make calls with <a href="https://home-assistant.io/components/notify.twilio_call/">Twilio</a> (<a href="https://github.com/fakezeta">@fakezeta</a>)</p>
+<ul>
+  <li>Netatmo: <a href="https://home-assistant.io/components/netatmo/">Netatmo</a> Presence support (<a href="https://github.com/gieljnssns">@gieljnssns</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/binary_sensor.arest/">Amcrest</a> camera sensors (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Notify: New <a href="https://home-assistant.io/components/notify.discord/">Discord</a> notification component (<a href="https://github.com/Deinara">@Deinara</a>)</li>
+  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.tado/">Tado</a> device tracker support (<a href="https://github.com/jmvermeulen">@jmvermeulen</a>)</li>
+  <li>Sensor: Add <a href="https://home-assistant.io/components/sensor.skybeacon/">Skybeacon</a> BLE temperature/humidity sensor (<a href="https://github.com/anpetrov">@anpetrov</a>)</li>
+  <li>New <a href="https://home-assistant.io/components/zabbix/">Zabbix</a> component (<a href="https://github.com/Whytey">@Whytey</a>)</li>
+  <li>Media  player: New platform <a href="https://home-assistant.io/components/media_player.anthemav/">Anthemav</a> Media player (<a href="https://github.com/nugget">@nugget</a>)</li>
+  <li>Light: Add support for <a href="https://home-assistant.io/components/light.avion/">Avion</a> Bluetooth dimmer switches (<a href="https://github.com/mjg59">@mjg59</a>)</li>
+  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.bbb_gpio/">Beaglebone Black</a> binary sensor (<a href="https://github.com/MatoKafkac">@MatoKafkac</a>)</li>
+  <li>Light: <a href="https://home-assistant.io/components/light.piglow/">Piglow</a> support (<a href="https://github.com/xarnze">@xarnze</a>)</li>
+  <li><a href="https://home-assistant.io/components/microsoft_face/">Face</a> recognition for automation (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sensor: New <a href="https://home-assistant.io/components/sensor.wsdot/">Washington State DOT</a> sensor (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>Support for Wemo CoffeeMaker devices (<a href="https://github.com/stu-gott">@stu-gott</a>)</li>
+  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.sky_hub/">Sky hub</a> support (<a href="https://github.com/alexmogavero">@alexmogavero</a>)</li>
+  <li>Support for <a href="https://home-assistant.io/components/lutron/">Lutron</a> RadioRA 2 (<a href="https://github.com/thecynic">@thecynic</a>)</li>
+  <li>TTS: Amazon <a href="https://home-assistant.io/components/tts.amazon_polly/">Polly TTS</a> platform (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.linksys_ap/">Linksys</a> Access Points (<a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>)</li>
+  <li>Notify: Make calls with <a href="https://home-assistant.io/components/notify.twilio_call/">Twilio</a> (<a href="https://github.com/fakezeta">@fakezeta</a>)</li>
+</ul>
 
 <h4>Improvements %}</h4>
 
-<p>Script: Fix script release (<a href="https://github.com/balloob">@balloob</a>)
-Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras (<a href="https://github.com/colinodell">@colinodell</a>)
-Sensor - Miflora: Removing throttle decorator (<a href="https://github.com/freol35241">@freol35241</a>)
-Notify - Lannouncer: Fix <code class="highlighter-rouge">get_service</code> method (<a href="https://github.com/mKeRix">@mKeRix</a>)
-Sensor - WAQI: Add station parameter to waqi sensor (<a href="https://github.com/whhsw">@whhsw</a>)
-Sensor - USPS: Absolute path to save cookie used by USPS sensor (<a href="https://github.com/tchellomello">@tchellomello</a>)
-Nest: Fix python-nest release number (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)
-Keyboard remote: Improve support (<a href="https://github.com/MrMep">@MrMep</a>)
-Device tracker - VolvoOnCall: Fix timedelta (<a href="https://github.com/pvizeli">@pvizeli</a>)
-Climate - eq3btsmart: Expose away attribute (<a href="https://github.com/rytilahti">@rytilahti</a>)
-Remote: Reserve a test port for broken API to fix race (<a href="https://github.com/armills">@armills</a>)
-Climate - Ecobee: Made target temperature sensitive to auto mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)
-Configuration: Fix load_yaml default value (<a href="https://github.com/balloob">@balloob</a>)
-Notify - Facebook: Fix encoding error (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)
-Emulated_hue: Add <code class="highlighter-rouge">upnp_bind_multicast</code> option, default type to Google, and persist emulated hue IDs (<a href="https://github.com/hoopty">@hoopty</a>, <a href="https://github.com/balloob">@balloob</a>)
-Docker: Install phantomjs in Docker container (<a href="https://github.com/jnewland">@jnewland</a>)
-Media player - MPD: Add listing and selection of available MPD playlists (<a href="https://github.com/partofthething">@partofthething</a>)
-Media player - Denon AVR: Denon improvements (<a href="https://github.com/glance-">@glance-</a>)
-Light - x10.py: Improved x10 state monitoring (<a href="https://github.com/martst">@martst</a>)
-Sensor - DSMR: TCP, reconnecting and V4 CRC support (<a href="https://github.com/aequitas">@aequitas</a>)
-Media player - Yamaha.py: Fix Yamaha doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a>)
-Device tracker UPC: Make upc more robust (<a href="https://github.com/pvizeli">@pvizeli</a>)
-Climate - Generic thermostat: Update (<a href="https://github.com/MrMep">@MrMep</a>)
-Device tracker - Xiaomi.py: Xiaomi Mi Router token refresh (<a href="https://github.com/RiRomain">@RiRomain</a>)
-Camera - MJPEG: Support still image for thumbmail (<a href="https://github.com/pvizeli">@pvizeli</a>)
-Sensor - ZAMG: Updated valid station id list (<a href="https://github.com/HerrHofrat">@HerrHofrat</a>)
-Light - ISY994: Not overwrite <code class="highlighter-rouge">state_attributes</code> (<a href="https://github.com/rmkraus">@rmkraus</a>)<a href="https://home-assistant.io/components/emulated_hue/">emul-hue</a>
-Light - Zwave: Use only supported features for devices (<a href="https://github.com/turbokongen">@turbokongen</a>)
-Media player - Kodi: Support for volume stepping (<a href="https://github.com/armills">@armills</a>)
-Media player- roku: Use <code class="highlighter-rouge">is_screensaver</code>, update IDLE state, and use device name (<a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/xhostplus">@xhostplus</a>)
-Switch - HDMI CEC: Support for devices and commands (<a href="https://github.com/konikvranik">@konikvranik</a>)
-Lock - Zwave: Improvements to Zwave lock platform (<a href="https://github.com/turbokongen">@turbokongen</a>)
-TTS: Invalidate broken file cache entries (<a href="https://github.com/stu-gott">@stu-gott</a>)
-Light - Hue: Improvements (<a href="https://github.com/robbiet480">@robbiet480</a>)
-TTS - YandexTTS: Added speed and emotion to Yandex TTS (<a href="https://github.com/lupin-de-mid">@lupin-de-mid</a>)
-Light - tellstick.py: Tellstick light fix (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)
-Switch - insteon_local.py: only check for devices when not defined in config (<a href="https://github.com/wardcraigj">@wardcraigj</a>)
-Notify - Twitter: Allow direct messaging to user (<a href="https://github.com/fabaff">@fabaff</a>)
-Fan - MQTT: Dont set a speed when fan turns on (<a href="https://github.com/robbiet480">@robbiet480</a>)
-Config: Allow easier customization of whole domain, entity lists, globs (<a href="https://github.com/andrey-git">@andrey-git</a>)
-Sensor - Homematic: Update device support (<a href="https://github.com/danielperna84">@danielperna84</a>)
-Binary sensor - ISS: Add location to attributes and option to show position on the map (<a href="https://github.com/fabaff">@fabaff</a>)
-Media player - Kodi: Add SSL configuration option (<a href="https://github.com/ecksun">@ecksun</a>)
-Sensor - WAQI: Add missing particle value (<a href="https://github.com/fabaff">@fabaff</a>)
-Wink: Support for python-wink 1.0.0 (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)
-Binary sensor - RPi GPIO: Add a small sleep before reading the sensor (<a href="https://github.com/snagytx">@snagytx</a>)
-Sensor - USPS: Add name to configuration (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)
-Sensor - Miflora: Remove throttle decorator from miflora platform (<a href="https://github.com/freol35241">@freol35241</a>)
-Device tracker - asuswrt.py: Add IPv6 support when parsing neighbors (<a href="https://github.com/leppa">@leppa</a>)
-iOS: Discover notify.ios when iOS component loads (<a href="https://github.com/robbiet480">@robbiet480</a>)
-Homematic: Add MAX shutter contact class (<a href="https://github.com/jannau">@jannau</a>)
-Sensor - Darksky: Added forecast support (<a href="https://github.com/nordlead2005">@nordlead2005</a>)
-Switch - Pilight: Implement echo config option (<a href="https://github.com/janLo">@janLo</a>)
-Core: Support customize in packages (<a href="https://github.com/kellerza">@kellerza</a>)
-Switch - Flux: Allow disabling setting the brightness (<a href="https://github.com/rytilahti">@rytilahti</a>)
-Media player - Sonos: Add <code class="highlighter-rouge">is_coordinator</code>, set coordinator after join/unjoin, and no emtpy image (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/robbiet480">@robbiet480</a>)
-Climate: Hold mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)
-Switch - TPlink: No longer doing I/O in event bus (<a href="https://github.com/balloob">@balloob</a>)
-Light - Insteon local: Improve Insteon configuration (<a href="https://github.com/wardcraigj">@wardcraigj</a>)
-Emulated Hue: Emulated Hue “host-ip” fails to bind when running in docker without <code class="highlighter-rouge">--net=host</code> (<a href="https://github.com/jeremydk">@jeremydk</a>)
-Climate - EQ3 BT smart: Add reporting for availability (<a href="https://github.com/rytilahti">@rytilahti</a>)</p>
+<ul>
+  <li>Script: Fix script release (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras (<a href="https://github.com/colinodell">@colinodell</a>)</li>
+  <li>Sensor - Miflora: Removing throttle decorator (<a href="https://github.com/freol35241">@freol35241</a>)</li>
+  <li>Notify - Lannouncer: Fix <code class="highlighter-rouge">get_service</code> method (<a href="https://github.com/mKeRix">@mKeRix</a>)</li>
+  <li>Sensor - WAQI: Add station parameter to waqi sensor (<a href="https://github.com/whhsw">@whhsw</a>)</li>
+  <li>Sensor - USPS: Absolute path to save cookie used by USPS sensor (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Nest: Fix python-nest release number (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Keyboard remote: Improve support (<a href="https://github.com/MrMep">@MrMep</a>)</li>
+  <li>Device tracker - VolvoOnCall: Fix timedelta (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Climate - eq3btsmart: Expose away attribute (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
+  <li>Remote: Reserve a test port for broken API to fix race (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Climate - Ecobee: Made target temperature sensitive to auto mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)</li>
+  <li>Configuration: Fix load_yaml default value (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Notify - Facebook: Fix encoding error (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Emulated_hue: Add <code class="highlighter-rouge">upnp_bind_multicast</code> option, default type to Google, and persist emulated hue IDs (<a href="https://github.com/hoopty">@hoopty</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Docker: Install phantomjs in Docker container (<a href="https://github.com/jnewland">@jnewland</a>)</li>
+  <li>Media player - MPD: Add listing and selection of available MPD playlists (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>Media player - Denon AVR: Denon improvements (<a href="https://github.com/glance-">@glance-</a>)</li>
+  <li>Light - x10.py: Improved x10 state monitoring (<a href="https://github.com/martst">@martst</a>)</li>
+  <li>Sensor - DSMR: TCP, reconnecting and V4 CRC support (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Media player - Yamaha.py: Fix Yamaha doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Device tracker UPC: Make upc more robust (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Climate - Generic thermostat: Update (<a href="https://github.com/MrMep">@MrMep</a>)</li>
+  <li>Device tracker - Xiaomi.py: Xiaomi Mi Router token refresh (<a href="https://github.com/RiRomain">@RiRomain</a>)</li>
+  <li>Camera - MJPEG: Support still image for thumbmail (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sensor - ZAMG: Updated valid station id list (<a href="https://github.com/HerrHofrat">@HerrHofrat</a>)</li>
+  <li>Light - ISY994: Not overwrite <code class="highlighter-rouge">state_attributes</code> (<a href="https://github.com/rmkraus">@rmkraus</a>)<a href="https://home-assistant.io/components/emulated_hue/">emul-hue</a></li>
+  <li>Light - Zwave: Use only supported features for devices (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Media player - Kodi: Support for volume stepping (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Media player- roku: Use <code class="highlighter-rouge">is_screensaver</code>, update IDLE state, and use device name (<a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/xhostplus">@xhostplus</a>)</li>
+  <li>Switch - HDMI CEC: Support for devices and commands (<a href="https://github.com/konikvranik">@konikvranik</a>)</li>
+  <li>Lock - Zwave: Improvements to Zwave lock platform (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>TTS: Invalidate broken file cache entries (<a href="https://github.com/stu-gott">@stu-gott</a>)</li>
+  <li>Light - Hue: Improvements (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>TTS - YandexTTS: Added speed and emotion to Yandex TTS (<a href="https://github.com/lupin-de-mid">@lupin-de-mid</a>)</li>
+  <li>Light - tellstick.py: Tellstick light fix (<a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>)</li>
+  <li>Switch - insteon_local.py: only check for devices when not defined in config (<a href="https://github.com/wardcraigj">@wardcraigj</a>)</li>
+  <li>Notify - Twitter: Allow direct messaging to user (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fan - MQTT: Dont set a speed when fan turns on (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Config: Allow easier customization of whole domain, entity lists, globs (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Sensor - Homematic: Update device support (<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Binary sensor - ISS: Add location to attributes and option to show position on the map (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player - Kodi: Add SSL configuration option (<a href="https://github.com/ecksun">@ecksun</a>)</li>
+  <li>Sensor - WAQI: Add missing particle value (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Wink: Support for python-wink 1.0.0 (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Binary sensor - RPi GPIO: Add a small sleep before reading the sensor (<a href="https://github.com/snagytx">@snagytx</a>)</li>
+  <li>Sensor - USPS: Add name to configuration (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Sensor - Miflora: Remove throttle decorator from miflora platform (<a href="https://github.com/freol35241">@freol35241</a>)</li>
+  <li>Device tracker - asuswrt.py: Add IPv6 support when parsing neighbors (<a href="https://github.com/leppa">@leppa</a>)</li>
+  <li>iOS: Discover notify.ios when iOS component loads (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Homematic: Add MAX shutter contact class (<a href="https://github.com/jannau">@jannau</a>)</li>
+  <li>Sensor - Darksky: Added forecast support (<a href="https://github.com/nordlead2005">@nordlead2005</a>)</li>
+  <li>Switch - Pilight: Implement echo config option (<a href="https://github.com/janLo">@janLo</a>)</li>
+  <li>Core: Support customize in packages (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Switch - Flux: Allow disabling setting the brightness (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
+  <li>Media player - Sonos: Add <code class="highlighter-rouge">is_coordinator</code>, set coordinator after join/unjoin, and no emtpy image (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Climate: Hold mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)</li>
+  <li>Switch - TPlink: No longer doing I/O in event bus (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Light - Insteon local: Improve Insteon configuration (<a href="https://github.com/wardcraigj">@wardcraigj</a>)</li>
+  <li>Emulated Hue: Emulated Hue “host-ip” fails to bind when running in docker without <code class="highlighter-rouge">--net=host</code> (<a href="https://github.com/jeremydk">@jeremydk</a>)</li>
+  <li>Climate - EQ3 BT smart: Add reporting for availability (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
+</ul>
 
 <p>Bugfix: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/freol35241">@freol35241</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/tdickman">@tdickman</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/rytilahti">@rytilahti</a>, <a href="https://github.com/R1chardTM">@R1chardTM</a>, <a href="https://github.com/asbach">@asbach</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/colinodell">@colinodell</a>, <a href="https://github.com/joopert">@joopert</a>, <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/jaharkes">@jaharkes</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/jabesq">@jabesq</a>, and you if you are missing in this list.</p>
 

@@ -3,7 +3,7 @@
   "release_date": "2017-01-29T00:00:00+00:00",
   "release_notes": "https://home-assistant.io/blog/2017/01/28/face-coffee-wink/",
   "release_notes_path": "/blog/2017/01/28/face-coffee-wink/",
-  "release_title": "0.37: Face, Coffee, Wink",
+  "release_title": "0.37: Face detection, Coffee, Wink",
   "release_description": "Governance, Face recognition, improved camera security, and a coffee maker",
   "patch_version_notes": "",
   "root_url": "https://home-assistant.io",
