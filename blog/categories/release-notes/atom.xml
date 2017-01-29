@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-29T00:02:42+00:00</updated>
+  <updated>2017-01-29T00:06:05+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -69,7 +69,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Device tracker: Support for [Linksys][linksys] Access Points ([@lukas-hetzenecker])
 - Notify: Make calls with [Twilio][twilio] ([@fakezeta])
 
-#### Improvements %}
+#### <a class='title-link' name='improvements' href='#improvements'></a> Improvements 
 
 - Script: Fix script release ([@balloob])
 - Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras ([@colinodell])
