@@ -21,7 +21,7 @@ Api.ai could be integrated with many popular messaging, virtual assistant and Io
 
 Using Api.ai will be easy to create conversations like:
  > User: Which is the temperature at home?
- > -
+ >
  > Bot: The temperature is 34 degrees
 
  > User: Turn on the light
@@ -40,7 +40,7 @@ To use this integration you should define a conversation (intent) in Api.ai, con
 - Select name, language (if you are planning to use it with Google Actions check [here](https://support.google.com/assistant/answer/7108196?hl=en) supported languages) and time zone
 - Click "Save"
 - Go to "Fullfiment" (in the left menu)
-- Enable Webhook and set your HA url with the apiai endpoint. Eg.: https://myhome.duckdns.org/api/apiai
+- Enable Webhook and set your HA url with the apiai endpoint. Eg.: ``https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD``
 - Click "Save"
 - Create a new intent
 - Below "User says" write one phrase that you, the user, will tell Api.ai. Eg.: Which is the temperature at home?
@@ -87,34 +87,48 @@ Inside an intent we can define this variables:
 
 ## {% linkable_title Examples %}
 
+Download [this zip](http://filebin.ca/3AZSHoXPnbEv/HomeAssistant_APIAI.zip) and load it in your Api.ai agent (Settings -> Export and Import) for examples intents to use with this configuration:
+
 ```yaml
 {% raw %}# Example configuration.yaml entry
 apiai:
   intents:
-    WhereAreWeIntent:
-      speech: >
-        {%- if is_state('device_tracker.paulus', 'home') and
-               is_state('device_tracker.anne_therese', 'home') -%}
-          You are both home, you silly
-        {%- else -%}
-          Anne Therese is at {{ states("device_tracker.anne_therese") }}
-          and Paulus is at {{ states("device_tracker.paulus") }}
-        {% endif %}
-
+    Temperature:
+      speech: The temperature at home is {{ states('sensor.home_temp') }} degrees
     LocateIntent:
-      action:
-        service: notify.notify
-        data_template:
-          message: The location of {{ User }} has been queried via Alexa.
       speech: >
         {%- for state in states.device_tracker -%}
           {%- if state.name.lower() == User.lower() -%}
             {{ state.name }} is at {{ state.state }}
+          {%- elif loop.last -%}
+            I am sorry, I do not know where {{ User }} is.
           {%- endif -%}
         {%- else -%}
-          I am sorry, I do not know where {{ User }} is.
+          Sorry, I don't have any trackers registered.
         {%- endfor -%}
-{% endraw %}
+    WhereAreWeIntent:
+      speech: >
+        {%- if is_state('device_tracker.adri', 'home') and
+               is_state('device_tracker.bea', 'home') -%}
+          You are both home, you silly
+        {%- else -%}
+          Bea is at {{ states("device_tracker.bea") }}
+          and Adri is at {{ states("device_tracker.adri") }}
+        {% endif %}
+    TurnLights:
+      speech: Turning {{ Room }} lights {{ OnOff }}
+      action:
+        - service: notify.pushbullet
+          data_template:
+            message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}
+        - service_template: >
+            {%- if OnOff == "on" -%}
+              switch.turn_on
+            {%- else -%}
+              switch.turn_off
+            {%- endif -%}
+          data_template:
+            entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
 ```
 
 [apiai-web]: https://api.ai/
