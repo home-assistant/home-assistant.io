@@ -25,6 +25,7 @@ input_select:
      - Paulus
      - Anne Therese
     initial: Anne Therese
+    restore: startup
     icon: mdi:panda
   living_room_preset:
     options:
@@ -39,6 +40,7 @@ Configuration variables:
 - **name** (*Optional*): Friendly name of the input.
 - **options** array: List of options to choose from
 - **initial** (*Optional*): Initial value when Home Assistant starts.
+- **restore** (*Optional*): Restore last know state on startup (possible values: 'startup')
 - **icon** (*Optional*): Icon for entry.
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
