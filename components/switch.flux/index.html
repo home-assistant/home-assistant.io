@@ -113,6 +113,7 @@
   <span class="s">sunset_colortemp</span><span class="pi">:</span> <span class="s">3000</span>
   <span class="s">stop_colortemp</span><span class="pi">:</span> <span class="s">1900</span>
   <span class="s">brightness</span><span class="pi">:</span> <span class="s">200</span>
+  <span class="s">disable_brightness_adjust</span><span class="pi">:</span> <span class="s">True</span>
   <span class="s">mode</span><span class="pi">:</span> <span class="s">xy</span>
 </code></pre>
 </div>
@@ -127,7 +128,8 @@
   <li><strong>start_colortemp</strong> (<em>Optional</em>): The color temperature at the start. Defaults to <code class="highlighter-rouge">4000</code>.</li>
   <li><strong>sunset_colortemp</strong> (<em>Optional</em>): The sun set color temperature. Defaults to <code class="highlighter-rouge">3000</code>.</li>
   <li><strong>stop_colortemp</strong> (<em>Optional</em>): The color temperature at the end. Defaults to <code class="highlighter-rouge">1900</code>.</li>
-  <li><strong>brightness</strong> (<em>Optional</em>): The brightness of the lights. Calculated with <code class="highlighter-rouge">RGB_to_xy</code> by default. Setting to -1 disables brightness updates.</li>
+  <li><strong>brightness</strong> (<em>Optional</em>): The brightness of the lights. Calculated with <code class="highlighter-rouge">RGB_to_xy</code> by default.</li>
+  <li><strong>disable_brightness_adjust</strong> (<em>Optional</em>): If true, brightness will not be adjusted besides color temperature. Defaults to False.</li>
   <li><strong>mode</strong> (<em>Optional</em>): Select how color temperature is passed to lights. Valid values are <code class="highlighter-rouge">xy</code> and <code class="highlighter-rouge">mired</code>. Defaults to <code class="highlighter-rouge">xy</code>.</li>
 </ul>
 
