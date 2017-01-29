@@ -63,7 +63,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Device tracker: Support for [Linksys][linksys] Access Points ([@lukas-hetzenecker])
 - Notify: Make calls with [Twilio][twilio] ([@fakezeta])
 
-#### Improvements %}
+#### {% linkable_title Improvements %}
 
 - Script: Fix script release ([@balloob])
 - Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras ([@colinodell])
