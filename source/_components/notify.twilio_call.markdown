@@ -8,7 +8,7 @@ sharing: true
 footer: true
 logo: twilio.png
 ha_category: Notifications
-ha_release: "0.36.1"
+ha_release: "0.37"
 ---
 
 The `twilio` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
