@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-01-29T00:43:01+00:00</updated>
+  <updated>2017-01-29T00:50:01+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -141,7 +141,7 @@
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 <ul>
-  <li>A <strong>major</strong> breaking change in the <a href="https://home-assistant.io/components/emulated_hue/"><code class="highlighter-rouge">emulated_hue</code></a> component means that without changing a configuration value before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups. Find out about the <a href="emul_hue">details</a>.</li>
+  <li>A <strong>major</strong> breaking change in the <a href="https://home-assistant.io/components/emulated_hue/"><code class="highlighter-rouge">emulated_hue</code></a> component means that unless you set <code class="highlighter-rouge">type: alexa</code> before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups.</li>
   <li>The platform of the <a href="https://home-assistant.io/components/binary_sensor.iss/">ISS</a> integration was change to <code class="highlighter-rouge">binary_sensor</code>. Please check the platform documentation.</li>
   <li>The <a href="https://home-assistant.io/components/media_player.roku/">Roku</a> media uses now a new format for the entity IDs.</li>
   <li><a href="https://home-assistant.io/components/#image-processing">OpenALPR</a> is no longer a component. It’s now a platform for <a href="https://home-assistant.io/components/image_processing/">Image processing</a>.</li>
