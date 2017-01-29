@@ -130,7 +130,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@tdickman], [@armills], [@rytilahti], [@R1chardTM], [@asbach], [@happyleavesaoc], [@robbiet480], [@colinodell], [@joopert], [@dale3h], [@pavoni], [@jaharkes], [@MartinHjelmare], [@mezz64], [@jabesq], and you if you are missing in this list.
 
 ### {% linkable_title Breaking changes %}
-- A **major** breaking change in the [`emulated_hue`][emul-hue] component means that without changing a configuration value before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups. Find out about the [details](emul_hue).
+- A **major** breaking change in the [`emulated_hue`][emul-hue] component means that unless you set `type: alexa` before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups.
 - The platform of the [ISS][iss] integration was change to `binary_sensor`. Please check the platform documentation.
 - The [Roku][roku] media uses now a new format for the entity IDs.
 - [OpenALPR][openalpr] is no longer a component. It's now a platform for [Image processing][image].
