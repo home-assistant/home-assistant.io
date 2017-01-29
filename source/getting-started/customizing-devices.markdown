@@ -11,6 +11,8 @@ footer: true
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
+This format works for version 0.37+. For pre-0.37 use [Older format](https://home-assistant.io/getting-started/customizing-devices/#older_format)
+
 `customize` consists of a list of attribute customization blocks
 
 ```yaml
