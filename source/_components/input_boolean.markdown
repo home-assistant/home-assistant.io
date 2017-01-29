@@ -19,6 +19,7 @@ input_boolean:
   notify_home:
     name: Notify when someone arrives home
     initial: off
+    restore: startup
     icon: mdi:car
 ```
 
@@ -27,6 +28,7 @@ Configuration variables:
 - **[alias]** (*Required*): Alias for the input.
 - **name** (*Optional*): Friendly name of the input.
 - **initial** (*Optional*): Initial value when Home Assistant starts.
+- **restore** (*Optional*): Restore last know state on startup (possible values: 'startup')
 - **icon** (*Optional*): Icon for entry.
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
