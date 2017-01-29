@@ -19,7 +19,7 @@ This component is just an adaptation from the Twilio SMS notification platform a
 Free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
 Calls are limited to 10 minutes and will play a short trial message before your message runs.
 
-Upgraded accounts have no limitation.t
+Upgraded accounts have no limitation.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
