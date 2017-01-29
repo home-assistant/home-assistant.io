@@ -82,3 +82,4 @@ After we done with changes on a group, we need train this group to make our AI f
 service: microsoft_face.train_group
 data:
   group: family
+```
