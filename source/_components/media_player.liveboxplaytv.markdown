@@ -10,7 +10,7 @@ footer: true
 logo: orange.png
 ha_category: Media Player
 featured: false
-ha_release: 0.37
+ha_release: 0.38
 ha_iot_class: "Local Polling"
 ---
 
