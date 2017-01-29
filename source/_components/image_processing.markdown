@@ -10,7 +10,7 @@ footer: true
 ha_release: 0.36
 ---
 
-Image processing enables Home Assistant to process images from [cameras][/components/#camera]. Only camera entities are supported as sources.
+Image processing enables Home Assistant to process images from [cameras](/components/#camera). Only camera entities are supported as sources.
 
 For interval control, use `scan_interval` in platform.
 
