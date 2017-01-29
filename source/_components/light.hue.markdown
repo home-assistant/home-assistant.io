@@ -27,6 +27,9 @@ If you want to enable the component without relying on the [discovery component]
 light:
   platform: hue
   host: DEVICE_IP_ADDRESS
+  allow_unreachable: true
+  allow_in_emulated_hue: false
+  allow_hue_groups: false
 ```
 
 Configuration variables:
