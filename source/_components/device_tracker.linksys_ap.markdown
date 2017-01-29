@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Presence Detection
-featured: false
+logo: linksys.png
 ha_release: 0.37
 ---
 
