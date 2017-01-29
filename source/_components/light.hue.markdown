@@ -31,7 +31,7 @@ light:
 
 Configuration variables:
 
-- **host** (*Required*): IP address of the device, eg. 192.168.1.10.
+- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
 - **allow_unreachable** (*Optional*):  This will allow unreachable bulbs to report their state correctly. By default *name* from the device is used.
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
 - **allow_in_emulated_hue** (*Optional*): Enable this to block all Hue entities from being added to the `emulated_hue` component.
