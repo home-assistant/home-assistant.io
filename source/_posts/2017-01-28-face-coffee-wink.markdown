@@ -8,7 +8,7 @@ author: Fabian Affolter et al.
 author_twitter: fabaff
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2016-01-0.37/social.png
+og_image: /images/blog/2017-01-0.37/social.png
 ---
 
 
