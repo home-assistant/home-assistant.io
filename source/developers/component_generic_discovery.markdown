@@ -59,7 +59,7 @@ def setup(hass, config):
 Add your custom device specific code to the `setup_platform` method in `light/myflashyhub.py` and `switch/myflashyhub`.
 
 ```python
-import homeassistant.components.myflashyhub as myflashyhub
+import custom_components.myflashyhub as myflashyhub
 
 # 'switch' will receive discovery_info={'optional': 'arguments'} 
 # as passed in above. 'light' will receive discovery_info=None
