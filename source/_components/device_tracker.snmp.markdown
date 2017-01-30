@@ -29,6 +29,7 @@ OID examples:
 - pfSense: `1.3.6.1.2.1.4.22.1.2` (tested on 2.2.4-RELEASE, need to enable SNMP service)
 - TPLink: `1.3.6.1.2.1.3.1.1.2.19.1` (Archer VR2600v, need to enable SNMP service)
 - EdgeRouter `1.3.6.1.2.1.4.22.1.2` (EdgeRouter Lite v1.9.0, need to enable SNMP service)
+- Ruckus: `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` (Ruckus ZoneDirector, tested on 9.13.3)
 
 To use the SNMP version 1 platform in your installation, add the following to your `configuration.yaml` file:
 
