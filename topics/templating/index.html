@@ -200,7 +200,7 @@ The frontend has a template editor developer tool to help develop and debug temp
 
 {{ states.sensor.temperature | float + 1 }}
 
-{{ states.sensor.temperature | float * 10 | round(2) }}
+{{ (states.sensor.temperature | float * 10) | round(2) }}
 
 {% if states('sensor.temperature') | float &gt; 20 %}
   It is warm!
