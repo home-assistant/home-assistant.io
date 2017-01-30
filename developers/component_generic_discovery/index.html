@@ -139,7 +139,7 @@ This can be achieved using the <code class="highlighter-rouge">homeassistant.com
 
 <p>Add your custom device specific code to the <code class="highlighter-rouge">setup_platform</code> method in <code class="highlighter-rouge">light/myflashyhub.py</code> and <code class="highlighter-rouge">switch/myflashyhub</code>.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.components.myflashyhub</span> <span class="kn">as</span> <span class="nn">myflashyhub</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">custom_components.myflashyhub</span> <span class="kn">as</span> <span class="nn">myflashyhub</span>
 
 <span class="c"># 'switch' will receive discovery_info={'optional': 'arguments'} </span>
 <span class="c"># as passed in above. 'light' will receive discovery_info=None</span>
