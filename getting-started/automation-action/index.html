@@ -126,7 +126,7 @@
 </code></pre>
 </div>
 
-<p>Conditions can also be part of an action:</p>
+<p>Conditions can also be part of an action. You can combine multiple service calls and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any service calls after that condition will not be executed.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Enciende</span><span class="nv"> </span><span class="s">Despacho'</span>
@@ -135,6 +135,9 @@
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.mini_despacho</span>
     <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ON'</span>
   <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s">Testing conditional actions</span>
     <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">or</span>
       <span class="s">conditions</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">template</span>
