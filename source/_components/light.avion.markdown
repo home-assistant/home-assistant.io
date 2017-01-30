@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Avion"
-description: "Instructions on how to setup GE Avion Bluetooth dimmers within Home Assistant."
+title: "Avi-on"
+description: "Instructions on how to setup GE Avi-on Bluetooth dimmers within Home Assistant."
 date: 2017-01-17 23:17
 sidebar: true
 comments: false
@@ -9,11 +9,13 @@ sharing: true
 footer: true
 ha_category: Light
 ha_iot_class: "Assumed State"
-featured: false
+logo: avi-on.png
 ha_release: 0.37
 ---
 
-Support for the Avion Bluetooth dimmer switch [Avi-On](http://avi-on.com/). To enable these lights, add the following lines to your `configuration.yaml` file:
+Support for the Avi-on Bluetooth dimmer switch [Avi-On](http://avi-on.com/).
+
+To enable these lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

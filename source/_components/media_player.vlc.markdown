@@ -29,13 +29,13 @@ Configuration variables:
 - **name** (*Optional*): The name to use in the frontend.
 - **arguments** (*Optional*): Additional arguments to be passed to VLC.
 
-Only "music" media type is supported for now.
+Only the "music" media type is supported for now.
 
 This service will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
 
 ## {% linkable_title Full configuration %}
 
-A full configuration for VLC could llok like the one below:
+A full configuration for VLC could look like the one below:
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,4 +43,20 @@ media_player:
   - platform: vlc
     name: speaker_1
     arguments: '--alsa-audio-device=hw:1,0'
+```
+
+##### {% linkable_title Additional configuration on macOS %}
+
+On macOS `python-vlc` won’t find the VLC plugin directory unless you add this to the user’s `.bash_profile` that is running Home Assistant:
+
+```bash
+export VLC_PLUGIN_PATH=$VLC_PLUGIN_PATH:/Applications/VLC.app/Contents/MacOS/plugins
+```
+
+##### {% linkable_title Additional configuration for Rasperry Pi %}
+
+You need to add the `homeassistant` user to the `audio` group:
+
+```bash
+sudo usermod -a -G audio homeassistant
 ```

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Release
+ha_category: Other
 ha_release: 0.37
 ---
 
@@ -17,4 +17,3 @@ Details about the latest release can always be found at:
 - [Release blog posts](https://home-assistant.io/blog/categories/release-notes/)
 - [GitHub releases](https://github.com/home-assistant/home-assistant/releases)
 - [Python Package Index](https://pypi.python.org/pypi/homeassistant/)
-

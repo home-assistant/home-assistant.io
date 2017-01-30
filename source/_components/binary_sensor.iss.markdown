@@ -27,3 +27,16 @@ binary_sensor:
 Configuration variables:
 
 - **show_on_map** (*Optional*): Option to show the position of the ISS on the map. Defaults to `False`.
+
+### {% linkable_title Show position on map with camera platform %}
+
+The [generic camera platform](/components/camera.mjpeg/) offers the possibility to show the location of the ISS on Google Maps.
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: generic
+    name: ISS
+    still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=5&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}{% endraw %}
+    limit_refetch_to_url_change: true
+```

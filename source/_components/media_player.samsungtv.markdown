@@ -30,7 +30,7 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): The IP of the Samsung Smart TV, eg. `192.168.0.10`.
-- **port** (*Optional*): The port of the Samsung Smart TV. Defaults to 55000.
+- **port** (*Optional*): The port of the Samsung Smart TV. Defaults to 55000. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).
 - **name** (*Optional*): The name you would like to give to the Samsung Smart TV.
 - **timeout** (*Optional*): The time-out for the communication with the TV. Defaults to 0.
 
@@ -51,13 +51,12 @@ Currently known supported models:
 
 Currently tested but not working models:
 
-- KU6300 - Shows in GUI but unable to control.
-- H6400 - Shows in GUI but unable to control.
 - J5200 - Unable to see state and unable to control
-- JU6400 - Shows in GUI but unable to control
  
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown).
 The first letter (U, P, L, H & K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
 If you add your model remember to remove these before adding them to the list.
+
+Currently the ability to select a source is not implemented.
 
 There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TV's receiving a *Key press UP* that can interrupt certain applications. 

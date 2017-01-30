@@ -109,4 +109,6 @@ The (**homeassistant**)user is added to the GPIO group as part of the install no
 
 ### {% linkable_title WinSCP %}
 
-If you are Windows users who is using [WinSCP](https://winscp.net/), please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP is: **Environment** -> **SCP/Shell** -> **Shell** and set it to `sudo su -`.
+If you are Windows users who is using [WinSCP](https://winscp.net/), please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. 
+
+First create a new session on WinSCP using Protocol **SCP** pointing to your Pi IP address and port 22 and then modify the needed setting by click on **Advanced...** -> **Environment** -> **SCP/Shell** -> **Shell** and selecting `sudo su -`.

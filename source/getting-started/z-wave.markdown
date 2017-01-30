@@ -79,8 +79,8 @@ Configuration variables:
 - **customize** (*Optional*): This attribute contains node-specific override values:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
-  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only light component uses this. Defaults to 2 second delay.
-  - **delay** (*Optional*): Specify the delay to wait for refresh of node value if you want other than 2 seconds.
+  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
+  - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
 - **debug** (*Optional*): Print verbose z-wave info to log. Defaults to False.
 
 To find the path of your Z-Wave USB stick or module, run:
@@ -93,6 +93,9 @@ Or, on some other systems (such as Raspberry Pi), use:
 
 ```bash
 $ ls /dev/ttyACM*
+
+# If `hass` runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
+$ sudo usermod -a -G dialout homeassistant
 ```
 
 Or, on some other systems (such as Pine 64), use:
@@ -239,7 +242,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | stop_network | Stops the Z-Wave network.|
 | test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
 
-The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a `heal_network` at midnight.  This is a configuration option for the `zwave` component, the option defaults to `true` but can be disabled by setting `auto_heal` to false.  Using the `soft_reset` function with some Z-Wave controllers can cause the Z-Wave network to hang. If you're having issues with your Z-Wave network try disabling this automation.
+The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a `heal_network` at midnight.  This is a configuration option for the `zwave` component, the option defaults to `true` but can be disabled by setting `autoheal` to false.  Using the `soft_reset` function with some Z-Wave controllers can cause the Z-Wave network to hang. If you're having issues with your Z-Wave network try disabling this automation.
 
 ```yaml
 # Example configuration.yaml automation entry

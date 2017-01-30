@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `plex` platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item. The preferred way to setup the Plex platform is by enabling the the [the discovery component](/components/discovery/) and requires GDM to be enabled.
+The `plex` platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item. The preferred way to setup the Plex platform is by enabling the [the discovery component](/components/discovery/) and requires GDM to be enabled.
 
 If local authentication is enabled or multiple users are defined, Home Assistant requires an authentication token to be entered in the frontend. Press "CONFIGURE" to do it.
 

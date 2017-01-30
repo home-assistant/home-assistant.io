@@ -34,7 +34,7 @@ Configuration variables:
 - **mac** (*Required*):  Device mac address.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device
 - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
-- **types** (*Optional*): Switch type. (rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl, rm_mini_shate, sp1, sp2, honeywell_sp2, sp3, spmini2 or spminiplus)
+- **type** (*Optional*): Switch type. (rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl, rm_mini_shate, sp1, sp2, honeywell_sp2, sp3, spmini2 or spminiplus)
 - **switches** (*Optional*): The array that contains all switches.
   - **identifier** (*Required*): Name of the command switch as slug. Multiple entries are possible.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
@@ -42,7 +42,10 @@ Configuration variables:
     - **command_off** (*Required*): Base64 encoded packet from RM device to take for off.
 
 
-How to obtain IR/RF packets?
+Information about how to install on Windows can be found [here](https://home-assistant.io/components/sensor.broadlink/#microsoft-windows-installation)
+
+
+### {% linkable_title How to obtain IR/RF packets? %}
 
 Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of Available services:  and hit CALL SERVICE. Press the button on your remote with in 20 seconds. The packet will be printed in the log and as a persistent notification.
 
@@ -55,6 +58,7 @@ switch 2:
   host: 192.168.1.2
   mac: 'B4:43:0D:CC:0F:58'
   timeout: 15
+  switches:
 # Will work on most Phillips tvs:
     tv:
       friendly_name: "Phillips Tv"
@@ -87,11 +91,12 @@ switch 2:
   host: 192.168.1.2
   mac: 'B4:43:0D:CC:0F:58'
   timeout: 15
+  switches:
 # Will work on most Phillips tvs:
     tv:
       friendly_name: "Phillips Tv"
       command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
-
+      command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
 
 ``` 
 
@@ -114,3 +119,50 @@ switch 2:
   friendly_name: 'Humidifier'
 
 ``` 
+
+
+### {% linkable_title Using E-Control Remotes %}
+
+If you already have your remotes learned on E-Control app you can use this method to "copy" trem to HA.
+
+First get or learn all the remotes you want to add on HA in E-Control
+
+1. Download
+
+    Get the script from [here](https://github.com/NightRang3r/Broadlink-e-control-db-dump5).
+
+2. Dump the data from the app
+
+    Open the E-Control app on your mobile device. On the left side menu choose "Share" and then "Share to other phones in WLAN". It will generate the files you will need for the script.
+
+3. Get data from your Android device
+
+    Connect your Android device to your computer and browse the SD card / External Storage folder "/broadlink/newremote/SharedData/". You need to get the following files and put them in the same folder as this script.:
+
+    jsonSubIr
+    jsonButton
+    jsonIrCode
+  
+4. Install Requirements
+
+    Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+
+5. Get the data from the device
+
+    Navigate to the folder you downloaded and run `python getBroadlinkSharedData.py`. Follow the steps on screen. NOTE: These scripts were only tested with Python 2.7.
+
+6. Install python-broadlink library:
+
+  1. `git clone https://github.com/mjg59/python-broadlink.git`
+  2. `cd python-broadlink`
+  3. `sudo python setup.py install`
+
+7. Test the codes
+Use the `sendcode` script you have already downloded to test the codes you got from the device
+You need to edit the script with your RM Pro IP Address and MAC Address and with the code in hex format.
+When run the script, you know the code works when get message 
+Code sent...
+Not every code works.
+
+8. Convert the hex codes to base64
+Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.

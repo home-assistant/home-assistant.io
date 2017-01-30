@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it.
+The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the `recorder` component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities as well.
 
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
 
@@ -89,7 +89,7 @@ history:
 
 #### {% linkable_title Implementation details %}
 
-The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory.
+The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory if the `recorder` component is not set up differently.
 
  - events table is all events except `time_changed` that happened while recorder component was running.
  - states table contains all the `new_state` values of `state_changed` events.

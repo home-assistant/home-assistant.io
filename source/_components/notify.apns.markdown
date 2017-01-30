@@ -14,7 +14,7 @@ ha_release: 0.31
 
 The `apns` platform uses the Apple Push Notification service (APNS) to deliver notifications from Home Assistant.
 
-To use the APNS service you will need an Apple developer account and you will need to create an App to receive push notifications. For more information see the apple developer documentation.
+To use the APNS service you will need an Apple developer account and you will need to create an app to receive push notifications. For more information, see the Apple developer documentation.
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,20 +36,20 @@ The APNS platform will register two services, `notify.NOTIFIER_NAME` and `notify
 
 ### notify.apns_NOTIFIER_NAME
 
-This service will register device id's with home assistant. In order to receive a notification a device must be registered. The app on the device can use this service to send an ID to Home Assistant during startup, the ID will be stored in `[NOTIFIER_NAME]_apns.yaml`.
+This service will register device IDs with Home Assistant. In order to receive a notification a device must be registered. The app on the device can use this service to send an ID to Home Assistant during startup, the ID will be stored in `[NOTIFIER_NAME]_apns.yaml`.
 
-See didRegisterForRemoteNotificationsWithDeviceToken in the [Apple developer documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/#//apple_ref/occ/intfm/UIApplicationDelegate/application:didRegisterForRemoteNotificationsWithDeviceToken:) for more information about how to obtain a device id.
+See `didRegisterForRemoteNotificationsWithDeviceToken` in the [Apple developer documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/#//apple_ref/occ/intfm/UIApplicationDelegate/application:didRegisterForRemoteNotificationsWithDeviceToken:) for more information about how to obtain a device ID.
 
 ### notify.NOTIFIER_NAME
 
 This service will send messages to a registered device. The following parameters can be used:
 
-- **message**: The message to send
+- **message**: The message to send.
 
 - **target**: The desired state of the device, only devices that match the state will receive messages. To enable state tracking a registered device must have a `tracking_device_id` attribute added to the `[NOTIFIER_NAME]_apns.yaml` file. If this ID matches a device in `known_devices.yaml` the device state will be tracked.
 
 - **data**:
-  * **badge**: The number to display as the badge of the app ic.
+  * **badge**: The number to display as the badge of the app icon.
   * **sound**: The name of a sound file in the app bundle or in the Library/Sounds folder.
-  * **category**: Provide this key with a string value that represents the identifier property of the UIMutableUserNotificationCategory.
+  * **category**: Provide this key with a string value that represents the identifier property of the `UIMutableUserNotificationCategory`.
   * **content_available**: Provide this key with a value of 1 to indicate that new content is available.

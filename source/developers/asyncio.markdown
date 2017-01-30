@@ -11,7 +11,7 @@ footer: true
 
 On September 29, 2016 we released [Home Assistant 0.29][0.29] as part of our bi-weekly release schedule. This release introduced a complete overhaul of the core spearheaded by [Ben Bangert][ben].
 
-The old core was set up like a “traditional” threaded application. Each resource that was not thread safe (ie. the state of entities) would be protected by a lock. This caused a lot of waiting and potential inconsistency because a task could now end up waiting halfway through it’s job until some resource got freed.
+The old core was set up like a “traditional” threaded application. Each resource that was not thread safe (ie. the state of entities) would be protected by a lock. This caused a lot of waiting and potential inconsistency because a task could now end up waiting halfway through its job until some resource got freed.
 
 Our new core is based on an Python’s built-in asyncio module. Instead of having all threads have access to the core API objects, access is now limited to a special thread called the event loop. All components will now schedule themselves as a task to be executed by the event loop. This gives us the guarantee that only one task is executed at once, meaning we no longer need any locks.
 

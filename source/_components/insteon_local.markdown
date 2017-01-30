@@ -26,7 +26,7 @@ insteon_local:
 ```
 
 Configuration variables:
-
+*Note: The username and password here are for the hub and are different than the ones used to access the app. You can usually find these on the bottom of your hub (unless you've changed them through the settings in the app)*
 - **host** (*Required*): The IP address of your hub.
 - **username** (*Required*): The username used to access the Insteon interface (find in your Insteon app).
 - **password** (*Required*): The password used to access the Insteon interface.
