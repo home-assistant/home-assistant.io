@@ -194,6 +194,12 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
   <li><code class="highlighter-rouge">http://&lt;HA IP Address&gt;:8300/api/pi/lights</code> - This will return a list of devices, lights, scenes, groups, etc.. that <code class="highlighter-rouge">emulated_hue</code> is exposing to Alexa.</li>
 </ul>
 
+<p>An additional step is required to run Home Assistant as non-root user and use port 80 when using the AiO script.  Execute the following command to allow <code class="highlighter-rouge">emulated_hue</code> to use port 80 as non-root user.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo setcap <span class="s1">'cap_net_bind_service=+ep'</span> /srv/homeassistant/homeassistant_venv/bin/python3
+</code></pre>
+</div>
+
 <h3><a class="title-link" name="license" href="#license"></a> License</h3>
 
 <p>Much of this code is based on work done by Bruce Locke on his <a href="https://github.com/blocke/ha-local-echo">ha-local-echo</a> project, originally released under the MIT License. The license is located <a href="https://github.com/blocke/ha-local-echo/blob/b9bf5dcaae6d8e305e2283179ffba64bde9ed29e/LICENSE">here</a>.</p>
