@@ -29,4 +29,4 @@ When contributing Home Assistant code:
  - [TravisCl](https://travis-ci.org/)
 
 When contributing 3rd Party code to be used by Home Assistant:
- - [Publishing your own PiPl package](https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/)
+ - [Publishing your own PyPI package](https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/)
