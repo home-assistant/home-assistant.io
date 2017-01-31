@@ -39,6 +39,13 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
+### {% linkable_title Media coverage %}
+
+- [Episode #11](https://pythonbytes.fm/episodes/show/11/django-2.0-is-dropping-python-2-entirely-pipenv-for-profile-functionality-and-pythonic-home-automation) at minute 15:20 by [Python Bytes](https://pythonbytes.fm/) - January 2017
+- [Weekend Project: Setting up Home Assistant on your PC or Mac](http://www.automatedhome.co.uk/software/weekend-project-setting-up-home-assistant-on-your-pc-or-mac.html) by [automated home](http://www.automatedhome.co.uk/) - April 2016
+- [Episode 105 - DIY Home Automation Roundup](https://www.hometech.fm/shows/105) by [HomeTech.fm](https://www.hometech.fm/) - April 2016
+- [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools) by [opensource.com](https://opensource.com) - March 2016
+
 ### {% linkable_title Site Search %}
 
 There is not currently a site search for Home-Assistant.io but it's in the works. For now, you can use this [Google link](https://cse.google.com/cse/publicurl?cx=005053695590750500199:dtrfi8yigbi) which will narrow your search to this specific site.
