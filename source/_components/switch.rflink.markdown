@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rflink.png
 ha_category: Switch
-ha_release: 0.36
+ha_release: 0.38
 ---
 
 The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is an Arduino firmware that allows communication with 433Mhz devices using cheap hardware (Arduino + 433Mhz tranceiver).
@@ -28,6 +28,9 @@ Configuring a device as switch with a nice name:
 # Example configuration.yaml entry
 switch:
   platform: rflink
+  device_defaults:
+    fire_event: true
+    signal_repetitions: 2
   devices:
     newkaku_0000c6c2_1:
       name: Ceiling fan
@@ -40,7 +43,17 @@ switch:
 
 Configuration variables:
 
-- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
+- **devices** (*Optional*): A list of devices with their name to use in the frontend.
+- **device_defaults**: (*Optional*)
+  - **fire_event_** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
+  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
+
+Device configuration variables:
+
+- **name** (*Optional*): Name for the device, defaults to Rflink ID.
+- **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
+- **fire_event_** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1)
 
 # Switch state
 

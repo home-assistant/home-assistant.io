@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rflink.png
 ha_category: Sensor
-ha_release: 0.36
+ha_release: 0.38
 ---
 
 The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is an Arduino firmware that allows communication with 433Mhz devices using cheap hardware (Arduino + 433Mhz tranceiver).
@@ -49,6 +49,13 @@ Configuration variables:
 
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **new_devices_group** (*Optional*): Create group to add new/unknown devices to.
+
+Device configuration variables:
+
+- **name** (*Optional*): Name for the device, defaults to Rflink ID.
+- **sensor_type_** (*Optional*): Override automatically detected type of sensor.
+- **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
+- **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
 
 # Hiding/ignoring sensors
 Sensors are added automatically when the Rflink gateway intercepts a 433Mhz command in the ether. To prevent cluttering the frontend use any of these methods:

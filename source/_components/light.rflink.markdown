@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rflink.png
 ha_category: Light
-ha_release: 0.36
+ha_release: 0.38
 ---
 
 The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is an Arduino firmware that allows communication with 433Mhz devices using cheap hardware (Arduino + 433Mhz tranceiver).
@@ -48,6 +48,17 @@ Configuration variables:
 
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **new_devices_group** (*Optional*): Create group to add new/unknown devices to.
+- **device_defaults**: (*Optional*)
+  - **fire_event_** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
+  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
+
+Device configuration variables:
+
+- **name** (*Optional*): Name for the device, defaults to Rflink ID.
+- **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable or hybrid. See 'Light Types' below.
+- **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
+- **fire_event_** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1)
 
 # Light state
 
@@ -69,9 +80,25 @@ light:
 
 Any on/off command from any light updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
+# Light types
+
+Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The Rflink component support three types of lights to make things work in every situation:
+
+*Hybrid*: This type sends a `dim` followed by an a `on` command (`dim` first) and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
+
+*Switchable*: Device type that sends only `on` and `off` commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).
+
+*Dimmable*: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
+
+By default new lights are assigned the `switchable` type. Protocol supporting dimming are assigned the `hybrid` type. Currently only `newkaku` protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.
+
 # Hiding/ignoring lights
 Lights are added automatically when the Rflink gateway intercepts a 433Mhz command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Configure a `new_devices_group` for lights and optionally add it to a different `view`.
 - Hide unwanted devices using [customizations](https://home-assistant.io/getting-started/customizing-devices/)
 - Ignore devices on a platform level: https://home-assistant.io/components/rflink/#ignoring-devices
+
+# Device support
+Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or create an issue and mention `@aequitas` in the description: https://github.com/home-assistant/home-assistant/issues/new
+

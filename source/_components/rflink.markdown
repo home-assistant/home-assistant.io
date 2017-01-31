@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rflink.png
 ha_category: Hub
-ha_release: 0.36
+ha_release: 0.38
 ---
 
 The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is an Arduino firmware that allows communication with 433Mhz devices using cheap hardware (Arduino + 433Mhz tranceiver).
@@ -36,6 +36,7 @@ Configuration variables:
 - **host** (*Optional*): Switches to TCP mode, connects to host instead of to usb/serial.
 - **wait_for_ack** (*Optional*): Wait for Rflink to ackowledge commands sent before sending new command (slower but more reliable). Default: True
 - **ignore_devices** (*Optional*): List of devices id's to ignore. Supports wildcards (*) at the end.
+- **reconnect_interval** (*Optional*): Time in seconds between reconnect attempts.
 
 Complete example:
 
