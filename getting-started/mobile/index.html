@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Autostart on macOS - Home Assistant</title>
+    <title>Getting started on Mobile - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to setup Home Assistant to launch on Apple macOS.">
+    <meta name="description" content="Android/iOS instructions to add Home Assistant to your homescreen.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/getting-started/autostart-macos/">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/mobile/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Autostart on macOS">
+    <meta property="og:title" content="Getting started on Mobile">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/getting-started/autostart-macos/">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/mobile/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Instructions how to setup Home Assistant to launch on Apple macOS.">
+    <meta property="og:description" content="Android/iOS instructions to add Home Assistant to your homescreen.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Autostart on macOS">
-    <meta name="twitter:description" content="Instructions how to setup Home Assistant to launch on Apple macOS.">
+    <meta name="twitter:title" content="Getting started on Mobile">
+    <meta name="twitter:description" content="Android/iOS instructions to add Home Assistant to your homescreen.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,31 +84,37 @@
   
   <header>
     <h1 class="title indent">
-      Autostart on macOS
+      Getting Started on Mobile
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Setting up Home Assistant to run as a background service is simple; macOS will start Home Assistant on boot and make sure it’s always running.</p>
+  <p>Home Assistant is not available on the Play Store or App Store. Instead, Home Assistant leverages the new W3C <a href="https://w3c.github.io/manifest/">manifest.json</a> support, allowing mobile devices to add the “web app” to your homescreen as if it was native.</p>
 
-<p>To get Home Assistant installed as a background service, run:</p>
+<h1>On Android:</h1>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script macos install
+<ol>
+  <li>Open Chrome</li>
+  <li>Navigate to your Home Assistant instance</li>
+  <li>Tap on the Menu icon (three vertical bars)</li>
+  <li>Tap on Add to Homescreen</li>
+  <li>A dialog will popup; tap on Add</li>
+</ol>
 
-Home Assistant has been installed.         Open it here: http://localhost:8123
-</code></pre>
-</div>
+<p class="img" style="width:500px; margin-left: auto; margin-right: auto;">
+<img src="/images/screenshots/android-homescreen-guide.gif" />
+</p>
 
-<p>Home Assistant will log to <code class="highlighter-rouge">~/Library/Logs/homeassistant.log</code></p>
+<h1>On iOS:</h1>
 
-<p>To uninstall the service, run:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script macos uninstall
-
-Home Assistant has been uninstalled.
-</code></pre>
-</div>
+<ol>
+  <li>Open Safari</li>
+  <li>Navigate to your Home Assistant instance</li>
+  <li>Tap on the Share icon in the middle of the bottom toolbar</li>
+  <li>Tap on “Add to Home Screen”</li>
+  <li>A dialog will popup; tap on Add</li>
+</ol>
 
 
 </article>
@@ -122,7 +128,7 @@ Home Assistant has been uninstalled.
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/autostart-macos.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/mobile.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -183,13 +189,13 @@ Home Assistant has been uninstalled.
           <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
           <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
           <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
-          <li><a class='active' href='/getting-started/autostart-macos/'>macOS </a></li>
+          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
           <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
         </ul>
       </li>
       <li><a  href='/topics/'>Advanced Topics </a></li>
       <li><a  href='/details/'>Details </a></li>
-      <li><a  href='/getting-started/mobile/'>Add to Android/iOS Homescreen </a></li>
+      <li><a class='active' href='/getting-started/mobile/'>Add to Android/iOS Homescreen </a></li>
       <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
     </ul>
   </div>
