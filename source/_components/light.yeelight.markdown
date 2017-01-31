@@ -20,13 +20,16 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 
 ```yaml
 # Example configuration.yaml entry
+light:
   - platform: yeelight
     devices:
       192.168.1.25:
-        name: palier
+        name: Living Room
         transition: 1000
         use_music_mode: True (defaults to False)
         save_on_change: False (defaults to True)
+      192.168.1.13:
+        name: Front Door
 ```
 
 Configuration variables:

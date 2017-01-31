@@ -131,7 +131,7 @@ automation 3:
     seconds: 00
 ```
 <p class='note warning'>
-  Rememebr that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute. 
+  Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute. 
 </p>
 
 ### {% linkable_title Zone trigger %}

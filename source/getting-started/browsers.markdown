@@ -22,6 +22,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Chrome]                  | 50.0.2661.102  | works      |                          |
 | [Firefox]                 | 43.0.1         | works      |                          |
 | [Iridium]                 | 48.2           | works      |                          |
+| [Opera]                   | 42.0.2393.351  | works      |                          |
 
 ## {% linkable_title macOS %}
 
@@ -39,7 +40,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Conkeror]            | 1.0.2          | works      |                          |
 | [Konqueror]           |                | unknown    |                          |
 | [Uzbl]                | 0.9.0          | works      |                          |
-| [Opera]               |                | unknown    |                          |
+| [Opera]               | 42.0.2393.351  | works      |                          |
 | [Lynx]                | 2.12           | fails      | loads empty page         |
 | [elinks]              |                | fails      | page with manifest and import |
 | [w3m]                 | 0.5.3          | fails      | display the icon shown while loading HA |
@@ -52,6 +53,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | :-------------------- |:---------------|:-----------|:-------------------------|
 | [Chrome]              | 50.0.2661.89   | works      | Can also be added to desktop |
 | [Firefox]             | 46.0.1         | works      | Can also be added to desktop |
+| [Opera]               | 42.0.2246.112628 | works    | Can also be added to desktop |
 
 ## {% linkable_title iOS %}
 

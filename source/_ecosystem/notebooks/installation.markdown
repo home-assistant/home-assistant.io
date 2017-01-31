@@ -1,27 +1,22 @@
 ---
 layout: page
-title: "Jupyter Notebooks Introduction"
+title: "Installation"
 description: "Setup and first steps for Jupyter Notebooks and Home Assistant."
 date: 2016-07-23 09:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Jupyter Notebooks
 ---
 
-The [Jupyter Notebooks](http://jupyter.org/) allows you to create and share documents that contain live code, equations, visualizations, and explanatory text directly in your browser. The web application what is formerly known as the IPython Notebook supports over 40 programming languages.
-
-Visit [https://try.jupyter.org/](https://try.jupyter.org/) to get a preview before you install it locally.
-
-The very first step is to install the requirement to run Jupyter Notebooks.
+To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider to run Jupyter in a [virtualenv](/getting-started/installation-virtualenv/).
 
 ```bash
 $ pip3 install jupyter matplotlib
 ```
 
 <p class='note warning'>
-Certain notebooks hosted in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks) require access to a running Home Assistant instance or parts of a Home Assistant installation. If you want to run those notebooks install Home Assistant with `$ pip3 install homeassistant` as well.
+Certain notebooks hosted in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks) require access to a running Home Assistant instance or parts of a Home Assistant installation. If you want to run those notebooks, install Home Assistant with `$ pip3 install homeassistant` as well.
 </p>
 
 Now you are able to start the application.

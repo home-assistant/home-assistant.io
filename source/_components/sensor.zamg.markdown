@@ -17,23 +17,29 @@ The `zamg` platform uses meteorological details published by the Austrian weathe
 
 The following stations are available:
 
-| `station_id` | Location         |
-| :----------- |:-----------------|
-| 11010        | Linz/Hörsching   |
-| 11012        | Kremsmünster     |
-| 11022        | Retz             |
-| 11035        | Wien/Hohe Warte  |
-| 11036        | Wien/Schwechat   |
-| 11101        | Bregenz          |
-| 11121        | Innsbruck        |
-| 11126        | Patscherkofel    |
-| 11130        | Kufstein         |
-| 11150        | Salzburg         |
-| 11155        | Feuerkogel       |
-| 11157        | Aigen im Ennstal |
-| 11171        | Mariazell        |
-| 11190        | Eisenstadt       |
-| 11204        | Lienz            |
+| `station_id` | Location             |
+| :----------- |:---------------------|
+| 11010        | Linz/Hörsching       |
+| 11012        | Kremsmünster         |
+| 11022        | Retz                 |
+| 11035        | Wien/Hohe Warte      |
+| 11036        | Wien/Schwechat       |
+| 11101        | Bregenz              |
+| 11121        | Innsbruck            |
+| 11126        | Patscherkofel        |
+| 11130        | Kufstein             |
+| 11150        | Salzburg             |
+| 11155        | Feuerkogel           |
+| 11157        | Aigen im Ennstal     |
+| 11171        | Mariazell            |
+| 11190        | Eisenstadt           |
+| 11204        | Lienz                |
+| 11240        | Graz/Flughafen       |
+| 11244        | Bad Gleichenberg     |
+| 11265        | Villacher Alpe       |
+| 11331        | Klagenfurt/Flughafen |
+| 11343        | Sonnblick            |
+| 11389        | St. Pölten           |
 
 To add ZAMG to your installation, add the following to your `configuration.yaml` file:
 

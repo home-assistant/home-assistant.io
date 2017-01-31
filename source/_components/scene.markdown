@@ -53,3 +53,7 @@ automation:
     service: scene.turn_on
     entity_id: scene.romantic
 ```
+
+<p class='note'>
+Please note that the scene component currently only supports one service call per entity to achieve the state. Due to this limitation you cannot set states belonging to different services.
+</p>

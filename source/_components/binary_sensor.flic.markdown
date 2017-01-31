@@ -30,6 +30,7 @@ Configuration variables:
 - **host** (*Optional*): The IP or hostname of the flic service server. (default: `localhost`)
 - **port** (*Optional*): The port of the flic service. (default: `5551`)
 - **discovery** (*Optional*): If `true`, the component is configured to constantly scan for new buttons. (default: `true`)
+- **ignored_click_types**: List of click types whose occurrence should not trigger and `flic_click` event.
 - **timeout** (*Optional*): Maximum time in seconds an event can be queued locally on a button before discarding the event. (default: `3`)
 
 #### {% linkable_title Discovery %}
@@ -64,3 +65,7 @@ Event data:
 - **button_address**: The bluetooth address of the button, that triggered the event.
 - **click_type**: The type of click. Possible values are `single`, `double` and `hold`.
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
+
+##### {% linkable_title Ignoring Click Types %}
+
+For some purposes it might make sense to exclude a specific click type from triggering click events. For example when ignoring double clicks, pressing the button twice fast results in two `single` instead of a `double` click event. This is very useful for applications where you want to click fast.

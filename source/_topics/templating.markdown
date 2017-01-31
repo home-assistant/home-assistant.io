@@ -123,7 +123,7 @@ Print out a list of all the sensor states.
 
 {{ states.sensor.temperature | float + 1 }}
 
-{{ states.sensor.temperature | float * 10 | round(2) }}
+{{ (states.sensor.temperature | float * 10) | round(2) }}
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
