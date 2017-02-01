@@ -19,8 +19,8 @@ Virtualenvs are pretty easy to setup. This example will walk through one method 
 $ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install python-pip python3-dev
-$ sudo pip install --upgrade virtualenv
-```
+$ sudo pip3 install virtualenv
+$ sudo pip install --upgrade virtualenv```
 
 ### {% linkable_title Step 1: Create a Home Assistant user %}
 
