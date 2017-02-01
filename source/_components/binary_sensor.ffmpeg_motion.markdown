@@ -10,6 +10,7 @@ footer: true
 logo: ffmpeg.png
 ha_category: Binary Sensor
 ha_release: 0.27
+redirect_from: /components/binary_sensor.ffmpeg/
 ---
 
 
