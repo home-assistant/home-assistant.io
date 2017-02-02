@@ -75,8 +75,8 @@ automation:
      from: 'off'
      to: 'on'
    action:
-    service: ffmpeg.start
-    entity_id: binary_sensor.ffmpeg_noise
+     service: ffmpeg.start
+     entity_id: binary_sensor.ffmpeg_noise
  - alias: 'Babyphone off'
    trigger:
      platform: state
@@ -84,6 +84,6 @@ automation:
      from: 'on'
      to: 'off'
    action:
-    service: ffmpeg.stop
-    entity_id: binary_sensor.ffmpeg_noise
+     service: ffmpeg.stop
+     entity_id: binary_sensor.ffmpeg_noise
 ```
