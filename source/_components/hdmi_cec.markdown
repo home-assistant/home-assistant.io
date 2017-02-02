@@ -30,13 +30,13 @@ The computer running Home Assistant must support CEC, and of course be connected
 Create a symlink to the `cec` installation.
  
 ```bash
-$ ln -s /usr/local/lib/python3.4/dist-packages/cec /path/to/your/venv/lib/python3.4/site-packages
+$ ln -s /usr/local/lib/python3.4/site-packages/cec /path/to/your/venv/lib/python3.4/site-packages
 ```
 
 For the default virtual environment of a [Raspberry Pi All-In-One installation](/getting-started/installation-raspberry-pi-all-in-one/) the command would be as follows.
 
 ```bash
-$ ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
+$ ln -s /usr/local/lib/python3.4/site-packages/cec /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
 ```
 
 <p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
