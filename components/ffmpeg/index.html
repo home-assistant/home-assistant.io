@@ -111,13 +111,15 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
 
 <h3><a class="title-link" name="raspbian-debian-jessie-lite-installations" href="#raspbian-debian-jessie-lite-installations"></a> Raspbian Debian Jessie Lite Installations</h3>
 <p>To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo apt-get install libav-tools
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo <span class="nb">echo</span> <span class="s2">"deb http://ftp.debian.org/debian jessie-backports main"</span> &gt;&gt; /etc/apt/sources.list
+<span class="gp">$ </span>sudo apt-get update
+<span class="gp">$ </span>sudo apt-get -t jessie-backports install ffmpeg
 </code></pre>
 </div>
-<p>This will get a forked version of ffmpeg called avconv, once this is installed you need to use the following in the configuration:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg:
-  ffmpeg_bin: /usr/bin/avconv
+  ffmpeg_bin: /usr/bin/ffmpeg
 </code></pre>
 </div>
 
