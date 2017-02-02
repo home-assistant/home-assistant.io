@@ -9,11 +9,13 @@ sharing: true
 footer: true
 ---
 
-Home Assistant contains a websocket API. This API can be used to stream information from the Home Assistant server to any client that implements websockets. Implementations in different languages:
+Home Assistant contains a websocket API. This API can be used to stream information from a Home Assistant instance to any client that implements websockets. Implementations in different languages:
 
  - [JavaScript](https://github.com/home-assistant/home-assistant-js-websocket) - powers the frontend
 
-# {% linkable_title Server states %}
+Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
+
+## {% linkable_title Server states %}
 
  1. Client connects
  2. Authentication phase starts
@@ -31,7 +33,7 @@ Home Assistant contains a websocket API. This API can be used to stream informat
 
 During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it's origin.
 
-# {% linkable_title Message format %}
+## {% linkable_title Message format %}
 
 Each API message is a JSON serialized object containing a `type` key. After the authentication phase messages also must contain an `id`, an integer that contains the number of interactions.
 
@@ -57,7 +59,7 @@ Example of an auth message:
 }
 ```
 
-# {% linkable_title Authentication phase %}
+## {% linkable_title Authentication phase %}
 
 When a client connects to the server, the server will test if the client is authenticated. Authentication will not be necessary if no api_password is set or if the user fulfills one of the other criteria for authentication (trusted network, password in url/header).
 
@@ -103,7 +105,7 @@ If the data is incorrect, the server will reply with `auth_invalid` message and 
 }
 ```
 
-# {% linkable_title Command phase %}
+## {% linkable_title Command phase %}
 
 During this phase the client can give commands to the server. The server will respond to each command with a `result` message indicating when the command is done and if it was successful.
 
@@ -190,7 +192,7 @@ For each event that matches, the server will send a message of type `event`. The
 }
 ```
 
-## {% linkable_title Unsubscribing from events %}
+### {% linkable_title Unsubscribing from events %}
 
 You can unsubscribe from previously created subscription events. Pass the id of the original subscription command as value to the subscription field.
 
@@ -214,7 +216,7 @@ The server will respond with a result message to indicate that unsubscribing was
 ```
 
 
-## {% linkable_title Calling a service %}
+### {% linkable_title Calling a service %}
 
 This will call a service in Home Assistant. Right now there is no return value. The client can listen to `state_changed` events if it is interested in changed entities as a result of a service call.
 
@@ -242,7 +244,7 @@ The server will indicate with a message indicating that the service is done exec
 }
 ```
 
-## {% linkable_title Fetching states %}
+### {% linkable_title Fetching states %}
 
 This will get a dump of all the current states in Home Assistant.
 
@@ -264,7 +266,7 @@ The server will respond with a result message containing the states.
 }
 ```
 
-## {% linkable_title Fetching config %}
+### {% linkable_title Fetching config %}
 
 This will get a dump of the current config in Home Assistant.
 
@@ -286,7 +288,7 @@ The server will respond with a result message containing the config.
 }
 ```
 
-## {% linkable_title Fetching services %}
+### {% linkable_title Fetching services %}
 
 This will get a dump of the current services in Home Assistant.
 
@@ -308,7 +310,7 @@ The server will respond with a result message containing the services.
 }
 ```
 
-## {% linkable_title Fetching panels %}
+### {% linkable_title Fetching panels %}
 
 This will get a dump of the current registered panels in Home Assistant.
 
@@ -330,7 +332,7 @@ The server will respond with a result message containing the current registered 
 }
 ```
 
-# {% linkable_title Error handling %}
+## {% linkable_title Error handling %}
 
 If an error occurs, the `success` key in the `result` message will be set to `false`. It will contain an `error` key containing an object with two keys: `code` and `message`.
 
