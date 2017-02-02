@@ -96,7 +96,7 @@
   <li><a href="https://github.com/home-assistant/home-assistant-js-websocket">JavaScript</a> - powers the frontend</li>
 </ul>
 
-<h1>Server states</h1>
+<h1><a class="title-link" name="server-states" href="#server-states"></a> Server states</h1>
 
 <ol>
   <li>Client connects</li>
@@ -116,176 +116,189 @@ b. Server can send results of previous commands.</li>
 
 <p>During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it’s origin.</p>
 
-<h1>Message format</h1>
+<h1><a class="title-link" name="message-format" href="#message-format"></a> Message format</h1>
 
 <p>Each API message is a JSON serialized object containing a <code class="highlighter-rouge">type</code> key. After the authentication phase messages also must contain an <code class="highlighter-rouge">id</code>, an integer that contains the number of interactions.</p>
 
 <p>Example of an auth message:</p>
 
-<pre><code class="language-json5">{
-  "type": "auth",
-  "api_password": "supersecret"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"api_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"supersecret"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<pre><code class="language-json5">{
-   "id" 5,
-   "type":"event",
-   "event":{
-      "data":{},
-      "event_type":"test_event",
-      "time_fired":"2016-11-26T01:37:24.265429+00:00",
-      "origin":"LOCAL"
-   }
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"id"</span><span class="w"> </span><span class="err">5,</span><span class="w">
+   </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"event"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"event"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"data"</span><span class="p">:{},</span><span class="w">
+      </span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"test_event"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"time_fired"</span><span class="p">:</span><span class="s2">"2016-11-26T01:37:24.265429+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"origin"</span><span class="p">:</span><span class="s2">"LOCAL"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h1>Authentication phase</h1>
+<h1><a class="title-link" name="authentication-phase" href="#authentication-phase"></a> Authentication phase</h1>
 
 <p>When a client connects to the server, the server will test if the client is authenticated. Authentication will not be necessary if no api_password is set or if the user fulfills one of the other criteria for authentication (trusted network, password in url/header).</p>
 
 <p>If no authentication is needed, the authentication phase will complete and the server will send an <code class="highlighter-rouge">auth_ok</code> message.</p>
 
-<pre><code class="language-json5">{
-  "type": "auth_ok"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth_ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>If authentication is necessary, the server sends out <code class="highlighter-rouge">auth_required</code>.</p>
 
-<pre><code class="language-json5">{
-  "type": "auth_required"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth_required"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>This means that the next message from the client should be an auth message:</p>
 
-<pre><code class="language-json5">{
-  "type": "auth",
-  "api_password": "supersecret"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"api_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"supersecret"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>If the client supplies valid authentication, the authentication phase will complete by the server sending the <code class="highlighter-rouge">auth_ok</code> message:</p>
 
-<pre><code class="language-json5">{
-  "type": "auth_ok"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth_ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>If the data is incorrect, the server will reply with <code class="highlighter-rouge">auth_invalid</code> message and disconnect the session.</p>
 
-<pre><code class="language-json5">{
-  "type": "auth_invalid",
-  "message": "Invalid password"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth_invalid"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid password"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h1>Command phase</h1>
+<h1><a class="title-link" name="command-phase" href="#command-phase"></a> Command phase</h1>
 
 <p>During this phase the client can give commands to the server. The server will respond to each command with a <code class="highlighter-rouge">result</code> message indicating when the command is done and if it was successful.</p>
 
-<pre><code class="language-json5">{
-  "id": 6.
-  "type": "result",
-  "success": true,
-  // Can contain extra result info
-  "result": null
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="err">.</span><span class="w">
+  </span><span class="s2">"type"</span><span class="err">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Can</span><span class="w"> </span><span class="err">contain</span><span class="w"> </span><span class="err">extra</span><span class="w"> </span><span class="err">result</span><span class="w"> </span><span class="err">info</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h2>Subscribe to events</h2>
+<h2><a class="title-link" name="subscribe-to-events" href="#subscribe-to-events"></a> Subscribe to events</h2>
 
 <p>The command <code class="highlighter-rouge">subscribe_events</code> will subscribe your client to the event bus. You can either listen to all events or to a specific event type. If you want to listen to multiple event types, you will have to send multiple <code class="highlighter-rouge">subscribe_events</code> commands.</p>
 
-<pre><code class="language-json5">{
-  "id": 18,
-  "type": "subscribe_events",
-  // Optional
-  "event_type": "state_changed"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe_events"</span><span class="p">,</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Optional</span><span class="w">
+  </span><span class="nt">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state_changed"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>The server will respond with a result message to indicate that the subscription is active.</p>
 
-<pre><code class="language-json5">{
-  "id": 18,
-  "type": "result",
-  "success": true,
-  "result": null
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>For each event that matches, the server will send a message of type <code class="highlighter-rouge">event</code>. The <code class="highlighter-rouge">id</code> in the message will point at the original <code class="highlighter-rouge">id</code> of the <code class="highlighter-rouge">listen_event</code> command.</p>
 
-<pre><code class="language-json5">{
-   "id": 18,
-   "type":"event",
-   "event":{
-      "data":{
-         "entity_id":"light.bed_light",
-         "new_state":{
-            "entity_id":"light.bed_light",
-            "last_changed":"2016-11-26T01:37:24.265390+00:00",
-            "state":"on",
-            "attributes":{
-               "rgb_color":[
-                  254,
-                  208,
-                  0
-               ],
-               "color_temp":380,
-               "supported_features":147,
-               "xy_color":[
-                  0.5,
-                  0.5
-               ],
-               "brightness":180,
-               "white_value":200,
-               "friendly_name":"Bed Light"
-            },
-            "last_updated":"2016-11-26T01:37:24.265390+00:00"
-         },
-         "old_state":{
-            "entity_id":"light.bed_light",
-            "last_changed":"2016-11-26T01:37:10.466994+00:00",
-            "state":"off",
-            "attributes":{
-               "supported_features":147,
-               "friendly_name":"Bed Light"
-            },
-            "last_updated":"2016-11-26T01:37:10.466994+00:00"
-         }
-      },
-      "event_type":"state_changed",
-      "time_fired":"2016-11-26T01:37:24.265429+00:00",
-      "origin":"LOCAL"
-   }
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"event"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"event"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"data"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="s2">"light.bed_light"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"new_state"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="s2">"light.bed_light"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="s2">"2016-11-26T01:37:24.265390+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"on"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"rgb_color"</span><span class="p">:[</span><span class="w">
+                  </span><span class="mi">254</span><span class="p">,</span><span class="w">
+                  </span><span class="mi">208</span><span class="p">,</span><span class="w">
+                  </span><span class="mi">0</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"color_temp"</span><span class="p">:</span><span class="mi">380</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"supported_features"</span><span class="p">:</span><span class="mi">147</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"xy_color"</span><span class="p">:[</span><span class="w">
+                  </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+                  </span><span class="mf">0.5</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"brightness"</span><span class="p">:</span><span class="mi">180</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"white_value"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"friendly_name"</span><span class="p">:</span><span class="s2">"Bed Light"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="s2">"2016-11-26T01:37:24.265390+00:00"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"old_state"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="s2">"light.bed_light"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_changed"</span><span class="p">:</span><span class="s2">"2016-11-26T01:37:10.466994+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"off"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"supported_features"</span><span class="p">:</span><span class="mi">147</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"friendly_name"</span><span class="p">:</span><span class="s2">"Bed Light"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"last_updated"</span><span class="p">:</span><span class="s2">"2016-11-26T01:37:10.466994+00:00"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"state_changed"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"time_fired"</span><span class="p">:</span><span class="s2">"2016-11-26T01:37:24.265429+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"origin"</span><span class="p">:</span><span class="s2">"LOCAL"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h2>Unsubscribing from events</h2>
+<h2><a class="title-link" name="unsubscribing-from-events" href="#unsubscribing-from-events"></a> Unsubscribing from events</h2>
 
 <p>You can unsubscribe from previously created subscription events. Pass the id of the original subscription command as value to the subscription field.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "unsubscribe_events",
-  "subscription": 18
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribe_events"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>The server will respond with a result message to indicate that unsubscribing was successful.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "result",
-  "success": true,
-  "result": null
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h2>Calling a service</h2>
+<h2><a class="title-link" name="calling-a-service" href="#calling-a-service"></a> Calling a service</h2>
 
 <p>This will call a service in Home Assistant. Right now there is no return value. The client can listen to <code class="highlighter-rouge">state_changed</code> events if it is interested in changed entities as a result of a service call.</p>
 
@@ -303,95 +316,104 @@ b. Server can send results of previous commands.</li>
 
 <p>The server will indicate with a message indicating that the service is done executing.</p>
 
-<pre><code class="language-json5">{
-  "id": 24,
-  "type": "result",
-  "success": true,
-  "result": null
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h2>Fetching states</h2>
+<h2><a class="title-link" name="fetching-states" href="#fetching-states"></a> Fetching states</h2>
 
 <p>This will get a dump of all the current states in Home Assistant.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "get_states"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get_states"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>The server will respond with a result message containing the states.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "result",
-  "success": true,
-  "result": [ … ]
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h2>Fetching config</h2>
+<h2><a class="title-link" name="fetching-config" href="#fetching-config"></a> Fetching config</h2>
 
 <p>This will get a dump of the current config in Home Assistant.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "get_config"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get_config"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>The server will respond with a result message containing the config.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "result",
-  "success": true,
-  "result": { … }
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h2>Fetching services</h2>
+<h2><a class="title-link" name="fetching-services" href="#fetching-services"></a> Fetching services</h2>
 
 <p>This will get a dump of the current services in Home Assistant.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "get_config"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get_config"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>The server will respond with a result message containing the services.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "result",
-  "success": true,
-  "result": { … }
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h2>Fetching panels</h2>
+<h2><a class="title-link" name="fetching-panels" href="#fetching-panels"></a> Fetching panels</h2>
 
 <p>This will get a dump of the current registered panels in Home Assistant.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "get_panels"
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get_panels"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>The server will respond with a result message containing the current registered panels.</p>
 
-<pre><code class="language-json5">{
-  "id": 19,
-  "type": "result",
-  "success": true,
-  "result": [ … ]
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<h1>Error handling</h1>
+<h1><a class="title-link" name="error-handling" href="#error-handling"></a> Error handling</h1>
 
 <p>If an error occurs, the <code class="highlighter-rouge">success</code> key in the <code class="highlighter-rouge">result</code> message will be set to <code class="highlighter-rouge">false</code>. It will contain an <code class="highlighter-rouge">error</code> key containing an object with two keys: <code class="highlighter-rouge">code</code> and <code class="highlighter-rouge">message</code>.</p>
 
@@ -418,16 +440,17 @@ b. Server can send results of previous commands.</li>
   </tbody>
 </table>
 
-<pre><code class="language-json5">{
-   "id": 12,
-   "type":"result",
-   "success": false,
-   "error": {
-      "code": 2,
-      "message": "Message incorrectly formatted: expected str for dictionary value @ data['event_type']. Got 100"
-   }
-}
-</code></pre>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"result"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message incorrectly formatted: expected str for dictionary value @ data['event_type']. Got 100"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 
 </article>
