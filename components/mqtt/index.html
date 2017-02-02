@@ -414,6 +414,13 @@ Home Assistant will automatically load the correct certificate if you connect to
   <span class="s">state_format</span><span class="pi">:</span> <span class="s1">'</span><span class="s">json:somekey[0].value'</span>
 </code></pre>
 </div>
+<p>It is also possible to extract JSON values by using a value template:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.somekey[0].value</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
+</div>
 
 <p>More information about the full JSONPath syntax can be found <a href="https://github.com/kennknowles/python-jsonpath-rw#jsonpath-syntax">here</a>.</p>
 
