@@ -1,0 +1,44 @@
+---
+layout: post
+title: "Baby monitoring"
+description: "Make your Home fit for baby monitoring."
+date: 2016-07-28 06:00:00 +0200
+date_formatted: "July 28, 2016"
+author: Pascal Vizeli
+comments: true
+categories: How-To Babyphone
+og_image: /images/blog/2017-02-babyphone/social.png
+---
+
+For freshly baked parents comes quickly the question how to monitor the sleep of his child. We want to be awakened when something is. There are many expensive solutions and thus other devices which stand only for a purpose somewhere. What is if we could build a super babephone with little means? With Home-Assistant is this quite simply and possible! We use our existing e.g. Sonos as a loudspeaker and in the night we want to supposed a dimmed lit on the way to the children's room.
+
+The whole solutions goes also for other purposes, e.g. the audio of the surveillance camera should transfer on a noise into our apartment.
+
+<!--more-->
+
+We need an IP camera in the children's room with sound. This is the simplest solution and we describe this here in the blog. It is also possible to equip a Raspberry with a microphone and send the sound to our Home-Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast.
+
+We attach a ffmpeg noise binray sensor to our IP camera. The sensor have a `output` option they allow us to send the output of this to icecast2 server for playing over e.g. Sonos. The binary sensor will go to our main part for all automation. If we don't want to play the audio after trigger the noise sensor, we don't need to install and setup icecast2 server and we ignor this part of setup.
+
+<p class='note'>
+We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_noise`. Also all service going to component and was rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
+</p>
+
+We setup [ffmpeg](components/ffmpeg/) and install a [icecast2](http://icecast.org/) server. On a Raspbian with jessie:
+```bash
+$ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+$ sudo apt-get update
+$ sudo apt-get -t jessie-backports install ffmpeg
+$ sudo apt-get install icecast2
+```
+
+We setup a icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:
+```
+<mount>
+    <mount-name>/babyphone.mp3</mount-name>
+    <stream-name>Babyphone</stream-name>
+
+    <username>stream_user</username>
+    <password>stream_pw</password>
+</mount>
+```
