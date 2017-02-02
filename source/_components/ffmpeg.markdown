@@ -36,7 +36,7 @@ $ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt
 $ sudo apt-get update
 $ sudo apt-get -t jessie-backports install ffmpeg
 ```
-
+We can use now following in the configuration:
 ```
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
