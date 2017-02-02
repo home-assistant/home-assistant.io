@@ -42,3 +42,19 @@ We setup a icecast mount point for our babyphone and update `/etc/icecast2/iceca
     <password>stream_pw</password>
 </mount>
 ```
+
+So now we can add the noise sensor to Home-Assistant. I do not want to be awaiken with every cough of the little child, so we should be at least 2 seconds for option `duration`. The sensor should wait 60 seconds before restoring and it prevent us that a wine break will triggering a new alarm.
+
+We optimize the audio stream for human voice sound. It use a highpass filter with 300Hz and a lowpass filter from 2500Hz. This filter all frequenze with none human voice. Use this filter for reduce background noice. This example add also a volume amplifier that help if the micro volume is to low. If you don't want it, remove the filter from `extra_arguments`. For icecast2 we convert it to mp3 with samplerate of 16000 (that is the minimum for sonos systems). We use `peak` to set the threshold of detecting noise, in dB. 0 is very loud and -100 is low.
+
+```yaml
+binary_sensor:
+ - platform: ffmpeg_noise
+   input: rtsp://user:pw@my_input/video
+   extra_arguments: -filter:a highpass=f=300,lowpass=f=2500,volume=volume=2 -codec:a libmp3lame -ar 16000
+   output: -f mp3 icecast://stream_user:stream_pw@127.0.0.1:8000/babyphone.mp3
+   initial_state: false
+   duration: 2
+   reset: 60
+   peak: -32
+```
