@@ -229,7 +229,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mKeRix]: https://github.com/mKeRix
 [@fakezeta]: https://github.com/fakezeta
 
-[amcrest]: https://home-assistant.io/components/binary_sensor.arest/
+[amcrest]: https://home-assistant.io/components/binary_sensor.amcrest/
 [discord]: https://home-assistant.io/components/notify.discord/
 [tado]: https://home-assistant.io/components/device_tracker.tado/
 [sky]: https://home-assistant.io/components/device_tracker.sky_hub/
