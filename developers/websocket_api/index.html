@@ -90,13 +90,15 @@
   <hr class="divider">
   
 
-  <p>Home Assistant contains a websocket API. This API can be used to stream information from the Home Assistant server to any client that implements websockets. Implementations in different languages:</p>
+  <p>Home Assistant contains a websocket API. This API can be used to stream information from a Home Assistant instance to any client that implements websockets. Implementations in different languages:</p>
 
 <ul>
   <li><a href="https://github.com/home-assistant/home-assistant-js-websocket">JavaScript</a> - powers the frontend</li>
 </ul>
 
-<h1><a class="title-link" name="server-states" href="#server-states"></a> Server states</h1>
+<p>Connect your websocket implementation to <code class="highlighter-rouge">ws://localhost:8123/api/websocket</code>.</p>
+
+<h2><a class="title-link" name="server-states" href="#server-states"></a> Server states</h2>
 
 <ol>
   <li>Client connects</li>
@@ -116,7 +118,7 @@ b. Server can send results of previous commands.</li>
 
 <p>During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it’s origin.</p>
 
-<h1><a class="title-link" name="message-format" href="#message-format"></a> Message format</h1>
+<h2><a class="title-link" name="message-format" href="#message-format"></a> Message format</h2>
 
 <p>Each API message is a JSON serialized object containing a <code class="highlighter-rouge">type</code> key. After the authentication phase messages also must contain an <code class="highlighter-rouge">id</code>, an integer that contains the number of interactions.</p>
 
@@ -142,7 +144,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h1><a class="title-link" name="authentication-phase" href="#authentication-phase"></a> Authentication phase</h1>
+<h2><a class="title-link" name="authentication-phase" href="#authentication-phase"></a> Authentication phase</h2>
 
 <p>When a client connects to the server, the server will test if the client is authenticated. Authentication will not be necessary if no api_password is set or if the user fulfills one of the other criteria for authentication (trusted network, password in url/header).</p>
 
@@ -188,7 +190,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h1><a class="title-link" name="command-phase" href="#command-phase"></a> Command phase</h1>
+<h2><a class="title-link" name="command-phase" href="#command-phase"></a> Command phase</h2>
 
 <p>During this phase the client can give commands to the server. The server will respond to each command with a <code class="highlighter-rouge">result</code> message indicating when the command is done and if it was successful.</p>
 
@@ -275,7 +277,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h2><a class="title-link" name="unsubscribing-from-events" href="#unsubscribing-from-events"></a> Unsubscribing from events</h2>
+<h3><a class="title-link" name="unsubscribing-from-events" href="#unsubscribing-from-events"></a> Unsubscribing from events</h3>
 
 <p>You can unsubscribe from previously created subscription events. Pass the id of the original subscription command as value to the subscription field.</p>
 
@@ -298,7 +300,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h2><a class="title-link" name="calling-a-service" href="#calling-a-service"></a> Calling a service</h2>
+<h3><a class="title-link" name="calling-a-service" href="#calling-a-service"></a> Calling a service</h3>
 
 <p>This will call a service in Home Assistant. Right now there is no return value. The client can listen to <code class="highlighter-rouge">state_changed</code> events if it is interested in changed entities as a result of a service call.</p>
 
@@ -325,7 +327,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h2><a class="title-link" name="fetching-states" href="#fetching-states"></a> Fetching states</h2>
+<h3><a class="title-link" name="fetching-states" href="#fetching-states"></a> Fetching states</h3>
 
 <p>This will get a dump of all the current states in Home Assistant.</p>
 
@@ -347,7 +349,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h2><a class="title-link" name="fetching-config" href="#fetching-config"></a> Fetching config</h2>
+<h3><a class="title-link" name="fetching-config" href="#fetching-config"></a> Fetching config</h3>
 
 <p>This will get a dump of the current config in Home Assistant.</p>
 
@@ -369,7 +371,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h2><a class="title-link" name="fetching-services" href="#fetching-services"></a> Fetching services</h2>
+<h3><a class="title-link" name="fetching-services" href="#fetching-services"></a> Fetching services</h3>
 
 <p>This will get a dump of the current services in Home Assistant.</p>
 
@@ -391,7 +393,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h2><a class="title-link" name="fetching-panels" href="#fetching-panels"></a> Fetching panels</h2>
+<h3><a class="title-link" name="fetching-panels" href="#fetching-panels"></a> Fetching panels</h3>
 
 <p>This will get a dump of the current registered panels in Home Assistant.</p>
 
@@ -413,7 +415,7 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 
-<h1><a class="title-link" name="error-handling" href="#error-handling"></a> Error handling</h1>
+<h2><a class="title-link" name="error-handling" href="#error-handling"></a> Error handling</h2>
 
 <p>If an error occurs, the <code class="highlighter-rouge">success</code> key in the <code class="highlighter-rouge">result</code> message will be set to <code class="highlighter-rouge">false</code>. It will contain an <code class="highlighter-rouge">error</code> key containing an object with two keys: <code class="highlighter-rouge">code</code> and <code class="highlighter-rouge">message</code>.</p>
 
