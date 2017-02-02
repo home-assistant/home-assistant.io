@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-01T18:09:28+00:00</updated>
+  <updated>2017-02-02T05:34:27+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -138,6 +138,23 @@
 </ul>
 
 <p>Bugfix: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/freol35241">@freol35241</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/tdickman">@tdickman</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/rytilahti">@rytilahti</a>, <a href="https://github.com/R1chardTM">@R1chardTM</a>, <a href="https://github.com/asbach">@asbach</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/colinodell">@colinodell</a>, <a href="https://github.com/joopert">@joopert</a>, <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/jaharkes">@jaharkes</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/jabesq">@jabesq</a>, and you if you are missing in this list.</p>
+
+<h3><a class="title-link" name="release-0371---february-2" href="#release-0371---february-2"></a> Release 0.37.1 - February 2</h3>
+
+<ul>
+  <li>Do not reject alphanumeric IDs for PiLight (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>Fix broken Hue discovery (<a href="https://github.com/Danielhiversen">@DanielHiversen</a>)</li>
+  <li>Fix Amcrest (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Fix Telldus Live dim level error on startup (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Fix Sonos group coordinators (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>UPC Connect: Parse XML outside event loop (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Netatmo SSL issue with VPN url (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Homematic: Fix bug with UNREACH device state/restore and variables not updating (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sonos: Prevent duplicate entries in favorite list (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Schlage Connect deadbolt integration via Z-Wave (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Prevent infinite loop in crossconfigured mqtt event streams (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Fix Hue lightgroups failing on startup (<a href="https://github.com/tboyce1">@tboyce1</a>)</li>
+</ul>
 
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 <ul>

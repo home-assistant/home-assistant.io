@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-01T18:09:28+00:00</updated>
+  <updated>2017-02-02T05:34:27+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -135,6 +135,21 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 
 Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@tdickman], [@armills], [@rytilahti], [@R1chardTM], [@asbach], [@happyleavesaoc], [@robbiet480], [@colinodell], [@joopert], [@dale3h], [@pavoni], [@jaharkes], [@MartinHjelmare], [@mezz64], [@jabesq], and you if you are missing in this list.
 
+### <a class='title-link' name='release-0371---february-2' href='#release-0371---february-2'></a> Release 0.37.1 - February 2 
+
+- Do not reject alphanumeric IDs for PiLight ([@DavidLP])
+- Fix broken Hue discovery ([@DanielHiversen])
+- Fix Amcrest ([@tchellomello])
+- Fix Telldus Live dim level error on startup ([@molobrakos])
+- Fix Sonos group coordinators ([@pvizeli])
+- UPC Connect: Parse XML outside event loop ([@pvizeli])
+- Fix Netatmo SSL issue with VPN url ([@jabesq])
+- Homematic: Fix bug with UNREACH device state/restore and variables not updating ([@pvizeli])
+- Sonos: Prevent duplicate entries in favorite list ([@pvizeli])
+- Fix Schlage Connect deadbolt integration via Z-Wave ([@turbokongen])
+- Prevent infinite loop in crossconfigured mqtt event streams ([@aequitas])
+- Fix Hue lightgroups failing on startup ([@tboyce1])
+
 ### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 - A **major** breaking change in the [`emulated_hue`][emul-hue] component means that unless you set `type: alexa` before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups.
 - The platform of the [ISS][iss] integration was change to `binary_sensor`. Please check the platform documentation.
@@ -151,6 +166,9 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 ### <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+[@DavidLP]: https://github.com/DavidLP
+[@molobrakos]: https://github.com/molobrakos
+[@tboyce1]: https://github.com/tboyce1
 [@MrMep]: https://github.com/MrMep
 [@joopert]: https://github.com/joopert
 [@armills]: https://github.com/armills
