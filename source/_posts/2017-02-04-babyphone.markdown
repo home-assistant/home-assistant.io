@@ -10,7 +10,7 @@ categories: How-To Babyphone
 og_image: /images/blog/2017-02-babyphone/social.png
 ---
 
-For freshly baked parents comes quickly the question how to monitor the sleep of his child. We want to be awakened when something is. There are many expensive solutions and thus other devices which stand only for a purpose somewhere. What is if we could build a super babephone with little means? With Home-Assistant is this quite simply and possible! We use our existing e.g. Sonos as a loudspeaker and in the night we want to supposed a dimmed lit on the way to the children's room.
+For freshly baked parents comes quickly the question how to monitor the sleep of his child. We want to be awakened when something is. There are many expensive solutions and thus other devices which stand only for a purpose somewhere. What is if we could build a super babephone with little means? With Home-Assistant is this quite simply and possible! We use our existing e.g. Sonos as a loudspeaker and in the night we want to supposed a dimmed lit on the way to the children's room. I send also a notification with a image to my phone, so I have a nice history on next day.
 
 The whole solutions goes also for other purposes, e.g. the audio of the surveillance camera should transfer on a noise into our apartment.
 
@@ -57,4 +57,33 @@ binary_sensor:
    duration: 2
    reset: 60
    peak: -32
+```
+
+We use option `initial_state` to prevent that the ffmpeg process will start with Home-Assistant. I don't want monitor the children every time. We make a `input_boolean` to control the state of monitoring with ffmpeg services.
+
+```
+input_boolean:
+  babyphone:
+    name: babyphone
+    initial: off
+
+automation:
+ - alias: 'Babyphone on'
+   trigger:
+     platform: state
+     entity_id: input_boolean.babyphone
+     from: 'off'
+     to: 'on'
+   action:
+    service: ffmpeg.start
+    entity_id: binary_sensor.ffmpeg_noise
+ - alias: 'Babyphone off'
+   trigger:
+     platform: state
+     entity_id: input_boolean.babyphone
+     from: 'on'
+     to: 'off'
+   action:
+    service: ffmpeg.stop
+    entity_id: binary_sensor.ffmpeg_noise
 ```
