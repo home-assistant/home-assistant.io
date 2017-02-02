@@ -63,6 +63,12 @@ Content...Written in markdown.
 
 There are [pre-definied variables](https://jekyllrb.com/docs/variables/) available but usually, it's not necessary to use them when writing documentation.
 
+A couple of points to remember:
+
+- Document the needed steps to retrieve API keys or access token for the third party service or device if needed.
+- Keep the configuration sample minimal by only adding the `Required` options. Full configuration details with further explanations should go into a seperate section.
+- The description of all the configuration variables should contains information about the used defaults.
+
 ### {% linkable_title Embedding Code %}
 
 You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in \`. For multi-line, syntax wrap your code as shown below.
@@ -92,6 +98,16 @@ The direct usage of HTML is supported but not recommended. The note boxes are an
 <p class='note warning'>
   You need to enable telnet on your router. 
 </p>
+```
+
+### {% linkable_title Redirects %}
+If you rename or move an existing platform or component, create the redirect. Add the old location of the page to the header of the new one.
+
+```test
+---
+...
+redirect_from: /getting-started/android/
+---
 ```
 
 ### {% linkable_title Images, icons, and logos %}
