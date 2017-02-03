@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Baby monitoring"
-description: "Make your Home fit for baby monitoring."
-date: 2016-07-28 06:00:00 +0200
-date_formatted: "July 28, 2016"
+title: "Smart Baby Monitor"
+description: "How to build your own smart baby monitor"
+date: 2017-02-04 00:00:00 +0100
+date_formatted: "February 4, 2017"
 author: Pascal Vizeli
 comments: true
 categories: How-To Babyphone
@@ -18,7 +18,7 @@ Obviously, you can use the setup as a general purpose surveillance system to mon
 
 ### {% linkable_title Setup %}
 
-We need an IP-camera that can capture sound in the baby's room. It is also possible to use a Raspberry Pi with a microphone and send the audio to our Home-Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast.
+We need an IP-camera that can capture sound in the baby's room. It is also possible to use a Raspberry Pi with a microphone and send the audio to our Home-Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast. We can set `input` option on Home-Assistant side to `rtp://236.0.0.1:2000` in same network.
 
 Next, we attach a ffmpeg noise binary sensor to our IP-camera. The sensor has an  output `option` that allows us to send the output to icecast2 server for playing over speakers integrated with Home-Assistant (e.g., Sonos). We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don't want to play the audio after the noise sensor trigger.
 
@@ -63,7 +63,7 @@ binary_sensor:
 
 We use the option `initial_state` to prevent the ffmpeg process from starting with Home-Assistant and only start it when needed. We use an `input_boolean`  to control the state of ffmpeg services using the following automation.
 
-```
+```yaml
 input_boolean:
   babyphone:
     name: babyphone
@@ -79,6 +79,7 @@ automation:
    action:
      service: ffmpeg.start
      entity_id: binary_sensor.ffmpeg_noise
+
  - alias: 'Babyphone off'
    trigger:
      platform: state
@@ -90,7 +91,54 @@ automation:
      entity_id: binary_sensor.ffmpeg_noise
 ```
 
+### {% linkable_title Trigger a alarm %}
+
+Now we can make a lot stuff. Here is a simple example of an automation what should be possible with Sonos speakers.
+
+```yaml
+automation:
+ - alias: 'Babyphone alarm on'
+   trigger:
+     platform: state
+     entity_id: binary_sensor.ffmpeg_noise
+     from: 'off'
+     to: 'on'
+   action:
+    - service: media_player.sonos_snapshot
+      entity_id: media_player.bedroom
+    - service: media_player.sonos_unjoin
+      entity_id: media_player.bedroom
+    - service: media_player.volume_set
+      entity_id: media_player.bedroom
+      data:
+        volume_level: 0.4
+    - service: media_player.play_media
+      entity_id: media_player.bedroom
+      data:
+        media_content_type: 'music'
+        media_content_id: http://my_ip_icecast:8000/babyphone.mp3
+    - service: light.turn_on:
+      entity_id:
+       - light.floor
+       - light.bedroom
+      data:
+        brightness: 150
+
+ - alias: 'Babyphone alarm off'
+   trigger:
+     platform: state
+     entity_id: binary_sensor.ffmpeg_noise
+     from: 'on'
+     to: 'off'
+   action:
+    - service: media_player.sonos_restore
+      entity_id: media_player.bedroom
+    - service: light.turn_off:
+      entity_id:
+       - light.floor
+       - light.bedroom
+```
+
 ### {% linkable_title Thanks %}
 
-Special thanks for support to write this blogpost going to:
-- [arsaboo](https://github.com/arsaboo)
+Special thanks to [arsaboo](https://github.com/arsaboo) for assistance in writing this blogpost.
