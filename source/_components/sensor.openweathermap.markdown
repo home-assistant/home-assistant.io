@@ -37,6 +37,7 @@ Configuration variables:
   - **weather**: A human-readable text summary.
   - **temperature**: The current temperature.
   - **wind_speed**: The wind speed.
+  - **wind_bearing**: The wind bearing.
   - **humidity**: The relative humidity.
   - **pressure**: The sea-level air pressure in millibars.
   - **clouds**: Description about cloud coverage.
