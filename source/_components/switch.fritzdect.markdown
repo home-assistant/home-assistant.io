@@ -10,7 +10,7 @@ footer: true
 logo: avm.png
 ha_category: Switch
 ha_iot_class: "Local Polling"
-ha_release: 0.37
+ha_release: 0.38
 ---
 
 
@@ -37,7 +37,6 @@ switch:
 
 Configuration variables:
 
-- **host** (*Optional*): The IP address / hostname of your Fritz!Box. Defaults to fritz.box.
 - **username** (*Required*): The username for your Fritz!Box.
 - **password** (*Required*): The password for your Fritz!Box.
-
+- **host** (*Optional*): The IP address/hostname of your Fritz!Box. Defaults to `fritz.box`.
