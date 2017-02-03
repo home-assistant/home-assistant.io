@@ -104,15 +104,22 @@
 
 <h4><a class="title-link" name="symlinking-into-virtual-environment" href="#symlinking-into-virtual-environment"></a> Symlinking into virtual environment</h4>
 
-<p>Create a symlink to the <code class="highlighter-rouge">cec</code> installation.</p>
+<p>Create a symlink to the <code class="highlighter-rouge">cec</code> installation. Keep in mind different installation methods will result in different locations of cec.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/dist-packages/cec /path/to/your/venv/lib/python3.4/site-packages
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python3.4/site-packages
+</code></pre>
+</div>
+<h5><a class="title-link" name="symlinking-examples" href="#symlinking-examples"></a> Symlinking examples:</h5>
+
+<p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-image/">HASSbian Image for Raspberry Pi</a> the command would be as follows.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/homeassistant/lib/python3.4/site-packages
 </code></pre>
 </div>
 
 <p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi All-In-One installation</a> the command would be as follows.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/site-packages/cec /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
 </code></pre>
 </div>
 
