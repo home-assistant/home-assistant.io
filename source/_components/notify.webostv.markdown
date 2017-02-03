@@ -32,9 +32,7 @@ Configuration variables:
 
 - **host** (*Required*): The IP of the LG WebOS Smart TV, e.g. 192.168.0.10
 - **name** (*Required*): The name you would like to give to the LG WebOS Smart TV.
-- **filename** (*Optional*): The filename where the pairing key with the TV
-  should be stored. This path is relative to Home Assistant's config directory.
-  It defaults to `webostv.conf`.
+- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
 
 A possible automation could be:
 
