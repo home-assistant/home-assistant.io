@@ -12,20 +12,13 @@ ha_category: Automation
 ha_release: 0.38
 ---
 
-The `alert` component is designed to notify you when problematic issues arise.
-For example, if the garage door is left open, the `alert` component can be
-used remind you of this by sending you repeating notifications at customizable
-intervals. This is also useful for low battery sensors, water leak sensors,
-or any condition that may need your attention.
+The `alert` component is designed to notify you when problematic issues arise. For example, if the garage door is left open, the `alert` component can be used remind you of this by sending you repeating notifications at customizable intervals. This is also useful for low battery sensors, water leak sensors, or any condition that may need your attention.
 
-Alerts will add an entity to the front end only when they are firing. This
-entity allows you to silence an alert until it is resolved.
+Alerts will add an entity to the front end only when they are firing. This entity allows you to silence an alert until it is resolved.
 
 ### {% linkable_title Basic Example %}
 
-The `alert` component makes use of any of the `notifications` components.
-To setup the `alert` component, first, you must setup a `notification`
-component. Then, add the following to your configuration file:
+The `alert` component makes use of any of the `notifications` components. To setup the `alert` component, first, you must setup a `notification` component. Then, add the following to your configuration file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,10 +26,10 @@ alert:
   garage_door:
     name: Garage is open
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: 'on'
     repeat: 30
-    can_acknowledge: True  # Optional, default is True
-    skip_first: True  # Optional, false is the default
+    can_acknowledge: True
+    skip_first: True
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -45,29 +38,17 @@ Configuration variables:
 
 - **name** (*Required*): The friendly name of the alert.
 - **entity_id** (*Required*): The ID of the entity to watch.
-- **state** (*Optional*): The problem condition for the entity.
+- **state** (*Optional*): The problem condition for the entity. Defaults to `on`.
 - **repeat** (*Required*): Number of minutes before the notification should be repeated. Can be either a number or a list of numbers.
-- **can_acknowledge** (*Optional*): Allows the alert to be unacknowledgable.
-- **skip_first** (*Optional*): Controls whether the notification should be sent immediately or after the first delay.
+- **can_acknowledge** (*Optional*): Allows the alert to be unacknowledgable. Defaults to `true`.
+- **skip_first** (*Optional*): Controls whether the notification should be sent immediately or after the first delay. Defaults to `false`.
 - **notifiers** (*Required*): List of `notification` components to use for alerts.
 
-In this example, the garage door status (`input_boolean.garage_door`) is
-watched and this alert will be triggered when its status is equal to `on`.
-This indicates that the door has been opened. Because the `skip_first`
-option was set to `True`, the first notification will not be delivered
-immediately. However, every 30 minutes, a notification will be delivered until
-either `input_boolean.garage_door` no longer has a state of `on` or until the
-alert is acknowledged using the Home Assistant frontend.
+In this example, the garage door status (`input_boolean.garage_door`) is watched and this alert will be triggered when its status is equal to `on`. This indicates that the door has been opened. Because the `skip_first` option was set to `True`, the first notification will not be delivered immediately. However, every 30 minutes, a notification will be delivered until either `input_boolean.garage_door` no longer has a state of `on` or until the alert is acknowledged using the Home Assistant frontend.
 
 ### {% linkable_title Complex Alert Criteria %}
 
-By design, the `alert` component only handles very simple criteria for firing.
-That is, is only checks if a single entity's state is equal to a value. At some
-point, it may be desireable to have an alert with a more complex criteria.
-Possibly, when a battery percentage falls below a threshold. Maybe you want to
-disable the alert on certain days. Maybe the alert firing should depend on more
-than one input. For all of these situations, it is best to use the alert in
-conjunction with a `Template Binary Sensor`. The following example does that.
+By design, the `alert` component only handles very simple criteria for firing. That is, is only checks if a single entity's state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
 
 ```yaml
 binary_sensor:
@@ -87,16 +68,11 @@ alert:
         - kristens_phone
 ```
 
-This example will begin firing as soon as the entity `sensor.motion`'s
-`battery` attribute falls below 15. It will continue to fire until the battery
-attribute raises above 15 or the alert is acknowledged on the frontend.
+This example will begin firing as soon as the entity `sensor.motion`'s `battery` attribute falls below 15. It will continue to fire until the battery attribute raises above 15 or the alert is acknowledged on the frontend.
 
 ### {% linkable_title Dynamic Notification Delay Times %}
 
-It may be desireable to have the delays between alert notifications dynamically
-change as the alert continues to fire. This can be done by setting the `repeat`
-configuration key to a list of numbers rather than a single number. Altering
-the first example would look like the following.
+It may be desireable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the `repeat` configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.
 
 ```yaml
 # Example configuration.yaml entry
@@ -116,6 +92,4 @@ alert:
       - kristens_phone
 ```
 
-Now, the first message will be sent after a 15 minute delay. The second will be
-sent after a 30 minute delay. A 60 minute delay will fall between every
-following notification.
+Now, the first message will be sent after a 15 minute delay. The second will be sent after a 30 minute delay. A 60 minute delay will fall between every following notification.
