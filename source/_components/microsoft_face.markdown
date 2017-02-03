@@ -12,9 +12,9 @@ ha_category: Hub
 ha_release: "0.37"
 ---
 
-The `microsoft_face` component platform is the main component for Microsoft Azure Cognitive service [Face](https://www.microsoft.com/cognitive-services/en-us/face-api). All data are in a own private instance in the Azure cloud.
+The `microsoft_face` component platform is the main component for Microsoft Azure Cognitive service [Face](https://www.microsoft.com/cognitive-services/en-us/face-api). All data is stored in a private instance on Azure Cloud. 
 
-You need an API key which is free but requires a [Azure registration](https://azure.microsoft.com/de-de/free/) with your microsoft ID. The free resource (*F0*) is limit to 30k requests in a month and 20 per minute. If you don't want use a the Azure cloud, you can also get a API key with registration on [cognitive-services](https://www.microsoft.com/cognitive-services/en-us/subscriptions) but they need to recreate all 90 days.
+You need an API key which is free but requires a [Azure registration](https://azure.microsoft.com/de-de/free/) with your Microsoft Account. The free resource (*F0*) is limit to 30k requests in a month and 20 per minute. If you don't want use a the Azure cloud, you can also get a API key with registration on [cognitive-services](https://www.microsoft.com/cognitive-services/en-us/subscriptions). However, all keys on cognitive services must be recreated every 90 days.
 
 To enable the Microsoft Face component, add the following lines to your `configuration.yaml`:
 
