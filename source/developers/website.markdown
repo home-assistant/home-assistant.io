@@ -69,7 +69,7 @@ A couple of points to remember:
 - Document the needed steps to retrieve API keys or access token for the third party service or device if needed.
 - Keep the configuration sample minimal by only adding the `Required` options. Full configuration details with further explanations should go into a seperate section.
 - The description of all the configuration variables should contains information about the used defaults.
-- If you're adding a new component, for the `ha_release` part of the header, just increment off the current release.  If the current release is 0.37, make ha_release 0.38.
+- If you're adding a new component, for the `ha_release` part of the header, just increment off the current release. If the current release is 0.37, make `ha_release` 0.38.
 
 ### {% linkable_title Embedding Code %}
 
