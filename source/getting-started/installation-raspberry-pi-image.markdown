@@ -34,7 +34,13 @@ The following extras are included on the image:
     - Install OpenZWave. Installs OpenZWave and prepares for using a USB or GPIO ZWave controller.
     - Install Samba. Installs the Samba packages and shares you configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and it's usage is not recommended if your installation is publicly available.
 
-For more information about the scripts included have a look at the [hassbian-scripts repository][hassbian-repo].
+All of these scripts are available in the directory `/home/pi/hassbian-scripts/`. This directory is actually a cloned git repository that's clone on first boot and can be updated to the latest release with ease after.
+To update the hassbian-scripts directory execute the following command as the `pi` user.
+```bash
+$ cd hassbian-scripts
+$ git pull
+```
+For more information about these scripts have a look at the [hassbian-scripts repository][hassbian-repo].
 
 Some extra tips:
 
