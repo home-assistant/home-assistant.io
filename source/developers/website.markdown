@@ -67,7 +67,7 @@ A couple of points to remember:
 
 - Document the needed steps to retrieve API keys or access token for the third party service or device if needed.
 - Keep the configuration sample minimal by only adding the `Required` options. Full configuration details with further explanations should go into a seperate section.
-- The description of all the configuration variables should contains information about the used defaults.
+- The description of all the configuration variables should contain information about the default values.
 
 ### {% linkable_title Embedding Code %}
 
