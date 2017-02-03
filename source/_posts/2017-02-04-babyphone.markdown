@@ -10,21 +10,23 @@ categories: How-To Babyphone
 og_image: /images/blog/2017-02-babyphone/social.png
 ---
 
-For freshly baked parents comes quickly the question how to monitor the sleep of his child. We want to be awakened when something is. There are many expensive solutions and thus other devices which stand only for a purpose somewhere. What is if we could build a super babephone with little means? With Home-Assistant is this quite simply and possible! We use our existing e.g. Sonos as a loudspeaker and in the night we want to supposed a dimmed lit on the way to the children's room. I send also a notification with a image to my phone, so I have a nice history on next day.
+One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available in the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home-Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (e.g., Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.
 
-The whole solutions goes also for other purposes, e.g. the audio of the surveillance camera should transfer on a noise into our apartment.
+Obviously, you can use the setup as a general purpose surveillance system to monitor noise in the whole house.
 
 <!--more-->
 
-We need an IP camera in the children's room with sound. This is the simplest solution and we describe this here in the blog. It is also possible to equip a Raspberry with a microphone and send the sound to our Home-Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast.
+### {% linkable_title Setup %}
 
-We attach a ffmpeg noise binray sensor to our IP camera. The sensor have a `output` option they allow us to send the output of this to icecast2 server for playing over e.g. Sonos. The binary sensor will go to our main part for all automation. If we don't want to play the audio after trigger the noise sensor, we don't need to install and setup icecast2 server and we ignor this part of setup.
+We need an IP-camera that can capture sound in the baby's room. It is also possible to use a Raspberry Pi with a microphone and send the audio to our Home-Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast.
+
+Next, we attach a ffmpeg noise binary sensor to our IP-camera. The sensor has an  output `option` that allows us to send the output to icecast2 server for playing over speakers integrated with Home-Assistant (e.g., Sonos). We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don't want to play the audio after the noise sensor trigger.
 
 <p class='note'>
 We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_noise`. Also all service going to component and was rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
 </p>
 
-We setup [ffmpeg](components/ffmpeg/) and install a [icecast2](http://icecast.org/) server. On a Raspbian with jessie:
+On Raspbian Jessie, you can setup [ffmpeg](/components/ffmpeg) and install a [icecast2](http://icecast.org/) server using:
 ```bash
 $ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
 $ sudo apt-get update
@@ -43,9 +45,9 @@ We setup a icecast mount point for our babyphone and update `/etc/icecast2/iceca
 </mount>
 ```
 
-So now we can add the noise sensor to Home-Assistant. I do not want to be awaiken with every cough of the little child, so we should be at least 2 seconds for option `duration`. The sensor should wait 60 seconds before restoring and it prevent us that a wine break will triggering a new alarm.
+Now we can add the noise sensor to Home-Assistant. We can lower the sensitivity of the sensor (so that you are not inundated with notifications for every cough of the baby) to 2 seconds using the `duration` option. The sensor should wait 60 seconds before restoring and it prevent us that a wine break will triggering a new alarm.
 
-We optimize the audio stream for human voice sound. It use a highpass filter with 300Hz and a lowpass filter from 2500Hz. This filter all frequenze with none human voice. Use this filter for reduce background noice. This example add also a volume amplifier that help if the micro volume is to low. If you don't want it, remove the filter from `extra_arguments`. For icecast2 we convert it to mp3 with samplerate of 16000 (that is the minimum for sonos systems). We use `peak` to set the threshold of detecting noise, in dB. 0 is very loud and -100 is low.
+We can optimize the audio stream for human voice by using a highpass filter with 300Hz and a lowpass filter with 2500Hz. This filters out all non-human sounds such as background noise. We can even add a volume amplifier if the microphone volume is too low (you can remove it from `extra_arguments`). For icecast2 we convert the audio stream to mp3 with samplerate of 16000 (which is the minimum for Sonos speakers). We use `peak` to set the threshold for noise detection, where 0 dB is very loud and -100 dB is low.
 
 ```yaml
 binary_sensor:
@@ -59,7 +61,7 @@ binary_sensor:
    peak: -32
 ```
 
-We use option `initial_state` to prevent that the ffmpeg process will start with Home-Assistant. I don't want monitor the children every time. We make a `input_boolean` to control the state of monitoring with ffmpeg services.
+We use the option `initial_state` to prevent the ffmpeg process from starting with Home-Assistant and only start it when needed. We use an `input_boolean`  to control the state of ffmpeg services using the following automation.
 
 ```
 input_boolean:
@@ -87,3 +89,8 @@ automation:
      service: ffmpeg.stop
      entity_id: binary_sensor.ffmpeg_noise
 ```
+
+### {% linkable_title Thanks %}
+
+Special thanks for support to write this blogpost going to:
+- [arsaboo](https://github.com/arsaboo)
