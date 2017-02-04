@@ -83,6 +83,56 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/05/18/why-we-use-polymer/">Why we use web components and Polymer</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-05-18T00:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 18, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Technology</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/05/18/why-we-use-polymer/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>I’ve been planning to write this post for a while now as we get questions like this a lot: <em>“Why does Home Assistant use Polymer? Why not React, Redux and what not?”</em></p>
+
+<p>It’s understandable, Polymer is quite the underdog in the world of web frameworks. A corporate backer does not guarantee popularity or an active community and this shows in the number of projects using Polymer.</p>
+
+<p>Still, <a href="https://home-assistant.io/demo">we use Polymer and it’s awesome</a>. To explain why, I’ll be referencing the React workflow quite a bit, as they do a lot of things right, and show how it is done in Polymer.</p>
+
+<p>Polymer gives us components for the web, just like React, but based on web standards: <a href="https://www.w3.org/standards/techs/components#w3c_all">web components</a>, <a href="https://www.w3.org/TR/css-variables/">CSS variables</a>. These standards don’t have wide browser support yet but it’s being implemented by every major browser: It’s the future. For now they are being polyfilled and that works just fine but in the future the Home Assistant web app will be able to run native in the browsers == fast.</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/05/18/why-we-use-polymer/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/05/12/video-configuring-home-assistant/">Video: How To Configure Home Assistant</a>
   </h1>
   
@@ -676,58 +726,6 @@
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/04/05/your-hub-should-be-local-and-open/">Your hub should be local and open</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-04-05T04:11:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 5, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Internet-of-Things</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/04/05/your-hub-should-be-local-and-open/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Today the news spread that Google will be <a href="https://medium.com/@arlogilbert/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1#.rmppks86a">shutting down the Revolv hubs</a>. And shutting down here doesn’t mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as <a href="https://discuss.ninjablocks.com/t/ninja-blocks-whats-been-happening-whats-happening-next/3608">ninjasphere</a>: open it all up and let people decide on the fate of their <em>own</em> hub.</p>
-
-<p>I’ve said it <a href="/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud">before</a> but I’ll repeat it again:</p>
-
-<blockquote>
-  <p>The cloud should be treated as an extension to your smart home instead of running it.</p>
-</blockquote>
-
-<p>Your hub should not be affected when your internet breaks down or the company that sold you your hub goes out of business. It should work locally so that it can continue to work even long after the vendor goes out of business or decides to kill it. Preferably, your hub should also be open so that the community can take over development after the vendor stops caring.</p>
-
-<p>Unless you can afford losing a product here and there, be cautious when buying IoT products that depend on the cloud from companies that are not well established. The chances are high that they go bankrupt or get acquired and closed. This however is easier said than done as <a href="http://www.gartner.com/newsroom/id/2869521">Gartner</a> predicts that by 2017, 50 percent of IoT solutions will originate in startups that are less than three years old.</p>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -768,6 +766,8 @@
   <h1 class="title delta">Categories</h1>
   <ul class="divided">
     
+    
+      <li><a href="/blog/categories/babyphone/">Babyphone</a></li>
     
       <li><a href="/blog/categories/community/">Community</a></li>
     

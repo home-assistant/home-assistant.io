@@ -1,0 +1,385 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Smart Baby Monitor - Home Assistant</title>
+    <meta name="author" content="Pascal Vizeli">
+    <meta name="description" content="How to build your own smart baby monitor">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/02/03/babyphone/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Smart Baby Monitor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/02/03/babyphone/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="How to build your own smart baby monitor">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-02-babyphone/social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Smart Baby Monitor">
+    <meta name="twitter:description" content="How to build your own smart baby monitor">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-02-babyphone/social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  
+  <header>
+  
+  <h1 class="title indent">Smart Baby Monitor</h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2017-02-03T23:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 4, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Pascal Vizeli</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Babyphone</li>
+      
+        <li>How-To</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <p>One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available in the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home-Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (e.g., Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.</p>
+
+<p>Obviously, you can use the setup as a general purpose surveillance system to monitor noise in the whole house.</p>
+
+<a name="read-more"></a>
+
+<h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
+
+<p>We need an IP-camera that can capture sound in the baby’s room. It is also possible to use a Raspberry Pi with a microphone and send the audio to our Home-Assistant with <code class="highlighter-rouge">ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000</code> over multicast. We can set <code class="highlighter-rouge">input</code> option on Home-Assistant side to <code class="highlighter-rouge">rtp://236.0.0.1:2000</code> in same network.</p>
+
+<p>Next, we attach a ffmpeg noise binary sensor to our IP-camera. The sensor has an  output <code class="highlighter-rouge">option</code> that allows us to send the output to icecast2 server for playing over speakers integrated with Home-Assistant (e.g., Sonos). We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don’t want to play the audio after the noise sensor trigger.</p>
+
+<p class="note">
+We change the platform name for binary sensor in 0.38 from <code class="highlighter-rouge">ffmpeg</code> to <code class="highlighter-rouge">ffmpeg_noise</code>. Also all service going to component and was rename from <code class="highlighter-rouge">binary_sensor.ffmpeg_xy</code> to <code class="highlighter-rouge">ffmpeg.xy</code>.
+</p>
+
+<p>On Raspbian Jessie, you can setup <a href="/components/ffmpeg">ffmpeg</a> and install a <a href="http://icecast.org/">icecast2</a> server using:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo <span class="nb">echo</span> <span class="s2">"deb http://ftp.debian.org/debian jessie-backports main"</span> &gt;&gt; /etc/apt/sources.list
+<span class="gp">$ </span>sudo apt-get update
+<span class="gp">$ </span>sudo apt-get -t jessie-backports install ffmpeg
+<span class="gp">$ </span>sudo apt-get install icecast2
+</code></pre>
+</div>
+
+<p>We setup a icecast mount point for our babyphone and update <code class="highlighter-rouge">/etc/icecast2/icecast.xml</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;mount&gt;
+    &lt;mount-name&gt;/babyphone.mp3&lt;/mount-name&gt;
+    &lt;stream-name&gt;Babyphone&lt;/stream-name&gt;
+
+    &lt;username&gt;stream_user&lt;/username&gt;
+    &lt;password&gt;stream_pw&lt;/password&gt;
+&lt;/mount&gt;
+</code></pre>
+</div>
+
+<p>Now we can add the noise sensor to Home-Assistant. We can lower the sensitivity of the sensor (so that you are not inundated with notifications for every cough of the baby) to 2 seconds using the <code class="highlighter-rouge">duration</code> option. The sensor should wait 60 seconds before restoring and it prevent us that a wine break will triggering a new alarm.</p>
+
+<p>We can optimize the audio stream for human voice by using a highpass filter with 300Hz and a lowpass filter with 2500Hz. This filters out all non-human sounds such as background noise. We can even add a volume amplifier if the microphone volume is too low (you can remove it from <code class="highlighter-rouge">extra_arguments</code>). For icecast2 we convert the audio stream to mp3 with samplerate of 16000 (which is the minimum for Sonos speakers). We use <code class="highlighter-rouge">peak</code> to set the threshold for noise detection, where 0 dB is very loud and -100 dB is low.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg_noise</span>
+   <span class="s">input</span><span class="pi">:</span> <span class="s">rtsp://user:pw@my_input/video</span>
+   <span class="s">extra_arguments</span><span class="pi">:</span> <span class="s">-filter:a highpass=f=300,lowpass=f=2500,volume=volume=2 -codec:a libmp3lame -ar 16000</span>
+   <span class="s">output</span><span class="pi">:</span> <span class="s">-f mp3 icecast://stream_user:stream_pw@127.0.0.1:8000/babyphone.mp3</span>
+   <span class="s">initial_state</span><span class="pi">:</span> <span class="s">false</span>
+   <span class="s">duration</span><span class="pi">:</span> <span class="s">2</span>
+   <span class="s">reset</span><span class="pi">:</span> <span class="s">60</span>
+   <span class="s">peak</span><span class="pi">:</span> <span class="s">-32</span>
+</code></pre>
+</div>
+
+<p>We use the option <code class="highlighter-rouge">initial_state</code> to prevent the ffmpeg process from starting with Home-Assistant and only start it when needed. We use an <code class="highlighter-rouge">input_boolean</code>  to control the state of ffmpeg services using the following automation.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_boolean</span><span class="pi">:</span>
+  <span class="s">babyphone</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">babyphone</span>
+    <span class="s">initial</span><span class="pi">:</span> <span class="s">off</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Babyphone</span><span class="nv"> </span><span class="s">on'</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.babyphone</span>
+     <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+     <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+   <span class="s">action</span><span class="pi">:</span>
+     <span class="s">service</span><span class="pi">:</span> <span class="s">ffmpeg.start</span>
+     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.ffmpeg_noise</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Babyphone</span><span class="nv"> </span><span class="s">off'</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.babyphone</span>
+     <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+     <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+   <span class="s">action</span><span class="pi">:</span>
+     <span class="s">service</span><span class="pi">:</span> <span class="s">ffmpeg.stop</span>
+     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.ffmpeg_noise</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="trigger-a-alarm" href="#trigger-a-alarm"></a> Trigger a alarm</h3>
+
+<p>Now we can make a lot stuff. Here is a simple example of an automation what should be possible with Sonos speakers.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Babyphone</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">on'</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.ffmpeg_noise</span>
+     <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+     <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+   <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.sonos_snapshot</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.bedroom</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.sonos_unjoin</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.bedroom</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.volume_set</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.bedroom</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">volume_level</span><span class="pi">:</span> <span class="s">0.4</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.bedroom</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">media_content_type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">music'</span>
+        <span class="s">media_content_id</span><span class="pi">:</span> <span class="s">http://my_ip_icecast:8000/babyphone.mp3</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">light.floor</span>
+       <span class="pi">-</span> <span class="s">light.bedroom</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">150</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Babyphone</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">off'</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.ffmpeg_noise</span>
+     <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+     <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+   <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.sonos_restore</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.bedroom</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">light.floor</span>
+       <span class="pi">-</span> <span class="s">light.bedroom</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="thanks" href="#thanks"></a> Thanks</h3>
+
+<p>Special thanks to <a href="https://github.com/arsaboo">arsaboo</a> for assistance in writing this blogpost.</p>
+</article>
+
+
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/02/03/babyphone/"
+     data-counturl="https://home-assistant.io/blog/2017/02/03/babyphone/" >Tweet</a>
+  
+  
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/02/03/babyphone/"
+         data-layout="button_count">
+    </div>
+  
+  
+  <div class="g-plusone" data-size="standard"></div>
+  
+</section>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/28/face-coffee-wink/">0.37: Face detection, Coffee, Wink</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/21/home-assistant-governance/">Home Assistant Governance [updated]</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/18/numbers/">Numbers</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/01/14/iss-usps-images-packages/">0.36: ISS, USPS, Image processing, Insteon</a>
+        </li>
+      
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/02/03/babyphone/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/02/03/babyphone/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>
