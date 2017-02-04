@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-04T09:07:32+00:00</updated>
+  <updated>2017-02-04T09:14:18+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -18,7 +18,7 @@
     <link href="https://home-assistant.io/blog/2017/02/03/babyphone/"/>
     <updated>2017-02-03T23:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2017/02/03/babyphone</id>
-    <content type="html"><![CDATA[<p>One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available in the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home-Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (e.g., Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.</p>
+    <content type="html"><![CDATA[<p>One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available on the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (eg. Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.</p>
 
 <p>Obviously, you can use the setup as a general purpose surveillance system to monitor noise in the whole house.</p>
 
@@ -26,15 +26,16 @@
 
 <h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
 
-<p>We need an IP-camera that can capture sound in the baby’s room. It is also possible to use a Raspberry Pi with a microphone and send the audio to our Home-Assistant with <code class="highlighter-rouge">ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000</code> over multicast. We can set <code class="highlighter-rouge">input</code> option on Home-Assistant side to <code class="highlighter-rouge">rtp://236.0.0.1:2000</code> in same network.</p>
+<p>We need an IP camera that can capture sound in the baby’s room. It is also possible to use a Raspberry Pi with a microphone and send the audio to Home Assistant with <code class="highlighter-rouge">ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000</code> over multicast. We can set the <code class="highlighter-rouge">input</code> option on the Home Assistant side to <code class="highlighter-rouge">rtp://236.0.0.1:2000</code> in same network.</p>
 
-<p>Next, we attach a ffmpeg noise binary sensor to our IP-camera. The sensor has an  output <code class="highlighter-rouge">option</code> that allows us to send the output to icecast2 server for playing over speakers integrated with Home-Assistant (e.g., Sonos). We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don’t want to play the audio after the noise sensor trigger.</p>
+<p>Next, we attach a FFmpeg noise binary sensor to our IP camera. The sensor has an output <code class="highlighter-rouge">option</code> that allows us to send the output to an <a href="http://icecast.org/">icecast2</a> server for playing over speakers integrated with Home Assistant (eg. Sonos). We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don’t want to play the audio after the noise sensor trigger.</p>
 
 <p class="note">
 We change the platform name for binary sensor in 0.38 from <code class="highlighter-rouge">ffmpeg</code> to <code class="highlighter-rouge">ffmpeg_noise</code>. Also all service going to component and was rename from <code class="highlighter-rouge">binary_sensor.ffmpeg_xy</code> to <code class="highlighter-rouge">ffmpeg.xy</code>.
 </p>
 
-<p>On Raspbian Jessie, you can setup <a href="https://home-assistant.io/components/ffmpeg/">ffmpeg</a> and install a <a href="http://icecast.org/">icecast2</a> server using:</p>
+<p>On Raspbian Jessie, you can setup <a href="https://home-assistant.io/components/ffmpeg/">FFmpeg</a> and install a <a href="http://icecast.org/">icecast2</a> server using:</p>
+
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo <span class="nb">echo</span> <span class="s2">"deb http://ftp.debian.org/debian jessie-backports main"</span> &gt;&gt; /etc/apt/sources.list
 <span class="gp">$ </span>sudo apt-get update
 <span class="gp">$ </span>sudo apt-get -t jessie-backports install ffmpeg
@@ -43,6 +44,7 @@ We change the platform name for binary sensor in 0.38 from <code class="highligh
 </div>
 
 <p>We setup a icecast mount point for our babyphone and update <code class="highlighter-rouge">/etc/icecast2/icecast.xml</code>:</p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;mount&gt;
     &lt;mount-name&gt;/babyphone.mp3&lt;/mount-name&gt;
     &lt;stream-name&gt;Babyphone&lt;/stream-name&gt;
@@ -53,23 +55,23 @@ We change the platform name for binary sensor in 0.38 from <code class="highligh
 </code></pre>
 </div>
 
-<p>Now we can add the noise sensor to Home-Assistant. We can lower the sensitivity of the sensor (so that you are not inundated with notifications for every cough of the baby) to 2 seconds using the <code class="highlighter-rouge">duration</code> option. The sensor should wait 60 seconds before restoring and it prevent us that a wine break will triggering a new alarm.</p>
+<p>Now we can add the noise sensor to Home Assistant. We can lower the sensitivity of the sensor (so that you are not inundated with notifications for every cough of the baby) to 2 seconds using the <code class="highlighter-rouge">duration</code> option. The sensor should wait 60 seconds before restoring and it prevent us that a wine break will triggering a new alarm.</p>
 
-<p>We can optimize the audio stream for human voice by using a highpass filter with 300Hz and a lowpass filter with 2500Hz. This filters out all non-human sounds such as background noise. We can even add a volume amplifier if the microphone volume is too low (you can remove it from <code class="highlighter-rouge">extra_arguments</code>). For icecast2 we convert the audio stream to mp3 with samplerate of 16000 (which is the minimum for Sonos speakers). We use <code class="highlighter-rouge">peak</code> to set the threshold for noise detection, where 0 dB is very loud and -100 dB is low.</p>
+<p>We can optimize the audio stream for human voice by using a highpass filter with 300 Hz and a lowpass filter with 2500 Hz. This filters out all non-human sounds such as background noise. We can even add a volume amplifier if the microphone volume is too low (you can remove it from <code class="highlighter-rouge">extra_arguments</code>). For icecast2 we convert the audio stream to mp3 with samplerate of 16000 (which is the minimum for Sonos speakers). We use <code class="highlighter-rouge">peak</code> to set the threshold for noise detection, where 0 dB is very loud and -100 dB is low.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
- <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg_noise</span>
-   <span class="s">input</span><span class="pi">:</span> <span class="s">rtsp://user:pw@my_input/video</span>
-   <span class="s">extra_arguments</span><span class="pi">:</span> <span class="s">-filter:a highpass=f=300,lowpass=f=2500,volume=volume=2 -codec:a libmp3lame -ar 16000</span>
-   <span class="s">output</span><span class="pi">:</span> <span class="s">-f mp3 icecast://stream_user:stream_pw@127.0.0.1:8000/babyphone.mp3</span>
-   <span class="s">initial_state</span><span class="pi">:</span> <span class="s">false</span>
-   <span class="s">duration</span><span class="pi">:</span> <span class="s">2</span>
-   <span class="s">reset</span><span class="pi">:</span> <span class="s">60</span>
-   <span class="s">peak</span><span class="pi">:</span> <span class="s">-32</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ffmpeg_noise</span>
+    <span class="s">input</span><span class="pi">:</span> <span class="s">rtsp://user:pw@my_input/video</span>
+    <span class="s">extra_arguments</span><span class="pi">:</span> <span class="s">-filter:a highpass=f=300,lowpass=f=2500,volume=volume=2 -codec:a libmp3lame -ar 16000</span>
+    <span class="s">output</span><span class="pi">:</span> <span class="s">-f mp3 icecast://stream_user:stream_pw@127.0.0.1:8000/babyphone.mp3</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">duration</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">reset</span><span class="pi">:</span> <span class="s">60</span>
+    <span class="s">peak</span><span class="pi">:</span> <span class="s">-32</span>
 </code></pre>
 </div>
 
-<p>We use the option <code class="highlighter-rouge">initial_state</code> to prevent the ffmpeg process from starting with Home-Assistant and only start it when needed. We use an <code class="highlighter-rouge">input_boolean</code>  to control the state of ffmpeg services using the following automation.</p>
+<p>We use the option <code class="highlighter-rouge">initial_state</code> to prevent the FFmpeg process from starting with Home Assistant and only start it when needed. We use an <code class="highlighter-rouge">input_boolean</code>  to control the state of FFmpeg services using the following automation.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_boolean</span><span class="pi">:</span>
   <span class="s">babyphone</span><span class="pi">:</span>
