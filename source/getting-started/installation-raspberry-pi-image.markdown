@@ -27,7 +27,7 @@ The following extras are included on the image:
 
  - GPIO pins are ready to use.
  - Bluetooth is ready to use (supported models only, no Bluetooth LE).
- - Hassbian-scrips. A set of script written to add extra functionality to your raspberry pi installation.  
+ - Hassbian-scripts. A set of script written to add extra functionality to your Raspberry Pi installation.  
  Currently includes:
     - Install Libcec. Adds local [HDMI CEC support][cec].
     - Install Mossquitto. Installs the latest Mosquitto package and client tools from the Mosquitto projects offical repository. Now includes websocket support.
