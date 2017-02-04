@@ -33,7 +33,7 @@ script:
      data_template:
        entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
        message: {% raw %}{{ message }}{% endraw %}
-   - delay: '00:00:05'
+   - delay: '{{ delay }}'
    - service: media_player.sonos_restore
      data_template:
        entity_id: {% raw %}{{ sonos_entity }}{% endraw %}
@@ -46,4 +46,5 @@ data:
   sonos_entity: media_player.kitchen
   volume: 0.3
   message: 'Your husband comming home!'
+  delay: '00:00:05'
 ```
