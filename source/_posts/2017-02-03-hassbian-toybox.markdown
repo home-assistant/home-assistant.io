@@ -29,6 +29,11 @@ To update the hassbian-scripts directory execute the following command as the `p
 $ cd hassbian-scripts
 $ git pull
 ```
+To use any of the hassbian-scripts, execute the following command as the `pi` user. This example uses the libcec script as an example.
+```bash
+$ sudo ./hassbian-scripts/install_libcec.sh
+```
+
 For more information about these scripts have a look a the [hassbian-scripts repository][hassbian-repo]. 
 
 ### {% linkable_title Spring cleaning %}
