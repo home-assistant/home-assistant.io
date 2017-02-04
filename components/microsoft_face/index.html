@@ -152,11 +152,11 @@
 </code></pre>
 </div>
 
-<p>For the local image we need <code class="highlighter-rouge">curl</code>. The person ID is present in group entity as attribute.</p>
+<p>For the local image we need <code class="highlighter-rouge">curl</code>. The <code class="highlighter-rouge"><span class="p">{</span><span class="err">personId</span><span class="p">}</span></code> is present in group entity as attribute.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -v -X POST <span class="s2">"https://westus.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons/{personId}/persistedFaces"</span> <span class="se">\</span>
   -H <span class="s2">"Ocp-Apim-Subscription-Key: YOUR_API_KEY"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/octet-stream"</span> --data <span class="s2">"@/tmp/image.jpg"</span>
+  -H <span class="s2">"Content-Type: application/octet-stream"</span> --data-binary <span class="s2">"@/tmp/image.jpg"</span>
 </code></pre>
 </div>
 
