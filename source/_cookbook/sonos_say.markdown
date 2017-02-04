@@ -45,5 +45,5 @@ service: script.sonos_say
 data:
   sonos_entity: media_player.kitchen
   volume: 0.3
-  message: 'Your husband comming home!"
+  message: 'Your husband comming home!'
 ```
