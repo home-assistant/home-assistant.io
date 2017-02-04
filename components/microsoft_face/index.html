@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Microsoft Face - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate Microsoft Face component into Home Assistant.">
+    <meta name="description" content="Instructions on how to integrate Microsoft Face component into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/microsoft_face/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/microsoft_face/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Microsoft Face component into Home Assistant.">
+    <meta property="og:description" content="Instructions on how to integrate Microsoft Face component into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="Microsoft Face">
-    <meta name="twitter:description" content="Instructions how to integrate Microsoft Face component into Home Assistant.">
+    <meta name="twitter:description" content="Instructions on how to integrate Microsoft Face component into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -90,9 +90,9 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">microsoft_face</code> component platform is the main component for Microsoft Azure Cognitive service <a href="https://www.microsoft.com/cognitive-services/en-us/face-api">Face</a>. All data is stored in a private instance on Azure Cloud.</p>
+  <p>The <code class="highlighter-rouge">microsoft_face</code> component platform is the main component for Microsoft Azure Cognitive service <a href="https://www.microsoft.com/cognitive-services/en-us/face-api">Face</a>. All data are stored in your own private instance in the Azure cloud.</p>
 
-<p>You need an API key which is free but requires a <a href="https://azure.microsoft.com/de-de/free/">Azure registration</a> with your Microsoft Account. The free resource (<em>F0</em>) is limit to 30k requests in a month and 20 per minute. If you don’t want use a the Azure cloud, you can also get a API key with registration on <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">cognitive-services</a>. However, all keys on cognitive services must be recreated every 90 days.</p>
+<p>You need an API key which is free but requires a <a href="https://azure.microsoft.com/de-de/free/">Azure registration</a> using your microsoft ID. The free resource (<em>F0</em>) is limited to 20 requests per minute and 30k requests in a month. If you don’t want to use the Azure cloud, you can also get an API key by registering with <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">cognitive-services</a>. However, all keys on cognitive services must be recreated every 90 days.</p>
 
 <p>To enable the Microsoft Face component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 
@@ -111,9 +111,9 @@
 
 <h3><a class="title-link" name="person-and-groups" href="#person-and-groups"></a> Person and Groups</h3>
 
-<p>For most of the services you need to set up a group or a person. This limits the processing and detection to elements provided by group. Home Assistent creates for all group a entity and allow you to show the state, person and IDs directly on the frontend.</p>
+<p>For most services, you need to set up a group or a person. This limits the processing and detection to elements provided by the group. Home Assistent creates an entty for all groups and allows you to show the state, person and IDs directly on the frontend.</p>
 
-<p>For managing this feature, you have the following services. They can be called with the Frontend, a script, or the REST API.</p>
+<p>The following services are available for managing this feature. They can be called via the Frontend, a script, or the REST API.</p>
 
 <ul>
   <li><em>microsoft_face.create_group</em></li>
@@ -160,7 +160,7 @@
 </code></pre>
 </div>
 
-<p>After we done with changes on a group, we need train this group to make our AI fit to handle the new data.</p>
+<p>After we’re done with changes on a group, we need train this group to teach the AI how to handle the new data.</p>
 
 <ul>
   <li><em>microsoft_face.train_group</em></li>
