@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~5 minutes).</p>
+  <p>The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).</p>
 
 <ol>
   <li><a href="https://github.com/home-assistant/pi-gen/releases">Download the latest image</a></li>
@@ -113,15 +113,30 @@
 
 <ul>
   <li>GPIO pins are ready to use.</li>
-  <li>Mosquitto MQTT broker is installed (not activated by default).</li>
   <li>Bluetooth is ready to use (supported models only, no Bluetooth LE).</li>
+  <li>Hassbian-scripts. A set of script written to add extra functionality to your Raspberry Pi installation.<br />
+ Currently includes:
+    <ul>
+      <li>Install Libcec. Adds local <a href="/components/hdmi_cec/">HDMI CEC support</a>.</li>
+      <li>Install Mossquitto. Installs the latest Mosquitto package and client tools from the Mosquitto projects offical repository. Now includes websocket support.</li>
+      <li>Install OpenZWave. Installs OpenZWave and prepares for using a USB or GPIO ZWave controller.</li>
+      <li>Install Samba. Installs the Samba packages and shares you configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and it’s usage is not recommended if your installation is publicly available.</li>
+    </ul>
+  </li>
 </ul>
+
+<p>All of these scripts are available in the directory <code class="highlighter-rouge">/home/pi/hassbian-scripts/</code>. This directory is actually a cloned git repository that’s clone on first boot and can be updated to the latest release with ease after.
+To update the hassbian-scripts directory execute the following command as the <code class="highlighter-rouge">pi</code> user.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>hassbian-scripts
+<span class="gp">$ </span>git pull
+</code></pre>
+</div>
+<p>For more information about these scripts have a look at the <a href="https://github.com/home-assistant/hassbian-scripts">hassbian-scripts repository</a>.</p>
 
 <p>Some extra tips:</p>
 
 <ul>
   <li>Check out the list of <a href="/getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components">Raspberry Pi hardware specific components</a>.</li>
-  <li>Z-Wave support can be installed by following the <a href="/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</li>
   <li>Run <code class="highlighter-rouge">sudo raspi-config</code> to change the locale, timezone and keyboard layout.</li>
 </ul>
 
@@ -257,14 +272,6 @@ Log in as the <code class="highlighter-rouge">pi</code> account and execute the 
 </div>
 
 <p>Press <code class="highlighter-rouge">Y</code> to confirm that you would like to continue.</p>
-
-<h3><a class="title-link" name="usb-device-permissions" href="#usb-device-permissions"></a> USB device permissions</h3>
-<p>When using some USB devices users have to give dialout permission to the user <code class="highlighter-rouge">homeassistant</code> and restart.</p>
-
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo usermod -a -G dialout homeassistant
-<span class="gp">$ </span>sudo reboot
-</code></pre>
-</div>
 
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
 

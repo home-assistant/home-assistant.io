@@ -83,6 +83,87 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/05/21/release-020/">0.20: Roku, Last.fm, AWS, Twilio</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-05-21T18:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 21, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/05/21/release-020/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p><img src="/images/supported_brands/roku.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/lastfm.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/gpmdp.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/twilio.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/aws_lambda.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/aws_sns.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/aws_sqs.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<p>Tons of new supported things in 0.20.</p>
+
+<ul>
+  <li>Restarting now supported without forking (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Add <a href="/components/recorder/">purge days option</a> to recorder component (<a href="https://github.com/justyns">@justyns</a>, <a href="https://github.com/infamy">@infamy</a>)</li>
+  <li>Generic load_platform mechanism for entity components (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Template: new <a href="/topics/templating/#home-assistant-template-extensions"><code class="highlighter-rouge">relative_time</code></a> function to render ie. <code class="highlighter-rouge">7 seconds ago</code> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Sensor: <a href="/components/sensor.supervisord/">supervisord</a> now supported (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Docker: we should no longer get SSL errors with requests (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li>Media Player: <a href="/components/media_player.gpmdp/">Google Play Music Desktop Player</a> now supported (<a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
+  <li>Notify: <a href="/components/notify.twilio_sms/">Twilio SMS</a> platform added (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">Asus WRT</a> will now default to SSH (but telnet is still an option) (<a href="https://github.com/froz">@froz</a>)</li>
+  <li>Support <a href="/components/sensor.nest/">Nest Protect</a> smoke alarms (<a href="https://github.com/khabi">@khabi</a>)</li>
+  <li>Configurator: allow supplying a link to the user (<a href="https://github.com/mnestor">@mnestor</a>)</li>
+  <li>Media Player: <a href="/components/media_player.roku/">Roku</a> now supported (<a href="https://github.com/bah2830">@bah2830</a>)</li>
+  <li>Sensor: <a href="/components/sensor.lastfm/">Last.fm</a> now supported (<a href="https://github.com/darookee">@darookee</a>, <a href="https://github.com/GreenTurtwig">@GreenTurtwig</a>)</li>
+  <li>Notify: Amazon <a href="/components/notify.aws_lambda/">Lambda</a>, <a href="/components/notify.aws_sns/">SNS</a>, <a href="/components/notify.aws_sqs/">SQS</a> now supported (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Light: allow human readable colors in turn_on command (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>YAML: new include dir options <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_list</code></a> and <a href="/topics/splitting_configuration/#advanced-usage"><code class="highlighter-rouge">!include_dir_merge_named</code></a> (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Media Player: <a href="/components/media_player.lg_netcast/">LG Netcast TVs</a> now supported (<a href="https://github.com/wokar">@wokar</a>)</li>
+  <li>Media Player: Allow enqueuing media on Sonos (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
+  <li>Notify: <a href="/components/notify.ecobee/">Ecobee thermostats</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Sensor: <a href="/components/sensor.moldindicator/">Mold indicator</a> added (<a href="https://github.com/xifle">@xifle</a>)</li>
+  <li>Export to <a href="/components/logentries/">Logentries</a> support added (<a href="https://github.com/omgapuppy">@omgapuppy</a>)</li>
+  <li>Group more info dialog allows control of group domain if available (<a href="https://github.com/fignuts">@fignuts</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>Asus WRT will now default to SSH with Telnet being an option</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">device_tracker</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">asuswrt</span>
+  <span class="s">protocol</span><span class="pi">:</span> <span class="s">telnet</span>
+</code></pre>
+</div>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/05/18/why-we-use-polymer/">Why we use web components and Polymer</a>
   </h1>
   
@@ -671,56 +752,6 @@
 
 <p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code class="highlighter-rouge">execute_service</code> in their script configs. This should be <code class="highlighter-rouge">service</code>.</p>
 
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/04/07/static-website/">Static website</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-04-07T06:28:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 7, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>How-To</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/04/07/static-website/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>The frontend of Home Assistant is served with the help of a local web server. If you have <a href="/getting-started/devices/#customizing-devices-and-services">customized</a> your installation you already use this functionality. The content of your folder <code class="highlighter-rouge">www</code> in your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>) is available under <code class="highlighter-rouge">/local</code> (eg. <a href="https://localhost:8123/local/index.html">http://localhost:8123/local</a> for an <code class="highlighter-rouge">index.html</code> file).</p>
-
-<p>But there is more you can do! You can not only host images for customization there but HTML files or even web applications including CSS and Javascript.</p>
-
-<p class="img">
-<img src="/images/blog/2016-04-display/ha-display.png" />
-</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/04/07/static-website/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

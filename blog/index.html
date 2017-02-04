@@ -83,6 +83,95 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2017/02/04/hassbian-toybox/">HASSbian 1.1 - The Toy-box</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2017-02-04T09:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 4, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Technology</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2017/02/04/hassbian-toybox/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Tonight I’m happy to announce a new release of the our Raspberry Pi image, <strong>HASSbian 1.1 - The Toy-box.</strong><br />
+Why Toy-box you wonder? Because it encompass the changes pretty well.</p>
+
+<p>Changes from previous image are big and small but lets start with the interesting things.</p>
+
+<h3><a class="title-link" name="hassbian-scripts" href="#hassbian-scripts"></a> Hassbian-scripts</h3>
+<p>A set of script written to add extra functionality to your Raspberry Pi installation. 
+This scripts are run as the <code class="highlighter-rouge">pi</code> user and installs a set of tools or packages.
+Currently includes:</p>
+<ul>
+  <li>Install Libcec. Adds local <a href="/components/hdmi_cec/">HDMI CEC support</a>.</li>
+  <li>Install Mossquitto. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.</li>
+  <li>Install OpenZWave. Installs OpenZWave and prepares for using a USB or GPIO ZWave controller.</li>
+  <li>Install Samba. Installs the Samba packages and shares your configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and it’s usage is not recommended if your installation is publicly available.</li>
+</ul>
+
+<p>All of these scripts are available in the directory <code class="highlighter-rouge">/home/pi/hassbian-scripts/</code>. This directory is actually a cloned git repository that’s cloned on first boot and can be updated to the latest release with ease after.
+To update the hassbian-scripts directory execute the following command as the <code class="highlighter-rouge">pi</code> user.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>hassbian-scripts
+<span class="gp">$ </span>git pull
+</code></pre>
+</div>
+<p>To use any of the hassbian-scripts, execute the following command as the <code class="highlighter-rouge">pi</code> user. Here we use the libcec script as an example.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo ./hassbian-scripts/install_libcec.sh
+</code></pre>
+</div>
+
+<p>For more information about these scripts have a look a the <a href="https://github.com/home-assistant/hassbian-scripts">hassbian-scripts repository</a>.</p>
+
+<h3><a class="title-link" name="spring-cleaning" href="#spring-cleaning"></a> Spring cleaning</h3>
+<p>With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.</p>
+<ul>
+  <li>Update pi-gen. Our build script has been upgraded to follow the Raspbian image closer. This image is basically a Raspbian lite image with Home Assistant, dependencies and a small set of changes to the base system.</li>
+  <li>Removed Mosquitto. Not as bad as it sounds since it’s installation has been move to one of our new hassbian-scripts.</li>
+  <li>Added rng-tools. Let’s your HASSbian installation use the hardware support in the Raspberry Pi for entropy generation.</li>
+  <li>Added avahi-daemon package. Your Raspberry Pi should now be available at <a href="hassbian.local">hassbian.local</a>.</li>
+  <li>Added htop. User friendly interactive process monitor.</li>
+  <li>Added tmux. A great terminal multiplexer that makes working with the command line over ssh.</li>
+  <li>Added the <code class="highlighter-rouge">homeassistant</code> user to the <code class="highlighter-rouge">dialout</code> group. Simplifies use of hardware such as ZWave USB controllers that requires this permission.</li>
+</ul>
+
+<p>### <a class="title-link" name="on-the-horizon" href="#on-the-horizon"></a> On the horizon 
+ There’s of course more on the horizon and there’s even more plans and wishes for how this image will function in the future.
+ On the close horizon from [@Landrash][landrash-github] there a few more script in the works and for tellstick, emulated_hue and for controlling Home Assistant.</p>
+
+<p>To follow discussions about the development of the HASSbian image or to contribute join the <a href="https://gitter.im/home-assistant/hassbian">HASSbian gitter chat</a>.</p>
+
+<p>To get started with the new image, check out the installation instructions in the <a href="/getting-started/installation-raspberry-pi-image/">getting started section</a>.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2017/02/03/babyphone/">Smart Baby Monitor</a>
   </h1>
   
@@ -999,120 +1088,6 @@ You have to note:
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use these communication channels. Thanks.</p>
 
 <h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
-
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">0.33: New Calendar component, Wink thermostats and Cisco IOS</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-11-20T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 20, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> three minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.</p>
-
-<p>But a new release wouldn’t be awesome if it didn’t had some new goodies and this release is no different. This release includes a new calendar component by <a href="https://github.com/mnestor">@mnestor</a>. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!</p>
-
-<h3><a class="title-link" name="changes" href="#changes"></a> Changes</h3>
-
-<ul>
-  <li>New <a href="/components/calendar.google/">calendar component</a> including Google support (<a href="https://github.com/mnestor">@mnestor</a>)</li>
-  <li>Final core upgrade for async (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li><a href="/components/neato/">Neato</a> refactor + sensor support (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.swisscom/">Swisscom Internet-Box</a> now supported (<a href="https://github.com/betrisey">@betrisey</a>)</li>
-  <li>Device Tracker - Locative: <a href="/components/device_tracker.locative/">Map support</a> added (<a href="https://github.com/danijelst">@danijelst</a>)</li>
-  <li><a href="/components/emulated_hue/">Emulated Hue</a> will now sent request info as variables to scripts that get called (<a href="https://github.com/bah2830">@bah2830</a>)</li>
-  <li>Wink: <a href="/components/climate.wink/">Thermostats</a> are now supported (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Light: New <a href="/components/light.mqtt_template/">MQTT template</a> platform for custom communication (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
-  <li><a href="/components/switch.wake_on_lan/">Wake on Lan switch</a> can now configure a custom OFF script (<a href="https://github.com/Chris-V">@Chris-V</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.cisco_ios/">Cisco IOS</a> now supported (<a href="https://github.com/fbradyirl">@fbradyirl</a>)</li>
-  <li>Sensor: Support for <a href="/components/sensor.pvoutput/">PVOutput</a> snesor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Sensor: Show count of connected clients to the <a href="/components/sensor.api_stream/">API stream</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix platforms from doing I/O in the event loop (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Switch - <a href="/components/switch.tplink/">TP Link</a>: Add daily consumption (<a href="https://github.com/">@gonzalezcalleja</a>)</li>
-  <li>Templates: Add new <code class="highlighter-rouge">strptime</code> <a href="/topics/templating/#home-assistant-template-extensions">template function</a> for parsing times (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li><a href="/components/http/">HTTP</a> component: Fix X-Forwarded-For parsing (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
-  <li>Switch - <a href="/components/switch.command_line/">Command Line</a>: Use configured object_id for entity IDs (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
-  <li><a href="/components/mqtt/">MQTT</a> now supports birth and last will messages (<a href="https://github.com/bestlibre">@bestlibre</a>)</li>
-  <li>Better handling of accented characters in slugify (<a href="https://github.com/magicus">@magicus</a>)</li>
-  <li>Alarm Control Panel - <a href="/components/envisalink/">Envisalink</a>: Add new keypress service (<a href="https://github.com/jnimmo">@jnimmo</a>)</li>
-  <li>Light - <a href="/components/light.hue/">Hue</a>: Add service to activate scenes defined in Hue app (<a href="https://github.com/sdague">@sdague</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="release-0331---november-20" href="#release-0331---november-20"></a> Release 0.33.1 - November 20</h3>
-
-<ul>
-  <li>Fix Z-Wave lights (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="release-0332---november-22" href="#release-0332---november-22"></a> Release 0.33.2 - November 22</h3>
-
-<ul>
-  <li>Fix Device Tracker init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Fix Discovery init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Fix TP-Link switch (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
-  <li>Fix Zwave light naming &amp; configurable refresh (<a href="https://github.com/jchapple">@jchapple</a>)</li>
-  <li>Neato fixes (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Fix ‘Unknown’ status for Nest Protect devices (<a href="https://github.com/Khabi">@Khabi</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="release-0333---november-23" href="#release-0333---november-23"></a> Release 0.33.3 - November 23</h3>
-
-<ul>
-  <li>Update Yr.no entities every hour (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Bump Netdisco to 0.7.7 (fixes discovery on Synology)</li>
-  <li>Fix discovery race condition (most obvious in Wemo) (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="release-0334---november-24" href="#release-0334---november-24"></a> Release 0.33.4 - November 24</h3>
-
-<ul>
-  <li>Set executor pool size to 10 (as intended) (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<p>This should fix occasional performance problems that some people have reported.</p>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now <code class="highlighter-rouge">Tèst Mörê</code> will become <code class="highlighter-rouge">test_more</code> instead of <code class="highlighter-rouge">tst_mr</code>.</li>
-  <li>Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.</li>
-</ul>
-
-<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting issues</h3>
 
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
 
