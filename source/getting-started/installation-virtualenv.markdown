@@ -110,7 +110,7 @@ If you want to use Z-Wave devices, you will need to install `python-openzwave` i
 Install the dependencies as normal (Note: you will need to do this as your normal user, since `homeassistant` isn't a sudoer).
 
 ```bash
-$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools git
 ```
 
 Then, activate your virtualenv (steps 3 and 5 above) and upgrade cython.
