@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~5 minutes).
+The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).
 
  1. [Download the latest image][image-download]
  2. Flash the image to an SD card:
@@ -26,13 +26,25 @@ Home Assistant will now be available by navigating with a browser to `http://ip-
 The following extras are included on the image:
 
  - GPIO pins are ready to use.
- - Mosquitto MQTT broker is installed (not activated by default).
  - Bluetooth is ready to use (supported models only, no Bluetooth LE).
+ - Hassbian-scripts. A set of script written to add extra functionality to your Raspberry Pi installation.  
+ Currently includes:
+    - Install Libcec. Adds local [HDMI CEC support][cec].
+    - Install Mossquitto. Installs the latest Mosquitto package and client tools from the Mosquitto projects offical repository. Now includes websocket support.
+    - Install OpenZWave. Installs OpenZWave and prepares for using a USB or GPIO ZWave controller.
+    - Install Samba. Installs the Samba packages and shares you configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and it's usage is not recommended if your installation is publicly available.
+
+All of these scripts are available in the directory `/home/pi/hassbian-scripts/`. This directory is actually a cloned git repository that's clone on first boot and can be updated to the latest release with ease after.
+To update the hassbian-scripts directory execute the following command as the `pi` user.
+```bash
+$ cd hassbian-scripts
+$ git pull
+```
+For more information about these scripts have a look at the [hassbian-scripts repository][hassbian-repo].
 
 Some extra tips:
 
  - Check out the list of [Raspberry Pi hardware specific components][pi-components].
- - Z-Wave support can be installed by following the [Getting started instructions for Z-Wave][install-zwave].
  - Run `sudo raspi-config` to change the locale, timezone and keyboard layout.
 
 ### {% linkable_title Technical Details %}
@@ -160,14 +172,6 @@ $ sudo apt-get upgrade
 
 Press `Y` to confirm that you would like to continue.
 
-### {% linkable_title USB device permissions %}
-When using some USB devices users have to give dialout permission to the user `homeassistant` and restart.
-
-```shell
-$ sudo usermod -a -G dialout homeassistant
-$ sudo reboot
-```
-
 ### {% linkable_title Troubleshooting %}
 
 If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
@@ -179,14 +183,15 @@ In addition to this site, check out these sources for additional help:
  - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)
-
 [image-download]: https://github.com/home-assistant/pi-gen/releases
 [flash-linux]: https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
 [flash-macos]: https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 [flash-windows]: https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
+[cec]: /components/hdmi_cec/
 [pi-components]: /getting-started/installation-raspberry-pi/#raspberry-pi-hardware-specific-components
+[hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [ssh-putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [stop-homeassistant]: /getting-started/installation-raspberry-pi-image/#startstoprestart-home-assistant-on-hassbian
 [configuring-homeassistant]: /getting-started/configuration/
 [bash-windows]: https://msdn.microsoft.com/en-us/commandline/wsl/about
-[install-zwave]: /getting-started/z-wave/
+ 
