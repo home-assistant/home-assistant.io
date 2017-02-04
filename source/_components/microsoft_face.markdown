@@ -66,12 +66,12 @@ data:
   camera_entity: camera.door
 ```
 
-For the local image we need `curl`. The person ID is present in group entity as attribute.
+For the local image we need `curl`. The `{personId}` is present in group entity as attribute.
 
 ```bash
 $ curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons/{personId}/persistedFaces" \
   -H "Ocp-Apim-Subscription-Key: YOUR_API_KEY" \
-  -H "Content-Type: application/octet-stream" --data "@/tmp/image.jpg"
+  -H "Content-Type: application/octet-stream" --data-binary "@/tmp/image.jpg"
 ```
 
 After we're done with changes on a group, we need train this group to teach the AI how to handle the new data.
