@@ -43,20 +43,20 @@ With this image there also quite a bit of cleaning of the base system and the sc
  - Added rng-tools. Let's your HASSbian installation use the hardware support in the Raspberry Pi for entropy generation.
  - Added avahi-daemon package. Your Raspberry Pi should now be available at [hassbian.local][hassbian-avahi]. 
  - Added htop. User friendly interactive process monitor.
- - Added tmux. A great terminal multiplexer that makes working with the command line over ssh.
+ - Added tmux. A great terminal multiplexer that makes working with the command line over ssh easier.
  - Added the `homeassistant` user to the `dialout` group. Simplifies use of hardware such as ZWave USB controllers that requires this permission.
  
- ### {% linkable_title On the horizon %}
- There's of course more on the horizon and there's even more plans and wishes for how this image will function in the future.
- On the close horizon from [@Landrash][landrash-github] there a few more script in the works and for tellstick, emulated_hue and for controlling Home Assistant.
+### {% linkable_title On the horizon %}
+There's of course more on the horizon and there's even more plans and wishes for how this image will function in the future.
+On the close horizon from [@Landrash][landrash-github] there a few more script in the works and for tellstick, emulated_hue and for controlling Home Assistant.
 
- To follow discussions about the development of the HASSbian image or to contribute join the [HASSbian gitter chat][hassbian-gitter].
+To follow discussions about the development of the HASSbian image or to contribute join the [HASSbian gitter chat][hassbian-gitter].
  
- To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
+To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
  
 [cec]: /components/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: hassbian.local
 [hassbian-gitter]: https://gitter.im/home-assistant/hassbian
-[landarsh-github]: https://github.com/Landrash
+[landrash-github]: https://github.com/Landrash
 [gs-image]: /getting-started/installation-raspberry-pi-image/
