@@ -25,7 +25,6 @@ sensor:
       - type: disk_use_percent
         arg: /home
       - type: memory_free
-      - type: processor_use
 ```
 
 Configuration variables:
@@ -47,6 +46,9 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | swap_use_percent    |                          |
 | swap_use            |                          |
 | swap_free           |                          |
+| load_1m             |                          |
+| load_5m             |                          |
+| load_15m            |                          |
 | network_in          | Interface, eg. `eth0`    |
 | network_out         | Interface, eg. `eth0`    |
 | packets_in          | Interface, eg. `eth0`    |
