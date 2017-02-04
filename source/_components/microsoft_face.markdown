@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Microsoft Face"
-description: "Instructions how to integrate Microsoft Face component into Home Assistant."
+description: "Instructions on how to integrate Microsoft Face component into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false
@@ -12,9 +12,9 @@ ha_category: Hub
 ha_release: "0.37"
 ---
 
-The `microsoft_face` component platform is the main component for Microsoft Azure Cognitive service [Face](https://www.microsoft.com/cognitive-services/en-us/face-api). All data are in a own private instance in the Azure cloud.
+The `microsoft_face` component platform is the main component for Microsoft Azure Cognitive service [Face](https://www.microsoft.com/cognitive-services/en-us/face-api). All data are stored in your own private instance in the Azure cloud.
 
-You need an API key which is free but requires a [Azure registration](https://azure.microsoft.com/de-de/free/) with your microsoft ID. The free resource (*F0*) is limit to 30k requests in a month and 20 per minute. If you don't want use a the Azure cloud, you can also get a API key with registration on [cognitive-services](https://www.microsoft.com/cognitive-services/en-us/subscriptions) but they need to recreate all 90 days.
+You need an API key which is free but requires a [Azure registration](https://azure.microsoft.com/de-de/free/) using your microsoft ID. The free resource (*F0*) is limited to 20 requests per minute and 30k requests in a month. If you don't want to use the Azure cloud, you can also get an API key by registering with [cognitive-services](https://www.microsoft.com/cognitive-services/en-us/subscriptions) but these keys need to recreated every 90 days.
 
 To enable the Microsoft Face component, add the following lines to your `configuration.yaml`:
 
@@ -31,9 +31,9 @@ Configuration variables:
 
 ### {% linkable_title Person and Groups %}
 
-For most of the services you need to set up a group or a person. This limits the processing and detection to elements provided by group. Home Assistent creates for all group a entity and allow you to show the state, person and IDs directly on the frontend.
+For most services, you need to set up a group or a person. This limits the processing and detection to elements provided by the group. Home Assistent creates an entty for all groups and allows you to show the state, person and IDs directly on the frontend.
 
-For managing this feature, you have the following services. They can be called with the Frontend, a script, or the REST API.
+The following services are available for managing this feature. They can be called via the Frontend, a script, or the REST API.
 
 - *microsoft_face.create_group*
 - *microsoft_face.delete_group*
@@ -74,7 +74,7 @@ $ curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/persongr
   -H "Content-Type: application/octet-stream" --data "@/tmp/image.jpg"
 ```
 
-After we done with changes on a group, we need train this group to make our AI fit to handle the new data.
+After we're done with changes on a group, we need train this group to teach the AI how to handle the new data.
 
 - *microsoft_face.train_group*
 
