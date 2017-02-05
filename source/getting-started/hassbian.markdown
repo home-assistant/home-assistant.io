@@ -16,7 +16,7 @@ Hassbian is our customized operating system for the Raspberry Pi 3. It is the ea
  - [Pi specific integrations][integrations]
  - [Learn how to perform common tasks][common]
 
-[install]: /getting-started/hassbian-installatino/
+[install]: /getting-started/hassbian-installation/
 [customize]: /getting-started/hassbian-customization/
 [common]: /getting-started/hassbian-common-tasks/
 [integrations]: /getting-started/hassbian-integrations/
