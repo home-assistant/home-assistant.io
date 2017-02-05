@@ -1,31 +1,30 @@
 ---
 layout: page
-title: USPS Sensor
-description: "Instructions on how to set up USPS sensors within Home Assistant."
-date: 2017-01-06 08:00
+title: ELTA Sensor
+description: "Instructions on how to set up Elta sensors within Home Assistant."
+date: 2017-02-05 08:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: usps.png
+logo: http://www.elta.gr/Portals/0/elta.jpg
 ha_category: Sensor
 ha_release: 0.36
 ---
 
-The `usps` platform allows one to track deliveries by the [US Postal Service (USPS)](https://www.usps.com/).
-In addition to having a USPS account, you will need to complete the "Opt-In" process by clicking "Get Started Now" on [this page](https://my.usps.com/mobileWeb/pages/intro/start.action). Currently, you also will need to have a package listed in the "Package Dashboard" in order for the component to complete set-up.
+The `elta` platform allows one to track deliveries by the [Hellenic Postal Service (ELTA)](https://www.elta.gr/en-us/home.aspx).
+TO ADD @@@@@@@@@@@.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: usps
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
+  - platform: Elta
+    code: YOUR_TRACKING_CODE
 ```
 
-Configuration options for the USPS Sensor:
+TO BE EDITED @@@@Configuration options for the ELTA Sensor:
 
 - **username** (*Required*): The username to access the MyUSPS service.
 - **password** (*Required*): The password for the given username.
@@ -44,5 +43,5 @@ Configuration options for the USPS Sensor:
     </pre>
 
 <p class='note warning'>
-The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
+The ELTA sensor is in BETA and currently only show tracking from ELTA.
 </p>
