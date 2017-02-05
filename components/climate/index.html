@@ -151,7 +151,11 @@ Not all climate services may be available for your platform. Be sure to check th
 
 <h3><a class="title-link" name="service-climateset_away_mode" href="#service-climateset_away_mode"></a> Service <code class="highlighter-rouge">climate.set_away_mode</code></h3>
 
-<p>Turn away mode on/off for climate device</p>
+<p>This service has been deprecated. Use <code class="highlighter-rouge">climate.set_hold_mode</code> instead.</p>
+
+<h3><a class="title-link" name="service-climateset_hold_mode" href="#service-climateset_hold_mode"></a> Service <code class="highlighter-rouge">climate.set_hold_mode</code></h3>
+
+<p>Set hold mode for climate device</p>
 
 <table>
   <thead>
@@ -168,9 +172,9 @@ Not all climate services may be available for your platform. Be sure to check th
       <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">away_mode</code></td>
+      <td><code class="highlighter-rouge">hold_mode</code></td>
       <td>no</td>
-      <td>New value of away mode.</td>
+      <td>New value of hold mode.</td>
     </tr>
   </tbody>
 </table>
@@ -182,10 +186,10 @@ Not all climate services may be available for your platform. Be sure to check th
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
     <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_away_mode</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_hold_mode</span>
       <span class="s">data</span><span class="pi">:</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
-        <span class="s">away_mode</span><span class="pi">:</span> <span class="s">true</span>
+        <span class="s">hold_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">away'</span>
 </code></pre>
 </div>
 
