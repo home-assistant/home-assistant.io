@@ -13,7 +13,7 @@ ha_release: 0.36
 ---
 
 The `elta` platform allows one to track deliveries by the [Hellenic Postal Service (ELTA)](https://www.elta.gr/en-us/home.aspx).
-TO ADD @@@@@@@@@@@.
+Track ELTA Hellenic Post Packages on your dashboard get Origin (limited)/destinations(full) tracking information
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -24,23 +24,16 @@ sensor:
     code: YOUR_TRACKING_CODE
 ```
 
-TO BE EDITED @@@@Configuration options for the ELTA Sensor:
+Configuration options for the ELTA Sensor:
 
-- **username** (*Required*): The username to access the MyUSPS service.
-- **password** (*Required*): The password for the given username.
-- **name** (*Optional*): Name the sensor (default: your mailing address).
-- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 1 hour. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
-  - Time period dictionary, e.g.:
-    <pre>update_interval:
-        # At least one of these must be specified:
-        days: 0
-        hours: 0
-        minutes: 3
-        seconds: 30
-        milliseconds: 0
-    </pre>
+- **code** (*Required*): The tracking code of the pacage.
+
+
+ELTA Hellenic Post number rules :  ( # Letter, * Digit, ! Letter Or Digit )
+  ( R# *** *** *** GR )   ( V# *** *** *** GR )
+  ( A# *** *** *** GR )   ( C# *** *** *** GR )
+  ( E# *** *** *** GR )   ( L# *** *** *** GR )
+  ( N# *** *** *** GR )   ( I# *** *** *** GR )
 
 <p class='note warning'>
 The ELTA sensor is in BETA and currently only show tracking from ELTA.
