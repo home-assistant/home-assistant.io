@@ -13,7 +13,7 @@ footer: true
 
 There's currently three documented ways to install Home Assistant on a Raspberry Pi.  
  - [Manual installation](/getting-started/installation-raspberry-pi/#manual-installation). Following this guide doing each step manually. This is highly recommended as a first installation since you get a good overview of the installation.
- - [Hassbian image](/getting-started/installation-raspberry-pi-image). Basic installation with the same settings as following the manual installation guide. Some additional software is preinstalled to make installation quicker and easier. Installation uses `homeassistant` user.
+ - [Hassbian image](/getting-started/hassbian-installation). Basic installation with the same settings as following the manual installation guide. Some additional software is preinstalled to make installation quicker and easier. Installation uses `homeassistant` user.
  - [All-in-One Installer](/getting-started/installation-raspberry-pi-all-in-one/). Fabric based installation script that installs and compiles many of the things an advanced Home Assistant install is likely to need. Installation uses `homeassistant` user.
  
  <p class='note note'>
