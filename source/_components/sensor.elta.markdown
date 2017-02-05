@@ -9,10 +9,10 @@ sharing: true
 footer: true
 logo: http://www.elta.gr/Portals/0/elta.jpg
 ha_category: Sensor
-ha_release: 0.36
+ha_release: 0.39
 ---
 
-The `elta` platform allows one to track deliveries by the [Hellenic Postal Service (ELTA)](https://www.elta.gr/en-us/home.aspx).
+The `elta` platform allows you to track deliveries by the [Hellenic Postal Service (ELTA)](https://www.elta.gr/en-us/home.aspx).
 Track ELTA Hellenic Post Packages on your dashboard get Origin (limited)/destinations(full) tracking information
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
