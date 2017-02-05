@@ -2,7 +2,7 @@
 layout: page
 title: "History Statistics"
 description: "Instructions about how to integrate history_stats sensors into Home Assistant."
-date: 2017-01-28 22:00
+date: 2017-02-04 12:00
 sidebar: true
 comments: false
 sharing: true
@@ -10,19 +10,8 @@ footer: true
 logo: home-assistant.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: "0.37"
+ha_release: "0.38"
 ---
-
-<style>
-    tbody > tr > td{
-        /* Make text in tables a little bit smaller */
-        font-size: 0.9em
-    }
-    tbody > tr > td > code {
-        /* No line breaks for the code in tables */
-        white-space: nowrap;
-    }
-</style>
 
 The `history_stats` sensor platform provides quick statistics about another component, using data from the history.
 
@@ -35,7 +24,7 @@ Examples of what you can track :
 
 ## {% linkable_title Configuration %}
 
-To enable the statistics sensor, add the following lines to your `configuration.yaml`:
+To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,8 +33,8 @@ sensor:
     name: Lamp ON today
     entity_id: light.my_lamp
     state: 'on'
-    start: '{% raw %}{{ _TODAY_ }}{% endraw %}'
-    end: '{% raw %}{{ _NOW_ }}{% endraw %}'
+    start: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
+    end: '{% raw %}{{ now() }}{% endraw %}'
 ```
 
 Configuration variables:
@@ -53,57 +42,68 @@ Configuration variables:
  - **entity_id** (*Required*): The entity you want to track
  - **state** (*Required*): The state you want to track
  - **name** (*Optional*): Name displayed on the frontend
- - **start**: When to start the measure (timestamp).
- - **end**: When to stop the measure (timestamp)
+ - **start**: When to start the measure (timestamp or datetime).
+ - **end**: When to stop the measure (timestamp or datetime)
  - **duration**: Duration of the measure (seconds)
 
 
 
 <p class='note'>
-You have to provide **exactly 2** of _start_, _end_ and _duration_. They can be templates, so the timestamps are dynamic.
+    You have to provide **exactly 2** of `start`, `end` and `duration`.
+<br/>
+    You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 </p>
 
+## {% linkable_title Time periods %}
 
-## {% linkable_title Time Aliases %}
+The `history_stats` component will execute a measure within a precise time period. You should always provide 2 of the following :
+- When the period starts (`start` variable)
+- When the period ends (`end` variable)
+- How long is the period (`duration` variable)
 
-Because timestamps can be difficult to handle, the `history_stats` component has built-in aliases to help you write your templates, and make them easier to understand.
-Note that those aliases will not work with other components of Home Assistant.
+As `start` and `end` variables can be either datetimes or timestamps, you can configure almost any period you want.
 
-Imagine that the current datetime is the following : `Tuesday, 14 Feb 2017 18:42:12`.
-Here are the aliases you can use, and what they refer to:
-
-| Alias                   | Datetime equivalent             | Explanation                                 |
-| ----------------------- | ------------------------------- | ------------------------------------------- |
-| \_NOW_                  | Tuesday, 14 Feb 2017 18:42:12   | The current timestamp                       |
-| \_THIS_MINUTE_          | Tuesday, 14 Feb 2017 18:42:00   | The beginning of the current minute         |
-| \_THIS_HOUR_            | Tuesday, 14 Feb 2017 18:00:00   | The beginning of the current hour           |
-| \_TODAY_ or \_THIS_DAY_ | Tuesday, 14 Feb 2017 00:00:00   | The current day, at midnight                |
-| \_THIS_WEEK_            | Monday, 13 Feb 2017 00:00:00    | The last monday, at midnight                |
-| \_THIS_MONTH_           | Wednesday, 01 Feb 2017 00:00:00 | First day of the current month, at midnight |
-| \_THIS_YEAR_            | Sunday, 01 Jan 2017 00:00:00    | First day of the current year, at midnight  |
-
-| Alias         | Value in seconds |
-| ------------- | ---------------- |
-| \_ONE_MINUTE_ | 60               |
-| \_ONE_HOUR_   | 3600             |
-| \_ONE_DAY_    | 86400            |
-| \_ONE_WEEK_   | 604800           |
-
-Each one of those aliases will be converted to a real timestamp, which is a number of seconds, so you can use basic operators like `+`, `-` or `*` as well as numbers.
-
-You can also use [template extensions](/topics/templating/#home-assistant-template-extensions) instead of the `history_stats` aliases. For example, `_THIS_HOUR_` is the equivalent of `as_timestamp(now().replace(hour=0).replace(minute=0).replace(second=0))`
+Don't forget that `duration` is a number of seconds, not a datetime. It is recommended to use it only if your period has a fixed length (24 hours, or 7 days, for example).
 
 ### {% linkable_title Examples %}
 
 Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
 
-    
-| Time period               | start                                                 | end                                  | duration                                    |
-| ------------------------- | :---------------------------------------------------: | :----------------------------------: | :-----------------------------------------: |
-| Today                     | `{% raw %}{{ _TODAY_ }}{% endraw %}`                  | `{% raw %}{{ _NOW_ }}{% endraw %}`   |                                             |
-| Yesterday                 |                                                       | `{% raw %}{{ _TODAY_ }}{% endraw %}` | `{% raw %}{{ _ONE_DAY_ }}{% endraw %}`      |
-| Yesterday (alternative)   | `{% raw %}{{ _TODAY_ - _ONE_DAY_ }}{% endraw %}`      | `{% raw %}{{ _TODAY_ }}{% endraw %}` |                                             |
-| This morning (6AM - 11AM) | `{% raw %}{{ _TODAY_ + 6 * _ONE_HOUR_ }}{% endraw %}` |                                      | `{% raw %}{{ 5 * _ONE_HOUR_ }}{% endraw %}` |
-| Current month             | `{% raw %}{{ _THIS_MONTH_ }}{% endraw %}`             | `{% raw %}{{ _NOW_ }}{% endraw %}`   |                                             |
-| Last 30 days              |                                                       | `{% raw %}{{ _TODAY_ }}{% endraw %}` | `{% raw %}{{ 30 * _ONE_DAY_ }}{% endraw %}` |
-| All your history          | `{% raw %}{{ 0 }}{% endraw %}`                        | `{% raw %}{{ _NOW_ }}{% endraw %}`   |                                             |
+**Today**: starts at 00:00 of the current day and ends right now.
+```yaml
+    start: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
+    end: '{% raw %}{{ now() }}{% endraw %}'
+```
+**Yesterday**: ends today at 00:00, lasts 24 hours.
+```yaml
+    end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
+    duration: '{% raw %}{{ 24 * 3600 }}{% endraw %}'
+```
+**This morning (6AM - 11AM)**: starts today at 6, lasts 5 hours.
+```yaml
+    start: '{% raw %}{{ now().replace(hour=6).replace(minute=0).replace(second=0) }}{% endraw %}'
+    duration: '{% raw %}{{ 5 * 3600 }}{% endraw %}'
+```
+
+**Current week**: starts last Monday at 00:00, ends right now.
+
+Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).
+```yaml
+    start: '{% raw %}{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}{% endraw %}'
+    end: '{% raw %}{{ now() }}{% endraw %}'
+```
+**Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
+```yaml
+    end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
+    duration: '{% raw %}{{ 30 * 24 * 3600 }}{% endraw %}'
+```
+
+**All your history** starts at timestamp = 0, and ends right now.
+```yaml
+    start: '{% raw %}{{ 0 }}{% endraw %}'
+    end: '{% raw %}{{ now() }}{% endraw %}'
+```
+
+<p class='note'>
+    If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
+</p>
