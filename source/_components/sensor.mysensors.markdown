@@ -24,7 +24,7 @@ S_TYPE             | V_TYPE
 S_TEMP             | V_TEMP
 S_HUM              | V_HUM
 S_BARO             | V_PRESSURE, V_FORECAST
-S_WIND             | V_WIND, V_GUST
+S_WIND             | V_WIND, V_GUST, V_DIRECTION
 S_RAIN             | V_RAIN, V_RAINRATE
 S_UV               | V_UV
 S_WEIGHT           | V_WEIGHT, V_IMPEDANCE
@@ -68,7 +68,7 @@ By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The s
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch %}
+### {% linkable_title MySensors 1.5 example sketch %}
 
 ```cpp
 /**
@@ -113,6 +113,70 @@ void loop()
   }
 
   gw.sleep(SLEEP_TIME);
+}
+```
+
+### {% linkable_title MySensors 2.x example sketch %}
+
+```cpp
+/**
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/light
+ */
+
+#define MY_DEBUG
+#define MY_RADIO_NRF24
+
+#include <BH1750.h>
+#include <Wire.h>
+#include <MySensors.h>
+
+#define SN "LightLuxSensor"
+#define SV "1.0"
+#define CHILD_ID 1
+unsigned long SLEEP_TIME = 30000; // Sleep time between reads (in milliseconds)
+
+BH1750 lightSensor;
+MyMessage msg(CHILD_ID, V_LEVEL);
+MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.
+uint16_t lastlux = 0;
+bool initialValueSent = false;
+
+void setup()
+{
+  sendSketchInfo(SN, SV);
+  present(CHILD_ID, S_LIGHT_LEVEL);
+  lightSensor.begin();
+}
+
+void loop()
+{
+  if (!initialValueSent) {
+    Serial.println("Sending initial value");
+    send(msgPrefix.set("custom_lux"));  // Set custom unit.
+    send(msg.set(lastlux));
+    Serial.println("Requesting initial value from controller");
+    request(CHILD_ID, V_LEVEL);
+    wait(2000, C_SET, V_LEVEL);
+  }
+  uint16_t lux = lightSensor.readLightLevel();  // Get Lux value
+  if (lux != lastlux) {
+      send(msg.set(lux));
+      lastlux = lux;
+  }
+
+  sleep(SLEEP_TIME);
+}
+
+void receive(const MyMessage &message) {
+  if (message.type == V_LEVEL) {
+    if (!initialValueSent) {
+      Serial.println("Receiving initial value from controller");
+      initialValueSent = true;
+    }
+  }
 }
 ```
 
