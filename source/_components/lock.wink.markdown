@@ -24,3 +24,6 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Schlage
 - Generic Z-wave
 
+<p class='note'>
+If supported by your lock, a binary sensor will be created for each user key code you have defined. These key codes will turn on when the code is entered and automatically turn off after a few seconds.
+</p>

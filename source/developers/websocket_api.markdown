@@ -9,11 +9,13 @@ sharing: true
 footer: true
 ---
 
-Home Assistant contains a websocket API. This API can be used to stream information from the Home Assistant server to any client that implements websockets. Implementations in different languages:
+Home Assistant contains a websocket API. This API can be used to stream information from a Home Assistant instance to any client that implements websockets. Implementations in different languages:
 
  - [JavaScript](https://github.com/home-assistant/home-assistant-js-websocket) - powers the frontend
 
-# Server states
+Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
+
+## {% linkable_title Server states %}
 
  1. Client connects
  2. Authentication phase starts
@@ -31,20 +33,20 @@ Home Assistant contains a websocket API. This API can be used to stream informat
 
 During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to it's origin.
 
-# Message format
+## {% linkable_title Message format %}
 
 Each API message is a JSON serialized object containing a `type` key. After the authentication phase messages also must contain an `id`, an integer that contains the number of interactions.
 
 Example of an auth message:
 
-```json5
+```json
 {
   "type": "auth",
   "api_password": "supersecret"
 }
 ```
 
-```json5
+```json
 {
    "id" 5,
    "type":"event",
@@ -57,13 +59,13 @@ Example of an auth message:
 }
 ```
 
-# Authentication phase
+## {% linkable_title Authentication phase %}
 
 When a client connects to the server, the server will test if the client is authenticated. Authentication will not be necessary if no api_password is set or if the user fulfills one of the other criteria for authentication (trusted network, password in url/header).
 
 If no authentication is needed, the authentication phase will complete and the server will send an `auth_ok` message.
 
-```json5
+```json
 {
   "type": "auth_ok"
 }
@@ -71,7 +73,7 @@ If no authentication is needed, the authentication phase will complete and the s
 
 If authentication is necessary, the server sends out `auth_required`.
 
-```json5
+```json
 {
   "type": "auth_required"
 }
@@ -79,7 +81,7 @@ If authentication is necessary, the server sends out `auth_required`.
 
 This means that the next message from the client should be an auth message:
 
-```json5
+```json
 {
   "type": "auth",
   "api_password": "supersecret"
@@ -88,7 +90,7 @@ This means that the next message from the client should be an auth message:
 
 If the client supplies valid authentication, the authentication phase will complete by the server sending the `auth_ok` message:
 
-```json5
+```json
 {
   "type": "auth_ok"
 }
@@ -96,18 +98,18 @@ If the client supplies valid authentication, the authentication phase will compl
 
 If the data is incorrect, the server will reply with `auth_invalid` message and disconnect the session.
 
-```json5
+```json
 {
   "type": "auth_invalid",
   "message": "Invalid password"
 }
 ```
 
-# Command phase
+## {% linkable_title Command phase %}
 
 During this phase the client can give commands to the server. The server will respond to each command with a `result` message indicating when the command is done and if it was successful.
 
-```json5
+```json
 {
   "id": 6.
   "type": "result",
@@ -117,11 +119,11 @@ During this phase the client can give commands to the server. The server will re
 }
 ```
 
-## Subscribe to events
+## {% linkable_title Subscribe to events %}
 
 The command `subscribe_events` will subscribe your client to the event bus. You can either listen to all events or to a specific event type. If you want to listen to multiple event types, you will have to send multiple `subscribe_events` commands.
 
-```json5
+```json
 {
   "id": 18,
   "type": "subscribe_events",
@@ -132,7 +134,7 @@ The command `subscribe_events` will subscribe your client to the event bus. You 
 
 The server will respond with a result message to indicate that the subscription is active.
 
-```json5
+```json
 {
   "id": 18,
   "type": "result",
@@ -143,7 +145,7 @@ The server will respond with a result message to indicate that the subscription 
 
 For each event that matches, the server will send a message of type `event`. The `id` in the message will point at the original `id` of the `listen_event` command.
 
-```json5
+```json
 {
    "id": 18,
    "type":"event",
@@ -190,11 +192,11 @@ For each event that matches, the server will send a message of type `event`. The
 }
 ```
 
-## Unsubscribing from events
+### {% linkable_title Unsubscribing from events %}
 
 You can unsubscribe from previously created subscription events. Pass the id of the original subscription command as value to the subscription field.
 
-```json5
+```json
 {
   "id": 19,
   "type": "unsubscribe_events",
@@ -204,7 +206,7 @@ You can unsubscribe from previously created subscription events. Pass the id of 
 
 The server will respond with a result message to indicate that unsubscribing was successful.
 
-```json5
+```json
 {
   "id": 19,
   "type": "result",
@@ -214,7 +216,7 @@ The server will respond with a result message to indicate that unsubscribing was
 ```
 
 
-## Calling a service
+### {% linkable_title Calling a service %}
 
 This will call a service in Home Assistant. Right now there is no return value. The client can listen to `state_changed` events if it is interested in changed entities as a result of a service call.
 
@@ -233,7 +235,7 @@ This will call a service in Home Assistant. Right now there is no return value. 
 
 The server will indicate with a message indicating that the service is done executing.
 
-```json5
+```json
 {
   "id": 24,
   "type": "result",
@@ -242,11 +244,11 @@ The server will indicate with a message indicating that the service is done exec
 }
 ```
 
-## Fetching states
+### {% linkable_title Fetching states %}
 
 This will get a dump of all the current states in Home Assistant.
 
-```json5
+```json
 {
   "id": 19,
   "type": "get_states"
@@ -255,20 +257,20 @@ This will get a dump of all the current states in Home Assistant.
 
 The server will respond with a result message containing the states.
 
-```json5
+```json
 {
   "id": 19,
   "type": "result",
   "success": true,
-  "result": [ … ]
+  "result": [ ... ]
 }
 ```
 
-## Fetching config
+### {% linkable_title Fetching config %}
 
 This will get a dump of the current config in Home Assistant.
 
-```json5
+```json
 {
   "id": 19,
   "type": "get_config"
@@ -277,20 +279,20 @@ This will get a dump of the current config in Home Assistant.
 
 The server will respond with a result message containing the config.
 
-```json5
+```json
 {
   "id": 19,
   "type": "result",
   "success": true,
-  "result": { … }
+  "result": { ... }
 }
 ```
 
-## Fetching services
+### {% linkable_title Fetching services %}
 
 This will get a dump of the current services in Home Assistant.
 
-```json5
+```json
 {
   "id": 19,
   "type": "get_config"
@@ -299,20 +301,20 @@ This will get a dump of the current services in Home Assistant.
 
 The server will respond with a result message containing the services.
 
-```json5
+```json
 {
   "id": 19,
   "type": "result",
   "success": true,
-  "result": { … }
+  "result": { ... }
 }
 ```
 
-## Fetching panels
+### {% linkable_title Fetching panels %}
 
 This will get a dump of the current registered panels in Home Assistant.
 
-```json5
+```json
 {
   "id": 19,
   "type": "get_panels"
@@ -321,16 +323,16 @@ This will get a dump of the current registered panels in Home Assistant.
 
 The server will respond with a result message containing the current registered panels.
 
-```json5
+```json
 {
   "id": 19,
   "type": "result",
   "success": true,
-  "result": [ … ]
+  "result": [ ... ]
 }
 ```
 
-# Error handling
+## {% linkable_title Error handling %}
 
 If an error occurs, the `success` key in the `result` message will be set to `false`. It will contain an `error` key containing an object with two keys: `code` and `message`.
 
@@ -340,7 +342,7 @@ If an error occurs, the `success` key in the `result` message will be set to `fa
 | 2 | Received message is not in expected format (voluptuous validation error).
 | 3 | Requested item cannot be found
 
-```json5
+```json
 {
    "id": 12,
    "type":"result",

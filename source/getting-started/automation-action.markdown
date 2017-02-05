@@ -49,7 +49,7 @@ automation 2:
 ```
 
 
-Conditions can also be part of an action:
+Conditions can also be part of an action. You can combine multiple service calls and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any service calls after that condition will not be executed.
 
 ```yaml
 automation:
@@ -59,6 +59,9 @@ automation:
     entity_id: sensor.mini_despacho
     to: 'ON'
   action:
+    - service: notify.notify
+      data:
+        message: Testing conditional actions
     - condition: or
       conditions:
         - condition: template

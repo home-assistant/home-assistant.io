@@ -49,6 +49,7 @@ kramdown:
 highlighter: rouge
 
 gems:
+  - jekyll-redirect-from
   - jekyll-time-to-read
   - octopress-filters
   - octopress-include-tag
@@ -131,9 +132,9 @@ social:
 # Home Assistant release details
 current_major_version: 0
 current_minor_version: 37
-current_patch_version: 0
-date_released: 2017-01-29
+current_patch_version: 1
+date_released: 2017-02-02
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
-patch_version_notes: ""
+patch_version_notes: "#release-0371---february-2"

@@ -71,5 +71,5 @@ switch:
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1set -m "ON"
+$  mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
