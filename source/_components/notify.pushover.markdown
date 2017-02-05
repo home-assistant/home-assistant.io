@@ -47,7 +47,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api). 
 
-Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](https://home-assistant.io/getting-started/automation-templating/) for the message:
+Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
 ```yaml
 # Example configuration.yaml entries
@@ -57,7 +57,7 @@ alexa:
       action:
         service: notify.notify
         data_template:
-          message: "The location of {{ User }} has been queried via Alexa."
+          message: "The location of {% raw %}{{ User }}{% endraw %} has been queried via Alexa."
           data:
             title: "Home Assistant"
             sound: falling
