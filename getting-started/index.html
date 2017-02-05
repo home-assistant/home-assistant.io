@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Getting Started - Home Assistant</title>
+    <title>Installing Home Assistant - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Step by step guide to get started with Home Assistant.">
+    <meta name="description" content="Instructions to get started using Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/getting-started/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Getting Started">
+    <meta property="og:title" content="Installing Home Assistant">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/getting-started/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Step by step guide to get started with Home Assistant.">
+    <meta property="og:description" content="Instructions to get started using Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Getting Started">
-    <meta name="twitter:description" content="Step by step guide to get started with Home Assistant.">
+    <meta name="twitter:title" content="Installing Home Assistant">
+    <meta name="twitter:description" content="Instructions to get started using Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,57 +84,42 @@
   
   <header>
     <h1 class="title indent">
-      Getting Started
+      Installing Home Assistant
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you’re running a Linux-based platform, we suggest you follow the <a href="/getting-started/installation-virtualenv/">VirtualEnv Linux instructions</a> to avoid using root.</p>
+  <p>You will need to install Home Assistant before we can get started. You can install Home Assistant on your computer or you can turn a Raspberry Pi into a dedicated Home Assistant hub.</p>
 
-<p>Installing and running Home Assistant on your local machine is easy. The only requirement is that you have <a href="https://www.python.org/downloads/">Python</a> installed. For Windows we require at least Python 3.5 and for other operating systems at least Python 3.4.2. Once installed, execute the following code in a console:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
-<span class="gp">$ </span>hass --open-ui
-</code></pre>
+<div class="text-center hass-option-cards">
+  <a class="option-card" href="/getting-started/hassbian-installation/">
+    <div class="img-container">
+      <img src="/images/supported_brands/raspberry-pi.png" />
+    </div>
+    <div class="title">Install Hassbian on your Raspberry Pi 3</div>
+  </a>
+  <a class="option-card" href="/getting-started/installation-python/">
+    <div class="img-container">
+      <img src="/images/supported_brands/python.svg" />
+    </div>
+    <div class="title">Install Home Assistant on your computer</div>
+  </a>
 </div>
 
-<p>Running these commands will:</p>
+<h3><a class="title-link" name="alternative-methods" href="#alternative-methods"></a> Alternative methods</h3>
+
+<p>For advanced users we have several alternative guides for installing Home Assistant.</p>
 
 <ul>
-  <li>Install Home Assistant</li>
-  <li>Launch Home Assistant and serve the web interface on <a href="http://localhost:8123">http://localhost:8123</a></li>
+  <li><a href="/getting-started/installation-docker/">Docker</a></li>
+  <li><a href="/getting-started/installation-raspberry-pi/">Manual Raspberry Pi installtion</a> (requires existing Raspbian installation)</li>
+  <li><a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi All-In-One Installer Script</a> (requires existing Raspbian installation)</li>
+  <li><a href="/getting-started/installation-vagrant/">Vagrant</a></li>
+  <li><a href="/getting-started/installation-synology/">Synology NAS</a></li>
+  <li><a href="/getting-started/installation-virtualenv/">Virtualenv Linux</a></li>
 </ul>
 
-<p>If you prefer to watch a video tutorial, <a href="https://github.com/tktino">tktino</a> has made some great ones:</p>
-
-<ul>
-  <li><a href="https://www.youtube.com/watch?v=X27eVvuqwnY">Windows 10</a></li>
-  <li><a href="https://www.youtube.com/watch?v=hej6ipN86ls">Mac OS X</a></li>
-  <li><a href="https://www.youtube.com/watch?v=SXaAG1lGNH0">Ubuntu 14.04</a></li>
-</ul>
-
-<h3><a class="title-link" name="updating" href="#updating"></a> Updating</h3>
-
-<p>To update Home Assistant to the latest release check the <a href="/getting-started/updating/">Updating section</a>.</p>
-
-<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
-
-<p>If you run into any issues, please see <a href="/getting-started/troubleshooting/">the troubleshooting page</a>. It contains solutions to many commonly encountered issues.</p>
-
-<p>In addition to this site, check out these sources for additional help:</p>
-
-<ul>
-  <li><a href="https://community.home-assistant.io">Forum</a> for Home Assistant discussions and questions</li>
-  <li><a href="https://gitter.im/home-assistant/home-assistant">Gitter Chat Room</a> for real-time chat about Home Assistant</li>
-  <li><a href="https://github.com/home-assistant/home-assistant/issues">GitHub Page</a> for issue reporting</li>
-</ul>
-
-<h3><a class="title-link" name="whats-next" href="#whats-next"></a> What’s next?</h3>
-
-<p>To see what Home Assistant can do, launch demo mode: <code class="highlighter-rouge">hass --demo-mode</code> or visit the <a href="/demo">demo page</a>.</p>
-
-<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
 
 
 </article>
@@ -155,15 +140,19 @@
       <li>
         <a class='active' href='/getting-started/'>Installation </a>
         <ul>
-          <li><a  href='/getting-started/installation-raspberry-pi/'>Raspberry Pi </a></li>
-          <li><a  href='/getting-started/installation-raspberry-pi-all-in-one/'>Raspberry Pi All-In-One Installer </a></li>
-          <li><a  href='/getting-started/installation-raspberry-pi-image/'>Raspberry Pi Image </a></li>
-          <li><a  href='/getting-started/installation-docker/'>Docker </a></li>
-          <li><a  href='/getting-started/installation-vagrant/'>Vagrant </a></li>
-          <li><a  href='/getting-started/installation-synology/'>Synology NAS </a></li>
-          <li><a  href='/getting-started/installation-virtualenv/'>Virtualenv Linux </a></li>
+          <li><a  href='/getting-started/installation-python/'>Python </a></li>
           <li><a  href='/getting-started/updating/'>Updating </a></li>
           <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/getting-started/hassbian/'>Hassbian </a>
+        <ul>
+          <li><a  href='/getting-started/hassbian-installation/'>Installation </a></li>
+          <li><a  href='/getting-started/hassbian-customization/'>Customization </a></li>
+          <li><a  href='/getting-started/hassbian-common-tasks/'>Common tasks </a></li>
+          <li><a  href='/getting-started/hassbian-integrations/'>Integrations </a></li>
+          <li><a  href='/getting-started/hassbian-upgrading/'>Upgrading </a></li>
         </ul>
       </li>
       <li>
