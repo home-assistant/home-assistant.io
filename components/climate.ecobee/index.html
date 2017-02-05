@@ -90,7 +90,512 @@
   <hr class="divider">
   
 
-  <p>To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general <a href="/components/ecobee/">Ecobee component</a>.</p>
+  <p class="note">
+To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general <a href="/components/ecobee/">Ecobee component</a>.
+</p>
+
+<h2><a class="title-link" name="concepts" href="#concepts"></a> Concepts</h2>
+
+<p>The Ecobee Thermostat supports the following key concepts.</p>
+
+<p>The <em>target temperature</em> is the temperature that the device attempts
+to achieve. The target temperature is either determined by the
+currently active climate or it may be overridden by a hold. When the
+thermostat is not in auto mode, there is a single target
+temperature. When the thermostat is in auto operation mode, there is a
+pair of target temperatures: the lower target temperature determines
+the lowest desired temperature, while the higher target temperature
+determines the highest desired temperature (the thermostat will switch
+between heating and cooling to keep the temperature within these
+limits).</p>
+
+<p>A <em>climate</em> is a predefined or user-defined set of states that the
+thermostat aims to achieve. The ecobee thermostat provides three predefined
+climates: home, away, and sleep. The user can define additional climates.</p>
+
+<p>A <em>hold</em> is an override of the target temperature defined in the
+currently active climate. The temperature targeted in the hold mode may be
+explicitly set (temperature hold) or it may be derived from a reference
+climate (home or away hold). All holds are temporary. Temperature and
+climate holds expire when the thermostat transitions to the next climate
+defined in its program.</p>
+
+<p>When in <em>away mode</em>, the target temperature is permanently overridden by
+the target temperature defined for the away climate. The away mode is a
+simple way to emulate a vacation mode.</p>
+
+<p>The <em>operation mode</em> of the device is the currently active operational
+modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool,
+auto, and off.</p>
+
+<h2><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h2>
+
+<p>The following attributes are provided by the Ecobee Thermostat:
+<code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">temperature_unit</code>, <code class="highlighter-rouge">current_temperature</code>, <code class="highlighter-rouge">target_temperature</code>, 
+<code class="highlighter-rouge">target_temperature_low</code>, <code class="highlighter-rouge">target_temperature_high</code>, <code class="highlighter-rouge">desired_fan_mode</code>, 
+<code class="highlighter-rouge">fan</code>, <code class="highlighter-rouge">current_hold_mode</code>, <code class="highlighter-rouge">current_operation</code>, <code class="highlighter-rouge">operation_list</code>,
+<code class="highlighter-rouge">operation_mode</code>, <code class="highlighter-rouge">mode</code>, <code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">device_state_attributes</code>, 
+<code class="highlighter-rouge">is_away_mode_on</code>.
+The attributes <code class="highlighter-rouge">min_temp</code> and <code class="highlighter-rouge">max_temp</code> are meaningless constant values.</p>
+
+<h3><a class="title-link" name="attribute-name" href="#attribute-name"></a> Attribute <code class="highlighter-rouge">name</code></h3>
+
+<p>Returns the name of the Ecobee Thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>Name of the Ecobee Thermostat</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-temperature_unit" href="#attribute-temperature_unit"></a> Attribute <code class="highlighter-rouge">temperature_unit</code></h3>
+
+<p>Returns the unit of measurement used for temperature by the thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>Name of the temperature unit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-current_temperature" href="#attribute-current_temperature"></a> Attribute <code class="highlighter-rouge">current_temperature</code></h3>
+
+<p>Returns the current temperature measured by the thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td>Currenly measured temperature</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-target_temperature" href="#attribute-target_temperature"></a> Attribute <code class="highlighter-rouge">target_temperature</code></h3>
+
+<p>Returns the target temperature of the thermostat, when the thermostat is
+not in auto operation mode.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td>Target temperature</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-target_temperature_low" href="#attribute-target_temperature_low"></a> Attribute <code class="highlighter-rouge">target_temperature_low</code></h3>
+
+<p>Returns the desired heating temperature set in the thermostat when in
+auto operation mode.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td>Target temperature</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-target_temperature_high" href="#attribute-target_temperature_high"></a> Attribute <code class="highlighter-rouge">target_temperature_high</code></h3>
+
+<p>Returns the desired cooling temperature set in the thermostat when in
+auto operation mode.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td>Target temperature</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-desired_fan_mode" href="#attribute-desired_fan_mode"></a> Attribute <code class="highlighter-rouge">desired_fan_mode</code></h3>
+
+<p>Returns the desired fan mode of the current operation.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>‘on’, ‘off’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-fan" href="#attribute-fan"></a> Attribute <code class="highlighter-rouge">fan</code></h3>
+
+<p>Returns the current fan state.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>‘on’, ‘off’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-current_hold_mode" href="#attribute-current_hold_mode"></a> Attribute <code class="highlighter-rouge">current_hold_mode</code></h3>
+
+<p>Returns the current temperature hold, if any.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>‘home’, ‘away’, ‘temp’, None</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-current_operation" href="#attribute-current_operation"></a> Attribute <code class="highlighter-rouge">current_operation</code></h3>
+
+<p>Returns the current operation of the thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>‘auto’, ‘cool’, ‘heat’, ‘off’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-operation_list" href="#attribute-operation_list"></a> Attribute <code class="highlighter-rouge">operation_list</code></h3>
+
+<p>Returns the list of available operation modes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>List of String</td>
+      <td>Available operation modes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-operation_mode" href="#attribute-operation_mode"></a> Attribute <code class="highlighter-rouge">operation_mode</code></h3>
+
+<p>Returns the current operation mode of the thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>Currently active operation mode</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-mode" href="#attribute-mode"></a> Attribute <code class="highlighter-rouge">mode</code></h3>
+
+<p>Returns the climate currently active on the thermostat.</p>
+
+<h3><a class="title-link" name="attribute-fan_min_on_time" href="#attribute-fan_min_on_time"></a> Attribute <code class="highlighter-rouge">fan_min_on_time</code></h3>
+
+<p>Returns the current fan mimimum on time.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td>Current fan minimum on time in minutes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="attribute-is_away_mode_on" href="#attribute-is_away_mode_on"></a> Attribute <code class="highlighter-rouge">is_away_mode_on</code></h3>
+
+<p>Returns whether the thermostat is in away mode (see the corresponding
+service for more detail).</p>
+
+<h3><a class="title-link" name="attribute-actual-humidity" href="#attribute-actual-humidity"></a> Attribute <code class="highlighter-rouge">actual humidity</code></h3>
+
+<p>Returns the humidity as measured by the thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td>Current humidity</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+
+<p>The following services are provided by the Ecobee Thermostat:
+<code class="highlighter-rouge">set_away_mode</code>, <code class="highlighter-rouge">set_hold_mode</code>, <code class="highlighter-rouge">set_temperature</code>, <code class="highlighter-rouge">set_operation_mode</code>, 
+<code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">resume_program</code>.
+The services <code class="highlighter-rouge">set_aux_heat</code>, <code class="highlighter-rouge">set_humidity</code>, <code class="highlighter-rouge">set_fan_mode</code>, and
+<code class="highlighter-rouge">set_swing_mode</code> offered by the <a href="/components/climate/">Climate component</a>
+are not implemented for this thermostat.</p>
+
+<h3><a class="title-link" name="service-set_away_mode" href="#service-set_away_mode"></a> Service <code class="highlighter-rouge">set_away_mode</code></h3>
+
+<p>Turns the away mode on or off for the thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">away_mode</code></td>
+      <td>no</td>
+      <td>‘on’ or ‘off’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-set_hold_mode" href="#service-set_hold_mode"></a> Service <code class="highlighter-rouge">set_hold_mode</code></h3>
+
+<p>Puts the thermostat into the given hold mode. For ‘home’ and ‘away’, the
+target temperature is taken from the home or away, climate, respectively.
+For ‘temp’, the current temperature is taken as the target temperature.
+When None is provided as parameter, the hold_mode is turned off.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hold_mode</code></td>
+      <td>no</td>
+      <td>‘home’, ‘away’, ‘temp’, None</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-set_temperature" href="#service-set_temperature"></a> Service <code class="highlighter-rouge">set_temperature</code></h3>
+
+<p>Puts the thermostat into a temporary hold at the given temperature.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target_temp_low</code></td>
+      <td>no</td>
+      <td>Desired heating target temperature (when in auto mode)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target_temp_high</code></td>
+      <td>no</td>
+      <td>Desired cooling target temperature (when in auto mode)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">temperature</code></td>
+      <td>no</td>
+      <td>Desired target temperature (when not in auto mode)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Only the target temperatures relevant for the current operation mode need to
+be provided.</p>
+
+<h3><a class="title-link" name="service-set_operation_mode" href="#service-set_operation_mode"></a> Service <code class="highlighter-rouge">set_operation_mode</code></h3>
+
+<p>Sets the current operation mode of the thermostat.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">operation_mode</code></td>
+      <td>no</td>
+      <td>‘auto’, ‘auxHeatOnly’, ‘cool’, ‘heat’, ‘off’</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-fan_min_on_time" href="#service-fan_min_on_time"></a> Service <code class="highlighter-rouge">fan_min_on_time</code></h3>
+
+<p>Sets the fan minimum on time.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fan_min_on_time</code></td>
+      <td>no</td>
+      <td>Desired fan minimum on time</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-resume_program" href="#service-resume_program"></a> Service <code class="highlighter-rouge">resume_program</code></h3>
+
+<p>Resumes the currently active schedule.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">resume_all</code></td>
+      <td>no</td>
+      <td>true or false</td>
+    </tr>
+  </tbody>
+</table>
 
 
 </article>
