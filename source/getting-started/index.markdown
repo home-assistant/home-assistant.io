@@ -31,7 +31,7 @@ You will need to install Home Assistant before we can get started. You can insta
 For advanced users we have several alternative guides for installing Home Assistant.
 
 - [Docker](/getting-started/installation-docker/)
-- [Manual Raspberry Pi installtion](/getting-started/installation-raspberry-pi/) (requires existing Raspbian installation)
+- [Manual Raspberry Pi installation](/getting-started/installation-raspberry-pi/) (requires existing Raspbian installation)
 - [Raspberry Pi All-In-One Installer Script](/getting-started/installation-raspberry-pi-all-in-one/) (requires existing Raspbian installation)
 - [Vagrant](/getting-started/installation-vagrant/)
 - [Synology NAS](/getting-started/installation-synology/)
