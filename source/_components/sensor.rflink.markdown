@@ -61,8 +61,8 @@ Device configuration variables:
 Sensors are added automatically when the Rflink gateway intercepts a 433Mhz command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Configure a `new_devices_group` for sensors and optionally add it to a different `view`.
-- Hide unwanted devices using [customizations](https://home-assistant.io/getting-started/customizing-devices/)
-- Ignore devices on a platform level: https://home-assistant.io/components/rflink/#ignoring-devices
+- Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
+- Ignore devices on a platform level: /components/rflink/#ignoring-devices
 
 # Device support
 Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or create an issue and mention `@aequitas` in the description: https://github.com/home-assistant/home-assistant/issues/new
