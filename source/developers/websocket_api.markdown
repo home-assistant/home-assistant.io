@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Websocket API"
-description: "Home Assistant Websocket API documentation"
+title: "WebSocket API"
+description: "Home Assistant WebSocket API documentation"
 date: 2016-11-26 13:27
 sidebar: true
 comments: false
@@ -9,9 +9,11 @@ sharing: true
 footer: true
 ---
 
-Home Assistant contains a websocket API. This API can be used to stream information from a Home Assistant instance to any client that implements websockets. Implementations in different languages:
+Home Assistant contains a WebSocket API. This API can be used to stream information from a Home Assistant instance to any client that implements WebSocket. Implementations in different languages:
 
  - [JavaScript](https://github.com/home-assistant/home-assistant-js-websocket) - powers the frontend
+ - [Python](https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket-client.py) - CLI client using [`asyncws`](https://async-websockets.readthedocs.io/en/latest/)
+ - [JavaScript/HTML](https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket.html) - WebSocket connection in your browser 
 
 Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
 
