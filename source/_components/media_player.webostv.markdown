@@ -30,6 +30,7 @@ Configuration variables:
 - **host** (*Optional*): The IP of the LG webOS Smart TV, e.g. `192.168.0.10`.
 - **mac** (*Optional*): The MAC address of the TV, e.g. `C8:08:E9:99:99:1A`.
 - **name** (*Optional*): The name you would like to give to the LG webOS Smart TV.
+- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
 - **customize** array (*Optional*): List of options to customize.
   - ***sources** array (*Optional*): List of hardware inputs.
 
@@ -45,6 +46,7 @@ media_player:
     host: 192.168.0.10
     mac: C8:08:E9:99:99:1A
     name: Living Room TV
+    filename: webostv.conf
     customize:
       sources:
         - livetv
