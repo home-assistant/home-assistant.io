@@ -26,7 +26,7 @@ notify:
 
 Configuration variables:
 
-- **api_key** (*Required*): Enter the API key for Pushbullet. Go to https://www.pushbullet.com/ to retrieve your API key.
+- **api_key** (*Required*): Enter the API key for Pushbullet. Go to https://www.pushbullet.com/#settings/account to retrieve your API key / access token.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
 ### {% linkable_title Usage %}
