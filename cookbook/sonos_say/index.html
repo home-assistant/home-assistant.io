@@ -120,12 +120,18 @@
 </div>
 
 <p>We call this now with:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">script.sonos_say</span>
-<span class="s">data</span><span class="pi">:</span>
-  <span class="s">sonos_entity</span><span class="pi">:</span> <span class="s">media_player.kitchen</span>
-  <span class="s">volume</span><span class="pi">:</span> <span class="s">0.3</span>
-  <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Your</span><span class="nv"> </span><span class="s">husband</span><span class="nv"> </span><span class="s">comming</span><span class="nv"> </span><span class="s">home!'</span>
-  <span class="s">delay</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:00:05'</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">test'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.mytest</span>
+    <span class="s">action</span><span class="pi">:</span>   
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">script.sonos_say</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">sonos_entity</span><span class="pi">:</span> <span class="s">media_player.office</span>
+          <span class="s">volume</span><span class="pi">:</span> <span class="s">0.5</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Your</span><span class="nv"> </span><span class="s">husband</span><span class="nv"> </span><span class="s">comming</span><span class="nv"> </span><span class="s">home!'</span>
+          <span class="s">delay</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:00:05'</span>
 </code></pre>
 </div>
 
