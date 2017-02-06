@@ -111,6 +111,7 @@ void incomingMessage(const MyMessage &message) {
     }
 }
 ```
+
 ### {% linkable_title MySensors 2.x example sketch %}
 
 ```cpp
@@ -244,5 +245,6 @@ void send_status_message()
   }
 }
 ```
+
 [main component]: /components/mysensors/
 [serial api]: http://www.mysensors.org/download

@@ -86,4 +86,4 @@ void loop()
 ```
 
 [main component]: /components/mysensors/
-[serial api]: https://www.mysensors.org/download/serial_api_15
+[serial api]: http://www.mysensors.org/download
