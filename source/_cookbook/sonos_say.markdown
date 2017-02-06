@@ -19,32 +19,38 @@ script:
   sonos_say:
     alias: "Sonos TTS script"
     sequence:
-     - service: media_player.sonos_snapshot
-       data_template:
-         entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-    - service: media_player.sonos_unjoin
-      data_template:
-        entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-   - service: media_player.volume_set
-     data_template:
-       entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-       volume_level: {% raw %}"{{ volume }}"{% endraw %}
-   - service: tts.voicerss_say
-     data_template:
-       entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-       message: {% raw %}"{{ message }}"{% endraw %}
-   - delay: {% raw %}"{{ delay }}"{% endraw %}
-   - service: media_player.sonos_restore
-     data_template:
-       entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
+      - service: media_player.sonos_snapshot
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+      - service: media_player.sonos_unjoin
+        data_template:
+           entity_id: "{{ sonos_entity }}"
+      - service: media_player.volume_set
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+          volume_level: "{{ volume }}"
+      - service: tts.voicerss_say
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+          message: "{{ message }}"
+      - delay: "{{ delay }}"
+      - service: media_player.sonos_restore
+        data_template:
+          entity_id: "{{ sonos_entity }}"
 ```
 
 We call this now with:
 ```yaml
-service: script.sonos_say
-data:
-  sonos_entity: media_player.kitchen
-  volume: 0.3
-  message: 'Your husband comming home!'
-  delay: '00:00:05'
+automation:
+  - alias: 'test'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.mytest
+    action:   
+      - service: script.sonos_say
+        data:
+          sonos_entity: media_player.office
+          volume: 0.5
+          message: 'Your husband comming home!'
+          delay: '00:00:05'
 ```
