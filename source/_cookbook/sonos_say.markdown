@@ -41,10 +41,16 @@ script:
 
 We call this now with:
 ```yaml
-service: script.sonos_say
-data:
-  sonos_entity: media_player.kitchen
-  volume: 0.3
-  message: 'Your husband comming home!'
-  delay: '00:00:05'
+automation:
+  - alias: 'test'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.mytest
+    action:   
+      - service: script.sonos_say
+        data:
+          sonos_entity: media_player.office
+          volume: 0.5
+          message: 'Your husband comming home!'
+          delay: '00:00:05'
 ```
