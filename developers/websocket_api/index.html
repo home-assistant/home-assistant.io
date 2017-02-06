@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Websocket API - Home Assistant</title>
+    <title>WebSocket API - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Home Assistant Websocket API documentation">
+    <meta name="description" content="Home Assistant WebSocket API documentation">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/websocket_api/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Websocket API">
+    <meta property="og:title" content="WebSocket API">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/developers/websocket_api/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Home Assistant Websocket API documentation">
+    <meta property="og:description" content="Home Assistant WebSocket API documentation">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Websocket API">
-    <meta name="twitter:description" content="Home Assistant Websocket API documentation">
+    <meta name="twitter:title" content="WebSocket API">
+    <meta name="twitter:description" content="Home Assistant WebSocket API documentation">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,16 +84,18 @@
   
   <header>
     <h1 class="title indent">
-      Websocket API
+      WebSocket API
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>Home Assistant contains a websocket API. This API can be used to stream information from a Home Assistant instance to any client that implements websockets. Implementations in different languages:</p>
+  <p>Home Assistant contains a WebSocket API. This API can be used to stream information from a Home Assistant instance to any client that implements WebSocket. Implementations in different languages:</p>
 
 <ul>
   <li><a href="https://github.com/home-assistant/home-assistant-js-websocket">JavaScript</a> - powers the frontend</li>
+  <li><a href="https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket-client.py">Python</a> - CLI client using <a href="https://async-websockets.readthedocs.io/en/latest/"><code class="highlighter-rouge">asyncws</code></a></li>
+  <li><a href="https://raw.githubusercontent.com/home-assistant/home-assistant-dev-helper/master/ha-websocket.html">JavaScript/HTML</a> - WebSocket connection in your browser</li>
 </ul>
 
 <p>Connect your websocket implementation to <code class="highlighter-rouge">ws://localhost:8123/api/websocket</code>.</p>

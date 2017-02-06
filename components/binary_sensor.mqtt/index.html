@@ -123,14 +123,14 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/contact"</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Windows</span><span class="nv"> </span><span class="s">contact"</span>
-  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
-  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
-  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0"</span>
-  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/contact"</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Windows</span><span class="nv"> </span><span class="s">contact"</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
+    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0"</span>
+    <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
