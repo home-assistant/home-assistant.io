@@ -28,12 +28,21 @@ Configuration options for the ELTA Sensor:
 
 - **code** (*Required*): The tracking code of the pacage.
 
+The ELTA platform will only accept tracking code in the below format.
+Two letters followed by nine numbers and ending with two letters (total thirteen characters).
 
 ELTA Hellenic Post number rules :  ( # Letter, * Digit, ! Letter Or Digit )
   ( R# *** *** *** GR )   ( V# *** *** *** GR )
   ( A# *** *** *** GR )   ( C# *** *** *** GR )
   ( E# *** *** *** GR )   ( L# *** *** *** GR )
   ( N# *** *** *** GR )   ( I# *** *** *** GR )
+
+Troubleshooting:
+The tracking number has to end in “GR” or have destination country Greece.
+
+If the tracking code does not meet the above format, there will be log entry in this format.
+Invalid key YOUR_TRACKING_CODE . Key must be 13 characters.
+
 
 <p class='note warning'>
 The ELTA sensor is in BETA and currently only show tracking from ELTA.
