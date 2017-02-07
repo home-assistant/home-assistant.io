@@ -212,10 +212,12 @@ To enable MQTT discovery, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  discovery: "ha/#"
+  discovery: true
+  # Optional
+  discovery_prefix: homeassistant
 ```
 
-A motion detection device for your garden would sent its configuration as JSON payload `{"name": "garden", "sensor_class": "motion"}` to the topic `ha/binary_sensor/garden/config`. After the first message to `config`, then the MQTT messages sent to `state`, eg. `ha/binary_sensor/garden/state`, will update the state in Home Assistant.
+A motion detection device for your garden would sent its configuration as JSON payload `{"name": "garden", "sensor_class": "motion"}` to the topic `homeassistant/binary_sensor/garden/config`. After the first message to `config`, then the MQTT messages sent to `state`, eg. `homeassistant/binary_sensor/garden/state`, will update the state in Home Assistant.
 
 ## {% linkable_title Logging %}
 
