@@ -502,7 +502,7 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-       -d <span class="s1">'{"entity_id": "switch.christmas_lights", "state": "on"}'</span> <span class="se">\</span>
+       -d <span class="s1">'{"entity_id": "switch.christmas_lights"}'</span> <span class="se">\</span>
        http://localhost:8123/api/services/switch/turn_on
 </code></pre>
 </div>
