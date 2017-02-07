@@ -56,6 +56,7 @@ automation:
       - platform: state
         entity_id: media_player.htpc
         from: 'playing'
+        to: 'idle'
     condition:
       - condition: state
         entity_id: sun.sun
@@ -69,6 +70,7 @@ automation:
       - platform: state
         entity_id: media_player.htpc
         to: 'playing'
+        from: 'idle'
     condition:
       - condition: state
         entity_id: sun.sun
