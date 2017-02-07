@@ -36,6 +36,7 @@ Configuration variables:
   - **friendly_name** (*Optional*): Name to use in the Frontend.
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **value_template** (*Required*): Defines a [template](/topics/templating/) to extract a value from the event bus.
+  - **icon_template** (*Optional*): Defines a [template](/topics/templating/) for the icon of the sensor.
   - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
 
 
@@ -134,5 +135,20 @@ sensor:
         value_template: {% raw %}'{{ states.sensor.transmission_up_speed.state | multiply(1024) }}'{% endraw %}
         friendly_name: 'Transmission Up Speed'
         unit_of_measurement: 'kB/s'
+```
+
+### {% linkable_title Change the icon %}
+
+This example shows how to change the icon based on the day/night cycle.
+
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      day_night:
+        friendly_name: 'Day/Night'
+        value_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'{% endraw %}
+        icon_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'{% endraw %}
+        
 ```
 
