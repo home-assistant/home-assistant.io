@@ -131,22 +131,20 @@ from Home Assistant running on another Linux computer (the <strong>server</stron
   <li>On the <strong>server</strong>, verify that you can reach your target machine without password by <code class="highlighter-rouge">ssh TARGET</code>.</li>
   <li>On the <strong>target</strong>, we need to let the hass user execute the program needed to suspend/shut down the target computer. I’m using <code class="highlighter-rouge">pm-suspend</code>, use <code class="highlighter-rouge">poweroff</code> to turn off the computer. First, get the full path: <code class="highlighter-rouge">which pm-suspend</code>. On my system, this is <code class="highlighter-rouge">/usr/sbin/pm-suspend</code>.</li>
   <li>On the <strong>target</strong>, using an account with sudo access (typically your main account), <code class="highlighter-rouge">sudo visudo</code>. Add this line last in the file: <code class="highlighter-rouge">hass ALL=NOPASSWD:/usr/sbin/pm-suspend</code>, where you replace <code class="highlighter-rouge">hass</code> with the name of your user on the target, if different, and <code class="highlighter-rouge">/usr/sbin/pm-suspend</code> with the command of your choice, if different.</li>
-  <li>On the <strong>server</strong>, add the following to your configuration, replacing TARGET with the target’s name:
-```yaml
-switch:
-    <ul>
-      <li>platform: wake_on_lan
- name: “TARGET”
- …
- turn_off:
-   service: shell_command.turn_off_TARGET</li>
-    </ul>
-  </li>
+  <li>On the <strong>server</strong>, add the following to your configuration, replacing TARGET with the target’s name:</li>
 </ol>
 
-<p>shell_command:
-  turn_off_TARGET: ‘ssh hass@TARGET sudo pm-suspend’
-```</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">wake_on_lan</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">TARGET"</span>
+    <span class="s">...</span>
+    <span class="s">turn_off</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.turn_off_TARGET</span>
+
+<span class="s">shell_command</span><span class="pi">:</span>
+  <span class="s">turn_off_TARGET</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ssh</span><span class="nv"> </span><span class="s">hass@TARGET</span><span class="nv"> </span><span class="s">sudo</span><span class="nv"> </span><span class="s">pm-suspend'</span>
+</code></pre>
+</div>
 
 
 </article>
