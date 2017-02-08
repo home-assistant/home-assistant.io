@@ -91,13 +91,13 @@
   
 
   <p>New controller or hub components often need to add platforms in sub-components (i.e. Lights &amp; Switches) without additional configuration.
-This can be achieved using the <code class="highlighter-rouge">homeassistant.components.discovery.load_platform</code> method:</p>
+This can be achieved using the <code class="highlighter-rouge">load_platform</code> or <code class="highlighter-rouge">async_load_platform</code> methods from <code class="highlighter-rouge">homeassistant.helpers.discovery</code>:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">load_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">platform</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">hass_config</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">load_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">platform</span><span class="p">,</span> <span class="n">discovered</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">hass_config</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </code></pre>
 </div>
 
-<p>From more info on how this works, refer to the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L78">load_platform</a> method.</p>
+<p>From more info on how this works, refer to the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/discovery.py#L136">load_platform</a> method.</p>
 
 <h3><a class="title-link" name="example" href="#example"></a> Example</h3>
 
@@ -120,7 +120,7 @@ This can be achieved using the <code class="highlighter-rouge">homeassistant.com
 
 <p>In the hub component <code class="highlighter-rouge">myflashyhub.py</code> you can call your light and switch components. To pass any non-serializable information to the platforms in the sub-component, you can use a global variable.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.components.discovery</span> <span class="kn">import</span> <span class="n">load_platform</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.helpers.discovery</span> <span class="kn">import</span> <span class="n">load_platform</span>
 <span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'myflashyhub'</span>
 
 <span class="n">MFH_GLOBAL</span> <span class="o">=</span> <span class="bp">None</span>
@@ -157,10 +157,6 @@ This can be achieved using the <code class="highlighter-rouge">homeassistant.com
 <span class="c1">#  platform: myflashyhub</span>
 </code></pre>
 </div>
-
-<p class="note ">
-In the past, this was achieved by adding your component to the <code class="highlighter-rouge">DISCOVERY_PLATFORMS</code> in the target sub-component. Generic discovery through  <code class="highlighter-rouge">load_platform()</code> allows you to load any sub-component, including custom components, without changing the sub-component.
-</p>
 
 
 </article>
