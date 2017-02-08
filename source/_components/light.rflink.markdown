@@ -78,13 +78,13 @@ light:
         - kaku_000001_a
 ```
 
-Any on/off command from any light updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
+Any on/off command from any allias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
 # Light types
 
 Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The Rflink component support three types of lights to make things work in every situation:
 
-*Hybrid*: This type sends a `dim` followed by an a `on` command (`dim` first) and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
+*Hybrid*: This type sends a `dim` followed by an a `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
 
 *Switchable*: Device type that sends only `on` and `off` commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).
 
@@ -97,8 +97,8 @@ Lights are added automatically when the Rflink gateway intercepts a 433Mhz comma
 
 - Configure a `new_devices_group` for lights and optionally add it to a different `view`.
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
-- Ignore devices on a platform level: /components/rflink/#ignoring-devices
+- [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
 # Device support
-Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or create an issue and mention `@aequitas` in the description: https://github.com/home-assistant/home-assistant/issues/new
+See [device support](/components/rflink/#device-support)
 

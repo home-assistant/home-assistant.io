@@ -74,8 +74,8 @@ switch:
         - kaku_000001_a
 ```
 
-Any on/off command from any switch updates the current state of the switch. However when sending a command through the frontend only the primary ID is used.
+Any on/off command from any alias ID updates the current state of the switch. However when sending a command through the frontend only the primary ID is used.
 
 # Device support
-Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or create an issue and mention `@aequitas` in the description: https://github.com/home-assistant/home-assistant/issues/new
+See [device support](/components/rflink/#device-support)
 

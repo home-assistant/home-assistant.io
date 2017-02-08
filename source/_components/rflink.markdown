@@ -16,7 +16,7 @@ The `rflink` component support devices that use [Rflink gateway firmware](http:/
 
 The 433Mhz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
-A complete list of devices supported by Rflink can be found here: http://www.nemcon.nl/blog2/devlist
+A complete list of devices supported by Rflink can be found [here](http://www.nemcon.nl/blog2/devlist)
 
 This component is tested with the following hardware/software:
 
@@ -87,5 +87,5 @@ This configuration will ignore the button `1` of the `newkaku` device with ID `0
 Wildcards only work at the end of the ID, not in the middle of front!
 
 # Device support
-Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or create an issue and mention `@aequitas` in the description: https://github.com/home-assistant/home-assistant/issues/new
+Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or [create an issue](https://github.com/home-assistant/home-assistant/issues/new) and mention `@aequitas` in the description.
 
