@@ -98,7 +98,7 @@ sensor:
 - platform: template
   sensors:
     bedroom_valve:
-      value_template: '{{ states.climate.leq123456.attributes.Valve }}'
+      value_template: '{% raw %}{{ states.climate.leq123456.attributes.Valve }}{% endraw %}'
       entity_id: climate.leq123456
       friendly_name: 'Bedroom valve'
 ```
