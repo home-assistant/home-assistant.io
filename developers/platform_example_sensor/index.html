@@ -118,6 +118,10 @@
 <span class="k">class</span> <span class="nc">ExampleSensor</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>
     <span class="s">"""Representation of a Sensor."""</span>
 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Initialize the sensor."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">None</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s">"""Return the name of the sensor."""</span>
@@ -126,12 +130,19 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s">"""Return the state of the sensor."""</span>
-        <span class="k">return</span> <span class="mi">23</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">unit_of_measurement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s">"""Return the unit of measurement."""</span>
         <span class="k">return</span> <span class="n">TEMP_CELSIUS</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Fetch new state data for the sensor.
+
+        This is the only method that should fetch new data for Home Assistant.
+        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="mi">23</span>
 </code></pre>
 </div>
 

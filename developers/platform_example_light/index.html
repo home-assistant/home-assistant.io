@@ -156,11 +156,14 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light</span><span class="p">):</span>
         <span class="s">"""Initialize an AwesomeLight."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_light</span> <span class="o">=</span> <span class="n">light</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">light</span><span class="o">.</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_brightness</span> <span class="o">=</span> <span class="bp">None</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s">"""Return the display name of this light."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">brightness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -169,12 +172,12 @@
         This method is optional. Removing it indicates to Home Assistant
         that brightness is not supported for this light.
         """</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">brightness</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_brightness</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">is_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="s">"""Return true if light is on."""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">is_on</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
 
     <span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="s">"""Instruct the light to turn on.
@@ -195,6 +198,8 @@
         This is the only method that should fetch new data for Home Assistant.
         """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">is_on</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_brightness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">brightness</span>
 </code></pre>
 </div>
 
