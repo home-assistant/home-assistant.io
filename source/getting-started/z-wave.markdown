@@ -236,7 +236,8 @@ The `zwave` component exposes multiple services to help maintain the network.
 | print_config_parameter | Prints Z-wave node's config parameter value to the log.
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
 | rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
-| set_config_parameter | Let's the user set a config parameter to a node.
+| set_config_parameter | Let's the user set a config parameter to a node.|
+| set_wakeup | Sets wakeup interval for battery-operated nodes. Note that in order for the interval to be actually written to the node the node must wake up.|
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | start_network | Starts the Z-Wave network.|
 | stop_network | Stops the Z-Wave network.|
