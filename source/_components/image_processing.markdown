@@ -30,20 +30,20 @@ automation:
 - alias: Open garage door
   trigger:
     platform: event
-    event_type: found_plate
+    event_type: image_processing.found_plate
     event_data:
       entity_id: openalpr.camera_garage_1
       plate: BE2183423
 ...
 ```
 
-The following event attributes will be present: `entity_id`, `plate`, `confidence`
+The following event attributes will be present (platform depents): `entity_id`, `plate`, `confidence`
 
-## {% linkable_title Face identify %}
+## {% linkable_title Face %}
 
-Face entities attribute have a face counter `total_faces` and all validated person as `known_faces`.
+Face entities attribute have a face counter `total_faces` and all face data as `faces`.
 
-This event is trigger after Microsoft Face identify found a known faces.
+This event is trigger after Microsoft Face found a faces.
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -51,11 +51,11 @@ automation:
 - alias: Known person in front of my door
   trigger:
     platform: event
-    event_type: identify_face
+    event_type: image_processing.detect_face
     event_data:
       entity_id: image_processing.door
       name: 'Hans Maier'
 ...
 ```
 
-The following event attributes will be present: `entity_id`, `name`, `confidence`
+The following event attributes will be present (platform depends): `entity_id`, `name`, `confidence`, `age`, `gender`, `motion`, `glasses`
