@@ -2,7 +2,7 @@
 layout: page
 title: "History Statistics"
 description: "Instructions about how to integrate history_stats sensors into Home Assistant."
-date: 2017-02-04 12:00
+date: 2017-02-10 12:00
 sidebar: true
 comments: false
 sharing: true
@@ -44,7 +44,7 @@ Configuration variables:
  - **name** (*Optional*): Name displayed on the frontend
  - **start**: When to start the measure (timestamp or datetime).
  - **end**: When to stop the measure (timestamp or datetime)
- - **duration**: Duration of the measure (seconds)
+ - **duration**: Duration of the measure
 
 
 
@@ -63,7 +63,28 @@ The `history_stats` component will execute a measure within a precise time perio
 
 As `start` and `end` variables can be either datetimes or timestamps, you can configure almost any period you want.
 
-Don't forget that `duration` is a number of seconds, not a datetime. It is recommended to use it only if your period has a fixed length (24 hours, or 7 days, for example).
+
+### {% linkable_title Duration %}
+
+The duration variable is used when the time period is fixed. Different syntaxes for the duration are supported, as shown below.
+
+```yaml
+# 6 hours
+duration: 06:00
+```
+
+```yaml
+# 1 minute, 30 seconds
+duration: 00:01:30
+```
+
+```yaml
+# 2 hours and 30 minutes
+duration:
+  # supports seconds, minutes, hours, days
+  hours: 2
+  minutes: 30
+```
 
 ### {% linkable_title Examples %}
 
@@ -74,15 +95,19 @@ Here are some examples of periods you could work with, and what to write in your
     start: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
     end: '{% raw %}{{ now() }}{% endraw %}'
 ```
+
 **Yesterday**: ends today at 00:00, lasts 24 hours.
 ```yaml
     end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
-    duration: '{% raw %}{{ 24 * 3600 }}{% endraw %}'
+    duration:
+      hours: 24
 ```
+
 **This morning (6AM - 11AM)**: starts today at 6, lasts 5 hours.
 ```yaml
     start: '{% raw %}{{ now().replace(hour=6).replace(minute=0).replace(second=0) }}{% endraw %}'
-    duration: '{% raw %}{{ 5 * 3600 }}{% endraw %}'
+    duration:
+      hours: 5
 ```
 
 **Current week**: starts last Monday at 00:00, ends right now.
@@ -92,10 +117,12 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
     start: '{% raw %}{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}{% endraw %}'
     end: '{% raw %}{{ now() }}{% endraw %}'
 ```
+
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
 ```yaml
     end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
-    duration: '{% raw %}{{ 30 * 24 * 3600 }}{% endraw %}'
+    duration:
+      days: 30
 ```
 
 **All your history** starts at timestamp = 0, and ends right now.
