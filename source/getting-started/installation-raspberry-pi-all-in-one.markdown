@@ -49,7 +49,7 @@ The All-In-One Installer script will do the following automatically:
 *  Install Home Assistant in a virtualenv
 *  Install Mosquitto with websocket support running on ports 1883 and 9001
 *  Build and Install Python-openzwave in the Home Assistant virtualenv
-*  Build openzwave-control-panel in `/srv/homeassistant/src/open-zwave-control-panel`
+*  Build openzwave-control-panel in `/srv/hass/src/open-zwave-control-panel`
 *  Add Home Assistant to systemd services to start at boot
 
 ### {% linkable_title Upgrading %}
@@ -90,7 +90,7 @@ To launch the OZWCP web application:
 
 *  Make sure Home Assistant is not running! So stop that first
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
-*  Change to the ozwcp directory `cd /srv/homeassistant/src/open-zwave-control-panel/`
+*  Change to the ozwcp directory `cd /srv/hass/src/open-zwave-control-panel`
 *  Launch the control panel `sudo ./ozwcp -p 8888`
 *  Open a web browser to `http://your_pi_ip:8888`
 *  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
