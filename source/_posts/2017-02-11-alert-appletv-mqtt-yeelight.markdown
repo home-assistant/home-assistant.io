@@ -45,6 +45,7 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Media player: Initial support for [Apple TV][apple] ([@postlund])
 - MQTT: [MQTT discovery][mqtt-discovery] support ([@balloob], [@fabaff])
 - Notify: [Mailgun][mailgun] notify service ([@pschmitt])
+- Image Processing: Support [Microsoft Face detection][face-detect] ([@pvizeli])
 
 #### {% linkable_title Improvements %}
 
@@ -163,6 +164,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [arwn]: https://home-assistant.io/components/sensor.arwn/
 [custom-ui]: https://home-assistant.io/developers/frontend_creating_custom_ui/
 [discovery]: https://home-assistant.io/components/discovery/
+[face-detect]: https://home-assistant.io/components/image_processing.microsoft_face_detect/
 [ffmpeg-bin]: https://home-assistant.io/components/binary_sensor.ffmpeg/
 [ffmpeg]: https://home-assistant.io/components/ffmpeg/
 [filters]: https://home-assistant.io/topics/templating/#home-assistant-template-extensions
