@@ -14,7 +14,7 @@ og_image: /images/blog/2017-02-0.38/social.png
 Another Saturday, another release!
 
 ### {% linkable_title Core updates %}
-- Thanks to [@pvizeli], all the core components are now written asyncronously, completing our migration from syncronous to asyncronous code!
+- Thanks to [@pvizeli], all the core components are now written asynchronously. All entity components are now migrated from synchronously to asynchronously code!
 
 - Now when you restart Home Assistant using the `homeassistant.restart` service, your configuration is checked. If it appears to be invalid the restart will fail.
 
@@ -48,7 +48,7 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Switch: Add support for [FRITZ!DECT][fritz] wireless switches based on fritzhome ([@BastianPoe])
 - Sensor: Add [moon][moon] sensor ([@fabaff])
 - Media player: Support for the [Orange Livebox Play TV][orange] appliance ([@pschmitt])
-- Media player: Initial support for [Apple TV][apple-tv] ([@postlund])
+- Media player: [Apple TV][apple-tv] support ([@postlund])
 - MQTT: [MQTT discovery][mqtt-discovery] support ([@balloob], [@fabaff])
 - Notify: [Mailgun][mailgun] notify service ([@pschmitt])
 - Image Processing: Support [Microsoft Face detection][face-detect] ([@pvizeli])
