@@ -98,23 +98,45 @@ To get your Ecobee thermostats working with Home Assistant, follow the instructi
 
 <p>The Ecobee Thermostat supports the following key concepts.</p>
 
-<p>The <em>target temperature</em> is the temperature that the device attempts to achieve. The target temperature is either determined by the
-currently active climate or it may be overridden by a hold. When the thermostat is not in auto mode, there is a single target temperature. When the thermostat is in auto operation mode, there is a pair of target temperatures: the lower target temperature determines the lowest desired temperature, while the higher target temperature determines the highest desired temperature (the thermostat will switch between heating and cooling to keep the temperature within these limits).</p>
+<p>The <em>target temperature</em> is the temperature that the device attempts
+to achieve. The target temperature is either determined by the
+currently active climate or it may be overridden by a hold. When the
+thermostat is not in auto mode, there is a single target
+temperature. When the thermostat is in auto operation mode, there is a
+pair of target temperatures: the lower target temperature determines
+the lowest desired temperature, while the higher target temperature
+determines the highest desired temperature (the thermostat will switch
+between heating and cooling to keep the temperature within these
+limits).</p>
 
-<p>A <em>climate</em> is a predefined or user-defined set of states that the thermostat aims to achieve. The ecobee thermostat provides three predefined climates: home, away, and sleep. The user can define additional climates.</p>
+<p>A <em>climate</em> is a predefined or user-defined set of states that the
+thermostat aims to achieve. The ecobee thermostat provides three predefined
+climates: home, away, and sleep. The user can define additional climates.</p>
 
-<p>A <em>hold</em> is an override of the target temperature defined in the currently active climate. The temperature targeted in the hold mode may be explicitly set (temperature hold) or it may be derived from a reference climate (home or away hold). All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program.</p>
+<p>A <em>hold</em> is an override of the target temperature defined in the
+currently active climate. The temperature targeted in the hold mode may be
+explicitly set (temperature hold) or it may be derived from a reference
+climate (home or away hold). All holds are temporary. Temperature and
+climate holds expire when the thermostat transitions to the next climate
+defined in its program.</p>
 
-<p>When in <em>away mode</em>, the target temperature is permanently overridden by the target temperature defined for the away climate. The away mode is a simple way to emulate a vacation mode.</p>
+<p>When in <em>away mode</em>, the target temperature is permanently overridden by
+the target temperature defined for the away climate. The away mode is a
+simple way to emulate a vacation mode.</p>
 
-<p>The <em>operation mode</em> of the device is the currently active operational modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.</p>
+<p>The <em>operation mode</em> of the device is the currently active operational
+modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool,
+auto, and off.</p>
 
 <h2><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h2>
 
 <p>The following attributes are provided by the Ecobee Thermostat:
-<code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">temperature_unit</code>, <code class="highlighter-rouge">current_temperature</code>, <code class="highlighter-rouge">target_temperature</code>, <code class="highlighter-rouge">target_temperature_low</code>, <code class="highlighter-rouge">target_temperature_high</code>, <code class="highlighter-rouge">desired_fan_mode</code>, <code class="highlighter-rouge">fan</code>, <code class="highlighter-rouge">current_hold_mode</code>, <code class="highlighter-rouge">current_operation</code>, <code class="highlighter-rouge">operation_list</code>,<code class="highlighter-rouge">operation_mode</code>, <code class="highlighter-rouge">mode</code>, <code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">device_state_attributes</code>, <code class="highlighter-rouge">is_away_mode_on</code>.</p>
-
-<p>The attributes <code class="highlighter-rouge">min_temp</code> and <code class="highlighter-rouge">max_temp</code> are meaningless constant values.</p>
+<code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">temperature_unit</code>, <code class="highlighter-rouge">current_temperature</code>, <code class="highlighter-rouge">target_temperature</code>, 
+<code class="highlighter-rouge">target_temperature_low</code>, <code class="highlighter-rouge">target_temperature_high</code>, <code class="highlighter-rouge">desired_fan_mode</code>, 
+<code class="highlighter-rouge">fan</code>, <code class="highlighter-rouge">current_hold_mode</code>, <code class="highlighter-rouge">current_operation</code>, <code class="highlighter-rouge">operation_list</code>,
+<code class="highlighter-rouge">operation_mode</code>, <code class="highlighter-rouge">mode</code>, <code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">device_state_attributes</code>, 
+<code class="highlighter-rouge">is_away_mode_on</code>.
+The attributes <code class="highlighter-rouge">min_temp</code> and <code class="highlighter-rouge">max_temp</code> are meaningless constant values.</p>
 
 <h3><a class="title-link" name="attribute-name" href="#attribute-name"></a> Attribute <code class="highlighter-rouge">name</code></h3>
 
@@ -372,7 +394,8 @@ auto operation mode.</p>
 
 <h3><a class="title-link" name="attribute-is_away_mode_on" href="#attribute-is_away_mode_on"></a> Attribute <code class="highlighter-rouge">is_away_mode_on</code></h3>
 
-<p>Returns whether the thermostat is in away mode (see the corresponding service for more detail).</p>
+<p>Returns whether the thermostat is in away mode (see the corresponding
+service for more detail).</p>
 
 <h3><a class="title-link" name="attribute-actual-humidity" href="#attribute-actual-humidity"></a> Attribute <code class="highlighter-rouge">actual humidity</code></h3>
 
@@ -396,9 +419,11 @@ auto operation mode.</p>
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
 <p>The following services are provided by the Ecobee Thermostat:
-<code class="highlighter-rouge">set_away_mode</code>, <code class="highlighter-rouge">set_hold_mode</code>, <code class="highlighter-rouge">set_temperature</code>, <code class="highlighter-rouge">set_operation_mode</code>, <code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">resume_program</code>.</p>
-
-<p>The services <code class="highlighter-rouge">set_aux_heat</code>, <code class="highlighter-rouge">set_humidity</code>, <code class="highlighter-rouge">set_fan_mode</code>, and <code class="highlighter-rouge">set_swing_mode</code> offered by the <a href="/components/climate/">Climate component</a> are not implemented for this thermostat.</p>
+<code class="highlighter-rouge">set_away_mode</code>, <code class="highlighter-rouge">set_hold_mode</code>, <code class="highlighter-rouge">set_temperature</code>, <code class="highlighter-rouge">set_operation_mode</code>, 
+<code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">resume_program</code>.
+The services <code class="highlighter-rouge">set_aux_heat</code>, <code class="highlighter-rouge">set_humidity</code>, <code class="highlighter-rouge">set_fan_mode</code>, and
+<code class="highlighter-rouge">set_swing_mode</code> offered by the <a href="/components/climate/">Climate component</a>
+are not implemented for this thermostat.</p>
 
 <h3><a class="title-link" name="service-set_away_mode" href="#service-set_away_mode"></a> Service <code class="highlighter-rouge">set_away_mode</code></h3>
 
@@ -428,7 +453,10 @@ auto operation mode.</p>
 
 <h3><a class="title-link" name="service-set_hold_mode" href="#service-set_hold_mode"></a> Service <code class="highlighter-rouge">set_hold_mode</code></h3>
 
-<p>Puts the thermostat into the given hold mode. For ‘home’ and ‘away’, the target temperature is taken from the home or away, climate, respectively. For ‘temp’, the current temperature is taken as the target temperature. When None is provided as parameter, the hold_mode is turned off.</p>
+<p>Puts the thermostat into the given hold mode. For ‘home’ and ‘away’, the
+target temperature is taken from the home or away, climate, respectively.
+For ‘temp’, the current temperature is taken as the target temperature.
+When None is provided as parameter, the hold_mode is turned off.</p>
 
 <table>
   <thead>
@@ -488,7 +516,8 @@ auto operation mode.</p>
   </tbody>
 </table>
 
-<p>Only the target temperatures relevant for the current operation mode need to be provided.</p>
+<p>Only the target temperatures relevant for the current operation mode need to
+be provided.</p>
 
 <h3><a class="title-link" name="service-set_operation_mode" href="#service-set_operation_mode"></a> Service <code class="highlighter-rouge">set_operation_mode</code></h3>
 

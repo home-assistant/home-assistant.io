@@ -83,6 +83,71 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/">0.17: Onkyo, Panasonic, GTFS and config validation</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-04-09T06:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 9, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we’ve been hard at work to introduce config validation! Especially huge thanks to <a href="https://github.com/jaharkes/">@jaharkes</a> for his hard work on this. Config validation is still in it’s early stages. More common platforms and components have been added but we didn’t do everything yet.</p>
+
+<p>When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We’re looking into options to make it more clear - it is a work in progress.</p>
+
+<p>Another big thing is the addition of GTFS support. You probably don’t know it, but GTFS is the standard that public transit companies all over the world use to distribute their schedule. This means that you can now have the time of the next bus/train/etc right in your frontend.</p>
+
+<p><img src="/images/supported_brands/onkyo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/loop.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/panasonic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>Config validation (<a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/jaharkes/">@jaharkes</a>)</li>
+  <li>Sensor: <a href="/components/sensor.gtfs/">GTFS</a> support (public transit open standard) (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Camera: <a href="/components/camera.rpi_camera/">Raspberry PI</a> support added (<a href="https://github.com/LucaSoldi/">@LucaSoldi</a>)</li>
+  <li>Z-Wave: improved startup reliability (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
+  <li>Media Player: <a href="/components/media_player.onkyo/">Onkyo receiver</a> now supported (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
+  <li>Sensor: <a href="/components/sensor.loop_energy/">Loop Energy</a> now supported (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.zwave/">Z-Wave</a> now supported (<a href="https://github.com/coteyr/">@coteyr</a>, <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/luxus/">@luxus</a>)</li>
+  <li>Sensor: <a href="/components/sensor.nzbget/">NZBGet</a> now supported (<a href="https://github.com/justyns/">@justyns</a>)</li>
+  <li>Media Player: <a href="/components/media_player.panasonic_viera/">Panasonic Viera TV</a> now supported (<a href="https://github.com/florianholzapfel/">@florianholzapfel</a>)</li>
+  <li>Thermostats: Use whole degrees if user uses Fahrenheit (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
+  <li>Frontend: more material love (<a href="https://github.com/balloob/">@balloob</a>)</li>
+</ul>
+
+<h3>Breaking changes</h3>
+
+<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code class="highlighter-rouge">execute_service</code> in their script configs. This should be <code class="highlighter-rouge">service</code>.</p>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/04/07/static-website/">Static website</a>
   </h1>
   
@@ -775,62 +840,6 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
 
     
       <a class="btn pull-right" href="/blog/2016/02/12/classifying-the-internet-of-things/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/">Smarter SmartThings with MQTT and Home Assistant</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-02-09T07:44:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 09, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Jeremiah Wuenschel and St. John Johnson</span>
-    <span><i class='icon-time'></i> nine minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>How-To</li>
-      
-        <li>MQTT</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><em>This is a guest post by Home Assistant users <a href="https://github.com/jer">Jeremiah Wuenschel</a> and <a href="https://github.com/stjohnjohnson">St. John Johnson</a>.</em></p>
-
-<p>So you own a <a href="http://smartthings.com">SmartThings</a> Hub. You probably bought it when you were looking to get into the whole Home Automation hobby because it worked with pretty much everything and offered you the ability to automate <strong>anything.</strong> After a week of ownership, you realized that building dashboards and automating required writing way more Groovy then you expected. Then one day you were browsing <a href="https://www.reddit.com/r/homeautomation">reddit</a> and discovered the amazingness that is Home Assistant! A solution that offered dashboards, graphs, working support for Nest, and REAL EASY automation!</p>
-
-<p>You spent your weekend getting everything set up, showing it off to your significant other, but in the end you got stumped when it came to integrating with all your existing SmartThings toys. What do I do now? Should I buy another hub? Should I just buy a Z-Wave stick?</p>
-
-<p>That’s where we came in. We wanted a solution that can bridge the awesomeness of Home Assistant with the SmartThings hub that works with almost everything.</p>
-
-<p class="img">
-  <img src="/images/blog/2016-02-smartthings/splash.png" />
-</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

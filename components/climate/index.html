@@ -103,7 +103,7 @@
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
 <h3><a class="title-link" name="climate-control-services" href="#climate-control-services"></a> Climate control services</h3>
-<p>Available services: <code class="highlighter-rouge">climate.set_aux_heat</code>, <code class="highlighter-rouge">climate.set_away_mode</code>, <code class="highlighter-rouge">climate.set_temperature</code>, <code class="highlighter-rouge">climate.set_humidity</code>, <code class="highlighter-rouge">climate.set_fan_mode</code>, <code class="highlighter-rouge">climate.set_operation_mode</code>, <code class="highlighter-rouge">climate.set_swing_mode</code></p>
+<p>Available services: <code class="highlighter-rouge">climate.set_aux_heat</code>, <code class="highlighter-rouge">climate.set_away_mode</code>, <code class="highlighter-rouge">climate.set_temperature</code>, <code class="highlighter-rouge">climate.set_humidity</code>, <code class="highlighter-rouge">climate.set_fan_mode</code>, <code class="highlighter-rouge">climate.set_operation_mode</code>, <code class="highlighter-rouge">climate.set_swing_mode</code>, <code class="highlighter-rouge">climate.set_hold_mode</code></p>
 
 <p class="note">
 Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong>.
@@ -151,11 +151,52 @@ Not all climate services may be available for your platform. Be sure to check th
 
 <h3><a class="title-link" name="service-climateset_away_mode" href="#service-climateset_away_mode"></a> Service <code class="highlighter-rouge">climate.set_away_mode</code></h3>
 
-<p>This service has been deprecated. Use <code class="highlighter-rouge">climate.set_hold_mode</code> instead.</p>
+<p>Set away mode for climate device. The away mode changes the target temperature permanently to a temperature 
+reflecting a situation where the climate device is set to save energy. This may be used to emulate a
+“vacation mode”, for example.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of climate devices to control. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">away_mode</code></td>
+      <td>no</td>
+      <td>New value of away mode.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_away_mode</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.kitchen</span>
+        <span class="s">away_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+</code></pre>
+</div>
 
 <h3><a class="title-link" name="service-climateset_hold_mode" href="#service-climateset_hold_mode"></a> Service <code class="highlighter-rouge">climate.set_hold_mode</code></h3>
 
-<p>Set hold mode for climate device</p>
+<p>Set hold mode for climate device. The hold mode changes the target temperature of the client device temporarily to
+a different temperature. Typical hold modes provided by a climate device are “away” or “home”, where the hold temperature
+is chosen depending on a predefined climate, or “temperature” hold, where a particular temperature is selected as the
+temporary target temperature. The particular modes available depend on the climate device.</p>
 
 <table>
   <thead>

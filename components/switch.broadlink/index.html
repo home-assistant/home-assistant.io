@@ -202,6 +202,40 @@
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="service-send_packet" href="#service-send_packet"></a> Service <code class="highlighter-rouge">send_packet</code></h3>
+
+<p>You can use the service broadlink/send_packet to directly send IR packets without the need to assign a switch entity for each command.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">packet</code></td>
+      <td>no</td>
+      <td>String or list of strings that contain the packet data.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">tv_select_source</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">broadlink.send_packet_192_168_0_107</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">packet</span><span class="pi">:</span> 
+            <span class="pi">-</span> <span class="s2">"</span><span class="s">JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"</span>
+            <span class="pi">-</span> <span class="s2">"</span><span class="s">JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="</span>
+</code></pre>
+</div>
+
 <h3><a class="title-link" name="using-e-control-remotes" href="#using-e-control-remotes"></a> Using E-Control Remotes</h3>
 
 <p>If you already have your remotes learned on E-Control app you can use this method to “copy” trem to HA.</p>
@@ -296,6 +330,9 @@ Use <a href="http://tomeko.net/online_tools/hex_to_base64.php?lang=en1">this</a>
             <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
         </li>
         <li>
+            <a href='/components/switch.fritzdect/'>AVM FRITZ!DECT Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>
         <li>
@@ -387,6 +424,9 @@ Use <a href="http://tomeko.net/online_tools/hex_to_base64.php?lang=en1">this</a>
         </li>
         <li>
             <a href='/components/switch.rpi_rf/'>Raspberry Pi RF Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.rflink/'>Rflink Switch</a>
         </li>
         <li>
             <a href='/components/switch.scsgate/'>SCSGate Switch</a>

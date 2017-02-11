@@ -345,6 +345,30 @@
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="making-notifications-work-with-nginx-proxy" href="#making-notifications-work-with-nginx-proxy"></a> Making notifications work with NGINX proxy</h3>
+
+<p>If you use <a href="/ecosystem/nginx/">NGINX</a> as an proxy with authentication in front of HASS, you may have trouble with receiving events back to HASS. It’s because of authentication token that cannot be passed through the proxy.</p>
+
+<p>To solve the issue put additional location into your nginx site’s configuration:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>location /api/notify.html5/callback <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nv">$http_authorization</span> <span class="o">=</span> <span class="s2">""</span><span class="o">)</span> <span class="o">{</span> <span class="k">return </span>403; <span class="o">}</span>
+    allow all;
+    proxy_pass http://localhost:8123;
+    proxy_set_header Host <span class="nv">$host</span>;
+    proxy_redirect http:// https://;
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>This rule check if request have <code class="highlighter-rouge">Authorization</code> HTTP header and bypass the htpasswd (if you use one).</p>
+
+<p>If you still have the problem, even with mentioned rule, try to add this code:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>    proxy_set_header Authorization <span class="nv">$http_authorization</span>;
+    proxy_pass_header Authorization;
+</code></pre>
+</div>
+
 
 </article>
 
@@ -427,6 +451,9 @@
         </li>
         <li>
             <a href='/components/notify.mqtt/'>MQTT Notifications</a>
+        </li>
+        <li>
+            <a href='/components/notify.mailgun/'>Mailgun</a>
         </li>
         <li>
             <a href='/components/notify.matrix/'>Matrix</a>

@@ -246,9 +246,11 @@ WhereAreWeIntent where we are
           <span class="no">{%- for state in states.device_tracker -%}</span>
             <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
               <span class="no">{{ state.name }} is at {{ state.state }}</span>
+            <span class="no">{%- elif loop.last -%}</span>
+              <span class="no">I am sorry, I do not know where {{ User }} is.</span>
             <span class="no">{%- endif -%}</span>
           <span class="no">{%- else -%}</span>
-            <span class="no">I am sorry, I do not know where {{ User }} is.</span>
+            <span class="no">Sorry, I don't have any trackers registered.</span>
           <span class="no">{%- endfor -%}</span>
       <span class="s">card</span><span class="pi">:</span>
         <span class="s">type</span><span class="pi">:</span> <span class="s">simple</span>

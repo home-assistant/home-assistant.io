@@ -106,7 +106,7 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 </span></code></pre>
 </div>
 
-<p>For a quick test <code class="highlighter-rouge">curl</code> can be useful to “simulate” a device.</p>
+<p>For a quick test, <code class="highlighter-rouge">curl</code> can be useful to “simulate” a device.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -115,7 +115,7 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 </code></pre>
 </div>
 
-<p>Use again <code class="highlighter-rouge">curl</code> to retrieve the <a href="/developers/rest_api/#get-apistatesltentity_id">current state</a> to check if the sensor is working.</p>
+<p>You can then use <code class="highlighter-rouge">curl</code> again to retrieve the <a href="/developers/rest_api/#get-apistatesltentity_id">current sensor state</a> and verify the sensor is working.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -262,7 +262,13 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
             <a href='/components/sensor.onewire/'>One wire Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.openevse/'>OpenEVSE Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.pilight/'>Pilight Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.qnap/'>QNAP Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.rest/'>RESTful Sensor</a>
@@ -272,6 +278,9 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
         </li>
         <li>
             <a href='/components/sensor.random/'>Random Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rflink/'>Rflink Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>

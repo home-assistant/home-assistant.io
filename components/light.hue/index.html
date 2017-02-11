@@ -108,10 +108,12 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): IP address of the device, eg. 192.168.1.10. Required if not using the <code class="highlighter-rouge">discovery</code> component to discover Hue bridges.</li>
-  <li><strong>allow_unreachable</strong> (<em>Optional</em>): (true/false)  This will allow unreachable bulbs to report their state correctly. By default <em>name</em> from the device is used.</li>
+  <li>
+    <p><strong>host</strong> (<em>Optional</em>): IP address of the device, eg. 192.168.1.10. Required if not using the <code class="highlighter-rouge">discovery</code> component to discover Hue bridges.</p>
+  </li>
+  <li><strong>allow_unreachable</strong> (<em>Optional</em>): (true/false)  This will allow unreachable bulbs to report their state correctly.</li>
   <li><strong>filename</strong> (<em>Optional</em>): Make this unique if specifying multiple Hue hubs.</li>
-  <li><strong>allow_in_emulated_hue</strong> (<em>Optional</em>): (true/false) Enable this to block all Hue entities from being added to the <code class="highlighter-rouge">emulated_hue</code> component.</li>
+  <li><strong>allow_in_emulated_hue</strong> (<em>Optional</em>): )true/false) Enable this to block all Hue entities from being added to the <code class="highlighter-rouge">emulated_hue</code> component.</li>
   <li><strong>allow_hue_groups</strong> (<em>Optional</em>): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.</li>
 </ul>
 
@@ -278,6 +280,9 @@ Name. Use the values of Room name and Scene name that you see in the app. You ca
         </li>
         <li>
             <a href='/components/light.rfxtrx/'>RFXtrx Light</a>
+        </li>
+        <li>
+            <a href='/components/light.rflink/'>Rflink Light</a>
         </li>
         <li>
             <a href='/components/light.scsgate/'>SCSGate Light</a>

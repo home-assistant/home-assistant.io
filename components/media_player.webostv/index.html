@@ -108,6 +108,7 @@
   <li><strong>host</strong> (<em>Optional</em>): The IP of the LG webOS Smart TV, e.g. <code class="highlighter-rouge">192.168.0.10</code>.</li>
   <li><strong>mac</strong> (<em>Optional</em>): The MAC address of the TV, e.g. <code class="highlighter-rouge">C8:08:E9:99:99:1A</code>.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the LG webOS Smart TV.</li>
+  <li><strong>filename</strong> (<em>Optional</em>): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant’s config directory. It defaults to <code class="highlighter-rouge">webostv.conf</code>.</li>
   <li><strong>customize</strong> array (<em>Optional</em>): List of options to customize.
     <ul>
       <li><em><strong>sources</strong> array (</em>Optional*): List of hardware inputs.</li>
@@ -126,6 +127,7 @@ Home Assistant is able to turn on a LG webOS Smart TV if you specify its MAC add
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
     <span class="s">mac</span><span class="pi">:</span> <span class="s">C8:08:E9:99:99:1A</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+    <span class="s">filename</span><span class="pi">:</span> <span class="s">webostv.conf</span>
     <span class="s">customize</span><span class="pi">:</span>
       <span class="s">sources</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="s">livetv</span>
@@ -175,6 +177,9 @@ Home Assistant is able to turn on a LG webOS Smart TV if you specify its MAC add
             <a href='/components/media_player.anthemav/'>Anthem A/V Receivers</a>
         </li>
         <li>
+            <a href='/components/media_player.apple_tv/'>Apple TV</a>
+        </li>
+        <li>
             <a href='/components/media_player.denon/'>Denon Network Receivers</a>
         </li>
         <li>
@@ -218,6 +223,9 @@ Home Assistant is able to turn on a LG webOS Smart TV if you specify its MAC add
         </li>
         <li>
             <a href='/components/media_player.onkyo/'>Onkyo</a>
+        </li>
+        <li>
+            <a href='/components/media_player.liveboxplaytv/'>Orange Livebox Play TV</a>
         </li>
         <li>
             <a href='/components/media_player.panasonic_viera/'>Panasonic Viera TV</a>

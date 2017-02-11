@@ -83,6 +83,197 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/12/03/remote-websockets-sonarr/">0.34: New Remote component, Websockets, Sonarr, GPSLogger</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-12-03T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 3, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
+    <span><i class='icon-time'></i> six minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/12/03/remote-websockets-sonarr/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>Here we go… 0.34. Let’s call it the “Santa Claus” release. Rudolph was faster than expected and there’s lot’s of goodies on the sleigh. Of course, more work on async programming done by <a href="https://github.com/pvizeli">@pvizeli</a> and <a href="https://github.com/balloob">@balloob</a>, new components, new platforms, major improvements, and much more.</p>
+
+<h3><a class="title-link" name="gpslogger" href="#gpslogger"></a> GPSLogger</h3>
+
+<p>The work of <a href="https://github.com/dainok">@dainok</a> let’s you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the <a href="https://play.google.com/store/apps/details?id=com.mendhak.gpslogger">GPSLogger</a> app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.</p>
+
+<h3><a class="title-link" name="remote-component" href="#remote-component"></a> Remote component</h3>
+
+<p>The brand new <a href="https://home-assistant.io/components/remote/"><code class="highlighter-rouge">remote</code></a> component made by <a href="https://github.com/iandday">@iandday</a> will simplify the integration of all kinds of remote control units. The first platform for <a href="https://home-assistant.io/components/remote.harmony/">Harmony</a> is included in this release.</p>
+
+<h3><a class="title-link" name="homematic" href="#homematic"></a> HomeMatic</h3>
+
+<p>The <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> component has received some updates worth mentioning:</p>
+
+<ul>
+  <li>Additional services
+    <ul>
+      <li><code class="highlighter-rouge">reconnect</code>: Reconnect to your CCU/Homegear without restarting Home Assistant.</li>
+      <li><code class="highlighter-rouge">set_dev_value</code>: Manually control a device, even if it’s not supported by Home Assistant yet.</li>
+    </ul>
+  </li>
+  <li>Support for multiple HomeMatic hosts</li>
+  <li>Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)</li>
+  <li>Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)</li>
+</ul>
+
+<p>The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed <code class="highlighter-rouge">set_value</code> service). However, the benefits and possibilities gained will be worth it.</p>
+
+<h3><a class="title-link" name="websocket-api" href="#websocket-api"></a> Websocket API</h3>
+
+<p>This release includes a new <a href="https://home-assistant.io/developers/websocket_api/">websockets</a> based API by <a href="https://github.com/balloob">@balloob</a> to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+
+<ul>
+  <li>New services and improved device support for <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> (<a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Device tracker: New support for <a href="https://home-assistant.io/components/device_tracker.gpslogger/">GPSLogger</a> (<a href="https://github.com/dainok">@dainok</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.sonarr/">Sonarr</a> (<a href="https://github.com/hborawski">@hborawski</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.waqi/">World Air Quality Index</a> sensor (<a href="https://github.com/valentinalexeev">@valentinalexeev</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.dsmr/">Dutch Smart Meter Requirements</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Switch: <a href="https://home-assistant.io/components/switch.hook/">Hook</a> support by hooksmarthome.com (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Camera: Integration for <a href="https://home-assistant.io/components/camera.nest/">Nest cameras</a> (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Light: Support for light effects (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
+  <li>Sensor: New <a href="https://home-assistant.io/components/binary_sensor.threshold/">Threshold</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player: New <a href="https://home-assistant.io/components/media_player.dunehd/">DuneHD</a> integration(<a href="https://github.com/valentinalexeev">@valentinalexeev</a>)</li>
+  <li>Media player: Controlling support for <a href="https://home-assistant.io/components/media_player.philips_js/">Philips TVs</a> (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Camera: Support for <a href="https://home-assistant.io/components/camera.amcrest/">Amcrest</a> cameras (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>
+    <p>Sensor: Monitoring support for <a href="https://home-assistant.io/components/sensor.nut/">Network UPS Tools (NUT)</a> (<a href="https://github.com/mezz64">@mezz64</a>)</p>
+  </li>
+  <li>Mediap player - Denon: Source selection support (<a href="https://github.com/Gilles95">@Gilles95</a>)</li>
+  <li>Sensor - MinMax: Precision now configurable (<a href="https://github.com/exxamalte">@exxamalte</a>)</li>
+  <li>Tellstick: Massive <a href="https://home-assistant.io/components/tellstick/">improvement</a> (<a href="https://github.com/magicus">@magicus</a>)</li>
+  <li>Light - Osram: New requirement (<a href="https://github.com/tfriedel">@tfriedel</a>)</li>
+  <li>Sensor - Systemmonitor: Support for removable network adapters (<a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>)</li>
+  <li>LiteJet: New trigger option (<a href="https://github.com/joncar">@joncar</a>)</li>
+  <li>Media player - Bose: Add Bose SoundTouch device support (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a>)</li>
+  <li>HTTP: Re-organisation and <a href="https://home-assistant.io/developers/websocket_api/">websockets</a> support (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>HTTP: Advanced <a href="https://home-assistant.io/components/http/">IP filtering</a> (<a href="https://github.com/vkorn">@vkorn</a>)</li>
+  <li>Sensor - KNX: Fix unit of mesaurement (<a href="https://github.com/cyberjunky">@cyberjunky</a>)</li>
+  <li>Climate: New precision properties (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Sensor - TEMPer: Reset <a href="https://home-assistant.io/components/sensor.temper/">devices</a> on address change (<a href="https://github.com/vemek">@vemek</a>)</li>
+  <li>Core: Color names now follow w3.org recommandations (<a href="https://github.com/srcLurker">@srcLurker</a>)</li>
+  <li>Updater: Robustness improvements (<a href="https://github.com/balloob">@balloob</a>])</li>
+  <li>Media player - MPD: Reconnect to daemon (<a href="https://github.com/janLo">@janLo</a>)</li>
+  <li>Device tracker: Fall-back for MAC address lookup (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Sensor - Efergy: Get the amount of <a href="https://home-assistant.io/components/sensor.efergy/">energy consumed</a> (<a href="https://github.com/gonzalezcalleja">@gonzalezcalleja</a>)</li>
+  <li>Zeroconf: Fix for IPv6 support (<a href="https://github.com/rcloran">@rcloran</a>)</li>
+  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/sdague">@sdague</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/chapple">@chapple</a>, <a href="https://github.com/mweinelt">@mweinelt</a>, <a href="https://github.com/Khabi">@Khabi</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/mnestor">@mnestor</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/Morrisai">@Morrisai</a>,
+<a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/bjarniivarsson">@bjarniivarsson</a>, <a href="https://github.com/danielperna84">@danielperna84</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/dethpickle">@dethpickle</a>, <a href="https://github.com/jnewland">@jnewland</a>, <a href="https://github.com/lichtteil">@lichtteil</a>, <a href="https://github.com/brandonweeks">@brandonweeks</a>, <a href="https://github.com/partofthething">@partofthething</a>, <a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>, <a href="https://github.com/bah2830">@bah2830</a>, and <a href="https://github.com/albertoarias">@albertoarias</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="release-0341---december-4" href="#release-0341---december-4"></a> Release 0.34.1 - December 4</h3>
+
+<p>This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we’re including it now instead of having people wait two weeks.</p>
+
+<p>To make the fix backwards compatible (it is a patch release after all) you will have to add two new configuration option to emulated_hue to have it work with Google Home:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">emulated_hue</span><span class="pi">:</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">google_home</span>
+  <span class="c1"># This is important. Sadly, Google Home will not work with other ports.</span>
+  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
+</code></pre>
+</div>
+
+<p>We are working on a better solution for 0.35.</p>
+
+<ul>
+  <li>Fix emulated_hue with Google Home (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Sonos invalid config error (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Synology DSM doing I/O inside event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest camera issues (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Fix occasional hangs in Homematic (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Revert TP-Link upgrade to fix issues (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Fix CORS (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0342---december-5" href="#release-0342---december-5"></a> Release 0.34.2 - December 5</h3>
+
+<ul>
+  <li>Fix Nest interpreting Celsius as Fahrenheit and converting it (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest sensor platforms throwing errors (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Frontend will now always show persistent_notification and configurator entities even if not part of the active view (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fixed media player cards taking up unnecessary space (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0343---december-6" href="#release-0343---december-6"></a> Release 0.34.3 - December 6</h3>
+
+<ul>
+  <li>Fix Hook connections (<a href="https://github.com/dasos">@dasos</a>)</li>
+  <li>Fix random websocket connections (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Google Home sometimes not finding our emulated_hue (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>Fix EnOcean config validation (<a href="https://github.com/rubund">@rubund</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0344---december-7" href="#release-0344---december-7"></a> Release 0.34.4 - December 7</h3>
+
+<ul>
+  <li>Fix InfluxDB without authentication (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Kodi without authentication (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix incorrect caching of /api/error_log (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Fix incorrect ordering of service calls which could cause delays inbetween turning on multiple entities (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest Climate temperature issues (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0345---december-12" href="#release-0345---december-12"></a> Release 0.34.5 - December 12</h3>
+
+<ul>
+  <li>Fix Nest sensors doing I/O inside event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nest version bump not triggering re-install (<a href="https://github.com/R1chardTM">@R1chardTM</a>)</li>
+  <li>Fix Nest cameras without activity zones (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+  <li>Fix Plex doing I/O inside event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>The <a href="https://home-assistant.io/components/homematic/">HomeMatic</a> component now uses a different syntax for hosts and the <code class="highlighter-rouge">set_value</code> service has been renamed.</li>
+  <li>All <a href="https://home-assistant.io/components/rfxtrx/">RFXtrx</a> sensors will get a new entity ID.</li>
+  <li>The frontend now uses websockets. If you run a server in front of Home Assistant, you will have to update your config (example <a href="https://home-assistant.io/ecosystem/nginx/">nginx</a>)</li>
+  <li><a href="https://home-assistant.io/components/nest/">Nest</a> contains changes which will require your attention.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use these communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">0.33: New Calendar component, Wink thermostats and Cisco IOS</a>
   </h1>
   
@@ -1356,57 +1547,6 @@
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>.</p>
 
 
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/08/31/esp8266-and-micropython-part2/">ESP8266 and MicroPython - Part 2</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-08-31T04:17:25+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 31, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>ESP8266</li>
-      
-        <li>How-To</li>
-      
-        <li>MQTT</li>
-      
-        <li>Micropython</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/08/31/esp8266-and-micropython-part2/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><img src="/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
-So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython</a> was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/08/31/esp8266-and-micropython-part2/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

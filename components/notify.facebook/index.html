@@ -130,6 +130,29 @@ The phone number used in <strong>target</strong> should be registered with faceb
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="rich-messages" href="#rich-messages"></a> Rich messages</h3>
+<p>You could also send rich messing (cards, buttons, images, videos, etc). <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference">Info</a> to which types or messages and how to build them.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example script with a notification entry with rich message</span>
+
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">test_fb_notification</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.facebook</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s">Some text before the quick replies</span>
+          <span class="s">target</span><span class="pi">:</span> <span class="s">0034643123212</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">quick_replies</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="s">content_type</span><span class="pi">:</span> <span class="s">text</span>
+                <span class="s">title</span><span class="pi">:</span> <span class="s">Red</span>
+                <span class="s">payload</span><span class="pi">:</span> <span class="s">DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED</span>
+              <span class="pi">-</span> <span class="s">content_type</span><span class="pi">:</span> <span class="s">text</span>
+                <span class="s">title</span><span class="pi">:</span> <span class="s">Blue</span>
+                <span class="s">payload</span><span class="pi">:</span> <span class="s">DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE</span>
+</code></pre>
+</div>
+
 
 </article>
 
@@ -212,6 +235,9 @@ The phone number used in <strong>target</strong> should be registered with faceb
         </li>
         <li>
             <a href='/components/notify.mqtt/'>MQTT Notifications</a>
+        </li>
+        <li>
+            <a href='/components/notify.mailgun/'>Mailgun</a>
         </li>
         <li>
             <a href='/components/notify.matrix/'>Matrix</a>

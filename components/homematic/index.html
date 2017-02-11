@@ -126,7 +126,7 @@ You can manually rename the created entities by using Home Assistants <a href="h
   <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
   <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
   <li><strong>primary</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> when using multiple hosts and this host should provide the services and variables.</li>
-  <li><strong>variables</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> if you want to use CCU2/Homegear variables. Should only be enabled for the primary host.</li>
+  <li><strong>variables</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> if you want to use CCU2/Homegear variables. Should only be enabled for the primary host. When using a CCU credentials are required.</li>
 </ul>
 
 <h4>Example configuration with multiple protocols and some other options set:</h4>
@@ -153,7 +153,7 @@ You can manually rename the created entities by using Home Assistants <a href="h
 </code></pre>
 </div>
 
-<h3>The <code class="highlighter-rouge">resolvenames</code> option</h3>
+<h3><a class="title-link" name="the-resolvenames-option" href="#the-resolvenames-option"></a> The <code class="highlighter-rouge">resolvenames</code> option</h3>
 
 <p>We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won’t include non-ASCII characters in entity-names.</p>
 
@@ -165,19 +165,33 @@ You can manually rename the created entities by using Home Assistants <a href="h
 
 <p>Resolving names can take some time. So when you start Home Assistant you won’t see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.</p>
 
-<h3>Multiple hosts</h3>
+<h3><a class="title-link" name="multiple-hosts" href="#multiple-hosts"></a> Multiple hosts</h3>
 
 <p>In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.<br />
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.<br />
 This does <em>not</em> affect the entites in Home Assistant. They all use their own connection and work as expected.</p>
 
-<h3>Variables</h3>
+<h3><a class="title-link" name="reading-attributes-of-entities" href="#reading-attributes-of-entities"></a> Reading attributes of entities</h3>
 
-<p>It is possible to read and set values of system variables you have setup on the CCU/Homegear. An example of how that is done can be found below. The supported types for setting values are float- and bool-variables.<br />
-Each variable will be available as it’s own entity in the form of <code class="highlighter-rouge">homematic.name</code>. The predefined <code class="highlighter-rouge">homematic.homematic</code> variable has the number of service messages as it’s value. You can use these variable-entities like any other entity in Home Assistant to trigger automations.<br />
+<p>Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the <a href="https://home-assistant.io/components/sensor.template/">template sensor</a> component. Here’s an example of a template sensor that exposes the valve state of a thermostat.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+  <span class="s">sensors</span><span class="pi">:</span>
+    <span class="s">bedroom_valve</span><span class="pi">:</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.climate.leq123456.attributes.Valve</span><span class="nv"> </span><span class="s">}}'</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.leq123456</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">valve'</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="variables" href="#variables"></a> Variables</h3>
+
+<p>It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables. <br />
+The states of the variables are available through the attributes of your hub entity (e.g. <code class="highlighter-rouge">homematic.rf</code>). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.</p>
 
-<h3>Events</h3>
+<h3><a class="title-link" name="events" href="#events"></a> Events</h3>
 
 <p>When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Two event-types are available:</p>
 
@@ -186,7 +200,7 @@ The values of variables are polled from the CCU/Homegear in an interval of 30 se
   <li><strong>homematic.impulse</strong>: For impulse sensors</li>
 </ul>
 
-<h4>Devices with buttons</h4>
+<h4><a class="title-link" name="devices-with-buttons" href="#devices-with-buttons"></a> Devices with buttons</h4>
 
 <p>Devices with buttons (e.g. HM-Sen-MDIR-WM55, remote controls) may not be fully visible in the UI. This is intended, as buttons don’t serve any value here and all they do is trigger events.
 As an example:
@@ -211,7 +225,7 @@ The HM-Sen-MDIR-WM55 motion detector will be displayed as 2 entities. A motion s
 <p>The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. “Kitchen Switch”).</p>
 
-<h3>Services</h3>
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
 
 <ul>
   <li><em>homematic.virtualkey</em>: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.</li>
@@ -220,7 +234,7 @@ The name depends on if you chose to resolve names or not. If not, it will be the
   <li><em>homematic.set_dev_value</em>: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.</li>
 </ul>
 
-<h4>Examples</h4>
+<h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <p>Simulate a button being pressed</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -243,17 +257,18 @@ The name depends on if you chose to resolve names or not. If not, it will be the
 </code></pre>
 </div>
 
-<p>Set variable</p>
+<p>Set boolean variable to true</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
   <span class="s">service</span><span class="pi">:</span> <span class="s">homematic.set_var_value</span>
   <span class="s">data</span><span class="pi">:</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">homematic.varname_bool</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">homematic.rf</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Variablename</span>
     <span class="s">value</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 
-<h4>Advanced examples</h4>
+<h4><a class="title-link" name="advanced-examples" href="#advanced-examples"></a> Advanced examples</h4>
 
 <p>If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.<br />
 Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above <code class="highlighter-rouge">rf</code>, <code class="highlighter-rouge">wired</code> and <code class="highlighter-rouge">ip</code> would be valid values.</p>
@@ -407,6 +422,9 @@ Using this service provides you direct access to the setValue-method of the prim
         </li>
         <li>
             <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>Rflink</a>
         </li>
         <li>
             <a href='/components/scsgate/'>SCSGate</a>

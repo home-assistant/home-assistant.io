@@ -109,7 +109,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Open garage door</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-    <span class="s">event_type</span><span class="pi">:</span> <span class="s">found_plate</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">image_processing.found_plate</span>
     <span class="s">event_data</span><span class="pi">:</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">openalpr.camera_garage_1</span>
       <span class="s">plate</span><span class="pi">:</span> <span class="s">BE2183423</span>
@@ -117,20 +117,20 @@ If you are running Home Assistant over SSL or from within a container, you will 
 </code></pre>
 </div>
 
-<p>The following event attributes will be present: <code class="highlighter-rouge">entity_id</code>, <code class="highlighter-rouge">plate</code>, <code class="highlighter-rouge">confidence</code></p>
+<p>The following event attributes will be present (platform-dependent): <code class="highlighter-rouge">entity_id</code>, <code class="highlighter-rouge">plate</code>, <code class="highlighter-rouge">confidence</code></p>
 
-<h2><a class="title-link" name="face-identify" href="#face-identify"></a> Face identify</h2>
+<h2><a class="title-link" name="face" href="#face"></a> Face</h2>
 
-<p>Face entities attribute have a face counter <code class="highlighter-rouge">total_faces</code> and all validated person as <code class="highlighter-rouge">known_faces</code>.</p>
+<p>Face entities attribute have a face counter <code class="highlighter-rouge">total_faces</code> and all face data as <code class="highlighter-rouge">faces</code>.</p>
 
-<p>This event is trigger after Microsoft Face identify found a known faces.</p>
+<p>This event is trigger after Microsoft Face found a faces.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Known person in front of my door</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-    <span class="s">event_type</span><span class="pi">:</span> <span class="s">identify_face</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">image_processing.detect_face</span>
     <span class="s">event_data</span><span class="pi">:</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">image_processing.door</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Hans</span><span class="nv"> </span><span class="s">Maier'</span>
@@ -138,7 +138,7 @@ If you are running Home Assistant over SSL or from within a container, you will 
 </code></pre>
 </div>
 
-<p>The following event attributes will be present: <code class="highlighter-rouge">entity_id</code>, <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">confidence</code></p>
+<p>The following event attributes will be present (platform-dependent): <code class="highlighter-rouge">entity_id</code>, <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">confidence</code>, <code class="highlighter-rouge">age</code>, <code class="highlighter-rouge">gender</code>, <code class="highlighter-rouge">motion</code>, <code class="highlighter-rouge">glasses</code></p>
 
 
 </article>
@@ -160,8 +160,11 @@ If you are running Home Assistant over SSL or from within a container, you will 
     </div>
             <h1 class='title delta'>Platforms</h1>
             <ul class='divided'>
+          <li><a href='/components/image_processing.microsoft_face_detect/'>
+            Microsoft Face Detect
+          </a></li>
           <li><a href='/components/image_processing.microsoft_face_identify/'>
-            Microsoft Face identify
+            Microsoft Face Identify
           </a></li>
           <li><a href='/components/image_processing.openalpr_cloud/'>
             OpenALPR Cloud

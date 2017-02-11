@@ -123,6 +123,12 @@
 </code></pre>
 </div>
 
+<p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi/">Manual installation</a> the command would be as follows.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/site-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
+</code></pre>
+</div>
+
 <p class="note">If after symlinking and adding <code class="highlighter-rouge">hdmi_cec:</code> to your configuration you are getting the following error in your logs, 
 <code class="highlighter-rouge">* failed to open vchiq instance</code> you will also need to add the user account Home Assistant runs under, to the <code class="highlighter-rouge">video</code> group. To add the Home Assistant user account to the <code class="highlighter-rouge">video</code> group, run the following command. <code class="highlighter-rouge">$ usermod -a -G video &lt;hass_user_account&gt;</code>
 </p>
@@ -340,6 +346,9 @@ language:      ???
     <div class='section'>
     <h1 class="title delta">Category Automation</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/alert/'>Alert</a>
+        </li>
         <li>
             <a href='/components/automation/'>Automation</a>
         </li>

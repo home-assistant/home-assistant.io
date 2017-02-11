@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-11T22:28:32+00:00</updated>
+  <updated>2017-02-11T22:47:53+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,127 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.38: Alert, AppleTV, MQTT discovery, and Yeelight]]></title>
+    <link href="https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/"/>
+    <updated>2017-02-11T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight</id>
+    <content type="html"><![CDATA[<p>Another Saturday, another release!</p>
+
+<h3><a class="title-link" name="core-updates" href="#core-updates"></a> Core updates</h3>
+<ul>
+  <li>
+    <p>Thanks to <a href="https://github.com/pvizeli">@pvizeli</a>, all the core components are now written asynchronously. All entity components are now migrated from synchronously to asynchronously code!</p>
+  </li>
+  <li>
+    <p>Now when you restart Home Assistant using the <code class="highlighter-rouge">homeassistant.restart</code> service, your configuration is checked. If it appears to be invalid the restart will fail.</p>
+  </li>
+</ul>
+
+<h3><a class="title-link" name="rewritten-frontend" href="#rewritten-frontend"></a> Rewritten frontend</h3>
+<p>The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new <a href="https://home-assistant.io/developers/websocket_api/">WebSockets API</a> instead of the <a href="https://home-assistant.io/developers/server_sent_events/">EventStream API</a>.</p>
+
+<h3><a class="title-link" name="custom-state-card-ui" href="#custom-state-card-ui"></a> Custom state card UI</h3>
+<p>A nice new feature is the possibility to create <a href="https://home-assistant.io/developers/frontend_creating_custom_ui/">custom state cards</a> in the frondend. Go ahead and write your own state card for <a href="https://home-assistant.io/cookbook/custom_ui_by_andrey-git">lights</a>, sensors, locks, etc.</p>
+
+<h3><a class="title-link" name="mqtt-discovery" href="#mqtt-discovery"></a> MQTT discovery</h3>
+<p>MQTT now has <a href="https://home-assistant.io/components/mqtt/#discovery">discovery</a> support which is different than our <a href="https://home-assistant.io/components/discovery/"><code class="highlighter-rouge">discovery</code></a> component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.</p>
+
+<h3><a class="title-link" name="alert-component" href="#alert-component"></a> Alert component</h3>
+<p>If you left your front door open, then the new <a href="https://home-assistant.io/components/alert/"><code class="highlighter-rouge">alert</code></a> component can be used to remind you of this by sending you repeating notifications at a given interval.</p>
+
+<h3><a class="title-link" name="yeelight" href="#yeelight"></a> Yeelight</h3>
+<p>The <a href="https://home-assistant.io/components/light.yeelight/"><code class="highlighter-rouge">yeelight</code></a> component has been ported to use a more stable and feature-complete <a href="https://gitlab.com/stavros/python-yeelight">python-yeelight</a> backend, and supports now both white and RGB bulbs. The component also supports transitions and can be configured to save the settings to the bulb on changes. The users currently using custom components for Yeelight are encouraged to move back to use the included version and report any problems with it to our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>.</p>
+
+<h3><a class="title-link" name="apple-tv" href="#apple-tv"></a> Apple TV</h3>
+<p><a href="https://home-assistant.io/components/media_player.apple_tv/">Apple TV</a> is now a supported <a href="https://home-assistant.io/components/media_player/"><code class="highlighter-rouge">media_player</code></a>! It has support for just about every media player function, including a realtime display of playback status and artwork.</p>
+
+<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
+<h4><a class="title-link" name="new-platformscomponents" href="#new-platformscomponents"></a> New platforms/components</h4>
+
+<ul>
+  <li>Sensor: Support for monitoring <a href="https://home-assistant.io/components/sensor.openevse/">OpenEVSE</a> chargers (<a href="https://github.com/miniconfig">@miniconfig</a>)</li>
+  <li>Voice command <a href="https://home-assistant.io/components/apiai/">API.AI</a> (<a href="https://github.com/adrianlzt">@adrianlzt</a>)</li>
+  <li><a href="https://home-assistant.io/components/alert/">Alert</a> Component (<a href="https://github.com/rmkraus">@rmkraus</a>)</li>
+  <li><a href="https://home-assistant.io/components/rflink/">Rflink</a> 433Mhz gateway platform and components (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Lock: Support for <a href="https://home-assistant.io/components/lock.nuki/">Nuki.io</a> smart locks (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Sensor: <a href="https://home-assistant.io/components/sensor.qnap/">QNAP</a> Sensor (<a href="https://github.com/colinodell">@colinodell</a>)</li>
+  <li>Switch: Add support for <a href="https://home-assistant.io/components/switch.fritzdect/">FRITZ!DECT</a> wireless switches based on fritzhome (<a href="https://github.com/BastianPoe">@BastianPoe</a>)</li>
+  <li>Sensor: Add <a href="https://home-assistant.io/components/sensor.moon/">moon</a> sensor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Media player: Support for the <a href="https://home-assistant.io/components/media_player.liveboxplaytv/">Orange Livebox Play TV</a> appliance (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.apple_tv/">Apple TV</a> support (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li>MQTT: <a href="https://home-assistant.io/components/mqtt/#discovery">MQTT discovery</a> support (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Notify: <a href="https://home-assistant.io/components/notify.mailgun/">Mailgun</a> notify service (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Image Processing: Support <a href="https://home-assistant.io/components/image_processing.microsoft_face_detect/">Microsoft Face detection</a> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h4><a class="title-link" name="improvements" href="#improvements"></a> Improvements</h4>
+
+<ul>
+  <li>Switch - Pilight: Validation no longer rejects alphanumeric IDs (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
+  <li>Device tracker - ASUSWrt: Fixes <code class="highlighter-rouge">ip neigh</code> regex to handle the possible IPv6 “router” flag (<a href="https://github.com/kylehendricks">@kylehendricks</a>)</li>
+  <li>Light - MySensors: Fix mysensors RGB and W light turn on (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Light - Yeelight: new yeelight backend lib, new features (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
+  <li>Climate - Eq3btsmart: Cleanup modes &amp; available, bump version requirement (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
+  <li>Sensor - SMA: Handle units correctly (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>MQTT eventstream: Prevent infinite loop in cross configured MQTT event streams (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Light - <a href="https://home-assistant.io/components/light.hue/">Hue</a>: Fix lightgroups not syncing state (<a href="https://github.com/tboyce1">@tboyce1</a>)</li>
+  <li>Dvice tracker - Owntracks: Fix OwnTracks state names (<a href="https://github.com/tboyce1">@tboyce1</a>)</li>
+  <li>Wink: Wink AC and additional sensor support (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Modbus: Modbus write_register accept list (<a href="https://github.com/benvm">@benvm</a>)</li>
+  <li>Device tracker - Ping: Add devices detected by ping as SOURCE_TYPE_ROUTER instead of GPS (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
+  <li>Climate - Ecobee: Cleanup climate and ecobee (<a href="https://github.com/Duoxilian">@Duoxilian</a>)</li>
+  <li>Sensor - Miflora: Allow specification of bluetooth adapter (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Sensor - <a href="https://home-assistant.io/components/sensor.systemmonitor/">Systemmonitor</a>: Add average load to systemmonitor (<a href="https://github.com/eagleamon">@eagleamon</a>)</li>
+  <li>Sensor - <a href="https://home-assistant.io/components/sensor.openweathermap/">Openweathermap</a>: Add wind bearing (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Notify - Facebook: Allow to use data for enhanced messages (<a href="https://github.com/adrianlzt">@adrianlzt</a>)</li>
+  <li>Light - Hyperion: Change CONF_DEFAULT_COLOR CV type (<a href="https://github.com/Joeboyc2">@Joeboyc2</a>)</li>
+  <li>Mysensors: Fix validation of serial port on windows (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Notify - Webostv: Store the key file in the configuration directory (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>TTS: TTS ID3 support (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Switch - Broadlink: Add send packet service (<a href="https://github.com/Yannic-HAW">@Yannic-HAW</a>)</li>
+  <li>Wink: Add support for position on Wink cover (<a href="https://github.com/albertoarias">@albertoarias</a>)</li>
+  <li>Light - Flux: Make brightness display work for RGB devices. (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Media player - Roku: Fix attribute error for media_player/roku (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Light - MQTT template: Fix brightness slider for MQTT template lights (<a href="https://github.com/ray0711">@ray0711</a>)</li>
+  <li>Template: Add <code class="highlighter-rouge">min</code> and <code class="highlighter-rouge">max</code> Jinja2 <a href="https://home-assistant.io/topics/templating/#home-assistant-template-extensions">filters</a> (<a href="https://github.com/sbidoul">@sbidoul</a>)</li>
+  <li>Device tracker - Skyhub: Improve Sky Hub error handling (<a href="https://github.com/alexmogavero">@alexmogavero</a>)</li>
+  <li>Notify - SMTP: Add error checking to the MIMEImage encoding (<a href="https://github.com/stratosmacker">@stratosmacker</a>)</li>
+  <li>Light - MQTT: Check for command topics when determining the capabilities of an MQTT light (<a href="https://github.com/herm">@herm</a>)</li>
+  <li>Core: Check config before restarting (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Light - <a href="https://home-assistant.io/components/light.hue/">Hue</a>: Fix groups with same names (<a href="https://github.com/tboyce1">@tboyce1</a>)</li>
+  <li>Template: Add icon_template to template sensor (<a href="https://github.com/tboyce1">@tboyce1</a>)</li>
+  <li>Recorder: Refactoring, scoping, and better handling of SQLAlchemy Sessions (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Light - Flux: Add support for fluxled discovery. (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Media player - AppleTV: Add discovery support to Apple TV (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li>Sensor - Template: Improve warning message in template rendering (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Light - Demo: Add available property and typing hints (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
+  <li>Sensor - ARWN: Enhancements to <a href="https://home-assistant.io/components/sensor.arwn/">ARWN</a> platform (<a href="https://github.com/sdague">@sdague</a>)</li>
+  <li>Fan - ISY994: Change medium state for filtering (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
+  <li>Climate - Ecobee: Support away_mode as permanent hold and hold_mode as temporary hold. (<a href="https://github.com/Duoxilian">@Duoxilian</a>)</li>
+  <li>Tellduslive: Don’t throw exception if connection to server is lost (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Zoneminder: Refactoring and JSON decode error handling (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Image processing: Cleanup Base face class add support for microsoft face detect (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<p>Bugfixes: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@mnoorenberghe</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/mathewpeterson">@mathewpeterson</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/JshWright">@JshWright</a>, <a href="https://github.com/andriej">@andriej</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/nodinosaur">@nodinosaur</a>, <a href="https://github.com/konikvranik">@konikvranik</a>, and you if you are missing here.</p>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+<ul>
+  <li>The support for <a href="https://home-assistant.io/components/media_player.webostv/">LG webOS Smart TVs</a> was improved. This requires you to move <code class="highlighter-rouge">$HOME/.pylgtv</code> to <code class="highlighter-rouge">$HASS_CONFIG_DIR/webostv.conf</code> or Home Assistant will need to be paired with the TV again.</li>
+  <li>Image processing events have been renamed: <code class="highlighter-rouge">identify_face</code> has become <code class="highlighter-rouge">image_processing.detect_face</code>, <code class="highlighter-rouge">found_plate</code> has become <code class="highlighter-rouge">image_processing.found_plate</code></li>
+  <li>The <a href="https://home-assistant.io/components/binary_sensor.ffmpeg/">FFmpeg binary sensor</a> change the platform name from <code class="highlighter-rouge">ffmpeg</code> to <code class="highlighter-rouge">ffmpeg_noise</code> and <code class="highlighter-rouge">ffmpeg_motion</code>. Also all FFmpeg-related services are moved from a platform implementation to a the <a href="https://home-assistant.io/components/ffmpeg/">FFmpeg components</a> and were rename from <code class="highlighter-rouge">binary_sensor.ffmpeg_xy</code> to <code class="highlighter-rouge">ffmpeg.xy</code>.</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[HASSbian 1.1 - The Toy-box]]></title>
@@ -1959,107 +2080,6 @@ You have to note:
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
-    <link href="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/"/>
-    <updated>2016-08-31T04:17:25+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2</id>
-    <content type="html"><![CDATA[<p><img src="https://home-assistant.io/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
-So, part 1 of <a href="https://home-assistant.io/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython</a> was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.</p>
-
-<!--more-->
-
-<p>Beside <a href="https://en.wikipedia.org/wiki/POST_(HTTP)">HTTP POST</a> requests, MQTT is the quickest way (from the author’s point of view) to publish information with DIY devices.</p>
-
-<p>You have to make a decision: Do you want to pull or to <a href="https://en.wikipedia.org/wiki/Polling_(computer_science)">poll</a> the information for the sensor? For slowly changing values like temperature it’s perfectly fine to wait a couple of seconds to retrieve the value. If it’s a motion detector the state change should be available instantly in Home Assistant or it could be missed. This means the sensor must take initiative and send the data to Home Assistant.</p>
-
-<p>An example for pulling is <a href="https://home-assistant.io/components/sensor.arest/">aREST</a>. This is a great way to work with the ESP8266 based units and the Ardunio IDE.</p>
-
-<h3><a class="title-link" name="mqtt" href="#mqtt"></a> MQTT</h3>
-
-<p>You can find a simple examples for publishing and subscribing with MQTT in the <a href="https://github.com/micropython/micropython-lib">MicroPython</a> library overview in the section for <a href="https://github.com/micropython/micropython-lib/tree/master/umqtt.simple">umqtt</a>.</p>
-
-<p>The example below is adopted from the work of <a href="https://github.com/davea">@davea</a> as we don’t want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called <code class="highlighter-rouge">/config.json</code> which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">machine</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">ubinascii</span>
-<span class="kn">import</span> <span class="nn">webrepl</span>
-
-<span class="kn">from</span> <span class="nn">umqtt.simple</span> <span class="kn">import</span> <span class="n">MQTTClient</span>
-
-<span class="c"># These defaults are overwritten with the contents of /config.json by load_config()</span>
-<span class="n">CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"broker"</span><span class="p">:</span> <span class="s">"192.168.1.19"</span><span class="p">,</span>
-    <span class="s">"sensor_pin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-    <span class="s">"client_id"</span><span class="p">:</span> <span class="n">b</span><span class="s">"esp8266_"</span> <span class="o">+</span> <span class="n">ubinascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">machine</span><span class="o">.</span><span class="n">unique_id</span><span class="p">()),</span>
-    <span class="s">"topic"</span><span class="p">:</span> <span class="n">b</span><span class="s">"home"</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">sensor_pin</span> <span class="o">=</span> <span class="bp">None</span>
-
-<span class="k">def</span> <span class="nf">setup_pins</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">sensor_pin</span>
-    <span class="n">sensor_pin</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">ADC</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'sensor_pin'</span><span class="p">])</span>
-
-<span class="k">def</span> <span class="nf">load_config</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">ujson</span> <span class="kn">as</span> <span class="nn">json</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/config.json"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-    <span class="k">except</span> <span class="p">(</span><span class="nb">OSError</span><span class="p">,</span> <span class="nb">ValueError</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Couldn't load /config.json"</span><span class="p">)</span>
-        <span class="n">save_config</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">CONFIG</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Loaded config from /config.json"</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">save_config</span><span class="p">():</span>
-    <span class="kn">import</span> <span class="nn">ujson</span> <span class="kn">as</span> <span class="nn">json</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"/config.json"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">))</span>
-    <span class="k">except</span> <span class="nb">OSError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Couldn't save /config.json"</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">client</span> <span class="o">=</span> <span class="n">MQTTClient</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'client_id'</span><span class="p">],</span> <span class="n">CONFIG</span><span class="p">[</span><span class="s">'broker'</span><span class="p">])</span>
-    <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Connected to {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'broker'</span><span class="p">]))</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">sensor_pin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s">'{}/{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">CONFIG</span><span class="p">[</span><span class="s">'topic'</span><span class="p">],</span>
-                                          <span class="n">CONFIG</span><span class="p">[</span><span class="s">'client_id'</span><span class="p">]),</span>
-                                          <span class="nb">bytes</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="s">'utf-8'</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">'Sensor state: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">load_config</span><span class="p">()</span>
-    <span class="n">setup_pins</span><span class="p">()</span>
-    <span class="n">main</span><span class="p">()</span>
-</code></pre>
-</div>
-
-<p>Subscribe to the topic <code class="highlighter-rouge">home/#</code> or create a <a href="https://home-assistant.io/components/sensor.mqtt/">MQTT sensor</a> to check if the sensor values are published.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -h 192.168.1.19 -v -t <span class="s2">"home/#"</span>
-</code></pre>
-</div>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/esp8266_[last</span><span class="nv"> </span><span class="s">part</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MAC</span><span class="nv"> </span><span class="s">address]"</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MicroPython"</span>
-</code></pre>
-</div>
-
-<p><a href="https://github.com/davea">@davea</a> created <a href="https://github.com/davea/sonoff-mqtt">sonoff-mqtt</a>. This code will work on ESP8622 based devices too and shows how to use a button to control a relay.</p>
 
 ]]></content>
   </entry>

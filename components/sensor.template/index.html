@@ -115,6 +115,7 @@
       <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
       <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
       <li><strong>value_template</strong> (<em>Required</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the event bus.</li>
+      <li><strong>icon_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> for the icon of the sensor.</li>
       <li><strong>entity_id</strong> (<em>Optional</em>): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it’s state.</li>
     </ul>
   </li>
@@ -214,6 +215,21 @@ Please note the blank line to close the multi-line template.
         <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.transmission_up_speed.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">multiply(1024)</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Transmission</span><span class="nv"> </span><span class="s">Up</span><span class="nv"> </span><span class="s">Speed'</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">kB/s'</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="change-the-icon" href="#change-the-icon"></a> Change the icon</h3>
+
+<p>This example shows how to change the icon based on the day/night cycle.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">day_night</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Day/Night'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}Day{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}Night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
+        <span class="s">icon_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}mdi:weather-sunny{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:weather-night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
+        
 </code></pre>
 </div>
 
@@ -348,7 +364,13 @@ Please note the blank line to close the multi-line template.
             <a href='/components/sensor.onewire/'>One wire Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.openevse/'>OpenEVSE Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.pilight/'>Pilight Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.qnap/'>QNAP Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.rest/'>RESTful Sensor</a>
@@ -358,6 +380,9 @@ Please note the blank line to close the multi-line template.
         </li>
         <li>
             <a href='/components/sensor.random/'>Random Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rflink/'>Rflink Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>

@@ -104,6 +104,7 @@
   <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
   <span class="s">certificate</span><span class="pi">:</span> <span class="s">/home/paulus/dev/addtrustexternalcaroot.crt</span>
   <span class="s">protocol</span><span class="pi">:</span> <span class="s">3.1</span>
+  <span class="s">discovery</span><span class="pi">:</span> <span class="s2">"</span><span class="s">discovery/#"</span>
   <span class="s">birth_message</span><span class="pi">:</span>
     <span class="s">topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">hass/status'</span>
     <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">online'</span>
@@ -130,6 +131,7 @@
   <li><strong>client_key</strong> (<em>Optional</em>): Client key (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.key</code>)</li>
   <li><strong>client_cert</strong> (<em>Optional</em>): Client certificate (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.crt</code>)</li>
   <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.</li>
+  <li><strong>discovery</strong> (<em>Optional</em>): The MQTT topic subscribed to use for discovery of MQTT devices.</li>
   <li><strong>birth_message</strong> (<em>Optional</em>):
     <ul>
       <li><strong>topic</strong> (<em>Required</em>): The MQTT topic to publish the message.</li>
@@ -301,7 +303,7 @@ Home Assistant will automatically load the correct certificate if you connect to
   <li>Integrating it into own component. See the <a href="/cookbook/python_component_mqtt_basic/">MQTT example component</a> how to do this.</li>
 </ul>
 
-<h3><a class="title-link" name="publish-service" href="#publish-service"></a> Publish service</h3>
+<h2><a class="title-link" name="publish-service" href="#publish-service"></a> Publish service</h2>
 
 <p>The MQTT component will register the service <code class="highlighter-rouge">publish</code> which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use <code class="highlighter-rouge">payload</code> to hard-code a payload or use <code class="highlighter-rouge">payload_template</code> to specify a <a href="/topics/templating/">template</a> that will be rendered to generate the payload.</p>
 
@@ -319,7 +321,23 @@ Home Assistant will automatically load the correct certificate if you connect to
 </span></code></pre>
 </div>
 
-<h3><a class="title-link" name="logging" href="#logging"></a> Logging</h3>
+<h2><a class="title-link" name="discovery" href="#discovery"></a> Discovery</h2>
+
+<p>The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the <a href="/components/binary_sensor.http/">HTTP binary sensor</a> and the <a href="/components/sensor.http/">HTTP sensor</a>. Only support for binary sensor is available at the moment.</p>
+
+<p>To enable MQTT discovery, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">discovery</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="c1"># Optional</span>
+  <span class="s">discovery_prefix</span><span class="pi">:</span> <span class="s">homeassistant</span>
+</code></pre>
+</div>
+
+<p>A motion detection device for your garden would sent its configuration as JSON payload <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"garden"</span><span class="p">,</span><span class="w"> </span><span class="nt">"sensor_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"motion"</span><span class="p">}</span></code> to the topic <code class="highlighter-rouge">homeassistant/binary_sensor/garden/config</code>. After the first message to <code class="highlighter-rouge">config</code>, then the MQTT messages sent to <code class="highlighter-rouge">state</code>, eg. <code class="highlighter-rouge">homeassistant/binary_sensor/garden/state</code>, will update the state in Home Assistant.</p>
+
+<h2><a class="title-link" name="logging" href="#logging"></a> Logging</h2>
 
 <p>The <a href="/components/logger/">logger</a> component allow the logging of received MQTT messages.</p>
 
@@ -565,6 +583,9 @@ Home Assistant will automatically load the correct certificate if you connect to
         </li>
         <li>
             <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>Rflink</a>
         </li>
         <li>
             <a href='/components/scsgate/'>SCSGate</a>

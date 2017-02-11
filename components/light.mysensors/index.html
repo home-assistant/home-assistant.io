@@ -129,10 +129,16 @@
       <td>S_RGB_LIGHT</td>
       <td>V_RGB*, [V_LIGHT* or V_STATUS*], [V_DIMMER or V_PERCENTAGE]</td>
     </tr>
+    <tr>
+      <td>S_RGBW_LIGHT</td>
+      <td>V_RGBW*, [V_LIGHT* or V_STATUS*], [V_DIMMER or V_PERCENTAGE]</td>
+    </tr>
   </tbody>
 </table>
 
-<p>V_TYPES with a star (*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional.  Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE or V_RGB message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.</p>
+<p>V_TYPES with a star (*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional. Same principal applies for S_RGBW_LIGHT and V_RGBW.</p>
+
+<p>Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE, V_RGB, or V_RGBW message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.</p>
 
 <p>For more information, visit the <a href="http://www.mysensors.org/download">serial api</a> of MySensors.</p>
 
@@ -210,12 +216,13 @@
 <span class="p">}</span>
 </code></pre>
 </div>
+
 <h3><a class="title-link" name="mysensors-2x-example-sketch" href="#mysensors-2x-example-sketch"></a> MySensors 2.x example sketch</h3>
 
-<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/* 
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
  * Example Dimmable Light
  * Code adapted from http://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
- * 
+ *
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
  *
@@ -271,7 +278,7 @@
 
 <span class="kt">void</span> <span class="nf">receive</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">//When receiving a V_STATUS command, switch the light between OFF 
+  <span class="c1">//When receiving a V_STATUS command, switch the light between OFF
 </span>  <span class="c1">//and the last received dimmer value  
 </span>  <span class="k">if</span> <span class="p">(</span> <span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_STATUS</span> <span class="p">)</span> <span class="p">{</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"V_STATUS command received..."</span> <span class="p">);</span>
@@ -290,7 +297,7 @@
 
     <span class="c1">//Update constroller status
 </span>    <span class="n">send_status_message</span><span class="p">();</span>
-    
+
   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_PERCENTAGE</span> <span class="p">)</span> <span class="p">{</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"V_PERCENTAGE command received..."</span> <span class="p">);</span>
     <span class="kt">int</span> <span class="n">dim_value</span> <span class="o">=</span> <span class="n">constrain</span><span class="p">(</span> <span class="n">message</span><span class="p">.</span><span class="n">getInt</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span> <span class="p">);</span>
@@ -303,11 +310,11 @@
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="n">last_state</span> <span class="o">=</span> <span class="n">LIGHT_ON</span><span class="p">;</span>
       <span class="n">last_dim</span> <span class="o">=</span> <span class="n">dim_value</span><span class="p">;</span>
-     
+
       <span class="c1">//Update constroller with dimmer value
 </span>      <span class="n">send_dimmer_message</span><span class="p">();</span>
     <span class="p">}</span>
-        
+
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span> <span class="s">"Invalid command received..."</span> <span class="p">);</span>
     <span class="k">return</span><span class="p">;</span>
@@ -343,6 +350,7 @@
 <span class="p">}</span>
 </code></pre>
 </div>
+
 
 
 </article>
@@ -381,6 +389,9 @@
         </a></li>
         <li><a href='/components/cover.mysensors/'>
           MySensors Cover
+        </a></li>
+        <li><a href='/components/device_tracker.mysensors/'>
+          MySensors Device Tracker
         </a></li>
         <li><a href='/components/climate.mysensors/'>
           MySensors HVAC
@@ -467,6 +478,9 @@
         </li>
         <li>
             <a href='/components/light.rfxtrx/'>RFXtrx Light</a>
+        </li>
+        <li>
+            <a href='/components/light.rflink/'>Rflink Light</a>
         </li>
         <li>
             <a href='/components/light.scsgate/'>SCSGate Light</a>

@@ -118,7 +118,7 @@
     </tr>
     <tr>
       <td>S_WIND</td>
-      <td>V_WIND, V_GUST</td>
+      <td>V_WIND, V_GUST, V_DIRECTION</td>
     </tr>
     <tr>
       <td>S_RAIN</td>
@@ -251,9 +251,9 @@
 
 <p>By using V_UNIT_PREFIX, it’s possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can’t be used as a standalone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.</p>
 
-<p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
+<p>For more information, visit the <a href="http://www.mysensors.org/download">serial api</a> of MySensors.</p>
 
-<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+<h3><a class="title-link" name="mysensors-15-example-sketch" href="#mysensors-15-example-sketch"></a> MySensors 1.5 example sketch</h3>
 
 <div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
  * Documentation: http://www.mysensors.org
@@ -301,6 +301,70 @@
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="mysensors-2x-example-sketch" href="#mysensors-2x-example-sketch"></a> MySensors 2.x example sketch</h3>
+
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/light
+ */</span>
+
+<span class="cp">#define MY_DEBUG
+#define MY_RADIO_NRF24
+</span>
+<span class="cp">#include &lt;BH1750.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;MySensors.h&gt;
+</span>
+<span class="cp">#define SN "LightLuxSensor"
+#define SV "1.0"
+#define CHILD_ID 1
+</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">SLEEP_TIME</span> <span class="o">=</span> <span class="mi">30000</span><span class="p">;</span> <span class="c1">// Sleep time between reads (in milliseconds)
+</span>
+<span class="n">BH1750</span> <span class="n">lightSensor</span><span class="p">;</span>
+<span class="n">MyMessage</span> <span class="n">msg</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_LEVEL</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgPrefix</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_UNIT_PREFIX</span><span class="p">);</span>  <span class="c1">// Custom unit message.
+</span><span class="kt">uint16_t</span> <span class="n">lastlux</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">initialValueSent</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">sendSketchInfo</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">SV</span><span class="p">);</span>
+  <span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">S_LIGHT_LEVEL</span><span class="p">);</span>
+  <span class="n">lightSensor</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">initialValueSent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Sending initial value"</span><span class="p">);</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">msgPrefix</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"custom_lux"</span><span class="p">));</span>  <span class="c1">// Set custom unit.
+</span>    <span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">lastlux</span><span class="p">));</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Requesting initial value from controller"</span><span class="p">);</span>
+    <span class="n">request</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_LEVEL</span><span class="p">);</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="n">C_SET</span><span class="p">,</span> <span class="n">V_LEVEL</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kt">uint16_t</span> <span class="n">lux</span> <span class="o">=</span> <span class="n">lightSensor</span><span class="p">.</span><span class="n">readLightLevel</span><span class="p">();</span>  <span class="c1">// Get Lux value
+</span>  <span class="k">if</span> <span class="p">(</span><span class="n">lux</span> <span class="o">!=</span> <span class="n">lastlux</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">lux</span><span class="p">));</span>
+      <span class="n">lastlux</span> <span class="o">=</span> <span class="n">lux</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">sleep</span><span class="p">(</span><span class="n">SLEEP_TIME</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">receive</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_LEVEL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">initialValueSent</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Receiving initial value from controller"</span><span class="p">);</span>
+      <span class="n">initialValueSent</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
 
 
 </article>
@@ -332,6 +396,9 @@
         </a></li>
         <li><a href='/components/cover.mysensors/'>
           MySensors Cover
+        </a></li>
+        <li><a href='/components/device_tracker.mysensors/'>
+          MySensors Device Tracker
         </a></li>
         <li><a href='/components/climate.mysensors/'>
           MySensors HVAC
@@ -444,7 +511,13 @@
             <a href='/components/sensor.onewire/'>One wire Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.openevse/'>OpenEVSE Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.pilight/'>Pilight Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.qnap/'>QNAP Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.rest/'>RESTful Sensor</a>
@@ -454,6 +527,9 @@
         </li>
         <li>
             <a href='/components/sensor.random/'>Random Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rflink/'>Rflink Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>
