@@ -22,7 +22,7 @@ The core of the frontend has been completely been rewritten, optimizing for spee
 A nice new feature is the possibility to create [custom state-card][custom-ui] in the frondend. Go ahead and write your own state-card for [lights][light], sensors, locks, etc.
 
 ### {% linkable_title MQTT discovery %}
-The latest MQTT feature is [discovery][mqtt-discovery] support. Do not confuse this which the Home Assistant [Discovery][discovery]. MQTT Discover is for MQTT-only. Similar to the HTTP sensor/binary sensor allows this to use devices with minimal configuration.
+The latest MQTT feature is [discovery][mqtt-discovery] support. Do not confuse this which the Home Assistant [Discovery][discovery]. MQTT Discover is for MQTT-only. Similar to the HTTP sensor/binary sensor allows this to use devices with minimal configuration. At the moment only binary sensors are supported.
 
 ### {% linkable_title Alert component %}
 If you left your front door open, then the [`alert`][alert] component can be used to remind you of this by sending you repeating notifications at a given interval.
