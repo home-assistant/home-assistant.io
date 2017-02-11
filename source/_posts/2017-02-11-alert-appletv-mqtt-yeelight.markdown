@@ -22,7 +22,7 @@ Another Saturday, another release!
 The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new [WebSockets API][websocket-api] instead of the [EventStream API][event-stream-api].
 
 ### {% linkable_title Custom state card UI %}
-A nice new feature is the possibility to create [custom state cards][custom-ui] in the frondend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
+A nice new feature is the possibility to create [custom state cards][custom-ui] in the frontend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
 
 ### {% linkable_title MQTT discovery %}
 MQTT now has [discovery][mqtt-discovery] support which is different than our [`discovery`][discovery] component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.
