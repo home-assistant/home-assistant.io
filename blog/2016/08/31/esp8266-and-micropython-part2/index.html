@@ -122,7 +122,7 @@ So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 
 
 <p>Beside <a href="https://en.wikipedia.org/wiki/POST_(HTTP)">HTTP POST</a> requests, MQTT is the quickest way (from the author’s point of view) to publish information with DIY devices.</p>
 
-<p>You have to make a decision: Do you want to pull or to <a href="https://en.wikipedia.org/wiki/Polling_(computer_science)">poll</a> the information for the sensor? For slowly changing values like temperature it’s perfectly fine to wait a couple of seconds to retrieve the value. If it’s a motion detector the state change should be available instantly in Home Assistant. This means the sensor must take initiative and send the data to Home Assistant.</p>
+<p>You have to make a decision: Do you want to pull or to <a href="https://en.wikipedia.org/wiki/Polling_(computer_science)">poll</a> the information for the sensor? For slowly changing values like temperature it’s perfectly fine to wait a couple of seconds to retrieve the value. If it’s a motion detector the state change should be available instantly in Home Assistant or it could be missed. This means the sensor must take initiative and send the data to Home Assistant.</p>
 
 <p>An example for pulling is <a href="/components/sensor.arest/">aREST</a>. This is a great way to work with the ESP8266 based units and the Ardunio IDE.</p>
 
