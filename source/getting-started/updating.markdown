@@ -10,8 +10,9 @@ footer: true
 ---
 
 <p class='note warning'>
-The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [HASSbian](getting-started/hassbian-common-tasks/#update-home-assistant), [Raspberry Pi All-In-One Installer](/getting-started/installation-raspberry-pi-all-in-one/#upgrading), [Vagrant](/getting-started/installation-vagrant/), or [Virtualenv](/getting-started/installation-virtualenv/#upgrading-home-assistant).
+The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [HASSbian](/getting-started/hassbian-common-tasks/#update-home-assistant), [Raspberry Pi All-In-One Installer](/getting-started/installation-raspberry-pi-all-in-one/#upgrading), [Vagrant](/getting-started/installation-vagrant/), or [Virtualenv](/getting-started/installation-virtualenv/#upgrading-home-assistant).
 </p>
+
 The default way to update Home Assistant to the latest release, when available, is:
 
 ```bash
