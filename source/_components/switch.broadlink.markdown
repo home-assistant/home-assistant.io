@@ -99,8 +99,7 @@ switch 2:
       command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
 
 ``` 
-
-
+ 
  Example config for sp1, sp2, honeywell_sp2, sp3, spmini2 and spminiplus devices:
 
 ```yaml
@@ -118,6 +117,28 @@ switch 2:
   type:  sp2
   friendly_name: 'Humidifier'
 
+``` 
+
+
+### {% linkable_title Service `send_packet` %}
+
+You can use the service broadlink/send_packet to directly send IR packets without the need to assign a switch entity for each command. 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `packet` | no | String or list of strings that contain the packet data.
+
+Example:
+
+```yaml
+script:
+  tv_select_source:
+    sequence:
+      - service: broadlink.send_packet_192_168_0_107
+        data:
+          packet: 
+            - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
+            - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ``` 
 
 

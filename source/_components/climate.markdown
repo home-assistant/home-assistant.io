@@ -23,7 +23,7 @@ climate:
 ## {% linkable_title Services %}
 
 ### {% linkable_title Climate control services %}
-Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`
+Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`, `climate.set_hold_mode`
 
 <p class='note'>
 Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
@@ -54,12 +54,36 @@ automation:
 
 ### {% linkable_title Service `climate.set_away_mode` %}
 
-This service has been deprecated. Use `climate.set_hold_mode` instead.
+Set away mode for climate device. The away mode changes the target temperature permanently to a temperature 
+reflecting a situation where the climate device is set to save energy. This may be used to emulate a
+"vacation mode", for example.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
+| `away_mode` | no | New value of away mode.
+
+#### {% linkable_title Automation example  %}
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    after: "07:15:00"
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.kitchen
+        away_mode: 'on'
+```
 
 
 ### {% linkable_title Service `climate.set_hold_mode` %}
 
-Set hold mode for climate device
+Set hold mode for climate device. The hold mode changes the target temperature of the client device temporarily to
+a different temperature. Typical hold modes provided by a climate device are "away" or "home", where the hold temperature
+is chosen depending on a predefined climate, or "temperature" hold, where a particular temperature is selected as the
+temporary target temperature. The particular modes available depend on the climate device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -29,8 +29,11 @@ S_TYPE      | V_TYPE
 ------------|-------------
 S_DIMMER    | [V_DIMMER\* or V_PERCENTAGE\*], [V_LIGHT\* or V_STATUS\*]
 S_RGB_LIGHT | V_RGB*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE]
+S_RGBW_LIGHT | V_RGBW*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE]
 
-V_TYPES with a star (\*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional.  Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE or V_RGB message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.  
+V_TYPES with a star (\*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional. Same principal applies for S_RGBW_LIGHT and V_RGBW.
+
+Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE, V_RGB, or V_RGBW message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.  
 
 For more information, visit the [serial api] of MySensors.
 
@@ -108,13 +111,14 @@ void incomingMessage(const MyMessage &message) {
     }
 }
 ```
+
 ### {% linkable_title MySensors 2.x example sketch %}
 
 ```cpp
-/* 
+/*
  * Example Dimmable Light
  * Code adapted from http://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
- * 
+ *
  * Documentation: http://www.mysensors.org
  * Support Forum: http://forum.mysensors.org
  *
@@ -170,7 +174,7 @@ void presentation()
 
 void receive(const MyMessage &message)
 {
-  //When receiving a V_STATUS command, switch the light between OFF 
+  //When receiving a V_STATUS command, switch the light between OFF
   //and the last received dimmer value  
   if ( message.type == V_STATUS ) {
     Serial.println( "V_STATUS command received..." );
@@ -189,7 +193,7 @@ void receive(const MyMessage &message)
 
     //Update constroller status
     send_status_message();
-    
+
   } else if ( message.type == V_PERCENTAGE ) {
     Serial.println( "V_PERCENTAGE command received..." );
     int dim_value = constrain( message.getInt(), 0, 100 );
@@ -202,11 +206,11 @@ void receive(const MyMessage &message)
     } else {
       last_state = LIGHT_ON;
       last_dim = dim_value;
-     
+
       //Update constroller with dimmer value
       send_dimmer_message();
     }
-        
+
   } else {
     Serial.println( "Invalid command received..." );
     return;
@@ -241,5 +245,6 @@ void send_status_message()
   }
 }
 ```
+
 [main component]: /components/mysensors/
 [serial api]: http://www.mysensors.org/download

@@ -236,3 +236,27 @@ You will receive an event named `html5_notification.closed` when the notificatio
     platform: event
     event_type: html5_notification.closed
 ```
+
+### {% linkable_title Making notifications work with NGINX proxy %}
+
+If you use [NGINX](/ecosystem/nginx/) as an proxy with authentication in front of HASS, you may have trouble with receiving events back to HASS. It's because of authentication token that cannot be passed through the proxy.
+
+To solve the issue put additional location into your nginx site's configuration:
+
+```bash
+location /api/notify.html5/callback {
+    if ($http_authorization = "") { return 403; }
+    allow all;
+    proxy_pass http://localhost:8123;
+    proxy_set_header Host $host;
+    proxy_redirect http:// https://;
+}
+```
+
+This rule check if request have `Authorization` HTTP header and bypass the htpasswd (if you use one).
+
+If you still have the problem, even with mentioned rule, try to add this code:
+```bash
+    proxy_set_header Authorization $http_authorization;
+    proxy_pass_header Authorization;
+```

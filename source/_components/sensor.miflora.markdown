@@ -39,6 +39,7 @@ sensor:
 - **timeout** (*Optional*): Define the timeout value in seconds when polling (defaults to 10 if not defined)
 - **retries** (*Optional*): Define the number of retries when polling (defaults to 2 if not defined)
 - **cache** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
+- **adapter** (*Optional*): Define the bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
 
 Note that by default the sensor is only polled once every 15 minutes. This means with the `median: 3` setting will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn't a big problem. 
 Reducing polling intervals will have a negative effect on the battery life.
