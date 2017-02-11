@@ -94,3 +94,11 @@ Wildcards only work at the end of the ID, not in the middle of front!
 
 Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or [create an issue](https://github.com/home-assistant/home-assistant/issues/new) and mention `@aequitas` in the description.
 
+
+### {% linkable_title Technical overview %}
+
+- The`rflink` Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the Rflink gateway.
+- This component uses this callback to distribute 'rflink packet events' over the HASS bus which can be subscribed to by entities/platform implementations.
+- The platform implementions take care of creating new devices (if enabled) for unsees incoming packet id's.
+- Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entitiy logic is maintained in this main component.
+
