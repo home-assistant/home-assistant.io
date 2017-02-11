@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Home Assistant 0.37"
+title: "Home Assistant 0.38"
 description: ""
 date: 2016-12-16 17:00
 sidebar: true
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
-ha_release: 0.37
+ha_release: 0.38
 ---
 
 Details about the latest release can always be found at:
