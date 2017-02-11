@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-11T22:47:53+00:00</updated>
+  <updated>2017-02-11T23:00:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -29,7 +29,7 @@
 The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new [WebSockets API][websocket-api] instead of the [EventStream API][event-stream-api].
 
 ### <a class='title-link' name='custom-state-card-ui' href='#custom-state-card-ui'></a> Custom state card UI 
-A nice new feature is the possibility to create [custom state cards][custom-ui] in the frondend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
+A nice new feature is the possibility to create [custom state cards][custom-ui] in the frontend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
 
 ### <a class='title-link' name='mqtt-discovery' href='#mqtt-discovery'></a> MQTT discovery 
 MQTT now has [discovery][mqtt-discovery] support which is different than our [`discovery`][discovery] component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.
