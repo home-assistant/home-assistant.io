@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Light
-ha_release: 0.38
+ha_release: 0.39
 ---
 
 The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.  
