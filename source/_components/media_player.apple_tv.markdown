@@ -11,12 +11,13 @@ logo: apple.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
 ha_release: 0.38
+featured: true
 ---
 
 The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation).
 
 <p class='note'>
-Currently you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later released.
+Currently you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
 </p>
 
 If you want to automatically discover new devices, just make sure you have `discovery:` in your `configuration.yaml` file. To manually add an Apple TV to your installation, add the following to your `configuration.yaml` file:
