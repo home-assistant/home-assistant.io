@@ -418,7 +418,7 @@ Sample `curl` command:
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       -d '{"entity_id": "switch.christmas_lights", "state": "on"}' \
+       -d '{"entity_id": "switch.christmas_lights"}' \
        http://localhost:8123/api/services/switch/turn_on
 ```
 

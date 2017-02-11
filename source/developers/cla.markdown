@@ -41,7 +41,7 @@ and not mention sign-off.
 
 ## Signing
 
-To sign this CLA you must first submit a pull request to a repository under the Home Assistant organization.
+If you have not signed the CLA and you submit a pull request to a repository under the Home Assistant organization, a link will be automatically generated. Just follow the link and the instructions in the link.
 
 ## Adoption
 
