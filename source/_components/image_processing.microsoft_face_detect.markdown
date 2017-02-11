@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Microsoft Face identify"
-description: "Instructions how to integrate microsoft face identify into Home Assistant."
+title: "Microsoft Face detect"
+description: "Instructions how to integrate microsoft face detect into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.37
 ---
 
-The `microsoft_face_identify` image processing platform lets you use [Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/) API through Home Assistant. This platform allow you do identify persons on camera and fire a event with identify persons.
+The `microsoft_face_detect` image processing platform lets you use [Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/) API through Home Assistant. This platform allow you do detect face on camera and fire a event with attributes.
 
 Please refer to the [component](/components/microsoft_face/) configuration on how to setup the API key.
 
@@ -24,8 +24,7 @@ For using the result inside an automation rule, take a look at the [component](/
 ```yaml
 # Example configuration.yaml entry
 image_processing:
- - platform: microsoft_face_identify
-   group: family
+ - platform: microsoft_face_detect
    source:
     - entity_id: camera.door
 ```
@@ -36,3 +35,4 @@ Configuration variables:
 - **source** array (*Required*): List of image sources.
   - **entity_id** (*Required*): A camera entity id to get picture from.
   - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
+- **attributes** array (*Optional*): Default age,gender. Attributes for search on picture. Supported: age, gender, glasses
