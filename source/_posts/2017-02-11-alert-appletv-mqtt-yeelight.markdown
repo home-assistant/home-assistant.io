@@ -4,31 +4,37 @@ title: "0.38: Alert, AppleTV, MQTT discovery, and Yeelight"
 description: "Faster and more configurable frontend, "
 date: 2017-02-11 08:04:05 +0000
 date_formatted: "February 11, 2017"
-author: Fabian Affolter et al.
-author_twitter: fabaff
+author: Robbie Trencheny, Fabian Affolter
+author_twitter: robbie
 comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.38/social.png
 ---
 
-0.38, hurry :tada: In this release we (special thanks to [@pvizeli]) have migrated all core components to work asynchronous. 
+Another Saturday, another release!
 
-The configuration checking support was expanded. We have now `homeassistant.check_config`. This means that the service `homeassistant.restart` will now only restart your Home Assistant installation if the configuration is valid.
+### {% linkable_title Core updates %}
+- Thanks to [@pvizeli], all the core components are now written asyncronously, completing our migration from syncronous to asyncronous code!
 
-### {% linkable_title Rewritten frontend core %}
-The core of the frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now.
+- Now when you restart Home Assistant using the `homeassistant.restart` service, your configuration is checked. If it appears to be invalid the restart will fail.
 
-### {% linkable_title Custom state-card UI %}
-A nice new feature is the possibility to create [custom state-card][custom-ui] in the frondend. Go ahead and write your own state-card for [lights][light], sensors, locks, etc.
+### {% linkable_title Rewritten frontend %}
+The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new [WebSockets API][websocket-api] instead of the [EventStream API][event-stream-api].
+
+### {% linkable_title Custom state card UI %}
+A nice new feature is the possibility to create [custom state cards][custom-ui] in the frondend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
 
 ### {% linkable_title MQTT discovery %}
-The latest MQTT feature is [discovery][mqtt-discovery] support. Do not confuse this which the Home Assistant [Discovery][discovery]. MQTT Discover is for MQTT-only. Similar to the HTTP sensor/binary sensor allows this to use devices with minimal configuration. At the moment only binary sensors are supported.
+MQTT now has [discovery][mqtt-discovery] support which is different than our [`discovery`][discovery] component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.
 
 ### {% linkable_title Alert component %}
-If you left your front door open, then the [`alert`][alert] component can be used to remind you of this by sending you repeating notifications at a given interval.
+If you left your front door open, then the new [`alert`][alert] component can be used to remind you of this by sending you repeating notifications at a given interval.
 
 ### {% linkable_title Yeelight %}
 The [`yeelight`][yeelight] component has been ported to use a more stable and feature-complete [python-yeelight][python-yeelight] backend, and supports now both white and RGB bulbs. The component also supports transitions and can be configured to save the settings to the bulb on changes. The users currently using custom components for Yeelight are encouraged to move back to use the included version and report any problems with it to our [issue tracker][issue].
+
+### {% linkable_title Apple TV %}
+[Apple TV][apple-tv] is now a supported [`media_player`][media-player]! It has support for just about every media player function, including a realtime display of playback status and artwork.
 
 ### {% linkable_title All changes %}
 #### {% linkable_title New platforms/components %}
@@ -42,7 +48,7 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Switch: Add support for [FRITZ!DECT][fritz] wireless switches based on fritzhome ([@BastianPoe])
 - Sensor: Add [moon][moon] sensor ([@fabaff])
 - Media player: Support for the [Orange Livebox Play TV][orange] appliance ([@pschmitt])
-- Media player: Initial support for [Apple TV][apple] ([@postlund])
+- Media player: Initial support for [Apple TV][apple-tv] ([@postlund])
 - MQTT: [MQTT discovery][mqtt-discovery] support ([@balloob], [@fabaff])
 - Notify: [Mailgun][mailgun] notify service ([@pschmitt])
 - Image Processing: Support [Microsoft Face detection][face-detect] ([@pvizeli])
@@ -94,15 +100,15 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Zoneminder: Refactoring and JSON decode error handling ([@pschmitt])
 - Image processing: Cleanup Base face class add support for microsoft face detect ([@pvizeli])
 
-Bugfix(es): [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen], [@armills], [@tchellomello], [@aequitas], [@mathewpeterson], [@molobrakos], [@michaelarnauts], [@jabesq], [@turbokongen], [@JshWright], [@andriej], [@jawilson], [@andrey-git], [@nodinosaur], [@konikvranik], and you if you are missing here.
+Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen], [@armills], [@tchellomello], [@aequitas], [@mathewpeterson], [@molobrakos], [@michaelarnauts], [@jabesq], [@turbokongen], [@JshWright], [@andriej], [@jawilson], [@andrey-git], [@nodinosaur], [@konikvranik], and you if you are missing here.
 
 ### {% linkable_title Breaking changes %}
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
 - Image processing events have been renamed: `identify_face` has become `image_processing.detect_face`, `found_plate` has become `image_processing.found_plate`
-- The [FFmpeg binary sensor][ffmpeg-bin] change the platform name from `ffmpeg` to `ffmpeg_noise` and `ffmpeg_motion`. Also all FFmpeg-related services are moved from a platform implementation to a the [FFmpeg components][ffmpeg] and were rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`. 
+- The [FFmpeg binary sensor][ffmpeg-bin] change the platform name from `ffmpeg` to `ffmpeg_noise` and `ffmpeg_motion`. Also all FFmpeg-related services are moved from a platform implementation to a the [FFmpeg components][ffmpeg] and were rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
 
 ### {% linkable_title If you need help... %}
-...don't hesitate to use our [Forum][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ### {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -160,7 +166,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 [alert]: https://home-assistant.io/components/alert/
 [apiai]: https://home-assistant.io/components/apiai/
-[apple]: https://home-assistant.io/components/media_player.apple_tv/
+[apple-tv]: https://home-assistant.io/components/media_player.apple_tv/
 [arwn]: https://home-assistant.io/components/sensor.arwn/
 [custom-ui]: https://home-assistant.io/developers/frontend_creating_custom_ui/
 [discovery]: https://home-assistant.io/components/discovery/
@@ -172,6 +178,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue]: https://home-assistant.io/components/light.hue/
 [light]: https://home-assistant.io/cookbook/custom_ui_by_andrey-git
 [mailgun]: https://home-assistant.io/components/notify.mailgun/
+[media-player]: https://home-assistant.io/components/media_player/
 [moon]: https://home-assistant.io/components/sensor.moon/
 [mqtt-discovery]: https://home-assistant.io/components/mqtt/#discovery
 [nuki]: https://home-assistant.io/components/lock.nuki/
@@ -185,7 +192,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [webostv]: https://home-assistant.io/components/media_player.webostv/
 [yeelight]: https://home-assistant.io/components/light.yeelight/
 
-[issue]: https://github.com/home-assistant/home-assistant/issues
-[gitter]: https://gitter.im/home-assistant/home-assistant
+[event-stream-api]: https://home-assistant.io/developers/server_sent_events/
 [forum]: https://community.home-assistant.io/
-
+[gitter]: https://gitter.im/home-assistant/home-assistant
+[issue]: https://github.com/home-assistant/home-assistant/issues
+[websocket-api]: https://home-assistant.io/developers/websocket_api/
