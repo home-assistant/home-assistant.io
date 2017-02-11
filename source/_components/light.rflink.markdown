@@ -60,7 +60,7 @@ Device configuration variables:
 - **fire_event_** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1)
 
-# Light state
+### {% linkable_title Light state %}
 
 Initially the state of a light is unknown. When the light is turned on or off (via frontend or 433Mhz remote) the state is known and will be shown in the frontend.
 
@@ -80,25 +80,25 @@ light:
 
 Any on/off command from any allias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
-# Light types
+### {% linkable_title Light types %}
 
 Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The Rflink component support three types of lights to make things work in every situation:
 
-*Hybrid*: This type sends a `dim` followed by an a `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
-
-*Switchable*: Device type that sends only `on` and `off` commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).
-
-*Dimmable*: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
+- *Hybrid*: This type sends a `dim` followed by an a `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
+- *Switchable*: Device type that sends only `on` and `off` commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).
+- *Dimmable*: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
 
 By default new lights are assigned the `switchable` type. Protocol supporting dimming are assigned the `hybrid` type. Currently only `newkaku` protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.
 
-# Hiding/ignoring lights
+### {% linkable_title Hiding/ignoring lights %}
+
 Lights are added automatically when the Rflink gateway intercepts a 433Mhz command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Configure a `new_devices_group` for lights and optionally add it to a different `view`.
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
-# Device support
+### {% linkable_title Device support %}
+
 See [device support](/components/rflink/#device-support)
 

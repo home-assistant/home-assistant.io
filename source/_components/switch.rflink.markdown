@@ -55,7 +55,7 @@ Device configuration variables:
 - **fire_event_** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1)
 
-# Switch state
+### {% linkable_title Switch state %}
 
 Initially the state of a switch is unknown. When the switch is turned on or off (via frontend or 433Mhz remote) the state is known and will be shown in the frontend.
 
@@ -76,6 +76,7 @@ switch:
 
 Any on/off command from any alias ID updates the current state of the switch. However when sending a command through the frontend only the primary ID is used.
 
-# Device support
+### {% linkable_title Device support %}
+
 See [device support](/components/rflink/#device-support)
 

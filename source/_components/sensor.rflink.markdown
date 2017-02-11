@@ -57,13 +57,15 @@ Device configuration variables:
 - **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
 - **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
 
-# Hiding/ignoring sensors
+### {% linkable_title Hiding/ignoring sensors %}
+
 Sensors are added automatically when the Rflink gateway intercepts a 433Mhz command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Configure a `new_devices_group` for sensors and optionally add it to a different `view`.
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
-# Device support
+### {% linkable_title Device support %}
+
 See [device support](/components/rflink/#device-support)
 
