@@ -25,9 +25,15 @@ script:
       # This is Home Assistant Script Syntax
       - service: notify.notify
         data_template:
-          message: Current temperature is {% raw %}{{ states.sensor.temperature.state }}{% endraw %}
+          message: Current temperature is {% raw %}{{ states.sensor.temperature.state }}{% endraw %}
+```
+<p class='note'>
+Script names (e.g. `message_temperature` in the example above) are not allowed to contain dash (minus) characters, i.e. `-`.
+The preferred way to separate words for better readability is to use underscore (`_`) characters. 
+</p>
 
-  # Turns on the bedroom lights and then the living room lights 1 minute later
+```yaml
+  # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
     alias: Wake Up
     sequence:

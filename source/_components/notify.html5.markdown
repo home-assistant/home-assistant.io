@@ -37,7 +37,7 @@ Configuration variables:
 - Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
 - After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
 - Then, click the cogwheel on top left and select "Project settings".
-- Select Cloud messaging tab if under server key is button Regenerate key, click that.
+- Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
 
 
 ### {% linkable_title Requirements %}

@@ -46,13 +46,13 @@ An extended configuration for the same sensor could look like this if you want/n
 ```yaml
 # Example configuration.yml entry
 binary_sensor:
-  platform: mqtt
-  state_topic: "home-assistant/window/contact"
-  name: "Windows contact"
-  qos: 0
-  payload_on: "1"
-  payload_off: "0"
-  device_class: opening
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  - platform: mqtt
+    state_topic: "home-assistant/window/contact"
+    name: "Windows contact"
+    qos: 0
+    payload_on: "1"
+    payload_off: "0"
+    device_class: opening
+    value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 

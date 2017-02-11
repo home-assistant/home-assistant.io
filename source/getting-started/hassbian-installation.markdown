@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/installation-raspberry-pi-image/
 ---
 
 The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).
