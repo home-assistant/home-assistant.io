@@ -37,7 +37,7 @@ automation:
 ...
 ```
 
-The following event attributes will be present (platform depents): `entity_id`, `plate`, `confidence`
+The following event attributes will be present (platform-dependent): `entity_id`, `plate`, `confidence`
 
 ## {% linkable_title Face %}
 
@@ -58,4 +58,4 @@ automation:
 ...
 ```
 
-The following event attributes will be present (platform depends): `entity_id`, `name`, `confidence`, `age`, `gender`, `motion`, `glasses`
+The following event attributes will be present (platform-dependent): `entity_id`, `name`, `confidence`, `age`, `gender`, `motion`, `glasses`

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Microsoft Face identify"
-description: "Instructions how to integrate microsoft face identify into Home Assistant."
+title: "Microsoft Face Identify"
+description: "Instructions how to integrate Microsoft Face Identify into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false
@@ -29,6 +29,7 @@ image_processing:
    source:
     - entity_id: camera.door
 ```
+
 Configuration variables:
 
 - **group** (*Required*): Micrsoft face group to detect person from it.
