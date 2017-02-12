@@ -198,7 +198,7 @@ The frontend has a template editor developer tool to help develop and debug temp
 {% if is_state('device_tracker.paulus', 'home') %}
   Ha, Paulus is home!
 {% else %}
-  Paulus is at {{ states('device_tracker.paulus')) }}.
+  Paulus is at {{ states('device_tracker.paulus') }}.
 {% endif %}
 
 {{ states.sensor.temperature | float + 1 }}
