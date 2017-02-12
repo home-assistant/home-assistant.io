@@ -26,6 +26,7 @@ sensor:
         - temperature
         - humidity
         - pressure
+    is_hat_attached: True|False
 ```
 
 Configuration variables:
@@ -34,5 +35,6 @@ Configuration variables:
   - 'temperature'
   - 'humidity'
   - 'pressure'
+  is_hat_attached (Optional): True|False boolean; True declares the SenseHAT _is_ physically on the Raspberry Pi
 
 
