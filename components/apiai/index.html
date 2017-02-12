@@ -1,0 +1,290 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Api.AI - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how integrate api.ai with Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/apiai/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Api.AI">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/apiai/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how integrate api.ai with Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Api.AI">
+    <meta name="twitter:description" content="Instructions how integrate api.ai with Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Api.AI
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>This component is designed to be used with the “webhook” integration in <a href="https://api.ai/">api.ai</a>. When a conversation ends with an user, api.ai sends an action and parameters to the webhook.</p>
+
+<p>api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to Internet. api.ai will return fallback answers if your server do not answer, or takes too long (more than 5 seconds).</p>
+
+<p>api.ai could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. <a href="https://docs.api.ai/docs/integrations">See here</a> the complete list.</p>
+
+<p>Using Api.ai will be easy to create conversations like:</p>
+
+<blockquote>
+  <p>User: Which is the temperature at home?</p>
+
+  <p>Bot: The temperature is 34 degrees</p>
+</blockquote>
+
+<blockquote>
+  <p>User: Turn on the light</p>
+
+  <p>Bot: In which room?</p>
+
+  <p>User: In the kitchen</p>
+
+  <p>Bot: Turning on kitchen light</p>
+</blockquote>
+
+<p>To use this integration you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.</p>
+
+<h3><a class="title-link" name="configuring-your-apiai-account" href="#configuring-your-apiai-account"></a> Configuring your api.ai account</h3>
+
+<ul>
+  <li><a href="https://api.ai/">Login</a> with your Google account.</li>
+  <li>Click on “Create Agent”</li>
+  <li>Select name, language (if you are planning to use it with Google Actions check <a href="https://support.google.com/assistant/answer/7108196?hl=en">here</a> supported languages) and time zone</li>
+  <li>Click “Save”</li>
+  <li>Go to “Fullfiment” (in the left menu)</li>
+  <li>Enable Webhook and set your HA url with the apiai endpoint. Eg.: <code class="highlighter-rouge">https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD</code></li>
+  <li>Click “Save”</li>
+  <li>Create a new intent</li>
+  <li>Below “User says” write one phrase that you, the user, will tell Api.ai. Eg.: Which is the temperature at home?</li>
+  <li>In “Action” set some key (this will be the bind with HA config), eg.: GetTemperature</li>
+  <li>In “Response” set “Cannot connect to HA or it is taking to long” (fall back response)</li>
+  <li>At the end of the page, click on “Fulfillment” and check “Use webhook”</li>
+  <li>Click “Save”</li>
+  <li>On the top right, where is written “Try it now…”, write, or say, the phrase you have previously defined and hit enter</li>
+  <li>Api.ai has send a request to your HA server</li>
+</ul>
+
+<p>Take a look to “Integrations”, in the left menu, to configure third parties.</p>
+
+<h3><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h3>
+
+<p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/topics/templating/">templates</a> that you define. Each template will have access to the existing states via the <code class="highlighter-rouge">states</code> variable but will also have access to all variables defined in the intent.</p>
+
+<p>You can use <a href="/topics/templating/">templates</a> for setting <code class="highlighter-rouge">speech</code>.</p>
+
+<p>Actions are using the <a href="/getting-started/scripts/">Home Assistant Script Syntax</a> and also have access to the variables from the intent.</p>
+
+<p>Example of an Api.ai for the above configuration:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">apiai</span><span class="pi">:</span>
+  <span class="s">intents</span><span class="pi">:</span>
+    <span class="s">GetTemperature</span><span class="pi">:</span>
+      <span class="s">speech</span><span class="pi">:</span> <span class="s">We have {{ states.sensor.temperature }} degrees</span>
+      <span class="s">async_action</span><span class="pi">:</span> <span class="s">False</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s">Api.ai has send a request</span>
+
+</code></pre>
+</div>
+
+<p>Inside an intent we can define this variables:</p>
+<ul>
+  <li><strong>speech</strong> (<em>Optional</em>): Text or template to return to Api.ai</li>
+  <li><strong>action</strong> (<em>Optional</em>): Script definition</li>
+  <li><strong>async_action</strong> (<em>Optional</em>): If HA should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to <code class="highlighter-rouge">True</code> if Api.ai is returning the “Cannot connect to HA or it is taking to long” message, but then you will not be able to use values based on the result of the action. Defaults to <code class="highlighter-rouge">False</code>.</li>
+</ul>
+
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+
+<p>Download <a href="http://filebin.ca/3AZSHoXPnbEv/HomeAssistant_APIAI.zip">this zip</a> and load it in your api.ai agent (Settings -&gt; Export and Import) for examples intents to use with this configuration:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">apiai</span><span class="pi">:</span>
+  <span class="s">intents</span><span class="pi">:</span>
+    <span class="s">Temperature</span><span class="pi">:</span>
+      <span class="s">speech</span><span class="pi">:</span> <span class="s">The temperature at home is {{ states('sensor.home_temp') }} degrees</span>
+    <span class="s">LocateIntent</span><span class="pi">:</span>
+      <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{%- for state in states.device_tracker -%}</span>
+          <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
+            <span class="no">{{ state.name }} is at {{ state.state }}</span>
+          <span class="no">{%- elif loop.last -%}</span>
+            <span class="no">I am sorry, I do not know where {{ User }} is.</span>
+          <span class="no">{%- endif -%}</span>
+        <span class="no">{%- else -%}</span>
+          <span class="no">Sorry, I don't have any trackers registered.</span>
+        <span class="no">{%- endfor -%}</span>
+    <span class="s">WhereAreWeIntent</span><span class="pi">:</span>
+      <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{%- if is_state('device_tracker.adri', 'home') and</span>
+               <span class="no">is_state('device_tracker.bea', 'home') -%}</span>
+          <span class="no">You are both home, you silly</span>
+        <span class="no">{%- else -%}</span>
+          <span class="no">Bea is at {{ states("device_tracker.bea") }}</span>
+          <span class="no">and Adri is at {{ states("device_tracker.adri") }}</span>
+        <span class="no">{% endif %}</span>
+    <span class="s">TurnLights</span><span class="pi">:</span>
+      <span class="s">speech</span><span class="pi">:</span> <span class="s">Turning {{ Room }} lights {{ OnOff }}</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
+          <span class="s">data_template</span><span class="pi">:</span>
+            <span class="s">message</span><span class="pi">:</span> <span class="s">Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}</span>
+        <span class="pi">-</span> <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+            <span class="no">{%- if OnOff == "on" -%}</span>
+              <span class="no">switch.turn_on</span>
+            <span class="no">{%- else -%}</span>
+              <span class="no">switch.turn_off</span>
+            <span class="no">{%- endif -%}</span>
+          <span class="s">data_template</span><span class="pi">:</span>
+            <span class="s">entity_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">switch.light_{{</span><span class="nv"> </span><span class="s">Room</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">replace('</span><span class="nv"> </span><span class="s">',</span><span class="nv"> </span><span class="s">'_')</span><span class="nv"> </span><span class="s">}}"</span>
+
+</code></pre>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/apiai.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/apiai.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.38
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Voice</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/alexa/'>Alexa / Amazon Echo</a>
+        </li>
+        <li>
+            Api.AI
+        </li>
+        <li>
+            <a href='/components/conversation/'>Conversation</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
