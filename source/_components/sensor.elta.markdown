@@ -19,8 +19,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: Elta
+c_Elta:
     code: YOUR_TRACKING_CODE
 ```
 
