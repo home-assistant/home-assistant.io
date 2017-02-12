@@ -100,12 +100,12 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Zoneminder: Refactoring and JSON decode error handling ([@pschmitt])
 - Image processing: Cleanup Base face class add support for microsoft face detect ([@pvizeli])
 
+Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen], [@armills], [@tchellomello], [@aequitas], [@mathewpeterson], [@molobrakos], [@michaelarnauts], [@jabesq], [@turbokongen], [@JshWright], [@andriej], [@jawilson], [@andrey-git], [@nodinosaur], [@konikvranik], and you if you are missing here.
+
 ### {% linkable_title Release 0.38.1 - February 12 %}
 
 - Fix logbook ordering ([@balloob])
 - Fix AppleTV conflicting dependency breaking websockets ([@balloob])
-
-Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen], [@armills], [@tchellomello], [@aequitas], [@mathewpeterson], [@molobrakos], [@michaelarnauts], [@jabesq], [@turbokongen], [@JshWright], [@andriej], [@jawilson], [@andrey-git], [@nodinosaur], [@konikvranik], and you if you are missing here.
 
 ### {% linkable_title Breaking changes %}
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
