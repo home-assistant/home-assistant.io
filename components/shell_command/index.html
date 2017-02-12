@@ -110,7 +110,16 @@
 
 <p>Any service data passed into the service call to activate the shell command will be available as a variable within the template.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Apply value of a GUI slider to the shell_command</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="c1"># Apply value of a GUI slider to the shell_command</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">run_set_ac</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_slider.ac_temperature</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.set_ac_to_slider</span>
+
 <span class="s">input_slider</span><span class="pi">:</span>
   <span class="s">ac_temperature</span><span class="pi">:</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">A/C Setting</span>
@@ -118,9 +127,10 @@
     <span class="s">min</span><span class="pi">:</span> <span class="s">18</span>
     <span class="s">max</span><span class="pi">:</span> <span class="s">32</span>
     <span class="s">step</span><span class="pi">:</span> <span class="s">1</span>
+    
 
 <span class="s">shell_command</span><span class="pi">:</span>
-  <span class="s">set_ac_to_slider</span><span class="pi">:</span> <span class="s1">'</span><span class="s">irsend</span><span class="nv"> </span><span class="s">SEND_ONCE</span><span class="nv"> </span><span class="s">DELONGHI</span><span class="nv"> </span><span class="s">AC_{{</span><span class="nv"> </span><span class="s">states.input_slider.ac_temperature.state}}_AUTO'</span>
+  <span class="s">set_ac_to_slider</span><span class="pi">:</span> <span class="s1">'</span><span class="s">irsend</span><span class="nv"> </span><span class="s">SEND_ONCE</span><span class="nv"> </span><span class="s">DELONGHI</span><span class="nv"> </span><span class="s">AC_{{</span><span class="nv"> </span><span class="s">states.input_slider.ac_temperature.state</span><span class="nv"> </span><span class="s">}}_AUTO'</span>
 
 </code></pre>
 </div>
