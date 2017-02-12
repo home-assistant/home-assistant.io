@@ -16,7 +16,7 @@ ha_release: 0.26
 
 The `mqtt_json` light platform lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
-This platform supports on/off, brightness, RGB colors, transitions, and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
+This platform supports on/off, brightness, RGB/XY colors, color temperatures, transitions, effects, and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
 
 ```json
 {
@@ -51,7 +51,11 @@ Configuration variables:
 - **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
 - **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
-- **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
+- **color_space** (*Optional*): Flag that defines which color space to use for the MQTT message. Options are 'rgb' and 'xy'. Default is no color space (=no color support).
+- **color_temp** (*Optional*): Flag that defines if the light supports color temperature. Default is false. The temperature is passed in [mired](https://en.wikipedia.org/wiki/Mired).
+- **transition** (*Optional*): Flag that defines if the light supports transitions. Default is false.
+- **effect_list** (*Optional*): List of possible effects. By default, all effects are disabled.
+- **flash** (*Optional*): Flag that defines if the light supports flashes. Default is false.
 - **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
 - **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
 - **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
@@ -77,12 +81,12 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
-    rgb: true
+    color_space: rgb
 ```
 
-### {% linkable_title Brightness and no RGB support %}
+### {% linkable_title Light with all features %}
 
-To enable a light with brightness (but no color support) in your installation, add the following to your `configuration.yaml` file:
+To enable a light with all features in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,6 +96,13 @@ light:
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
     brightness: true
+    color_space: rgb
+    color_temp: true
+    transitions: true
+    effect_list:
+      - colorloop
+      - random
+    flash: true
 ```
 
 ### {% linkable_title Implementations %}
