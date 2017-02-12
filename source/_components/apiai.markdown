@@ -10,16 +10,17 @@ footer: true
 logo: apiai.png
 ha_category: Voice
 featured: true
-ha_release: 0.37
+ha_release: 0.38
 ---
 
-This component is designed to be used with the "webhook" integration in api.ai. When a conversation ends with an user, api.ai sends an action and parameters to the webhook.
+This component is designed to be used with the "webhook" integration in [api.ai][apiai-web]. When a conversation ends with an user, api.ai sends an action and parameters to the webhook.
 
-Api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to Internet. Api.ai will return fall back answers if your server do not answer, or takes too long (more than 5 seconds).
+api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to Internet. api.ai will return fallback answers if your server do not answer, or takes too long (more than 5 seconds).
 
-Api.ai could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. [See here](https://docs.api.ai/docs/integrations) the complete list.
+api.ai could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. [See here](https://docs.api.ai/docs/integrations) the complete list.
 
 Using Api.ai will be easy to create conversations like:
+
  > User: Which is the temperature at home?
  >
  > Bot: The temperature is 34 degrees
@@ -35,6 +36,7 @@ Using Api.ai will be easy to create conversations like:
 To use this integration you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.
 
 ### {% linkable_title Configuring your api.ai account %}
+
 - [Login][apiai-web] with your Google account.
 - Click on "Create Agent"
 - Select name, language (if you are planning to use it with Google Actions check [here](https://support.google.com/assistant/answer/7108196?hl=en) supported languages) and time zone
@@ -55,6 +57,7 @@ Take a look to "Integrations", in the left menu, to configure third parties.
 
 
 ### {% linkable_title Configuring Home Assistant %}
+
 Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on [templates] that you define. Each template will have access to the existing states via the `states` variable but will also have access to all variables defined in the intent.
 
 You can use [templates] for setting `speech`.
@@ -87,7 +90,7 @@ Inside an intent we can define this variables:
 
 ## {% linkable_title Examples %}
 
-Download [this zip](http://filebin.ca/3AZSHoXPnbEv/HomeAssistant_APIAI.zip) and load it in your Api.ai agent (Settings -> Export and Import) for examples intents to use with this configuration:
+Download [this zip](http://filebin.ca/3AZSHoXPnbEv/HomeAssistant_APIAI.zip) and load it in your api.ai agent (Settings -> Export and Import) for examples intents to use with this configuration:
 
 ```yaml
 {% raw %}# Example configuration.yaml entry
@@ -129,6 +132,7 @@ apiai:
             {%- endif -%}
           data_template:
             entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
+{% endraw %}
 ```
 
 [apiai-web]: https://api.ai/
