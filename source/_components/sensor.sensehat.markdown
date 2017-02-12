@@ -35,78 +35,86 @@ Configuration variables:
   - 'humidity'
   - 'pressure'
 
-___
 
 #### Customizing the Sense HAT data
 
 **Format the sensor values**
-Add the following to your `sensors.yaml`
+Add the following to your `sensor`
 
-```
-- platform: sensehat
-  display_options:
-    - temperature
-    - humidity
-    - pressure
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: sensehat
+    display_options:
+        - temperature
+        - humidity
+        - pressure
 
-- platform: template
-  sensors:
-    sensehat_temperature:
-      value_template: '{{ states.sensor.temperature.state | round(1) }}'
-      unit_of_measurement: '°C'
-    sensehat_pressure:
-      value_template: '{{ states.sensor.pressure.state | round(1) }}'
-      unit_of_measurement: 'mb'
-    sensehat_humidity:
-      value_template: '{{ states.sensor.humidity.state | round(1) }}'
-      unit_of_measurement: '%'
+  - platform: template
+    sensors:
+      sensehat_temperature:
+        value_template: '{% raw %}{{ states.sensor.temperature.state | round(1) }}{% endraw %}'
+        unit_of_measurement: '°C'
+      sensehat_pressure:
+        value_template: '{% raw %}{{ states.sensor.pressure.state | round(1) }}{% endraw %}'
+        unit_of_measurement: 'mb'
+      sensehat_humidity:
+        value_template: '{% raw %}{{ states.sensor.humidity.state | round(1) }}{% endraw %}'
+        unit_of_measurement: '%'
 ```
 
 **Give the values friendly names & icons**
-Add the following to your `customize.yaml`
+Add the following to your `customize`
 
-```
-sensor.sensehat_temperature:
-  icon: mdi:thermometer
-  friendly_name: "Temperature"
-sensor.sensehat_humidity:
-  icon: mdi:weather-rainy
-  friendly_name: "Humidity"
-sensor.sensehat_pressure:
-  icon: mdi:gauge
-  friendly_name: "Pressure"
+```yaml
+# Example configuration.yaml entry
+customize:
+  sensor.sensehat_temperature:
+    icon: mdi:thermometer
+    friendly_name: "Temperature"
+  sensor.sensehat_humidity:
+    icon: mdi:weather-rainy
+    friendly_name: "Humidity"
+  sensor.sensehat_pressure:
+    icon: mdi:gauge
+    friendly_name: "Pressure"
 ```  
 
 **Create a group**
-Add the following to your `groups.yaml`
+Add the following to your `groups`
 
+```yaml
+# Example configuration.yaml entry
+group:
+  sense_hat:
+    name: Sense HAT
+    entities:
+      - sensor.sensehat_temperature
+      - sensor.sensehat_humidity
+      - sensor.sensehat_pressure
 ```
-sense_hat:
-  name: Sense HAT
-  entities:
-   - sensor.sensehat_temperature
-   - sensor.sensehat_humidity
-   - sensor.sensehat_pressure
-
-```
-Add the _sense hat_ group to your group with:
-```
+Add the _sense_hat group_ a group (_Kitchen for example_)
+```yaml
+# Example configuration.yaml entry
+group:
+  kitchen:
     - group.sense_hat
 ```
-___
+
 
 ### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual enviroment versions.
 
 #### Install SenseHAT package to _homeassistant_venv_
-`sudo su -s /bin/bash homeassistant`
+```bash
+# switch to the homeassistant_venv environment
+sudo su -s /bin/bash homeassistant
+source /srv/homeassistant/homeassistant_venv/bin/activate
 
-`source /srv/homeassistant/homeassistant_venv/bin/activate`
-
-`pip3 install sense-hat`
-
-(be patient, this will take a long while)
-
+# install the sense-hat lib
+pip3 install sense-hat
+# be patient, this will take a long while
+```
 #### Return to `pi`
 Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment.
 
@@ -114,24 +122,21 @@ As all of the following steps should be under the `pi` user environment.
 
 ###### Install _RTIMU_
 
-`pip3 install rtimulib`
+```bash
+# Install RTIMU to pi user environment
+pip3 install rtimulib
 
-###### Add symlink to RTIMU in _homeassistant_venv_
-Create a symlink using the following command:
+# Add symlink to RTIMU in _homeassistant_venv_
+# Create a symlink using the following command:
+ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
 
-`ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/`
+# Add _homeassistant_ user to the _input_ and the _i2c_ groups
+sudo addgroup homeassistant input
+sudo addgroup homeassistant i2c
 
-###### Add _homeassistant_ user to the _input_ and the _i2c_ groups
-`sudo addgroup homeassistant input`
-
-`sudo addgroup homeassistant i2c`
-
-###### Reboot Raspberry Pi to apply changes
-`sudo reboot`
-
-:100:
-
-___
+# Reboot Raspberry Pi to apply changes
+sudo reboot
+```
 
 Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home-Assistant fails with errors.
 _(The Raspberry Pi All-In-One installer and HASSbian both run Home-Assistant in an virtual environment)._
