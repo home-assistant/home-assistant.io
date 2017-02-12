@@ -25,6 +25,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Wink eggminder (No Wink hub required)
 - Nest protect Smoke and CO severity (No confirmation that this is actually reported) (No Wink hub required)
 - Motion sensor temperature
+- Quirky refuel propane tank monitor
 
 <p class='note'>
 The above devices are confimed to work, but others may work as well.
