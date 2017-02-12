@@ -26,21 +26,6 @@ To use the Fritz!Box network monitor in your installation, add the following to 
 # Example configuration.yaml entry
 sensor:
   - platform: fritzbox_netmonitor
-    host: 192.168.1.1
-    resources:
-      - type: is_linked
-      - type: is_connected
-      - type: wan_access_type
-      - type: external_ip
-      - type: uptime
-      - type: bytes_sent
-      - type: bytes_received
-      - type: transmission_rate_up
-      - type: transmission_rate_down
-      - type: max_byte_rate_up
-      - type: max_byte_rate_down
-      - type: max_bit_rate_up
-      - type: max_bit_rate_down
 ```
 
 Configuration variables:
