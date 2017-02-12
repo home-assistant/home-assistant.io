@@ -107,10 +107,20 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Fix logbook ordering ([@balloob])
 - Fix AppleTV conflicting dependency breaking websockets ([@balloob])
 
+### {% linkable_title Release 0.38.2 - February 12 %}
+
+- Validate config will now respect custom config location ([@balloob])
+- Fix Nuki lock on Python 3.4 ([@pschmitt])
+- Fix login issues for myusps ([@happyleavesaoc])
+- Fix hdmi_cec with new customize ([@andrey]-git)
+- Fix MQTT discovery ([@fabaff])
+- Fix Z-Wave thermostat units ([@turbokongen])
+
 ### {% linkable_title Breaking changes %}
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
 - Image processing events have been renamed: `identify_face` has become `image_processing.detect_face`, `found_plate` has become `image_processing.found_plate`
 - The [FFmpeg binary sensor][ffmpeg-bin] change the platform name from `ffmpeg` to `ffmpeg_noise` and `ffmpeg_motion`. Also all FFmpeg-related services are moved from a platform implementation to a the [FFmpeg components][ffmpeg] and were rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
+- The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use `this.hass.entities`, `this.hass.callService` and `this.hass.callApi`.
 
 ### {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
