@@ -35,7 +35,7 @@ WantedBy=multi-user.target
 EOF'
 ```
 
-If you've setup Home Assistant in `virtualenv` following our [manual installation guide](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following template should work for you.
+If you've setup Home Assistant in `virtualenv` following our [python installation guide](https://home-assistant.io/getting-started/installation-virtualenv/) or [manual installation guide for raspberry pi](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following template should work for you.
 
 ```
 [Unit]
@@ -46,9 +46,9 @@ After=network.target
 Type=simple
 User=homeassistant
 #make sure the virtualenv python binary is used
-Environment=VIRTUAL_ENV="/srv/homeassistant/homeassistant_venv"
+Environment=VIRTUAL_ENV="/srv/homeassistant"
 Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
-ExecStart=/srv/homeassistant/homeassistant_venv/bin/hass -c "/home/homeassistant/.homeassistant"
+ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
