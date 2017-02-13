@@ -90,8 +90,8 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
-| MySQL           | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
-| MySQL           | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
+| MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 
@@ -105,7 +105,7 @@ For MySQL you may have to install a few dependencies:
 
 ```bash
 $ sudo apt-get install libmysqlclient-dev
-$ pip3 install pymysql
+$ pip3 install mysqlclient
 ```
 If you are in a virtual environment, don't forget to activate it before installing the pymysql package.
 
@@ -114,7 +114,7 @@ pi@homeassistant:~ $ sudo -i
 root@homeassistant:~# su homeassistant  
 homeassistant@homeassistant:/root$ cd /srv/homeassistant/homeassistant_venv/
 homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/activate
-(homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install pymysql
+(homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install mysqlclient
 ```
 
 ### {% linkable_title PostgreSQL %}
