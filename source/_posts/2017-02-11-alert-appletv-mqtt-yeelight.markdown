@@ -145,6 +145,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@Duoxilian]: https://github.com/Duoxilian
 [@eagleamon]: https://github.com/eagleamon
 [@fabaff]: https://github.com/fabaff
+[@happyleavesaoc]: https://github.com/happyleavesaoc
 [@herm]: https://github.com/herm
 [@jabesq]: https://github.com/jabesq
 [@jawilson]: https://github.com/jawilson
