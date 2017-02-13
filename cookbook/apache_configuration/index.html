@@ -105,6 +105,9 @@
 <p>So you already have a working Apache server available at example.org.
 Your home assistant is correctly working on this web server and available at localhost:8123</p>
 
+<p>Enable <code class="highlighter-rouge">mod_proxy_wstunnel</code> by running:
+<code class="highlighter-rouge">sudo a2enmod proxy_wstunnel</code></p>
+
 <p>To be able to access to your home assistant instance by using https://home.example.org, add to following file into <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;VirtualHost *:443&gt;
