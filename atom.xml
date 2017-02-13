@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-12T18:21:30+00:00</updated>
+  <updated>2017-02-13T00:40:41+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -125,11 +125,23 @@
   <li>Fix AppleTV conflicting dependency breaking websockets (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
 
+<h3><a class="title-link" name="release-0382---february-12" href="#release-0382---february-12"></a> Release 0.38.2 - February 12</h3>
+
+<ul>
+  <li>Validate config will now respect custom config location (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Nuki lock on Python 3.4 (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Fix login issues for myusps ([@happyleavesaoc])</li>
+  <li>Fix hdmi_cec with new customize ([@andrey]-git)</li>
+  <li>Fix MQTT discovery (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fix Z-Wave thermostat units (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 <ul>
   <li>The support for <a href="https://home-assistant.io/components/media_player.webostv/">LG webOS Smart TVs</a> was improved. This requires you to move <code class="highlighter-rouge">$HOME/.pylgtv</code> to <code class="highlighter-rouge">$HASS_CONFIG_DIR/webostv.conf</code> or Home Assistant will need to be paired with the TV again.</li>
   <li>Image processing events have been renamed: <code class="highlighter-rouge">identify_face</code> has become <code class="highlighter-rouge">image_processing.detect_face</code>, <code class="highlighter-rouge">found_plate</code> has become <code class="highlighter-rouge">image_processing.found_plate</code></li>
   <li>The <a href="https://home-assistant.io/components/binary_sensor.ffmpeg/">FFmpeg binary sensor</a> change the platform name from <code class="highlighter-rouge">ffmpeg</code> to <code class="highlighter-rouge">ffmpeg_noise</code> and <code class="highlighter-rouge">ffmpeg_motion</code>. Also all FFmpeg-related services are moved from a platform implementation to a the <a href="https://home-assistant.io/components/ffmpeg/">FFmpeg components</a> and were rename from <code class="highlighter-rouge">binary_sensor.ffmpeg_xy</code> to <code class="highlighter-rouge">ffmpeg.xy</code>.</li>
+  <li>The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use <code class="highlighter-rouge">this.hass.entities</code>, <code class="highlighter-rouge">this.hass.callService</code> and <code class="highlighter-rouge">this.hass.callApi</code>.</li>
 </ul>
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
