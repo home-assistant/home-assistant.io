@@ -42,6 +42,7 @@ Configuration variables:
 - **brightness_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the brightness value.
 - **rgb_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the RGB value.
 - **color_temp_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the color temperature value.
+- **color_temp_command_template** (*Optional*): Defines a [template](/topics/templating/) to set the color temperature value.
 - **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
@@ -93,6 +94,31 @@ light:
   command_topic: "office/rgb1/light/switch"
   brightness_state_topic: 'office/rgb1/light/brightness'
   brightness_command_topic: 'office/rgb1/light/brightness/set'
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+```
+
+
+### {% linkable_title Brightness and color temperature support %}
+
+To enable a light with brightness and color temperature support in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yml entry
+light:
+  platform: mqtt
+  name: "Office light"
+  state_topic: "office/light/status"
+  command_topic: "office/light/switch"
+  brightness_state_topic: 'office/light/brightness'
+  brightness_command_topic: 'office/light/brightness/set'
+  color_temp_state_topic: 'office/light/colorTemperature'
+  color_temp_command_topic: 'office/light/colorTemperature/set'
+  # To convert from a light with Kelvin to HA-default Mired
+  color_temp_value_template: '{{ 1000000.0 / value_json }}'
+  color_temp_command_template: '{{ 1000000.0 / value_json }}'
   qos: 0
   payload_on: "ON"
   payload_off: "OFF"
