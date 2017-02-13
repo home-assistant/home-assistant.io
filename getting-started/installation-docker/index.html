@@ -99,9 +99,9 @@
 <p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
 
 <p class="note">
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace <code class="highlighter-rouge">-v /etc/localtime:/etc/localtime:ro</code> with <code class="highlighter-rouge">-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>)
+When using boot2docker on macOS you are unable to map the local time to your Docker container. Replace <code class="highlighter-rouge">-v /etc/localtime:/etc/localtime:ro</code> with <code class="highlighter-rouge">-e "TZ=America/Los_Angeles"</code> (replacing America/Los_Angeles with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>)
 
-Additionally, if your expectation is that you will be able to browse directly to <code class="highlighter-rouge">http://localhost:8123</code> on your OS X host, then you will also need to replace the <code class="highlighter-rouge">--net=host</code> switch with <code class="highlighter-rouge">-p 8123:8123</code>. This is currently the only way to forward ports on to your actual host(OS X) machine instead of the virtual machine inside xhyve. More detail on this can be found in <a href="https://forums.docker.com/t/should-docker-run-net-host-work/14215/10">the docker forums</a>.
+Additionally, if your expectation is that you will be able to browse directly to <code class="highlighter-rouge">http://localhost:8123</code> on your macOS host, then you will also need to replace the <code class="highlighter-rouge">--net=host</code> switch with <code class="highlighter-rouge">-p 8123:8123</code>. This is currently the only way to forward ports on to your actual host (macOS) machine instead of the virtual machine inside <code class="highlighter-rouge">xhyve</code>. More detail on this can be found in <a href="https://forums.docker.com/t/should-docker-run-net-host-work/14215/10">the docker forums</a>.
 </p>
 
 <p>If you change the config you have to restart the server.
