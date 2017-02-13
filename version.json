@@ -1,5 +1,5 @@
 {
-  "current_version": "0.38.1",
+  "current_version": "0.38.2",
   "release_date": "2017-02-12T00:00:00+00:00",
   "release_notes": "https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/",
   "release_notes_path": "/blog/2017/02/11/alert-appletv-mqtt-yeelight/",
@@ -10,6 +10,6 @@
   "semantic_version": {
     "major": 0,
     "minor": 38,
-    "patch": 1
+    "patch": 2
   }
 }
