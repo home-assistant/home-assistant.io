@@ -18,9 +18,9 @@ $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/
 This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.
 
 <p class='note'>
-When using boot2docker on OS X you are unable to map the local time to your Docker container. Replace `-v /etc/localtime:/etc/localtime:ro` with `-e "TZ=America/Los_Angeles"` (replacing America/Los_Angeles with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones))
+When using boot2docker on macOS you are unable to map the local time to your Docker container. Replace `-v /etc/localtime:/etc/localtime:ro` with `-e "TZ=America/Los_Angeles"` (replacing America/Los_Angeles with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones))
 
-Additionally, if your expectation is that you will be able to browse directly to `http://localhost:8123` on your OS X host, then you will also need to replace the `--net=host` switch with `-p 8123:8123`. This is currently the only way to forward ports on to your actual host(OS X) machine instead of the virtual machine inside xhyve. More detail on this can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
+Additionally, if your expectation is that you will be able to browse directly to `http://localhost:8123` on your macOS host, then you will also need to replace the `--net=host` switch with `-p 8123:8123`. This is currently the only way to forward ports on to your actual host (macOS) machine instead of the virtual machine inside `xhyve`. More detail on this can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 </p>
 
 If you change the config you have to restart the server.
