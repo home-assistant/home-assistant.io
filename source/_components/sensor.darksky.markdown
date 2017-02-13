@@ -84,7 +84,19 @@ Configuration variables:
   - **apparent_temperature_min**: Today's expected apparent low temperature.
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
-`auto` will let forecast.io decide the unit system based on location.
+`auto` will let Dark Sky decide the unit system based on location.
+- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
+  - `update_interval: 'HH:MM:SS'`
+  - `update_interval: 'HH:MM'`
+  - Time period dictionary, e.g.:
+    <pre>update_interval:
+        # At least one of these must be specified:
+        days: 0
+        hours: 0
+        minutes: 3
+        seconds: 30
+        milliseconds: 0
+    </pre>
 
 <p class='note warning'>
 Note: While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).

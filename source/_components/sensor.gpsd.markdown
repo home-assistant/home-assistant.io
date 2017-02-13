@@ -45,7 +45,7 @@ To setup a GPSD sensor in your installation, add the following to your `configur
 
 ```yaml
 # Example configuration.yaml entry
-senosr:
+sensor:
   - platform: gpsd
 ```
 

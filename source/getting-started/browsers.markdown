@@ -9,9 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant requires a web browser to show the frontend. Not all browsers include features which are needed to use the Home Assistant frontend. If you are running into trouble, check the list below.
-
-We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works.
+Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works.
 
 We would appreciate if you help to keep this page up-to-date and add feedback.
 
@@ -19,13 +17,14 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser                   | Release        | State      | Comments                 |
 | :------------------------ |:---------------|:-----------|:-------------------------|
-| Internet Explorer ([IE])  | 11             | partially | Streaming updates not working. Display issues |
-| Microsoft [Edge]          | deli. Win 10   | partially | Streaming updates not working. |
+| Internet Explorer ([IE])  | 11             | Not supported | Does not support promises. |
+| Microsoft [Edge]          | deli. Win 10   | works | Streaming updates not working. |
 | [Chrome]                  | 50.0.2661.102  | works      |                          |
 | [Firefox]                 | 43.0.1         | works      |                          |
 | [Iridium]                 | 48.2           | works      |                          |
+| [Opera]                   | 42.0.2393.351  | works      |                          |
 
-## {% linkable_title MacOS %}
+## {% linkable_title macOS %}
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -35,13 +34,13 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Firefox]             | 47.0           | works      |                          |
+| [Firefox]             | 49.0           | works      |                          |
 | [Midori]              | 0.5.11         | works      |                          |
-| [Chromium]            | 50.0.2661.102  | works      |                          |
+| [Chromium]            | 53.0.2785.143  | works      |                          |
 | [Conkeror]            | 1.0.2          | works      |                          |
 | [Konqueror]           |                | unknown    |                          |
 | [Uzbl]                | 0.9.0          | works      |                          |
-| [Opera]               |                | unknown    |                          |
+| [Opera]               | 42.0.2393.351  | works      |                          |
 | [Lynx]                | 2.12           | fails      | loads empty page         |
 | [elinks]              |                | fails      | page with manifest and import |
 | [w3m]                 | 0.5.3          | fails      | display the icon shown while loading HA |
@@ -52,8 +51,9 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Chrome]              | 50.0.2661.89   | works      |                          |
-| [Firefox]             | 46.0.1         | works      |                          |
+| [Chrome]              | 50.0.2661.89   | works      | Can also be added to desktop |
+| [Firefox]             | 46.0.1         | works      | Can also be added to desktop |
+| [Opera]               | 42.0.2246.112628 | works    | Can also be added to desktop |
 
 ## {% linkable_title iOS %}
 

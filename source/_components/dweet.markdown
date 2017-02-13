@@ -21,7 +21,7 @@ The `dweet` component makes it possible to transfer details collected with Home 
 
 
 <p class='note warning'>
-  The publishing interval is limited to 1 second. This means that it's possible to missing fast changes.
+  The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
 </p>
 
 To use the `deweet` component in your installation, add the following to your `configuration.yaml` file:

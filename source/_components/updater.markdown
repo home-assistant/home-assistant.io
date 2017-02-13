@@ -13,7 +13,7 @@ ha_category: Other
 
 The `updater` component will check daily for new releases. It will show a badge in the frontend if a new version was found.
 
-The updater component will also collect basic information about Home Assistant and its environment. The information includes the current Home Assistant version, the timezone, Python version and operating system infomation. No identifiable information (i.e. IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
+The updater component will also collect basic information about Home Assistant and its environment. The information includes the current Home Assistant version, the timezone, Python version and operating system information. No identifiable information (i.e. IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 

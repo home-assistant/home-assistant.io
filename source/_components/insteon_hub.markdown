@@ -12,6 +12,10 @@ ha_category: Hub
 ha_iot_class: "Cloud Polling"
 ---
 
+<p class='note warning'>
+This component has been disabled due to a complaint by Insteon. It will be enabled again once <a href='https://github.com/home-assistant/home-assistant/issues/3811'>this issue</a> has been resolved.
+</p>
+
 The `insteon` component lets you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
 You will need to obtain an Insteon REST API key from the [Insteon Developer program](http://www.insteon.com/become-an-insteon-developer) to use this component.

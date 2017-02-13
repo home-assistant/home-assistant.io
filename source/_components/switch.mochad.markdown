@@ -29,4 +29,5 @@ Configuration variables:
 
 - **address** (*Required*): The X10 address of the switch.
 - **name** (*Optional*): The name of the switch. Default is: x10_switch_dev_*address*.
+- **comm_type** (*Optional*): pl (powerline) or rf (radio frequency). Default is pl.
 

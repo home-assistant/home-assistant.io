@@ -30,9 +30,9 @@ Configuration variables:
 
 - **max_gps_accuracy** (*Optional*): Sometimes Owntracks can report GPS location with a very low accuracy (few kilometers). That can trigger false zoning in your Home Assistant installation. With the parameter, you can filter these GPS reports. The number has to be in meter. For example, if you put 200 only GPS report with an accuracy under 200 will be take in account.
 - **waypoints** (*Optional*): Owntracks users can define [waypoints](http://owntracks.org/booklet/features/waypoints/) (a.k.a regions) which are similar in spirit to Home Assistant zones. If this configuration variable is `True`, the Owntracks users who are in `waypoint_whitelist` can export waypoints from the device and Home Assistant will import them as zone definitions. Defaults to `True`.
-- **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](https://home-assistant.io/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. Defaults to all users who are connected to Home Assistant via Owntracks.
+- **waypoint_whitelist** (*Optional*): A list of user names (as defined for [Owntracks](/components/device_tracker.owntracks/)) who can export their waypoints from Owntracks to Home Assistant. Defaults to all users who are connected to Home Assistant via Owntracks.
 
-A full sample configuration for the `owntracks` plaftfrom is shown below:
+A full sample configuration for the `owntracks` platform is shown below:
 
 ```yaml
 # Example configuration.yaml entry
@@ -46,14 +46,26 @@ device_tracker:
 ```
 
 ### {% linkable_title Using Owntracks with other device trackers %}
-Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_scanner/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
+Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
+
+An example showing the inclusion of the `mac` field for multiple component tracking. The `mac` field will need to be added to the `owntracks` device and will enable tracking by all components that track via the `mac` address.
+
+```yaml
+USERNAME_DEVICE_ID:
+  name: Friendly Name
+  mac: EA:AA:55:E7:C6:94
+  picture: https://home-assistant.io/images/favicon-192x192.png
+  gravatar: test@example.com
+  track: yes
+  hide_if_away: no
+```
 
 ### {% linkable_title Using Owntracks regions %}
 Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
 
 Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
-When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS co-ordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.
+When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS coordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.
 
 ### {% linkable_title Using Owntracks regions - forcing Owntracks to update using  %}iBeacons
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.

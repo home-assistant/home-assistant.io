@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netatmo Camera"
-description: "Instructions how to integrate Netatmo camera into Home Assistant."
+description: "Instructions how to integrate Netatmo cameras into Home Assistant."
 date: 2016-06-02 08:10
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.22
 
 ### {% linkable_title Basic Configuration %}
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo Welcome](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
+The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
 
 To enable the Netatmo camera, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your camera.
 
@@ -31,7 +31,7 @@ camera:
 Configuration variables:
 
 - **home** (*Optional*): Will display the cameras of this home only.
-- **cameras** array (*Optional*): Cameras to use. Multiple enties allowed.
+- **cameras** array (*Optional*): Cameras to use. Multiple entities allowed.
     - **camera_name**: Name of the camera to display.
 
 If **home** and **cameras** are not provided, all cameras will be displayed. For more control over your cameras check the configuration sample below.

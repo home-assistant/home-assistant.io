@@ -1,0 +1,29 @@
+{% assign url_parts = page.url | split: "/" %}
+{% if url_parts[2] == "ios" %}
+  {% include asides/ecosystem_ios_navigation.html | compact_newlines %}
+{% elsif url_parts[2] == "hadashboard" %}
+  {% include asides/ecosystem_hadashboard_navigation.html | compact_newlines %}
+{% elsif url_parts[2] == "appdaemon" %}
+  {% include asides/ecosystem_appdaemon_navigation.html | compact_newlines %}
+{% comment %}
+{% elsif url_parts[2] == "cookbook" %}
+  {% include asides/cookbook_navigation.html | compact_newlines %}
+{% endcomment %}
+{% else %}
+  <section class="aside-module grid__item one-whole lap-one-half">
+    {% include edit_github.html %}
+    {% assign ecosystem = site.ecosystem | sort: "title" %}
+
+    <div class="section">
+      <h1 class="title delta">Ecosystem</h1>
+      <ul class="divided">
+        {% for tool in ecosystem %}
+          {% assign filename = tool.path | split: "/" %}
+          {% if filename.size == 2 %}
+            <li><a href="{{tool.url}}">{{tool.title}}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endif %}

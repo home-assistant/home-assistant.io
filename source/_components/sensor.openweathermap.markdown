@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "OpenWeatherMap"
+title: "OpenWeatherMap Sensor"
 description: "Instructions how to integrate OpenWeatherMap within Home Assistant."
 date: 2015-04-25 9:06
 sidebar: true
@@ -26,13 +26,6 @@ sensor:
     api_key: YOUR_API_KEY
     monitored_conditions:
       - weather
-      - temperature
-      - wind_speed
-      - humidity
-      - pressure
-      - clouds
-      - rain
-      - snow
 ```
 
 Configuration variables:
@@ -44,6 +37,7 @@ Configuration variables:
   - **weather**: A human-readable text summary.
   - **temperature**: The current temperature.
   - **wind_speed**: The wind speed.
+  - **wind_bearing**: The wind bearing.
   - **humidity**: The relative humidity.
   - **pressure**: The sea-level air pressure in millibars.
   - **clouds**: Description about cloud coverage.
@@ -53,5 +47,4 @@ Configuration variables:
 Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
 
 Only metric measurements are supported at the moment.
-
 

@@ -13,7 +13,7 @@ ha_release: 0.26
 ---
 
 
-The `ffmpeg` platform allows you to use any video feed as a camera in Home Assistant via [FFmpeg](http://www.ffmpeg.org/). This video source must support multiple simultaenous reads, because for every concurrent Home Assistant user, a connection will be made to the source every 10 seconds. Normally this should not be a problem.
+The `ffmpeg` platform allows you to use any video feed as a camera in Home Assistant via [FFmpeg](http://www.ffmpeg.org/). This video source must support multiple simultaneous reads, because for every concurrent Home Assistant user, a connection will be made to the source every 10 seconds. Normally this should not be a problem.
 
 To enable your FFmpeg feed in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,7 +32,7 @@ Configuration variables:
 
 ### {% linkable_title Image quality %}
 
-You can control the `image quality` with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`.
+You can control the image quality with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`.
 
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).

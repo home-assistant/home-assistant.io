@@ -203,7 +203,8 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 ## {% linkable_title Breaking changes %}
 
  - The [HTTP] component now takes a different format for authenticating IPs
- - Config format has changed for [Proximity]
+ - Configuration format has changed for [Proximity]
+ - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how. 
  - The Z-Wave entity ID change mentioned above
 
 ## {% linkable_title If you need help... %}
@@ -263,6 +264,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [@vittoriom]: https://github.com/vittoriom
 [@wokar]: https://github.com/wokar
 
+[Arduino]: https://home-assistant.io/components/arduino/
 [APNS]: https://home-assistant.io/components/notify.apns/
 [ARWN]: https://home-assistant.io/components/sensor.arwn/
 [Concord232]: https://home-assistant.io/components/alarm_control_panel.concord232/

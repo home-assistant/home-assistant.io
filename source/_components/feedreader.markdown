@@ -41,6 +41,19 @@ automation:
       entity_id: script.my_action
 ```
 
+```yaml
+automation:
+  - alias: Send notification of RSS feed title when updated
+    trigger:
+      platform: event
+      event_type: feedreader
+    action:
+      service: notify.notify
+      data_template: "{{ trigger.event.data.title }}"
+```
+
+*Any field under the `<entry>` tag in the feed can be used for example `tigger.event.data.content` will get the body of the feed entry.
+
 For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
 
 ```python

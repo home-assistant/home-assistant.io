@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: zoneminder.png
 ha_category: Sensor
+ha_release: 0.31
 ---
 
 
-The `ZoneMinder` sensor platform let you monitor the current state of your zoneminder install including the number of events and the current state of the cameras.
+The `zoneminder` sensor platform let you monitor the current state of your ZoneMinder install including the number of events and the current state of the cameras.
 
 <p class='note'>
 You must have the [ZoneMinder component](/components/zoneminder/) configured to use those sensors.
@@ -23,5 +24,10 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: zoneminder
+  - platform: zoneminder
+    include_archived: false
 ```
+
+Configuration variables:
+
+- **include_archived** (*Optional*): Whether to include archived ZoneMinder events in event counts. Default is `false`.

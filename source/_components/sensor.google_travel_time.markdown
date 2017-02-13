@@ -37,6 +37,7 @@ Configuration variables:
 - **options** (*Optional*): A dictionary containing parameters to add to all requests to the Distance Matrix API. A full listing of available options can be found [here](https://developers.google.com/maps/documentation/distance-matrix/intro#RequestParameters).
   - **departure_time** (*Optional*): Can be `now`, a Unix timestamp, or a 24 hour time string like `08:00:00`. If you provide a time string, it will be combined with the current date to get travel time for that moment.
   - **arrival_time** (*Optional*): See notes above for `departure_time`. `arrival_time` can not be `now`, only a Unix timestamp or time string. You can not provide both `departure_time` and `arrival_time`. If you do provide both, `arrival_time` will be removed from the request.
+  - **units** (*Optional*): Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`.
 
 ##### {% linkable_title Dynamic Configuration %}
 
@@ -58,6 +59,14 @@ sensor:
     api_key: XXXX_XXXXX_XXXXX
     origin: zone.home
     destination: Eddies House    # Friendly name of a zone
+    
+  # Tracking entity in imperial unit
+  - platform: google_travel_time
+    api_key: XXXX_XXXXX_XXXXX
+    destination: zone.home
+    options:
+      units: imperial    # 'metric' for Metric, 'imperial' for Imperial
+    
 ```
 
 #### {% linkable_title Entity Tracking %}

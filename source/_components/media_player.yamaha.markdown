@@ -41,9 +41,9 @@ A few notes:
 
 - Not specifying the host variable will result in automatically searching your network for Yamaha Receivers. It will add a media player device for each one.
 - For receivers that support more than one zone, Home Assistant will add one media player per zone supported by the player, named "$name Zone 2" and "$name Zone 3".
-- In some cases, autodiscovery fails due to a known bug in the receiver's firmware. It is possible to manually specify the reveiver's IP address or via it's hostname (if it is discoverably by your DNS) then.
+- In some cases, autodiscovery fails due to a known bug in the receiver's firmware. It is possible to manually specify the receiver's IP address or via it's hostname (if it is discoverably by your DNS) then.
 - Please note: If adding the IP address or hostname manually, you **must** enable network standby on your receiver, or else startup of Home Assistant will hang if you have your receiver switched off.
-- Currently, this component supports powering on/off, mute, volume control and source selection.
+- Currently, this component supports powering on/off, mute, volume control and source selection. Playback controls, for instance play and stop are available for sources that supports it.
 
 A full configuration example will look like the sample below:
 ```yaml

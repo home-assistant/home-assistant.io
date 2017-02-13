@@ -113,7 +113,7 @@ sensor:
       - 106
 ```
 
-Display feeds from the same Emoncms instance with 2 groups of feeds, diffrent `scan_interval` and a diffrent `unit_of_measurement`.
+Display feeds from the same Emoncms instance with 2 groups of feeds, different `scan_interval` and a different `unit_of_measurement`.
 
 ```yaml
 # Example configuration.yaml entry

@@ -15,5 +15,15 @@ ha_release: 0.9
 
 The Wink lock platform allows you to control your [Wink](http://www.wink.com/) locks.
 
-The requirement is that you have setup your [Wink hub](/components/wink/).
+The requirement is that you have setup [Wink](/components/wink/).
 
+
+### Supported lock devices
+
+- Kwikset
+- Schlage
+- Generic Z-wave
+
+<p class='note'>
+If supported by your lock, a binary sensor will be created for each user key code you have defined. These key codes will turn on when the code is entered and automatically turn off after a few seconds.
+</p>

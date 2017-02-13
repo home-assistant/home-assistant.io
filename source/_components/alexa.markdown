@@ -10,6 +10,7 @@ footer: true
 logo: amazon-echo.png
 ha_category: Voice
 featured: true
+ha_release: 0.10
 ---
 
 There are a few ways that you can use Amazon Echo and Home Assistant together.
@@ -157,9 +158,11 @@ alexa:
           {%- for state in states.device_tracker -%}
             {%- if state.name.lower() == User.lower() -%}
               {{ state.name }} is at {{ state.state }}
+            {%- elif loop.last -%}
+              I am sorry, I do not know where {{ User }} is.
             {%- endif -%}
           {%- else -%}
-            I am sorry, I do not know where {{ User }} is.
+            Sorry, I don't have any trackers registered.
           {%- endfor -%}
       card:
         type: simple
@@ -289,7 +292,7 @@ First create a file called `alexa_confirm.yaml` with something like the followin
           ] | random }} {% endraw %}
 ```
 
-Then, wherever you would but some simple text for a response like`OK`, replace it with a reference to the file so that:
+Then, wherever you would put some simple text for a response like `OK`, replace it with a reference to the file so that:
 
 ```
 text: OK
@@ -337,19 +340,24 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 ### {% linkable_title Configuring your Flash Briefing skill %}
 
 - Log in to [Amazon developer console][amazon-dev-console]
-- Click the Alexa button at the top of the console
+- Click the Alexa navigation tab at the top of the console
+- Click on the "Get Started >" button under "Alexa Skills Kit"
 - Click the yellow "Add a new skill" button in the top right
   - Skill Information
-    - For Skill Type select Flash Briefing Skill API
+    - For Skill Type select "Flash Briefing Skill API"
     - You can enter whatever name you want
-    - Hit next
+    - Hit "Next"
   - Interaction Model
     - Nothing to do here
   - Configuration
     - Add new feed
-      - For URL, enter `https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?api_password=YOUR_API_PASSWORD` where `BRIEFING_ID` is the key you entered in your configuration (such as `whoishome` in the above example)
+      - For URL, enter `https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?api_password=YOUR_API_PASSWORD` where `BRIEFING_ID` is the key you entered in your configuration (such as `whoishome` in the above example). **NOTE:** Do not use a non-standard http or https port, AWS will not connect to it.
       - You can use this [specially sized Home Assistant logo][large-icon] as the Feed Icon
       - All other settings are up to you
+      - Hit "Next"
+  - Test
+      - Having passed all validations to reach this screen you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
+- To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Setings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
@@ -358,3 +366,4 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 [small-icon]: /images/components/alexa/alexa-108x108.png
 [templates]: /topics/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
+[alexa-settings-site]: http://alexa.amazon.com/

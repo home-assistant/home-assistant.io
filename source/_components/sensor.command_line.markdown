@@ -31,6 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval
 
 ## {% linkable_title Examples %}
 
@@ -44,15 +45,15 @@ There are several ways to get the temperature of your hard drive. A simple solut
 $ hddtemp -n /dev/sda
 ```
 
-To use those information, the entry for a sensor in the `configuration.yaml` file will look like this.
+To use this information, the entry for a command-line sensor in the `configuration.yaml` file will look like this.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_line
-  name: HD Temperature
-  command: "hddtemp -n /dev/sda"
-  unit_of_measurement: "°C"
+  - platform: command_line
+    name: HD Temperature
+    command: "hddtemp -n /dev/sda"
+    unit_of_measurement: "°C"
 ```
 
 ### {% linkable_title CPU temperature %}
@@ -68,14 +69,34 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
     value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
 
-The `correction_factor` will make sure that the value is shown in a useful format in the frontend.
+### {% linkable_title Monitoring failed login attempts on Home Assistant %}
 
+If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: badlogin
+    command: grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log
+```
+
+Make sure to configure the [logger component](/components/logger) to monitor the [http component](https://home-assistant.io/components/http/) at least the `warning` level.
+
+```yaml
+# Example working logger settings that works
+logger:
+  default: critical
+  logs:
+    homeassistant.components.http: warning
+```
 
 ### {% linkable_title Details about the upstream Home Assistant release %}
 
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
+sensor:
   - platform: command_line
     command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
     name: HA release
@@ -86,6 +107,7 @@ You can see directly in the frontend (**Developer tools** -> **About**) what rel
 If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value. 
 
 ```yaml
+sensor:
   - platform: command_line
     command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
     name: File value
@@ -93,7 +115,7 @@ If you own a devices which are storing values in text files which are accessible
 
 ### {% linkable_title Use an external script %}
 
-The example is doing the same as the [aREST sensor](/components/sensor.arest/) but with an external Python script. It should give you an idea about interacting with devices which are exposing a RESTful API.
+The example is doing the same as the [aREST sensor](/components/sensor.arest/) but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.
 
 The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
 
@@ -115,8 +137,8 @@ To use the script you need to add something like the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: command_line
-  name: Brightness
-  command: "python3 /path/to/script/arest-value.py"
-  unit_of_measurement: "°C"
+  - platform: command_line
+    name: Brightness
+    command: "python3 /path/to/script/arest-value.py"
+    unit_of_measurement: "°C"
 ```

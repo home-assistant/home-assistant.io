@@ -37,6 +37,19 @@ automation 2:
       message: {% raw %}{{ trigger.payload }}{% endraw %}
 ```
 
+## {% linkable_title Important Template Rules %}
+
+There are a few very important rules to remember when writing automation templates:
+
+1. You ***must*** use `data_template` in place of `data` when using templates in the `data` section of a service call.
+1. You ***must*** use `service_template` in place of `service` when using templates in the `service` section of a service call.
+1. You ***must*** surround single-line templates with double quotes (`"`) or single quotes (`'`).
+1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](http://jinja.pocoo.org/docs/dev/templates/#default), or both.
+1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) or an [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) by using the respective [filter](http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters).
+1. While the [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) and [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+
+Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
+
 ## {% linkable_title Available Trigger Data %}
 
 The following tables show the available trigger data per platform.
@@ -55,6 +68,7 @@ The following tables show the available trigger data per platform.
 | `trigger.platform` | Hardcoded: `mqtt`.
 | `trigger.topic` | Topic that received payload.
 | `trigger.payload` | Payload.
+| `trigger.payload_json` | Dictonary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
 ### {% linkable_title numeric_state %}

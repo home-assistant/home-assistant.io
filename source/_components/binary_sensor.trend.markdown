@@ -30,10 +30,10 @@ Configuration variables:
 
 - **sensors** array (*Required*): List of your sensors.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **entity_id** (*Required*): The entity that this sensor tracks.
   - **attribute** (*Optional*): The attribute of the entity that this sensor tracks. If no attribute is specified then the sensor will track the state.
-  - **invert** (*Optional*): Invert the result (so `true` means decending rather than ascending)
+  - **invert** (*Optional*): Invert the result (so `true` means descending rather than ascending)
 
 ## {% linkable_title Examples %}
 
@@ -41,7 +41,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Temperature trend %}
 
-This example indicates `true` if the temperture is rising:
+This example indicates `true` if the temperature is rising:
 
 ```yaml
 binary_sensor:
@@ -50,10 +50,10 @@ binary_sensor:
       temperature_up:
         friendly_name: 'Temp increasing'
         entity_id: sensor.skylight_temperature
-        sensor_class: heat
+        device_class: heat
 ```
 
-And this one indicates `true` if the temperture is falling:
+And this one indicates `true` if the temperature is falling:
 
 ```yaml
 binary_sensor:
@@ -62,6 +62,6 @@ binary_sensor:
       temperature_down:
         friendly_name: 'Temp decreasing'
         entity_id: sensor.skylight_temperature
-        sensor_class: cold
+        device_class: cold
         invert: Yes
 ```

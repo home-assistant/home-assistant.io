@@ -6,6 +6,7 @@ show_title: false
 sidebar: false
 hero_unit: true
 is_homepage: true
+regenerate: true
 hide_github_edit: true
 description: Open-source home automation platform running on Python 3. Track and control all devices at home and automate control. Installation in less than a minute.
 hide_github_edit: true
@@ -18,10 +19,10 @@ hide_github_edit: true
     <div class="grid__item one-third lap-one-third palm-one-whole">
       <div class='current-version material-card text'>
         <h1>Current Version: {{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}</h1>
-        Released: <span class='release-date' title='{{ recent_release_post.release_date }}'>{{ recent_release_post.release_date | date: '%B %d, %Y' }}</span>
+        Released: <span class='release-date'>{{ site.date_released | date: '%B %d, %Y' }}</span>
 
         <div class='links'>
-          <a href='{{ root_url }}{{ recent_release_post.url }}'>Release notes</a>
+          <a href='{{ root_url }}{{ recent_release_post.url }}{{ site.patch_version_notes }}'>Release notes</a>
         </div>
       </div>
       <div class='join-community material-card text'>

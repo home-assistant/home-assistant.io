@@ -29,6 +29,17 @@ mqtt:
   password: PASSWORD
   certificate: /home/paulus/dev/addtrustexternalcaroot.crt
   protocol: 3.1
+  discovery: "discovery/#"
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+    qos: 1
+    retain: true
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+    qos: 1
+    retain: true
 ```
 
 Configuration variables:
@@ -43,6 +54,17 @@ Configuration variables:
 - **client_key** (*Optional*): Client key (example: `/home/user/owntracks/cookie.key`)
 - **client_cert** (*Optional*): Client certificate (example: `/home/user/owntracks/cookie.crt`)
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.
+- **discovery** (*Optional*): The MQTT topic subscribed to use for discovery of MQTT devices.
+- **birth_message** (*Optional*):
+  - **topic** (*Required*): The MQTT topic to publish the message.
+  - **payload** (*Required*): The message content.
+  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
+  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
+- **will_message** (*Optional*):
+  - **topic** (*Required*): The MQTT topic to publish the message.
+  - **payload** (*Required*): The message content.
+  - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
+  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
 
 ## {% linkable_title Picking a broker %}
 
@@ -97,6 +119,10 @@ mqtt:
 
 <p class='note warning'>
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
+</p>
+
+<p class='note'>
+If you are running a mosquitto instance on a different server with proper SSL encryption using a service like letsencrypt you may have to set the certificate to the operating systems own `.crt` certificates file. In the instance of ubuntu this would be `certificate: /etc/ssl/certs/ca-certificates.crt`
 </p>
 
 ### {% linkable_title Public broker %}
@@ -159,7 +185,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 
  - Integrating it into own component. See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to do this.
 
-### {% linkable_title Publish service %}
+## {% linkable_title Publish service %}
 
 The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
 
@@ -177,7 +203,23 @@ The MQTT component will register the service `publish` which allows publishing m
 }
 ```
 
-### {% linkable_title Logging %}
+## {% linkable_title Discovery %}
+
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). Only support for binary sensor is available at the moment.
+
+To enable MQTT discovery, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  discovery: true
+  # Optional
+  discovery_prefix: homeassistant
+```
+
+A motion detection device for your garden would sent its configuration as JSON payload `{"name": "garden", "device_class": "motion"}` to the topic `homeassistant/binary_sensor/garden/config`. After the first message to `config`, then the MQTT messages sent to `state`, eg. `homeassistant/binary_sensor/garden/state`, will update the state in Home Assistant.
+
+## {% linkable_title Logging %}
 
 The [logger](/components/logger/) component allow the logging of received MQTT messages.
 
@@ -191,7 +233,7 @@ logger:
 
 ## {% linkable_title Testing your setup %}
 
-The `mosquitto` broker package ships commandline tools to send and recieve MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provied by HBMQTT. For sending test messages to a broker running on localhost check the example below:
+The `mosquitto` broker package ships commandline tools to send and receive MQTT messages. As an alternative have a look at [hbmqtt_pub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html) and [hbmqtt_sub](http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html) which are provided by HBMQTT. For sending test messages to a broker running on localhost check the example below:
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
@@ -254,6 +296,13 @@ To use this, add the following key to your `configuration.yaml`:
 switch:
   platform: mqtt
   state_format: 'json:somekey[0].value'
+```
+It is also possible to extract JSON values by using a value template:
+
+```yaml
+switch:
+  platform: mqtt
+  value_template: '{% raw %}{{ value_json.somekey[0].value }}{% endraw %}'
 ```
 
 More information about the full JSONPath syntax can be found [here][JSONPath syntax].

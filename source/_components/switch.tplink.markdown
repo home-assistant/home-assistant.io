@@ -20,6 +20,7 @@ Supported units:
 
 - HS100
 - HS110
+- HS200
 
 To use your TPLink switch in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,7 +33,7 @@ switch:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your myStrom switch, eg. `http://192.168.1.32`.
+- **host** (*Required*): The IP address of your TP-Link switch, eg. `http://192.168.1.32`.
 - **name** (*Optional*): The name to use when displaying this switch.
 
 

@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: logitech.png
+logo: squeezebox.png
 ha_category: Media Player
 ha_release: pre 0.7
 ha_iot_class: "Local Polling"
@@ -28,6 +28,8 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): The host name or address of the Logitech Media Server, eg. 192.168.1.21.
-- **port** (*Optional*): Telnet port to Logitech Media Server. Defaults to 9090.
+- **port** (*Optional*): Web interface port to Logitech Media Server. Defaults to 9000.
 - **username** (*Optional*): The username, if password protection is enabled.
 - **password** (*Optional*): The password, if password protection is enabled.
+
+<p class='note'>This platform now uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.</p>

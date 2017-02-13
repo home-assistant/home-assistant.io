@@ -10,6 +10,7 @@ footer: true
 logo: vera.png
 ha_category: Cover
 ha_iot_class: "Local Push"
+ha_release: 0.13
 ---
 
 The `vera` cover platform allows you to control your [Vera](http://getvera.com/) covers from within Home Assistant.

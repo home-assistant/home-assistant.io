@@ -10,6 +10,7 @@ footer: true
 logo: vera.png
 ha_category: Light
 ha_iot_class: "Local Push"
+ha_release: pre 0.7
 ---
 
 The `vera` platform allows you to control your [Vera](http://getvera.com/) lights from within Home Assistant.

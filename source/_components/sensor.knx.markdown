@@ -50,5 +50,5 @@ Configuration variables:
 - **address** (*Required*): The address of the sensor on the bus.
 - **name** (*Optional*): The name to use in the frontend.
 - **minimum** (*Optional*): Minimum sensor value who gets processed. Defaults to a hardcoded default values.
-- **maxmimum** (*Optional*): Maxmimum sensor value who gets processed. Defaults to a hardcoded default.
+- **maximum** (*Optional*): Maximum sensor value who gets processed. Defaults to a hardcoded default.
 

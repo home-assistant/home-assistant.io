@@ -99,21 +99,19 @@ hello_state:
   text: 'Hello, World!'
 ```
 
-Thanks to `DEFAULT_TEXT` variable the component will launch even if no `text:` field is used in the `configuration.yaml` file. Quite often there are variables which are required. It's important to check if all mandatory configuration variables are provided. If not, the setup should fail. We will use the `validate_config` function as a helper to achive this. The next listing shows the essential parts.
+Thanks to `DEFAULT_TEXT` variable the component will launch even if no `text:` field is used in the `configuration.yaml` file. Quite often there are variables which are required. It's important to check if all mandatory configuration variables are provided. If not, the setup should fail. We will use `voluptuous` as a helper to achive this. The next listing shows the essential parts.
 
 ```python
-from homeassistant.helpers import validate_config
+import voluptuous as vol
+
+import homeassistant.helpers.config_validation as cv
 [...]
-    if not validate_config(config, {DOMAIN: [CONF_TEXT]}, _LOGGER):
-        return False
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    vol.Required(CONF_TEXT): cv.string,
+})
 ```
 
 If `text:` is missing, there will be a warning in the log file.
-
-```bash
-16-03-12 14:37:37 ERROR (MainThread) [custom_components.hello_state] Missing required configuration items in hello_state: text
-16-03-12 14:37:37 ERROR (MainThread) [homeassistant.bootstrap] component hello_state failed to initialize
-```
 
 After a start or a restart of Home Assistant the component will be visible in the frontend if the `configuration.yaml` file is up-to-date.
 

@@ -20,13 +20,13 @@ To allow Home Assistant to talk to your Z-Wave USB stick you will have to compil
 Make sure you have the correct dependencies installed before running the script:
 
 ```bash
-$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools
+$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools git
 ```
 
-Make sure you have at least version 0.23 of cython.
+Make sure you have at least version 0.23 and at the most 0.24.1 of cython.
 
 ```bash
-$ sudo pip3 install --upgrade cython
+$ sudo pip3 install --upgrade cython==0.24.1
 ```
 
 Then get the OpenZWave files and switch to the `python3` branch:
@@ -43,13 +43,12 @@ $ sudo PYTHON_EXEC=$(which python3) make install
 
 <p class='note'>
 Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
+</p>
 
 ```bash
 $ sudo apt-get install -y checkinstall
 $ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave
 ```
-
-</p>
 
 With this installation, your `config_path` needed below will resemble:
 
@@ -77,9 +76,12 @@ Configuration variables:
 - **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the folder `config` in your Python OpenZWave install directory.
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
-- **customize** (*Optional*): This attribute contains node-specific override values:
+- **customize** (*Optional*): This attribute contains node-specific override values. See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
+  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
+  - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
+- **debug** (*Optional*): Print verbose z-wave info to log. Defaults to False.
 
 To find the path of your Z-Wave USB stick or module, run:
 
@@ -91,6 +93,9 @@ Or, on some other systems (such as Raspberry Pi), use:
 
 ```bash
 $ ls /dev/ttyACM*
+
+# If `hass` runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
+$ sudo usermod -a -G dialout homeassistant
 ```
 
 Or, on some other systems (such as Pine 64), use:
@@ -108,6 +113,10 @@ $ ls /dev/cu.usbmodem*
 <p class='note'>
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
 </p>
+
+### {% linkable_title Adding Devices %}
+
+To add a Z-Wave device to your system, go to the Services menu and select the `zwave` domain, and select the `add-node` service. Then find your device's add button and press that as well. 
 
 ### {% linkable_title Adding Security Devices %}
 
@@ -221,18 +230,19 @@ The `zwave` component exposes multiple services to help maintain the network.
 | ------- | ----------- |
 | add_node | Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.|
 | add_node_secure | Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network. |
-| change_association | Add or remove an association in th Z-Wave network
 | cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
+| change_association | Add or remove an association in the Z-Wave network |
 | heal_network | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
+| print_config_parameter | Prints Z-wave node's config parameter value to the log.
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
-| set_config_parameter | Let's the user set a config parameter to a node.
+| rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
+| set_config_parameter | Let's the user set a config parameter to a node.|
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | start_network | Starts the Z-Wave network.|
 | stop_network | Stops the Z-Wave network.|
 | test_network | Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".|
-| rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
 
-The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a `heal_network` at midnight.  This is a configuration option for the `zwave` component, the option defaults to `true` but can be disabled by setting `auto_heal` to false.  Using the `soft_reset` function with some Z-Wave controllers can cause the Z-Wave network to hang. If you're having issues with your Z-Wave network try disabling this automation.
+The `soft_reset` and `heal_network` commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a `heal_network` at midnight.  This is a configuration option for the `zwave` component, the option defaults to `true` but can be disabled by setting `autoheal` to false.  Using the `soft_reset` function with some Z-Wave controllers can cause the Z-Wave network to hang. If you're having issues with your Z-Wave network try disabling this automation.
 
 ```yaml
 # Example configuration.yaml automation entry
