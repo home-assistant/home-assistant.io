@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-13T06:56:57+00:00</updated>
+  <updated>2017-02-13T07:04:01+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -119,7 +119,7 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Validate config will now respect custom config location ([@balloob])
 - Fix Nuki lock on Python 3.4 ([@pschmitt])
 - Fix login issues for myusps ([@happyleavesaoc])
-- Fix hdmi_cec with new customize ([@andrey]-git)
+- Fix hdmi_cec with new customize ([@andrey-git])
 - Fix MQTT discovery ([@fabaff])
 - Fix Z-Wave thermostat units ([@turbokongen])
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-13T06:56:57+00:00</updated>
+  <updated>2017-02-13T07:04:01+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -131,7 +131,7 @@
   <li>Validate config will now respect custom config location (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix Nuki lock on Python 3.4 (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
   <li>Fix login issues for myusps ([@happyleavesaoc])</li>
-  <li>Fix hdmi_cec with new customize ([@andrey]-git)</li>
+  <li>Fix hdmi_cec with new customize (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
   <li>Fix MQTT discovery (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Fix Z-Wave thermostat units (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
 </ul>
