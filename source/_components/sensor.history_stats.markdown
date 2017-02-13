@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "History Statistics"
-description: "Instructions about how to integrate history_stats sensors into Home Assistant."
+title: "History Statistics Sensor"
+description: "Instructions about how to integrate historcal statistics into Home Assistant."
 date: 2017-02-10 12:00
 sidebar: true
 comments: false
@@ -10,14 +10,15 @@ footer: true
 logo: home-assistant.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: "0.38"
+ha_release: 0.39
 ---
 
-The `history_stats` sensor platform provides quick statistics about another component, using data from the history.
+The `history_stats` sensor platform provides quick statistics about another component or platforms, using data from the [history](/components/history/).
 
 It can track how long the component has been in a specific state, in a custom time period.
 
-Examples of what you can track :
+Examples of what you can track:
+
 - How long you were at home this week
 - How long the lights were ON yesterday
 - How long you watched TV today
