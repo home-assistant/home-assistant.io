@@ -10,6 +10,7 @@ footer: true
 logo: globalcache.png
 ha_category: Remote
 ha_iot_class: "Assumed State"
+ha_release: 0.39
 ---
 
 
