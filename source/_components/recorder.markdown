@@ -92,6 +92,8 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
 | MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
 | MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
+| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
+| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 
@@ -99,9 +101,9 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MYSQL %}
+### {% linkable_title MySQL %}
 
-For MySQL you may have to install a few dependencies:
+For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
 $ sudo apt-get install libmysqlclient-dev
@@ -111,7 +113,7 @@ If you are in a virtual environment, don't forget to activate it before installi
 
 ```bash
 pi@homeassistant:~ $ sudo -i
-root@homeassistant:~# su homeassistant  
+root@homeassistant:~# su homeassistant
 homeassistant@homeassistant:/root$ cd /srv/homeassistant/homeassistant_venv/
 homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/activate
 (homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install mysqlclient
