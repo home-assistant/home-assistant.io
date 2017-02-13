@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>This example demonstrates how you can configure Apache to act as a proxy for home assistant.</p>
+  <p>This example demonstrates how you can configure Apache to act as a proxy for Home Assistant.</p>
 
 <p>This is useful if you want to have:</p>
 
@@ -102,13 +102,15 @@
 
 <h4><a class="title-link" name="subdomain" href="#subdomain"></a> Subdomain</h4>
 
-<p>So you already have a working Apache server available at example.org.
-Your home assistant is correctly working on this web server and available at localhost:8123</p>
+<p>So you already have a working Apache server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123</p>
 
-<p>Enable <code class="highlighter-rouge">mod_proxy_wstunnel</code> by running:
-<code class="highlighter-rouge">sudo a2enmod proxy_wstunnel</code></p>
+<p>Enable [<code class="highlighter-rouge">mod_proxy_wstunnel</code>]((https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.htm) by running if you encounter issues while serving Home Assistant through your proxy:</p>
 
-<p>To be able to access to your home assistant instance by using https://home.example.org, add to following file into <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo a2enmod proxy_wstunnel
+</code></pre>
+</div>
+
+<p>To be able to access to your Home Assistant instance by using https://home.example.org, add to following file to <code class="highlighter-rouge">/etc/httpd/conf/extra/</code> as <code class="highlighter-rouge">hass.conf</code></p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;VirtualHost *:443&gt;
   ProxyPreserveHost On
@@ -134,8 +136,7 @@ Include conf/extra/hass.conf
 
 <h4><a class="title-link" name="multiple-instance" href="#multiple-instance"></a> Multiple Instance</h4>
 
-<p>You already have home assistant running on localhost:8123 and available at home.example.org as describe before.
-The configuration file for this home assistant is available in <code class="highlighter-rouge">/home/alice/.homeassistant/configuration.yaml</code></p>
+<p>You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in <code class="highlighter-rouge">/home/alice/.homeassistant/configuration.yaml</code></p>
 
 <p>You want another instance available at https://countryside.example.org</p>
 
@@ -153,7 +154,7 @@ The configuration file for this home assistant is available in <code class="high
 </code></pre>
 </div>
 
-<p>Start home assistant: Now, you have another instance running on localhost:8124</p>
+<p>Start Home Assistant: Now, you have another instance running on http://localhost:8124</p>
 
 <p>To access this instance by using https://countryside.example.org add to <code class="highlighter-rouge">/etc/httpd/conf/extra/hass.conf</code></p>
 
