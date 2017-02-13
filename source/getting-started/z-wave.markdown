@@ -81,6 +81,7 @@ Configuration variables:
   - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
   - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
+  - **force_update** (*Optional*): Specify whether or not updates should be forced causing state changes when an unchanged response is received. Defaults to False.
 - **debug** (*Optional*): Print verbose z-wave info to log. Defaults to False.
 
 To find the path of your Z-Wave USB stick or module, run:
