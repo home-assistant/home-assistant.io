@@ -116,7 +116,7 @@ EOF'</span>
 </code></pre>
 </div>
 
-<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide</a>, the following template should work for you.</p>
+<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
@@ -126,9 +126,9 @@ After=network.target
 Type=simple
 User=homeassistant
 #make sure the virtualenv python binary is used
-Environment=VIRTUAL_ENV="/srv/homeassistant/homeassistant_venv"
+Environment=VIRTUAL_ENV="/srv/homeassistant"
 Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
-ExecStart=/srv/homeassistant/homeassistant_venv/bin/hass -c "/home/homeassistant/.homeassistant"
+ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target

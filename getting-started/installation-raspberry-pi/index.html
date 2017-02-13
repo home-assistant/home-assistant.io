@@ -93,7 +93,7 @@
   <p>This installation of Home Assistant requires the Raspberry Pi to run <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Lite</a>.
 The installation will be installed in a <a href="/getting-started/installation-virtualenv">Virtual Environment</a> with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.</p>
 
-<p>Connect to the Raspberry Pi over ssh. Default password is <code class="highlighter-rouge">raspberry</code>. 
+<p>Connect to the Raspberry Pi over ssh. Default password is <code class="highlighter-rouge">raspberry</code>.
 You will need to enable ssh access. The raspberry pi website has instructions <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">here</a>.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssh pi@ipadress
 </code></pre>
@@ -131,17 +131,17 @@ Since this account is only for running Home Assistant the extra arguments of <co
 <p>Next up is to create and change to a virtual environment for Home Assistant. This will be done as the <code class="highlighter-rouge">homeassistant</code> account.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
 <span class="gp">$ </span><span class="nb">cd</span> /srv/homeassistant
-<span class="gp">$ </span>python3 -m venv homeassistant_venv
-<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/homeassistant_venv/bin/activate
+<span class="gp">$ </span>python3 -m venv .
+<span class="gp">$ </span><span class="nb">source </span>bin/activate
 </code></pre>
 </div>
 <p>Once you have activated the virtual environment you will notice the prompt change and then you can install Home Assistant.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>homeassistant_venv<span class="o">)</span> homeassistant@raspberrypi:/srv/homeassistant <span class="nv">$ </span>pip3 install homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>homeassistant<span class="o">)</span> homeassistant@raspberrypi:/srv/homeassistant <span class="nv">$ </span>pip3 install homeassistant
 </code></pre>
 </div>
 
 <p>Start Home Assistant for the first time. This will complete the installation, create the <code class="highlighter-rouge">.homeasssistant</code> configuration directory in the <code class="highlighter-rouge">/home/homeassistant</code> directory and install any basic dependencies.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>homeassistant_venv<span class="o">)</span> <span class="nv">$ </span>hass
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>homeassistant<span class="o">)</span> <span class="nv">$ </span>hass
 </code></pre>
 </div>
 
