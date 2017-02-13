@@ -10,7 +10,7 @@ footer: true
 ha_category: Infrastructure
 ---
 
-This example demonstrates how you can configure Apache to act as a proxy for home assistant.
+This example demonstrates how you can configure Apache to act as a proxy for Home Assistant.
 
 This is useful if you want to have:
 
@@ -20,13 +20,15 @@ This is useful if you want to have:
 
 #### {% linkable_title Subdomain %}
 
-So you already have a working Apache server available at example.org.
-Your home assistant is correctly working on this web server and available at localhost:8123
+So you already have a working Apache server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123
 
-Enable `mod_proxy_wstunnel` by running:
-`sudo a2enmod proxy_wstunnel`
+Enable [`mod_proxy_wstunnel`]((https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.htm) by running if you encounter issues while serving Home Assistant through your proxy:
 
-To be able to access to your home assistant instance by using https://home.example.org, add to following file into `/etc/httpd/conf/extra/hass.conf`
+```bash
+$ sudo a2enmod proxy_wstunnel
+```
+
+To be able to access to your Home Assistant instance by using https://home.example.org, add to following file to `/etc/httpd/conf/extra/` as `hass.conf`
 
 ```text
 <VirtualHost *:443>
@@ -53,8 +55,7 @@ If you don't want HTTPS, you can change `<VirtualHost *:443>` to `<VirtualHost *
 
 #### {% linkable_title Multiple Instance %}
 
-You already have home assistant running on localhost:8123 and available at home.example.org as describe before.
-The configuration file for this home assistant is available in `/home/alice/.homeassistant/configuration.yaml`
+You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in `/home/alice/.homeassistant/configuration.yaml`
 
 You want another instance available at https://countryside.example.org
 
@@ -70,7 +71,7 @@ http:
   ...
 ```
 
-Start home assistant: Now, you have another instance running on localhost:8124
+Start Home Assistant: Now, you have another instance running on http://localhost:8124
 
 To access this instance by using https://countryside.example.org add to `/etc/httpd/conf/extra/hass.conf`
 
