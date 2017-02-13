@@ -112,7 +112,7 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Validate config will now respect custom config location ([@balloob])
 - Fix Nuki lock on Python 3.4 ([@pschmitt])
 - Fix login issues for myusps ([@happyleavesaoc])
-- Fix hdmi_cec with new customize ([@andrey]-git)
+- Fix hdmi_cec with new customize ([@andrey-git])
 - Fix MQTT discovery ([@fabaff])
 - Fix Z-Wave thermostat units ([@turbokongen])
 
