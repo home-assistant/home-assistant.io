@@ -15,7 +15,11 @@ The logger component lets you define the level of logging activities in Home Ass
 
 To enable the logger in your installation, add the following to your `configuration.yaml` file:
 
-By default log all messages and ignore events lower than critical for specified components.
+To have a full log and log everything only this entry is needed (without any qualifier):
+```yaml
+logger:
+```
+To log all messages and ignore events lower than critical for specified components.
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,7 +30,7 @@ logger:
     homeassistant.components.camera: critical
 ```
 
-By default ignore all messages lower than critical and log event for specified components.
+To ignore all messages lower than critical and log event for specified components.
 
 ```yaml
 # Example configuration.yaml entry

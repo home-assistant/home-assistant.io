@@ -20,7 +20,7 @@ Upon first run, the `zwave` component will take time to initialize entities and 
 | Device                  | Works on Linux | Works on Windows | Works on OSX |
 |-------------------------|----------------|------------------|--------------|
 | Aeotec Z-Stick Series 2 |   &#10003;     |                  |              |
-| Aeotec Z-Stick Series 5 |   &#10003;     |                  |              |
+| Aeotec Z-Stick Series 5 |   &#10003;     |                  |   &#10003;   |
 | Pine64 Z-Wave Module    |   &#10003;     |                  |              |
 | Razberry GPIO Module    |   &#10003;     |                  |              |
 | ZWave.me UZB1           |   &#10003;     |                  |              |

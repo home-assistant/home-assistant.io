@@ -47,6 +47,8 @@ If you are running Home Assistant over SSL or from within a container, you will 
 
 ## {% linkable_title Service say %}
 
+The `say` service support `language` and on some platforms also `options` for set i.e. *voice, motion, speed, etc*. The text for speech is set with `message`.
+
 Say to all `media_player` device entities:
 
 ```yaml
@@ -55,6 +57,7 @@ service: tts.google_say
 data:
   message: 'May the Force be with you.'
 ```
+Say to the `media_player.floor` device entity:
 
 ```yaml
 service: tts.google_say
@@ -63,15 +66,25 @@ data:
   message: 'May the Force be with you.'
 ```
 
+Say to the `media_player.floor` device entity in French:
+
+```yaml
+service: tts.google_say
+entity_id: media_player.floor
+data:
+  message: 'Que la force soit avec toi.'
+  language: 'fr'
+```
+
 With a template:
 
 ```yaml
 service: tts.google_say
 data_template:
-  message: 'Temperature is {% raw %}{{ sensor.temperature }}{% endraw %}.'
+  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
   cache: false
 ```
 
 ## {% linkable_title Cache %}
 
-The component have two caches. Both caches can be controlled with the `cache` option in the  platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
+The component has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.

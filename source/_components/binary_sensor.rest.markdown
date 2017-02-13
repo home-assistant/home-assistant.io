@@ -109,3 +109,4 @@ Authorization: Basic aGExOnRlc3Qx
 Accept-Encoding: identity
 Content-Type: application/json
 User-Agent: Home Assistant
+```

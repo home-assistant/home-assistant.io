@@ -109,6 +109,7 @@ Note: Prereqs will vary across different machines. So far users have reported re
 
 - ruby-dev - `sudo apt-get install ruby-dev`
 - node-js - `sudo apt-get install nodejs`
+- libsqlite3-dev - `sudo apt-get install libsqlite3-dev`
 - execjs gem - `gem install execjs`
 
 You will need to research what works on your particular architecture and also bear in mind that version numbers may change over time.
@@ -144,5 +145,7 @@ When you are done, you can start a local webserver like this or if you are on do
 $ dashing start
 ```
 
-Point your browser to **http://localhost:3030** to access the hadashboard on your local machine.and you should see the supplied default dashboard. If you want to access it remotely ensure you have opened any required firewall rules. 
+Point your browser to **http://localhost:3030** to access the hadashboard on your local machine, and you should see the supplied default dashboard. If you want to access it remotely ensure you have opened any required firewall rules. 
+
+If the page never finishes loading and shows up all white, edit the dashboard config to match your own setup, instructions in the next step.
 

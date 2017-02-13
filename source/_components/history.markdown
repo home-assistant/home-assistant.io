@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it.
+The `history` component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the `recorder` component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities as well.
 
 To enable the history option in your installation, add the following to your `configuration.yaml` file:
 
@@ -39,8 +39,8 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be excluded from the history.
   - **domains** (*Optional*): The list of domains to be excluded from the history.
 - **include** (*Optional*): Configure which components should be displayed. 
-  - **entities** (*Optional*): The list of entity ids to be included from the history.
-  - **domains** (*Optional*): The list of domains to be included from the history.
+  - **entities** (*Optional*): The list of entity ids to be included to the history.
+  - **domains** (*Optional*): The list of domains to be included to the history.
 
 Without any `include` or `exclude` configuration the history displays graphs for every entity (well that's not exactly true - for instance `hidden` entities or `scenes` are never shown) on a given date. If you are only interested in some of the entities you several options:
 
@@ -89,7 +89,7 @@ history:
 
 #### {% linkable_title Implementation details %}
 
-The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory.
+The history is stored in a SQLite database `home-assistant_v2.db` within your configuration directory if the `recorder` component is not set up differently.
 
  - events table is all events except `time_changed` that happened while recorder component was running.
  - states table contains all the `new_state` values of `state_changed` events.

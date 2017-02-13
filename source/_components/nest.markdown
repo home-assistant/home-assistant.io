@@ -12,7 +12,7 @@ ha_category: Hub
 featured: true
 ---
 
-The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a client_id and client_secret.
+The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
 
 ### {% linkable_title Setting up developer account %}
 
@@ -54,6 +54,6 @@ nest:
 
 Configuration variables:
 
-- **client_id** (*Required*): Your Nest developer client id.
+- **client_id** (*Required*): Your Nest developer client ID.
 - **client_secret** (*Required*): Your Nest developer client secret.
 - **structure** (*Optional*): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.

@@ -22,12 +22,14 @@ Templating is a powerful feature in Home Assistant that allows the user control 
 
 - Formatting outgoing messages in, for example, the [notify] and [alexa] components.
 - Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
+- [Advanced Automation templating]auto-template]
 
 [notify]: /components/notify/
 [alexa]: /components/alexa/
 [MQTT]: /components/mqtt/
 [REST sensor]: /components/sensor.rest/
 [command line sensor]: /components/sensor.command_line/
+[auto-template]: /getting-started/automation-templating/
 
 ## {% linkable_title Building templates %}
 
@@ -81,6 +83,8 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
 - Filter `timestamp_custom(format_string, local_boolean)` will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting [Python format options](https://docs.python.org/3/library/time.html#time.strftime).
+- Filter `max` will obtain the larget item in a sequence.
+- Filter `min` will obtain the smallest item in a sequence.
 
 [strp-format]: https://docs.python.org/3.4/library/datetime.html#strftime-and-strptime-behavior
 
@@ -118,12 +122,12 @@ Print out a list of all the sensor states.
 {% if is_state('device_tracker.paulus', 'home') %}
   Ha, Paulus is home!
 {% else %}
-  Paulus is at {{ states('device_tracker.paulus')) }}.
+  Paulus is at {{ states('device_tracker.paulus') }}.
 {% endif %}
 
 {{ states.sensor.temperature | float + 1 }}
 
-{{ states.sensor.temperature | float * 10 | round(2) }}
+{{ (states.sensor.temperature | float * 10) | round(2) }}
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!

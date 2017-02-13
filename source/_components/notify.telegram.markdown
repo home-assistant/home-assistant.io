@@ -67,7 +67,7 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send an images
-    message: That's a example that sends an image.
+    message: That's an example that sends an image.
     data:
       photo:
         - url: http://192.168.1.28/camera.jpg
@@ -81,8 +81,8 @@ action:
 
 - **url** or **file** (*Required*): For local or remote path to an image.
 - **caption** (*Optional*): The title of the image.
-- **username** (*Optional*): Username for an URL which require HTTP basic authentication.
-- **password** (*Optional*): Username for an URL which require HTTP basic authentication.
+- **username** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **password** (*Optional*): Username for a URL which require HTTP basic authentication.
 
 ### {% linkable_title Document support %}
 
@@ -92,18 +92,18 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a document
-    message: That's a example that sends a document.
+    message: That's an example that sends a document.
     data:
       document:
         file: /tmp/whatever.odf
-        caption: Picture Title xy
+        caption: Document Title xy
         
 ```
 
-- **url** or **file** (*Required*): For local or remote path to an image.
-- **caption** (*Optional*): The title of the image.
-- **username** (*Optional*): Username for an URL which require HTTP basic authentication.
-- **password** (*Optional*): Username for an URL which require HTTP basic authentication.
+- **url** or **file** (*Required*): For local or remote path to a document.
+- **caption** (*Optional*): The title of the document.
+- **username** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **password** (*Optional*): Username for a URL which require HTTP basic authentication.
 
 ### {% linkable_title Location support %}
 

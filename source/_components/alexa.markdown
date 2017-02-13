@@ -158,9 +158,11 @@ alexa:
           {%- for state in states.device_tracker -%}
             {%- if state.name.lower() == User.lower() -%}
               {{ state.name }} is at {{ state.state }}
+            {%- elif loop.last -%}
+              I am sorry, I do not know where {{ User }} is.
             {%- endif -%}
           {%- else -%}
-            I am sorry, I do not know where {{ User }} is.
+            Sorry, I don't have any trackers registered.
           {%- endfor -%}
       card:
         type: simple
@@ -355,7 +357,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - Hit "Next"
   - Test
       - Having passed all validations to reach this screen you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
-- To invoke your flash briefing, open the Alexa app on your phone or go to [Alexa|http://alexa.amazon.com/], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
+- To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Setings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
@@ -364,3 +366,4 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 [small-icon]: /images/components/alexa/alexa-108x108.png
 [templates]: /topics/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
+[alexa-settings-site]: http://alexa.amazon.com/

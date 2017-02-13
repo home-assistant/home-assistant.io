@@ -19,7 +19,7 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
 *  Run the following command
 
 ```bash
-$ wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
+$ curl -O https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && sudo chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
 ```
 <p class='note warning'>
   Note this command is one-line and not run as sudo.
@@ -31,7 +31,7 @@ Installation will take approx. 1-2 hours depending on the Raspberry Pi model the
 
 Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at [http://your_raspberry_pi_ip:8123](http://your_raspberry_pi_ip:8123).
 
-The Home Assistant configuration is located at `/home/hass/.homeassistant`. The [virtualenv](https://virtualenv.pypa.io/en/latest/) with the Home Assistant installation is located at `/srv/homeassistant/homeassistant_venv`. As part of the secure installation, a new user (**homeassistant**) is added to your Raspberry Pi to run Home Assistant. This is a system account and does not have login or other abilities by design. When editing your `configuration.yaml` files, you will need to run the commands with `sudo` or by switching user.
+The Home Assistant configuration is located at `/home/homeassistant/.homeassistant` (or `/home/hass/.homeassistant` if installed prior to December 2016). The [virtualenv](https://virtualenv.pypa.io/en/latest/) with the Home Assistant installation is located at `/srv/homeassistant/homeassistant_venv`. As part of the secure installation, a new user (**homeassistant**) is added to your Raspberry Pi to run Home Assistant. This is a system account and does not have login or other abilities by design. When editing your `configuration.yaml` files, you will need to run the commands with `sudo` or by switching user.
 
 <p class='note note'>
   *Windows users*: Setting up WinSCP to allow this seemlessly is at the end of this page.
@@ -95,6 +95,10 @@ To launch the OZWCP web application:
 *  Open a web browser to `http://your_pi_ip:8888`
 *  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
 
+<p class='note note'>
+    If you deployed Home Assistant via the AiO installer prior to December 2016, replace `cd /srv/homeassistant/src/open-zwave-control-panel/` with `cd /srv/hass/src/open-zwave-control-panel/`
+</p>
+
 <p class='note warning'>
   Don't check the USB box regardless of using a USB based device.
 </p>
@@ -105,4 +109,6 @@ The (**homeassistant**)user is added to the GPIO group as part of the install no
 
 ### {% linkable_title WinSCP %}
 
-If you are Windows users who is using [WinSCP](https://winscp.net/), please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. The needed change within WinSCP is: **Environment** -> **SCP/Shell** -> **Shell** and set it to `sudo su -`.
+If you are Windows users who is using [WinSCP](https://winscp.net/), please note that after running the installer, you will need to modify settings allowing you to "switch users" to edit your configuration files. 
+
+First create a new session on WinSCP using Protocol **SCP** pointing to your Pi IP address and port 22 and then modify the needed setting by click on **Advanced...** -> **Environment** -> **SCP/Shell** -> **Shell** and selecting `sudo su -`.

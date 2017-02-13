@@ -15,7 +15,7 @@ There are also trackers available which use different technologies like [MQTT](/
 
 An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time. 
 
-# {% linkable_title Configuring a `device_tracker` platform %}
+## {% linkable_title Configuring a `device_tracker` platform %}
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
@@ -51,7 +51,7 @@ device_tracker:
 
 Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
 
-# {% linkable_title `known_devices.yaml` %}
+## {% linkable_title `known_devices.yaml` %}
 
 Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
 

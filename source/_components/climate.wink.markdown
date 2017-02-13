@@ -16,5 +16,20 @@ ha_iot_class: "Cloud Polling"
 
 The Wink climate platform allows you to get data from your [Wink](http://www.wink.com/) thermostats.
 
-The requirement is that you have setup your [Wink hub](/components/wink/).
+The requirement is that you have setup [Wink](/components/wink/).
+
+
+### Supported climate devices:
+
+- Nest (No wink hub required)
+- Ecobee (No wink hub required)
+- Sensi (No wink hub required)
+- Carrier (Unconfirmed)
+- Honeywell (No wink hub required)
+- Generic Z-Wave
+- Quirky Aros window AC unit
+
+<p class='note'>
+The above devices are confimed to work, but others may work as well.
+</p>
 

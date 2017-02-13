@@ -95,6 +95,7 @@ automation:
 ### {% linkable_title Template trigger %}
 
 Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).
+With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
 ```yaml
 automation:
@@ -130,7 +131,7 @@ automation 3:
     seconds: 00
 ```
 <p class='note warning'>
-  Rememebr that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute. 
+  Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute. 
 </p>
 
 ### {% linkable_title Zone trigger %}

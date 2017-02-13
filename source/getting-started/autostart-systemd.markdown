@@ -35,7 +35,7 @@ WantedBy=multi-user.target
 EOF'
 ```
 
-If you've setup Home Assistant in `virtualenv` following the guide the following template should work for you.
+If you've setup Home Assistant in `virtualenv` following our [python installation guide](https://home-assistant.io/getting-started/installation-virtualenv/) or [manual installation guide for raspberry pi](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following template should work for you.
 
 ```
 [Unit]
@@ -44,9 +44,30 @@ After=network.target
 
 [Service]
 Type=simple
-User=hass
-ExecStartPre=source /srv/hass/bin/activate
-ExecStart=/srv/hass/bin/hass -c "/home/hass/.homeassistant"
+User=homeassistant
+#make sure the virtualenv python binary is used
+Environment=VIRTUAL_ENV="/srv/homeassistant"
+Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
+ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+If you want to use docker, the following template should work for you.
+
+```
+[Unit]
+Description=Home Assistant
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=3
+ExecStart=/usr/bin/docker run --name="home-assistant-%i" -v /home/%i/.homeassistant/:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+ExecStop=/usr/bin/docker stop -t 2 home-assistant-%i
+ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
 
 [Install]
 WantedBy=multi-user.target

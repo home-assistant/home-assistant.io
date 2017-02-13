@@ -24,10 +24,14 @@ This page describes the steps for publishing a new Home Assistant release.
 
 1. Create a blog post in `next` and base it on the text of the PR in the main repository. Add images, additional text, links, etc. if it adds value. Tag each platform/component in a message to documentation.
 2. Create missing documentation as stumbs in `next`.
-3. Update the link on the frontpage (`source/index.html`) to link to the new release blog post and version number.
+3. Update `config.yml` with link to the new release blog post and version number (at the bottom of the file).
 4. Create a pull request from `next` to `current` with the upcoming release number as the title.
 5. Merge `current` into `next` (`$ git checkout next && git merge current`) to make the PR mergeable.
 6. Merge pull request (blog post, updated frontpage, and all new documentation) to `current`.
+
+### {% linkable_title Docker Hub %}
+
+Create a new [tag](https://hub.docker.com/r/homeassistant/home-assistant/tags/) at https://hub.docker.com for the release.
 
 ### {% linkable_title Python Package Index %}
 

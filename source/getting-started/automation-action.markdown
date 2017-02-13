@@ -47,3 +47,26 @@ automation 2:
       data:
         message: Oh wow you really missed something great.
 ```
+
+Conditions can also be part of an action. You can combine multiple service calls and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any service calls after that condition will not be executed.
+
+```yaml
+automation:
+- alias: 'Enciende Despacho'
+  trigger:
+    platform: state
+    entity_id: sensor.mini_despacho
+    to: 'ON'
+  action:
+    - service: notify.notify
+      data:
+        message: Testing conditional actions
+    - condition: or
+      conditions:
+        - condition: template
+          value_template: '{% raw %}{{ states.sun.sun.attributes.elevation < 4 }}{% endraw %}'
+        - condition: template
+          value_template: '{% raw %}{{ states.sensor.sensorluz_7_0.state < 10 }}{% endraw %}'
+    - service: scene.turn_on
+      entity_id: scene.DespiertaDespacho
+```
