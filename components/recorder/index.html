@@ -193,6 +193,14 @@
       <td style="text-align: left"><code class="highlighter-rouge">mysql://user:password@SERVER_IP/DB_NAME</code>      </td>
     </tr>
     <tr>
+      <td style="text-align: left">MySQL (pymysql)</td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql+pymysql://SERVER_IP/DB_NAME</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MySQL (pymysql)</td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql+pymysql://user:password@SERVER_IP/DB_NAME</code></td>
+    </tr>
+    <tr>
       <td style="text-align: left">PostgreSQL</td>
       <td style="text-align: left"><code class="highlighter-rouge">postgresql://SERVER_IP/DB_NAME</code></td>
     </tr>
@@ -207,9 +215,9 @@
 
 <p>Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.</p>
 
-<h3><a class="title-link" name="mysql" href="#mysql"></a> MYSQL</h3>
+<h3><a class="title-link" name="mysql" href="#mysql"></a> MySQL</h3>
 
-<p>For MySQL you may have to install a few dependencies:</p>
+<p>For MySQL you may have to install a few dependencies. You can choose between <code class="highlighter-rouge">pymysql</code> and <code class="highlighter-rouge">mysqlclient</code>:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libmysqlclient-dev
 <span class="gp">$ </span>pip3 install mysqlclient
@@ -218,7 +226,7 @@
 <p>If you are in a virtual environment, don’t forget to activate it before installing the pymysql package.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>pi@homeassistant:~ <span class="nv">$ </span>sudo -i
-<span class="gp">root@homeassistant:~# </span>su homeassistant  
+<span class="gp">root@homeassistant:~# </span>su homeassistant
 <span class="gp">homeassistant@homeassistant:/root$ </span><span class="nb">cd</span> /srv/homeassistant/homeassistant_venv/
 <span class="gp">homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ </span><span class="nb">source </span>bin/activate
 <span class="o">(</span>homeassistant_venv<span class="o">)</span> homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv<span class="nv">$ </span>pip3 install mysqlclient
