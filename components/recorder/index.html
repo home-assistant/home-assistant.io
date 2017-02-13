@@ -186,11 +186,11 @@
     </tr>
     <tr>
       <td style="text-align: left">MySQL</td>
-      <td style="text-align: left"><code class="highlighter-rouge">mysql+pymysql://SERVER_IP/DB_NAME</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql://SERVER_IP/DB_NAME</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MySQL          </td>
-      <td style="text-align: left"><code class="highlighter-rouge">mysql+pymysql://user:password@SERVER_IP/DB_NAME</code>      </td>
+      <td style="text-align: left"><code class="highlighter-rouge">mysql://user:password@SERVER_IP/DB_NAME</code>      </td>
     </tr>
     <tr>
       <td style="text-align: left">PostgreSQL</td>
@@ -212,7 +212,7 @@
 <p>For MySQL you may have to install a few dependencies:</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libmysqlclient-dev
-<span class="gp">$ </span>pip3 install pymysql
+<span class="gp">$ </span>pip3 install mysqlclient
 </code></pre>
 </div>
 <p>If you are in a virtual environment, don’t forget to activate it before installing the pymysql package.</p>
@@ -221,7 +221,7 @@
 <span class="gp">root@homeassistant:~# </span>su homeassistant  
 <span class="gp">homeassistant@homeassistant:/root$ </span><span class="nb">cd</span> /srv/homeassistant/homeassistant_venv/
 <span class="gp">homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ </span><span class="nb">source </span>bin/activate
-<span class="o">(</span>homeassistant_venv<span class="o">)</span> homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv<span class="nv">$ </span>pip3 install pymysql
+<span class="o">(</span>homeassistant_venv<span class="o">)</span> homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv<span class="nv">$ </span>pip3 install mysqlclient
 </code></pre>
 </div>
 
