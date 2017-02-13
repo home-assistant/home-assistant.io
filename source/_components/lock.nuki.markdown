@@ -14,7 +14,7 @@ ha_release: 0.38
 ha_iot_class: "Local Polling"
 ---
 
-The `nuki` platform allows you to control [Nuki Smart Locks](nuki.io) via either a [sofware](https://play.google.com/store/apps/details?id=io.nuki.bridge&hl=fr) or a [physical bridge](https://nuki.io/en/bridge/).
+The `nuki` platform allows you to control [Nuki Smart Locks](https://nuki.io/) via either a [sofware](https://play.google.com/store/apps/details?id=io.nuki.bridge&hl=fr) or a [physical bridge](https://nuki.io/en/bridge/).
 
 To add a Nuki bridge to your installation, you need to enable developper mode on your bridge and define a port and an access token. This can be achieved using the Android app. Please note that there seems to be a maximum length for the API token, even though the app allows you to set a longer one.
 Then add the following to your `configuration.yaml` file:
