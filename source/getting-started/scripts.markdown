@@ -80,18 +80,13 @@ Wait until some things are complete. We support at the moment `wait_template` fo
 
 ```yaml
 # wait until media player have stop the playing
-wait_template: "{{ states.media_player.floor.states == 'stop' }}"
+wait_template: {% raw %}"{{ states.media_player.floor.states == 'stop' }}"{% endraw %}
 ```
 
 ```yaml
 # wait until a valve is < 10 or abort after 1 minutes.
-wait_template: "{{ states.climate.kitchen.attributes.valve < 10 }}"
-timeout: 00:10:00
-```
-
-```yaml
-# alternative
-wait_template: "{% if"
+wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve < 10 }}"{% endraw %}
+timeout: 00:01:00
 ```
 
 ### {% linkable_title Fire an Event %}
