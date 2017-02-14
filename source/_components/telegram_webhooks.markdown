@@ -8,20 +8,24 @@ comments: false
 sharing: true
 footer: true
 logo: telegram.png
-ha_category: "Other"
+ha_category: Notifications
 ha_release: 0.39
 ---
 
 Telegram webhooks support as described in [docs](https://core.telegram.org/bots/webhooks).
 
 With new component `telegram_webhooks` it is possible to send commands to home assistant via telegram bot. It works well with telegram notification: webhooks receive commands from user and notify send messages to user.
+
 Webhook responds only to:
-  * users listed in configuration, in telegram user_id format.
-  * telegram servers (listed in webhooks [docs](https://core.telegram.org/bots/webhooks)) specified in trusted_networks
+- users listed in configuration, in telegram user_id format.
+- telegram servers (listed in webhooks [docs](https://core.telegram.org/bots/webhooks)) specified in trusted_networks
 
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 ```yaml
+http:
+  base_url: <public_url>
+
 telegram_webhooks:
   api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
   trusted_networks:
@@ -36,14 +40,18 @@ telegram_webhooks:
     user2: USER_ID
 ```
 
+Configuration variables:
+- **api_key** (*Optional*): the API token of your bot. If present webhook of bot is automatically registered to `public_url/api/telegram_webhooks`. If not present manual registration is required.
+- **trusted_networks** (*Optional*): telegram server access ACL (default to 149.154.167.197-233)
+- **user_id** (*Required*): list of user in user_id telegram format enabled to interact to webhook
+
 Telegram webhooks raise an event `telegram.command` with a payload
-```json
-{
+```json{
  'command': '/thecommand'
  'args': 'strings after command'
  'user_id': 12345
 }
-```
+
 
 Automation example that realize simple test to command/notify interaction
 ```yaml
@@ -88,7 +96,7 @@ action:
   - service: homeassistant.turn_on
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
   - delay: 
-      seconds: "{{ trigger.event.data.args }}"
+      seconds: 10
   - service: homeassistant.turn_off
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
 ```
