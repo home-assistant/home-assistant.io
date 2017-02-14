@@ -83,6 +83,69 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">IoT Data Exploration with Jupyter Notebooks</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-07-23T18:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 23, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Anton Kireyeu</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>How-To</li>
+      
+        <li>IoT-Data</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p><em>This is the first blog post by Anton Kireyeu. A new contributor to Home Assistant who will focus on exploring and visualizing Home Assistant data.</em></p>
+
+<p>As we learned in the recent <a href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/">blog post by Fabian</a>, all operational data of your Home Assistant application is stored locally and is available for exploration. Our first steps were querying data with the <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>, exporting the data extract as a CSV file and graphing in LibreOffice. But what else can be done with this data and what tools are there available?</p>
+
+<p>This post will help you get set up using a few popular data scientist tools to allow you to locally process your data:</p>
+
+<ul>
+  <li> <a href="http://pandas.pydata.org/">Pandas</a>: an open source tool for data analysis for Python</li>
+  <li> <a href="http://matplotlib.org/">matplotlib</a>: a Python plotting library</li>
+  <li> <a href="https://jupyter.org/">Jupyter notebook</a>: application for creation and sharing of documents containing live code, visualizations and explanatory text</li>
+</ul>
+
+<p class="img">
+<img src="/images/blog/2016-07-data-exploration/graph.png" />
+One of the graphs created with this tutorial.
+</p>
+
+<p><em>TL; DR: Use <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">this Jupyter Notebook</a> to visualize of your data</em></p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/07/19/visualizing-your-iot-data/">Visualize your IoT data</a>
   </h1>
   
@@ -730,72 +793,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/">iBeacons: How to track things that can’t track themselves (part II)</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-05-26T11:06:12+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 26, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Greg Dowling</span>
-    <span><i class='icon-time'></i> eight minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Device-Tracking</li>
-      
-        <li>OwnTracks</li>
-      
-        <li>iBeacons</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p><em>This post is by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
-
-<p>In <a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better">Part 1</a> I talked about using iBeacons to improve presence tracking. In part 2 I’ll talk about how to track things like keys that can’t track themselves by using iBeacons.</p>
-
-<h3><a class="title-link" name="tracking-things-using-ibeacons" href="#tracking-things-using-ibeacons"></a> Tracking things using iBeacons</h3>
-<p>In the first part I mentioned that iBeacons just send out <em>I’m here</em> packets, and we used this to trigger an update when your phone came close to a fixed beacon.</p>
-
-<p>But beacons don’t have to be fixed.</p>
-
-<p>Your phone knows roughly where it is located (based on mobile phone masts, Wi-Fi networks or GPS). If your phone sees an <em>I’m here</em> message then it knows the beacon is close.</p>
-
-<p>If your phone can remember (or tell a server) where it was when it last saw the iBeacon - then it knows where the beacon was. So the result of this is that you can track where an iBeacon was - even though the iBeacon doesn’t have any tracking technology itself.</p>
-
-<p>So if you put an iBeacon on your keys or in your car - then you can track them.</p>
-
-<p class="img">
-  <img width="200" src="/images/blog/2016-05-ibeacons/keys_with_beacon.jpg" />
-  Here are my keys - with a Estimote Nearable iBeacon stuck to them. Ugly but effective!
-</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -874,8 +871,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
       <li><a href="/blog/categories/video/">Video</a></li>
     
       <li><a href="/blog/categories/website/">Website</a></li>
-    
-      <li><a href="/blog/categories/community/">community</a></li>
     
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
     

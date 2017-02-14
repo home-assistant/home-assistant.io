@@ -83,6 +83,137 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/">0.35: Text-to-speech, VLC, Flic, netdata</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-12-17T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 17, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>5000 stars on GitHub, 2000 people in out Gitter chatroom and over a million monthly page views. I don’t think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It’s not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.</p>
+
+<p>This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!</p>
+
+<h2><a class="title-link" name="text-to-speech" href="#text-to-speech"></a> Text to Speech</h2>
+<p>With the addition of a <a href="https://home-assistant.io/components/tts/">text-to-speech</a> component by <a href="https://github.com/pvizeli">@pvizeli</a> we have been able to bring Home Assistant to a whole new level. The text-to-speech component will take in any text and will play it on a media player that supports to play media. We have tested this on Sonos, Chromecast, and Google Home.</p>
+
+<p><a href="https://www.youtube.com/watch?v=Ke0QuoJ4tRM">https://www.youtube.com/watch?v=Ke0QuoJ4tRM</a></p>
+
+<h2><a class="title-link" name="call-for-help-with-hassbian-our-raspberry-pi-image" href="#call-for-help-with-hassbian-our-raspberry-pi-image"></a> Call for help with HASSbian (our Raspberry Pi image)</h2>
+<p>In an effort to make Home Assistant, we’re planning to extend the things that people can do out of the box with HASSbian, our Raspberry Pi image. As you might know, the image is currently maintained by <a href="https://github.com/Landrash">@Landrash</a>. However he also spends a lot of time on improving the docs and helping out with a ton of other things.</p>
+
+<p>So if you know your Linux-foo and would love to contribute to open source, join the <a href="https://gitter.im/home-assistant/hassbian">Hassbian developer chat</a> and take a stab at one of <a href="https://github.com/home-assistant/pi-gen/issues">our open issues</a>.</p>
+
+<h2><a class="title-link" name="vlc-media-player-broadlink-and-gpslogger" href="#vlc-media-player-broadlink-and-gpslogger"></a> VLC media player, Broadlink, and GPSLogger</h2>
+<p>Let you control <a href="https://home-assistant.io/components/media_player.vlc/">VLC media player</a> and  play sound on connected speakers.</p>
+
+<p>This Broadlink <a href="https://home-assistant.io/components/switch.broadlink/">switch</a> platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink <a href="https://home-assistant.io/components/sensor.broadlink/">sensor</a> platform adds support for Broadlink RM2 and A1 Devices.</p>
+
+<p>The <a href="https://home-assistant.io/components/device_tracker.gpslogger/">GPSLogger</a> now also supports attributes as the speed, direction, altitude, provider, and activity.</p>
+
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+<ul>
+  <li>Media player: Support for Sharp <a href="https://home-assistant.io/components/media_player.aquostv/">AquaosTV</a> (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Media player: <a href="https://home-assistant.io/components/media_player.vlc/">VLC</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Switch: Digital Loggers relay(<a href="https://github.com/dethpickle">@dethpickle</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.netdata/">Netdata</a> (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/ezar">@ezar</a>)</li>
+  <li>Sensor: Support weather conditions from Austrian <a href="https://home-assistant.io/components/sensor.zamg/">ZAMG</a> (<a href="https://github.com/mjl">@mjl</a>)</li>
+  <li>Verisure: Add Verisure smartcam capture service (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.flic/">Flic</a> button support added (<a href="https://github.com/soldag">@soldag</a>)</li>
+  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.sensehat/">Sense HAT</a> (<a href="https://github.com/farminf">@farminf</a>)</li>
+  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.hikvision/">Hikvision</a> binary sensor support (<a href="https://github.com/mezz64">@mezz64</a>)</li>
+  <li><a href="https://home-assistant.io/components/tts/">Text-to-speech</a> support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sensor: Support for Broadlink <a href="https://home-assistant.io/components/sensor.broadlink/">sensors</a> (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>
+    <p>Switch: Broadlink <a href="https://home-assistant.io/components/switch.broadlink/">switches</a> supported now (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</p>
+  </li>
+  <li>Media player: Add <code class="highlighter-rouge">source_list</code> to universal media player (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
+  <li>Binary Sensor: Support improvement for Wink (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor: More features for DSMR (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Automation: Parse payload as JSON (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Mediap player - Cast: New progress indicator (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Device tracker: New attributes (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Binary sensor - netatmo: Add support for tags (<a href="https://github.com/jabesq">@jabesq</a>)</li>
+  <li>Climate: Add <code class="highlighter-rouge">away_mode</code> for RadioThermostat (<a href="https://github.com/trisk">@trisk</a>)</li>
+  <li>Device tracker - nmap: Make scan option configurable (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
+  <li>Climate - Ecobee: Add SmartAway option (<a href="https://github.com/devdelay">@devdelay</a>)</li>
+  <li>Light - Hue: Add support for Hue LightGroups (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
+  <li>Media player - Emby: New support for trailer and media position (<a href="https://github.com/mezz64">@mezz64</a>)</li>
+  <li>Camera - Amcrest: Support for resolution (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Media player - Kodi: Authentification fixed and fan art (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/joopert">@joopert</a>)</li>
+  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/jminn">@jminn</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/teodoc">@teodoc</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>, <a href="https://github.com/rubund">@rubund</a>, <a href="https://github.com/dasos">@dasos</a>, <a href="https://github.com/trisk">@trisk</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/auduny">@auduny</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/nkgilley">@nkgilley</a>, <a href="https://github.com/janLo">@janLo</a>, <a href="https://github.com/keatontaylor">@keatontaylor</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>, <a href="https://github.com/Jypy">@Jypy</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/joerocklin">@joerocklin</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/kirichkov">@kirichkov</a>, <a href="https://github.com/r-jordan">@r-jordan</a> and <a href="https://github.com/danielperna84">@danielperna84</a>.</li>
+</ul>
+
+<h3><a class="title-link" name="release-0351---december-18" href="#release-0351---december-18"></a> Release 0.35.1 - December 18</h3>
+
+<p>Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what url you use for hosting Home Assistant:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">base_url</span><span class="pi">:</span> <span class="s">example.duckdns.org</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Fix exit hanging on OS X with async logging (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix Text to speech clearing cache (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Allow setting a base API url in HTTP component (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix occasional errors in automation (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0352---december-19" href="#release-0352---december-19"></a> Release 0.35.2 - December 19</h3>
+
+<ul>
+  <li>When base url specified, do not combine it with <code class="highlighter-rouge">server_port</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0353---december-23" href="#release-0353---december-23"></a> Release 0.35.3 - December 23</h3>
+
+<ul>
+  <li>Fix issue with voicerrs and post api (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix async component update on service calls (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix async log handle do not close (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix nest component with various KeyError exceptions (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
+<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/12/03/remote-websockets-sonarr/">0.34: New Remote component, Websockets, Sonarr, GPSLogger</a>
   </h1>
   
@@ -1410,148 +1541,6 @@
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/09/10/notify-group-reload-api-pihole/">0.28: Reload automation and groups, API documentation, car tracking, Pi-Hole stats</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-09-10T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 10, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> five minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/09/10/notify-group-reload-api-pihole/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>It’s already time for 0.28 thanks to our super short release cycles. Now, it’ official…we hit 4000 stars on Github. That’s amazing. Sorry, not as amazing as all the stuff that was going on for 0.27 but still pretty awesome.</p>
-
-<h3><a class="title-link" name="reload-automation-rules" href="#reload-automation-rules"></a> Reload automation rules</h3>
-
-<p>This release brings you a huge improvement of the <a href="/components/automation/">automation</a> and <a href="/components/group/">group</a> handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.</p>
-
-<p class="img">
-  <img src="/images/screenshots/automation-switches.png" />
-</p>
-
-<h3><a class="title-link" name="raspberry-pi-installation-guide" href="#raspberry-pi-installation-guide"></a> Raspberry Pi installation guide</h3>
-<p>Singleboard computers are very popular to run Home Assistant. To support this fact, the <a href="/getting-started/installation-raspberry-pi/">installation documentation</a> for the Raspberry Pi devices was re-written to get users started as quickly as possible. <a href="https://github.com/Landrash">@Landrash</a> took the lead with on this tasks with help from <a href="https://github.com/kellerza">@kellerza</a> and <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>.</p>
-
-<h3><a class="title-link" name="climate-and--cover" href="#climate-and--cover"></a> Climate and  cover</h3>
-<p>There are countless bugfixes included in this release which will make your experience with the <code class="highlighter-rouge">climate</code> and the <code class="highlighter-rouge">cover</code> platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/djbanks">@djbanks</a>, <a href="https://github.com/danielperna84">@danielperna84</a>, and others the improvements on the code and the frontend side is continuing…</p>
-
-<h3><a class="title-link" name="api-documentation" href="#api-documentation"></a> API documentation</h3>
-<p>The <a href="https://dev-docs.home-assistant.io/en/dev/">Home Assistant API Documentation</a> is a great addition to the already exisiting user documentation. The focus is not end-users but developers who whant to get details about the code without actually browsing the code on Github.</p>
-
-<h3><a class="title-link" name="configuration-validation" href="#configuration-validation"></a> Configuration validation</h3>
-<p>The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/Teagan42">@Teagan42</a>, and <a href="https://github.com/pvizeli">@pvizeli</a> for your effort!</p>
-
-<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
-
-<p><img src="/images/supported_brands/xbox-live.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/automatic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="/images/supported_brands/pi_hole.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
-
-<ul>
-  <li>Light: Added bitfield to Flux LED since we are supporting effects (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Device tracker: <a href="/components/device_tracker.owntracks/">Owntracks</a> waypoint import (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Climate: A lot of bugfix (<a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/djbanks">@djbanks</a>)</li>
-  <li>Notify: Improvement of the title handling (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>RFXtrx: Sensor cleanup (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Device tracker: Fix for BLE device tracker (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Device tracker: Allow ‘None’ MAC addresses to be loaded from <code class="highlighter-rouge">known_devices</code> file (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Cover: Bugfixes (<a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
-  <li>Sensor: Support for displaying details about <a href="/components/sensor.coinmarketcap">crypto currencies</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Device tracker: Support for <a href="/components/device_tracker.automatic/">automatic</a> to track your vehicles (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Devie tracker: Add exclude option to <a href="/components/device_tracker.nmap_tracker/">Nmap</a> device tracker (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Device tracker: Improved login errors for Asus device tracker (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Sensor: Support for displaying the status of <a href="/components/sensor.xbox_live/">Xbox</a> Live accounts (<a href="https://github.com/mKerix">@mKerix</a>)</li>
-  <li>Notify: Adding <code class="highlighter-rouge">link_names</code> for sending Slack message (<a href="https://github.com/salt-lick">@salt-lick</a>)</li>
-  <li>Binary sensor: Add the occupancy sensor class (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Fan: Add supoort for <a href="/components/fan.mqtt/">MQTT fans</a> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Docs: Add Sphinx API doc generation (<a href="https://github.com/bbangert">@bbangert</a>)</li>
-  <li>Core: Allow reloading automation without restart (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: Added scale and offset to the <a href="/components/sensor.temper/">Temper</a> sensor (<a href="https://github.com/mKerix">@mKerix</a>)</li>
-  <li>Sensor: New support for [Trend] sensor (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Device tracker: Keep looking for new BLE devices (<a href="https://github.com/Bart274">@Bart274</a>)</li>
-  <li>Switch: Added device state attributes and support for legacy firmware for D-Link switches (<a href="https://github.com/LinuxChristian">@LinuxChristian</a>)</li>
-  <li>Sensor: Improve 1-Wire device family detection (<a href="https://github.com/Ardetus">@Ardetus</a>)</li>
-  <li>Modbus: Update to be thread safe (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Camera: FFMpeg is abale to get the images (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Core: Reload groups without restart (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Core: Fix remove listener (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: Support for monitoring your <a href="/components/sensor.linux_battery">battery</a> on a Linux host (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Core: Add support for complex template structures to <code class="highlighter-rouge">data_template</code> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li><code class="highlighter-rouge">check_config</code>: Improve yaml fault tolerance and handle border cases (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Core: Add additional <a href="/topics/templating/">template</a> for custom date formats (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>Sensor: Support for getting stats from Pi-Hole systems (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Modbus: New <code class="highlighter-rouge">write_registers</code> <a href="/components/modbus/">Modbus</a> service (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Device tracker: Fix TP-Link Archer C7 long passwords (<a href="https://github.com/snikch">@snikch</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0281---september-12" href="#hotfix-0281---september-12"></a> Hotfix 0.28.1 - September 12</h3>
-
-<ul>
-  <li>Fix: Simplisafe alarm control panels accept any string for code (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Fix: Z-Wave would sometimes not detect all thermostats (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Fix: Automatic device tracker when 2 or more cars are tracked (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
-  <li>Fix: Group ordering is now based on config again (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0282---september-13" href="#hotfix-0282---september-13"></a> Hotfix 0.28.2 - September 13</h3>
-
-<ul>
-  <li>Light - pilight: Fix send RF code (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
-  <li>Recorder: Fix specifying SQLite (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Wink: Fix garage door detection (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Climate - Ecobee: Fix inverted high and low temperatures (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Allow changing covers using scenes (<a href="https://github.com/nvella">@nvella</a>)</li>
-  <li>Device tracker - Automatic: Fix polling (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li><a href="/components/sensor.openweathermap/">OpenweatherMap</a> entity IDs are now like <code class="highlighter-rouge">sensor.owm_temperature</code>. Previously they were like <code class="highlighter-rouge">sensor.weather_temperature</code>. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.</li>
-  <li>Updates of configuration variables due to configuration check or alignment with other platforms. Please update your configuration entries according to the documentation:
-    <ul>
-      <li><a href="/components/octoprint/">OctoPrint</a> component</li>
-      <li>mFi platform (<a href="/components/switch.mfi/">switch</a> and <a href="/components/sensor.mfi/">sensor</a>)</li>
-      <li>NX584 Alarm Control Panel</li>
-      <li>Mediaplayer platforms <a href="/components/media_player.firetv/">FireTV</a>, <a href="/components/media_player.kodi/">Kodi</a> and <a href="/components/media_player.mpd/">MPD</a></li>
-      <li><a href="/components/switch.command_line/">switch</a> and the <a href="/components/cover.command_line/">cover</a> <code class="highlighter-rouge">command_line</code> platforms</li>
-    </ul>
-  </li>
-  <li>Custom components extending <code class="highlighter-rouge">BaseNotificationService</code> need to be aware that <code class="highlighter-rouge">kwargs.get(ATTR_TITLE)</code> will now return <code class="highlighter-rouge">None</code> if a title has not been set, and will need to specify <code class="highlighter-rouge">kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)</code> if they always require a title.</li>
-</ul>
-
-<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
-<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>.</p>
-
-
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -1630,8 +1619,6 @@
       <li><a href="/blog/categories/video/">Video</a></li>
     
       <li><a href="/blog/categories/website/">Website</a></li>
-    
-      <li><a href="/blog/categories/community/">community</a></li>
     
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
     

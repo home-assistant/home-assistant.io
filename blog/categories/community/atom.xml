@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: community | Home Assistant]]></title>
+  <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-14T10:21:46+00:00</updated>
+  <updated>2017-02-14T11:14:51+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -14,13 +14,57 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Workshop at CLT 2017]]></title>
+    <link href="https://home-assistant.io/blog/2017/02/14/clt-workshop/"/>
+    <updated>2017-02-14T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/02/14/clt-workshop</id>
+    <content type="html"><![CDATA[There will be a Home Assistant Workshop at the [Chemnitzer Linux-Tage 2017][clt]. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component. 
+
+Check the Workshop [overview][overview] to get the details.
+
+[Reqistration][anmeldung] is required as the places in the room are limited. The deadline for the registration is March, 8th 2017.
+
+- Location: Technische Universität Chemnitz, Reichenhainer Straße 90, 09126 Chemnitz, Germany
+- Date: March, 12th 2017
+- Time: 10:00, Room W2
+- Language: German
+
+[clt]: https://chemnitzer.linux-tage.de/2017/
+[overview]: https://chemnitzer.linux-tage.de/2017/en/programm/beitrag/356
+[anmeldung]: https://chemnitzer.linux-tage.de/2017/en/programm/anmeldung/workshop/356
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Numbers]]></title>
+    <link href="https://home-assistant.io/blog/2017/01/18/numbers/"/>
+    <updated>2017-01-18T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/01/18/numbers</id>
+    <content type="html"><![CDATA[It's week 3 of 2017 and great things did already happen. This is just a little recap.
+
+- In the [OSS Metrics leaderboard](https://ossmetrics.com/leaderboard) we are on place 30. Within three months we moved from our starting place which was 66 in September 2016 up to the current one.
+- We were listed on [Github Trending](https://github.com/trending/python). Also, was [@balloob](https://github.com/balloob) mentioned as trending developer.
+- [@balloob](https://github.com/balloob)'s talk at the OpenIoT Summit 2016 was rated as one of the [Top 5 videos](http://technewsdir.com/top-5-videos-from-embedded-linux-conference-and-openiot-summit-2016) of the conference.
+- We now ship over [500](/components/#all) components and platforms.
+- We processed over 3500 Pull requests on the [main repository](https://github.com/home-assistant/home-assistant) so far. 
+
+You may ask yourself why this is amazing. It's amazing because we are a community-only project driven by volunteers there is no financial support, no company in the background, and no paid developers who are working on Home Assistant. Here is another "Thank you" because you are the driving force behind Home Assistant.
+
+What more numbers? Checkout the [Trivia page](/help/trivia/#numbers)...
+
+-- Fabian
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Control My Christmas Tree Stats]]></title>
     <link href="https://home-assistant.io/blog/2017/01/03/control-my-christmas-tree-stats/"/>
     <updated>2017-01-03T18:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2017/01/03/control-my-christmas-tree-stats</id>
     <content type="html"><![CDATA[Hello and Happy New Year!
 
-I am not Paulus. My name is Ben. I’m the creator of the [BRUH Automation YouTube channel][bruh]. If you’ve ever seen any of my videos then you’ll know I love home automation and Home Assistant. 
+I am not Paulus. My name is Ben. I'm the creator of the [BRUH Automation YouTube channel][bruh]. If you've ever seen any of my videos then you'll know I love home automation and Home Assistant. 
 
 I wanted to share some exciting stats from one of my latest projects - [Control My Christmas tree!](https://github.com/bruhautomation/BRUH-Christmas-Tree-2016) For this project, I created a Home Assistant instance on a Raspberry Pi 2 that was publically accessible via DuckDNS. Paulus was great in helping me disable several of the developer services that could have been exploited to disable the Home Assistant instance. 
 
@@ -39,17 +83,86 @@ During the time by tree was set up, I had 7,366 visitors from 88 countries conne
   View counts of the video.
 </p>
 
-I’m very excited to report that Home Assistant didn’t crash a single time. In fact, it didn’t even bog down or need to be restarted. The Wemo Insight and Sonoff relays were incredibly resilient, as well. I only had one Sonoff failure and two Wemo Insight failures both of which were resolved by power cycling them. The digital LED strips also fared pretty well, hanging up only twice, aside from a loose connector.  
+I'm very excited to report that Home Assistant didn't crash a single time. In fact, it didn't even bog down or need to be restarted. The Wemo Insight and Sonoff relays were incredibly resilient, as well. I only had one Sonoff failure and two Wemo Insight failures both of which were resolved by power cycling them. The digital LED strips also fared pretty well, hanging up only twice, aside from a loose connector.
 
 I would like to send a big thank you to the Home Assistant developers who have worked so hard on making Home Assistant run so well. This project is a testament to your hard work on making Home Assistant one of the best home automation platforms out there. Thank you!
 
-I’m looking forward to continuing my home automation adventures with Home Assistant and I can’t wait for next Christmas with an even bigger and badder tree. :) 
+I’m looking forward to continuing my home automation adventures with Home Assistant and I can't wait for next Christmas with an even bigger and badder tree. :) 
 
 Wishing everyone the best in 2017!
 
 Cheers! -Ben
 
 [bruh]: https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Thank You]]></title>
+    <link href="https://home-assistant.io/blog/2016/12/19/thank-you/"/>
+    <updated>2016-12-19T05:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/12/19/thank-you</id>
+    <content type="html"><![CDATA[A year ago [Home Assistant 0.10][0.10] landed. Last weekend we released 0.35. Doing 25 releases in a year is a big accomplishment by the community and each release has moved us forwards leaps and bounds. In this year alone we have seen 2800 pull requests on the main repo alone, that's more than 7 a day!
+
+One of the things that Jon Walker, the founder of the company I work for ([AppFolio]), has taught me is that the biggest advantage that you can create for yourself compared to your competitors is to release more often. Everytime you release you are able to get the new features into the hands of the users and developers. The faster people start using it, the faster you get feedback on the good and bad parts and thus the faster can you evolve.
+
+That's why I structured Home Assistant around a two week release cycle. It makes sure that features get out fast and it also forces us to not accumulate a backlog of things to document or test properly. Every two weeks we can start fresh. This makes it easy for new people to start contributing because it's clear when things go out and people are not afraid to miss a release.
+
+However, being on a two week release cycle also means that the community has to rally each two weeks to make sure everything is ready to go. A lot of people are involved in making sure that all pieces are in place, to all of those: thank you! Thank you for all the time and effort you put in to make Home Assistant the best home automation software out there.
+
+Another big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. Making quality software is not a small feat and all of you can be proud of yourself.
+
+Also a big thanks for the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thanks [GitHub], [TravisCI], [CloudFlare] and [Discourse]!
+
+And finally thank you community for being so helpful and awesome 🙇.
+
+We're taking a well deserved break and we will be back again in 2017 with more awesomeness. Happy holidays!
+
+– Paulus
+
+[0.10]: https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/
+[AppFolio]: http://www.appfolioinc.com/
+[GitHub]: https://GitHub.com
+[TravisCI]: https://Travis-ci.org
+[CloudFlare]: https://CloudFlare.com
+[Discourse]: https://Discourse.com
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
+    <link href="https://home-assistant.io/blog/2016/10/02/hacktoberfest/"/>
+    <updated>2016-10-02T00:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/10/02/hacktoberfest</id>
+    <content type="html"><![CDATA[Home Assistant will join this year for [Hacktoberfest], an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!
+
+Why contribute to Home Assistant:
+
+ - Written in Python3 with 94% test coverage
+ - Active and helpful community
+ - Friendly to new contributors
+
+Resources to get started:
+
+ - [Sign up for Hacktoberfest][Hacktoberfest-reg]
+ - [List of entry-level issues for Home Assistant][issues]
+ - [Instructions to setup your development environment][dev-env]
+ - [Home Assistant Development Chat][dev-chat]
+ - [Home Assistant Development Forums][dev-forum]
+ - [Hacktoberfest website][Hacktoberfest]
+
+Are you not a programmer but still want to contribute to Home Assistant? Check out our [list of entry-level issues for the Home Assistant website][issues-doc].
+
+[![Hacktober fest logo][logo]][Hacktoberfest]
+
+[logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
+[Hacktoberfest]: https://hacktoberfest.digitalocean.com/
+[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/sign_up/register
+[issues]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
+[issues-doc]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
+[dev-env]: /developers/development_environment/
+[dev-chat]: https://gitter.im/home-assistant/home-assistant/devs
+[dev-forum]: https://community.home-assistant.io/c/development
 ]]></content>
   </entry>
   

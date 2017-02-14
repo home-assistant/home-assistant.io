@@ -83,6 +83,72 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/">iBeacons: How to track things that can’t track themselves (part II)</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-05-26T11:06:12+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 26, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Greg Dowling</span>
+    <span><i class='icon-time'></i> eight minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Device-Tracking</li>
+      
+        <li>OwnTracks</li>
+      
+        <li>iBeacons</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p><em>This post is by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
+
+<p>In <a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better">Part 1</a> I talked about using iBeacons to improve presence tracking. In part 2 I’ll talk about how to track things like keys that can’t track themselves by using iBeacons.</p>
+
+<h3><a class="title-link" name="tracking-things-using-ibeacons" href="#tracking-things-using-ibeacons"></a> Tracking things using iBeacons</h3>
+<p>In the first part I mentioned that iBeacons just send out <em>I’m here</em> packets, and we used this to trigger an update when your phone came close to a fixed beacon.</p>
+
+<p>But beacons don’t have to be fixed.</p>
+
+<p>Your phone knows roughly where it is located (based on mobile phone masts, Wi-Fi networks or GPS). If your phone sees an <em>I’m here</em> message then it knows the beacon is close.</p>
+
+<p>If your phone can remember (or tell a server) where it was when it last saw the iBeacon - then it knows where the beacon was. So the result of this is that you can track where an iBeacon was - even though the iBeacon doesn’t have any tracking technology itself.</p>
+
+<p>So if you put an iBeacon on your keys or in your car - then you can track them.</p>
+
+<p class="img">
+  <img width="200" src="/images/blog/2016-05-ibeacons/keys_with_beacon.jpg" />
+  Here are my keys - with a Estimote Nearable iBeacon stuck to them. Ugly but effective!
+</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/05/22/get-started-with-all-in-one-installer/">Raspberry Pi all-in-one installer</a>
   </h1>
   
@@ -695,55 +761,6 @@
   </article>
   <hr>
   
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/04/17/updated-documentation/">Updated documentation</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-04-17T06:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 17, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Website</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/04/17/updated-documentation/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>One of the main complaints that we receive is something along the lines “I read that X is possible yet I am unable to find it on the website.”. This post is to announce that we have taken the first steps to improve it by revamping the <a href="/getting-started/">getting started</a> and <a href="/developers/">developers</a> sections. It’s still a work in progress but we now have a solid foundation to build on for the future 👍.</p>
-
-<p>Our documentation has been going through various phases. Initially it was just the README in our GitHub repository. I discovered Jekyll and GitHub pages in December 2014 and created home-assistant.io. I more or less broke the README in 5 pages and <a href="/blog/2014/12/18/website-launched/">called it a website</a>. Back then we had a whopping <a href="https://github.com/home-assistant/home-assistant.io/blob/86bb2df430ce267ab2123d51592d3f068ae509b5/source/components/index.markdown">11 components</a>.</p>
-
-<p>As Home Assistant grew, so did our documentation. <a href="https://github.com/fabaff">Fabian Affolter</a> does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that’s quite a feat given our <a href="https://home-assistant.io/blog/categories/release-notes/">frequent releases</a>! But despite all the efforts, the documentation outgrew our existing documentation organisation.</p>
-
-<p>Today it has been almost 1.5 years since we started the website. We now have <a href="/components/">264 components and platforms</a> under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.</p>
-
-<p>Finally, if you see some content that could use more clarifcation or is outdated, don’t hesitate to use the ‘Edit in GitHub’ link that is present on each page.</p>
-
-    
-  </div>
-  </article>
-  <hr>
-  
 
   <div class="pagination">
     
@@ -822,8 +839,6 @@
       <li><a href="/blog/categories/video/">Video</a></li>
     
       <li><a href="/blog/categories/website/">Website</a></li>
-    
-      <li><a href="/blog/categories/community/">community</a></li>
     
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
     

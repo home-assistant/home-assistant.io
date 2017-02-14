@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-14T10:21:46+00:00</updated>
+  <updated>2017-02-14T11:14:51+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Workshop at CLT 2017]]></title>
+    <link href="https://home-assistant.io/blog/2017/02/14/clt-workshop/"/>
+    <updated>2017-02-14T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/02/14/clt-workshop</id>
+    <content type="html"><![CDATA[<p>There will be a Home Assistant Workshop at the <a href="https://chemnitzer.linux-tage.de/2017/">Chemnitzer Linux-Tage 2017</a>. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component.</p>
+
+<p>Check the Workshop <a href="https://chemnitzer.linux-tage.de/2017/en/programm/beitrag/356">overview</a> to get the details.</p>
+
+<p><a href="https://chemnitzer.linux-tage.de/2017/en/programm/anmeldung/workshop/356">Reqistration</a> is required as the places in the room are limited. The deadline for the registration is March, 8th 2017.</p>
+
+<ul>
+  <li>Location: Technische Universität Chemnitz, Reichenhainer Straße 90, 09126 Chemnitz, Germany</li>
+  <li>Date: March, 12th 2017</li>
+  <li>Time: 10:00, Room W2</li>
+  <li>Language: German</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.38: Alert, AppleTV, MQTT discovery, and Yeelight]]></title>
@@ -1989,116 +2010,6 @@ You have to note:
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.28: Reload automation and groups, API documentation, car tracking, Pi-Hole stats]]></title>
-    <link href="https://home-assistant.io/blog/2016/09/10/notify-group-reload-api-pihole/"/>
-    <updated>2016-09-10T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/09/10/notify-group-reload-api-pihole</id>
-    <content type="html"><![CDATA[<p>It’s already time for 0.28 thanks to our super short release cycles. Now, it’ official…we hit 4000 stars on Github. That’s amazing. Sorry, not as amazing as all the stuff that was going on for 0.27 but still pretty awesome.</p>
-
-<h3><a class="title-link" name="reload-automation-rules" href="#reload-automation-rules"></a> Reload automation rules</h3>
-
-<p>This release brings you a huge improvement of the <a href="https://home-assistant.io/components/automation/">automation</a> and <a href="https://home-assistant.io/components/group/">group</a> handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.</p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/screenshots/automation-switches.png" />
-</p>
-
-<h3><a class="title-link" name="raspberry-pi-installation-guide" href="#raspberry-pi-installation-guide"></a> Raspberry Pi installation guide</h3>
-<p>Singleboard computers are very popular to run Home Assistant. To support this fact, the <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">installation documentation</a> for the Raspberry Pi devices was re-written to get users started as quickly as possible. <a href="https://github.com/Landrash">@Landrash</a> took the lead with on this tasks with help from <a href="https://github.com/kellerza">@kellerza</a> and <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>.</p>
-
-<h3><a class="title-link" name="climate-and--cover" href="#climate-and--cover"></a> Climate and  cover</h3>
-<p>There are countless bugfixes included in this release which will make your experience with the <code class="highlighter-rouge">climate</code> and the <code class="highlighter-rouge">cover</code> platforms better. Two week ago was the biggest merger of implementations released that ever happened in the history of Home Assistant. Thanks to <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/djbanks">@djbanks</a>, <a href="https://github.com/danielperna84">@danielperna84</a>, and others the improvements on the code and the frontend side is continuing…</p>
-
-<h3><a class="title-link" name="api-documentation" href="#api-documentation"></a> API documentation</h3>
-<p>The <a href="https://dev-docs.home-assistant.io/en/dev/">Home Assistant API Documentation</a> is a great addition to the already exisiting user documentation. The focus is not end-users but developers who whant to get details about the code without actually browsing the code on Github.</p>
-
-<h3><a class="title-link" name="configuration-validation" href="#configuration-validation"></a> Configuration validation</h3>
-<p>The validation of the configuration is still on-going. Approximatly 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/Teagan42">@Teagan42</a>, and <a href="https://github.com/pvizeli">@pvizeli</a> for your effort!</p>
-
-<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
-
-<p><img src="https://home-assistant.io/images/supported_brands/xbox-live.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/automatic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/pi_hole.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
-
-<ul>
-  <li>Light: Added bitfield to Flux LED since we are supporting effects (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Device tracker: <a href="https://home-assistant.io/components/device_tracker.owntracks/">Owntracks</a> waypoint import (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Climate: A lot of bugfix (<a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/djbanks">@djbanks</a>)</li>
-  <li>Notify: Improvement of the title handling (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>RFXtrx: Sensor cleanup (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Device tracker: Fix for BLE device tracker (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Device tracker: Allow ‘None’ MAC addresses to be loaded from <code class="highlighter-rouge">known_devices</code> file (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Cover: Bugfixes (<a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/danielperna84">@danielperna84</a>)</li>
-  <li>Sensor: Support for displaying details about <a href="https://home-assistant.io/components/sensor.coinmarketcap">crypto currencies</a> (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.automatic/">automatic</a> to track your vehicles (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Devie tracker: Add exclude option to <a href="https://home-assistant.io/components/device_tracker.nmap_tracker/">Nmap</a> device tracker (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Device tracker: Improved login errors for Asus device tracker (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Sensor: Support for displaying the status of <a href="https://home-assistant.io/components/sensor.xbox_live/">Xbox</a> Live accounts (<a href="https://github.com/mKerix">@mKerix</a>)</li>
-  <li>Notify: Adding <code class="highlighter-rouge">link_names</code> for sending Slack message (<a href="https://github.com/salt-lick">@salt-lick</a>)</li>
-  <li>Binary sensor: Add the occupancy sensor class (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Fan: Add supoort for <a href="https://home-assistant.io/components/fan.mqtt/">MQTT fans</a> (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
-  <li>Docs: Add Sphinx API doc generation (<a href="https://github.com/bbangert">@bbangert</a>)</li>
-  <li>Core: Allow reloading automation without restart (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: Added scale and offset to the <a href="https://home-assistant.io/components/sensor.temper/">Temper</a> sensor (<a href="https://github.com/mKerix">@mKerix</a>)</li>
-  <li>Sensor: New support for [Trend] sensor (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Device tracker: Keep looking for new BLE devices (<a href="https://github.com/Bart274">@Bart274</a>)</li>
-  <li>Switch: Added device state attributes and support for legacy firmware for D-Link switches (<a href="https://github.com/LinuxChristian">@LinuxChristian</a>)</li>
-  <li>Sensor: Improve 1-Wire device family detection (<a href="https://github.com/Ardetus">@Ardetus</a>)</li>
-  <li>Modbus: Update to be thread safe (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Camera: FFMpeg is abale to get the images (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Core: Reload groups without restart (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Core: Fix remove listener (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: Support for monitoring your <a href="https://home-assistant.io/components/sensor.linux_battery">battery</a> on a Linux host (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Core: Add support for complex template structures to <code class="highlighter-rouge">data_template</code> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li><code class="highlighter-rouge">check_config</code>: Improve yaml fault tolerance and handle border cases (<a href="https://github.com/kellerza">@kellerza</a>)</li>
-  <li>Core: Add additional <a href="https://home-assistant.io/topics/templating/">template</a> for custom date formats (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>Sensor: Support for getting stats from Pi-Hole systems (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Modbus: New <code class="highlighter-rouge">write_registers</code> <a href="https://home-assistant.io/components/modbus/">Modbus</a> service (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>Device tracker: Fix TP-Link Archer C7 long passwords (<a href="https://github.com/snikch">@snikch</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0281---september-12" href="#hotfix-0281---september-12"></a> Hotfix 0.28.1 - September 12</h3>
-
-<ul>
-  <li>Fix: Simplisafe alarm control panels accept any string for code (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Fix: Z-Wave would sometimes not detect all thermostats (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Fix: Automatic device tracker when 2 or more cars are tracked (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
-  <li>Fix: Group ordering is now based on config again (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0282---september-13" href="#hotfix-0282---september-13"></a> Hotfix 0.28.2 - September 13</h3>
-
-<ul>
-  <li>Light - pilight: Fix send RF code (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
-  <li>Recorder: Fix specifying SQLite (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Wink: Fix garage door detection (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Climate - Ecobee: Fix inverted high and low temperatures (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Allow changing covers using scenes (<a href="https://github.com/nvella">@nvella</a>)</li>
-  <li>Device tracker - Automatic: Fix polling (<a href="https://github.com/Teagan42">@teagan42</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li><a href="https://home-assistant.io/components/sensor.openweathermap/">OpenweatherMap</a> entity IDs are now like <code class="highlighter-rouge">sensor.owm_temperature</code>. Previously they were like <code class="highlighter-rouge">sensor.weather_temperature</code>. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.</li>
-  <li>Updates of configuration variables due to configuration check or alignment with other platforms. Please update your configuration entries according to the documentation:
-    <ul>
-      <li><a href="https://home-assistant.io/components/octoprint/">OctoPrint</a> component</li>
-      <li>mFi platform (<a href="https://home-assistant.io/components/switch.mfi/">switch</a> and <a href="https://home-assistant.io/components/sensor.mfi/">sensor</a>)</li>
-      <li>NX584 Alarm Control Panel</li>
-      <li>Mediaplayer platforms <a href="https://home-assistant.io/components/media_player.firetv/">FireTV</a>, <a href="https://home-assistant.io/components/media_player.kodi/">Kodi</a> and <a href="https://home-assistant.io/components/media_player.mpd/">MPD</a></li>
-      <li><a href="https://home-assistant.io/components/switch.command_line/">switch</a> and the <a href="https://home-assistant.io/components/cover.command_line/">cover</a> <code class="highlighter-rouge">command_line</code> platforms</li>
-    </ul>
-  </li>
-  <li>Custom components extending <code class="highlighter-rouge">BaseNotificationService</code> need to be aware that <code class="highlighter-rouge">kwargs.get(ATTR_TITLE)</code> will now return <code class="highlighter-rouge">None</code> if a title has not been set, and will need to specify <code class="highlighter-rouge">kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT)</code> if they always require a title.</li>
-</ul>
-
-<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
-<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>.</p>
 
 ]]></content>
   </entry>
