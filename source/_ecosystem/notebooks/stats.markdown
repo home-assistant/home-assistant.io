@@ -7,6 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_external_link: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
 ---
 
+The [Statistics notebook](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb) gets you started if you want to create statistical analysis of your data.

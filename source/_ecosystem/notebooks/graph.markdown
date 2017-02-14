@@ -7,6 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_external_link: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/graph-single-sensor.ipynb
 ---
 
+For graphing this [Jupyter notebook](ha_external_link: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/graph-single-sensor.ipynb) should get you started.
