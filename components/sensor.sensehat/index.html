@@ -116,6 +116,122 @@
   </li>
 </ul>
 
+<h4>Customizing the Sense HAT data</h4>
+
+<p><strong>Format the sensor values</strong>
+Add the following to your <code class="highlighter-rouge">sensor</code></p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sensehat</span>
+    <span class="s">display_options</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">temperature</span>
+        <span class="pi">-</span> <span class="s">humidity</span>
+        <span class="pi">-</span> <span class="s">pressure</span>
+
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">sensehat_temperature</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.temperature.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(1)</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
+      <span class="s">sensehat_pressure</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.pressure.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(1)</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">mb'</span>
+      <span class="s">sensehat_humidity</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.humidity.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(1)</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+</code></pre>
+</div>
+
+<p><strong>Give the values friendly names &amp; icons</strong>
+Add the following to your <code class="highlighter-rouge">customize</code></p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">customize</span><span class="pi">:</span>
+  <span class="s">sensor.sensehat_temperature</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:thermometer</span>
+    <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Temperature"</span>
+  <span class="s">sensor.sensehat_humidity</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:weather-rainy</span>
+    <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humidity"</span>
+  <span class="s">sensor.sensehat_pressure</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:gauge</span>
+    <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Pressure"</span>
+</code></pre>
+</div>
+
+<p><strong>Create a group</strong>
+Add the following to your <code class="highlighter-rouge">groups</code></p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">sense_hat</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Sense HAT</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.sensehat_temperature</span>
+      <span class="pi">-</span> <span class="s">sensor.sensehat_humidity</span>
+      <span class="pi">-</span> <span class="s">sensor.sensehat_pressure</span>
+</code></pre>
+</div>
+<p>Add the <em>sense_hat group</em> a group (<em>Kitchen for example</em>)</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">kitchen</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">group.sense_hat</span>
+</code></pre>
+</div>
+
+<h3>Directions for installing on Raspberry Pi All-In-One installer and HASSbian:</h3>
+<p>Here are the steps to make the <em>SenseHAT</em> sensor work <em>successfully</em> with the virtual enviroment versions.</p>
+
+<h4>Install SenseHAT package to <em>homeassistant_venv</em></h4>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># switch to the homeassistant_venv environment</span>
+sudo su -s /bin/bash homeassistant
+<span class="nb">source</span> /srv/homeassistant/homeassistant_venv/bin/activate
+
+<span class="c"># install the sense-hat lib</span>
+pip3 install sense-hat
+<span class="c"># be patient, this will take a long while</span>
+</code></pre>
+</div>
+<h4>Return to <code class="highlighter-rouge">pi</code></h4>
+<p>Type <code class="highlighter-rouge">exit</code> to quit out of the <em>homeassistant_venv</em> back to your <code class="highlighter-rouge">pi</code> environment.</p>
+
+<p>As all of the following steps should be under the <code class="highlighter-rouge">pi</code> user environment.</p>
+
+<h6>Install <em>RTIMU</em></h6>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Install RTIMU to pi user environment</span>
+pip3 install rtimulib
+
+<span class="c"># Add symlink to RTIMU in _homeassistant_venv_</span>
+<span class="c"># Create a symlink using the following command:</span>
+ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
+
+<span class="c"># Add _homeassistant_ user to the _input_ and the _i2c_ groups</span>
+sudo addgroup homeassistant input
+sudo addgroup homeassistant i2c
+
+<span class="c"># Reboot Raspberry Pi to apply changes</span>
+sudo reboot
+</code></pre>
+</div>
+
+<p>Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home-Assistant fails with errors.
+<em>(The Raspberry Pi All-In-One installer and HASSbian both run Home-Assistant in an virtual environment).</em>
+These issues have been discussed in the repository issue (#5093)[https://github.com/home-assistant/home-assistant/issues/5093)</p>
+
+<p>This fix has been tested with a clean install of:</p>
+
+<ul>
+  <li><a href="https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-01-10/">Raspbian Jessie - version January 2017</a></li>
+</ul>
+
+<p>and</p>
+
+<ul>
+  <li><a href="https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/">Home-Assistant 0.37.1</a></li>
+</ul>
 
 
 </article>
