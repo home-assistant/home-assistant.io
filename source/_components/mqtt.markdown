@@ -29,7 +29,8 @@ mqtt:
   password: PASSWORD
   certificate: /home/paulus/dev/addtrustexternalcaroot.crt
   protocol: 3.1
-  discovery: "discovery/#"
+  discovery: true
+  discovery_prefix: homeassistant
   birth_message:
     topic: 'hass/status'
     payload: 'online'
