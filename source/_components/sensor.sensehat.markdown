@@ -36,7 +36,7 @@ Configuration variables:
   - 'pressure'
 
 
-#### Customizing the Sense HAT data
+###### Customizing the Sense HAT data
 
 **Format the sensor values**
 Add the following to your `sensor`
@@ -102,10 +102,10 @@ group:
 ```
 
 
-### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
+#### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual enviroment versions.
 
-#### Install SenseHAT package to _homeassistant_venv_
+###### Install SenseHAT package to _homeassistant_venv_
 ```bash
 # switch to the homeassistant_venv environment
 sudo su -s /bin/bash homeassistant
@@ -115,7 +115,7 @@ source /srv/homeassistant/homeassistant_venv/bin/activate
 pip3 install sense-hat
 # be patient, this will take a long while
 ```
-#### Return to `pi`
+###### Return to `pi`
 Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment.
 
 As all of the following steps should be under the `pi` user environment.
@@ -138,9 +138,10 @@ sudo addgroup homeassistant i2c
 sudo reboot
 ```
 
-Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home-Assistant fails with errors.
+Unfortunately, enabling the SenseHAT Sensor component for a Virtual Environment install of Home-Assistant fails with errors.
 _(The Raspberry Pi All-In-One installer and HASSbian both run Home-Assistant in an virtual environment)._
-These issues have been discussed in the repository issue (#5093)[https://github.com/home-assistant/home-assistant/issues/5093)
+
+These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:
 
