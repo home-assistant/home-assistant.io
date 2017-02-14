@@ -5,6 +5,8 @@
   {% include asides/ecosystem_hadashboard_navigation.html | compact_newlines %}
 {% elsif url_parts[2] == "appdaemon" %}
   {% include asides/ecosystem_appdaemon_navigation.html | compact_newlines %}
+{% elsif url_parts[2] == "notebooks" %}
+  {% include asides/ecosystem_notebooks_navigation.html | compact_newlines %}
 {% comment %}
 {% elsif url_parts[2] == "cookbook" %}
   {% include asides/cookbook_navigation.html | compact_newlines %}
