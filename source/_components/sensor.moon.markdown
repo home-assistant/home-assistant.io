@@ -23,4 +23,5 @@ To enable the moon sensor, add the following lines to your `configuration.yaml`:
 sensor:
   - platform: moon
 ```
-
+This sensor will return one of the following values: 
+`Full moon`, `Last quarter`, `First quarter` or `New moon`.
