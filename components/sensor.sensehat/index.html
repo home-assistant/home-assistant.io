@@ -116,10 +116,55 @@
   </li>
 </ul>
 
-<h4>Customizing the Sense HAT data</h4>
+<h3><a class="title-link" name="installation-instruction-for-the-all-in-one-installer-and-hassbian" href="#installation-instruction-for-the-all-in-one-installer-and-hassbian"></a> Installation instruction for the All-In-One installer and HASSbian</h3>
 
-<p><strong>Format the sensor values</strong>
-Add the following to your <code class="highlighter-rouge">sensor</code></p>
+<p>Here are the steps to make the Sense HAT sensor work with a virtual environment.</p>
+
+<p>Install SenseHAT package. Switch to the <code class="highlighter-rouge">homeassistant_venv</code> directory and activate the virtual environment.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/homeassistant_venv/bin/activate
+</code></pre>
+</div>
+
+<p>Install the <code class="highlighter-rouge">sense-hat</code> module.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install sense-hat
+</code></pre>
+</div>
+
+<p>Please be patient, this will take a long while…</p>
+
+<p>Type <code class="highlighter-rouge">exit</code> to quit out of the <em>homeassistant_venv</em> back to your <code class="highlighter-rouge">pi</code> environment. As all of the following steps should be under the <code class="highlighter-rouge">pi</code> user environment.</p>
+
+<p>Install the <a href="https://github.com/RPi-Distro/RTIMULib">RTIMU</a> Python module:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install rtimulib
+</code></pre>
+</div>
+
+<p>Add symlink to RTIMU in <code class="highlighter-rouge">homeassistant_venv</code> directory. Create a symlink using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
+</code></pre>
+</div>
+
+<p>Add <code class="highlighter-rouge">homeassistant</code> user to the <code class="highlighter-rouge">input</code> and the <code class="highlighter-rouge">i2c</code> groups.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo addgroup homeassistant input
+<span class="gp">$ </span>sudo addgroup homeassistant i2c
+</code></pre>
+</div>
+
+<p>Reboot Raspberry Pi to apply changes.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo reboot
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="customizing-the-sense-hat-data" href="#customizing-the-sense-hat-data"></a> Customizing the Sense HAT data</h3>
+
+<p>To format the sensor values, add the following to your <code class="highlighter-rouge">sensor</code> entry in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -143,8 +188,7 @@ Add the following to your <code class="highlighter-rouge">sensor</code></p>
 </code></pre>
 </div>
 
-<p><strong>Give the values friendly names &amp; icons</strong>
-Add the following to your <code class="highlighter-rouge">customize</code></p>
+<p>Add the following to your <code class="highlighter-rouge">customize</code> section to set friendly names &amp; icons for the values.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">customize</span><span class="pi">:</span>
@@ -160,8 +204,7 @@ Add the following to your <code class="highlighter-rouge">customize</code></p>
 </code></pre>
 </div>
 
-<p><strong>Create a group</strong>
-Add the following to your <code class="highlighter-rouge">groups</code></p>
+<p>Create a group for your Sense HAT details by adding the following to your <code class="highlighter-rouge">groups</code> section.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">group</span><span class="pi">:</span>
@@ -173,7 +216,9 @@ Add the following to your <code class="highlighter-rouge">groups</code></p>
       <span class="pi">-</span> <span class="s">sensor.sensehat_pressure</span>
 </code></pre>
 </div>
+
 <p>Add the <em>sense_hat group</em> a group (<em>Kitchen for example</em>)</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">group</span><span class="pi">:</span>
   <span class="s">kitchen</span><span class="pi">:</span>
@@ -181,57 +226,6 @@ Add the following to your <code class="highlighter-rouge">groups</code></p>
 </code></pre>
 </div>
 
-<h3>Directions for installing on Raspberry Pi All-In-One installer and HASSbian:</h3>
-<p>Here are the steps to make the <em>SenseHAT</em> sensor work <em>successfully</em> with the virtual enviroment versions.</p>
-
-<h4>Install SenseHAT package to <em>homeassistant_venv</em></h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># switch to the homeassistant_venv environment</span>
-sudo su -s /bin/bash homeassistant
-<span class="nb">source</span> /srv/homeassistant/homeassistant_venv/bin/activate
-
-<span class="c"># install the sense-hat lib</span>
-pip3 install sense-hat
-<span class="c"># be patient, this will take a long while</span>
-</code></pre>
-</div>
-<h4>Return to <code class="highlighter-rouge">pi</code></h4>
-<p>Type <code class="highlighter-rouge">exit</code> to quit out of the <em>homeassistant_venv</em> back to your <code class="highlighter-rouge">pi</code> environment.</p>
-
-<p>As all of the following steps should be under the <code class="highlighter-rouge">pi</code> user environment.</p>
-
-<h6>Install <em>RTIMU</em></h6>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Install RTIMU to pi user environment</span>
-pip3 install rtimulib
-
-<span class="c"># Add symlink to RTIMU in _homeassistant_venv_</span>
-<span class="c"># Create a symlink using the following command:</span>
-ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
-
-<span class="c"># Add _homeassistant_ user to the _input_ and the _i2c_ groups</span>
-sudo addgroup homeassistant input
-sudo addgroup homeassistant i2c
-
-<span class="c"># Reboot Raspberry Pi to apply changes</span>
-sudo reboot
-</code></pre>
-</div>
-
-<p>Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home-Assistant fails with errors.
-<em>(The Raspberry Pi All-In-One installer and HASSbian both run Home-Assistant in an virtual environment).</em>
-These issues have been discussed in the repository issue (#5093)[https://github.com/home-assistant/home-assistant/issues/5093)</p>
-
-<p>This fix has been tested with a clean install of:</p>
-
-<ul>
-  <li><a href="https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-01-10/">Raspbian Jessie - version January 2017</a></li>
-</ul>
-
-<p>and</p>
-
-<ul>
-  <li><a href="https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/">Home-Assistant 0.37.1</a></li>
-</ul>
 
 
 </article>
