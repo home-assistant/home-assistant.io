@@ -21,6 +21,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: waqi
+  	token: AQICN_API_TOKEN
     locations:
       - beijing
     stations:
@@ -30,6 +31,8 @@ sensor:
 Configuration variables:
 
 - **locations** (*Required*): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant
+
+- **token** (*Required*): a token for the AQICN public API. Please obtain one at (AQICN API token)[http://aqicn.org/data-platform/token/#/]
 
 - **stations** (*Optional*): a list of station names to look for air quality data. Station should be within locations specified above.
 
