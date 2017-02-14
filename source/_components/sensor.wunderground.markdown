@@ -114,5 +114,8 @@ Configuration variables:
 
 All the conditions listed above will be updated each 5 minutes with exception of `alerts` that will be updated each 15 minutes by default.
 
-Additional details about the API are available [here](https://www.wunderground.com/weather/api/d/docs).
+<p class='note warning'>
+Note: While the platform is called “wunderground” the sensors will show up in Home Assistant as “PWS” (eg: sensor.pws_weather).
+</p>
 
+Additional details about the API are available [here](https://www.wunderground.com/weather/api/d/docs).
