@@ -36,7 +36,7 @@ Configuration variables:
 - **login_id** (*Required*): An identifier used to login to the device, see below
 - **name** (*Optional*): The name of the device used in the frontend
 
-In order to connect to the device you need a *login id*. The easiest way to obtain this identifier is to use the application ``atvremote``. It should be available in the same environment as you installed Home-Assistant. Just run it like this to scan for all devices (try again if a device is missing):
+In order to connect to the device you need a *login id*. The easiest way to obtain this identifier is to use the application ``atvremote``. It should be available in the same environment as you installed Home-Assistant. To install this utility, run ``pip3 install --upgrade pyatv``.  The run atvremote scan for all devices (try again if a device is missing):
 
 ```bash
 $ atvremote scan
