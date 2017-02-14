@@ -2,7 +2,7 @@
 layout: page
 title: "MyQ Cover"
 description: "Instructions how to integrate MyQ-Enabled garage door covers into Home Assistant."
-date: 2017-02-11 19:30
+date: 2017-02-14 14:21
 sidebar: true
 comments: false
 sharing: true
@@ -12,7 +12,7 @@ ha_category: Cover
 ha_release: 0.39
 ---
 
-The `myq` cover platform lets you control MyQ-Enabled garage doors through Home Assistant.
+The `myq` cover platform lets you control MyQ-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.
 
 To use your MyQ cover in your installation, add the following to your `configuration.yaml` file:
 
@@ -29,4 +29,4 @@ Configuration variables:
 
 - **username** (*Required*): Your MyQ account username.
 - **password** (*Required*): Your MyQ account password.
-- **type** (*Required*): Your device type/brand. Supported types are `chamberlain`, `liftmaster` and `craftmaster`.
+- **type** (*Required*): Your device type/brand. Supported types are `chamberlain`, `liftmaster`, `craftsman` and `merlin`.
