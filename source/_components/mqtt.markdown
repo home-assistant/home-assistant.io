@@ -16,7 +16,7 @@ ha_iot_class: depends
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
-Your first step to get MQTT and Home Assistant working is the choose a [broker](/components/mqtt_broker).
+Your first step to get MQTT and Home Assistant working is the choose a [broker](/docs/mqtt/broker).
 
 To integrate MQTT into Home Assistant, add the following section to your `configuration.yaml` file. Keep in mind that the minimal setup will run with [an embedded MQTT broker](/components/mqtt_broker#embedded-broker):
 
@@ -35,12 +35,12 @@ mqtt:
 
 ## {% linkable_title Additional features %}
 
-- [Certificate](/components/mqtt_certificate/)
-- [Discovery](/components/mqtt_discovery/)
-- [Publish service](/components/mqtt_service/)
-- [Birth and last will messages](/components/mqtt_birth_will)
-- [Testing your setup](/components/mqtt_testing/)
-- [Logging](/components/mqtt_logging/)
-- [Processing JSON](/components/mqtt_processing_json/)
+- [Certificate](/docs/mqtt/certificate/)
+- [Discovery](/docs/mqtt/discovery/)
+- [Publish service](/docs/mqtt/service/)
+- [Birth and last will messages](/docs/mqtt/birth_will)
+- [Testing your setup](/docs/mqtt/testing/)
+- [Logging](/docs/mqtt/logging/)
+- [Processing JSON](/docs/mqtt/processing_json/)
 
 See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to integrate your own component.
