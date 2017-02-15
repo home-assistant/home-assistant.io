@@ -33,7 +33,7 @@ switch:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your TP-Link switch, eg. `http://192.168.1.32`.
+- **host** (*Required*): The IP address of your TP-Link switch, eg. `192.168.1.32`.
 - **name** (*Optional*): The name to use when displaying this switch.
 
 
