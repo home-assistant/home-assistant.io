@@ -1,24 +1,27 @@
 ---
 layout: page
-title: Fido
-description: "Instructions on how to set up Fido sensors within Home Assistant."
-date: 2017-02-14 08:00
+title: "Fido"
+description: "Instructions how to integrate Fido data usage within Home Assistant."
+date: 2017-01-01 17:17
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: fido.jpg
 ha_category: Sensor
 ha_release: 0.39
+ha_iot_class: "Cloud Polling"
 ---
 
-Get your current talk/text/data usage from your Fido (http://fido.ca) account
+
+Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+ensor:
   - platform: fido
-    username: YOUPHONENUMBER
-    password: PASSWORD
+    username: MYUSERNAME
+    password: MYPASSWORD
     monitored_variables:
      - fido_dollar
      - balance
@@ -34,15 +37,36 @@ sensor:
      - text_int_used
      - text_int_limit
      - text_int_remaining
-     - talk
+     - talk_used
      - talk_limit
      - talt_remaining
-     - talk_other
-     - talk_other_limit
-     - talt_other_remaining
+     - other_talk_used
+     - other_talk_limit
+     - other_talt_remaining
 ```
 
-Configuration options for the Fido Sensor:
+Configuration variables:
 
-- **username** (*Required*): Your phone number
-- **password** (*Required*): The password for the given phone number.
+- **username** (*Required*): You Fido username (your Fido phone number).
+- **password** (*Required*): Your Fido password.
+- **monitored_variables** array (*Required*): Variables to monitor.
+  - **fido_dollar**: Your Fido dollar balance
+  - **balance**: Your account balance
+  - **data_used**: Current data used
+  - **data_limit**: Current data limit
+  - **data_remaining**: Current data remaining
+  - **text_used**: SMS sent
+  - **text_limit**: SMS limit
+  - **text_remaining**: SMS remaining
+  - **mms_used**: MMS sent
+  - **mms_limit**: MMS limit
+  - **mms_remaining**: MMS remaining
+  - **text_int_used**: International SMS sent
+  - **text_int_limit**: International SMS limit
+  - **text_int_remaining**: International SMS remaining
+  - **talk_used**: Talk time used
+  - **talk_limit**: Talk time limit
+  - **talt_remaining**: Talk time remaining
+  - **other_talk_used**: Other talk time used (It could be internation calls)
+  - **other_talk_limit**: Other talk time limit
+  - **other_talt_remaining**: Other talk time remaining
