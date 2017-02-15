@@ -3,7 +3,7 @@ layout: page
 title: "Web server"
 description: "Use nmap to scan your Home Assistant instance."
 date: 2016-10-06 08:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

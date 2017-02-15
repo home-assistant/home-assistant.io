@@ -3,7 +3,7 @@ layout: page
 title: "Updater"
 description: "Details what the updater component is reporting about your Home Assistant instance."
 date: 2016-10-22 08:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

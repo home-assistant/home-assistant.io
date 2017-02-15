@@ -3,7 +3,7 @@ layout: page
 title: "Database"
 description: "Details about the database which Home Assistant is using."
 date: 2016-10-10 10:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
