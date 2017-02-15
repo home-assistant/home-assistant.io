@@ -3,7 +3,7 @@ layout: page
 title: "MQTT Brokers"
 description: "Instructions how to setup MQTT brokers for Home Assistant."
 date: 2015-08-07 18:00
-sidebar: False
+sidebar: true
 comments: false
 sharing: true
 footer: true
