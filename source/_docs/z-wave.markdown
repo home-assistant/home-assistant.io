@@ -65,7 +65,6 @@ If you followed along with setting up a virtual environment, your path will be:
 /srv/homeassistant/python-openzwave/openzwave/config
 ```
 
-
 ### {% linkable_title Configuration %}
 
 ```yaml
