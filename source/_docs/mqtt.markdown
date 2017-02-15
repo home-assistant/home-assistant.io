@@ -25,7 +25,7 @@ For other setup methods, please refer to the [MQTT broker](/docs/mqtt/broker) do
 - [Certificate](/docs/mqtt/certificate/)
 - [Discovery](/docs/mqtt/discovery/)
 - [Publish service](/docs/mqtt/service/)
-- [Birth and last will messages](/docs/mqtt/birth_will)
+- [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
 - [Processing JSON](/docs/mqtt/processing_json/)
