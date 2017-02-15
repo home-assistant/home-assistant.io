@@ -12,7 +12,7 @@ redirect_from: /getting-started/installation-raspberry-pi-image/
 
 The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).
 
- 1. [Download the Hassbian 1.1 image][image-download] (359MB)
+ 1. [Download the Hassbian 1.1 image][image-download] (359 MB)
  2. Use [Etcher][etcher] to flash the image to your SD card
  3. Ensure your Raspberry Pi has access to the internet.
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.
@@ -31,20 +31,6 @@ The following extras are included on the image:
  - Home Assistant is installed in a virtual Python environment at `/srv/homeassistant/`
  - Home Assistant will be started as a service run by the user `homeassistant`
  - The configuration is located at `/home/homeassistant/.homeassistant`
-
-
-### {% linkable_title Troubleshooting %}
-
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
-
-In addition to this site, check out these sources for additional help:
-
- - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
- - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant.
- - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
-
-### [Learn how to configure Home Assistant &raquo;](/getting-started/configuration/)
-### [Learn common tasks in Hassbian &raquo;](/getting-started/hassbian-common-tasks/)
 
 [image-download]: https://github.com/home-assistant/pi-gen/releases/download/v1.1/image_2017-02-03-HASSbian.zip
 [etcher]: https://etcher.io/
