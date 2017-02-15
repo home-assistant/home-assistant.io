@@ -116,6 +116,15 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Fix MQTT discovery ([@fabaff])
 - Fix Z-Wave thermostat units ([@turbokongen])
 
+### {% linkable_title Release 0.38.3 - February 15 %}
+
+- Sonos: fix losing favorite sources on disconnect ([@pvizeli])
+- Google Calendar: fix timeMin losing events ([@happyleavesaoc])
+- Fix Wink PubNub subscription ([@w1ll1am23])
+- Z-Wave: getter not to ignore label ([@andrey-git])
+- Moon: remove unit of measurement ([@fabaff])
+- MySensors: add version requirement to notify and device tracker ([@MartinHjelmare])
+
 ### {% linkable_title Breaking changes %}
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
 - Image processing events have been renamed: `identify_face` has become `image_processing.detect_face`, `found_plate` has become `image_processing.found_plate`
