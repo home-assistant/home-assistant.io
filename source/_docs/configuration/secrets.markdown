@@ -3,7 +3,7 @@ layout: page
 title: "Storing secrets"
 description: "Storing secrets outside of your configuration.yaml."
 date: 2016-07-01 08:30
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

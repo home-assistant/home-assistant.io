@@ -3,7 +3,7 @@ layout: page
 title: "Templating"
 description: "Instructions how to use the templating feature of Home Assistant."
 date: 2015-12-12 12:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
