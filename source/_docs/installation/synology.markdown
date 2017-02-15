@@ -225,20 +225,3 @@ $ sudo /volume1/homeassistant/hass-daemon restart
 $  /volume1/@appstore/py3k/usr/local/bin/python3 -m pip install --upgrade homeassistant
 ```
 
-### {% linkable_title Troubleshooting %}
-
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
-
-In addition to this site, check out these sources for additional help:
-
- - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
- - [Gitter Chat Room](https://gitter.im/balloob/home-assistant) for real-time chat about Home Assistant.
- - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
-
-### {% linkable_title What's next %}
-
-If you want to have Home Assistant start on boot, [autostart instructions can be found here](/getting-started/autostart-synology/).
-
-To see what Home Assistant can do, launch demo mode: `hass --demo-mode` or visit the [demo page](/demo).
-
-### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)

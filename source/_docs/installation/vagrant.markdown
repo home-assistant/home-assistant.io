@@ -86,15 +86,3 @@ $ rm setup_done ; vagrant destroy -f
 
 You can now recreate a completely new Vagrant host with `vagrant up`
 
-
-### {% linkable_title Troubleshooting %}
-
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
-
-In addition to this site, check out these sources for additional help:
-
- - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
- - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant.
- - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
-
-### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)

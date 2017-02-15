@@ -29,14 +29,3 @@ To do that you have 2 options.
  1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
  2. Or you can restart it from an terminal by running `docker restart home-assistant`
 
-### {% linkable_title Troubleshooting %}
-
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many of the more commonly encountered issues.
-
-In addition to this site, check out these sources for additional help:
-
- - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions.
- - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant.
- - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting.
-
-### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)

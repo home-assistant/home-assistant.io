@@ -96,16 +96,16 @@ To launch the OZWCP web application:
 *  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
 
 <p class='note note'>
-    If you deployed Home Assistant via the AiO installer prior to December 2016, replace `cd /srv/homeassistant/src/open-zwave-control-panel/` with `cd /srv/hass/src/open-zwave-control-panel/`
+If you deployed Home Assistant via the AiO installer prior to December 2016, replace `cd /srv/homeassistant/src/open-zwave-control-panel/` with `cd /srv/hass/src/open-zwave-control-panel/`
 </p>
 
 <p class='note warning'>
-  Don't check the USB box regardless of using a USB based device.
+Don't check the USB box regardless of using a USB based device.
 </p>
 
 ### {% linkable_title Using the GPIOs %}
 
-The (**homeassistant**)user is added to the GPIO group as part of the install now.
+The (**homeassistant**) user is added to the GPIO group as part of the install now.
 
 ### {% linkable_title WinSCP %}
 
