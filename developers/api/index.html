@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Component Discovery - Home Assistant</title>
+    <title>API - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="How to make component discovery work.">
+    <meta name="description" content="Home Assistant API">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/component_discovery/">
+    <link rel="canonical" href="https://home-assistant.io/developers/api/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Component Discovery">
+    <meta property="og:title" content="API">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/component_discovery/">
+    <meta property="og:url" content="https://home-assistant.io/developers/api/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="How to make component discovery work.">
+    <meta property="og:description" content="Home Assistant API">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Component Discovery">
-    <meta name="twitter:description" content="How to make component discovery work.">
+    <meta name="twitter:title" content="API">
+    <meta name="twitter:description" content="Home Assistant API">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,45 +84,21 @@
   
   <header>
     <h1 class="title indent">
-      Component Discovery
+      API
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p class="note warning">
-This option is only available for built-in components.
-</p>
+  <p>Home Assistant prvides various APIs. For detail please refer to <a href="https://dev-docs.home-assistant.io/en/dev/">Home Assistant API</a> documentation.</p>
 
-<p>Home Assistant has a discovery service running in the background to discover new devices. Whenever a new device is discovered, a <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event will be fired with the found service and the information. The <code class="highlighter-rouge">discovery</code> component has some knowledge about which components handle which type of services and will ensure those are loaded and listening before firing the <code class="highlighter-rouge">SERVICE_DISCOVERED</code> event.</p>
+<ul>
+  <li><a href="/developers/websocket_api/">Websocket API</a></li>
+  <li><a href="/developers/rest_api/">RESTful API</a></li>
+  <li><a href="/developers/python_api/">Python API</a></li>
+  <li><a href="/developers/server_sent_events/">Server-sent events</a></li>
+</ul>
 
-<h3><a class="title-link" name="add-discovery-instructions" href="#add-discovery-instructions"></a> Add discovery instructions</h3>
-
-<p>Device discovery  for Home Assistant has been extracted into an external library called <a href="https://github.com/home-assistant/netdisco">NetDisco</a>. This library is integrated using <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code class="highlighter-rouge">discovery</code> component</a> and scans the network in intervals for uPnP and zeroconf/mDNS services.</p>
-
-<p>To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. <a href="https://github.com/home-assistant/netdisco/tree/master/netdisco/discoverables">See the repository for examples of existing discoverable.</a></p>
-
-<h3><a class="title-link" name="listening-to-service_discovered-events" href="#listening-to-service_discovered-events"></a> Listening to <code class="highlighter-rouge">SERVICE_DISCOVERED</code> events</h3>
-
-<p>From your component, you will have to set up the listening for specific services. Given below is an example how one would listen for discovered Chromecasts:</p>
-
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.loader</span> <span class="kn">import</span> <span class="n">get_component</span>
-
-<span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-    <span class="n">discovery</span> <span class="o">=</span> <span class="n">get_component</span><span class="p">(</span><span class="s">'discovery'</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">chromecast_discovered</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">info</span><span class="p">):</span>
-        <span class="s">""" Called when a Chromecast has been discovered. """</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Discovered a new Chromecast: {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">info</span><span class="p">))</span>
-
-    <span class="n">discovery</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span>
-        <span class="n">hass</span><span class="p">,</span> <span class="n">discovery</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">GOOGLE_CAST</span><span class="p">,</span> <span class="n">chromecast_discovered</span><span class="p">)</span>
-</code></pre>
-</div>
-
-<h3><a class="title-link" name="auto-loading-your-component-upon-discovery" href="#auto-loading-your-component-upon-discovery"></a> Auto-loading your component upon discovery</h3>
-
-<p>The Discovery component is capable of setting up your components before firing the <code class="highlighter-rouge">SERVICE_DISCOVERD</code> event. To do this you will have to update the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L29"><code class="highlighter-rouge">SERVICE_HANDLERS</code></a> constant in <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py">the <code class="highlighter-rouge">discovery</code> component</a>.</p>
 
 
 </article>
@@ -136,7 +112,7 @@ This option is only available for built-in components.
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/component_discovery.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/api.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -177,7 +153,7 @@ This option is only available for built-in components.
           <li><a  href='/developers/component_states/'>States </a></li>
           <li><a  href='/developers/component_visibility/'>Visibility </a></li>
           <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
-          <li><a class='active' href='/developers/component_discovery/'>Component Discovery </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
         </ul>
       </li>
       <li>
@@ -198,7 +174,7 @@ This option is only available for built-in components.
         </ul>
       </li>
       <li>
-        <a  href='/developers/api/'>API </a>
+        <a class='active' href='/developers/api/'>API </a>
         <ul>
           <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
           <li><a  href='/developers/websocket_api/'>Websocket API </a></li>
