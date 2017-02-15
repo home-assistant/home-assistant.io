@@ -3,7 +3,7 @@ layout: page
 title: "State Objects"
 description: "Describes all there is to know about state objects in Home Assistant."
 date: 2016-03-12 12:00 -0800
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true

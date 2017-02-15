@@ -3,7 +3,7 @@ layout: page
 title: "Group Visibility"
 description: "Instructions how to change group visibility using automations."
 date: 2016-10-29 13:00
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
