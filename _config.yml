@@ -73,11 +73,7 @@ collections:
     output: true
   cookbook:
     output: true
-  ecosystem:
-    output: true
-  details:
-    output: true
-  topics:
+  docs:
     output: true
 
 # ----------------------- #
