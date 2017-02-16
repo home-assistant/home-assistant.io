@@ -2,27 +2,35 @@
 layout: page
 title: "Gstreamer"
 description: "Instructions on how to integrate Gstreamer into Home Assistant."
-date: 2017-02-016 10:00
+date: 2017-02-16 10:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Media Player
-featured: false
+logo: gstreamer.png
 ha_release: 0.39
 ha_iot_class: "Local Push"
 ---
 
-The `gstreamer` platform allows you to play audio via a gstreamer pipeline. Practically, this means you can play audio directly on the computer running Home Assistant. It is particularly suited for playing TTS. Advanced users can specify a pipeline to transform the audio stream and/or redirect it elsewhere.
-
-## Setup
+The `gstreamer` platform allows you to play audio via a [gstreamer](https://gstreamer.freedesktop.org/) pipeline. Practically, this means you can play audio directly on the computer running Home Assistant. It is particularly suited for playing TTS. Advanced users can specify a pipeline to transform the audio stream and/or redirect it elsewhere.
 
 To add a `gstreamer` media player to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 media_player:
   - platform: gstreamer
 ```
+
+Configuration variables:
+
+- **name** (*Optional*): Name the player.
+- **pipeline** (*Optional*): `gst` pipeline description.
+
+Only the `music` media type is supported.
+
+## {% linkable_title Setup %}
 
 And then install the following system dependencies:
 
@@ -35,12 +43,14 @@ sudo apt-get install python-gst-1.0 \
     gstreamer1.0-tools
 ```
 
-Redhat/Centos/Fedora:
+Red Hat/Centos/Fedora:
 
 ```bash
 sudo yum install -y python-gstreamer1 gstreamer1-plugins-good \
     gstreamer1-plugins-ugly
 ```
+
+For Fedora replace `yum` with `dnf`.
 
 If you're running Home Assistant in a virtual environment, you'll need to symlink the system Python's `gst` module into your virtual environment:
 
@@ -54,18 +64,9 @@ On a Raspberry PI, you may need to add the Home Assistant user to the `audio` gr
 sudo usermod -a -G audio <ha_user>
 ```
 
-## Configuration
-
-Configuration variables:
-
-- **name** (*Optional*): Name the player.
-- **pipeline** (*Optional*): `gst` pipeline description.
-
-Only the `music` media type is supported.
-
-## Example Usage
-
-### Using with TTS
+## {% linkable_title Example Usage %}
+ 
+### {% linkable_title Using with TTS %}
 
 To play TTS on your local computer (for example, if you have speakers attached to your Raspberry PI:
 
@@ -82,7 +83,7 @@ script:
           message: "example text-to-speech message"
 ```
 
-### Using with Snapcast
+### {% linkable_title Using with Snapcast %}
 
 To play to a named pipe for consumption by Snapcast:
 
