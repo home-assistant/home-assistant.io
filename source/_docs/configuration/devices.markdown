@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component]({{site_root}}/components/discovery/) enabled (the default setting).
+Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/components/discovery/) enabled (the default setting).
 
 See the [components overview page](/components/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
 
@@ -53,7 +53,7 @@ camera 2:
 
 ### {% linkable_title Grouping devices %}
 
-Once you have several devices set up, it is time to organize them into groups.  
+Once you have several devices set up, it is time to organize them into groups.
 Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (![<>](https://cdn.rawgit.com/Templarian/MaterialDesign/master/icons/svg/code-tags.svg)).
 
 ```yaml
@@ -65,6 +65,5 @@ group:
     - media_player.nexus_player
 ```
 
-For more details please check the [Group](https://home-assistant.io/components/group/) page.
+For more details please check the [Group](/components/group/) page.
 
-### [Next step: Customizing devices and services &raquo;](/getting-started/customizing-devices/)

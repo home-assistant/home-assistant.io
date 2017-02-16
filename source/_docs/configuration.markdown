@@ -33,4 +33,3 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
   Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant.
 </p>
 
-### [Next step: Get familiar with YAML &raquo;](/getting-started/yaml/)

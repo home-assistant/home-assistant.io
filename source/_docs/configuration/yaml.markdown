@@ -60,4 +60,3 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-### [Next step: Setting up the basics &raquo;](/getting-started/basic/)
