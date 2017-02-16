@@ -25,6 +25,7 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Yamaha media player
  * Logitech media server (Squeezebox)
  * DirecTV
+ * Apple TV
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -33,7 +34,14 @@ To load this component, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 discovery:
+  ignore:
+    - sonos
+    - samsung_tv
 ```
+
+Configuration variables:
+
+- **ignore** (*Optional*): A list of platforms that never will be automatically configured by `discovery`.
 
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work. 
