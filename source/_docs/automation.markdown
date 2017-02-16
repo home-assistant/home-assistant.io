@@ -9,11 +9,7 @@ sharing: true
 footer: true
 ---
 
-When all your devices are set up, it's time to put the cherry on the pie: automation. Home Assistant offers [a few built-in automations](/components/#automation) – but you'll be using the automation component to set up your own rules, for the most part.
-
-Home Assistant offers a wide range of automation configurations. In the next few pages, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][cookbook-config].
-
-[cookbook-config]: /cookbook/#example-configurationyaml
+Home Assistant offers a wide range of automation configurations. In the next few pages, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][/cookbook/#example-configurationyaml].
 
 ### {% linkable_title Automation basics %}
 
@@ -51,4 +47,3 @@ State changes can be used as the source of triggers and the current state can be
 
 Actions are all about calling services. To explore the available services open the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> Services developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
 
-### [Next step: Your First Automation &raquo;](/getting-started/automation-create-first/)
