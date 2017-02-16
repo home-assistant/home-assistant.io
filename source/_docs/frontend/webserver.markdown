@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Web server"
+title: "Web server fingerprint"
 description: "Use nmap to scan your Home Assistant instance."
 date: 2016-10-06 08:00
 sidebar: true
