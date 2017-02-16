@@ -28,6 +28,11 @@ Configuration variables:
 
 - **show_on_map** (*Optional*): Option to show the position of the ISS on the map. Defaults to `False`.
 
+<p class='note warning'>
+If you set `show_on_map` `True` then the location attributes are named `latitude` and `longitude`. The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
+</p>
+
+
 ### {% linkable_title Show position on map with camera platform %}
 
 The [generic camera platform](/components/camera.mjpeg/) offers the possibility to show the location of the ISS on Google Maps.
