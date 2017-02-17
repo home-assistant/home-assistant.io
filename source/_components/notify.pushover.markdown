@@ -34,6 +34,17 @@ Configuration variables:
 - **api_key** (*Required*): Your API key.
 - **user_key** (*Required*): Your user key for Pushover.
 
+Example Automation:
+```yaml
+- service: notify.entity_id
+      data: 
+        message: "This is the message"
+        title: "Title of message"
+        data:
+          sound: pianobar
+          priority: 0
+```
+
 This is a quote from the Pushover website regarding free/open source apps:
 
 <blockquote>
