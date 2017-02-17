@@ -34,7 +34,8 @@ Configuration variables:
 - **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
   - **entities** (*Optional*): The list of entity ids to be included from the history.
   - **domains** (*Optional*): The list of domains to be included from the history.
-- **db_url** (*Optional*): The URL which point to your database. 
+- **db_url** (*Optional*): The URL which point to your database.
+- **record_events** (*Optional*): Whether to record all events. (Default: True)
 
 
 Define domains and entities to `exclude` (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like `weblink`) or rarely change (`updater` or `automation`).
