@@ -39,6 +39,8 @@ homeassistant:
       assumed_state: false
 ```
 
+This format was introduced in 0.37, if you've yet to upgrade then you'll need to use the old format below until you upgrade.
+
 ### {% linkable_title Possible values %}
 
 | Attribute | Description |
