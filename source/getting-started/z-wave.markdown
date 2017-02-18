@@ -76,7 +76,7 @@ Configuration variables:
 - **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the folder `config` in your Python OpenZWave install directory.
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
-- **customize** (*Optional*): This attribute contains node-specific override values:
+- **customize** (*Optional*): This attribute contains node-specific override values. See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
   - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
@@ -236,7 +236,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | print_config_parameter | Prints Z-wave node's config parameter value to the log.
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
 | rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
-| set_config_parameter | Let's the user set a config parameter to a node.
+| set_config_parameter | Let's the user set a config parameter to a node.|
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | start_network | Starts the Z-Wave network.|
 | stop_network | Stops the Z-Wave network.|

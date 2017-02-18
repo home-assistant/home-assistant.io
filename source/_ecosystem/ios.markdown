@@ -33,7 +33,7 @@ Currently, the app is only available via a closed beta. It will be on the App St
 
 The `ios` component is the companion component for the Home Assistant iOS app. While not required, adding the `ios` component to your setup will greatly enhance the iOS app with new notification, location and sensor functions not possible with a standalone app.
 
-Loading the `ios` component will also load the [`device_tracker`][device-tracker] and [`zeroconf`][zeroconf] components. It also provides functionality required for the iOS notify platform but will not automatically load the `notify` component or platform as of 0.31.1. You must manually load it. See the [iOS notify platform][ios-notify] for more information.
+Loading the `ios` component will also load the [`device_tracker`][device-tracker], [`zeroconf`][zeroconf] and [`notify`][notify] platforms.
 
 ## {% linkable_title Setup %}
 

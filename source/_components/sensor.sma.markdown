@@ -14,7 +14,7 @@ ha_release: 0.36
 ---
 
 
-The `sma` sensor will poll a [SMA][http://www.sma-america.com/] solar inverter and present the values as sensors (or attributes of sensors) in Home Assistant.
+The `sma` sensor will poll a [SMA](http://www.sma-solar.com/) [(US)](http://www.sma-america.com/) solar inverter and present the values as sensors (or attributes of sensors) in Home Assistant.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -60,7 +60,8 @@ Example:
    custom:
       yesterday_consumption: 
          key: 6400_00543A01
-         unit: W
+         unit: kWh
+         factor: 1000
 ```
 
 Over time more sensors will be added as standard sensors to the [pysma library](https://github.com/kellerza/pysma/blob/master/pysma/__init__.py#L18). Feel free to submit additional sensors on that repository.

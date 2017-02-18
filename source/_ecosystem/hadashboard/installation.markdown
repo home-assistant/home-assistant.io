@@ -109,6 +109,7 @@ Note: Prereqs will vary across different machines. So far users have reported re
 
 - ruby-dev - `sudo apt-get install ruby-dev`
 - node-js - `sudo apt-get install nodejs`
+- libsqlite3-dev - `sudo apt-get install libsqlite3-dev`
 - execjs gem - `gem install execjs`
 
 You will need to research what works on your particular architecture and also bear in mind that version numbers may change over time.

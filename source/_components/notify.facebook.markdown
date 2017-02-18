@@ -49,3 +49,26 @@ automation:
           - +919413017584
           - +919784516314
 ```
+
+### {% linkable_title Rich messages %}
+You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/send-api-reference) to which types or messages and how to build them.
+
+```yaml
+# Example script with a notification entry with rich message
+
+script:
+  test_fb_notification:
+    sequence:
+      - service: notify.facebook
+        data:
+          message: Some text before the quick replies
+          target: 0034643123212
+          data:
+            quick_replies:
+              - content_type: text
+                title: Red
+                payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED
+              - content_type: text
+                title: Blue
+                payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
+```

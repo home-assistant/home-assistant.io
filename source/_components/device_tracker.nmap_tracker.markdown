@@ -60,6 +60,8 @@ device_tracker:
       - 10.0.0.2
       - 10.0.0.15
 ```
+In the above example, Nmap will be call with the process:
+`nmap -oX - 192.168.1.1/24 10.0.0.2 10.0.0.15 -F --host-timeout 5s`
 
 An example of how the Nmap scanner can be customized:
 

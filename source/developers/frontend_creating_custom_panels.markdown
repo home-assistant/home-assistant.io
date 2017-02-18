@@ -73,4 +73,4 @@ panel_custom:
     url_path: hello
 ```
 
-For more examples, see the [Custom panel Examples](/cookbook#custom-panel-examples) on our examples page.
+For more possibilities, see the [Custom panel section](/cookbook/#user-interface) on our Examples page.

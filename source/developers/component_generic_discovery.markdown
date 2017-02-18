@@ -10,13 +10,13 @@ footer: true
 ---
 
 New controller or hub components often need to add platforms in sub-components (i.e. Lights & Switches) without additional configuration.
-This can be achieved using the `homeassistant.components.discovery.load_platform` method:
+This can be achieved using the `load_platform` or `async_load_platform` methods from `homeassistant.helpers.discovery`:
 
 ```python
-def load_platform(hass, component, platform, info=None, hass_config=None)
+def load_platform(hass, component, platform, discovered=None, hass_config=None)
 ```
 
-From more info on how this works, refer to the [load_platform](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py#L78) method.
+From more info on how this works, refer to the [load_platform](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/discovery.py#L136) method.
 
 ### {% linkable_title Example %}
 
@@ -40,7 +40,7 @@ The source for your component can be located in your configuration directory for
 In the hub component `myflashyhub.py` you can call your light and switch components. To pass any non-serializable information to the platforms in the sub-component, you can use a global variable.
 
 ```python
-from homeassistant.components.discovery import load_platform
+from homeassistant.helpers.discovery import load_platform
 DOMAIN = 'myflashyhub'
 
 MFH_GLOBAL = None
@@ -59,7 +59,7 @@ def setup(hass, config):
 Add your custom device specific code to the `setup_platform` method in `light/myflashyhub.py` and `switch/myflashyhub`.
 
 ```python
-import homeassistant.components.myflashyhub as myflashyhub
+import custom_components.myflashyhub as myflashyhub
 
 # 'switch' will receive discovery_info={'optional': 'arguments'} 
 # as passed in above. 'light' will receive discovery_info=None
@@ -77,7 +77,3 @@ The `load_platform` method allows the platforms to be loaded with the need for a
 #switch:
 #  platform: myflashyhub
 ```
-
-<p class='note '>
-In the past, this was achieved by adding your component to the `DISCOVERY_PLATFORMS` in the target sub-component. Generic discovery through  `load_platform()` allows you to load any sub-component, including custom components, without changing the sub-component.
-</p>

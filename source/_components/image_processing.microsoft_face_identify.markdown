@@ -1,19 +1,19 @@
 ---
 layout: page
-title: "Microsoft Face identify"
-description: "Instructions how to integrate microsoft face identify into Home Assistant."
+title: "Microsoft Face Identify"
+description: "Instructions how to integrate Microsoft Face Identify into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: microsoft.png
-ha_category: Image_Processing
+ha_category: Image Processing
 featured: false
 ha_release: 0.37
 ---
 
-The `microsoft_face_identify` image processing platform lets you use [Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/) API through Home Assistant.
+The `microsoft_face_identify` image processing platform lets you use [Microsoft Face identify](https://www.microsoft.com/cognitive-services/en-us/) API through Home Assistant. This platform allow you do identify persons on camera and fire a event with identify persons.
 
 Please refer to the [component](/components/microsoft_face/) configuration on how to setup the API key.
 
@@ -29,6 +29,7 @@ image_processing:
    source:
     - entity_id: camera.door
 ```
+
 Configuration variables:
 
 - **group** (*Required*): Micrsoft face group to detect person from it.

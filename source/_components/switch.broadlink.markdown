@@ -60,28 +60,28 @@ switch 2:
   timeout: 15
   switches:
 # Will work on most Phillips tvs:
-    tv:
-      friendly_name: "Phillips Tv"
+    tv_phillips:
+      friendly_name: "Phillips Tv Power"
       command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
       command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
       
 # Will work on most LG tvs
     tv_lg:
-      friendly_name: "LG Tv"
+      friendly_name: "LG Tv Power"
       command_on: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
       command_off: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
 
-    tv_lg_HDMI1_HDMI2:
-      friendly_name: "LG Tv"
+    tv_lg_hdmi1_hdmi2:
+      friendly_name: "LG Tv HDMI12"
       command_on: 'JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='
       command_off: 'JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='
       
-    tv_lg_HDMI3:
-      friendly_name: "LG Tv"
+    tv_lg_hdmi3:
+      friendly_name: "LG Tv HDMI3"
       command_on: 'JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='
 
-    tv_lg_AV1_AV2:
-      friendly_name: "LG Tv"
+    tv_lg_av1_av2:
+      friendly_name: "LG Tv AV12"
       command_on: 'JgBIAAABIpQPFBITETgSEw8UEhQSEhEVDzgSOBAUETgQOQ84EjgRNxITETgSExA5EDgREhI3EhMROBMSEDkQFBETEjYTEhE4EQANBQ=='
       command_off: 'JgBIAAABH5YPFBETETgUERAUEBURFBATETgROBEUETcSNxE4ETcSOBISEBUQFREUEjUSFBA5ETcRNxE4ETkQOBAUEjcRFRAUEQANBQ=='
 
@@ -99,8 +99,7 @@ switch 2:
       command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
 
 ``` 
-
-
+ 
  Example config for sp1, sp2, honeywell_sp2, sp3, spmini2 and spminiplus devices:
 
 ```yaml
@@ -118,6 +117,28 @@ switch 2:
   type:  sp2
   friendly_name: 'Humidifier'
 
+``` 
+
+
+### {% linkable_title Service `send_packet` %}
+
+You can use the service broadlink/send_packet to directly send IR packets without the need to assign a switch entity for each command. 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `packet` | no | String or list of strings that contain the packet data.
+
+Example:
+
+```yaml
+script:
+  tv_select_source:
+    sequence:
+      - service: broadlink.send_packet_192_168_0_107
+        data:
+          packet: 
+            - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
+            - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ``` 
 
 

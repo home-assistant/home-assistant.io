@@ -20,6 +20,7 @@ end
 
 group :jekyll_plugins do
   gem 'jekyll-paginate'
+  gem 'jekyll-redirect-from'
   gem 'jekyll-sitemap'
   gem 'jekyll-time-to-read'
   gem 'octopress', '~> 3.0'

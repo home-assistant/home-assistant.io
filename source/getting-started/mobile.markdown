@@ -7,11 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/android/
 ---
 
 Home Assistant is not available on the Play Store or App Store. Instead, Home Assistant leverages the new W3C [manifest.json](https://w3c.github.io/manifest/) support, allowing mobile devices to add the "web app" to your homescreen as if it was native.
 
-On Android:
+### {% linkable_title Android %}
 
   1. Open Chrome
   2. Navigate to your Home Assistant instance
@@ -23,7 +24,7 @@ On Android:
 <img src='/images/screenshots/android-homescreen-guide.gif' />
 </p>
 
-On iOS:
+### {% linkable_title iOS %}
 
   1. Open Safari
   2. Navigate to your Home Assistant instance

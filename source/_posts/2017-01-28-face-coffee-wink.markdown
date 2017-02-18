@@ -129,6 +129,21 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 
 Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@tdickman], [@armills], [@rytilahti], [@R1chardTM], [@asbach], [@happyleavesaoc], [@robbiet480], [@colinodell], [@joopert], [@dale3h], [@pavoni], [@jaharkes], [@MartinHjelmare], [@mezz64], [@jabesq], and you if you are missing in this list.
 
+### {% linkable_title Release 0.37.1 - February 2 %}
+
+- Do not reject alphanumeric IDs for PiLight ([@DavidLP])
+- Fix broken Hue discovery ([@DanielHiversen])
+- Fix Amcrest ([@tchellomello])
+- Fix Telldus Live dim level error on startup ([@molobrakos])
+- Fix Sonos group coordinators ([@pvizeli])
+- UPC Connect: Parse XML outside event loop ([@pvizeli])
+- Fix Netatmo SSL issue with VPN url ([@jabesq])
+- Homematic: Fix bug with UNREACH device state/restore and variables not updating ([@pvizeli])
+- Sonos: Prevent duplicate entries in favorite list ([@pvizeli])
+- Fix Schlage Connect deadbolt integration via Z-Wave ([@turbokongen])
+- Prevent infinite loop in crossconfigured mqtt event streams ([@aequitas])
+- Fix Hue lightgroups failing on startup ([@tboyce1])
+
 ### {% linkable_title Breaking changes %}
 - A **major** breaking change in the [`emulated_hue`][emul-hue] component means that unless you set `type: alexa` before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups.
 - The platform of the [ISS][iss] integration was change to `binary_sensor`. Please check the platform documentation.
@@ -145,6 +160,9 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 ### {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
+[@DavidLP]: https://github.com/DavidLP
+[@molobrakos]: https://github.com/molobrakos
+[@tboyce1]: https://github.com/tboyce1
 [@MrMep]: https://github.com/MrMep
 [@joopert]: https://github.com/joopert
 [@armills]: https://github.com/armills
@@ -211,7 +229,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mKeRix]: https://github.com/mKeRix
 [@fakezeta]: https://github.com/fakezeta
 
-[amcrest]: https://home-assistant.io/components/binary_sensor.arest/
+[amcrest]: https://home-assistant.io/components/binary_sensor.amcrest/
 [discord]: https://home-assistant.io/components/notify.discord/
 [tado]: https://home-assistant.io/components/device_tracker.tado/
 [sky]: https://home-assistant.io/components/device_tracker.sky_hub/

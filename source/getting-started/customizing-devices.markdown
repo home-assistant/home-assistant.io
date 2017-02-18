@@ -11,6 +11,8 @@ footer: true
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
+This format works for version 0.37+. For pre-0.37 use [Older format](https://home-assistant.io/getting-started/customizing-devices/#older-format)
+
 `customize` consists of a list of attribute customization blocks
 
 ```yaml
@@ -46,7 +48,7 @@ homeassistant:
 | `entity_picture` | Url to use as picture for entity
 | `icon` | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com). Prefix name with `mdi:`, ie `mdi:home`.
 | `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
-| `sensor_class` | Sets the [class of the sensor](/components/binary_sensor/), changing the device state and icon that is displayed on the UI (see below).
+| `device_class` | Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the UI (see below).
 
 ### {% linkable_title Advanced example %}
 
