@@ -108,6 +108,8 @@
   <li><a href="https://www.amazon.com/dp/B01JZ2SI6Q">SUPERNIGHT WiFi Wireless LED Smart Controller</a></li>
 </ul>
 
+<h3><a class="title-link" name="configuration-details" href="#configuration-details"></a> Configuration Details</h3>
+
 <p>To enable those lights, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -197,6 +199,58 @@ The component defaults to rgbw. If your device has a separate white channel, you
         <span class="s">protocol</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ledenet'</span>
 </code></pre>
 </div>
+
+<h3><a class="title-link" name="effects" href="#effects"></a> Effects</h3>
+
+<p>The FLUX_LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the light TURN_ON command.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Effect Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>colorloop</td>
+      <td>Smoothly transitions through the rainbow</td>
+    </tr>
+    <tr>
+      <td>colorjump</td>
+      <td>Jumps through seven different rainbow colors.</td>
+    </tr>
+    <tr>
+      <td>colorstrobe</td>
+      <td>Strobes each rainbow color in a loop.</td>
+    </tr>
+    <tr>
+      <td>random</td>
+      <td>Chooses a random color by selecting random values for R, G, and B</td>
+    </tr>
+    <tr>
+      <td>red_fade, green_fade, blue_fade, yellow_fade, cyan_fade, purple_fade, white_fade</td>
+      <td>Fades between the color as indicated in the effect name and black.</td>
+    </tr>
+    <tr>
+      <td>rg_cross_fade</td>
+      <td>Fades between red and green.</td>
+    </tr>
+    <tr>
+      <td>rb_cross_fade</td>
+      <td>Fades between red and blue.</td>
+    </tr>
+    <tr>
+      <td>gb_cross_fade</td>
+      <td>Fades between green and blue</td>
+    </tr>
+    <tr>
+      <td>red_strobe, green_strobe, blue_strobe, yellow_strobe, cyan_strobe, purple_strobe, white_strobe</td>
+      <td>Strobes the color indicated by the effect name.</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 </article>
