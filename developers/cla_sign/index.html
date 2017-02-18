@@ -499,15 +499,21 @@
     });
   }
 
+  function qs(key) {
+    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+    var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+    return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+  }
+  
   $(document).ready(function(){
     populateCountries("country", "region");
     var spinner = new Spinner().spin(document.getElementById('spinner'));
-    var codeCheck = window.location.href.match(/\?code=(.*)/);
+    var codeCheck = qs('code');
     if (codeCheck && codeCheck.length > 0) {
       $.ajax({
         type: "POST",
         url: "https://cla.home-assistant.io/github/exchange",
-        data: JSON.stringify({"code": codeCheck[1]}),
+        data: JSON.stringify({"code": codeCheck}),
         contentType: "application/json",
       }).done(function(data){
         var uri = window.location.toString();
