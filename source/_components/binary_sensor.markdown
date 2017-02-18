@@ -13,7 +13,7 @@ Binary sensors are gathering information about state of switches, contacts, pins
 
 Knowing that there are only two states allows Home Assistant to represent the sensor better in the frontend.
 
-Most binary sensors support the `device_class:`  which let you specify the type of your sensor. The following types are supported:
+The display style of each entity can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for binary sensors:
 
 - **None**: Generic on/off
 - **cold**: On means cold (or too cold)
