@@ -11,7 +11,7 @@ logo: kodi.png
 ha_category: Media Player
 featured: true
 ha_release: pre 0.7
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 
@@ -29,9 +29,11 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): The host name or address of the device that is running XBMC/Kodi
-- **port** (*Optional*): The http port number. Defaults to 8080.
+- **port** (*Optional*): The HTTP port number. Defaults to 8080.
+- **tcp_port** (*Optional*): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.
 - **name** (*Optional*): The name of the device used in the frontend.
-- **ssl** (*Optional*): Connect to kodi with HTTPS. Defaults to false
+- **ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
 - **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.
+- **enable_websocket** (*Optional*): Enable websocket connections to Kodi via the TCP port. Defaults to `true`. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
