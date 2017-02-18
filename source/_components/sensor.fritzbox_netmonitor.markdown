@@ -34,7 +34,7 @@ Configuration variables:
 
 The following statistics will be exposed as attributes.
 
-|attribute         |description                                                  |
+|Attribute         |Description                                                  |
 |:-----------------|:------------------------------------------------------------|
 |is_linked         |True if the FritzBox is physically linked to the provider    |
 |is_connected      |True if the FritzBox has established an internet-connection  |
