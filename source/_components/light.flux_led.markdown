@@ -28,22 +28,6 @@ Examples of controllers:
 - [Ledenet WiFi RGBW Controller](https://www.amazon.com/gp/product/B01DY56N8U)
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://www.amazon.com/dp/B01JZ2SI6Q)
 
-### {% linkable_title Effects %}
-
-The FLUX_LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the light TURN_ON command.
-
-| Effect Name                                                                                    | Description                                                        |
-|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| colorloop                                                                                      | Smoothly transitions through the rainbow                           |
-| colorjump                                                                                      | Jumps through seven different rainbow colors.                      |
-| colorstrobe                                                                                    | Strobes each rainbow color in a loop.                              |
-| random                                                                                         | Chooses a random color by selecting random values for R, G, and B  |
-| red_fade, green_fade, blue_fade, yellow_fade, cyan_fade, purple_fade, white_fade               | Fades between the color as indicated in the effect name and black. |
-| rg_cross_fade                                                                                  | Fades between red and green.                                       |
-| rb_cross_fade                                                                                  | Fades between red and blue.                                        |
-| gb_cross_fade                                                                                  | Fades between green and blue                                       |
-| red_strobe, green_strobe, blue_strobe, yellow_strobe, cyan_strobe, purple_strobe, white_strobe | Strobes the color indicated by the effect name.                    |
-
 
 ### {% linkable_title Configuration Details %}
 
@@ -135,3 +119,21 @@ light:
         name: NAME
         protocol: 'ledenet'
 ```
+
+### {% linkable_title Effects %}
+
+The FLUX_LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the light TURN_ON command.
+
+| Effect Name                                                                                    | Description                                                        |
+|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| colorloop                                                                                      | Smoothly transitions through the rainbow                           |
+| colorjump                                                                                      | Jumps through seven different rainbow colors.                      |
+| colorstrobe                                                                                    | Strobes each rainbow color in a loop.                              |
+| random                                                                                         | Chooses a random color by selecting random values for R, G, and B  |
+| red_fade, green_fade, blue_fade, yellow_fade, cyan_fade, purple_fade, white_fade               | Fades between the color as indicated in the effect name and black. |
+| rg_cross_fade                                                                                  | Fades between red and green.                                       |
+| rb_cross_fade                                                                                  | Fades between red and blue.                                        |
+| gb_cross_fade                                                                                  | Fades between green and blue                                       |
+| red_strobe, green_strobe, blue_strobe, yellow_strobe, cyan_strobe, purple_strobe, white_strobe | Strobes the color indicated by the effect name.                    |
+
+
