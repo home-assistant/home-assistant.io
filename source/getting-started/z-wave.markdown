@@ -58,7 +58,7 @@ With this installation, your `config_path` needed below will resemble:
 
 If you followed along with setting up a virtual environment, your path will be:
 ```bash
-/srv/hass/python-openzwave/openzwave/config
+/srv/homeassistant/python-openzwave/openzwave/config
 ```
 
 
