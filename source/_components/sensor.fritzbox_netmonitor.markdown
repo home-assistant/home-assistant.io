@@ -31,3 +31,19 @@ sensor:
 Configuration variables:
 
 - **host** (*Optional*): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+
+The following statistics will be exposed as attributes.
+
+|attribute         |description                                                  |
+|:-----------------|:------------------------------------------------------------|
+|is_linked         |True if the FritzBox is physically linked to the provider    |
+|is_connected      |True if the FritzBox has established an internet-connection  |
+|wan_access_type   |Connection-type, can be `DSL` or `Cable`                     |
+|external_ip       |External ip address                                          |
+|uptime            |Uptime in seconds                                            |
+|bytes_sent        |Bytes sent                                                   |
+|bytes_received    |Bytes received                                               |
+|max_byte_rate_up  |Maximum upstream-rate in bytes/s                             |
+|max_byte_rate_down|Maximum downstream-rate in bytes/s                           |
+
+The sensor's state corresponds to the `is_linked` attribute and is either `online`, `offline`, or `unavailable` (in case connection to the router is lost).
