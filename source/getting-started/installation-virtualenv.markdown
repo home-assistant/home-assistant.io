@@ -44,7 +44,7 @@ This can be anywhere you want. As example we put it in `/srv`. You also need to 
 
 ```bash
 $ sudo mkdir /srv/homeassistant
-$ sudo chown homeassistant /srv/homeassistant
+$ sudo chown homeassistant:homeassistant /srv/homeassistant
 ```
 
 ### {% linkable_title Step 3: Become the new user %}
