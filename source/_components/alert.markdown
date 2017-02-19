@@ -92,4 +92,4 @@ alert:
       - kristens_phone
 ```
 
-Now, the first message will be sent after a 15 minute delay. The second will be sent after a 30 minute delay. A 60 minute delay will fall between every following notification.
+Now the first message will be sent after a 15 minute delay, the second will be sent 30 minutes after that, and a 60 minute delay will fall between every following notification. For example, if the garage door opens at 2:00, a notification will be sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
