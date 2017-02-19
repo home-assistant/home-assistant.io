@@ -53,7 +53,7 @@ Configuration variables:
 Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
-- **sensor_type_** (*Optional*): Override automatically detected type of sensor.
+- **sensor_type** (*Required*): Override automatically detected type of sensor.
 - **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
 - **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
 

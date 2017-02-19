@@ -48,7 +48,6 @@ automation 2:
         message: Oh wow you really missed something great.
 ```
 
-
 Conditions can also be part of an action. You can combine multiple service calls and conditions in a single action, and they will be processed in the order you put them in. If the result of a condition is false, the action will stop there so any service calls after that condition will not be executed.
 
 ```yaml

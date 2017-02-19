@@ -7,6 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_external_link: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-examples.ipynb
 ---
 
+The [Database example](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-examples.ipynb) shows you the details about how you can work with stored values.

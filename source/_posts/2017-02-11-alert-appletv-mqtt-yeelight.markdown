@@ -102,10 +102,34 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 
 Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen], [@armills], [@tchellomello], [@aequitas], [@mathewpeterson], [@molobrakos], [@michaelarnauts], [@jabesq], [@turbokongen], [@JshWright], [@andriej], [@jawilson], [@andrey-git], [@nodinosaur], [@konikvranik], and you if you are missing here.
 
+### {% linkable_title Release 0.38.1 - February 12 %}
+
+- Fix logbook ordering ([@balloob])
+- Fix AppleTV conflicting dependency breaking websockets ([@balloob])
+
+### {% linkable_title Release 0.38.2 - February 12 %}
+
+- Validate config will now respect custom config location ([@balloob])
+- Fix Nuki lock on Python 3.4 ([@pschmitt])
+- Fix login issues for myusps ([@happyleavesaoc])
+- Fix hdmi_cec with new customize ([@andrey-git])
+- Fix MQTT discovery ([@fabaff])
+- Fix Z-Wave thermostat units ([@turbokongen])
+
+### {% linkable_title Release 0.38.3 - February 15 %}
+
+- Sonos: fix losing favorite sources on disconnect ([@pvizeli])
+- Google Calendar: fix timeMin losing events ([@happyleavesaoc])
+- Fix Wink PubNub subscription ([@w1ll1am23])
+- Z-Wave: getter not to ignore label ([@andrey-git])
+- Moon: remove unit of measurement ([@fabaff])
+- MySensors: add version requirement to notify and device tracker ([@MartinHjelmare])
+
 ### {% linkable_title Breaking changes %}
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
 - Image processing events have been renamed: `identify_face` has become `image_processing.detect_face`, `found_plate` has become `image_processing.found_plate`
 - The [FFmpeg binary sensor][ffmpeg-bin] change the platform name from `ffmpeg` to `ffmpeg_noise` and `ffmpeg_motion`. Also all FFmpeg-related services are moved from a platform implementation to a the [FFmpeg components][ffmpeg] and were rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
+- The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use `this.hass.entities`, `this.hass.callService` and `this.hass.callApi`.
 
 ### {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -130,6 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@Duoxilian]: https://github.com/Duoxilian
 [@eagleamon]: https://github.com/eagleamon
 [@fabaff]: https://github.com/fabaff
+[@happyleavesaoc]: https://github.com/happyleavesaoc
 [@herm]: https://github.com/herm
 [@jabesq]: https://github.com/jabesq
 [@jawilson]: https://github.com/jawilson

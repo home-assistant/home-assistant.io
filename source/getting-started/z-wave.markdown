@@ -13,6 +13,10 @@ footer: true
 
 There is currently support for climate, covers, lights, locks, sensors, switches and thermostats. All will be picked up automatically after configuring this platform.
 
+### {% linkable_title Installation in Virtualenv (python-OpenZWace) %}
+
+If you installed Home Assistant using a virtual environment then please read the instructions on [Installing python-OpenZWave in a virtualenv](https://home-assistant.io/getting-started/installation-virtualenv/#installing-python-openzwave-in-a-virtualenv).
+
 ### {% linkable_title Installation %}
 
 To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile the OpenZWave library and install the related [python-OpenZWave package](https://github.com/OpenZWave/python-openzwave). This can be done as follows. _(Note: The Home Assistant docker image and the All In One installer have support for Z-Wave already built-in!)_
@@ -58,7 +62,7 @@ With this installation, your `config_path` needed below will resemble:
 
 If you followed along with setting up a virtual environment, your path will be:
 ```bash
-/srv/hass/python-openzwave/openzwave/config
+/srv/homeassistant/python-openzwave/openzwave/config
 ```
 
 

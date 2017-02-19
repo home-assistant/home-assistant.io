@@ -297,7 +297,7 @@ This will get a dump of the current services in Home Assistant.
 ```json
 {
   "id": 19,
-  "type": "get_config"
+  "type": "get_services"
 }
 ```
 

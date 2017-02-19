@@ -7,6 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_external_link: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/home-assistant-python-api.ipynb
 ---
 
+The [Python API](/developers/python_api/) allows one to create [interactive notebooks](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/home-assistant-python-api.ipynb).
