@@ -32,7 +32,7 @@ Getting the right indentation can be tricky if you're not using an editor with a
 You can use [YAMLLint](http://www.yamllint.com/) to check if your YAML-syntax is correct before loading it into Home Assistant which will save you some time. 
 *Please pay attention on not putting in private data, as it is a 3rd-party website not maintained by Home Assistant.*
 
-Lines that start with **#** are comments and are ignored by the system.
+Text following a **#** are comments and are ignored by the system.
 
 The next example shows an [input_select](/components/input_select) component that uses a block collection for the options values.
 The other properties (like name) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.
