@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>OwnTracks with two MQTT brokers - Home Assistant</title>
+    <title>Certificate for SSL/TLS via domain ownership - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Setting up OwnTracks with 2 MQTT brokers bridged for use with the MQTT bridge for SmartThings.">
+    <meta name="description" content="Configure a certificate to use with Home Assistant">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/cookbook/owntracks_two_mqtt_broker/">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/tls_domain_certificate/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="OwnTracks with two MQTT brokers">
+    <meta property="og:title" content="Certificate for SSL/TLS via domain ownership">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/cookbook/owntracks_two_mqtt_broker/">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/tls_domain_certificate/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Setting up OwnTracks with 2 MQTT brokers bridged for use with the MQTT bridge for SmartThings.">
+    <meta property="og:description" content="Configure a certificate to use with Home Assistant">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="OwnTracks with two MQTT brokers">
-    <meta name="twitter:description" content="Setting up OwnTracks with 2 MQTT brokers bridged for use with the MQTT bridge for SmartThings.">
+    <meta name="twitter:title" content="Certificate for SSL/TLS via domain ownership">
+    <meta name="twitter:description" content="Configure a certificate to use with Home Assistant">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,108 +84,72 @@
   
   <header>
     <h1 class="title indent">
-      OwnTracks With Two MQTT Brokers
+      Certificate for SSL/TLS via Domain Ownership
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>I (<a href="https://github.com/surge919">surge919</a>) successfully tied in <a href="http://owntracks.org/">OwnTracks</a> to Home Assistant and <a href="https://www.smartthings.com/">SmartThings</a> while using authentication for external access. The MQTT bridge doesn’t support authentication so I set up 2 MQTT instances.</p>
+  <p>If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. You can use <a href="/cookbook/tls_self_signed_certificate/">Self-sign certificate</a> but your browser will present a warning and some https-only features might not work.</p>
 
-<p>Here are the steps I performed. Hopefully it saves someone else some time.</p>
-
-<p>It seems to be working pretty well but if anyone sees something incorrect in my configuration, please let me know. This is my first real interaction with MQTT.</p>
-
-<p>Here’s a summary of my setup:</p>
-
-<p>Two Docker instances for MQTT</p>
-
+<h3><a class="title-link" name="prerequirement-for-this-guide" href="#prerequirement-for-this-guide"></a> Prerequirement for this guide</h3>
 <ul>
-  <li>1 for internal use (the MQTT bridge for SmartThings - no authentication)</li>
-  <li>1 for external use (for OwnTracks - with authentication)</li>
+  <li>Your Home Assistant instance is not exposed to the internet. If it is - use <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">this guide</a></li>
+  <li>You control a public domain name. The domain doesn’t have to point to a site. A domain controlled by a <em>trusted</em> friend will do. (A friend you trust not to MITM you)</li>
+  <li>Your home router supports custom DNS entries.</li>
 </ul>
 
-<p>All Docker configuration files are on my NAS so the Docker containers can be destroyed without affecting my actual configuration files.</p>
-
-<h4>Docker setup for the mosquitto internal instance. No authentication for use with the MQTT bridge.</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -ti -p 1883:1883  <span class="se">\</span>
-    -v /volume1/data/mosquitto-int/config:/mqtt/config:ro <span class="se">\</span>
-    -v /volume1/data/mosquitto-int/log:/mqtt/log <span class="se">\</span>
-    -v /volume1/data/mosquitto-int/data/:/mqtt/data/ <span class="se">\</span>
-    --name mosquitto-int -d toke/mosquitto
+<h3><a class="title-link" name="run-certbot" href="#run-certbot"></a> Run certbot</h3>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir certbot
+<span class="gp">$ </span><span class="nb">cd </span>certbot
+<span class="gp">$ </span>wget https://dl.eff.org/certbot-auto
+<span class="gp">$ </span>chmod a+x certbot-auto
+<span class="gp">$ </span>sudo ./certbot-auto --manual certonly --preferred-challenges dns -d <span class="s2">"mydomain.com"</span> --email your@email.address
 </code></pre>
 </div>
 
-<h4>Docker setup for the mosquitto external instance. With authentication for use with Owntracks.</h4>
+<ul>
+  <li>Agree to Terms of Service</li>
+  <li>Choose whether to share your email with Electronic Frontier Foundation.</li>
+  <li>Agree to your IP being logged</li>
+</ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -ti -p 1884:1883  <span class="se">\</span>
-    -v /volume1/data/mosquitto-ext/config:/mqtt/config:ro <span class="se">\</span>
-    -v /volume1/data/mosquitto-ext/log:/mqtt/log <span class="se">\</span>
-    -v /volume1/data/mosquitto-ext/data/:/mqtt/data/ <span class="se">\</span>
-    -v /volume1/data/mosquitto-ext/etc:/etc/mosquitto <span class="se">\</span>
-    --name mosquitto-ext -d toke/mosquitto
+<p>You will get the following text:</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>Please deploy a DNS TXT record under the name
+_acme-challenge.mydomain.com with the following value:
+
+deadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+
+Once this is deployed,
+-------------------------------------------------------------------------------
+Press Enter to Continue
 </code></pre>
 </div>
 
-<p>Here are the config files:</p>
+<ul>
+  <li>
+    <p>Deploy the value to TXT field using your domain registar.</p>
+  </li>
+  <li>Go to a site that queries domain record. For example <a href="https://mxtoolbox.com/TXTLookup.aspx">this one</a> and look if it sees your brand new TXT field (Don’t forget to enter the full domain: <code class="highlighter-rouge">_acme-challenge.mydomain.com</code>)</li>
+  <li>Press Enter at certbot prompt.</li>
+</ul>
 
-<p><code class="highlighter-rouge">/volume1/data/mosquitto-int/config/mosquitto.conf</code></p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>connection mosquitto-ext
-persistence_file mosquitto.db
-try_private <span class="nb">true
-</span>address 10.0.0.20:1884
-start_type automatic
-sername <span class="nb">test
-</span>password <span class="nb">test
-</span>notifications <span class="nb">true
-</span>topic owntracks/# <span class="k">in
-</span>log_type all
-log_dest file /mqtt/log/mqtt.log 
-log_facility 5
+<h3><a class="title-link" name="make-mydomaincom-point-to-your-home-assistant-instance" href="#make-mydomaincom-point-to-your-home-assistant-instance"></a> Make mydomain.com point to your Home Assistant instance</h3>
+<p>If your router uses DNSMasq (for example DDWRT) add the following line to DNSMasq options:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>address=/mydomain.com/&lt;hass ip&gt;
 </code></pre>
 </div>
 
-<p><code class="highlighter-rouge">/volume1/data/mosquitto-ext/config/mosquitto.conf</code></p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>connection mosquitto-int
-persistence_file mosquitto.db
-try_private <span class="nb">true
-</span>address 10.0.0.20:1883
-start_type automatic
-username <span class="nb">test
-</span>password <span class="nb">test
-</span>notifications <span class="nb">true
-</span>topic owntracks/# out
-log_type all
-log_dest file /mqtt/log/mqtt.log
-log_facility 5
-allow_anonymous <span class="nb">false
-</span>password_file /etc/mosquitto/pwfile
+<h3><a class="title-link" name="edit-your-home-assistant-configuration-to-use-your-certificates" href="#edit-your-home-assistant-configuration-to-use-your-certificates"></a> Edit your Home Assistant configuration to use your certificates</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_SECRET_PASSWORD</span>
+  <span class="s">base_url</span><span class="pi">:</span> <span class="s">https://mydomain.com:8123</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/mydomain.com/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/etc/letsencrypt/live/mydomain.com/privkey.pem</span>
 </code></pre>
 </div>
-
-<p>Create a password for <code class="highlighter-rouge">mosquitto-ext</code></p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker <span class="nb">exec</span> -it mosquitto-ext /bin/bash
-<span class="gp">$ </span><span class="nb">cd</span> /etc/mosquitto/
-<span class="gp">$ </span>mosquitto_passwd -c /etc/mosquitto/pwfile &lt;userID&gt;
-</code></pre>
-</div>
-
-<h3>OwnTracks settings for Android</h3>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Preferences / Connection / Mode - Private MQTT
- 
-Fill out
- Host
- Identification
- Security: TLS disabled
-</code></pre>
-</div>
-
-<p><img src="//community-home-assistant-assets.s3.amazonaws.com/original/2X/5/5ce27145e5b37bac72859e4c36b8269d14f85ce1.png" width="649" height="500" /></p>
+<p>Make sure the files are accessible by the user that runs Home Assistant, eg. <code class="highlighter-rouge">homeassistant</code> for a HASSbian setup.</p>
 
 
 </article>
@@ -199,7 +163,7 @@ Fill out
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/owntracks_two_mqtt_broker.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/tls_domain_certificate.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <a href='/cookbook'>Back to the cookbook</a>
   </div>
@@ -210,13 +174,13 @@ Fill out
               <a href='/cookbook/apache_configuration/'>Apache Configuration</a>
           </li>
           <li>
-              <a href='/cookbook/tls_domain_certificate/'>Certificate for SSL/TLS via domain ownership</a>
+              Certificate for SSL/TLS via domain ownership
           </li>
           <li>
               <a href='/cookbook/githubbackup/'>Configuration Backup to GitHub</a>
           </li>
           <li>
-              OwnTracks with two MQTT brokers
+              <a href='/cookbook/owntracks_two_mqtt_broker/'>OwnTracks with two MQTT brokers</a>
           </li>
           <li>
               <a href='/cookbook/tls_self_signed_certificate/'>Self-signed certificate for SSL/TLS</a>
