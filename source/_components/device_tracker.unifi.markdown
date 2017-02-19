@@ -18,11 +18,23 @@ This platform allows you to detect presence by looking at devices connected to a
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example basic configuration.yaml entry
 device_tracker:
   - platform: unifi
     username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
+```
+
+```yaml
+# Example complete configuration.yaml entry
+device_tracker:
+  - platform: unifi
+    username: YOUR_ADMIN_USERNAME
+    password: YOUR_ADMIN_PASSWORD
+    site_id: "default"
+    target_wlans:
+      - "Secure WiFi"
+      - "Guest WiFi"
 ```
 
 Configuration variables:
@@ -32,5 +44,6 @@ Configuration variables:
 - **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
 - **site_id** (*Optional*): Allows you to specify a `site_id` for device tracking. Defaults to `default`. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)
+- **target_wlans** (*Optional*): List of WLANs you would like to target for device tracking. Useful for multiple WiFi network homes, such as *Secure WiFi*, *Guest WiFi*, *IoT WiFi*; You may not want to track any devices in *IoT WiFi*. Case **insensitive**.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
