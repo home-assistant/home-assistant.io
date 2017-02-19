@@ -35,7 +35,7 @@ Configuration variables:
 - **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Optional*): The password for your given admin account (use this if no SSH key is given).
 - **protocol** (*Optional*): The protocol (`ssh` or `telnet`) to use. Defaults to `ssh`.
-- **port** (*Optional*): SSH port to use. Defaults to 22.
+- **port** (*Optional*): SSH port to use. Defaults to `22`.
 - **mode** (*Optional*): The operating mode of the router (`router` or `ap`). Defaults to `router`.
 - **ssh_key** (*Optional*): The path to your SSH private key file associated with your given admin account (instead of password).
 
