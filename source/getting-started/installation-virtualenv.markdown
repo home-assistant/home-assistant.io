@@ -103,7 +103,7 @@ Upgrading Home Assistant is simple, just repeat steps 3, 5 and 6.
 
 The [autostart instructions](/getting-started/autostart/) will work just fine, just be sure to replace `/usr/bin/hass` with `/srv/homeassistant/bin/hass` and specify the `homeassistant` user where appropriate.
 
-### {% linkable_title Installing python-openzwave %}
+### {% linkable_title Installing python-openzwave in a virtualenv %}
 
 If you want to use Z-Wave devices, you will need to install `python-openzwave` in your virtualenv. This requires a small tweak to the instructions in [the Z-Wave Getting Started documentation](/getting-started/z-wave/)
 
