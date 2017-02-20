@@ -80,7 +80,7 @@ scene:
         option: Paulus
 ```
 
-Exampleof `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
+Example of `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
 ```yaml
 {% raw %}
