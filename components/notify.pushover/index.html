@@ -113,6 +113,17 @@
   <li><strong>user_key</strong> (<em>Required</em>): Your user key for Pushover.</li>
 </ul>
 
+<p>Example Automation:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.entity_id</span>
+      <span class="s">data</span><span class="pi">:</span> 
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">This</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">message"</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Title</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">message"</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">sound</span><span class="pi">:</span> <span class="s">pianobar</span>
+          <span class="s">priority</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
+</div>
+
 <p>This is a quote from the Pushover website regarding free/open source apps:</p>
 
 <blockquote>
