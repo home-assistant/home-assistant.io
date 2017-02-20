@@ -26,6 +26,7 @@ sensor:
         - temperature
         - humidity
         - pressure
+    is_hat_attached: True|False
 ```
 
 Configuration variables:
@@ -34,56 +35,13 @@ Configuration variables:
   - 'temperature'
   - 'humidity'
   - 'pressure'
+  is_hat_attached (Optional): True|False boolean; True declares the SenseHAT _is_ physically on the Raspberry Pi
+  
 
-### {% linkable_title Installation instruction for the All-In-One installer and HASSbian %}
+#### Customizing the Sense HAT data
 
-Here are the steps to make the Sense HAT sensor work with a virtual environment.
-
-Install SenseHAT package. Switch to the `homeassistant_venv` directory and activate the virtual environment.
-
-```bash
-$ sudo su -s /bin/bash homeassistant
-$ source /srv/homeassistant/homeassistant_venv/bin/activate
-```
-
-Install the `sense-hat` module.
-
-```bash
-$ pip3 install sense-hat
-```
-
-Please be patient, this will take a long while...
-
-Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment. As all of the following steps should be under the `pi` user environment.
-
-Install the [RTIMU](https://github.com/RPi-Distro/RTIMULib) Python module:
-
-```bash
-$ pip3 install rtimulib
-```
-
-Add symlink to RTIMU in `homeassistant_venv` directory. Create a symlink using the following command:
-
-```bash
-$ ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
-```
-
-Add `homeassistant` user to the `input` and the `i2c` groups.
-
-```bash
-$ sudo addgroup homeassistant input
-$ sudo addgroup homeassistant i2c
-```
-
-Reboot Raspberry Pi to apply changes.
-
-```bash
-$ sudo reboot
-```
-
-### {% linkable_title Customizing the Sense HAT data %}
-
-To format the sensor values, add the following to your `sensor` entry in your `configuration.yaml` file.
+**Format the sensor values**
+Add the following to your `sensor`
 
 ```yaml
 # Example configuration.yaml entry
@@ -107,7 +65,8 @@ sensor:
         unit_of_measurement: '%'
 ```
 
-Add the following to your `customize` section to set friendly names & icons for the values.
+**Give the values friendly names & icons**
+Add the following to your `customize`
 
 ```yaml
 # Example configuration.yaml entry
@@ -121,9 +80,10 @@ customize:
   sensor.sensehat_pressure:
     icon: mdi:gauge
     friendly_name: "Pressure"
-```
+```  
 
-Create a group for your Sense HAT details by adding the following to your `groups` section.
+**Create a group**
+Add the following to your `groups`
 
 ```yaml
 # Example configuration.yaml entry
@@ -135,9 +95,7 @@ group:
       - sensor.sensehat_humidity
       - sensor.sensehat_pressure
 ```
-
 Add the _sense_hat group_ a group (_Kitchen for example_)
-
 ```yaml
 # Example configuration.yaml entry
 group:
@@ -145,3 +103,51 @@ group:
     - group.sense_hat
 ```
 
+
+### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
+Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual enviroment versions.
+
+#### Install SenseHAT package to _homeassistant_venv_
+```bash
+# switch to the homeassistant_venv environment
+sudo su -s /bin/bash homeassistant
+source /srv/homeassistant/homeassistant_venv/bin/activate
+
+# install the sense-hat lib
+pip3 install sense-hat
+# be patient, this will take a long while
+```
+#### Return to `pi`
+Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment.
+
+As all of the following steps should be under the `pi` user environment.
+
+###### Install _RTIMU_
+
+```bash
+# Install RTIMU to pi user environment
+pip3 install rtimulib
+
+# Add symlink to RTIMU in _homeassistant_venv_
+# Create a symlink using the following command:
+ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
+
+# Add _homeassistant_ user to the _input_ and the _i2c_ groups
+sudo addgroup homeassistant input
+sudo addgroup homeassistant i2c
+
+# Reboot Raspberry Pi to apply changes
+sudo reboot
+```
+
+Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home-Assistant fails with errors.
+_(The Raspberry Pi All-In-One installer and HASSbian both run Home-Assistant in an virtual environment)._
+These issues have been discussed in the repository issue (#5093)[https://github.com/home-assistant/home-assistant/issues/5093)
+
+This fix has been tested with a clean install of:
+
+* [Raspbian Jessie - version January 2017](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-01-10/) 
+ 
+and
+ 
+* [Home-Assistant 0.37.1](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/)
