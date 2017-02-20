@@ -40,9 +40,8 @@ Example Automation:
       data: 
         message: "This is the message"
         title: "Title of message"
-        data:
-          sound: pianobar
-          priority: 0
+        sound: pianobar
+        priority: 0
 ```
 
 This is a quote from the Pushover website regarding free/open source apps:
