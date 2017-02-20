@@ -111,24 +111,21 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 ### Compatibility
 Client  | Limitations  |
---|---|--
-Any (controls disabled) | A stop button will appear but is not functional. |
-Any (casting) | Controlling playback will work but with error logging. |
-Any (remote) | Controls disabled.
+--|---|
+Any (when all controls disabled) | A stop button will appear but is not functional.
+Any (when casting) | Controlling playback will work but with error logging.
+Any (remote client) | Controls disabled.
 Apple TV (PlexConnect) | Controls disabled.  Music does not work.
-iOS  | None  |
-NVidia Shield | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging |
-Plex Web | None |
-Tivo Plex App  | None  |
+iOS  | None
+NVidia Shield | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging
+Plex Web | None
+Tivo Plex App  | Only play, pause, stop/off controls enabled
 
 ### Notes
-At this moment, the Plex platform only supports one Plex Media Server.
-
-It is possible to get errors that look like the following.
-
-```
-ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
-INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
-```
-
-If this occurs, try changing the setting `Secure connections` in your Plex Media Server to `Preferred` (instead of `Required`). The Plex component does not currently support HTTPS.
+* At this moment, the Plex platform only supports one Plex Media Server.
+* It is possible to get errors that look like the following.
+  ```
+  ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
+  INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
+  ```
+  If this occurs, try changing the setting `Secure connections` in your Plex Media Server to `Preferred` (instead of `Required`). The Plex component does not currently support HTTPS.
