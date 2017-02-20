@@ -145,6 +145,59 @@ exit
 
 Every time you run this script, you will be prompted for a comment to describe the change(s) that you are commiting. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
 
+### {% linkable_title Step 7: Configuration file testing %}
+
+[Travis CI](https://travis-ci.org) is a continuous intigration testing system that runs every time the code in your repository is updated.  What this allows you to do is validate that your code works on a frash install, because it installs the dependencies.  To start, you'll need to [authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.  Then you'll need to create the build script that it will run against.
+
+Example .travis.yml
+```yaml
+language: python
+python:
+  - "3.4"
+install:
+  - pip3 install homeassistant
+script:
+  - hass -c . --script check_config
+```
+
+Since the work to properly secure your secrets.yaml was explained earlier, you'll probably need some values stored in it for the config testing to pass.  There are two approaches, a dummy secrets.yaml file, and encrypting your secrets.yaml and using it.
+
+Creating a dummy secrets.yaml is as simple as creating a new file that mimics your existing secrets.yaml but has invalid data
+```yaml
+#travis_secrets.yaml
+http_api: 000000000000000000000000
+home_latitude: 0
+home_longitude: 0
+home_elevation: 0
+```
+After creating the dummy travis_secrets.yaml, you would then add the following into your .travis.yml
+```yaml
+before_install:
+  - mv travis_secrets.yaml secrets.yaml
+```
+
+Encrypting your sensitive files (ex: secrets.yaml) requires more work, but it verifies that 100% of your files work, not just the ones that are publicly visible in your github repo.
+
+Installing travis cli
+```bash
+sudo apt install ruby ruby-dev -y
+gem install travis
+```
+
+Setting up travis for first time use:
+```bash
+travis login
+```
+
+Encrypting your secrets.yaml is easy:
+```bash
+travis encrypt-file secrets.yaml --add
+```
+
+For more information on how to encrypt files, read [Encrypting Files](https://docs.travis-ci.com/user/encrypting-files/).
+
+
+
 ### {% linkable_title Extra commands %}
 
 You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not commited yet:
