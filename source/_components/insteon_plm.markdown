@@ -50,7 +50,7 @@ added and removed from Home Assistant automatically.
 
 You can use the normal Home Assistant [device customization] section of your
 configuration to assign friendly names and special icons to your devices.  This
-is especially useful for setting sensor_class on your binary_sensor INSTEON
+is especially useful for setting device_class on your binary_sensor INSTEON
 devices.
 
 [device customization]: /getting-started/customizing-devices/
@@ -78,7 +78,7 @@ homeassistant:
       friendly_name: Bedside Lamp
     - entity_id: binary_sensor.a2b3c4
       friendly_name: Garage Door
-      sensor_class: opening
+      device_class: opening
 
 insteon_local:
   port: /dev/ttyUSB0
