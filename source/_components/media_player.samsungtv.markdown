@@ -25,8 +25,6 @@ To add a TV to your installation, add the following to your `configuration.yaml`
 media_player:
   - platform: samsungtv
     host: 192.168.0.10
-    port: 8001
-    mac: 5c:49:7d:9a:6f:5d
 ```
 
 Configuration variables:
