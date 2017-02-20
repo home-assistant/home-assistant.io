@@ -81,33 +81,33 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" }
-| `media_content_type` | no | Type of media to play, in this case `MUSIC` | MUSIC
+| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
+| `media_content_id` | no | Quote escaped JSON with `library_name`, `artist_name`, `album_name`, `track_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"My Music\\", \\"artist_name\\" : \\"Adele\\", \\"album_name\\" : \\"25\\", \\"track_name\\" : \\"hello\\", \\"shuffle\\": \\"0\\" } |
+| `media_content_type` | no | Type of media to play, in this case `MUSIC` | MUSIC |
 
 #### Playlist
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex
-| `media_content_id` | no | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" }
-| `media_content_type` | no | Type of media to play, in this case `PLAYLIST` | PLAYLIST
+| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
+| `media_content_id` | no | Quote escaped JSON with `playlist_name`, `shuffle` (0 or 1). | { \\"playlist_name\\" : \\"The Best of Disco\\" \\"shuffle\\": \\"0\\" } |
+| `media_content_type` | no | Type of media to play, in this case `PLAYLIST` | PLAYLIST |
 
 #### TV Episode
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `show_name`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"episode_number\\" : 15, \\"shuffle\\": \\"0\\" }
-| `media_content_type` | no | Type of media to play, in this case `EPISODE` | EPISODE
+| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
+| `media_content_id` | no | Quote escaped JSON with `library_name`, `show_name`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"episode_number\\" : 15, \\"shuffle\\": \\"0\\" } |
+| `media_content_type` | no | Type of media to play, in this case `EPISODE` | EPISODE |
 
 #### Video
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ----------- |
-| `entity_id` | no | `entity_id` of the client | media_player.theater_plex
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" }
-| `media_content_type` | no | Type of media to play, in this case `VIDEO` | VIDEO
+| `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
+| `media_content_id` | no | Quote escaped JSON with `library_name`, `video_name`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult Movies\\", \\"video_name\\" : \\"Blade\\", \\"shuffle\\": \\"0\\" } |
+| `media_content_type` | no | Type of media to play, in this case `VIDEO` | VIDEO |
 
 ### Compatibility
 | Client  | Limitations |
@@ -124,8 +124,10 @@ Plays a song, playlist, TV episode, or video on a connected client.
 ### Notes
 * At this moment, the Plex platform only supports one Plex Media Server.
 * It is possible to get errors that look like the following.
+
   ```
   ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```
+  
   If this occurs, try changing the setting `Secure connections` in your Plex Media Server to `Preferred` (instead of `Required`). The Plex component does not currently support HTTPS.
