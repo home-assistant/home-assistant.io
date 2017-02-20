@@ -80,7 +80,7 @@ homeassistant:
       friendly_name: Garage Door
       device_class: opening
 
-insteon_local:
+insteon_plm:
   port: /dev/ttyUSB0
   device_override:
     - address: a1b2c3  # Icon Appliance Module for bedside lamp
