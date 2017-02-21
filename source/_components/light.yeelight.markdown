@@ -51,7 +51,7 @@ Determine your bulb ip (using router, software, ping ...)
 </p>
 
 <p class='note warning'>
-This component is tested to work with models YLDP01YL and YLDP03YL. If you have a different model and it is working please let us know.
+This component is tested to work with models YLDP01YL, YLDP02YL and YLDP03YL. If you have a different model and it is working please let us know.
 </p>
 
 
