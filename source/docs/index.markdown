@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-hide_github_edit: true
 ---
 
 The documentation covers from beginner to advanced topic around the installation, the setup, the configuration, and the usage of Home Assistant.
@@ -37,11 +36,17 @@ The documentation covers from beginner to advanced topic around the installation
     </div>
     <div class='title'>MQTT</div>
   </a>
-  <a class='option-card' href='/docs/hadashboard/'>
+  <a class='option-card' href='/docs/ecosystem/hadashboard/'>
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
     <div class='title'>HADashboard</div>
+  </a>
+  <a class='option-card' href='/docs/ecosystem/ios/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/apple.png' />
+    </div>
+    <div class='title'>iOS</div>
   </a>
 </div>
 
