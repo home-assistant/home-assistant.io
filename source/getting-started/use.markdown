@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Run Home Assistant"
-description: "Instructions about how you can run Home Assistant."
+title: "Manage Home Assistant"
+description: "Instructions about how to manage Home Assistant."
 date: 2016-09-26 21:00
 sidebar: true
 comments: false
@@ -11,12 +11,16 @@ footer: true
 
 If you are using Hassbian, browse to [http://hassbian.local:8123](http://hassbian.local:8123) to open the Home Assistant frontend.
 
-For a standard installation the command shown below starts Home Assistant and serves the frontend at [http://IP_ADDRESS:8123](http://IP_ADDRESS:8123).
+To reload your configuration, [login](/docs/hassbian/common-tasks/#login-to-the-raspberry-pi) your Raspberry Pi
 
 ```bash
-$ hass
+$ ssh pi@ip-address-of-pi
 ```
 
-To see what Home Assistant can do, launch the demo mode: `hass --demo-mode`.
+and [restart](/docs/hassbian/common-tasks/#startstoprestart-home-assistant) Home Assistant
+
+```bash
+$ sudo systemctl restart home-assistant@homeassistant.service
+```
 
 For tweaking your Home Assistant setup, take a look at the [documentation](/docs/), ask your questions in our [forum](https://community.home-assistant.io/), join us for a [chat](https://gitter.im/home-assistant/home-assistant), or report your [issues](https://github.com/home-assistant/home-assistant/issues).
