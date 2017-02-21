@@ -20,7 +20,7 @@ sensor:
   - platform: random
 ```
 
-The [Setting up devices part](/docs/configuration/devices/) of the documentation additional details about adding device and services and [customizization](docs/configuration/customizing-devices/).
+The [Setting up devices part](/docs/configuration/devices/) contains of the documentation additional details about adding device and services and [customizization](docs/configuration/customizing-devices/).
 
 For further details about configuration, please take a look at the [configuration documentation](/docs/configuration/).
 

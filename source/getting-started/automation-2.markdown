@@ -1,17 +1,18 @@
 ---
 layout: page
-title: "Your First Automation"
-description: "Step by step guiding through making your first automation."
+title: "Your second Automation"
+description: "Step by step guiding through making your second automation."
 date: 2016-04-24 08:30 +0100
 sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/automation-create-first/
 ---
 
-Before we dive deeper into what every piece of automation _can_ do, let's look at a simple automation rule: **Turn on the lights when the sun sets**
+After the scratch on the Automation surface, let's dive deeper and create the automation rule: **Turn on the lights when the sun sets**
 
-In this example, we are defining a trigger to track the sunset and tell it to fire when the sun is setting. When this event is triggered, the service `light.turn_on` is called without any parameters. Because we specify no parameters, it will turn on all the lights.
+We are defining a [trigger](/docs/automation/trigger/) to track the sunset and tell it to fire when the sun is setting. When this event is triggered, the service `light.turn_on` is called without any parameters. Because we specify no parameters, it will turn on all the lights.
 
 ```yaml
 # Example configuration.yaml entry
@@ -28,7 +29,7 @@ automation:
 
 Starting with 0.28 automation rules can be reloaded from the [frontend](/components/automation/) and are shown by default. With [`hide_entity:`](/components/automation/) you can control this behaviour. It's very handy if you are working on your rules but when a rule is finished and you don't want to see that rule in your frontend, you can set `hide_entity:` to `True`. To set an automation to be disabled when Home Assistant starts set `initial_state:` to `False`. 
 
-After a few days of running this automation rule, you come to realize that this automation rule is not good enough. It was already dark when the lights went on and the one day you weren't home, the lights turned on anyway. Time for some tweaking. Let's add an offset to the sunset trigger and a condition to only turn on the lights if anyone is home.
+After a few days of running this automation rule, you come to realize that this automation rule is not good enough. It was already dark when the lights went on and the one day you weren't home, the lights turned on anyway. Time for some tweaking. Let's add an offset to the sunset trigger and a [condition](/docs/automation/condition/) to only turn on the lights if anyone is home.
 
 ```yaml
 # Example configuration.yaml entry
@@ -78,7 +79,7 @@ automation:
 
 Christmas is coming along and you decide to buy a remote switch to control the Christmas lights from Home Assistant. You can't claim to live in the house of the future if you're still manually turning on your Christmas lights!
 
-We hook the switch up to Home Assistant and grab the entity ID from the developer tools: `switch.christmas_lights`. We will update the group to include the switch and will change our action. We are no longer able to call `light.turn_on` because we also want to turn on a switch. This is where `homeassistant.turn_on` comes to the rescue. This service is capable of turning any entity on.
+We hook the switch up to Home Assistant and grab the entity ID from the developer tools: `switch.christmas_lights`. We will update the group to include the switch and will change our [action](/docs/automation/action/). We are no longer able to call `light.turn_on` because we also want to turn on a switch. This is where `homeassistant.turn_on` comes to the rescue. This service is capable of turning any entity on.
 
 ```yaml
 # Example configuration.yaml entry
@@ -104,10 +105,5 @@ automation:
     entity_id: group.living_room
 ```
 
-### {% linkable_title Learn more %}
-
- - [Triggers](/docs/automation/trigger/)
- - [Conditions](/docs/automation/condition/)
- - [Actions](/docs/automation/action/)
- - [Templating](/docs/automation/templating/) (advanced)
+### [Next step: Presence detection &raquo;](/getting-started/presence-detection/)
 

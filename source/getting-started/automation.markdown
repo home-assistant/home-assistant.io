@@ -26,6 +26,6 @@ automation:
         message: "Sensor value greater than 10"
 ```
 
-For further details about automation, please take a look at the [automation tutorial](/docs/automation/tutorial/) to get started with full-speed or the [automation documentation](/docs/automation/).
+For further details about automation, please take the next step or the [automation documentation](/docs/automation/).
 
-### [Next step: Run Home Assistant &raquo;](/getting-started/run/)
+### [Next step: Home Assistant Automation Part 2 &raquo;](/getting-started/automation-2/)

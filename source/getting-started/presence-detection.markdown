@@ -51,3 +51,5 @@ Home Assistant will know the location of your device if you are using OwnTracks.
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
 
+### [Next step: Use Home Assistant &raquo;](/getting-started/use/)
+
