@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/ios/notifications/
 ---
 
 The `ios` notify platform enables sending push notifications to the Home Assistant iOS app.

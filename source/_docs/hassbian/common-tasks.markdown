@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/hassbian-common-tasks/
 ---
 
 ### {% linkable_title Login to the Raspberry Pi %}

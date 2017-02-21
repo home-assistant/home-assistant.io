@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/ios/integration/
 ---
 
 Home Assistant for iOS supports opening from other apps via URL.

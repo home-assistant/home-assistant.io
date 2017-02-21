@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-hide_github_edit: true
+redirect_from: /ecosystem/appdaemon/configuration/
 ---
 
 When you have appdaemon installed by either method, copy the `conf/appdaemon.cfg.example` file to `conf/appdaemon.cfg`, then edit the `[AppDaemon]` section to reflect your environment:

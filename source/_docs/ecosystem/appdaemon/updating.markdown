@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-hide_github_edit: true
+redirect_from: /ecosystem/appdaemon/updating/
 ---
 
 To update AppDaemon after I have released new code, just run the following command to update your copy:

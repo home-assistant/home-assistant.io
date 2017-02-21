@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/installation-virtualenv/
 ---
 
 There are several reasons why it makes sense to run Home Assistant in a virtual environment. A [virtualenv](https://virtualenv.pypa.io/en/latest/) encapsulates all aspect of a Python environment within a single directory tree. That means the Python packages you install for Home Assistant won't interact with the rest of your system and vice-versa. It means a random upgrade for some other program on your computer won't break Home Assistant, and it means you don't need to install Python packages as root.

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
 It can happen that you run into trouble while configuring Home Assistant. Perhaps a component is not showing up or is acting strangely. This page will discuss a few of the most common problems.

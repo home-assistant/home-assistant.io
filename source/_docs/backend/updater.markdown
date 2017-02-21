@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /details/updater/
 ---
 
 Starting with 0.31 the [updater component](/components/updater/) sends an optional report about Home Assistant instance.

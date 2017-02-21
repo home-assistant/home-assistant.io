@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/installation-synology/
 ---
 
 The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.

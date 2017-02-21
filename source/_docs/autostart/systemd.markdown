@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/autostart-systemd/
 ---
 
 Newer linux distributions are trending towards using `systemd` for managing daemons. Typically, systems based on Fedora, ArchLinux, or Debian (8 or later) use `systemd`. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using `systemd`, you may check with the following command:
@@ -20,7 +21,7 @@ If the preceding command returns the string `systemd`, you are likely using `sys
 If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. You need a service file to control Home Assistant with `systemd`. If you are using a Raspberry Pi with Raspbian then replace the `[your user]` with `pi` otherwise use your user you want to run Home Assistant. `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
 
 ```bash
-$ su -c 'cat <<EOF >> /etc/systemd/system/home-assistant@[your user].service
+$ su -c 'cat <<EOF >> /etc/systemd/system/home-assistant@.service
 [Unit]
 Description=Home Assistant
 After=network.target
@@ -45,7 +46,7 @@ After=network.target
 [Service]
 Type=simple
 User=homeassistant
-#make sure the virtualenv python binary is used
+# Make sure the virtualenv Python binary is used
 Environment=VIRTUAL_ENV="/srv/homeassistant"
 Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
 ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/yaml/
 ---
 
 So you've been using Home Assistant for a while now and your [configuration.yaml file brings people to tears](https://home-assistant.io/cookbook/configuration_yaml_from_bassclarinetl2/) or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: humanly readable) pieces.

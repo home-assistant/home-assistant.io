@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /details/webserver/
 ---
 
 It was only a matter of time till the first queries for tools like [https://www.shodan.io](https://www.shodan.io/search?query=Home+Assistant) to search for Home Assistant instances showed up.

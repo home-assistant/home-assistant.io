@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/z-wave-settings/
 ---
 
 You may wish to modify the Z-Wave settings in your `ozw*.xml` file (stored in the `.homeassistant` configuration directory), or certain situations/devices may require it (i.e. Aeon Multisensor 6). To do this, utilize [Open-Zwave Control Panel](https://github.com/OpenZWave/open-zwave-control-panel). Alternatively, use [Domoticz](https://www.domoticz.com/), which incorporates the Open-Zwave Control Panel project into an easy to use Raspberry Pi image.

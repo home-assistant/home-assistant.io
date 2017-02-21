@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /topics/platform_options/
 ---
 
 Any component that is based on the entity component allows various extra options to be set per platform.

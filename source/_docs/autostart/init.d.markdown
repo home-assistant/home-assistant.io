@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/autostart-init.d/
 ---
 
 Home Assistant can run as a daemon within init.d with the script below.
@@ -17,8 +18,8 @@ Copy the script at the end of this page to `/etc/init.d/hass-daemon`.
 
 After that, set the script to be executable:
 
-```
-sudo chmod +x /etc/init.d/hass-daemon
+```bash
+$ sudo chmod +x /etc/init.d/hass-daemon
 ```
 
 ### {% linkable_title 2. Select a user. %}
@@ -27,14 +28,14 @@ Create or pick a user that the Home Assistant daemon will run under. Update scri
 
 ### {% linkable_title 3. Register the daemon with Linux %}
 
-```
-sudo update-rc.d hass-daemon defaults
+```bash
+$ sudo update-rc.d hass-daemon defaults
 ```
 
 ### {% linkable_title 4. Install this service %}
 
-```
-sudo service hass-daemon install
+```bash
+$ sudo service hass-daemon install
 ```
 
 ### {% linkable_title 5. Restart Machine %}
@@ -49,7 +50,7 @@ If any commands need to run before executing hass (like loading a virutal enviro
 
 ### {% linkable_title Daemon script %}
 
-```
+```bash
 #!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          hass

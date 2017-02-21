@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/autostart-synology/
 ---
 
 To get Home Assistant to automatically start when you boot your Synology NAS:

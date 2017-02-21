@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/ios/notifications/architecture/
 ---
 
 <p class='img'>

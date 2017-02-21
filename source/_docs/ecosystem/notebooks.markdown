@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/notebooks/
 ---
 
 The [Jupyter Notebooks](http://jupyter.org/) allows you to create and share documents that contain live code, equations, visualizations, and explanatory text directly in your browser. The web application what is formerly known as the IPython Notebook supports over 40 programming languages.

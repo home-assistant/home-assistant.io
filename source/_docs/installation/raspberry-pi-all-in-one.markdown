@@ -5,6 +5,7 @@ date: 2016-05-12 01:39
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/installation-raspberry-pi-all-in-one/
 ---
 
 The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant) deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the Open-Zwave Control Panel.

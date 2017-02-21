@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-hide_github_edit: true
+redirect_from: /ecosystem/appdaemon/windows/
 ---
 
 AppDaemon runs under windows and has been tested with the official 3.5.2 release of Python. There are a couple of caveats however:

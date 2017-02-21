@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/ios/location/
 ---
 
 ## {% linkable_title Location tracking when outside a Home Assistant zone %}

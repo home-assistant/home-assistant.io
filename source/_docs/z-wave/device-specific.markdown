@@ -7,9 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/z-wave-device-specific/
 ---
 
-##### {% linkable_title Motion or alarm sensors %}
+## {% linkable_title Motion or alarm sensors %}
 
 In order for Home Assistant to recognize the sensor properly, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
 These devices will either show as a binary sensor or a sensor called `Alarm xxxx` and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.
@@ -21,8 +22,12 @@ The following parameters can be entered:
 - **parameter** (*Required*): The index number of the parameter to be set. Refer to device manual or zwcfg_[home_id].xml
 - **value** (*Required*): The value to set the parameter to. Refer to device manual or zwcfg_[home_id].xml
 - **size** (*Optional*): The size of the value. It is normally not needed to specify this parameter, but in some cases it's needed. Check OZW.log for details on this.
-You should check OZW.log to see if your new setting has been set
+
+You should check OZW.log to see if your new setting has been set.
+
 Example entry in dev-service, setting binary reports for an Aeotec Multisensor 6:
+
+
 ```yaml
 # Example entry in dev-service
 {
@@ -32,7 +37,7 @@ Example entry in dev-service, setting binary reports for an Aeotec Multisensor 6
 }
 ```
 
-##### {% linkable_title Locks and other secure devices %}
+## {% linkable_title Locks and other secure devices %}
 
 These devices require a network key to be set for the Z-Wave network before they are paired. This key is set in OpenZWave's `options.xml` which is located in OpenZWave's directory. This should also be the same directory as `config_path:` in your `configuration.yaml`. If it's not, make sure you have the same values in all the files you are using.
 The option is commented out by default in `options.xml` and is a default key. Make your own unique key. The key is in Hexadecimals.

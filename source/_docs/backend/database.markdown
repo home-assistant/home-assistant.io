@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /details/database/
 ---
 
 The default database that is used for Home Assistant is [SQLite](https://www.sqlite.org/) and is stored in your [configuration directory](/getting-started/configuration/), eg. `<path to config dir>/.homeassistant/home-assistant_v2.db`. You will need an installation of `sqlite3`, the command-line for SQLite database, or [DB Browser for SQLite](http://sqlitebrowser.org/) which provide an editor for executing SQL commands.

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /topics/packages/
 ---
 
 Packages in Home Assistant provides a way to bundle different component's configuration together. We were already introduced to the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/docs/configuration/devices/) page. Both of these configuration methods require you to create the component key in the main `configuration.yaml` file. With packages we have a way to include different components, or parts of configuration using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).

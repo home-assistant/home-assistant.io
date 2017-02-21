@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/z-wave-controllers/
 ---
 
 Z-Wave is a popular home automation protocol that is not always straightforward to setup. This page will try to help you make sense of it all.

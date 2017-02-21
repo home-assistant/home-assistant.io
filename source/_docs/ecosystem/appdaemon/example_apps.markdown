@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-hide_github_edit: true
+redirect_from: /ecosystem/appdaemon/example_apps/
 ---
 
 There are a number of example apps under conf/examples, and the `conf/examples.cfg` file gives sample parameters for them.

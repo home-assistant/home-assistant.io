@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/synology/
 ---
 
 Synology NAS are the perfect companion to running Home Assistant.

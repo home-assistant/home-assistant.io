@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/basic/#remote-access
 ---
 
 If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible.

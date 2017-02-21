@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/installation-python/
 ---
 
 Once Python is installed, execute the following code in a console:
@@ -21,7 +22,7 @@ Running these commands will:
  - Install Home Assistant
  - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
 
-If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions][/docs/installation/virtualenv/] to avoid using `root`.
+If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
 
 Video tutorials of this process for various operating systems are available here:
 

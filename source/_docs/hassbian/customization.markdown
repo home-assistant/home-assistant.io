@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/hassbian-customization/
 ---
 
 To allow you to customize your installation further, we have included a set of Hassbian scripts.

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/ios/notifications/content_extensions/
 ---
 
 With the new Content Extension feature found in iOS 10, dynamic content can now be displayed as part of a notification without opening an app.

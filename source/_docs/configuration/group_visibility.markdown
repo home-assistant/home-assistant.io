@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /topics/group_visibility/
 ---
 
 After filling Home Assistant with all your precious home automation devices, you usually end up with a cluttered interface and lots of groups that are not interesting in your current context. What if you just want to show groups that are interesting _now_ and hide the rest? That's when group visibility comes to play.

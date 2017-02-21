@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/ios/notifications/actions/
 ---
 
 Actionable notifications allow you to attach 1-4 custom buttons to a notification. When one of the actions is selected Home Assistant will be notified which action was chosen. This allows you to build complex automations.

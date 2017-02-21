@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/scripts-conditions/
 ---
 
 Conditions can be used within a script or automation to prevent further execution. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.

@@ -7,20 +7,21 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/nginx/
 ---
 
 Using nginx as a proxy for Home Assistant allows you to serve Home Assistant securely over standard ports. This configuration file and instructions will walk you through setting up Home Assistant over a secure connection.
 
-### {% linkable_title 1. Get a domain name forwarded to your IP. %}
+### {% linkable_title 1. Get a domain name forwarded to your IP %}
 
 Chances are, you have a dynamic IP Address (your ISP changes your address periodically). If this is true, you can use a Dynamic DNS service to obtain a domain and set it up to update with you IP. If you purchase your own domain name, you will be able to easily get a trusted SSL certificate later.
 
 
-### {% linkable_title 2 Install nginx on your server. %}
+### {% linkable_title 2 Install nginx on your server %}
 
 This will vary depending on your OS. Check out Google for this. After installing, ensure that nginx is not running.
 
-### {% linkable_title 3. Obtain an SSL certificate. %}
+### {% linkable_title 3. Obtain an SSL certificate %}
 
 There are two ways of obtaining an SSL certificate.
 

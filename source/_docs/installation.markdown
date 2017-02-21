@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/installation/
 ---
 
 Home Assistant provides multiple ways to be installed. If you are a Raspberry Pi owner then the [Hassbian](/docs/hassbian/) is an easy and simple way to run home Assistant.

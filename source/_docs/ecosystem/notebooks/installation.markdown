@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/notebooks/installation/
 ---
 
 To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider to run Jupyter in a [virtualenv](/getting-started/installation-virtualenv/).

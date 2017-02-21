@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /topics/templating/
 ---
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of the following things:

@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
+redirect_from: /components/mqtt/#logging
 ---
 
 The [logger](/components/logger/) component allow the logging of received MQTT messages.

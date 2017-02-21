@@ -7,7 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/automation-examples/
 ---
+
+Just some sample automation rules to get you started.
 
 ```yaml
 # Example of entry in configuration.yaml

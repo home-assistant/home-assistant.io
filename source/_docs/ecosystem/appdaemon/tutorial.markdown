@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-hide_github_edit: true
+redirect_from: /ecosystem/appdaemon/tutorial/
 ---
 
 ## {% linkable_title Another Take on Automation %}

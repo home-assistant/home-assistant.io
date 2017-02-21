@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/installation-vagrant/
 ---
 
 A `Vagrantfile` is available into `virtualization/vagrant` folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them.
@@ -60,7 +61,7 @@ To start it again, just run `vagrant up`
 
 ## {% linkable_title Restarting Home Assistant process to test changes %}
 
-The root `home-assistant` directory on your workstation will be mirrored with `/home-assistant` inside the VM. In `virtualization/vagrant` there's also a `config` folder that you can use to drop configuration files (Check the [Getting started section](https://home-assistant.io/getting-started/configuration/) for more information about how to configure Home Assistant).
+The root `home-assistant` directory on your workstation will be mirrored with `/home-assistant` inside the VM. In `virtualization/vagrant` there's also a `config` folder that you can use to drop configuration files (Check the [Configuration section](/docs/configuration/) in the docmentation for more information about how to configure Home Assistant).
 
 Any changes made to the local directory on your workstation will be available from the Vagrant host, so to apply your changes to the Home Assistant process, just restart it:
 

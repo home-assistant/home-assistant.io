@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/hadashboard/updating/
 ---
 
 To update the dashboard after new code has been released, just run the following command to update your copy:

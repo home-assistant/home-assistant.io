@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /ecosystem/ios/notifications/privacy_security_rate_limits/
 ---
 
 ## {% linkable_title Privacy %}

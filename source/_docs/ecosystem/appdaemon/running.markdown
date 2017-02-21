@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-hide_github_edit: true
+redirect_from: /ecosystem/appdaemon/running/
 ---
 
 As configured, `AppDaemon` comes with a single HelloWorld App that will send a greeting to the logfile to show that everything is working correctly.

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /getting-started/devices/
 ---
 
 Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/components/discovery/) enabled (the default setting).

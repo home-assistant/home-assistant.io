@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant offers a wide range of automation configurations. In the next few pages, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][/cookbook/#example-configurationyaml].
+Home Assistant offers a wide range of automation configurations. In this section, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][/cookbook/#example-configurationyaml].
 
 ### {% linkable_title Automation basics %}
 
@@ -21,7 +21,7 @@ Before you can go ahead and create your own automations, it's important to learn
 (action)     Turn the lights in the living room on
 ```
 
-The example consists of three different parts: a trigger, a condition and an action.
+The example consists of three different parts: a [trigger](/docs/automation/trigger/), a [condition](/docs/automation/condition/) and an [action](/docs/automation/action/).
 
 The first line is the **trigger** of the automation rule. Triggers describe events that should trigger the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant by observing the state of Paulus changing from 'not_home' to 'home'.
 
