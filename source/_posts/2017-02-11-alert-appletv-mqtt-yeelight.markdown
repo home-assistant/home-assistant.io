@@ -125,6 +125,12 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Moon: remove unit of measurement ([@fabaff])
 - MySensors: add version requirement to notify and device tracker ([@MartinHjelmare])
 
+### {% linkable_title Release 0.38.4 - February 21 %}
+
+ - Discovery: flux_led discovery led to problems on systems and has been removed ([@bazwilliams])
+ - Hidden devices are no longer visible on views ([@balloob])
+
+
 ### {% linkable_title Breaking changes %}
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
 - Image processing events have been renamed: `identify_face` has become `image_processing.detect_face`, `found_plate` has become `image_processing.found_plate`
@@ -137,6 +143,7 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 ### {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
+[@bazwilliams]: https://github.com/bazwilliams
 [@acambitsis]: https://github.com/acambitsis
 [@adrianlzt]: https://github.com/adrianlzt
 [@aequitas]: https://github.com/aequitas
