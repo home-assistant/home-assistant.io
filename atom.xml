@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-21T14:09:15+00:00</updated>
+  <updated>2017-02-22T06:11:06+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant t-shirts have arrived!]]></title>
+    <link href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/"/>
+    <updated>2017-02-22T00:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived</id>
+    <content type="html"><![CDATA[<p class="img">
+  <a href="https://teespring.com/stores/home-assistant-us-store"><img src="https://home-assistant.io/images/blog/2017-02-shirts/beard.png" /></a>
+  Cool dude with beard and tattoo wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
+</p>
+
+<p>What time is it? Yep, t-shirt time. Today we’re launching the first two Home Assistant designs. We have a <a href="https://teespring.com/home-assistant-shirt">blue t-shirt</a> as pictured above and <a href="https://teespring.com/hass-shirt-black">a design for on black/gray shirts</a> as pictured below. <a href="https://teespring.com/stores/home-assistant-us-store">Go to the store!</a></p>
+
+<p><a href="https://www.eff.org"><img src="https://home-assistant.io/images/supported_brands/eff.png" style="width: 150px; float: right; box-shadow: none; border: 0; margin-left: 15px;" /></a></p>
+
+<p>And because we love the internet and all the things that it has brought us, <strong>we will start with having 100% of the profit from the sales be donated to the <a href="https://www.eff.org">Electronic Frontier Foundation</a></strong>. If you buy a shirt you will hit two birds with one stone (figuratively): you get to wear a kick-ass Home Assistant t-shirt and you help fund defending civil liberties in the digital world.</p>
+
+<p>The EFF is a nonprofit organization that aims to protect the rights of technology users. You might however be more familiar with one of their projects: <a href="https://letsencrypt.org">Let’s Encrypt</a>. <a href="https://www.eff.org/issues">Read more about what the EFF does.</a></p>
+
+<p><a href="https://teespring.com/stores/home-assistant-us-store">So, what are you waiting for? Buy a shirt!</a></p>
+
+<p class="img">
+  <a href="https://teespring.com/stores/home-assistant-us-store"><img src="https://home-assistant.io/images/blog/2017-02-shirts/family.png" /></a>
+  Family of 4 on a bench wearing <a href="https://teespring.com/hass-shirt-black">the new black Home Assistant shirt</a>.
+</p>
+
+<p>We are using <a href="https://teespring.com">Teespring.com</a> to manage all the sales, production and distribution of the shirts and they will also donate our profits to the EFF. It’s also how we got all these amazing stockphotos. Some extra things to note about our teespring shop:</p>
+
+<ul>
+  <li>For now we are only launching a US-based store and are working on an EU-based store. We will keep you updated when that is ready. An EU-based store would bring (<a href="https://teespring.com/teespring-europe">according to Teespring</a>) 65% cheaper shipping and 30% faster delivery if you are in Europe compared to the US store.</li>
+  <li>Teespring shows that there is a number of days left until the end of the campaign for the shirts. Don’t worry about that, it should automatically relaunch.</li>
+  <li>Right now <a href="https://teespring.com/home-assistant-shirt">the blue shirt</a> does not show that 100% of the proceedings will go to charity but their support confirmed to me that it will and that the badge should show up soon.</li>
+</ul>
+
+<p>More photos after the click.
+<!--more--></p>
+
+<p class="img">
+  <a href="https://teespring.com/stores/home-assistant-us-store"><img src="https://home-assistant.io/images/blog/2017-02-shirts/pull-finger.png" /></a>
+  Moment suprême of a solo pull-my-finger joke while wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
+</p>
+<p class="img">
+  <a href="https://teespring.com/stores/home-assistant-us-store"><img src="https://home-assistant.io/images/blog/2017-02-shirts/group.png" /></a>
+   Two men carrying two women and <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
+</p>
+<p class="img">
+  <a href="https://teespring.com/stores/home-assistant-us-store"><img src="https://home-assistant.io/images/blog/2017-02-shirts/lollipop.png" /></a>
+  Cute girl with gigantic lollipop rocking <a href="https://teespring.com/hass-shirt-black">the new black Home Assistant shirt</a>.
+</p>
+<p class="img">
+  <a href="https://teespring.com/stores/home-assistant-us-store"><img src="https://home-assistant.io/images/blog/2017-02-shirts/shout.png" /></a>
+  Frustrated user wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
+</p>
+<p class="img">
+  <a href="https://teespring.com/stores/home-assistant-us-store"><img src="https://home-assistant.io/images/blog/2017-02-shirts/kids.png" /></a>
+  Cool kid listening to music + sidekick. Both wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
+</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Workshop at CLT 2017]]></title>
@@ -1900,134 +1960,6 @@ You have to note:
 <p>As it is today there is no pre-compiled Z-Wave support but it can be installed by following the <a href="https://home-assistant.io/getting-started/z-wave/">Getting started instructions for Z-Wave</a>.</p>
 
 <p>Happy Automating!</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants]]></title>
-    <link href="https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks/"/>
-    <updated>2016-09-29T03:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks</id>
-    <content type="html"><![CDATA[<p>Two weeks ago, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of <strong>50</strong> different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!</p>
-
-<p>This is a big release as we’ve completely overhauled the internals of Home Assistant. When I initially wrote Home Assistant, still figuring out the ins and outs of Python, I went for an approach that I was familiar with for an application with many moving parts: threads and locks. This approach has served us well over the years but it was slower than it needed to be, especially on limited hardware.</p>
-
-<p>This all changed when <a href="https://github.com/bbangert">@bbangert</a> came around and took on the tough job to migrate the core over to use asynchronous programming. He did an amazing job and I am happy to say that the initial port has been done and is included in this release! On top of that, we have been able to keep our simple and straightforward API at the same time. We are still in the process of migrating more and more components over to the asynchronous API, so expect more speedups and awesome features in the upcoming releases.</p>
-
-<h3><a class="title-link" name="sleepiq-and-openalpr" href="#sleepiq-and-openalpr"></a> SleepIQ and OpenALPR</h3>
-
-<p>There now is support for two new super cool things: Beds and license plates. <a href="https://github.com/technicalpickles">@technicalpickles</a> created a <a href="https://home-assistant.io/components/sleepiq/">SleepIQ</a> component that let you monitor the sensor data of your bed. <a href="https://github.com/pvizeli">@pvizeli</a> has added license plate recognition based on <a href="https://home-assistant.io/components/openalpr/">OpenALPR</a>! This means that you can now be notified about which car is parked on your driveway or in your garage. I also would like to use this opportunity to give a big shoutout to <a href="https://github.com/pvizeli">@pvizeli</a> for being such an awesome member of our community. He joined us at the end of June and has helped crush bugs and add awesome features ever since (65 pull requests already!).</p>
-
-<h3><a class="title-link" name="configuration-validation" href="#configuration-validation"></a> Configuration validation</h3>
-
-<p>On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.</p>
-
-<h3><a class="title-link" name="delayed-release" href="#delayed-release"></a> Delayed Release</h3>
-
-<p>As you might have noticed, this release has been delayed by 5 days. This was due to a rare, difficult to reproduce problem with the Python interpreter. A huuuuge thanks to all the people that have helped countless hours in researching, debugging and fixing this issue: <a href="https://github.com/bbangert">@bbangert</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/persandstrom">@persandstrom</a> and <a href="https://github.com/joyrider3774">@joyrider3774</a>. I am grateful to have all of you as part of the Home Assistant community.</p>
-
-<h3><a class="title-link" name="hide-automation-rules" href="#hide-automation-rules"></a> Hide automation rules</h3>
-
-<p>Since 0.28 <a href="https://home-assistant.io/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules/">automation rules</a> can be reloaded directly from the frontend. By default all automation rules are shown. If you want to <a href="https://home-assistant.io/getting-started/automation-create-first/">hide an automation rule</a>, use <code class="highlighter-rouge">hide_entity: True</code>.</p>
-
-<h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
-
-<p><img src="https://home-assistant.io/images/supported_brands/emoncms.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/sleepiq.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /><img src="https://home-assistant.io/images/supported_brands/openalpr.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
-
-<ul>
-  <li>Convert core from thread-based to be async-based (<a href="https://github.com/bbangert">@bbangert</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>New <a href="https://home-assistant.io/components/sleepiq/">SleepIQ</a> support (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
-  <li>Cover: <a href="https://home-assistant.io/components/cover.vera/">Vera</a> is now supported (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Climate: Vera <a href="https://home-assistant.io/components/climate.vera/">climate</a> devices are now supported (<a href="https://github.com/robjohnson189">@robjohnson189</a>)</li>
-  <li>Climate: <a href="https://home-assistant.io/components/climate.mysensors/">MySensors</a> is now supported (<a href="https://github.com/kaustubhphatak">@kaustubhphatak</a>)</li>
-  <li>Control Home Assistant with <a href="https://home-assistant.io/components/keyboard_remote/">keyboard shortcuts</a> (<a href="https://github.com/deisi">@deisi</a>)</li>
-  <li>More voluptuous config validations (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>New <a href="https://home-assistant.io/components/nuimo_controller/">Nuimo</a> controller support added (<a href="https://github.com/gross1989">@gross1989</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.bom/">BOM</a> Weather component (<a href="https://github.com/tinglis1">@tinglis1</a>)</li>
-  <li>Automation: Option added to hide entity (<a href="https://github.com/milaq">@milaq</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.emoncms/">Emoncms</a> feeds now supported (<a href="https://github.com/joyrider">@joyrider</a>)</li>
-  <li>Sensor: Mi Flora <a href="https://home-assistant.io/components/sensor.miflora/">plant</a> sensor now supported (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
-  <li>Logbook: Allow <a href="https://home-assistant.io/components/logbook/">filtering</a> entities and hide hidden entities (<a href="https://github.com/wokar">@wokar</a>)</li>
-  <li>Notify: <a href="https://home-assistant.io/components/notify.kodi/">Kodi</a> support added (<a href="https://github.com/chrom3">@chrom3</a>)</li>
-  <li>Notify: Support for <a href="https://home-assistant.io/components/notify.simplepush/">Simplepush</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Sensor: <a href="https://home-assistant.io/components/sensor.knx/">KNX</a> sensors now supported (<a href="https://github.com/daBONDi">@daBONDi</a>)</li>
-  <li><a href="https://home-assistant.io/components/wink/">Wink</a> improvements (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li><a href="https://home-assistant.io/components/isy994/">ISY</a> improvements (<a href="https://github.com/Teagan42">@Teagan42</a>)</li>
-  <li>Link to relevant docs in config validation error messages (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Greatly improve the performance of templates (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Notify - <a href="https://home-assistant.io/components/notify.slack/">Slack</a>: Support for username/icon (<a href="https://github.com/Khabi">@Khabi</a>)</li>
-  <li>MQTT room detection: Away <a href="https://home-assistant.io/components/sensor.mqtt_room/">timeout</a> now supported (<a href="https://github.com/mKerix">@mKeRix</a>)</li>
-  <li>Climate: <a href="https://home-assistant.io/components/fan.nest/">Nest</a> can now control the fan (<a href="https://github.com/jawilson">@jawilson</a>)</li>
-  <li>Modbus: Major cleanup for <a href="https://home-assistant.io/components/modbus/">Modbus</a> switches and sensors (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
-  <li>HTTP: Allow <a href="https://home-assistant.io/components/http/">passwordless</a> logins from whitelisted IP addresses (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Sensor: Yahoo! Finance <a href="https://home-assistant.io/components/sensor.yahoo_finance/">stocks</a> now supported (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Sensor: Set value based on incoming <a href="https://home-assistant.io/components/sensor.imap_email_content/">email</a> (<a href="https://github.com/sam-io">@sam-io</a>)</li>
-  <li>Light: White value now supported (<a href="https://github.com/mxtra">@mxtra</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
-  <li><a href="https://home-assistant.io/components/influxdb/">InfluxDB</a> now allows attaching extra data (<a href="https://github.com/lwis">@lwis</a>)</li>
-  <li><a href="https://home-assistant.io/components/openalpr/">OpenALPR</a> support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Minor features and bug fixes by <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/w1ll1am23">@w1ll1am23</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/clach04">@clach04</a>, <a href="https://github.com/mKerix">@mKeRix</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/nvella">@nvella</a>, <a href="https://github.com/Teagan42">@Teagan42</a>, <a href="https://github.com/ericwclymer">@ericwclymer</a>, <a href="https://github.com/wokar">@wokar</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/nkgilley">@nkgilley</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/ej81">@ej81</a>, <a href="https://github.com/danieljkemp">@danieljkemp</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/philhawthorne">@philhawthorne</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/milas">@milas</a>, <a href="https://github.com/simonszu">@simonszu</a>, <a href="https://github.com/Cinntax">@Cinntax</a>, <a href="https://github.com/irvingwa">@irvingwa</a>, <a href="https://github.com/sytone">@sytone</a>, <a href="https://github.com/kk7ds">@kk7ds</a>, <a href="https://github.com/robbiet480">@robbiet480</a>.</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0291---september-29" href="#hotfix-0291---september-29"></a> Hotfix 0.29.1 - September 29</h3>
-
-<ul>
-  <li>Fix typo in Nest climate platform. <a href="https://github.com/home-assistant/home-assistant/issues/3574">We are still experiencing issues with Nest.</a> (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0292---september-29" href="#hotfix-0292---september-29"></a> Hotfix 0.29.2 - September 29</h3>
-
-<ul>
-  <li>InfluxDB config fix (<a href="https://github.com/fabaff">@fabaff</a>, reported by <a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>Netatmo config fix (<a href="https://github.com/jabesq">@jabesq</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0293---september-29" href="#hotfix-0293---september-29"></a> Hotfix 0.29.3 - September 29</h3>
-
-<ul>
-  <li>Hue config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0294---september-30" href="#hotfix-0294---september-30"></a> Hotfix 0.29.4 - September 30</h3>
-
-<ul>
-  <li>Alexa config fix (<a href="https://github.com/balloob">@balloob</a>, reported by <a href="https://github.com/lwis">@lwis</a>)</li>
-  <li>Envisalink discovery fix (<a href="https://github.com/Cinntax">@cinntax</a>)</li>
-  <li>Acer Projector config fix (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0295---september-30" href="#hotfix-0295---september-30"></a> Hotfix 0.29.5 - September 30</h3>
-
-<ul>
-  <li>Fix Climate Nest platform (<a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/jawilson">@jawilson</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0296---october-1" href="#hotfix-0296---october-1"></a> Hotfix 0.29.6 - October 1</h3>
-
-<ul>
-  <li>Fix segmentation fault (<a href="https://github.com/bbangert">@bbangert</a>) 🎉</li>
-  <li>Fix nested templates in <code class="highlighter-rouge">data_template</code> would incorrectly get cached (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="hotfix-0297---october-5" href="#hotfix-0297---october-5"></a> Hotfix 0.29.7 - October 5</h3>
-
-<ul>
-  <li>Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
-<ul>
-  <li>The template methods <code class="highlighter-rouge">now</code> and <code class="highlighter-rouge">utcnow</code> have been changed from variables to methods. To get the current time replace <code class="highlighter-rouge">now</code> with <code class="highlighter-rouge">now()</code>.</li>
-  <li><code class="highlighter-rouge">yahooweather</code> default name is now <code class="highlighter-rouge">yweather</code>. Also min and max temperature are now correctly called <code class="highlighter-rouge">Temperature Min</code> and <code class="highlighter-rouge">Temperature Max</code>.</li>
-  <li><code class="highlighter-rouge">ffmpeg</code> is now a component for manage some things central. All <code class="highlighter-rouge">ffmpeg_bin</code> options have moved to this compoment from platforms.</li>
-  <li>Config has changed for <a href="https://home-assistant.io/components/light.x10/">X10</a> lights.</li>
-  <li>For Wink, make sure your config only contains the access token as in the <a href="https://home-assistant.io/components/wink/">docs</a>.</li>
-  <li>Nest sensor ‘mode’ has been renamed to ‘operation_mode’</li>
-</ul>
-
-<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
-<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
 
 ]]></content>
   </entry>
