@@ -1,16 +1,16 @@
 ---
 layout: page
-title: "Openhome"
-description: "Instructions how to integrate Openhome into Home Assistant."
+title: "Linn / Openhome"
+description: "Instructions how to integrate Linn Ds and Openhome renderers into Home Assistant."
 date: 2017-02-21 22:40
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo:
+logo: linn.png
 ha_category: Media Player
-featured: true
-ha_release: 
+featured: false
+ha_release: 0.39
 ha_iot_class: "Local Polling"
 ---
 
