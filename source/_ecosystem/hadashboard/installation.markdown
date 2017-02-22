@@ -59,7 +59,7 @@ By default, the docker instance should pick up your timezone but if you want to 
 Raspberry pi needs to use a different docker build file so the build command is slightly different:
 
 ```bash
-$ docker build -f Docker-raspi/Dockerfile -t hadashboard .
+$ sudo docker build -f Docker-raspi/Dockerfile -t hadashboard .
 ```
 
 Apart from that the other steps are identical.
