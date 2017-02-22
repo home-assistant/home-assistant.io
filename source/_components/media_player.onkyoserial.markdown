@@ -28,7 +28,6 @@ media_player:
     port: '/dev/ttyUSB0'
     zones:
         master:
-            friendly_name: 'Onkyo Master'
             commands:
                 power:  'PWR'
                 volume: 'MVL'
@@ -40,7 +39,6 @@ media_player:
                 source: 'SLIQSTN'
                 mute:   'AMTQSTN'
         zone2:
-            friendly_name: 'Onkyo Zone2'
             commands:
                 power:  'ZPW'
                 volume: 'ZVL'
