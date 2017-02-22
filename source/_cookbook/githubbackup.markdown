@@ -145,6 +145,37 @@ exit
 
 Every time you run this script, you will be prompted for a comment to describe the change(s) that you are commiting. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use [GitHub with ssh](https://help.github.com/categories/ssh/)).
 
+### {% linkable_title Step 7: Configuration file testing %}
+
+[Travis CI](https://travis-ci.org) is a continuous intigration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
+
+- [Authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.  
+- Create the build script that travis will run to test your repo.
+- Create a dummy secrets.yaml for Travis.
+
+Example .travis.yml
+```yaml
+language: python
+python:
+  - "3.4"
+before_install:
+  - mv travis_secrets.yaml secrets.yaml  
+install:
+  - pip3 install homeassistant
+script:
+  - hass -c . --script check_config
+```
+
+Since the secrets.yaml should _not_ be stored in your repo for security reasons, you won't be able to access it at build time. Creating a dummy secrets.yaml is as simple as creating a new file that mimics your existing secrets.yaml with the required keys, but not their value.
+
+```yaml
+#travis_secrets.yaml
+http_api: 000000000000000000000000
+home_latitude: 00.00000
+home_longitude: 00.0000
+home_elevation: 0
+```
+
 ### {% linkable_title Extra commands %}
 
 You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not commited yet:
