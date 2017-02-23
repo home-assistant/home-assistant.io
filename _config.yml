@@ -73,6 +73,8 @@ collections:
     output: true
   cookbook:
     output: true
+  docs:
+    output: true
 
 # ----------------------- #
 #   3rd Party Settings    #
