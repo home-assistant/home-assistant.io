@@ -13,12 +13,13 @@ ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
-
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.
+
+To use your EBox sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-ensor:
+sensor:
   - platform: ebox
     username: MYUSERNAME
     password: MYPASSWORD
@@ -26,15 +27,6 @@ ensor:
      - before_offpeak_download
      - before_offpeak_upload
      - before_offpeak_total
-     - offpeak_download
-     - offpeak_upload
-     - offpeak_total
-     - download
-     - upload
-     - total
-     - balance
-     - limit
-     - usage
 ```
 
 Configuration variables:
@@ -53,4 +45,4 @@ Configuration variables:
   - **total**: Total usage
   - **balance**: Account balance
   - **limit**: Limit usage
-  - **usage**: Percent Usage
+  - **usage**: Percent usage
