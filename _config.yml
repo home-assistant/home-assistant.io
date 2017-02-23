@@ -73,12 +73,6 @@ collections:
     output: true
   cookbook:
     output: true
-  ecosystem:
-    output: true
-  details:
-    output: true
-  topics:
-    output: true
 
 # ----------------------- #
 #   3rd Party Settings    #

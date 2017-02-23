@@ -1,36 +1,27 @@
 ---
 layout: page
-title: "Configuring Home Assistant"
-description: "Configuring Home Assistant."
-date: 2015-03-23 12:50
+title: "Configure Home Assistant"
+description: "Instructions to get Home Assistant configured."
+date: 2016-09-26 21:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-When launched for the first time, Home Assistant will write a default configuration file enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and appear in the user interface.
+When launched for the first time, Home Assistant will write a default configuration file, called `configuration.yaml`, enabling the web interface and [device discovery](/components/discovery/). It can take up to a minute for your devices to be discovered and appear in the user interface.
 
-The location of the folder differs between operating systems:
+The `configuration.yaml` is written in [YAML](/docs/configuration/yaml/), stored in [`.homeassistant`](/docs/configuration/), and can be modified with a text editor.
 
-| OS | Path |
-| -- | ---- |
-| macOS | `~/.homeassistant` |
-| Linux | `~/.homeassistant` |
-| Windows | `%APPDATA%/.homeassistant` |
+See the [components overview page](/components/) to find sample entries for your devices and services. For a sensor that is showing [random values](/components/sensor.random/), the entry would looks like the sample below:
 
-If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
+```yaml
+sensor:
+  - platform: random
+```
 
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains components to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
+The [Setting up devices part](/docs/configuration/devices/) contains of the documentation additional details about adding device and services and [customizization](docs/configuration/customizing-devices/).
 
-<p class='note'>
-  You will have to restart Home Assistant for changes to `configuration.yaml` to take effect.
-</p>
+For further details about configuration, please take a look at the [configuration documentation](/docs/configuration/).
 
-If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
-
-<p class='note tip'>
-  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant.
-</p>
-
-### [Next step: Get familiar with YAML &raquo;](/getting-started/yaml/)
+### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
