@@ -190,9 +190,7 @@ Home Assistant will trigger a event when the Z-Wave network stopping.
 ```
 
 #### {% linkable_title zwave.node_event %}
-Home Assistant will trigger a event when command_class_basic changes value on a node.
-This can be virtually anything, so tests have to be made to determine what value equals what.
-You can use this for automations.
+Home Assistant will trigger a event when command_class_basic changes value on a node. This can be virtually anything, so tests have to be made to determine what value equals what. You can use this for automations.
 
 Example:
 
@@ -237,10 +235,11 @@ The `zwave` component exposes multiple services to help maintain the network.
 | cancel_command | Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command. |
 | change_association | Add or remove an association in the Z-Wave network |
 | heal_network | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
-| print_config_parameter | Prints Z-wave node's config parameter value to the log.
+| print_config_parameter | Prints Z-Wave node's config parameter value to the log. |
+| print_node | Print all state of Z-Wave node. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
 | rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
-| set_config_parameter | Let's the user set a config parameter to a node.|
+| set_config_parameter | Let's the user set a config parameter to a node. |
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | start_network | Starts the Z-Wave network.|
 | stop_network | Stops the Z-Wave network.|
