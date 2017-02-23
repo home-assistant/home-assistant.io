@@ -21,5 +21,6 @@ Screenshot of Home Assistant's Developer Tools.
 | Services | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Calls services from components |
 | States | <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Sets the representation of an entity |
 | Events | <img src='/images/screenshots/developer-tool-events-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Fires events |
-| Templates || Renders templates |
-| Info | <img src='/images/screenshots/developer-tool-info-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Details about Home Assistant |
+| Templates | <img src='/images/screenshots/developer-tool-templates-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Renders templates |
+| Info | <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Details about Home Assistant |
+
