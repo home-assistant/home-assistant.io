@@ -102,7 +102,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ----------- |
 | `entity_id` | no | `entity_id` of the client | media_player.theater_plex |
-| `media_content_id` | no | Quote escaped JSON with `library_name`, `show_name`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"episode_number\\" : 15, \\"shuffle\\": \\"0\\" } |
+| `media_content_id` | no | Quote escaped JSON with `library_name`, `show_name`, `season_number`, `episode_number`, `shuffle` (0 or 1). | { \\"library_name\\" : \\"Adult TV\\", \\"show_name\\" : \\"Rick and Morty\\", \\"season_number\\" : 2, \\"episode_number\\" : 5, \\"shuffle\\": \\"0\\" } |
 | `media_content_type` | no | Type of media to play, in this case `EPISODE` | EPISODE |
 
 #### Video
