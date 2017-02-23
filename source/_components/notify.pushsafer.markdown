@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: pushsafer.png
 ha_category: Notifications
-ha_release: pre 0.7
+ha_release: 0.39
 ---
 
 
-The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify component. This allows components to send messages to the user using Pushsafer.
+The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify component. This allows you to send messages to the user using Pushsafer.
 
 In order to get an private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
 
