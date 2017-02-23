@@ -46,60 +46,12 @@ homeassistant:
 | `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
 | `sensor_class` | Sets the [class of the sensor](/components/binary_sensor/), changing the device state and icon that is displayed on the UI (see below).
 
-### {% linkable_title Advanced example %}
+### {% linkable_title Device Class %}
 
-You can also specify attributes for all devices in a domain, use wildcards, use several entity IDs as a list or comma separated list. 
+Device class is currently supported by the following platforms:
 
-```yaml
-homeassistant:
-  customize:
-    - entity_id: sensor
-      icon: mdi:kettle # Give all sensor the kettle icon
-    - entity_id: light.family*
-      hidden: true # Hide all lights that have an ID starting with 'family'
-    - entity_id: switch.wemo_switch_1,switch.wemo_switch_2,switch.wemo_switch_3
-      entity_picture: /local/toaster.jpg # Set picture on multiple devices
-```
-
-Either `entity_id` must be present in each customization block.
-
-### {% linkable_title Older format %}
-
-In the previous version of customize format the keys were the IDs:
-
-```yaml
-homeassistant:
-  name: Home
-  unit_system: metric
-  # etc
-
-  customize:
-    # Only the 'entity_id' is required.  All other options are optional.
-    sensor.living_room_motion:
-      hidden: true
-    thermostat.family_roomfamily_room:
-      entity_picture: https://example.com/images/nest.jpg
-      friendly_name: Nest
-    switch.wemo_switch_1:
-      friendly_name: Toaster
-      entity_picture: /local/toaster.jpg
-    switch.wemo_switch_2:
-      friendly_name: Kitchen kettle
-      icon: mdi:kettle
-    - entity_id: switch.rfxtrx_switch:
-      assumed_state: false
-```
-This format doesn't support comma-separated IDs, wildcards or domain matching.
-
-The formats can't be mixed
-```yaml
-  # NOT A VALID CONFIGURATION
-  customize:
-    sensor.living_room_motion:
-      hidden: true
-    - entity_id: thermostat.family_roomfamily_room
-      friendly_name: Nest
-```
+* [Binary Sensor](/components/binary_sensor/)
+* [Cover](/components/cover/)
 
 ### {% linkable_title Reloading customize %}
 
