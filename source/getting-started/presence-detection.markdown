@@ -2,7 +2,7 @@
 layout: page
 title: "Setting up presence detection"
 description: "Instructions how to setup presence detection within Home Assistant."
-date: 2015-10-4 12:08
+date: 2015-10-04 12:08
 sidebar: true
 comments: false
 sharing: true
@@ -41,8 +41,6 @@ OwnTracks communicates directly with your MQTT broker; no data will pass through
 
 Home Assistant will know the location of your device if you are using OwnTracks. By [setting up zones][zone] you will be able to add names to the locations of your devices. This way you can easily spot on the state page where the people in your house are and use it as [triggers][trigger] and [conditions][condition] for automation.
 
-### [Next step: Setting up automation &raquo;](/getting-started/automation/)
-
 [routers]: /components/#presence-detection
 [nmap]: /components/device_tracker.nmap_tracker/
 [ha-owntracks]: /components/device_tracker.owntracks/
@@ -52,4 +50,6 @@ Home Assistant will know the location of your device if you are using OwnTracks.
 [zone]: /components/zone/
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
+
+### [Next step: Use Home Assistant &raquo;](/getting-started/use/)
 
