@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /getting-started/hassbian-upgrading/
+redirect_from: /getting-started/updating/
 ---
 
 <p class='note warning'>
