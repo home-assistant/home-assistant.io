@@ -39,6 +39,7 @@ Configuration variables:
 - **port** (*Optional*): The port number on which the QNAP NAS web interface is reachable. Defaults to `8080`.
 - **ssl** (*Optional*): Whether to connect via `https`. Defaults to `false`.
 - **verify_ssl** (*Optional*): Whether SSL certificates should be validated. Defaults to `true`.
+- **timeout** (*Optional*): How long (in seconds) to wait for a response from the QNAP device before giving up. Defaults to `10`.
 - **username** (*Required*): An user to connect to the QNAP NAS.
 - **password** (*Required*): The password of the user to connect to the QNAP NAS.
 - **drives** (*Optional*): Array of drives to monitor (ex: `0:1`). Defaults to all drives.
@@ -46,6 +47,7 @@ Configuration variables:
 - **nics** (*Optional*): Array of network interfaces to monitor (ex: `eth0`). Defaults to all NICs.
 - **monitored_conditions** (*Required*): Defines the stats to monitor as sensors.
   - **status**: Displays overall system health.
+  - **system_temp**: Displays the overall system temperature.
   - **cpu_temp**: Displays the CPU's temperature.
   - **cpu_usage**: Displays the CPU's utilization as a percentage.
   - **memory_free**: Displays the size of available RAM in GB.
@@ -66,5 +68,10 @@ If your QNAP device uses self-signed certificates, set the `verify_ssl` option t
 
 ### QNAP device support:
 
-This component has been tested on a TS-451 running QTS 4.2.2.  Other QNAP NAS devices using similar firmware should work fine.
-For more information about supported devices, or to report issues with your device, please visit the [qnapstats project](https://github.com/colinodell/python-qnapstats#device-support).
+This component has been tested on the following devices:
+
+ - TS-410 (QTS 4.2.3)
+ - TS-451 (QTS 4.2.2)
+ - TS-639 (QTS 4.2.3)
+
+Other QNAP NAS devices using similar firmware should work fine. For more information about supported devices, or to report issues with your device, please visit the [qnapstats project](https://github.com/colinodell/python-qnapstats#device-support).
