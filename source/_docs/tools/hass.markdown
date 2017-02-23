@@ -1,15 +1,15 @@
 ---
 layout: page
-title: "Hass"
-description: "Description of tools which helps when using Home Assistant."
-release_date: 2016-11-13 15:00:00
+title: "hass"
+description: "Description of hass."
+release_date: 2017-02-23 11:00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-The command-line part of Home Assistant is 
+The command-line part of Home Assistant is `hass`.
 
 
 ```bash
@@ -41,3 +41,5 @@ optional arguments:
   --script ...          Run one of the embedded scripts
   --daemon              Run Home Assistant as daemon
 ```
+
+

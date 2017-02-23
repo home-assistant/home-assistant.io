@@ -2,11 +2,43 @@
 layout: page
 title: "Tools"
 description: "Description of tools which helps when using Home Assistant."
-release_date: 2016-11-13 15:00:00
+release_date: 2017-02-23 11:00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-Home Assistant ships a couple of helpers for the command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. 
+The command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. Please do not confuse those with with Home Assistant's [script](/docs/scripts/) feature. 
+
+
+### {% linkable_title Configuration check %}
+
+Test any changes to your `configuration.yaml` file before launching Home Assistant. This script allows you to test changes without the need to restart Home Assistant.
+
+```bash
+$ hass --script check_config
+```
+
+### {% linkable_title Existance of configuration %}
+
+This script checks if the `configuration.yaml` file exists. If the file is not available, one is created.
+
+```bash
+$ hass --script ensure_config
+```
+
+### {% linkable_title Secrets %}
+
+There is a method to store secrets outside of your `configuration.yaml` file. For further details, please refer to the [Storing Secrets](/docs/configuration/secrets/) documentation.
+
+```bash
+$ hass --script keyring
+```
+
+### {% linkable_title Old scripts %}
+
+Usally those scripts were only use when a massive update happend and was announced in the release notes.
+
+- `db_migrator`: Migrate an existing SQLite database to the new schema.
+- `influxdb_migrator`: Convert an old InfluxDB to the new format.
