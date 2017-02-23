@@ -92,7 +92,40 @@
   <hr class="divider">
   
 
-  <p>Home Assistant ships a couple of helpers for the command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly.</p>
+  <p>The command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. Please do not confuse those with with Home Assistant’s <a href="/docs/scripts/">script</a> feature.</p>
+
+<h3><a class="title-link" name="configuration-check" href="#configuration-check"></a> Configuration check</h3>
+
+<p>Test any changes to your <code class="highlighter-rouge">configuration.yaml</code> file before launching Home Assistant. This script allows you to test changes without the need to restart Home Assistant.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script check_config
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="existance-of-configuration" href="#existance-of-configuration"></a> Existance of configuration</h3>
+
+<p>This script checks if the <code class="highlighter-rouge">configuration.yaml</code> file exists. If the file is not available, one is created.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script ensure_config
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="secrets" href="#secrets"></a> Secrets</h3>
+
+<p>There is a method to store secrets outside of your <code class="highlighter-rouge">configuration.yaml</code> file. For further details, please refer to the <a href="/docs/configuration/secrets/">Storing Secrets</a> documentation.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script keyring
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="old-scripts" href="#old-scripts"></a> Old scripts</h3>
+
+<p>Usally those scripts were only use when a massive update happend and was announced in the release notes.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">db_migrator</code>: Migrate an existing SQLite database to the new schema.</li>
+  <li><code class="highlighter-rouge">influxdb_migrator</code>: Convert an old InfluxDB to the new format.</li>
+</ul>
 
 
 </article>
@@ -140,7 +173,6 @@
           <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
           <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
           <li><a  href='/docs/configuration/customizing-devices/'>Customizing devices and services </a></li>
-          <li><a  href='/docs/configuration/presence-detection/'>Presence Detection </a></li>
           <li><a  href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
           <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
         </ul>
@@ -190,6 +222,14 @@
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/tools/'>Tools and Helpers </a>
+        <ul>
+          <li><a  href='/docs/tools/dev-tools/'>Developer Tools </a></li>
+          <li><a  href='/docs/tools/hass/'>hass </a></li>
+          <li><a class='active' href='/docs/tools/scripts/'>Scripts </a></li>
         </ul>
       </li>
       <li>
