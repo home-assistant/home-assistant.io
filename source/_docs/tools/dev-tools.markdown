@@ -16,10 +16,10 @@ The frontend contains a section called "Developer Tools".
 Screenshot of Home Assistant's Developer Tools.
 </p>
 
-| Section | description |
-| ------- | ----- |
-| Services | Calls services from components |
-| States | Sets the representation of an entity |
-| Events | Fires events |
-| Templates | Renders templates |
-| Info | Details about Home Assistant |
+| Section | Icon | Description |
+| ------- |------| ----- |
+| Services | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Calls services from components |
+| States | <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Sets the representation of an entity |
+| Events | <img src='/images/screenshots/developer-tool-events-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Fires events |
+| Templates || Renders templates |
+| Info | <img src='/images/screenshots/developer-tool-info-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Details about Home Assistant |
