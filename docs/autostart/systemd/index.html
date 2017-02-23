@@ -1,0 +1,421 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Autostart using systemd - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/docs/autostart/systemd/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Autostart using systemd">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/docs/autostart/systemd/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Autostart using systemd">
+    <meta name="twitter:description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/autostart/systemd.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Autostart Using Systemd
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Newer linux distributions are trending towards using <code class="highlighter-rouge">systemd</code> for managing daemons. Typically, systems based on Fedora, ArchLinux, or Debian (8 or later) use <code class="highlighter-rouge">systemd</code>. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code class="highlighter-rouge">systemd</code>, you may check with the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ps -p 1 -o <span class="nv">comm</span><span class="o">=</span>
+</code></pre>
+</div>
+
+<p>If the preceding command returns the string <code class="highlighter-rouge">systemd</code>, you are likely using <code class="highlighter-rouge">systemd</code>.</p>
+
+<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. You need a service file to control Home Assistant with <code class="highlighter-rouge">systemd</code>. If you are using a Raspberry Pi with Raspbian then replace the <code class="highlighter-rouge">[your user]</code> with <code class="highlighter-rouge">pi</code> otherwise use your user you want to run Home Assistant. <code class="highlighter-rouge">ExecStart</code> contains the path to <code class="highlighter-rouge">hass</code> and this may vary. Check with <code class="highlighter-rouge">whereis hass</code> for the location.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>su -c <span class="s1">'cat &lt;&lt;EOF &gt;&gt; /etc/systemd/system/home-assistant@.service
+[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/bin/hass
+
+[Install]
+WantedBy=multi-user.target
+EOF'</span>
+</code></pre>
+</div>
+
+<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=homeassistant
+# Make sure the virtualenv Python binary is used
+Environment=VIRTUAL_ENV="/srv/homeassistant"
+Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
+ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+</div>
+
+<p>If you want to use docker, the following template should work for you.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
+Description=Home Assistant
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=3
+ExecStart=/usr/bin/docker run --name="home-assistant-%i" -v /home/%i/.homeassistant/:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+ExecStop=/usr/bin/docker stop -t 2 home-assistant-%i
+ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+</div>
+
+<p>You need to reload <code class="highlighter-rouge">systemd</code> to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl --system daemon-reload
+<span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>home-assistant@[your user]
+<span class="gp">$ </span>sudo systemctl start home-assistant@[your user]
+</code></pre>
+</div>
+
+<p>If everything went well, <code class="highlighter-rouge">sudo systemctl start home-assistant@[your user]</code> should give you a positive feedback.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl status home-assistant@[your user] -l
+● home-assistant@fab.service - Home Assistant <span class="k">for</span> <span class="o">[</span>your user]
+   Loaded: loaded <span class="o">(</span>/etc/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled<span class="o">)</span>
+   Active: active <span class="o">(</span>running<span class="o">)</span> since Sat 2016-03-26 12:26:06 CET; 13min ago
+ Main PID: 30422 <span class="o">(</span>hass<span class="o">)</span>
+   CGroup: /system.slice/system-home<span class="se">\x</span>2dassistant.slice/home-assistant@[your user].service
+           ├─30422 /usr/bin/python3 /usr/bin/hass
+           └─30426 /usr/bin/python3 /usr/bin/hass
+<span class="o">[</span>...]
+</code></pre>
+</div>
+
+<p>To get Home Assistant’s logging output, simple use <code class="highlighter-rouge">journalctl</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>journalctl -f -u home-assistant@[your user]
+</code></pre>
+</div>
+
+<p>Because the log can scroll quite quickly, you might want to open a second terminal to view only the errors:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>journalctl -f -u home-assistant@[your user] | grep -i <span class="s1">'error'</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Topics</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/docs/installation/'>Installation </a>
+        <ul>
+          <li><a  href='/docs/installation/python/'>Python </a></li>
+          <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/docker/'>Docker </a></li>
+          <li><a  href='/docs/installation/raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberrry Pi All-in-One </a></li>
+          <li><a  href='/docs/installation/vagrant/'>Vagrant </a></li>
+          <li><a  href='/docs/installation/synology/'>Synology </a></li>
+          <li><a  href='/docs/installation/updating/'>Updating </a></li>
+          <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/hassbian/'>Hassbian </a>
+        <ul>
+          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
+          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
+          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
+          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
+          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/docs/configuration/yaml/'>YAML </a></li>
+          <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
+          <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
+          <li><a  href='/docs/configuration/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/docs/configuration/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
+          <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        Advanced Configuration
+        <ul>
+          <li><a  href='/docs/configuration/remote/'>Remote access </a></li>
+          <li><a  href='/docs/configuration/packages/'>Packages </a></li>
+          <li><a  href='/docs/configuration/splitting_configuration/'>Splitting up the configuration </a></li>
+          <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
+          <li><a  href='/docs/configuration/templating/'>Templating </a></li>
+          <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/events/'>Events </a></li>
+          <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/docs/automation/examples/'>Examples </a></li>
+          <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
+          <li><a  href='/docs/automation/condition/'>Conditions </a></li>
+          <li><a  href='/docs/automation/action/'>Actions </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/frontend/'>Frontend </a>
+        <ul>
+          <li><a  href='/docs/frontend/mobile/'>Android/iOS Homescreen </a></li>
+          <li><a  href='/docs/frontend/webserver/'>Web server fingerprint </a></li>
+          <li><a  href='/docs/frontend/browsers/'>Browser Compatibility List </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/backend/'>Backend </a>
+        <ul>
+          <li><a  href='/docs/backend/database/'>Database </a></li>
+          <li><a  href='/docs/backend/updater/'>Updater </a></li>
+          <li><a  href='/developers/api/'>API </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
+          <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
+          <li><a  href='/docs/z-wave/settings/'>Modifying Settings </a></li>
+          <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/mqtt/'>MQTT </a>
+        <ul>
+          <li><a  href='/docs/mqtt/broker/'>Broker </a></li>
+          <li><a  href='/docs/mqtt/certificate/'>Certificate </a></li>
+          <li><a  href='/docs/mqtt/discovery/'>Discovery </a></li>
+          <li><a  href='/docs/mqtt/service/'>Publish service </a></li>
+          <li><a  href='/docs/mqtt/birth_will/'>Birth and last will messages </a></li>
+          <li><a  href='/docs/mqtt/testing/'>Testing your setup </a></li>
+          <li><a  href='/docs/mqtt/logging/'>Logging </a></li>
+          <li><a  href='/docs/mqtt/processing_json/'>Processing JSON </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/ecosystem/'>Ecosystem </a>
+        <ul>
+          <li>
+            <a  href='/docs/ecosystem/autostart/'>Autostart </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/autostart/systemd/'>systemd (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/upstart/'>Upstart (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/init.d/'>init.d (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/macos/'>macOS </a></li>
+              <li><a  href='/docs/ecosystem/autostart/synology/'>Synology NAS </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+              </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/notebooks/'>Introduction </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Databsase </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/ios/notifications/'>iOS </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/examples/'>Examples </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+              </ul>
+              <li>Advanced notifications</li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+              </ul>
+              <li><a  href='/docs/ecosystem/ios/location/'>Location Tracking </a></li>
+              <li><a  href='/docs/ecosystem/ios/integration/'>Integration with other apps </a></li>
+            </ul>
+          </li>
+        </ul>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

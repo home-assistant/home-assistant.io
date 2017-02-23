@@ -1,0 +1,404 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Troubleshooting your configuration - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Common problems with tweaking your configuration and their solutions.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/docs/configuration/troubleshooting/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Troubleshooting your configuration">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/docs/configuration/troubleshooting/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Common problems with tweaking your configuration and their solutions.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Troubleshooting your configuration">
+    <meta name="twitter:description" content="Common problems with tweaking your configuration and their solutions.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/configuration/troubleshooting.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Troubleshooting Your Configuration
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>It can happen that you run into trouble while configuring Home Assistant. Perhaps a component is not showing up or is acting strangely. This page will discuss a few of the most common problems.</p>
+
+<p>Before we dive into common issues, make sure you know where your configuration directory is. Home Assistant will print out the configuration directory it is using when starting up.</p>
+
+<p>Whenever a component or configuration option results in a warning, it will be stored in <code class="highlighter-rouge">home-assistant.log</code> in the configuration directory. This file is reset on start of Home Assistant.</p>
+
+<h3><a class="title-link" name="my-component-does-not-show-up" href="#my-component-does-not-show-up"></a> My component does not show up</h3>
+
+<p>When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the <code class="highlighter-rouge">home-assistant.log</code> file and see if there are any errors related to your component you are trying to set up.</p>
+
+<p>If you have incorrect entries in your configuration files you can use the <code class="highlighter-rouge">check_config</code> script to assist in identifying them: <code class="highlighter-rouge">hass --script check_config</code>.</p>
+
+<h4><a class="title-link" name="problems-with-the-configuration" href="#problems-with-the-configuration"></a> Problems with the configuration</h4>
+
+<p>One of the most common problems with Home Assistant is an invalid <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+
+<ul>
+  <li>You can test your configuration using the command line with: <code class="highlighter-rouge">hass --script check_config</code></li>
+  <li>You can verify your configuration’s yaml structure using <a href="http://yaml-online-parser.appspot.com/">this online YAML parser</a> or <a href="http://www.yamllint.com/">YAML Lint</a>.</li>
+  <li>To learn more about the quirks of YAML, read <a href="https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html">YAML IDIOSYNCRASIES</a> by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).</li>
+</ul>
+
+<p><code class="highlighter-rouge">configuration.yaml</code> does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a <a href="/getting-started/devices/#style-2-list-each-device-separately">number or string</a> to the name or nest them using <a href="/getting-started/devices/#style-1-collect-every-entity-under-the-parent">this style</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
+    <span class="s">...</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bitcoin</span>
+    <span class="s">...</span>
+</code></pre>
+</div>
+
+<p>Another common problem is that a required configuration setting is missing. If this is the case, the component will report this to <code class="highlighter-rouge">home-assistant.log</code>. You can have a look at <a href="/components/">the various component pages</a> for instructions on how to setup the components.</p>
+
+<p>See the <a href="/components/logger/">logger</a> component for instructions on how to define the level of logging you require for specific modules.</p>
+
+<p>If you find any errors or want to expand the documentation, please <a href="https://github.com/home-assistant/home-assistant.io/issues">let us know</a>.</p>
+
+<h4><a class="title-link" name="problems-with-dependencies" href="#problems-with-dependencies"></a> Problems with dependencies</h4>
+
+<p>Almost all components have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in <code class="highlighter-rouge">home-assistant.log</code>.</p>
+
+<p>The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can’t figure it out, please <a href="https://github.com/home-assistant/home-assistant/issues">report it</a> so we can investigate what is going on.</p>
+
+<h4><a class="title-link" name="problems-with-components" href="#problems-with-components"></a> Problems with components</h4>
+
+<p>It can happen that some components either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please <a href="https://github.com/home-assistant/home-assistant/issues">report it</a> so that we can have a look.</p>
+
+<h4><a class="title-link" name="multiple-files" href="#multiple-files"></a> Multiple files</h4>
+
+<p>If you are using multiple files for your setup, make sure that the pointers are correct and the format of the files is valid.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">devices/lights.yaml</span>
+<span class="s">sensor</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">devices/sensors.yaml</span>
+</code></pre>
+</div>
+<p>Contents of <code class="highlighter-rouge">lights.yaml</code> (notice it does not contain <code class="highlighter-rouge">light: </code>):</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hyperion</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.98</span>
+  <span class="s">...</span>
+</code></pre>
+</div>
+
+<p>Contents of <code class="highlighter-rouge">sensors.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Room</span><span class="nv"> </span><span class="s">Humidity"</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">room/humidity"</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Door</span><span class="nv"> </span><span class="s">Motion"</span>
+  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">door/motion"</span>
+  <span class="s">...</span>
+</code></pre>
+</div>
+
+<p class="note">
+Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
+</p>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Topics</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/docs/installation/'>Installation </a>
+        <ul>
+          <li><a  href='/docs/installation/python/'>Python </a></li>
+          <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/docker/'>Docker </a></li>
+          <li><a  href='/docs/installation/raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberrry Pi All-in-One </a></li>
+          <li><a  href='/docs/installation/vagrant/'>Vagrant </a></li>
+          <li><a  href='/docs/installation/synology/'>Synology </a></li>
+          <li><a  href='/docs/installation/updating/'>Updating </a></li>
+          <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/hassbian/'>Hassbian </a>
+        <ul>
+          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
+          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
+          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
+          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
+          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/docs/configuration/yaml/'>YAML </a></li>
+          <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
+          <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
+          <li><a  href='/docs/configuration/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/docs/configuration/presence-detection/'>Presence Detection </a></li>
+          <li><a class='active' href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
+          <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        Advanced Configuration
+        <ul>
+          <li><a  href='/docs/configuration/remote/'>Remote access </a></li>
+          <li><a  href='/docs/configuration/packages/'>Packages </a></li>
+          <li><a  href='/docs/configuration/splitting_configuration/'>Splitting up the configuration </a></li>
+          <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
+          <li><a  href='/docs/configuration/templating/'>Templating </a></li>
+          <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/events/'>Events </a></li>
+          <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/docs/automation/examples/'>Examples </a></li>
+          <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
+          <li><a  href='/docs/automation/condition/'>Conditions </a></li>
+          <li><a  href='/docs/automation/action/'>Actions </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/frontend/'>Frontend </a>
+        <ul>
+          <li><a  href='/docs/frontend/mobile/'>Android/iOS Homescreen </a></li>
+          <li><a  href='/docs/frontend/webserver/'>Web server fingerprint </a></li>
+          <li><a  href='/docs/frontend/browsers/'>Browser Compatibility List </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/backend/'>Backend </a>
+        <ul>
+          <li><a  href='/docs/backend/database/'>Database </a></li>
+          <li><a  href='/docs/backend/updater/'>Updater </a></li>
+          <li><a  href='/developers/api/'>API </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
+          <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
+          <li><a  href='/docs/z-wave/settings/'>Modifying Settings </a></li>
+          <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/mqtt/'>MQTT </a>
+        <ul>
+          <li><a  href='/docs/mqtt/broker/'>Broker </a></li>
+          <li><a  href='/docs/mqtt/certificate/'>Certificate </a></li>
+          <li><a  href='/docs/mqtt/discovery/'>Discovery </a></li>
+          <li><a  href='/docs/mqtt/service/'>Publish service </a></li>
+          <li><a  href='/docs/mqtt/birth_will/'>Birth and last will messages </a></li>
+          <li><a  href='/docs/mqtt/testing/'>Testing your setup </a></li>
+          <li><a  href='/docs/mqtt/logging/'>Logging </a></li>
+          <li><a  href='/docs/mqtt/processing_json/'>Processing JSON </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/ecosystem/'>Ecosystem </a>
+        <ul>
+          <li>
+            <a  href='/docs/ecosystem/autostart/'>Autostart </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/autostart/systemd/'>systemd (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/upstart/'>Upstart (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/init.d/'>init.d (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/macos/'>macOS </a></li>
+              <li><a  href='/docs/ecosystem/autostart/synology/'>Synology NAS </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+              </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/notebooks/'>Introduction </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Databsase </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/ios/notifications/'>iOS </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/examples/'>Examples </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+              </ul>
+              <li>Advanced notifications</li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+              </ul>
+              <li><a  href='/docs/ecosystem/ios/location/'>Location Tracking </a></li>
+              <li><a  href='/docs/ecosystem/ios/integration/'>Integration with other apps </a></li>
+            </ul>
+          </li>
+        </ul>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

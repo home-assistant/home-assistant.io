@@ -1,0 +1,632 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Z-Wave - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/docs/z-wave/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Z-Wave">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/docs/z-wave/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Z-Wave">
+    <meta name="twitter:description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/z-wave.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Z-Wave
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p><a href="http://www.z-wave.com/">Z-Wave</a> integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a <a href="https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List">supported Z-Wave USB stick or module</a> to be plugged into the host.</p>
+
+<p>There is currently support for climate, covers, lights, locks, sensors, switches and thermostats. All will be picked up automatically after configuring this platform.</p>
+
+<h3><a class="title-link" name="installation-in-virtualenv-python-openzwave" href="#installation-in-virtualenv-python-openzwave"></a> Installation in Virtualenv (python-OpenZWave)</h3>
+
+<p>If you installed Home Assistant using a virtual environment then please read the instructions on <a href="https://home-assistant.io/getting-started/installation-virtualenv/#installing-python-openzwave-in-a-virtualenv">Installing python-OpenZWave in a virtualenv</a>.</p>
+
+<h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
+
+<p>To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile the OpenZWave library and install the related <a href="https://github.com/OpenZWave/python-openzwave">python-OpenZWave package</a>. This can be done as follows. <em>(Note: The Home Assistant docker image and the All In One installer have support for Z-Wave already built-in!)</em></p>
+
+<p>Make sure you have the correct dependencies installed before running the script:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools git
+</code></pre>
+</div>
+
+<p>Make sure you have at least version 0.23 and at the most 0.24.1 of cython.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install --upgrade <span class="nv">cython</span><span class="o">==</span>0.24.1
+</code></pre>
+</div>
+
+<p>Then get the OpenZWave files and switch to the <code class="highlighter-rouge">python3</code> branch:</p>
+
+<p class="note warning">Do not use root to build python-openzwave as it will surely fail.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/OpenZWave/python-openzwave.git
+<span class="gp">$ </span><span class="nb">cd </span>python-openzwave
+<span class="gp">$ </span>git checkout python3
+<span class="gp">$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="k">$(</span>which python3<span class="k">)</span> make build
+<span class="gp">$ </span>sudo <span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="k">$(</span>which python3<span class="k">)</span> make install
+</code></pre>
+</div>
+
+<p class="note">
+Instead of <code class="highlighter-rouge">make install</code>, you can alternatively build your own python-openzwave package which can be easily uninstalled:
+</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install -y checkinstall
+<span class="gp">$ </span>sudo <span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="k">$(</span>which python3<span class="k">)</span> checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave
+</code></pre>
+</div>
+
+<p>With this installation, your <code class="highlighter-rouge">config_path</code> needed below will resemble:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/usr/local/lib/python3.4/dist-packages/libopenzwave-0.3.0b8-py3.4-linux-x86_64.egg/config
+</code></pre>
+</div>
+
+<p>If you followed along with setting up a virtual environment, your path will be:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/srv/homeassistant/python-openzwave/openzwave/config
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>usb_path</strong> (<em>Optional</em>): The port where your device is connected to your Home Assistant host.</li>
+  <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python OpenZWave configuration files. Defaults to the folder <code class="highlighter-rouge">config</code> in your Python OpenZWave install directory.</li>
+  <li><strong>autoheal</strong> (<em>Optional</em>): Allows disabling auto Z-Wave heal at midnight. Defaults to True.</li>
+  <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
+  <li><strong>customize</strong> (<em>Optional</em>): This attribute contains node-specific override values. See <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing devices and services</a> for format:
+    <ul>
+      <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.</li>
+      <li><strong>ignored</strong> (<em>Optional</em>): Ignore this entitiy completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
+      <li><strong>refresh_value</strong> (<em>Optional</em>): Enable refreshing of the node value. Only the light component uses this. Defaults to False.</li>
+      <li><strong>delay</strong> (<em>Optional</em>): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.</li>
+    </ul>
+  </li>
+  <li><strong>debug</strong> (<em>Optional</em>): Print verbose z-wave info to log. Defaults to False.</li>
+</ul>
+
+<p>To find the path of your Z-Wave USB stick or module, run:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyUSB<span class="k">*</span>
+</code></pre>
+</div>
+
+<p>Or, on some other systems (such as Raspberry Pi), use:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyACM<span class="k">*</span>
+
+<span class="c"># If `hass` runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:</span>
+<span class="gp">$ </span>sudo usermod -a -G dialout homeassistant
+</code></pre>
+</div>
+
+<p>Or, on some other systems (such as Pine 64), use:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyS<span class="k">*</span>
+</code></pre>
+</div>
+
+<p>Or, on macOS, use:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/cu.usbmodem<span class="k">*</span>
+</code></pre>
+</div>
+
+<p class="note">
+Depending on what’s plugged into your USB ports, the name found above may change. You can lock in a name, such as <code class="highlighter-rouge">/dev/zwave</code>, by following <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">these instructions</a>. 
+</p>
+
+<h3><a class="title-link" name="adding-devices" href="#adding-devices"></a> Adding Devices</h3>
+
+<p>To add a Z-Wave device to your system, go to the Services menu and select the <code class="highlighter-rouge">zwave</code> domain, and select the <code class="highlighter-rouge">add-node</code> service. Then find your device’s add button and press that as well.</p>
+
+<h3><a class="title-link" name="adding-security-devices" href="#adding-security-devices"></a> Adding Security Devices</h3>
+
+<p>Security Z-Wave devices require a network key before being added to the network using the <code class="highlighter-rouge">zwave.add_node_secure</code> service. You must edit the <code class="highlighter-rouge">options.xml</code> file, located in your <code class="highlighter-rouge">python-openzwave config_path</code> to use a network key before adding these devices.</p>
+
+<p>Edit your <code class="highlighter-rouge">options.xml</code> file:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  &lt;!-- &lt;Option <span class="nv">name</span><span class="o">=</span><span class="s2">"NetworkKey"</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10"</span> /&gt; --&gt;
+</code></pre>
+</div>
+<p>Uncomment the line:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>   &lt;Option <span class="nv">name</span><span class="o">=</span><span class="s2">"NetworkKey"</span> <span class="nv">value</span><span class="o">=</span><span class="s2">"0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10"</span> /&gt;
+</code></pre>
+</div>
+
+<p>You can replace these values with your own 16 byte network key. For more information on this process see the <a href="https://github.com/OpenZWave/open-zwave">OpenZwave</a> wiki article <a href="https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW">Adding Security Devices to OZW</a></p>
+
+<p>An easy script to generate a random key:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'0-9A-F'</span> | fold -w 32 | head -n 1 | sed -e <span class="s1">'s/\(..\)/0x\1, /g'</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="events" href="#events"></a> Events</h3>
+
+<h4><a class="title-link" name="zwavenetwork_complete" href="#zwavenetwork_complete"></a> zwave.network_complete</h4>
+
+<p>Home Assistant will trigger a event when the Z-Wave network is complete. Meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery powered devices on the network.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is complete</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_complete</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="zwavenetwork_ready" href="#zwavenetwork_ready"></a> zwave.network_ready</h4>
+
+<p>Home Assistant will trigger a event when the Z-Wave network is ready for use. Between <code class="highlighter-rouge">zwave.network_start</code> and <code class="highlighter-rouge">zwave.network_ready</code> Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is ready</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_ready</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="zwavenetwork_start" href="#zwavenetwork_start"></a> zwave.network_start</h4>
+
+<p>Home Assistant will trigger a event when the Z-Wave network is set up to be started.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is starting</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_start</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="zwavenetwork_stop" href="#zwavenetwork_stop"></a> zwave.network_stop</h4>
+
+<p>Home Assistant will trigger a event when the Z-Wave network stopping.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is stopping</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_stop</span>
+</code></pre>
+</div>
+
+<h4><a class="title-link" name="zwavenode_event" href="#zwavenode_event"></a> zwave.node_event</h4>
+<p>Home Assistant will trigger a event when command_class_basic changes value on a node.
+This can be virtually anything, so tests have to be made to determine what value equals what.
+You can use this for automations.</p>
+
+<p>Example:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button Pressed</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.node_event</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">basic_level</span><span class="pi">:</span> <span class="s">255</span>
+</code></pre>
+</div>
+
+<p>The <em>object_id</em> and <em>basic_level</em> of all triggered events can be seen in the console output.</p>
+
+<h4><a class="title-link" name="zwavescene_activated" href="#zwavescene_activated"></a> zwave.scene_activated</h4>
+
+<p>Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on Desk light</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+      <span class="s">event_data</span><span class="pi">:</span>
+        <span class="s">object_id</span><span class="pi">:</span> <span class="s">zwaveme_zme_wallcs_secure_wall_controller_8</span>
+        <span class="s">scene_id</span><span class="pi">:</span> <span class="s">11</span>
+</code></pre>
+</div>
+
+<p>The <em>object_id</em> and <em>scene_id</em> of all triggered events can be seen in the console output.</p>
+
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
+
+<p>The <code class="highlighter-rouge">zwave</code> component exposes multiple services to help maintain the network.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>add_node</td>
+      <td>Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>add_node_secure</td>
+      <td>Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>cancel_command</td>
+      <td>Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command.</td>
+    </tr>
+    <tr>
+      <td>change_association</td>
+      <td>Add or remove an association in the Z-Wave network</td>
+    </tr>
+    <tr>
+      <td>heal_network</td>
+      <td>Tells the controller to “heal” the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.</td>
+    </tr>
+    <tr>
+      <td>print_config_parameter</td>
+      <td>Prints Z-wave node’s config parameter value to the log.</td>
+    </tr>
+    <tr>
+      <td>remove_node</td>
+      <td>Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>rename_node</td>
+      <td>Sets a node’s name. Requires an <code class="highlighter-rouge">entity_id</code> and <code class="highlighter-rouge">name</code> field.</td>
+    </tr>
+    <tr>
+      <td>set_config_parameter</td>
+      <td>Let’s the user set a config parameter to a node.</td>
+    </tr>
+    <tr>
+      <td>soft_reset</td>
+      <td>Tells the controller to do a “soft reset”. This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command.</td>
+    </tr>
+    <tr>
+      <td>start_network</td>
+      <td>Starts the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>stop_network</td>
+      <td>Stops the Z-Wave network.</td>
+    </tr>
+    <tr>
+      <td>test_network</td>
+      <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <code class="highlighter-rouge">soft_reset</code> and <code class="highlighter-rouge">heal_network</code> commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a <code class="highlighter-rouge">heal_network</code> at midnight.  This is a configuration option for the <code class="highlighter-rouge">zwave</code> component, the option defaults to <code class="highlighter-rouge">true</code> but can be disabled by setting <code class="highlighter-rouge">autoheal</code> to false.  Using the <code class="highlighter-rouge">soft_reset</code> function with some Z-Wave controllers can cause the Z-Wave network to hang. If you’re having issues with your Z-Wave network try disabling this automation.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">soft reset at 2:30am</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:30:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">zwave.soft_reset</span>
+
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">heal at 2:31am</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:31:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">zwave.heal_network</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Topics</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/docs/installation/'>Installation </a>
+        <ul>
+          <li><a  href='/docs/installation/python/'>Python </a></li>
+          <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/docker/'>Docker </a></li>
+          <li><a  href='/docs/installation/raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberrry Pi All-in-One </a></li>
+          <li><a  href='/docs/installation/vagrant/'>Vagrant </a></li>
+          <li><a  href='/docs/installation/synology/'>Synology </a></li>
+          <li><a  href='/docs/installation/updating/'>Updating </a></li>
+          <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/hassbian/'>Hassbian </a>
+        <ul>
+          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
+          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
+          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
+          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
+          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/docs/configuration/yaml/'>YAML </a></li>
+          <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
+          <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
+          <li><a  href='/docs/configuration/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/docs/configuration/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
+          <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        Advanced Configuration
+        <ul>
+          <li><a  href='/docs/configuration/remote/'>Remote access </a></li>
+          <li><a  href='/docs/configuration/packages/'>Packages </a></li>
+          <li><a  href='/docs/configuration/splitting_configuration/'>Splitting up the configuration </a></li>
+          <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
+          <li><a  href='/docs/configuration/templating/'>Templating </a></li>
+          <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/events/'>Events </a></li>
+          <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/docs/automation/examples/'>Examples </a></li>
+          <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
+          <li><a  href='/docs/automation/condition/'>Conditions </a></li>
+          <li><a  href='/docs/automation/action/'>Actions </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/frontend/'>Frontend </a>
+        <ul>
+          <li><a  href='/docs/frontend/mobile/'>Android/iOS Homescreen </a></li>
+          <li><a  href='/docs/frontend/webserver/'>Web server fingerprint </a></li>
+          <li><a  href='/docs/frontend/browsers/'>Browser Compatibility List </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/backend/'>Backend </a>
+        <ul>
+          <li><a  href='/docs/backend/database/'>Database </a></li>
+          <li><a  href='/docs/backend/updater/'>Updater </a></li>
+          <li><a  href='/developers/api/'>API </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
+          <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a class='active' href='/docs/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
+          <li><a  href='/docs/z-wave/settings/'>Modifying Settings </a></li>
+          <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/mqtt/'>MQTT </a>
+        <ul>
+          <li><a  href='/docs/mqtt/broker/'>Broker </a></li>
+          <li><a  href='/docs/mqtt/certificate/'>Certificate </a></li>
+          <li><a  href='/docs/mqtt/discovery/'>Discovery </a></li>
+          <li><a  href='/docs/mqtt/service/'>Publish service </a></li>
+          <li><a  href='/docs/mqtt/birth_will/'>Birth and last will messages </a></li>
+          <li><a  href='/docs/mqtt/testing/'>Testing your setup </a></li>
+          <li><a  href='/docs/mqtt/logging/'>Logging </a></li>
+          <li><a  href='/docs/mqtt/processing_json/'>Processing JSON </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/ecosystem/'>Ecosystem </a>
+        <ul>
+          <li>
+            <a  href='/docs/ecosystem/autostart/'>Autostart </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/autostart/systemd/'>systemd (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/upstart/'>Upstart (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/init.d/'>init.d (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/macos/'>macOS </a></li>
+              <li><a  href='/docs/ecosystem/autostart/synology/'>Synology NAS </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+              </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/notebooks/'>Introduction </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Databsase </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/ios/notifications/'>iOS </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/examples/'>Examples </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+              </ul>
+              <li>Advanced notifications</li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+              </ul>
+              <li><a  href='/docs/ecosystem/ios/location/'>Location Tracking </a></li>
+              <li><a  href='/docs/ecosystem/ios/integration/'>Integration with other apps </a></li>
+            </ul>
+          </li>
+        </ul>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

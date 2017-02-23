@@ -1,0 +1,471 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MQTT Brokers - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to setup MQTT brokers for Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/docs/mqtt/broker/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="MQTT Brokers">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/docs/mqtt/broker/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to setup MQTT brokers for Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="MQTT Brokers">
+    <meta name="twitter:description" content="Instructions how to setup MQTT brokers for Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/mqtt/broker.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      MQTT Brokers
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.</p>
+
+<h3><a class="title-link" name="embedded-broker" href="#embedded-broker"></a> Embedded broker</h3>
+
+<p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Assistant connects to it. Embedded broker default configuration:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Host</td>
+      <td>localhost</td>
+    </tr>
+    <tr>
+      <td>Port</td>
+      <td>1883</td>
+    </tr>
+    <tr>
+      <td>Protocol</td>
+      <td>3.1.1</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>homeassistant</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>Your API <a href="/components/http/">password</a></td>
+    </tr>
+    <tr>
+      <td>Websocket port</td>
+      <td>8080</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<p class="note">
+This broker does not currently work with OwnTracks because of a protocol version issue.
+</p>
+
+<p>If you want to customize the settings of the embedded broker, use <code class="highlighter-rouge">embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>. This will replace the default configuration.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">embedded</span><span class="pi">:</span>
+    <span class="c1"># Your HBMQTT config here. Example at:</span>
+    <span class="c1"># http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="run-your-own" href="#run-your-own"></a> Run your own</h3>
+
+<p>This is the most private option but requires a bit more work. There are multiple free and open-source brokers to pick from: eg. <a href="http://mosquitto.org/">Mosquitto</a>, <a href="http://emqtt.io/">EMQ</a>, or <a href="http://www.mosca.io/">Mosca</a>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
+  <span class="s">client_id</span><span class="pi">:</span> <span class="s">home-assistant-1</span>
+  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="s">protocol</span><span class="pi">:</span> <span class="s">3.1</span> 
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>broker</strong> (<em>Optional</em>): The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The network port to connect to. Default is 1883.</li>
+  <li><strong>client_id</strong> (<em>Optional</em>): The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.</li>
+  <li><strong>keepalive</strong> (<em>Optional</em>): The time in seconds between sending keep alive messages for this client. Default is 60.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username to use with your MQTT broker.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The corresponding password for the username to use with your MQTT broker.</li>
+  <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.</li>
+</ul>
+
+<p class="note warning">
+There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify <code class="highlighter-rouge">protocol: 3.1</code> in your MQTT configuration to work around this issue.
+</p>
+
+<p class="note">
+If you are running a mosquitto instance on a different server with proper SSL encryption using a service like letsencrypt you may have to set the certificate to the operating systems own <code class="highlighter-rouge">.crt</code> certificates file. In the instance of ubuntu this would be <code class="highlighter-rouge">certificate: /etc/ssl/certs/ca-certificates.crt</code>
+</p>
+
+<h3><a class="title-link" name="public-broker" href="#public-broker"></a> Public broker</h3>
+
+<p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">test.mosquitto.org</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">1883 or 8883</span>
+
+  <span class="c1"># Optional, replace port 1883 with following if you want encryption</span>
+  <span class="c1"># (doesn't really matter because broker is public)</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">8883</span>
+  <span class="c1"># Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt</span>
+  <span class="s">certificate</span><span class="pi">:</span> <span class="s">/home/paulus/downloads/mosquitto.org.crt</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="cloudmqtt" href="#cloudmqtt"></a> CloudMQTT</h3>
+
+<p><a href="https://www.cloudmqtt.com">CloudMQTT</a> is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example <a href="/components/device_tracker.owntracks/">OwnTracks</a> and give you a taste of what is possible.</p>
+
+<p class="note">
+Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
+</p>
+
+<ol>
+  <li><a href="https://customer.cloudmqtt.com/login">Create an account</a> (no payment details needed)</li>
+  <li><a href="https://customer.cloudmqtt.com/subscription/create">Create a new CloudMQTT instance</a>
+(Cute Cat is the free plan)</li>
+  <li>From the control panel, click on the <em>Details</em> button.</li>
+  <li>Create unique users for Home Assistant and each phone to connect<br />(CloudMQTT does not allow two connections from the same user)
+    <ol>
+      <li>Under manage users, fill in username, password and click add</li>
+      <li>Under ACLs, select user, topic <code class="highlighter-rouge">#</code>, check ‘read access’ and ‘write access’</li>
+    </ol>
+  </li>
+  <li>Copy the instance info to your configuration.yaml:</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">CLOUTMQTT_SERVER</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">CLOUDMQTT_PORT</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">CLOUDMQTT_USER</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">CLOUDMQTT_PASSWORD</span>
+</code></pre>
+</div>
+
+<p class="note">
+Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20000-30000).
+</p>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Topics</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/docs/installation/'>Installation </a>
+        <ul>
+          <li><a  href='/docs/installation/python/'>Python </a></li>
+          <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/docker/'>Docker </a></li>
+          <li><a  href='/docs/installation/raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberrry Pi All-in-One </a></li>
+          <li><a  href='/docs/installation/vagrant/'>Vagrant </a></li>
+          <li><a  href='/docs/installation/synology/'>Synology </a></li>
+          <li><a  href='/docs/installation/updating/'>Updating </a></li>
+          <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/hassbian/'>Hassbian </a>
+        <ul>
+          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
+          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
+          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
+          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
+          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/docs/configuration/yaml/'>YAML </a></li>
+          <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
+          <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
+          <li><a  href='/docs/configuration/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/docs/configuration/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
+          <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        Advanced Configuration
+        <ul>
+          <li><a  href='/docs/configuration/remote/'>Remote access </a></li>
+          <li><a  href='/docs/configuration/packages/'>Packages </a></li>
+          <li><a  href='/docs/configuration/splitting_configuration/'>Splitting up the configuration </a></li>
+          <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
+          <li><a  href='/docs/configuration/templating/'>Templating </a></li>
+          <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/events/'>Events </a></li>
+          <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/docs/automation/examples/'>Examples </a></li>
+          <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
+          <li><a  href='/docs/automation/condition/'>Conditions </a></li>
+          <li><a  href='/docs/automation/action/'>Actions </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/frontend/'>Frontend </a>
+        <ul>
+          <li><a  href='/docs/frontend/mobile/'>Android/iOS Homescreen </a></li>
+          <li><a  href='/docs/frontend/webserver/'>Web server fingerprint </a></li>
+          <li><a  href='/docs/frontend/browsers/'>Browser Compatibility List </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/backend/'>Backend </a>
+        <ul>
+          <li><a  href='/docs/backend/database/'>Database </a></li>
+          <li><a  href='/docs/backend/updater/'>Updater </a></li>
+          <li><a  href='/developers/api/'>API </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
+          <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
+          <li><a  href='/docs/z-wave/settings/'>Modifying Settings </a></li>
+          <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/mqtt/'>MQTT </a>
+        <ul>
+          <li><a class='active' href='/docs/mqtt/broker/'>Broker </a></li>
+          <li><a  href='/docs/mqtt/certificate/'>Certificate </a></li>
+          <li><a  href='/docs/mqtt/discovery/'>Discovery </a></li>
+          <li><a  href='/docs/mqtt/service/'>Publish service </a></li>
+          <li><a  href='/docs/mqtt/birth_will/'>Birth and last will messages </a></li>
+          <li><a  href='/docs/mqtt/testing/'>Testing your setup </a></li>
+          <li><a  href='/docs/mqtt/logging/'>Logging </a></li>
+          <li><a  href='/docs/mqtt/processing_json/'>Processing JSON </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/ecosystem/'>Ecosystem </a>
+        <ul>
+          <li>
+            <a  href='/docs/ecosystem/autostart/'>Autostart </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/autostart/systemd/'>systemd (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/upstart/'>Upstart (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/init.d/'>init.d (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/macos/'>macOS </a></li>
+              <li><a  href='/docs/ecosystem/autostart/synology/'>Synology NAS </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+              </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/notebooks/'>Introduction </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Databsase </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/ios/notifications/'>iOS </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/examples/'>Examples </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+              </ul>
+              <li>Advanced notifications</li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+              </ul>
+              <li><a  href='/docs/ecosystem/ios/location/'>Location Tracking </a></li>
+              <li><a  href='/docs/ecosystem/ios/integration/'>Integration with other apps </a></li>
+            </ul>
+          </li>
+        </ul>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

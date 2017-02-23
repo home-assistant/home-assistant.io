@@ -1,0 +1,430 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Z-Wave Device Specific Settings - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Extended instructions how to setup Z-Wave.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/docs/z-wave/device-specific/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Z-Wave Device Specific Settings">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/docs/z-wave/device-specific/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Extended instructions how to setup Z-Wave.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Z-Wave Device Specific Settings">
+    <meta name="twitter:description" content="Extended instructions how to setup Z-Wave.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/z-wave/device-specific.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Z-Wave Device Specific Settings
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <h2><a class="title-link" name="motion-or-alarm-sensors" href="#motion-or-alarm-sensors"></a> Motion or alarm sensors</h2>
+
+<p>In order for Home Assistant to recognize the sensor properly, you will need to change its configuration from <code class="highlighter-rouge">Basic Set (default)</code> to <code class="highlighter-rouge">Binary Sensor report</code> or <code class="highlighter-rouge">Alarm report</code>.
+These devices will either show as a binary sensor or a sensor called <code class="highlighter-rouge">Alarm xxxx</code> and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.</p>
+
+<p>As of version 0.30 you can set the settings of a Z-Wave device through the dev_service page of Home Assistant with the service: <code class="highlighter-rouge">zwave/set_config_parameter</code>.</p>
+
+<p>The following parameters can be entered:</p>
+<ul>
+  <li><strong>node_id</strong> (<em>Required</em>): The node_id of the device that you are going to set a parameter to.</li>
+  <li><strong>parameter</strong> (<em>Required</em>): The index number of the parameter to be set. Refer to device manual or zwcfg_[home_id].xml</li>
+  <li><strong>value</strong> (<em>Required</em>): The value to set the parameter to. Refer to device manual or zwcfg_[home_id].xml</li>
+  <li><strong>size</strong> (<em>Optional</em>): The size of the value. It is normally not needed to specify this parameter, but in some cases it’s needed. Check OZW.log for details on this.</li>
+</ul>
+
+<p>You should check OZW.log to see if your new setting has been set.</p>
+
+<p>Example entry in dev-service, setting binary reports for an Aeotec Multisensor 6:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example entry in dev-service</span>
+<span class="pi">{</span>
+<span class="s2">"</span><span class="s">node_id"</span><span class="pi">:</span> <span class="nv">42</span><span class="pi">,</span>
+<span class="s2">"</span><span class="s">parameter"</span><span class="pi">:</span> <span class="nv">5</span><span class="pi">,</span>
+<span class="s2">"</span><span class="s">value"</span><span class="pi">:</span> <span class="nv">2</span>
+<span class="pi">}</span>
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="locks-and-other-secure-devices" href="#locks-and-other-secure-devices"></a> Locks and other secure devices</h2>
+
+<p>These devices require a network key to be set for the Z-Wave network before they are paired. This key is set in OpenZWave’s <code class="highlighter-rouge">options.xml</code> which is located in OpenZWave’s directory. This should also be the same directory as <code class="highlighter-rouge">config_path:</code> in your <code class="highlighter-rouge">configuration.yaml</code>. If it’s not, make sure you have the same values in all the files you are using.
+The option is commented out by default in <code class="highlighter-rouge">options.xml</code> and is a default key. Make your own unique key. The key is in Hexadecimals.
+It is best to pair these devices in OpenZWave Control Panel or another Z-Wave tool that can show you logs while pairing. Home Assistant stores logs from Z-Wave in <code class="highlighter-rouge">OZW.log</code> in the Home Assistant config directory.
+You should see communication from the node with lines starting with <code class="highlighter-rouge">info: NONCES</code> in <code class="highlighter-rouge">OZW.log</code> when the device is paired successfully with a secure connection. If you use OpenZWave Control Panel to pair, test the device before you save the configuration.
+Make sure you copy the newly saved <code class="highlighter-rouge">zwcfg_[home_id].xml</code>into your Home Assistant configuration directory.</p>
+
+<h5><a class="title-link" name="aeon-minimote" href="#aeon-minimote"></a> Aeon Minimote</h5>
+
+<p>Here’s a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into <code class="highlighter-rouge">automation.yaml</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 1 Pressed</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">1</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 1 Held</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">2</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 2 Pressed</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">3</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 2 Held</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">4</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 3 Pressed</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">5</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 3 Held</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">6</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 4 Pressed</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">7</span>
+
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 4 Held</span>
+   <span class="s">trigger</span><span class="pi">:</span>
+     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+     <span class="s">event_data</span><span class="pi">:</span>
+       <span class="s">object_id</span><span class="pi">:</span> <span class="s">aeon_labs_minimote_1</span>
+       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">8</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Topics</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/docs/installation/'>Installation </a>
+        <ul>
+          <li><a  href='/docs/installation/python/'>Python </a></li>
+          <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/docker/'>Docker </a></li>
+          <li><a  href='/docs/installation/raspberry-pi/'>Raspberry Pi </a></li>
+          <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberrry Pi All-in-One </a></li>
+          <li><a  href='/docs/installation/vagrant/'>Vagrant </a></li>
+          <li><a  href='/docs/installation/synology/'>Synology </a></li>
+          <li><a  href='/docs/installation/updating/'>Updating </a></li>
+          <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/hassbian/'>Hassbian </a>
+        <ul>
+          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
+          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
+          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
+          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
+          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/configuration/'>Configuration  </a>
+        <ul>
+          <li><a  href='/docs/configuration/yaml/'>YAML </a></li>
+          <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
+          <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
+          <li><a  href='/docs/configuration/customizing-devices/'>Customizing devices and services </a></li>
+          <li><a  href='/docs/configuration/presence-detection/'>Presence Detection </a></li>
+          <li><a  href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
+          <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        Advanced Configuration
+        <ul>
+          <li><a  href='/docs/configuration/remote/'>Remote access </a></li>
+          <li><a  href='/docs/configuration/packages/'>Packages </a></li>
+          <li><a  href='/docs/configuration/splitting_configuration/'>Splitting up the configuration </a></li>
+          <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
+          <li><a  href='/docs/configuration/templating/'>Templating </a></li>
+          <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/events/'>Events </a></li>
+          <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/automation/'>Automation </a>
+        <ul>
+          <li><a  href='/docs/automation/examples/'>Examples </a></li>
+          <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
+          <li><a  href='/docs/automation/condition/'>Conditions </a></li>
+          <li><a  href='/docs/automation/action/'>Actions </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/frontend/'>Frontend </a>
+        <ul>
+          <li><a  href='/docs/frontend/mobile/'>Android/iOS Homescreen </a></li>
+          <li><a  href='/docs/frontend/webserver/'>Web server fingerprint </a></li>
+          <li><a  href='/docs/frontend/browsers/'>Browser Compatibility List </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/backend/'>Backend </a>
+        <ul>
+          <li><a  href='/docs/backend/database/'>Database </a></li>
+          <li><a  href='/docs/backend/updater/'>Updater </a></li>
+          <li><a  href='/developers/api/'>API </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/scripts/'>Scripts </a>
+        <ul>
+          <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
+          <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/z-wave/'>Z-Wave </a>
+        <ul>
+          <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
+          <li><a  href='/docs/z-wave/settings/'>Modifying Settings </a></li>
+          <li><a class='active' href='/docs/z-wave/device-specific/'>Device Specific </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/mqtt/'>MQTT </a>
+        <ul>
+          <li><a  href='/docs/mqtt/broker/'>Broker </a></li>
+          <li><a  href='/docs/mqtt/certificate/'>Certificate </a></li>
+          <li><a  href='/docs/mqtt/discovery/'>Discovery </a></li>
+          <li><a  href='/docs/mqtt/service/'>Publish service </a></li>
+          <li><a  href='/docs/mqtt/birth_will/'>Birth and last will messages </a></li>
+          <li><a  href='/docs/mqtt/testing/'>Testing your setup </a></li>
+          <li><a  href='/docs/mqtt/logging/'>Logging </a></li>
+          <li><a  href='/docs/mqtt/processing_json/'>Processing JSON </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/ecosystem/'>Ecosystem </a>
+        <ul>
+          <li>
+            <a  href='/docs/ecosystem/autostart/'>Autostart </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/autostart/systemd/'>systemd (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/upstart/'>Upstart (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/init.d/'>init.d (Linux) </a></li>
+              <li><a  href='/docs/ecosystem/autostart/macos/'>macOS </a></li>
+              <li><a  href='/docs/ecosystem/autostart/synology/'>Synology NAS </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
+              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
+              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
+              </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/notebooks/'>Introduction </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Databsase </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/ios/notifications/'>iOS </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/examples/'>Examples </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+              </ul>
+              <li>Advanced notifications</li>
+              <ul>
+                <li><a  href='/docs/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+                <li><a  href='/docs/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+              </ul>
+              <li><a  href='/docs/ecosystem/ios/location/'>Location Tracking </a></li>
+              <li><a  href='/docs/ecosystem/ios/integration/'>Integration with other apps </a></li>
+            </ul>
+          </li>
+        </ul>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
