@@ -1,12 +1,25 @@
 ---
 layout: page
-title: "Tools"
-description: "Description of tools which helps when using Home Assistant."
-release_date: 2016-11-13 15:00:00
+title: "Development Tools"
+description: "Description of the Developer Tools."
+release_date: 2017-02-23 11:00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-Home Assistant ships a couple of helpers for the command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. 
+The frontend contains a section called "Developer Tools". 
+
+<p class='img'>
+<img src='/images/screenshots/developer-tools.png' />
+Screenshot of Home Assistant's Developer Tools.
+</p>
+
+| Section | description |
+| ------- | ----- |
+| Services | Calls services from components |
+| States | Sets the representation of an entity |
+| Events | Fires events |
+| Templates | Renders templates |
+| Info | Details about Home Assistant |
