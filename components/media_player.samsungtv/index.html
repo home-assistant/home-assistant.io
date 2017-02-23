@@ -110,6 +110,7 @@
   <li><strong>port</strong> (<em>Optional</em>): The port of the Samsung Smart TV. Defaults to 55000. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Samsung Smart TV.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): The time-out for the communication with the TV. Defaults to 0.</li>
+  <li><strong>mac</strong> (<em>Optional</em>): The MAC address of the Samsung Smart TV, eg. <code class="highlighter-rouge">00:11:22:33:44:55:66</code>. Required for power on support via wake on lan.</li>
 </ul>
 
 <p>Currently known supported models:</p>
@@ -126,6 +127,7 @@
   <li>F6400AF</li>
   <li>D6505</li>
   <li>D6300SF</li>
+  <li>U6000 (port must be set to 8001)</li>
 </ul>
 
 <p>Currently tested but not working models:</p>
