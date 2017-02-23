@@ -56,7 +56,7 @@
   
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
-  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/docs/">Docs</a></li>
   <li><a href="/cookbook/">Examples</a></li>
   <li><a href="/developers/">Developers</a></li>
   <li><a href="/blog/">Blog</a></li>
@@ -92,355 +92,34 @@
 
   <p>MQTT (aka MQ Telemetry Transport) is a machine-to-machine or “Internet of Things” connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.</p>
 
-<p>To integrate MQTT into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>Your first step to get MQTT and Home Assistant working is the choose a <a href="/docs/mqtt/broker">broker</a>.</p>
+
+<p>To integrate MQTT into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file. Keep in mind that the minimal setup will run with <a href="/docs/mqtt/broker#embedded-broker">an embedded MQTT broker</a>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<p>To connect to your <a href="/docs/mqtt/broker#run-your-own">own MQTT broker</a>:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">IP_ADDRESS_BROKER</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
-  <span class="s">client_id</span><span class="pi">:</span> <span class="s">home-assistant-1</span>
-  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-  <span class="s">certificate</span><span class="pi">:</span> <span class="s">/home/paulus/dev/addtrustexternalcaroot.crt</span>
-  <span class="s">protocol</span><span class="pi">:</span> <span class="s">3.1</span>
-  <span class="s">discovery</span><span class="pi">:</span> <span class="s2">"</span><span class="s">discovery/#"</span>
-  <span class="s">birth_message</span><span class="pi">:</span>
-    <span class="s">topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">hass/status'</span>
-    <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">online'</span>
-    <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
-    <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="s">will_message</span><span class="pi">:</span>
-    <span class="s">topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">hass/status'</span>
-    <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">offline'</span>
-    <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
-    <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 
-<p>Configuration variables:</p>
+<h2><a class="title-link" name="additional-features" href="#additional-features"></a> Additional features</h2>
 
 <ul>
-  <li><strong>broker</strong> (<em>Required</em>): The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The network port to connect to. Default is 1883.</li>
-  <li><strong>client_id</strong> (<em>Optional</em>): The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.</li>
-  <li><strong>keepalive</strong> (<em>Optional</em>): The time in seconds between sending keep alive messages for this client. Default is 60.</li>
-  <li><strong>username</strong> (<em>Optional</em>): The username to use with your MQTT broker.</li>
-  <li><strong>password</strong> (<em>Optional</em>): The corresponding password for the username to use with your MQTT broker.</li>
-  <li><strong>certificate</strong> (<em>Optional</em>): The certificate authority certificate file that is to be treated as trusted by this client. This file should contain the root certificate of the certificate authority that signed your broker’s certificate, but may contain multiple certificates. Example: <code class="highlighter-rouge">/home/user/identrust-root.pem</code></li>
-  <li><strong>client_key</strong> (<em>Optional</em>): Client key (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.key</code>)</li>
-  <li><strong>client_cert</strong> (<em>Optional</em>): Client certificate (example: <code class="highlighter-rouge">/home/user/owntracks/cookie.crt</code>)</li>
-  <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.</li>
-  <li><strong>discovery</strong> (<em>Optional</em>): The MQTT topic subscribed to use for discovery of MQTT devices.</li>
-  <li><strong>birth_message</strong> (<em>Optional</em>):
-    <ul>
-      <li><strong>topic</strong> (<em>Required</em>): The MQTT topic to publish the message.</li>
-      <li><strong>payload</strong> (<em>Required</em>): The message content.</li>
-      <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the topic. Default is 0.</li>
-      <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not. Defaults to <code class="highlighter-rouge">True</code>.</li>
-    </ul>
-  </li>
-  <li><strong>will_message</strong> (<em>Optional</em>):
-    <ul>
-      <li><strong>topic</strong> (<em>Required</em>): The MQTT topic to publish the message.</li>
-      <li><strong>payload</strong> (<em>Required</em>): The message content.</li>
-      <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the topic. Default is 0.</li>
-      <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not. Defaults to <code class="highlighter-rouge">True</code>.</li>
-    </ul>
-  </li>
+  <li><a href="/docs/mqtt/certificate/">Certificate</a></li>
+  <li><a href="/docs/mqtt/discovery/">Discovery</a></li>
+  <li><a href="/docs/mqtt/service/">Publish service</a></li>
+  <li><a href="/docs/mqtt/birth_will/">Birth and last will messages</a></li>
+  <li><a href="/docs/mqtt/testing/">Testing your setup</a></li>
+  <li><a href="/docs/mqtt/logging/">Logging</a></li>
+  <li><a href="/docs/mqtt/processing_json/">Processing JSON</a></li>
 </ul>
-
-<h2><a class="title-link" name="picking-a-broker" href="#picking-a-broker"></a> Picking a broker</h2>
-
-<p>The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.</p>
-
-<h3><a class="title-link" name="embedded-broker" href="#embedded-broker"></a> Embedded broker</h3>
-
-<p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Assistant connects to it. Embedded broker default configuration:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Setting</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Host</td>
-      <td>localhost</td>
-    </tr>
-    <tr>
-      <td>Port</td>
-      <td>1883</td>
-    </tr>
-    <tr>
-      <td>Protocol</td>
-      <td>3.1.1</td>
-    </tr>
-    <tr>
-      <td>User</td>
-      <td>homeassistant</td>
-    </tr>
-    <tr>
-      <td>Password</td>
-      <td>Your API <a href="/components/http/">password</a></td>
-    </tr>
-    <tr>
-      <td>Websocket port</td>
-      <td>8080</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">mqtt</span><span class="pi">:</span>
-</code></pre>
-</div>
-
-<p class="note">
-This broker does not currently work with OwnTracks because of a protocol version issue.
-</p>
-
-<p>If you want to customize the settings of the embedded broker, use <code class="highlighter-rouge">embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>. This will replace the default configuration.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">mqtt</span><span class="pi">:</span>
-  <span class="s">embedded</span><span class="pi">:</span>
-    <span class="c1"># Your HBMQTT config here. Example at:</span>
-    <span class="c1"># http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration</span>
-</code></pre>
-</div>
-
-<h3><a class="title-link" name="run-your-own" href="#run-your-own"></a> Run your own</h3>
-
-<p>This is the most private option but requires a bit more work. There are two free and open-source brokers to pick from: <a href="http://mosquitto.org/">Mosquitto</a> and <a href="http://www.mosca.io/">Mosca</a>.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">mqtt</span><span class="pi">:</span>
-  <span class="s">broker</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
-  <span class="s">client_id</span><span class="pi">:</span> <span class="s">home-assistant-1</span>
-  <span class="s">keepalive</span><span class="pi">:</span> <span class="s">60</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-</code></pre>
-</div>
-
-<p class="note warning">
-There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify <code class="highlighter-rouge">protocol: 3.1</code> in your MQTT configuration to work around this issue.
-</p>
-
-<p class="note">
-If you are running a mosquitto instance on a different server with proper SSL encryption using a service like letsencrypt you may have to set the certificate to the operating systems own <code class="highlighter-rouge">.crt</code> certificates file. In the instance of ubuntu this would be <code class="highlighter-rouge">certificate: /etc/ssl/certs/ca-certificates.crt</code>
-</p>
-
-<h3><a class="title-link" name="public-broker" href="#public-broker"></a> Public broker</h3>
-
-<p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
-  <span class="s">broker</span><span class="pi">:</span> <span class="s">test.mosquitto.org</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">1883</span>
-
-  <span class="c1"># Optional, replace port 1883 with following if you want encryption</span>
-  <span class="c1"># (doesn't really matter because broker is public)</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">8883</span>
-  <span class="c1"># Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt</span>
-  <span class="s">certificate</span><span class="pi">:</span> <span class="s">/home/paulus/downloads/mosquitto.org.crt</span>
-</code></pre>
-</div>
-
-<h3><a class="title-link" name="cloudmqtt" href="#cloudmqtt"></a> CloudMQTT</h3>
-
-<p><a href="https://www.cloudmqtt.com">CloudMQTT</a> is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example <a href="/components/device_tracker.owntracks/">OwnTracks</a> and give you a taste of what is possible.</p>
-
-<p class="note">
-Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
-</p>
-
-<ol>
-  <li><a href="https://customer.cloudmqtt.com/login">Create an account</a> (no payment details needed)</li>
-  <li><a href="https://customer.cloudmqtt.com/subscription/create">Create a new CloudMQTT instance</a>
-(Cute Cat is the free plan)</li>
-  <li>From the control panel, click on the <em>Details</em> button.</li>
-  <li>Create unique users for Home Assistant and each phone to connect<br />(CloudMQTT does not allow two
-connections from the same user)
-    <ol>
-      <li>Under manage users, fill in username, password and click add</li>
-      <li>Under ACLs, select user, topic <code class="highlighter-rouge">#</code>, check ‘read access’ and ‘write access’</li>
-    </ol>
-  </li>
-  <li>Copy the instance info to your configuration.yaml:</li>
-</ol>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
-  <span class="s">broker</span><span class="pi">:</span> <span class="s">&lt;Server&gt;</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">&lt;SSL Port&gt;</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">&lt;User&gt;</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">&lt;Password&gt;</span>
-</code></pre>
-</div>
-
-<p class="note">
-Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20 000 - 30 000).
-</p>
-
-<h2><a class="title-link" name="building-on-top-of-mqtt" href="#building-on-top-of-mqtt"></a> Building on top of MQTT</h2>
-
-<ul>
-  <li><a href="/components/alarm_control_panel.mqtt/">MQTT Alarm control panel</a></li>
-  <li><a href="/components/binary_sensor.mqtt/">MQTT Binary sensor</a></li>
-  <li><a href="/components/sensor.mqtt/">MQTT Sensor</a></li>
-  <li><a href="/components/switch.mqtt/">MQTT Switch</a></li>
-  <li><a href="/components/light.mqtt/">MQTT Light</a></li>
-  <li><a href="/components/lock.mqtt/">MQTT Lock</a></li>
-  <li><a href="/components/device_tracker.mqtt/">MQTT Device Tracker</a></li>
-  <li><a href="/components/device_tracker.owntracks/">OwnTracks Device Tracker</a></li>
-  <li>
-    <p><a href="/getting-started/automation-trigger/#mqtt-trigger">MQTT automation rule</a></p>
-  </li>
-  <li>Integrating it into own component. See the <a href="/cookbook/python_component_mqtt_basic/">MQTT example component</a> how to do this.</li>
-</ul>
-
-<h2><a class="title-link" name="publish-service" href="#publish-service"></a> Publish service</h2>
-
-<p>The MQTT component will register the service <code class="highlighter-rouge">publish</code> which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use <code class="highlighter-rouge">payload</code> to hard-code a payload or use <code class="highlighter-rouge">payload_template</code> to specify a <a href="/topics/templating/">template</a> that will be rendered to generate the payload.</p>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home-assistant/light/1/command"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home-assistant/light/1/state"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"payload_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{ states('device_tracker.paulus') }}"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<h2><a class="title-link" name="discovery" href="#discovery"></a> Discovery</h2>
-
-<p>The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the <a href="/components/binary_sensor.http/">HTTP binary sensor</a> and the <a href="/components/sensor.http/">HTTP sensor</a>. Only support for binary sensor is available at the moment.</p>
-
-<p>To enable MQTT discovery, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">mqtt</span><span class="pi">:</span>
-  <span class="s">discovery</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="c1"># Optional</span>
-  <span class="s">discovery_prefix</span><span class="pi">:</span> <span class="s">homeassistant</span>
-</code></pre>
-</div>
-
-<p>A motion detection device for your garden would sent its configuration as JSON payload <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"garden"</span><span class="p">,</span><span class="w"> </span><span class="nt">"sensor_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"motion"</span><span class="p">}</span></code> to the topic <code class="highlighter-rouge">homeassistant/binary_sensor/garden/config</code>. After the first message to <code class="highlighter-rouge">config</code>, then the MQTT messages sent to <code class="highlighter-rouge">state</code>, eg. <code class="highlighter-rouge">homeassistant/binary_sensor/garden/state</code>, will update the state in Home Assistant.</p>
-
-<h2><a class="title-link" name="logging" href="#logging"></a> Logging</h2>
-
-<p>The <a href="/components/logger/">logger</a> component allow the logging of received MQTT messages.</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">logger</span><span class="pi">:</span>
-  <span class="s">default</span><span class="pi">:</span> <span class="s">warning</span>
-  <span class="s">logs</span><span class="pi">:</span>
-    <span class="s">homeassistant.components.device_tracker.mqtt</span><span class="pi">:</span> <span class="s">debug</span>
-</code></pre>
-</div>
-
-<h2><a class="title-link" name="testing-your-setup" href="#testing-your-setup"></a> Testing your setup</h2>
-
-<p>The <code class="highlighter-rouge">mosquitto</code> broker package ships commandline tools to send and receive MQTT messages. As an alternative have a look at <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_pub.html">hbmqtt_pub</a> and <a href="http://hbmqtt.readthedocs.org/en/latest/references/hbmqtt_sub.html">hbmqtt_sub</a> which are provided by HBMQTT. For sending test messages to a broker running on localhost check the example below:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m <span class="s2">"Switch is ON"</span>
-</code></pre>
-</div>
-
-<p>If you are using the embedded MQTT broker, the command looks a little different because you need to add the MQTT protocol version.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -V mqttv311 -t <span class="s2">"hello"</span> -m world
-</code></pre>
-</div>
-
-<p>or if you are using a API password:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -V mqttv311 -u homeassistant -P &lt;your api password&gt; -t <span class="s2">"hello"</span> -m world
-</code></pre>
-</div>
-
-<p>Another way to send MQTT messages by hand is to use the “Developer Tools” in the Frontend. Choose “Call Service” and then <code class="highlighter-rouge">mqtt/mqtt_send</code> under “Available Services”. Enter something similar to the example below into the “Service Data” field.</p>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"topic"</span><span class="p">:</span><span class="s2">"home-assistant/switch/1/on"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"payload"</span><span class="p">:</span><span class="s2">"Switch is ON"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<p>The message should appear on the bus:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>... <span class="o">[</span>homeassistant] Bus:Handling &lt;Event MQTT_MESSAGE_RECEIVED[L]: <span class="nv">topic</span><span class="o">=</span>home-assistant/switch/1/on, <span class="nv">qos</span><span class="o">=</span>0, <span class="nv">payload</span><span class="o">=</span>Switch is ON&gt;
-</code></pre>
-</div>
-
-<p>For reading all messages sent on the topic <code class="highlighter-rouge">home-assistant</code> to a broker running on localhost:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -h 127.0.0.1 -v -t <span class="s2">"home-assistant/#"</span>
-</code></pre>
-</div>
-
-<p>For the embedded MQTT broker the command looks like:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -v -V mqttv311 -t <span class="s2">"#"</span>
-</code></pre>
-</div>
-
-<p>Add the username <code class="highlighter-rouge">homeassistant</code> and your API password if needed.</p>
-
-<h2><a class="title-link" name="processing-json" href="#processing-json"></a> Processing JSON</h2>
-
-<p>The MQTT switch and sensor platforms support processing JSON over MQTT messages and parsing them using JSONPath. JSONPath allows you to specify where in the JSON the value resides that you want to use. The following examples will always return the value <code class="highlighter-rouge">100</code>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>JSONPath query</th>
-      <th>JSON</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">somekey</code></td>
-      <td><code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">'somekey':</span><span class="w"> </span><span class="err">100</span><span class="w"> </span><span class="p">}</span></code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">somekey[0]</code></td>
-      <td><code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">'somekey':</span><span class="w"> </span><span class="err">[100]</span><span class="w"> </span><span class="p">}</span></code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">somekey[0].value</code></td>
-      <td><code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">'somekey':</span><span class="w"> </span><span class="err">[</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="err">value:</span><span class="w"> </span><span class="err">100</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="err">]</span><span class="w"> </span><span class="err">}</span></code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>To use this, add the following key to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">state_format</span><span class="pi">:</span> <span class="s1">'</span><span class="s">json:somekey[0].value'</span>
-</code></pre>
-</div>
-<p>It is also possible to extract JSON values by using a value template:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.somekey[0].value</span><span class="nv"> </span><span class="s">}}'</span>
-</code></pre>
-</div>
-
-<p>More information about the full JSONPath syntax can be found <a href="https://github.com/kennknowles/python-jsonpath-rw#jsonpath-syntax">here</a>.</p>
 
 
 

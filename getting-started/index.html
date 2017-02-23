@@ -56,7 +56,7 @@
   
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
-  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/docs/">Docs</a></li>
   <li><a href="/cookbook/">Examples</a></li>
   <li><a href="/developers/">Developers</a></li>
   <li><a href="/blog/">Blog</a></li>
@@ -93,13 +93,13 @@
   <p>You will need to install Home Assistant before we can get started. You can install Home Assistant on your computer or you can turn a Raspberry Pi into a dedicated Home Assistant hub.</p>
 
 <div class="text-center hass-option-cards">
-  <a class="option-card" href="/getting-started/hassbian-installation/">
+  <a class="option-card" href="/docs/hassbian/installation/">
     <div class="img-container">
       <img src="/images/supported_brands/raspberry-pi.png" />
     </div>
     <div class="title">Install Hassbian on your Raspberry Pi 3</div>
   </a>
-  <a class="option-card" href="/getting-started/installation-python/">
+  <a class="option-card" href="/docs/installation/python/">
     <div class="img-container">
       <img src="/images/supported_brands/python.svg" />
     </div>
@@ -107,19 +107,11 @@
   </a>
 </div>
 
-<h3><a class="title-link" name="alternative-methods" href="#alternative-methods"></a> Alternative methods</h3>
+<p>For alternative installation methods please take a look at the <a href="/docs/installation/">installation documentation</a>.</p>
 
-<p>For advanced users we have several alternative guides for installing Home Assistant.</p>
+<p>If you run into any issues, please see <a href="/docs/installation/troubleshooting/">the troubleshooting page</a> or <a href="/help/">communication channels</a>. It contains solutions to many commonly encountered issues.</p>
 
-<ul>
-  <li><a href="/getting-started/installation-docker/">Docker</a></li>
-  <li><a href="/getting-started/installation-raspberry-pi/">Manual Raspberry Pi installation</a> (requires existing Raspbian installation)</li>
-  <li><a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi All-In-One Installer Script</a> (requires existing Raspbian installation)</li>
-  <li><a href="/getting-started/installation-vagrant/">Vagrant</a></li>
-  <li><a href="/getting-started/installation-synology/">Synology NAS</a></li>
-  <li><a href="/getting-started/installation-virtualenv/">Virtualenv Linux</a></li>
-</ul>
-
+<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
 
 
 </article>
@@ -137,75 +129,12 @@
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
-      <li>
-        <a class='active' href='/getting-started/'>Installation </a>
-        <ul>
-          <li><a  href='/getting-started/installation-python/'>Python </a></li>
-          <li><a  href='/getting-started/updating/'>Updating </a></li>
-          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/hassbian/'>Hassbian </a>
-        <ul>
-          <li><a  href='/getting-started/hassbian-installation/'>Installation </a></li>
-          <li><a  href='/getting-started/hassbian-customization/'>Customization </a></li>
-          <li><a  href='/getting-started/hassbian-common-tasks/'>Common tasks </a></li>
-          <li><a  href='/getting-started/hassbian-integrations/'>Integrations </a></li>
-          <li><a  href='/getting-started/hassbian-upgrading/'>Upgrading </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/configuration/'>Configuration  </a>
-        <ul>
-          <li><a  href='/getting-started/yaml/'>YAML </a></li>
-          <li><a  href='/getting-started/basic/'>Basic information </a></li>
-          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
-          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
-          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
-          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
-          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/automation/'>Automation </a>
-        <ul>
-          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
-          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
-          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
-          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
-          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/scripts/'>Scripts </a>
-        <ul>
-          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
-          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/z-wave/'>Z-Wave </a>
-        <ul>
-          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
-          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
-          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/autostart/'>Autostart </a>
-        <ul>
-          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
-          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
-          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
-          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
-          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
-        </ul>
-      </li>
-      <li><a  href='/topics/'>Advanced Topics </a></li>
-      <li><a  href='/details/'>Details </a></li>
-      <li><a  href='/getting-started/mobile/'>Add to Android/iOS Homescreen </a></li>
-      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+      <li><a class='active' href='/getting-started/'>Installation </a>
+      <li><a  href='/getting-started/configuration/'>Configuration </a></li>
+      <li><a  href='/getting-started/automation/'>Automation </a></li>
+      <li><a  href='/getting-started/automation-2/'>Automation 2 </a></li>
+      <li><a  href='/getting-started/presence-detection/'>Presence detection </a></li>
+      <li><a  href='/getting-started/use/'>Use it! </a></li>
     </ul>
   </div>
 </section>

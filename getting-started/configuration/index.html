@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Configuring Home Assistant - Home Assistant</title>
+    <title>Configure Home Assistant - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Configuring Home Assistant.">
+    <meta name="description" content="Instructions to get Home Assistant configured.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/getting-started/configuration/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Configuring Home Assistant">
+    <meta property="og:title" content="Configure Home Assistant">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/getting-started/configuration/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Configuring Home Assistant.">
+    <meta property="og:description" content="Instructions to get Home Assistant configured.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="Configuring Home Assistant">
-    <meta name="twitter:description" content="Configuring Home Assistant.">
+    <meta name="twitter:title" content="Configure Home Assistant">
+    <meta name="twitter:description" content="Instructions to get Home Assistant configured.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -56,7 +56,7 @@
   
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
-  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/docs/">Docs</a></li>
   <li><a href="/cookbook/">Examples</a></li>
   <li><a href="/developers/">Developers</a></li>
   <li><a href="/blog/">Blog</a></li>
@@ -84,54 +84,28 @@
   
   <header>
     <h1 class="title indent">
-      Configuring Home Assistant
+      Configure Home Assistant
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>When launched for the first time, Home Assistant will write a default configuration file enabling the web interface and device discovery. It can take up to a minute for your devices to be discovered and appear in the user interface.</p>
+  <p>When launched for the first time, Home Assistant will write a default configuration file, called <code class="highlighter-rouge">configuration.yaml</code>, enabling the web interface and <a href="/components/discovery/">device discovery</a>. It can take up to a minute for your devices to be discovered and appear in the user interface.</p>
 
-<p>The location of the folder differs between operating systems:</p>
+<p>The <code class="highlighter-rouge">configuration.yaml</code> is written in <a href="/docs/configuration/yaml/">YAML</a>, stored in <a href="/docs/configuration/"><code class="highlighter-rouge">.homeassistant</code></a>, and can be modified with a text editor.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>OS</th>
-      <th>Path</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>macOS</td>
-      <td><code class="highlighter-rouge">~/.homeassistant</code></td>
-    </tr>
-    <tr>
-      <td>Linux</td>
-      <td><code class="highlighter-rouge">~/.homeassistant</code></td>
-    </tr>
-    <tr>
-      <td>Windows</td>
-      <td><code class="highlighter-rouge">%APPDATA%/.homeassistant</code></td>
-    </tr>
-  </tbody>
-</table>
+<p>See the <a href="/components/">components overview page</a> to find sample entries for your devices and services. For a sensor that is showing <a href="/components/sensor.random/">random values</a>, the entry would looks like the sample below:</p>
 
-<p>If you want to use a different folder for configuration, use the config command line parameter: <code class="highlighter-rouge">hass --config path/to/config</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">random</span>
+</code></pre>
+</div>
 
-<p>Inside your configuration folder is the file <code class="highlighter-rouge">configuration.yaml</code>. This is the main file that contains components to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.</p>
+<p>The <a href="/docs/configuration/devices/">Setting up devices part</a> contains of the documentation additional details about adding device and services and <a href="docs/configuration/customizing-devices/">customizization</a>.</p>
 
-<p class="note">
-  You will have to restart Home Assistant for changes to <code class="highlighter-rouge">configuration.yaml</code> to take effect.
-</p>
+<p>For further details about configuration, please take a look at the <a href="/docs/configuration/">configuration documentation</a>.</p>
 
-<p>If you run into trouble while configuring Home Assistant, have a look at the <a href="/getting-started/troubleshooting-configuration/">configuration troubleshooting page</a> and at the <a href="/cookbook/#example-configurationyaml">configuration.yaml examples</a>.</p>
-
-<p class="note tip">
-  Test any changes to your configuration files from the command line with <code class="highlighter-rouge">hass --script check_config</code>. This script allows you to test changes without the need to restart Home Assistant.
-</p>
-
-<h3><a href="/getting-started/yaml/">Next step: Get familiar with YAML »</a></h3>
+<h3><a href="/getting-started/automation/">Next step: Automate Home Assistant »</a></h3>
 
 
 </article>
@@ -149,75 +123,12 @@
   <div class='section'>
     <h1 class="title delta">Getting Started Guide</h1>
     <ul class='divided sidebar-menu'>
-      <li>
-        <a  href='/getting-started/'>Installation </a>
-        <ul>
-          <li><a  href='/getting-started/installation-python/'>Python </a></li>
-          <li><a  href='/getting-started/updating/'>Updating </a></li>
-          <li><a  href='/getting-started/troubleshooting/'>Troubleshooting </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/hassbian/'>Hassbian </a>
-        <ul>
-          <li><a  href='/getting-started/hassbian-installation/'>Installation </a></li>
-          <li><a  href='/getting-started/hassbian-customization/'>Customization </a></li>
-          <li><a  href='/getting-started/hassbian-common-tasks/'>Common tasks </a></li>
-          <li><a  href='/getting-started/hassbian-integrations/'>Integrations </a></li>
-          <li><a  href='/getting-started/hassbian-upgrading/'>Upgrading </a></li>
-        </ul>
-      </li>
-      <li>
-        <a class='active' href='/getting-started/configuration/'>Configuration  </a>
-        <ul>
-          <li><a  href='/getting-started/yaml/'>YAML </a></li>
-          <li><a  href='/getting-started/basic/'>Basic information </a></li>
-          <li><a  href='/getting-started/devices/'>Setting up devices </a></li>
-          <li><a  href='/getting-started/customizing-devices/'>Customizing devices and services </a></li>
-          <li><a  href='/getting-started/presence-detection/'>Presence Detection </a></li>
-          <li><a  href='/getting-started/troubleshooting-configuration/'>Troubleshooting </a></li>
-          <li><a  href='/getting-started/securing/'>Security Check Points </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/automation/'>Automation </a>
-        <ul>
-          <li><a  href='/getting-started/automation-create-first/'>Tutorial </a></li>
-          <li><a  href='/getting-started/automation-trigger/'>Triggers </a></li>
-          <li><a  href='/getting-started/automation-condition/'>Conditions </a></li>
-          <li><a  href='/getting-started/automation-action/'>Actions </a></li>
-          <li><a  href='/getting-started/automation-templating/'>Templates </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/scripts/'>Scripts </a>
-        <ul>
-          <li><a  href='/getting-started/scripts-service-calls/'>Service Calls </a></li>
-          <li><a  href='/getting-started/scripts-conditions/'>Conditions </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/z-wave/'>Z-Wave </a>
-        <ul>
-          <li><a  href='/getting-started/z-wave-controllers/'>Controllers </a></li>
-          <li><a  href='/getting-started/z-wave-settings/'>Modifying Settings </a></li>
-          <li><a  href='/getting-started/z-wave-device-specific/'>Device Specific </a></li>
-        </ul>
-      </li>
-      <li>
-        <a  href='/getting-started/autostart/'>Autostart </a>
-        <ul>
-          <li><a  href='/getting-started/autostart-systemd/'>Linux - systemd </a></li>
-          <li><a  href='/getting-started/autostart-upstart/'>Linux - Upstart </a></li>
-          <li><a  href='/getting-started/autostart-init.d/'>Linux - init.d </a></li>
-          <li><a  href='/getting-started/autostart-macos/'>macOS </a></li>
-          <li><a  href='/getting-started/autostart-synology/'>Synology NAS </a></li>
-        </ul>
-      </li>
-      <li><a  href='/topics/'>Advanced Topics </a></li>
-      <li><a  href='/details/'>Details </a></li>
-      <li><a  href='/getting-started/mobile/'>Add to Android/iOS Homescreen </a></li>
-      <li><a  href='/getting-started/browsers/'>Browser Compatibility List </a></li>
+      <li><a  href='/getting-started/'>Installation </a>
+      <li><a class='active' href='/getting-started/configuration/'>Configuration </a></li>
+      <li><a  href='/getting-started/automation/'>Automation </a></li>
+      <li><a  href='/getting-started/automation-2/'>Automation 2 </a></li>
+      <li><a  href='/getting-started/presence-detection/'>Presence detection </a></li>
+      <li><a  href='/getting-started/use/'>Use it! </a></li>
     </ul>
   </div>
 </section>
