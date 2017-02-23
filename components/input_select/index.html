@@ -162,6 +162,52 @@
 </code></pre>
 </div>
 
+<p>Example of <code class="highlighter-rouge">input_select</code> being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="c1"># Example configuration.yaml entry using 'input_select' in an action in an automation</span>
+   
+<span class="c1"># Define input_select</span>
+<span class="s">input_select</span><span class="pi">:</span>
+  <span class="s">thermostat_mode</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Thermostat Mode</span>
+    <span class="s">options</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">auto"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">off"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">cool"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">heat"</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:target</span>
+
+<span class="c1"># Automation.     </span>
+ <span class="c1"># This automation script runs when a value is received via MQTT on retained topic: thermostatMode</span>
+ <span class="c1"># It sets the value selector on the GUI. This selector also had its own automation when the value is changed.</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Set Thermostat Mode Selector</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">thermostatMode"</span>
+   <span class="c1"># entity_id: input_select.thermostat_mode</span>
+  <span class="s">action</span><span class="pi">:</span>
+     <span class="s">service</span><span class="pi">:</span> <span class="s">input_select.select_option</span>
+     <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_select.thermostat_mode</span>
+      <span class="s">option</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.payload</span><span class="nv"> </span><span class="s">}}'</span>
+
+ <span class="c1"># This automation script runs when the thermostat mode selector is changed.</span>
+ <span class="c1"># It publishes its value to the same MQTT topic it is also subscribed to.</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Set Thermostat Mode</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_select.thermostat_mode</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">mqtt.publish</span>
+    <span class="s">data_template</span><span class="pi">:</span>
+      <span class="s">topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">thermostatMode"</span>
+      <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.input_select.thermostat_mode.state</span><span class="nv"> </span><span class="s">}}'</span>
+
+</code></pre>
+</div>
+
 
 </article>
 
