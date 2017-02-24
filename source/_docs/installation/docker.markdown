@@ -38,6 +38,24 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
 
 This will let you access your Home Assistant portal from http://localhost:8123, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.
 
+### {% linkable_title Synology NAS %}
+
+As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line ;)
+
+The steps would be:
+*) Install "Docker" package on your Synology NAS
+*) Launch Docker-app and move to "Registry"-section
+*) Find "homeassistant/home-assistant" with registry and click on "Download"
+*) Wait for some time until your NAS has pulled the image
+*) Move to the "Image"-section of the Docker-app
+*) Click on "Launch"
+*) Choose a container-name you want (e.g. "homeassistant")
+*) Click on "Advanced Settings"
+*) Set "Enable auto-restart" if you like
+*) Within "Volume" click on "Add Folder" (choose either an existing folder or add a new folder)
+*) Confirm the "Advanced Settings"
+*) Click on "Next" and then "Apply"
+*) Your Home Assistant within Docker should now run :)
 
 ### {% linkable_title Restart %}
 
