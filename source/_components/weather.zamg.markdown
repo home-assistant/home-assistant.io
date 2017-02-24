@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "ZAMG Sensor"
+title: "ZAMG Weather"
 description: "Instructions how to integrate ZAMG sensors within Home Assistant."
 date: 2016-12-06 08:00
 sidebar: true
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: zamg.png
 ha_category: Weather
-ha_release: 0.35
+ha_release: 0.39
 ---
 
 The `zamg` platform uses meteorological details published by the Austrian weather service
@@ -22,32 +22,16 @@ To add ZAMG to your installation, add the following to your `configuration.yaml`
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+weather:
   - platform: zamg
-    station_id: 11035
-    monitored_conditions:
-      - temperature
-      - humidity
 ```
 
 Configuration variables:
 
 - **station_id** (*Optional*): The ID number for a supported ZAMG station.
-- **name** (*Optional*): Additional name for the sensors. Defaults to platform name.
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **pressure**: Pressure at station level
-  - **pressure_sealevel**: Pressure at sea Level
-  - **humidity**: Humidity
-  - **wind_speed**: Wind speed
-  - **wind_bearing**: Wind bearing
-  - **wind_max_speed**: Top wind speed
-  - **wind_max_bearing**: Top wind bearing
-  - **sun_last_hour**: Sun last hour percentage
-  - **temperature**: Temperature
-  - **precipitation**: Precipitation
-  - **dewpoint**: Dew point
+- **name** (*Optional*): A name for the weather platform.
 
 <p class='note'>
-This sensor is an alternative to the [`zamg`](/components/weather.zamg/) weather platform.
+This platform is an alternative to the [`zamg`](/components/sensor.zamg/) sensor.
 The weather platform is easier to configure but less customisable.
 </p>
