@@ -94,42 +94,32 @@
 
 <p>This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
-  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on kitchen lights when there is movement</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.motion_sensor</span>
-      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timed_lamp</span>
-
-<span class="s">script</span><span class="pi">:</span>
-  <span class="s">timed_lamp</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Turn</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">timer"</span>
-    <span class="s">sequence</span><span class="pi">:</span>
-      <span class="c1"># Cancel ev. old timers</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_off</span>
-        <span class="s">data</span><span class="pi">:</span>
-           <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timer_off</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
-      <span class="c1"># Set new timer</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.timer_off</span>
-
-  <span class="s">timer_off</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Turn</span><span class="nv"> </span><span class="s">off</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">after</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">minutes"</span>
-    <span class="s">sequence</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
-          <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
-      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
-        <span class="s">data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
-</code></pre>
-</div>
+<p>```yaml
+automation:</p>
+<ul>
+  <li>
+    <p>alias: Turn on kitchen light when there is movement
+trigger:
+  platform: state
+  entity_id: sensor.motion_sensor
+  to: ‘on’
+action:
+  service: homeassistant.turn_on
+  entity_id: light.kitchen</p>
+  </li>
+  <li>
+    <p>alias: Turn off kitchen light 10 minutes after last movement
+trigger:
+  platform: state
+  entity_id: sensor.motion_sensor
+  to: ‘off’
+  for:
+    minutes: 10
+action:
+  service: homeassistant.turn_off
+  entity_id: light.kitchen_light</p>
+  </li>
+</ul>
 
 
 </article>
