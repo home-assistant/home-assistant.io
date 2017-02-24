@@ -36,4 +36,4 @@ Configuration variables:
   - **topic** (*Required*): The MQTT topic to publish the message.
   - **payload** (*Required*): The message content.
   - **qos** (*Optional*): The maximum QoS level of the topic. Default is 0.
-  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True
+  - **retain** (*Optional*): If the published message should have the retain flag on or not. Defaults to `True`.
