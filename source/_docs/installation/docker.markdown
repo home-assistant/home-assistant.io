@@ -52,7 +52,7 @@ The steps would be:
 * Choose a container-name you want (e.g. "homeassistant")
 * Click on "Advanced Settings"
 * Set "Enable auto-restart" if you like
-* Within "Volume" click on "Add Folder" (choose either an existing folder or add a new folder)
+* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
 * Confirm the "Advanced Settings"
 * Click on "Next" and then "Apply"
 * Your Home Assistant within Docker should now run :)
