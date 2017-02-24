@@ -19,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
+sensor:
   - platform: broadlink
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
