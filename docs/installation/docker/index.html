@@ -110,6 +110,16 @@
 </code></pre>
 </div>
 
+<h3><a class="title-link" name="windows" href="#windows"></a> Windows</h3>
+
+<p>When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the <code class="highlighter-rouge">--net=host</code> switch actually applies to the hypervisor’s network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing ‘192.168.1.10’ with whatever your Windows IP is, and ‘10.0.50.2’ with whatever your Docker container’s IP is):</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
+</code></pre>
+</div>
+
+<p>This will let you access your Home Assistant portal from http://localhost:8123, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.</p>
+
 <h3><a class="title-link" name="restart" href="#restart"></a> Restart</h3>
 
 <p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
