@@ -35,3 +35,4 @@ automation:
   action:
     service: homeassistant.turn_off
     entity_id: light.kitchen_light
+```
