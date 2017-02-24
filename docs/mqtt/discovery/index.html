@@ -130,12 +130,12 @@
 <ul>
   <li>Configuration topic: <code class="highlighter-rouge">homeassistant/binary_sensor/garden/config</code></li>
   <li>State topic: <code class="highlighter-rouge">homeassistant/binary_sensor/garden/state</code></li>
-  <li>Payload:  <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"garden"</span><span class="p">,</span><span class="w"> </span><span class="nt">"sensor_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"motion"</span><span class="p">}</span></code></li>
+  <li>Payload:  <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"garden"</span><span class="p">,</span><span class="w"> </span><span class="nt">"device_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"motion"</span><span class="p">}</span></code></li>
 </ul>
 
 <p>To create a new sensor manually. For more details please refer to the <a href="/component/mqtt_testing">MQTT testing section</a>.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -p 1883 -t <span class="s2">"homeassistant/binary_sensor/garden/config"</span> -m <span class="s1">'{"name": "garden", "sensor_class": "motion"}'</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -p 1883 -t <span class="s2">"homeassistant/binary_sensor/garden/config"</span> -m <span class="s1">'{"name": "garden", "device_class": "motion"}'</span>
 </code></pre>
 </div>
 <p>Update the state.</p>

@@ -94,32 +94,28 @@
 
 <p>This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.</p>
 
-<p>```yaml
-automation:</p>
-<ul>
-  <li>
-    <p>alias: Turn on kitchen light when there is movement
-trigger:
-  platform: state
-  entity_id: sensor.motion_sensor
-  to: ‘on’
-action:
-  service: homeassistant.turn_on
-  entity_id: light.kitchen</p>
-  </li>
-  <li>
-    <p>alias: Turn off kitchen light 10 minutes after last movement
-trigger:
-  platform: state
-  entity_id: sensor.motion_sensor
-  to: ‘off’
-  for:
-    minutes: 10
-action:
-  service: homeassistant.turn_off
-  entity_id: light.kitchen_light</p>
-  </li>
-</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on kitchen light when there is movement</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.motion_sensor</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen</span>
+
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn off kitchen light 10 minutes after last movement</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.motion_sensor</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">for</span><span class="pi">:</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen_light</span>
+</code></pre>
+</div>
 
 
 </article>
