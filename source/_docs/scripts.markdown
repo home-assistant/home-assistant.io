@@ -75,6 +75,20 @@ delay:
 # Valid formats include HH:MM and HH:MM:SS
 delay: {% raw %}'00:{{ states.input_slider.minute_delay.state | int }}:00'{% endraw %}
 ```
+### {% linkable_title Wait %}
+
+Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/getting-started/automation-trigger/#template-trigger). It is possible to set a timeout after that will the script abort his execution. Timeout have same syntax as `delay`.
+
+```yaml
+# wait until media player have stop the playing
+wait_template: {% raw %}"{{ states.media_player.floor.states == 'stop' }}"{% endraw %}
+```
+
+```yaml
+# wait until a valve is < 10 or abort after 1 minutes.
+wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve < 10 }}"{% endraw %}
+timeout: 00:01:00
+```
 
 ### {% linkable_title Fire an Event %}
 

@@ -28,4 +28,4 @@ Configuration variables:
 
 - **id** (*Required*): The ID of the device. This is the 4 bytes long number written on the dimmer.
 - **name** (*Optional*): An identifier for the switch in the frontend.
-- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.

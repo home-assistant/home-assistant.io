@@ -52,7 +52,7 @@ Configuration variables:
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
 - **name** (*Optional*): Name of the REST binary sensor.
-- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usually formed as a dictionary.
 - **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
@@ -80,7 +80,7 @@ binary_sensor:
     resource: http://192.168.0.5/digital/9
     method: GET
     name: Light
-    sensor_class: light
+    device_class: light
     value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
 ```
 

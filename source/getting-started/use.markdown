@@ -11,16 +11,10 @@ footer: true
 
 If you are using Hassbian, browse to [http://hassbian.local:8123](http://hassbian.local:8123) to open the Home Assistant frontend.
 
-To reload your configuration, [login](/docs/hassbian/common-tasks/#login-to-the-raspberry-pi) your Raspberry Pi
+To reload your configuration, go to **Configuration** in your side panel, and choose:
 
-```bash
-$ ssh pi@ip-address-of-pi
-```
+<p class='img'>
+<img src='/images/screenshots/configuration-validation.png' />
+</p>
 
-and [restart](/docs/hassbian/common-tasks/#startstoprestart-home-assistant) Home Assistant
-
-```bash
-$ sudo systemctl restart home-assistant@homeassistant.service
-```
-
-For tweaking your Home Assistant setup, take a look at the [documentation](/docs/), ask your questions in our [forum](https://community.home-assistant.io/), join us for a [chat](https://gitter.im/home-assistant/home-assistant), or report your [issues](https://github.com/home-assistant/home-assistant/issues).
+Now that you saw a glimpse of what is possible, take a look at the [documentation](/docs/), ask your questions in our [forum](https://community.home-assistant.io/), join us for a [chat](https://gitter.im/home-assistant/home-assistant), or report your [issues](https://github.com/home-assistant/home-assistant/issues).

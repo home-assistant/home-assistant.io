@@ -90,7 +90,7 @@ Inside an intent we can define this variables:
 
 ## {% linkable_title Examples %}
 
-Download [this zip](http://filebin.ca/3AZSHoXPnbEv/HomeAssistant_APIAI.zip) and load it in your api.ai agent (Settings -> Export and Import) for examples intents to use with this configuration:
+Download [this zip](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Api.ai agent (Settings -> Export and Import) for examples intents to use with this configuration:
 
 ```yaml
 {% raw %}# Example configuration.yaml entry

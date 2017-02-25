@@ -34,10 +34,8 @@ switch:
   devices:
     newkaku_0000c6c2_1:
       name: Ceiling fan
-      icon: mdi:fan
     conrad_00785c_0a:
       name: Motion sensor kitchen
-      icon: mdi:run
 
 ```
 
