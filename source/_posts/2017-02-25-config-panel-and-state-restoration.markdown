@@ -202,7 +202,8 @@ hdmi_cec:
     hdmi_cec.hdmi_5: media_player
 ```
 
-#### Bugfixes: 
+#### Bugfixes:
+
 [@pvizeli], [@LinuxChristian], [@molobrakos], [@balloob], [@rytilahti], [@fabaff], [@andrey-git], [@aequitas], [@konikvranik], [@Danielhiversen], [@colinodell], [@pschmitt], [@bachp], [@bachp],[@w1ll1am23], [@valentinalexeev], [@robbiet480], [@MartinHjelmare], [@happyleavesaoc], [@tdickman], [@arraylabs], [@lwis], [@titilambert]
 
 ### If you need help...
