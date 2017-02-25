@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant offers a wide range of automation configurations. In this section, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available][/cookbook/#example-configurationyaml].
+Home Assistant offers a wide range of automation configurations. In this section, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available](/cookbook/#example-configurationyaml).
 
 ### {% linkable_title Automation basics %}
 
