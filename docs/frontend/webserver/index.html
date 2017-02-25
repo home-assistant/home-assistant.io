@@ -92,30 +92,30 @@
   <hr class="divider">
   
 
-  <p>It was only a matter of time till the first queries for tools like <a href="https://www.shodan.io/search?query=Home+Assistant">https://www.shodan.io</a> to search for Home Assistant instances showed up.</p>
+  <p>It was only a matter of time until the first queries for tools like <a href="https://www.shodan.io/search?query=Home+Assistant">https://www.shodan.io</a> to search for Home Assistant instances showed up.</p>
 
-<p>To get an idea about how your Home Assistant instance looks like for network scanner, you can use <code class="highlighter-rouge">nmap</code>. The <code class="highlighter-rouge">nmap</code> tool is already available if you are using the <a href="/components/device_tracker/">nmap device tracker</a>.</p>
+<p>To get an idea about how your Home Assistant instance looks to a network scanner, you can use <code class="highlighter-rouge">nmap</code>. The <code class="highlighter-rouge">nmap</code> tool is already available if you are using the <a href="/components/device_tracker/">nmap device tracker</a>.</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">$ nmap -sV -p 8123 --script=http-title,http-headers 192.168.1.3</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>nmap -sV -p 8123 --script<span class="o">=</span>http-title,http-headers 192.168.1.3
 
-<span class="s">Starting Nmap 7.12 ( https://nmap.org ) at 2016-10-06 10:01 CEST</span>
-<span class="s">Nmap scan report for 192.168.1.3 (192.168.1.3)</span>
-<span class="s">Host is up (0.00011s latency).</span>
-<span class="s">PORT     STATE SERVICE VERSION</span>
-<span class="s">8123/tcp open  http    CherryPy wsgiserver</span>
-<span class="pi">|</span> <span class="err">http-headers:</span> 
-<span class="err">|</span><span class="no">   Content-Type: text/html; charset=utf-8</span>
-<span class="err">|</span><span class="no">   Content-Length: 4309</span>
-<span class="err">|</span><span class="no">   Connection: close</span>
-<span class="err">|</span><span class="no">   Date: Thu, 06 Oct 2016 08:01:31 GMT</span>
-<span class="err">|</span><span class="no">   Server: Home Assistant</span>
-<span class="err">|</span>
-<span class="err">|</span><span class="no">_  (Request type: GET)</span>
-<span class="err">|</span><span class="no">_http-server-header: Home Assistant</span>
-<span class="err">|</span><span class="no">_http-title: Home Assistant</span>
+Starting Nmap 7.12 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2016-10-06 10:01 CEST
+Nmap scan report <span class="k">for </span>192.168.1.3 <span class="o">(</span>192.168.1.3<span class="o">)</span>
+Host is up <span class="o">(</span>0.00011s latency<span class="o">)</span>.
+PORT     STATE SERVICE VERSION
+8123/tcp open  http    CherryPy wsgiserver
+| http-headers: 
+|   Content-Type: text/html; <span class="nv">charset</span><span class="o">=</span>utf-8
+|   Content-Length: 4309
+|   Connection: close
+|   Date: Thu, 06 Oct 2016 08:01:31 GMT
+|   Server: Home Assistant
+|
+|_  <span class="o">(</span>Request <span class="nb">type</span>: GET<span class="o">)</span>
+|_http-server-header: Home Assistant
+|_http-title: Home Assistant
 
-<span class="err">S</span><span class="no">ervice detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span>
-<span class="err">N</span><span class="no">map done: 1 IP address (1 host up) scanned in 6.70 seconds</span>
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap <span class="k">done</span>: 1 IP address <span class="o">(</span>1 host up<span class="o">)</span> scanned <span class="k">in </span>6.70 seconds
 </code></pre>
 </div>
 
