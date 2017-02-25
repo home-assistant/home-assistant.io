@@ -54,3 +54,16 @@ Possible log severities are:
 - debug
 - notset
  
+### {% linkable_title Service `set_level` %}
+
+You can alter log level for one or several components using the service
+``logger.set_level``. It accepts the same format as ``logs`` in the configuration.
+
+An example call might look like this:
+
+```yaml
+service: logger.set_level
+data:
+  homeassistant.components: warning
+  homeassistant.components.media_player.yamaha: debug
+```
