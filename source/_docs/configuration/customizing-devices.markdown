@@ -33,6 +33,13 @@ homeassistant:
       icon: mdi:kettle
     switch.rfxtrx_switch:
       assumed_state: false
+  customize_domain:
+    light:
+      icon: mdi:home
+  customize_glob:
+    "light.kitchen_*":
+      icon: mid:description
+
 ```
 
 ### {% linkable_title Possible values %}
