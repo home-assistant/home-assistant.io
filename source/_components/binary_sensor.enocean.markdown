@@ -36,3 +36,21 @@ EnOcean binary sensors only generate 'button_pressed' events. The event data has
  - **pushed**: `1` for a button press, `0` for a button release.
  - **which**: Always `0` when using the single rocket.  `0` or `1` when using the dual rocket switch.
  - **onoff**: `0` or `1` for either side of the rocket.
+
+Sample automation to switch lights on and off:
+
+```yaml
+# Example automation to turn lights on/off on button release
+automation:
+  - alias: hall light switches
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data:
+        id: [0xYY, 0xYY, 0xYY, 0xYY]
+        pushed: 0
+    action:
+      service_template: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
+      data_template:
+        entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
+```
