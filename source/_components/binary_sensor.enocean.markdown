@@ -13,7 +13,7 @@ ha_release: 0.21
 ha_iot_class: "Local Push"
 ---
 
-This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55. Other devices will most likely not work without changing the Home Assistant code.
+This can typically be one of those batteryless wall switches. Currently only one type has been tested: Eltako FT55 which uses the EnOcean PTM 215 module. All switches using this module are expected to work. Other devices will most likely not work without changing the Home Assistant code.
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
 
