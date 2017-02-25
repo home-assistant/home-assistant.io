@@ -28,6 +28,35 @@ Additionally, if your expectation is that you will be able to browse directly to
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
 ```
 
+### {% linkable_title Windows %}
+
+When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
+```
+netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
+```
+
+This will let you access your Home Assistant portal from http://localhost:8123, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.
+
+### {% linkable_title Synology NAS %}
+
+As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatability-information, if your NAS is supported), see https://www.synology.com/en-us/dsm/app_packages/Docker
+
+The steps would be:
+* Install "Docker" package on your Synology NAS
+* Launch Docker-app and move to "Registry"-section
+* Find "homeassistant/home-assistant" with registry and click on "Download"
+* Wait for some time until your NAS has pulled the image
+* Move to the "Image"-section of the Docker-app
+* Click on "Launch"
+* Choose a container-name you want (e.g. "homeassistant")
+* Click on "Advanced Settings"
+* Set "Enable auto-restart" if you like
+* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
+* Confirm the "Advanced Settings"
+* Click on "Next" and then "Apply"
+* Your Home Assistant within Docker should now run :)
+
 ### {% linkable_title Restart %}
 
 This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.

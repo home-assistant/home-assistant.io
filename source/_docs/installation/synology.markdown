@@ -10,6 +10,13 @@ footer: true
 redirect_from: /getting-started/installation-synology/
 ---
 
+There are 2 alternatives, when using Home Assistant on Synology NAS:
+1. using Docker
+2. directly running on DSM
+
+Option 1 is described on the [Docker installation page](/docs/installation/docker/), whereas Option 2 is described below.
+
+
 The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.
 
 Running these commands will:
@@ -35,27 +42,28 @@ $ sudo -i
 Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)
 
 ```bash
-$ cd /volume1/@appstore/py3k/usr/local/bin
+# cd /volume1/@appstore/py3k/usr/local/bin
 ```
 
 Install PIP (Python's package management system)
 
 ```bash
-$ ./python3 -m ensurepip
+# ./python3 -m ensurepip
 ```
 
 Use PIP to install Homeassistant package
 
 ```bash
-$ ./python3 -m pip install homeassistant
+# ./python3 -m pip install homeassistant
 ```
 
 Create homeassistant config directory & switch to it
 
 ```bash
-$ mkdir /volume1/homeassistant
-$ cd /volume1/homeassistant
+# mkdir /volume1/homeassistant
+# cd /volume1/homeassistant
 ```
+Hint: alternatively you can also create a "Shared Folder" via Synology WebUI (e.g. via "File Station") - this has the advantage that the folder is visible via "File Station".
 
 Create hass-daemon file using the following code (edit the variables in uppercase if necessary)
 
@@ -167,21 +175,21 @@ esac
 Create links to python folders to make things easier in the future:
 
 ```bash
-$ ln -s /volume1/@appstore/py3k/usr/local/bin python3
-$ ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
+# ln -s /volume1/@appstore/py3k/usr/local/bin python3
+# ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
 ```
 
 Set the owner and permissions on your config folder
 
 ```bash
-$ chown -R homeassistant:users /volume1/homeassistant
-$ chmod -R 664 /volume1/homeassistant
+# chown -R homeassistant:users /volume1/homeassistant
+# chmod -R 664 /volume1/homeassistant
 ```
 
 Make the daemon file executable:
 
 ```bash
-$ chmod 777 /volume1/homeassistant/hass-daemon
+# chmod 777 /volume1/homeassistant/hass-daemon
 ```
 
 Update your firewall (if it is turned on on the Synology device):

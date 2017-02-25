@@ -10,11 +10,11 @@ footer: true
 redirect_from: /details/webserver/
 ---
 
-It was only a matter of time till the first queries for tools like [https://www.shodan.io](https://www.shodan.io/search?query=Home+Assistant) to search for Home Assistant instances showed up.
+It was only a matter of time until the first queries for tools like [https://www.shodan.io](https://www.shodan.io/search?query=Home+Assistant) to search for Home Assistant instances showed up.
 
-To get an idea about how your Home Assistant instance looks like for network scanner, you can use `nmap`. The `nmap` tool is already available if you are using the [nmap device tracker](/components/device_tracker/). 
+To get an idea about how your Home Assistant instance looks to a network scanner, you can use `nmap`. The `nmap` tool is already available if you are using the [nmap device tracker](/components/device_tracker/). 
 
-```yaml
+```bash
 $ nmap -sV -p 8123 --script=http-title,http-headers 192.168.1.3
 
 Starting Nmap 7.12 ( https://nmap.org ) at 2016-10-06 10:01 CEST
