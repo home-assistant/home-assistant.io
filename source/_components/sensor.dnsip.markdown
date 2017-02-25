@@ -36,6 +36,8 @@ Configuration variables:
 - **ipv6** (*Optional*): Set this to `true` or `false` if IPv6 should be used. Resolving the public IP will resolve to IP of the machine HASS is running on.
 - **scan_interval** (Optional): Defines number of seconds for polling interval. Default is 120 seconds.
 
+#### {% linkable_title Extended example %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
