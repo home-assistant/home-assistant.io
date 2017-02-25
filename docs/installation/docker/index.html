@@ -135,7 +135,7 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
   <li>Choose a container-name you want (e.g. “homeassistant”)</li>
   <li>Click on “Advanced Settings”</li>
   <li>Set “Enable auto-restart” if you like</li>
-  <li>Within “Volume” click on “Add Folder” (choose either an existing folder or add a new folder)</li>
+  <li>Within “Volume” click on “Add Folder” and choose either an existing folder or add a new folder. The “mount point” has to be “/config”, so that Home Assistant will use it for the configs and logs.</li>
   <li>Confirm the “Advanced Settings”</li>
   <li>Click on “Next” and then “Apply”</li>
   <li>Your Home Assistant within Docker should now run :)</li>
