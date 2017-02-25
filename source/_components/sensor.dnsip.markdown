@@ -34,6 +34,7 @@ Configuration variables:
 - **hostname** (*Optional*): The hostname for which to perform the DNS query.
 - **resolver** (*Optional*): The DNS server to target the query at.
 - **ipv6** (*Optional*): Set this to `true` or `false` if IPv6 should be used. Resolving the public IP will resolve to IP of the machine HASS is running on.
+- **scan_interval** (Optional): Defines number of seconds for polling interval. Default is 120 seconds.
 
 This sensor stores a lot of attributes which can be accessed by other sensors eg. a [template sensor](/components/sensor.template/).
 
