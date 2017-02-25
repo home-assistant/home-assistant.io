@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DNS IP"
-description: "Instructions how to integrate timetable data for travelling in Germany within Home Assistant."
+description: "Instructions on how to integrate a DNS IP sensor into Home Assistant."
 date: 2017-02-25 11:05
 sidebar: true
 comments: false
@@ -45,6 +45,6 @@ sensor:
   - platform: dnsip
   # IP address of home-assistant.io
   - platform: dnsip
-    hostname: home-assitant.io
+    hostname: home-assistant.io
     resolver: 8.8.8.8
 ```
