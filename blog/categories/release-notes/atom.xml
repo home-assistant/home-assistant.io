@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-26T13:41:50+00:00</updated>
+  <updated>2017-02-26T20:05:38+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -276,12 +276,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: https://home-assistant.io/componet/telegram_webhook/
+[telegram]: https://home-assistant.io/componet/telegram_webhooks/
 [pushsafer]: https://home-assistant.io/components/notify.pushsafer/
 [openhome]: https://home-assistant.io/components/media_player.openhome/
 [ups]: https://home-assistant.io/components/sensor.ups/
 [fedex]: https://home-assistant.io/components/sensor.fedex/
-[fido]: https://home-assistant.io/components/sensor.fido/ 
+[fido]: https://home-assistant.io/components/sensor.fido/
 [gstreamer]: https://home-assistant.io/components/media_player.gstreamer/
 [clementine]: https://home-assistant.io/components/media_player.clementine/
 [ebox]: https://home-assistant.io/components/sensor.ebox/
