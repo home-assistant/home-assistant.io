@@ -1,13 +1,12 @@
 ---
 layout: page
-title: Fedex Sensor
-description: "Instructions on how to set up FedEx sensors within Home Assistant."
+title: PocketCasts
+description: "Instructions on how to set up PocketCasts sensors within Home Assistant."
 date: 2017-02-14 08:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: fedex.png
 ha_category: Sensor
 ha_release: 0.39
 ---
@@ -22,7 +21,7 @@ sensor:
     password: YOUR_PASSWORD
 ```
 
-Configuration options for the FedEx Sensor:
+Configuration options for the PocketCasts Sensor:
 
 - **username** (*Required*): The username to access the PocketCasts service.
 - **password** (*Required*): The password for the given username.
