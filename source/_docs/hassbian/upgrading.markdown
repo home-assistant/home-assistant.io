@@ -25,6 +25,6 @@ Press `Y` to confirm that you would like to continue.
 To update the hassbian-scripts directory execute the following command as the `pi` user.
 
 ```bash
-$ cd hassbian-scripts
+$ cd /home/pi/hassbian-scripts
 $ git pull
 ```
