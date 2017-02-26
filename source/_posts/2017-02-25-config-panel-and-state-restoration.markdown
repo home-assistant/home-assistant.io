@@ -69,6 +69,8 @@ We realized that this was leading into a rabbit hole that we had to get out off.
 
 So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
 
+[**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/1/)
+
 #### Customize has been reverted to it's original config
 
 The old customize is back. The options to match by domain or using glob have been moved to it's own options. It will now look like this:
