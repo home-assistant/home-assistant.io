@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-26T05:22:09+00:00</updated>
+  <updated>2017-02-26T06:07:58+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -75,6 +75,8 @@ A couple of releases ago we introduced a new way of doing `customize`. It became
 We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn't like config panels?
 
 So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
+
+[**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/1/)
 
 #### Customize has been reverted to it's original config
 
