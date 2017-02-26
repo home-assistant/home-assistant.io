@@ -83,6 +83,146 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2017-02-25T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 25, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2017/02/25/config-panel-and-state-restoration/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s time for 0.39 and this release has some amazing new features!</p>
+
+<p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-02-0.39/social.png" style="border: 0;box-shadow: none;" /></a></p>
+
+<h2>T-Shirts</h2>
+
+<p>First off, in case you haven’t seen it yet: <a href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/">we have t-shirts</a> now and they are beautiful. All proceeds from the shirts will be donated to the Electronic Frontier Foundation. The first three days all of you have already raised $400! Still waiting for Teespring to get back to me so stay tuned for the EU store.</p>
+
+<h2>Configuration panel</h2>
+
+<p>Yep, you read that right. We have a configuration panel. It’s just the first of many small steps. Putting in a foundation is important and gives us something to iterate on.</p>
+
+<p>To start, we have three simple configuration panels:</p>
+
+<ul>
+  <li>Core: allows you to validate config, reload core/group/automation config and restart/stop Home Assistant</li>
+  <li>Group: allows you to rename groups, change type between group/view and reorder entities.</li>
+  <li>Z-Wave: allows you to set device specific configuration settings</li>
+</ul>
+
+<p class="img">
+  <img src="/images/blog/2017-02-0.39/config.png" />
+  Screenshot of our new configuration panel.
+</p>
+
+<p>As a security measure, the configuration panel will need to be activated in the config file to be activated. This can be done by adding the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">config</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<p>Using our configuration panels will require you to structure your groups and Z-Wave device config according to how the configuration panel expects it. This is on purpose as it we will not be aiming to build a system that supports both our extended set of configuration extend hooks and our configuration panels. It’s one or the other.</p>
+
+<p>To activate them in your config, create empty files <code class="highlighter-rouge">groups.yaml</code> and <code class="highlighter-rouge">zwave_device_config.yaml</code> in your config dir and add the following entries to your config:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">groups</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">groups.yaml</span>
+
+<span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">device_config</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">zwave_device_config.yaml</span>
+</code></pre>
+</div>
+
+<p><em>Note that this is the first release. Things will be missing, things might be broken.</em></p>
+
+<h2>Reorganized documentation</h2>
+
+<p>Thanks to <a href="https://github.com/fabaff">Fabian</a> we have a great re-organized documentation. Is it perfect yet? No. But we are getting close. We put a lot of focus on making sure the Raspberry Pi is the main focus of our getting started. The other instructions are still available, just not as part of the main getting started.</p>
+
+<h2>State restoration</h2>
+
+<p>Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don’t worry any longer. <a href="https://github.com/kellerza">Johann</a> has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to <code class="highlighter-rouge">input_select</code> and <code class="highlighter-rouge">input_boolean</code> components. We will be adding this to more integrations in the future.</p>
+
+<h2>Breaking changes to customize and Z-Wave “customize”</h2>
+
+<p>A couple of releases ago we introduced a new way of doing <code class="highlighter-rouge">customize</code>. It became a list that allowed different ways of matching the config to the entity.</p>
+
+<p>We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn’t like config panels?</p>
+
+<p>So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.</p>
+
+<h4>Customize has been reverted to it’s original config</h4>
+
+<p>The old customize is back. The options to match by domain or using glob have been moved to it’s own options. It will now look like this:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">light.kitchen</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">customize_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:home</span>
+  <span class="s">customize_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mid:description</span>
+</code></pre>
+</div>
+
+<h4>Z-Wave customize is now device config</h4>
+
+<p>Ever wondered why the Z-Wave customize was called customize? Yeah, so did we. So when migrating this to the new config format, we decided to upgrade the name too:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">device_config</span><span class="pi">:</span>
+    <span class="s">light.kitchen</span><span class="pi">:</span>
+      <span class="s">ignored</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">device_config_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="s">device_config_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
+</div>
+
+<h2>Speed improvements</h2>
+
+<p>And a final shout out to <a href="https://github.com/pvizeli">Pascal</a>. He keeps improving the performance of components and platforms all over Home Assistant.</p>
+
+
+    
+      <a class="btn pull-right" href="/blog/2017/02/25/config-panel-and-state-restoration/#read-more">Read on &rarr;</a>
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
   </h1>
   
@@ -972,61 +1112,6 @@ You have to note:
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
 
 
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2017/01/03/control-my-christmas-tree-stats/">Control My Christmas Tree Stats</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2017-01-03T18:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 3, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Ben</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Community</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2017/01/03/control-my-christmas-tree-stats/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Hello and Happy New Year!</p>
-
-<p>I am not Paulus. My name is Ben. I’m the creator of the <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUH Automation YouTube channel</a>. If you’ve ever seen any of my videos then you’ll know I love home automation and Home Assistant.</p>
-
-<p>I wanted to share some exciting stats from one of my latest projects - <a href="https://github.com/bruhautomation/BRUH-Christmas-Tree-2016">Control My Christmas tree!</a> For this project, I created a Home Assistant instance on a Raspberry Pi 2 that was publically accessible via DuckDNS. Paulus was great in helping me disable several of the developer services that could have been exploited to disable the Home Assistant instance.</p>
-
-<p>I added three devices to the Home Assistant instance - a Wemo Insight, Sonoff Switch (running MQTT firmware), and a DIY MQTT Digital LED strip. After adding a few 3D printed Star War decorations, the tree was ready to go!</p>
-
-<p class="img">
-  <img src="/images/blog/2017-01-bruh-christmas/christmas-tree.gif" />
-  The Christmas tree in action.
-</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2017/01/03/control-my-christmas-tree-stats/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

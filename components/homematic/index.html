@@ -121,7 +121,9 @@ You can manually rename the created entities by using Home Assistants <a href="h
 
 <ul>
   <li><strong>ip</strong> (<em>Required</em>): IP of CCU/Homegear</li>
-  <li><strong>port</strong> (<em>Optional</em>): Port of Homegear/CCU XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)</li>
+  <li><strong>port</strong> (<em>Optional</em>): Port of CCU/Homegear XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)</li>
+  <li><strong>callback_ip</strong> (<em>Optional</em>): Set this, if HASS is reachable under a different IP from the CCU (NAT, Docker etc.)</li>
+  <li><strong>callback_port</strong> (<em>Optional</em>): Set this, if HASS is reachable under a different port from the CCU (NAT, Docker etc.)</li>
   <li><strong>resolvenames</strong> (<em>Optional</em>): [<code class="highlighter-rouge">metadata</code>, <code class="highlighter-rouge">json</code>, <code class="highlighter-rouge">xml</code>] Try to fetch device names. Defaults to <code class="highlighter-rouge">false</code> if not specified.</li>
   <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
   <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
@@ -449,6 +451,9 @@ Using this service provides you direct access to the setValue-method of the prim
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
         </li>
         <li>
             <a href='/components/ecobee/'>ecobee</a>

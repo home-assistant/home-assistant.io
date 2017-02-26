@@ -157,6 +157,20 @@
 <span class="s">delay</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:{{</span><span class="nv"> </span><span class="s">states.input_slider.minute_delay.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">}}:00'</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="wait" href="#wait"></a> Wait</h3>
+
+<p>Wait until some things are complete. We support at the moment <code class="highlighter-rouge">wait_template</code> for waiting until a condition is <code class="highlighter-rouge">true</code>, see also on <a href="/getting-started/automation-trigger/#template-trigger">Template-Trigger</a>. It is possible to set a timeout after that will the script abort his execution. Timeout have same syntax as <code class="highlighter-rouge">delay</code>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># wait until media player have stop the playing</span>
+<span class="s">wait_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.media_player.floor.states</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'stop'</span><span class="nv"> </span><span class="s">}}"</span>
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># wait until a valve is &lt; 10 or abort after 1 minutes.</span>
+<span class="s">wait_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.climate.kitchen.attributes.valve</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="s">timeout</span><span class="pi">:</span> <span class="s">00:01:00</span>
+</code></pre>
+</div>
 
 <h3><a class="title-link" name="fire-an-event" href="#fire-an-event"></a> Fire an Event</h3>
 

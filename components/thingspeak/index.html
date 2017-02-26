@@ -91,10 +91,9 @@
   
 
   <p>The <code class="highlighter-rouge">thingspeak</code> components makes Home Assistant communicate with the <a href="https://thingspeak.com/">ThingSpeak API</a>. 
-For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely
-on the <a href="https://home-assistant.io/components/influxdb/">InfluxDB component</a>.</p>
+For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely on the <a href="https://home-assistant.io/components/influxdb/">InfluxDB component</a>.</p>
 
-<p>You will have to create a <a href="https://thingspeak.com/channels/new">new channel</a> on ThingSpeak and grab your API key from your <a href="https://thingspeak.com/account">account page</a>.</p>
+<p>You will have to create a <a href="https://thingspeak.com/channels/new">new channel</a> on ThingSpeak and grab your Write API Key from the “API Keys” tab of the channel you want to use.</p>
 
 <p>To setup the ThinkSpeak component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -109,7 +108,7 @@ on the <a href="https://home-assistant.io/components/influxdb/">InfluxDB compone
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>api_key</strong> (<em>Required</em>): Yout ThingSpeak API key.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): Your ThingSpeak Channel Write API key.</li>
   <li><strong>id</strong> (<em>Required</em>): The ID of your desired ThingSpeak channel.</li>
   <li><strong>whitelist</strong> (<em>Required</em>): The name of the entity whose states should be sent to the channel.</li>
 </ul>

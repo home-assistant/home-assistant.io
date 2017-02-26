@@ -92,6 +92,14 @@
 
   <p>Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.</p>
 
+<p>The display style of each entity can be modified in the <a href="/getting-started/customizing-devices/">customize section</a>. The following device classes are supported for covers:</p>
+
+<ul>
+  <li><strong>None</strong>: Generic cover device</li>
+  <li><strong>window</strong>: Window controller</li>
+  <li><strong>garage</strong>: Garage door controller</li>
+</ul>
+
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 
 <h3><a class="title-link" name="cover-control-services" href="#cover-control-services"></a> Cover control services</h3>
@@ -225,6 +233,9 @@
           </a></li>
           <li><a href='/components/cover.mqtt/'>
             MQTT Cover
+          </a></li>
+          <li><a href='/components/cover.myq/'>
+            MyQ Cover
           </a></li>
           <li><a href='/components/cover.mysensors/'>
             MySensors Cover

@@ -115,6 +115,8 @@
   <li><strong>host</strong> (<em>Required</em>): The IP address of the QNAP NAS to monitor</li>
   <li><strong>port</strong> (<em>Optional</em>): The port number on which the QNAP NAS web interface is reachable. Defaults to <code class="highlighter-rouge">8080</code>.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Whether to connect via <code class="highlighter-rouge">https</code>. Defaults to <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>): Whether SSL certificates should be validated. Defaults to <code class="highlighter-rouge">true</code>.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): How long (in seconds) to wait for a response from the QNAP device before giving up. Defaults to <code class="highlighter-rouge">10</code>.</li>
   <li><strong>username</strong> (<em>Required</em>): An user to connect to the QNAP NAS.</li>
   <li><strong>password</strong> (<em>Required</em>): The password of the user to connect to the QNAP NAS.</li>
   <li><strong>drives</strong> (<em>Optional</em>): Array of drives to monitor (ex: <code class="highlighter-rouge">0:1</code>). Defaults to all drives.</li>
@@ -123,6 +125,7 @@
   <li><strong>monitored_conditions</strong> (<em>Required</em>): Defines the stats to monitor as sensors.
     <ul>
       <li><strong>status</strong>: Displays overall system health.</li>
+      <li><strong>system_temp</strong>: Displays the overall system temperature.</li>
       <li><strong>cpu_temp</strong>: Displays the CPU’s temperature.</li>
       <li><strong>cpu_usage</strong>: Displays the CPU’s utilization as a percentage.</li>
       <li><strong>memory_free</strong>: Displays the size of available RAM in GB.</li>
@@ -140,10 +143,21 @@
   </li>
 </ul>
 
-<p>QNAP device support:</p>
+<h3>Self-signed certificates</h3>
 
-<p>This component has been tested on a TS-451 running QTS 4.2.2.  Other QNAP NAS devices using similar firmware should work fine.
-For more information about supported devices, or to report issues with your device, please visit the <a href="https://github.com/colinodell/python-qnapstats#device-support">qnapstats project</a>.</p>
+<p>If your QNAP device uses self-signed certificates, set the <code class="highlighter-rouge">verify_ssl</code> option to <code class="highlighter-rouge">false</code>.</p>
+
+<h3>QNAP device support:</h3>
+
+<p>This component has been tested on the following devices:</p>
+
+<ul>
+  <li>TS-410 (QTS 4.2.3)</li>
+  <li>TS-451 (QTS 4.2.2)</li>
+  <li>TS-639 (QTS 4.2.3)</li>
+</ul>
+
+<p>Other QNAP NAS devices using similar firmware should work fine. For more information about supported devices, or to report issues with your device, please visit the <a href="https://github.com/colinodell/python-qnapstats#device-support">qnapstats project</a>.</p>
 
 
 </article>
@@ -198,6 +212,9 @@ For more information about supported devices, or to report issues with your devi
             <a href='/components/sensor.dweet/'>Dweet.io</a>
         </li>
         <li>
+            <a href='/components/sensor.ebox/'>EBox</a>
+        </li>
+        <li>
             <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
         </li>
         <li>
@@ -207,6 +224,9 @@ For more information about supported devices, or to report issues with your devi
             <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.fedex/'>Fedex Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.gpsd/'>GPSD</a>
         </li>
         <li>
@@ -214,6 +234,9 @@ For more information about supported devices, or to report issues with your devi
         </li>
         <li>
             <a href='/components/sensor.haveibeenpwned/'>HaveIBeenPwned Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.history_stats/'>History Statistics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.homematic/'>Homematic Sensor</a>
@@ -319,6 +342,9 @@ For more information about supported devices, or to report issues with your devi
         </li>
         <li>
             <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ups/'>UPS Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.usps/'>USPS Sensor</a>

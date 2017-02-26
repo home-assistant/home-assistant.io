@@ -94,7 +94,7 @@
 
 <h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
 
-<p>Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing (<a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing&amp;hl=en">android</a> or <a href="https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8">itunes</a>). Keep in mind that LimitlessLED bulbs are controlled via groups. You can not control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an <code class="highlighter-rouge">rgbw</code> and <code class="highlighter-rouge">white</code> group to the same group number, effectively allowing 8 groups (4 <code class="highlighter-rouge">rgbw</code> and 4 <code class="highlighter-rouge">white</code>) per bridge.</p>
+<p>Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing (<a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing&amp;hl=en">android</a> or <a href="https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8">itunes</a>). Keep in mind that LimitlessLED bulbs are controlled via groups. You can not control an individual bulb via the bridge, unless it is in a group by itself. Note that you can assign an <code class="highlighter-rouge">rgbw</code>, <code class="highlighter-rouge">rgbww</code> and <code class="highlighter-rouge">white</code> group to the same group number, effectively allowing 12 groups (4 <code class="highlighter-rouge">rgbww</code>, 4 <code class="highlighter-rouge">rgbw</code> and 4 <code class="highlighter-rouge">white</code>) per bridge.</p>
 
 <p>To add <code class="highlighter-rouge">limitlessled</code> to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -110,6 +110,7 @@
         <span class="s">type</span><span class="pi">:</span> <span class="s">rgbw</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">Bathroom</span>
     <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.11</span>
+      <span class="s">bridge_led</span><span class="pi">:</span> <span class="s">True</span>
       <span class="s">groups</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">number</span><span class="pi">:</span> <span class="s">1</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room &amp; Hall</span>
@@ -122,13 +123,14 @@
   <li><strong>bridges</strong> array (<em>Required</em>):
     <ul>
       <li><strong>host</strong> (<em>Required</em>): IP address of the device, eg. <code class="highlighter-rouge">192.168.1.32</code></li>
-      <li><strong>version</strong> (<em>Optional</em>): Bridge version (default is <code class="highlighter-rouge">5</code>). Don’t use if you aren’t sure.</li>
-      <li><strong>port</strong> (<em>Optional</em>): Bridge port. Defaults to 8899.</li>
+      <li><strong>version</strong> (<em>Optional</em>): Bridge version (default is <code class="highlighter-rouge">6</code>). Don’t use if you aren’t sure.</li>
+      <li><strong>port</strong> (<em>Optional</em>): Bridge port. Defaults to 5987.</li>
+      <li><strong>bridge_led</strong> (<em>Optional</em>): If True, the bridge led can be controlled. (Only supported for newer bridges with integrated led)</li>
       <li><strong>groups</strong> array (<em>Required</em>): The list of available groups.
         <ul>
           <li><strong>number</strong> (<em>Required</em>): Group number (<code class="highlighter-rouge">1</code>-<code class="highlighter-rouge">4</code>). Corresponds to the group number on the remote.</li>
           <li><strong>name</strong> (<em>Required</em>): Any name you’d like. Must be unique among all configured groups.</li>
-          <li><strong>type</strong> (<em>Optional</em>): Type of group. Choose either <code class="highlighter-rouge">rgbw</code> or <code class="highlighter-rouge">white</code>. <code class="highlighter-rouge">rgbw</code> is the default if you don’t specify this entry.</li>
+          <li><strong>type</strong> (<em>Optional</em>): Type of group. Choose either <code class="highlighter-rouge">rgbww</code>, <code class="highlighter-rouge">rgbw</code> or <code class="highlighter-rouge">white</code>. <code class="highlighter-rouge">rgbw</code> is the default if you don’t specify this entry.</li>
         </ul>
       </li>
     </ul>
@@ -140,17 +142,24 @@
 <p>Refer to the <a href="/components/light/">light</a> documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.</p>
 
 <ul>
+  <li><strong>RGBWW</strong>
+    <ul>
+      <li><em>Color</em>: There are 25,856 color possibilities along the LimitlessLED color spectrum. For colors, hue and saturation can be used, but not lightness. If you select a color with lightness, Home Assistant will calculate the nearest valid LimitlessLED color. In white mode the temperature can be set.</li>
+      <li><em>Temperature</em>: There are 101 temperature steps.</li>
+      <li><em>Brightness</em>: There are 101 brightness steps.</li>
+    </ul>
+  </li>
   <li><strong>RGBW</strong>
     <ul>
       <li><em>Color</em>: There are 256 color possibilities along the LimitlessLED color spectrum. Color properties like saturation and lightness can not be used - only Hue can. The only exception is white (which may be warm or cold depending on the type of RGBW bulb). If you select a color with saturation or lightness, Home Assistant will calculate the nearest valid LimitlessLED color.</li>
-      <li><em>Brightness</em>: There are 25 brightness steps.</li>
+      <li><em>Brightness</em>: Wifi bridge v6 supports 101 brightness steps; older versions only 25.</li>
     </ul>
   </li>
   <li><strong>White</strong>
     <ul>
-      <li>As you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.</li>
-      <li><em>Temperature</em>: There are 10 temperature steps.</li>
-      <li><em>Brightness</em>: There are 10 brightness steps.</li>
+      <li>When using a legacy wifi bridge (before v6), you can observe on the MiLight mobile application, you can not select a specific brightness or temperature - you can only step each property up or down. There is no indication of which step you are on. This restriction, combined with the unreliable nature of LimitlessLED transmissions, means that setting white bulb properties is done on a best-effort basis. The only very reliable settings are the minimum and maximum of each property.</li>
+      <li><em>Temperature</em>: Wifi bridge v6 supports 101 temperature steps; older versions only 10.</li>
+      <li><em>Brightness</em>: Wifi bridge v6 supports 101 brightness steps; older versions only 10.</li>
     </ul>
   </li>
   <li><strong>Transitions</strong>

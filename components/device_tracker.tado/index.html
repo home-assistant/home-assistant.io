@@ -92,7 +92,8 @@
 
   <p>The <code class="highlighter-rouge">tado</code> device tracker is using the <a href="https://www.tado.com/">Tado Smart Thermostat</a> and it’s support for person presence detection based on smartphone location by geofencing.</p>
 
-<p>This tracker uses the Tado API to determine if a mobile device is at home.</p>
+<p>This tracker uses the Tado API to determine if a mobile device is at home.
+It tracks all devices in your home that Tado knows about.</p>
 
 <p>To use the Tado platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -101,6 +102,7 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tado</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+    <span class="s">home_id</span><span class="pi">:</span> <span class="s">YOUR_HOME_ID</span>
 </code></pre>
 </div>
 
@@ -109,12 +111,24 @@
 <ul>
   <li><strong>username</strong> (<em>Required</em>): The username for your Tado account.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your Tado account.</li>
+  <li><strong>home_id</strong> (<em>Optional</em>): The id of your home of which you want to track devices. If provided, the Tado device tracker will tack <em>all</em> devices known to Tado associated with this home. See below how to find it.</li>
 </ul>
 
-<p>After configuration, your device has to be at home at least once before showing up as ‘home’ or ‘away’.
-Polling Tado API for presence information will occure at most once every 30 seconds.</p>
+<p>After configuration, your device has to be at home at least once before showing up as <em>home</em> or <em>away</em>.
+Polling Tado API for presence information will happen at most once every 30 seconds.</p>
 
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
+
+<h3><a class="title-link" name="finding-your-home_id" href="#finding-your-home_id"></a> Finding your <code class="highlighter-rouge">home_id</code></h3>
+<p>Find your <code class="highlighter-rouge">home_id</code> by browsing to <code class="highlighter-rouge">https://my.tado.com/api/v2/me?username=YOUR_USERNAME&amp;password=YOUR_PASSWORD</code>. There you’ll see something like the following:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Mark"</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"your@email.tld"</span><span class="p">,</span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"your@email.tld"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"homes"</span><span class="p">:[{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Home Sweet Home"</span><span class="p">}],</span><span class="nt">"locale"</span><span class="p">:</span><span class="s2">"en_US"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"mobileDevices"</span><span class="p">:[]}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>In this example <code class="highlighter-rouge">12345</code> is the <code class="highlighter-rouge">home_id</code> you’ll need to configure.</p>
 
 
 </article>

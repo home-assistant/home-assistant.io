@@ -83,6 +83,90 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/">0.18: Bluetooth, LG WebOS TVs and Roombas.</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-04-20T06:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 21, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s time for 0.18. This release cycle is 2 days shorter than usual as I’ll be travelling to Europe. This also means that it can take some more time before you get feedback on PRs.</p>
+
+<p>Since the last release we have moved all Home Assistant source code etc into it’s own <a href="https://github.com/home-assistant">organisation on GitHub</a>. We’re growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.</p>
+
+<p><a href="/demo/"><img src="/images/blog/2016-04-release-18/media_player.png" style="box-shadow: none; border: 0;" /></a></p>
+
+<p><img src="/images/supported_brands/bluetooth.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/webos.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/rss.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/eq3.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/thinkingcleaner.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+
+<ul>
+  <li>Media Player: redesign in the UI! (<a href="https://github.com/DesignFirst/">@DesignFirst</a>, <a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>New component: <a href="/components/zeroconf/">Zeroconf</a> for Home Assistant discovery (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Garage door: <a href="/components/garage_door.mqtt/">MQTT</a> now supported (<a href="https://github.com/joelash/">@joelash</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.homematic/">Homematic platform</a> now supports Max! devices (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
+  <li>New component Thinkingcleaner (<a href="/components/switch.thinkingcleaner/">switch</a>/<a href="/components/sensor.thinkingcleaner/">sensor</a>) to integrate your Roomba into Home Assistant (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
+  <li>New component: <a href="/components/upnp/">upnp</a> to automatically open a upnp port on your router for Home Assistant (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.eq3btsmart/">EQ3 Bluetooth Smart Thermostats</a> now supported (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
+  <li>New component <a href="/components/feedreader/">Feedreader</a> will track RSS feeds (<a href="https://github.com/shaftoe/">@shaftoe</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.bluetooth_tracker/">Bluetooth tracking platform</a> added (<a href="https://github.com/vmulpuru/">@vmulpuru</a>)</li>
+  <li>Media Player: <a href="/components/media_player.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
+  <li>Notify: <a href="/components/notify.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
+  <li>HTTP: Use constant time comparison for auth (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
+  <li>Config and service validations (<a href="https://github.com/jaharkes/">@jaharkes</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>)</li>
+  <li>MySensors: Entity IDs will more clearly differentiate between node ID and child ID (<a href="https://github.com/oeysteinhansen/">@oeysteinhansen</a>)</li>
+  <li>MySensors: Add support for <a href="/components/mysensors/">ethernet gateway</a> (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Media player: <a href="/components/media_player.plex/">Plex</a> will now monitor the server and add clients as they pop up (<a href="https://github.com/infamy/">@infamy</a>)</li>
+  <li>Core: We now use iso8601 for datetimes (<a href="https://github.com/balloob/">@balloob</a>).</li>
+  <li>Media Player: <a href="/components/media_player.mpd/">MPD</a> now supports service to play playlists (<a href="https://github.com/Cinntax/">@Cinntax</a>)</li>
+  <li>Z-Wave should be a little bit more stable (<a href="https://github.com/Turbokongen/">@Turbokongen</a>)</li>
+  <li>Media Player: <a href="/components/media_player.sonos/">Sonos</a> will now only add visible devices (<a href="https://github.com/jpmossin/">@jpmossin</a>)</li>
+  <li>Light: <a href="/components/light.wink/">Wink</a> will now allow controlling the colors (<a href="https://github.com/bradsk88/">@bradsk88</a>)</li>
+</ul>
+
+<h3>Breaking changes</h3>
+<ul>
+  <li>We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.</li>
+  <li>The constant <code class="highlighter-rouge">TEMP_CELCIUS</code> is now correctly called <code class="highlighter-rouge">TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
+  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code class="highlighter-rouge">homeassistant/home-assistant:latest</code> for the latest release and <code class="highlighter-rouge">homeassistant/home-assistant:dev</code> for the latest dev version.</li>
+  <li>MySensors received two big changes that will cause you to update your configs. See <a href="/components/mysensors/">component page</a> for new example config.
+    <ol>
+      <li>All MySensors entity IDs are different! There was an error in the naming that caused MySensors to append node ID and child ID instead of separating them with an underscore. This has been fixed but will cause all your MySensors entity IDs to change. This is a one time breaking change.</li>
+      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code class="highlighter-rouge">port:</code> under <code class="highlighter-rouge">gateways</code> to <code class="highlighter-rouge">device:</code>.</li>
+    </ol>
+  </li>
+</ul>
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/04/19/to-infinity-and-beyond/">To Infinity and Beyond 🚀</a>
   </h1>
   
@@ -713,62 +797,6 @@ player state attributes. This change affects automations, scripts and scenes.</l
 Hold your NFC tag against the belly of Garfield to unlock the alarm.
 </p>
 
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/02/18/multi-room-audio-with-snapcast/">Multi-room audio with Snapcast, Mopidy, and Home Assistant</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-02-18T05:10:56+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 18, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> happyleavesaoc</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>How-To</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/02/18/multi-room-audio-with-snapcast/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.</p>
-
-<p>Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.</p>
-
-<p>You’ll need two key software packages, besides Home Assistant. The first is <a href="https://www.mopidy.com/">Mopidy</a>, a music server that can play local files, or connect to streaming music services like Spotify. The second is <a href="https://github.com/badaix/snapcast/">Snapcast</a>, which enables synchronized audio streaming across your network. Both can be integrated into Home Assistant. Each room audio device will run an instance of the Snapcast client, and optionally a Mopidy instance. Your server will run a special instance of Mopidy and the Snapcast server.</p>
-
-<p>Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several <a href="https://docs.mopidy.com/en/latest/ext/web/#ext-web">Mopidy-only web-based options</a> available. On Android, <a href="https://play.google.com/store/apps/details?id=se.anil.remotedy">Remotedy</a> is particularly nice since you can access multiple Mopidy instances in one place.</p>
-
-<p>Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you’re using a web UI for Mopidy, you can add links to each instance in Home Assistant with the <a href="/components/weblink/">weblink</a> component.</p>
-
-<p class="img">
-  <img src="/images/blog/2016-02-snapcast/diagram.png" />
-</p>
-
-
-    
-      <a class="btn pull-right" href="/blog/2016/02/18/multi-room-audio-with-snapcast/#read-more">Read on &rarr;</a>
     
   </div>
   </article>

@@ -109,7 +109,7 @@
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents on state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents  state. Default is “OFF”.</li>
-  <li><strong>sensor_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
+  <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
 </ul>
 
@@ -129,7 +129,7 @@
     <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
     <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
     <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0"</span>
-    <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">opening</span>
+    <span class="s">device_class</span><span class="pi">:</span> <span class="s">opening</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
@@ -201,6 +201,9 @@
     <ul class='divided'>
         <li>
             <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.aurora/'>Aurora sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>

@@ -1,0 +1,458 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>0.39: Configuration panel, state restoration and improved docs - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="0.39 is by far our best release yet.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="0.39: Configuration panel, state restoration and improved docs">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="0.39 is by far our best release yet.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-02-0.39/social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@balloob">
+    <meta name="twitter:title" content="0.39: Configuration panel, state restoration and improved docs">
+    <meta name="twitter:description" content="0.39 is by far our best release yet.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-02-0.39/social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  
+  <header>
+  
+  <h1 class="title indent">0.39: Configuration panel, state restoration and improved docs</h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2017-02-25T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 25, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <p>It’s time for 0.39 and this release has some amazing new features!</p>
+
+<p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-02-0.39/social.png" style="border: 0;box-shadow: none;" /></a></p>
+
+<h2>T-Shirts</h2>
+
+<p>First off, in case you haven’t seen it yet: <a href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/">we have t-shirts</a> now and they are beautiful. All proceeds from the shirts will be donated to the Electronic Frontier Foundation. The first three days all of you have already raised $400! Still waiting for Teespring to get back to me so stay tuned for the EU store.</p>
+
+<h2>Configuration panel</h2>
+
+<p>Yep, you read that right. We have a configuration panel. It’s just the first of many small steps. Putting in a foundation is important and gives us something to iterate on.</p>
+
+<p>To start, we have three simple configuration panels:</p>
+
+<ul>
+  <li>Core: allows you to validate config, reload core/group/automation config and restart/stop Home Assistant</li>
+  <li>Group: allows you to rename groups, change type between group/view and reorder entities.</li>
+  <li>Z-Wave: allows you to set device specific configuration settings</li>
+</ul>
+
+<p class="img">
+  <img src="/images/blog/2017-02-0.39/config.png" />
+  Screenshot of our new configuration panel.
+</p>
+
+<p>As a security measure, the configuration panel will need to be activated in the config file to be activated. This can be done by adding the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">config</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<p>Using our configuration panels will require you to structure your groups and Z-Wave device config according to how the configuration panel expects it. This is on purpose as it we will not be aiming to build a system that supports both our extended set of configuration extend hooks and our configuration panels. It’s one or the other.</p>
+
+<p>To activate them in your config, create empty files <code class="highlighter-rouge">groups.yaml</code> and <code class="highlighter-rouge">zwave_device_config.yaml</code> in your config dir and add the following entries to your config:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">groups</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">groups.yaml</span>
+
+<span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">device_config</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">zwave_device_config.yaml</span>
+</code></pre>
+</div>
+
+<p><em>Note that this is the first release. Things will be missing, things might be broken.</em></p>
+
+<h2>Reorganized documentation</h2>
+
+<p>Thanks to <a href="https://github.com/fabaff">Fabian</a> we have a great re-organized documentation. Is it perfect yet? No. But we are getting close. We put a lot of focus on making sure the Raspberry Pi is the main focus of our getting started. The other instructions are still available, just not as part of the main getting started.</p>
+
+<h2>State restoration</h2>
+
+<p>Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don’t worry any longer. <a href="https://github.com/kellerza">Johann</a> has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to <code class="highlighter-rouge">input_select</code> and <code class="highlighter-rouge">input_boolean</code> components. We will be adding this to more integrations in the future.</p>
+
+<h2>Breaking changes to customize and Z-Wave “customize”</h2>
+
+<p>A couple of releases ago we introduced a new way of doing <code class="highlighter-rouge">customize</code>. It became a list that allowed different ways of matching the config to the entity.</p>
+
+<p>We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn’t like config panels?</p>
+
+<p>So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.</p>
+
+<h4>Customize has been reverted to it’s original config</h4>
+
+<p>The old customize is back. The options to match by domain or using glob have been moved to it’s own options. It will now look like this:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">light.kitchen</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">customize_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:home</span>
+  <span class="s">customize_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mid:description</span>
+</code></pre>
+</div>
+
+<h4>Z-Wave customize is now device config</h4>
+
+<p>Ever wondered why the Z-Wave customize was called customize? Yeah, so did we. So when migrating this to the new config format, we decided to upgrade the name too:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">device_config</span><span class="pi">:</span>
+    <span class="s">light.kitchen</span><span class="pi">:</span>
+      <span class="s">ignored</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">device_config_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="s">device_config_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">0</span>
+</code></pre>
+</div>
+
+<h2>Speed improvements</h2>
+
+<p>And a final shout out to <a href="https://github.com/pvizeli">Pascal</a>. He keeps improving the performance of components and platforms all over Home Assistant.</p>
+
+<a name="read-more"></a>
+
+<h2>All changes</h2>
+
+<h4>New platforms/components</h4>
+
+<ul>
+  <li><a href="https://home-assistant.io/componet/telegram_webhook/">Telegram</a> webhooks (<a href="https://github.com/scipioni">@scipioni</a>)</li>
+  <li>Added <a href="https://home-assistant.io/components/media_player.openhome/">Openhome</a> support (<a href="https://github.com/bazwilliams">@bazwilliams</a>)</li>
+  <li><a href="https://home-assistant.io/components/sensor.ups/">UPS</a> sensor (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li><a href="https://home-assistant.io/components/sensor.fedex/">FEDex</a> sensor (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li><a href="https://home-assistant.io/components/media_player.gstreamer/">Gstreamer</a> media player (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li><a href="https://home-assistant.io/components/remote.itach/">iTach Remote</a> Platform (<a href="https://github.com/alanfischer">@alanfischer</a>)</li>
+  <li><a href="https://home-assistant.io/components/cover.myq/">myq</a> cover component (<a href="https://github.com/arraylabs">@arraylabs</a>)</li>
+  <li>Support for the <a href="https://home-assistant.io/components/climate.oem/">Open Energy Monitor Thermostat</a> (<a href="https://github.com/Cadair">@Cadair</a>)</li>
+  <li>Added Fritzbox <a href="https://home-assistant.io/components/sensor.fritzbox_netmonitor/">Netmonitor</a> (<a href="https://github.com/PetePriority">@PetePriority</a>)</li>
+  <li>Add platform for <a href="https://home-assistant.io/components/light.yeelight-sunflower">Yeelight Sunflower lights</a> (<a href="https://github.com/lindsaymarkward">@lindsaymarkward</a>)</li>
+  <li>Support for <a href="https://home-assistant.io/components/sensor.pocketcasts/">Pocket Casts</a> (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li><a href="https://home-assistant.io/components/volvooncall/">VolvoOnCall</a> component with support for sensors, heater and lock (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Add <a href="https://home-assistant.io/components/notify.pushsafer/">pushsafer.com</a> notification service (<a href="https://github.com/appzer">@appzer</a>)</li>
+  <li><a href="https://home-assistant.io/components/media_player.kodi/">Websocket push</a> notifications for Kodi (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>New component ‘insteon_plm’ and related platforms (<a href="https://github.com/nugget">@nugget</a>)</li>
+  <li>Add <a href="https://home-assistant.io/components/binary_sensor.aurora/">aurora</a> sensor (<a href="https://github.com/walkerdb">@walkerdb</a>)</li>
+  <li>Add <a href="https://home-assistant.io/components/sensor.ebox/">Ebox</a> sensor platform (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Mediaplayer <a href="https://home-assistant.io/components/media_player.clementine/">clementine</a> remote (<a href="https://github.com/jjmontesl">@jjmontesl</a>)</li>
+  <li>Add <a href="https://home-assistant.io/components/sensor.fido/">Fido</a> sensor (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+</ul>
+
+<h4>Improvements</h4>
+
+<ul>
+  <li>Tellduslive: Don’t thow exception if connection to server is lost (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Core: Convert config.components to a set (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Media Player - Apple TV: Handle connection errors when connecting to Apple TVs, re-use aiohttp session , add fake support for turn on/off (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li>Zoneminder: Refactoring and JSON decode error handling (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Recorder: Add tests for full schema migration, limit to session scope (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Tests: Add history_stats sensor (<a href="https://github.com/bokub">@bokub</a>)</li>
+  <li>Device tracker - Tado: Add support for multiple devices to Tado device tracker (<a href="https://github.com/markoudev">@markoudev</a>)</li>
+  <li>Z-Wave: Fix zwave helper getter not to fail on some None results. (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Core: <code class="highlighter-rouge">sensor_class</code> migrate to <code class="highlighter-rouge">device_class</code> (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Sensor - Amcrest: Avoid traceback for Amcrest cameras/firmware that does not have the software_information API call (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Media Player - MPD: Adds play URL support to mpd (<a href="https://github.com/jjmontesl">@jjmontesl</a>)</li>
+  <li>Logbook: Component set add using OR (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Config: Add config component and hassbian example panel (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Proximity: Fixed proximity zone incorrectly using name instead of zone setting (<a href="https://github.com/jjmontesl">@jjmontesl</a>)</li>
+  <li>Z-Wave: Add device_class support to cover component (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Config: Add check_config API (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Media player: Add media_image to media_player component (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li>Sensor- Vasttrafik.py: vasttrafik: update token on read error (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Z-Wave.py: force_update zwave sensors (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Core: Two stage shutdown (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Z-Wave: Rename customize to device_config (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Thingspeak: Use the correct API key (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Lock - Nuki: Reduce battery drain on Nuki Lock (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Notify - Webostv: Only try to pair notify.webostv when not paired (<a href="https://github.com/andersonshatch">@andersonshatch</a>)</li>
+  <li>KNX: Fix slow status updates from the knx bus (<a href="https://github.com/keerts">@keerts</a>)</li>
+  <li>HDMI CEC: HDMI_CEC customization [Breaking change] (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Sensor - Moon: Remove unit of measurement (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Z-Wave: Add initial Z-Wave config panel (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>History: Allow printing the number of states returned by history and time it took to extract and add day (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>MQTT: Enable sensor for discovery (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Light - Limitlessled: Added limitlessled support for bridge v6 and RGBWW bulbs. (<a href="https://github.com/soldag">@soldag</a>)</li>
+  <li>Config - Hassbian: Update hassbian component with real output (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Media Player -Sonos: Bugfix sonos favorite_source after lost connection (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Sensor - SenseHAT: Add flag to declare if SenseHAT is attached  (<a href="https://github.com/nodinosaur">@nodinosaur</a>)</li>
+  <li>RFLink: Reconnect robustness, expose connection state. (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Media player - CMUS: Remove IO from properties (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Light - Litejet: Lights should have the option to dim in the UI. (<a href="https://github.com/joncar">@joncar</a>)</li>
+  <li>Light - Hue: Add effect_list to hue light (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Meida player - Liveboxplaytv: Update liveboxplaytv and catch connection errors (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Llight - Lifx: Fix colortemp conversion for lifx lights (<a href="https://github.com/kitcorey">@kitcorey</a>)</li>
+  <li>Light - Flux_LED: Update FLUX_LED by adding Effects (<a href="https://github.com/dramamoose">@dramamoose</a>)</li>
+  <li>Alarm control panel - Simplisafe: SimpliSafe updates (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Cover Add supported_features to cover component (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Wink: Added tamper detection to Wink devices. (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Sensor - onewire: Add support for aliased owfs sensors (<a href="https://github.com/normakm">@normakm</a>)</li>
+  <li>Weather: Forecast (<a href="https://github.com/Tommatheussen">@Tommatheussen</a>)</li>
+  <li>Device tracker - ASUSwrt: Added support for alternate SSH ports in AsusWRT (<a href="https://github.com/swbradshaw">@swbradshaw</a>)</li>
+  <li>Zoneminder: Add camera mjpeg stream support (<a href="https://github.com/mnoorenberghe">@mnoorenberghe</a>)</li>
+  <li>Restore: Restore_state helper to restore entity states from the DB on startup (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Sensor - Darksky: Add ‘entity_picture’ to Darksky component (<a href="https://github.com/aronsky">@aronsky</a>)</li>
+  <li>Media Player - Samsungtv: Add support for waking up Samsung TVs over the network (<a href="https://github.com/justin8">@justin8</a>)</li>
+  <li>MQTT: Convert MQTT platforms to async (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>tests/components/device_tracker/test_init.py: Restore for device_tracker (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Discovery: Make it possible to ignore platforms in discovery (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li>Image processing: Add <code class="highlighter-rouge">device_class</code> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h4>Breaking changes</h4>
+<ul>
+  <li>VolvoOnCall has been extended with more features and had to be converted to a component</li>
+  <li>Limitlessled support for Bridge v6 and RGBWW bulbs require users to specify <code class="highlighter-rouge">version</code> and `port</li>
+  <li>hdmi_cec config now requires users to set the types in the hdmi_cec config instead of using <code class="highlighter-rouge">customize</code>:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
+  <span class="s">types</span><span class="pi">:</span>
+    <span class="s">hdmi_cec.hdmi_5</span><span class="pi">:</span> <span class="s">media_player</span>
+</code></pre>
+</div>
+
+<h4>Bugfixes:</h4>
+<p><a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/LinuxChristian">@LinuxChristian</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/rytilahti">@rytilahti</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/konikvranik">@konikvranik</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/colinodell">@colinodell</a>, <a href="https://github.com/pschmitt">@pschmitt</a>, <a href="https://github.com/bachp">@bachp</a>, <a href="https://github.com/bachp">@bachp</a>,<a href="https://github.com/w1ll1am23">@w1ll1am23</a>, <a href="https://github.com/valentinalexeev">@valentinalexeev</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/tdickman">@tdickman</a>, <a href="https://github.com/arraylabs">@arraylabs</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/titilambert">@titilambert</a></p>
+
+<h3>If you need help…</h3>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3>Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+</article>
+
+
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/"
+     data-counturl="https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/" >Tweet</a>
+  
+  
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/"
+         data-layout="button_count">
+    </div>
+  
+  
+  <div class="g-plusone" data-size="standard"></div>
+  
+</section>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2017/02/04/hassbian-toybox/">HASSbian 1.1 - The Toy-box</a>
+        </li>
+      
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

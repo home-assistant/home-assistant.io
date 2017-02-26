@@ -106,7 +106,7 @@
 <ul>
   <li><strong>command</strong> (<em>Required</em>): The action to take to get the value.</li>
   <li><strong>name</strong> (<em>Optional</em>): Let you overwrite the the name of the device. By default <em>name</em> from the device is used.</li>
-  <li><strong>sensor_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
+  <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
@@ -125,7 +125,7 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s">netstat -na | find "33322" | find /c "LISTENING" &gt; nul &amp;&amp; (echo "Running") || (echo "Not running")</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sickragerunning'</span>
-    <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">moving</span>
+    <span class="s">device_class</span><span class="pi">:</span> <span class="s">moving</span>
     <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Running"</span>
     <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Not</span><span class="nv"> </span><span class="s">running"</span>
 </code></pre>
@@ -139,7 +139,7 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ping</span><span class="nv"> </span><span class="s">-c</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">rasplex.local</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">grep</span><span class="nv"> </span><span class="s">"1</span><span class="nv"> </span><span class="s">received"</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">wc</span><span class="nv"> </span><span class="s">-l'</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">is_rasplex_online'</span>
-    <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">connectivity</span>
+    <span class="s">device_class</span><span class="pi">:</span> <span class="s">connectivity</span>
     <span class="s">payload_on</span><span class="pi">:</span> <span class="s">1</span>
     <span class="s">payload_off</span><span class="pi">:</span> <span class="s">0</span>
 </code></pre>
@@ -151,7 +151,7 @@
   <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">Printer</span>
   <span class="s">command</span><span class="pi">:</span> <span class="s">ping -W 1 -c 1 192.168.1.10 &gt; /dev/null 2&gt;&amp;1 &amp;&amp; echo success || echo fail</span>
-  <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">connectivity</span>
+  <span class="s">device_class</span><span class="pi">:</span> <span class="s">connectivity</span>
   <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">success"</span>
   <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fail"</span>
 </code></pre>
@@ -205,6 +205,9 @@
     <ul class='divided'>
         <li>
             <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.aurora/'>Aurora sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>

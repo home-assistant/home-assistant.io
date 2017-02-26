@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-25T22:31:57+00:00</updated>
+  <updated>2017-02-26T00:46:41+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,297 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[0.39: Configuration panel, state restoration and improved docs]]></title>
+    <link href="https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/"/>
+    <updated>2017-02-25T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration</id>
+    <content type="html"><![CDATA[It's time for 0.39 and this release has some amazing new features!
+
+<a href='https://home-assistant.io/components/#added_in_current_version/'><img src='https://home-assistant.io/images/blog/2017-02-0.39/social.png' style='border: 0;box-shadow: none;'></a>
+
+## T-Shirts
+
+First off, in case you haven't seen it yet: [we have t-shirts][t-shirt] now and they are beautiful. All proceeds from the shirts will be donated to the Electronic Frontier Foundation. The first three days all of you have already raised $400! Still waiting for Teespring to get back to me so stay tuned for the EU store.
+
+## Configuration panel
+
+Yep, you read that right. We have a configuration panel. It's just the first of many small steps. Putting in a foundation is important and gives us something to iterate on.
+
+To start, we have three simple configuration panels:
+
+ - Core: allows you to validate config, reload core/group/automation config and restart/stop Home Assistant
+ - Group: allows you to rename groups, change type between group/view and reorder entities.
+ - Z-Wave: allows you to set device specific configuration settings
+
+<p class='img'>
+  <img src='https://home-assistant.io/images/blog/2017-02-0.39/config.png'>
+  Screenshot of our new configuration panel.
+</p>
+
+As a security measure, the configuration panel will need to be activated in the config file to be activated. This can be done by adding the following to your `configuration.yaml`:
+
+```yaml
+config:
+```
+
+Using our configuration panels will require you to structure your groups and Z-Wave device config according to how the configuration panel expects it. This is on purpose as it we will not be aiming to build a system that supports both our extended set of configuration extend hooks and our configuration panels. It's one or the other.
+
+To activate them in your config, create empty files `groups.yaml` and `zwave_device_config.yaml` in your config dir and add the following entries to your config:
+
+```yaml
+groups: !include groups.yaml
+
+zwave:
+  device_config: !include zwave_device_config.yaml
+```
+
+_Note that this is the first release. Things will be missing, things might be broken._
+
+## Reorganized documentation
+
+Thanks to [Fabian][@fabaff] we have a great re-organized documentation. Is it perfect yet? No. But we are getting close. We put a lot of focus on making sure the Raspberry Pi is the main focus of our getting started. The other instructions are still available, just not as part of the main getting started.
+
+## State restoration
+
+Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
+
+## Breaking changes to customize and Z-Wave "customize"
+
+A couple of releases ago we introduced a new way of doing `customize`. It became a list that allowed different ways of matching the config to the entity.
+
+We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn't like config panels?
+
+So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
+
+#### Customize has been reverted to it's original config
+
+The old customize is back. The options to match by domain or using glob have been moved to it's own options. It will now look like this:
+
+```yaml
+homeassistant:
+  customize:
+    light.kitchen:
+      hidden: true
+  customize_domain:
+    light:
+      icon: mdi:home
+  customize_glob:
+    "light.kitchen_*":
+      icon: mid:description
+```
+
+#### Z-Wave customize is now device config
+
+Ever wondered why the Z-Wave customize was called customize? Yeah, so did we. So when migrating this to the new config format, we decided to upgrade the name too:
+
+```yaml
+zwave:
+  device_config:
+    light.kitchen:
+      ignored: true
+  device_config_domain:
+    light:
+      polling_intensity: 2
+  device_config_glob:
+    "light.kitchen_*":
+      polling_intensity: 0
+```
+
+## Speed improvements
+
+And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance of components and platforms all over Home Assistant.
+
+<!--more-->
+
+## All changes
+
+#### New platforms/components
+
+- [Telegram] webhooks ([@scipioni])
+- Added [Openhome][openhome] support ([@bazwilliams])
+- [UPS][ups] sensor ([@happyleavesaoc])
+- [FEDex][fedex] sensor ([@happyleavesaoc])
+- [Gstreamer][gstreamer] media player ([@happyleavesaoc])
+- [iTach Remote][itach] Platform ([@alanfischer])
+- [myq] cover component ([@arraylabs])
+- Support for the [Open Energy Monitor Thermostat][oemt] ([@Cadair])
+- Added Fritzbox [Netmonitor][netmonitor] ([@PetePriority])
+- Add platform for [Yeelight Sunflower lights][sunflowers] ([@lindsaymarkward])
+- Support for [Pocket Casts][pocket] ([@molobrakos])
+- [VolvoOnCall][volvo] component with support for sensors, heater and lock ([@molobrakos])
+- Add [pushsafer.com][pushsafer] notification service ([@appzer])
+- [Websocket push][kodi] notifications for Kodi ([@armills])
+- New component 'insteon_plm' and related platforms ([@nugget])
+- Add [aurora][aurora] sensor ([@walkerdb])
+- Add [Ebox][ebox] sensor platform ([@titilambert])
+- Mediaplayer [clementine][clementine] remote ([@jjmontesl])
+- Add [Fido][fido] sensor ([@titilambert])
+
+#### Improvements
+
+- Tellduslive: Don't thow exception if connection to server is lost ([@molobrakos])
+- Core: Convert config.components to a set ([@balloob])
+- Media Player - Apple TV: Handle connection errors when connecting to Apple TVs, re-use aiohttp session , add fake support for turn on/off ([@postlund])
+- Zoneminder: Refactoring and JSON decode error handling ([@pschmitt])
+- Recorder: Add tests for full schema migration, limit to session scope ([@armills])
+- Tests: Add history_stats sensor ([@bokub])
+- Device tracker - Tado: Add support for multiple devices to Tado device tracker ([@markoudev])
+- Z-Wave: Fix zwave helper getter not to fail on some None results. ([@andrey-git])
+- Core: `sensor_class` migrate to `device_class` ([@armills])
+- Sensor - Amcrest: Avoid traceback for Amcrest cameras/firmware that does not have the software_information API call ([@tchellomello])
+- Media Player - MPD: Adds play URL support to mpd ([@jjmontesl])
+- Logbook: Component set add using OR ([@kellerza])
+- Config: Add config component and hassbian example panel ([@balloob])
+- Proximity: Fixed proximity zone incorrectly using name instead of zone setting ([@jjmontesl])
+- Z-Wave: Add device_class support to cover component ([@armills])
+- Config: Add check_config API ([@balloob])
+- Media player: Add media_image to media_player component ([@postlund])
+- Sensor- Vasttrafik.py: vasttrafik: update token on read error ([@persandstrom])
+- Z-Wave.py: force_update zwave sensors ([@andrey-git])
+- Core: Two stage shutdown ([@pvizeli])
+- Z-Wave: Rename customize to device_config ([@balloob])
+- Thingspeak: Use the correct API key ([@fabaff])
+- Lock - Nuki: Reduce battery drain on Nuki Lock ([@pschmitt])
+- Notify - Webostv: Only try to pair notify.webostv when not paired ([@andersonshatch])
+- KNX: Fix slow status updates from the knx bus ([@keerts])
+- HDMI CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
+- Sensor - Moon: Remove unit of measurement ([@fabaff])
+- Z-Wave: Add initial Z-Wave config panel ([@balloob])
+- History: Allow printing the number of states returned by history and time it took to extract and add day ([@andrey-git])
+- MQTT: Enable sensor for discovery ([@fabaff])
+- Light - Limitlessled: Added limitlessled support for bridge v6 and RGBWW bulbs. ([@soldag])
+- Config - Hassbian: Update hassbian component with real output ([@balloob])
+- Media Player -Sonos: Bugfix sonos favorite_source after lost connection ([@pvizeli])
+- Sensor - SenseHAT: Add flag to declare if SenseHAT is attached  ([@nodinosaur])
+- RFLink: Reconnect robustness, expose connection state. ([@aequitas])
+- Media player - CMUS: Remove IO from properties ([@armills])
+- Light - Litejet: Lights should have the option to dim in the UI. ([@joncar])
+- Light - Hue: Add effect_list to hue light ([@armills])
+- Meida player - Liveboxplaytv: Update liveboxplaytv and catch connection errors ([@pschmitt])
+- Llight - Lifx: Fix colortemp conversion for lifx lights ([@kitcorey])
+- Light - Flux_LED: Update FLUX_LED by adding Effects ([@dramamoose])
+- Alarm control panel - Simplisafe: SimpliSafe updates ([@w1ll1am23])
+- Cover Add supported_features to cover component ([@armills])
+- Wink: Added tamper detection to Wink devices. ([@w1ll1am23])
+- Sensor - onewire: Add support for aliased owfs sensors ([@normakm])
+- Weather: Forecast ([@Tommatheussen])
+- Device tracker - ASUSwrt: Added support for alternate SSH ports in AsusWRT ([@swbradshaw])
+- Zoneminder: Add camera mjpeg stream support ([@mnoorenberghe])
+- Restore: Restore_state helper to restore entity states from the DB on startup ([@kellerza])
+- Sensor - Darksky: Add 'entity_picture' to Darksky component ([@aronsky])
+- Media Player - Samsungtv: Add support for waking up Samsung TVs over the network ([@justin8])
+- MQTT: Convert MQTT platforms to async ([@pvizeli])
+- tests/components/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
+- Discovery: Make it possible to ignore platforms in discovery ([@postlund])
+- Image processing: Add `device_class` ([@pvizeli])
+
+#### Breaking changes
+ - VolvoOnCall has been extended with more features and had to be converted to a component
+ - Limitlessled support for Bridge v6 and RGBWW bulbs require users to specify `version` and `port
+ - hdmi_cec config now requires users to set the types in the hdmi_cec config instead of using `customize`:
+
+```yaml
+hdmi_cec:
+  types:
+    hdmi_cec.hdmi_5: media_player
+```
+
+#### Bugfixes: 
+[@pvizeli], [@LinuxChristian], [@molobrakos], [@balloob], [@rytilahti], [@fabaff], [@andrey-git], [@aequitas], [@konikvranik], [@Danielhiversen], [@colinodell], [@pschmitt], [@bachp], [@bachp],[@w1ll1am23], [@valentinalexeev], [@robbiet480], [@MartinHjelmare], [@happyleavesaoc], [@tdickman], [@arraylabs], [@lwis], [@titilambert]
+
+### If you need help...
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+### Reporting Issues
+Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+[@turbokongen]: https://github.com/turbokongen
+[@w1ll1am23]: https://github.com/w1ll1am23
+[@nugget]: https://github.com/nugget
+[@PetePriority]: https://github.com/PetePriority
+[@dramamoose]: https://github.com/dramamoose
+[@fabaff]: https://github.com/fabaff
+[@joncar]: https://github.com/joncar
+[@alanfischer]: https://github.com/alanfischer
+[@LinuxChristian]: https://github.com/LinuxChristian
+[@justin8]: https://github.com/justin8
+[@jjmontesl]: https://github.com/jjmontesl
+[@tdickman]: https://github.com/tdickman
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@pavoni]: https://github.com/pavoni
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@pvizeli]: https://github.com/pvizeli
+[@keerts]: https://github.com/keerts
+[@arraylabs]: https://github.com/arraylabs
+[@soldag]: https://github.com/soldag
+[@walkerdb]: https://github.com/walkerdb
+[@kellerza]: https://github.com/kellerza
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bazwilliams]: https://github.com/bazwilliams
+[@appzer]: https://github.com/appzer
+[@tchellomello]: https://github.com/tchellomello
+[@aronsky]: https://github.com/aronsky
+[@swbradshaw]: https://github.com/swbradshaw
+[@colinodell]: https://github.com/colinodell
+[@nodinosaur]: https://github.com/nodinosaur
+[@happyleavesaoc]: https://github.com/happyleavesaoc
+[@bokub]: https://github.com/bokub
+[@markoudev]: https://github.com/markoudev
+[@titilambert]: https://github.com/titilambert
+[@aequitas]: https://github.com/aequitas
+[@mnoorenberghe]: https://github.com/mnoorenberghe
+[@Cadair]: https://github.com/Cadair
+[@postlund]: https://github.com/postlund
+[@konikvranik]: https://github.com/konikvranik
+[@scipioni]: https://github.com/scipioni
+[@andrey-git]: https://github.com/andrey-git
+[@persandstrom]: https://github.com/persandstrom
+[@lwis]: https://github.com/lwis
+[@balloob]: https://github.com/balloob
+[@bachp]: https://github.com/bachp
+[@robbiet480]: https://github.com/robbiet480
+[@lindsaymarkward]: https://github.com/lindsaymarkward
+[@valentinalexeev]: https://github.com/valentinalexeev
+[@armills]: https://github.com/armills
+[@molobrakos]: https://github.com/molobrakos
+[@normakm]: https://github.com/normakm
+[@rytilahti]: https://github.com/rytilahti
+[@pschmitt]: https://github.com/pschmitt
+[@kitcorey]: https://github.com/kitcorey
+[@andersonshatch]: https://github.com/andersonshatch
+
+[telegram]: https://home-assistant.io/componet/telegram_webhook/
+[pushsafer]: https://home-assistant.io/components/notify.pushsafer/
+[openhome]: https://home-assistant.io/components/media_player.openhome/
+[ups]: https://home-assistant.io/components/sensor.ups/
+[fedex]: https://home-assistant.io/components/sensor.fedex/
+[fido]: https://home-assistant.io/components/sensor.fido/ 
+[gstreamer]: https://home-assistant.io/components/media_player.gstreamer/
+[clementine]: https://home-assistant.io/components/media_player.clementine/
+[ebox]: https://home-assistant.io/components/sensor.ebox/
+[aurora]: https://home-assistant.io/components/binary_sensor.aurora/
+[netmonitor]: https://home-assistant.io/components/sensor.fritzbox_netmonitor/
+[itach]: https://home-assistant.io/components/remote.itach/
+[sunflowers]: https://home-assistant.io/components/light.yeelight-sunflower
+[kodi]: https://home-assistant.io/components/media_player.kodi/
+[myq]: https://home-assistant.io/components/cover.myq/
+[oemt]: https://home-assistant.io/components/climate.oem/
+[volvo]: https://home-assistant.io/components/volvooncall/
+[pocket]: https://home-assistant.io/components/sensor.pocketcasts/
+[config]: https://home-assistant.io/components/config/
+
+
+[docs]: https://home-assistant.io/docs/
+[getting-started]: https://home-assistant.io/getting-started/
+[docs-issue]: https://github.com/home-assistant/home-assistant.github.io/issues/1603
+
+[forum]: https://community.home-assistant.io/
+[gitter]: https://gitter.im/home-assistant/home-assistant
+[issue]: https://github.com/home-assistant/home-assistant/issues
+[t-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.38: Alert, AppleTV, MQTT discovery, and Yeelight]]></title>
@@ -832,232 +1123,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [flic]: https://home-assistant.io/components/binary_sensor.flic/
 [sensehat]: https://home-assistant.io/components/sensor.sensehat/
 [tts]: https://home-assistant.io/components/tts/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.34: New Remote component, Websockets, Sonarr, GPSLogger]]></title>
-    <link href="https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr/"/>
-    <updated>2016-12-03T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/12/03/remote-websockets-sonarr</id>
-    <content type="html"><![CDATA[Here we go... 0.34. Let's call it the "Santa Claus" release. Rudolph was faster than expected and there's lot's of goodies on the sleigh. Of course, more work on async programming done by [@pvizeli] and [@balloob], new components, new platforms, major improvements, and much more.
-
-### <a class='title-link' name='gpslogger' href='#gpslogger'></a> GPSLogger 
-
-The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
-
-###  <a class='title-link' name='remote-component' href='#remote-component'></a> Remote component 
-
-The brand new [`remote`][remote] component made by [@iandday] will simplify the integration of all kinds of remote control units. The first platform for [Harmony][harmony] is included in this release.
-
-### <a class='title-link' name='homematic' href='#homematic'></a> HomeMatic 
-
-The [HomeMatic][homematic] component has received some updates worth mentioning:
-
-* Additional services
-  * `reconnect`: Reconnect to your CCU/Homegear without restarting Home Assistant.
-  * `set_dev_value`: Manually control a device, even if it's not supported by Home Assistant yet.
-* Support for multiple HomeMatic hosts
-* Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)
-* Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)
-
-The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed `set_value` service). However, the benefits and possibilities gained will be worth it.
-
-### <a class='title-link' name='websocket-api' href='#websocket-api'></a> Websocket API 
-
-This release includes a new [websockets][websockets] based API by [@balloob] to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.
-
-## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes  
-
-- New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
-- Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
-- Sensor: Support for [Sonarr][sonarr] ([@hborawski])
-- Sensor: [World Air Quality Index][waqi] sensor ([@valentinalexeev], [@fabaff])
-- Sensor: Support for [Dutch Smart Meter Requirements][dsmr] ([@aequitas])
-- Switch: [Hook][hook] support by hooksmarthome.com ([@dasos])
-- Camera: Integration for [Nest cameras][nest-cam] ([@technicalpickles])
-- Light: Support for light effects ([@Diaoul])
-- Sensor: New [Threshold][threshold] sensor ([@fabaff])
-- Media player: New [DuneHD][dunehd] integration([@valentinalexeev])
-- Media player: Controlling support for [Philips TVs][philips] ([@aequitas])
-- Camera: Support for [Amcrest][amcrest] cameras ([@tchellomello])
-- Sensor: Monitoring support for [Network UPS Tools (NUT)][nut] ([@mezz64])
-
-- Mediap player - Denon: Source selection support ([@Gilles95])
-- Sensor - MinMax: Precision now configurable ([@exxamalte])
-- Tellstick: Massive [improvement][tellstick] ([@magicus])
-- Light - Osram: New requirement ([@tfriedel])
-- Sensor - Systemmonitor: Support for removable network adapters ([@mnoorenberghe])
-- LiteJet: New trigger option ([@joncar])
-- Media player - Bose: Add Bose SoundTouch device support ([@CharlesBlonde])
-- HTTP: Re-organisation and [websockets] support ([@balloob])
-- HTTP: Advanced [IP filtering][filtering] ([@vkorn])
-- Sensor - KNX: Fix unit of mesaurement ([@cyberjunky])
-- Climate: New precision properties ([@sdague])
-- Sensor - TEMPer: Reset [devices][temper] on address change ([@vemek])
-- Core: Color names now follow w3.org recommandations ([@srcLurker])
-- Updater: Robustness improvements ([@balloob]])
-- Media player - MPD: Reconnect to daemon ([@janLo])
-- Device tracker: Fall-back for MAC address lookup ([@aequitas])
-- Sensor - Efergy: Get the amount of [energy consumed][efergy] ([@gonzalezcalleja])
-- Zeroconf: Fix for IPv6 support ([@rcloran])
-- Minor and not so minor features and bug fixes by [@turbokongen], [@sdague], [@pvizeli], [@fabaff], [@chapple], [@mweinelt], [@Khabi], [@balloob], [@mnestor], [@kellerza], [@Morrisai],
-[@michaelarnauts], [@tchellomello], [@lwis], [@bjarniivarsson], [@danielperna84], [@LinuxChristian], [@MartinHjelmare], [@dethpickle], [@jnewland], [@lichtteil], [@brandonweeks], [@partofthething], [@mnoorenberghe], [@bah2830], and [@albertoarias].
-
-### <a class='title-link' name='release-0341---december-4' href='#release-0341---december-4'></a> Release 0.34.1 - December 4 
-
-This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we're including it now instead of having people wait two weeks.
-
-To make the fix backwards compatible (it is a patch release after all) you will have to add two new configuration option to emulated_hue to have it work with Google Home:
-
-```yaml
-emulated_hue:
-  type: google_home
-  # This is important. Sadly, Google Home will not work with other ports.
-  listen_port: 80
-```
-
-We are working on a better solution for 0.35.
-
-- Fix emulated_hue with Google Home ([@balloob])
-- Fix Sonos invalid config error ([@pvizeli])
-- Fix Synology DSM doing I/O inside event loop ([@balloob])
-- Fix Nest camera issues ([@technicalpickles])
-- Fix occasional hangs in Homematic ([@pvizeli])
-- Revert TP-Link upgrade to fix issues ([@mweinelt])
-- Fix CORS ([@balloob])
-
-### <a class='title-link' name='release-0342---december-5' href='#release-0342---december-5'></a> Release 0.34.2 - December 5 
-
-- Fix Nest interpreting Celsius as Fahrenheit and converting it ([@balloob])
-- Fix Nest sensor platforms throwing errors ([@technicalpickles])
-- Frontend will now always show persistent_notification and configurator entities even if not part of the active view ([@balloob])
-- Fixed media player cards taking up unnecessary space ([@balloob])
-
-### <a class='title-link' name='release-0343---december-6' href='#release-0343---december-6'></a> Release 0.34.3 - December 6 
-
- - Fix Hook connections ([@dasos])
- - Fix random websocket connections ([@balloob])
- - Fix Google Home sometimes not finding our emulated_hue ([@jawilson])
- - Fix EnOcean config validation ([@rubund])
-
-### <a class='title-link' name='release-0344---december-7' href='#release-0344---december-7'></a> Release 0.34.4 - December 7 
-
- - Fix InfluxDB without authentication ([@balloob])
- - Fix Kodi without authentication ([@balloob])
- - Fix incorrect caching of /api/error_log ([@armills])
- - Fix incorrect ordering of service calls which could cause delays inbetween turning on multiple entities ([@balloob])
- - Fix Nest Climate temperature issues ([@technicalpickles])
-
-### <a class='title-link' name='release-0345---december-12' href='#release-0345---december-12'></a> Release 0.34.5 - December 12 
-
- - Fix Nest sensors doing I/O inside event loop ([@balloob])
- - Fix Nest version bump not triggering re-install ([@R1chardTM])
- - Fix Nest cameras without activity zones ([@technicalpickles])
- - Fix Plex doing I/O inside event loop ([@balloob])
-
-### <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
-
-- The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
-- All [RFXtrx][rfxtrx] sensors will get a new entity ID.
-- The frontend now uses websockets. If you run a server in front of Home Assistant, you will have to update your config (example [nginx][nginx])
-- [Nest][nest] contains changes which will require your attention.
-
-### <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
-
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
-
-### <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
-
-Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
-
-[@R1chardTM]: https://github.com/R1chardTM
-[@armills]: https://github.com/armills
-[@jawilson]: https://github.com/jawilson
-[@rubund]: https://github.com/rubund
-[@aequitas]: https://github.com/aequitas
-[@albertoarias]: https://github.com/albertoarias
-[@bah2830]: https://github.com/bah2830
-[@balloob]: https://github.com/balloob
-[@bjarniivarsson]: https://github.com/bjarniivarsson
-[@brandonweeks]: https://github.com/brandonweeks
-[@cawilliamson]: https://github.com/cawilliamson
-[@chapple]: https://github.com/chapple
-[@CharlesBlonde]: https://github.com/CharlesBlonde
-[@cyberjunky]: https://github.com/cyberjunky
-[@dainok]: https://github.com/dainok
-[@danielperna84]: https://github.com/danielperna84
-[@dasos]: https://github.com/dasos
-[@dethpickle]: https://github.com/dethpickle
-[@Diaoul]: https://github.com/Diaoul
-[@exxamalte]: https://github.com/exxamalte
-[@fabaff]: https://github.com/fabaff
-[@Gilles95]: https://github.com/Gilles95
-[@gonzalezcalleja]: https://github.com/gonzalezcalleja
-[@hartmms]: https://github.com/hartmms
-[@hborawski]: https://github.com/hborawski
-[@iandday]: https://github.com/iandday
-[@janLo]: https://github.com/janLo
-[@jnewland]: https://github.com/jnewland
-[@joncar]: https://github.com/joncar
-[@kellerza]: https://github.com/kellerza
-[@Khabi]: https://github.com/Khabi
-[@lichtteil]: https://github.com/lichtteil 
-[@LinuxChristian]: https://github.com/LinuxChristian
-[@lwis]: https://github.com/lwis
-[@magicus]: https://github.com/magicus
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@mezz64]: https://github.com/mezz64
-[@mezz64]: https://github.com/mezz64
-[@michaelarnauts]: https://github.com/michaelarnauts
-[@mnestor]: https://github.com/mnestor
-[@mnoorenberghe]: https://github.com/mnoorenberghe
-[@molobrakos]: https://github.com/molobrakos
-[@Morrisai]: https://github.com/Morrisai
-[@mtreinish]:  https://github.com/mtreinish
-[@mweinelt]: https://github.com/mweinelt
-[@nsideras]: https://github.com/nsideras
-[@partofthething]: https://github.com/partofthething
-[@pavoni]: https://github.com/pavoni
-[@persandstrom]: https://github.com/persandstrom
-[@postlund]: https://github.com/postlund
-[@pvizeli]: https://github.com/pvizeli
-[@rcloran]: https://github.com/rcloran
-[@sdague]: https://github.com/sdague
-[@skyval]: https://github.com/skyval
-[@srcLurker]: https://github.com/srcLurker
-[@tchellomello]: https://github.com/tchellomello
-[@technicalpickles]: https://github.com/technicalpickles
-[@tfriedel]: https://github.com/tfriedel
-[@turbokongen]: https://github.com/turbokongen
-[@valentinalexeev]: https://github.com/valentinalexeev
-[@vemek]: https://github.com/vemek
-[@vkorn]: https://github.com/vkorn
-
-[amcrest]: https://home-assistant.io/components/camera.amcrest/
-[boradlink]: https://home-assistant.io/components/sensor.broadlink/
-[dsmr]: https://home-assistant.io/components/sensor.dsmr/
-[dunehd]: https://home-assistant.io/components/media_player.dunehd/
-[efergy]: https://home-assistant.io/components/sensor.efergy/
-[filtering]: https://home-assistant.io/components/http/
-[gpslogger]: https://home-assistant.io/components/device_tracker.gpslogger/
-[harmony]: https://home-assistant.io/components/remote.harmony/
-[homematic]: https://home-assistant.io/components/homematic/
-[hook]: https://home-assistant.io/components/switch.hook/
-[nest-cam]: https://home-assistant.io/components/camera.nest/
-[nest]: https://home-assistant.io/components/nest/
-[nginx]: https://home-assistant.io/ecosystem/nginx/
-[nut]: https://home-assistant.io/components/sensor.nut/
-[philips]: https://home-assistant.io/components/media_player.philips_js/
-[remote]: https://home-assistant.io/components/remote/
-[rfxtrx]: https://home-assistant.io/components/rfxtrx/
-[sonarr]: https://home-assistant.io/components/sensor.sonarr/
-[tellstick]: https://home-assistant.io/components/tellstick/
-[temper]: https://home-assistant.io/components/sensor.temper/
-[threshold]: https://home-assistant.io/components/binary_sensor.threshold/
-[websockets]: https://home-assistant.io/developers/websocket_api/
-[waqi]: https://home-assistant.io/components/sensor.waqi/
-
 ]]></content>
   </entry>
   

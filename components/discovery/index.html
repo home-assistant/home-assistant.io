@@ -104,6 +104,7 @@
   <li>Yamaha media player</li>
   <li>Logitech media server (Squeezebox)</li>
   <li>DirecTV</li>
+  <li>Apple TV</li>
 </ul>
 
 <p>It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.</p>
@@ -112,8 +113,17 @@
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">discovery</span><span class="pi">:</span>
+  <span class="s">ignore</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">sonos</span>
+    <span class="pi">-</span> <span class="s">samsung_tv</span>
 </code></pre>
 </div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>ignore</strong> (<em>Optional</em>): A list of platforms that never will be automatically configured by <code class="highlighter-rouge">discovery</code>.</li>
+</ul>
 
 <p class="note">
 Home Assistant must be on the same network as the devices for uPnP discovery to work. 
@@ -175,7 +185,7 @@ If you see <code class="highlighter-rouge">Not initializing discovery because co
             <a href='/components/http/'>HTTP</a>
         </li>
         <li>
-            <a href='/components/ha/'>Home Assistant 0.38</a>
+            <a href='/components/ha/'>Home Assistant 0.39</a>
         </li>
         <li>
             <a href='/components/introduction/'>Introduction</a>

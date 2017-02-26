@@ -83,6 +83,108 @@
     <header>
   
   <h1 class="beta">
+    <a href="/blog/2016/06/08/super-fast-web-enocean-lirc/">0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify</a>
+  </h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-06-08T01:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 8, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="/blog/2016/06/08/super-fast-web-enocean-lirc/#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <div class="entry-content clearfix">
+    <p>It’s time for release 0.21 and it contains massive core improvements: replacement of our home grown HTTP stack with a standardized WSGI stack. This will improve performance, speed, security and make future development of advanced HTTP features a breeze.</p>
+
+<p>This work was driven by the amazing Josh Wright. His knowledge, high standards and drive for security has helped improve Home Assistant a lot ever since he started helping out. Hip hip hurray for Josh!</p>
+
+<p>Alright, time for the changes:</p>
+
+<p><img src="/images/supported_brands/enocean.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/osramlightify.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/lirc.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+
+<ul>
+  <li>New HTTP stack based on WSGI (<a href="https://github.com/JshWright">@JshWright</a>, <a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Frontend: lots of performance improvements (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Initial support for EnOcean <a href="/components/light.enocean/">lights</a>, <a href="/components/sensor.enocean/">sensors</a> and <a href="/components/switch.enocean/">switches</a> added (<a href="https://github.com/rubund">@rubund</a>)</li>
+  <li>Light: <a href="/components/light.osramlightify/">Osram Lightify</a> is now supported (<a href="https://github.com/olimpiurob">@olimpiurob</a>)</li>
+  <li>Light: <a href="/components/insteon_hub/">Insteon Hub</a> now supports brightness (<a href="https://github.com/wkonkel">@wkonkel</a>)</li>
+  <li>Add support for adding HA as Windows 10 tile (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Condition: <a href="/getting-started/scripts-conditions/#time-condition">time condition</a> can now cross midnight (<a href="https://github.com/jaharkes">@jaharkes</a>)</li>
+  <li>Template based sensors should now throw less warnings (<a href="https://github.com/Bart274">@Bart274</a>)</li>
+  <li>New <a href="/components/lirc/">LIRC component</a> allows receiving IR commands (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>The <a href="/components/feedreader/">Feedreader</a> component will now persist data to disk to prevent duplicate events (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
+  <li>Sun: azimuth attribute added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>New <a href="/components/switch.flux/">Flux like switch platform</a> to change light intensity in the evening (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>We no longer crash if you live in a part of the world where the sun never sets (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Rollershutter: <a href="/components/rfxtrx/">RFXTRX</a> now supported (<a href="https://github.com/jacobtomlinson">@jacobtomlinson</a>)</li>
+  <li>Switch: <a href="/components/switch.template/">Template switches</a> can now execute scripts (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Z-Wave: automatically heal the network at midnight (<a href="https://github.com/infamy">@infamy</a>)</li>
+  <li>Sensor: <a href="/components/sensor.dte_energy_bridge/">DTE Energy Bridge</a> now supported (<a href="https://github.com/kylehendricks">@kylehendricks</a>)</li>
+  <li>Media Player: <a href="/components/media_player.kodi/">Kodi</a> now supports different turn off commands (<a href="https://github.com/armills">@armills</a>)</li>
+</ul>
+
+<h3>Breaking Changes</h3>
+
+<ul>
+  <li>Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error</li>
+  <li>The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have <a href="/developers/rest_api/">been updated</a>.</li>
+  <li>Make sure your configuration.yaml file contains <code class="highlighter-rouge">frontend:</code> to serve the frontend</li>
+</ul>
+
+<h3>Hotfixes 0.21.1 and 0.21.2</h3>
+
+<p>We released two hotfixes to address some issues that couldn’t wait till the next release.</p>
+
+<h5>0.21.1 - June 12</h5>
+
+<ul>
+  <li>Add eventlet to base requirements to resolve some installation issues (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>GTFS will filter out routes in the wrong direction (<a href="https://github.com/imrehg">@imrehg</a>)</li>
+  <li>Recover from rare error condition from LIRC (<a href="https://github.com/partofthething">@partofthething</a>)</li>
+  <li>Z-Wave autoheal will no longer raise exception (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Alexa will now execute the script before making reply (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix MJPEG camera streaming (<a href="https://github.com/stjohnjohnson">@stjohnjohnson</a>)</li>
+  <li>Fix frontend in older browsers (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix history in more info dialog being cut off (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h5>0.21.2 - June 15</h5>
+
+<ul>
+  <li>Fix input_select calling the set_option service again when changed (<a href="https://github.com/persandstrom">@persandstrom</a>)</li>
+  <li>Fix more info dialog not being able to open on Safari (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Add support for OPTIONS HTTP command to get CORS working (<a href="https://github.com/JshWright">@JshWright</a>)</li>
+</ul>
+
+
+    
+  </div>
+  </article>
+  <hr>
+  
+  <article class="listing">
+    <header>
+  
+  <h1 class="beta">
     <a href="/blog/2016/06/01/community-highlights/">Community Highlights</a>
   </h1>
   
@@ -673,90 +775,6 @@
 
     
       <a class="btn pull-right" href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#read-more">Read on &rarr;</a>
-    
-  </div>
-  </article>
-  <hr>
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
-    <a href="/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/">0.18: Bluetooth, LG WebOS TVs and Roombas.</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    <time datetime="2016-04-20T06:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 21, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> three minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-    
-      
-        <li>Release-Notes</li>
-      
-    
-    </ul>
-  </span>
-    
-      <a class='comments'
-         href="/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/#disqus_thread"
-         >Comments</a>
-    
-  </div>
-  
-</header>
-
-
-  <div class="entry-content clearfix">
-    <p>It’s time for 0.18. This release cycle is 2 days shorter than usual as I’ll be travelling to Europe. This also means that it can take some more time before you get feedback on PRs.</p>
-
-<p>Since the last release we have moved all Home Assistant source code etc into it’s own <a href="https://github.com/home-assistant">organisation on GitHub</a>. We’re growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.</p>
-
-<p><a href="/demo/"><img src="/images/blog/2016-04-release-18/media_player.png" style="box-shadow: none; border: 0;" /></a></p>
-
-<p><img src="/images/supported_brands/bluetooth.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/webos.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/rss.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/eq3.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/thinkingcleaner.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
-
-<ul>
-  <li>Media Player: redesign in the UI! (<a href="https://github.com/DesignFirst/">@DesignFirst</a>, <a href="https://github.com/balloob/">@balloob</a>)</li>
-  <li>New component: <a href="/components/zeroconf/">Zeroconf</a> for Home Assistant discovery (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
-  <li>Garage door: <a href="/components/garage_door.mqtt/">MQTT</a> now supported (<a href="https://github.com/joelash/">@joelash</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.homematic/">Homematic platform</a> now supports Max! devices (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
-  <li>New component Thinkingcleaner (<a href="/components/switch.thinkingcleaner/">switch</a>/<a href="/components/sensor.thinkingcleaner/">sensor</a>) to integrate your Roomba into Home Assistant (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
-  <li>New component: <a href="/components/upnp/">upnp</a> to automatically open a upnp port on your router for Home Assistant (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.eq3btsmart/">EQ3 Bluetooth Smart Thermostats</a> now supported (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
-  <li>New component <a href="/components/feedreader/">Feedreader</a> will track RSS feeds (<a href="https://github.com/shaftoe/">@shaftoe</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.bluetooth_tracker/">Bluetooth tracking platform</a> added (<a href="https://github.com/vmulpuru/">@vmulpuru</a>)</li>
-  <li>Media Player: <a href="/components/media_player.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
-  <li>Notify: <a href="/components/notify.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
-  <li>HTTP: Use constant time comparison for auth (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
-  <li>Config and service validations (<a href="https://github.com/jaharkes/">@jaharkes</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>)</li>
-  <li>MySensors: Entity IDs will more clearly differentiate between node ID and child ID (<a href="https://github.com/oeysteinhansen/">@oeysteinhansen</a>)</li>
-  <li>MySensors: Add support for <a href="/components/mysensors/">ethernet gateway</a> (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
-  <li>Media player: <a href="/components/media_player.plex/">Plex</a> will now monitor the server and add clients as they pop up (<a href="https://github.com/infamy/">@infamy</a>)</li>
-  <li>Core: We now use iso8601 for datetimes (<a href="https://github.com/balloob/">@balloob</a>).</li>
-  <li>Media Player: <a href="/components/media_player.mpd/">MPD</a> now supports service to play playlists (<a href="https://github.com/Cinntax/">@Cinntax</a>)</li>
-  <li>Z-Wave should be a little bit more stable (<a href="https://github.com/Turbokongen/">@Turbokongen</a>)</li>
-  <li>Media Player: <a href="/components/media_player.sonos/">Sonos</a> will now only add visible devices (<a href="https://github.com/jpmossin/">@jpmossin</a>)</li>
-  <li>Light: <a href="/components/light.wink/">Wink</a> will now allow controlling the colors (<a href="https://github.com/bradsk88/">@bradsk88</a>)</li>
-</ul>
-
-<h3>Breaking changes</h3>
-<ul>
-  <li>We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.</li>
-  <li>The constant <code class="highlighter-rouge">TEMP_CELCIUS</code> is now correctly called <code class="highlighter-rouge">TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
-  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code class="highlighter-rouge">homeassistant/home-assistant:latest</code> for the latest release and <code class="highlighter-rouge">homeassistant/home-assistant:dev</code> for the latest dev version.</li>
-  <li>MySensors received two big changes that will cause you to update your configs. See <a href="/components/mysensors/">component page</a> for new example config.
-    <ol>
-      <li>All MySensors entity IDs are different! There was an error in the naming that caused MySensors to append node ID and child ID instead of separating them with an underscore. This has been fixed but will cause all your MySensors entity IDs to change. This is a one time breaking change.</li>
-      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code class="highlighter-rouge">port:</code> under <code class="highlighter-rouge">gateways</code> to <code class="highlighter-rouge">device:</code>.</li>
-    </ol>
-  </li>
-</ul>
-
     
   </div>
   </article>

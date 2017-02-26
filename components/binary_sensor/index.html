@@ -90,11 +90,11 @@
   <hr class="divider">
   
 
-  <p>Binary sensors are gathering information about state of switches, contacts, pins, and alike. The return value of those sensors is usually digital (1/0). This means that those sensors knows only two states: <strong>0/off/low/open/false</strong> and <strong>1/on/high/closed/true</strong>.</p>
+  <p>Binary sensors are gathering information about state of switches, contacts, pins, and alike. The return value of those sensors is usually digital (1/0). This means that those sensors knows only two states: <strong>0/off/low/closed/false</strong> and <strong>1/on/high/open/true</strong>.</p>
 
 <p>Knowing that there are only two states allows Home Assistant to represent the sensor better in the frontend.</p>
 
-<p>Most binary sensors support the <code class="highlighter-rouge">sensor_class:</code>  which let you specify the type of your sensor. The following types are supported:</p>
+<p>The display style of each entity can be modified in the <a href="/getting-started/customizing-devices/">customize section</a>. The following device classes are supported for binary sensors:</p>
 
 <ul>
   <li><strong>None</strong>: Generic on/off</li>
@@ -107,7 +107,7 @@
   <li><strong>motion</strong>: Motion sensor</li>
   <li><strong>moving</strong>: On means moving, Off means stopped</li>
   <li><strong>occupancy</strong>: On means occupied, Off means not occupied</li>
-  <li><strong>opening</strong>: Door, window, etc</li>
+  <li><strong>opening</strong>: Door, window, etc. On means open, Off means closed</li>
   <li><strong>power</strong>: Power, over-current, etc</li>
   <li><strong>safety</strong>: On means unsafe, Off means safe</li>
   <li><strong>smoke</strong>: Smoke detector</li>
@@ -136,6 +136,9 @@
             <ul class='divided'>
           <li><a href='/components/binary_sensor.apcupsd/'>
             APCUPSd Binary Sensor
+          </a></li>
+          <li><a href='/components/binary_sensor.aurora/'>
+            Aurora sensor
           </a></li>
           <li><a href='/components/binary_sensor.bbb_gpio/'>
             BeagleBone Black GPIO Binary Sensor

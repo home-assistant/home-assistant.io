@@ -97,6 +97,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">waqi</span>
+  <span class="err">	</span><span class="s">token</span><span class="pi">:</span> <span class="s">AQICN_API_TOKEN</span>
     <span class="s">locations</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">beijing</span>
     <span class="s">stations</span><span class="pi">:</span>
@@ -109,6 +110,9 @@
 <ul>
   <li>
     <p><strong>locations</strong> (<em>Required</em>): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant</p>
+  </li>
+  <li>
+    <p><strong>token</strong> (<em>Required</em>): a token for the AQICN public API. Please obtain one at (AQICN API token)[http://aqicn.org/data-platform/token/#/]</p>
   </li>
   <li>
     <p><strong>stations</strong> (<em>Optional</em>): a list of station names to look for air quality data. Station should be within locations specified above.</p>

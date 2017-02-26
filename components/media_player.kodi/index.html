@@ -105,12 +105,14 @@
 
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The host name or address of the device that is running XBMC/Kodi</li>
-  <li><strong>port</strong> (<em>Optional</em>): The http port number. Defaults to 8080.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The HTTP port number. Defaults to 8080.</li>
+  <li><strong>tcp_port</strong> (<em>Optional</em>): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend.</li>
-  <li><strong>ssl</strong> (<em>Optional</em>): Connect to kodi with HTTPS. Defaults to false</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): Connect to kodi with HTTPS and WSS. Defaults to <code class="highlighter-rouge">false</code>.</li>
   <li><strong>username</strong> (<em>Optional</em>): The XBMC/Kodi HTTP username.</li>
   <li><strong>password</strong> (<em>Optional</em>): The XBMC/Kodi HTTP password.</li>
   <li><strong>turn_off_action</strong> (<em>Optional</em>): The desired turn off action. Options are <code class="highlighter-rouge">none</code>, <code class="highlighter-rouge">quit</code>, <code class="highlighter-rouge">hibernate</code>, <code class="highlighter-rouge">suspend</code>, <code class="highlighter-rouge">reboot</code>, or <code class="highlighter-rouge">shutdown</code>. Default <code class="highlighter-rouge">none</code>.</li>
+  <li><strong>enable_websocket</strong> (<em>Optional</em>): Enable websocket connections to Kodi via the TCP port. Defaults to <code class="highlighter-rouge">true</code>. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don’t work on your installation this can be set to <code class="highlighter-rouge">false</code>.</li>
 </ul>
 
 
@@ -130,7 +132,7 @@
       <img src='/images/supported_brands/kodi.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
     Introduced in release: pre 0.7
@@ -157,6 +159,9 @@
             <a href='/components/media_player.apple_tv/'>Apple TV</a>
         </li>
         <li>
+            <a href='/components/media_player.clementine/'>Clementine Music Player</a>
+        </li>
+        <li>
             <a href='/components/media_player.denon/'>Denon Network Receivers</a>
         </li>
         <li>
@@ -178,6 +183,9 @@
             <a href='/components/media_player.gpmdp/'>Google Play Music Desktop Player</a>
         </li>
         <li>
+            <a href='/components/media_player.gstreamer/'>Gstreamer</a>
+        </li>
+        <li>
             Kodi
         </li>
         <li>
@@ -185,6 +193,9 @@
         </li>
         <li>
             <a href='/components/media_player.webostv/'>LG webOS Smart TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.openhome/'>Linn / Openhome</a>
         </li>
         <li>
             <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>

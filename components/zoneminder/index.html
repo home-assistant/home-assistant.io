@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>ZoneMinder - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate ZoneMinder into Home Assistant.">
+    <meta name="description" content="How to integrate ZoneMinder into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/zoneminder/">
@@ -19,14 +19,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/zoneminder/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate ZoneMinder into Home Assistant.">
+    <meta property="og:description" content="How to integrate ZoneMinder into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
     <meta name="twitter:title" content="ZoneMinder">
-    <meta name="twitter:description" content="Instructions how to integrate ZoneMinder into Home Assistant.">
+    <meta name="twitter:description" content="How to integrate ZoneMinder into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The ZoneMinder component is the main component to integrate all the sensors and switches for controlling your ZoneMinder instance.</p>
+  <p>The ZoneMinder component sets up the integration with your <a href="https://www.zoneminder.com">ZoneMinder</a> instance so that <a href="/components/camera.zoneminder/">cameras</a>, <a href="/components/sensor.zoneminder/">sensors</a>, and <a href="/components/switch.zoneminder">switches</a> can use it.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">zoneminder</span><span class="pi">:</span>
@@ -100,11 +100,12 @@
 
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): Your ZoneMinder server.</li>
+  <li><strong>host</strong> (<em>Required</em>): Your ZoneMinder server’s host (and optional port), not including the scheme.</li>
   <li><strong>path</strong> (<em>Optional</em>): Path to your ZoneMinder install. Defaults to <code class="highlighter-rouge">/zm/</code>.</li>
+  <li><strong>path_zms</strong> (<em>Optional</em>): Path to the CGI script for streaming. This should match <code class="highlighter-rouge">PATH_ZMS</code> in ZM’s “Paths” settings. Defaults to <code class="highlighter-rouge">/zm/cgi-bin/nph-zms</code>.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">True</code> if your ZoneMinder installation is using SSL. Default to <code class="highlighter-rouge">False</code>.</li>
   <li><strong>username</strong> (<em>Optional</em>): Your ZoneMinder username.</li>
-  <li><strong>password</strong> (<em>Optional</em>): Your ZoneMinder password.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Your ZoneMinder password. Required if <code class="highlighter-rouge">OPT_USE_AUTH</code> is enabled in ZM.</li>
 </ul>
 
 <h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
@@ -113,6 +114,7 @@
 <span class="s">zoneminder</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">ZM_HOST</span>
   <span class="s">path</span><span class="pi">:</span> <span class="s">ZM_PATH</span>
+  <span class="s">path_zms</span><span class="pi">:</span> <span class="s">ZM_PATH_ZMS</span>
   <span class="s">ssl</span><span class="pi">:</span> <span class="s">False</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
@@ -141,6 +143,9 @@
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/camera.zoneminder/'>
+          ZoneMinder Camera
+        </a></li>
         <li><a href='/components/sensor.zoneminder/'>
           ZoneMinder Sensor
         </a></li>
@@ -150,52 +155,121 @@
     </ul>
     </div>
     <div class='section'>
-    <h1 class="title delta">Category Camera</h1>
+    <h1 class="title delta">Category Hub</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/camera.amcrest/'>Amcrest IP Camera</a>
+            <a href='/components/apcupsd/'>APCUPSd</a>
         </li>
         <li>
-            <a href='/components/camera.bloomsky/'>BloomSky Camera</a>
+            <a href='/components/wemo/'>Belkin WeMo</a>
         </li>
         <li>
-            <a href='/components/camera.ffmpeg/'>FFmpeg Camera</a>
+            <a href='/components/bloomsky/'>BloomSky</a>
         </li>
         <li>
-            <a href='/components/camera.foscam/'>Foscam IP Camera</a>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
-            <a href='/components/camera.generic/'>Generic IP Camera</a>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
         </li>
         <li>
-            <a href='/components/camera.mjpeg/'>Generic MJPEG IP Camera</a>
+            <a href='/components/enocean/'>EnOcean</a>
         </li>
         <li>
-            <a href='/components/camera.local_file/'>Local File</a>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
         </li>
         <li>
-            <a href='/components/ifttt.manything/'>ManyThing</a>
+            <a href='/components/homematic/'>Homematic</a>
         </li>
         <li>
-            <a href='/components/camera.nest/'>Nest Camera</a>
+            <a href='/components/isy994/'>ISY994 Controller</a>
         </li>
         <li>
-            <a href='/components/camera.netatmo/'>Netatmo Camera</a>
+            <a href='/components/insteon_local/'>Insteon (local)</a>
         </li>
         <li>
-            <a href='/components/camera.rpi_camera/'>Raspberry Pi Camera</a>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
         </li>
         <li>
-            <a href='/components/camera.synology/'>Synology Camera</a>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
         </li>
         <li>
-            <a href='/components/camera.uvc/'>UniFi Video Camera</a>
+            <a href='/components/litejet/'>LiteJet</a>
         </li>
         <li>
-            <a href='/components/camera.verisure/'>Verisure Camera</a>
+            <a href='/components/lutron/'>Lutron</a>
+        </li>
+        <li>
+            <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
+        </li>
+        <li>
+            <a href='/components/mochad/'>Mochad</a>
+        </li>
+        <li>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>Rflink</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
         </li>
         <li>
             ZoneMinder
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
         </li>
     </ul>
     </div>

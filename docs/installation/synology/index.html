@@ -92,7 +92,15 @@
   <hr class="divider">
   
 
-  <p>The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.</p>
+  <p>There are 2 alternatives, when using Home Assistant on Synology NAS:</p>
+<ol>
+  <li>using Docker</li>
+  <li>directly running on DSM</li>
+</ol>
+
+<p>Option 1 is described on the <a href="/docs/installation/docker/">Docker installation page</a>, whereas Option 2 is described below.</p>
+
+<p>The following configuration has been tested on Synology 413j running DSM 6.0-7321 Update 1.</p>
 
 <p>Running these commands will:</p>
 
@@ -121,28 +129,29 @@
 
 <p>Check the path to python3 (assumed to be /volume1/@appstore/py3k/usr/local/bin)</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /volume1/@appstore/py3k/usr/local/bin
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># cd /volume1/@appstore/py3k/usr/local/bin</span>
 </code></pre>
 </div>
 
 <p>Install PIP (Python’s package management system)</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./python3 -m ensurepip
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># ./python3 -m ensurepip</span>
 </code></pre>
 </div>
 
 <p>Use PIP to install Homeassistant package</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./python3 -m pip install homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># ./python3 -m pip install homeassistant</span>
 </code></pre>
 </div>
 
 <p>Create homeassistant config directory &amp; switch to it</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir /volume1/homeassistant
-<span class="gp">$ </span><span class="nb">cd</span> /volume1/homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># mkdir /volume1/homeassistant</span>
+<span class="c"># cd /volume1/homeassistant</span>
 </code></pre>
 </div>
+<p>Hint: alternatively you can also create a “Shared Folder” via Synology WebUI (e.g. via “File Station”) - this has the advantage that the folder is visible via “File Station”.</p>
 
 <p>Create hass-daemon file using the following code (edit the variables in uppercase if necessary)</p>
 
@@ -253,21 +262,21 @@ esac
 
 <p>Create links to python folders to make things easier in the future:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /volume1/@appstore/py3k/usr/local/bin python3
-<span class="gp">$ </span>ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># ln -s /volume1/@appstore/py3k/usr/local/bin python3</span>
+<span class="c"># ln -s /volume1/@appstore/py3k/usr/local/lib/python3.5/site-packages/homeassistant</span>
 </code></pre>
 </div>
 
 <p>Set the owner and permissions on your config folder</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chown -R homeassistant:users /volume1/homeassistant
-<span class="gp">$ </span>chmod -R 664 /volume1/homeassistant
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># chown -R homeassistant:users /volume1/homeassistant</span>
+<span class="c"># chmod -R 664 /volume1/homeassistant</span>
 </code></pre>
 </div>
 
 <p>Make the daemon file executable:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod 777 /volume1/homeassistant/hass-daemon
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># chmod 777 /volume1/homeassistant/hass-daemon</span>
 </code></pre>
 </div>
 

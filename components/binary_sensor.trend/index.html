@@ -109,7 +109,7 @@
   <li><strong>sensors</strong> array (<em>Required</em>): List of your sensors.
     <ul>
       <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
-      <li><strong>sensor_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
+      <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
       <li><strong>entity_id</strong> (<em>Required</em>): The entity that this sensor tracks.</li>
       <li><strong>attribute</strong> (<em>Optional</em>): The attribute of the entity that this sensor tracks. If no attribute is specified then the sensor will track the state.</li>
       <li><strong>invert</strong> (<em>Optional</em>): Invert the result (so <code class="highlighter-rouge">true</code> means descending rather than ascending)</li>
@@ -131,7 +131,7 @@
       <span class="s">temperature_up</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temp</span><span class="nv"> </span><span class="s">increasing'</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.skylight_temperature</span>
-        <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">heat</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">heat</span>
 </code></pre>
 </div>
 
@@ -143,7 +143,7 @@
       <span class="s">temperature_down</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Temp</span><span class="nv"> </span><span class="s">decreasing'</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.skylight_temperature</span>
-        <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">cold</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">cold</span>
         <span class="s">invert</span><span class="pi">:</span> <span class="s">Yes</span>
 </code></pre>
 </div>
@@ -179,6 +179,9 @@
     <ul class='divided'>
         <li>
             <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.aurora/'>Aurora sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>

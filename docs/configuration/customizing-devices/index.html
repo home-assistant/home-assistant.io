@@ -114,6 +114,13 @@
       <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:kettle</span>
     <span class="s">switch.rfxtrx_switch</span><span class="pi">:</span>
       <span class="s">assumed_state</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="s">customize_domain</span><span class="pi">:</span>
+    <span class="s">light</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:home</span>
+  <span class="s">customize_glob</span><span class="pi">:</span>
+    <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
+      <span class="s">icon</span><span class="pi">:</span> <span class="s">mid:description</span>
+
 </code></pre>
 </div>
 
@@ -148,11 +155,20 @@
       <td>For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting <code class="highlighter-rouge">assumed_state</code> to <code class="highlighter-rouge">false</code> you will get the default switch icon.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">sensor_class</code></td>
-      <td>Sets the <a href="/components/binary_sensor/">class of the sensor</a>, changing the device state and icon that is displayed on the UI (see below).</td>
+      <td><code class="highlighter-rouge">device_class</code></td>
+      <td>Sets the class of the device, changing the device state and icon that is displayed on the UI (see below).</td>
     </tr>
   </tbody>
 </table>
+
+<h3><a class="title-link" name="device-class" href="#device-class"></a> Device Class</h3>
+
+<p>Device class is currently supported by the following platforms:</p>
+
+<ul>
+  <li><a href="/components/binary_sensor/">Binary Sensor</a></li>
+  <li><a href="/components/cover/">Cover</a></li>
+</ul>
 
 <h3><a class="title-link" name="device-class" href="#device-class"></a> Device Class</h3>
 
