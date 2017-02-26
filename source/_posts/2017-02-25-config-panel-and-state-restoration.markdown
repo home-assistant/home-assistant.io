@@ -45,7 +45,7 @@ Using our configuration panels will require you to structure your groups and Z-W
 To activate them in your config, create empty files `groups.yaml` and `zwave_device_config.yaml` in your config dir and add the following entries to your config:
 
 ```yaml
-groups: !include groups.yaml
+group: !include groups.yaml
 
 zwave:
   device_config: !include zwave_device_config.yaml
