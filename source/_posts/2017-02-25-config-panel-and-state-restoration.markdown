@@ -134,6 +134,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Add [Ebox][ebox] sensor platform ([@titilambert])
 - Mediaplayer [clementine][clementine] remote ([@jjmontesl])
 - Add [Fido][fido] sensor ([@titilambert])
+- Add [History Statistics][history_stats] sensor platform ([@bokub])
 
 #### Improvements
 
@@ -142,7 +143,6 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Media Player - Apple TV: Handle connection errors when connecting to Apple TVs, re-use aiohttp session , add fake support for turn on/off ([@postlund])
 - Zoneminder: Refactoring and JSON decode error handling ([@pschmitt])
 - Recorder: Add tests for full schema migration, limit to session scope ([@armills])
-- Tests: Add history_stats sensor ([@bokub])
 - Device tracker - Tado: Add support for multiple devices to Tado device tracker ([@markoudev])
 - Z-Wave: Fix zwave helper getter not to fail on some None results. ([@andrey-git])
 - Core: `sensor_class` migrate to `device_class` ([@armills])
@@ -288,6 +288,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [volvo]: https://home-assistant.io/components/volvooncall/
 [pocket]: https://home-assistant.io/components/sensor.pocketcasts/
 [config]: https://home-assistant.io/components/config/
+[history_stats]: https://home-assistant.io/components/sensor.history_stats/
 
 
 [docs]: https://home-assistant.io/docs/
