@@ -38,7 +38,7 @@ homeassistant:
       icon: mdi:home
   customize_glob:
     "light.kitchen_*":
-      icon: mid:description
+      icon: mdi:description
 
 ```
 
