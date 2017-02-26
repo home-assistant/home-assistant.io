@@ -269,12 +269,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: https://home-assistant.io/componet/telegram_webhook/
+[telegram]: https://home-assistant.io/componet/telegram_webhooks/
 [pushsafer]: https://home-assistant.io/components/notify.pushsafer/
 [openhome]: https://home-assistant.io/components/media_player.openhome/
 [ups]: https://home-assistant.io/components/sensor.ups/
 [fedex]: https://home-assistant.io/components/sensor.fedex/
-[fido]: https://home-assistant.io/components/sensor.fido/ 
+[fido]: https://home-assistant.io/components/sensor.fido/
 [gstreamer]: https://home-assistant.io/components/media_player.gstreamer/
 [clementine]: https://home-assistant.io/components/media_player.clementine/
 [ebox]: https://home-assistant.io/components/sensor.ebox/
