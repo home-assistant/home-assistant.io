@@ -74,9 +74,9 @@ default is not correct.
 
 homeassistant:
   customize:
-    - entity_id: light.a1b2c3
+    light.a1b2c3:
       friendly_name: Bedside Lamp
-    - entity_id: binary_sensor.a2b3c4
+    binary_sensor.a2b3c4:
       friendly_name: Garage Door
       device_class: opening
 
