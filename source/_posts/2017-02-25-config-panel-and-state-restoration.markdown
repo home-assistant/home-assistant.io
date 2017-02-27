@@ -193,6 +193,11 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
 
+### {% linkable_title Release 0.39.1 - February 27 %}
+
+ - Add workaround for Paho out of memory issues ([@pvizeli])
+ - When an error occurs while storing group config, fail instead of wiping config. ([@balloob])
+
 #### Breaking changes
  - VolvoOnCall has been extended with more features and had to be converted to a component
  - Limitlessled support for Bridge v6 and RGBWW bulbs require users to specify `version` and `port
