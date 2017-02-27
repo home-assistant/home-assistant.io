@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: fido.jpg
+logo: fido.png
 ha_category: Sensor
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
@@ -16,9 +16,11 @@ ha_iot_class: "Cloud Polling"
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
+To enable this sensor, add the following lines to your `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entry
-ensor:
+sensor:
   - platform: fido
     username: MYUSERNAME
     password: MYPASSWORD
@@ -26,23 +28,6 @@ ensor:
      - fido_dollar
      - balance
      - data_used
-     - data_limit
-     - data_remaining
-     - text_used
-     - text_limit
-     - text_remaining
-     - mms_used
-     - mms_limit
-     - mms_remaining
-     - text_int_used
-     - text_int_limit
-     - text_int_remaining
-     - talk_used
-     - talk_limit
-     - talt_remaining
-     - other_talk_used
-     - other_talk_limit
-     - other_talt_remaining
 ```
 
 Configuration variables:
