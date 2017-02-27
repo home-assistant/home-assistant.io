@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-27T03:48:07+00:00</updated>
+  <updated>2017-02-27T05:01:11+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -199,6 +199,11 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - tests/components/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
+
+### <a class='title-link' name='release-0391---february-27' href='#release-0391---february-27'></a> Release 0.39.1 - February 27 
+
+ - Add workaround for Paho out of memory issues ([@pvizeli])
+ - When an error occurs while storing group config, fail instead of wiping config. ([@balloob])
 
 #### Breaking changes
  - VolvoOnCall has been extended with more features and had to be converted to a component

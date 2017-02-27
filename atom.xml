@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-02-27T03:48:07+00:00</updated>
+  <updated>2017-02-27T05:01:11+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -204,6 +204,13 @@
   <li>tests/components/device_tracker/test_init.py: Restore for device_tracker (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Discovery: Make it possible to ignore platforms in discovery (<a href="https://github.com/postlund">@postlund</a>)</li>
   <li>Image processing: Add <code class="highlighter-rouge">device_class</code> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0391---february-27" href="#release-0391---february-27"></a> Release 0.39.1 - February 27</h3>
+
+<ul>
+  <li>Add workaround for Paho out of memory issues (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>When an error occurs while storing group config, fail instead of wiping config. (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
 
 <h4>Breaking changes</h4>
