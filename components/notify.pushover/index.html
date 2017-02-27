@@ -133,6 +133,26 @@
 
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 
+<p>When sending a notification, optional parameters can also be set as per the pushover <a href="https://pushover.net/api">API documentation</a>.</p>
+
+<p>Example notification triggered from the Alexa component for an intents is shown below which also uses <a href="/getting-started/automation-templating/">Automation Templating</a> for the message:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entries</span>
+<span class="s">alexa</span><span class="pi">:</span>
+  <span class="s">intents</span><span class="pi">:</span>
+    <span class="s">LocateIntent</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">location</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">User</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">been</span><span class="nv"> </span><span class="s">queried</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">Alexa."</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Home</span><span class="nv"> </span><span class="s">Assistant"</span>
+            <span class="s">sound</span><span class="pi">:</span> <span class="s">falling</span>
+            <span class="s">device</span><span class="pi">:</span> <span class="s">pixel</span>
+            <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://home-assistant.io/"</span>
+</code></pre>
+</div>
+
 
 </article>
 
