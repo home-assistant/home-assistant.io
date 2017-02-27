@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant prvides various APIs. For detail please refer to [Home Assistant API](https://dev-docs.home-assistant.io/en/dev/) documentation.
+Home Assistant provides various APIs. For detail please refer to [Home Assistant API](https://dev-docs.home-assistant.io/en/dev/) documentation.
 
   * [Websocket API](/developers/websocket_api/)
   * [RESTful API](/developers/rest_api/)
