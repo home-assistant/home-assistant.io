@@ -17,7 +17,7 @@ ha_iot_class: "Cloud Polling"
 The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information. 
 
 <p class='note warning'>
-Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). A free account allows 500 requests per day or 10 per minute.
+Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). A free account allows 500 requests per day and also a maximum of 10 per minute. See details [here](https://www.wunderground.com/weather/api/d/pricing.html).
 </p>
 
 To add Wunderground to your installation, add the following to your `configuration.yaml` file:
