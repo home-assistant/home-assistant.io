@@ -138,7 +138,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 
 #### Improvements
 
-- Tellduslive: Don't thow exception if connection to server is lost ([@molobrakos])
+- Tellduslive: Don't throw exception if connection to server is lost ([@molobrakos])
 - Core: Convert config.components to a set ([@balloob])
 - Media Player - Apple TV: Handle connection errors when connecting to Apple TVs, re-use aiohttp session , add fake support for turn on/off ([@postlund])
 - Zoneminder: Refactoring and JSON decode error handling ([@pschmitt])
