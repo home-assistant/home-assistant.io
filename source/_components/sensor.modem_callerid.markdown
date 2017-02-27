@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Sensor
-ha_iot_class: ""
-ha_release: 0.39
+ha_release: 0.40
 ---
 
 
