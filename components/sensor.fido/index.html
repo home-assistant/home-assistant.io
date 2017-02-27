@@ -92,8 +92,10 @@
 
   <p>Integrate your <a href="https://www.fido.ca/">Fido</a> account information into Home Assistant.</p>
 
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">ensor</span><span class="pi">:</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">fido</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">MYUSERNAME</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">MYPASSWORD</span>
@@ -101,23 +103,6 @@
      <span class="pi">-</span> <span class="s">fido_dollar</span>
      <span class="pi">-</span> <span class="s">balance</span>
      <span class="pi">-</span> <span class="s">data_used</span>
-     <span class="pi">-</span> <span class="s">data_limit</span>
-     <span class="pi">-</span> <span class="s">data_remaining</span>
-     <span class="pi">-</span> <span class="s">text_used</span>
-     <span class="pi">-</span> <span class="s">text_limit</span>
-     <span class="pi">-</span> <span class="s">text_remaining</span>
-     <span class="pi">-</span> <span class="s">mms_used</span>
-     <span class="pi">-</span> <span class="s">mms_limit</span>
-     <span class="pi">-</span> <span class="s">mms_remaining</span>
-     <span class="pi">-</span> <span class="s">text_int_used</span>
-     <span class="pi">-</span> <span class="s">text_int_limit</span>
-     <span class="pi">-</span> <span class="s">text_int_remaining</span>
-     <span class="pi">-</span> <span class="s">talk_used</span>
-     <span class="pi">-</span> <span class="s">talk_limit</span>
-     <span class="pi">-</span> <span class="s">talt_remaining</span>
-     <span class="pi">-</span> <span class="s">other_talk_used</span>
-     <span class="pi">-</span> <span class="s">other_talk_limit</span>
-     <span class="pi">-</span> <span class="s">other_talt_remaining</span>
 </code></pre>
 </div>
 
@@ -166,7 +151,7 @@
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.fido.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/fido.jpg' />
+      <img src='/images/supported_brands/fido.png' />
   </div>
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
