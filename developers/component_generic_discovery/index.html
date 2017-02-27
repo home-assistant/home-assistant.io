@@ -123,14 +123,12 @@ This can be achieved using the <code class="highlighter-rouge">load_platform</co
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">homeassistant.helpers.discovery</span> <span class="kn">import</span> <span class="n">load_platform</span>
 <span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'myflashyhub'</span>
 
-<span class="n">MFH_GLOBAL</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">DATA_MFH</span> <span class="o">=</span> <span class="s">'MFH'</span>
 
 <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
     <span class="s">"""Your controller/hub specific code."""</span>
-    
-    <span class="k">global</span> <span class="n">MFH_GLOBAL</span>
-    <span class="k">if</span> <span class="n">MFH_GLOBAL</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">MFH_GLOBAL</span> <span class="o">=</span> <span class="n">SomeObjectToInitialiseGlobal</span>
+    <span class="n">hass</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">DATA_MFH</span><span class="p">]</span> <span class="o">=</span> <span class="n">SomeObjectToInitialiseGlobal</span><span class="p">()</span>
+
     <span class="c">#--- snip ---</span>
     <span class="n">load_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="s">'light'</span><span class="p">,</span> <span class="n">DOMAIN</span><span class="p">)</span>
     <span class="n">load_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="s">'switch'</span><span class="p">,</span> <span class="n">DOMAIN</span><span class="p">,</span> <span class="p">{</span><span class="s">'optional'</span><span class="p">:</span> <span class="s">'arguments'</span><span class="p">})</span>
@@ -145,7 +143,7 @@ This can be achieved using the <code class="highlighter-rouge">load_platform</co
 <span class="c"># as passed in above. 'light' will receive discovery_info=None</span>
 <span class="k">def</span> <span class="nf">setup_platform</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">add_devices</span><span class="p">,</span> <span class="n">discovery_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="s">"""Your switch/light specific code."""</span>
-    <span class="c"># You can now use myflashyhub.MFH_GLOBAL</span>
+    <span class="c"># You can now use hass.data[myflashyhub.DATA_MFH]</span>
 </code></pre>
 </div>
 
