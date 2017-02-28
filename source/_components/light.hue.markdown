@@ -36,6 +36,7 @@ The light component supports multiple entries in <code>configuration.yaml</code>
 light 2:
   platform: hue
   host: DEVICE_IP_ADDRESS
+  filename: phue2.conf
 ```
 
 Configuration variables:
@@ -43,7 +44,7 @@ Configuration variables:
 - **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
 
 - **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
-- **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
+- **filename** (*Optional*): Make this unique if specifying multiple Hue hubs. Necessary though if adding second Hub.
 - **allow_in_emulated_hue** (*Optional*): )true/false) Enable this to block all Hue entities from being added to the `emulated_hue` component.
 - **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
 
