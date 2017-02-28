@@ -98,11 +98,12 @@
   <img src="/images/screenshots/automation-switches.png" />
 </p>
 
-<p>This allows one to reload the automation without restarting Home Assistant itself. If you don’t want to see the automation rule in your frontend use <code class="highlighter-rouge">hide_entity: True</code> to hide it.</p>
+<p>This allows one to reload the automation without restarting Home Assistant itself. If you don’t want to see the automation rule in your frontend use <code class="highlighter-rouge">hide_entity: True</code> to hide it. You can also use <code class="highlighter-rouge">initial_state: 'off'</code> so that the automation is not automatically turned on after a Home assistant reboot.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Door alarm</span>
     <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
   <span class="s">...</span>
