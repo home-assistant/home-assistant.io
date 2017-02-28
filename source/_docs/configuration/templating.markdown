@@ -80,7 +80,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
 - `float` will format the output as float.
 - `strptime(string, format)` will parse a string to a datetime based on a [format][strp-format].
-- Filter `round(x, method='common')` will convert the input to a number and round it to `x` decimals. A method can be 'common', 'ceil', or 'floor'. If you don’t specify a method 'common' is used. 
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert an UNIX timestamp to UTC time/data.
 - Filter `timestamp_custom(format_string, local_boolean)` will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting [Python format options](https://docs.python.org/3/library/time.html#time.strftime).
