@@ -29,6 +29,15 @@ light:
   host: DEVICE_IP_ADDRESS
 ```
 
+The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.  When adding in a second hub, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+light 2:
+  platform: hue
+  host: DEVICE_IP_ADDRESS
+```
+
 Configuration variables:
 
 - **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
