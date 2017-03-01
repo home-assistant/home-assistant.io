@@ -11,7 +11,7 @@ footer: true
 
 If you are using Hassbian, browse to [http://hassbian.local:8123](http://hassbian.local:8123) to open the Home Assistant frontend.
 
-To reload your configuration, go to **Configuration** in your side panel, and choose:
+To reload your configuration, go to **Configuration** in your side panel, and choose "CHECK CONFIG" and "RELOAD CORE":
 
 <p class='img'>
 <img src='/images/screenshots/configuration-validation.png' />
