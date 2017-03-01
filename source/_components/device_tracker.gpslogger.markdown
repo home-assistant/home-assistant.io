@@ -27,7 +27,7 @@ device_tracker:
 
 To configure GPSLogger, you must set up the app to send a `GET` request to your Home Assistant server at 
 ```yaml
-`http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT`
+http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
 ```
 . Make sure to include the API password if you have configured a password in Home Assistant (add `&api_password=<password>` to the end of the URL). Configure that options under "General Options":
 
@@ -40,8 +40,9 @@ Set the URL under "General Options -> Logging details":
 - Log to KML: no
 - Log to custom URL: yes and set 
 ```yaml
-`http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT` (be sure you include API password (`&api_password=<password>`) if needed, or you can also use HTTP Basic authentication `http://<username>:<password>@<ha_server>/api/gpslogger...`)
+http://<ha_server>/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
 ```
+(be sure you include API password (`&api_password=<password>`) if needed, or you can also use HTTP Basic authentication `http://<username>:<password>@<ha_server>/api/gpslogger...`)
 - Log to OpenGTS Server: no
 - Log to Plain Text: no
 - Log to NMEA: no
