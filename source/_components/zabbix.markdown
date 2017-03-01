@@ -35,7 +35,7 @@ Configuration variables:
 
 ```yaml
 # Example configuration.yaml entry
-zoneminder:
+zabbix:
   host: ZABBIX_HOST
   path: ZABBIX_PATH
   ssl: False
