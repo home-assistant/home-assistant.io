@@ -107,7 +107,7 @@
 </ul>
 
 <p>To configure GPSLogger, you must set up the app to send a <code class="highlighter-rouge">GET</code> request to your Home Assistant server at</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="err">`</span><span class="s">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;device=%SER&amp;accuracy=%ACC&amp;battery=%BATT&amp;speed=%SPD&amp;direction=%DIR&amp;altitude=%ALT&amp;provider=%PROV&amp;activity=%ACT`</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;device=%SER&amp;accuracy=%ACC&amp;battery=%BATT&amp;speed=%SPD&amp;direction=%DIR&amp;altitude=%ALT&amp;provider=%PROV&amp;activity=%ACT</span>
 </code></pre>
 </div>
 <p>. Make sure to include the API password if you have configured a password in Home Assistant (add <code class="highlighter-rouge">&amp;api_password=&lt;password&gt;</code> to the end of the URL). Configure that options under “General Options”:</p>
@@ -123,9 +123,10 @@
   <li>Log to GPX: no</li>
   <li>Log to KML: no</li>
   <li>Log to custom URL: yes and set
-    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="err">`</span><span class="s">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;device=%SER&amp;accuracy=%ACC&amp;battery=%BATT&amp;speed=%SPD&amp;direction=%DIR&amp;altitude=%ALT&amp;provider=%PROV&amp;activity=%ACT` (be sure you include API password (`&amp;api_password=&lt;password&gt;`) if needed, or you can also use HTTP Basic authentication `http://&lt;username&gt;:&lt;password&gt;@&lt;ha_server&gt;/api/gpslogger...`)</span>
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http://&lt;ha_server&gt;/api/gpslogger?latitude=%LAT&amp;longitude=%LON&amp;device=%SER&amp;accuracy=%ACC&amp;battery=%BATT&amp;speed=%SPD&amp;direction=%DIR&amp;altitude=%ALT&amp;provider=%PROV&amp;activity=%ACT</span>
 </code></pre>
     </div>
+    <p>(be sure you include API password (<code class="highlighter-rouge">&amp;api_password=&lt;password&gt;</code>) if needed, or you can also use HTTP Basic authentication <code class="highlighter-rouge">http://&lt;username&gt;:&lt;password&gt;@&lt;ha_server&gt;/api/gpslogger...</code>)</p>
   </li>
   <li>Log to OpenGTS Server: no</li>
   <li>Log to Plain Text: no</li>
