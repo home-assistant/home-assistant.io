@@ -92,7 +92,7 @@ script:
         data_template:
           name: Kitchen
           message: is being used
-          # Optional          
+          # Optional
           entity_id: light.kitchen
-          domain: light         
+          domain: light
 ```
