@@ -198,7 +198,13 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
  - Add workaround for Paho out of memory issues ([@pvizeli])
  - When an error occurs while storing group config, fail instead of wiping config. ([@balloob])
 
+### {% linkable_title Release 0.39.1 - February 27 %}
+
+ - Move Zigbee from eventbus to dispatcher ([@pvizeli])
+ - Fix discovery taking up all memory and cpu ([@balloob] + [@tomusher])
+
 #### Breaking changes
+
  - VolvoOnCall has been extended with more features and had to be converted to a component
  - Limitlessled support for Bridge v6 and RGBWW bulbs require users to specify `version` and `port
  - hdmi_cec config now requires users to set the types in the hdmi_cec config instead of using `customize`:
@@ -219,6 +225,7 @@ hdmi_cec:
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
+[@tomusher]: https://github.com/tomusher
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@nugget]: https://github.com/nugget
