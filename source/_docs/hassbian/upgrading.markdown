@@ -15,10 +15,22 @@ Log in as the `pi` account and execute the following commands:
 
 ```bash
 $ sudo apt-get update
-$ sudo apt-get upgrade
+$ sudo apt-get -y upgrade
 ```
 
-Press `Y` to confirm that you would like to continue.
+
+#### {% linkable_title Updating Home Assistant %}
+
+To update the Home Assistant installation execute the following command as the `pi` user.
+
+```bash
+$ sudo systemctl stop homeassistant@homeassistant.service
+$ sudo su -s /bin/bash homeassistant
+$ source /srv/homeassistant/bin/activate
+$ pip3 install --upgrade homeassistant
+$ exit
+$ sudo systemctl start homeassistant@homeassistant.service
+```
 
 #### {% linkable_title Upgrading the hassbian-scripts %}
 
