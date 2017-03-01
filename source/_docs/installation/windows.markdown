@@ -20,6 +20,8 @@ C:\...\> py -m homeassistant --open-ui
 
 For autostarting Home Assistant please refer to this [guide](https://community.home-assistant.io/t/autostart-on-windows/3504).
 
+Check this [video](https://www.youtube.com/watch?v=X27eVvuqwnY) for the installation on Windows 10.
+
 <p class='note warning'>
 The Microsoft Windows platform is not a primary target to install home Assistant. Also, not all tools and third-party modules will work.
 </p>
