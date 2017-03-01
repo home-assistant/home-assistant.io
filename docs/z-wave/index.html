@@ -163,7 +163,7 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
   <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python OpenZWave configuration files. Defaults to the folder <code class="highlighter-rouge">config</code> in your Python OpenZWave install directory.</li>
   <li><strong>autoheal</strong> (<em>Optional</em>): Allows disabling auto Z-Wave heal at midnight. Defaults to True.</li>
   <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
-  <li><strong>customize</strong> (<em>Optional</em>): This attribute contains node-specific override values. See <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing devices and services</a> for format:
+  <li><strong>device_config</strong> (<em>Optional</em>): This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called <strong>customize</strong>) See <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing devices and services</a> for format:
     <ul>
       <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.</li>
       <li><strong>ignored</strong> (<em>Optional</em>): Ignore this entitiy completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
