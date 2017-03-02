@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Installation on Fedora"
-description: "Installation of Home Assistant on your Fedora computer."
+title: "Installation on ArchLinux"
+description: "Installation of Home Assistant on your ArchLinux computer."
 date: 2017-03-01 07:00
 sidebar: true
 comments: false
@@ -9,12 +9,13 @@ sharing: true
 footer: true
 ---
 
-[Fedora](https://fedoraproject.org) is an operating system based on the Linux kernel, developed by the community-supported Fedora Project. There are releases for x86 and x86_64 including ARM and other architectures. 
+[ArchLinux](https://www.archlinux.org/) is a lightweight and flexible Linux distribution. There are official packages optimized for the i686 and x86-64 architectures available.
 
-Install the development package of Python.
+Install the needed Python packages.
 
 ```bash
-$ sudo dnf -y install python3-devel
+$ sudo pacman -S python
+$ sudo pacman -S python-pip
 ```
 
 and Home Assistant itself.
@@ -23,3 +24,8 @@ and Home Assistant itself.
 $ pip3 install homeassistant
 ```
 
+Home Assistant is part of the [AUR](https://aur.archlinux.org/packages/home-assistant/). This meand that it can be installed directly with `pacman`:
+
+```bash
+$ sudo pacman -S home-assistant
+```
