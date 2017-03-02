@@ -147,7 +147,7 @@ Every time you run this script, you will be prompted for a comment to describe t
 
 ### {% linkable_title Step 7: Configuration file testing %}
 
-[Travis CI](https://travis-ci.org) is a continuous intigration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
+[Travis CI](https://travis-ci.org) is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
 
 - [Authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.  
 - Create the build script that travis will run to test your repo.

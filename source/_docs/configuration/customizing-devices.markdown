@@ -38,7 +38,7 @@ homeassistant:
       icon: mdi:home
   customize_glob:
     "light.kitchen_*":
-      icon: mid:description
+      icon: mdi:description
 
 ```
 
@@ -52,13 +52,6 @@ homeassistant:
 | `icon` | Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com). Prefix name with `mdi:`, ie `mdi:home`.
 | `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
 | `device_class` | Sets the class of the device, changing the device state and icon that is displayed on the UI (see below).
-
-### {% linkable_title Device Class %}
-
-Device class is currently supported by the following platforms:
-
-* [Binary Sensor](/components/binary_sensor/)
-* [Cover](/components/cover/)
 
 ### {% linkable_title Device Class %}
 

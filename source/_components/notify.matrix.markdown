@@ -13,7 +13,7 @@ ha_release: 0.32
 ---
 
 
-The `matrix` platform allows you to deliver notifications from Home Assistant to a Matrix room. Rooms can be both direct as well as group chats.
+The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](http://matrix.org) room. Rooms can be both direct as well as group chats.
 
 To enable Matrix notifications in your installation, add the following to your `configuration.yaml` file:
 

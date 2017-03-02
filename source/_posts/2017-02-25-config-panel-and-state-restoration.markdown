@@ -69,6 +69,8 @@ We realized that this was leading into a rabbit hole that we had to get out off.
 
 So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
 
+[**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/74/)
+
 #### Customize has been reverted to it's original config
 
 The old customize is back. The options to match by domain or using glob have been moved to it's own options. It will now look like this:
@@ -132,15 +134,15 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Add [Ebox][ebox] sensor platform ([@titilambert])
 - Mediaplayer [clementine][clementine] remote ([@jjmontesl])
 - Add [Fido][fido] sensor ([@titilambert])
+- Add [History Statistics][history_stats] sensor platform ([@bokub])
 
 #### Improvements
 
-- Tellduslive: Don't thow exception if connection to server is lost ([@molobrakos])
+- Tellduslive: Don't throw exception if connection to server is lost ([@molobrakos])
 - Core: Convert config.components to a set ([@balloob])
 - Media Player - Apple TV: Handle connection errors when connecting to Apple TVs, re-use aiohttp session , add fake support for turn on/off ([@postlund])
 - Zoneminder: Refactoring and JSON decode error handling ([@pschmitt])
 - Recorder: Add tests for full schema migration, limit to session scope ([@armills])
-- Tests: Add history_stats sensor ([@bokub])
 - Device tracker - Tado: Add support for multiple devices to Tado device tracker ([@markoudev])
 - Z-Wave: Fix zwave helper getter not to fail on some None results. ([@andrey-git])
 - Core: `sensor_class` migrate to `device_class` ([@armills])
@@ -191,7 +193,18 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
 
+### {% linkable_title Release 0.39.1 - February 27 %}
+
+ - Add workaround for Paho out of memory issues ([@pvizeli])
+ - When an error occurs while storing group config, fail instead of wiping config. ([@balloob])
+
+### {% linkable_title Release 0.39.2 - March 1 %}
+
+ - Move Zigbee from eventbus to dispatcher ([@pvizeli])
+ - Fix discovery taking up all memory and cpu ([@balloob] + [@tomusher])
+
 #### Breaking changes
+
  - VolvoOnCall has been extended with more features and had to be converted to a component
  - Limitlessled support for Bridge v6 and RGBWW bulbs require users to specify `version` and `port
  - hdmi_cec config now requires users to set the types in the hdmi_cec config instead of using `customize`:
@@ -202,7 +215,8 @@ hdmi_cec:
     hdmi_cec.hdmi_5: media_player
 ```
 
-#### Bugfixes: 
+#### Bugfixes:
+
 [@pvizeli], [@LinuxChristian], [@molobrakos], [@balloob], [@rytilahti], [@fabaff], [@andrey-git], [@aequitas], [@konikvranik], [@Danielhiversen], [@colinodell], [@pschmitt], [@bachp], [@bachp],[@w1ll1am23], [@valentinalexeev], [@robbiet480], [@MartinHjelmare], [@happyleavesaoc], [@tdickman], [@arraylabs], [@lwis], [@titilambert]
 
 ### If you need help...
@@ -211,6 +225,7 @@ hdmi_cec:
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
+[@tomusher]: https://github.com/tomusher
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@nugget]: https://github.com/nugget
@@ -266,12 +281,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: https://home-assistant.io/componet/telegram_webhook/
+[telegram]: https://home-assistant.io/componet/telegram_webhooks/
 [pushsafer]: https://home-assistant.io/components/notify.pushsafer/
 [openhome]: https://home-assistant.io/components/media_player.openhome/
 [ups]: https://home-assistant.io/components/sensor.ups/
 [fedex]: https://home-assistant.io/components/sensor.fedex/
-[fido]: https://home-assistant.io/components/sensor.fido/ 
+[fido]: https://home-assistant.io/components/sensor.fido/
 [gstreamer]: https://home-assistant.io/components/media_player.gstreamer/
 [clementine]: https://home-assistant.io/components/media_player.clementine/
 [ebox]: https://home-assistant.io/components/sensor.ebox/
@@ -285,6 +300,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [volvo]: https://home-assistant.io/components/volvooncall/
 [pocket]: https://home-assistant.io/components/sensor.pocketcasts/
 [config]: https://home-assistant.io/components/config/
+[history_stats]: https://home-assistant.io/components/sensor.history_stats/
 
 
 [docs]: https://home-assistant.io/docs/

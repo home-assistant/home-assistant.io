@@ -43,14 +43,12 @@ In the hub component `myflashyhub.py` you can call your light and switch compone
 from homeassistant.helpers.discovery import load_platform
 DOMAIN = 'myflashyhub'
 
-MFH_GLOBAL = None
+DATA_MFH = 'MFH'
 
 def setup(hass, config):
     """Your controller/hub specific code."""
-    
-    global MFH_GLOBAL
-    if MFH_GLOBAL is None:
-        MFH_GLOBAL = SomeObjectToInitialiseGlobal
+    hass.data[DATA_MFH] = SomeObjectToInitialiseGlobal()
+
     #--- snip ---
     load_platform(hass, 'light', DOMAIN)
     load_platform(hass, 'switch', DOMAIN, {'optional': 'arguments'})
@@ -65,7 +63,7 @@ import custom_components.myflashyhub as myflashyhub
 # as passed in above. 'light' will receive discovery_info=None
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Your switch/light specific code."""
-    # You can now use myflashyhub.MFH_GLOBAL
+    # You can now use hass.data[myflashyhub.DATA_MFH]
 ```
 
 
