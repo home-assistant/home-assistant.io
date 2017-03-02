@@ -92,9 +92,88 @@
   <hr class="divider">
   
 
-  <p>Home Assistant provides multiple ways to be installed. If you are a Raspberry Pi owner then the <a href="/docs/hassbian/">Hassbian</a> is an easy and simple way to run home Assistant.</p>
+  <p>Home Assistant provides multiple ways to be installed. A requirement is that you have <a href="https://www.python.org/downloads/">Python</a> installed. For Windows we require at least <strong>Python 3.5</strong> and for other operating systems at least <strong>Python 3.4.2</strong>.</p>
 
-<p>The only requirement is that you have <a href="https://www.python.org/downloads/">Python</a> installed. For Windows we require at least <strong>Python 3.5</strong> and for other operating systems at least <strong>Python 3.4.2</strong>.</p>
+<div class="text-center hass-option-cards">
+  <a class="option-card" href="/docs/hassbian/installation/">
+    <div class="img-container">
+      <img src="/images/supported_brands/raspberry-pi.png" />
+    </div>
+    <div class="title">Hassbian</div>
+  </a>
+  <a class="option-card" href="/docs/installation/raspberry-pi/">
+    <div class="img-container">
+      <img src="/images/supported_brands/raspberry-pi.png" />
+    </div>
+    <div class="title">Rasbian</div>
+  </a>
+  <a class="option-card" href="/docs/installation/archlinux/">
+    <div class="img-container">
+      <img src="/images/supported_brands/archlinux.png" />
+    </div>
+    <div class="title">ArchLinux</div>
+  </a>
+  <a class="option-card" href="/docs/installation/armbian/">
+    <div class="img-container">
+      <img src="/images/supported_brands/armbian.png" />
+    </div>
+    <div class="title">armbian</div>
+  </a>
+  <a class="option-card" href="/docs/installation/fedora/">
+    <div class="img-container">
+      <img src="/images/supported_brands/fedora.png" />
+    </div>
+    <div class="title">Fedora</div>
+  </a>
+  <a class="option-card" href="/docs/installation/centos/">
+    <div class="img-container">
+      <img src="/images/supported_brands/centos.png" />
+    </div>
+    <div class="title">CentOS/RHEL</div>
+  </a>
+  <a class="option-card" href="/docs/installation/windows/">
+    <div class="img-container">
+      <img src="/images/supported_brands/windows.png" />
+    </div>
+    <div class="title">Windows</div>
+  </a>
+  <a class="option-card" href="/docs/installation/macos/">
+    <div class="img-container">
+      <img src="/images/supported_brands/apple.png" />
+    </div>
+    <div class="title">macOS</div>
+  </a>
+  <a class="option-card" href="/docs/installation/synology/">
+    <div class="img-container">
+      <img src="/images/supported_brands/synology.png" />
+    </div>
+    <div class="title">Synology</div>
+  </a>
+  <a class="option-card" href="/docs/installation/docker/">
+    <div class="img-container">
+      <img src="/images/supported_brands/docker.png" />
+    </div>
+    <div class="title">Docker</div>
+  </a>
+  <a class="option-card" href="/docs/installation/vagrant/">
+    <div class="img-container">
+      <img src="/images/supported_brands/vagrant.png" />
+    </div>
+    <div class="title">Vagrant</div>
+  </a>
+</div>
+
+<p>Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass
+</code></pre>
+</div>
+
+<p>The first start may take a minute or two because the needed packages will be downloaded and installed. The web interface will be served on <a href="http://localhost:8123">http://localhost:8123</a>.</p>
+
+<p>For more details about <code class="highlighter-rouge">hass</code>, please refer to the <a href="/docs/tools/hass/">tools section</a>.</p>
+
+<p>If you’re running a Linux-based platform, we suggest you follow the <a href="/docs/installation/virtualenv/">VirtualEnv instructions</a> to avoid using <code class="highlighter-rouge">root</code>.</p>
 
 <p>It may be needed that you install additional library depending on the platforms/components you want to use.</p>
 
@@ -117,13 +196,8 @@
       <li>
         <a class='active' href='/docs/installation/'>Installation </a>
         <ul>
-          <li><a  href='/docs/installation/python/'>Python </a></li>
           <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
-          <li><a  href='/docs/installation/docker/'>Docker </a></li>
-          <li><a  href='/docs/installation/raspberry-pi/'>Raspberry Pi </a></li>
           <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberrry Pi All-in-One </a></li>
-          <li><a  href='/docs/installation/vagrant/'>Vagrant </a></li>
-          <li><a  href='/docs/installation/synology/'>Synology </a></li>
           <li><a  href='/docs/installation/updating/'>Updating </a></li>
           <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
         </ul>
