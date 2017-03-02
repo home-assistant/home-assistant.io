@@ -15,7 +15,7 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/docs/hassbian/installation/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/raspberry-pi.png' />
+      <img src='/images/supported_brands/home-assistant.png' />
     </div>
     <div class='title'>Hassbian</div>
   </a>
