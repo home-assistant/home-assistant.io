@@ -9,12 +9,7 @@ sharing: true
 footer: true
 ---
 
-Home Assistant uses [Polymer](https://www.polymer-project.org/) for the UI and [NuclearJS](http://optimizely.github.io/nuclear-js/) for maintaining the app state.
-
- * Polymer allows building encapsulated custom HTML elements.
-   [Home-Assistant-Polymer source code on GitHub.](https://github.com/home-assistant/home-assistant-polymer)
- * NuclearJS is a reactive flux built with ImmutableJS data structures.
-   [Home-Assistant-JS source code on GitHub.](https://github.com/home-assistant/home-assistant-js)
+Home Assistant is built on top of the [Polymer](https://www.polymer-project.org/) webcomponents framework. Polymer allows building encapsulated custom HTML elements. [Home-Assistant-Polymer source code on GitHub.](https://github.com/home-assistant/home-assistant-polymer)
 
 <p class='note warning'>
 Do not use development mode in production. Home Assistant uses aggressive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
@@ -29,12 +24,13 @@ http:
   development: 1
 ```
 
-Node.js is required to setup the frontend development environment. The preferred method of installing node.js is [nvm](https://github.com/creationix/nvm). Install nvm using the instructions in the [README](https://github.com/creationix/nvm#install-script), and install node.js by running the following command:
+Node.js is required to setup the frontend development environment. The preferred method of installing node.js is [nvm](https://github.com/creationix/nvm). Install nvm using the instructions in the [README](https://github.com/creationix/nvm#install-script), and install the correct node.js by running the following command from the `home-assistant-polymer` directory:
 
 ```bash
-$ nvm install node
+$ cd homeassistant/components/frontend/www_static/home-assistant-polymer
+$ nvm install < .nvmrc
 ```
-Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:
+Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running from the `home-assistant` directory:
 
 ```bash
 $ script/setup
@@ -42,17 +38,16 @@ $ script/setup
 
 ## {% linkable_title Development %}
 
-While you are developing, you need to have Rollup running to have your JavaScript changes be made available.
+While you are developing, you need to have Rollup running to have changes you make to the JavaScript app-core made available.
 
 ```bash
 $ cd homeassistant/components/frontend/www_static/home-assistant-polymer
 $ npm run js_dev
 ```
 
-The source code for the frontend can be found in three different directories:
+The source code for the frontend can be found in two different directories:
 
  - UI: `homeassistant/components/frontend/www_static/home-assistant-polymer/src/`
- - Core: `homeassistant/components/frontend/www_static/home-assistant-polymer/home-assistant-js/src/`
  - Panels: `homeassistant/components/frontend/www_static/home-assistant-polymer/panels/`
 
 # {% linkable_title Building the Polymer frontend %}
