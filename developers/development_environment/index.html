@@ -120,32 +120,31 @@ Different distributions have different package installation mechanisms and somet
 
 <p>If you plan on providing isolation to your environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a>. Within the <code class="highlighter-rouge">home-assistant</code> directory, create and activate your virtual environment.</p>
 
-<p>If using Python &lt; 3.6 <code class="highlighter-rouge">pyvenv</code> is the recommended method of setting up virtual environments, you’ll need to install the <code class="highlighter-rouge">python3-venv</code> package.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-venv
-<span class="gp">$ </span>pyvenv venv
-<span class="gp">$ </span><span class="nb">source </span>venv/bin/activate
-</code></pre>
-</div>
-
-<p>If using Python 3.6 <code class="highlighter-rouge">pyvenv</code> has been deprecated:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv venv
 <span class="gp">$ </span><span class="nb">source </span>venv/bin/activate
 </code></pre>
 </div>
 
+<p>Note, Debian does not ship a full Python3 package and so requires you to install <code class="highlighter-rouge">venv</code> manually <code class="highlighter-rouge">sudo apt-get install python3-venv</code>.</p>
+
 <h3><a class="title-link" name="setup-and-run" href="#setup-and-run"></a> Setup and Run</h3>
 
 <ul>
-  <li>On Mac OS X and Linux (remember to activate your virtual environment before running setup, if you are using one):
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>home-assistant
+  <li>On Mac OS X and Linux:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>home-assistant
 <span class="gp">$ </span>script/setup
 </code></pre>
-    </div>
-  </li>
+</div>
+
+<ul>
   <li>
     <p>On Windows, you can use <code class="highlighter-rouge">python setup.py develop</code> instead of the setup script.</p>
   </li>
-  <li>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</li>
+  <li>
+    <p>Run <code class="highlighter-rouge">hass</code> to invoke your local installation.</p>
+  </li>
 </ul>
 
 <h3><a class="title-link" name="logging" href="#logging"></a> Logging</h3>
