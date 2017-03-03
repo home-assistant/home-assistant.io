@@ -30,10 +30,13 @@ Node.js is required to setup the frontend development environment. The preferred
 $ cd homeassistant/components/frontend/www_static/home-assistant-polymer
 $ nvm install < .nvmrc
 ```
+
+[Yarn](https://yarnpkg.com/en/) is used as the package manager for node modules. [Install yarn using the instructions here.](https://yarnpkg.com/en/docs/install)
+
 Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running from the `home-assistant` directory:
 
 ```bash
-$ script/setup
+$ script/bootstrap_frontend
 ```
 
 ## {% linkable_title Development %}
