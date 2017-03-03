@@ -48,7 +48,7 @@ Type=simple
 User=homeassistant
 # Make sure the virtualenv Python binary is used
 Environment=VIRTUAL_ENV="/srv/homeassistant"
-Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
+Environment=PATH="$VIRTUAL_ENV/bin:/bin:$PATH"
 ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
