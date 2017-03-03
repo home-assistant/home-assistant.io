@@ -90,14 +90,7 @@
   <hr class="divider">
   
 
-  <p>Home Assistant uses <a href="https://www.polymer-project.org/">Polymer</a> for the UI and <a href="http://optimizely.github.io/nuclear-js/">NuclearJS</a> for maintaining the app state.</p>
-
-<ul>
-  <li>Polymer allows building encapsulated custom HTML elements.
-<a href="https://github.com/home-assistant/home-assistant-polymer">Home-Assistant-Polymer source code on GitHub.</a></li>
-  <li>NuclearJS is a reactive flux built with ImmutableJS data structures.
-<a href="https://github.com/home-assistant/home-assistant-js">Home-Assistant-JS source code on GitHub.</a></li>
-</ul>
+  <p>Home Assistant is built on top of the <a href="https://www.polymer-project.org/">Polymer</a> webcomponents framework. Polymer allows building encapsulated custom HTML elements. <a href="https://github.com/home-assistant/home-assistant-polymer">Home-Assistant-Polymer source code on GitHub.</a></p>
 
 <p class="note warning">
 Do not use development mode in production. Home Assistant uses aggressive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
@@ -112,31 +105,34 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
 </code></pre>
 </div>
 
-<p>Node.js is required to setup the frontend development environment. The preferred method of installing node.js is <a href="https://github.com/creationix/nvm">nvm</a>. Install nvm using the instructions in the <a href="https://github.com/creationix/nvm#install-script">README</a>, and install node.js by running the following command:</p>
+<p>Node.js is required to setup the frontend development environment. The preferred method of installing node.js is <a href="https://github.com/creationix/nvm">nvm</a>. Install nvm using the instructions in the <a href="https://github.com/creationix/nvm#install-script">README</a>, and install the correct node.js by running the following command from the <code class="highlighter-rouge">home-assistant-polymer</code> directory:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>nvm install node
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
+<span class="gp">$ </span>nvm install &lt; .nvmrc
 </code></pre>
 </div>
-<p>Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/setup
+<p><a href="https://yarnpkg.com/en/">Yarn</a> is used as the package manager for node modules. <a href="https://yarnpkg.com/en/docs/install">Install yarn using the instructions here.</a></p>
+
+<p>Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running from the <code class="highlighter-rouge">home-assistant</code> directory:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/bootstrap_frontend
 </code></pre>
 </div>
 
 <h2><a class="title-link" name="development" href="#development"></a> Development</h2>
 
-<p>While you are developing, you need to have Rollup running to have your JavaScript changes be made available.</p>
+<p>While you are developing, you need to have Rollup running to have changes you make to the JavaScript app-core made available.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
 <span class="gp">$ </span>npm run js_dev
 </code></pre>
 </div>
 
-<p>The source code for the frontend can be found in three different directories:</p>
+<p>The source code for the frontend can be found in two different directories:</p>
 
 <ul>
   <li>UI: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/src/</code></li>
-  <li>Core: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/home-assistant-js/src/</code></li>
   <li>Panels: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/panels/</code></li>
 </ul>
 
