@@ -237,6 +237,8 @@ The `zwave` component exposes multiple services to help maintain the network.
 | heal_network | Tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing. |
 | print_config_parameter | Prints Z-Wave node's config parameter value to the log. |
 | print_node | Print all state of Z-Wave node. |
+| refresh_entity| Refresh Z-Wave entity by refreshing dependent values.|
+| refresh_node| Refresh Z-Wave node. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
 | rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
 | set_config_parameter | Let's the user set a config parameter to a node. |
