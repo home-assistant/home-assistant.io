@@ -105,11 +105,12 @@
 </code></pre>
 </div>
 
-<h3><a class="title-link" name="step-1-create-a-home-assistant-user" href="#step-1-create-a-home-assistant-user"></a> Step 1: Create a Home Assistant user</h3>
+<h3><a class="title-link" name="step-1-create-a-home-assistant-user--group" href="#step-1-create-a-home-assistant-user--group"></a> Step 1: Create a Home Assistant user &amp; group</h3>
 
 <p>This step is optional, but it’s a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in Home Assistant. This is a reasonably Linux oriented step, and will look different on other operating systems (or even other Linux distributions).</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser --system homeassistant
+<span class="gp">$ </span>sudo addgroup homeassistant
 </code></pre>
 </div>
 

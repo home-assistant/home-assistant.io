@@ -118,6 +118,26 @@ EOF'</span>
 </code></pre>
 </div>
 
+<p>For Ubunt 16.04 use this commands. Notice that files are saved in a slightly diffrent path</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>su -c <span class="s1">'cat &lt;&lt;EOF &gt;&gt; /lib/systemd/system/home-assistant.service
+[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/local/bin/hass
+
+[Install]
+WantedBy=multi-user.target
+EOF'</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service</code></p>
+
 <p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
