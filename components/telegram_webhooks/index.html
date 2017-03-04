@@ -146,26 +146,29 @@
 
 <p>Telegram webhooks raise an event <code class="highlighter-rouge">telegram.command</code> with a payload.</p>
 
-<pre><code class="language-json{"> 'command': '/thecommand'
- 'args': 'strings after command'
- 'user_id': 12345
-}
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="err">'command':</span><span class="w"> </span><span class="err">'/thecommand'</span><span class="w">
+ </span><span class="err">'args':</span><span class="w"> </span><span class="err">'strings</span><span class="w"> </span><span class="err">after</span><span class="w"> </span><span class="err">command'</span><span class="w">
+ </span><span class="err">'user_id':</span><span class="w"> </span><span class="err">12345</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-Automation example that realize simple test to command/notify interaction.
+<p>Automation example that realize simple test to command/notify interaction.</p>
 
-```yaml
-alias: 'telegram bot that reply pong to ping'
-hide_entity: true
-trigger:
-  platform: event
-  event_type: telegram.command
-  event_data:
-    command: '/ping'
-action:
-  - service: notify.telegram
-    data:
-      message: 'pong'
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">telegram</span><span class="nv"> </span><span class="s">bot</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">reply</span><span class="nv"> </span><span class="s">pong</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">ping'</span>
+<span class="s">hide_entity</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">trigger</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram.command</span>
+  <span class="s">event_data</span><span class="pi">:</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/ping'</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.telegram</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">pong'</span>
 </code></pre>
+</div>
 
 <p>Example that show keyboard interaction with <code class="highlighter-rouge">notify.telegram</code></p>
 
