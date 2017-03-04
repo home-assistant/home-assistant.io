@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-03T17:36:50+00:00</updated>
+  <updated>2017-03-04T03:41:20+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -218,6 +218,12 @@
 <ul>
   <li>Move Zigbee from eventbus to dispatcher (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Fix discovery taking up all memory and cpu (<a href="https://github.com/balloob">@balloob</a> + <a href="https://github.com/tomusher">@tomusher</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0393---march-4" href="#release-0393---march-4"></a> Release 0.39.3 - March 4</h3>
+
+<ul>
+  <li>Prevent discovered services and devices to be handled twice (@colinodell)</li>
 </ul>
 
 <h4>Breaking changes</h4>
