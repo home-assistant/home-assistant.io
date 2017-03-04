@@ -113,20 +113,21 @@
 
 <p>An extended configuration entry could look like this:</p>
 
-<p>```yaml</p>
-<h1>Full example configuration.yaml entry</h1>
-<p>binary_sensor:
-  platform: nx584
-  host: 192.168.1.10
-  port: 5007
-  exclude_zones:
-    - 3
-    - 5
-  zone_types:
-    1: opening
-    2: opening
-    4: motion
-    6: moisture</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Full example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">nx584</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">5007</span>
+  <span class="s">exclude_zones</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">3</span>
+    <span class="pi">-</span> <span class="s">5</span>
+  <span class="s">zone_types</span><span class="pi">:</span>
+    <span class="s">1</span><span class="pi">:</span> <span class="s">opening</span>
+    <span class="s">2</span><span class="pi">:</span> <span class="s">opening</span>
+    <span class="s">4</span><span class="pi">:</span> <span class="s">motion</span>
+    <span class="s">6</span><span class="pi">:</span> <span class="s">moisture</span>
+</code></pre>
+</div>
 
 
 </article>

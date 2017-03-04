@@ -96,6 +96,53 @@
 
 <p>There are effort in progress to bring Python 3.4 to <a href="https://fedoraproject.org/wiki/EPEL">Extra Packages for Enterprise Linux (EPEL)</a> which will allow you to follow the <a href="/docs/installation/fedora/">Fedora Instructions</a>.</p>
 
+<h3><a class="title-link" name="using-software-collections" href="#using-software-collections"></a> Using Software Collections</h3>
+
+<p>First of all install the software collection repository as root. For example, on CentOS:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>yum install centos-release-scl
+</code></pre>
+</div>
+
+<p>Then install the Python 3.5 package:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>yum install rh-python35
+</code></pre>
+</div>
+
+<p>Once installed, switch to your homeassistant user (if you’ve set one up), enable the software collection and check that it has set up the new version of Python:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>scl <span class="nb">enable </span>rh-python35 bash
+<span class="gp">$ </span>python --version
+Python 3.5.1
+</code></pre>
+</div>
+
+<p>You will be in a command shell set up with Python 3.5 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install home assistant following the main <a href="https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv">instructions</a>.</p>
+
+<p>You will need to enable the software collection each time you log on before you activate your virtual environment.</p>
+
+<h3><a class="title-link" name="systemd-with-software-collections" href="#systemd-with-software-collections"></a> Systemd with Software Collections</h3>
+
+<p>To autostart homeassistant using systemd follow the main <a href="https://home-assistant.io/docs/autostart/systemd/">instructions</a> and adjust the template as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
+Description=Home Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=homeassistant
+# Make sure the virtualenv Python binary is used
+Environment=VIRTUAL_ENV="/srv/homeassistant"
+Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
+# ExecStart using software collection:
+ExecStart=/usr/bin/scl enable rh-python35 -- /srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+</div>
 
 
 </article>
