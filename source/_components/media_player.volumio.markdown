@@ -23,7 +23,7 @@ media_player:
   - platform: volumio
     name: 'Volumio Home Audio'
     host: homeaudio.local
-    port: 3000```
+    port: 3000
 Configuration variables:
 
 - **name** (*Optional*): Name of the device
