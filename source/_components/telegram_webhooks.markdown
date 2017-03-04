@@ -65,11 +65,13 @@ telegram_webhooks:
 
 Telegram webhooks raise an event `telegram.command` with a payload.
 
-```json{
+```json
+{
  'command': '/thecommand'
  'args': 'strings after command'
  'user_id': 12345
 }
+```
 
 Automation example that realize simple test to command/notify interaction.
 
