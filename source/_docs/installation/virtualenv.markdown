@@ -23,12 +23,13 @@ $ sudo apt-get install python-pip python3-dev
 $ sudo pip install --upgrade virtualenv
 ```
 
-### {% linkable_title Step 1: Create a Home Assistant user %}
+### {% linkable_title Step 1: Create a Home Assistant user & group %}
 
 This step is optional, but it's a good idea to give services like Home Assistant their own user. It gives you more granular control over permissions, and reduces the exposure to the rest of your system in the event there is a security related bug in Home Assistant. This is a reasonably Linux oriented step, and will look different on other operating systems (or even other Linux distributions).
 
 ```bash
 $ sudo adduser --system homeassistant
+$ sudo addgroup homeassistant
 ```
 
 Home Assistant stores its configuration in `$HOME/.homeassistant` by default, so in this case, it would be in `/home/homeassistant/.homeassistant`
