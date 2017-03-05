@@ -63,9 +63,16 @@ To upgrade the All-In-One setup manually:
 *  Update HA `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
 
-<p class='note note'>
-If you deployed Home Assistant via the AiO installer prior to December 2016, replace `sudo su -s /bin/bash homeassistant` with `sudo su -s /bin/bash hass` and `source /srv/homeassistant/homeassistant_venv/bin/activate` with `source /srv/hass/hass_venv/bin/activate`</p>
-
+<div class='note note'>
+<b>If you deployed Home Assistant via the AiO installer prior to December 2016</b>
+<ul>
+<li>Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`</li>
+<li>Change to homeassistant user `sudo su -s /bin/bash hass`</li>
+<li>Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`</li>
+<li>Update HA `pip3 install --upgrade homeassistant`</li>
+<li>Type `exit` to logout the hass user and return to the `pi` user.</li>
+</ul>
+</div>
   
 To upgrade with fabric:
 
@@ -96,9 +103,17 @@ To launch the OZWCP web application:
 *  Open a web browser to `http://your_pi_ip:8888`
 *  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
 
-<p class='note note'>
-If you deployed Home Assistant via the AiO installer prior to December 2016, replace `cd /srv/homeassistant/src/open-zwave-control-panel/` with `cd /srv/hass/src/open-zwave-control-panel/`
-</p>
+<div class='note note'>
+<b>If you deployed Home Assistant via the AiO installer prior to December 2016</b>
+<ul>
+<li> Make sure Home Assistant is not running! So stop that first
+<li> Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+<li> Change to the ozwcp directory `cd /srv/hass/src/open-zwave-control-panel/`
+<li> Launch the control panel `sudo ./ozwcp -p 8888`
+<li> Open a web browser to `http://your_pi_ip:8888`
+<li> Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
+</ul>
+</div>
 
 <p class='note warning'>
 Don't check the USB box regardless of using a USB based device.
