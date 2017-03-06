@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: universal_devices.png
+logo: OpenCV_Logo.png
 ha_category: Hub
 ha_release: 0.40
 ha_iot_class: "Local Push"

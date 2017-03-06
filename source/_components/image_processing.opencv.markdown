@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: microsoft.png
+logo: OpenCV_Logo.png
 ha_category: Image Processing
 featured: false
 ha_release: 0.38
