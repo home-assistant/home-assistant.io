@@ -100,7 +100,7 @@ To start Home Assistant now, use this command.
 $ sudo systemctl start home-assistant@[your user]
 ```
 
-You can also substitute the 'start' above with 'stop' to stop Home Assistant, 'restart' to restart Home Assistant, and 'status' to see a brief status report as seen below.
+You can also substitute the `start` above with `stop` to stop Home Assistant, `restart` to restart Home Assistant, and 'status' to see a brief status report as seen below.
 
 ```bash
 $ sudo systemctl status home-assistant@[your user]
