@@ -54,10 +54,16 @@ automation:
 The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:
 
 ```yaml
-action:
-  service: notify.livingroom_tv
-  data:
-    message: "I'm sorry Dave, I'm afraid I can't do that"
-    data:
-      icon: "/home/homeassistant/images/hal.png"
+automation:
+  - alias: Front door motion
+    trigger: 
+      platform: state
+      entity_id: binary_sensor.front_door_motion
+      state: 'on'
+    action:
+      service: notify.livingroom_tv
+      data:
+        message: "Movement detected: Front Door"
+        data:
+          icon: "/home/homeassistant/images/doorbell.png"
  ```
