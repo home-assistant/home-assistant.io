@@ -28,7 +28,7 @@ To use your TPLink switch in your installation, add the following to your `confi
 # Example configuration.yaml entry
 switch:
   - platform: tplink
-    host: IP_ADRRESS
+    host: IP_ADDRESS
 ```
 
 Configuration variables:
