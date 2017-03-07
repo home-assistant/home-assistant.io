@@ -32,7 +32,7 @@ Configuration variables:
 
 - **host** (*Optional*): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
 - **port** (*Optional*): The TCP port of the call monitor. There is usually no reason to change this.
-- **username** (*Optional*): Fritz!Box user's user name. This is required to use the phone book lookup feature.
+- **username** (*Optional*): Fritz!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
 - **password** (*Optional*): Fritz!Box user's user password. This is required to use the phone book lookup feature.
 - **phonebook** (*Optional*): Numerical ID identifying the phonebook to be used. If there is just one phonebook, this is usually 0.
 - **prefixes** (*Optional*): In case of a local call, the phone number seen by the router might differ from the one stored in the phone book by an area code, similarly for the international prefix. To remedy this, a list of prefixes, that can be appended to the phone number in case it is not found in the phone book, can be given.
