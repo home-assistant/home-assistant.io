@@ -46,22 +46,22 @@ For arm_system, the value sent can be either "True" or "False" and will arm and 
 Arm system example
 ```json
 {
-    "value": "True"
+    "device_armed": "True"
 }
 ```
 
 Arm camera follows a similar structure, but each indidivual camera can have motion detection enabled or disabled.  Because of this, you also need to supply a name.  For example, if I have a camera named "Living Room" and I want to turn off motion detection on that camera, I'd call the blink.arm_camera service with the following payload:
 ```json
 {
-    "name": "Living Room",
-    "value": "False"
+    "friendly_name": "Living Room",
+    "device_armed": "False"
 }
 ```
 
 The blink.snap_picture service takes the camera name as the payload and with take a new picture with your camera.
 ```
 {
-    "name": "Living Room"
+    "friendly_name": "Living Room"
 }
 ```
 
