@@ -11,15 +11,15 @@ ha_category: Media Player
 ha_release: 0.40
 ---
 
-The volumio platform allows you to control a [Volumio](http://volumio.org) media player
+The `Volumio` platform allows you to control a [Volumio](http://volumio.org) media player
 from Home Assistant.
 
 
 To add a Volumio player to your installation, add the following to
-your configuration.yaml file.
-
+your `configuration.yaml` file.
+```
 # Example configuration.yaml entry
-```media_player:
+media_player:
   - platform: volumio
     name: 'Volumio Home Audio'
     host: homeaudio.local
