@@ -100,10 +100,16 @@
 
 <p>If the preceding command returns the string <code class="highlighter-rouge">systemd</code>, you are likely using <code class="highlighter-rouge">systemd</code>.</p>
 
-<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. You need a service file to control Home Assistant with <code class="highlighter-rouge">systemd</code>. If you are using a Raspberry Pi with Raspbian then replace the <code class="highlighter-rouge">[your user]</code> with <code class="highlighter-rouge">pi</code> otherwise use your user you want to run Home Assistant. <code class="highlighter-rouge">ExecStart</code> contains the path to <code class="highlighter-rouge">hass</code> and this may vary. Check with <code class="highlighter-rouge">whereis hass</code> for the location.</p>
+<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. A service file is needed to control Home Assistant with <code class="highlighter-rouge">systemd</code>. The template below should be created using a text editor.  Note, root permissions via ‘sudo’ will likely be needed. The following should be noted to modify the template:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>su -c <span class="s1">'cat &lt;&lt;EOF &gt;&gt; /etc/systemd/system/home-assistant@.service
-[Unit]
+<ul>
+  <li><code class="highlighter-rouge">ExecStart</code> contains the path to <code class="highlighter-rouge">hass</code> and this may vary. Check with <code class="highlighter-rouge">whereis hass</code> for the location.</li>
+  <li>If running Home Assistant in a python virtual environment or a docker, please skip to section below.</li>
+  <li>For most systems, the file is <code class="highlighter-rouge">/etc/systemd/system/home-assistant@[your user].service</code> with [your user] replaced by the user account that Home Assistant will run as - normally <code class="highlighter-rouge">homeassistant</code>.  For Ubuntu 16.04, the file is <code class="highlighter-rouge">/lib/systemd/system/home-assistant.service</code> and requires running this command <code class="highlighter-rouge">sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service</code> after file is created.</li>
+  <li>If unfamiliar with command line text editors, <code class="highlighter-rouge">sudo nano -w [filename]</code> can be used with <code class="highlighter-rouge">[filename]</code> replaced with the full path to the file.  Ex. <code class="highlighter-rouge">sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service</code>.  After text entered, press CTRL-X then press Y to save and exit.</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 After=network.target
 
@@ -114,31 +120,10 @@ ExecStart=/usr/bin/hass
 
 [Install]
 WantedBy=multi-user.target
-EOF'</span>
 </code></pre>
 </div>
 
-<p>For Ubunt 16.04 use this commands. Notice that files are saved in a slightly diffrent path</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>su -c <span class="s1">'cat &lt;&lt;EOF &gt;&gt; /lib/systemd/system/home-assistant.service
-[Unit]
-Description=Home Assistant
-After=network.target
-
-[Service]
-Type=simple
-User=%i
-ExecStart=/usr/local/bin/hass
-
-[Install]
-WantedBy=multi-user.target
-EOF'</span>
-</code></pre>
-</div>
-
-<p><code class="highlighter-rouge">sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service</code></p>
-
-<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.</p>
+<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.  If Home Assistant install is not located at <code class="highlighter-rouge">/srv/homeassistant</code>, please modify the <code class="highlighter-rouge">Enviroment=</code> and <code class="highlighter-rouge">ExecStart=</code> lines appropriately.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
@@ -176,17 +161,32 @@ WantedBy=multi-user.target
 </code></pre>
 </div>
 
-<p>You need to reload <code class="highlighter-rouge">systemd</code> to make the daemon aware of the new configuration. Enable and launch Home Assistant after that.</p>
+<p>You need to reload <code class="highlighter-rouge">systemd</code> to make the daemon aware of the new configuration.</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl --system daemon-reload
-<span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>home-assistant@[your user]
-<span class="gp">$ </span>sudo systemctl start home-assistant@[your user]
 </code></pre>
 </div>
 
-<p>If everything went well, <code class="highlighter-rouge">sudo systemctl start home-assistant@[your user]</code> should give you a positive feedback.</p>
+<p>To have Home Assistant start automatically at boot, enable the service.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl status home-assistant@[your user] -l
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>home-assistant@[your user]
+</code></pre>
+</div>
+
+<p>To disable the automatic start, use this command.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl disable home-assistant@[your user]
+</code></pre>
+</div>
+
+<p>To start Home Assistant now, use this command.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl start home-assistant@[your user]
+</code></pre>
+</div>
+
+<p>You can also substitute the <code class="highlighter-rouge">start</code> above with <code class="highlighter-rouge">stop</code> to stop Home Assistant, <code class="highlighter-rouge">restart</code> to restart Home Assistant, and ‘status’ to see a brief status report as seen below.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl status home-assistant@[your user]
 ● home-assistant@fab.service - Home Assistant <span class="k">for</span> <span class="o">[</span>your user]
    Loaded: loaded <span class="o">(</span>/etc/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled<span class="o">)</span>
    Active: active <span class="o">(</span>running<span class="o">)</span> since Sat 2016-03-26 12:26:06 CET; 13min ago
@@ -200,12 +200,12 @@ WantedBy=multi-user.target
 
 <p>To get Home Assistant’s logging output, simple use <code class="highlighter-rouge">journalctl</code>.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>journalctl -f -u home-assistant@[your user]
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo journalctl -f -u home-assistant@[your user]
 </code></pre>
 </div>
 
-<p>Because the log can scroll quite quickly, you might want to open a second terminal to view only the errors:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>journalctl -f -u home-assistant@[your user] | grep -i <span class="s1">'error'</span>
+<p>Because the log can scroll quite quickly, you can select to view only the error lines:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo journalctl -f -u home-assistant@[your user] | grep -i <span class="s1">'error'</span>
 </code></pre>
 </div>
 
