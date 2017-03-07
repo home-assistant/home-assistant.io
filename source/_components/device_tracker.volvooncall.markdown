@@ -13,4 +13,4 @@ ha_release: "0.30"
 ---
 
 
-Integrates Volvo on Call into Home Assistant. See the [main component](/components/volvooncall/) for configuration instructions.
+Integrates [Volvo On Call](http://www.volvocars.com/intl/own/owner-info/volvo-on-call#) into Home Assistant. See the [main component](/components/volvooncall/) for configuration instructions.
