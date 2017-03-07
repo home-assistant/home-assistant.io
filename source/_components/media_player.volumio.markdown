@@ -22,7 +22,6 @@ your `configuration.yaml` file.
 # Example configuration.yaml entry
 media_player:
   - platform: volumio
-    name: 'Volumio Home Audio'
     host: homeaudio.local
     port: 3000
 ```
