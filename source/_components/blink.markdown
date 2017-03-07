@@ -14,7 +14,7 @@ ha_release: "0.40"
 
 The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
 
-You will need your blink login information (username, usually you email address, and password) to use this module.
+You will need your Blink login information (username, usually you email address, and password) to use this module.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -26,12 +26,12 @@ blink:
 ```
 
 Once loaded, your front end will have the following components:
-* A camera image for each camera in your system
-* A binary_sensor per camera that indicates whether motion detection is enabled
-* A binary_sensor for the system that indicates if the system is armed or disarmed
-* A sesnor per camera that reports temperature
-* A sensor per camera that reports battery level
-* A sensor per camera that reports unread notification (ie. detected motion events)
+* A camera image for each camera in your system.
+* A binary_sensor per camera that indicates whether motion detection is enabled.
+* A binary_sensor for the system that indicates if the system is armed or disarmed.
+* A sesnor per camera that reports temperature.
+* A sensor per camera that reports battery level.
+* A sensor per camera that reports unread notification (ie. detected motion events).
 
 Since the cameras are battery operated, the images are only updated in Home Assistant when the user manually forces a new photo.  The image can only be updated in Home Assistant every 60 seconds in order to not overwhelm Blink's servers with API requests.
 
