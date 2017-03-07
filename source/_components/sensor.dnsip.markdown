@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: 0.40
+ha_release: "0.40"
 ---
 
 
