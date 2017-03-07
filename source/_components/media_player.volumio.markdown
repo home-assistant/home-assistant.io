@@ -17,7 +17,8 @@ from Home Assistant.
 
 To add a Volumio player to your installation, add the following to
 your `configuration.yaml` file.
-```
+
+```yaml
 # Example configuration.yaml entry
 media_player:
   - platform: volumio
@@ -25,6 +26,7 @@ media_player:
     host: homeaudio.local
     port: 3000
 ```
+
 Configuration variables:
 
 - **name** (*Optional*): Name of the device
