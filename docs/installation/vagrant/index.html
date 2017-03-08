@@ -92,7 +92,7 @@
   <hr class="divider">
   
 
-  <p>A <code class="highlighter-rouge">Vagrantfile</code> is available into <code class="highlighter-rouge">virtualization/vagrant</code> folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them.</p>
+  <p>A <code class="highlighter-rouge">Vagrantfile</code> is available into <code class="highlighter-rouge">virtualization/vagrant</code> folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them. In the same <code class="highlighter-rouge">virtualization/vagrant</code> folder there’s also a <code class="highlighter-rouge">provision.sh</code> shell script which provides an easy way to interact with the Home Assistant instance running within the Vagrant VM.</p>
 
 <p class="note">
 Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
@@ -100,7 +100,7 @@ Vagrant is intended for testing/development only. It is NOT recommended for perm
 
 <h2><a class="title-link" name="install-vagrant" href="#install-vagrant"></a> Install Vagrant</h2>
 
-<p>You must have <a href="https://www.vagrantup.com/downloads.html">Vagrant</a> and <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> installed on your workstation.</p>
+<p>You must have <a href="https://www.vagrantup.com/downloads.html">Vagrant</a> and <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> installed on your workstation. Vagrant and Virtualbox support all the main platforms, including Windows, MacOS and Linux.</p>
 
 <h2><a class="title-link" name="get-home-assistant-source-code" href="#get-home-assistant-source-code"></a> Get Home Assistant source code</h2>
 
@@ -125,50 +125,61 @@ When using Vagrant on Windows, change git’s <code class="highlighter-rouge">au
 
 <h2><a class="title-link" name="create-the-vagrant-vm-and-start-home-assistant" href="#create-the-vagrant-vm-and-start-home-assistant"></a> Create the Vagrant VM and start Home Assistant</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>vagrant up
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh setup
 </code></pre>
 </div>
 
-<p>This will download and start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant process and run test suite as well. After the VM has started successfully, the Home Assistant frontend will be accessible locally from your browser at <a href="http://localhost:8123">http://localhost:8123</a></p>
+<p>This will download and start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant. The whole process might take up to 30 minutes to complete, depending on Internet connection speed and workstation resources. After the VM has started successfully, the Home Assistant frontend will be accessible locally from your browser at <a href="http://localhost:8123">http://localhost:8123</a></p>
 
 <h2><a class="title-link" name="stopping-vagrant" href="#stopping-vagrant"></a> Stopping Vagrant</h2>
 
 <p>To shutdown the Vagrant host:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>vagrant halt
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh stop
 </code></pre>
 </div>
 
-<p>To start it again, just run <code class="highlighter-rouge">vagrant up</code></p>
+<p>To start it again:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh start
+</code></pre>
+</div>
 
 <h2><a class="title-link" name="restarting-home-assistant-process-to-test-changes" href="#restarting-home-assistant-process-to-test-changes"></a> Restarting Home Assistant process to test changes</h2>
 
 <p>The root <code class="highlighter-rouge">home-assistant</code> directory on your workstation will be mirrored with <code class="highlighter-rouge">/home-assistant</code> inside the VM. In <code class="highlighter-rouge">virtualization/vagrant</code> there’s also a <code class="highlighter-rouge">config</code> folder that you can use to drop configuration files (Check the <a href="/docs/configuration/">Configuration section</a> in the docmentation for more information about how to configure Home Assistant).</p>
 
-<p>Any changes made to the local directory on your workstation will be available from the Vagrant host, so to apply your changes to the Home Assistant process, just restart it:</p>
+<p>Any changes made to the local directory on your workstation will be available from the Vagrant host, so to apply your changes to the Home Assistant process, just restart it using the provided <code class="highlighter-rouge">provision.sh</code> wrapper script:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>touch restart ; vagrant provision
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh restart
 </code></pre>
 </div>
 
+<p class="note">
+This command will only restart the Home Assistant process inside the Vagrant VM, it will not reboot the virtual machine. If that’s what you want, the right command is <code>vagrant reload</code>
+</p>
+
 <h2><a class="title-link" name="run-test-suite-tox" href="#run-test-suite-tox"></a> Run test suite (Tox)</h2>
 
-<p>To run tests against your changes:</p>
+<p>To run tests against the local version of Home Assistant code:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>touch run_tests ; vagrant provision
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh tests
 </code></pre>
 </div>
 
 <h2><a class="title-link" name="cleanup" href="#cleanup"></a> Cleanup</h2>
 
-<p>To completely remove the VM:</p>
+<p>To completely remove the VM</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>rm setup_done ; vagrant destroy -f
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh destroy
 </code></pre>
 </div>
 
-<p>You can now recreate a completely new Vagrant host with <code class="highlighter-rouge">vagrant up</code></p>
+<p>To completely remove the VM <strong>and</strong> setup a fresh new environment:</p>
 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh recreate
+</code></pre>
+</div>
 
 
 </article>
