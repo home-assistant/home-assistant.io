@@ -24,5 +24,5 @@ camera:
 ```
 
 Configuration variables:
-- **signal** (*Required*): The signal name of dispatcher singal they send image data to this camera.
+- **signal** (*Required*): The signal name of dispatcher signal they send image data to this camera.
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
