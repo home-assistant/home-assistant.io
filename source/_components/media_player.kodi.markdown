@@ -28,7 +28,7 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi
+- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi.
 - **port** (*Optional*): The HTTP port number. Defaults to 8080.
 - **tcp_port** (*Optional*): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.
 - **name** (*Optional*): The name of the device used in the frontend.

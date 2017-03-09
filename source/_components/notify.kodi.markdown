@@ -22,12 +22,13 @@ To add Kodi to your installation, add the following to your `configuration.yaml`
 notify:
   - platform: kodi
     name: NOTIFIER_NAME
-    host: http://192.168.0.123
+    host: 192.168.0.123
 ```
 
 - **name** (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **host** (*Required*): The host name or address of the device that is running Kodi.
-- **port** (*Optional*): The port number, the default value is `8080`.
+- **port** (*Optional*): The HTTP port number. Defaults to 8080.
+- **ssl** (*Optional*): Connect to kodi with HTTPS. Defaults to `false`.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
 
