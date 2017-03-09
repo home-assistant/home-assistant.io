@@ -2,7 +2,7 @@
 layout: page
 title: "FRITZ!Box"
 description: "Instructions how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant."
-date: 2017-03-07 22:00
+date: 2016-08-13 15:00
 sidebar: true
 comments: false
 sharing: true
