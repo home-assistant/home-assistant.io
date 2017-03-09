@@ -24,12 +24,13 @@ climate:
   scan_interval: 600
 ```
 <p class='note'>
-Scan interval is expressed in seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honewell.
+Scan interval is expressed in seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
 </p>
 
 Configuration variables:
 
 - **username** (*Required*): The username of an user with access.
 - **password** (*Required*): The password for your given admin account.
-- **away_temperature** (*optional*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
-- **region** (*optional*): Region identifier (either 'eu' or 'us'). Defaults to 'eu' if not provided.
+- **away_temperature** (*Optional*): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.
+- **region** (*Optional*): Region identifier (either 'eu' or 'us'). Defaults to 'eu' if not provided.
+- **scan_interval**(*Optional*): Scan interval is expressed in seconds. Recommended value of 600 seconds. Default value is 120 seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
