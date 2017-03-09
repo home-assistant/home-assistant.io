@@ -48,7 +48,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=homeassistant
+User=%i
 # Make sure the virtualenv Python binary is used
 ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
