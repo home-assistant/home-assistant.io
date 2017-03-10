@@ -28,7 +28,7 @@ notify:
 - **name** (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **host** (*Required*): The host name or address of the device that is running Kodi.
 - **port** (*Optional*): The HTTP port number. Defaults to 8080.
-- **ssl** (*Optional*): Connect to kodi with HTTPS. Defaults to `false`.
+- **proxy_ssl** (*Optional*): Connect to kodi with HTTPS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
 
