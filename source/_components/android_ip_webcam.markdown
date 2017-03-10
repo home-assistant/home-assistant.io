@@ -14,7 +14,7 @@ ha_release: 0.40
 
 The [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) turns your andorid phone into a network camera with multiple viewing options.
 
-It setup a mjpeg camera view and all settings as switch inside Home Assistant. You can also expose the sensors. If you have multible device, you can use all options inside a list.
+It's setup as a mjpeg camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple devices, you can use all options inside a list.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
