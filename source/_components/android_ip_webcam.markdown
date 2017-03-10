@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Android IP Webcam"
-description: "Connect Android devices as IP webcam to home-assistant"
+description: "Connect Android devices as IP webcam to Home Assistant"
 date: 2017-03-10 00:00
 sidebar: true
 comments: false
@@ -39,7 +39,7 @@ Configuration variables:
 
 ### {% linkable_title supported features %}
 
-sensors:
+Sensors:
 
 - audio_connections
 - battery_level
@@ -49,7 +49,7 @@ sensors:
 - motion
 - pressure
 
-settings:
+Settings:
 
 - exposure_lock
 - ffc
