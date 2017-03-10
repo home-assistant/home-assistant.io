@@ -38,9 +38,6 @@ On a Debian system, install the Python 3 YAML library by `sudo apt-get install p
 #### {% linkable_title distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both %}
 This is a known issue if you're on a Mac using Homebrew to install Python. Please follow [these instructions](https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md#note-on-pip-install---user) to resolve it.
 
-#### {% linkable_title CentOS and Python 3 %}
-To run Python 3.x on [CentOS](https://www.centos.org/) or RHEL, [Software Collections](https://www.softwarecollections.org/en/scls/rhscl/rh-python34/) needs to be activated.
-
 #### {% linkable_title No access to the frontend %}
 In newer Linux distributions (at least Fedora > 22/CentOS 7) the access to a host is very limited. This means that you can't access the Home Assistant frontend that is running on a host outside of the host machine. Windows and macOS machines may also have issues with this.
 

@@ -203,6 +203,10 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
  - Move Zigbee from eventbus to dispatcher ([@pvizeli])
  - Fix discovery taking up all memory and cpu ([@balloob] + [@tomusher])
 
+### {% linkable_title Release 0.39.3 - March 4 %}
+
+ - Prevent discovered services and devices to be handled twice (@colinodell)
+
 #### Breaking changes
 
  - VolvoOnCall has been extended with more features and had to be converted to a component

@@ -150,7 +150,7 @@ First get or learn all the remotes you want to add on HA in E-Control
 
 1. Download
 
-    Get the script from [here](https://github.com/NightRang3r/Broadlink-e-control-db-dump5).
+    Get the script from [here](https://github.com/NightRang3r/Broadlink-e-control-db-dump).
 
 2. Dump the data from the app
 

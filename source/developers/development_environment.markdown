@@ -39,22 +39,17 @@ Additional dependencies exist if you you plan to perform Frontend Development, p
 
 If you plan on providing isolation to your environment using [`venv`](https://docs.python.org/3.4/library/venv.html). Within the `home-assistant` directory, create and activate your virtual environment.
 
-If using Python < 3.6 `pyvenv` is the recommended method of setting up virtual environments, you'll need to install the `python3-venv` package.
-```bash
-$ sudo apt-get install python3-venv
-$ pyvenv venv
-$ source venv/bin/activate
-```
-
-If using Python 3.6 `pyvenv` has been deprecated:
 ```bash
 $ python3 -m venv venv
 $ source venv/bin/activate
 ```
 
+Note, Debian does not ship a full Python3 package and so requires you to install `venv` manually `sudo apt-get install python3-venv`.
+
 ### {% linkable_title Setup and Run %}
 
-* On Mac OS X and Linux (remember to activate your virtual environment before running setup, if you are using one):
+* On Mac OS X and Linux:
+
 ```bash
 $ cd home-assistant
 $ script/setup

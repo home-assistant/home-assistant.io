@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Installation on a Windoes system"
+title: "Installation on a Windows system"
 description: "Instructions to install Home Assistant on a Microsoft Windows system."
 date: 2017-02-23 11:00
 sidebar: true
