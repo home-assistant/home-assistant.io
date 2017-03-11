@@ -14,15 +14,15 @@ ha_release: 0.27
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other! 
+
 Devices discovered are stored with 'BLE_' as the prefix for device mac addresses in `known_devices.yaml`.
 
-<p class='note'>
-Requires PyBluez. If you are on Raspbian, run the following command to install the needed dependencies. `sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev libboost-thread-dev libglib2.0-dev python-dev`
-</p>
+This platform requires pybluez to be installed. On Debian based installs, run `sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev libboost-thread-dev libglib2.0-dev python-dev`
 
-<p class='note warning'>
-Requires gattlib, which is not compatible with Windows. This tracker won't work on Windows!
-</p>
+Before you get started with this platform, please note that:
+ - This platform is incompatible with Windows
+ - This platform requires root privileges
+ - Don't use on a Raspberry Pi. It will become unusable slow when using this platform.
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -38,10 +38,6 @@ Configuration variables:
 
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g. fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
-
-<p class='note warning'>
-BT LE tracking requires root privileges.
-</p>
 
 For running Home Assistant as non root user we can give python3 the missing capabilities to access the bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
