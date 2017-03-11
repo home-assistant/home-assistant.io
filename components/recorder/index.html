@@ -115,8 +115,8 @@
   </li>
   <li><strong>include</strong> (<em>Optional</em>): Configure which components should be included in recordings. If set, all other entities will not be recorded.
     <ul>
-      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from the history.</li>
-      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from the history.</li>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from recordings.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from recordings.</li>
     </ul>
   </li>
   <li><strong>db_url</strong> (<em>Optional</em>): The URL which point to your database.</li>
@@ -143,7 +143,7 @@
 <p>Define domains and entities to record by using the <code class="highlighter-rouge">include</code> configuration (aka. whitelist). If you have a lot of entities in your system and your <code class="highlighter-rouge">exclude</code> lists possibly get very large, it might be better just to define the entities or domains to record.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with include</span>
-<span class="s">history</span><span class="pi">:</span>
+<span class="s">recorder</span><span class="pi">:</span>
   <span class="s">include</span><span class="pi">:</span>
     <span class="s">domains</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">sensor</span>
@@ -155,7 +155,7 @@
 <p>Use the <code class="highlighter-rouge">include</code> list to define the domains/entities to record, and exclude some of them with in the <code class="highlighter-rouge">exclude</code> list. This makes sense if you for instance include the <code class="highlighter-rouge">sensor</code> domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the <code class="highlighter-rouge">include</code> <code class="highlighter-rouge">entities</code> list just include the <code class="highlighter-rouge">sensor</code> domain and exclude the sensor entities you are not interested in.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with include and exclude</span>
-<span class="s">history</span><span class="pi">:</span>
+<span class="s">recorder</span><span class="pi">:</span>
   <span class="s">include</span><span class="pi">:</span>
     <span class="s">domains</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">sensor</span>
