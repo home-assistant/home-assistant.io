@@ -19,7 +19,7 @@ Some people have interpreted our recent added warnings as if 0.39 introduced the
 
 Before we continue talking about all the improvements in this release I want to take a moment to thank a few people from the Home Assistant community that are fundamental to the success of Home Assistant. Big thanks to [@dale3h], [@CCOSTAN], [@skalavala] [@rrubin0] [@brahmafear] [@bassclarinetl2] and [@torn8o]! These are all people that hang out in our [main chat channel] and help new users get started and help existing users when running into trouble. Home Assistant would not be there without all the effort you put in! 🙇
 
-Oh, and did I already mention that we're passing the 600 integrations with this release! It's crazy.
+And that our community kicks ass is also shown in the numbers. We have already raised together over $700 for the [EFF] via the sale of [our t-shirts][hass-shirt]! All of you rock! Another number worth mentioning is that this release brings us passed 600 integrations for Home Assistant. All of you rock, again!
 
 ## Z-Wave is now threadsafe
 
@@ -293,3 +293,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[EFF]: https://www.eff.org
+[hass-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
