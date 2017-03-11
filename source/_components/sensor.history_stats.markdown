@@ -34,6 +34,7 @@ sensor:
     name: Lamp ON today
     entity_id: light.my_lamp
     state: 'on'
+    type: time
     start: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
     end: '{% raw %}{{ now() }}{% endraw %}'
 ```
@@ -43,6 +44,7 @@ Configuration variables:
  - **entity_id** (*Required*): The entity you want to track
  - **state** (*Required*): The state you want to track
  - **name** (*Optional*): Name displayed on the frontend
+ - **type** (*Optional*): The type of sensor: `time`, `ratio`, or `count`. Defaults to `time`
  - **start**: When to start the measure (timestamp or datetime).
  - **end**: When to stop the measure (timestamp or datetime)
  - **duration**: Duration of the measure
@@ -54,6 +56,14 @@ Configuration variables:
 <br/>
     You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 </p>
+
+## {% linkable_title Sensor type %}
+
+Depending on the sensor type you choose, the `history_stats` component can show different values:
+
+- **time**: The default value, which is the tracked time, in hours
+- **ratio**: The tracked time divided by the length of your period, as a percentage
+- **count**: How many times the component you track was changed to the state you track
 
 ## {% linkable_title Time periods %}
 
