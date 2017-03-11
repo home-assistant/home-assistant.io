@@ -49,6 +49,7 @@ Currently known supported models:
 - D6505
 - D6300SF
 - U6000 (port must be set to 8001)
+- KS8005 (port must be set to 8001, and `pip install websocket-client` must be executed)
 
 Currently tested but not working models:
 
