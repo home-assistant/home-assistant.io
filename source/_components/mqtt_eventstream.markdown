@@ -42,7 +42,7 @@ mqtt_eventstream:
 For a multiple instance setup, each slave would publish to their own topic.
 
 ```yaml
-# Example master instance configuration.yaml entry
+# Example slave instance configuration.yaml entry
 mqtt_eventstream:
   publish_topic: slaves/upstairs
   subscribe_topic: master/topic
@@ -51,6 +51,6 @@ mqtt_eventstream:
 ```yaml
 # Example slave instance configuration.yaml entry
 mqtt_eventstream:
-  publish_topic: master/downstairs
+  publish_topic: slaves/downstairs
   subscribe_topic: master/topic
 ```
