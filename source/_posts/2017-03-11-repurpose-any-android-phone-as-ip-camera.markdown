@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Home Assistant 0.40: Turn any Android phone into an IP Webcam"
-description: "Tons of bug fixes for MQTT, Z-Wave and "
+description: "Big startup performance increase and tons of bug fixes for MQTT, Z-Wave."
 date: 2017-03-11 08:04:05 +0000
 date_formatted: "March 11, 2017"
 author: Paulus Schoutsen
