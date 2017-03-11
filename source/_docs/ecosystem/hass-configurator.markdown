@@ -12,7 +12,7 @@ redirect_from: /ecosystem/hass-configurator/
 
 ### {% linkable_title Configuration UI for Home Assistant %}
 
-Since there currently is no nice way to edit the yaml-files Home Assistant is using through the frontend, here is a small webapp that hopefully makes the configuration easier. It is a customized and embedded [Ace editor](https://ace.c9.io/), which has syntax highlighting for yaml, the format used for HASS' configuration files. There is an integrated file browser to select whatever file you want to edit. When you're done with editing the file, click the save-button and it will replace the original.  
+Since there currently is no nice way to edit the yaml-files Home Assistant is using through the frontend, here is a small webapp that hopefully makes the configuration easier. It is a customized and embedded [Ace editor](https://ace.c9.io/), which has syntax highlighting for yaml, the format used for Home Assistants configuration files. There is an integrated file browser to select whatever file you want to edit. When you're done with editing the file, click the save-button and it will replace the original.  
 Essentially this is a browser-based alternative to modifying your configuration through SSH, Windows + SMB, Github etc..
 
 ### {% linkable_title Feature list %}
@@ -21,11 +21,11 @@ Essentially this is a browser-based alternative to modifying your configuration 
 - Upload and download files
 - Git integration
 - Lists of available triggers, events, entities, conditions and services. Selected element gets inserted into the editor at the last cursor position.
-- Check valid configuration and restart HASS directly with the click of a button
+- Check valid configuration and restart Home Assistant directly with the click of a button
 - SSL support
 - Optional authentication and IP filtering for additional security
-- Direct links to HASS documentation
-- Runs on pretty much any machine HASS can run on
+- Direct links to Home Assistant documentation
+- Runs on pretty much any machine Home Assistant can run on
 
 <p class='note warning'>
 This tool allows you to browse your filesystem and modify files. So be careful which files you edit, or you might break critical parts of your system.<br />
@@ -33,7 +33,7 @@ Consider running the configurator as a user with limited privileges to limit pos
 
 ### {% linkable_title Installation (Linux, OS X) %}
 There are no dependencies on Python modules that are not part of the standard library. And all the fancy JavaScript libraries are loaded from CDN (which means this doesn't work when you're offline).  
-- Copy [configurator.py](https://github.com/danielperna84/hass-poc-configurator/blob/master/configurator.py) to your HASS configuration directory (e.g /home/hass/.homeassistant)
+- Copy [configurator.py](https://github.com/danielperna84/hass-poc-configurator/blob/master/configurator.py) to your Home Assistant configuration directory (e.g /home/homeassistant/.homeassistant)
 - Make it executable: `sudo chmod 755 configurator.py`
 - (Optional) Set the `GIT` variable in configurator.py to `True` if [GitPython](https://gitpython.readthedocs.io/) is installed on your system. This is required if you want to make use of the Git integration.
 - Execute it: `sudo ./configurator.py`
@@ -41,20 +41,20 @@ There are no dependencies on Python modules that are not part of the standard li
 
 ### {% linkable_title Configuration %}
 Near the top of the configurator.py-file you will find some global variables you can change to customize the configurator. If you are unfamiliar with Python: when setting variables of the type _string_, you have to write that within quotation marks. The default settings are fine for just checking out the configurator quickly. With more customized setups you should change some settings though.  
-To keep your settings across updates it is also possible to save settings in an external file. In that case copy [settings.conf](https://github.com/danielperna84/hass-poc-configurator/blob/master/settings.conf) whereever you like and append the full path to the file to the command when starting the configurator. E.g. `sudo .configurator.py /home/hass/.homeassistant/mysettings.conf`. This file is in JSON format. So make sure it has a valid syntax (you can set the editor to JSON to get syntax highlighting for the settings). The major difference to the settings in the py-file is, that `None` becomes `null`.
+To keep your settings across updates it is also possible to save settings in an external file. In that case copy [settings.conf](https://github.com/danielperna84/hass-poc-configurator/blob/master/settings.conf) whereever you like and append the full path to the file to the command when starting the configurator. E.g. `sudo .configurator.py /home/homeassistant/.homeassistant/mysettings.conf`. This file is in JSON format. So make sure it has a valid syntax (you can set the editor to JSON to get syntax highlighting for the settings). The major difference to the settings in the py-file is, that `None` becomes `null`.
 
 #### LISTENIP (string)
 The IP the service is listening on. By default it is binding to `0.0.0.0`, which is every interface on the system.
 #### LISTENPORT (integer)
 The port the service is listening on. By default it is using `3218`, but you can change this if you need to.
 #### BASEPATH (string)
-It is possible to place configurator.py somewhere else. Set the `BASEPATH` to something like `"/home/hass/.homeassistant"`, and no matter where you are running the configurator from, it will start serving files from there. This is needed if you plan on running the configurator with systemd or some other way of daemonizing the configurator.
+It is possible to place configurator.py somewhere else. Set the `BASEPATH` to something like `"/home/homeassistant/.homeassistant"`, and no matter where you are running the configurator from, it will start serving files from there. This is needed if you plan on running the configurator with systemd or some other way of daemonizing the configurator.
 #### SSL_CERTIFICATE / SSL_KEY (string)
-If you are using SSL, set the paths to your SSL files here. This is similar to the SSL setup you can do in HASS.
+If you are using SSL, set the paths to your SSL files here. This is similar to the SSL setup you can do in Home Assistant.
 #### HASS_API (string)
-The configurator fetches some data from your running HASS instance. If the API is not available through the default URL, modify this variable to fix this.
+The configurator fetches some data from your running Home Assistant instance. If the API is not available through the default URL, modify this variable to fix this.
 #### HASS_API_PASSWORD (string)
-If you plan on using the restart button, you have to set your API password. Calling the restart service of HASS is prohibited without authentication.
+If you plan on using the restart button, you have to set your API password. Calling the restart service of Home Assistant is prohibited without authentication.
 #### CREDENTIALS (string)
 Set credentials in the form of `"username:password"` if authentication should be required for access to the configurator.
 #### ALLOWED_NETWORKS (list)
@@ -80,8 +80,8 @@ The way this is implemented works in the following order:
   - No: Return error 420
   - Yes: Continue and display UI of configurator
 
-### {% linkable_title Embedding into HASS %}
-HASS has the [panel_iframe](https://home-assistant.io/components/panel_iframe/) component. With this it is possible to embed the configurator directly into HASS, allowing you to modify your configuration through the HASS frontend.  
+### {% linkable_title Embedding into Home Assistant %}
+Home Assistant has the [panel_iframe](https://home-assistant.io/components/panel_iframe/) component. With this it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration through the Home Assistant frontend.  
 An example configuration would look like this:
 
 ```yaml
@@ -92,7 +92,7 @@ panel_iframe:
     url: http://123.123.132.132:3218
 ```
 <p class='note warning'>
-Be careful when setting up port forwarding to the configurator while embedding it into HASS. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!</p>
+Be careful when setting up port forwarding to the configurator while embedding it into Home Assistant. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!</p>
 
 ### {% linkable_title Daemonizing / Keeping the configurator running %}
 Since the configurator script on its own is no service, you will have to take some extra steps to keep it running. Here are five options (for Linux), but there are more, depending on your usecase.
@@ -102,7 +102,7 @@ Since the configurator script on its own is no service, you will have to take so
 2. If your system is using systemd (that's usually what you'll find on a Raspberry PI), there's a [template file](https://github.com/danielperna84/hass-poc-configurator/blob/master/hass-poc-configurator.systemd) you can use and then apply the same process to integrate it as mentioned in the [HASS documentation](https://home-assistant.io/docs/autostart/systemd/). If you use this method you have to set the `BASEPATH` variable according to your environment.
 3. If you have [supervisor](http://supervisord.org/) running on your system, [hass-poc-configurator.supervisor](https://github.com/danielperna84/hass-poc-configurator/blob/master/hass-poc-configurator.supervisor) would be an example configuration you could use to control the configurator.
 4. A tool called [tmux](https://tmux.github.io/), which should be pre-installed with recent AIO installers.
-5. A tool called [screen](http://ss64.com/bash/screen.html) (alternative to tmux). If it's not already installed on your system, you can do `sudo apt-get install screen` or `sudo yum install screen` to get it. When it's installed, start a screen session by executing `screen`. Then navigate to your HASS directory and start the configurator like described above. Put the screen session into the background by pressing `CTRL+A` and then `CTRL+D`. It is now safe to disconnect from your SSH session.
+5. A tool called [screen](http://ss64.com/bash/screen.html) (alternative to tmux). If it's not already installed on your system, you can do `sudo apt-get install screen` or `sudo yum install screen` to get it. When it's installed, start a screen session by executing `screen`. Then navigate to your Home Assistant directory and start the configurator like described above. Put the screen session into the background by pressing `CTRL+A` and then `CTRL+D`. It is now safe to disconnect from your SSH session.
 To resume the screen session, log in to your machine and execute `screen -r`.
 
 ### {% linkable_title Troubleshooting, Issues etc. %}
