@@ -15,6 +15,8 @@ ha_iot_class: "Local Push"
 
 [OpenCV](https://www.opencv.org) is an open source computer vision image and video processing library.
 
+Some pre-defined classifiers can be found here: http://alereimondo.no-ip.org/OpenCV/34
+
 ### {% linkable_title Basic Configuration %}
 
 To setup OpenCV with Home Assistant, add the following section to your `configuration.yaml` file:
@@ -22,7 +24,8 @@ To setup OpenCV with Home Assistant, add the following section to your `configur
 ```yaml
 # Example configuration.yaml entry
 opencv:
-  - name: Detect Face
+  classifier_group:
+    name: Detect Face
     entity_id: camera.front_door
 ```
 
@@ -34,18 +37,20 @@ OpenCV can accept some more advanced configuration parameters:
 
 ```yaml
 opencv:
-  - name: Detect Face
-    entity_id:
-      - camera.front_door
-      - camera.living_room
-    classifier:
-      - file_path: /path/to/classifier/face.xml
-        name: face
-      - file_path: /path/to/classifier/face_profile.xml
-        name: face profile
-        min_size: (20, 20)
-        scale: 1.6
-        neighbors: 5
+  classifier_group:
+    - name: Detect Face
+      entity_id:
+        - camera.front_door
+        - camera.living_room
+      classifier:
+        - file_path: /path/to/classifier/face.xml
+          name: face
+        - file_path: /path/to/classifier/face_profile.xml
+          name: face profile
+          min_size: (20, 20)
+          color: (255, 0, 0)
+          scale: 1.6
+          neighbors: 5
 ```
 
 Configuration variables:
@@ -56,6 +61,7 @@ Configuration variables:
   - **file_path** (*Optional*): The path to the HAARS or LBP classification file (xml), the default is `lbp_frontalface.xml`.
   - **name** (*Optional*): The classification name, the default is `Face`.
   - **min_size** (*Optional*): The minimum size for detection as a tuple `(width, height)`, the default is `(30, 30)`.
+  - **color** (*Optional*): The color, as a tuple `(Blue, Green, Red)` to draw the rectangle when linked to a dispatcher camera, the default is `(255, 255, 0)`.
   - **scale** (*Optional*): The scale to perform when processing, this is a `float` value that must be greater than or equal to `1.0`, default is `1.1`.
   - **neighbors** (*Optional*): The minimum number of neighbors required for a match, default is `4`. The higher this number, the more picky the matching will be; lower the number, the more false positives you may experience.
 
