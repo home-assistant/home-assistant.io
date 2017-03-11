@@ -4,7 +4,7 @@
   "release_notes": "https://home-assistant.io/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/",
   "release_notes_path": "/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/",
   "release_title": "Home Assistant 0.40: Turn any Android phone into an IP Webcam",
-  "release_description": "Tons of bug fixes for MQTT, Z-Wave and ",
+  "release_description": "Big startup performance increase and tons of bug fixes for MQTT, Z-Wave.",
   "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
