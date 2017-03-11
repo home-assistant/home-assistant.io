@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ring.png
 ha_category: Sensor
-ha_release: 0.40
+ha_release: "0.40"
 ---
 
 The `ring` sensor allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.

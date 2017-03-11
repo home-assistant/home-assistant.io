@@ -32,8 +32,8 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
 - **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from the history.
-  - **domains** (*Optional*): The list of domains to be included from the history.
+  - **entities** (*Optional*): The list of entity ids to be included from recordings.
+  - **domains** (*Optional*): The list of domains to be included from recordings.
 - **db_url** (*Optional*): The URL which point to your database. 
 
 
@@ -59,7 +59,7 @@ Define domains and entities to record by using the `include` configuration (aka.
 
 ```yaml
 # Example configuration.yaml entry with include
-history:
+recorder:
   include:
     domains:
       - sensor
@@ -71,7 +71,7 @@ Use the `include` list to define the domains/entities to record, and exclude som
 
 ```yaml
 # Example configuration.yaml entry with include and exclude
-history:
+recorder:
   include:
     domains:
       - sensor
