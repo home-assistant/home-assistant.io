@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: maxcube.png
 ha_category: DIY
-ha_release: 0.40
+ha_release: "0.40"
 ha_iot_class: "Local Polling"
 ---
 

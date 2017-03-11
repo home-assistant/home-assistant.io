@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: android_ip_webcam.png
 ha_category: Hub
-ha_release: 0.40
+ha_release: "0.40"
 ---
 
 The [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) turns your andorid phone into a network camera with multiple viewing options.

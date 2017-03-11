@@ -7,11 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
 ha_category: Sensor
-ha_release: 0.40
+ha_release: "0.40"
 ---
-
 
 The `modem_callerid` sensor platform uses an available modem for collecting caller ID information.  It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
 
@@ -43,7 +41,7 @@ When the sensor detects a new call, it's state changes to 'ring' for each ring a
 
 Some example automations:
 ```yaml
-automation:
+{% raw %}automation:
   - alias: Notify CallerID
     trigger: 
       platform: state
@@ -71,6 +69,6 @@ automation:
     action:
       service: tts.google_say
       data_template:
-        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }} '
+        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }} '{% endraw %}
 ```
 
