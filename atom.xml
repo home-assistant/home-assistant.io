@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-11T10:02:53+00:00</updated>
+  <updated>2017-03-11T22:23:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,234 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant 0.40: Turn any Android phone into an IP Webcam]]></title>
+    <link href="https://home-assistant.io/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/"/>
+    <updated>2017-03-11T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera</id>
+    <content type="html"><![CDATA[<p><a href="https://home-assistant.io/components/#added_in_current_version/"><img src="https://home-assistant.io/images/blog/2017-03-0.40/social.png" style="border: 0;box-shadow: none;" /></a></p>
+
+<p>It’s time for version 0.40 already! For this version, the main focus was on performance and bug fixes. Big thanks to <a href="https://github.com/pvizeli">@pvizeli</a> for driving this effort. Startup is now super fast. We have also continued with adding warnings for components and platforms that are slowing down Home Assistant.</p>
+
+<p>Some people have interpreted our recent added warnings as if 0.39 introduced the issues that caused the warning. This is not the case, the platforms and components have been misbehaving for a while but now we are adding warnings so we are able to track down the culprits.</p>
+
+<p>Before we continue talking about all the improvements in this release I want to take a moment to thank a few people from the Home Assistant community that are fundamental to the success of Home Assistant. Big thanks to <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/CCOSTAN">@CCOSTAN</a>, <a href="https://github.com/rrubin0">@skalavala</a> <a href="https://github.com/bassclarinetl2">@brahmafear</a> and <a href="https://github.com/torn8o">@torn8o</a>! These are all people that hang out in our <a href="https://gitter.im/home-assistant/home-assistant">main chat channel</a> and help new users get started and help existing users when running into trouble. Home Assistant would not be there without all the effort you put in! 🙇</p>
+
+<p>And that our community kicks ass is also shown in the numbers. We have already raised together over $700 for the <a href="https://www.eff.org">EFF</a> via the sale of <a href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/">our t-shirts</a>! All of you rock! Another number worth mentioning is that this release brings us passed 600 integrations for Home Assistant. All of you rock, again!</p>
+
+<h2>Z-Wave is now threadsafe</h2>
+
+<p><a href="https://github.com/andrey-git">@andrey-git</a> has spend a lot of time to make Z-Wave perform better. It should no longer cause Home Assistant to run slower or raise warnings about the timer getting out of sync.</p>
+
+<h2>Update on the MQTT Out of Memory errors in 0.39</h2>
+
+<p>MQTT started causing “Out of Memory” errors for some people on a Raspberry Pi. We have been able to track this down to Raspberry Pis that are using an older firmware. If you are experiencing this issue, please <a href="https://github.com/Hexxeh/rpi-update#installing">upgrade your firmware using <code class="highlighter-rouge">rpi-update</code></a>.</p>
+
+<h2>Turn any Android phone into an IP Camera</h2>
+
+<p>With the new support for <a href="https://home-assistant.io/components/android_ip_webcam/">IP Webcam</a> added by <a href="https://github.com/robbiet480">@robbiet480</a> and <a href="https://github.com/pvizeli">@pvizeli</a> you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:</p>
+
+<ul>
+  <li>Integrate the Android device camera</li>
+  <li>Binary sensor when motion is detected</li>
+  <li>Sensors to expose the device sensors, including pressure, sound, battery, light</li>
+  <li>Control device features like the GPS, night vision and camera flash</li>
+</ul>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2017-03-0.40/ipwebcam.png" />
+Screenshot of all the different functionality the IP webcam integration offers.
+</p>
+
+<h2>Other Highlights</h2>
+
+<ul>
+  <li>Support added for Austrian weather using Zamg weather data (<a href="https://github.com/Zac-HD">@Zac-HD</a>)</li>
+  <li>Ring.com video doorbell integration added (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Blink Home Security Camera support added (<a href="https://github.com/fronzbot">@fronzbot</a>)</li>
+  <li>AppleTV has been converted to push data to Home Assistant instead of us having to poll (<a href="https://github.com/postlund">@postlund</a>)</li>
+</ul>
+
+<h2>Breaking changes</h2>
+
+<ul>
+  <li>Vera entity ids have changed. This is a one time change to migrate to a model that will prevent future conflicts.</li>
+  <li>The Twilio notify platforms now have to be configured via the twilio component.</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">twilio</span><span class="pi">:</span>
+  <span class="s">account_sid</span><span class="pi">:</span> <span class="s2">"</span><span class="s">abc"</span>
+  <span class="s">auth_token</span><span class="pi">:</span> <span class="s2">"</span><span class="s">xyz"</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>If you are using async custom components, the passed in <code class="highlighter-rouge">async_add_devices</code> method is now a callback instead of a coroutine function.</li>
+</ul>
+
+<h3>If you need help…</h3>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h3>Reporting Issues</h3>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+<!--more-->
+
+<h2>All changes</h2>
+
+<ul>
+  <li>Cleanup run_callback_threadsafe (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Use H2 headers to split up the different sections (<a href="https://github.com/colinodell">@colinodell</a>)</li>
+  <li>Refactory of envisalink (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Create zwave devices on OZW thread and only add them during discovery (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Bugfix restore startup state (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Random test fixes (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Remove automatically reloading group config (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Default config to setup group editor (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>minor broadlink fix (<a href="https://github.com/danielhiversen">@danielhiversen</a>)</li>
+  <li>Update Yeelight Sunflower light platform to 0.0.6 (<a href="https://github.com/lindsaymarkwawrd">@lindsaymarkwawrd</a>)</li>
+  <li>Some zwave cleanup (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>sensor.speedtest: provide a default icon (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Test the temperature returned by RM2 (<a href="https://github.com/aronsky">@aronsky</a>)</li>
+  <li>Zamg weather (<a href="https://github.com/Zac-HD">@Zac-HD</a>)</li>
+  <li>Fix reporting on bad login (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Move mqtt from eventbus to dispatcher / add unsub for dispatcher (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Update flake8 and pylint to latest (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Fix link (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Make glob preserve order (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Update regex (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Fix recorder async (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix livebox-play interactions for Python &lt; 3.6 (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
+  <li>Ensure we properly close HASS instances. (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Add service to change log levels (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li>Move ffmpeg to dispatcher from hass.data entity store. (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Feature/reorg recorder (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Bugfix mqtt socket error (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Notify ciscospark (<a href="https://github.com/shenning00">@shenning00</a>)</li>
+  <li>Config fix (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Bugfix mqtt paho client to speend time (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Properly report features for each hue bulb type (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>Local file camera now supports yet inexisting files. (<a href="https://github.com/jjmontestl">@jjmontestl</a>)</li>
+  <li>light.transition now supports float instead of int in order to be able to perform faster transitions (<a href="https://github.com/BillyNate">@BillyNate</a>)</li>
+  <li>Fix for OSRAM lights connected to hue bridge (<a href="https://github.com/groth-its">@groth-its</a>)</li>
+  <li>Add support for MAX!Cube thermostats and window shutter sensors (<a href="https://github.com/BastianPoe">@BastianPoe</a>)</li>
+  <li>Analog modem callerid support (<a href="https://github.com/vroomfonde1">@vroomfonde1</a>)</li>
+  <li>[sensor.dnsip] New Sensor: DNS IP (<a href="https://github.com/danielperna84">@danielperna84</a>)</li>
+  <li>Update library version for Yeelight Sunflower lights platform (fix for packaging problem with 0.0.7) (<a href="https://github.com/lindsaymarkwawrd">@lindsaymarkwawrd</a>)</li>
+  <li>Prevent duplicate names on Vera devices by appending the device id (<a href="https://github.com/arjenfvellinga">@arjenfvellinga</a>)</li>
+  <li>Add temperature support for MH-Z19 CO2 sensor. (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>improve history_stats accuracy (<a href="https://github.com/bokub">@bokub</a>)</li>
+  <li>Updated pyitachip2ir (<a href="https://github.com/alanfischer">@alanfischer</a>)</li>
+  <li>Influx fix (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Fix toggle and media_play_pause post async (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Migrate calendar setup to async. (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Frontier silicon (<a href="https://github.com/zhelev">@zhelev</a>)</li>
+  <li>Bootstrap / Component setup async (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Convert kpH and mpH to kph and mph (<a href="https://github.com/ericgingras">@ericgingras</a>)</li>
+  <li>Rollback netdisco to 0.8.2 to resolve #6165 (<a href="https://github.com/jumpkick">@jumpkick</a>)</li>
+  <li>Log errors when loading yaml (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Bootstrap tweaks tests (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Telegram webhooks new text event (<a href="https://github.com/scipioni">@scipioni</a>)</li>
+  <li>Cleanup component track_point_in_utc_time usage (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Discovery fix (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Test against 3.6-dev (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Bugfix ZigBee / Move from eventbus to dispatcher (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Bump netdisco to 0.9.1 (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>sensor.dovado: compute state in update (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
+  <li>Fix mysensors callback race (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
+  <li>Upgrade TwitterAPI to 2.4.5 (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Upgrade py-cpuinfo to 0.2.6 (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Template sensor change flow / add restore (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Zwave optimize value_added (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Update Vagrant provision.sh (<a href="https://github.com/shaftoe">@shaftoe</a>)</li>
+  <li>Update Adafruit_Python_DHT to support new raspberry kernel (<a href="https://github.com/masarliev">@masarliev</a>)</li>
+  <li>Add fallback for name if userdevicename isn’t set using old serialnumber logic (<a href="https://github.com/reedriley">@reedriley</a>)</li>
+  <li>Improve Honeywell US climate component (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Template binary_sensor change flow / add restore (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Additional support for ecobee hold mode (<a href="https://github.com/Duoxilian">@Duoxilian</a>)</li>
+  <li>Update Formulas in Convert XY to RGB (<a href="https://github.com/dramamoose">@dramamoose</a>)</li>
+  <li>Use dynamic ports for test instances (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Added support for multiple codes executed in a row (<a href="https://github.com/martinfrancois">@martinfrancois</a>)</li>
+  <li>Use push updates in Apple TV (<a href="https://github.com/postlund">@postlund</a>)</li>
+  <li>Fix command sudo not found error in dev Dockerfile (<a href="https://github.com/jawilson">@jawilson</a>)</li>
+  <li>Fix calendar authentication text, and handle calendar events without summaries. (<a href="https://github.com/alanfischer">@alanfischer</a>)</li>
+  <li>Move dispatcher out of init. (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Zwave: Add remove/replace failed node services. (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Template switch change flow / add restore (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Bump limitlessled dependency to 1.0.5. (<a href="https://github.com/janLo">@janLo</a>)</li>
+  <li>snmp: upgrade pysnmp to 4.3.4 (<a href="https://github.com/milaq">@milaq</a>)</li>
+  <li>Bugfix new async_add_devices function (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Restore for input_slider (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Added IPv4 data collector (<a href="https://github.com/open-homeautomation">@open-homeautomation</a>)</li>
+  <li>Return None instead of raising ValueException from as_timestamp template function. (<a href="https://github.com/jjmontestl">@jjmontestl</a>)</li>
+  <li>[recorder] Catch more startup errors #6179 (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>twilio component (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
+  <li>Add Z-Wave battery level as a sensor. (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>OwnTrack Async (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix possibility that have multible topic subscribe mqtt (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Migrate mqtt tracker and arwn sensor to async / cleanup owntrack (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Z-Wave prevent I/O event loop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Update pwaqi to 3.0 to use public API (<a href="https://github.com/valentinalexeev">@valentinalexeev</a>)</li>
+  <li>Update Hikvision Binary Sensors to latest library, remove pyDispatcher (<a href="https://github.com/mezz64">@mezz64</a>)</li>
+  <li>Don’t initialize components which have already been discovered (<a href="https://github.com/colinodell">@colinodell</a>)</li>
+  <li>Comed Hourly Pricing sensor (<a href="https://github.com/joe248">@joe248</a>)</li>
+  <li>Add multi contracts support for Hydroquebec (<a href="https://github.com/titilambert">@titilambert</a>)</li>
+  <li>Add Zwave refresh services (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Add keep-alive feature to the generic thermostat (<a href="https://github.com/aronsky">@aronsky</a>)</li>
+  <li>Fix wake_on_lan for german version of Windows 10 (#6397) (<a href="https://github.com/siebert">@siebert</a>)</li>
+  <li>flux led lib (<a href="https://github.com/danielhiversen">@danielhiversen</a>)</li>
+  <li>Cleanup async handling (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Restore for automation entities (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Fix tests no internet (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Prevent more I/O in apns (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Restore flow on device_tracker platform (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>switch.tplink: catch exceptions coming from pyHS100 to avoid flooding the logs when the plug is not available (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
+  <li>Added sensors to support Ring.com devices (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Split bootstrap into bs + setup (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Tweak recorder/restore_state (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix unnecessary warning for ip bans.yaml (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Better restore_state warnings (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Set new color before turning LIFX bulbs on (<a href="https://github.com/amelchio">@amelchio</a>)</li>
+  <li>Don’t log username and password in camera url (<a href="https://github.com/ishults">@ishults</a>)</li>
+  <li>Ignore deleted mails in IMAP unread count (#6394) (<a href="https://github.com/amelchio">@amelchio</a>)</li>
+  <li>Delay zwave updates for 100ms to group them. (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Rename _scheduled_update to _update_scheduled (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Revert “Use dynamic port allocation for tests” (<a href="https://github.com/armills">@armills</a>)</li>
+  <li>Tado device_tracker exception when mobile device has geofencing enabled but location is currently unknown. (<a href="https://github.com/jmvermeulen">@jmvermeulen</a>)</li>
+  <li>Add a Z-wave workaround to do full refresh on update (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+  <li>Use bundled certificates if port matches mqtts (<a href="https://github.com/dennisdegreef">@dennisdegreef</a>)</li>
+  <li>Bugfix samsungtv discovery (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Added unittest for Ring sensor (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
+  <li>Shorten recorder connection init (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>KWB Easyfire support (<a href="https://github.com/bimbar">@bimbar</a>)</li>
+  <li>Bumped version number for supporting lib (<a href="https://github.com/bazwilliams">@bazwilliams</a>)</li>
+  <li>Send a logo with webostv notifications (<a href="https://github.com/andersonshatch">@andersonshatch</a>)</li>
+  <li>Upgrade netdisco to 0.9.2 (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Allow testing against uvloop (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>fix issue (<a href="https://github.com/appzer">@appzer</a>)</li>
+  <li>Remove connection status state. (<a href="https://github.com/aequitas">@aequitas</a>)</li>
+  <li>Support for Blink Camera System (<a href="https://github.com/fronzbot">@fronzbot</a>)</li>
+  <li>Add warning for slow platforms/components (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix wake_on_lan ping for Linux. (<a href="https://github.com/siebert">@siebert</a>)</li>
+  <li>Add support for remove services / Reload script support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Expand MQTT lights (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
+  <li>Allow configurable conditions for Pi-Hole sensor (<a href="https://github.com/colinodell">@colinodell</a>)</li>
+  <li>Improved iCloud 2FA support. (<a href="https://github.com/reedriley">@reedriley</a>)</li>
+  <li>Update pymyq requirement (<a href="https://github.com/arraylabs">@arraylabs</a>)</li>
+  <li>Not always asume manufacturername is present (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Add first pass at Z-Wave light tests (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Bugfix mqtt socket memory error (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Increase upper limit on light transitions (<a href="https://github.com/amelchio">@amelchio</a>)</li>
+  <li>Bugfix android camera autodiscovery settings (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Update to Pyunifi2.0 (<a href="https://github.com/finish06">@finish06</a>)</li>
+  <li>Insteon lib (<a href="https://github.com/wardcraigj">@wardcraigj</a>)</li>
+  <li>Bugfix rpi_rf cleanup (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Android webcam better error handling / pump library 0.4 (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.39: Configuration panel, state restoration and improved docs]]></title>
@@ -2142,39 +2370,6 @@ You have to note:
 
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
-    <link href="https://home-assistant.io/blog/2016/10/02/hacktoberfest/"/>
-    <updated>2016-10-02T00:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/10/02/hacktoberfest</id>
-    <content type="html"><![CDATA[<p>Home Assistant will join this year for <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>, an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!</p>
-
-<p>Why contribute to Home Assistant:</p>
-
-<ul>
-  <li>Written in Python3 with 94% test coverage</li>
-  <li>Active and helpful community</li>
-  <li>Friendly to new contributors</li>
-</ul>
-
-<p>Resources to get started:</p>
-
-<ul>
-  <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
-  <li><a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">List of entry-level issues for Home Assistant</a></li>
-  <li><a href="https://home-assistant.io/developers/development_environment/">Instructions to setup your development environment</a></li>
-  <li><a href="https://gitter.im/home-assistant/home-assistant/devs">Home Assistant Development Chat</a></li>
-  <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
-  <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
-</ul>
-
-<p>Are you not a programmer but still want to contribute to Home Assistant? Check out our <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">list of entry-level issues for the Home Assistant website</a>.</p>
-
-<p><a href="https://hacktoberfest.digitalocean.com/"><img src="https://home-assistant.io/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
 
 ]]></content>
   </entry>

@@ -114,7 +114,7 @@ It’s HIGHLY recommended that you set the <code class="highlighter-rouge">api_p
   <li><strong>ssl_key</strong> (<em>Optional</em>): Path to your TLS/SSL key to serve Home Assistant over a secure connection.</li>
   <li><strong>cors_allowed_origins</strong> (<em>Optional</em>): A list of origin domain names to allow <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> requests from. Enabling this will set the <code class="highlighter-rouge">Access-Control-Allow-Origin</code> header to the Origin header if it is found in the list, and the <code class="highlighter-rouge">Access-Control-Allow-Headers</code> header to <code class="highlighter-rouge">Origin, Accept, X-Requested-With, Content-type, X-HA-access</code>. You must provide the exact Origin, i.e. <code class="highlighter-rouge">https://home-assistant.io</code> will allow requests from <code class="highlighter-rouge">https://home-assistant.io</code> but <strong>not</strong> <code class="highlighter-rouge">http://home-assistant.io</code>.</li>
   <li><strong>use_x_forwarded_for</strong> (<em>Optional</em>): Enable parsing of the <code class="highlighter-rouge">X-Forwarded-For</code> header, passing on the client’s correct IP address in proxied setups. You should only enable this in a trustworthy network environment, as clients passing that header could easily spoof their source IP address. Defaults to False.</li>
-  <li><strong>trusted_networks</strong> (<em>Optional</em>): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.</li>
+  <li><strong>trusted_networks</strong> (<em>Optional</em>): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant. It should be noted that if you use a reverse proxy, all requests to home assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario this option should be used with extreme care.</li>
   <li><strong>ip_ban_enabled</strong> (<em>Optional</em>): Flag indicating whether additional IP filtering is enabled. Defaults to False.</li>
   <li><strong>login_attempts_threshold</strong> (<em>Optional</em>): Number of failed login attemt from single IP after which it will be automatically banned if <code class="highlighter-rouge">ip_ban_enabled</code> is True. Defaults to -1, meaning that no new automatic bans will be added.</li>
 </ul>
@@ -198,6 +198,9 @@ Please note, that sources from <code class="highlighter-rouge">trusted_networks<
     <ul class='divided'>
         <li>
             <a href='/components/browser/'>Browser</a>
+        </li>
+        <li>
+            <a href='/components/config/'>Config</a>
         </li>
         <li>
             <a href='/components/configurator/'>Configurator</a>

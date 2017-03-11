@@ -135,6 +135,19 @@
   <li>notset</li>
 </ul>
 
+<h3><a class="title-link" name="service-set_level" href="#service-set_level"></a> Service <code class="highlighter-rouge">set_level</code></h3>
+
+<p>You can alter log level for one or several components using the service
+<code class="highlighter-rouge">logger.set_level</code>. It accepts the same format as <code class="highlighter-rouge">logs</code> in the configuration.</p>
+
+<p>An example call might look like this:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">logger.set_level</span>
+<span class="s">data</span><span class="pi">:</span>
+  <span class="s">homeassistant.components</span><span class="pi">:</span> <span class="s">warning</span>
+  <span class="s">homeassistant.components.media_player.yamaha</span><span class="pi">:</span> <span class="s">debug</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -157,6 +170,9 @@
     <ul class='divided'>
         <li>
             <a href='/components/browser/'>Browser</a>
+        </li>
+        <li>
+            <a href='/components/config/'>Config</a>
         </li>
         <li>
             <a href='/components/configurator/'>Configurator</a>

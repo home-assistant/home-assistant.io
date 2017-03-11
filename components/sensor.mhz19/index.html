@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The MH-Z19 is a small nondispersive infrared sensor that can measure CO2 sensors. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.</p>
+  <p>The MH-Z19 is a small nondispersive infrared sensor that can measure CO2 level. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.</p>
 
 <p>Check out the <a href="https://www.open-homeautomation.com/2016/08/24/monitor-co2-levels-in-your-house/">Open Home Automation web site</a> for a quick guide how to connect the sensor to your PC or Raspberry Pi.</p>
 
@@ -105,8 +105,24 @@
 <ul>
   <li><strong>serial_device</strong> (<em>Required</em>): The serial port to use. On *nix systems, it can often be identified by <code class="highlighter-rouge">$ ls /dev/tty*</code></li>
   <li><strong>name</strong> (<em>Optional</em>): The name displayed in the frontend.</li>
+  <li><strong>monitored_conditions</strong> (<em>Optional</em>, starting from version 0.40): Conditions to monitor. Supported conditions:
+    <ul>
+      <li><strong>co2</strong> (<em>default</em>)</li>
+      <li><strong>temperature</strong></li>
+    </ul>
+  </li>
 </ul>
 
+<p>Full example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mhz19</span>
+    <span class="s">serial_device</span><span class="pi">:</span> <span class="s">/dev/tty.SLAB_USBtoUART</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">My MHZ19</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">co2</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+</code></pre>
+</div>
 
 
 </article>
@@ -143,7 +159,13 @@
             <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
         </li>
         <li>
+            <a href='/components/sensor.android_ip_webcam/'>Android IP Webcam Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.bbox/'>Bbox Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.blink/'>Blink Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
@@ -152,7 +174,13 @@
             <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.modem_callerid/'>Caller ID Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.command_line/'>Command line Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dnsip/'>DNS IP</a>
         </li>
         <li>
             <a href='/components/sensor.dweet/'>Dweet.io</a>
@@ -258,6 +286,9 @@
         </li>
         <li>
             <a href='/components/sensor.rflink/'>Rflink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ring/'>Ring</a>
         </li>
         <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>

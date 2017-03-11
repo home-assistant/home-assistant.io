@@ -352,12 +352,28 @@ Depending on what’s plugged into your USB ports, the name found above may chan
       <td>Print all state of Z-Wave node.</td>
     </tr>
     <tr>
+      <td>refresh_entity</td>
+      <td>Refresh Z-Wave entity by refreshing dependent values.</td>
+    </tr>
+    <tr>
+      <td>refresh_node</td>
+      <td>Refresh Z-Wave node.</td>
+    </tr>
+    <tr>
       <td>remove_node</td>
       <td>Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.</td>
     </tr>
     <tr>
       <td>rename_node</td>
       <td>Sets a node’s name. Requires an <code class="highlighter-rouge">entity_id</code> and <code class="highlighter-rouge">name</code> field.</td>
+    </tr>
+    <tr>
+      <td>remove_failed_node</td>
+      <td>Remove a failed node from the network. The Node should be on the Controllers Failed Node List, otherwise this command will fail.</td>
+    </tr>
+    <tr>
+      <td>replace_failed_node</td>
+      <td>Replace a failed device with another. If the node is not in the controller’s failed nodes list, or the node responds, this command will fail.</td>
     </tr>
     <tr>
       <td>set_config_parameter</td>

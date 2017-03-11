@@ -90,105 +90,11 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">zamg</code> platform uses meteorological details published by the Austrian weather service <a href="https://www.zamg.ac.at/">Zentralanstalt für
- Meteorologie und Geodynamik (ZAMG)</a>.</p>
+  <p>The <code class="highlighter-rouge">zamg</code> platform uses meteorological details published by the Austrian weather service
+<a href="https://www.zamg.ac.at">Zentralanstalt für Meteorologie und Geodynamik (ZAMG)</a>.</p>
 
-<p>The following stations are available:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left"><code class="highlighter-rouge">station_id</code></th>
-      <th style="text-align: left">Location</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">11010</td>
-      <td style="text-align: left">Linz/Hörsching</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11012</td>
-      <td style="text-align: left">Kremsmünster</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11022</td>
-      <td style="text-align: left">Retz</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11035</td>
-      <td style="text-align: left">Wien/Hohe Warte</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11036</td>
-      <td style="text-align: left">Wien/Schwechat</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11101</td>
-      <td style="text-align: left">Bregenz</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11121</td>
-      <td style="text-align: left">Innsbruck</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11126</td>
-      <td style="text-align: left">Patscherkofel</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11130</td>
-      <td style="text-align: left">Kufstein</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11150</td>
-      <td style="text-align: left">Salzburg</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11155</td>
-      <td style="text-align: left">Feuerkogel</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11157</td>
-      <td style="text-align: left">Aigen im Ennstal</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11171</td>
-      <td style="text-align: left">Mariazell</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11190</td>
-      <td style="text-align: left">Eisenstadt</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11204</td>
-      <td style="text-align: left">Lienz</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11240</td>
-      <td style="text-align: left">Graz/Flughafen</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11244</td>
-      <td style="text-align: left">Bad Gleichenberg</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11265</td>
-      <td style="text-align: left">Villacher Alpe</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11331</td>
-      <td style="text-align: left">Klagenfurt/Flughafen</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11343</td>
-      <td style="text-align: left">Sonnblick</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">11389</td>
-      <td style="text-align: left">St. Pölten</td>
-    </tr>
-  </tbody>
-</table>
+<p>Only observations for capital cities are publically available.  You can check the
+list of stations in <a href="http://www.zamg.ac.at/ogd">CSV format</a>.</p>
 
 <p>To add ZAMG to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -205,7 +111,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>station_id</strong> (<em>Required</em>): Your API key for http://openweathermap.org/.</li>
+  <li><strong>station_id</strong> (<em>Optional</em>): The ID number for a supported ZAMG station.</li>
   <li><strong>name</strong> (<em>Optional</em>): Additional name for the sensors. Defaults to platform name.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend.
     <ul>
@@ -216,7 +122,7 @@
       <li><strong>wind_bearing</strong>: Wind bearing</li>
       <li><strong>wind_max_speed</strong>: Top wind speed</li>
       <li><strong>wind_max_bearing</strong>: Top wind bearing</li>
-      <li><strong>sun_last_hour</strong>: Sun last hourpercentage</li>
+      <li><strong>sun_last_hour</strong>: Sun last hour percentage</li>
       <li><strong>temperature</strong>: Temperature</li>
       <li><strong>precipitation</strong>: Precipitation</li>
       <li><strong>dewpoint</strong>: Dew point</li>
@@ -224,6 +130,10 @@
   </li>
 </ul>
 
+<p class="note">
+This sensor is an alternative to the <a href="/components/weather.zamg/"><code class="highlighter-rouge">zamg</code></a> weather platform.
+The weather platform is easier to configure but less customisable.
+</p>
 
 
 </article>
@@ -243,6 +153,14 @@
   </div>
     <div class='section'>
     Introduced in release: 0.35
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/weather.zamg/'>
+          ZAMG Weather
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Weather</h1>
@@ -288,6 +206,9 @@
         </li>
         <li>
             ZAMG Sensor
+        </li>
+        <li>
+            <a href='/components/weather.zamg/'>ZAMG Weather</a>
         </li>
     </ul>
     </div>

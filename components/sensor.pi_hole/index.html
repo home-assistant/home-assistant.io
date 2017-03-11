@@ -106,6 +106,13 @@
   <li><strong>host</strong> (<em>Optional</em>): The IP address of the Pi-Hole system. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): If <code class="highlighter-rouge">true</code>, use SSL/TLS to connect to the Pi-Hole system. Defaults to <code class="highlighter-rouge">False</code>.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the system. Default to <code class="highlighter-rouge">True</code>.</li>
+  <li><strong>monitored_conditions</strong> (<em>Optional</em>): Defines the stats to monitor as sensors.
+    <ul>
+      <li><strong>dns_queries_today</strong>: Total number of DNS queries handled by Pi-Hole today</li>
+      <li><strong>ads_blocked_today</strong>: Total number of blocked ads today</li>
+      <li><strong>ads_percentage_today</strong>: Percentage of blocked ads</li>
+    </ul>
+  </li>
 </ul>
 
 

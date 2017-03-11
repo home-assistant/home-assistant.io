@@ -109,6 +109,33 @@
   <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
 </ul>
 
+<p>EnOcean binary sensors only generate ‘button_pressed’ events. The event data has follwing four fields:</p>
+
+<ul>
+  <li><strong>id</strong>: The ID of the device (see configuration).</li>
+  <li><strong>pushed</strong>: <code class="highlighter-rouge">1</code> for a button press, <code class="highlighter-rouge">0</code> for a button release.</li>
+  <li><strong>which</strong>: Always <code class="highlighter-rouge">0</code> when using the single rocket.  <code class="highlighter-rouge">0</code> or <code class="highlighter-rouge">1</code> when using the dual rocket switch.</li>
+  <li><strong>onoff</strong>: <code class="highlighter-rouge">0</code> or <code class="highlighter-rouge">1</code> for either side of the rocket.</li>
+</ul>
+
+<p>Sample automation to switch lights on and off:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example automation to turn lights on/off on button release</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">hall light switches</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">button_pressed</span>
+      <span class="s">event_data</span><span class="pi">:</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">0xYY</span><span class="pi">,</span> <span class="nv">0xYY</span><span class="pi">,</span> <span class="nv">0xYY</span><span class="pi">,</span> <span class="nv">0xYY</span><span class="pi">]</span>
+        <span class="s">pushed</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">trigger.event.data.onoff</span><span class="nv"> </span><span class="s">%}</span><span class="nv"> </span><span class="s">light.turn_on</span><span class="nv"> </span><span class="s">{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}</span><span class="nv"> </span><span class="s">light.turn_off</span><span class="nv"> </span><span class="s">{%endif</span><span class="nv"> </span><span class="s">%}"</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">trigger.event.data.which</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">%}</span><span class="nv"> </span><span class="s">light.hall_left</span><span class="nv"> </span><span class="s">{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}</span><span class="nv"> </span><span class="s">light.hall_right</span><span class="nv"> </span><span class="s">{%endif</span><span class="nv"> </span><span class="s">%}"</span>
+</code></pre>
+</div>
+
 
 </article>
 
@@ -159,10 +186,16 @@
             <a href='/components/binary_sensor.apcupsd/'>APCUPSd Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.android_ip_webcam/'>Android IP Webcam Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.aurora/'>Aurora sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.blink/'>Blink Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
