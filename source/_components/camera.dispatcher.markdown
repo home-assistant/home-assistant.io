@@ -13,14 +13,27 @@ ha_release: 0.40
 ha_iot_class: "depends"
 ---
 
-The `dispatcher` camera platform allows developers to integrate any image data into Home Assistant. Other components or platform can discover this dispatcher camera to view some things.
+<p class='note'>
+This platform is meant for developers only.
+</p>
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+The `dispatcher` camera platform allows developers to create virtual camera's.
+
+You would normally not add this camera to your configuration directly but have it be discovered by one of the components that uses it.
+
 ```yaml
 # Example configuration.yaml entry
 camera:
   - platform: dispatcher
     signal: name_of_dispatcher_signal
+```
+
+To update the image from another piece of code, run this from an async context:
+
+```python
+from homeassistant.helpers.dispatcher import async_dispatcher_send
+
+async_dispatcher_send(hass, 'name_of_dispatcher_signal', image_data)
 ```
 
 Configuration variables:
