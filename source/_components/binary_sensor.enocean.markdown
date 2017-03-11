@@ -29,3 +29,28 @@ Configuration variables:
 - **id** (*Required*): The ID of the device. This is the 4 bytes long number written on the dimmer.
 - **name** (*Optional*): An identifier for the switch in the frontend.
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+
+EnOcean binary sensors only generate 'button_pressed' events. The event data has follwing four fields:
+
+ - **id**: The ID of the device (see configuration).
+ - **pushed**: `1` for a button press, `0` for a button release.
+ - **which**: Always `0` when using the single rocket.  `0` or `1` when using the dual rocket switch.
+ - **onoff**: `0` or `1` for either side of the rocket.
+
+Sample automation to switch lights on and off:
+
+```yaml
+# Example automation to turn lights on/off on button release
+automation:
+  - alias: hall light switches
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data:
+        id: [0xYY, 0xYY, 0xYY, 0xYY]
+        pushed: 0
+    action:
+      service_template: "{% raw %}{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}{% endraw %}"
+      data_template:
+        entity_id: "{% raw %}{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}{% endraw %}"
+```
