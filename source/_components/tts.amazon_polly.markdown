@@ -44,18 +44,16 @@ Say to all `media_player` device entities:
 ```yaml
 - service: tts.amazon_polly_say
   data_template:
-    entity_id: media_player.bedroom
-      message: '<speak>Hello from Amazon Polly</speak>'
+    message: '<speak>Hello from Amazon Polly</speak>'
 ```
 or
 ```yaml
 - service: tts.amazon_polly_say
   data_template:
-    entity_id: media_player.bedroom
-      message: >
-        <speak>
-            Hello from Amazon Polly
-        </speak>
+    message: >
+      <speak>
+          Hello from Amazon Polly
+      </speak>
 ```
 
 Say to the `media_player.living_room` device entity:
@@ -64,22 +62,21 @@ Say to the `media_player.living_room` device entity:
 - service: tts.amazon_polly_say
   data_template:
     entity_id: media_player.living_room
-      message: >
-        <speak>
-            Hello from Amazon Polly
-        </speak>
+    message: >
+      <speak>
+          Hello from Amazon Polly
+      </speak>
 ```
 
-Say with delay:
+Say with break:
 
 ```yaml
 - service: tts.amazon_polly_say
   data_template:
-    entity_id: media_player.living_room
-      message: >
-        <speak>
-            Hello from,
-            <break time=".9s" />
-            Amazon Polly
-        </speak>
+    message: >
+      <speak>
+          Hello from
+          <break time=".9s" />
+          Amazon Polly
+      </speak>
 ```
