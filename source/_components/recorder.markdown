@@ -31,9 +31,11 @@ Configuration variables:
 - **exclude** (*Optional*): Configure which components should be excluded from recordings.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
+  - **events** (*Optional*): The list of events to be excluded from recordings.
 - **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from recordings.
-  - **domains** (*Optional*): The list of domains to be included from recordings.
+  - **entities** (*Optional*): The list of entity ids to be included in recordings.
+  - **domains** (*Optional*): The list of domains to be included in recordings.
+  - **events** (*Optional*): The list of events to be included in recordings.
 - **db_url** (*Optional*): The URL which point to your database. 
 
 
@@ -84,6 +86,34 @@ recorder:
 ```
 
 If you only want to hide events from e.g. your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+
+Events can be included and excluded in the same way as domains. Filtering is based on event type (column `event_type` in table `events`) and no distinction between domain and entity exists. A special case is the event `state_changed`. Usually this event is logged in two tables: In `events` in its raw form as JSON and in `states` as a compact representation. Filtering `state_changed` only disables the entries in `events`. Therefore all history functionallity which relies on `states` keeps working but the amount of data written per event is reduced to about 1/5. 
+
+```yaml
+# Example configuration.yaml recording everything except state_changed events
+recorder:
+  exclude:
+    events:
+      - state_changed
+```
+
+Recording only the events for incomming MQTT messages can be done by:
+```yaml
+# Example configuration.yaml recording only MQTT messages
+recorder:
+  include:
+    events:
+      - mqtt_message_received
+```
+
+Recording events can be disabled completely by including only an empty string:
+```yaml
+# Example configuration.yaml disabling event recording
+recorder:
+  include:
+    events:
+      - ""
+```
 
 ## Custom database engines
 
