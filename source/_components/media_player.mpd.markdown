@@ -31,6 +31,7 @@ Configuration variables:
 
 - **host** (*Required*): IP address of the Host where Music Player Daemon is running.
 - **port** (*Optional*): Port of the Music Player Daemon. Defaults to 6600.
+- **name** (*Optional*): Name for your Music Player Daemon.
 - **location** (*Optional*): Location of your Music Player Daemon. Defaults to "MPD".
 - **password** (*Optional*): Password for your Music Player Daemon.
 
