@@ -64,7 +64,6 @@ media_player:
     scan_interval: 5
     show_all_controls: false
     use_custom_entity_ids: true
-    use_dynamic_groups: true
     use_episode_art: true
 ```
 - **entity_namespace** (*Optional*): Prefix for entity ID's. Defaults to `null`. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_
@@ -74,7 +73,6 @@ media_player:
 - **scan_interval** (*Optional*): Amount in seconds in between polling for device’s current activity. Defaults to `10` seconds.
 - **show_all_controls** (*Optional*): Forces all controls to display. Defaults to `false`. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
 - **use_custom_entity_ids** (*Optional*): Name Entity ID's by client ID's instead of friendly names. Defaults to `false`.  HA assigns entity ID's on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can't reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID's (ex. media_player.dy4hdna2drhn).
-- **use_dynamic_groups** (*Optional*): Automatically group devices (`group._plex_devices_active` and `group._plex_devices_inactive`) as devices change states. Defaults to `false`. Group memberships are cleared when HA is restarted.
 - **use_episode_art** (*Optional*): Display TV episode art instead of TV show art. Defaults to `false`.
 
 ### {% linkable_title Service `play_media` %}
