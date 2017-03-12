@@ -15,7 +15,7 @@ ha_release: 0.37
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
 Polly is a paid service via Amazon Web Services.  There is a [free tier](https://aws.amazon.com/polly/pricing/) for the first 12 months and then a charge per million characters afterwards.
 
-To enable text-to-speech with Amazon Polly, add the following lines to your `configuration.yaml`:
+To get started, add the following lines to your `configuration.yaml` (example for Amazon Polly):
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,9 +29,57 @@ tts:
 
 Configuration variables:
 
-- **aws_access_key_id** (*Required if aws_secret_access_key is provided*): Your AWS Access Key ID. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`.
-- **aws_secret_access_key** (*Required if aws_access_key_id is provided*): Your AWS Secret Access Key. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`.
-- **profile_name** (*Optional*): A credentials profile name. For more information, please see the [boto3 documentation section about credentials](http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file).
-- **region_name** (*Required*): The region identifier to connect to. The default is `us-east-1`.
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+| Parameter           | Value | Description |
+|---------------------|----------|-------------|
+| `aws_access_key_id` | Required |  Your AWS Access Key ID. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name` |
+| `aws_secret_access_key` | Required | Your AWS Secret Access Key. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`. |
+| `profile_name` | Optional | A credentials profile name. For more information, please see the [boto3  |
+| `region_name` | Optional | The region identifier to connect to. The default is `us-east-1`. |
+| `name` | Optional | Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+ |
+| `text_type` | text/ssml    | text or ssml: Specify wherever to use text (default) or ssml markup |
 
+## Usage
+Say to all `media_player` device entities:
+```yaml
+- service: tts.amazon_polly_say
+  data_template:
+    entity_id: media_player.bedroom
+      message: '<speak>Hello from Amazon Polly</speak>'
+```
+or
+```yaml
+- service: tts.amazon_polly_say
+  data_template:
+    entity_id: media_player.bedroom
+      message: >
+        <speak>
+            Hello from Amazon Polly
+        </speak>
+```
+
+Say to the `media_player.living_room` device entity:
+
+```yaml
+- service: tts.amazon_polly_say
+  data_template:
+    entity_id: media_player.living_room
+      message: >
+        <speak>
+            Hello from Amazon Polly
+        </speak>
+```
+
+Say with delay:
+
+```yaml
+- service: tts.amazon_polly_say
+  data_template:
+    entity_id: media_player.living_room
+      message: >
+        <speak>
+            Hello from,
+            <break time=".9s" />
+            Amazon Polly
+        </speak>
+```
