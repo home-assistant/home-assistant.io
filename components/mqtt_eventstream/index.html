@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">mqtt_eventstream</code> components connects two Home Assistant instances via MQTT.</p>
+  <p>The <code class="highlighter-rouge">mqtt_eventstream</code> component connects two Home Assistant instances via MQTT.</p>
 
 <p>To integrate MQTT Eventstream into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -108,6 +108,32 @@
   <li><strong>subscribe_topic</strong> (<em>Required</em>): Topic to receive events from the remote server.</li>
 </ul>
 
+<h2>Multiple Instances</h2>
+
+<p>Events from multiple instances can be aggregated to a single master instance by subscribing to a wildcard topic from the master instance.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example master instance configuration.yaml entry</span>
+<span class="s">mqtt_eventstream</span><span class="pi">:</span>
+  <span class="s">publish_topic</span><span class="pi">:</span> <span class="s">master/topic</span>
+  <span class="s">subscribe_topic</span><span class="pi">:</span> <span class="s">slaves/#</span>
+</code></pre>
+</div>
+
+<p>For a multiple instance setup, each slave would publish to their own topic.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example slave instance configuration.yaml entry</span>
+<span class="s">mqtt_eventstream</span><span class="pi">:</span>
+  <span class="s">publish_topic</span><span class="pi">:</span> <span class="s">slaves/upstairs</span>
+  <span class="s">subscribe_topic</span><span class="pi">:</span> <span class="s">master/topic</span>
+</code></pre>
+</div>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example slave instance configuration.yaml entry</span>
+<span class="s">mqtt_eventstream</span><span class="pi">:</span>
+  <span class="s">publish_topic</span><span class="pi">:</span> <span class="s">slaves/downstairs</span>
+  <span class="s">subscribe_topic</span><span class="pi">:</span> <span class="s">master/topic</span>
+</code></pre>
+</div>
 
 
 </article>
