@@ -26,13 +26,14 @@ To enable this switch in your installation, add the following to your `configura
 switch:
   - platform: wake_on_lan
     mac_address: "00-01-02-03-04-05"
+    host: 192.168.1.1
 ```
 
 Configuration variables:
 
 - **mac_address** (*Required*): MAC address to send the wake up command to.
+- **host** (*Required*): The IP address or hostname to check the state of the device (on/off).
 - **name** (*Optional*): The name of the switch. Default is 'Wake on LAN'.
-- **host** (*Optional*): The IP address or hostname to check the state of the device (on/off).
 - **turn_off** (*Optional*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
 
 ## {% linkable_title Examples %}
