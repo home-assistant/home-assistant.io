@@ -97,13 +97,13 @@ recorder:
       - state_changed
 ```
 
-Recording only the events for incomming MQTT messages can be done by:
+Recording only the events for service calls can be done by:
 ```yaml
-# Example configuration.yaml recording only MQTT messages
+# Example configuration.yaml recording only service calls
 recorder:
   include:
     events:
-      - mqtt_message_received
+      - call_service
 ```
 
 Recording events can be disabled completely by including only an empty string:
