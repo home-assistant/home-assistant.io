@@ -26,6 +26,10 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Logitech media server (Squeezebox)
  * DirecTV
  * Apple TV
+ * Yeelight Sunflower Bulb
+ * Flux Led/MagicLight
+ * Linn / Openhome
+ * Denon Network Receivers
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -42,6 +46,24 @@ discovery:
 Configuration variables:
 
 - **ignore** (*Optional*): A list of platforms that never will be automatically configured by `discovery`.
+
+Valid values for ignore are:
+ * philips_hue: (Philips Hue)
+ * google_cast: (Google Chromecast)
+ * panasonic_viera: (Panasonic Viera)
+ * plex_mediaserver: (Plex media server)
+ * roku: (Roku media player)
+ * sonos: (Sonos Speakers)
+ * yamaha: (Yamaha media player)
+ * logitech_mediaserver: (Logitech media server - Squeezebox player)
+ * directv: (DirecTV)
+ * denonavr: (Denon Network Receivers)
+ * samsung_tv: (Samsung TV)
+ * yeelight: (Yeelight Sunflower Bulb)
+ * flux_led: (Flux Led/MagicLight)
+ * apple_tv: (Apple TV)
+ * openhome: (Linn / Openhome)
+
 
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work. 
