@@ -109,7 +109,7 @@
   <li><strong>host</strong> (<em>Required</em>): The IP of the Samsung Smart TV, eg. <code class="highlighter-rouge">192.168.0.10</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port of the Samsung Smart TV. Defaults to 55000. If set to 8001, the new websocket connection will be used (required for 2016+ TVs).</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Samsung Smart TV.</li>
-  <li><strong>timeout</strong> (<em>Optional</em>): The time-out for the communication with the TV. Defaults to 0.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): The time-out in seconds for the communication with the TV. Defaults to 0 (no timeout).</li>
   <li><strong>mac</strong> (<em>Optional</em>): The MAC address of the Samsung Smart TV, eg. <code class="highlighter-rouge">00:11:22:33:44:55:66</code>. Required for power on support via wake on lan.</li>
 </ul>
 
@@ -128,6 +128,7 @@
   <li>D6505</li>
   <li>D6300SF</li>
   <li>U6000 (port must be set to 8001)</li>
+  <li>KS8005 (port must be set to 8001, and <code class="highlighter-rouge">pip3 install websocket-client</code> must be executed)</li>
 </ul>
 
 <p>Currently tested but not working models:</p>
