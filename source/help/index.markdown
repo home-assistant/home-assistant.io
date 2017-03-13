@@ -29,6 +29,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, interviews, talks, and alike %}
 
+- [Home Assistant workshop](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-clt-workshop) at [CLT 2017](https://chemnitzer.linux-tage.de/2017/de/) - March 2017
 - [Home Assistant with Paulus Schoutsen – Episode 94](https://www.podcastinit.com/episode-94-home-assistant-with-paulus-schoutsen/) - January 2017
 - [Home Assistant - Erweiterungen (Platforms/Components)](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2016-puzzle) at [Puzzle ITC](https://www.puzzle.ch/de/) - December 2016
 - [Automating Your Life - Home Automation](http://slides.com/teagan42/life_automation#/) at Develop Denver 2016 - August
