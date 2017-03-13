@@ -102,7 +102,7 @@ sensor:
     host: 192.168.1.8
     monitored_conditions:
       - diskspace
-    included_paths:
+    include_paths:
       - /tank/plex
 ```
 
