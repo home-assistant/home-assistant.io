@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: volumio.png
 ha_category: Media Player
-ha_release: 0.40
+ha_release: 0.41
 ---
 
 The `Volumio` platform allows you to control a [Volumio](http://volumio.org) media player
