@@ -93,7 +93,7 @@
   <p>The <code class="highlighter-rouge">amazon_polly</code> text-to-speech platform that works with <a href="https://aws.amazon.com/polly/">Amazon Polly</a> to create the spoken output.
 Polly is a paid service via Amazon Web Services.  There is a <a href="https://aws.amazon.com/polly/pricing/">free tier</a> for the first 12 months and then a charge per million characters afterwards.</p>
 
-<p>To enable text-to-speech with Amazon Polly, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>To get started, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> (example for Amazon Polly):</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">tts</span><span class="pi">:</span>
@@ -107,14 +107,94 @@ Polly is a paid service via Amazon Web Services.  There is a <a href="https://aw
 
 <p>Configuration variables:</p>
 
-<ul>
-  <li><strong>aws_access_key_id</strong> (<em>Required if aws_secret_access_key is provided</em>): Your AWS Access Key ID. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_secret_access_key</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
-  <li><strong>aws_secret_access_key</strong> (<em>Required if aws_access_key_id is provided</em>): Your AWS Secret Access Key. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_access_key_id</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
-  <li><strong>profile_name</strong> (<em>Optional</em>): A credentials profile name. For more information, please see the <a href="http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file">boto3 documentation section about credentials</a>.</li>
-  <li><strong>region_name</strong> (<em>Required</em>): The region identifier to connect to. The default is <code class="highlighter-rouge">us-east-1</code>.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">aws_access_key_id</code></td>
+      <td>Required</td>
+      <td>Your AWS Access Key ID. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_secret_access_key</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">aws_secret_access_key</code></td>
+      <td>Required</td>
+      <td>Your AWS Secret Access Key. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_access_key_id</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">profile_name</code></td>
+      <td>Optional</td>
+      <td>A credentials profile name. For more information, please see the [boto3</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">region_name</code></td>
+      <td>Optional</td>
+      <td>The region identifier to connect to. The default is <code class="highlighter-rouge">us-east-1</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>Optional</td>
+      <td>Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">text_type</code></td>
+      <td>text/ssml</td>
+      <td>text or ssml: Specify wherever to use text (default) or ssml markup</td>
+    </tr>
+  </tbody>
+</table>
 
+<h2>Usage</h2>
+<p>Say to all <code class="highlighter-rouge">media_player</code> device entities:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">tts.amazon_polly_say</span>
+  <span class="s">data_template</span><span class="pi">:</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">&lt;speak&gt;Hello</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">Amazon</span><span class="nv"> </span><span class="s">Polly&lt;/speak&gt;'</span>
+</code></pre>
+</div>
+<p>or</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">tts.amazon_polly_say</span>
+  <span class="s">data_template</span><span class="pi">:</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="no">&lt;speak&gt;</span>
+          <span class="no">Hello from Amazon Polly</span>
+      <span class="no">&lt;/speak&gt;</span>
+</code></pre>
+</div>
+
+<p>Say to the <code class="highlighter-rouge">media_player.living_room</code> device entity:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">tts.amazon_polly_say</span>
+  <span class="s">data_template</span><span class="pi">:</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.living_room</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="no">&lt;speak&gt;</span>
+          <span class="no">Hello from Amazon Polly</span>
+      <span class="no">&lt;/speak&gt;</span>
+</code></pre>
+</div>
+
+<p>Say with break:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">tts.amazon_polly_say</span>
+  <span class="s">data_template</span><span class="pi">:</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="no">&lt;speak&gt;</span>
+          <span class="no">Hello from</span>
+          <span class="no">&lt;break time=".9s" /&gt;</span>
+          <span class="no">Amazon Polly</span>
+      <span class="no">&lt;/speak&gt;</span>
+</code></pre>
+</div>
 
 
 </article>
