@@ -94,6 +94,9 @@ Wildcards only work at the end of the ID, not in the middle of front!
 
 Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or [create an issue](https://github.com/home-assistant/home-assistant/issues/new) and mention `@aequitas` in the description.
 
+### {% linkable_title Device Incorrectly Identified %}
+
+If you find a device is recognized differently,with different protocols or the ON OFF is swapped or detected as  two ON commands, it can  be overcome with the RFlink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). http://www.nemcon.nl/blog2/faq#RFFind.
 
 ### {% linkable_title Technical overview %}
 
