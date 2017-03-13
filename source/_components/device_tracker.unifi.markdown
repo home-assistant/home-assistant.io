@@ -32,5 +32,6 @@ Configuration variables:
 - **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
 - **site_id** (*Optional*): Allows you to specify a `site_id` for device tracking. Defaults to `default`. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)
+- **verify_ssl** (*Optional*): Allows you to enable or disable verification of the SSL certificate presented by the Unifi controller. Defaults to `true`. Valid values are `true` and `false`.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
