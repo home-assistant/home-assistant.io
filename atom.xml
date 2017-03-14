@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-14T06:19:00+00:00</updated>
+  <updated>2017-03-14T06:50:41+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -362,7 +362,7 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li><a href="https://home-assistant.io/components/cover.myq/">myq</a> cover component (<a href="https://github.com/arraylabs">@arraylabs</a>)</li>
   <li>Support for the <a href="https://home-assistant.io/components/climate.oem/">Open Energy Monitor Thermostat</a> (<a href="https://github.com/Cadair">@Cadair</a>)</li>
   <li>Added Fritzbox <a href="https://home-assistant.io/components/sensor.fritzbox_netmonitor/">Netmonitor</a> (<a href="https://github.com/PetePriority">@PetePriority</a>)</li>
-  <li>Add platform for <a href="https://home-assistant.io/components/light.yeelight-sunflower">Yeelight Sunflower lights</a> (<a href="https://github.com/lindsaymarkward">@lindsaymarkward</a>)</li>
+  <li>Add platform for <a href="https://home-assistant.io/components/light.yeelightsunflower/">Yeelight Sunflower lights</a> (<a href="https://github.com/lindsaymarkward">@lindsaymarkward</a>)</li>
   <li>Support for <a href="https://home-assistant.io/components/sensor.pocketcasts/">Pocket Casts</a> (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
   <li><a href="https://home-assistant.io/components/volvooncall/">VolvoOnCall</a> component with support for sensors, heater and lock (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
   <li>Add <a href="https://home-assistant.io/components/notify.pushsafer/">pushsafer.com</a> notification service (<a href="https://github.com/appzer">@appzer</a>)</li>
