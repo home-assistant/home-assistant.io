@@ -98,8 +98,6 @@
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">twilio_sms</span>
-    <span class="s">account_sid</span><span class="pi">:</span> <span class="s">ACCOUNT_SID_FROM_TWILIO</span>
-    <span class="s">auth_token</span><span class="pi">:</span> <span class="s">AUTH_TOKEN_FROM_TWILIO</span>
     <span class="s">from_number</span><span class="pi">:</span> <span class="s">E164_PHONE_NUMBER</span>
 </code></pre>
 </div>
@@ -107,8 +105,6 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>account_sid</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It starts with the letters <code class="highlighter-rouge">AC</code>.</li>
-  <li><strong>auth_token</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It should be directly under where you found the <code class="highlighter-rouge">account_sid</code>.</li>
   <li><strong>from_number</strong> (<em>Required</em>): An <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> formatted phone number, like +14151234567. See <a href="https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally">Twilio’s guide to formatting phone numbers</a> for more information.</li>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
 </ul>
@@ -281,6 +277,9 @@
         </li>
         <li>
             <a href='/components/notify.telstra/'>Telstra</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
         </li>
         <li>
             <a href='/components/notify.twilio_call/'>Twilio Call</a>

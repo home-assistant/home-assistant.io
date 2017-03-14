@@ -90,15 +90,10 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">twilio</code> notification platform enables sending notifications via Voice, powered by <a href="https://twilio.com">Twilio</a>.
+  <p>The <code class="highlighter-rouge">twilio_call</code> notification platform enables sending notifications via Voice, powered by <a href="https://twilio.com">Twilio</a>.
 Passed message will be read by Text-To-Speech service.</p>
 
-<p>This component is just an adaptation from the Twilio SMS notification platform and won’t exist without it.</p>
-
-<p>Free trial account is available at <a href="https://twilio.com">Twilio</a> website providing free calls to verified phone numbers.
-Calls are limited to 10 minutes and will play a short trial message before your message runs.</p>
-
-<p>Upgraded accounts have no limitation.</p>
+<p>The requirement is that you have setup <a href="/components/twilio/">Twilio</a>.</p>
 
 <p>To use this notification platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
@@ -106,8 +101,6 @@ Calls are limited to 10 minutes and will play a short trial message before your 
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">twilio_call</span>
-    <span class="s">account_sid</span><span class="pi">:</span> <span class="s">ACCOUNT_SID_FROM_TWILIO</span>
-    <span class="s">auth_token</span><span class="pi">:</span> <span class="s">AUTH_TOKEN_FROM_TWILIO</span>
     <span class="s">from_number</span><span class="pi">:</span> <span class="s">E164_PHONE_NUMBER</span>
 </code></pre>
 </div>
@@ -115,8 +108,6 @@ Calls are limited to 10 minutes and will play a short trial message before your 
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>account_sid</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It starts with the letters <code class="highlighter-rouge">AC</code>.</li>
-  <li><strong>auth_token</strong> (<em>Required</em>): Your Twilio Account SID which can be found in your <a href="https://www.twilio.com/console">console</a>. It should be directly under where you found the <code class="highlighter-rouge">account_sid</code>.</li>
   <li><strong>from_number</strong> (<em>Required</em>): An <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> formatted phone number, like +14151234567. See <a href="https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally">Twilio’s guide to formatting phone numbers</a> for more information.</li>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
 </ul>
@@ -289,6 +280,9 @@ Calls are limited to 10 minutes and will play a short trial message before your 
         </li>
         <li>
             <a href='/components/notify.telstra/'>Telstra</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
         </li>
         <li>
             Twilio Call
