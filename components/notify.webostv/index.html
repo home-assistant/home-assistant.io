@@ -111,6 +111,7 @@
   <li><strong>host</strong> (<em>Required</em>): The IP of the LG WebOS Smart TV, e.g. 192.168.0.10</li>
   <li><strong>name</strong> (<em>Required</em>): The name you would like to give to the LG WebOS Smart TV.</li>
   <li><strong>filename</strong> (<em>Optional</em>): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant’s config directory. It defaults to <code class="highlighter-rouge">webostv.conf</code>.</li>
+  <li><strong>icon</strong> (<em>Optional</em>): The path to an image file to use as the icon in notifications. If provided, this image will override the Home Assistant logo.</li>
 </ul>
 
 <p>A possible automation could be:</p>
@@ -128,6 +129,25 @@
         <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">You</span><span class="nv"> </span><span class="s">should</span><span class="nv"> </span><span class="s">open</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">window!</span><span class="nv"> </span><span class="s">(Livingroom</span><span class="nv"> </span><span class="s">Co2:</span><span class="nv"> </span><span class="s">ppm)"</span>
 </code></pre>
 </div>
+
+<p>The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:</p>
+
+<p>```yaml
+automation:</p>
+<ul>
+  <li>alias: Front door motion
+trigger: 
+  platform: state
+  entity_id: binary_sensor.front_door_motion
+  state: ‘on’
+action:
+  service: notify.livingroom_tv
+  data:
+    message: “Movement detected: Front Door”
+    data:
+      icon: “/home/homeassistant/images/doorbell.png”
+ ```</li>
+</ul>
 
 
 </article>

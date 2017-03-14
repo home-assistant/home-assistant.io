@@ -116,7 +116,7 @@
     <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
       <span class="no">notify.{{ trigger.topic.split('/')[-1] }}</span>
     <span class="s">data_template</span><span class="pi">:</span>
-      <span class="s">message</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">trigger.payload</span> <span class="pi">}}</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.payload</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 
