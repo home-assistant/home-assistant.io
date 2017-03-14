@@ -18,23 +18,14 @@ To use this notification platform in your installation, add the following to you
 
 ```yaml
 # Example configuration.yaml entry
-twilio:
-  account_sid: "abc"
-  auth_token: "xyz"
-
 notify:
-  - name: sms
+  - name: NOTIFIER_NAME
     platform: twilio_sms
-    from_number: "+1111"
-  - name: call
-    platform: twilio_call
-    from_number: "+1111"
+    from_number: E164_PHONE_NUMBER
 ```
 
 Configuration variables:
 
-- **account_sid** (*Required*): Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It starts with the letters `AC`.
-- **auth_token** (*Required*): Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It should be directly under where you found the `account_sid`.
 - **from_number** (*Required*): An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like +14151234567. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 
