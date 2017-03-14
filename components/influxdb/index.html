@@ -106,7 +106,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): IP address of your database host, eg. 192.168.1.10. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): IP address of your database host, e.g. 192.168.1.10. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 8086.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username of the database user.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password for the database user account.</li>
@@ -114,8 +114,8 @@
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
   <li><strong>default_measurement</strong> (<em>Optional</em>): Measurement name to use when an entity doesn’t have a unit. Defaults to entity id.</li>
-  <li><strong>override_measurement</strong> (<em>Optional</em>): Measurement name to use instead of unit or default measurement. This will store all data points in the singel same measurement.</li>
-  <li><strong>blacklist</strong> (<em>Optional</em>): List of entities not logged to InfluxDB.</li>
+  <li><strong>override_measurement</strong> (<em>Optional</em>): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.</li>
+  <li><strong>blacklist</strong> (<em>Optional</em>): List of entities that should not be logged to InfluxDB.</li>
   <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
   <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
 </ul>
@@ -125,17 +125,17 @@
 <p>Starting with 0.36 the InfluxDB component has a new schema to store values in the InfluxDB databases.</p>
 
 <ul>
-  <li>There will not be any tags/fields named time anymore.</li>
+  <li>There will no longer be any tags/fields named <code class="highlighter-rouge">time</code>.</li>
   <li>All numeric fields (int/float/bool) will be stored as float inside InfluxDB database.</li>
   <li>All string fields corresponding to state attributes will be renamed as <code class="highlighter-rouge">FIELDNAME_str</code>, where <code class="highlighter-rouge">FIELDNAME</code> is the state attribute, to avoid type conflicts.</li>
-  <li>All string fields corresponding to a state will be renamed as state (former value).</li>
-  <li>Fields named value will always be stored as float.</li>
-  <li>Fields named state will always be stored as string.</li>
+  <li>All string fields corresponding to a state will be renamed as <code class="highlighter-rouge">state</code> (former value).</li>
+  <li>Fields named <code class="highlighter-rouge">value</code> will always be stored as float.</li>
+  <li>Fields named <code class="highlighter-rouge">state</code> will always be stored as string.</li>
 </ul>
 
 <h3><a class="title-link" name="migration-script" href="#migration-script"></a> Migration script</h3>
 
-<p>If you need to migrate your database, you may require to run the <code class="highlighter-rouge">influxdb_migrator</code> script. Run the script after upgrade to 0.36 but before first regular start of <code class="highlighter-rouge">hass</code> version 0.36.</p>
+<p>If you need to migrate your database, you may require to run the <code class="highlighter-rouge">influxdb_migrator</code> script. Run the script after upgrade to 0.36 but before the first regular start of <code class="highlighter-rouge">hass</code> version 0.36.</p>
 
 <p>These are the steps the script will perform:</p>
 <ol>
@@ -143,7 +143,7 @@
   <li>Copy data from <code class="highlighter-rouge">DBNAME</code> database to <code class="highlighter-rouge">DBNAME__old</code> database.</li>
   <li>Empty <code class="highlighter-rouge">DBNAME</code> database (using <code class="highlighter-rouge">drop</code> then <code class="highlighter-rouge">create</code>). <code class="highlighter-rouge">DBNAME</code> database is now considered as the new database.</li>
   <li>For each measurement of <code class="highlighter-rouge">DBNAME__old</code> database:</li>
-  <li>Read all points from the current measuremnt (by group of <code class="highlighter-rouge">1000</code> points by default) and convert them.</li>
+  <li>Read all points from the current measurement (in groups of 1000 points by default) and convert them.</li>
   <li>Send group of points to <code class="highlighter-rouge">DBNAME</code> database.</li>
   <li>Delete the <code class="highlighter-rouge">DBNAME__old</code> database if needed.</li>
 </ol>
@@ -179,7 +179,7 @@ optional arguments:
   <li>If you run the script with only the <code class="highlighter-rouge">-h</code> option, you will get a help printout with a short explanation of the different options.</li>
   <li>The host option defaults to <code class="highlighter-rouge">'127.0.0.1'</code>.</li>
   <li>The port option defaults to <code class="highlighter-rouge">8086</code>.</li>
-  <li>You should be able to omit username and password, if InfluxDB authentication is disabled, which it is by default.</li>
+  <li>You should be able to omit username and password if InfluxDB authentication is disabled, which it is by default.</li>
   <li>The step option defaults to <code class="highlighter-rouge">1000</code>.</li>
 </ul>
 
