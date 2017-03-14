@@ -37,3 +37,22 @@ or
     type: serial
     raw: False
 ```
+
+Configuration variables:
+
+*required if used with a serial-ethernet converter*
+
+- **host**: The IP-address of the serial server
+- **port**: The TCP-port of the serial server
+- **type**: tcp
+
+*required if used directly with a serial port*
+
+- **device**: The serial device of the machine
+- **type**: serial
+
+*optional for both cases*
+
+- **name**: The name of the device used in the frontend
+- **raw**: Should the raw serial output be shown as a sensor
+
