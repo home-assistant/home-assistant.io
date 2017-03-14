@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: twilio.png
-ha_category: Notifications
-ha_release: "0.20"
+ha_category: Hub
+ha_release: "0.40"
 ---
 
 The `twilio` component enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).

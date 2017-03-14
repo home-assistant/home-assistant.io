@@ -14,6 +14,8 @@ ha_release: "0.20"
 
 The `twilio` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
 
+The requirement is that you have setup [Twilio](/components/twilio/).
+
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
