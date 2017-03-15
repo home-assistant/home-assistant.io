@@ -19,7 +19,19 @@ Direct connection via serial (RS485) or via telnet terminal server is supported.
 
 Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relais are supported, the rest is still WIP (see https://www.mikrocontroller.net/topic/274137).
 
+Direct connection via serial port:
 ```yaml
+# Example configuration.yaml entry
+- platform: kwb
+    name: kwb
+    device: "/dev/ttyUSB0"
+    type: serial
+    raw: False
+```
+
+Telnet terminal server with a serial-ethernet converter:
+```yaml
+# Example configuration.yaml entry
   - platform: kwb
     name: kwb
     host: <ip>
@@ -28,31 +40,20 @@ Since this serial protocol is proprietary and closed, only most temperature sens
     raw: False
 ```
 
-or
-
-```yaml
-  - platform: kwb
-    name: kwb
-    device: "/dev/ttyUSB0"
-    type: serial
-    raw: False
-```
-
 Configuration variables:
 
-*required if used with a serial-ethernet converter*
+*Required if used with a serial-ethernet converter*
 
 - **host**: The IP-address of the serial server
 - **port**: The TCP-port of the serial server
 - **type**: tcp
 
-*required if used directly with a serial port*
+*Required if used directly with a serial port*
 
 - **device**: The serial device of the machine
 - **type**: serial
 
-*optional for both cases*
+*Optional for both cases*
 
 - **name**: The name of the device used in the frontend
 - **raw**: Should the raw serial output be shown as a sensor
-
