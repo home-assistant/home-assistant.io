@@ -52,3 +52,18 @@ Configuration variables:
   - **neighbors** (*Optional*): The minimum number of neighbors required for a match, default is `4`. The higher this number, the more picky the matching will be; lower the number, the more false positives you may experience.
 
 Once OpenCV is configured, it will create an `image_processing` entity for each classification group/camera entity combination as well as a camera so you can see what Home Assistant sees.
+
+### {% linkable_title Camera %}
+
+If you would like to see what your Home-Assistant is seeing, the OpenCV image processing platform will dispatch a signal `image_processing_{image_processor_name}`.
+
+There is a special camera, specifically for this:
+
+```yaml
+camera:
+  - platform: dispatch
+    name: OpenCV Camera
+    signal: image_processing_detect_faces
+```
+
+A new camera entity will be added to your Home-Assistant that will highlight the areas it has detected as a match.
