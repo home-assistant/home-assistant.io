@@ -23,16 +23,16 @@ To use Lutron Caseta devices in your installation, add the following to your con
 
 ``` yaml
 lutron_caseta:
-  lutron_host: <ip>
-  lutron_user: lutron
-  lutron_password: integration
+  host: <IP_address>
+  user: lutron
+  password: integration
 ```
 
 Configuration variables:
 
-- **lutron_ip** (*Required*): The IP address of the Lutron SmartBridge.
-- **lutron_user** (*Required*): The login name of the user. The user `lutron` always exists.
-- **lutron_password** (*Required*): The password for the user specified above. `integration` is the password for the always-present `lutron` user.
+- **host** (*Required*): The IP address of the Lutron SmartBridge.
+- **user** (*Required*): The login name of the user. The user `lutron` always exists.
+- **password** (*Required*): The password for the user specified above. `integration` is the password for the always-present `lutron` user.
 
 <p class='note'>
   It is recommended to assign a static IP address to your Lutron SmartBridge. This ensures that it won't change IP addresses, so you won't have to change the `lutron_ip` if it reboots and comes up with a different IP address.
