@@ -2,7 +2,7 @@
 layout: page
 title: "OpenCV"
 description: "Instructions how to setup OpenCV within Home Assistant."
-date: 2017-03-05 22:36
+date: 2017-04-01 22:36
 sidebar: true
 comments: false
 sharing: true
@@ -17,23 +17,9 @@ ha_iot_class: "Local Push"
 
 Some pre-defined classifiers can be found here: http://alereimondo.no-ip.org/OpenCV/34
 
-### {% linkable_title Basic Configuration %}
+### {% linkable_title Configuration %}
 
 To setup OpenCV with Home Assistant, add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-opencv:
-  classifier_group:
-    name: Detect Face
-    entity_id: camera.front_door
-```
-
-See below for extra configuration parameters and their defaults.
-
-### {% linkable_title Advanced Configuration %}
-
-OpenCV can accept some more advanced configuration parameters:
 
 ```yaml
 opencv:
@@ -57,8 +43,8 @@ Configuration variables:
 
 - **name** (*Required*): The name of the OpenCV image processor.
 - **entity_id** (*Required*): The camera entity or list of camera entities that this classification group will be applied to.
-- **classifier** (*Optional*): The classification configuration for to be applied:
-  - **file_path** (*Optional*): The path to the HAARS or LBP classification file (xml), the default is `lbp_frontalface.xml`.
+- **classifier** (*Required*): The classification configuration for to be applied:
+  - **file_path** (*Required*): The path to the HAARS or LBP classification file (xml).
   - **name** (*Optional*): The classification name, the default is `Face`.
   - **min_size** (*Optional*): The minimum size for detection as a tuple `(width, height)`, the default is `(30, 30)`.
   - **color** (*Optional*): The color, as a tuple `(Blue, Green, Red)` to draw the rectangle when linked to a dispatcher camera, the default is `(255, 255, 0)`.
