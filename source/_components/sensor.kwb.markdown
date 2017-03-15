@@ -17,7 +17,7 @@ The `kwb` component integrates the sensors of KWB Easyfire pellet central heatin
 
 Direct connection via serial (RS485) or via telnet terminal server is supported. The serial cable has to be attached to the control unit port 25 (which is normally used for detached control terminals).
 
-Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relais are supported, the rest is still WIP (see https://www.mikrocontroller.net/topic/274137).
+Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relays are supported, the rest is still WIP (see https://www.mikrocontroller.net/topic/274137).
 
 Direct connection via serial port:
 ```yaml
