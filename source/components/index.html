@@ -97,7 +97,24 @@ if (location.hash !== '') {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
 <script>
 $(window).load(function(){
-  var $container = $('#componentContainer');
+  var $isotope = $('#componentContainer').isotope({
+    filter: '.featured',
+    animationOptions: {
+        duration: 750,
+        easing: 'linear',
+        queue: false
+    },
+    masonry: {
+      columnWidth: 210
+    },
+    getSortData: {
+      title: function( itemElem ) {
+        var title = $( itemElem ).find('.title').text();
+        return title ? title.toLowerCase() : '';
+      }
+    },
+    sortBy: 'title'
+  });
 
   function updateHash(newHash) {
     if ('replaceState' in history) {
@@ -123,17 +140,9 @@ $(window).load(function(){
     $('.filter-button-group a.current').removeClass('current');
     $('.filter-button-group a[href='+hash+']').addClass('current');
 
-    $container.isotope({
-        filter: filter,
-        animationOptions: {
-            duration: 750,
-            easing: 'linear',
-            queue: false
-        },
-        masonry: {
-          columnWidth: 210
-        }
-     });
+    $isotope.isotope({
+      filter: filter
+    });
   }
 
   jQuery('.filter-button-group a').click(function() {
