@@ -26,6 +26,10 @@ sensor:
   api_secret: CLIENT_SECRET
 ```
 
+Two sensors will be created with the following properties:
+- **Energy Usage**: Current active power usage in Watts.  Updated every 15 seconds.
+- **Daily Usage**: Daily power usage in kWh.  Updated every 2.5 minutes.
+
 Configuration variables:
 
 - **api_key** (*Required*): The API key for your account/application.
