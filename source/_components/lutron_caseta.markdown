@@ -22,10 +22,11 @@ When configured, the `lutron_caseta` component will automatically discover dimme
 To use Lutron Caseta devices in your installation, add the following to your configuration.yaml file using the IP of your lutron Smartbridge:
 
 ``` yaml
-lutron_caseta:
-  host: <IP_address>
-  user: lutron
-  password: integration
+light:
+  - platform: lutron_caseta
+    host: <ip_address_of_your_smartbridge>
+    user: lutron
+    password: integration
 ```
 
 Configuration variables:
