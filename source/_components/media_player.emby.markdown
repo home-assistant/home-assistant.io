@@ -10,7 +10,7 @@ footer: true
 logo: emby.png
 ha_category: Media Player
 ha_release: "0.32"
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 
@@ -32,3 +32,4 @@ Configuration variables:
 - **api_key** (*Required*): The api-key you would like home-assistant to use to authenticate.
 - **ssl** (*Optional*): True if you want to connect with https. Be sure to set the port also.
 - **port** (*Optional*): The port number. Defaults to 8096.
+- **auto_hide** (*Optional*): True if you want to automatically hide devices in the "off" state from the UI.
