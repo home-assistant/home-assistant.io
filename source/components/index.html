@@ -52,24 +52,33 @@ Support for these components is provided by the Home Assistant community.
       <a href='#other' class="btn">Other</a>
     </div>
   </div>
-  <div class="grid__item five-sixths lap-one-whole palm-one-whole hass-option-cards" id="componentContainer">
-    {% for component in components %}
-      {% if component.ha_category %}
-      {% assign sliced_version = component.ha_release | split: '.' %}
-      {% assign minor_version = sliced_version[1]|plus: 0 %}
-        <a href='{{ component.url }}'
-           class='option-card {{ component.ha_category | slugify }}{% if minor_version == site.current_minor_version %} added_in_current_version{% elsif minor_version == added_one_ago_minor_version %} added_one_version_ago{% elsif minor_version == added_two_ago_minor_version %} added_two_versions_ago{% endif %}{% if component.featured %} featured{% endif %}'
-           {% unless component.featured %}style='display: none'{% endunless %}>
-          <div class='img-container'>
-            {% if component.logo %}
-              <img src='/images/supported_brands/{{ component.logo }}'>
-            {% endif %}
-          </div>
-          <div class='title'>{{ component.title }}</div>
-          <div class='category'>{{ component.ha_category }}</div>
-        </a>
-      {% endif %}
-    {% endfor %}
+  <div class="grid__item five-sixths lap-one-whole palm-one-whole">
+    <div class="component-search">
+      <form onsubmit="event.preventDefault(); return false">
+        <input type="text" name="search" id="search" class="search" placeholder="Search components...">
+      </form>
+    </div>
+    <div class="hass-option-cards" id="componentContainer">
+      {% for component in components %}
+        {% if component.ha_category %}
+        {% assign sliced_version = component.ha_release | split: '.' %}
+        {% assign minor_version = sliced_version[1]|plus: 0 %}
+          <a href='{{ component.url }}'
+             class='option-card {{ component.ha_category | slugify }}{% if minor_version == site.current_minor_version %} added_in_current_version{% elsif minor_version == added_one_ago_minor_version %} added_one_version_ago{% elsif minor_version == added_two_ago_minor_version %} added_two_versions_ago{% endif %}{% if component.featured %} featured{% endif %}'
+             data-title="{{component.title| downcase}}"
+             data-ha_category="{{component.ha_category | downcase}}"
+             {% unless component.featured %}style='display: none'{% endunless %}>
+            <div class='img-container'>
+              {% if component.logo %}
+                <img src='/images/supported_brands/{{ component.logo }}'>
+              {% endif %}
+            </div>
+            <div class='title'>{{ component.title }}</div>
+            <div class='category'>{{ component.ha_category }}</div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -85,20 +94,32 @@ Support for these components is provided by the Home Assistant community.
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
 // undo initial hiding of non-featured cards
-if (location.hash !== '') {
-  if (location.hash === '#all') {
-    jQuery('#componentContainer a').show();
-  } else {
-    jQuery('#componentContainer .featured').hide();
-    jQuery('#componentContainer .' + location.hash.substr(1)).show();
+(function(){
+  var hash = location.hash;
+  if (hash !== '') {
+    if (hash === '#all' || hash.indexOf('#search/') === 0) {
+      jQuery('#componentContainer a').show();
+    } else {
+      jQuery('#componentContainer .featured').hide();
+      jQuery('#componentContainer .' + hash.substr(1)).show();
+    }
+    
+    if (hash.indexOf('#search/') === 0) {
+      // set default value in search from URL
+      jQuery('.component-search input').val(decodeURIComponent(hash).substring(8));
+    }
   }
-}
+})();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
 <script>
 $(window).load(function(){
+
   var $container = $('#componentContainer');
 
+  /**
+   * update the browser location hash. This enables users to use the browser-history 
+   */
   function updateHash(newHash) {
     if ('replaceState' in history) {
       history.replaceState('', '', newHash);
@@ -107,21 +128,47 @@ $(window).load(function(){
     }
   }
 
+  /**
+   * filter all components, based on the location's hash
+   */
   function applyFilter() {
     var hash = location.hash;
-
     var filter;
+    
     if (hash == '') {
-      filter = '.featured'
-      hash = '#featured'
-    } else if (hash == '#all') {
+      filter = '.featured';
+      hash = '#featured';
+ 
+    } else if (hash === '#all') {
+      // show all elements
       filter = '*';
+
+    } else if (hash.indexOf('#search/') === 0) {
+      // search for the given string
+      var text = decodeURIComponent (hash).substring(8).toLowerCase();
+      text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').toLowerCase();
+
+      if(text && text.length === 0){
+        filter = '*';
+      } else {
+        filter = function() {
+          var title = $(this).data('title');
+          var cat = $(this).data('ha_category');
+          return title.indexOf(text) != -1 || cat.indexOf(text) != -1;
+        };
+      }
+
     } else {
       filter = '.' + hash.substr(1);
     }
 
+    if (!hash.indexOf('#search/') === 0) {
+        // reset the search field when no longer searching
+        $('.component-search input').val(null);
+    }
+
     $('.filter-button-group a.current').removeClass('current');
-    $('.filter-button-group a[href='+hash+']').addClass('current');
+    $('.filter-button-group a[href="'+hash+'"]').addClass('current');
 
     $container.isotope({
         filter: filter,
@@ -136,6 +183,7 @@ $(window).load(function(){
      });
   }
 
+  // update view by filter selection
   jQuery('.filter-button-group a').click(function() {
     updateHash(this.getAttribute('href'));
     applyFilter();
@@ -143,8 +191,40 @@ $(window).load(function(){
     return false;
   });
 
+  /**
+   * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
+   */
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) {
+          func.apply(context, args);
+        }
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) {
+        func.apply(context, args);
+      }
+    };
+  };
+
+  // update view by search text
+  $('.component-search input').keyup(debounce(function() {
+    var text = $(this).val();
+    // sanitize input
+    text = text.replace(/[(\?|\&\{\}\(\))]/gi, '');
+    updateHash('#search/' + text);
+    applyFilter();
+  }, 500));
+
   window.addEventListener('hashchange', applyFilter);
 
+  // initialize from URL
   applyFilter();
 });
 </script>
