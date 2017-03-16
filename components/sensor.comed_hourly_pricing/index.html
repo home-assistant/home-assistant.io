@@ -90,9 +90,11 @@
   <hr class="divider">
   
 
-  <p>The ComEd Hourly Pricing program is an optional program available to ComEd electric subscribers which charges customers a variable rate for electricity supply based on current demand rather than a traditional fixed rate.  Live prices are published <a href="https://hourlypricing.comed.com/live-prices/">here</a> and also via an <a href="https://hourlypricing.comed.com/hp-api/">API</a> which we can integrate as a sensor in Home Assistant.</p>
+  <p>The ComEd Hourly Pricing program is an optional program available to ComEd electric subscribers which charges customers a variable rate for electricity supply based on current demand rather than a traditional fixed rate. Live prices are published <a href="https://hourlypricing.comed.com/live-prices/">here</a> and also via an <a href="https://hourlypricing.comed.com/hp-api/">API</a> which we can integrate as a sensor in Home Assistant.</p>
 
 <p>There are two price feeds available: the 5-minute price and current hour average price.</p>
+
+<p>To use this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -115,7 +117,7 @@
         </ul>
       </li>
       <li><strong>name</strong> (<em>Optional</em>): Custom name for the sensor.</li>
-      <li><strong>offset</strong> (<em>Optional</em>): The pricing feeds provide only the <em>supply</em> cost of the electricity.  The offset parameter allows you to provide a fixed constant that will be added to the pricing data to provide a more accurate representation of the total electricity cost per kWh.</li>
+      <li><strong>offset</strong> (<em>Optional</em>): The pricing feeds provide only the <em>supply</em> cost of the electricity. The offset parameter allows you to provide a fixed constant that will be added to the pricing data to provide a more accurate representation of the total electricity cost per kWh.</li>
     </ul>
   </li>
 </ul>
