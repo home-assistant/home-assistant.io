@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category:
+ha_category: Energy
 logo: sma.png
 ha_iot_class: "Local Polling"
 ha_release: 0.36
