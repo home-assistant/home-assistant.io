@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-16T06:45:18+00:00</updated>
+  <updated>2017-03-16T07:13:23+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -75,6 +75,18 @@ twilio:
 
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+### <a class='title-link' name='release-0401---march-16' href='#release-0401---march-16'></a> Release 0.40.1 - March 16 
+
+- Fix wake_on_lan ping with None as host ([@iamtpage] - [#6532])
+- Don't start the push updater if the Apple TV is 'off' ([@jnewland] - [#6552])
+- Fix for the case of zwave value used in several devices. ([@andrey-git] - [#6577])
+- Fix hydroquebec ([@titilambert] - [#6574])
+- Update pyecobee version to 0.0.7 ([@dale3h] - [#6593])
+- Update SMA solar sensor to work with the new add_devices callback ([@kellerza] - [#6602])
+- since knx_2_float can't handle 0, bypass converting 0 value from knx to float ([@goofz] - [#6626])
+- Fix Osram Lightify colors ([@deisi] - [#6598])
+- Bugfix RFLINK remove group ([@pvizeli] - [#6580])
 
 <!--more-->
 
@@ -302,6 +314,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [EFF]: https://www.eff.org
 [hass-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
+[#6532]: https://github.com/home-assistant/home-assistant/pull/6532
+[#6552]: https://github.com/home-assistant/home-assistant/pull/6552
+[#6574]: https://github.com/home-assistant/home-assistant/pull/6574
+[#6577]: https://github.com/home-assistant/home-assistant/pull/6577
+[#6580]: https://github.com/home-assistant/home-assistant/pull/6580
+[#6593]: https://github.com/home-assistant/home-assistant/pull/6593
+[#6598]: https://github.com/home-assistant/home-assistant/pull/6598
+[#6602]: https://github.com/home-assistant/home-assistant/pull/6602
+[#6626]: https://github.com/home-assistant/home-assistant/pull/6626
+[@deisi]: https://github.com/deisi
+[@goofz]: https://github.com/goofz
+[@iamtpage]: https://github.com/iamtpage
+[@jnewland]: https://github.com/jnewland
 ]]></content>
   </entry>
   

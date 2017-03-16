@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-16T06:45:18+00:00</updated>
+  <updated>2017-03-16T07:13:23+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -83,6 +83,20 @@ Screenshot of all the different functionality the IP webcam integration offers.
 
 <h3>Reporting Issues</h3>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+<h3><a class="title-link" name="release-0401---march-16" href="#release-0401---march-16"></a> Release 0.40.1 - March 16</h3>
+
+<ul>
+  <li>Fix wake_on_lan ping with None as host (<a href="https://github.com/iamtpage">@iamtpage</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6532">#6532</a>)</li>
+  <li>Don’t start the push updater if the Apple TV is ‘off’ (<a href="https://github.com/jnewland">@jnewland</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6552">#6552</a>)</li>
+  <li>Fix for the case of zwave value used in several devices. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6577">#6577</a>)</li>
+  <li>Fix hydroquebec (<a href="https://github.com/titilambert">@titilambert</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6574">#6574</a>)</li>
+  <li>Update pyecobee version to 0.0.7 (<a href="https://github.com/dale3h">@dale3h</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6593">#6593</a>)</li>
+  <li>Update SMA solar sensor to work with the new add_devices callback (<a href="https://github.com/kellerza">@kellerza</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6602">#6602</a>)</li>
+  <li>since knx_2_float can’t handle 0, bypass converting 0 value from knx to float (<a href="https://github.com/goofz">@goofz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6626">#6626</a>)</li>
+  <li>Fix Osram Lightify colors (<a href="https://github.com/deisi">@deisi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6598">#6598</a>)</li>
+  <li>Bugfix RFLINK remove group (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6580">#6580</a>)</li>
+</ul>
 
 <!--more-->
 
