@@ -44,6 +44,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 - [Home Assistant with Paulus Schoutsen – Episode 94](https://www.podcastinit.com/episode-94-home-assistant-with-paulus-schoutsen/) - January 2017
 - [Episode #11](https://pythonbytes.fm/episodes/show/11/django-2.0-is-dropping-python-2-entirely-pipenv-for-profile-functionality-and-pythonic-home-automation) at minute 15:20 by [Python Bytes](https://pythonbytes.fm/) - January 2017
 - [Home Assistant: The Python Approach to Home Automation](https://www.linux.com/news/home-assistant-python-approach-home-automation-video) - June 2016
+- [Secure home automation, without clouds or dedicated hubs](http://linuxgizmos.com/secure-home-automation-without-clouds-or-dedicated-hubs/) - June 2016
 - [Weekend Project: Setting up Home Assistant on your PC or Mac](http://www.automatedhome.co.uk/software/weekend-project-setting-up-home-assistant-on-your-pc-or-mac.html) by [automated home](http://www.automatedhome.co.uk/) - April 2016
 - [Episode 105 - DIY Home Automation Roundup](https://www.hometech.fm/shows/105) by [HomeTech.fm](https://www.hometech.fm/) - April 2016
 - [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools) by [opensource.com](https://opensource.com) - March 2016
