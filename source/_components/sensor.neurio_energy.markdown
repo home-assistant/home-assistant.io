@@ -27,7 +27,7 @@ sensor:
 ```
 
 Two sensors will be created with the following properties:
-- **Energy Usage**: Current active power usage in Watts.  Updated every 15 seconds.
+- **Energy Usage**: Current active power usage in Watts.  Updated every 10 seconds.
 - **Daily Usage**: Daily power usage in kWh.  Updated every 2.5 minutes.
 
 Configuration variables:
