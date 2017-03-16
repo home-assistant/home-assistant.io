@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The sun component will use your current location to track if the sun is above or below the horizon.The sun can be used within automation as <a href="/getting-started/automation-trigger/#sun-trigger">a trigger with an optional offset to simulate dawn/dusk</a>.</p>
+  <p>The sun component will use your current location to track if the sun is above or below the horizon. The sun can be used within automation as <a href="/getting-started/automation-trigger/#sun-trigger">a trigger with an optional offset to simulate dawn/dusk</a>.</p>
 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sun</span><span class="pi">:</span>
@@ -100,7 +100,7 @@
 <p>Configuration variables:</p>
 
 <ul>
-  <li><strong>elevation</strong> (<em>Optional</em>): The (physical) elevation of your location, in metres above sea level. If omitted will be retrieved from Google Maps.</li>
+  <li><strong>elevation</strong> (<em>Optional</em>): The (physical) elevation of your location, in metres above sea level. Defaults to the <code class="highlighter-rouge">elevation</code> in <code class="highlighter-rouge">configuration.yaml</code>, which is retrieved from Google Maps if not set.</li>
 </ul>
 
 <p class="img">
