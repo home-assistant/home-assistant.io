@@ -38,8 +38,8 @@ sensor:
 
 Configuration variables:
 
-- **username** (*Required*): The App Token for your account.
-- **password** (*Required*): The App Token for your account.
+- **username** (*Required*): Username used to log into the HydrpQuebec site.
+- **password** (*Required*): Password used to log into the HydrpQuebec site.
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **period_total_bill** : Current period bill
   - **period_length**: Current period length
