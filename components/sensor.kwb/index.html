@@ -7,26 +7,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>USPS Sensor - Home Assistant</title>
+    <title>KWB Easyfire Sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions on how to set up USPS sensors within Home Assistant.">
+    <meta name="description" content="Instructions how to integrate the KWB Easyfire sensor into Home Assistant.">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/sensor.usps/">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.kwb/">
 
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="USPS Sensor">
+    <meta property="og:title" content="KWB Easyfire Sensor">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/sensor.usps/">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.kwb/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions on how to set up USPS sensors within Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate the KWB Easyfire sensor into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     
-    <meta name="twitter:title" content="USPS Sensor">
-    <meta name="twitter:description" content="Instructions on how to set up USPS sensors within Home Assistant.">
+    <meta name="twitter:title" content="KWB Easyfire Sensor">
+    <meta name="twitter:description" content="Instructions how to integrate the KWB Easyfire sensor into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
 
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -84,52 +84,62 @@
   
   <header>
     <h1 class="title indent">
-      USPS Sensor
+      KWB Easyfire Sensor
     </h1>
   </header>
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">usps</code> platform allows one to track deliveries by the <a href="https://www.usps.com/">US Postal Service (USPS)</a>.
-In addition to having a USPS account, you will need to complete the “Opt-In” process by clicking “Get Started Now” on <a href="https://my.usps.com/mobileWeb/pages/intro/start.action">this page</a>. Currently, you also will need to have a package listed in the “Package Dashboard” in order for the component to complete set-up.</p>
+  <p>The <code class="highlighter-rouge">kwb</code> component integrates the sensors of KWB Easyfire pellet central heating units with the Comfort3 controller (http://www.kwbheizung.de/de/produkte/kwb-comfort-3.html) into Home Assistant.</p>
 
-<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>Direct connection via serial (RS485) or via telnet terminal server is supported. The serial cable has to be attached to the control unit port 25 (which is normally used for detached control terminals).</p>
 
+<p>Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relays are supported, the rest is still WIP (see https://www.mikrocontroller.net/topic/274137).</p>
+
+<p>Direct connection via serial port:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">usps</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kwb</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">kwb</span>
+    <span class="s">device</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/dev/ttyUSB0"</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">serial</span>
+    <span class="s">raw</span><span class="pi">:</span> <span class="s">False</span>
 </code></pre>
 </div>
 
-<p>Configuration options for the USPS Sensor:</p>
+<p>Telnet terminal server with a serial-ethernet converter:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kwb</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">kwb</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">&lt;ip&gt;</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">23</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">tcp</span>
+    <span class="s">raw</span><span class="pi">:</span> <span class="s">False</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<p><em>Required if used with a serial-ethernet converter</em></p>
 
 <ul>
-  <li><strong>username</strong> (<em>Required</em>): The username to access the MyUSPS service.</li>
-  <li><strong>password</strong> (<em>Required</em>): The password for the given username.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name the sensor (default: your mailing address).</li>
-  <li><strong>update_inverval</strong> (<em>Optional</em>): Minimum time interval between updates. Default is 1 hour. Supported formats:
-    <ul>
-      <li><code class="highlighter-rouge">update_interval: 'HH:MM:SS'</code></li>
-      <li><code class="highlighter-rouge">update_interval: 'HH:MM'</code></li>
-      <li>Time period dictionary, e.g.:
-        <pre>update_interval:
-    # At least one of these must be specified:
-    days: 0
-    hours: 0
-    minutes: 3
-    seconds: 30
-    milliseconds: 0
-</pre>
-      </li>
-    </ul>
-  </li>
+  <li><strong>host</strong>: The IP-address of the serial server</li>
+  <li><strong>port</strong>: The TCP-port of the serial server</li>
+  <li><strong>type</strong>: tcp</li>
 </ul>
 
-<p class="note warning">
-The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
-</p>
+<p><em>Required if used directly with a serial port</em></p>
+
+<ul>
+  <li><strong>device</strong>: The serial device of the machine</li>
+  <li><strong>type</strong>: serial</li>
+</ul>
+
+<p><em>Optional for both cases</em></p>
+
+<ul>
+  <li><strong>name</strong>: The name of the device used in the frontend</li>
+  <li><strong>raw</strong>: Should the raw serial output be shown as a sensor</li>
+</ul>
 
 
 </article>
@@ -143,12 +153,15 @@ The USPS sensor logs into the MyUSPS website to scrape package data. It does not
   
   
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.usps.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.kwb.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/usps.png' />
+      <img src='/images/supported_brands/home-assistant.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.36
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.4
     </div>
     <div class='section'>
     <h1 class="title delta">Category Sensor</h1>
@@ -235,7 +248,7 @@ The USPS sensor logs into the MyUSPS website to scrape package data. It does not
             <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.kwb/'>KWB Easyfire Sensor</a>
+            KWB Easyfire Sensor
         </li>
         <li>
             <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
@@ -331,7 +344,7 @@ The USPS sensor logs into the MyUSPS website to scrape package data. It does not
             <a href='/components/sensor.ups/'>UPS Sensor</a>
         </li>
         <li>
-            USPS Sensor
+            <a href='/components/sensor.usps/'>USPS Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.vera/'>Vera Sensor</a>
