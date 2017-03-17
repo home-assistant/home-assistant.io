@@ -19,12 +19,12 @@ To use yourBeagleBone Black's GPIO in your installation, add the following to yo
 ```yaml
 # Example configuration.yaml entry
 switch:
- - platform: bbb_gpio
-   pins:
-     GPIO0_7:
-       name: LED Red
-     P9_12:
-       name: LED Green
+  - platform: bbb_gpio
+    pins:
+      GPIO0_7:
+        name: LED Red
+      P9_12:
+        name: LED Green
 ```
 
 Configuration variables:

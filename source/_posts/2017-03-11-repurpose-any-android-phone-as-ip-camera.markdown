@@ -17,7 +17,7 @@ It's time for version 0.40 already! For this version, the main focus was on perf
 
 Some people have interpreted our recent added warnings as if 0.39 introduced the issues that caused the warning. This is not the case, the platforms and components have been misbehaving for a while but now we are adding warnings so we are able to track down the culprits.
 
-Before we continue talking about all the improvements in this release I want to take a moment to thank a few people from the Home Assistant community that are fundamental to the success of Home Assistant. Big thanks to [@dale3h], [@CCOSTAN], [@skalavala] [@rrubin0] [@brahmafear] [@bassclarinetl2] and [@torn8o]! These are all people that hang out in our [main chat channel] and help new users get started and help existing users when running into trouble. Home Assistant would not be there without all the effort you put in! 🙇
+Before we continue talking about all the improvements in this release I want to take a moment to thank a few people from the Home Assistant community that are fundamental to the success of Home Assistant. Big thanks to [@dale3h], [@CCOSTAN], [@skalavala], [@rrubin0], [@brahmafear], [@bassclarinetl2], and [@torn8o]! These are all people that hang out in our [main chat channel] and help new users get started and help existing users when running into trouble. Home Assistant would not be there without all the effort you put in! 🙇
 
 And that our community kicks ass is also shown in the numbers. We have already raised together over $700 for the [EFF] via the sale of [our t-shirts][hass-shirt]! All of you rock! Another number worth mentioning is that this release brings us passed 600 integrations for Home Assistant. All of you rock, again!
 
@@ -68,6 +68,18 @@ twilio:
 
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+### {% linkable_title Release 0.40.1 - March 16 %}
+
+- Fix wake_on_lan ping with None as host ([@iamtpage] - [#6532])
+- Don't start the push updater if the Apple TV is 'off' ([@jnewland] - [#6552])
+- Fix for the case of zwave value used in several devices. ([@andrey-git] - [#6577])
+- Fix hydroquebec ([@titilambert] - [#6574])
+- Update pyecobee version to 0.0.7 ([@dale3h] - [#6593])
+- Update SMA solar sensor to work with the new add_devices callback ([@kellerza] - [#6602])
+- since knx_2_float can't handle 0, bypass converting 0 value from knx to float ([@goofz] - [#6626])
+- Fix Osram Lightify colors ([@deisi] - [#6598])
+- Bugfix RFLINK remove group ([@pvizeli] - [#6580])
 
 <!--more-->
 
@@ -295,3 +307,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [EFF]: https://www.eff.org
 [hass-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
+[#6532]: https://github.com/home-assistant/home-assistant/pull/6532
+[#6552]: https://github.com/home-assistant/home-assistant/pull/6552
+[#6574]: https://github.com/home-assistant/home-assistant/pull/6574
+[#6577]: https://github.com/home-assistant/home-assistant/pull/6577
+[#6580]: https://github.com/home-assistant/home-assistant/pull/6580
+[#6593]: https://github.com/home-assistant/home-assistant/pull/6593
+[#6598]: https://github.com/home-assistant/home-assistant/pull/6598
+[#6602]: https://github.com/home-assistant/home-assistant/pull/6602
+[#6626]: https://github.com/home-assistant/home-assistant/pull/6626
+[@deisi]: https://github.com/deisi
+[@goofz]: https://github.com/goofz
+[@iamtpage]: https://github.com/iamtpage
+[@jnewland]: https://github.com/jnewland
