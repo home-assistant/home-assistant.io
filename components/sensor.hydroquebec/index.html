@@ -97,6 +97,7 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hydroquebec</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">MYUSERNAME</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">MYPASSWORD</span>
+    <span class="s">contract</span><span class="pi">:</span> <span class="s1">'</span><span class="s">CONTRACT#'</span>  <span class="s">(NOTE:works with the ' ' ,insert your contract in between)</span>
     <span class="s">monitored_variables</span><span class="pi">:</span>
      <span class="pi">-</span> <span class="s">period_total_bill</span>
      <span class="pi">-</span> <span class="s">period_length</span>
@@ -109,6 +110,7 @@
 <ul>
   <li><strong>username</strong> (<em>Required</em>): Username used to log into the Hydro-Québec site.</li>
   <li><strong>password</strong> (<em>Required</em>): Password used to log into the Hydro-Québec site.</li>
+  <li><strong>contract</strong> (required since HA 4.0) Your contract number with Hydro-Québec</li>
   <li><strong>monitored_variables</strong> array (<em>Required</em>): Variables to monitor.
     <ul>
       <li><strong>period_total_bill</strong> : Current period bill</li>
