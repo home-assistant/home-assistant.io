@@ -92,17 +92,22 @@
 
   <p>The <code class="highlighter-rouge">mqtt_json</code> light platform lets you control a MQTT-enabled light that can receive <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> messages.</p>
 
-<p>This platform supports on/off, brightness, RGB colors, transitions, and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren’t needed:</p>
+<p>This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren’t needed:</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"color_temp"</span><span class="p">:</span><span class="w"> </span><span class="mi">155</span><span class="p">,</span><span class="w">
   </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"r"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
     </span><span class="nt">"g"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
     </span><span class="nt">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"r"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="w">
+    </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.123</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.123</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"colorloop"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"transition"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="w">
+  </span><span class="nt">"white_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -124,19 +129,92 @@
 
 <ul>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the light’s state.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of the light. Default is “MQTT JSON Light.”</li>
-  <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>brightness</strong> (<em>Optional</em>): Flag that defines if the light supports brightness. Default is false.</li>
-  <li><strong>rgb</strong> (<em>Optional</em>): Flag that defines if the light supports RGB colors. Default is false.</li>
-  <li><strong>flash_time_short</strong> (<em>Optional</em>): The duration, in seconds, of a “short” flash. Default is 2.</li>
+  <li><strong>color_temperature</strong> (<em>Optional</em>): Flag that defines if the light supports color temperature. Default is false.</li>
+  <li><strong>effect</strong> (<em>Optional</em>): Flag that defines if the light supports effects. Default is false.</li>
+  <li><strong>effect</strong> (<em>Optional</em>): Flag that defines if the light supports effects. Default is false.</li>
+  <li><strong>effect_list</strong> (<em>Optional</em>): The list of effects the light supports.</li>
   <li><strong>flash_time_long</strong> (<em>Optional</em>): The duration, in seconds, of a “long” flash. Default is 10.</li>
+  <li><strong>flash_time_short</strong> (<em>Optional</em>): The duration, in seconds, of a “short” flash. Default is 2.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the light. Default is “MQTT JSON Light.”</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
+  <li><strong>rgb</strong> (<em>Optional</em>): Flag that defines if the light supports RGB colors. Default is false.</li>
+  <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
+  <li><strong>white_value</strong> (<em>Optional</em>): Flag that defines if the light supports white values. Default is false.</li>
+  <li><strong>xy</strong> (<em>Optional</em>): Flag that defines if the light supports XY colors. Default is false.</li>
 </ul>
 
 <p class="note warning">
   Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
+
+<p class="note warning">
+  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+</p>
+
+<h2><a class="title-link" name="comparison-of-light-mqtt-platforms" href="#comparison-of-light-mqtt-platforms"></a> Comparison of light MQTT platforms</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th><a href="https://home-assistant.io/components/light.mqtt/"><code class="highlighter-rouge">mqtt</code></a></th>
+      <th><a href="https://home-assistant.io/components/light.mqtt_json/"><code class="highlighter-rouge">mqtt_json</code></a></th>
+      <th><a href="https://home-assistant.io/components/light.mqtt_template/"><code class="highlighter-rouge">mqtt_template</code></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Brightness</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Color temperature</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Effects</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Flashing</td>
+      <td>✘</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>RGB Color</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Transitions</td>
+      <td>✘</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>XY Color</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✘</td>
+    </tr>
+    <tr>
+      <td>White Value</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 

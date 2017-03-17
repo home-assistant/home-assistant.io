@@ -93,7 +93,7 @@
   <p>The <code class="highlighter-rouge">mqtt_template</code> light platform lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e. string, JSON), just configure it with templating.</p>
 
-<p>This platform supports on/off, brightness, RGB colors, transitions, short/long flashing and effects.</p>
+<p>This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing, effects and white values.</p>
 
 <p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.</p>
 
@@ -124,7 +124,9 @@ It is format-agnostic so you can use any data format you want (i.e. string, JSON
   <li><strong>red_template</strong> (<em>Optional</em>): Template to extract red color from the state payload value.</li>
   <li><strong>green_template</strong> (<em>Optional</em>): Template to extract green color from the state payload value.</li>
   <li><strong>blue_template</strong> (<em>Optional</em>): Template to extract blue color from the state payload value.</li>
+  <li><strong>color_temp_template</strong> (<em>Optional</em>): Template to extract color temperature from the state payload value.</li>
   <li><strong>effect_template</strong> (<em>Optional</em>): Template to extract effect from the state payload value.</li>
+  <li><strong>white_value_template</strong> (<em>Optional</em>): Template to extract white value from the state payload value.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if the light works in optimistic mode. Default is true if no state topic or state template is defined, else false.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
 </ul>
@@ -132,6 +134,69 @@ It is format-agnostic so you can use any data format you want (i.e. string, JSON
 <p class="note warning">
   Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
+
+<h2><a class="title-link" name="comparison-of-light-mqtt-platforms" href="#comparison-of-light-mqtt-platforms"></a> Comparison of light MQTT platforms</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th><a href="https://home-assistant.io/components/light.mqtt/"><code class="highlighter-rouge">mqtt</code></a></th>
+      <th><a href="https://home-assistant.io/components/light.mqtt_json/"><code class="highlighter-rouge">mqtt_json</code></a></th>
+      <th><a href="https://home-assistant.io/components/light.mqtt_template/"><code class="highlighter-rouge">mqtt_template</code></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Brightness</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Color temperature</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Effects</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Flashing</td>
+      <td>✘</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>RGB Color</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Transitions</td>
+      <td>✘</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>XY Color</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✘</td>
+    </tr>
+    <tr>
+      <td>White Value</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 

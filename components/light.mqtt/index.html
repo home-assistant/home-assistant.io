@@ -90,7 +90,7 @@
   <hr class="divider">
   
 
-  <p>The <code class="highlighter-rouge">mqtt</code> light platform let you control your MQTT enabled light.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> light platform lets you control your MQTT enabled light. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.</p>
 
 <p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.</p>
 
@@ -109,28 +109,105 @@
 
 <ul>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the switch state.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
-  <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
-  <li><strong>brightness_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive brightness state updates.</li>
   <li><strong>brightness_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s brightness.</li>
-  <li><strong>rgb_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive RGB state updates.</li>
-  <li><strong>rgb_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s RGB state.</li>
-  <li><strong>color_temp_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive color temperature state updates.</li>
-  <li><strong>color_temp_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s color temperature state.</li>
-  <li><strong>state_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the state value.</li>
-  <li><strong>brightness_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the brightness value.</li>
-  <li><strong>rgb_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the RGB value.</li>
-  <li><strong>color_temp_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the color temperature value.</li>
   <li><strong>brightness_scale</strong> (<em>Optional</em>): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).</li>
-  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
-  <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
-  <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
+  <li><strong>brightness_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive brightness state updates.</li>
+  <li><strong>brightness_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the brightness value.</li>
+  <li><strong>color_temp_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s color temperature state.</li>
+  <li><strong>color_temp_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive color temperature state updates.</li>
+  <li><strong>color_temp_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the color temperature value.</li>
+  <li><strong>effect_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s effect state.</li>
+  <li><strong>effect_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive effect state updates.</li>
+  <li><strong>effect_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the effect value.</li>
+  <li><strong>effect_list</strong> (<em>Optional</em>): The list of effects the light supports.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.</li>
+  <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
+  <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
+  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
+  <li><strong>rgb_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s RGB state.</li>
+  <li><strong>rgb_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive RGB state updates.</li>
+  <li><strong>rgb_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the RGB value.</li>
+  <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
+  <li><strong>state_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the state value.</li>
+  <li><strong>white_value_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s white value.</li>
+  <li><strong>white_value_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive white value updates.</li>
+  <li><strong>white_value_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the white value.</li>
+  <li><strong>xy_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s XY state.</li>
+  <li><strong>xy_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive XY state updates.</li>
+  <li><strong>xy_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the XY value.</li>
 </ul>
 
 <p class="note warning">
   Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
+
+<p class="note warning">
+  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+</p>
+
+<h2><a class="title-link" name="comparison-of-light-mqtt-platforms" href="#comparison-of-light-mqtt-platforms"></a> Comparison of light MQTT platforms</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th><a href="https://home-assistant.io/components/light.mqtt/"><code class="highlighter-rouge">mqtt</code></a></th>
+      <th><a href="https://home-assistant.io/components/light.mqtt_json/"><code class="highlighter-rouge">mqtt_json</code></a></th>
+      <th><a href="https://home-assistant.io/components/light.mqtt_template/"><code class="highlighter-rouge">mqtt_template</code></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Brightness</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Color temperature</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Effects</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Flashing</td>
+      <td>✘</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>RGB Color</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>Transitions</td>
+      <td>✘</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+    <tr>
+      <td>XY Color</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✘</td>
+    </tr>
+    <tr>
+      <td>White Value</td>
+      <td>✔</td>
+      <td>✔</td>
+      <td>✔</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 
