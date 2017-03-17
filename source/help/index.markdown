@@ -41,6 +41,8 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 ### {% linkable_title Media coverage %}
 
+- [10 open source software tools for developing IoT applications](http://www.cbronline.com/news/internet-of-things/10-open-source-software-tools-developing-iot-applications/) - March 2017
+- [A Look at HASSbian: Raspberry Pi for Home Automation](http://www.piboards.com/2017/03/07/a-look-at-hassbian-raspberry-pi-for-home-automation/)- March 2017
 - [Home Assistant with Paulus Schoutsen – Episode 94](https://www.podcastinit.com/episode-94-home-assistant-with-paulus-schoutsen/) - January 2017
 - [Episode #11](https://pythonbytes.fm/episodes/show/11/django-2.0-is-dropping-python-2-entirely-pipenv-for-profile-functionality-and-pythonic-home-automation) at minute 15:20 by [Python Bytes](https://pythonbytes.fm/) - January 2017
 - [Home Assistant: The Python Approach to Home Automation](https://www.linux.com/news/home-assistant-python-approach-home-automation-video) - June 2016
