@@ -145,7 +145,7 @@ $(window).load(function(){
 
     } else if (hash.indexOf('#search/') === 0) {
       // search for the given string
-      var text = decodeURIComponent (hash).substring(8).toLowerCase();
+      var text = decodeURIComponent(hash).substring(8).toLowerCase();
       text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').toLowerCase();
 
       if(text && text.length === 0){
