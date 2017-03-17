@@ -22,6 +22,7 @@ sensor:
   - platform: hydroquebec
     username: MYUSERNAME
     password: MYPASSWORD
+    contract: 'CONTRACT#'  (NOTE:works with the ' ' ,insert your contract in between)
     monitored_variables:
      - period_total_bill
      - period_length
@@ -32,6 +33,7 @@ Configuration variables:
 
 - **username** (*Required*): Username used to log into the Hydro-Québec site.
 - **password** (*Required*): Password used to log into the Hydro-Québec site.
+- **contract** (required since HA 4.0) Your contract number with Hydro-Quebec
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **period_total_bill** : Current period bill
   - **period_length**: Current period length
