@@ -55,9 +55,9 @@ Configuration variables:
 Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
-- **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable or hybrid. See 'Light Types' below.
+- **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below.
 - **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event_** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1)
 
 ### {% linkable_title Light state %}
@@ -87,6 +87,7 @@ Light devices can come in different forms. Some only switch on and off, other su
 - *Hybrid*: This type sends a `dim` followed by an a `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
 - *Switchable*: Device type that sends only `on` and `off` commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).
 - *Dimmable*: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
+- *Toggle*: Device type that sends only `on` commands to turn on or off the device. Some switches like for example Livolo light switches use the same 'on' command to switch on and switch off the lights. If the light is on and 'on' gets sent, the light will turn off and if the light is off and 'on' gets sent, the light will turn on. If the device has an unknown state, it will assume it is off by default.
 
 By default new lights are assigned the `switchable` type. Protocol supporting dimming are assigned the `hybrid` type. Currently only `newkaku` protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.
 
