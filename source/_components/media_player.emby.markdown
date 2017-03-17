@@ -28,8 +28,8 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The host name or address of the device that is running Emby.
+- **host** (*Optional*): The host name or address of the device that is running Emby. Defaults to ```localhost```.
 - **api_key** (*Required*): The api-key you would like home-assistant to use to authenticate.
-- **ssl** (*Optional*): True if you want to connect with https. Default is False.
+- **ssl** (*Optional*): True if you want to connect with https/wss. Your SSL certificate must be valid. Default is False.
 - **port** (*Optional*): The port number. Defaults to 8096 with SSL set to False and 8920 with SSL set to True.
-- **auto_hide** (*Optional*): True if you want to automatically hide devices that are unavailable from the UI.
+- **auto_hide** (*Optional*): True if you want to automatically hide devices that are unavailable from the Home Assistant Interface. Defaults to False.
