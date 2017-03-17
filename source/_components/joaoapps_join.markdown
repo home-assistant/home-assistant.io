@@ -37,7 +37,7 @@ Configuration variables:
 - **device_id** (*Required*): The Id of your device.
 - **api_key** (*Required*): The API key for Join.
 
-The notify service has 2 optional parameters: icon and small icon.  You can use them like so:
+The notify service has two optional parameters: `icon` and `small icon`.  You can use them like so:
 
 ```json
 {"message":"Hello!","title":"From Hass","data":{"icon":"https://goo.gl/KVqcYi","smallicon":"http://goo.gl/AU4Wf1"}}
