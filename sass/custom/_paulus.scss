@@ -330,6 +330,21 @@ p.note {
       -moz-transition-property: -moz-transform, opacity;
       transition-property: transform, opacity;
   }
+  
+      
+  .component-search{
+    margin-bottom: 24px;
+  
+    input{
+      width: 100%;
+      padding: 10px;
+      
+      background-color: #fefefe;
+      border-radius: 2px;
+      border: 1px solid;
+      border-color: #7c7c7c #c3c3c3 #ddd;
+    }
+  }
 }
 
 @media only screen and (max-width: $lap-end) {
