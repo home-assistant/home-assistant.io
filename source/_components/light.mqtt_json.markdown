@@ -13,7 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: 0.26
 ---
 
-
 The `mqtt_json` light platform lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
 This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
@@ -75,7 +74,7 @@ Configuration variables:
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
 </p>
 
-## {% Comparison of light MQTT platforms %}
+## {% linkable_title Comparison of light MQTT platforms %}
 
 | Function          | [`mqtt`](https://home-assistant.io/components/light.mqtt/) | [`mqtt_json`](https://home-assistant.io/components/light.mqtt_json/) | [`mqtt_template`](https://home-assistant.io/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|

@@ -11,7 +11,7 @@ logo: mqtt.png
 ha_category: Light
 ---
 
-The `mqtt` light platform let you control your MQTT enabled light. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
+The `mqtt` light platform lets you control your MQTT enabled light. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
 
@@ -65,7 +65,7 @@ Configuration variables:
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
 </p>
 
-## {% Comparison of light MQTT platforms %}
+## {% linkable_title Comparison of light MQTT platforms %}
 
 | Function          | [`mqtt`](https://home-assistant.io/components/light.mqtt/) | [`mqtt_json`](https://home-assistant.io/components/light.mqtt_json/) | [`mqtt_template`](https://home-assistant.io/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|

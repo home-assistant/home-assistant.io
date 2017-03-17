@@ -13,7 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: 0.33
 ---
 
-
 The `mqtt_template` light platform lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e. string, JSON), just configure it with templating.
 
@@ -57,7 +56,7 @@ Configuration variables:
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
 </p>
 
-## {% Comparison of light MQTT platforms %}
+## {% linkable_title Comparison of light MQTT platforms %}
 
 | Function          | [`mqtt`](https://home-assistant.io/components/light.mqtt/) | [`mqtt_json`](https://home-assistant.io/components/light.mqtt_json/) | [`mqtt_template`](https://home-assistant.io/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
