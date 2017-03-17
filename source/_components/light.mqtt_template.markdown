@@ -17,7 +17,7 @@ ha_release: 0.33
 The `mqtt_template` light platform lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e. string, JSON), just configure it with templating.
 
-This platform supports on/off, brightness, RGB colors, transitions, short/long flashing and effects.
+This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing, effects and white values.
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.
 
@@ -47,13 +47,28 @@ Configuration variables:
 - **red_template** (*Optional*): Template to extract red color from the state payload value.
 - **green_template** (*Optional*): Template to extract green color from the state payload value.
 - **blue_template** (*Optional*): Template to extract blue color from the state payload value.
+- **color_temp_template** (*Optional*): Template to extract color temperature from the state payload value.
 - **effect_template** (*Optional*): Template to extract effect from the state payload value.
+- **white_value_template** (*Optional*): Template to extract white value from the state payload value.
 - **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic or state template is defined, else false.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
 </p>
+
+## {% Comparison of light MQTT platforms %}
+
+| Function          | [`mqtt`](https://home-assistant.io/components/light.mqtt/) | [`mqtt_json`](https://home-assistant.io/components/light.mqtt_json/) | [`mqtt_template`](https://home-assistant.io/components/light.mqtt_template/) |
+|-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
+| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
+| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
 

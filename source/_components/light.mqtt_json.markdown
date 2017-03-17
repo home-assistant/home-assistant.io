@@ -16,21 +16,25 @@ ha_release: 0.26
 
 The `mqtt_json` light platform lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
-This platform supports on/off, brightness, RGB colors, transitions, and short/long flashing. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
+This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
 
 ```json
 {
   "brightness": 255,
+  "color_temp": 155,
   "color": {
+    "r": 255,
     "g": 255,
     "b": 255,
-    "r": 255
+    "x": 0.123,
+    "y": 0.123
   },
+  "effect": "colorloop",
+  "state": "ON",
   "transition": 2,
-  "state": "ON"
+  "white_value": 150
 }
 ```
-
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.
 
@@ -48,18 +52,41 @@ light:
 Configuration variables:
 
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
-- **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
 - **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
-- **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
-- **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
+- **color_temperature** (*Optional*): Flag that defines if the light supports color temperature. Default is false.
+- **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
+- **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
+- **effect_list** (*Optional*): The list of effects the light supports.
 - **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
+- **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
+- **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
 - **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+- **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
+- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
+- **white_value** (*Optional*): Flag that defines if the light supports white values. Default is false.
+- **xy** (*Optional*): Flag that defines if the light supports XY colors. Default is false.
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
 </p>
+
+<p class='note warning'>
+  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+</p>
+
+## {% Comparison of light MQTT platforms %}
+
+| Function          | [`mqtt`](https://home-assistant.io/components/light.mqtt/) | [`mqtt_json`](https://home-assistant.io/components/light.mqtt_json/) | [`mqtt_template`](https://home-assistant.io/components/light.mqtt_template/) |
+|-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
+| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
+| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
 
