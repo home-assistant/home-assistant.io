@@ -19,12 +19,12 @@ To use your BeagleBone Black's GPIO in your installation, add the following to y
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
- - platform: bbb_gpio
-   pins:
-     P8_12:
-       name: Door
-     GPIO0_26:
-       name: Window
+  - platform: bbb_gpio
+    pins:
+      P8_12:
+        name: Door
+      GPIO0_26:
+        name: Window
 ```
 
 Configuration variables:
