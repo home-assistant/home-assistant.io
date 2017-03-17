@@ -33,7 +33,7 @@ Configuration variables:
 
 - **username** (*Required*): Username used to log into the Hydro-Québec site.
 - **password** (*Required*): Password used to log into the Hydro-Québec site.
-- **contract** (required since HA 4.0) Your contract number with Hydro-Quebec
+- **contract** (required since HA 4.0) Your contract number with Hydro-Québec
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **period_total_bill** : Current period bill
   - **period_length**: Current period length
