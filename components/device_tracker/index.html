@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Device Tracker - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup device tracking within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/device_tracker/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Device Tracker">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup device tracking within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Device Tracker">
     <meta name="twitter:description" content="Instructions how to setup device tracking within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,42 +53,24 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Device Tracker
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Home Assistant can get information from your wireless router or third party services like iCloud or OwnTracks to track which devices are connected and considered “in home”. Please check the sidebar for a list of  brands of supported wireless routers and services.</p>
-
 <p>There are also trackers available which use different technologies like <a href="/components/mqtt/">MQTT</a> or <a href="/components/device_tracker.nmap_tracker/">Nmap</a> to scan the network for devices.</p>
-
 <p>An <a href="/getting-started/automation-trigger/#event-trigger">event</a> (<code class="highlighter-rouge">device_tracker_new_device</code>) will be fired when a device is discovered for the first time.</p>
-
 <h2><a class="title-link" name="configuring-a-device_tracker-platform" href="#configuring-a-device_tracker-platform"></a> Configuring a <code class="highlighter-rouge">device_tracker</code> platform</h2>
-
 <p>To get started add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> (example for Netgear):</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for Netgear device</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">netgear</span>
@@ -108,9 +79,7 @@
     <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
-
 <p>The following optional parameters can be used with any platform. However device tracker will only look for global settings under the configuration of the first configured platform:</p>
-
 <table>
   <thead>
     <tr>
@@ -137,9 +106,7 @@
     </tr>
   </tbody>
 </table>
-
 <p>The extended example from above would look like the following sample:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for Netgear device</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">netgear</span>
@@ -150,15 +117,10 @@
     <span class="s">track_new_devices</span><span class="pi">:</span> <span class="s">yes</span>
 </code></pre>
 </div>
-
 <p>Multiple device trackers can be used in parallel, such as <a href="/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers">Owntracks</a> and <a href="/components/device_tracker.nmap_tracker/">Nmap</a>. The state of the device will be determined by the source that reported last.</p>
-
 <h2><a class="title-link" name="known_devicesyaml" href="#known_devicesyaml"></a> <code class="highlighter-rouge">known_devices.yaml</code></h2>
-
 <p>Once <code class="highlighter-rouge">device_tracker</code> is enabled, a file will be created in your config dir named <code class="highlighter-rouge">known_devices.yaml</code>. Edit this file to adjust which devices to be tracked.</p>
-
 <p>Here’s an example configuration for a single device:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">devicename</span><span class="pi">:</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">Friendly Name</span>
   <span class="s">mac</span><span class="pi">:</span> <span class="s">EA:AA:55:E7:C6:94</span>
@@ -168,7 +130,6 @@
   <span class="s">hide_if_away</span><span class="pi">:</span> <span class="s">no</span>
 </code></pre>
 </div>
-
 <table>
   <thead>
     <tr>
@@ -215,18 +176,10 @@
     </tr>
   </tbody>
 </table>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/device_tracker.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -340,13 +293,10 @@
           </a></li>
       </ul>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -356,7 +306,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -368,7 +317,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

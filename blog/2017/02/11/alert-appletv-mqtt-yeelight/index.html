@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>0.38: Alert, AppleTV, MQTT discovery, and Yeelight - Home Assistant</title>
     <meta name="author" content="Robbie Trencheny, Fabian Affolter">
     <meta name="description" content="Faster and more configurable frontend, configuration check, and complete move to async for core">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="0.38: Alert, AppleTV, MQTT discovery, and Yeelight">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,32 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Faster and more configurable frontend, configuration check, and complete move to async for core">
     <meta property="og:image" content="https://home-assistant.io/images/blog/2017-02-0.38/social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@robbie">
     <meta name="twitter:title" content="0.38: Alert, AppleTV, MQTT discovery, and Yeelight">
     <meta name="twitter:description" content="Faster and more configurable frontend, configuration check, and complete move to async for core">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-02-0.38/social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +54,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-02-11T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 11, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Robbie Trencheny, Fabian Affolter</span>
@@ -92,25 +70,15 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p>Another Saturday, another release!</p>
-
 <h3><a class="title-link" name="core-updates" href="#core-updates"></a> Core updates</h3>
 <ul>
   <li>
@@ -120,28 +88,20 @@
     <p>Now when you restart Home Assistant using the <code class="highlighter-rouge">homeassistant.restart</code> service, your configuration is checked. If it appears to be invalid the restart will fail.</p>
   </li>
 </ul>
-
 <h3><a class="title-link" name="rewritten-frontend" href="#rewritten-frontend"></a> Rewritten frontend</h3>
 <p>The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new <a href="https://home-assistant.io/developers/websocket_api/">WebSockets API</a> instead of the <a href="https://home-assistant.io/developers/server_sent_events/">EventStream API</a>.</p>
-
 <h3><a class="title-link" name="custom-state-card-ui" href="#custom-state-card-ui"></a> Custom state card UI</h3>
 <p>A nice new feature is the possibility to create <a href="https://home-assistant.io/developers/frontend_creating_custom_ui/">custom state cards</a> in the frontend. Go ahead and write your own state card for <a href="https://home-assistant.io/cookbook/custom_ui_by_andrey-git">lights</a>, sensors, locks, etc.</p>
-
 <h3><a class="title-link" name="mqtt-discovery" href="#mqtt-discovery"></a> MQTT discovery</h3>
 <p>MQTT now has <a href="https://home-assistant.io/components/mqtt/#discovery">discovery</a> support which is different than our <a href="https://home-assistant.io/components/discovery/"><code class="highlighter-rouge">discovery</code></a> component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.</p>
-
 <h3><a class="title-link" name="alert-component" href="#alert-component"></a> Alert component</h3>
 <p>If you left your front door open, then the new <a href="https://home-assistant.io/components/alert/"><code class="highlighter-rouge">alert</code></a> component can be used to remind you of this by sending you repeating notifications at a given interval.</p>
-
 <h3><a class="title-link" name="yeelight" href="#yeelight"></a> Yeelight</h3>
 <p>The <a href="https://home-assistant.io/components/light.yeelight/"><code class="highlighter-rouge">yeelight</code></a> component has been ported to use a more stable and feature-complete <a href="https://gitlab.com/stavros/python-yeelight">python-yeelight</a> backend, and supports now both white and RGB bulbs. The component also supports transitions and can be configured to save the settings to the bulb on changes. The users currently using custom components for Yeelight are encouraged to move back to use the included version and report any problems with it to our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>.</p>
-
 <h3><a class="title-link" name="apple-tv" href="#apple-tv"></a> Apple TV</h3>
 <p><a href="https://home-assistant.io/components/media_player.apple_tv/">Apple TV</a> is now a supported <a href="https://home-assistant.io/components/media_player/"><code class="highlighter-rouge">media_player</code></a>! It has support for just about every media player function, including a realtime display of playback status and artwork.</p>
-
 <h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
 <h4><a class="title-link" name="new-platformscomponents" href="#new-platformscomponents"></a> New platforms/components</h4>
-
 <ul>
   <li>Sensor: Support for monitoring <a href="https://home-assistant.io/components/sensor.openevse/">OpenEVSE</a> chargers (<a href="https://github.com/miniconfig">@miniconfig</a>)</li>
   <li>Voice command <a href="https://home-assistant.io/components/apiai/">API.AI</a> (<a href="https://github.com/adrianlzt">@adrianlzt</a>)</li>
@@ -157,9 +117,7 @@
   <li>Notify: <a href="https://home-assistant.io/components/notify.mailgun/">Mailgun</a> notify service (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
   <li>Image Processing: Support <a href="https://home-assistant.io/components/image_processing.microsoft_face_detect/">Microsoft Face detection</a> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
 </ul>
-
 <h4><a class="title-link" name="improvements" href="#improvements"></a> Improvements</h4>
-
 <ul>
   <li>Switch - Pilight: Validation no longer rejects alphanumeric IDs (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
   <li>Device tracker - ASUSWrt: Fixes <code class="highlighter-rouge">ip neigh</code> regex to handle the possible IPv6 “router” flag (<a href="https://github.com/kylehendricks">@kylehendricks</a>)</li>
@@ -206,18 +164,13 @@
   <li>Zoneminder: Refactoring and JSON decode error handling (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
   <li>Image processing: Cleanup Base face class add support for microsoft face detect (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
 </ul>
-
 <p>Bugfixes: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@mnoorenberghe</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/mathewpeterson">@mathewpeterson</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/JshWright">@JshWright</a>, <a href="https://github.com/andriej">@andriej</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/nodinosaur">@nodinosaur</a>, <a href="https://github.com/konikvranik">@konikvranik</a>, and you if you are missing here.</p>
-
 <h3><a class="title-link" name="release-0381---february-12" href="#release-0381---february-12"></a> Release 0.38.1 - February 12</h3>
-
 <ul>
   <li>Fix logbook ordering (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix AppleTV conflicting dependency breaking websockets (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="release-0382---february-12" href="#release-0382---february-12"></a> Release 0.38.2 - February 12</h3>
-
 <ul>
   <li>Validate config will now respect custom config location (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix Nuki lock on Python 3.4 (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
@@ -226,9 +179,7 @@
   <li>Fix MQTT discovery (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Fix Z-Wave thermostat units (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="release-0383---february-15" href="#release-0383---february-15"></a> Release 0.38.3 - February 15</h3>
-
 <ul>
   <li>Sonos: fix losing favorite sources on disconnect (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Google Calendar: fix timeMin losing events (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
@@ -237,14 +188,11 @@
   <li>Moon: remove unit of measurement (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>MySensors: add version requirement to notify and device tracker (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="release-0384---february-21" href="#release-0384---february-21"></a> Release 0.38.4 - February 21</h3>
-
 <ul>
   <li>Discovery: flux_led discovery led to problems on systems and has been removed (<a href="https://github.com/bazwilliams">@bazwilliams</a>)</li>
   <li>Hidden devices are no longer visible on views (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 <ul>
   <li>The support for <a href="https://home-assistant.io/components/media_player.webostv/">LG webOS Smart TVs</a> was improved. This requires you to move <code class="highlighter-rouge">$HOME/.pylgtv</code> to <code class="highlighter-rouge">$HASS_CONFIG_DIR/webostv.conf</code> or Home Assistant will need to be paired with the TV again.</li>
@@ -252,28 +200,18 @@
   <li>The <a href="https://home-assistant.io/components/binary_sensor.ffmpeg/">FFmpeg binary sensor</a> change the platform name from <code class="highlighter-rouge">ffmpeg</code> to <code class="highlighter-rouge">ffmpeg_noise</code> and <code class="highlighter-rouge">ffmpeg_motion</code>. Also all FFmpeg-related services are moved from a platform implementation to a the <a href="https://home-assistant.io/components/ffmpeg/">FFmpeg components</a> and were rename from <code class="highlighter-rouge">binary_sensor.ffmpeg_xy</code> to <code class="highlighter-rouge">ffmpeg.xy</code>.</li>
   <li>The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use <code class="highlighter-rouge">this.hass.entities</code>, <code class="highlighter-rouge">this.hass.callService</code> and <code class="highlighter-rouge">this.hass.callApi</code>.</li>
 </ul>
-
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-
 <h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -289,70 +227,42 @@
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/"
      data-counturl="https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -362,7 +272,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -374,7 +283,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -383,13 +291,10 @@
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/';
     var disqus_url = 'https://home-assistant.io/blog/2017/02/11/alert-appletv-mqtt-yeelight/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>MQTT Brokers - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup MQTT brokers for Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/mqtt/broker/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="MQTT Brokers">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup MQTT brokers for Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="MQTT Brokers">
     <meta name="twitter:description" content="Instructions how to setup MQTT brokers for Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,40 +53,23 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/mqtt/broker.markdown'>Edit this page on GitHub</a></div>
-  
-
-  
   <header>
     <h1 class="title indent">
       MQTT Brokers
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.</p>
-
 <h3><a class="title-link" name="embedded-broker" href="#embedded-broker"></a> Embedded broker</h3>
-
 <p>Home Assistant contains an embedded MQTT broker. If no broker configuration is given, the <a href="https://pypi.python.org/pypi/hbmqtt">HBMQTT broker</a> is started and Home Assistant connects to it. Embedded broker default configuration:</p>
-
 <table>
   <thead>
     <tr>
@@ -132,18 +104,14 @@
     </tr>
   </tbody>
 </table>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
 </code></pre>
 </div>
-
 <p class="note">
 This broker does not currently work with OwnTracks because of a protocol version issue.
 </p>
-
 <p>If you want to customize the settings of the embedded broker, use <code class="highlighter-rouge">embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>. This will replace the default configuration.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">embedded</span><span class="pi">:</span>
@@ -151,11 +119,8 @@ This broker does not currently work with OwnTracks because of a protocol version
     <span class="c1"># http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="run-your-own" href="#run-your-own"></a> Run your own</h3>
-
 <p>This is the most private option but requires a bit more work. There are multiple free and open-source brokers to pick from: eg. <a href="http://mosquitto.org/">Mosquitto</a>, <a href="http://emqtt.io/">EMQ</a>, or <a href="http://www.mosca.io/">Mosca</a>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
@@ -167,9 +132,7 @@ This broker does not currently work with OwnTracks because of a protocol version
   <span class="s">protocol</span><span class="pi">:</span> <span class="s">3.1</span> 
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>broker</strong> (<em>Optional</em>): The IP address or hostname of your MQTT broker, e.g. 192.168.1.32.</li>
   <li><strong>port</strong> (<em>Optional</em>): The network port to connect to. Default is 1883.</li>
@@ -179,19 +142,14 @@ This broker does not currently work with OwnTracks because of a protocol version
   <li><strong>password</strong> (<em>Optional</em>): The corresponding password for the username to use with your MQTT broker.</li>
   <li><strong>protocol</strong> (<em>Optional</em>): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.</li>
 </ul>
-
 <p class="note warning">
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify <code class="highlighter-rouge">protocol: 3.1</code> in your MQTT configuration to work around this issue.
 </p>
-
 <p class="note">
 If you are running a mosquitto instance on a different server with proper SSL encryption using a service like letsencrypt you may have to set the certificate to the operating systems own <code class="highlighter-rouge">.crt</code> certificates file. In the instance of ubuntu this would be <code class="highlighter-rouge">certificate: /etc/ssl/certs/ca-certificates.crt</code>
 </p>
-
 <h3><a class="title-link" name="public-broker" href="#public-broker"></a> Public broker</h3>
-
 <p>The Mosquitto project runs a <a href="http://test.mosquitto.org">public broker</a>. This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">test.mosquitto.org</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">1883 or 8883</span>
@@ -203,15 +161,11 @@ If you are running a mosquitto instance on a different server with proper SSL en
   <span class="s">certificate</span><span class="pi">:</span> <span class="s">/home/paulus/downloads/mosquitto.org.crt</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="cloudmqtt" href="#cloudmqtt"></a> CloudMQTT</h3>
-
 <p><a href="https://www.cloudmqtt.com">CloudMQTT</a> is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example <a href="/components/device_tracker.owntracks/">OwnTracks</a> and give you a taste of what is possible.</p>
-
 <p class="note">
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
 </p>
-
 <ol>
   <li><a href="https://customer.cloudmqtt.com/login">Create an account</a> (no payment details needed)</li>
   <li><a href="https://customer.cloudmqtt.com/subscription/create">Create a new CloudMQTT instance</a>
@@ -225,7 +179,6 @@ Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
   </li>
   <li>Copy the instance info to your configuration.yaml:</li>
 </ol>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">CLOUTMQTT_SERVER</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">CLOUDMQTT_PORT</span>
@@ -233,23 +186,13 @@ Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
   <span class="s">password</span><span class="pi">:</span> <span class="s">CLOUDMQTT_PASSWORD</span>
 </code></pre>
 </div>
-
 <p class="note">
 Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20000-30000).
 </p>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>
     <h1 class="title delta">Topics</h1>
@@ -436,13 +379,10 @@ Home Assistant will automatically load the correct certificate if you connect to
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -452,7 +392,6 @@ Home Assistant will automatically load the correct certificate if you connect to
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -464,7 +403,6 @@ Home Assistant will automatically load the correct certificate if you connect to
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

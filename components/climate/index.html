@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Climate - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup climate control devices within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/climate/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Climate">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup climate control devices within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Climate">
     <meta name="twitter:description" content="Instructions how to setup climate control devices within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,55 +53,34 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Climate
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">climate</code> component is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) and thermostat devices.</p>
-
 <p>To enable this component, pick one of the platforms, and add it to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">climate</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">demo</span>
 </code></pre>
 </div>
-
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
-
 <h3><a class="title-link" name="climate-control-services" href="#climate-control-services"></a> Climate control services</h3>
 <p>Available services: <code class="highlighter-rouge">climate.set_aux_heat</code>, <code class="highlighter-rouge">climate.set_away_mode</code>, <code class="highlighter-rouge">climate.set_temperature</code>, <code class="highlighter-rouge">climate.set_humidity</code>, <code class="highlighter-rouge">climate.set_fan_mode</code>, <code class="highlighter-rouge">climate.set_operation_mode</code>, <code class="highlighter-rouge">climate.set_swing_mode</code>, <code class="highlighter-rouge">climate.set_hold_mode</code></p>
-
 <p class="note">
 Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong>.
 </p>
-
 <h3><a class="title-link" name="service-climateset_aux_heat" href="#service-climateset_aux_heat"></a> Service <code class="highlighter-rouge">climate.set_aux_heat</code></h3>
-
 <p>Turn auxiliary heater on/off for climate device</p>
-
 <table>
   <thead>
     <tr>
@@ -134,9 +102,7 @@ Not all climate services may be available for your platform. Be sure to check th
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -148,13 +114,10 @@ Not all climate services may be available for your platform. Be sure to check th
         <span class="s">aux_heat</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="service-climateset_away_mode" href="#service-climateset_away_mode"></a> Service <code class="highlighter-rouge">climate.set_away_mode</code></h3>
-
 <p>Set away mode for climate device. The away mode changes the target temperature permanently to a temperature 
 reflecting a situation where the climate device is set to save energy. This may be used to emulate a
 “vacation mode”, for example.</p>
-
 <table>
   <thead>
     <tr>
@@ -176,9 +139,7 @@ reflecting a situation where the climate device is set to save energy. This may 
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -190,14 +151,11 @@ reflecting a situation where the climate device is set to save energy. This may 
         <span class="s">away_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="service-climateset_hold_mode" href="#service-climateset_hold_mode"></a> Service <code class="highlighter-rouge">climate.set_hold_mode</code></h3>
-
 <p>Set hold mode for climate device. The hold mode changes the target temperature of the client device temporarily to
 a different temperature. Typical hold modes provided by a climate device are “away” or “home”, where the hold temperature
 is chosen depending on a predefined climate, or “temperature” hold, where a particular temperature is selected as the
 temporary target temperature. The particular modes available depend on the climate device.</p>
-
 <table>
   <thead>
     <tr>
@@ -219,9 +177,7 @@ temporary target temperature. The particular modes available depend on the clima
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -233,11 +189,8 @@ temporary target temperature. The particular modes available depend on the clima
         <span class="s">hold_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">away'</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="service-climateset_temperature" href="#service-climateset_temperature"></a> Service <code class="highlighter-rouge">climate.set_temperature</code></h3>
-
 <p>Set target temperature of climate device</p>
-
 <table>
   <thead>
     <tr>
@@ -274,9 +227,7 @@ temporary target temperature. The particular modes available depend on the clima
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -289,11 +240,8 @@ temporary target temperature. The particular modes available depend on the clima
         <span class="s">operation_mode</span><span class="pi">:</span> <span class="s">Heat</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="service-climateset_humidity" href="#service-climateset_humidity"></a> Service <code class="highlighter-rouge">climate.set_humidity</code></h3>
-
 <p>Set target humidity of climate device</p>
-
 <table>
   <thead>
     <tr>
@@ -315,9 +263,7 @@ temporary target temperature. The particular modes available depend on the clima
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -329,11 +275,8 @@ temporary target temperature. The particular modes available depend on the clima
         <span class="s">humidity</span><span class="pi">:</span> <span class="s">60</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="service-climateset_fan_mode" href="#service-climateset_fan_mode"></a> Service <code class="highlighter-rouge">climate.set_fan_mode</code></h3>
-
 <p>Set fan operation for climate device</p>
-
 <table>
   <thead>
     <tr>
@@ -355,9 +298,7 @@ temporary target temperature. The particular modes available depend on the clima
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -369,11 +310,8 @@ temporary target temperature. The particular modes available depend on the clima
         <span class="s">fan_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">On</span><span class="nv"> </span><span class="s">Low'</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="service-climateset_operation_mode" href="#service-climateset_operation_mode"></a> Service <code class="highlighter-rouge">climate.set_operation_mode</code></h3>
-
 <p>Set operation mode for climate device</p>
-
 <table>
   <thead>
     <tr>
@@ -395,9 +333,7 @@ temporary target temperature. The particular modes available depend on the clima
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -409,11 +345,8 @@ temporary target temperature. The particular modes available depend on the clima
         <span class="s">operation_mode</span><span class="pi">:</span> <span class="s">Heat</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="service-climateset_swing_mode" href="#service-climateset_swing_mode"></a> Service <code class="highlighter-rouge">climate.set_swing_mode</code></h3>
-
 <p>Set operation mode for climate device</p>
-
 <table>
   <thead>
     <tr>
@@ -435,9 +368,7 @@ temporary target temperature. The particular modes available depend on the clima
     </tr>
   </tbody>
 </table>
-
 <h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -449,18 +380,10 @@ temporary target temperature. The particular modes available depend on the clima
         <span class="s">swing_mode</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/climate.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -517,13 +440,10 @@ temporary target temperature. The particular modes available depend on the clima
           </a></li>
       </ul>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -533,7 +453,6 @@ temporary target temperature. The particular modes available depend on the clima
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -545,7 +464,6 @@ temporary target temperature. The particular modes available depend on the clima
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

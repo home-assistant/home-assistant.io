@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Forecast.io - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="How to integrate Forecast.io within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.forecast/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Forecast.io">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="How to integrate Forecast.io within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Forecast.io">
     <meta name="twitter:description" content="How to integrate Forecast.io within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,46 +53,28 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Forecast.io
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p class="note warning">
 <strong>This platform has been deprecated in favor of the “<a href="/components/sensor.darksky/">darksky</a>” platform and will be removed in the future. Please use the “darksky” platform.</strong>
 </p>
-
 <p>The <code class="highlighter-rouge">forecast</code> platform uses the <a href="https://forecast.io/">Forecast.io</a> web service as a source of meteorological data for your location. The location is based on the <code class="highlighter-rouge">longitude</code> and <code class="highlighter-rouge">latitude</code> coordinates configured in your <code class="highlighter-rouge">configuration.yaml</code> file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by forecast.io, you can refine them down to your exact home address. GPS coordinates can be found by using <a href="https://www.google.com/maps">Google Maps</a> and clicking on your home or <a href="http://www.openstreetmap.org/">Openstreetmap</a>.</p>
-
 <p>You need an API key which is free but requires <a href="https://developer.forecast.io/register">registration</a>. You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.</p>
-
 <p class="note warning">
 <a href="https://forecast.io/">Forecast.io</a> will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
-
 <p>To add Forecast.io to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">forecast</span>
@@ -136,9 +107,7 @@
       <span class="pi">-</span> <span class="s">precip_intensity_max</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): Your API key for http://forecast.io/.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend.
@@ -176,8 +145,7 @@
       <li>Time period dictionary, e.g.:</li>
     </ul>
   </li>
-</ul>
-<pre>update_interval:
+</ul><pre>update_interval:
         # At least one of these must be specified:
         days: 0
         hours: 0
@@ -185,20 +153,11 @@
         seconds: 30
         milliseconds: 0
     </pre>
-
 <p>Details about the API are available in the <a href="https://developer.forecast.io/docs/v2">Forecast.io documentation</a>.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.forecast.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -222,13 +181,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -238,7 +194,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -250,7 +205,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

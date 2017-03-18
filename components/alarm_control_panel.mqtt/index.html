@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>MQTT Alarm Control Panel - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to integrate MQTT capable Alarm Panels into Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/alarm_control_panel.mqtt/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="MQTT Alarm Control Panel">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate MQTT capable Alarm Panels into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="MQTT Alarm Control Panel">
     <meta name="twitter:description" content="Instructions how to integrate MQTT capable Alarm Panels into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,36 +53,21 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       MQTT Alarm Control Panel
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">mqtt</code> alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from <code class="highlighter-rouge">state_topic</code>. If these messages are published with <em>RETAIN</em> flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be <code class="highlighter-rouge">unknown</code>.</p>
-
 <p>The component will accept the following states from your Alarm Panel (in lower case):</p>
-
 <ul>
   <li>‘disarmed’</li>
   <li>‘armed_home’</li>
@@ -101,11 +75,8 @@
   <li>‘pending’</li>
   <li>‘triggered’</li>
 </ul>
-
 <p>The component is able to control your Alarm Panel by publishing to the <code class="highlighter-rouge">command_topic</code> when a user interacts with the Home Assistant frontend.</p>
-
 <p>To enable this platform, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alarm_control_panel</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
@@ -113,9 +84,7 @@
   <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/alarm/set"</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>state_topic</strong> (<em>Required</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the alarm state.</li>
@@ -126,19 +95,10 @@
   <li><strong>payload_arm_away</strong> (<em>Optional</em>): The payload to set armed-away mode on your Alarm Panel. Default is “ARM_AWAY”.</li>
   <li><strong>code</strong> (<em>Optional</em>): If defined, specifies a code to enable or disable the alarm in the frontend.</li>
 </ul>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/alarm_control_panel.mqtt.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -222,13 +182,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -238,7 +195,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -250,7 +206,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

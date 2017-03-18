@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Multi-room audio with Snapcast, Mopidy, and Home Assistant - Home Assistant</title>
     <meta name="author" content="happyleavesaoc">
     <meta name="description" content="Home Assistant is an open-source home automation platform running on Python 3.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Multi-room audio with Snapcast, Mopidy, and Home Assistant">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/blog/2016-02-snapcast/diagram.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Multi-room audio with Snapcast, Mopidy, and Home Assistant">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-02-snapcast/diagram.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +53,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">Multi-room audio with Snapcast, Mopidy, and Home Assistant</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-02-18T05:10:56+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 18, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> happyleavesaoc</span>
@@ -92,53 +69,32 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p>Would you like to listen to music in every room in your home, controlled from one source? Then multi-room audio is for you.</p>
-
 <p>Multi-room audio can be achieved by having a computer attached to speakers in every room. On each computer, services run to play and/or control the audio. With this DIY approach, the kind of computer and speakers is very much up to you. It could be your desktop computer with attached powered speakers, your HTPC hooked up to your TV and receiver, a Raspberry Pi with Amp or DAC, or even an Android device.</p>
-
 <p>You’ll need two key software packages, besides Home Assistant. The first is <a href="https://www.mopidy.com/">Mopidy</a>, a music server that can play local files, or connect to streaming music services like Spotify. The second is <a href="https://github.com/badaix/snapcast/">Snapcast</a>, which enables synchronized audio streaming across your network. Both can be integrated into Home Assistant. Each room audio device will run an instance of the Snapcast client, and optionally a Mopidy instance. Your server will run a special instance of Mopidy and the Snapcast server.</p>
-
 <p>Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several <a href="https://docs.mopidy.com/en/latest/ext/web/#ext-web">Mopidy-only web-based options</a> available. On Android, <a href="https://play.google.com/store/apps/details?id=se.anil.remotedy">Remotedy</a> is particularly nice since you can access multiple Mopidy instances in one place.</p>
-
 <p>Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you’re using a web UI for Mopidy, you can add links to each instance in Home Assistant with the <a href="/components/weblink/">weblink</a> component.</p>
-
 <p class="img">
   <img src="/images/blog/2016-02-snapcast/diagram.png" />
 </p>
-
 <a name="read-more"></a>
-
 <h2>Staging</h2>
-
 <ul>
   <li><a href="https://www.mopidy.com/">Install</a> Mopidy (2.0.0 or greater)</li>
   <li><a href="https://github.com/badaix/snapcast/releases/">Download</a> and <a href="https://github.com/badaix/snapcast/tree/v0.5.0-beta-1#installation">Install</a> Snapcast (0.5.0 or greater)</li>
 </ul>
-
 <h2>Configure Mopidy</h2>
-
 <p>Mopidy can be run with multiple configuration files, each extending the previous file. This is helpful when we’re running multiple instances with varying functionality.</p>
-
 <h3>core.conf</h3>
 <p>The core configuration is shared between all instances:</p>
-
 <div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">mpd</span>]
 <span class="n">hostname</span> = ::
 
@@ -153,18 +109,14 @@
 <span class="n">password</span> = &lt;<span class="n">redacted</span>&gt;
 </code></pre>
 </div>
-
 <h3>local.conf</h3>
 <p>Add the local configuration on computers that have local media files:</p>
-
 <div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">local</span>]
 <span class="n">media_dir</span> = &lt;<span class="n">your</span>/<span class="n">music</span>/<span class="n">here</span>&gt;
 </code></pre>
 </div>
-
 <h3>snapcast.conf</h3>
 <p>Finally, the Mopidy instance that connects with Snapcast needs special configuration. Run on a different port to avoid conflicts if you have a second Mopidy instance running on your computer. The audio output is sent to a named pipe - Snapcast will read from there. Note that you may have to adjust the audio output attribute depending on your system and audio sources.</p>
-
 <div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">mpd</span>]
 <span class="n">hostname</span> = ::
 <span class="n">port</span> = <span class="m">6601</span>
@@ -177,49 +129,32 @@
 <span class="n">output</span> = <span class="n">audioresample</span> ! <span class="n">audio</span>/<span class="n">x</span>-<span class="n">raw</span>,<span class="n">rate</span>=<span class="m">48000</span>,<span class="n">channels</span>=<span class="m">2</span>,<span class="n">format</span>=<span class="n">S16LE</span> ! <span class="n">audioconvert</span> ! <span class="n">wavenc</span> ! <span class="n">filesink</span> <span class="n">location</span>=/<span class="n">tmp</span>/<span class="n">snapfifo</span>
 </code></pre>
 </div>
-
 <h2>Run Mopidy</h2>
-
 <p>To run a room-specific instance:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mopidy --config <span class="nv">$CONF_DIR</span>/core.conf
 </code></pre>
 </div>
-
 <p>To run a room-specific instance with local media:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mopidy --config <span class="nv">$CONF_DIR</span>/core.conf:<span class="nv">$CONF_DIR</span>/local.conf
 </code></pre>
 </div>
-
 <p>To run the special Snapcast-connected instance (with local media):</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mopidy --config <span class="nv">$CONF_DIR</span>/core.conf:<span class="nv">$CONF_DIR</span>/local.conf:<span class="nv">$CONF_DIR</span>/snapcast.conf
 </code></pre>
 </div>
-
 <h2>Run Snapcast</h2>
-
 <p>Start the <code class="highlighter-rouge">snapserver</code> on the same server running Mopidy with the snapcast configuration.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>snapserver   <span class="c"># or use systemd</span>
 </code></pre>
 </div>
-
 <p>Start the <code class="highlighter-rouge">snapclient</code> on computers that will be playing audio.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>snapclient   <span class="c"># or use systemd, add -h &lt;server host&gt; if necessary</span>
 </code></pre>
 </div>
-
 <h2>Configure Snapcast</h2>
-
 <p>There are a number of snapcast configuration options, but the one relevant to Home Assistant is the client names. You can set them in the snapserver configuration file, by default located at <code class="highlighter-rouge">~/.config/Snapcast/settings.json</code>. Only edit this file while the <code class="highlighter-rouge">snapserver</code> is not running. Modify the <code class="highlighter-rouge">name</code> JSON value to your liking - this is how the client will be named in Home Assistant.</p>
-
 <h2>Configure Home Assistant</h2>
-
 <p>Use the <a href="/components/media_player.mpd/">mpd</a> and <a href="/components/media_player.snapcast/">snapcast</a> components. Optionally, use <a href="/components/weblink/">weblink</a> to provide easy access to a Mopidy web UI.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">snapcast</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">xxxxx</span>
@@ -237,21 +172,13 @@
 </code></pre>
 </div>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -267,74 +194,45 @@
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/"
      data-counturl="https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -344,7 +242,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -356,7 +253,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -365,13 +261,10 @@
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/';
     var disqus_url = 'https://home-assistant.io/blog/2016/02/18/multi-room-audio-with-snapcast/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

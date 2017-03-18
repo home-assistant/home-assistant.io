@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Flic Smart Button - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to integrate flic buttons within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.flic/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Flic Smart Button">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate flic buttons within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Flic Smart Button">
     <meta name="twitter:description" content="Instructions how to integrate flic buttons within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,46 +53,28 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Flic Smart Button
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">flic</code> platform allows you to connect with multiple <a href="https://flic.io">flic</a> smart buttons.</p>
-
 <p>The platform does not directly interact with the buttons, but communicates with the flic service that manages the buttons. The service can run on the same instance as home assistant or any other reachable machine. For setup instructions visit the GitHub repository of the service for <a href="https://github.com/50ButtonsEach/fliclib-linux-hci">Linux</a>, <a href="https://github.com/50ButtonsEach/flic-service-osx">OS X</a> or <a href="https://github.com/50ButtonsEach/fliclib-windows">Windows</a>.</p>
-
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">flic</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The IP or hostname of the flic service server. (default: <code class="highlighter-rouge">localhost</code>)</li>
   <li><strong>port</strong> (<em>Optional</em>): The port of the flic service. (default: <code class="highlighter-rouge">5551</code>)</li>
@@ -111,18 +82,12 @@
   <li><strong>ignored_click_types</strong>: List of click types whose occurrence should not trigger and <code class="highlighter-rouge">flic_click</code> event.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): Maximum time in seconds an event can be queued locally on a button before discarding the event. (default: <code class="highlighter-rouge">3</code>)</li>
 </ul>
-
 <h4><a class="title-link" name="discovery" href="#discovery"></a> Discovery</h4>
-
 <p>If discovery is enabled, you can add a new button by pressing it for at least 7s. The button will be paired with the flic service and added to Home Assistant. Otherwise, you have to manually pair it with the flic service. The Home Assistant platform will not scan for new buttons and will only connect to buttons already paired.</p>
-
 <h4><a class="title-link" name="timeout" href="#timeout"></a> Timeout</h4>
 <p>+When the flic button is triggered while disconnected from flic service, it will queue all events and try to connect and transmit them as soon as possible. The timeout variable can be used to stop events from triggering if too much time passed between the action and the notification in Home Assistant.</p>
-
 <h4><a class="title-link" name="events" href="#events"></a> Events</h4>
-
 <p>The flic component fires <code class="highlighter-rouge">flic_click</code> events on the bus. You can capture the events and respond to them in automation scripts like this:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on lights in living room if flic is pressed once</span>
@@ -137,31 +102,19 @@
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.lights_livingroom</span>
 </code></pre>
 </div>
-
 <p>Event data:</p>
-
 <ul>
   <li><strong>button_name</strong>: The name of the button, that triggered the event.</li>
   <li><strong>button_address</strong>: The bluetooth address of the button, that triggered the event.</li>
   <li><strong>click_type</strong>: The type of click. Possible values are <code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">double</code> and <code class="highlighter-rouge">hold</code>.</li>
   <li><strong>queued_time</strong>: The amount of time this event was queued on the button, in seconds.</li>
 </ul>
-
 <h5><a class="title-link" name="ignoring-click-types" href="#ignoring-click-types"></a> Ignoring Click Types</h5>
-
 <p>For some purposes it might make sense to exclude a specific click type from triggering click events. For example when ignoring double clicks, pressing the button twice fast results in two <code class="highlighter-rouge">single</code> instead of a <code class="highlighter-rouge">double</code> click event. This is very useful for applications where you want to click fast.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/binary_sensor.flic.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -300,13 +253,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -316,7 +266,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -328,7 +277,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

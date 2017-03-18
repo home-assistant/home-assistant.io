@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Maintenance - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Steps involved to maintain the current state of Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/maintenance/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Maintenance">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Steps involved to maintain the current state of Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Maintenance">
     <meta name="twitter:description" content="Steps involved to maintain the current state of Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,73 +53,41 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Maintenance
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>This page documents a couple of points for maintaining the Home Assistant code. Most of the tasks don’t need to be performed on a regular base thus the steps, used tools, or details are preserved here.</p>
-
 <h3><a class="title-link" name="line-separator" href="#line-separator"></a> Line separator</h3>
-
 <p>People are using various operating systems to develop components and platforms for Home Assistant. This could lead to different line endings on file. We prefer <code class="highlighter-rouge">LN</code>. Especially Microsoft Windows tools tend to use <code class="highlighter-rouge">CRLF</code>.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>find homeassistant -name <span class="s2">"*.py"</span> -exec file <span class="o">{}</span> <span class="se">\;</span> | grep BOM
 <span class="gp">$ </span>find homeassistant -name <span class="s2">"*.py"</span> -exec file <span class="o">{}</span> <span class="se">\;</span> | grep CRLF
 </code></pre>
 </div>
-
 <p>To fix the line separator, use <code class="highlighter-rouge">dos2unix</code> or <code class="highlighter-rouge">sed</code>.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>dos2unix homeassistant/components/notify/kodi.py
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h3>
-
 <p>A lot of components and platforms depends on third-party Python modules. The dependencies which are stored in the <code class="highlighter-rouge">requirements_*.txt</code> files are tracked by <a href="https://gemnasium.com/github.com/home-assistant/home-assistant">gemnasium</a> and <a href="https://requires.io/github/home-assistant/home-assistant/requirements/?branch=dev">Requires.io</a>.</p>
-
 <p>If you update the requirements of a component/platform through the <code class="highlighter-rouge">REQUIREMENTS = ['modules-xyz==0.3']</code> entry, run the provided script to update the <code class="highlighter-rouge">requirements_*.txt</code> file(s).</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/gen_requirements_all.py 
 </code></pre>
 </div>
-
 <p>Start a test run of Home Assistant if that was successful include all files in a Pull Request. Add a short summary of the changes, a sample configuration entry, details about the tests, and other useful information to the description.</p>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/maintenance.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -219,13 +176,10 @@
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -235,7 +189,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -247,7 +200,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

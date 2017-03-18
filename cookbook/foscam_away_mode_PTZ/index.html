@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Foscam Recording during Away Mode Only using Pan/Tilt/Zoom Control and Motion Detection - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Example of how to set Foscam to only have Motion Detection Recording while no one is home. When users are home the Foscam will indicate it is not r...">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/cookbook/foscam_away_mode_PTZ/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Foscam Recording during Away Mode Only using Pan/Tilt/Zoom Control and Motion Detection">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Example of how to set Foscam to only have Motion Detection Recording while no one is home. When users are home the Foscam will indicate it is not recording by pointing down and away from users">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Foscam Recording during Away Mode Only using Pan/Tilt/Zoom Control and Motion Detection">
     <meta name="twitter:description" content="Example of how to set Foscam to only have Motion Detection Recording while no one is home. When users are home the Foscam will indicate it is not recording by pointing down and away from users">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,39 +53,23 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Foscam Recording During Away Mode Only Using Pan/Tilt/Zoom Control and Motion Detection
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>This requires a <a href="/components/camera.foscam/">Foscam IP Camera</a> camera with PTZ (Pan, Tilt, Zoom) and CGI functionality (<a href="http://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf">Source</a>)</p>
-
 <p>Foscam Cameras can be controlled by Home Assistant through a number of CGI commands. 
 The following outlines examples of the switch, services, and scripts required to move between 2 preset destinations while controlling motion detection, but many other options of movement are provided in the Foscam CGI User Guide linked above.</p>
-
 <p>The <code class="highlighter-rouge">switch.foscam_motion</code> will control whether the motion detection is on or off. This switch supports <code class="highlighter-rouge">statecmd</code>, which checks the current state of motion detection.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Replace admin and password with an "Admin" privileged Foscam user</span>
 <span class="c1"># Replace ipaddress with the local IP address of your Foscam</span>
 <span class="s">switch</span><span class="pi">:</span>
@@ -110,9 +83,7 @@ The following outlines examples of the switch, services, and scripts required to
      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"1"</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
-
 <p>The service <code class="highlighter-rouge">shell_command.foscam_turn_off</code> sets the camera to point down and away to indicate it is not recording, and <code class="highlighter-rouge">shell_command.foscam_turn_on</code> sets the camera to point where I’d like to record. h of these services require preset points to be added to your camera. See source above for additional information.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">shell_command</span><span class="pi">:</span>
   <span class="c1">#Created a preset point in Foscam Web Interface named Off which essentially points the camera down and away</span>
   <span class="s">foscam_turn_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&amp;name=Off&amp;usr=admin&amp;pwd=password"'</span>
@@ -120,9 +91,7 @@ The following outlines examples of the switch, services, and scripts required to
   <span class="s">foscam_turn_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">curl</span><span class="nv"> </span><span class="s">-k</span><span class="nv"> </span><span class="s">"https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&amp;name=Main&amp;usr=admin&amp;pwd=password"'</span>
 </code></pre>
 </div>
-
 <p>The <code class="highlighter-rouge">script.foscam_off</code> and <code class="highlighter-rouge">script.foscam_on</code> can be used to set the motion detection appropriately, and then move the camera. These scripts can be called as part of an automation with <code class="highlighter-rouge">device_tracker</code> triggers to set <code class="highlighter-rouge">home</code> and <code class="highlighter-rouge">not_home</code> modes for your Foscam and disable motion detection recording while <code class="highlighter-rouge">home</code>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
  <span class="s">foscam_off</span><span class="pi">:</span>
    <span class="s">sequence</span><span class="pi">:</span>
@@ -141,9 +110,7 @@ The following outlines examples of the switch, services, and scripts required to
        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.foscam_motion</span>
 </code></pre>
 </div>
-
 <p>To automate Foscam being set to “on” (facing the correct way with motion sensor on), I used the following simple automation:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Set Foscam to Away Mode when I leave home</span>
     <span class="s">trigger</span><span class="pi">:</span>
@@ -161,19 +128,10 @@ The following outlines examples of the switch, services, and scripts required to
       <span class="s">service</span><span class="pi">:</span> <span class="s">script.foscam_off</span>
 </code></pre>
 </div>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/foscam_away_mode_PTZ.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -236,13 +194,10 @@ The following outlines examples of the switch, services, and scripts required to
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -252,7 +207,6 @@ The following outlines examples of the switch, services, and scripts required to
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -264,7 +218,6 @@ The following outlines examples of the switch, services, and scripts required to
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

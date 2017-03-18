@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Lutron - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to use Lutron devices with Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/lutron/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Lutron">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to use Lutron devices with Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Lutron">
     <meta name="twitter:description" content="Instructions how to use Lutron devices with Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,70 +53,42 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Lutron
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p><a href="http://www.lutron.com/">Lutron</a> is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The <code class="highlighter-rouge">lutron</code> component in Home Assistant is responsible for communicating with the main hub for these systems.</p>
-
 <p>Presently, there’s only support for communicating with the <a href="http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx">RadioRA 2</a> Main Repeater and only handle light switches and dimmers.</p>
-
 <p>When configured, the <code class="highlighter-rouge">lutron</code> component will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.</p>
-
 <p>To use Lutron RadioRA 2 devices in your installation, add the following to your configuration.yaml file using the IP of your RadioRA 2 Main Repeater:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">lutron</span><span class="pi">:</span>
   <span class="s">lutron_host</span><span class="pi">:</span> <span class="s">&lt;ip&gt;</span>
   <span class="s">lutron_user</span><span class="pi">:</span> <span class="s">lutron</span>
   <span class="s">lutron_password</span><span class="pi">:</span> <span class="s">integration</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>lutron_ip</strong> (<em>Required</em>): The IP address of the Main Repeater.</li>
   <li><strong>lutron_user</strong> (<em>Required</em>): The login name of the user. The user <code class="highlighter-rouge">lutron</code> always exists, but other users can be added via RadioRA 2 software.</li>
   <li><strong>lutron_password</strong> (<em>Required</em>): The password for the user specified above. <code class="highlighter-rouge">integration</code> is the password for the always-present <code class="highlighter-rouge">lutron</code> user.</li>
 </ul>
-
 <p class="note">
   It is recommended to assign a static IP address to your Main Repeater. This ensures that it won’t change IP addresses, so you won’t have to change the <code class="highlighter-rouge">lutron_ip</code> if it reboots and comes up with a different IP address.
 </p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/lutron.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -268,13 +229,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -284,7 +242,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -296,7 +253,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

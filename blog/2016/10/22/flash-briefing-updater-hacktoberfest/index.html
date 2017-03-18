@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change - Home Assistant</title>
     <meta name="author" content="Robbie Trencheny">
     <meta name="description" content="Alexa Flash Briefing API support, Markdown in persistent notifications, a new updater component, Hacktoberfest and breaking Z-Wave changes.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,32 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Alexa Flash Briefing API support, Markdown in persistent notifications, a new updater component, Hacktoberfest and breaking Z-Wave changes.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@robbie">
     <meta name="twitter:title" content="0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change">
     <meta name="twitter:description" content="Alexa Flash Briefing API support, Markdown in persistent notifications, a new updater component, Hacktoberfest and breaking Z-Wave changes.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +54,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-10-22T20:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 22, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Robbie Trencheny</span>
@@ -92,77 +70,45 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p>Hello again friend,</p>
-
 <p>How are you? Having a good day? We sure are. If you aren’t having a good day, this might cheer you up…</p>
-
 <p>Every other weekend around here gets a little hectic leading to a big sigh of relief as we release a new version of Home Assistant to the world. And this time is no different. Our developer community has once again built us a beautiful new release with lots of new features and improvements. We hope you like it.</p>
-
 <p>One last thing before we get going though, I should warn you… <a href="https://github.com/balloob">@balloob</a> got a bit lazy this week and let me (<a href="https://github.com/robbiet480">@robbiet480</a>) step up to the plate again to write the blog post and do the release. I guess I didn’t do such a bad job in <a href="/blog/2016/08/28/notifications-hue-fake-unification/">0.27</a>. You’ll never know what surprises I have in store. Now that i’ve got all that stuff out of the way, let’s get started…</p>
-
 <h2><a class="title-link" name="stats-update" href="#stats-update"></a> Stats Update</h2>
 <p>Sadly, no big amazing stats to update you with this time, but we did recently pass 7,000 commits! This release featured submissions from 45 contributors. Hopefully with the new updater component we will be able to give you some really good stats in the 0.32 blog post.</p>
-
 <h2><a class="title-link" name="hacktoberfest" href="#hacktoberfest"></a> Hacktoberfest</h2>
-
 <p><img src="/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktoberfest logo" /></p>
-
 <p>October means Hacktoberfest time and our community has really come through with some excellent improvements and additions. As of this writing, we have 194 merged and 41 open pull requests to the <a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">home-assistant repository</a> and 209 merged/28 open pull requests submitted to the <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">home-assistant.github.io repository</a>. If you want to get in on the fun check out our <a href="/blog/2016/10/02/hacktoberfest/">Hacktoberfest</a> blog post or the <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a>. You get an awesome t-shirt for free if you have 4 pull requests merged in the month of October! We even have tasks that a non-developer can easily accomplish with a tiny bit of work. Better hurry up though, only 9 days left and most of the easy tasks are gone!</p>
-
 <h2><a class="title-link" name="-a-greatly-improved-updater-component-please-read-this-" href="#-a-greatly-improved-updater-component-please-read-this-"></a> ⚠️ A greatly improved updater component (Please read this!) ⚠️</h2>
-
 <p>This release includes an update to our <a href="https://home-assistant.io/components/updater/">updater</a> component. The responsibility of the updater component is to check if a new version is available and notify the user if this is the case.</p>
-
 <p>It used to be that this component would check with <a href="https://pypi.python.org/pypi">PyPi</a> (the Python package manager) to see if a new update was available. This had a couple of problems:</p>
-
 <ol>
   <li>We are unable to do a slow rollout</li>
   <li>We are unable to show the user extra information (like a link to a changelog or the release date)</li>
   <li>We are unable to warn users for critical security updates</li>
 </ol>
-
 <p>So to work around these problems, we decided to start hosting the version check service ourselves. Since we had to get some infrastructure spun up anyway, we figured we would take it a step further. Which leads me to this bit of the update (the most important part):</p>
-
 <h3><a class="title-link" name="what-you-need-to-know-the-important-bit" href="#what-you-need-to-know-the-important-bit"></a> What you need to know (the important bit!)</h3>
-
 <p>Remember how I mentioned that up there in the title that there is some serious business in this release? Well, we also added some basic analytics to the updater component which get sent to the server and stored so that we get a better idea of our user base.</p>
-
 <p>Each Home Assistant instance running the updater component will generate a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">unique ID</a> (based on UUIDv4) that will be used for the updater to be able to differentiate between instances. This UUID will be stored in your config directory in a file called <code class="highlighter-rouge">.uuid</code>.</p>
-
 <h4>Opting out</h4>
-
 <p>There are two ways to opt-out. The first way is by using the new <code class="highlighter-rouge">opt_out</code> option for the updater. This way the updater will continue to check for updates, but no information about your system will be shared with us.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">updater</span><span class="pi">:</span>
   <span class="s">reporting</span><span class="pi">:</span> <span class="s">no</span>
 </code></pre>
 </div>
-
 <p>You can also disable the updater component entirely by removing <code class="highlighter-rouge">updater:</code> from your <code class="highlighter-rouge">configuration.yaml</code> although <strong>we would not suggest you do this</strong> as you would miss any critical updates.</p>
-
 <p>Finally, you can also reset your unique identifier by deleting the <code class="highlighter-rouge">.uuid</code> file and restarting Home Assistant.</p>
-
 <h4>Data stored on the Home Assistant update server</h4>
-
 <p>Here is what my production Home Assistant instance looks like from the server side:</p>
-
 <table>
   <thead>
     <tr>
@@ -229,16 +175,12 @@
     </tr>
   </tbody>
 </table>
-
 <p>In addition to the above collected data, the server will also use your IP address to do a geographic IP address lookup to determine the city that you are from. To be extremely, extremely clear about this bit: <strong>The Home Assistant updater does not: store your IP address in a database and also does not submit the location information from your <code class="highlighter-rouge">configuration.yaml</code>.</strong></p>
-
 <p class="img">
   <img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/map.png" />
   Geo-lookup on my IP resolves to Oakland with latitude/longitude pointing at the geographical center of the city.
 </p>
-
 <p>The server also adds two timestamps to the data: the original date your instance UUID was first seen and the timestamp of the last time we have seen your instance. This gives us the following extra data:</p>
-
 <table>
   <thead>
     <tr>
@@ -310,40 +252,25 @@
     </tr>
   </tbody>
 </table>
-
 <p>This data is held in the highest security. The update system runs in a secured Amazon Web Services account owned by me (<a href="https://github.com/robbiet480">@robbiet480</a>). I personally have 5 years of experience with complex AWS deployments and have an extensive security background. I have audited the entire system and made sure to take every step to protect the data, including limiting who has access (just <a href="https://github.com/balloob">@balloob</a> and myself). While not directly personally identifiable we absolutely understand some users hesistance to giving this information out. Please understand that we are only collecting this information to better understand our user base to provide better long term support and feature development then is currently possible.</p>
-
 <p>We currently have no plans to publicly expose any of this information. If we did do such a thing in the future we would of course notify you in advance. It must also be stated that we will never sell or allow the use of this information for non-Home Assistant purposes.</p>
-
 <p>We thank you for understanding why we are collecting this data and hope that you leave the feature enabled but fully understand if you feel uncomfortable with this.</p>
-
 <p><em>This section was updated on October 24 to be more clear about geo-lookups being on the city level. <a href="https://github.com/home-assistant/home-assistant.github.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown">See original version.</a></em></p>
-
 <p>Now, back to the fun stuff…</p>
-
 <h2><a class="title-link" name="good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight" href="#good-evening-im-ron-burgundy-and-heres-what-happening-in-your-world-tonight"></a> Good evening. I’m Ron Burgundy and here’s what happening in your world tonight.</h2>
-
 <p>Home Assistant got a crazy idea recently that it couldn’t do enough already and wanted to challenge itself even more. I really don’t understand how it came up with this kooky idea, but it now thinks that its newest hobby should be a minor career in journalism.</p>
-
 <p>0.31 adds support for the brand spanking new <a href="https://developer.amazon.com/alexa-skills-kit/flash-briefing">Alexa Flash Briefing API</a>, allowing you to get updates from Home Assistant anytime you ask Alexa to read your flash briefing. What’s the use case you ask? Well, now when I wake up in the morning and get my flash briefing, Home Assistant adds this to the end of it for me:</p>
-
 <blockquote>
   <p>Drive time with traffic is 35 minutes. There is an UberPOOL that will cost $11.52, estimated to be 2 minutes away, for a total of 37 minutes. BART is currently estimated to take 29 minutes. You should take BART, as it is estimated to be faster by 8 minutes.</p>
 </blockquote>
-
 <p>Now I know how to best get to <a href="http://runway.is">my real job</a> (no, Home Assistant is <em>not</em> my real job, it does seem like it sometimes though) every morning. Obviously not the best home automation example, but I think you get the idea. I could see this being used to tell you any major events that happened in your home overnight or reading you your hyperlocal weather report. Thanks to the audio support you could even replace all of the default Alexa Flash Briefing sources with your own news feeds. Home Assistant supports both text and audio content as well as displaying data in the Alexa app. I also want to point out that unlike the existing Skill integration, the Flash Briefing API does <em>not</em> require HTTPS (<em>but you should still be using HTTPS if possible</em>). For more information, check out the new <a href="https://home-assistant.io/components/alexa/">docs</a>.</p>
-
 <p class="img">
   <img src="/images/blog/2016-10-flash-briefing-updater-hacktoberfest/stay-classy.jpg" />
   You stay classy, San Diego. (It’s funny, because balloob lives in San Diego))
 </p>
-
 <h2><a class="title-link" name="major-breaking-z-wave-changes-ahead" href="#major-breaking-z-wave-changes-ahead"></a> Major breaking Z-Wave changes ahead</h2>
-
 <p>A rather nasty Z-Wave <a href="https://github.com/home-assistant/home-assistant/pull/3759">issue</a> was discovered recently by <a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>. There was a somewhat large chance that if you had multiple of the same model Z-Wave device they may both try to use the same entity IDs. To fix the issue the internal Z-Wave index is now appended to the end of all Z-Wave entity IDs.</p>
-
 <p>What this means for all you Z-Wave users is that you will need to update your configurations to reflect the change. I personally have quite a few (17) Z-Wave devices and went through the process this week. Here’s what I had to do:</p>
-
 <ul>
   <li>Update customizations</li>
   <li>Update groups</li>
@@ -351,13 +278,9 @@
   <li>Update my Alexa skills that used old entity IDs</li>
   <li>Because I use <code class="highlighter-rouge">emulated_hue</code> with Alexa and <code class="highlighter-rouge">emulated_hue</code> uses the entity ID as a unique identifier I also had to remove all Z-Wave devices from Alexa and re-add them.</li>
 </ul>
-
 <p>Your todo list may be a little different from mine, I just wanted to outline the steps I took to give you an idea of what you need to think about. It’s not a very hard process, especially when using global find and replace in Sublime Text but did take me about 20 minutes to complete.</p>
-
 <p>This is super annoying, I know, especially since we had said in <a href="/blog/2016/01/30/insteon-lifx-twitter-and-zigbee/#backwards-incompatible-changes">0.12</a> that Z-Wave IDs should hopefully never change again, but we are now forced to eat those words. I will state again that Z-Wave IDs shouldn’t change in the future but obviously we see how that went. To sum up on this section… sorry but it had to happen.</p>
-
 <h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
-
 <ul>
   <li><a href="https://home-assistant.io/components/updater/">Updater</a> component (<a href="https://github.com/infamy">@infamy</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Continue to setup other platforms when 1 platform config is invalid (<a href="https://github.com/kellerza">@kellerza</a>)</li>
@@ -408,49 +331,33 @@
   <li>iOS support (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Minor features and bug fixes by <a href="https://github.com/mtl010957">@mtl010957</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/flyte">@flyte</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/phardy">@phardy</a>, <a href="https://github.com/sander76">@sander76</a>, <a href="https://github.com/T3m3z">@T3m3z</a>, <a href="https://github.com/c-w">@c-w</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/StaticCube">@StaticCube</a>, <a href="https://github.com/vittoriom">@vittoriom</a>, <a href="https://github.com/hartmms">@hartmms</a>, <a href="https://github.com/kirichkov">@kirichkov</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/ishults">@ishults</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a> and <a href="https://github.com/tchellomello">@tchellomello</a>.</li>
 </ul>
-
 <h3><a class="title-link" name="release-0311---october-24" href="#release-0311---october-24"></a> Release 0.31.1 - October 24</h3>
-
 <ul>
   <li>Identify special character encoding error in YAML files (<a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/lwis">@lwis</a>)</li>
   <li>iOS app component bug fixes (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>Fix a spelling problem on user-facing error (<a href="https://github.com/robbiet480">@robbiet480</a>)</li>
   <li>YAML includes will ignore dirs/files prefixed with . (<a href="https://github.com/lwis">@lwis</a>)</li>
 </ul>
-
 <h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
-
 <ul>
   <li>The <a href="https://home-assistant.io/components/http/">HTTP</a> component now takes a different format for authenticating IPs</li>
   <li>Configuration format has changed for <a href="https://home-assistant.io/components/proximity/">Proximity</a></li>
   <li>The <a href="https://home-assistant.io/components/arduino/">Arduino</a> platform are now covered by the configuration check. Please check the documentation to see how.</li>
   <li>The Z-Wave entity ID change mentioned above</li>
 </ul>
-
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you the former communication channels. Thanks.</p>
-
 <h2><a class="title-link" name="until-next-time" href="#until-next-time"></a> Until next time</h2>
-
 <p>Thanks for reading all of the above, especially since this week was a pretty long post. We should be back with a new post around November 5th announcing the arrival of 0.32.</p>
-
 <p>– Robbie</p>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -466,74 +373,45 @@
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/"
      data-counturl="https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -543,7 +421,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -555,7 +432,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -564,13 +440,10 @@
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/';
     var disqus_url = 'https://home-assistant.io/blog/2016/10/22/flash-briefing-updater-hacktoberfest/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

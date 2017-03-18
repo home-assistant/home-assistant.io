@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Explaining the Updater - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
     <meta name="description" content="An update to the recent updater component changes">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2016/10/25/explaining-the-updater/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Explaining the Updater">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,32 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="An update to the recent updater component changes">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
     <meta name="twitter:title" content="Explaining the Updater">
     <meta name="twitter:description" content="An update to the recent updater component changes">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +54,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">Explaining the Updater</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-10-25T04:30:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 24, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -92,41 +70,24 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Organisation</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p>On Saturday, we released <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/#comment-2965607849">Home Assistant 0.31</a> which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.</p>
-
 <a name="read-more"></a>
 <h2><a class="title-link" name="why-we-changed-the-updater" href="#why-we-changed-the-updater"></a> Why we changed the updater</h2>
 <p>This change was driven by two important factors.</p>
-
 <h3><a class="title-link" name="improving-the-security-of-the-users" href="#improving-the-security-of-the-users"></a> Improving the security of the users.</h3>
-
 <p>As a user, you will be able to be notified if you are running a Home Assistant version that includes components that have known security flaws.</p>
-
 <p>Although we hope to not have to use this feature often, it is important for us to be able to reach out to impacted users. We had the need for such a feature once in the past. Due to a bug the forecast.io sensor was making a huge amount of API requests causing some of our users to get charged because they went over the free quota.</p>
-
 <p>Please note that this functionality is not done yet but will be available in a future release.</p>
-
 <h3><a class="title-link" name="focusing-our-resources-where-it-matters" href="#focusing-our-resources-where-it-matters"></a> Focusing our resources where it matters</h3>
-
 <p>As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:</p>
-
 <ul>
   <li>Total number of instances</li>
   <li>Which operating systems versions and flavors are in use</li>
@@ -134,39 +95,25 @@
   <li>What option is more popular: Docker, Virtualenv or bare metal installs?</li>
   <li>How popular is our new <a href="/blog/2016/10/01/we-have-raspberry-image-now/">Raspberry Pi image</a>?</li>
 </ul>
-
 <h2><a class="title-link" name="why-we-look-up-your-ip-address-with-geoip" href="#why-we-look-up-your-ip-address-with-geoip"></a> Why we look up your IP address with GeoIP</h2>
 <p>We store the city so that we can see where our users are from. This information will be used to give us a better insight in where our users are from. This will help us gather data to see if we should for example prioritize internationalization. In addition, we previously had a nasty bug with the <code class="highlighter-rouge">sun</code> component in which users above a certain latitude were having crashes multiple times a day. Had the updater component been in place we could have targeted a special priority update notification only to them.</p>
-
 <p>As stated in the release blog post, the location information is <em>not</em> provided by your local Home Assistant installation but is instead gathered by comparing your IP address against the <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/">GeoLite2 data created by MaxMind</a>. From their documentation:</p>
-
 <blockquote>
   <p>IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household.</p>
 </blockquote>
-
 <h2><a class="title-link" name="why-is-it-enabled-by-default" href="#why-is-it-enabled-by-default"></a> Why is it enabled by default</h2>
 <p>We decided to have it enabled by default because we consider the information that is gathered not harmful. We understand that not everyone will agree with us and so we have provided <a href="/components/updater/">multiple ways to opt out</a>.</p>
-
 <p>It is in our short-term planning to add an option to control this to our frontend.</p>
-
 <h2><a class="title-link" name="source-code" href="#source-code"></a> Source Code</h2>
 <p>The source code of our updater AWS Lambda function is now available <a href="https://github.com/home-assistant/Analytics-Receiver">here</a>.</p>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -182,74 +129,45 @@
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2016/10/25/explaining-the-updater/"
      data-counturl="https://home-assistant.io/blog/2016/10/25/explaining-the-updater/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2016/10/25/explaining-the-updater/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -259,7 +177,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -271,7 +188,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -280,13 +196,10 @@
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2016/10/25/explaining-the-updater/';
     var disqus_url = 'https://home-assistant.io/blog/2016/10/25/explaining-the-updater/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

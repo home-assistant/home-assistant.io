@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance. - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
     <meta name="description" content="Home Assistant 0.15 has arrived.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,32 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Home Assistant 0.15 has arrived.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
     <meta name="twitter:title" content="0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.">
     <meta name="twitter:description" content="Home Assistant 0.15 has arrived.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +54,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-03-12T18:55:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 12, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -92,36 +70,23 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p>Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!</p>
-
 <ul>
   <li><a href="https://github.com/fabaff">@fabaff</a> has upgraded the codebase to follow the PEP257 documentation standard.</li>
   <li><a href="https://github.com/PartOfTheThing">@partofthething</a> has migrated us to use the main Python Open Z-Wave library instead of our forked version.</li>
   <li>To make our automations more powerful, <a href="https://github.com/persandstrom">@persandstrom</a> added the option to use templates to dynamically create service calls. This works for automation, Alexa, universal media player, template switch. <a href="/topics/service_calls/#use-templates-to-decide-which-service-to-call">Learn more.</a></li>
   <li><a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> has upgraded our scene support to now support all built-in services and components.</li>
 </ul>
-
 <p>Besides bug fixes, this release also brings:</p>
-
 <p><img src="/images/supported_brands/hunter-douglas-powerview.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
 <ul>
   <li>Scene: Converted to a platform based component (<a href="https://github.com/sander76">@sander76</a>)</li>
   <li>Scene: <a href="/components/scene.hunterdouglas_powerview/">Hunter Douglas Powerview</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
@@ -129,7 +94,6 @@
   <li>Device Tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> will allow filtering inaccurate GPS locations (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
   <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example using templates for service and data in service call.</span>
 <span class="c1"># Works for automation, Alexa, universal media player, template switch.</span>
 <span class="s">automation</span><span class="pi">:</span>
@@ -147,30 +111,20 @@
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.{{ states('input_select.is') }}</span>
 </code></pre>
 </div>
-
 <h3>Breaking Changes</h3>
-
 <ul>
   <li>Media Player: Attributes to call service play_media has been renamed to
 <code class="highlighter-rouge">media_content_type</code> and <code class="highlighter-rouge">media_content_id</code>, to match the corresponding media
 player state attributes. This change affects automations, scripts and scenes.</li>
 </ul>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -186,74 +140,45 @@ player state attributes. This change affects automations, scripts and scenes.</l
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/"
      data-counturl="https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -263,7 +188,6 @@ player state attributes. This change affects automations, scripts and scenes.</l
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -275,7 +199,6 @@ player state attributes. This change affects automations, scripts and scenes.</l
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -284,13 +207,10 @@ player state attributes. This change affects automations, scripts and scenes.</l
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/';
     var disqus_url = 'https://home-assistant.io/blog/2016/03/12/z-wave-pep257-templated-service-calls/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

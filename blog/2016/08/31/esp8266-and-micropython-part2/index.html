@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>ESP8266 and MicroPython - Part 2 - Home Assistant</title>
     <meta name="author" content="Fabian Affolter">
     <meta name="description" content="Using MicroPython and MQTT on ESP8266 based devices and Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="ESP8266 and MicroPython - Part 2">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Using MicroPython and MQTT on ESP8266 based devices and Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/blog/2016-07-micropython/social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="ESP8266 and MicroPython - Part 2">
     <meta name="twitter:description" content="Using MicroPython and MQTT on ESP8266 based devices and Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-07-micropython/social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +53,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">ESP8266 and MicroPython - Part 2</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-08-31T04:17:25+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 31, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -92,46 +69,26 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>ESP8266</li>
-      
         <li>How-To</li>
-      
         <li>MQTT</li>
-      
         <li>Micropython</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p><img src="/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython</a> was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.</p>
-
 <a name="read-more"></a>
-
 <p>Beside <a href="https://en.wikipedia.org/wiki/POST_(HTTP)">HTTP POST</a> requests, MQTT is the quickest way (from the author’s point of view) to publish information with DIY devices.</p>
-
 <p>You have to make a decision: Do you want to pull or to <a href="https://en.wikipedia.org/wiki/Polling_(computer_science)">poll</a> the information for the sensor? For slowly changing values like temperature it’s perfectly fine to wait a couple of seconds to retrieve the value. If it’s a motion detector the state change should be available instantly in Home Assistant or it could be missed. This means the sensor must take initiative and send the data to Home Assistant.</p>
-
 <p>An example for pulling is <a href="/components/sensor.arest/">aREST</a>. This is a great way to work with the ESP8266 based units and the Ardunio IDE.</p>
-
 <h3><a class="title-link" name="mqtt" href="#mqtt"></a> MQTT</h3>
-
 <p>You can find a simple examples for publishing and subscribing with MQTT in the <a href="https://github.com/micropython/micropython-lib">MicroPython</a> library overview in the section for <a href="https://github.com/micropython/micropython-lib/tree/master/umqtt.simple">umqtt</a>.</p>
-
 <p>The example below is adopted from the work of <a href="https://github.com/davea">@davea</a> as we don’t want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called <code class="highlighter-rouge">/config.json</code> which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.</p>
-
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">machine</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">ubinascii</span>
@@ -192,37 +149,25 @@ So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 
     <span class="n">main</span><span class="p">()</span>
 </code></pre>
 </div>
-
 <p>Subscribe to the topic <code class="highlighter-rouge">home/#</code> or create a <a href="/components/sensor.mqtt/">MQTT sensor</a> to check if the sensor values are published.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_sub -h 192.168.1.19 -v -t <span class="s2">"home/#"</span>
 </code></pre>
 </div>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/esp8266_[last</span><span class="nv"> </span><span class="s">part</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MAC</span><span class="nv"> </span><span class="s">address]"</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">MicroPython"</span>
 </code></pre>
 </div>
-
 <p><a href="https://github.com/davea">@davea</a> created <a href="https://github.com/davea/sonoff-mqtt">sonoff-mqtt</a>. This code will work on ESP8622 based devices too and shows how to use a button to control a relay.</p>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -238,74 +183,45 @@ So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/"
      data-counturl="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -315,7 +231,6 @@ So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -327,7 +242,6 @@ So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -336,13 +250,10 @@ So, part 1 of <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/';
     var disqus_url = 'https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

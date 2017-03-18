@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>IoT Data Exploration with Jupyter Notebooks - Home Assistant</title>
     <meta name="author" content="Anton Kireyeu">
     <meta name="description" content="Tutorial how to get started exploring your data using Jupyter Notebooks, Pandas and Matplotlib.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="IoT Data Exploration with Jupyter Notebooks">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Tutorial how to get started exploring your data using Jupyter Notebooks, Pandas and Matplotlib.">
     <meta property="og:image" content="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="IoT Data Exploration with Jupyter Notebooks">
     <meta name="twitter:description" content="Tutorial how to get started exploring your data using Jupyter Notebooks, Pandas and Matplotlib.">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-07-data-exploration/graph.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +53,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">IoT Data Exploration with Jupyter Notebooks</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-23T18:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 23, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Anton Kireyeu</span>
@@ -92,50 +69,31 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
         <li>IoT-Data</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p><em>This is the first blog post by Anton Kireyeu. A new contributor to Home Assistant who will focus on exploring and visualizing Home Assistant data.</em></p>
-
 <p>As we learned in the recent <a href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/">blog post by Fabian</a>, all operational data of your Home Assistant application is stored locally and is available for exploration. Our first steps were querying data with the <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>, exporting the data extract as a CSV file and graphing in LibreOffice. But what else can be done with this data and what tools are there available?</p>
-
 <p>This post will help you get set up using a few popular data scientist tools to allow you to locally process your data:</p>
-
 <ul>
   <li> <a href="http://pandas.pydata.org/">Pandas</a>: an open source tool for data analysis for Python</li>
   <li> <a href="http://matplotlib.org/">matplotlib</a>: a Python plotting library</li>
   <li> <a href="https://jupyter.org/">Jupyter notebook</a>: application for creation and sharing of documents containing live code, visualizations and explanatory text</li>
 </ul>
-
 <p class="img">
 <img src="/images/blog/2016-07-data-exploration/graph.png" />
 One of the graphs created with this tutorial.
 </p>
-
 <p><em>TL; DR: Use <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">this Jupyter Notebook</a> to visualize of your data</em></p>
-
 <a name="read-more"></a>
-
 <h3><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h3>
-
 <p>In order to run the provided Jupyter notebook, please make sure you have the following applications/libraries installed on your computer:</p>
-
 <ul>
   <li>Pandas</li>
   <li>NumPy</li>
@@ -143,17 +101,11 @@ One of the graphs created with this tutorial.
   <li>SQLAlchemy</li>
   <li>Jupyter</li>
 </ul>
-
 <p>As a Windows user myself, I find the easiest, quickest and most hassle-free way of installing all of these dependencies is to use <a href="https://winpython.github.io/">WinPython</a>. This free open-source portable distribution includes all of the dependencies required for this notebook, as well as a few other essential Python libraries you may require for data exploration in the future.</p>
-
 <h4><a class="title-link" name="why-jupyter" href="#why-jupyter"></a> Why Jupyter?</h4>
-
 <p>While all Home Assistant implementations can have varying setup, components and scripts, the underlying data structure is standardized and well-defined. This allows us to write Python code that is environmentally agnostic. Wrapping it in a Jupyter notebook ensures the code, visualizations and directions/explanations are kept digestible and neatly-packaged. One of the amazing features of Jupyter is the ability to change code as you go along, customizing all outputs and visualizations on the fly!</p>
-
 <h4><a class="title-link" name="where-do-i-start" href="#where-do-i-start"></a> Where do I start?</h4>
-
 <p>This tutorial is based around a heavily commented Jupyter Notebook that we created. So to get started, you will have to open that:</p>
-
 <ul>
   <li><a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">download the tutorial Jupyter Notebook</a> (leads to preview page, from there click download top-right)</li>
   <li>launch the Jupyter Notebook App</li>
@@ -161,37 +113,23 @@ One of the graphs created with this tutorial.
   <li>Adjust the <code class="highlighter-rouge">DB_URL</code> at the beginning of the notebook to point at your Home Assistant database</li>
   <li>Select in top menu: Cell -&gt; Run All</li>
 </ul>
-
 <p>That’s it! The included code will walk you through importing the required libraries, show running raw SQL against your local database, plotting basic data from the states table, and in the end output a few plots of changes for every entity in your system as well as the mean daily value for the past 20 days.</p>
-
 <p>After just those few steps, you will be greeted with beautiful formatted data like this:</p>
-
 <p class="img">
 <img src="/images/blog/2016-07-data-exploration/graph.png" />
 One of the graphs created with this tutorial.
 </p>
-
 <h4><a class="title-link" name="whats-next" href="#whats-next"></a> What’s next?</h4>
-
 <p>Thanks to the magic of Jupyter, all of the code is customizable: want to selectively display your data, only covering a specific entity? Sure thing! Want to change the properties of the plots? No problem!</p>
-
 <p>While you learn and explore your IoT data, we will be working on providing more ready-to-use Jupyter Notebooks. Feel free to ask questions or provide suggestions. Would you like to see a specific visualization? Is there a particular facet of data you’re interested in? Let’s talk about it, let’s dive into the world of data together!</p>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -207,74 +145,45 @@ One of the graphs created with this tutorial.
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/"
      data-counturl="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -284,7 +193,6 @@ One of the graphs created with this tutorial.
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -296,7 +204,6 @@ One of the graphs created with this tutorial.
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -305,13 +212,10 @@ One of the graphs created with this tutorial.
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/';
     var disqus_url = 'https://home-assistant.io/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

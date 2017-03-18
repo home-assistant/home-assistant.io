@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Home Assistant is an open-source home automation platform running on Python 3.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/posts/4/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Home Assistant">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Home Assistant">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,30 +53,17 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
-            
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/08/03/laundry-automation-update/">Laundry Sensors with NodeMCU and Home Assistant</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-08-03T17:22:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 2, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Nolan Gilley</span>
@@ -95,52 +71,31 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>User-Stories</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/08/03/laundry-automation-update/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p><em>This is a guest post by Home Assistant user and contributor <a href="https://github.com/nkgilley">Nolan Gilley</a>.</em></p>
-
 <p>Today I’ll show you how I used Home Assistant, a NodeMCU (ESP8266), and a couple of accelerometers to automate our laundry room.  This is a rewrite of an <a href="https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/">old post</a> where I did the same thing using a Moteino &amp; Raspberry Pi.  This version only requires a NodeMCU.</p>
-
 <p>We have an older washer and dryer which doesn’t have any form of notification when cycles complete.  Home Assistant was the obvious solution, I just needed to create sensors for the washer and dryer.  I tried using sound sensors but found them unreliable.  I ended up using an accelerometer attached to the back of each appliance.  I also added magnetic reed switches on the doors of the washer and dryer to detect whether they’re open or closed.  I connected the accelerometers and reed switches to an NodeMCU which will relay the data to my MQTT broker.</p>
-
 <p class="img">
   <img src="/images/blog/2016-07-laundry-automation/block-diagram.png" />
   Block diagram of schematic
 </p>
-
-
-    
       <a class="btn pull-right" href="/blog/2016/08/03/laundry-automation-update/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/">0.25: Custom frontend panels, Jupyter notebooks, DirecTV.</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-30T12:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 30, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter & Paulus Schoutsen</span>
@@ -148,38 +103,22 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/07/30/custom-frontend-panels-jupyter-notebooks-directv/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!</p>
-
 <p>Starting with this release, we are extending our extensability to the frontend. Starting this release, any component can <a href="/developers/frontend_creating_custom_panels/">add it’s own page to the frontend</a>. Examples of this today are the map, logbook and history. We are looking forward to all the crazy panels you’ll come up with!</p>
-
 <p>We have also seen an exciting trend of people starting to visualize their Internet of Things data using <a href="http://jupyter.org/">Jupyter</a> Notebooks, which are a great way to create and share documents that contain code, visualizations, and explanatory text. In case you missed it, the <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">blog</a> post by <a href="https://github.com/kireyeu">@kireyeu</a> shows an advanced usecase while our <a href="/cookbook/#jupyter-notebooks">Notebooks</a> in the <a href="https://github.com/home-assistant/home-assistant-notebooks">Home Assistant Notebooks repository</a> cover the basics.</p>
-
 <p>This release also includes a bunch of new integrations, among others three new media player platforms. This means that today Home Assistant can talk to 26 different media players!</p>
-
 <p>The brand-new <a href="/components/panel_iframe/">iFrame panel component</a> allows you to add other websites as pages in the Home Assistant frontend. They will show up in the sidebar and can be used the same way as you open the frontend in your browser but all within one view.</p>
-
 <p>I would like to do a shoutout to <a href="https://github.com/fabianhjr">@fabianhjr</a>. He has started adding <a href="https://docs.python.org/3/library/typing.html">typing</a> data (<a href="https://www.python.org/dev/peps/pep-0484/">PEP484</a>) to the Home Assistant core. This will help us identify issues before they are released.</p>
-
 <p><img src="/images/supported_brands/russound.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/jupyter.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/directv.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
 <ul>
   <li>Frontend: Support for <a href="/components/panel_iframe/">iFrame panels</a> to adding other sites to sidebar (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Allow components to register <a href="/developers/frontend_creating_custom_panels/">custom frontend panels</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
@@ -214,43 +153,29 @@
   <li>Qwikswitch: Stability fixes (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Light: <a href="/components/light.hyperion/">Hyperion</a> keeps now track of active color (<a href="https://github.com/schneefux">@schneefux</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="hotfix-0251---august-1" href="#hotfix-0251---august-1"></a> Hotfix 0.25.1 - August 1</h3>
-
 <ul>
   <li>Light - Z-Wave: Bring back delayed value update behavior (<a href="https://github.com/jnewland">@jnewland</a>)</li>
   <li>Recorder: Properly close session after execute (<a href="https://github.com/kellerza">@kellerza</a>)</li>
   <li>Media Player - Kodi: No longer block startup if connecting to wrong port (<a href="https://github.com/shoekstra">@shoekstra</a>)</li>
   <li>Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="hotfix-0252---august-2" href="#hotfix-0252---august-2"></a> Hotfix 0.25.2 - August 2</h3>
-
 <ul>
   <li>Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.</li>
 </ul>
-
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
 <ul>
   <li>Google Voice SMS notification support was removed.</li>
 </ul>
-
-
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/07/28/esp8266-and-micropython-part1/">ESP8266 and MicroPython - Part 1</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-28T04:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 28, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -258,50 +183,29 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>ESP8266</li>
-      
         <li>How-To</li>
-      
         <li>Micropython</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/07/28/esp8266-and-micropython-part1/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p><img src="/images/blog/2016-07-micropython/micropython.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The <a href="http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html">documentation</a> covers a lot of ground. This post is providing only a little summary which should get you started.</p>
-
 <p>Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers of the Kickstarter campaign. This has changed now and it is available to the public for <a href="https://micropython.org/download/#esp8266">download</a>.</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2016/07/28/esp8266-and-micropython-part1/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/">IoT Data Exploration with Jupyter Notebooks</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-23T18:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 23, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Anton Kireyeu</span>
@@ -309,62 +213,38 @@ The first release of Micropython for ESP8266 was delivered a couple of weeks ago
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
         <li>IoT-Data</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p><em>This is the first blog post by Anton Kireyeu. A new contributor to Home Assistant who will focus on exploring and visualizing Home Assistant data.</em></p>
-
 <p>As we learned in the recent <a href="https://home-assistant.io/blog/2016/07/19/visualizing-your-iot-data/">blog post by Fabian</a>, all operational data of your Home Assistant application is stored locally and is available for exploration. Our first steps were querying data with the <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>, exporting the data extract as a CSV file and graphing in LibreOffice. But what else can be done with this data and what tools are there available?</p>
-
 <p>This post will help you get set up using a few popular data scientist tools to allow you to locally process your data:</p>
-
 <ul>
   <li> <a href="http://pandas.pydata.org/">Pandas</a>: an open source tool for data analysis for Python</li>
   <li> <a href="http://matplotlib.org/">matplotlib</a>: a Python plotting library</li>
   <li> <a href="https://jupyter.org/">Jupyter notebook</a>: application for creation and sharing of documents containing live code, visualizations and explanatory text</li>
 </ul>
-
 <p class="img">
 <img src="/images/blog/2016-07-data-exploration/graph.png" />
 One of the graphs created with this tutorial.
 </p>
-
 <p><em>TL; DR: Use <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-1/DataExploration-1.ipynb">this Jupyter Notebook</a> to visualize of your data</em></p>
-
-
-    
       <a class="btn pull-right" href="/blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/07/19/visualizing-your-iot-data/">Visualize your IoT data</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-19T16:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 19, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -372,49 +252,28 @@ One of the graphs created with this tutorial.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
         <li>IoT-Data</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/07/19/visualizing-your-iot-data/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p><img src="/images/blog/2016-07-reporting/mpl-sensor.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /></p>
-
 <p>The <a href="/components/history/">history component</a> is tracking everything that is going on within Home Assistant. This means that you have access to all stored information about your home. Our history is not a full-fledged graphical processing and visualization component as you may know from systems and network monitoring tools. The current limitation is that you only can select a day for a visual output of your information and not a period. Also, there is no possibility to drill down on a specific entity.</p>
-
 <p>This blog post will show you ways to export data for reporting, visualization, or further analysis of automation rules.</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2016/07/19/visualizing-your-iot-data/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/">0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe.</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-16T12:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 16, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -422,39 +281,24 @@ One of the graphs created with this tutorial.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/07/16/sqlalchemy-knx-join-simplisafe/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>It’s time for Home Assistant 0.24 and it’s full of new integration for your Home. It contains some structural changes to our history which requires action from your end, so please keep reading.</p>
-
 <p><a href="https://www.mapquest.com/">MapQuest</a> discontinued their free and direct tile access by Monday, July 11, 2016. With <a href="https://carto.com/">CARTO</a> we found a very cool and suitable solution. They allow us to use their tile for the map. Thank you, <a href="https://carto.com/">CARTO</a>.</p>
-
 <p><a href="https://github.com/rhooper/">Roy Hooper</a> did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use <strong>any</strong> SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install SQLAlchemy
 <span class="gp">$ </span>hass --script db_migrator --config /path/to/config
 </code></pre>
 </div>
-
 <p>You can omit the <code class="highlighter-rouge">--config</code> option if you use the default configuration directory. Run the script with <code class="highlighter-rouge">--help</code> to get more options.</p>
-
 <p><img src="/images/supported_brands/yahooweather.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/joaoapps_join.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/knx.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/tp-link.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
 <ul>
   <li>Config: Improved support for storing <a href="/topics/secrets/">secrets</a> (<a href="https://github.com/kellerza/">@kellerza</a>)</li>
   <li>Sensor: Support for <a href="/components/sensor.yweather/">Yahoo! Weather</a> (<a href="https://github.com/pvizeli/">@pvizeli</a>)</li>
@@ -478,34 +322,22 @@ One of the graphs created with this tutorial.
   <li>Frontend: Fix stream not reconnecting after standby (<a href="https://github.com/balloob/">@balloob</a>)</li>
   <li>Frontend: Wait up to two seconds for new state before resetting toggle after toggling state (<a href="https://github.com/balloob/">@balloob</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="hotfix-0241---july-21" href="#hotfix-0241---july-21"></a> Hotfix 0.24.1 - July 21</h3>
-
 <p>Quick hot fix after we found a bug in the migrator where it wouldn’t work with a database in a non-standard location. Thanks to <a href="https://github.com/n8henrie/">@n8henrie</a> and <a href="https://github.com/AlucardZero/">@AlucardZero</a>.</p>
-
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
 <ul>
   <li>Migrating existing databases (see above).</li>
   <li>The <a href="/components/sensor.apcupsd/">APCUPSd Sensor</a> was updated. This will need that you modify your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
   <li>Entity IDs of Verisure locks will change. This is a one time change but should improve readability.</li>
 </ul>
-
-
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/07/06/pocketchip-running-home-assistant/">PocketCHIP running Home Assistant</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-06T05:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 06, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -513,44 +345,26 @@ One of the graphs created with this tutorial.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/07/06/pocketchip-running-home-assistant/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p><img src="/images/blog/2016-07-pocketchip/pocketchip-logo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 Over a year ago I participated in the <a href="https://www.kickstarter.com/projects/1598272670/chip-the-worlds-first-9-computer/description">kickstarter campaign</a> for “CHIP - The World’s First Nine Dollar Computer” by <a href="https://www.nextthing.co/">Next Thing Co.</a>. I went for the PocketCHIP because of the idea. Display, built-in storage (thus no need for SD cards), battery-powered, and a keyboard are pretty nice features. Last week a package arrives…</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2016/07/06/pocketchip-running-home-assistant/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/">0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-07-01T00:31:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 1, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -558,34 +372,20 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/07/01/envisalink-homematic-hdmi-cec-and-sony-bravia-tv/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>It’s time for Home Assistant 0.23 and it’s full of goodies. It’s also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.</p>
-
 <p>This release brings support for two new ecosystems: <a href="/components/envisalink/">Envisalink</a> and <a href="/components/homematic/">Homematic</a>. We can now also control your TV via HDMI using <a href="/components/hdmi_cec/">HDMI-CEC</a> (which works on the Pi!) and another cool feature is the <a href="/components/persistent_notification/">persistent notifications</a> which allow you to add a notification to the frontend till dismissed.</p>
-
 <p><a href="/components/wink/">Wink</a> support has been dramatically improved by migrating to the PubNub API. This allows Wink to push changes from their system to Home Assistant. This change came just in time as somehow our Wink integration was causing a lot of requests to their servers. Thanks to Wink for letting us know so we could solve it instead of blocking us.</p>
-
 <p>On the config side, you can now <a href="/topics/secrets/">store your passwords</a> in your OS keyring or just in a standalone file. We also got a new service to reload the core config so no reboots needed anymore after changing customize settings!</p>
-
 <p><img src="/images/supported_brands/bravia.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/eyezon.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/homematic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/openexchangerates.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
 <ul>
   <li>Support for <a href="/components/envisalink/">Envisalink</a> added (<a href="/components/alarm_control_panel.envisalink/">alarm control panel</a>, <a href="/components/binary_sensor.envisalink/">binary sensor</a>, <a href="/components/sensor.envisalink/">sensor</a>) (<a href="https://github.com/cinntax/">@cinntax</a>)</li>
   <li>Support for <a href="/components/homematic/">Homematic</a> added (<a href="/components/binary_sensor.homematic/">binary sensor</a>, <a href="/components/light.homematic/">light</a>, <a href="/components/rollershutter.homematic/">rollershutter</a>, <a href="/components/sensor.homematic/">sensor</a>, <a href="/components/switch.homematic/">switch</a>) (<a href="https://github.com/pvizeli/">@pvizeli</a>, <a href="https://github.com/danielperna84/">@danielperna84</a>)</li>
@@ -611,42 +411,28 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
   <li>Lock: <a href="/components/lock.vera/">Vera</a> now supported (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
   <li>HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems (<a href="https://github.com/balloob/">@balloob</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
 <ul>
   <li>Homematic thermostat configuration has changed and now depends on the new <a href="/components/homematic/">Homematic</a> component.</li>
 </ul>
-
 <h3><a class="title-link" name="hotfix-0231---july-2" href="#hotfix-0231---july-2"></a> Hotfix 0.23.1 - July 2</h3>
-
 <ul>
   <li>Bump PyVera to 0.2.13 to fix traceback and pyvera thread dying related to bug (<a href="https://github.com/rhooper/">@rhooper</a>)</li>
   <li>HTTP - SSL: Check for OP_NO_COMPRESSION support before trying to use it (<a href="https://github.com/AlucardZero/">@AlucardZero</a>)</li>
   <li>Wink: Downgraded pubnub to work around pycryptodome conflicts (<a href="https://github.com/w1ll1am23/">@w1ll1am23</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="faq" href="#faq"></a> FAQ</h3>
-
 <ul>
   <li><code class="highlighter-rouge">elevation: </code> was introduced to the configuration for weather/sunrise data. For existing <a href="https://home-assistant.io/getting-started/basic/">configurations</a> add the value shown in the warning <code class="highlighter-rouge">[homeassistant.config] Incomplete core config. Auto detected elevation: 665</code> to your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
 </ul>
-
-
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/06/23/usb-webcams-and-home-assistant/">Using USB webcams with Home Assistant</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-06-23T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 23, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -654,46 +440,27 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/06/23/usb-webcams-and-home-assistant/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p><img src="/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
-
 <p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2016/06/23/usb-webcams-and-home-assistant/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/">0.22: Pandora, BT Home Hub 5 and local file camera.</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2016-06-18T18:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 18, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -701,38 +468,23 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>It’s time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.</p>
-
 <p>We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We’re working on getting to a better solution. For Raspberry Pi, the <a href="/getting-started/installation-raspberry-pi-all-in-one/">All-in-One installer</a> will take care of everything for you. We’re working on updating our <a href="/getting-started/installation-raspberry-pi/">standalone Raspberry Pi installation guide</a>.</p>
-
 <p>There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.</p>
-
 <p class="img">
 <img src="/images/screenshots/pandora_player.png" />
 </p>
-
 <p>Another cool addition is the local file camera. This seems very basic at first but will allow you to generate a graph with your favorite 3rd party graphing tool and display it on your Home Assistant dashboard. We’re looking forward to see what you can do with this!</p>
-
 <p><img src="/images/supported_brands/pandora.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/bt.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-
 <ul>
   <li>Media Player: <a href="/components/media_player.pandora/">Pandora</a> media player now supported (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
   <li>Device Tracker: <a href="/components/device_tracker.bt_home_hub_5/">BT Home Hub 5</a> now supported (<a href="https://github.com/lwis/">@lwis</a>)</li>
@@ -753,13 +505,10 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <li>Sensor: <a href="/components/sensor.snmp/">SNMP</a> is now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
   <li>Sensor: Support for Swiss hydrological data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="breaking-change" href="#breaking-change"></a> Breaking change</h3>
-
 <ul>
   <li>The new Netatmo support caused us to change how Netatmo are configured. It’s now done via it’s own component.</li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">netatmo</span><span class="pi">:</span>
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
     <span class="s">secret_key</span><span class="pi">:</span> <span class="s">SECRET_KEY</span>
@@ -767,38 +516,20 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
     <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="hotfix-0221---june-20" href="#hotfix-0221---june-20"></a> Hotfix 0.22.1 - June 20</h3>
-
 <ul>
   <li>Insteon Hub lights will load again</li>
 </ul>
-
-
-    
   </div>
   </article>
   <hr>
-  
-
   <div class="pagination">
-    
       <a class="btn pull-left" href="/blog/posts/5">&larr; Older</a>
-    
-
-    
     <a class="btn pull-right" href="/blog/posts/3">Newer &rarr;</a>
-    
   </div>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -814,65 +545,36 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Categories</h1>
   <ul class="divided">
-    
-    
       <li><a href="/blog/categories/community/">Community</a></li>
-    
       <li><a href="/blog/categories/device-tracking/">Device Tracking</a></li>
-    
       <li><a href="/blog/categories/esp8266/">ESP8266</a></li>
-    
       <li><a href="/blog/categories/how-to/">How To</a></li>
-    
       <li><a href="/blog/categories/internet-of-things/">Internet of Things</a></li>
-    
       <li><a href="/blog/categories/iot-data/">IoT Data</a></li>
-    
       <li><a href="/blog/categories/mqtt/">MQTT</a></li>
-    
       <li><a href="/blog/categories/merchandise/">Merchandise</a></li>
-    
       <li><a href="/blog/categories/micropython/">Micropython</a></li>
-    
       <li><a href="/blog/categories/organisation/">Organisation</a></li>
-    
       <li><a href="/blog/categories/owntracks/">OwnTracks</a></li>
-    
       <li><a href="/blog/categories/presence-detection/">Presence Detection</a></li>
-    
       <li><a href="/blog/categories/public-service-announcement/">Public Service Announcement</a></li>
-    
       <li><a href="/blog/categories/release-notes/">Release Notes</a></li>
-    
       <li><a href="/blog/categories/survey/">Survey</a></li>
-    
       <li><a href="/blog/categories/talks/">Talks</a></li>
-    
       <li><a href="/blog/categories/technology/">Technology</a></li>
-    
       <li><a href="/blog/categories/user-stories/">User Stories</a></li>
-    
       <li><a href="/blog/categories/video/">Video</a></li>
-    
       <li><a href="/blog/categories/website/">Website</a></li>
-    
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -882,7 +584,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -894,7 +595,6 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -903,10 +603,7 @@ In the past month I was thinking about ways to integrate USB webcams into Home A
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     var disqus_script = 'count.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

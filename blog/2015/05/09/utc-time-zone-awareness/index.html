@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>UTC & Time zone awareness - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
     <meta name="description" content="The Home Assistant core now uses UTC as the internal date time.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2015/05/09/utc-time-zone-awareness/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="UTC & Time zone awareness">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,32 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="The Home Assistant core now uses UTC as the internal date time.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
     <meta name="twitter:title" content="UTC & Time zone awareness">
     <meta name="twitter:description" content="The Home Assistant core now uses UTC as the internal date time.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +54,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">UTC & Time zone awareness</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2015-05-09T23:08:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 9, 2015</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -92,67 +70,41 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p>I have recently merged code to refactor Home Assistant to use only UTC times internally. A much needed refactor. I’ve added some extra test coverage to time sensitive parts to ensure stability. The code has been live in the dev branch for the last 9 days and will be soon released to the master branch.</p>
-
 <p>From now on all internal communication will be done in UTC: time changed events, datetime attributes of states, etc. To get the current time in UTC you can call <code class="highlighter-rouge">homeassistant.util.dt.utcnow()</code>. This is a timezone aware UTC datetime object. <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/util/dt.py"><code class="highlighter-rouge">homeassistant.util.dt</code></a> is a new util package with date helpers.</p>
-
 <p>There is also such a thing as local time. Local time is based on the time zone that you have setup in your <code class="highlighter-rouge">configuration.yaml</code>. Local times should only be used for user facing information: logs, frontend and automation settings in <code class="highlighter-rouge">configuration.yaml</code>.</p>
-
 <h3>Setting up your time zone</h3>
 <p>Setting up a time zone happens in <code class="highlighter-rouge">configuration.yaml</code>. If you have no time zone setup, it will be auto detected using the existing detection code using <a href="https://freegeoip.net">freegeoip.net</a>. You can find a list of compatible time zones on <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia</a>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/Los_Angeles</span>
 </code></pre>
 </div>
-
 <h3>Compatibility</h3>
 <p>The changes to the code are mostly backwards compatible. The old <code class="highlighter-rouge">hass.track_time_change</code> and <code class="highlighter-rouge">hass.track_point_in_time</code> use now internally two new methods: <code class="highlighter-rouge">hass.track_utc_time_change</code> and <code class="highlighter-rouge">hass.track_point_in_utc_time</code>. The usage of the old methods have not changed and should be backwards compatible.</p>
-
 <p>This refactor adds a new migration for the database adding a <code class="highlighter-rouge">utc_offset</code> column to events and states. This information is currently not used but can prove useful in the future when we start analyzing the historical data.</p>
-
 <h3><a class="title-link" name="backwards-incompatible-stuff" href="#backwards-incompatible-stuff"></a> Backwards incompatible stuff</h3>
-
 <p>All built-in components have been upgraded. The following list is only for people that run custom components:</p>
-
 <ul>
   <li><code class="highlighter-rouge">hass.track_time_change</code> and <code class="highlighter-rouge">hass.track_point_in_time</code> will now return a time zone aware datetime object. Python does not allow comparing a naive with an aware datetime object.</li>
   <li>the sun attributes for rising and setting are now in UTC. The methods <code class="highlighter-rouge">sun.next_rising(hass)</code> and <code class="highlighter-rouge">sun.next_setting(hass)</code> are backwards compatible, just be careful if you used to read the raw attributes.</li>
   <li>the API sends all times in UTC. If you use anything else besides the frontend to talk to HA, make sure it handles it differently.</li>
 </ul>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -168,74 +120,45 @@
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2015/05/09/utc-time-zone-awareness/"
      data-counturl="https://home-assistant.io/blog/2015/05/09/utc-time-zone-awareness/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2015/05/09/utc-time-zone-awareness/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -245,7 +168,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -257,7 +179,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -266,13 +187,10 @@
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2015/05/09/utc-time-zone-awareness/';
     var disqus_url = 'https://home-assistant.io/blog/2015/05/09/utc-time-zone-awareness/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Adding more info dialogs - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Adding a more info dialog to the frontend">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/frontend_add_more_info/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Adding more info dialogs">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Adding a more info dialog to the frontend">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Adding more info dialogs">
     <meta name="twitter:description" content="Adding a more info dialog to the frontend">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,58 +53,34 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Adding More Info Dialogs
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Whenever the user taps or clicks on one of the cards, a more info dialog will show. The header of this dialog will be the state card, followed by the history of this entity for the last 24 hours. Below this the more info component is rendered for that entity. The more info component can show more information or allow more ways of control.</p>
-
 <p class="img" style="max-width: 400px; margin-left: auto; margin-right: auto;">
   <img src="/images/frontend/frontend-more-info-light.png" />
   The more info dialog for a light allows the user to control the color and the brightness.
 </p>
-
 <p>The instructions to add a more info dialog are very similar to adding a new card type. This example will add a new more info component for the domain <code class="highlighter-rouge">camera</code>:</p>
-
 <ol>
   <li>Add <code class="highlighter-rouge">'camera'</code> to the array <code class="highlighter-rouge">DOMAINS_WITH_MORE_INFO</code> in the file <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/util/hass-util.html#L24">util/hass-util.html</a>.</li>
   <li>Create the files <code class="highlighter-rouge">more-info-camera.html</code> in the folder <a href="https://github.com/home-assistant/home-assistant-polymer/tree/master/src/more-infos">/more-infos</a>.</li>
   <li>Add <code class="highlighter-rouge">&lt;link rel="import" href="more-info-camera.html"&gt;</code> to <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/more-infos/more-info-content.html">more-info-content.html</a></li>
 </ol>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/frontend_add_more_info.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -204,13 +169,10 @@
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -220,7 +182,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -232,7 +193,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

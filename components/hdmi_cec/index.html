@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>HDMI CEC - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to interact with HDMI CEC via Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/hdmi_cec/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="HDMI CEC">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to interact with HDMI CEC via Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="HDMI CEC">
     <meta name="twitter:description" content="Instructions how to interact with HDMI CEC via Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,97 +53,62 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       HDMI CEC
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The HDMI CEC component provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entites for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as Soundbars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use <code class="highlighter-rouge">cec-client</code> (part of the <code class="highlighter-rouge">libcec</code> package) to listen to traffic on the CEC bus and discover the correct numbers.</p>
-
 <h2><a class="title-link" name="cec-setup" href="#cec-setup"></a> CEC Setup</h2>
-
 <h3><a class="title-link" name="adapter" href="#adapter"></a> Adapter</h3>
-
 <p>The computer running Home Assistant must support CEC, and of course be connected via HDMI to a device also supporting CEC. You can purchase a <a href="https://www.pulse-eight.com/p/104/usb-hdmi-cec-adapter">USB CEC adapter</a> to add support if necessary. Note that all Raspberry Pi models support CEC natively.</p>
-
 <h3><a class="title-link" name="libcec" href="#libcec"></a> libcec</h3>
-
 <p><a href="https://github.com/Pulse-Eight/libcec">libcec</a> must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. <code class="highlighter-rouge">libcec</code> installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a <a href="/getting-started/installation-virtualenv/">Python virtual environment</a>, make sure it can access the system module, by either symlinking it or using the <code class="highlighter-rouge">--system-site-packages</code> flag.</p>
-
 <h4><a class="title-link" name="symlinking-into-virtual-environment" href="#symlinking-into-virtual-environment"></a> Symlinking into virtual environment</h4>
-
 <p>Create a symlink to the <code class="highlighter-rouge">cec</code> installation. Keep in mind different installation methods will result in different locations of cec.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python3.4/site-packages
 </code></pre>
 </div>
 <h5><a class="title-link" name="symlinking-examples" href="#symlinking-examples"></a> Symlinking examples:</h5>
-
 <p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-image/">HASSbian Image for Raspberry Pi</a> the command would be as follows.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/dist-packages/cec /srv/homeassistant/lib/python3.4/site-packages
 </code></pre>
 </div>
-
 <p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi-all-in-one/">Raspberry Pi All-In-One installation</a> the command would be as follows.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/site-packages/cec /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
 </code></pre>
 </div>
-
 <p>For the default virtual environment of a <a href="/getting-started/installation-raspberry-pi/">Manual installation</a> the command would be as follows.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/local/lib/python3.4/site-packages/cec /srv/hass/hass_venv/lib/python3.4/site-packages
 </code></pre>
 </div>
-
 <p class="note">If after symlinking and adding <code class="highlighter-rouge">hdmi_cec:</code> to your configuration you are getting the following error in your logs, 
 <code class="highlighter-rouge">* failed to open vchiq instance</code> you will also need to add the user account Home Assistant runs under, to the <code class="highlighter-rouge">video</code> group. To add the Home Assistant user account to the <code class="highlighter-rouge">video</code> group, run the following command. <code class="highlighter-rouge">$ usermod -a -G video &lt;hass_user_account&gt;</code>
 </p>
-
 <h2><a class="title-link" name="testing-your-installation" href="#testing-your-installation"></a> Testing your installation</h2>
-
 <ul>
   <li>Login to Raspberry Pi</li>
 </ul>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>ssh pi@your_raspberry_pi_ip
 </code></pre>
 </div>
-
 <ul>
   <li>at the command line type:</li>
 </ul>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo </span>scan | cec-client -s -d 1
 </code></pre>
 </div>
-
 <ul>
   <li>This will give you the list of devices that are on the bus</li>
 </ul>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>opening a connection to the CEC adapter...
 requesting CEC bus information ...
 CEC bus information
@@ -169,16 +123,11 @@ power status:  on
 language:      ???
 </code></pre>
 </div>
-
 <p class="note"><code class="highlighter-rouge">address:</code> entry above this will be used to configure Home Assistant, this address is represented below as 3: BlueRay player.
 </p>
-
 <h2><a class="title-link" name="configuration-example" href="#configuration-example"></a> Configuration Example</h2>
-
 <p>In the following example, a Pi Zero running Home Assistant is on a TV’s HDMI port 1. HDMI port 2 is attached to a AV receiver. Three devices are attached to the AV receiver on HDMI ports 1 through 3.</p>
-
 <p>You can use either direct mapping name to physical address of device</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
   <span class="s">devices</span><span class="pi">:</span>
     <span class="s">TV</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
@@ -189,9 +138,7 @@ language:      ???
     <span class="s">BlueRay player</span><span class="pi">:</span> <span class="s">3.0.0.0</span>
 </code></pre>
 </div>
-
 <p>or port mapping tree:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
   <span class="s">devices</span><span class="pi">:</span>
     <span class="s">1</span><span class="pi">:</span> <span class="s">Pi Zero</span>
@@ -202,135 +149,89 @@ language:      ???
     <span class="s">3</span><span class="pi">:</span> <span class="s">BlueRay player</span>
 </code></pre>
 </div>
-
 <p>Choose just one schema. Mixing both approaches is not possible.</p>
-
 <p>Another option you can use in config is <code class="highlighter-rouge">platform</code> which specifying of default platform of HDMI devices. “switch” and “media_player” are supported. Switch is default.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">media_player</span>
 </code></pre>
 </div>
-
 <p>Then you set individual platform for devices in customizations:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
   <span class="s">types</span><span class="pi">:</span>
     <span class="s">hdmi_cec.hdmi_5</span><span class="pi">:</span> <span class="s">media_player</span>
 </code></pre>
 </div>
-
 <p>And the last option is <code class="highlighter-rouge">host</code>. PyCEC supports bridging CEC commands over TCP. When you start pyCEC on machine with HDMI port (<code class="highlighter-rouge">python -m pycec</code>), you can then run homeassistant on another machine and connect to CEC over TCP. Specify TCP address of pyCEC server:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">hdmi_cec</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.3</span>
 </code></pre>
 </div>
-
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
-
 <h3><a class="title-link" name="select-device" href="#select-device"></a> Select Device</h3>
-
 <p>Call the <code class="highlighter-rouge">hdmi_cec/select_device</code> service with the name of the device from config or entity_id or physical address”to select it, for example:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chromecast"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"switch.hdmi_3"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"device"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.1.0.0"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>So an Automation action using the example above would look something like this.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
   <span class="s">service</span><span class="pi">:</span> <span class="s">hdmi_cec.select_device</span>
     <span class="s">data</span><span class="pi">:</span>
       <span class="s">device</span><span class="pi">:</span> <span class="s">Chromecast</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="power-on" href="#power-on"></a> Power On</h3>
-
 <p>Call the <code class="highlighter-rouge">hdmi_cec/power_on</code> service (no arguments) to power on any devices that support this function.</p>
-
 <h3><a class="title-link" name="standby" href="#standby"></a> Standby</h3>
-
 <p>Call the <code class="highlighter-rouge">hdmi_cec/standby</code> service (no arguments) to place in standby any devices that support this function.</p>
-
 <h3><a class="title-link" name="change-volume-level" href="#change-volume-level"></a> Change volume level</h3>
-
 <p>Call the <code class="highlighter-rouge">hdmi_cec/volume</code> service with one of following commands:</p>
-
 <h4><a class="title-link" name="volume-up" href="#volume-up"></a> Volume up</h4>
 <p>Increase volume three times:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Keep increasing volume until release is called:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="s2">"press"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Stop increasing volume:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"up"</span><span class="p">:</span><span class="w"> </span><span class="s2">"release"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <h4><a class="title-link" name="volume-down" href="#volume-down"></a> Volume down</h4>
 <p>Decrease volume three times:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Keep decreasing volume until release is called:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="s2">"press"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Stop decreasing volume:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"down"</span><span class="p">:</span><span class="w"> </span><span class="s2">"release"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <h4><a class="title-link" name="volume-mute" href="#volume-mute"></a> Volume mute</h4>
 <p>Toggle mute:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"mute"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>value is ignores.</p>
-
 <h2><a class="title-link" name="useful-references" href="#useful-references"></a> Useful References</h2>
-
 <ul>
   <li><a href="http://wiki.kwikwai.com/index.php?title=The_HDMI-CEC_bus">CEC overview</a></li>
   <li><a href="http://www.cec-o-matic.com/">CEC-o-matic</a></li>
 </ul>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/hdmi_cec.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -393,13 +294,10 @@ language:      ???
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -409,7 +307,6 @@ language:      ???
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -421,7 +318,6 @@ language:      ???
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

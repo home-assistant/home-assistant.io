@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>SceneGen - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Scenegen is a scene generation tool for Home Assistant">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/scenegen/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="SceneGen">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Scenegen is a scene generation tool for Home Assistant">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="SceneGen">
     <meta name="twitter:description" content="Scenegen is a scene generation tool for Home Assistant">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,63 +53,38 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/ecosystem/scenegen.markdown'>Edit this page on GitHub</a></div>
-  
-
-  
   <header>
     <h1 class="title indent">
       SceneGen
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Scenegen is a scene generation tool for <a href="https://home-assistant.io/">Home Assistant</a> home automation software. It creates scenes by example, by reading the current states of devices and outputting a corresponding scene. Scenegen is written in python using Home Assistant’s RESTFul API so can be run from anywhere. It currently supports lights and switches only.</p>
-
 <h2><a class="title-link" name="installation" href="#installation"></a> Installation</h2>
-
 <h3><a class="title-link" name="clone-the-repository" href="#clone-the-repository"></a> Clone the Repository</h3>
 <p>Clone the <a href="https://github.com/home-assistant/scenegen"><strong>scenegen</strong></a> repository to the current local directory on your machine.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/home-assistant/scenegen.git
 </code></pre>
 </div>
-
 <p>Change your working directory to the repository root. Moving forward, we will be working from this directory.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>scenegen
 </code></pre>
 </div>
-
 <h2><a class="title-link" name="install-prerequisites" href="#install-prerequisites"></a> Install Prerequisites</h2>
-
 <p>Before running <code class="highlighter-rouge">SceneGen</code> you will need to add some python prerequisites:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install configparser
 </code></pre>
 </div>
-
 <p>You should now be ready to run <code class="highlighter-rouge">scenegen</code></p>
-
 <h2><a class="title-link" name="basic-operation" href="#basic-operation"></a> Basic Operation</h2>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>usage: scenegen [-h] [-k KEY] [-s SCENENAME] [-m MAPFILE] [-f FILTER]
                 [-c {xy_color,rgb_color,color_temp,color_name}] [-t TYPES]
                 url
@@ -145,9 +109,7 @@ optional arguments:
 
 </code></pre>
 </div>
-
 <p>For basic operation just supply the url and optionally the api key (using the –key option) on the command line and scenegen will output a list of all lights and switches with their attributes. Optionally use the <code class="highlighter-rouge">--scenename</code> flag to explicitly set the scenename.</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>$ ./scenegen.py https://&lt;some url&gt; -k &lt;some api key&gt;
 name: My New Scene
 entities:
@@ -167,63 +129,40 @@ entities:
     brightness: 28
 </code></pre>
 </div>
-
 <p>This output can be cut and pasted into your configuration.yaml file as required (ensuring correct indentatation of course).</p>
-
 <p>Scenegen supports all documented effects for lights including transitions and flash effects, however generally it is easier to run scenegen to get the basic setup and add any effects manually later.</p>
-
 <p>Note that depending on the type of light there may be a delay in actually setting up its parameters and Home Assistant actually recieving that state. For instance, if you set a scene up with the Hue App, Home Assistant won’t see those changes for up to 10 seconds. Turning on a ZWave light might not be seen for an entire poll interval. For this reason, its good practice to wait for a while after the scene is setup before running scenegen. Alternatively, perform all setup using the Home Assistant frontend and it will instantly have the required state for capture.</p>
-
 <h2><a class="title-link" name="advanced-usage" href="#advanced-usage"></a> Advanced Usage</h2>
-
 <p>For a more advanced way to use the output try the following. In configuration.yaml add the following line:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>scene: !include_dir_list scenes
 </code></pre>
 </div>
-
 <p>This will tell home assistant to look in the subdirectory <code class="highlighter-rouge">scenes</code> for yaml files containing scene information. Each file will be named for the scene it will create and should contain information formatted as above. Then simply run Scenegen and redirect its output to the scenes subdirectory:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>$ ./scenegen.py https://&lt;some url&gt; -k &lt;some api key&gt; &gt; scenes/my_new_scene.yaml
 </code></pre>
 </div>
-
 <p>This will create a new scene called <code class="highlighter-rouge">my_new_scene</code> which will automatically be picked up by Home Assistant on the next restart.</p>
-
 <h2><a class="title-link" name="colors" href="#colors"></a> Colors</h2>
-
 <p>Scenegen allows colors to be captured, and in fact Home Assistant light entities store up to 4 different ways of specifying the colors. This is redundant for creating scenes so Scenegen picks 1 and goes with it. The default is <code class="highlighter-rouge">color_temp</code> but you can change this with the <code class="highlighter-rouge">--colortype</code> flag, supported options are <code class="highlighter-rouge">xy_color</code>, <code class="highlighter-rouge">rgb_color</code>, <code class="highlighter-rouge">color_temp</code> and <code class="highlighter-rouge">color_name</code>.</p>
-
 <h2><a class="title-link" name="types" href="#types"></a> Types</h2>
-
 <p>By default, Scenegen will list all lights and switches. To restrict the device type use the <code class="highlighter-rouge">--types</code> option and supply a comma separated list (no spaces) of types to output. e.g.:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>./scenegen.py https://&lt;some url&gt; -k &lt;some api key&gt; --types light,switch
 </code></pre>
 </div>
-
 <p>or:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>./scenegen.py https://&lt;some url&gt; -k &lt;some api key&gt; --types light
 </code></pre>
 </div>
-
 <p>This will make more sense as and when more types are added.</p>
-
 <h2><a class="title-link" name="maps-and-filters" href="#maps-and-filters"></a> Maps and Filters</h2>
-
 <p>Maps allow you to specify and label various subsets of devices that you want to work on together. A mapfile is specified using the <code class="highlighter-rouge">--mapfile</code> option and is a <code class="highlighter-rouge">.ini</code> style file consisting of section headers and entries. The section headers specify a region or zone or otherwise organized selection of entities you want to filter on, and it is mandatory to have at least one. If you create a map file like this:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>[entities]
 light.living_room:
 light.dining_room:
 </code></pre>
 </div>
-
 <p>The trailing colons are necessary to prevent parsing errors for including just keys, as opposed to key=value so just go with it - it reminds us of YAML ;)</p>
-
 <p>If you run scenegen with the <code class="highlighter-rouge">--mapfile</code> argument pointing to that file you will only get output for the listed entities (the name of the section is irrelevant if not using the <code class="highlighter-rouge">--filter</code> option). A more complex mapfile might look like this:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>[Outside]
 light.porch:
 switch.path_lights:
@@ -234,34 +173,20 @@ light.living_room_back:
 light.bedside:
 </code></pre>
 </div>
-
 <p>Again, if you run with that map file it will output all of the entities listed, however you now have the possibility of restricting output devices based on the sections they are in, using the <code class="highlighter-rouge">--filter</code> option and supplying a comma separated list of sections you want to include, for instance:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>./scenegen.py https://&lt;some url&gt; -k &lt;some api key&gt; --mapfile map.cfg --filter "Outside,Living Room"
 </code></pre>
 </div>
-
 <p>The intended use of the mapfile and filter is that you create a map of all your devices and organize them into zones that you are interested in creating scenes for and use the filter to limit output to that zone. For instance you might want to create 3 or 4 scenes for your living room, and once the map is set up you can easily do so without the addition of unwanted devices.</p>
-
 <h2><a class="title-link" name="updating-scenegen" href="#updating-scenegen"></a> Updating SceneGen</h2>
 <p>To update SceneGen after a new version is released, just run the following command to update your copy:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git pull
 </code></pre>
 </div>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>
     <h1 class="title delta">Topics</h1>
@@ -448,13 +373,10 @@ light.bedside:
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -464,7 +386,6 @@ light.bedside:
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -476,7 +397,6 @@ light.bedside:
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

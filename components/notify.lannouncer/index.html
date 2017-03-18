@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Lannouncer - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to add Lannouncer notifications to Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/notify.lannouncer/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Lannouncer">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to add Lannouncer notifications to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Lannouncer">
     <meta name="twitter:description" content="Instructions how to add Lannouncer notifications to Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,36 +53,21 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Lannouncer
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">lannouncer</code> notification platform allows you to play spoken messages (TTS) or sounds on an Android device running <a href="http://www.keybounce.com/lannouncer/">Lannouncer</a>. This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.</p>
-
 <p>To enable Lannouncer notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
@@ -101,37 +75,25 @@
     <span class="s">host</span><span class="pi">:</span> <span class="s">HOSTNAME_OR_IP</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>host</strong> (<em>Required</em>): The hostname or IP-address of the Android device that is running Lannouncer.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port on which Lannouncer is running. By default this is <code class="highlighter-rouge">1035</code>.</li>
 </ul>
-
 <h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
-
 <p>You need to install the Lannouncer app and enable the <em>Network (TCP) Listener</em> and <em>Auto-Start Network Listener</em>. You can disable the <em>GCM (Google Cloud) and WAN Messaging</em> and <em>SMS Listener</em> since this component doesn’t use them.</p>
-
 <p>Lannouncer uses the default Android TTS voice. You can tweak that in the Android configuration, or you can install a different TTS engine from the Play Store. You might want to raise the volume in the app settings since that depends on the actual hardware device.</p>
-
 <p>More information can be found <a href="http://www.keybounce.com/lannouncer/configuring-lannouncer/">here</a>.</p>
-
 <h3><a class="title-link" name="sending-messages" href="#sending-messages"></a> Sending messages</h3>
-
 <p>Lannouncer supports two types of messages.</p>
-
 <p>Spoken messages is the default method (<code class="highlighter-rouge">speak</code>). You just invoke the <code class="highlighter-rouge">notify</code> service with the following json and the device will speak out the specified message.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I'm sorry, I cannot do that Dave."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>The second method is to play notifications (<code class="highlighter-rouge">alarm</code>). There are 4 build-in sounds (<code class="highlighter-rouge">chime</code>, <code class="highlighter-rouge">doorbell</code>, <code class="highlighter-rouge">alarm</code> and <code class="highlighter-rouge">siren</code>).</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chime"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -140,9 +102,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>You can also request to play a configured additional soundfiles (<code class="highlighter-rouge">FILE1</code>, <code class="highlighter-rouge">FILE2</code>, <code class="highlighter-rouge">FILE3</code>, <code class="highlighter-rouge">FILE4</code> or <code class="highlighter-rouge">FILE5</code>). You can configure this file in the app settings.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE1"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -151,24 +111,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p class="note info">
   The free version only supports one additional soundfile. 
 </p>
-
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/notify.lannouncer.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -319,13 +269,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -335,7 +282,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -347,7 +293,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

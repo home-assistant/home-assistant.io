@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Twilio Call - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to add user notifications to Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/notify.twilio_call/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Twilio Call">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to add user notifications to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Twilio Call">
     <meta name="twitter:description" content="Instructions how to add user notifications to Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,39 +53,23 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Twilio Call
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">twilio_call</code> notification platform enables sending notifications via Voice, powered by <a href="https://twilio.com">Twilio</a>.
 Passed message will be read by Text-To-Speech service.</p>
-
 <p>The requirement is that you have setup <a href="/components/twilio/">Twilio</a>.</p>
-
 <p>To use this notification platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
@@ -104,18 +77,13 @@ Passed message will be read by Text-To-Speech service.</p>
     <span class="s">from_number</span><span class="pi">:</span> <span class="s">E164_PHONE_NUMBER</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>from_number</strong> (<em>Required</em>): An <a href="https://en.wikipedia.org/wiki/E.164">E.164</a> formatted phone number, like +14151234567. See <a href="https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally">Twilio’s guide to formatting phone numbers</a> for more information.</li>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
 </ul>
-
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
-
 <p>Twilio is a notify platform and thus can be controlled by calling the notify service <a href="/components/notify/">as described here</a>. It will send a notification to all E.164 phone numbers in the notification <strong>target</strong>. See the notes above regarding the <code class="highlighter-rouge">from_number</code> configuration variable for information about formatting phone numbers.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example automation notification entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">The sun has set</span>
@@ -131,18 +99,10 @@ Passed message will be read by Text-To-Speech service.</p>
           <span class="pi">-</span> <span class="s">+15105555555</span>
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/notify.twilio_call.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -293,13 +253,10 @@ Passed message will be read by Text-To-Speech service.</p>
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -309,7 +266,6 @@ Passed message will be read by Text-To-Speech service.</p>
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -321,7 +277,6 @@ Passed message will be read by Text-To-Speech service.</p>
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>History - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to enable history support for Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/history/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="History">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to enable history support for Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="History">
     <meta name="twitter:description" content="Instructions how to enable history support for Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,53 +53,34 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       History
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">history</code> component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the <code class="highlighter-rouge">recorder</code> component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities as well.</p>
-
 <p>To enable the history option in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Basic configuration.yaml entry</span>
 <span class="s">history</span><span class="pi">:</span>
 </code></pre>
 </div>
-
 <p class="img">
   <a href="/images/screenshots/component_history_24h.png">
     <img src="/images/screenshots/component_history_24h.png" />
   </a>
 </p>
-
 <p class="note">
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
 </p>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should <strong>not</strong> be displayed.
     <ul>
@@ -125,11 +95,8 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
     </ul>
   </li>
 </ul>
-
 <p>Without any <code class="highlighter-rouge">include</code> or <code class="highlighter-rouge">exclude</code> configuration the history displays graphs for every entity (well that’s not exactly true - for instance <code class="highlighter-rouge">hidden</code> entities or <code class="highlighter-rouge">scenes</code> are never shown) on a given date. If you are only interested in some of the entities you several options:</p>
-
 <p>Define domains and entities to <code class="highlighter-rouge">exclude</code> (aka. blacklist). This is convenient when you are basically happy with the information displayed, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like <code class="highlighter-rouge">weblink</code>) or rarely change (<code class="highlighter-rouge">updater</code> or <code class="highlighter-rouge">automation</code>).</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with exclude</span>
 <span class="s">history</span><span class="pi">:</span>
   <span class="s">exclude</span><span class="pi">:</span>
@@ -142,9 +109,7 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
       <span class="pi">-</span> <span class="s">sensor.date</span>
 </code></pre>
 </div>
-
 <p>Define domains and entities to display by using the <code class="highlighter-rouge">include</code> configuration (aka. whitelist). If you have a lot of entities in your system and your <code class="highlighter-rouge">exclude</code> lists possibly get very large, it might be better just to define the entities or domains to display.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with include</span>
 <span class="s">history</span><span class="pi">:</span>
   <span class="s">include</span><span class="pi">:</span>
@@ -154,9 +119,7 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
       <span class="pi">-</span> <span class="s">media_player</span>
 </code></pre>
 </div>
-
 <p>Use the <code class="highlighter-rouge">include</code> list to define the domains/entities to display, and exclude some of them with in the <code class="highlighter-rouge">exclude</code> list. This makes sense if you for instance include the <code class="highlighter-rouge">sensor</code> domain, but want to exclude some specific sensors. Instead of adding every sensor entity to the <code class="highlighter-rouge">include</code> <code class="highlighter-rouge">entities</code> list just include the <code class="highlighter-rouge">sensor</code> domain and exclude the sensor entities you are not interested in.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with include and exclude</span>
 <span class="s">history</span><span class="pi">:</span>
   <span class="s">include</span><span class="pi">:</span>
@@ -170,11 +133,8 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
      <span class="pi">-</span> <span class="s">sensor.date</span>
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="implementation-details" href="#implementation-details"></a> Implementation details</h4>
-
 <p>The history is stored in a SQLite database <code class="highlighter-rouge">home-assistant_v2.db</code> within your configuration directory if the <code class="highlighter-rouge">recorder</code> component is not set up differently.</p>
-
 <ul>
   <li>events table is all events except <code class="highlighter-rouge">time_changed</code> that happened while recorder component was running.</li>
   <li>states table contains all the <code class="highlighter-rouge">new_state</code> values of <code class="highlighter-rouge">state_changed</code> events.</li>
@@ -189,33 +149,19 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
     </ul>
   </li>
 </ul>
-
 <p>When the <code class="highlighter-rouge">history</code> component queries the states table it only selects states where the state has changed: <code class="highlighter-rouge">WHERE last_changed=last_updated</code></p>
-
 <h4><a class="title-link" name="on-dates" href="#on-dates"></a> On dates</h4>
-
 <p>SQLite databases do not support native dates. That’s why all the dates are saved in seconds since the UNIX epoch. Convert them manually using this site or in Python:</p>
-
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">1422830502</span><span class="p">)</span>
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="api" href="#api"></a> API</h4>
-
 <p>The history information are also available through the <a href="/developers/rest_api/#get-apihistory">RESTful API</a>.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/history.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -263,13 +209,10 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -279,7 +222,6 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -291,7 +233,6 @@ Events are saved in a local database. Google Graphs is used to draw the graph. D
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>MQTT JSON Light - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions for how to setup MQTT JSON lights within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/light.mqtt_json/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="MQTT JSON Light">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions for how to setup MQTT JSON lights within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="MQTT JSON Light">
     <meta name="twitter:description" content="Instructions for how to setup MQTT JSON lights within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,36 +53,21 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       MQTT JSON Light
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">mqtt_json</code> light platform lets you control a MQTT-enabled light that can receive <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> messages.</p>
-
 <p>This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren’t needed:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w">
   </span><span class="nt">"color_temp"</span><span class="p">:</span><span class="w"> </span><span class="mi">155</span><span class="p">,</span><span class="w">
@@ -111,22 +85,16 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.</p>
-
 <p>When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from <code class="highlighter-rouge">state_topic</code>).</p>
-
 <p>Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt_json</span>
     <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/rgb1/set"</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the light’s state.</li>
   <li><strong>brightness</strong> (<em>Optional</em>): Flag that defines if the light supports brightness. Default is false.</li>
@@ -144,17 +112,13 @@
   <li><strong>white_value</strong> (<em>Optional</em>): Flag that defines if the light supports white values. Default is false.</li>
   <li><strong>xy</strong> (<em>Optional</em>): Flag that defines if the light supports XY colors. Default is false.</li>
 </ul>
-
 <p class="note warning">
   Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
-
 <p class="note warning">
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
 </p>
-
 <h2><a class="title-link" name="comparison-of-light-mqtt-platforms" href="#comparison-of-light-mqtt-platforms"></a> Comparison of light MQTT platforms</h2>
-
 <table>
   <thead>
     <tr>
@@ -215,15 +179,10 @@
     </tr>
   </tbody>
 </table>
-
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
-
 <p>In this section you find some real life examples of how to use this sensor.</p>
-
 <h3><a class="title-link" name="brightness-and-rgb-support" href="#brightness-and-rgb-support"></a> Brightness and RGB support</h3>
-
 <p>To enable a light with brightness and RGB support in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt_json</span>
@@ -234,11 +193,8 @@
     <span class="s">rgb</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="brightness-and-no-rgb-support" href="#brightness-and-no-rgb-support"></a> Brightness and no RGB support</h3>
-
 <p>To enable a light with brightness (but no color support) in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt_json</span>
@@ -248,24 +204,13 @@
     <span class="s">brightness</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="implementations" href="#implementations"></a> Implementations</h3>
-
 <p>A full example of custom lighting using this platform and an ESP8266 microcontroller can be found <a href="https://github.com/corbanmailloux/esp-mqtt-rgb-led">here</a>. It supports on/off, brightness, transitions, RGB colors, and flashing.</p>
-
 <p>There is also another implementation forked from the above repo, it supports all the same features but is made for addressable LED strips using FastLED on a NodeMCU V3 it can be found <a href="https://github.com/JammyDodger231/nodemcu-mqtt-rgb-led">here</a></p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/light.mqtt_json.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -395,13 +340,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -411,7 +353,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -423,7 +364,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

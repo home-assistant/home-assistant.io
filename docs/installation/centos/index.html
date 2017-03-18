@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Installation on CentOS/RHEL - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Installation of Home Assistant on your CentOS/RHEL computer.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/installation/centos/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Installation on CentOS/RHEL">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Installation of Home Assistant on your CentOS/RHEL computer.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Installation on CentOS/RHEL">
     <meta name="twitter:description" content="Installation of Home Assistant on your CentOS/RHEL computer.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,68 +53,41 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/installation/centos.markdown'>Edit this page on GitHub</a></div>
-  
-
-  
   <header>
     <h1 class="title indent">
       Installation on CentOS/RHEL
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>To run Python 3.x on <a href="https://www.centos.org/">CentOS</a> or RHEL (Red Hat Enterprise Linux), <a href="https://www.softwarecollections.org/en/scls/rhscl/rh-python34/">Software Collections</a> needs to be activated first.</p>
-
 <p>There are effort in progress to bring Python 3.4 to <a href="https://fedoraproject.org/wiki/EPEL">Extra Packages for Enterprise Linux (EPEL)</a> which will allow you to follow the <a href="/docs/installation/fedora/">Fedora Instructions</a>.</p>
-
 <h3><a class="title-link" name="using-software-collections" href="#using-software-collections"></a> Using Software Collections</h3>
-
 <p>First of all install the software collection repository as root. For example, on CentOS:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>yum install centos-release-scl
 </code></pre>
 </div>
-
 <p>Then install the Python 3.5 package:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>yum install rh-python35
 </code></pre>
 </div>
-
 <p>Once installed, switch to your homeassistant user (if you’ve set one up), enable the software collection and check that it has set up the new version of Python:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>scl <span class="nb">enable </span>rh-python35 bash
 <span class="gp">$ </span>python --version
 Python 3.5.1
 </code></pre>
 </div>
-
 <p>You will be in a command shell set up with Python 3.5 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install home assistant following the main <a href="https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv">instructions</a>.</p>
-
 <p>You will need to enable the software collection each time you log on before you activate your virtual environment.</p>
-
 <h3><a class="title-link" name="systemd-with-software-collections" href="#systemd-with-software-collections"></a> Systemd with Software Collections</h3>
-
 <p>To autostart homeassistant using systemd follow the main <a href="https://home-assistant.io/docs/autostart/systemd/">instructions</a> and adjust the template as follows:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 After=network.target
@@ -143,18 +105,10 @@ ExecStart=/usr/bin/scl enable rh-python35 -- /srv/homeassistant/bin/hass -c "/ho
 WantedBy=multi-user.target
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>
     <h1 class="title delta">Topics</h1>
@@ -341,13 +295,10 @@ WantedBy=multi-user.target
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -357,7 +308,6 @@ WantedBy=multi-user.target
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -369,7 +319,6 @@ WantedBy=multi-user.target
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

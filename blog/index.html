@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Home Assistant is an open-source home automation platform running on Python 3.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Home Assistant">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Home Assistant">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,30 +53,17 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
-            
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-03-11T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 11, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -95,92 +71,61 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-03-0.40/social.png" style="border: 0;box-shadow: none;" /></a></p>
-
 <p>It’s time for version 0.40 already! For this version, the main focus was on performance and bug fixes. Big thanks to <a href="https://github.com/pvizeli">@pvizeli</a> for driving this effort. Startup is now super fast. We have also continued with adding warnings for components and platforms that are slowing down Home Assistant.</p>
-
 <p>Some people have interpreted our recent added warnings as if 0.39 introduced the issues that caused the warning. This is not the case, the platforms and components have been misbehaving for a while but now we are adding warnings so we are able to track down the culprits.</p>
-
 <p>Before we continue talking about all the improvements in this release I want to take a moment to thank a few people from the Home Assistant community that are fundamental to the success of Home Assistant. Big thanks to <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/CCOSTAN">@CCOSTAN</a>, <a href="https://github.com/skalavala">@skalavala</a>, <a href="https://github.com/rrubin0">@rrubin0</a>, <a href="https://github.com/brahmafear">@brahmafear</a>, <a href="https://github.com/bassclarinetl2">@bassclarinetl2</a>, and <a href="https://github.com/torn8o">@torn8o</a>! These are all people that hang out in our <a href="https://gitter.im/home-assistant/home-assistant">main chat channel</a> and help new users get started and help existing users when running into trouble. Home Assistant would not be there without all the effort you put in! 🙇</p>
-
 <p>And that our community kicks ass is also shown in the numbers. We have already raised together over $700 for the <a href="https://www.eff.org">EFF</a> via the sale of <a href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/">our t-shirts</a>! All of you rock! Another number worth mentioning is that this release brings us passed 600 integrations for Home Assistant. All of you rock, again!</p>
-
 <h2>Z-Wave is now threadsafe</h2>
-
 <p><a href="https://github.com/andrey-git">@andrey-git</a> has spend a lot of time to make Z-Wave perform better. It should no longer cause Home Assistant to run slower or raise warnings about the timer getting out of sync.</p>
-
 <h2>Update on the MQTT Out of Memory errors in 0.39</h2>
-
 <p>MQTT started causing “Out of Memory” errors for some people on a Raspberry Pi. We have been able to track this down to Raspberry Pis that are using an older firmware. If you are experiencing this issue, please <a href="https://github.com/Hexxeh/rpi-update#installing">upgrade your firmware using <code class="highlighter-rouge">rpi-update</code></a>.</p>
-
 <h2>Turn any Android phone into an IP Camera</h2>
-
 <p>With the new support for <a href="/components/android_ip_webcam/">IP Webcam</a> added by <a href="https://github.com/robbiet480">@robbiet480</a> and <a href="https://github.com/pvizeli">@pvizeli</a> you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:</p>
-
 <ul>
   <li>Integrate the Android device camera</li>
   <li>Binary sensor when motion is detected</li>
   <li>Sensors to expose the device sensors, including pressure, sound, battery, light</li>
   <li>Control device features like the GPS, night vision and camera flash</li>
 </ul>
-
 <p class="img">
 <img src="/images/blog/2017-03-0.40/ipwebcam.png" />
 Screenshot of all the different functionality the IP webcam integration offers.
 </p>
-
 <h2>Other Highlights</h2>
-
 <ul>
   <li>Support added for Austrian weather using Zamg weather data (<a href="https://github.com/Zac-HD">@Zac-HD</a>)</li>
   <li>Ring.com video doorbell integration added (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
   <li>Blink Home Security Camera support added (<a href="https://github.com/fronzbot">@fronzbot</a>)</li>
   <li>AppleTV has been converted to push data to Home Assistant instead of us having to poll (<a href="https://github.com/postlund">@postlund</a>)</li>
 </ul>
-
 <h2>Breaking changes</h2>
-
 <ul>
   <li>Vera entity ids have changed. This is a one time change to migrate to a model that will prevent future conflicts.</li>
   <li>The Twilio notify platforms now have to be configured via the twilio component.</li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">twilio</span><span class="pi">:</span>
   <span class="s">account_sid</span><span class="pi">:</span> <span class="s2">"</span><span class="s">abc"</span>
   <span class="s">auth_token</span><span class="pi">:</span> <span class="s2">"</span><span class="s">xyz"</span>
 </code></pre>
 </div>
-
 <ul>
   <li>If you are using async custom components, the passed in <code class="highlighter-rouge">async_add_devices</code> method is now a callback instead of a coroutine function.</li>
 </ul>
-
 <h3>If you need help…</h3>
 <p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-
 <h3>Reporting Issues</h3>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-
 <h3><a class="title-link" name="release-0401---march-16" href="#release-0401---march-16"></a> Release 0.40.1 - March 16</h3>
-
 <ul>
   <li>Fix wake_on_lan ping with None as host (<a href="https://github.com/iamtpage">@iamtpage</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6532">#6532</a>)</li>
   <li>Don’t start the push updater if the Apple TV is ‘off’ (<a href="https://github.com/jnewland">@jnewland</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6552">#6552</a>)</li>
@@ -192,24 +137,15 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li>Fix Osram Lightify colors (<a href="https://github.com/deisi">@deisi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6598">#6598</a>)</li>
   <li>Bugfix RFLINK remove group (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6580">#6580</a>)</li>
 </ul>
-
-
-    
       <a class="btn pull-right" href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-02-25T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 25, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -217,90 +153,55 @@ Screenshot of all the different functionality the IP webcam integration offers.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/02/25/config-panel-and-state-restoration/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>It’s time for 0.39 and this release has some amazing new features!</p>
-
 <p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-02-0.39/social.png" style="border: 0;box-shadow: none;" /></a></p>
-
 <h2>T-Shirts</h2>
-
 <p>First off, in case you haven’t seen it yet: <a href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/">we have t-shirts</a> now and they are beautiful. All proceeds from the shirts will be donated to the Electronic Frontier Foundation. The first three days all of you have already raised $400! Still waiting for Teespring to get back to me so stay tuned for the EU store.</p>
-
 <h2>Configuration panel</h2>
-
 <p>Yep, you read that right. We have a configuration panel. It’s just the first of many small steps. Putting in a foundation is important and gives us something to iterate on.</p>
-
 <p>To start, we have three simple configuration panels:</p>
-
 <ul>
   <li>Core: allows you to validate config, reload core/group/automation config and restart/stop Home Assistant</li>
   <li>Group: allows you to rename groups, change type between group/view and reorder entities.</li>
   <li>Z-Wave: allows you to set device specific configuration settings</li>
 </ul>
-
 <p class="img">
   <img src="/images/blog/2017-02-0.39/config.png" />
   Screenshot of our new configuration panel.
 </p>
-
 <p>As a security measure, the configuration panel will need to be activated in the config file to be activated. This can be done by adding the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">config</span><span class="pi">:</span>
 </code></pre>
 </div>
-
 <p>Using our configuration panels will require you to structure your groups and Z-Wave device config according to how the configuration panel expects it. This is on purpose as it we will not be aiming to build a system that supports both our extended set of configuration extend hooks and our configuration panels. It’s one or the other.</p>
-
 <p>To activate them in your config, create empty files <code class="highlighter-rouge">groups.yaml</code> and <code class="highlighter-rouge">zwave_device_config.yaml</code> in your config dir and add the following entries to your config:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">group</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">groups.yaml</span>
 
 <span class="s">zwave</span><span class="pi">:</span>
   <span class="s">device_config</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">zwave_device_config.yaml</span>
 </code></pre>
 </div>
-
 <p><em>Note that this is the first release. Things will be missing, things might be broken.</em></p>
-
 <h2>Reorganized documentation</h2>
-
 <p>Thanks to <a href="https://github.com/fabaff">Fabian</a> we have a great re-organized documentation. Is it perfect yet? No. But we are getting close. We put a lot of focus on making sure the Raspberry Pi is the main focus of our getting started. The other instructions are still available, just not as part of the main getting started.</p>
-
 <h2>State restoration</h2>
-
 <p>Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don’t worry any longer. <a href="https://github.com/kellerza">Johann</a> has added the foundation for state restoration to Home Assistant. For the initial release support has been added to to <code class="highlighter-rouge">input_select</code> and <code class="highlighter-rouge">input_boolean</code> components. We will be adding this to more integrations in the future.</p>
-
 <h2>Breaking changes to customize and Z-Wave “customize”</h2>
-
 <p>A couple of releases ago we introduced a new way of doing <code class="highlighter-rouge">customize</code>. It became a list that allowed different ways of matching the config to the entity.</p>
-
 <p>We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn’t like config panels?</p>
-
 <p>So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.</p>
-
 <p><a href="https://jsfiddle.net/balloob/d2e56q6f/74/"><strong>Update: the online tool can be found here.</strong></a></p>
-
 <h4>Customize has been reverted to it’s original config</h4>
-
 <p>The old customize is back. The options to match by domain or using glob have been moved to it’s own options. It will now look like this:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">customize</span><span class="pi">:</span>
     <span class="s">light.kitchen</span><span class="pi">:</span>
@@ -313,11 +214,8 @@ Screenshot of all the different functionality the IP webcam integration offers.
       <span class="s">icon</span><span class="pi">:</span> <span class="s">mid:description</span>
 </code></pre>
 </div>
-
 <h4>Z-Wave customize is now device config</h4>
-
 <p>Ever wondered why the Z-Wave customize was called customize? Yeah, so did we. So when migrating this to the new config format, we decided to upgrade the name too:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
   <span class="s">device_config</span><span class="pi">:</span>
     <span class="s">light.kitchen</span><span class="pi">:</span>
@@ -330,28 +228,17 @@ Screenshot of all the different functionality the IP webcam integration offers.
       <span class="s">polling_intensity</span><span class="pi">:</span> <span class="s">0</span>
 </code></pre>
 </div>
-
 <h2>Speed improvements</h2>
-
 <p>And a final shout out to <a href="https://github.com/pvizeli">Pascal</a>. He keeps improving the performance of components and platforms all over Home Assistant.</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2017/02/25/config-panel-and-state-restoration/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-02-22T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 22, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -359,74 +246,46 @@ Screenshot of all the different functionality the IP webcam integration offers.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Merchandise</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p class="img">
   <img src="/images/blog/2017-02-shirts/beard.png" />
   Cool dude with beard and tattoo wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
 </p>
-
 <p>What time is it? Yep, t-shirt time. Today we’re launching the first two Home Assistant designs. We have a blue t-shirt (<a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>) as pictured above and a design for on black/gray shirts (<a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>) as pictured below.</p>
-
 <ul>
   <li><a href="https://teespring.com/stores/home-assistant-us-store">Visit the 🇺🇸 US store</a></li>
   <li><a href="https://teespring.com/stores/home-assistant-eu-store">Visit the 🇪🇺 EU store</a></li>
 </ul>
-
 <p><a href="https://www.eff.org"><img src="/images/supported_brands/eff.png" style="width: 150px; float: right; box-shadow: none; border: 0; margin-left: 15px;" /></a></p>
-
 <p>And because we love the internet and all the things that it has brought us, <strong>we will start with having 100% of the profit from the sales be donated to the <a href="https://www.eff.org">Electronic Frontier Foundation</a></strong>. If you buy a shirt you will hit two birds with one stone (figuratively): you get to wear a kick-ass Home Assistant t-shirt and you help fund defending civil liberties in the digital world.</p>
-
 <p>The EFF is a nonprofit organization that aims to protect the rights of technology users. You might however be more familiar with one of their projects: <a href="https://letsencrypt.org">Let’s Encrypt</a>. <a href="https://www.eff.org/issues">Read more about what the EFF does.</a></p>
-
 <p>So, what are you waiting for? Get yourself a shirt! <a href="https://teespring.com/stores/home-assistant-eu-store">🇪🇺 EU store</a> – <a href="https://teespring.com/stores/home-assistant-us-store">🇺🇸 US store</a></p>
-
 <p class="img">
   <img src="/images/blog/2017-02-shirts/family.png" />
   Family of 4 on a bench wearing the new black Home Assistant shirt. <a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>
 </p>
-
 <p>We are using <a href="https://teespring.com">Teespring.com</a> to manage all the sales, production and distribution of the shirts and they will also donate our profits to the EFF. It’s also how we got all these amazing stockphotos. Some extra things to note about our teespring shop:</p>
-
 <ul>
   <li>Teespring shows that there is a number of days left until the end of the campaign for the shirts. Don’t worry about that, it should automatically relaunch.</li>
 </ul>
-
 <p>More photos after the click.</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-02-14T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 14, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -434,52 +293,32 @@ Screenshot of all the different functionality the IP webcam integration offers.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Community</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/02/14/clt-workshop/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>There will be a Home Assistant Workshop at the <a href="https://chemnitzer.linux-tage.de/2017/">Chemnitzer Linux-Tage 2017</a>. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component.</p>
-
 <p>Check the Workshop <a href="https://chemnitzer.linux-tage.de/2017/en/programm/beitrag/356">overview</a> to get the details.</p>
-
 <p><a href="https://chemnitzer.linux-tage.de/2017/en/programm/anmeldung/workshop/356">Reqistration</a> is required as the places in the room are limited. The deadline for the registration is March, 8th 2017.</p>
-
 <ul>
   <li>Location: Technische Universität Chemnitz, Reichenhainer Straße 90, 09126 Chemnitz, Germany</li>
   <li>Date: March, 12th 2017</li>
   <li>Time: 10:00, Room W2</li>
   <li>Language: German</li>
 </ul>
-
-
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-02-11T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 11, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Robbie Trencheny, Fabian Affolter</span>
@@ -487,26 +326,16 @@ Screenshot of all the different functionality the IP webcam integration offers.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>Another Saturday, another release!</p>
-
 <h3><a class="title-link" name="core-updates" href="#core-updates"></a> Core updates</h3>
 <ul>
   <li>
@@ -516,28 +345,20 @@ Screenshot of all the different functionality the IP webcam integration offers.
     <p>Now when you restart Home Assistant using the <code class="highlighter-rouge">homeassistant.restart</code> service, your configuration is checked. If it appears to be invalid the restart will fail.</p>
   </li>
 </ul>
-
 <h3><a class="title-link" name="rewritten-frontend" href="#rewritten-frontend"></a> Rewritten frontend</h3>
 <p>The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new <a href="https://home-assistant.io/developers/websocket_api/">WebSockets API</a> instead of the <a href="https://home-assistant.io/developers/server_sent_events/">EventStream API</a>.</p>
-
 <h3><a class="title-link" name="custom-state-card-ui" href="#custom-state-card-ui"></a> Custom state card UI</h3>
 <p>A nice new feature is the possibility to create <a href="https://home-assistant.io/developers/frontend_creating_custom_ui/">custom state cards</a> in the frontend. Go ahead and write your own state card for <a href="https://home-assistant.io/cookbook/custom_ui_by_andrey-git">lights</a>, sensors, locks, etc.</p>
-
 <h3><a class="title-link" name="mqtt-discovery" href="#mqtt-discovery"></a> MQTT discovery</h3>
 <p>MQTT now has <a href="https://home-assistant.io/components/mqtt/#discovery">discovery</a> support which is different than our <a href="https://home-assistant.io/components/discovery/"><code class="highlighter-rouge">discovery</code></a> component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.</p>
-
 <h3><a class="title-link" name="alert-component" href="#alert-component"></a> Alert component</h3>
 <p>If you left your front door open, then the new <a href="https://home-assistant.io/components/alert/"><code class="highlighter-rouge">alert</code></a> component can be used to remind you of this by sending you repeating notifications at a given interval.</p>
-
 <h3><a class="title-link" name="yeelight" href="#yeelight"></a> Yeelight</h3>
 <p>The <a href="https://home-assistant.io/components/light.yeelight/"><code class="highlighter-rouge">yeelight</code></a> component has been ported to use a more stable and feature-complete <a href="https://gitlab.com/stavros/python-yeelight">python-yeelight</a> backend, and supports now both white and RGB bulbs. The component also supports transitions and can be configured to save the settings to the bulb on changes. The users currently using custom components for Yeelight are encouraged to move back to use the included version and report any problems with it to our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>.</p>
-
 <h3><a class="title-link" name="apple-tv" href="#apple-tv"></a> Apple TV</h3>
 <p><a href="https://home-assistant.io/components/media_player.apple_tv/">Apple TV</a> is now a supported <a href="https://home-assistant.io/components/media_player/"><code class="highlighter-rouge">media_player</code></a>! It has support for just about every media player function, including a realtime display of playback status and artwork.</p>
-
 <h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
 <h4><a class="title-link" name="new-platformscomponents" href="#new-platformscomponents"></a> New platforms/components</h4>
-
 <ul>
   <li>Sensor: Support for monitoring <a href="https://home-assistant.io/components/sensor.openevse/">OpenEVSE</a> chargers (<a href="https://github.com/miniconfig">@miniconfig</a>)</li>
   <li>Voice command <a href="https://home-assistant.io/components/apiai/">API.AI</a> (<a href="https://github.com/adrianlzt">@adrianlzt</a>)</li>
@@ -553,9 +374,7 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li>Notify: <a href="https://home-assistant.io/components/notify.mailgun/">Mailgun</a> notify service (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
   <li>Image Processing: Support <a href="https://home-assistant.io/components/image_processing.microsoft_face_detect/">Microsoft Face detection</a> (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
 </ul>
-
 <h4><a class="title-link" name="improvements" href="#improvements"></a> Improvements</h4>
-
 <ul>
   <li>Switch - Pilight: Validation no longer rejects alphanumeric IDs (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
   <li>Device tracker - ASUSWrt: Fixes <code class="highlighter-rouge">ip neigh</code> regex to handle the possible IPv6 “router” flag (<a href="https://github.com/kylehendricks">@kylehendricks</a>)</li>
@@ -602,18 +421,13 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li>Zoneminder: Refactoring and JSON decode error handling (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
   <li>Image processing: Cleanup Base face class add support for microsoft face detect (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
 </ul>
-
 <p>Bugfixes: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@mnoorenberghe</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/tchellomello">@tchellomello</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/mathewpeterson">@mathewpeterson</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/JshWright">@JshWright</a>, <a href="https://github.com/andriej">@andriej</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/nodinosaur">@nodinosaur</a>, <a href="https://github.com/konikvranik">@konikvranik</a>, and you if you are missing here.</p>
-
 <h3><a class="title-link" name="release-0381---february-12" href="#release-0381---february-12"></a> Release 0.38.1 - February 12</h3>
-
 <ul>
   <li>Fix logbook ordering (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix AppleTV conflicting dependency breaking websockets (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="release-0382---february-12" href="#release-0382---february-12"></a> Release 0.38.2 - February 12</h3>
-
 <ul>
   <li>Validate config will now respect custom config location (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix Nuki lock on Python 3.4 (<a href="https://github.com/pschmitt">@pschmitt</a>)</li>
@@ -622,9 +436,7 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li>Fix MQTT discovery (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>Fix Z-Wave thermostat units (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="release-0383---february-15" href="#release-0383---february-15"></a> Release 0.38.3 - February 15</h3>
-
 <ul>
   <li>Sonos: fix losing favorite sources on disconnect (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Google Calendar: fix timeMin losing events (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
@@ -633,14 +445,11 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li>Moon: remove unit of measurement (<a href="https://github.com/fabaff">@fabaff</a>)</li>
   <li>MySensors: add version requirement to notify and device tracker (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="release-0384---february-21" href="#release-0384---february-21"></a> Release 0.38.4 - February 21</h3>
-
 <ul>
   <li>Discovery: flux_led discovery led to problems on systems and has been removed (<a href="https://github.com/bazwilliams">@bazwilliams</a>)</li>
   <li>Hidden devices are no longer visible on views (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 <ul>
   <li>The support for <a href="https://home-assistant.io/components/media_player.webostv/">LG webOS Smart TVs</a> was improved. This requires you to move <code class="highlighter-rouge">$HOME/.pylgtv</code> to <code class="highlighter-rouge">$HASS_CONFIG_DIR/webostv.conf</code> or Home Assistant will need to be paired with the TV again.</li>
@@ -648,28 +457,18 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li>The <a href="https://home-assistant.io/components/binary_sensor.ffmpeg/">FFmpeg binary sensor</a> change the platform name from <code class="highlighter-rouge">ffmpeg</code> to <code class="highlighter-rouge">ffmpeg_noise</code> and <code class="highlighter-rouge">ffmpeg_motion</code>. Also all FFmpeg-related services are moved from a platform implementation to a the <a href="https://home-assistant.io/components/ffmpeg/">FFmpeg components</a> and were rename from <code class="highlighter-rouge">binary_sensor.ffmpeg_xy</code> to <code class="highlighter-rouge">ffmpeg.xy</code>.</li>
   <li>The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use <code class="highlighter-rouge">this.hass.entities</code>, <code class="highlighter-rouge">this.hass.callService</code> and <code class="highlighter-rouge">this.hass.callApi</code>.</li>
 </ul>
-
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-
 <h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-
-
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/02/04/hassbian-toybox/">HASSbian 1.1 - The Toy-box</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-02-04T09:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 4, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
@@ -677,29 +476,18 @@ Screenshot of all the different functionality the IP webcam integration offers.
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Technology</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/02/04/hassbian-toybox/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>Tonight I’m happy to announce a new release of the our Raspberry Pi image, <strong>HASSbian 1.1 - The Toy-box.</strong><br />
 Why Toy-box you wonder? Because it encompass the changes pretty well.</p>
-
 <p>Changes from previous image are big and small but lets start with the interesting things.</p>
-
 <h3><a class="title-link" name="hassbian-scripts" href="#hassbian-scripts"></a> Hassbian-scripts</h3>
 <p>A set of script written to add extra functionality to your Raspberry Pi installation. 
 This scripts are run as the <code class="highlighter-rouge">pi</code> user and installs a set of tools or packages.
@@ -710,7 +498,6 @@ Currently includes:</p>
   <li>Install OpenZWave. Installs OpenZWave and prepares for using a USB or GPIO ZWave controller.</li>
   <li>Install Samba. Installs the Samba packages and shares your configuration over smb to be available to edit on any computer without the need for separate file transfer software. This share is unsecured and it’s usage is not recommended if your installation is publicly available.</li>
 </ul>
-
 <p>All of these scripts are available in the directory <code class="highlighter-rouge">/home/pi/hassbian-scripts/</code>. This directory is actually a cloned git repository that’s cloned on first boot and can be updated to the latest release with ease after.
 To update the hassbian-scripts directory execute the following command as the <code class="highlighter-rouge">pi</code> user.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>hassbian-scripts
@@ -721,9 +508,7 @@ To update the hassbian-scripts directory execute the following command as the <c
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo ./hassbian-scripts/install_libcec.sh
 </code></pre>
 </div>
-
 <p>For more information about these scripts have a look a the <a href="https://github.com/home-assistant/hassbian-scripts">hassbian-scripts repository</a>.</p>
-
 <h3><a class="title-link" name="spring-cleaning" href="#spring-cleaning"></a> Spring cleaning</h3>
 <p>With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.</p>
 <ul>
@@ -735,30 +520,19 @@ To update the hassbian-scripts directory execute the following command as the <c
   <li>Added tmux. A great terminal multiplexer that makes working with the command line over ssh easier.</li>
   <li>Added the <code class="highlighter-rouge">homeassistant</code> user to the <code class="highlighter-rouge">dialout</code> group. Simplifies use of hardware such as ZWave USB controllers that requires this permission.</li>
 </ul>
-
 <h3><a class="title-link" name="on-the-horizon" href="#on-the-horizon"></a> On the horizon</h3>
 <p>There’s of course more on the horizon and there’s even more plans and wishes for how this image will function in the future.
 On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> there a few more script in the works and for tellstick, emulated_hue and for controlling Home Assistant.</p>
-
 <p>To follow discussions about the development of the HASSbian image or to contribute join the <a href="https://gitter.im/home-assistant/hassbian">HASSbian gitter chat</a>.</p>
-
 <p>To get started with the new image, check out the installation instructions in the <a href="/getting-started/installation-raspberry-pi-image/">getting started section</a>.</p>
-
-
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/02/03/babyphone/">Smart Baby Monitor</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-02-03T23:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 4, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Pascal Vizeli</span>
@@ -766,45 +540,26 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/02/03/babyphone/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available on the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (eg. Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.</p>
-
 <p>Obviously, you can use the setup as a general purpose surveillance system to monitor noise in the whole house.</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2017/02/03/babyphone/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/01/28/face-coffee-wink/">0.37: Face detection, Coffee, Wink</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-01-28T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 28, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter et al.</span>
@@ -812,56 +567,34 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/01/28/face-coffee-wink/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>No stats, no numbers, and alike this time. Ok, just one number: 0.37. We are back on track with our bi-weekly release cycle. Beside some organizational changes is this release shipping again cool features and new integrations. Please keep an eye on the “Breaking changes” section because there are also massive improvements for some platforms and components.</p>
-
 <h3><a class="title-link" name="governance" href="#governance"></a> Governance</h3>
 <p>As announced, the new <a href="https://home-assistant.io/blog/2017/01/21/home-assistant-governance/">Governance</a> requires for developers to sign the CLA. <a href="https://home-assistant.io/developers/code_of_conduct/">Code of Conduct</a>, <a href="https://home-assistant.io/developers/cla/">Contributor License Agreement</a>, and proper <a href="https://home-assistant.io/developers/license/">Licensing</a> will to protect all involved parties in the Home Assistant eco-system from users and community members to contributors.</p>
-
 <h3><a class="title-link" name="face-recognition-using-the-microsoft-face-api" href="#face-recognition-using-the-microsoft-face-api"></a> Face recognition using the Microsoft Face API</h3>
 <p><a href="https://github.com/pvizeli">@pvizeli</a> has been on a roll with the image processing integrations. This time it’s the <a href="https://home-assistant.io/components/microsoft_face/">Microsoft Face API</a>. This means that now it will be possible to train the API with the people you want to recognize and send images from your camera to the API as another source of automation.</p>
-
 <p>Want to play a personalized tune when someone enters the house? It is now possible 😎</p>
-
 <h3><a class="title-link" name="improved-camera-security" href="#improved-camera-security"></a> Improved camera security</h3>
-
 <p>After a security audit by Stephen O’Conner, he found that our source for randomly generated access tokens for camera feeds were reasonable predictable and could be brute force attacked in 2.5 weeks. A fix has been included in this release that uses the system provided random number generator for maximum randomness and rotates the keys every 10 minutes to reduce the window in which a brute force attack can happen.</p>
-
 <p>Although the old method is not insecure, the new method is a lot more secure. Upgrading to the latest version is encouraged.</p>
-
 <h3><a class="title-link" name="new-customization-options" href="#new-customization-options"></a> New customization options</h3>
 <p><a href="https://github.com/andrey-git">@Andrey-git</a> has added some great new options to the customize functionality. It is now possible to specify customizations as a wildcard for entities or for a specific domain.</p>
-
 <h3><a class="title-link" name="major-wink-and-hdmi-cec-improvements" href="#major-wink-and-hdmi-cec-improvements"></a> Major Wink and HDMI CEC improvements</h3>
 <p><a href="https://github.com/w1ll1am23">@w1ll1am23</a> did an amazing job fixing a ton of bugs and issues with the Wink integration. Biggest improvement is that it now is able to automatically refresh the authentication tokens. This means that if you have your email address and password in your <code class="highlighter-rouge">configuration.yaml</code> file, no <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">client_secret</code> are needed, and token which was generated with the generator located in the <a href="https://home-assistant.io/components/wink/">Wink</a> documentation.</p>
-
 <p>The new Wink support will cause renaming of all the binary sensors and will also create new sensors for devices that weren’t previously detected or supported in the older version.</p>
-
 <p>Thanks to <a href="https://github.com/konikvranik">@konikvranik</a> the <a href="https://home-assistant.io/components/hdmi_cec/">HDMI CEC</a> integration got a huge update with a lot of improvements. This update should make it easier to work with HDMI CEC and give you more control.</p>
-
 <h3><a class="title-link" name="first-coffee-maker-supported" href="#first-coffee-maker-supported"></a> First Coffee Maker supported</h3>
 <p><a href="https://github.com/stu-gott">@stu-gott</a> has added support for the first coffee maker in Home Assistant: <a href="https://home-assistant.io/components/switch.wemo/">Mr. Coffee Smart Optimal Brew</a>. Happy brewing!</p>
-
 <h3><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h3>
 <h4><a class="title-link" name="new-platformscomponents" href="#new-platformscomponents"></a> New platforms/components</h4>
-
 <ul>
   <li>Netatmo: <a href="https://home-assistant.io/components/netatmo/">Netatmo</a> Presence support (<a href="https://github.com/gieljnssns">@gieljnssns</a>)</li>
   <li>Sensor: <a href="https://home-assistant.io/components/binary_sensor.amcrest/">Amcrest</a> camera sensors (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
@@ -882,9 +615,7 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
   <li>Device tracker: Support for <a href="https://home-assistant.io/components/device_tracker.linksys_ap/">Linksys</a> Access Points (<a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>)</li>
   <li>Notify: Make calls with <a href="https://home-assistant.io/components/notify.twilio_call/">Twilio</a> (<a href="https://github.com/fakezeta">@fakezeta</a>)</li>
 </ul>
-
 <h4><a class="title-link" name="improvements" href="#improvements"></a> Improvements</h4>
-
 <ul>
   <li>Script: Fix script release (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Camera - Amcrest: Add support for direct MJPEG streams from Amcrest cameras (<a href="https://github.com/colinodell">@colinodell</a>)</li>
@@ -948,11 +679,8 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
   <li>Emulated Hue: Emulated Hue “host-ip” fails to bind when running in docker without <code class="highlighter-rouge">--net=host</code> (<a href="https://github.com/jeremydk">@jeremydk</a>)</li>
   <li>Climate - EQ3 BT smart: Add reporting for availability (<a href="https://github.com/rytilahti">@rytilahti</a>)</li>
 </ul>
-
 <p>Bugfix: <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/freol35241">@freol35241</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>, <a href="https://github.com/tdickman">@tdickman</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/rytilahti">@rytilahti</a>, <a href="https://github.com/R1chardTM">@R1chardTM</a>, <a href="https://github.com/asbach">@asbach</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/robbiet480">@robbiet480</a>, <a href="https://github.com/colinodell">@colinodell</a>, <a href="https://github.com/joopert">@joopert</a>, <a href="https://github.com/dale3h">@dale3h</a>, <a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/jaharkes">@jaharkes</a>, <a href="https://github.com/MartinHjelmare">@MartinHjelmare</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/jabesq">@jabesq</a>, and you if you are missing in this list.</p>
-
 <h3><a class="title-link" name="release-0371---february-2" href="#release-0371---february-2"></a> Release 0.37.1 - February 2</h3>
-
 <ul>
   <li>Do not reject alphanumeric IDs for PiLight (<a href="https://github.com/DavidLP">@DavidLP</a>)</li>
   <li>Fix broken Hue discovery (<a href="https://github.com/Danielhiversen">@DanielHiversen</a>)</li>
@@ -967,7 +695,6 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
   <li>Prevent infinite loop in crossconfigured mqtt event streams (<a href="https://github.com/aequitas">@aequitas</a>)</li>
   <li>Fix Hue lightgroups failing on startup (<a href="https://github.com/tboyce1">@tboyce1</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
 <ul>
   <li>A <strong>major</strong> breaking change in the <a href="https://home-assistant.io/components/emulated_hue/"><code class="highlighter-rouge">emulated_hue</code></a> component means that unless you set <code class="highlighter-rouge">type: alexa</code> before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups.</li>
@@ -979,28 +706,18 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
   <li>The <a href="https://home-assistant.io/components/media_player.sonos/">Sonos</a> service <code class="highlighter-rouge">sonos_group_players</code> was removed. Use now <code class="highlighter-rouge">sonos_join</code> for this function.</li>
   <li>TTS cache have change for the last time. Files use now also a option hash as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. <code class="highlighter-rouge">HASH_LANG_PLATFORM.xxx</code> -&gt; <code class="highlighter-rouge">HASH_LANG_OPTIONS_PLATFORM.xxx</code>, replace <em>OPTIONS</em> with <code class="highlighter-rouge">-</code> on exiting platforms.</li>
 </ul>
-
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-
 <h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-
-
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/01/21/home-assistant-governance/">Home Assistant Governance [updated]</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-01-21T23:05:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 21, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
@@ -1008,53 +725,30 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Organisation</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/01/21/home-assistant-governance/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <h3><a class="title-link" name="update-jan-28-2017" href="#update-jan-28-2017"></a> UPDATE JAN 28, 2017</h3>
-
 <p>After feedback from the community we have updated <a href="/developers/cla/">the CLA</a> and the license that Home Assistant is distributed under. For the CLA, instead of enforcing requirements on the grants and code, we now require contributions to be licensed under the Apache 2.0 license. Special thanks to <a href="https://twitter.com/mjg59">Matthew Garrett</a> for his feedback and advice.</p>
-
 <p>Starting with release 0.37, Home Assistant will re-license the current code under <a href="/developers/license/">the Apache 2.0 license</a>. This is the license that will be used moving forward for all projects under our organization.</p>
-
 <hr />
-
 <p>The Home Assistant project and community has seen enormous growth in the last three years. Many volunteers work tirelessly everyday to give you all the awesomeness that you see today. Much more work is involved than many people realize. Beyond simply coding Home Assistant, volunteers continually maintain related projects, update documentation, post examples, author blog posts, and moderate the forums and chat. This is something that we want to keep safe and functional, even as we grow.</p>
-
 <p>Starting today we are announcing a few initiatives to help protect our users, contributors and community members.</p>
-
-
-    
       <a class="btn pull-right" href="/blog/2017/01/21/home-assistant-governance/#read-more">Read on &rarr;</a>
-    
   </div>
   </article>
   <hr>
-  
   <article class="listing">
     <header>
-  
   <h1 class="beta">
     <a href="/blog/2017/01/18/numbers/">Numbers</a>
   </h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-01-18T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 18, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -1062,26 +756,16 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Community</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="/blog/2017/01/18/numbers/#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <div class="entry-content clearfix">
     <p>It’s week 3 of 2017 and great things did already happen. This is just a little recap.</p>
-
 <ul>
   <li>In the <a href="https://ossmetrics.com/leaderboard">OSS Metrics leaderboard</a> we are on place 30. Within three months we moved from our starting place which was 66 in September 2016 up to the current one.</li>
   <li>We were listed on <a href="https://github.com/trending/python">Github Trending</a>. Also, was <a href="https://github.com/balloob">@balloob</a> mentioned as trending developer.</li>
@@ -1089,35 +773,18 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
   <li>We now ship over <a href="/components/#all">500</a> components and platforms.</li>
   <li>We processed over 3500 Pull requests on the <a href="https://github.com/home-assistant/home-assistant">main repository</a> so far.</li>
 </ul>
-
 <p>You may ask yourself why this is amazing. It’s amazing because we are a community-only project driven by volunteers there is no financial support, no company in the background, and no paid developers who are working on Home Assistant. Here is another “Thank you” because you are the driving force behind Home Assistant.</p>
-
 <p>What more numbers? Checkout the <a href="/help/trivia/#numbers">Trivia page</a>…</p>
-
 <p>– Fabian</p>
-
-    
   </div>
   </article>
   <hr>
-  
-
   <div class="pagination">
-    
       <a class="btn pull-left" href="/blog/posts/2">&larr; Older</a>
-    
-
-    
   </div>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -1133,65 +800,36 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Categories</h1>
   <ul class="divided">
-    
-    
       <li><a href="/blog/categories/community/">Community</a></li>
-    
       <li><a href="/blog/categories/device-tracking/">Device Tracking</a></li>
-    
       <li><a href="/blog/categories/esp8266/">ESP8266</a></li>
-    
       <li><a href="/blog/categories/how-to/">How To</a></li>
-    
       <li><a href="/blog/categories/internet-of-things/">Internet of Things</a></li>
-    
       <li><a href="/blog/categories/iot-data/">IoT Data</a></li>
-    
       <li><a href="/blog/categories/mqtt/">MQTT</a></li>
-    
       <li><a href="/blog/categories/merchandise/">Merchandise</a></li>
-    
       <li><a href="/blog/categories/micropython/">Micropython</a></li>
-    
       <li><a href="/blog/categories/organisation/">Organisation</a></li>
-    
       <li><a href="/blog/categories/owntracks/">OwnTracks</a></li>
-    
       <li><a href="/blog/categories/presence-detection/">Presence Detection</a></li>
-    
       <li><a href="/blog/categories/public-service-announcement/">Public Service Announcement</a></li>
-    
       <li><a href="/blog/categories/release-notes/">Release Notes</a></li>
-    
       <li><a href="/blog/categories/survey/">Survey</a></li>
-    
       <li><a href="/blog/categories/talks/">Talks</a></li>
-    
       <li><a href="/blog/categories/technology/">Technology</a></li>
-    
       <li><a href="/blog/categories/user-stories/">User Stories</a></li>
-    
       <li><a href="/blog/categories/video/">Video</a></li>
-    
       <li><a href="/blog/categories/website/">Website</a></li>
-    
       <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -1201,7 +839,6 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -1213,7 +850,6 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -1222,10 +858,7 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     var disqus_script = 'count.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>AWS Lambda - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to invoke AWS Lambda functions from Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/notify.aws_lambda/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="AWS Lambda">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to invoke AWS Lambda functions from Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="AWS Lambda">
     <meta name="twitter:description" content="Instructions how to invoke AWS Lambda functions from Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,38 +53,22 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       AWS Lambda
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">aws_lambda</code> notification platform enables invoking <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> functions.</p>
-
 <p>To use this notification platform in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <h3>Configuration</h3>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
@@ -105,9 +78,7 @@
     <span class="s">region_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">us-east-1'</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>aws_access_key_id</strong> (<em>Required if aws_secret_access_key is provided</em>): Your AWS Access Key ID. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_secret_access_key</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
   <li><strong>aws_secret_access_key</strong> (<em>Required if aws_access_key_id is provided</em>): Your AWS Secret Access Key. For more information, please read the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">AWS General Reference regarding Security Credentials</a>. If provided, you must also provide an <code class="highlighter-rouge">aws_access_key_id</code> and must <strong>not</strong> provide a <code class="highlighter-rouge">profile_name</code>.</li>
@@ -116,13 +87,9 @@
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>context</strong> (<em>Optional</em>): An optional dictionary you can provide to pass custom context through to the Lambda function. The <code class="highlighter-rouge">context</code> dictionary (if any) is combined with the same data available at the <code class="highlighter-rouge">/api/config</code> HTTP API route.</li>
 </ul>
-
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
-
 <p>AWS Lambda is a notify platform and thus can be controlled by calling the notify service <a href="/components/notify/">as described here</a>. It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN (<a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name</a>) or a partial ARN. For more information, please see the <a href="http://boto3.readthedocs.io/en/latest/reference/services/lambda.html#Lambda.Client.invoke">boto3 docs</a>.</p>
-
 <p>The Lambda event payload will contain everything passed in the service call payload. Here is an example payload that would be sent to Lambda:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test message!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:lambda:us-east-1:123456789012:function:ProcessKinesisRecords"</span><span class="p">,</span><span class="w">
@@ -133,9 +100,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>The context will look like this:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"hass"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"components"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"recorder"</span><span class="p">,</span><span class="w"> </span><span class="s2">"logger"</span><span class="p">,</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span><span class="w"> </span><span class="s2">"logbook"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api"</span><span class="p">,</span><span class="w"> </span><span class="s2">"frontend"</span><span class="p">],</span><span class="w">
@@ -153,18 +118,10 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/notify.aws_lambda.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -315,13 +272,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -331,7 +285,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -343,7 +296,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

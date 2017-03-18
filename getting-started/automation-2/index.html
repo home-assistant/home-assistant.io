@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Your second Automation - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Step by step guiding through making your second automation.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/getting-started/automation-2/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Your second Automation">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Step by step guiding through making your second automation.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Your second Automation">
     <meta name="twitter:description" content="Step by step guiding through making your second automation.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,36 +53,21 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Your Second Automation
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>After the scratch on the Automation surface, let’s dive deeper and create the automation rule: <strong>Turn on the lights when the sun sets</strong></p>
-
 <p>We are defining a <a href="/docs/automation/trigger/">trigger</a> to track the sunset and tell it to fire when the sun is setting. When this event is triggered, the service <code class="highlighter-rouge">light.turn_on</code> is called without any parameters. Because we specify no parameters, it will turn on all the lights.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
@@ -106,11 +80,8 @@
     <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
 </code></pre>
 </div>
-
 <p>Starting with 0.28 automation rules can be reloaded from the <a href="/components/automation/">frontend</a> and are shown by default. With <a href="/components/automation/"><code class="highlighter-rouge">hide_entity:</code></a> you can control this behaviour. It’s very handy if you are working on your rules but when a rule is finished and you don’t want to see that rule in your frontend, you can set <code class="highlighter-rouge">hide_entity:</code> to <code class="highlighter-rouge">True</code>. To set an automation to be disabled when Home Assistant starts set <code class="highlighter-rouge">initial_state:</code> to <code class="highlighter-rouge">False</code>.</p>
-
 <p>After a few days of running this automation rule, you come to realize that this automation rule is not good enough. It was already dark when the lights went on and the one day you weren’t home, the lights turned on anyway. Time for some tweaking. Let’s add an offset to the sunset trigger and a <a href="/docs/automation/condition/">condition</a> to only turn on the lights if anyone is home.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when sun sets</span>
@@ -126,15 +97,10 @@
     <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
 </code></pre>
 </div>
-
 <p>Now you’re happy and all is good. You start to like this automation business and buy some more lights, this time you put them in the bedroom. But what you now realize is that when the sun is setting, the lights in the bedroom are also being turned on! Time to tweak the automation to only turn on the living room lights.</p>
-
 <p>The first thing you do is to look at the entities in the developer tools (second icon) in the app. You see the names of your lights and you write them down: <code class="highlighter-rouge">light.table_lamp</code>, <code class="highlighter-rouge">light.bedroom</code>, <code class="highlighter-rouge">light.ceiling</code>.</p>
-
 <p>Instead of hard coding the entity IDs of the lights in the automation rule, we will set up a group. This will allow us to see the living room separate in the app and be able to address it from automation rules.</p>
-
 <p>So we tweak the config to add the group and have the automation rule only turn on the group.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">group</span><span class="pi">:</span>
   <span class="s">living_room</span><span class="pi">:</span>
@@ -156,11 +122,8 @@
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
 </code></pre>
 </div>
-
 <p>Christmas is coming along and you decide to buy a remote switch to control the Christmas lights from Home Assistant. You can’t claim to live in the house of the future if you’re still manually turning on your Christmas lights!</p>
-
 <p>We hook the switch up to Home Assistant and grab the entity ID from the developer tools: <code class="highlighter-rouge">switch.christmas_lights</code>. We will update the group to include the switch and will change our <a href="/docs/automation/action/">action</a>. We are no longer able to call <code class="highlighter-rouge">light.turn_on</code> because we also want to turn on a switch. This is where <code class="highlighter-rouge">homeassistant.turn_on</code> comes to the rescue. This service is capable of turning any entity on.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">group</span><span class="pi">:</span>
   <span class="s">living_room</span><span class="pi">:</span>
@@ -184,21 +147,11 @@
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.living_room</span>
 </code></pre>
 </div>
-
 <h3><a href="/getting-started/presence-detection/">Next step: Presence detection »</a></h3>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/automation-2.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -213,13 +166,10 @@
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -229,7 +179,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -241,7 +190,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

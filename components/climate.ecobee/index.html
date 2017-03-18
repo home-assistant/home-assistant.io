@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Ecobee Thermostat - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup the Ecobee thermostats within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/climate.ecobee/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Ecobee Thermostat">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup the Ecobee thermostats within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Ecobee Thermostat">
     <meta name="twitter:description" content="Instructions how to setup the Ecobee thermostats within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,40 +53,24 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Ecobee Thermostat
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p class="note">
 To get your Ecobee thermostats working with Home Assistant, follow the instructions for the general <a href="/components/ecobee/">Ecobee component</a>.
 </p>
-
 <h2><a class="title-link" name="concepts" href="#concepts"></a> Concepts</h2>
-
 <p>The Ecobee Thermostat supports the following key concepts.</p>
-
 <p>The <em>target temperature</em> is the temperature that the device attempts
 to achieve. The target temperature is either determined by the
 currently active climate or it may be overridden by a hold. When the
@@ -108,11 +81,9 @@ the lowest desired temperature, while the higher target temperature
 determines the highest desired temperature (the thermostat will switch
 between heating and cooling to keep the temperature within these
 limits).</p>
-
 <p>A <em>climate</em> is a predefined or user-defined set of states that the
 thermostat aims to achieve. The ecobee thermostat provides three predefined
 climates: Home, Away, and Sleep. The user can define additional climates.</p>
-
 <p>A <em>hold</em> is an override of the target temperature defined in the
 currently active climate. The temperature targeted in the hold mode may be
 explicitly set (temperature hold), it may be derived from a reference
@@ -121,17 +92,13 @@ defined by the thermostat. All holds are temporary. Temperature and
 climate holds expire when the thermostat transitions to the next climate
 defined in its program. A vacation hold starts at the beginning of the
 defined vacation period, and expires when the vacation period ends.</p>
-
 <p>When in <em>away mode</em>, the target temperature is permanently overridden by
 the target temperature defined for the away climate. The away mode is a
 simple way to emulate a vacation mode.</p>
-
 <p>The <em>operation mode</em> of the device is the currently active operational
 modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool,
 auto, and off.</p>
-
 <h2><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h2>
-
 <p>The following attributes are provided by the Ecobee Thermostat:
 <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">temperature_unit</code>, <code class="highlighter-rouge">current_temperature</code>, <code class="highlighter-rouge">target_temperature</code>, 
 <code class="highlighter-rouge">target_temperature_low</code>, <code class="highlighter-rouge">target_temperature_high</code>, <code class="highlighter-rouge">desired_fan_mode</code>, 
@@ -139,11 +106,8 @@ auto, and off.</p>
 <code class="highlighter-rouge">operation_mode</code>, <code class="highlighter-rouge">mode</code>, <code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">device_state_attributes</code>, 
 <code class="highlighter-rouge">is_away_mode_on</code>, <code class="highlighter-rouge">vacation</code>, <code class="highlighter-rouge">climate_list</code>.
 The attributes <code class="highlighter-rouge">min_temp</code> and <code class="highlighter-rouge">max_temp</code> are meaningless constant values.</p>
-
 <h3><a class="title-link" name="attribute-name" href="#attribute-name"></a> Attribute <code class="highlighter-rouge">name</code></h3>
-
 <p>Returns the name of the Ecobee Thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -158,11 +122,8 @@ The attributes <code class="highlighter-rouge">min_temp</code> and <code class="
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-temperature_unit" href="#attribute-temperature_unit"></a> Attribute <code class="highlighter-rouge">temperature_unit</code></h3>
-
 <p>Returns the unit of measurement used for temperature by the thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -177,11 +138,8 @@ The attributes <code class="highlighter-rouge">min_temp</code> and <code class="
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-current_temperature" href="#attribute-current_temperature"></a> Attribute <code class="highlighter-rouge">current_temperature</code></h3>
-
 <p>Returns the current temperature measured by the thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -196,12 +154,9 @@ The attributes <code class="highlighter-rouge">min_temp</code> and <code class="
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-target_temperature" href="#attribute-target_temperature"></a> Attribute <code class="highlighter-rouge">target_temperature</code></h3>
-
 <p>Returns the target temperature of the thermostat, when the thermostat is
 not in auto operation mode.</p>
-
 <table>
   <thead>
     <tr>
@@ -216,12 +171,9 @@ not in auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-target_temperature_low" href="#attribute-target_temperature_low"></a> Attribute <code class="highlighter-rouge">target_temperature_low</code></h3>
-
 <p>Returns the desired heating temperature set in the thermostat when in
 auto operation mode.</p>
-
 <table>
   <thead>
     <tr>
@@ -236,12 +188,9 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-target_temperature_high" href="#attribute-target_temperature_high"></a> Attribute <code class="highlighter-rouge">target_temperature_high</code></h3>
-
 <p>Returns the desired cooling temperature set in the thermostat when in
 auto operation mode.</p>
-
 <table>
   <thead>
     <tr>
@@ -256,11 +205,8 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-desired_fan_mode" href="#attribute-desired_fan_mode"></a> Attribute <code class="highlighter-rouge">desired_fan_mode</code></h3>
-
 <p>Returns the desired fan mode of the current operation.</p>
-
 <table>
   <thead>
     <tr>
@@ -275,11 +221,8 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-fan" href="#attribute-fan"></a> Attribute <code class="highlighter-rouge">fan</code></h3>
-
 <p>Returns the current fan state.</p>
-
 <table>
   <thead>
     <tr>
@@ -294,11 +237,8 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-current_hold_mode" href="#attribute-current_hold_mode"></a> Attribute <code class="highlighter-rouge">current_hold_mode</code></h3>
-
 <p>Returns the current temperature hold, if any.</p>
-
 <table>
   <thead>
     <tr>
@@ -313,11 +253,8 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-current_operation" href="#attribute-current_operation"></a> Attribute <code class="highlighter-rouge">current_operation</code></h3>
-
 <p>Returns the current operation of the thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -332,11 +269,8 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-operation_list" href="#attribute-operation_list"></a> Attribute <code class="highlighter-rouge">operation_list</code></h3>
-
 <p>Returns the list of available operation modes.</p>
-
 <table>
   <thead>
     <tr>
@@ -351,11 +285,8 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-operation_mode" href="#attribute-operation_mode"></a> Attribute <code class="highlighter-rouge">operation_mode</code></h3>
-
 <p>Returns the current operation mode of the thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -370,16 +301,11 @@ auto operation mode.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-mode" href="#attribute-mode"></a> Attribute <code class="highlighter-rouge">mode</code></h3>
-
 <p>Returns the climate currently active on the thermostat. The mode
 is returned as the user-visible name (rather than the internally used name).</p>
-
 <h3><a class="title-link" name="attribute-fan_min_on_time" href="#attribute-fan_min_on_time"></a> Attribute <code class="highlighter-rouge">fan_min_on_time</code></h3>
-
 <p>Returns the current fan mimimum on time.</p>
-
 <table>
   <thead>
     <tr>
@@ -394,16 +320,11 @@ is returned as the user-visible name (rather than the internally used name).</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-is_away_mode_on" href="#attribute-is_away_mode_on"></a> Attribute <code class="highlighter-rouge">is_away_mode_on</code></h3>
-
 <p>Returns whether the thermostat is in away mode (see the corresponding
 service for more detail).</p>
-
 <h3><a class="title-link" name="attribute-actual-humidity" href="#attribute-actual-humidity"></a> Attribute <code class="highlighter-rouge">actual humidity</code></h3>
-
 <p>Returns the humidity as measured by the thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -418,11 +339,8 @@ service for more detail).</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-vacation" href="#attribute-vacation"></a> Attribute <code class="highlighter-rouge">vacation</code></h3>
-
 <p>Returns the currently active vacation or <code class="highlighter-rouge">None</code>.</p>
-
 <table>
   <thead>
     <tr>
@@ -437,24 +355,17 @@ service for more detail).</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="attribute-climate_list" href="#attribute-climate_list"></a> Attribute <code class="highlighter-rouge">climate_list</code></h3>
-
 <p>Returns the list of climates defined in the thermostat.</p>
-
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
-
 <p>The following services are provided by the Ecobee Thermostat:
 <code class="highlighter-rouge">set_away_mode</code>, <code class="highlighter-rouge">set_hold_mode</code>, <code class="highlighter-rouge">set_temperature</code>, <code class="highlighter-rouge">set_operation_mode</code>, 
 <code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">resume_program</code>.
 The services <code class="highlighter-rouge">set_aux_heat</code>, <code class="highlighter-rouge">set_humidity</code>, <code class="highlighter-rouge">set_fan_mode</code>, and
 <code class="highlighter-rouge">set_swing_mode</code> offered by the <a href="/components/climate/">Climate component</a>
 are not implemented for this thermostat.</p>
-
 <h3><a class="title-link" name="service-set_away_mode" href="#service-set_away_mode"></a> Service <code class="highlighter-rouge">set_away_mode</code></h3>
-
 <p>Turns the away mode on or off for the thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -476,9 +387,7 @@ are not implemented for this thermostat.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="service-set_hold_mode" href="#service-set_hold_mode"></a> Service <code class="highlighter-rouge">set_hold_mode</code></h3>
-
 <p>Puts the thermostat into the given hold mode. For ‘home’, ‘away’, ‘sleep’,
 and ony other hold based on a reference climate, the
 target temperature is taken from the reference climate.
@@ -487,7 +396,6 @@ When None is provided as parameter, the hold_mode is turned off.
 It is not possible to set a vacation hold; such hold has to be 
 defined on the thermostat directly. However, a vacation hold can be
 cancelled.</p>
-
 <table>
   <thead>
     <tr>
@@ -509,11 +417,8 @@ cancelled.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="service-set_temperature" href="#service-set_temperature"></a> Service <code class="highlighter-rouge">set_temperature</code></h3>
-
 <p>Puts the thermostat into a temporary hold at the given temperature.</p>
-
 <table>
   <thead>
     <tr>
@@ -545,14 +450,10 @@ cancelled.</p>
     </tr>
   </tbody>
 </table>
-
 <p>Only the target temperatures relevant for the current operation mode need to
 be provided.</p>
-
 <h3><a class="title-link" name="service-set_operation_mode" href="#service-set_operation_mode"></a> Service <code class="highlighter-rouge">set_operation_mode</code></h3>
-
 <p>Sets the current operation mode of the thermostat.</p>
-
 <table>
   <thead>
     <tr>
@@ -574,11 +475,8 @@ be provided.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="service-fan_min_on_time" href="#service-fan_min_on_time"></a> Service <code class="highlighter-rouge">fan_min_on_time</code></h3>
-
 <p>Sets the fan minimum on time.</p>
-
 <table>
   <thead>
     <tr>
@@ -600,11 +498,8 @@ be provided.</p>
     </tr>
   </tbody>
 </table>
-
 <h3><a class="title-link" name="service-resume_program" href="#service-resume_program"></a> Service <code class="highlighter-rouge">resume_program</code></h3>
-
 <p>Resumes the currently active schedule.</p>
-
 <table>
   <thead>
     <tr>
@@ -626,18 +521,10 @@ be provided.</p>
     </tr>
   </tbody>
 </table>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/climate.ecobee.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -718,13 +605,10 @@ be provided.</p>
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -734,7 +618,6 @@ be provided.</p>
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -746,7 +629,6 @@ be provided.</p>
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

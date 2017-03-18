@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>ISY994 Controller - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup the ISY994 controller within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/isy994/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="ISY994 Controller">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup the ISY994 controller within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="ISY994 Controller">
     <meta name="twitter:description" content="Instructions how to setup the ISY994 controller within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,41 +53,24 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       ISY994 Controller
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
 The ISY994 controller is manufactured by <a href="https://www.universal-devices.com/residential/isy994i-series/">Universal Devices</a>.</p>
-
 <h3><a class="title-link" name="basic-configuration" href="#basic-configuration"></a> Basic Configuration</h3>
-
 <p>Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, cover, fan, lock, and switches can also be created.</p>
-
 <p>To integrate your ISY994 controller with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">isy994</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">ISY_ADDRESS</span>
@@ -107,7 +79,6 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
 </code></pre>
 </div>
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The host entry should be in full URL format, eg. http://192.168.10.100:80</li>
   <li><strong>username</strong> (<em>Required</em>): The username that used to access the ISY interface.</li>
@@ -116,13 +87,9 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
   <li><strong>hidden_string</strong> (<em>Optional</em>): The HIDDEN_STRING is a string that is used to identify which devices are to be hidden on Home Assistant’s front page. This string will be stripped from the device’s name before being used. By default, this value is ‘{HIDE ME}’.</li>
   <li><strong>tls</strong> (<em>Optional</em>): This entry should reflect the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users. ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.</li>
 </ul>
-
 <p>Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.</p>
-
 <h3><a class="title-link" name="creating-custom-devices" href="#creating-custom-devices"></a> Creating Custom Devices</h3>
-
 <p>Using the Programs tab in the controller’s Administrative Console, custom devices can be created that will appear natively inside of Home Assistant. Home Assistant will scan the following folders and build the device to the associated domains:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>My Programs
 ├── HA.binary_sensor
 |   ├── Movement In House
@@ -159,7 +126,6 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
 |   |   └── status
 </code></pre>
 </div>
-
 <p>A device is created by creating a directory, with the name for the device, under any of the following root directories:</p>
 <ul>
   <li><em>HA.binary_sensor</em> will create a binary sensor (see <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing Devices</a> to set the sensor class)</li>
@@ -168,13 +134,10 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
   <li><em>HA.lock</em> will create a lock</li>
   <li><em>HA.switch</em> will create a switch</li>
 </ul>
-
 <p>A program, named <em>status</em>, is required under the program device directory. A program, named <em>actions</em>, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored.</p>
-
 <p class="img">
   <img src="/images/isy994/isy994_CoverExample.png" />
 </p>
-
 <p>The <em>status</em> program in this directory is what indicates the state of the device:</p>
 <ul>
   <li><em>binary_sensor</em> on if the clause returns true, otherwise off</li>
@@ -183,11 +146,9 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
   <li><em>lock</em> locked if the clause returns true, otherwise unlocked</li>
   <li><em>switch</em> on if the clause returns true, otherwise off</li>
 </ul>
-
 <p class="img">
   <img src="/images/isy994/isy994_SwitchStatusExample.png" />
 </p>
-
 <p>The <em>actions</em> program indicates what should be performed for the following device services:</p>
 <ul>
   <li><em>cover</em> the THEN clause is evaluated for the open_cover service, the ELSE clause is evaluated for the close_cover service</li>
@@ -195,24 +156,14 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
   <li><em>lock</em> the THEN clause is evaluated for the lock service, the ELSE clause is evaluated for the unlock service</li>
   <li><em>switch</em> the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service</li>
 </ul>
-
 <p class="img">
   <img src="/images/isy994/isy994_SwitchActionsExample.png" />
 </p>
-
 <p>The example program above shows how to control a legacy X10 device from Home Assistant using an ISY controller.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/isy994.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -382,13 +333,10 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -398,7 +346,6 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -410,7 +357,6 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

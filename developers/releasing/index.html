@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Releasing - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Steps involved publishing a new Home Assistant release.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/releasing/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Releasing">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Steps involved publishing a new Home Assistant release.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Releasing">
     <meta name="twitter:description" content="Steps involved publishing a new Home Assistant release.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,36 +53,21 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Releasing
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>This page describes the steps for publishing a new Home Assistant release.</p>
-
 <h3><a class="title-link" name="github-3-days-before-release" href="#github-3-days-before-release"></a> GitHub (3 days before release)</h3>
-
 <ol>
   <li>Merge <code class="highlighter-rouge">master</code> into <code class="highlighter-rouge">dev</code> to make the PR mergeable.</li>
   <li>Cut a release branch from <code class="highlighter-rouge">dev</code>. Example name <code class="highlighter-rouge">release-0-40</code>.</li>
@@ -101,25 +75,19 @@
   <li>Update <code class="highlighter-rouge">homeassistant/const.py</code> with the correct version number (remove the <code class="highlighter-rouge">dev</code> tag) and push that commit to release branch.</li>
   <li>From now until the release branch has been merged, we tag bugfixes with the milestone for the release (create if doesn’t exist)</li>
 </ol>
-
 <h3><a class="title-link" name="website-3-days-before-release" href="#website-3-days-before-release"></a> Website (3 days before release)</h3>
-
 <ol>
   <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code></li>
   <li>Cut release branch of <code class="highlighter-rouge">next</code>. For example <code class="highlighter-rouge">release-0-40</code>.</li>
   <li>Open a PR from release branch to <code class="highlighter-rouge">current</code> with the upcoming release number as the title.</li>
 </ol>
-
 <h3><a class="title-link" name="github" href="#github"></a> GitHub</h3>
-
 <ol>
   <li>Merge pull request (DO NOT SQUASH!).</li>
   <li>Go to <a href="https://github.com/home-assistant/home-assistant/releases">releases</a> and tag a new release on the <code class="highlighter-rouge">master</code> branch. “Tag version” and “Release title” are the version number (<code class="highlighter-rouge">O.x</code> for major version, <code class="highlighter-rouge">0.x.y</code> for minor and bug fix releases). Release description is the text from PR. Press “Publish release” to finish the process.</li>
   <li>Merge <code class="highlighter-rouge">master</code> into <code class="highlighter-rouge">dev</code>.</li>
 </ol>
-
 <h3><a class="title-link" name="website" href="#website"></a> Website</h3>
-
 <ol>
   <li>Create a blog post in the release branch and base it on the text of the PR in the main repository. Add images, additional text, links, etc. if it adds value. Tag each platform/component in a message to documentation.</li>
   <li>Create missing documentation as stubs.</li>
@@ -128,33 +96,18 @@
   <li>Merge pull request (blog post, updated frontpage, and all new documentation) to <code class="highlighter-rouge">current</code>.</li>
   <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code>.</li>
 </ol>
-
 <h3><a class="title-link" name="docker-hub" href="#docker-hub"></a> Docker Hub</h3>
-
 <p>Tags on Docker hub are automatically created when a release has been created on GitHub.</p>
-
 <h3><a class="title-link" name="python-package-index" href="#python-package-index"></a> Python Package Index</h3>
-
 <p>Checkout the <code class="highlighter-rouge">master</code> branch and run <code class="highlighter-rouge">script/release</code> to publish the new release on <a href="https://pypi.python.org">Python Package Index</a>.</p>
-
 <h3><a class="title-link" name="social-media" href="#social-media"></a> Social media</h3>
-
 <ol>
   <li>Use <a href="https://hootsuite.com/dashboard">hootsuite</a> to publish a link to the release post on social media.</li>
 </ol>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/releasing.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -243,13 +196,10 @@
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -259,7 +209,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -271,7 +220,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

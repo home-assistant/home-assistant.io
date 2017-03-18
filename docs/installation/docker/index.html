@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Installation on Docker - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions to install Home Assistant on a Docker.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/installation/docker/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Installation on Docker">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions to install Home Assistant on a Docker.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Installation on Docker">
     <meta name="twitter:description" content="Instructions to install Home Assistant on a Docker.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,66 +53,40 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/installation/docker.markdown'>Edit this page on GitHub</a></div>
-  
-
-  
   <header>
     <h1 class="title indent">
       Installation on Docker
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Installation with Docker is straightforward. Adjust the following command so that <code class="highlighter-rouge">/path/to/your/config/</code> points at the folder where you want to store your config and run it:</p>
-
 <h3><a class="title-link" name="linux" href="#linux"></a> Linux</h3>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -d --name<span class="o">=</span><span class="s2">"home-assistant"</span> -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net<span class="o">=</span>host homeassistant/home-assistant
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="macos" href="#macos"></a> macOS</h3>
-
 <p>When using <code class="highlighter-rouge">boot2docker</code> on macOS you are unable to map the local time to your Docker container. Use <code class="highlighter-rouge">-e "TZ=America/Los_Angeles"</code> instead of <code class="highlighter-rouge">-v /etc/localtime:/etc/localtime:ro</code>. Replace “America/Los_Angeles” with <a href="http://en.wikipedia.org/wiki/List_of_tz_database_time_zones">your timezone</a>.</p>
-
 <p>Additionally, if your expectation is that you will be able to browse directly to <code class="highlighter-rouge">http://localhost:8123</code> on your macOS host, then you will also need to replace the <code class="highlighter-rouge">--net=host</code> switch with <code class="highlighter-rouge">-p 8123:8123</code>. This is currently the only way to forward ports on to your actual host (macOS) machine instead of the virtual machine inside <code class="highlighter-rouge">xhyve</code>. More detail on this can be found in <a href="https://forums.docker.com/t/should-docker-run-net-host-work/14215/10">the docker forums</a>.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -d --name<span class="o">=</span><span class="s2">"home-assistant"</span> -v /path/to/your/config:/config -e <span class="s2">"TZ=America/Los_Angeles"</span> -p 8123:8123 homeassistant/home-assistant
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="windows" href="#windows"></a> Windows</h3>
-
 <p>When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the <code class="highlighter-rouge">--net=host</code> switch actually applies to the hypervisor’s network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing ‘192.168.1.10’ with whatever your Windows IP is, and ‘10.0.50.2’ with whatever your Docker container’s IP is):</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
 netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
 </code></pre>
 </div>
-
 <p>This will let you access your Home Assistant portal from http://localhost:8123, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.</p>
-
 <h3><a class="title-link" name="synology-nas" href="#synology-nas"></a> Synology NAS</h3>
-
 <p>As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatability-information, if your NAS is supported), see https://www.synology.com/en-us/dsm/app_packages/Docker</p>
-
 <p>The steps would be:</p>
 <ul>
   <li>Install “Docker” package on your Synology NAS</li>
@@ -141,7 +104,6 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
   <li>Click on “Next” and then “Apply”</li>
   <li>Your Home Assistant within Docker should now run</li>
 </ul>
-
 <p>Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:</p>
 <ul>
   <li>Go to the Docker-app and move to “Image”-section</li>
@@ -152,29 +114,17 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
   <li>Right-click on it and select “Action”-&gt;”Clear”. You won’t loose any data, as all files are stored in your config-directory</li>
   <li>Start the container again - it will then boot up with the new Home Assistant image</li>
 </ul>
-
 <h3><a class="title-link" name="restart" href="#restart"></a> Restart</h3>
-
 <p>This will launch Home Assistant and serve the web interface from port 8123 on your Docker host.</p>
-
 <p>If you change the configuration you have to restart the server. To do that you have 2 options.</p>
-
 <ol>
   <li>You can go to the <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> service developer tools, select the service <code class="highlighter-rouge">homeassistant/restart</code> and click “Call Service”.</li>
   <li>Or you can restart it from an terminal by running <code class="highlighter-rouge">docker restart home-assistant</code></li>
 </ol>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>
     <h1 class="title delta">Topics</h1>
@@ -361,13 +311,10 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -377,7 +324,6 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -389,7 +335,6 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

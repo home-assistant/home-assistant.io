@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>DSMR/Slimme meter - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to integrate DSMR Smartmeter within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.dsmr/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="DSMR/Slimme meter">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate DSMR Smartmeter within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="DSMR/Slimme meter">
     <meta name="twitter:description" content="Instructions how to integrate DSMR Smartmeter within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,46 +53,27 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       DSMR/Slimme Meter
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as ‘Slimme meter’ or ‘P1 poort’.</p>
-
 <p>Currently support DSMR V2.2 and V4 through the <a href="https://github.com/ndokter/dsmr_parser">dsmr_parser</a> module by Nigel Dokter.</p>
-
 <p>For official information about DSMR refer to: <a href="http://www.netbeheernederland.nl/themas/hotspot/hotspot-documenten/?dossierid=11010056&amp;title=Slimme%20meter&amp;onderdeel=Documenten">DSMR Document</a></p>
-
 <p>For unofficial hardware connection examples refer to: <a href="http://domoticx.com/p1-poort-slimme-meter-hardware/">Domoticx</a></p>
-
 <p class="img">
 <img src="/images/screenshots/dsmr.png" />
 </p>
-
 <p>This component is known to work for:</p>
-
 <ul>
   <li>Iskra ME382 / MT382 (DSMR 2.2)</li>
   <li>Landis+Gyr E350 (DMSR 4)</li>
@@ -111,37 +81,28 @@
   <li>Kaifa E0026</li>
   <li>Kamstrup 382JxC (DSMR 2.2)</li>
 </ul>
-
 <p>,USB serial converters:</p>
-
 <ul>
   <li>Cheap (Banggood/ebay) Generic PL2303</li>
   <li>https://sites.google.com/site/nta8130p1smartmeter/webshop</li>
   <li>https://www.sossolutions.nl/slimme-meter-kabel</li>
 </ul>
-
 <p>And Serial to network proxies:</p>
-
 <ul>
   <li>ser2net - http://ser2net.sourceforge.net/</li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">dsmr</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>port</strong> string (<em>Optional</em>): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).</li>
   <li><strong>host</strong> string (<em>Optional</em>): Host to which Smartmeter is connected (default: ‘’ (connected via serial or USB, see <strong>port</strong>)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).</li>
   <li><strong>dsmr_version</strong> string (<em>Optional</em>): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).</li>
 </ul>
-
 <p>Full configuration examples can be found below:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for USB/serial connected Smartmeter</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">dsmr</span>
@@ -159,7 +120,6 @@
       <span class="pi">-</span> <span class="s">sensor.gas_consumption</span>
 </code></pre>
 </div>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for remote (TCP/IP, i.e. via ser2net) connection to host which is connected to Smartmeter</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">dsmr</span>
@@ -178,36 +138,23 @@
       <span class="pi">-</span> <span class="s">sensor.gas_consumption</span>
 </code></pre>
 </div>
-
 <p>Optional configuration example for ser2net:</p>
 <div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c"># Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv4 smart meters</span>
 2001:raw:600:/dev/ttyUSB0:115200 NONE 1STOPBIT 8DATABITS XONXOFF LOCAL -RTSCTS
 </code></pre>
 </div>
-
 <p><a href="/getting-started/installation-raspberry-pi-image/">HASSbian</a> users have to give dialout permission to the user <code class="highlighter-rouge">homeassistant</code>:</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo usermod -a -G dialout homeassistant
 </code></pre>
 </div>
-
 <p>and after that you need to reboot!</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo reboot
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.dsmr.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -258,13 +205,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -274,7 +218,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -286,7 +229,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

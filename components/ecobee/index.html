@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>ecobee - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions for how to integrate Ecobee thermostats and sensors within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/ecobee/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="ecobee">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions for how to integrate Ecobee thermostats and sensors within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="ecobee">
     <meta name="twitter:description" content="Instructions for how to integrate Ecobee thermostats and sensors within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,36 +53,21 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Ecobee
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">ecobee</code> component lets you control a thermostats and view sensor data from <a href="https://ecobee.com">ecobee</a> thermostats.</p>
-
 <p>You will need to obtain an API key from ecobee’s <a href="https://www.ecobee.com/developers/">developer site</a> to use this component. To get the key, first you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that perform the following steps.</p>
-
 <ol>
   <li>Click on the <strong>Become a developer</strong> link on the <a href="https://www.ecobee.com/developers/">developer site</a>.</li>
   <li>Login with your ecobee credentials.</li>
@@ -101,9 +75,7 @@
   <li>Fill in the fields.</li>
   <li>Click <strong>save</strong>.</li>
 </ol>
-
 <p>Now login to the regular consumer portal, and in the hamburger menu there will be a new option <strong>Developer</strong>. Now we can create the Application to hook up to Home Assistant.</p>
-
 <ol>
   <li>Select the Developer option.</li>
   <li>Select <strong>Create New</strong>.</li>
@@ -112,50 +84,32 @@
   <li>You don’t need an Application Icon or Detailed Description.</li>
   <li>Click <strong>Create</strong>.</li>
 </ol>
-
 <p>Now under the Name and Summary Section you will have an API key. Copy this key and use it in you configuration section below. Click the <strong>X</strong> to close the Developer section.</p>
-
 <p>The first time you run Home Assistant with this component it will give you a PIN code that you need to authorize in the <a href="https://www.ecobee.com/consumerportal/index.html">ecobee consumer portal</a>. You can do this by clicking <strong>Add Application</strong> in the <strong>My Apps</strong> section in the sidebar.</p>
-
 <p>The PIN can be found from the Home Assistant portal on the Ecobee card or from the <strong>configurator.ecobee</strong> entity in states in the portal.</p>
-
 <ul>
   <li>If you do not have an ecobee card, you may be using groups with <code class="highlighter-rouge">default_view</code> that don’t show the card. To get around this you can temporarily comment out the <code class="highlighter-rouge">default_view</code> section or add the <code class="highlighter-rouge">configurator.ecobee</code> component to your <code class="highlighter-rouge">default_view</code> and restart Home Assistant.</li>
 </ul>
-
 <p>Once you enter the PIN on the ecobee site, wait approximately 5 minutes and then click on the <strong>I have authorized the app</strong> link at the bottom of the ecobee popup window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full ecobee card with all of the sensors populated or see the list of sensors in the developer tools. Now you can re-enable your <code class="highlighter-rouge">default_view</code> (if you had to disable it) and add the ecobee sensors to a group and/or view.</p>
-
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">ecobee</span><span class="pi">:</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">asdfghjklqwertyuiopzxcvbnm</span> 
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): Your ecobee API key. This is only needed for the initial setup of the component. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to update this again and remove the ecobee.conf file in the <code class="highlighter-rouge">.homeassistant</code> configuration path.</li>
   <li><strong>hold_temp</strong> (<em>Optional</em>): True/False whether or not to hold changes indefinitely (True) or until the next scheduled event. Defaults to <code class="highlighter-rouge">False</code>.</li>
 </ul>
-
 <p class="img">
   <img src="/images/screenshots/ecobee-sensor-badges.png" />
   <img src="/images/screenshots/ecobee-thermostat-card.png" />
 </p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/ecobee.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -313,13 +267,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -329,7 +280,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -341,7 +291,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

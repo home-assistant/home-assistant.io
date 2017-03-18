@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Microsoft Face - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions on how to integrate Microsoft Face component into Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/microsoft_face/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Microsoft Face">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions on how to integrate Microsoft Face component into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Microsoft Face">
     <meta name="twitter:description" content="Instructions on how to integrate Microsoft Face component into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,86 +53,58 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Microsoft Face
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">microsoft_face</code> component platform is the main component for Microsoft Azure Cognitive service <a href="https://www.microsoft.com/cognitive-services/en-us/face-api">Face</a>. All data are stored in your own private instance in the Azure cloud.</p>
-
 <p>You need an API key which is free but requires a <a href="https://azure.microsoft.com/de-de/free/">Azure registration</a> using your microsoft ID. The free resource (<em>F0</em>) is limited to 20 requests per minute and 30k requests in a month. If you don’t want to use the Azure cloud, you can also get an API key by registering with <a href="https://www.microsoft.com/cognitive-services/en-us/subscriptions">cognitive-services</a>. However, all keys on cognitive services must be recreated every 90 days.</p>
-
 <p>To enable the Microsoft Face component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">microsoft_face</span><span class="pi">:</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): The API key for your Cognitive resource.</li>
   <li><strong>timeout</strong> (<em>Optional)</em>: Set timeout for the API connection. Defaults to 10s.</li>
 </ul>
-
 <h3><a class="title-link" name="person-and-groups" href="#person-and-groups"></a> Person and Groups</h3>
-
 <p>For most services, you need to set up a group or a person. This limits the processing and detection to elements provided by the group. Home Assistent creates an entty for all groups and allows you to show the state, person and IDs directly on the frontend.</p>
-
 <p>The following services are available for managing this feature. They can be called via the Frontend, a script, or the REST API.</p>
-
 <ul>
   <li><em>microsoft_face.create_group</em></li>
   <li><em>microsoft_face.delete_group</em></li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">microsoft_face.create_group</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Family'</span>
 </code></pre>
 </div>
-
 <ul>
   <li><em>microsoft_face.create_person</em></li>
   <li><em>microsoft_face.delete_person</em></li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">microsoft_face.create_person</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">group</span><span class="pi">:</span> <span class="s">family</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Hans</span><span class="nv"> </span><span class="s">Maier'</span>
 </code></pre>
 </div>
-
 <p>You need to add an image of a person. You can add multiple images for every person to make the detection better. You can take a picture from a camera or send a local image to your Azure resource.</p>
-
 <ul>
   <li><em>microsoft_face.face_person</em></li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">microsoft_face.face_person</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">group</span><span class="pi">:</span> <span class="s">family</span>
@@ -151,38 +112,25 @@
   <span class="s">camera_entity</span><span class="pi">:</span> <span class="s">camera.door</span>
 </code></pre>
 </div>
-
 <p>For the local image we need <code class="highlighter-rouge">curl</code>. The <code class="highlighter-rouge"><span class="p">{</span><span class="err">personId</span><span class="p">}</span></code> is present in group entity as attribute.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -v -X POST <span class="s2">"https://westus.api.cognitive.microsoft.com/face/v1.0/persongroups/{GroupName}/persons/{personId}/persistedFaces"</span> <span class="se">\</span>
   -H <span class="s2">"Ocp-Apim-Subscription-Key: YOUR_API_KEY"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/octet-stream"</span> --data-binary <span class="s2">"@/tmp/image.jpg"</span>
 </code></pre>
 </div>
-
 <p>After we’re done with changes on a group, we need train this group to teach the AI how to handle the new data.</p>
-
 <ul>
   <li><em>microsoft_face.train_group</em></li>
 </ul>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">microsoft_face.train_group</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">group</span><span class="pi">:</span> <span class="s">family</span>
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/microsoft_face.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -323,13 +271,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -339,7 +284,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -351,7 +295,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

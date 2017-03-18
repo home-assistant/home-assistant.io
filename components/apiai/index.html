@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Api.AI - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how integrate api.ai with Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/apiai/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Api.AI">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how integrate api.ai with Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Api.AI">
     <meta name="twitter:description" content="Instructions how integrate api.ai with Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,60 +53,35 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Api.AI
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>This component is designed to be used with the “webhook” integration in <a href="https://api.ai/">api.ai</a>. When a conversation ends with an user, api.ai sends an action and parameters to the webhook.</p>
-
 <p>api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to Internet. api.ai will return fallback answers if your server do not answer, or takes too long (more than 5 seconds).</p>
-
 <p>api.ai could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. <a href="https://docs.api.ai/docs/integrations">See here</a> the complete list.</p>
-
 <p>Using Api.ai will be easy to create conversations like:</p>
-
 <blockquote>
   <p>User: Which is the temperature at home?</p>
-
   <p>Bot: The temperature is 34 degrees</p>
 </blockquote>
-
 <blockquote>
   <p>User: Turn on the light</p>
-
   <p>Bot: In which room?</p>
-
   <p>User: In the kitchen</p>
-
   <p>Bot: Turning on kitchen light</p>
 </blockquote>
-
 <p>To use this integration you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.</p>
-
 <h3><a class="title-link" name="configuring-your-apiai-account" href="#configuring-your-apiai-account"></a> Configuring your api.ai account</h3>
-
 <ul>
   <li><a href="https://api.ai/">Login</a> with your Google account.</li>
   <li>Click on “Create Agent”</li>
@@ -135,19 +99,12 @@
   <li>On the top right, where is written “Try it now…”, write, or say, the phrase you have previously defined and hit enter</li>
   <li>Api.ai has send a request to your HA server</li>
 </ul>
-
 <p>Take a look to “Integrations”, in the left menu, to configure third parties.</p>
-
 <h3><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h3>
-
 <p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/topics/templating/">templates</a> that you define. Each template will have access to the existing states via the <code class="highlighter-rouge">states</code> variable but will also have access to all variables defined in the intent.</p>
-
 <p>You can use <a href="/topics/templating/">templates</a> for setting <code class="highlighter-rouge">speech</code>.</p>
-
 <p>Actions are using the <a href="/getting-started/scripts/">Home Assistant Script Syntax</a> and also have access to the variables from the intent.</p>
-
 <p>Example of an Api.ai for the above configuration:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">apiai</span><span class="pi">:</span>
   <span class="s">intents</span><span class="pi">:</span>
@@ -161,18 +118,14 @@
 
 </code></pre>
 </div>
-
 <p>Inside an intent we can define this variables:</p>
 <ul>
   <li><strong>speech</strong> (<em>Optional</em>): Text or template to return to Api.ai</li>
   <li><strong>action</strong> (<em>Optional</em>): Script definition</li>
   <li><strong>async_action</strong> (<em>Optional</em>): If HA should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to <code class="highlighter-rouge">True</code> if Api.ai is returning the “Cannot connect to HA or it is taking to long” message, but then you will not be able to use values based on the result of the action. Defaults to <code class="highlighter-rouge">False</code>.</li>
 </ul>
-
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
-
 <p>Download <a href="https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip">this zip</a> and load it in your Api.ai agent (Settings -&gt; Export and Import) for examples intents to use with this configuration:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">apiai</span><span class="pi">:</span>
   <span class="s">intents</span><span class="pi">:</span>
@@ -215,19 +168,10 @@
 
 </code></pre>
 </div>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/apiai.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -251,13 +195,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -267,7 +208,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -279,7 +219,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

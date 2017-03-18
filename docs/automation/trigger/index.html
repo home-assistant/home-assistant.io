@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Automation Trigger - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="All the different ways how automations can be triggered.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/automation/trigger/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Automation Trigger">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="All the different ways how automations can be triggered.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Automation Trigger">
     <meta name="twitter:description" content="All the different ways how automations can be triggered.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,39 +53,23 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/automation/trigger.markdown'>Edit this page on GitHub</a></div>
-  
-
-  
   <header>
     <h1 class="title indent">
       Automation Trigger
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Triggers are what starts the processing of an automation rule. It is possible to specify multiple triggers for the same rule. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.</p>
-
 <h3><a class="title-link" name="event-trigger" href="#event-trigger"></a> Event trigger</h3>
 <p>Triggers when an event is being processed. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
@@ -107,10 +80,8 @@
 </code></pre>
 </div>
 <p>For example, to carry out actions when Home Assistant starts, you can use <code class="highlighter-rouge">event_type: homeassistant_start</code>. See other ‘events’ supported by Home Assistant <a href="https://home-assistant.io/topics/events/">here</a>.</p>
-
 <h3><a class="title-link" name="mqtt-trigger" href="#mqtt-trigger"></a> MQTT trigger</h3>
 <p>Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
@@ -119,10 +90,8 @@
     <span class="s">payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="numeric-state-trigger" href="#numeric-state-trigger"></a> Numeric state trigger</h3>
 <p>On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
@@ -134,11 +103,8 @@
     <span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="state-trigger" href="#state-trigger"></a> State trigger</h3>
-
 <p>Triggers when the state of tracked entities change. If only entity_id given will match all state changes.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
@@ -157,14 +123,11 @@
       <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
 </div>
-
 <p class="note warning">
   Use quotes around your values for <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code> to avoid the YAML parser interpreting values as booleans.
 </p>
-
 <h3><a class="title-link" name="sun-trigger" href="#sun-trigger"></a> Sun trigger</h3>
 <p>Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
@@ -174,23 +137,17 @@
     <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-00:45:00'</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="template-trigger" href="#template-trigger"></a> Template trigger</h3>
-
 <p>Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('device_tracker.paulus',</span><span class="w"> </span><span class="err">'home')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>) or by having the template render ‘true’ (example below).
 With template triggers you can also evaluate attribute changes by using is_state_attr (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state_attr('climate.living_room',</span><span class="w"> </span><span class="err">'away_mode',</span><span class="w"> </span><span class="err">'off')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>)</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state('device_tracker.paulus',</span><span class="nv"> </span><span class="s">'home')</span><span class="nv"> </span><span class="s">%}true{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="time-trigger" href="#time-trigger"></a> Time trigger</h3>
-
 <p>Time can be triggered in many ways. The most common is to specify <code class="highlighter-rouge">after</code> and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a <code class="highlighter-rouge">/</code> to match whenever the value is divisible by that number. You cannot use <code class="highlighter-rouge">after</code> together with hour, minute or second.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -216,11 +173,8 @@ With template triggers you can also evaluate attribute changes by using is_state
 <p class="note warning">
   Remember that if you are using matching to include both <code class="highlighter-rouge">minutes</code> and <code class="highlighter-rouge">seconds</code>.  Without <code class="highlighter-rouge">seconds</code>, your automation will trigger 60 times during the matching minute. 
 </p>
-
 <h3><a class="title-link" name="zone-trigger" href="#zone-trigger"></a> Zone trigger</h3>
-
 <p>Zone triggers can trigger when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the <a href="/components/device_tracker.owntracks/">OwnTracks platform</a> as well as the <a href="/components/device_tracker.icloud/">iCloud platform</a>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">zone</span>
@@ -230,18 +184,10 @@ With template triggers you can also evaluate attribute changes by using is_state
     <span class="s">event</span><span class="pi">:</span> <span class="s">enter</span>  <span class="c1"># or "leave"</span>
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>
     <h1 class="title delta">Topics</h1>
@@ -428,13 +374,10 @@ With template triggers you can also evaluate attribute changes by using is_state
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -444,7 +387,6 @@ With template triggers you can also evaluate attribute changes by using is_state
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -456,7 +398,6 @@ With template triggers you can also evaluate attribute changes by using is_state
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

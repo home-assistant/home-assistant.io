@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>IFTTT - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup IFTTT within Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/ifttt/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="IFTTT">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup IFTTT within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="IFTTT">
     <meta name="twitter:description" content="Instructions how to setup IFTTT within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,57 +53,36 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       IFTTT
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p><a href="https://ifttt.com">IFTTT</a> is a web service that allows users to create chains of simple conditional statements, so called “Applets”. With the IFTTT component you can trigger applets through the <strong>“Maker”</strong> channel. See the <a href="/blog/2015/09/13/home-assistant-meets-ifttt/">announcement blog post</a> for examples how to use it.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">ifttt</span><span class="pi">:</span>
   <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxx-x-xxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-
 <p><code class="highlighter-rouge">key</code> is your API key which can be obtained by viewing the <strong>Settings</strong> of the <a href="https://ifttt.com/maker">Maker Channel</a>. It’s the last part of the URL.</p>
-
 <p class="img">
 <img src="/images/components/ifttt/finding_key.png" />
 Property screen of the Maker Channel
 </p>
-
 <p>Once you have added your key to your <code class="highlighter-rouge">configuration.yaml</code> file, restart your Home Assistant server. This will load up the IFTTT component and make a service available to trigger events in IFTTT.</p>
-
 <p class="note">
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
 </p>
-
 <h3><a class="title-link" name="testing-your-trigger" href="#testing-your-trigger"></a> Testing your trigger</h3>
-
 <p>You can use the <strong>Developer tools</strong> to test your <a href="https://ifttt.com/maker">Maker Channel</a> trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the <strong>Call Service</strong> screen. Fill in the following values:</p>
-
 <table>
   <thead>
     <tr>
@@ -137,26 +105,20 @@ After restarting the server, be sure to watch the console for any logging errors
     </tr>
   </tbody>
 </table>
-
 <p class="img">
 <img src="/images/components/ifttt/testing_service.png" />
 When your screen looks like this, click the ‘call service’ button.
 </p>
-
 <h3><a class="title-link" name="setting-up-a-recipe" href="#setting-up-a-recipe"></a> Setting up a recipe</h3>
-
 <p>Press the <em>New applet</em> button and search for <em>Maker</em> .</p>
-
 <p class="img">
 <img src="/images/components/ifttt/setup_service.png" />
 Choose “Maker” as service.
 </p>
-
 <p class="img">
 <img src="/images/components/ifttt/setup_trigger.png" />
 You need to setup a unique trigger for each event you sent to IFTTT.
 </p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml Automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Startup Notification</span>
@@ -168,9 +130,7 @@ You need to setup a unique trigger for each event you sent to IFTTT.
     <span class="s">data</span><span class="pi">:</span> <span class="pi">{</span><span class="s2">"</span><span class="s">event"</span><span class="pi">:</span><span class="s2">"</span><span class="s">TestHA_Trigger"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">value1"</span><span class="pi">:</span><span class="s2">"</span><span class="s">Hello</span><span class="nv"> </span><span class="s">World!"</span><span class="pi">}</span>
 </code></pre>
 </div>
-
 <p>IFTTT can also be used in scripts and with <code class="highlighter-rouge">data_template</code>.  Here is the above automation broken into an automation and script using variables and data_templates.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml Automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Startup Notification</span>
@@ -185,7 +145,6 @@ You need to setup a unique trigger for each event you sent to IFTTT.
       <span class="s">value3</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.to_state.state</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#Example Script to send TestHA_Trigger to IFTTT but with some other data (homeassistant UP).</span>
 <span class="s">ifttt_notify</span><span class="pi">:</span>
   <span class="s">sequence</span><span class="pi">:</span>
@@ -193,21 +152,14 @@ You need to setup a unique trigger for each event you sent to IFTTT.
       <span class="s">data_template</span><span class="pi">:</span> <span class="pi">{</span><span class="s2">"</span><span class="s">event"</span><span class="pi">:</span><span class="s2">"</span><span class="s">TestHA_Trigger"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">value1"</span><span class="pi">:</span><span class="s2">"</span><span class="s">"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">value2"</span><span class="pi">:</span><span class="s2">"</span><span class="s">"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">value3"</span><span class="pi">:</span><span class="s2">"</span><span class="s">"</span><span class="pi">}</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="sending-events-from-ifttt-to-home-assistant" href="#sending-events-from-ifttt-to-home-assistant"></a> Sending events from IFTTT to Home Assistant</h3>
-
 <p>To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web. This can be achieved by forwarding port 8123 from your router to the device running Home Assistant. If your ISP is giving you a new IP address from time to time, consider using <a href="https://duckdns.org">DuckDNS</a>.</p>
-
 <p>In the URL field, you can then put an <a href="/developers/rest_api/">API URL</a>. You probably want to use a POST action, so select <code class="highlighter-rouge">POST</code> as method. After your request line, you need to add your Home Assistant password, which you defined in the <a href="/getting-started/basic/#password-protecting-the-web-interface">http section of your config</a>, in the form of <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code>. For the message body, refer to the API page linked above.</p>
-
 <p class="img">
 <img src="/images/components/ifttt/IFTTT_to_HA.png" />
 </p>
-
 <h3><a class="title-link" name="additional-channel-examples" href="#additional-channel-examples"></a> Additional Channel Examples</h3>
-
 <p>Additional examples of using IFTTT channels can be found below.</p>
-
 <table>
   <thead>
     <tr>
@@ -222,18 +174,10 @@ You need to setup a unique trigger for each event you sent to IFTTT.
     </tr>
   </tbody>
 </table>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/ifttt.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -290,13 +234,10 @@ You need to setup a unique trigger for each event you sent to IFTTT.
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -306,7 +247,6 @@ You need to setup a unique trigger for each event you sent to IFTTT.
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -318,7 +258,6 @@ You need to setup a unique trigger for each event you sent to IFTTT.
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

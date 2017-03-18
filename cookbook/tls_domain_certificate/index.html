@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Certificate for SSL/TLS via domain ownership - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Configure a certificate to use with Home Assistant">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/cookbook/tls_domain_certificate/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Certificate for SSL/TLS via domain ownership">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Configure a certificate to use with Home Assistant">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Certificate for SSL/TLS via domain ownership">
     <meta name="twitter:description" content="Configure a certificate to use with Home Assistant">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,41 +53,26 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Certificate for SSL/TLS via Domain Ownership
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. You can use <a href="/cookbook/tls_self_signed_certificate/">Self-sign certificate</a> but your browser will present a warning and some https-only features might not work.</p>
-
 <h3><a class="title-link" name="prerequirement-for-this-guide" href="#prerequirement-for-this-guide"></a> Prerequirement for this guide</h3>
 <ul>
   <li>Your Home Assistant instance is not exposed to the internet. If it is - use <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">this guide</a></li>
   <li>You control a public domain name. The domain doesn’t have to point to a site. A domain controlled by a <em>trusted</em> friend will do. (A friend you trust not to MITM you)</li>
   <li>Your home router supports custom DNS entries.</li>
 </ul>
-
 <h3><a class="title-link" name="run-certbot" href="#run-certbot"></a> Run certbot</h3>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir certbot
 <span class="gp">$ </span><span class="nb">cd </span>certbot
@@ -107,15 +81,12 @@
 <span class="gp">$ </span>sudo ./certbot-auto --manual certonly --preferred-challenges dns -d <span class="s2">"mydomain.com"</span> --email your@email.address
 </code></pre>
 </div>
-
 <ul>
   <li>Agree to Terms of Service</li>
   <li>Choose whether to share your email with Electronic Frontier Foundation.</li>
   <li>Agree to your IP being logged</li>
 </ul>
-
 <p>You will get the following text:</p>
-
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>Please deploy a DNS TXT record under the name
 _acme-challenge.mydomain.com with the following value:
 
@@ -126,7 +97,6 @@ Once this is deployed,
 Press Enter to Continue
 </code></pre>
 </div>
-
 <ul>
   <li>
     <p>Deploy the value to TXT field using your domain registar.</p>
@@ -134,13 +104,11 @@ Press Enter to Continue
   <li>Go to a site that queries domain record. For example <a href="https://mxtoolbox.com/TXTLookup.aspx">this one</a> and look if it sees your brand new TXT field (Don’t forget to enter the full domain: <code class="highlighter-rouge">_acme-challenge.mydomain.com</code>)</li>
   <li>Press Enter at certbot prompt.</li>
 </ul>
-
 <h3><a class="title-link" name="make-mydomaincom-point-to-your-home-assistant-instance" href="#make-mydomaincom-point-to-your-home-assistant-instance"></a> Make mydomain.com point to your Home Assistant instance</h3>
 <p>If your router uses DNSMasq (for example DDWRT) add the following line to DNSMasq options:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>address=/mydomain.com/&lt;hass ip&gt;
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="edit-your-home-assistant-configuration-to-use-your-certificates" href="#edit-your-home-assistant-configuration-to-use-your-certificates"></a> Edit your Home Assistant configuration to use your certificates</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
   <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_SECRET_PASSWORD</span>
@@ -150,18 +118,10 @@ Press Enter to Continue
 </code></pre>
 </div>
 <p>Make sure the files are accessible by the user that runs Home Assistant, eg. <code class="highlighter-rouge">homeassistant</code> for a HASSbian setup.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook/tls_domain_certificate.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -191,13 +151,10 @@ Press Enter to Continue
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -207,7 +164,6 @@ Press Enter to Continue
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -219,7 +175,6 @@ Press Enter to Continue
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

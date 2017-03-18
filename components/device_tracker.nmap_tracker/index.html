@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Nmap - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to integrate Nmap into Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/device_tracker.nmap_tracker/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Nmap">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate Nmap into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Nmap">
     <meta name="twitter:description" content="Instructions how to integrate Nmap into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,58 +53,37 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Nmap
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (<code class="highlighter-rouge">192.168.1.1/24</code>) and the range notation (<code class="highlighter-rouge">192.168.1.1-255</code>).</p>
-
 <p>If you’re on Debian or Ubuntu, you might have to install the packages for <code class="highlighter-rouge">arp</code> and <code class="highlighter-rouge">nmap</code>. Do so by running <code class="highlighter-rouge">$ sudo apt-get install net-tools nmap</code>. On a Fedora host run <code class="highlighter-rouge">$ sudo dnf -y install nmap</code>.</p>
-
 <p>Host detection is done via Nmap’s “fast scan” (<code class="highlighter-rouge">-F</code>) of the most frequently used 100 ports, with a host timeout of 5 seconds.</p>
-
 <p>To use this device tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
     <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1/24</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>hosts</strong> (<em>Required</em>): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.</li>
   <li><strong>home_interval</strong> (<em>Optional</em>): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.</li>
   <li><strong>exclude</strong> (<em>Optional</em>): Hosts not to include in nmap scanning.</li>
   <li><strong>scan_options</strong> (<em>Optional</em>): Configurable scan options for nmap. Default to <code class="highlighter-rouge">-F --host-timeout 5s</code></li>
 </ul>
-
 <p>A full example for the <code class="highlighter-rouge">nmap</code> tracker could look like the following sample:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for nmap</span>
 <span class="c1"># One whole subnet, and skipping two specific IPs.</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
@@ -127,7 +95,6 @@
      <span class="pi">-</span> <span class="s">192.168.1.13</span>
 </code></pre>
 </div>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml for nmap</span>
 <span class="c1"># One subnet, and two specific IPs in another subnet.</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
@@ -140,34 +107,21 @@
 </div>
 <p>In the above example, Nmap will be call with the process:
 <code class="highlighter-rouge">nmap -oX - 192.168.1.1/24 10.0.0.2 10.0.0.15 -F --host-timeout 5s</code></p>
-
 <p>An example of how the Nmap scanner can be customized:</p>
-
 <p>Add the capabilities to Nmap. Be sure to specify the full path to wherever you installed Nmap:</p>
-
 <p><code class="highlighter-rouge">sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
 </code></p>
-
 <p>And you can set up the device tracker as</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nmap_tracker</span>
   <span class="s">hosts</span><span class="pi">:</span> <span class="s">192.168.1.1-25</span>
   <span class="s">scan_options</span><span class="pi">:</span> <span class="s2">"</span><span class="nv"> </span><span class="s">--privileged</span><span class="nv"> </span><span class="s">-sP</span><span class="nv"> </span><span class="s">"</span>
 </code></pre>
 </div>
-
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/device_tracker.nmap_tracker.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -291,13 +245,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -307,7 +258,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -319,7 +269,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

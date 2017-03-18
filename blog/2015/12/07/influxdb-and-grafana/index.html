@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>InfluxDB and Grafana - Home Assistant</title>
     <meta name="author" content="Fabian Affolter">
     <meta name="description" content="A step by step guide to start recording data from Home Assistant in InfluxDB and visualizing it using Grafana.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="InfluxDB and Grafana">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="A step by step guide to start recording data from Home Assistant in InfluxDB and visualizing it using Grafana.">
     <meta property="og:image" content="https://home-assistant.io/images/blog/2015-12-influxdb/grafana-graph.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="InfluxDB and Grafana">
     <meta name="twitter:description" content="A step by step guide to start recording data from Home Assistant in InfluxDB and visualizing it using Grafana.">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2015-12-influxdb/grafana-graph.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +53,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">InfluxDB and Grafana</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2015-12-07T14:15:13+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 07, 2015</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -92,49 +69,31 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>How-To</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" /><img src="/images/supported_brands/grafana.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
 The <a href="https://influxdb.com/">InfluxDB</a> database is a so-called time series database primarly designed to store sensor data and real-time analytics.</p>
-
 <p>The <code class="highlighter-rouge">influxdb</code> component makes it possible to transfer all state changes from Home Assistant to an external <a href="https://influxdb.com/">InfluxDB</a> database.</p>
-
 <a name="read-more"></a>
-
 <p>The first step is to install the InfluxDB packages. If you are not running Fedora, check the <a href="https://influxdb.com/docs/v0.9/introduction/installation.html">installation</a> section for further details.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install http://influxdb.s3.amazonaws.com/influxdb-0.9.5.1-1.x86_64.rpm
 </code></pre>
 </div>
-
 <p>Launch the InfluxDB service.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl start influxdb
 </code></pre>
 </div>
-
 <p>If everything went well, then the web interface of the database should be accessible at <a href="http://localhost:8083/">http://localhost:8083/</a>. Create a database <code class="highlighter-rouge">home_assistant</code> to use with Home Assistant either with the web interface or the commandline tool <code class="highlighter-rouge">influx</code>.</p>
-
 <p class="img">
   <img src="/images/blog/2015-12-influxdb/influxdb-frontend.png" />
   InfluxDB web frontend
 </p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>influx
 Visit https://enterprise.influxdata.com to register <span class="k">for </span>updates, InfluxDB server management, and monitoring.
 Connected to http://localhost:8086 version 0.9.5.1
@@ -142,22 +101,16 @@ InfluxDB shell 0.9.5.1
 <span class="gp">&gt; </span>CREATE DATABASE home_assistant
 </code></pre>
 </div>
-
 <p>An optional step is to create a user. Keep in mind to adjust the configuration (add <code class="highlighter-rouge">username</code> and <code class="highlighter-rouge">password</code>) in the next step if you prefer to go this way.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">&gt; </span>CREATE USER <span class="s2">"home-assistant"</span> WITH PASSWORD <span class="s1">'password'</span>
 </code></pre>
 </div>
-
 <p>To use the <code class="highlighter-rouge">influxdb</code> component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">influxdb</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
 </code></pre>
 </div>
-
 <p>After you restart Home Assistant you should see that the InfluxDB database gets filled. The <a href="https://influxdb.com/docs/v0.9/query_language/index.html">language</a> to query the database is similar to SQL.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>influx
 <span class="o">[</span>...]
 <span class="gp">&gt; </span>USE home_assistant
@@ -174,52 +127,35 @@ name: binary_sensor
 <span class="o">[</span>...]
 </code></pre>
 </div>
-
 <p><a href="http://grafana.org/">Grafana</a> is a dashboard that can create graphs from different sources including InfluxDB. The installation is simple, and there are detailed steps for many different configurations on the <a href="http://docs.grafana.org/installation/">Grafana installation</a> page. For a recent system that is running Fedora:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install https://grafanarel.s3.amazonaws.com/builds/grafana-2.5.0-1.x86_64.rpm
 </code></pre>
 </div>
-
 <p>Start the grafana server.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl daemon-reload
 <span class="gp">$ </span>sudo systemctl start grafana-server
 <span class="gp">$ </span>sudo systemctl status grafana-server
 </code></pre>
 </div>
-
 <p>Login with the username <code class="highlighter-rouge">admin</code> and the password <code class="highlighter-rouge">admin</code> at <a href="http://localhost:3000/login">http://localhost:3000/login</a>. Now follow the <a href="http://docs.grafana.org/datasources/influxdb/">InfluxDB setup instructions</a>.</p>
-
 <p>Now you can start to create dashboards and graphs. You have various options to get the data from the graph. The next image just shows a screenshot of the setting for a temperature sensor.</p>
-
 <p class="img">
   <img src="/images/blog/2015-12-influxdb/grafana-settings.png" />
   Grafana settings
 </p>
-
 <p>If the graph is not showing up in the dashboard you need to adjust the time range in the right upper corner. The graph is created for all state changes recorded by Home Assistant.</p>
-
 <p class="img">
   <img src="/images/blog/2015-12-influxdb/grafana-graph.png" />
   Grafana Temperature graph
 </p>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -235,74 +171,45 @@ name: binary_sensor
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/"
      data-counturl="https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -312,7 +219,6 @@ name: binary_sensor
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -324,7 +230,6 @@ name: binary_sensor
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -333,13 +238,10 @@ name: binary_sensor
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/';
     var disqus_url = 'https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

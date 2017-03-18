@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Homematic - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions for integrating Homematic into Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/homematic/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Homematic">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions for integrating Homematic into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Homematic">
     <meta name="twitter:description" content="Instructions for integrating Homematic into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,61 +53,39 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Homematic
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <a href="http://www.homematic.com/">Homematic</a> component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.</p>
-
 <p>Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010.</p>
-
 <p>If you want to see if a specific device you have is supported, head over to the <a href="https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes">pyhomematic</a> repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.</p>
-
 <p>We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
 You can manually rename the created entities by using Home Assistants <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing</a> feature. With it you are also able to hide entities you don’t want to see in the UI.</p>
-
 <p>To set up the component, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homematic</span><span class="pi">:</span>
   <span class="s">hosts</span><span class="pi">:</span>
     <span class="s">wireless</span><span class="pi">:</span>
       <span class="s">ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
 </code></pre>
 </div>
-
 <p>Configuration variables (global):</p>
-
 <ul>
   <li><strong>hosts</strong> (<em>Required</em>): Configuration for each host to integrate into Home Assistant.</li>
   <li><strong>local_ip</strong> (<em>Optional</em>): IP of device running Home Assistant. Override autodetected value for exotic network setups.</li>
   <li><strong>local_port</strong> (<em>Optional</em>): Port for connection with Home Assistant. By default it is randomly assigned.</li>
   <li><strong>delay</strong> (<em>Optional</em>): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</li>
 </ul>
-
 <p>Configuration variables (host):</p>
-
 <ul>
   <li><strong>ip</strong> (<em>Required</em>): IP of CCU/Homegear</li>
   <li><strong>port</strong> (<em>Optional</em>): Port of CCU/Homegear XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)</li>
@@ -130,9 +97,7 @@ You can manually rename the created entities by using Home Assistants <a href="h
   <li><strong>primary</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> when using multiple hosts and this host should provide the services and variables.</li>
   <li><strong>variables</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> if you want to use CCU2/Homegear variables. Should only be enabled for the primary host. When using a CCU credentials are required.</li>
 </ul>
-
 <h4>Example configuration with multiple protocols and some other options set:</h4>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homematic</span><span class="pi">:</span>
   <span class="s">delay</span><span class="pi">:</span> <span class="s">1.0</span>
   <span class="s">hosts</span><span class="pi">:</span>
@@ -154,29 +119,20 @@ You can manually rename the created entities by using Home Assistants <a href="h
       <span class="s">port</span><span class="pi">:</span> <span class="s">2010</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="the-resolvenames-option" href="#the-resolvenames-option"></a> The <code class="highlighter-rouge">resolvenames</code> option</h3>
-
 <p>We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won’t include non-ASCII characters in entity-names.</p>
-
 <ol>
   <li><code class="highlighter-rouge">json</code>: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.</li>
   <li><code class="highlighter-rouge">xml</code>: If you use a CCU, there is an add-on called the “XML-API”. With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don’t support authentication with this method.</li>
   <li><code class="highlighter-rouge">metadata</code>: Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software (“HomeMatic-Komponenten konfigurieren” is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you’ll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.</li>
 </ol>
-
 <p>Resolving names can take some time. So when you start Home Assistant you won’t see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.</p>
-
 <h3><a class="title-link" name="multiple-hosts" href="#multiple-hosts"></a> Multiple hosts</h3>
-
 <p>In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.<br />
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.<br />
 This does <em>not</em> affect the entites in Home Assistant. They all use their own connection and work as expected.</p>
-
 <h3><a class="title-link" name="reading-attributes-of-entities" href="#reading-attributes-of-entities"></a> Reading attributes of entities</h3>
-
 <p>Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the <a href="https://home-assistant.io/components/sensor.template/">template sensor</a> component. Here’s an example of a template sensor that exposes the valve state of a thermostat.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
   <span class="s">sensors</span><span class="pi">:</span>
@@ -186,30 +142,21 @@ This does <em>not</em> affect the entites in Home Assistant. They all use their 
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">valve'</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="variables" href="#variables"></a> Variables</h3>
-
 <p>It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables. <br />
 The states of the variables are available through the attributes of your hub entity (e.g. <code class="highlighter-rouge">homematic.rf</code>). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.</p>
-
 <h3><a class="title-link" name="events" href="#events"></a> Events</h3>
-
 <p>When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Two event-types are available:</p>
-
 <ul>
   <li><strong>homematic.keypress</strong>: For devices with buttons, see information below</li>
   <li><strong>homematic.impulse</strong>: For impulse sensors</li>
 </ul>
-
 <h4><a class="title-link" name="devices-with-buttons" href="#devices-with-buttons"></a> Devices with buttons</h4>
-
 <p>Devices with buttons (e.g. HM-Sen-MDIR-WM55, remote controls) may not be fully visible in the UI. This is intended, as buttons don’t serve any value here and all they do is trigger events.
 As an example:
 The HM-Sen-MDIR-WM55 motion detector will be displayed as 2 entities. A motion sensor and a brightness sensor. On top of that we have 2 sets (one set per button) of 4 events: PRESS_SHORT, PRESS_LONG, PRESS_CONT, PRESS_LONG_RELEASE. Be aware, that there are devices which don’t provide all of these events. But in general: if you can press it, it usually at least has PRESS_SHORT.</p>
-
 <p>Here’s an example of how to use these events for automations:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
    <span class="s">trigger</span><span class="pi">:</span>
      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
@@ -223,19 +170,15 @@ The HM-Sen-MDIR-WM55 motion detector will be displayed as 2 entities. A motion s
      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.Kitchen_Ambience</span>
 </code></pre>
 </div>
-
 <p>The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
 The name depends on if you chose to resolve names or not. If not, it will be the device ID (e.g. LEQ1234657). If you chose to resolve names (and that is successful), it will be the name you have set in your CCU or in the metadata (e.g. “Kitchen Switch”).</p>
-
 <h3><a class="title-link" name="services" href="#services"></a> Services</h3>
-
 <ul>
   <li><em>homematic.virtualkey</em>: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.</li>
   <li><em>homematic.reconnect</em>: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)</li>
   <li><em>homematic.set_var_value</em>: Set the value of a system variable.</li>
   <li><em>homematic.set_dev_value</em>: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.</li>
 </ul>
-
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <p>Simulate a button being pressed</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
@@ -247,7 +190,6 @@ The name depends on if you chose to resolve names or not. If not, it will be the
     <span class="s">param</span><span class="pi">:</span> <span class="s">PRESS_LONG</span>
 </code></pre>
 </div>
-
 <p>Open KeyMatic</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -258,7 +200,6 @@ The name depends on if you chose to resolve names or not. If not, it will be the
     <span class="s">param</span><span class="pi">:</span> <span class="s">OPEN</span>
 </code></pre>
 </div>
-
 <p>Set boolean variable to true</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -269,12 +210,9 @@ The name depends on if you chose to resolve names or not. If not, it will be the
     <span class="s">value</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="advanced-examples" href="#advanced-examples"></a> Advanced examples</h4>
-
 <p>If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.<br />
 Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above <code class="highlighter-rouge">rf</code>, <code class="highlighter-rouge">wired</code> and <code class="highlighter-rouge">ip</code> would be valid values.</p>
-
 <p>Manually turn on a switch actor</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -286,7 +224,6 @@ Using this service provides you direct access to the setValue-method of the prim
     <span class="s">value</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
-
 <p>Manually set temperature on thermostat</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -298,18 +235,10 @@ Using this service provides you direct access to the setValue-method of the prim
     <span class="s">value</span><span class="pi">:</span> <span class="s">23.0</span>
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/homematic.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -473,13 +402,10 @@ Using this service provides you direct access to the setValue-method of the prim
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -489,7 +415,6 @@ Using this service provides you direct access to the setValue-method of the prim
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -501,7 +426,6 @@ Using this service provides you direct access to the setValue-method of the prim
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

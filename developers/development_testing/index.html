@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Testing your code - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Make sure that your code passes the checks">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/development_testing/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Testing your code">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Make sure that your code passes the checks">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Testing your code">
     <meta name="twitter:description" content="Make sure that your code passes the checks">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,101 +53,59 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Testing Your Code
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Home Assistant enforces strict <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style</a> compliance on all code submitted. We automatically test every pull request with <a href="https://coveralls.io/github/home-assistant/home-assistant">Coveralls</a> and <a href="https://travis-ci.org/home-assistant/home-assistant">Travis CI</a>.</p>
-
 <h3><a class="title-link" name="local-testing" href="#local-testing"></a> Local testing</h3>
-
 <p><strong>Important:</strong> Run tox before you create your pull request to avoid annoying fixes. Local testing requires installing tox.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install tox
 </code></pre>
 </div>
-
 <p>Start your code test with <code class="highlighter-rouge">tox</code>.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>tox
 </code></pre>
 </div>
-
 <p>This will run unit tests against Python 3.4 and 3.5 (if both are available locally), as well as tests that validate <code class="highlighter-rouge">pep8</code> and <code class="highlighter-rouge">pylint</code> style.</p>
-
 <h4><a class="title-link" name="testing-tips" href="#testing-tips"></a> Testing Tips</h4>
-
 <p>You can run tests on only one tox target – just use <code class="highlighter-rouge">-e</code> to select an environment. For example, <code class="highlighter-rouge">tox -e lint</code> runs the linters only, and <code class="highlighter-rouge">tox -e py34</code> runs unit tests only on Python 3.4.</p>
-
 <p>tox uses virtual environments under the hood to create isolated testing environments. The tox virtual environments will get out-of-date when requirements change, causing test errors. Run <code class="highlighter-rouge">tox -r</code> to create new tox virtual environments.</p>
-
 <p>During development on a specific file, speed up your workflow by running tests and linting only for the file that you’re working on. To run individual files:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>flake8 homeassistant/core.py
 <span class="gp">$ </span>pylint homeassistant/core.py
 <span class="gp">$ </span>pydocstyle homeassistant/core.py
 <span class="gp">$ </span>py.test tests/test_core.py
 </code></pre>
 </div>
-
 <p>You can also run linting tests against all changed files, as reported by <code class="highlighter-rouge">git diff upstream/dev --name-only</code>, using the <code class="highlighter-rouge">lint</code> script:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/lint --changed
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="preventing-linter-errors" href="#preventing-linter-errors"></a> Preventing Linter Errors</h3>
-
 <p>Save yourself the hassle of extra commits just to fix style errors by enabling the Flake8 git commit hook. Flake8 will check your code when you try to commit to the repository and block the commit if there are any style errors, which gives you a chance to fix them!</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install flake8 flake8-docstrings
 <span class="gp">$ </span>flake8 --install-hook<span class="o">=</span>git
 </code></pre>
 </div>
-
 <p>The <code class="highlighter-rouge">flake8-docstrings</code> extension will check docstrings according to <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> when running Flake8.</p>
-
 <h3><a class="title-link" name="notes-on-pylint-and-pep8-validation" href="#notes-on-pylint-and-pep8-validation"></a> Notes on PyLint and PEP8 validation</h3>
-
 <p>If you can’t avoid a PyLint warning, add a comment to disable the PyLint check for that line with <code class="highlighter-rouge"># pylint: disable=YOUR-ERROR-NAME</code>. An example of an unavoidable PyLint warning is not using the passed-in datetime if you’re listening for a time change.</p>
-
 <h3><a class="title-link" name="maximum-line-length" href="#maximum-line-length"></a> Maximum Line Length</h3>
-
 <p>As part of the linting process, all code is checked for a maximum line length of 79 characters. This comes directly from the <a href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">PEP8 style guide</a>, and is also used by the Python standard library. All code must pass these linting checks, and no exceptions will be made. There have already been numerous requests to increase the maximum line length, but after evaluating the options, the Home Assistant maintainers have decided to stay at 79 characters. This decision is final.</p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/development_testing.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -247,13 +194,10 @@
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -263,7 +207,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -275,7 +218,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

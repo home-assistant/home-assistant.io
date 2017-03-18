@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>RESTful API - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Home Assistant RESTful API documentation">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/rest_api/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="RESTful API">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Home Assistant RESTful API documentation">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="RESTful API">
     <meta name="twitter:description" content="Home Assistant RESTful API documentation">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,52 +53,33 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       RESTful API
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Home Assistant runs a web server accessible on port 8123.</p>
-
 <ul>
   <li>http://IP_ADDRESS:8123/ is an interface to control Home Assistant.</li>
   <li>http://IP_ADDRESS:8123/api/ is a Rest API.</li>
 </ul>
-
 <p>The API accepts and returns only JSON encoded objects. All API calls have to be accompanied by the header <code class="highlighter-rouge">X-HA-Access: YOUR_PASSWORD</code> (YOUR_PASSWORD as specified in your <code class="highlighter-rouge">configuration.yaml</code> file in the <a href="/components/http/"><code class="highlighter-rouge">http:</code> section</a>).</p>
-
 <p>There are multiple ways to consume the Home Assistant Rest API. One is with <code class="highlighter-rouge">curl</code>:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="se">\</span>
     -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
     http://IP_ADDRESS:8123/ENDPOINT
 </code></pre>
 </div>
-
 <p>Another option is to use Python and the <a href="http://docs.python-requests.org/en/latest/">Requests</a> module.</p>
-
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">get</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'http://localhost:8123/ENDPOINT'</span>
@@ -120,43 +90,32 @@
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
 </div>
-
 <p class="note">
 You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code> to any url to log in automatically.
 </p>
-
 <p>Successful calls will return status code 200 or 201. Other status codes that can return are:</p>
-
 <ul>
   <li>400 (Bad Request)</li>
   <li>401 (Unauthorized)</li>
   <li>404 (Not Found)</li>
   <li>405 (Method not allowed)</li>
 </ul>
-
 <h3><a class="title-link" name="actions" href="#actions"></a> Actions</h3>
-
 <p>The API supports the following actions:</p>
-
 <h4><a class="title-link" name="get-api" href="#get-api"></a> GET /api/</h4>
 <p>Returns a message if the API is up and running.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API running."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apiconfig" href="#get-apiconfig"></a> GET /api/config</h4>
 <p>Returns the current configuration as JSON.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"components"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"recorder"</span><span class="p">,</span><span class="w">
@@ -187,17 +146,13 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/config
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apidiscovery_info" href="#get-apidiscovery_info"></a> GET /api/discovery_info</h4>
 <p>Returns basic information about the Home Assistant instance as JSON.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://127.0.0.1:8123"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"location_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="p">,</span><span class="w">
@@ -206,17 +161,13 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/discovery_info
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apibootstrap" href="#get-apibootstrap"></a> GET /api/bootstrap</h4>
 <p>Returns all data needed to bootstrap Home Assistant.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
     </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
@@ -225,17 +176,13 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/bootstrap
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apievents" href="#get-apievents"></a> GET /api/events</h4>
 <p>Returns an array of event objects. Each event object contains event name and listener count.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state_changed"</span><span class="p">,</span><span class="w">
@@ -248,17 +195,13 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/events
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apiservices" href="#get-apiservices"></a> GET /api/services</h4>
 <p>Returns an array of service objects. Each object contains the domain and which services it contains.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"browser"</span><span class="p">,</span><span class="w">
@@ -276,17 +219,13 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/services
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apihistoryperiodlttimestamp" href="#get-apihistoryperiodlttimestamp"></a> GET /api/history/period/&lt;timestamp&gt;</h4>
 <p>Returns an array of state changes in the past. Each object contains further details for the entities.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -313,24 +252,19 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> commands:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00
 </code></pre>
 </div>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00?filter_entity_id<span class="o">=</span>sensor.temperature
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apistates" href="#get-apistates"></a> GET /api/states</h4>
 <p>Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
@@ -347,17 +281,13 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> http://localhost:8123/api/states
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apistatesltentity_id" href="#get-apistatesltentity_id"></a> GET /api/states/&lt;entity_id&gt;</h4>
 <p>Returns a state object for specified entity_id. Returns 404 if not found.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"azimuth"</span><span class="p">:</span><span class="mf">336.34</span><span class="p">,</span><span class="w">
@@ -373,48 +303,36 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/states/sensor.kitchen_temperature
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apierror_log" href="#get-apierror_log"></a> GET /api/error_log</h4>
 <p>Retrieve all errors logged during the current session of Home Assistant as a plaintext response.</p>
-
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>15-12-20 11:02:50 homeassistant.components.recorder: Found unfinished sessions
 15-12-20 11:03:03 netdisco.ssdp: Error fetching description at http://192.168.1.1:8200/rootDesc.xml
 15-12-20 11:04:36 homeassistant.components.alexa: Received unknown intent HelpIntent
 </code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/error_log
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="get-apicamera_proxycameraltentity_id" href="#get-apicamera_proxycameraltentity_id"></a> GET /api/camera_proxy/camera.&lt;entity_id&gt;</h4>
 <p>Returns the data (image) from the specified camera entity_id.</p>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X GET -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        http://localhost:8123/api/camera_proxy/camera.my_sample_camera?time<span class="o">=</span>1462653861261 -o image.jpg
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="post-apistatesltentity_id" href="#post-apistatesltentity_id"></a> POST /api/states/&lt;entity_id&gt;</h4>
 <p>Updates or creates the current state of an entity.</p>
-
 <p>Expects a JSON object that has at least a state attribute:</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"below_horizon"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -424,9 +342,7 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>The return code is 200 if the entity existed, 201 if the state of a new entity was set. A location header will be returned with the URL of the new resource. The response body will contain a JSON encoded State object.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"next_rising"</span><span class="p">:</span><span class="s2">"2016-05-31T03:39:14+00:00"</span><span class="p">,</span><span class="w">
@@ -439,48 +355,36 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        -d <span class="s1">'{"state": "25", "attributes": {"unit_of_measurement": "°C"}}'</span> <span class="se">\</span>
        http://localhost:8123/api/states/sensor.kitchen_temperature
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="post-apieventsltevent_type" href="#post-apieventsltevent_type"></a> POST /api/events/&lt;event_type&gt;</h4>
 <p>Fires an event with event_type</p>
-
 <p>You can pass an optional JSON object to be used as <code class="highlighter-rouge">event_data</code>.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"next_rising"</span><span class="p">:</span><span class="s2">"2016-05-31T03:39:14+00:00"</span><span class="p">,</span><span class="w">
 </span><span class="err">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Returns a message if successful.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event download_file fired."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <h4><a class="title-link" name="post-apiservicesltdomainltservice" href="#post-apiservicesltdomainltservice"></a> POST /api/services/&lt;domain&gt;/&lt;service&gt;</h4>
 <p>Calls a service within a specific domain. Will return when the service has been executed or after 10 seconds, whichever comes first.</p>
-
 <p>You can pass an optional JSON object to be used as <code class="highlighter-rouge">service_data</code>.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"light.Ceiling"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Returns a list of states that have changed while the service was being executed.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
@@ -497,48 +401,36 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        -d <span class="s1">'{"entity_id": "switch.christmas_lights"}'</span> <span class="se">\</span>
        http://localhost:8123/api/services/switch/turn_on
 </code></pre>
 </div>
-
 <p class="note">
 The result will include any states that changed while the service was being executed, even if their change was the result of something else happening in the system.
 </p>
-
 <h4><a class="title-link" name="post-apitemplate" href="#post-apitemplate"></a> POST /api/template</h4>
 <p>Render a Home Assistant template. <a href="/topics/templating/">See template docs for more information.</a></p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulus is at {{ states('device_tracker.paulus') }}!"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p>Returns the rendered template in plain text.</p>
-
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>Paulus is at work!
 </code></pre>
 </div>
-
 <p>Sample <code class="highlighter-rouge">curl</code> command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        -d <span class="s1">'{"template": "It is !"}'</span> http://localhost:8123/api/template
 </code></pre>
 </div>
-
 <h4><a class="title-link" name="post-apievent_forwarding" href="#post-apievent_forwarding"></a> POST /api/event_forwarding</h4>
 <p>Set up event forwarding to another Home Assistant instance.</p>
-
 <p>Requires a JSON object that represents the API to forward to.</p>
-
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
     <span class="s2">"host"</span><span class="err">:</span> <span class="s2">"machine"</span><span class="p">,</span>
     <span class="s2">"api_password"</span><span class="err">:</span> <span class="s2">"my_super_secret_password"</span><span class="p">,</span>
@@ -546,20 +438,15 @@ The result will include any states that changed while the service was being exec
 <span class="p">}</span>
 </code></pre>
 </div>
-
 <p>It will return a message if event forwarding was set up successfully.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event forwarding setup."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <h4><a class="title-link" name="delete-apievent_forwarding" href="#delete-apievent_forwarding"></a> DELETE /api/event_forwarding</h4>
 <p>Cancel event forwarding to another Home Assistant instance.<br /></p>
-
 <p>Requires a JSON object that represents the API to cancel forwarding to.</p>
-
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
     <span class="s2">"host"</span><span class="err">:</span> <span class="s2">"machine"</span><span class="p">,</span>
     <span class="s2">"api_password"</span><span class="err">:</span> <span class="s2">"my_super_secret_password"</span><span class="p">,</span>
@@ -567,31 +454,19 @@ The result will include any states that changed while the service was being exec
 <span class="p">}</span>
 </code></pre>
 </div>
-
 <p>It will return a message if event forwarding was cancelled successfully.</p>
-
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event forwarding cancelled."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-
 <p class="note">
 If your client does not support <code>DELETE</code> HTTP requests you can add an optional attribute <code>_METHOD</code> and set its value to <code>DELETE</code>.
 </p>
-
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/rest_api.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
@@ -680,13 +555,10 @@ If your client does not support <code>DELETE</code> HTTP requests you can add an
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -696,7 +568,6 @@ If your client does not support <code>DELETE</code> HTTP requests you can add an
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -708,7 +579,6 @@ If your client does not support <code>DELETE</code> HTTP requests you can add an
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

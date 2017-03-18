@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Emoncms Sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.emoncms/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Emoncms Sensor">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Emoncms Sensor">
     <meta name="twitter:description" content="Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,36 +53,21 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       Emoncms Sensor
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">emoncms</code> sensor platform creates sensors for the feeds available in your local or cloud based version of <a href="https://emoncms.org">Emoncms</a>.</p>
-
 <p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>, it will list all feeds as a sensor:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry using cloud based Emoncms</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
@@ -102,9 +76,7 @@
   <span class="s">id</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
 </div>
-
 <h2><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration variables</h2>
-
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): The read API key for your Emoncms user.</li>
   <li><strong>url</strong> (<em>Required</em>): The base URL of Emoncms, use “https://emoncms.org” for the cloud based version.</li>
@@ -116,17 +88,11 @@
   <li><strong>scan_interval</strong> (<em>Optional</em>): Defines the update interval of the sensor in seconds.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of for all the sensors. default is “W”.</li>
 </ul>
-
 <h2><a class="title-link" name="default-naming-scheme" href="#default-naming-scheme"></a> Default naming scheme</h2>
-
 <p>The names of the sensors created by this component, will be a combination of static text, <code class="highlighter-rouge">id</code> from the config and <code class="highlighter-rouge">feedid</code> from the Emoncms feed, unless <code class="highlighter-rouge">sensor_names</code> is used. An example name would be <code class="highlighter-rouge">emoncms1_feedid_10</code>.</p>
-
 <h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
-
 <p>In this section you find some more examples of how this sensor can be used.</p>
-
 <p>Display only feeds with their feed IDs specified in <code class="highlighter-rouge">include_only_feed_id</code>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
@@ -139,9 +105,7 @@
       <span class="pi">-</span> <span class="s">105</span>
 </code></pre>
 </div>
-
 <p>Display all feeds except feeds with their feed id specified in <code class="highlighter-rouge">exclude_feed_id</code>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
@@ -154,9 +118,7 @@
       <span class="pi">-</span> <span class="s">105</span>
 </code></pre>
 </div>
-
 <p>Display only feeds with their feed id’s specified in <code class="highlighter-rouge">include_only_feed_id</code> and give the feed sensors a name using “sensor_names”. You don’t have to specify all feeds names in “sensor_names”, the remaining sensor names will be chosen based on “id” and the Emoncms <code class="highlighter-rouge">feedid</code>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
@@ -174,9 +136,7 @@
       <span class="s">110</span><span class="pi">:</span> <span class="s2">"</span><span class="s">watt</span><span class="nv"> </span><span class="s">feed"</span>
 </code></pre>
 </div>
-
 <p>Use a <code class="highlighter-rouge">value_template</code> to add 1500 to the feed value for all specified feed IDs in <code class="highlighter-rouge">include_feed_id</code>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
@@ -190,9 +150,7 @@
       <span class="pi">-</span> <span class="s">106</span>
 </code></pre>
 </div>
-
 <p>Display feeds from the same Emoncms instance with 2 groups of feeds, different <code class="highlighter-rouge">scan_interval</code> and a different <code class="highlighter-rouge">unit_of_measurement</code>.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">emoncms</span>
@@ -215,18 +173,10 @@
       <span class="pi">-</span> <span class="s">61</span>
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.emoncms.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -448,13 +398,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -464,7 +411,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -476,7 +422,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>History Statistics Sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions about how to integrate historical statistics into Home Assistant.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.history_stats/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="History Statistics Sensor">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions about how to integrate historical statistics into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="History Statistics Sensor">
     <meta name="twitter:description" content="Instructions about how to integrate historical statistics into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,48 +53,29 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
-
-  
   <header>
     <h1 class="title indent">
       History Statistics Sensor
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>The <code class="highlighter-rouge">history_stats</code> sensor platform provides quick statistics about another component or platforms, using data from the <a href="/components/history/">history</a>.</p>
-
 <p>It can track how long the component has been in a specific state, in a custom time period.</p>
-
 <p>Examples of what you can track:</p>
-
 <ul>
   <li>How long you were at home this week</li>
   <li>How long the lights were ON yesterday</li>
   <li>How long you watched TV today</li>
 </ul>
-
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
-
 <p>To enable the history statistics sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">history_stats</span>
@@ -116,9 +86,7 @@
     <span class="s">end</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
-
 <p>Configuration variables:</p>
-
 <ul>
   <li><strong>entity_id</strong> (<em>Required</em>): The entity you want to track</li>
   <li><strong>state</strong> (<em>Required</em>): The state you want to track</li>
@@ -127,38 +95,29 @@
   <li><strong>end</strong>: When to stop the measure (timestamp or datetime)</li>
   <li><strong>duration</strong>: Duration of the measure</li>
 </ul>
-
 <p class="note">
     You have to provide <strong>exactly 2</strong> of <code class="highlighter-rouge">start</code>, <code class="highlighter-rouge">end</code> and <code class="highlighter-rouge">duration</code>.
 <br />
     You can use <a href="/topics/templating/#home-assistant-template-extensions">template extensions</a> such as <code class="highlighter-rouge">now()</code> or <code class="highlighter-rouge">as_timestamp()</code> to handle dynamic dates, as shown in the examples below.
 </p>
-
 <h2><a class="title-link" name="time-periods" href="#time-periods"></a> Time periods</h2>
-
 <p>The <code class="highlighter-rouge">history_stats</code> component will execute a measure within a precise time period. You should always provide 2 of the following :</p>
 <ul>
   <li>When the period starts (<code class="highlighter-rouge">start</code> variable)</li>
   <li>When the period ends (<code class="highlighter-rouge">end</code> variable)</li>
   <li>How long is the period (<code class="highlighter-rouge">duration</code> variable)</li>
 </ul>
-
 <p>As <code class="highlighter-rouge">start</code> and <code class="highlighter-rouge">end</code> variables can be either datetimes or timestamps, you can configure almost any period you want.</p>
-
 <h3><a class="title-link" name="duration" href="#duration"></a> Duration</h3>
-
 <p>The duration variable is used when the time period is fixed. Different syntaxes for the duration are supported, as shown below.</p>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 6 hours</span>
 <span class="s">duration</span><span class="pi">:</span> <span class="s">06:00</span>
 </code></pre>
 </div>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 1 minute, 30 seconds</span>
 <span class="s">duration</span><span class="pi">:</span> <span class="s">00:01:30</span>
 </code></pre>
 </div>
-
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 2 hours and 30 minutes</span>
 <span class="s">duration</span><span class="pi">:</span>
   <span class="c1"># supports seconds, minutes, hours, days</span>
@@ -166,67 +125,49 @@
   <span class="s">minutes</span><span class="pi">:</span> <span class="s">30</span>
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
-
 <p>Here are some examples of periods you could work with, and what to write in your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-
 <p><strong>Today</strong>: starts at 00:00 of the current day and ends right now.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">start</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now().replace(hour=0).replace(minute=0).replace(second=0)</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">end</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
-
 <p><strong>Yesterday</strong>: ends today at 00:00, lasts 24 hours.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">end</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now().replace(hour=0).replace(minute=0).replace(second=0)</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">duration</span><span class="pi">:</span>
       <span class="s">hours</span><span class="pi">:</span> <span class="s">24</span>
 </code></pre>
 </div>
-
 <p><strong>This morning (6AM - 11AM)</strong>: starts today at 6, lasts 5 hours.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">start</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now().replace(hour=6).replace(minute=0).replace(second=0)</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">duration</span><span class="pi">:</span>
       <span class="s">hours</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
 </div>
-
 <p><strong>Current week</strong>: starts last Monday at 00:00, ends right now.</p>
-
 <p>Here, last Monday is <em>today</em> as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">start</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">as_timestamp(</span><span class="nv"> </span><span class="s">now().replace(hour=0).replace(minute=0).replace(second=0)</span><span class="nv"> </span><span class="s">)</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">now().weekday()</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">86400</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">end</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
-
 <p><strong>Last 30 days</strong>: ends today at 00:00, lasts 30 days. Easy one.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">end</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now().replace(hour=0).replace(minute=0).replace(second=0)</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">duration</span><span class="pi">:</span>
       <span class="s">days</span><span class="pi">:</span> <span class="s">30</span>
 </code></pre>
 </div>
-
 <p><strong>All your history</strong> starts at timestamp = 0, and ends right now.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">start</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">end</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
-
 <p class="note">
     If you want to check if your period is right, just click on your component, the <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code> attributes will show the start and end of the period, nicely formatted.
 </p>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.history_stats.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
@@ -448,13 +389,10 @@
     </ul>
     </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -464,7 +402,6 @@
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -476,7 +413,6 @@
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

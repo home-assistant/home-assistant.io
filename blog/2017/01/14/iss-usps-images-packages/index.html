@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>0.36: ISS, USPS, Image processing, Insteon - Home Assistant</title>
     <meta name="author" content="Fabian Affolter">
     <meta name="description" content="Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="0.36: ISS, USPS, Image processing, Insteon">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,32 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes">
     <meta property="og:image" content="https://home-assistant.io/images/blog/2016-01-0.36/social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@fabaff">
     <meta name="twitter:title" content="0.36: ISS, USPS, Image processing, Insteon">
     <meta name="twitter:description" content="Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-01-0.36/social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,27 +54,15 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="post">
-  
   <header>
-  
   <h1 class="title indent">0.36: ISS, USPS, Image processing, Insteon</h1>
-  
-
-  
   <div class="meta clearfix">
     <time datetime="2017-01-14T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 15, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -92,48 +70,31 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-    
-      
         <li>Release-Notes</li>
-      
-    
     </ul>
   </span>
-    
       <a class='comments'
          href="#disqus_thread"
          >Comments</a>
-    
   </div>
-  
 </header>
-
-
   <p>Welcome to 2017 and 0.36. We are proud to announce the first release for this year. While we are still migrating parts to async but 0.36 is focusing on new features and a lot of bug fixes.</p>
-
 <h3><a class="title-link" name="packages" href="#packages"></a> Packages</h3>
 <p><a href="https://home-assistant.io/topics/packages/">Packages</a> are providing a new way to organize different component’s configuration parts together. With packages we offer the option to include different components or parts of configuration using any of the <code class="highlighter-rouge">!include</code> directives.</p>
-
 <h3><a class="title-link" name="influxdb-export" href="#influxdb-export"></a> InfluxDB export</h3>
 <p>The <a href="https://home-assistant.io/components/influxdb/">InfluxDB</a> component was causing problems in a wide variety of use cases. <a href="https://github.com/titilambert">@titilambert</a> improved our InfluxDB exporter feature. It might be that you need to run the <a href="/components/influxdb/#migration-script">migration script</a> to update your InfluxDB database.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script influxdb_migrator <span class="se">\</span>
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD <span class="se">\</span>
     -d INFLUXDB_DB_NAME
 </code></pre>
 </div>
-
 <h3><a class="title-link" name="international-space-station-iss" href="#international-space-station-iss"></a> International Space Station (ISS)</h3>
 <p>No, unfortunately we are not going to space. The <code class="highlighter-rouge">iss</code> sensor is tracking the position of the International Space Station and gives you some details.</p>
-
 <h3><a class="title-link" name="insteon-local" href="#insteon-local"></a> Insteon local</h3>
 <p>The support for Insteon was removed due to issues a while ago. With the <code class="highlighter-rouge">insteon_local</code> component support for <a href="https://home-assistant.io/components/insteon_local/">Insteon</a> is back and let one work locally with an Insteon setup.</p>
-
 <h3><a class="title-link" name="image-processing" href="#image-processing"></a> Image processing</h3>
 <p>The new <a href="https://home-assistant.io/components/image_processing/">image processing component</a> currently works with <a href="https://home-assistant.io/components/openalpr/">number plates</a>. But this could level the way to integrate feature like facial recognition, motion detection, or gestures control.</p>
-
 <h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
-
 <ul>
   <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.hydroquebec/">HydroQuebec</a> (<a href="https://github.com/titilambert">@titilambert</a>)</li>
   <li>Sensor: Tracking the <a href="https://home-assistant.io/components/sensor.iss/">ISS</a> (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
@@ -174,9 +135,7 @@
   <li>Docker: <code class="highlighter-rouge">ffmpeg</code> is now included by default (<a href="https://github.com/colinodell">@colinodell</a>)</li>
   <li>Minor and not so minor features and bug fixes by <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/mezz64">@mezz64</a>, <a href="https://github.com/andrey-git">@andrey-git</a>, <a href="https://github.com/aequitas">@aequitas</a>, <a href="https://github.com/abmantis">@abmantis</a>, <a href="https://github.com/turbokongen">@turbokongen</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/michaelarnauts">@michaelarnauts</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/titilambert">@titilambert</a>, <a href="https://github.com/btorresgil">@btorresgil</a>, <a href="https://github.com/henworth">@henworth</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/mjg59">@mjg59</a>, <a href="https://github.com/Giannie">@Giannie</a>, <a href="https://github.com/n8henrie">@n8henrie</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/florianholzapfel">@florianholzapfel</a>, <a href="https://github.com/MrMep">@MrMep</a>, <a href="https://github.com/bah2830">@bah2830</a>, <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/glance-">@glance-</a>, <a href="https://github.com/markferry">@markferry</a>, and <a href="https://github.com/nikdoof">@nikdoof</a>.</li>
 </ul>
-
 <h3><a class="title-link" name="release-0361---january-17" href="#release-0361---january-17"></a> Release 0.36.1 - January 17</h3>
-
 <ul>
   <li>Fix load_yaml default value (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Fix discovery of flux_led (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
@@ -187,9 +146,7 @@
   <li>Fix Bluetooth and Volvo trackers (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
   <li>Fix lannouncer notify platform (<a href="https://github.com/mKeRix">@mKeRix</a>)</li>
 </ul>
-
 <h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
-
 <ul>
   <li><a href="https://home-assistant.io/components/notify.apns/">APNS</a> service was moved to the <code class="highlighter-rouge">notify</code> domain. Use <code class="highlighter-rouge">notify.apns_NOTIFIER_NAME</code> instead of <code class="highlighter-rouge">apns.NOTIFIER_NAME</code>.</li>
   <li><a href="https://home-assistant.io/components/influxdb/">InfluxDB</a> component has a new <a href="/components/influxdb/#data-migration">schema</a> to store values in the InfluxDB database. You may require to run the <a href="/components/influxdb/#migration-script"><code class="highlighter-rouge">influxdb_migrator</code></a> script.
@@ -205,28 +162,18 @@ You have to note:
   </li>
   <li>TTS cache files use now the language abbreviation as part of the name. If you want to use the cache, it need to be renamed or cleared, new created. E. g. <code class="highlighter-rouge">HASH_PLATFORM.xxx</code> -&gt; <code class="highlighter-rouge">HASH_LANG_PLATFORM.xxx</code>.</li>
 </ul>
-
 <h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
 <p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-
 <h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
 </article>
-
-
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
   <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 </section>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">About Home Assistant</h1>
   <ul class="divided">
@@ -242,74 +189,45 @@ You have to note:
 <div id="fb-root"></div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
-
-    
       <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
-  
   <a href="//twitter.com/share"
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
      data-url="https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/"
      data-counturl="https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/" >Tweet</a>
-  
-  
     <div class="fb-share-button" style='top: -6px;'
          data-href="https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/"
          data-layout="button_count">
     </div>
-  
-  
   <div class="g-plusone" data-size="standard"></div>
-  
 </section>
-
 <script src="https://apis.google.com/js/platform.js" async defer></script>
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-    
-      
         <li class="post">
           <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/25/config-panel-and-state-restoration/">0.39: Configuration panel, state restoration and improved docs</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/14/clt-workshop/">Workshop at CLT 2017</a>
         </li>
-      
-    
-      
         <li class="post">
           <a href="/blog/2017/02/11/alert-appletv-mqtt-yeelight/">0.38: Alert, AppleTV, MQTT discovery, and Yeelight</a>
         </li>
-      
-    
   </ul>
 </section>
-    
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -319,7 +237,6 @@ You have to note:
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -331,7 +248,6 @@ You have to note:
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -340,13 +256,10 @@ You have to note:
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-  
-    
     // var disqus_developer = 1;
     var disqus_identifier = 'https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/';
     var disqus_url = 'https://home-assistant.io/blog/2017/01/14/iss-usps-images-packages/';
     var disqus_script = 'embed.js';
-  
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

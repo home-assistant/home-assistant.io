@@ -3,17 +3,14 @@
   <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
   <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
   <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Autostart using systemd - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
-    
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/autostart/systemd/">
-
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Autostart using systemd">
     <meta property="og:site_name" content="Home Assistant">
@@ -21,39 +18,31 @@
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    
     <meta name="twitter:title" content="Autostart using systemd">
     <meta name="twitter:description" content="Instructions how to setup Home Assistant to launch on boot using systemd.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
   </head>
-
   <body >
-
     <header>
       <div class="grid-wrapper">
   <div class="grid">
-
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
   <a href="/" class="site-title">
     <img width='40' src='/demo/favicon-192x192.png'>
     <span>Home Assistant</span>
   </a>
 </div>
-
 <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
   <nav>
     <input type="checkbox" id="toggle">
 <label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
 <ul class="menu pull-right">
-  
   <li><a href="/getting-started/">Getting started</a></li>
   <li><a href="/components/">Components</a></li>
   <li><a href="/docs/">Docs</a></li>
@@ -64,51 +53,32 @@
 </ul>
   </nav>
 </div>
-
   </div>
 </div>
     </header>
-
-    
-
     <div class="grid-wrapper">
       <div class="grid grid-center">
-        
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-        
-
           <article class="page">
-  
-  
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/autostart/systemd.markdown'>Edit this page on GitHub</a></div>
-  
-
-  
   <header>
     <h1 class="title indent">
       Autostart Using Systemd
     </h1>
   </header>
   <hr class="divider">
-  
-
   <p>Newer linux distributions are trending towards using <code class="highlighter-rouge">systemd</code> for managing daemons. Typically, systems based on Fedora, ArchLinux, or Debian (8 or later) use <code class="highlighter-rouge">systemd</code>. This includes Ubuntu releases including and after 15.04, CentOS, and Red Hat. If you are unsure if your system is using <code class="highlighter-rouge">systemd</code>, you may check with the following command:</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ps -p 1 -o <span class="nv">comm</span><span class="o">=</span>
 </code></pre>
 </div>
-
 <p>If the preceding command returns the string <code class="highlighter-rouge">systemd</code>, you are likely using <code class="highlighter-rouge">systemd</code>.</p>
-
 <p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. A service file is needed to control Home Assistant with <code class="highlighter-rouge">systemd</code>. The template below should be created using a text editor.  Note, root permissions via ‘sudo’ will likely be needed. The following should be noted to modify the template:</p>
-
 <ul>
   <li><code class="highlighter-rouge">ExecStart</code> contains the path to <code class="highlighter-rouge">hass</code> and this may vary. Check with <code class="highlighter-rouge">whereis hass</code> for the location.</li>
   <li>If running Home Assistant in a python virtual environment or a docker, please skip to section below.</li>
   <li>For most systems, the file is <code class="highlighter-rouge">/etc/systemd/system/home-assistant@[your user].service</code> with [your user] replaced by the user account that Home Assistant will run as - normally <code class="highlighter-rouge">homeassistant</code>.  For Ubuntu 16.04, the file is <code class="highlighter-rouge">/lib/systemd/system/home-assistant.service</code> and requires running this command <code class="highlighter-rouge">sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service</code> after file is created.</li>
   <li>If unfamiliar with command line text editors, <code class="highlighter-rouge">sudo nano -w [filename]</code> can be used with <code class="highlighter-rouge">[filename]</code> replaced with the full path to the file.  Ex. <code class="highlighter-rouge">sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service</code>.  After text entered, press CTRL-X then press Y to save and exit.</li>
 </ul>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 After=network.target
@@ -122,9 +92,7 @@ ExecStart=/usr/bin/hass
 WantedBy=multi-user.target
 </code></pre>
 </div>
-
 <p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.  If Home Assistant install is not located at <code class="highlighter-rouge">/srv/homeassistant</code>, please modify the <code class="highlighter-rouge">Enviroment=</code> and <code class="highlighter-rouge">ExecStart=</code> lines appropriately.</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 After=network.target
@@ -141,9 +109,7 @@ ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 WantedBy=multi-user.target
 </code></pre>
 </div>
-
 <p>If you want to use docker, the following template should work for you.</p>
-
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 Requires=docker.service
@@ -160,32 +126,23 @@ ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
 WantedBy=multi-user.target
 </code></pre>
 </div>
-
 <p>You need to reload <code class="highlighter-rouge">systemd</code> to make the daemon aware of the new configuration.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl --system daemon-reload
 </code></pre>
 </div>
-
 <p>To have Home Assistant start automatically at boot, enable the service.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>home-assistant@[your user]
 </code></pre>
 </div>
-
 <p>To disable the automatic start, use this command.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl disable home-assistant@[your user]
 </code></pre>
 </div>
-
 <p>To start Home Assistant now, use this command.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl start home-assistant@[your user]
 </code></pre>
 </div>
-
 <p>You can also substitute the <code class="highlighter-rouge">start</code> above with <code class="highlighter-rouge">stop</code> to stop Home Assistant, <code class="highlighter-rouge">restart</code> to restart Home Assistant, and ‘status’ to see a brief status report as seen below.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl status home-assistant@[your user]
 ● home-assistant@fab.service - Home Assistant <span class="k">for</span> <span class="o">[</span>your user]
    Loaded: loaded <span class="o">(</span>/etc/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled<span class="o">)</span>
@@ -197,29 +154,18 @@ WantedBy=multi-user.target
 <span class="o">[</span>...]
 </code></pre>
 </div>
-
 <p>To get Home Assistant’s logging output, simple use <code class="highlighter-rouge">journalctl</code>.</p>
-
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo journalctl -f -u home-assistant@[your user]
 </code></pre>
 </div>
-
 <p>Because the log can scroll quite quickly, you can select to view only the error lines:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo journalctl -f -u home-assistant@[your user] | grep -i <span class="s1">'error'</span>
 </code></pre>
 </div>
-
-
 </article>
-
-
         </div>
-
-        
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
-  
-  
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>
     <h1 class="title delta">Topics</h1>
@@ -406,13 +352,10 @@ WantedBy=multi-user.target
     </ul>
   </div>
 </section>
-  
 </div>
         </aside>
-        
       </div>
     </div>
-
     <footer>
       <div class="grid-wrapper">
   <div class="grid">
@@ -422,7 +365,6 @@ WantedBy=multi-user.target
   <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
   <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
   <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
-
   <div class="credit">
     Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
     Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
@@ -434,7 +376,6 @@ WantedBy=multi-user.target
   </div>
 </div>
     </footer>
-
     <script>
   var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
