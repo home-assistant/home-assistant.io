@@ -111,8 +111,8 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
       <span class="s">code_off</span><span class="pi">:</span> <span class="s">133742</span>
     <span class="s">living_room_light</span><span class="pi">:</span>
       <span class="s">protocol</span><span class="pi">:</span> <span class="s">5</span>
-      <span class="s">code_on</span><span class="pi">:</span> <span class="s">654321</span>
-      <span class="s">code_off</span><span class="pi">:</span> <span class="s">654320</span>
+      <span class="s">code_on</span><span class="pi">:</span> <span class="s">654321,565874,233555,149874</span>
+      <span class="s">code_off</span><span class="pi">:</span> <span class="s">654320,565873,233554,149873</span>
       <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">15</span>
 </code></pre>
 </div>
@@ -125,8 +125,8 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
     <ul>
       <li><strong>[entry]</strong> (<em>Required</em>): Name of the switch. Multiple entries are possible.
         <ul>
-          <li><strong>code_on</strong> (<em>Required</em>): Decimal code to switch the device on.</li>
-          <li><strong>code_off</strong> (<em>Required</em>): Decimal code to switch the device off.</li>
+          <li><strong>code_on</strong> (<em>Required</em>): Decimal code(s) to switch the device on. To run multiple codes in a sequence, separate the individual codes with commas ‘,’.</li>
+          <li><strong>code_off</strong> (<em>Required</em>): Decimal code(s) to switch the device off. To run multiple codes in a sequence, separate the individual codes with commas ‘,’.</li>
           <li><strong>protocol</strong> (<em>Optional</em>): RF Protocol (Default is <code class="highlighter-rouge">1</code>).</li>
           <li><strong>pulselength</strong> (<em>Optional</em>): Pulselength (Default is the protocol default).</li>
           <li><strong>signal_repetitions</strong> (<em>Optional</em>): Number of times to repeat transmission (default is 10, can increase to try to improve reliability).</li>
