@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: nut.png
-ha_category: Sensor
+ha_category: System Monitor
 ha_version: 0.34
 ---
 

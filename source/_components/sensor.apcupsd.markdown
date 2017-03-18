@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: apcupsd.png
-ha_category: Sensor
+ha_release: 0.13
+ha_category: System Monitor
 ---
 
 The `apcupsd` sensor platform allows you to monitor a UPS (battery backup) by using data from the [apcaccess](http://linux.die.net/man/8/apcaccess) command.

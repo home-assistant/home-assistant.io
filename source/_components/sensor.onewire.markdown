@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: onewire.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.12
 ---
 

@@ -9,18 +9,13 @@ sharing: true
 footer: true
 logo: twilio.png
 ha_category: Notifications
-ha_release: "0.37"
+ha_release: 0.37
 ---
 
-The `twilio` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
+The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
 Passed message will be read by Text-To-Speech service.
 
-This component is just an adaptation from the Twilio SMS notification platform and won't exist without it.
-
-Free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
-Calls are limited to 10 minutes and will play a short trial message before your message runs.
-
-Upgraded accounts have no limitation.
+The requirement is that you have setup [Twilio](/components/twilio/).
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -29,15 +24,11 @@ To use this notification platform in your installation, add the following to you
 notify:
   - name: NOTIFIER_NAME
     platform: twilio_call
-    account_sid: ACCOUNT_SID_FROM_TWILIO
-    auth_token: AUTH_TOKEN_FROM_TWILIO
     from_number: E164_PHONE_NUMBER
 ```
 
 Configuration variables:
 
-- **account_sid** (*Required*): Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It starts with the letters `AC`.
-- **auth_token** (*Required*): Your Twilio Account SID which can be found in your [console](https://www.twilio.com/console). It should be directly under where you found the `account_sid`.
 - **from_number** (*Required*): An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like +14151234567. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information.
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 

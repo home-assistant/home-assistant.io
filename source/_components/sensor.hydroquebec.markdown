@@ -22,24 +22,18 @@ sensor:
   - platform: hydroquebec
     username: MYUSERNAME
     password: MYPASSWORD
+    contract: 'CONTRACT#'  (NOTE:works with the ' ' ,insert your contract in between)
     monitored_variables:
      - period_total_bill
      - period_length
      - period_total_days
-     - period_mean_daily_bill
-     - period_mean_daily_consumption
-     - period_total_consumption
-     - period_lower_price_consumption
-     - period_higher_price_consumption
-     - yesterday_total_consumption
-     - yesterday_lower_price_consumption
-     - yesterday_higher_price_consumption
 ```
 
 Configuration variables:
 
-- **username** (*Required*): The App Token for your account.
-- **password** (*Required*): The App Token for your account.
+- **username** (*Required*): Username used to log into the Hydro-Québec site.
+- **password** (*Required*): Password used to log into the Hydro-Québec site.
+- **contract** (required since HA 4.0) Your contract number with Hydro-Québec
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **period_total_bill** : Current period bill
   - **period_length**: Current period length

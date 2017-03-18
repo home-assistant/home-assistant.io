@@ -28,7 +28,7 @@ Steps to configure your Amazon Fire TV stick with Home Assistant:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 - The following commands must be run in a Python 2.x environment. They will allow the component to function in an Ubuntu 16.04/Hassbian environment.
-  - `apt-get install swig libssl-dev python-dev libusb-1.0-0`
+  - `apt-get install swig libssl-dev python-dev libusb-1.0-0 python-yaml`
   - `pip install flask`
   - `pip install https://pypi.python.org/packages/source/M/M2Crypto/M2Crypto-0.24.0.tar.gz`
   - `pip install firetv[firetv-server]`

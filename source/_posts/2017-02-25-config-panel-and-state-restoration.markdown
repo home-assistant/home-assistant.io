@@ -297,7 +297,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [aurora]: https://home-assistant.io/components/binary_sensor.aurora/
 [netmonitor]: https://home-assistant.io/components/sensor.fritzbox_netmonitor/
 [itach]: https://home-assistant.io/components/remote.itach/
-[sunflowers]: https://home-assistant.io/components/light.yeelight-sunflower
+[sunflowers]: https://home-assistant.io/components/light.yeelightsunflower/
 [kodi]: https://home-assistant.io/components/media_player.kodi/
 [myq]: https://home-assistant.io/components/cover.myq/
 [oemt]: https://home-assistant.io/components/climate.oem/
