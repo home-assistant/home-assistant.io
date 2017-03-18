@@ -80,7 +80,7 @@
 <ul>
   <li><strong>hosts</strong> (<em>Required</em>): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.</li>
   <li><strong>home_interval</strong> (<em>Optional</em>): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.</li>
-  <li><strong>exclude</strong> (<em>Optional</em>): Hosts not to include in nmap scanning.</li>
+  <li><strong>exclude</strong> (<em>Optional</em>): Hosts not to include in nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.</li>
   <li><strong>scan_options</strong> (<em>Optional</em>): Configurable scan options for nmap. Default to <code class="highlighter-rouge">-F --host-timeout 5s</code></li>
 </ul>
 <p>A full example for the <code class="highlighter-rouge">nmap</code> tracker could look like the following sample:</p>
