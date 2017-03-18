@@ -108,16 +108,17 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | `media_content_type` | no | Type of media to play, in this case `VIDEO` | VIDEO |
 
 ### Compatibility
-| Client  | Limitations |
-| -- | --- |
-| Any (when all controls disabled) | A stop button will appear but is not functional. |
-| Any (when casting) | Controlling playback will work but with error logging. |
-| Any (remote client) | Controls disabled. |
-| Apple TV (PlexConnect) | Controls disabled.  Music does not work. |
-| iOS  | None |
-| NVidia Shield | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging |
-| Plex Web | None |
-| Tivo Plex App  | Only play, pause, stop/off controls enabled |
+
+| Client                           | Limitations                                                                                                                                                     |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
+| Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
+| Any (remote client)              | Controls disabled.                                                                                                                                              |
+| Apple TV (PlexConnect)           | Controls disabled.  Music does not work.                                                                                                                        |
+| iOS                              | None                                                                                                                                                            |
+| NVidia Shield                    | Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging |
+| Plex Web                         | None                                                                                                                                                            |
+| Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
 ### Notes
 * At this moment, the Plex platform only supports one Plex Media Server.
