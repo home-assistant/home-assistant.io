@@ -92,17 +92,14 @@ ExecStart=/usr/bin/hass
 WantedBy=multi-user.target
 </code></pre>
 </div>
-<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.  If Home Assistant install is not located at <code class="highlighter-rouge">/srv/homeassistant</code>, please modify the <code class="highlighter-rouge">Enviroment=</code> and <code class="highlighter-rouge">ExecStart=</code> lines appropriately.</p>
+<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.  If Home Assistant install is not located at <code class="highlighter-rouge">/srv/homeassistant</code>, please modify the <code class="highlighter-rouge">ExecStart=</code> line appropriately.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 After=network.target
 
 [Service]
 Type=simple
-User=homeassistant
-# Make sure the virtualenv Python binary is used
-Environment=VIRTUAL_ENV="/srv/homeassistant"
-Environment=PATH="$VIRTUAL_ENV/bin:$PATH"
+User=%i
 ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 
 [Install]
