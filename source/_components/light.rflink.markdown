@@ -49,7 +49,7 @@ Configuration variables:
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **new_devices_group** (*Optional*): Create group to add new/unknown devices to.
 - **device_defaults**: (*Optional*)
-  - **fire_event_** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
+  - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
   - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
 
 Device configuration variables:
