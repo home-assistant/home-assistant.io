@@ -11,7 +11,7 @@ ha_release: 0.38
 ---
 If you would like to use your own [State card](/developers/frontend_add_card/) without merging your code into [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer/) you can create your own implementation.
 
-- Put the element source file and its dependencies in `www/custom_ui/` directory under you homeassistant config.
+- Put the element source file and its dependencies in `www/custom_ui/` directory under your homeassistant config directory.
 
 For example if creating a state card for the `light` domain named `my_custom_light_card` put `state-card-my_custom_light_card.html` in `www/custom_ui/`.
 
