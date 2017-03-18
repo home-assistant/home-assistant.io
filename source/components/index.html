@@ -40,14 +40,11 @@ Support for these components is provided by the Home Assistant community.
       <a href='#added_one_version_ago' class="btn added_one_version_ago">Added in {{ added_one_ago_version }} ({{ one_ago_version_components_count }})</a>
       <a href='#added_two_versions_ago' class="btn added_two_versions_ago">Added in {{ added_two_ago_version }} ({{ two_ago_version_components_count }})</a>
 
-      {% for category in categories %}
-        {% if category and category != 'Other' %}
-          <a href='#{{ category | slugify }}' class="btn">
-            {{ category }}
-            ({{ components | where: 'ha_category', category | size }})
-          </a>
-        {% endif %}
-      {% endfor %}
+{% for category in categories %}
+  {% if category and category != 'Other' %}
+    <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components | where: 'ha_category', category | size }})</a>
+  {% endif %}
+{% endfor %}
 
       <a href='#other' class="btn">Other</a>
     </div>
@@ -58,27 +55,7 @@ Support for these components is provided by the Home Assistant community.
         <input type="text" name="search" id="search" class="search" placeholder="Search components...">
       </form>
     </div>
-    <div class="hass-option-cards" id="componentContainer">
-      {% for component in components %}
-        {% if component.ha_category %}
-        {% assign sliced_version = component.ha_release | split: '.' %}
-        {% assign minor_version = sliced_version[1]|plus: 0 %}
-          <a href='{{ component.url }}'
-             class='option-card {{ component.ha_category | slugify }}{% if minor_version == site.current_minor_version %} added_in_current_version{% elsif minor_version == added_one_ago_minor_version %} added_one_version_ago{% elsif minor_version == added_two_ago_minor_version %} added_two_versions_ago{% endif %}{% if component.featured %} featured{% endif %}'
-             data-title="{{component.title| downcase}}"
-             data-ha_category="{{component.ha_category | downcase}}"
-             {% unless component.featured %}style='display: none'{% endunless %}>
-            <div class='img-container'>
-              {% if component.logo %}
-                <img src='/images/supported_brands/{{ component.logo }}'>
-              {% endif %}
-            </div>
-            <div class='title'>{{ component.title }}</div>
-            <div class='category'>{{ component.ha_category }}</div>
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
+    <div class="hass-option-cards" id="componentContainer"> </div>
   </div>
 </div>
 
@@ -91,47 +68,141 @@ Support for these components is provided by the Home Assistant community.
 {% endfor %}
 {% endcomment %}
 
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script>
-// undo initial hiding of non-featured cards
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+{% raw %}
+<script id="component-template" type="text/x-custom-template">
+{{#components}}
+  <a href="{{url}}" class="option-card">
+    <div class="img-container">{{{image}}}</div>
+    <div class='title'>{{title}}</div>
+    <div class='category'>{{cat}}</div>
+  </a>
+{{/components}}
+{{^components}}
+  <p class='note'>Nothing found!</p>
+{{/components}}
+</script>
+{% endraw %}
+
+<script type="text/javascript">
+var current_minor_version = {{site.current_minor_version}};
+var added_one_ago_minor_version = {{added_one_ago_minor_version}};
+var added_two_ago_minor_version = {{added_two_ago_minor_version}};
+// This object contains all components we have
+var allComponents = [
+  {% for component in components %}
+    {% if component.ha_category %}
+{% assign sliced_version = component.ha_release | split: '.' %}
+{% assign minor_version = sliced_version[1]|plus: 0 %}
+{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{component.ha_category | slugify}}", featured: {% if component.featured %}true{% else %}false{% endif %}, v: {{minor_version}}, logo: "{{component.logo}}"},
+    {% endif %}
+  {% endfor %}
+  false
+];
+allComponents.pop(); // remove placeholder element at the end
+</script>
+<script type="text/javascript">
 (function(){
-  var hash = location.hash;
-  if (hash !== '') {
-    if (hash === '#all' || hash.indexOf('#search/') === 0) {
-      jQuery('#componentContainer a').show();
-    } else {
-      jQuery('#componentContainer .featured').hide();
-      jQuery('#componentContainer .' + hash.substr(1)).show();
+  var template = $('#component-template').html();
+  Mustache.parse(template); // make future calls to render faster
+
+  function init() {
+    // do the lowerCase transformation once
+    for (i=0; i < (allComponents.length); i++) {
+      allComponents[i].titleLC = allComponents[i].title.toLowerCase();
+      allComponents[i].catLC = allComponents[i].cat.toLowerCase();
     }
     
-    if (hash.indexOf('#search/') === 0) {
+    // sort the components alphabetically
+    allComponents.sort(function(a, b){
+      return a.titleLC.localeCompare(b.titleLC);
+    });
+    
+    if (location.hash !== '' && location.hash.indexOf('#search/') === 0) {
       // set default value in search from URL
-      jQuery('.component-search input').val(decodeURIComponent(hash).substring(8));
+      jQuery('.component-search input').val(decodeURIComponent(location.hash).substring(8));
     }
   }
-})();
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-<script>
-$(window).load(function(){
-  var $isotope = $('#componentContainer').isotope({
-    filter: '.featured',
-    animationOptions: {
-        duration: 750,
-        easing: 'linear',
-        queue: false
-    },
-    masonry: {
-      columnWidth: 210
-    },
-    getSortData: {
-      title: function( itemElem ) {
-        var title = $( itemElem ).find('.title').text();
-        return title ? title.toLowerCase() : '';
+  init();
+  
+  /**
+   * filter all components, based on the location's hash and render them into the component box
+   */
+  function applyFilter() {
+    var rendered, i, filter, search;
+    var hash = location.hash || '';
+    var data = {
+      components: [],
+      image: function () {
+        if(this.logo === '') {
+          return '';
+        } else {
+          return '<img src="/images/supported_brands/' + this.logo + '">';
+        }
       }
-    },
-    sortBy: 'title'
-  });
+    };
+
+    // fade-out css effect on the old elements. This is actually not visible on fast browsers
+    $('#componentContainer').addClass('remove-items');
+
+    if (hash.indexOf('#search/') === -1) {
+      // reset search box when not searching
+      jQuery('.component-search input').val(null);
+    }
+
+    if (hash === '#all') {
+      // shortcut: no need to filter
+      data.components = allComponents;
+    } else {
+      if (hash.indexOf('#search/') === 0) {
+        // search through title and category
+        search = decodeURIComponent(hash).substring(8).toLowerCase();
+        filter = function(comp) {
+          return (comp.titleLC.indexOf(search) !== -1) ||
+                 (comp.catLC.indexOf(search) !== -1);
+        };
+
+      } else if(hash === '#featured' || hash === '') {
+        // only show those with featured = true
+        filter = function(comp) { 
+          return comp.featured;
+        };
+
+      } else if(hash === '#added_in_current_version' || hash === '#added_one_version_ago' || hash === '#added_two_versions_ago') {
+        // compare against a version
+        search = current_minor_version;
+        if (hash === '#added_one_version_ago') {
+          search = added_one_ago_minor_version;
+        } else if (hash === '#added_two_versions_ago') {
+          search = added_two_ago_minor_version;
+        }
+        filter = function(comp) { 
+          return comp.v === search;
+        };
+
+      } else {
+        // regular filter categories
+        search = hash.substring(1);
+        filter = function(comp) { 
+          return comp.catLC === search;
+        };
+      }
+
+      // filter all components using the filter function
+      for (i=0; i < (allComponents.length); i++) {
+        if (filter(allComponents[i])) {
+          data.components.push(allComponents[i]);
+        }
+      }
+    }
+
+    rendered = Mustache.render(template, data);
+
+    // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
+    $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
+  }
 
   /**
    * update the browser location hash. This enables users to use the browser-history 
@@ -144,53 +215,6 @@ $(window).load(function(){
     }
   }
 
-  /**
-   * filter all components, based on the location's hash
-   */
-  function applyFilter() {
-    var hash = location.hash;
-    var filter;
-    
-    if (hash == '') {
-      filter = '.featured';
-      hash = '#featured';
- 
-    } else if (hash === '#all') {
-      // show all elements
-      filter = '*';
-
-    } else if (hash.indexOf('#search/') === 0) {
-      // search for the given string
-      var text = decodeURIComponent(hash).substring(8).toLowerCase();
-      text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').toLowerCase();
-
-      if(text && text.length === 0){
-        filter = '*';
-      } else {
-        filter = function() {
-          var title = $(this).data('title');
-          var cat = $(this).data('ha_category');
-          return title.indexOf(text) != -1 || cat.indexOf(text) != -1;
-        };
-      }
-
-    } else {
-      filter = '.' + hash.substr(1);
-    }
-
-    if (!hash.indexOf('#search/') === 0) {
-        // reset the search field when no longer searching
-        $('.component-search input').val(null);
-    }
-
-    $('.filter-button-group a.current').removeClass('current');
-    $('.filter-button-group a[href="'+hash+'"]').addClass('current');
-
-    $isotope.isotope({
-      filter: filter
-    });
-  }
-
   // update view by filter selection
   jQuery('.filter-button-group a').click(function() {
     updateHash(this.getAttribute('href'));
@@ -198,6 +222,36 @@ $(window).load(function(){
 
     return false;
   });
+  
+    /**
+   * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
+   */
+  function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) {
+          func.apply(context, args);
+        }
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) {
+        func.apply(context, args);
+      }
+    };
+  };
+  // update view by search text
+  $('.component-search input').keyup(debounce(function() {
+    var text = $(this).val();
+    // sanitize input
+    text = text.replace(/[(\?|\&\{\}\(\))]/gi, '');
+    updateHash('#search/' + text);
+    applyFilter();
+  }, 500));
 
   /**
    * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
@@ -231,8 +285,7 @@ $(window).load(function(){
   }, 500));
 
   window.addEventListener('hashchange', applyFilter);
-
-  // initialize from URL
   applyFilter();
-});
+
+})();
 </script>
