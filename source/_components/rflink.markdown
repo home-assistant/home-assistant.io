@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "RRLink"
+title: "RFLink"
 description: "Instructions how to integrate RFLink gateway into Home Assistant."
 date: 2016-01-04
 sidebar: true
