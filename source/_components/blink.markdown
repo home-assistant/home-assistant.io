@@ -25,6 +25,8 @@ blink:
   password: YOUR_PASSWORD
 ```
 
+If you have your camera registered .homeassistant/deps/blinkpy.py file and change .prod to .prde to access the EU or other region server for Blink to work.
+
 Once loaded, your front end will have the following components:
 * A camera image for each camera in your system.
 * A binary_sensor per camera that indicates whether motion detection is enabled.
