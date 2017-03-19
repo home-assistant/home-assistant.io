@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Rflink Sensor"
-description: "Instructions how to integrate Rflink sensors into Home Assistant."
+title: "RFLink Sensor"
+description: "Instructions how to integrate RFLink sensors into Home Assistant."
 date: 2016-01-04
 sidebar: true
 comments: false
@@ -12,11 +12,11 @@ ha_category: Sensor
 ha_release: 0.38
 ---
 
-The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is an Arduino firmware that allows communication with 433Mhz devices using cheap hardware (Arduino + 433Mhz tranceiver).
+The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First you have to set up your [rflink hub](/components/rflink/).
 
-After configuring the Rflink hub sensors will be automatically discovered and added.
+After configuring the RFLink hub sensors will be automatically discovered and added.
 
 New/unknown sensors can be assigned to a default group automatically by specifying the `new_devices_group` option with a group name. If the group doesn't exist it will be created.
 
@@ -26,10 +26,10 @@ For example:
 # Example configuration.yaml entry
 sensor:
   platform: rflink
-  new_devices_group: "New Rflink Sensors"
+  new_devices_group: "New RFLink Sensors"
 ```
 
-Rflink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own
+RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own
 
 Once the ID of a sensor is known it can be used to configure the sensor in HA, for example to add it to a different group, hide it or configure a nice name.
 
@@ -52,14 +52,14 @@ Configuration variables:
 
 Device configuration variables:
 
-- **name** (*Optional*): Name for the device, defaults to Rflink ID.
+- **name** (*Optional*): Name for the device, defaults to RFLink ID.
 - **sensor_type** (*Required*): Override automatically detected type of sensor.
 - **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
-- **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
+- **aliasses** (*Optional*): Alternative RFLink ID's this device is known by.
 
 ### {% linkable_title Hiding/ignoring sensors %}
 
-Sensors are added automatically when the Rflink gateway intercepts a 433Mhz command in the ether. To prevent cluttering the frontend use any of these methods:
+Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Configure a `new_devices_group` for sensors and optionally add it to a different `view`.
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
