@@ -64,9 +64,13 @@ Other methods of exposing the serial interface over TCP are possible (eg: ESP826
 
 Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively. 
 
-Warning: Due to different logical levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins.
+<p class='note warning'>
+Due to different logical levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins.
+</p>
 
-Note: When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming difficulties.
+<p class='note'>
+When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming difficulties.
+</p>
 
 ```yaml
 # Example configuration.yaml entry
