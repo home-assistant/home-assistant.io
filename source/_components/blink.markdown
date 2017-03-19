@@ -33,7 +33,7 @@ Once loaded, your front end will have the following components:
 * A sensor per camera that reports battery level.
 * A sensor per camera that reports unread notification (ie. detected motion events).
 
-Since the cameras are battery operated, the images are only updated in Home Assistant when the user manually forces a new photo.  This image can be updated with the ``blink.snap_picture`` service followed by a ``blink.force_update`` service call to force Home Assistant to request an update from Blink's servers.  If the ``blink.force_update`` service is not called, the image will be updated within a 180 second interval, set so that automatic server requests don't overwhelm the Blink API.  Any camera-specific sensor typically only has its value updated when the image is updated, so relying on, for example, the temperature sensor reporting accurate data is not recommended.
+Since the cameras are battery operated, the images are only updated in Home Assistant when the user manually forces a new photo. This image can be updated with the `blink.snap_picture` service followed by a `blink.force_update` service call to force Home Assistant to request an update from Blink's servers. If the `blink.force_update` service is not called, the image will be updated within a 180 second interval, set so that automatic server requests don't overwhelm the Blink API. As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
 Services:
 There are three services availiabe for the blink platform:
@@ -42,7 +42,7 @@ There are three services availiabe for the blink platform:
 - snap_picture
 - force_update
 
-For ``blink.arm_system``, the value sent can be either "True" or "False" and will arm and disarm the whole blink system, respectively
+For `blink.arm_system`, the value sent can be either "True" or "False" and will arm and disarm the whole blink system, respectively
 
 Arm system example
 ```json
@@ -51,7 +51,7 @@ Arm system example
 }
 ```
 
-Arm camera follows a similar structure, but each indidivual camera can have motion detection enabled or disabled.  Because of this, you also need to supply a name.  For example, if I have a camera named "Living Room" and I want to turn off motion detection on that camera, I'd call the ``blink.arm_camera`` service with the following payload:
+Arm camera follows a similar structure, but each indidivual camera can have motion detection enabled or disabled.  Because of this, you also need to supply a name.  For example, if I have a camera named "Living Room" and I want to turn off motion detection on that camera, I'd call the `blink.arm_camera` service with the following payload:
 ```json
 {
     "friendly_name": "Living Room",
@@ -59,14 +59,14 @@ Arm camera follows a similar structure, but each indidivual camera can have moti
 }
 ```
 
-The ``blink.snap_picture`` service takes the camera name as the payload and with take a new picture with your camera.
+The `blink.snap_picture` service takes the camera name as the payload and with take a new picture with your camera.
 ```
 {
     "friendly_name": "Living Room"
 }
 ```
 
-The ``blink.force_update`` service can simply be called with no payload to force a server update.
+The `blink.force_update` service can simply be called with no payload to force a server update.
 
 Configuration variables:
 
