@@ -112,7 +112,7 @@ Even though a lot of devices are supported by RFLink, not all have been tested/i
 
 ### {% linkable_title Device Incorrectly Identified %}
 
-If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFlink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). http://www.nemcon.nl/blog2/faq#RFFind.
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFlink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.nemcon.nl/blog2/faq#RFFind)
 
 ### {% linkable_title Technical overview %}
 
