@@ -25,7 +25,7 @@ A complete list of devices supported by RFLink can be found [here](http://www.ne
 
 This component is tested with the following hardware/software:
 
-- Nodo RFLinkGateway V1.4/RFLink R46
+- Nodo RFLink Gateway V1.4/RFLink R46
 
 To enable RFLink in your installation, add the following to your `configuration.yaml` file:
 
