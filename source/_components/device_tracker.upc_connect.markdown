@@ -15,6 +15,8 @@ ha_release: 0.36
 
 The `upc_connect` platform offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/de/internet/connectbox/) from [Liberty Global](http://www.libertyglobal.com/) (also known as UPC Cablecom in Switzerland) which is a Internet provider in Switzerland and Austria.
 
+Confirmed to work with Irish Virgin Media Super Hub 3.0.
+
 To use a Connect Box in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
