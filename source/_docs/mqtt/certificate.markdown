@@ -22,7 +22,7 @@ mqtt:
 
 Configuration variables:
 
-- **certificate** (*Optional*): The certificate authority certificate file that is to be treated as trusted by this client. This file should contain the root certificate of the certificate authority that signed your broker's certificate, but may contain multiple certificates. Example: `/home/user/identrust-root.pem`
+- **certificate** (*Optional*): 'auto' or the certificate authority certificate file that is to be treated as trusted by this client. 'auto' uses the bundled certificates. If a file is specified the file should contain the root certificate of the certificate authority that signed your broker's certificate, but may contain multiple certificates. Example: `/home/user/identrust-root.pem`
 - **client_key** (*Optional*): Client key, eg. `/home/user/owntracks/cookie.key`.
 - **client_cert** (*Optional*): Client certificate, eg. `/home/user/owntracks/cookie.crt`.
 
