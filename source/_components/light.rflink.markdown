@@ -39,6 +39,9 @@ Configuring a device as light with a nice name:
 # Example configuration.yaml entry
 light:
   platform: rflink
+  device_defaults:
+    fire_event: true
+    signal_repetitions: 2
   devices:
     newkaku_0000c6c2_1:
       name: Living room
