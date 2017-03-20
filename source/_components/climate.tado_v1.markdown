@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: tado.png
 ha_category: Climate
+ha_release: 0.41
 ---
 
 
