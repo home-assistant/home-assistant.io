@@ -37,6 +37,7 @@ Configuration variables:
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
 - **allow_in_emulated_hue** (*Optional*): )true/false) Enable this to block all Hue entities from being added to the `emulated_hue` component.
 - **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+- **username** (*Optional*): Specify username to access Philips Hue bridge. By specifying username in the configuration.yaml you avoid the need to run the configurator.
 
 ### {% linkable_title Using Hue Groups in Home Assistant %}
 
