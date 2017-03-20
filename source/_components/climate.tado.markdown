@@ -13,14 +13,13 @@ ha_release: 0.41
 ---
 
 
-The `tado` climate platform is used as an interface to the my.tado.com website.
+The `tado` component platform is used as an interface to the my.tado.com website. It adds climate devices for every tado zone and sensors for some additional information of the zones.
 
 To use your tado thermostats in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: tado
+tado:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
