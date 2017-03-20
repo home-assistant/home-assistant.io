@@ -75,7 +75,7 @@
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
             <span class="no">{%- if states.device_tracker.iphone.attributes.battery %}</span>
-                <span class="no">{{ states.device_tracker.iphone.attributes.battery }}</span>
+                <span class="no">{{ states.device_tracker.iphone.attributes.battery|round }}</span>
             <span class="no">{% else %}</span>
                 <span class="no">{{ states.sensor.battery_iphone.state }}</span>
             <span class="no">{%- endif %}</span>
