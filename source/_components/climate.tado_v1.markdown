@@ -19,7 +19,7 @@ To use your tado thermostats in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 climate:
-  - platform: tado_1
+  - platform: tado_v1
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
