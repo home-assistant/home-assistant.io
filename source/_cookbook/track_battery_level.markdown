@@ -22,7 +22,7 @@ sensor:
         unit_of_measurement: '%'
         value_template: >-
             {% raw %}{%- if states.device_tracker.iphone.attributes.battery %}
-                {{ states.device_tracker.iphone.attributes.battery }}
+                {{ states.device_tracker.iphone.attributes.battery|round }}
             {% else %}
                 {{ states.sensor.battery_iphone.state }}
             {%- endif %}{% endraw %}
