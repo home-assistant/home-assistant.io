@@ -8,9 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: tado.png
-ha_category: DIY
-ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_category: Climate
 ---
 
 
