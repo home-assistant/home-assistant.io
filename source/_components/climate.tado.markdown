@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Tado (unofficial)"
+title: "Tado"
 description: "Instructions on how to integrate Tado thermostats with Home Assistant."
 date: 2017-03-20 12:00
 sidebar: true
@@ -20,7 +20,7 @@ To use your tado thermostats in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 climate:
-  - platform: tado_v1
+  - platform: tado
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
