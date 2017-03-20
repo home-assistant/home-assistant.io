@@ -19,10 +19,9 @@ To use Volvo On Call in your installation, add the following to your `configurat
 
 ```yaml
 # Example configuration.yaml entry
-device_tracker:
-  - platform: volvooncall
-    username: username
-    password: password
+volvooncall:
+  username: <username>
+  password: <password>
 ```
 
 Configuration variables:
