@@ -20,46 +20,42 @@ After setting up IFTTT, Maker Channel and ManyThing Channel, you can use the fol
 ```yaml
 # Example configuration.yaml entry
 automation:
-- alias: 'ManyThing Recording ON'
-  # This calls an IFTTT recipe to turn on recording of the ManyThing Camera
-  # if we leave the house during the day.
-  trigger:
-   - platform: state
-     entity_id: group.all_devices
-     state: 'not_home'
+  - alias: 'ManyThing Recording ON'
+    # This calls an IFTTT recipe to turn on recording of the ManyThing Camera
+    # if we leave the house during the day.
+    trigger:
+      - platform: state
+        entity_id: group.all_devices
+       state: 'not_home'
+    condition:
+      - platform: state
+        entity_id: sun.sun
+       state: 'above_horizon'
+    action:
+      service: ifttt.trigger
+      data: {"event":"manything_on"}
 
-  condition:
-   - platform: state
-     entity_id: sun.sun
-     state: 'above_horizon'
-
-  action:
-     service: ifttt.trigger
-     data: {"event":"manything_on"}
-
-- alias: 'ManyThing Recording OFF'
-  # This calls an IFTTT recipe to turn off recording of the ManyThing Camera
-  # when we are home unless it's nighttime.
-  trigger:
-   - platform: state
-     entity_id: group.all_devices
-     state: 'home'
-   - platform: state
-     entity_id: sun.sun
-     state: 'above_horizon'
-
-  condition: use_trigger_values
-
-  action:
-     service: ifttt.trigger
-     data: {"event":"manything_off"}
+  - alias: 'ManyThing Recording OFF'
+    # This calls an IFTTT recipe to turn off recording of the ManyThing Camera
+    # when we are home unless it's nighttime.
+    trigger:
+      - platform: state
+        entity_id: group.all_devices
+        state: 'home'
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+    action:
+      service: ifttt.trigger
+      data: {"event":"manything_off"}
 ```
 
 ### {% linkable_title Setting up a recipe %}
 
 <p class='img'>
 <img src='/images/components/ifttt/IFTTT_manything_trigger.png' />
-You need to setup a unique trigger for each event you sent to IFTTT.
+You need to setup a unique trigger for each event you sent to IFTTT. 
 For ManyThing support, you need to set up an `on` and `off` event.
 </p>
 
@@ -72,5 +68,4 @@ Field | Value
 domain | `ifttt`
 service | `trigger`
 Service Data | `{"event": "manything_on"}`
-
 
