@@ -69,41 +69,36 @@
   <p>This requires a <a href="/components/sensor.darksky/">Dark Sky</a> sensor with the condition <code class="highlighter-rouge">precip_intensity</code> that tells if it’s raining or not. You could also experiment with other attributes such as <code class="highlighter-rouge">cloud_cover</code>.</p>
 <p>Turn on a light in the living room when it starts raining, someone is home, and it’s afternoon or later.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
-  <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Rainy</span><span class="nv"> </span><span class="s">Day'</span>
-
-  <span class="s">trigger</span><span class="pi">:</span>
-       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.precip_intensity</span>
-         <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">rain'</span>
-       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
-         <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
-       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-         <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">14:00'</span>
-         <span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">23:00'</span>
-
-  <span class="s">condition</span><span class="pi">:</span> <span class="s">use_trigger_values</span>
-
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.couch_lamp</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Rainy</span><span class="nv"> </span><span class="s">Day'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.precip_intensity</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">rain'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">14:00'</span>
+        <span class="s">before</span><span class="pi">:</span> <span class="s1">'</span><span class="s">23:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.couch_lamp</span>
 </code></pre>
 </div>
 <p>And then of course turn off the lamp when it stops raining but only if it’s within an hour before sunset.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation 2</span><span class="pi">:</span>
-  <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Rain</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">over'</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.precip_intensity</span>
-         <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">None'</span>
-       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
-         <span class="s">event</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sunset'</span>
-         <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-01:00:00'</span>
-
-  <span class="s">condition</span><span class="pi">:</span> <span class="s">use_trigger_values</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.couch_lamp</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Rain</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">over'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.precip_intensity</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">None'</span>
+    <span class="s">condition</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">sun</span>
+        <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sunset'</span>
+        <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-01:00:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.couch_lamp</span>
 </code></pre>
 </div>
 </article>
