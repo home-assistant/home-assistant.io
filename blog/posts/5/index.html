@@ -62,6 +62,73 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/">0.22: Pandora, BT Home Hub 5 and local file camera.</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-06-18T18:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 18, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>It’s time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.</p>
+<p>We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We’re working on getting to a better solution. For Raspberry Pi, the <a href="/getting-started/installation-raspberry-pi-all-in-one/">All-in-One installer</a> will take care of everything for you. We’re working on updating our <a href="/getting-started/installation-raspberry-pi/">standalone Raspberry Pi installation guide</a>.</p>
+<p>There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.</p>
+<p class="img">
+<img src="/images/screenshots/pandora_player.png" />
+</p>
+<p>Another cool addition is the local file camera. This seems very basic at first but will allow you to generate a graph with your favorite 3rd party graphing tool and display it on your Home Assistant dashboard. We’re looking forward to see what you can do with this!</p>
+<p><img src="/images/supported_brands/pandora.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/bt.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<ul>
+  <li>Media Player: <a href="/components/media_player.pandora/">Pandora</a> media player now supported (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.bt_home_hub_5/">BT Home Hub 5</a> now supported (<a href="https://github.com/lwis/">@lwis</a>)</li>
+  <li>Camera: New <a href="/components/camera.local_file/">local file</a> platform shows any image as camera (<a href="https://github.com/Landrash/">@Landrash</a>)</li>
+  <li>Add <a href="/components/media_player.sonos/">Sonos</a> snapshot and restore services (<a href="https://github.com/dansullivan86/">@dansullivan86</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> in Access Point mode now supported (<a href="https://github.com/linjef/">@linjef</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> login using public key now supported (<a href="https://github.com/mtreinish/">@mtreinish</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> protocol to use is now auto detected (<a href="https://github.com/persandstrom/">@persandstrom</a>)</li>
+  <li>Camera: <a href="/components/netatmo/">Netatmo</a> now supported (<a href="https://github.com/jabesq/">@jabesq</a>)</li>
+  <li>API documentation added  in <a href="https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml">Swagger.yaml format</a> (<a href="https://github.com/wind/">@wind-rider</a>)</li>
+  <li>Media Player: <a href="/components/media_player.cast/">Cast</a> devices can now be stopped (<a href="https://github.com/michaelarnauts/">@michaelarnauts</a>)</li>
+  <li>MySensors: <a href="/components/mysensors/">IR switch device</a> and service now supported (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Bloomsky: <a href="/components/sensor.bloomsky/">Voltage sensor</a> now supported (<a href="https://github.com/arsaboo/">@arsaboo</a>)</li>
+  <li>Sensor: New <a href="/components/sensor.plex/">Plex sensor</a> monitors friends streaming from your Plex server (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
+  <li>Component <a href="/components/shell_command/">shell command</a> can now use templates to render arguments (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
+  <li>Rollershutter: <a href="/components/rollershutter.wink/">Wink</a> is now supported (<a href="https://github.com/philk/">@philk</a>)</li>
+  <li>Alexa: Updated <a href="/components/alexa/#working-with-scenes">documentation</a> to show how to call scripts and scenes (@acockburn)</li>
+  <li>Sensor: <a href="/components/sensor.snmp/">SNMP</a> is now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+  <li>Sensor: Support for Swiss hydrological data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
+</ul>
+<h3><a class="title-link" name="breaking-change" href="#breaking-change"></a> Breaking change</h3>
+<ul>
+  <li>The new Netatmo support caused us to change how Netatmo are configured. It’s now done via it’s own component.</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">netatmo</span><span class="pi">:</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
+    <span class="s">secret_key</span><span class="pi">:</span> <span class="s">SECRET_KEY</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="hotfix-0221---june-20" href="#hotfix-0221---june-20"></a> Hotfix 0.22.1 - June 20</h3>
+<ul>
+  <li>Insteon Hub lights will load again</li>
+</ul>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2016/06/13/home-assistant-at-pycon-2016/">Home Assistant at PyCon 2016</a>
   </h1>
   <div class="meta clearfix">
@@ -495,35 +562,6 @@
     <span class="s">1b2200000890efab1213f60</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s">My DI.0 light device</span>
 </code></pre>
-</div>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2016/05/06/open-iot-summit-talk/">Talk: Automating your home with Home Assistant (OpenIoT Summit)</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2016-05-06T14:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 6, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Talks</li>
-        <li>Video</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2016/05/06/open-iot-summit-talk/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>At the beginning of April I gave a talk about Home Assistant at the OpenIoT summit in San Diego. I talk about the Home Assistant architecture and explain how to get started integrating your devices. Big thanks to my employer AppFolio (<a href="http://www.appfolioinc.com/jobs-openings">we’re hiring!</a>) for letting me attend. <a href="https://docs.google.com/presentation/d/1P2WsmwGSSni4gAriY5IA0-m-FUGO1kno3gIkRYz20Kw/edit#slide=id.p">Slides.</a></p>
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/4-6rTwKl6ww" frameborder="0" allowfullscreen=""></iframe>
 </div>
   </div>
   </article>

@@ -62,6 +62,41 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/03/22/broken-dependencies/">0.40.2 and broken dependencies</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-03-22T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 22, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/03/22/broken-dependencies/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>TL; DR: We have just released version 0.40.2 that includes a fix related to the installation of dependencies.</p>
+<p>Some users in the last few days have been reporting that their Home Assistant installation fails to start with an error in the http component:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ImportError: No module named 'aiohttp.file_sender'
+</code></pre>
+</div>
+<p>The problem is that Home Assistant did not handle the case where a dependency would want to install a core dependency of Home Assistant that is newer than what Home Assistant works with. For now, we have identified the following two components that can cause this issue:</p>
+<ul>
+  <li>AppleTV (0.38+)</li>
+  <li>Android IP Webcam (0.40+)</li>
+</ul>
+<p>This issue has been resolved by 0.40.2. If you are on an impacted version and cannot upgrade to the latest version just yet, a temporary workaround will be to remove the <code class="highlighter-rouge">&lt;config dir&gt;/deps</code> directory and stop using the above mentioned integrations. In the case of AppleTV, you will also have to disable the discovery component to prevent it from being auto-detected.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/">Home Assistant 0.40: Turn any Android phone into an IP Webcam</a>
   </h1>
   <div class="meta clearfix">
@@ -136,6 +171,12 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <li>since knx_2_float can’t handle 0, bypass converting 0 value from knx to float (<a href="https://github.com/goofz">@goofz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6626">#6626</a>)</li>
   <li>Fix Osram Lightify colors (<a href="https://github.com/deisi">@deisi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6598">#6598</a>)</li>
   <li>Bugfix RFLINK remove group (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6580">#6580</a>)</li>
+</ul>
+<h3><a class="title-link" name="release-0402---march-22" href="#release-0402---march-22"></a> Release 0.40.2 - March 22</h3>
+<p>Hot fix release to fix dependency issues. More detailed information about the issue in <a href="/blog/2017/03/22/broken-dependencies/">this blog post</a>.</p>
+<ul>
+  <li>Prevent dependencies that are installed on demand from installing different versions of core dependencies (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6738">#6738</a>)</li>
+  <li>Upgrade PyChromecast to silent some benign errors (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6702">#6702</a>)</li>
 </ul>
       <a class="btn pull-right" href="/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/#read-more">Read on &rarr;</a>
   </div>
@@ -741,41 +782,6 @@ On the close horizon from <a href="https://github.com/Landrash">@Landrash</a> th
 <p>The Home Assistant project and community has seen enormous growth in the last three years. Many volunteers work tirelessly everyday to give you all the awesomeness that you see today. Much more work is involved than many people realize. Beyond simply coding Home Assistant, volunteers continually maintain related projects, update documentation, post examples, author blog posts, and moderate the forums and chat. This is something that we want to keep safe and functional, even as we grow.</p>
 <p>Starting today we are announcing a few initiatives to help protect our users, contributors and community members.</p>
       <a class="btn pull-right" href="/blog/2017/01/21/home-assistant-governance/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/01/18/numbers/">Numbers</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-01-18T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 18, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Community</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/01/18/numbers/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>It’s week 3 of 2017 and great things did already happen. This is just a little recap.</p>
-<ul>
-  <li>In the <a href="https://ossmetrics.com/leaderboard">OSS Metrics leaderboard</a> we are on place 30. Within three months we moved from our starting place which was 66 in September 2016 up to the current one.</li>
-  <li>We were listed on <a href="https://github.com/trending/python">Github Trending</a>. Also, was <a href="https://github.com/balloob">@balloob</a> mentioned as trending developer.</li>
-  <li><a href="https://github.com/balloob">@balloob</a>’s talk at the OpenIoT Summit 2016 was rated as one of the <a href="http://technewsdir.com/top-5-videos-from-embedded-linux-conference-and-openiot-summit-2016">Top 5 videos</a> of the conference.</li>
-  <li>We now ship over <a href="/components/#all">500</a> components and platforms.</li>
-  <li>We processed over 3500 Pull requests on the <a href="https://github.com/home-assistant/home-assistant">main repository</a> so far.</li>
-</ul>
-<p>You may ask yourself why this is amazing. It’s amazing because we are a community-only project driven by volunteers there is no financial support, no company in the background, and no paid developers who are working on Home Assistant. Here is another “Thank you” because you are the driving force behind Home Assistant.</p>
-<p>What more numbers? Checkout the <a href="/help/trivia/#numbers">Trivia page</a>…</p>
-<p>– Fabian</p>
   </div>
   </article>
   <hr>

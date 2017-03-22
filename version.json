@@ -1,15 +1,15 @@
 {
-  "current_version": "0.40.1",
-  "release_date": "2017-03-16T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/",
-  "release_notes_path": "/blog/2017/03/11/repurpose-any-android-phone-as-ip-camera/",
-  "release_title": "Home Assistant 0.40: Turn any Android phone into an IP Webcam",
-  "release_description": "Big startup performance increase and tons of bug fixes for MQTT, Z-Wave.",
-  "patch_version_notes": "#release-0401---march-16",
+  "current_version": "0.40.2",
+  "release_date": "2017-03-22T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/03/22/broken-dependencies/",
+  "release_notes_path": "/blog/2017/03/22/broken-dependencies/",
+  "release_title": "0.40.2 and broken dependencies",
+  "release_description": "Due to a bug in our dependency installation, some older versions can get into a broken state.",
+  "patch_version_notes": "#release-0402---march-22",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
     "minor": 40,
-    "patch": 1
+    "patch": 2
   }
 }

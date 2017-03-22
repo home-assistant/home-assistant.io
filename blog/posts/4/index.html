@@ -62,6 +62,46 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2016/08/07/optimizing-the-home-assistant-mobile-web-app/">Optimizing the Home Assistant mobile web app</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-08-07T19:36:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> August 7, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 11 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Technology</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/08/07/optimizing-the-home-assistant-mobile-web-app/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><em>This blog post will go into detail about the recent performance optimizations that went into the Home Assistant front end. For people not familiar with the app, check out <a href="https://home-assistant.io/demo">the demo</a> and <a href="https://github.com/home-assistant/home-assistant-polymer">the source</a>.</em></p>
+<p>TL; DR: Don’t hack the framework, separate responsibilities, ship less, use service workers, use (future) web standards.</p>
+<p>This year at Google I/O I saw Monica from the Polymer team talk about web components and performance. In her talk <a href="https://www.youtube.com/watch?v=zfQoleQEa4w&amp;feature=youtu.be&amp;t=1380">she mentions a mantra</a> that they use in the Polymer team to make things fast: <strong>Do less and be lazy</strong>.</p>
+<p>Do less and be lazy. It sounds so obvious and it took a while before it started to dawn on me. I think most of the code I write is pretty fast, but I don’t often stop to take a harder look at how and when it runs in practice. When do we need the result, can it be postponed?</p>
+<p>And thus started my journey to take a critical look at how the Home Assistant app was working and how to make things faster. Below is the list of the different things that I did to make it fast.</p>
+<p>I hope this list can be useful to other people, as a guide for optimizing their own apps or for avoiding pitfalls when building a new one.</p>
+<p>The first thing to do is to measure. The Home Assistant front end is a mobile web app, so we shouldn’t measure this on a machine with 8 cores and gigabytes of ram but instead measure on devices you expect a mobile web app to run: phones. Below are two timelines recorded with Home Assistant 0.18.2 (pre-optimizations) and Google Chrome 53. <strong>On my Mac the app starts in 1400 miliseconds and on my Nexus 5x in ~6500 miliseconds (~4.5 times slower!).</strong></p>
+<p class="img">
+  <img src="/images/blog/2016-08-optimizing-web-app/performance-timeline-0.18.2.png" alt="Timeline of loading the front end in Home Assistant 0.18.2" />
+</p>
+<p>Although the app takes 6500 milliseconds to load on my phone, it would perform well afterwards. Still, that initial load is unacceptable. You expect to open an app on your phone and be able to use it, quickly. After I applied all the changes described below, I managed to reduce startup time to 900 miliseconds (-35%) on my Mac and 2400 miliseconds (-63%) on my Nexus 5x. <a href="https://home-assistant.io/demo">Check out the demo here.</a></p>
+<p class="img">
+  <img src="/images/blog/2016-08-optimizing-web-app/performance-diagram.png" alt="diagram showing old and new loading times next to one another" />
+  <img src="/images/blog/2016-08-optimizing-web-app/performance-timeline-0.26.png" alt="Timeline of loading the front end in Home Assistant 0.26" />
+</p>
+      <a class="btn pull-right" href="/blog/2016/08/07/optimizing-the-home-assistant-mobile-web-app/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2016/08/03/laundry-automation-update/">Laundry Sensors with NodeMCU and Home Assistant</a>
   </h1>
   <div class="meta clearfix">
@@ -453,73 +493,6 @@ Over a year ago I participated in the <a href="https://www.kickstarter.com/proje
 In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
 <p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
       <a class="btn pull-right" href="/blog/2016/06/23/usb-webcams-and-home-assistant/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/">0.22: Pandora, BT Home Hub 5 and local file camera.</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2016-06-18T18:06:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 18, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2016/06/18/pandora-bt-home-hub-5-and-local-file-camera/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>It’s time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.</p>
-<p>We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We’re working on getting to a better solution. For Raspberry Pi, the <a href="/getting-started/installation-raspberry-pi-all-in-one/">All-in-One installer</a> will take care of everything for you. We’re working on updating our <a href="/getting-started/installation-raspberry-pi/">standalone Raspberry Pi installation guide</a>.</p>
-<p>There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.</p>
-<p class="img">
-<img src="/images/screenshots/pandora_player.png" />
-</p>
-<p>Another cool addition is the local file camera. This seems very basic at first but will allow you to generate a graph with your favorite 3rd party graphing tool and display it on your Home Assistant dashboard. We’re looking forward to see what you can do with this!</p>
-<p><img src="/images/supported_brands/pandora.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/bt.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-<ul>
-  <li>Media Player: <a href="/components/media_player.pandora/">Pandora</a> media player now supported (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.bt_home_hub_5/">BT Home Hub 5</a> now supported (<a href="https://github.com/lwis/">@lwis</a>)</li>
-  <li>Camera: New <a href="/components/camera.local_file/">local file</a> platform shows any image as camera (<a href="https://github.com/Landrash/">@Landrash</a>)</li>
-  <li>Add <a href="/components/media_player.sonos/">Sonos</a> snapshot and restore services (<a href="https://github.com/dansullivan86/">@dansullivan86</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> in Access Point mode now supported (<a href="https://github.com/linjef/">@linjef</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> login using public key now supported (<a href="https://github.com/mtreinish/">@mtreinish</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.asuswrt/">AsusWRT</a> protocol to use is now auto detected (<a href="https://github.com/persandstrom/">@persandstrom</a>)</li>
-  <li>Camera: <a href="/components/netatmo/">Netatmo</a> now supported (<a href="https://github.com/jabesq/">@jabesq</a>)</li>
-  <li>API documentation added  in <a href="https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml">Swagger.yaml format</a> (<a href="https://github.com/wind/">@wind-rider</a>)</li>
-  <li>Media Player: <a href="/components/media_player.cast/">Cast</a> devices can now be stopped (<a href="https://github.com/michaelarnauts/">@michaelarnauts</a>)</li>
-  <li>MySensors: <a href="/components/mysensors/">IR switch device</a> and service now supported (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
-  <li>Bloomsky: <a href="/components/sensor.bloomsky/">Voltage sensor</a> now supported (<a href="https://github.com/arsaboo/">@arsaboo</a>)</li>
-  <li>Sensor: New <a href="/components/sensor.plex/">Plex sensor</a> monitors friends streaming from your Plex server (<a href="https://github.com/nkgilley/">@nkgilley</a>)</li>
-  <li>Component <a href="/components/shell_command/">shell command</a> can now use templates to render arguments (<a href="https://github.com/partofthething/">@partofthething</a>)</li>
-  <li>Rollershutter: <a href="/components/rollershutter.wink/">Wink</a> is now supported (<a href="https://github.com/philk/">@philk</a>)</li>
-  <li>Alexa: Updated <a href="/components/alexa/#working-with-scenes">documentation</a> to show how to call scripts and scenes (@acockburn)</li>
-  <li>Sensor: <a href="/components/sensor.snmp/">SNMP</a> is now supported (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-  <li>Sensor: Support for Swiss hydrological data (<a href="https://github.com/fabaff/">@fabaff</a>)</li>
-</ul>
-<h3><a class="title-link" name="breaking-change" href="#breaking-change"></a> Breaking change</h3>
-<ul>
-  <li>The new Netatmo support caused us to change how Netatmo are configured. It’s now done via it’s own component.</li>
-</ul>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">netatmo</span><span class="pi">:</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
-    <span class="s">secret_key</span><span class="pi">:</span> <span class="s">SECRET_KEY</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
-</code></pre>
-</div>
-<h3><a class="title-link" name="hotfix-0221---june-20" href="#hotfix-0221---june-20"></a> Hotfix 0.22.1 - June 20</h3>
-<ul>
-  <li>Insteon Hub lights will load again</li>
-</ul>
   </div>
   </article>
   <hr>
