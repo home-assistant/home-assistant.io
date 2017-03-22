@@ -81,6 +81,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Osram Lightify colors ([@deisi] - [#6598])
 - Bugfix RFLINK remove group ([@pvizeli] - [#6580])
 
+### {% linkable_title Release 0.40.2 - March 22 %}
+
+Hot fix release to fix dependency issues. More detailed information about the issue in [this blog post](/blog/2017/03/22/broken-dependencies/).
+
+- Prevent dependencies that are installed on demand from installing different versions of core dependencies ([@balloob] - [#6738])
+- Upgrade PyChromecast to silent some benign errors ([@balloob] - [#6702])
+
 <!--more-->
 
 ## All changes
@@ -320,3 +327,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@goofz]: https://github.com/goofz
 [@iamtpage]: https://github.com/iamtpage
 [@jnewland]: https://github.com/jnewland
+[#6702]: https://github.com/home-assistant/home-assistant/pull/6702
+[#6738]: https://github.com/home-assistant/home-assistant/pull/6738
