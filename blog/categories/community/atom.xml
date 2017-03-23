@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-23T15:40:45+00:00</updated>
+  <updated>2017-03-23T15:49:36+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OpenSourceCraft interviews our founder Paulus Schoutsen]]></title>
+    <link href="https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/"/>
+    <updated>2017-03-23T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen</id>
+    <content type="html"><![CDATA[Last month Gregg Pollack from [OpenSourceCraft] visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the [full article including extra video material][article].
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/osq_2-Qlan0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+[OpenSourceCraft]: http://codepop.com/open-sourcecraft
+[article]: http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Workshop at CLT 2017]]></title>
@@ -126,43 +142,6 @@ We're taking a well deserved break and we will be back again in 2017 with more a
 [TravisCI]: https://Travis-ci.org
 [CloudFlare]: https://CloudFlare.com
 [Discourse]: https://Discourse.com
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
-    <link href="https://home-assistant.io/blog/2016/10/02/hacktoberfest/"/>
-    <updated>2016-10-02T00:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/10/02/hacktoberfest</id>
-    <content type="html"><![CDATA[Home Assistant will join this year for [Hacktoberfest], an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!
-
-Why contribute to Home Assistant:
-
- - Written in Python3 with 94% test coverage
- - Active and helpful community
- - Friendly to new contributors
-
-Resources to get started:
-
- - [Sign up for Hacktoberfest][Hacktoberfest-reg]
- - [List of entry-level issues for Home Assistant][issues]
- - [Instructions to setup your development environment][dev-env]
- - [Home Assistant Development Chat][dev-chat]
- - [Home Assistant Development Forums][dev-forum]
- - [Hacktoberfest website][Hacktoberfest]
-
-Are you not a programmer but still want to contribute to Home Assistant? Check out our [list of entry-level issues for the Home Assistant website][issues-doc].
-
-[![Hacktober fest logo][logo]][Hacktoberfest]
-
-[logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
-[Hacktoberfest]: https://hacktoberfest.digitalocean.com/
-[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/sign_up/register
-[issues]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
-[issues-doc]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
-[dev-env]: /developers/development_environment/
-[dev-chat]: https://gitter.im/home-assistant/home-assistant/devs
-[dev-forum]: https://community.home-assistant.io/c/development
 ]]></content>
   </entry>
   
