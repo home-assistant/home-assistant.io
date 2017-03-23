@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: metoffice.png
+logo: metoffice.jpg
 ha_category: Weather
 ha_release: 0.41
 ---
@@ -23,7 +23,7 @@ weather:
 ```
 
 Configuration variables:
-  
+
 - **api_key** (*Required*): Your personal API key from the [Datapoint website][datapoint].
 
 <p class='note'>

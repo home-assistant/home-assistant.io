@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: metoffice.png
+logo: metoffice.jpg
 ha_category: Weather
 ha_release: 0.41
 ---
