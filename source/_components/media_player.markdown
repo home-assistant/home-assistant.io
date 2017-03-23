@@ -34,6 +34,15 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. Defaults to all. |
 | `volume_level`         |       no | Float for volume level                         |
 
+#### {% linkable_title Service `media_player/volume_transition` %}
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+| `entity_id`            |      yes | Target a specific media player. Defaults to all. |
+| `volume_level`         |       no | Float for volume level                         |
+| `transition`           |       no | Integer for transition time in seconds           |
+
+
 #### {% linkable_title Service `media_player/media_seek` %}
 
 | Service data attribute | Optional | Description                                            |
