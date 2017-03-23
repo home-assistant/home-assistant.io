@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Community
-og_image: /images/blog/2017-03-opensourcecraft/social.png
+og_image: /images/blog/2017-03-opensourcecraft/social.jpg
 ---
 
 Last month Gregg Pollack from [OpenSourceCraft] visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the [full article including extra video material][article].
