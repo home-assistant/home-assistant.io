@@ -12,7 +12,7 @@ ha_category: Hub
 ha_release: 0.38
 ---
 
-The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is an Arduino firmware that allows communication with 433 Mhz devices using cheap hardware (Arduino + 433 Mhz tranceiver).
+The `rflink` component support devices that use [Rflink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo Rflink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). Rflink gateway is firmware for the Arduino MEGA 2560 that allows communication with 433 Mhz devices using cheap hardware (Arduino + 433 Mhz tranceiver).
 
 The 433 Mhz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
@@ -60,7 +60,17 @@ To expose the usb/serial interface over TCP on a different host (Linux) the foll
 $ socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
 ```
 
-Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Basically the serial stream should be directly mapped to the TCP stream.
+Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.
+
+Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively. 
+
+<p class='note warning'>
+Due to different logical levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins.
+</p>
+
+<p class='note'>
+When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming difficulties.
+</p>
 
 ```yaml
 # Example configuration.yaml entry
@@ -94,6 +104,9 @@ Wildcards only work at the end of the ID, not in the middle of front!
 
 Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or [create an issue](https://github.com/home-assistant/home-assistant/issues/new) and mention `@aequitas` in the description.
 
+### {% linkable_title Device Incorrectly Identified %}
+
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFlink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). http://www.nemcon.nl/blog2/faq#RFFind.
 
 ### {% linkable_title Technical overview %}
 

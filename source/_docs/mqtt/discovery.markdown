@@ -11,7 +11,7 @@ logo: mqtt.png
 redirect_from: /components/mqtt/#discovery
 ---
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). Only support for binary sensor is available at the moment.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). Currently, binary sensors, lights and sensors are supported. A discovery binary sensor or sensor will load the `mqtt` platform. For discovered light components the JSON payload can contain a `platform` attribute with one of `mqtt`, `mqtt_json` or `mqtt_template` defined. If no `platform` attribute is defined then `mqtt` is used.
 
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
 

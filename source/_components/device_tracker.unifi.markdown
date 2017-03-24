@@ -33,5 +33,6 @@ Configuration variables:
 - **password** (*Required*): The password for your given admin account.
 - **verify_ssl** (*Optional*):  Verify the controllers SSL certificate.  Defaults to True however can also be False or "path/to/custom_cert.pem".
 - **site_id** (*Optional*): Allows you to specify a `site_id` for device tracking. Defaults to `default`. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)
+- **verify_ssl** (*Optional*): Controls if the SSL certificate running on your Unifi webserver must be trusted by a known Certificate Authority on the server running Home Assistant. Defaults to 'True'.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

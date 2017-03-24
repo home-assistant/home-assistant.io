@@ -12,4 +12,4 @@ redirect_from: /ecosystem/ios/notifications/
 
 The `ios` notify platform enables sending push notifications to the Home Assistant iOS app.
 
-The 'ios' component will automatically load the notify serivce. No extra configuration is needed or supported.
+The 'ios' component will automatically load the notify service. No extra configuration is needed or supported.

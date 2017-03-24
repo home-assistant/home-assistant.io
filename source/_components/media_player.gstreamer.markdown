@@ -37,7 +37,7 @@ And then install the following system dependencies:
 Debian/Ubuntu/Rasbian:
 
 ```bash
-sudo apt-get install python-gst-1.0 \
+sudo apt-get install python3-gst-1.0 \
     gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 \
     gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly \
     gstreamer1.0-tools
