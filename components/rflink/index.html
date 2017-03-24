@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Rflink - Home Assistant</title>
+    <title>RFLink - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate Rflink gateway into Home Assistant.">
+    <meta name="description" content="Instructions how to integrate RFLink gateway into Home Assistant.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/rflink/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Rflink">
+    <meta property="og:title" content="RFLink">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/rflink/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Rflink gateway into Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate RFLink gateway into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Rflink">
-    <meta name="twitter:description" content="Instructions how to integrate Rflink gateway into Home Assistant.">
+    <meta name="twitter:title" content="RFLink">
+    <meta name="twitter:description" content="Instructions how to integrate RFLink gateway into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -62,18 +62,22 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Rflink
+      RFLink
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">rflink</code> component support devices that use <a href="http://www.nemcon.nl/blog2/">Rflink gateway firmware</a>, for example the <a href="https://www.nodo-shop.nl/nl/21-rflink-gateway">Nodo Rflink Gateway</a>. Rflink gateway is firmware for the Arduino MEGA 2560 that allows communication with 433 Mhz devices using cheap hardware (Arduino + 433 Mhz tranceiver).</p>
+  <p>The <code class="highlighter-rouge">rflink</code> component support devices that use <a href="http://www.nemcon.nl/blog2/">RFLink gateway firmware</a>, for example the <a href="https://www.nodo-shop.nl/nl/21-rflink-gateway">Nodo RFLink Gateway</a>. RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).</p>
 <p>The 433 Mhz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.</p>
-<p>A complete list of devices supported by Rflink can be found <a href="http://www.nemcon.nl/blog2/devlist">here</a></p>
+<p>RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. Their website provides details for various RF transmitter, receiver and transceiver modules for 433Mhz, 868Mhz and 2.4 Ghz <a href="http://www.nemcon.nl/blog2/wiring">here.</a></p>
+<p class="note">
+ Note: Versions later than R44 adds support for Ikea Ansluta, Philips Living Colors Gen1, MySensors devices.
+ </p>
+<p>A complete list of devices supported by RFLink can be found <a href="http://www.nemcon.nl/blog2/devlist">here</a></p>
 <p>This component is tested with the following hardware/software:</p>
 <ul>
-  <li>Nodo Rflink Gateway V1.4/Rflink R44</li>
+  <li>Nodo RFLink Gateway V1.4/RFLink R46</li>
 </ul>
-<p>To enable Rflink in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To enable RFLink in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">rflink</span><span class="pi">:</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">/dev/serial/by-id/usb-id01234</span>
@@ -81,9 +85,9 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>port</strong> (<em>Required</em>): The path to Rflink usb/serial device or TCP port in TCP mode.</li>
+  <li><strong>port</strong> (<em>Required</em>): The path to RFLink USB/serial device or TCP port in TCP mode.</li>
   <li><strong>host</strong> (<em>Optional</em>): Switches to TCP mode, connects to host instead of to USB/serial.</li>
-  <li><strong>wait_for_ack</strong> (<em>Optional</em>): Wait for Rflink to ackowledge commands sent before sending new command (slower but more reliable). Defaults to <code class="highlighter-rouge">True</code></li>
+  <li><strong>wait_for_ack</strong> (<em>Optional</em>): Wait for RFLink to ackowledge commands sent before sending new command (slower but more reliable). Defaults to <code class="highlighter-rouge">True</code></li>
   <li><strong>ignore_devices</strong> (<em>Optional</em>): List of devices id’s to ignore. Supports wildcards (*) at the end.</li>
   <li><strong>reconnect_interval</strong> (<em>Optional</em>): Time in seconds between reconnect attempts.</li>
 </ul>
@@ -98,15 +102,15 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="tcp-mode" href="#tcp-mode"></a> TCP mode</h3>
-<p>TCP mode allows connect to a Rflink device over TCP/IP network. This is for example useful if placing the Rflink device next to the HA server is not optimal or desired (eg: bad reception).</p>
-<p>To expose the usb/serial interface over TCP on a different host (Linux) the following command can be used:</p>
+<p>TCP mode allows connect to a RFLink device over TCP/IP network. This is for example useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).</p>
+<p>To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
 </code></pre>
 </div>
 <p>Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.</p>
 <p>Tested with Wifi serial bridge <a href="https://github.com/jeelabs/esp-link/releases/tag/v2.2.3">esp-link V2.2.3</a> running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively.</p>
 <p class="note warning">
-Due to different logical levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins.
+Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the <a href="https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html">link</a> is recommended for the CC2500 transceiver (used for Ikea Ansluta and Living Colors)
 </p>
 <p class="note">
 When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming difficulties.
@@ -118,7 +122,7 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
 </code></pre>
 </div>
 <h3><a class="title-link" name="ignoring-devices" href="#ignoring-devices"></a> Ignoring devices</h3>
-<p>Rflink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 Mhz technology.</p>
+<p>RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 Mhz technology.</p>
 <p>For example:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">rflink</span><span class="pi">:</span>
@@ -133,12 +137,12 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
 <p>This configuration will ignore the button <code class="highlighter-rouge">1</code> of the <code class="highlighter-rouge">newkaku</code> device with ID <code class="highlighter-rouge">000001</code>, all devices of the <code class="highlighter-rouge">digitech</code> protocol and all switches of the <code class="highlighter-rouge">kaku</code> protocol device with codewheel ID <code class="highlighter-rouge">1</code>.</p>
 <p>Wildcards only work at the end of the ID, not in the middle of front!</p>
 <h3><a class="title-link" name="device-support" href="#device-support"></a> Device support</h3>
-<p>Even though a lot of devices are supported by Rflink, not all have been tested/implemented. If you have a device supported by Rflink but not by this component please consider testing and adding support yourself or <a href="https://github.com/home-assistant/home-assistant/issues/new">create an issue</a> and mention <code class="highlighter-rouge">@aequitas</code> in the description.</p>
+<p>Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself or <a href="https://github.com/home-assistant/home-assistant/issues/new">create an issue</a> and mention <code class="highlighter-rouge">@aequitas</code> in the description.</p>
 <h3><a class="title-link" name="device-incorrectly-identified" href="#device-incorrectly-identified"></a> Device Incorrectly Identified</h3>
-<p>If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFlink ‘RF Signal Learning’ mechanism from RFLink Rev 46 (11 March 2017). http://www.nemcon.nl/blog2/faq#RFFind.</p>
+<p>If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFlink ‘RF Signal Learning’ mechanism from RFLink Rev 46 (11 March 2017). <a href="http://www.nemcon.nl/blog2/faq#RFFind">Link to further detail.</a></p>
 <h3><a class="title-link" name="technical-overview" href="#technical-overview"></a> Technical overview</h3>
 <ul>
-  <li>The<code class="highlighter-rouge">rflink</code> Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the Rflink gateway.</li>
+  <li>The<code class="highlighter-rouge">rflink</code> Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the RFLink gateway.</li>
   <li>This component uses this callback to distribute ‘rflink packet events’ over the HASS bus which can be subscribed to by entities/platform implementations.</li>
   <li>The platform implementions take care of creating new devices (if enabled) for unsees incoming packet id’s.</li>
   <li>Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entitiy logic is maintained in this main component.</li>
@@ -159,13 +163,13 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
         <li><a href='/components/light.rflink/'>
-          Rflink Light
+          RFLink Light
         </a></li>
         <li><a href='/components/sensor.rflink/'>
-          Rflink Sensor
+          RFLink Sensor
         </a></li>
         <li><a href='/components/switch.rflink/'>
-          Rflink Switch
+          RFLink Switch
         </a></li>
     </ul>
     </div>
@@ -260,10 +264,10 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
             <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
         </li>
         <li>
-            <a href='/components/rfxtrx/'>RFXtrx</a>
+            RFLink
         </li>
         <li>
-            Rflink
+            <a href='/components/rfxtrx/'>RFXtrx</a>
         </li>
         <li>
             <a href='/components/scsgate/'>SCSGate</a>

@@ -112,8 +112,16 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
   <li>Update HA <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code></li>
   <li>Type <code class="highlighter-rouge">exit</code> to logout the hass user and return to the <code class="highlighter-rouge">pi</code> user.</li>
 </ul>
-<p class="note note">
-If you deployed Home Assistant via the AiO installer prior to December 2016, replace <code class="highlighter-rouge">sudo su -s /bin/bash homeassistant</code> with <code class="highlighter-rouge">sudo su -s /bin/bash hass</code> and <code class="highlighter-rouge">source /srv/homeassistant/homeassistant_venv/bin/activate</code> with <code class="highlighter-rouge">source /srv/hass/hass_venv/bin/activate</code></p>
+<div class="note note">
+  <p><strong>If you deployed Home Assistant via the AiO installer prior to December 2016</strong></p>
+  <ul>
+    <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
+    <li>Change to homeassistant user <code class="highlighter-rouge">sudo su -s /bin/bash hass</code></li>
+    <li>Change to virtual enviroment <code class="highlighter-rouge">source /srv/hass/hass_venv/bin/activate</code></li>
+    <li>Update HA <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code></li>
+    <li>Type <code class="highlighter-rouge">exit</code> to logout the hass user and return to the <code class="highlighter-rouge">pi</code> user.</li>
+  </ul>
+</div>
 <p>To upgrade with fabric:</p>
 <ul>
   <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
@@ -142,9 +150,17 @@ If you deployed Home Assistant via the AiO installer prior to December 2016, rep
   <li>Open a web browser to <code class="highlighter-rouge">http://your_pi_ip:8888</code></li>
   <li>Specify your zwave controller, for example <code class="highlighter-rouge">/dev/ttyACM0</code> and hit initialize</li>
 </ul>
-<p class="note note">
-If you deployed Home Assistant via the AiO installer prior to December 2016, replace <code class="highlighter-rouge">cd /srv/homeassistant/src/open-zwave-control-panel/</code> with <code class="highlighter-rouge">cd /srv/hass/src/open-zwave-control-panel/</code>
-</p>
+<div class="note note">
+  <p><strong>If you deployed Home Assistant via the AiO installer prior to December 2016</strong></p>
+  <ul>
+    <li>Make sure Home Assistant is not running! So stop that first</li>
+    <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
+    <li>Change to the ozwcp directory <code class="highlighter-rouge">cd /srv/hass/src/open-zwave-control-panel/</code></li>
+    <li>Launch the control panel <code class="highlighter-rouge">sudo ./ozwcp -p 8888</code></li>
+    <li>Open a web browser to <code class="highlighter-rouge">http://your_pi_ip:8888</code></li>
+    <li>Specify your zwave controller, for example <code class="highlighter-rouge">/dev/ttyACM0</code> and hit initialize</li>
+  </ul>
+</div>
 <p class="note warning">
 Don’t check the USB box regardless of using a USB based device.
 </p>

@@ -76,7 +76,7 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>certificate</strong> (<em>Optional</em>): The certificate authority certificate file that is to be treated as trusted by this client. This file should contain the root certificate of the certificate authority that signed your broker’s certificate, but may contain multiple certificates. Example: <code class="highlighter-rouge">/home/user/identrust-root.pem</code></li>
+  <li><strong>certificate</strong> (<em>Optional</em>): ‘auto’ or the certificate authority certificate file that is to be treated as trusted by this client. ‘auto’ uses the bundled certificates. If a file is specified the file should contain the root certificate of the certificate authority that signed your broker’s certificate, but may contain multiple certificates. Example: <code class="highlighter-rouge">/home/user/identrust-root.pem</code></li>
   <li><strong>client_key</strong> (<em>Optional</em>): Client key, eg. <code class="highlighter-rouge">/home/user/owntracks/cookie.key</code>.</li>
   <li><strong>client_cert</strong> (<em>Optional</em>): Client certificate, eg. <code class="highlighter-rouge">/home/user/owntracks/cookie.crt</code>.</li>
 </ul>
