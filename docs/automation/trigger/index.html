@@ -184,6 +184,19 @@ With template triggers you can also evaluate attribute changes by using is_state
     <span class="s">event</span><span class="pi">:</span> <span class="s">enter</span>  <span class="c1"># or "leave"</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="multiple-triggers" href="#multiple-triggers"></a> Multiple triggers</h3>
+<p>When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the lines following accordingly. Whenever one of the triggers fires, your rule is executed.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+      <span class="c1"># first trigger</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
+      <span class="s">seconds</span><span class="pi">:</span> <span class="s">00</span>
+      <span class="c1"># our second trigger is the sunset</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+      <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
