@@ -26,6 +26,9 @@ Configuration variables:
 
 - **api_key** (*Required*): Your personal API key from the [Datapoint website][datapoint].
 
+- **latitude** (*Optional*): Latitude to get weather for, if not set it will use your home latitude instead.
+- **longitude** (*Optional*): Longitude to get weather for, if not set it will use your home longitude instead.
+
 <p class='note'>
 This platform is an alternative to the [`metoffice`](/components/sensor.metoffice/) sensor.
 The weather platform is easier to configure but less customisable.
