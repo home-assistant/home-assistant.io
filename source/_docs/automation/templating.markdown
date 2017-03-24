@@ -35,7 +35,7 @@ automation 2:
     service_template: >{% raw %}
       notify.{{ trigger.topic.split('/')[-1] }}{% endraw %}
     data_template:
-      message: {% raw %}{{ trigger.payload }}{% endraw %}
+      message: {% raw %}'{{ trigger.payload }}'{% endraw %}
 ```
 
 ## {% linkable_title Important Template Rules %}

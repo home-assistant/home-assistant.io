@@ -53,9 +53,19 @@ The steps would be:
 * Click on "Advanced Settings"
 * Set "Enable auto-restart" if you like
 * Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
+* Within "Network" select "Use same network as Docker Host"
 * Confirm the "Advanced Settings"
 * Click on "Next" and then "Apply"
-* Your Home Assistant within Docker should now run :)
+* Your Home Assistant within Docker should now run
+
+Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
+* Go to the Docker-app and move to "Image"-section
+* Download the "homeassistant/home-assistant" image - don't care, that it is already there
+* wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
+* Move to "Container"-section
+* Stop your container if it's running
+* Right-click on it and select "Action"->"Clear". You won't loose any data, as all files are stored in your config-directory
+* Start the container again - it will then boot up with the new Home Assistant image
 
 ### {% linkable_title Restart %}
 

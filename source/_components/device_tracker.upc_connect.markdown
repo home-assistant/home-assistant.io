@@ -30,3 +30,7 @@ Configuration variables:
 - **host** (*Optional*): The IP address of your router. Set it if you are not using `192.168.0.1`.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+
+Also known to be working with the following devices:
+ - Irish Virgin Media Super Hub 3.0
+

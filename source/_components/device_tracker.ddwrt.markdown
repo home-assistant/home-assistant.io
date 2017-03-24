@@ -31,4 +31,5 @@ Configuration variables:
 - **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Required*): The password for your given admin account.
 
+By default Home Assistant pulls information about connected devices from DD-WRT every 5 seconds.
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
