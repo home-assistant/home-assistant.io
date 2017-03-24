@@ -28,6 +28,7 @@ This platform should work with all Hikvision cameras, and has been confirmed to 
 - DS-2CD3132-I
 - DS-2CD2232-I5
 - DS-2CD2032-I
+- DS-2CD2042WD-I
 - DS-2CD2142FWD-I
 
 To enable this sensor, the following lines are required in your `configuration.yaml`:
