@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "Apache Configuration"
+title: "Apache Proxy"
 description: "Configure Apache to work with Home Assistant as a subdomain"
 date: 2016-06-20 13:05
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Infrastructure
+redirect_from: /cookbook/apache_configuration/
 ---
 
 This example demonstrates how you can configure Apache to act as a proxy for Home Assistant.
