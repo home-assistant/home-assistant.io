@@ -72,17 +72,17 @@ Support for these components is provided by the Home Assistant community.
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
     <div class="filter-button-group">
-      <a href='#all' class="btn">All (603)</a>
+      <a href='#all' class="btn">All (609)</a>
       <a href='#featured' class="btn featured">Featured</a>
-      <a href='#added_in_current_version' class="btn added_in_current_version">Added in 0.40 (16)</a>
-      <a href='#added_one_version_ago' class="btn added_one_version_ago">Added in 0.39 (20)</a>
-      <a href='#added_two_versions_ago' class="btn added_two_versions_ago">Added in 0.38 (16)</a>
+      <a href='#added_in_current_version' class="btn added_in_current_version">Added in 0.41 (4)</a>
+      <a href='#added_one_version_ago' class="btn added_one_version_ago">Added in 0.40 (16)</a>
+      <a href='#added_two_versions_ago' class="btn added_two_versions_ago">Added in 0.39 (20)</a>
     <a href='#alarm' class="btn">Alarm (10)</a>
     <a href='#automation' class="btn">Automation (15)</a>
-    <a href='#binary-sensor' class="btn">Binary Sensor (39)</a>
+    <a href='#binary-sensor' class="btn">Binary Sensor (40)</a>
     <a href='#calendar' class="btn">Calendar (3)</a>
-    <a href='#camera' class="btn">Camera (16)</a>
-    <a href='#climate' class="btn">Climate (15)</a>
+    <a href='#camera' class="btn">Camera (17)</a>
+    <a href='#climate' class="btn">Climate (16)</a>
     <a href='#cover' class="btn">Cover (14)</a>
     <a href='#diy' class="btn">DIY (16)</a>
     <a href='#deprecated' class="btn">Deprecated (3)</a>
@@ -93,11 +93,11 @@ Support for these components is provided by the Home Assistant community.
     <a href='#front-end' class="btn">Front end (3)</a>
     <a href='#health' class="btn">Health (2)</a>
     <a href='#history' class="btn">History (11)</a>
-    <a href='#hub' class="btn">Hub (42)</a>
+    <a href='#hub' class="btn">Hub (43)</a>
     <a href='#image-processing' class="btn">Image Processing (4)</a>
     <a href='#light' class="btn">Light (36)</a>
     <a href='#lock' class="btn">Lock (7)</a>
-    <a href='#media-player' class="btn">Media Player (41)</a>
+    <a href='#media-player' class="btn">Media Player (42)</a>
     <a href='#notifications' class="btn">Notifications (44)</a>
     <a href='#organization' class="btn">Organization (3)</a>
     <a href='#presence-detection' class="btn">Presence Detection (36)</a>
@@ -106,7 +106,7 @@ Support for these components is provided by the Home Assistant community.
     <a href='#sensor' class="btn">Sensor (68)</a>
     <a href='#social' class="btn">Social (5)</a>
     <a href='#switch' class="btn">Switch (52)</a>
-    <a href='#system-monitor' class="btn">System Monitor (21)</a>
+    <a href='#system-monitor' class="btn">System Monitor (22)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (5)</a>
     <a href='#transport' class="btn">Transport (9)</a>
     <a href='#voice' class="btn">Voice (3)</a>
@@ -138,9 +138,9 @@ Support for these components is provided by the Home Assistant community.
 {{/components}}
 </script>
 <script type="text/javascript">
-var current_minor_version = 40;
-var added_one_ago_minor_version = 39;
-var added_two_ago_minor_version = 38;
+var current_minor_version = 41;
+var added_one_ago_minor_version = 40;
+var added_two_ago_minor_version = 39;
 // This object contains all components we have
 var allComponents = [
 {url:"/components/switch.anel_pwrctrl/", title:"ANEL PwrCtrl Switch", cat:"switch", featured: false, v: 30, logo: "anel.png"},
@@ -241,6 +241,7 @@ var allComponents = [
 {url:"/components/media_player.directv/", title:"DirecTV", cat:"media-player", featured: false, v: 25, logo: "directv.png"},
 {url:"/components/notify.discord/", title:"Discord", cat:"notifications", featured: false, v: 0, logo: "discord.png"},
 {url:"/components/discovery/", title:"Discovery", cat:"other", featured: false, v: 0, logo: "home-assistant.png"},
+{url:"/components/camera.dispatcher/", title:"Dispatcher IP Camera", cat:"camera", featured: false, v: 4, logo: "camcorder.png"},
 {url:"/components/sensor.dovado/", title:"Dovado", cat:"system-monitor", featured: false, v: 32, logo: "dovado.png"},
 {url:"/components/downloader/", title:"Downloader", cat:"downloading", featured: false, v: 7, logo: "home-assistant.png"},
 {url:"/components/sensor.dublin_bus_transport/", title:"Dublin Bus Transport", cat:"transport", featured: false, v: 36, logo: "train.png"},
@@ -274,6 +275,7 @@ var allComponents = [
 {url:"/components/binary_sensor.ffmpeg_noise/", title:"FFmpeg Noise Binary Sensor", cat:"binary-sensor", featured: false, v: 27, logo: "ffmpeg.png"},
 {url:"/components/device_tracker.fritz/", title:"FRITZ!Box", cat:"presence-detection", featured: false, v: 10, logo: "avm.png"},
 {url:"/components/sensor.fritzbox_callmonitor/", title:"FRITZ!Box", cat:"system-monitor", featured: false, v: 27, logo: "avm.png"},
+{url:"/components/sensor.fritzbox_netmonitor/", title:"FRITZ!Box", cat:"system-monitor", featured: false, v: 36, logo: "avm.png"},
 {url:"/components/notify.facebook/", title:"Facebook Messenger", cat:"notifications", featured: false, v: 36, logo: "facebook.png"},
 {url:"/components/sensor.fastdotcom/", title:"Fast.com", cat:"system-monitor", featured: false, v: 26, logo: "fastdotcom.png"},
 {url:"/components/sensor.fedex/", title:"Fedex Sensor", cat:"sensor", featured: false, v: 39, logo: "fedex.png"},
@@ -321,7 +323,7 @@ var allComponents = [
 {url:"/components/switch.hikvision/", title:"Hikvision Camera Switch", cat:"switch", featured: false, v: 7, logo: "hikvision.png"},
 {url:"/components/history/", title:"History", cat:"history", featured: false, v: 7, logo: "home-assistant.png"},
 {url:"/components/sensor.history_stats/", title:"History Statistics Sensor", cat:"sensor", featured: false, v: 39, logo: "home-assistant.png"},
-{url:"/components/ha/", title:"Home Assistant 0.39", cat:"other", featured: false, v: 39, logo: "home-assistant.png"},
+{url:"/components/ha/", title:"Home Assistant 0.41", cat:"other", featured: false, v: 41, logo: "home-assistant.png"},
 {url:"/components/homematic/", title:"Homematic", cat:"hub", featured: false, v: 0, logo: "homematic.png"},
 {url:"/components/binary_sensor.homematic/", title:"Homematic Binary Sensor", cat:"binary-sensor", featured: false, v: 23, logo: "homematic.png"},
 {url:"/components/cover.homematic/", title:"Homematic Cover", cat:"cover", featured: false, v: 27, logo: "homematic.png"},
@@ -606,6 +608,7 @@ var allComponents = [
 {url:"/components/device_tracker.tplink/", title:"TP-Link", cat:"presence-detection", featured: false, v: 7, logo: "tp-link.png"},
 {url:"/components/switch.tplink/", title:"TPLink Switch", cat:"switch", featured: false, v: 24, logo: "tp-link.png"},
 {url:"/components/device_tracker.tado/", title:"Tado", cat:"presence-detection", featured: false, v: 37, logo: "tado.png"},
+{url:"/components/climate.tado/", title:"Tado", cat:"climate", featured: false, v: 41, logo: "tado.png"},
 {url:"/components/notify.telegram/", title:"Telegram", cat:"notifications", featured: false, v: 7, logo: "telegram.png"},
 {url:"/components/telegram_webhooks/", title:"Telegram webhooks", cat:"notifications", featured: false, v: 39, logo: "telegram.png"},
 {url:"/components/tellstick/", title:"TellStick", cat:"hub", featured: false, v: 0, logo: "telldus_tellstick.png"},
@@ -662,7 +665,9 @@ var allComponents = [
 {url:"/components/sensor.verisure/", title:"Verisure Sensor", cat:"sensor", featured: false, v: 0, logo: "verisure.png"},
 {url:"/components/switch.verisure/", title:"Verisure SmartPlug", cat:"switch", featured: false, v: 0, logo: "verisure.png"},
 {url:"/components/tts.voicerss/", title:"VoiceRSS", cat:"text-to-speech", featured: false, v: 35, logo: "voicerss.png"},
+{url:"/components/media_player.volumio/", title:"Volumio Media Player", cat:"media-player", featured: false, v: 41, logo: "volumio.png"},
 {url:"/components/device_tracker.volvooncall/", title:"Volvo On Call", cat:"presence-detection", featured: false, v: 30, logo: "volvo.png"},
+{url:"/components/volvooncall/", title:"Volvo On Call", cat:"hub", featured: false, v: 39, logo: "volvo.png"},
 {url:"/components/sensor.vasttrafik/", title:"Västtrafik Public Transport", cat:"transport", featured: false, v: 30, logo: "vasttrafik.png"},
 {url:"/components/switch.wake_on_lan/", title:"Wake on LAN Switch", cat:"switch", featured: false, v: 16, logo: "ethernet.png"},
 {url:"/components/sensor.wsdot/", title:"Washington State DOT", cat:"transport", featured: false, v: 37, logo: "wsdot.png"},
@@ -678,6 +683,7 @@ var allComponents = [
 {url:"/components/sensor.wink/", title:"Wink Sensor", cat:"sensor", featured: false, v: 0, logo: "wink.png"},
 {url:"/components/switch.wink/", title:"Wink Switch", cat:"switch", featured: false, v: 0, logo: "wink.png"},
 {url:"/components/climate.wink/", title:"Wink Thermostat", cat:"climate", featured: false, v: 32, logo: "wink.png"},
+{url:"/components/binary_sensor.workday/", title:"Workday Binary Sensor", cat:"binary-sensor", featured: false, v: 41, logo: "home-assistant.png"},
 {url:"/components/sensor.waqi/", title:"World Air Quality Index", cat:"health", featured: false, v: 34, logo: "waqi.png"},
 {url:"/components/sensor.worldclock/", title:"Worldclock", cat:"calendar", featured: false, v: 7, logo: "home-assistant.png"},
 {url:"/components/light.x10/", title:"X10", cat:"light", featured: false, v: 25, logo: "x10.gif"},

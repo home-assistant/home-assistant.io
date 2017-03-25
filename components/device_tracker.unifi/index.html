@@ -81,6 +81,7 @@
   <li><strong>port</strong> (<em>Optional</em>): The port of your controller’s web interface. Defaults to <code class="highlighter-rouge">8443</code>.</li>
   <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges, usually <code class="highlighter-rouge">admin</code>.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
+  <li><strong>verify_ssl</strong> (<em>Optional</em>):  Verify the controllers SSL certificate.  Defaults to True however can also be False or “path/to/custom_cert.pem”.</li>
   <li><strong>site_id</strong> (<em>Optional</em>): Allows you to specify a <code class="highlighter-rouge">site_id</code> for device tracking. Defaults to <code class="highlighter-rouge">default</code>. Found in the URL of the controller (i.e. https://CONTROLLER:PORT/manage/site/SITE_ID/dashboard)</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Controls if the SSL certificate running on your Unifi webserver must be trusted by a known Certificate Authority on the server running Home Assistant. Defaults to ‘True’.</li>
 </ul>

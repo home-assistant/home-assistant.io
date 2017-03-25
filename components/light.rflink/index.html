@@ -97,18 +97,20 @@
   <li><strong>new_devices_group</strong> (<em>Optional</em>): Create group to add new/unknown devices to.</li>
   <li><strong>device_defaults</strong>: (<em>Optional</em>)
     <ul>
-      <li><strong>fire_event_</strong> (<em>Optional</em>): Set default <code class="highlighter-rouge">fire_event</code> for RFLink switch devices (see below).</li>
-      <li><strong>signal_repetitions</strong> (<em>Optional</em>): Set default <code class="highlighter-rouge">signal_repetitions</code> for RFLink switch devices (see below).</li>
+      <li><strong>fire_event</strong> (<em>Optional</em>): Set default <code class="highlighter-rouge">fire_event</code> for Rflink switch devices (see below).</li>
+      <li><strong>signal_repetitions</strong> (<em>Optional</em>): Set default <code class="highlighter-rouge">signal_repetitions</code> for Rflink switch devices (see below).</li>
     </ul>
   </li>
 </ul>
 <p>Device configuration variables:</p>
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Name for the device, defaults to RFLink ID.</li>
-  <li><strong>type</strong> (<em>Optional</em>): Override automatically detected type of the light device, can be: switchable, dimmable or hybrid. See ‘Light Types’ below.</li>
-  <li><strong>aliasses</strong> (<em>Optional</em>): Alternative RFLink ID’s this device is known by.</li>
-  <li><strong>fire_event_</strong> (<em>Optional</em>): Fire an <code class="highlighter-rouge">button_pressed</code> event if this device is turned on or off (default: False).</li>
-  <li><strong>signal_repetitions</strong> (<em>Optional</em>): Repeat every RFLink command this number of times (default: 1)</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name for the device, defaults to Rflink ID.</li>
+  <li><strong>type</strong> (<em>Optional</em>): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See ‘Light Types’ below.</li>
+  <li><strong>aliasses</strong> (<em>Optional</em>): Alternative Rflink ID’s this device is known by.</li>
+  <li><strong>fire_event</strong> (<em>Optional</em>): Fire an <code class="highlighter-rouge">button_pressed</code> event if this device is turned on or off (default: False).</li>
+  <li><strong>signal_repetitions</strong> (<em>Optional</em>): Repeat every Rflink command this number of times (default: 1)</li>
+  <li><strong>fire_event_</strong> (<em>Optional</em>): Set default <code class="highlighter-rouge">fire_event</code> for RFLink switch devices (see below).</li>
+  <li><strong>signal_repetitions</strong> (<em>Optional</em>): Set default <code class="highlighter-rouge">signal_repetitions</code> for RFLink switch devices (see below).</li>
 </ul>
 <h3><a class="title-link" name="light-state" href="#light-state"></a> Light state</h3>
 <p>Initially the state of a light is unknown. When the light is turned on or off (via frontend or remote) the state is known and will be shown in the frontend.</p>
@@ -131,6 +133,7 @@
   <li><em>Hybrid</em>: This type sends a <code class="highlighter-rouge">dim</code> followed by an a <code class="highlighter-rouge">on</code> command; and <code class="highlighter-rouge">off</code> commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple <code class="highlighter-rouge">on</code> signals will cause dimmers to go into disco mode.</li>
   <li><em>Switchable</em>: Device type that sends only <code class="highlighter-rouge">on</code> and <code class="highlighter-rouge">off</code> commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).</li>
   <li><em>Dimmable</em>: Sends only <code class="highlighter-rouge">dim</code> and <code class="highlighter-rouge">off</code> commands. This does not work on on/off type devices as they don’t understand the <code class="highlighter-rouge">dim</code> command. For dimmers this does not cause issues with signal repetitions.</li>
+  <li><em>Toggle</em>: Device type that sends only <code class="highlighter-rouge">on</code> commands to turn on or off the device. Some switches like for example Livolo light switches use the same ‘on’ command to switch on and switch off the lights. If the light is on and ‘on’ gets sent, the light will turn off and if the light is off and ‘on’ gets sent, the light will turn on. If the device has an unknown state, it will assume it is off by default.</li>
 </ul>
 <p>By default new lights are assigned the <code class="highlighter-rouge">switchable</code> type. Protocol supporting dimming are assigned the <code class="highlighter-rouge">hybrid</code> type. Currently only <code class="highlighter-rouge">newkaku</code> protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.</p>
 <h3><a class="title-link" name="hidingignoring-lights" href="#hidingignoring-lights"></a> Hiding/ignoring lights</h3>

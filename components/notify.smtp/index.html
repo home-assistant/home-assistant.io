@@ -81,6 +81,7 @@
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>server</strong> (<em>Optional</em>): SMTP server which is used to end the notifications. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using. Defaults to 25.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): The timeout in seconds that the SMTP server is using. Defaults to 5.</li>
   <li><strong>sender</strong> (<em>Optional</em>): E-mail address of the sender.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
@@ -95,6 +96,7 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">smtp</span>
     <span class="s">server</span><span class="pi">:</span> <span class="s">smtp.gmail.com</span>
     <span class="s">port</span><span class="pi">:</span> <span class="s">587</span>
+    <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
     <span class="s">sender</span><span class="pi">:</span> <span class="s">john@gmail.com</span>
     <span class="s">starttls</span><span class="pi">:</span> <span class="s">true</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">john@gmail.com</span>

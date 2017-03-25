@@ -82,6 +82,7 @@ The <code class="highlighter-rouge">synology</code> platform allows you to watch
   <li><strong>url</strong> (<em>Required</em>): The URL to your synology, including port.</li>
   <li><strong>username</strong> (<em>Required</em>): The username for accessing surveillance station.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for accessing surveillance station.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): The timeout in seconds used when connecting to the Surveillance Station. Defaults to 5.</li>
   <li><strong>whitelist</strong> (<em>Optional</em>): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omitted all cameras are added.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): True to require a valid certificate, False to disable certificate checking. Defaults to <code class="highlighter-rouge">True</code>.</li>
 </ul>
@@ -92,6 +93,7 @@ The <code class="highlighter-rouge">synology</code> platform allows you to watch
     <span class="s">url</span><span class="pi">:</span> <span class="s">https://192.168.1.120:5001</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+    <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
     <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">False</span>
 </code></pre>
 </div>
@@ -125,6 +127,9 @@ Most users will need to set <code class="highlighter-rouge">valid_ssl</code> to 
         </li>
         <li>
             <a href='/components/camera.bloomsky/'>BloomSky Camera</a>
+        </li>
+        <li>
+            <a href='/components/camera.dispatcher/'>Dispatcher IP Camera</a>
         </li>
         <li>
             <a href='/components/camera.ffmpeg/'>FFmpeg Camera</a>

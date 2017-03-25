@@ -66,8 +66,10 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">plex</code> platform allows you to connect a <a href="https://plex.tv">Plex Media Server</a> to Home Assistant. It will allow you to control media playback and see the current playing item. The preferred way to setup the Plex platform is by enabling the <a href="/components/discovery/">the discovery component</a> and requires GDM to be enabled.</p>
-<p>If local authentication is enabled or multiple users are defined, Home Assistant requires an authentication token to be entered in the frontend. Press “CONFIGURE” to do it.</p>
+  <p>The <code class="highlighter-rouge">plex</code> platform allows you to connect a <a href="https://plex.tv">Plex Media Server</a> to Home Assistant. It will allow you to control media playback and see the current playing item.</p>
+<h2>Setup</h2>
+<p>The preferred way to setup the Plex platform is by enabling the <a href="/components/discovery/">discovery component</a> which requires GDM enabled on your Plex server.</p>
+<p>If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. Press “CONFIGURE” to do it.</p>
 <p class="img">
   <img src="/images/screenshots/plex-configure.png" />
 </p>
@@ -75,7 +77,7 @@
 <p class="img">
   <img src="/images/screenshots/plex-token.png" />
 </p>
-<p>If you want to enable the plex platform directly, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>You can also enable the plex platform directly by adding the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">plex</span>
@@ -90,13 +92,208 @@
   <li><strong>PORT</strong> (<em>Required</em>): Port where Plex is listening. Default is 32400</li>
   <li><strong>TOKEN</strong> (<em>Optional</em>): Only if authentication is required. Set to <code class="highlighter-rouge">null</code> (without quotes) otherwise.</li>
 </ul>
-<p>At this moment, the Plex platform only supports one Plex Media Server.</p>
-<p>It is possible to get errors that look like the following.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
-INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
+<h2>Customization</h2>
+<p>You can customize the Plex component by adding any of the variables below to your configuration:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">plex</span>
+    <span class="s">entity_namespace</span><span class="pi">:</span> <span class="s1">'</span><span class="s">plex'</span>
+    <span class="s">include_non_clients</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">5</span>
+    <span class="s">show_all_controls</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">use_custom_entity_ids</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">use_episode_art</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
-<p>If this occurs, try changing the setting <code class="highlighter-rouge">Secure connections</code> in your Plex Media Server to <code class="highlighter-rouge">Preferred</code> (instead of <code class="highlighter-rouge">Required</code>). The Plex component does not currently support HTTPS.</p>
+<ul>
+  <li><strong>entity_namespace</strong> (<em>Optional</em>): Prefix for entity ID’s. Defaults to <code class="highlighter-rouge">null</code>. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV’s you use as Plex clients). Go from <em>media_player.playroom2</em> to <em>media_player.plex_playroom</em></li>
+  <li><strong>include_non_clients</strong> (<em>Optional</em>): Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV’s). Defaults to <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>scan_interval</strong> (<em>Optional</em>): Amount in seconds in between polling for device’s current activity. Defaults to <code class="highlighter-rouge">10</code> seconds.</li>
+  <li><strong>show_all_controls</strong> (<em>Optional</em>): Forces all controls to display. Defaults to <code class="highlighter-rouge">false</code>. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.</li>
+  <li><strong>use_custom_entity_ids</strong> (<em>Optional</em>): Name Entity ID’s by client ID’s instead of friendly names. Defaults to <code class="highlighter-rouge">false</code>.  HA assigns entity ID’s on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can’t reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID’s (ex. media_player.dy4hdna2drhn).</li>
+  <li><strong>use_episode_art</strong> (<em>Optional</em>): Display TV episode art instead of TV show art. Defaults to <code class="highlighter-rouge">false</code>.</li>
+</ul>
+<h3><a class="title-link" name="service-play_media" href="#service-play_media"></a> Service <code class="highlighter-rouge">play_media</code></h3>
+<p>Plays a song, playlist, TV episode, or video on a connected client.</p>
+<h4>Music</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td><code class="highlighter-rouge">entity_id</code> of the client</td>
+      <td>media_player.theater_plex</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_id</code></td>
+      <td>no</td>
+      <td>Quote escaped JSON with <code class="highlighter-rouge">library_name</code>, <code class="highlighter-rouge">artist_name</code>, <code class="highlighter-rouge">album_name</code>, <code class="highlighter-rouge">track_name</code>, <code class="highlighter-rouge">shuffle</code> (0 or 1).</td>
+      <td>{ \“library_name\” : \“My Music\”, \“artist_name\” : \“Adele\”, \“album_name\” : \“25\”, \“track_name\” : \“hello\”, \“shuffle\”: \“0\” }</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_type</code></td>
+      <td>no</td>
+      <td>Type of media to play, in this case <code class="highlighter-rouge">MUSIC</code></td>
+      <td>MUSIC</td>
+    </tr>
+  </tbody>
+</table>
+<h4>Playlist</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td><code class="highlighter-rouge">entity_id</code> of the client</td>
+      <td>media_player.theater_plex</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_id</code></td>
+      <td>no</td>
+      <td>Quote escaped JSON with <code class="highlighter-rouge">playlist_name</code>, <code class="highlighter-rouge">shuffle</code> (0 or 1).</td>
+      <td>{ \“playlist_name\” : \“The Best of Disco\” \“shuffle\”: \“0\” }</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_type</code></td>
+      <td>no</td>
+      <td>Type of media to play, in this case <code class="highlighter-rouge">PLAYLIST</code></td>
+      <td>PLAYLIST</td>
+    </tr>
+  </tbody>
+</table>
+<h4>TV Episode</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td><code class="highlighter-rouge">entity_id</code> of the client</td>
+      <td>media_player.theater_plex</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_id</code></td>
+      <td>no</td>
+      <td>Quote escaped JSON with <code class="highlighter-rouge">library_name</code>, <code class="highlighter-rouge">show_name</code>, <code class="highlighter-rouge">season_number</code>, <code class="highlighter-rouge">episode_number</code>, <code class="highlighter-rouge">shuffle</code> (0 or 1).</td>
+      <td>{ \“library_name\” : \“Adult TV\”, \“show_name\” : \“Rick and Morty\”, \“season_number\” : 2, \“episode_number\” : 5, \“shuffle\”: \“0\” }</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_type</code></td>
+      <td>no</td>
+      <td>Type of media to play, in this case <code class="highlighter-rouge">EPISODE</code></td>
+      <td>EPISODE</td>
+    </tr>
+  </tbody>
+</table>
+<h4>Video</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td><code class="highlighter-rouge">entity_id</code> of the client</td>
+      <td>media_player.theater_plex</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_id</code></td>
+      <td>no</td>
+      <td>Quote escaped JSON with <code class="highlighter-rouge">library_name</code>, <code class="highlighter-rouge">video_name</code>, <code class="highlighter-rouge">shuffle</code> (0 or 1).</td>
+      <td>{ \“library_name\” : \“Adult Movies\”, \“video_name\” : \“Blade\”, \“shuffle\”: \“0\” }</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_content_type</code></td>
+      <td>no</td>
+      <td>Type of media to play, in this case <code class="highlighter-rouge">VIDEO</code></td>
+      <td>VIDEO</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Compatibility</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Limitations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Any (when all controls disabled)</td>
+      <td>A stop button will appear but is not functional.</td>
+    </tr>
+    <tr>
+      <td>Any (when casting)</td>
+      <td>Controlling playback will work but with error logging.</td>
+    </tr>
+    <tr>
+      <td>Any (remote client)</td>
+      <td>Controls disabled.</td>
+    </tr>
+    <tr>
+      <td>Apple TV (PlexConnect)</td>
+      <td>Controls disabled.  Music does not work.</td>
+    </tr>
+    <tr>
+      <td>iOS</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>NVidia Shield</td>
+      <td>Mute disabled. Volume set below 2 will cause error logging. Controlling playback when the Shield is both a client and a server will work but with error logging</td>
+    </tr>
+    <tr>
+      <td>Plex Web</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Tivo Plex App</td>
+      <td>Only play, pause, stop/off controls enabled</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Notes</h3>
+<ul>
+  <li>At this moment, the Plex platform only supports one Plex Media Server.</li>
+  <li>
+    <p>It is possible to get errors that look like the following.</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>ERROR:plexapi:http://192.168.1.10:32400: ('Connection aborted.', BadStatusLine("''",))
+INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
+</code></pre>
+    </div>
+    <p>If this occurs, try changing the setting <code class="highlighter-rouge">Secure connections</code> in your Plex Media Server to <code class="highlighter-rouge">Preferred</code> (instead of <code class="highlighter-rouge">Required</code>). The Plex component does not currently support HTTPS.</p>
+  </li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -240,6 +437,9 @@ INFO:homeassistant.components.media_player.plex:No server found at: http://192.1
         </li>
         <li>
             <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.volumio/'>Volumio Media Player</a>
         </li>
         <li>
             <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>

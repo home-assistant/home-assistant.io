@@ -67,7 +67,8 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">fritzbox_callmonitor</code> sensor monitors the call monitor exposed by <a href="http://avm.de/produkte/fritzbox/">AVM Fritz!Box</a> routers
-on TCP port 1012. It will assume the values <code class="highlighter-rouge">idle</code>, <code class="highlighter-rouge">ringing</code>, <code class="highlighter-rouge">dialing</code>, or <code class="highlighter-rouge">talking</code> with the phone numbers involved contained in the state attributes.</p>
+on TCP port 1012. It will assume the values <code class="highlighter-rouge">idle</code>, <code class="highlighter-rouge">ringing</code>, <code class="highlighter-rouge">dialing</code>, or <code class="highlighter-rouge">talking</code> with the phone numbers involved contained in the state attributes.
+It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.</p>
 <p>To activate the call monitor on your Fritz!Box, dial #96*5* from any phone connected to it.</p>
 <p>To use the Fritz!Box call monitor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -79,7 +80,27 @@ on TCP port 1012. It will assume the values <code class="highlighter-rouge">idle
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.</li>
   <li><strong>port</strong> (<em>Optional</em>): The TCP port of the call monitor. There is usually no reason to change this.</li>
+  <li><strong>username</strong> (<em>Optional</em>): Fritz!Box user’s user name. This is required to use the phone book lookup feature. The user needs to have the “voice message, fax message, Fritz!App Fon and call list” permission.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Fritz!Box user’s user password. This is required to use the phone book lookup feature.</li>
+  <li><strong>phonebook</strong> (<em>Optional</em>): Numerical ID identifying the phonebook to be used. If there is just one phonebook, this is usually 0.</li>
+  <li><strong>prefixes</strong> (<em>Optional</em>): In case of a local call, the phone number seen by the router might differ from the one stored in the phone book by an area code, similarly for the international prefix. To remedy this, a list of prefixes, that can be appended to the phone number in case it is not found in the phone book, can be given.</li>
 </ul>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+<p>The example below shows a full configuration for a call monitor with phone book support.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">fritzbox_callmonitor</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Phone</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">my_username</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">my_password</span>
+    <span class="s">phonebook</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">prefixes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">+49'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">+4989'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">089'</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -118,6 +139,9 @@ on TCP port 1012. It will assume the values <code class="highlighter-rouge">idle
         </li>
         <li>
             FRITZ!Box
+        </li>
+        <li>
+            <a href='/components/sensor.fritzbox_netmonitor/'>FRITZ!Box</a>
         </li>
         <li>
             <a href='/components/sensor.fastdotcom/'>Fast.com</a>

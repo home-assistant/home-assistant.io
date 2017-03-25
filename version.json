@@ -1,15 +1,15 @@
 {
-  "current_version": "0.40.2",
-  "release_date": "2017-03-22T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2017/03/22/broken-dependencies/",
-  "release_notes_path": "/blog/2017/03/22/broken-dependencies/",
-  "release_title": "0.40.2 and broken dependencies",
-  "release_description": "Due to a bug in our dependency installation, some older versions can get into a broken state.",
-  "patch_version_notes": "#release-0402---march-22",
+  "current_version": "0.41.0",
+  "release_date": "2017-03-25T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/03/25/todo-volumio-workday/",
+  "release_notes_path": "/blog/2017/03/25/todo-volumio-workday/",
+  "release_title": "Home Assistant 0.41: Tado, Volumio, Workday, improved Plex",
+  "release_description": "Improved Pley media player, filtering components overview, Tado and Volumio platform",
+  "patch_version_notes": "",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
-    "minor": 40,
-    "patch": 2
+    "minor": 41,
+    "patch": 0
   }
 }

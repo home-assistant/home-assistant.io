@@ -76,11 +76,11 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The host name or address of the device that is running XBMC/Kodi</li>
+  <li><strong>host</strong> (<em>Required</em>): The host name or address of the device that is running XBMC/Kodi.</li>
   <li><strong>port</strong> (<em>Optional</em>): The HTTP port number. Defaults to 8080.</li>
   <li><strong>tcp_port</strong> (<em>Optional</em>): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend.</li>
-  <li><strong>ssl</strong> (<em>Optional</em>): Connect to kodi with HTTPS and WSS. Defaults to <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>proxy_ssl</strong> (<em>Optional</em>): Connect to kodi with HTTPS and WSS. Defaults to <code class="highlighter-rouge">false</code>. Useful if Kodi is behind an SSL proxy.</li>
   <li><strong>username</strong> (<em>Optional</em>): The XBMC/Kodi HTTP username.</li>
   <li><strong>password</strong> (<em>Optional</em>): The XBMC/Kodi HTTP password.</li>
   <li><strong>turn_off_action</strong> (<em>Optional</em>): The desired turn off action. Options are <code class="highlighter-rouge">none</code>, <code class="highlighter-rouge">quit</code>, <code class="highlighter-rouge">hibernate</code>, <code class="highlighter-rouge">suspend</code>, <code class="highlighter-rouge">reboot</code>, or <code class="highlighter-rouge">shutdown</code>. Default <code class="highlighter-rouge">none</code>.</li>
@@ -229,6 +229,9 @@
         </li>
         <li>
             <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.volumio/'>Volumio Media Player</a>
         </li>
         <li>
             <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>

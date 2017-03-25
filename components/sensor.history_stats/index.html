@@ -82,6 +82,7 @@
     <span class="s">name</span><span class="pi">:</span> <span class="s">Lamp ON today</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.my_lamp</span>
     <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">time</span>
     <span class="s">start</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now().replace(hour=0).replace(minute=0).replace(second=0)</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">end</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">now()</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
@@ -91,6 +92,7 @@
   <li><strong>entity_id</strong> (<em>Required</em>): The entity you want to track</li>
   <li><strong>state</strong> (<em>Required</em>): The state you want to track</li>
   <li><strong>name</strong> (<em>Optional</em>): Name displayed on the frontend</li>
+  <li><strong>type</strong> (<em>Optional</em>): The type of sensor: <code class="highlighter-rouge">time</code>, <code class="highlighter-rouge">ratio</code>, or <code class="highlighter-rouge">count</code>. Defaults to <code class="highlighter-rouge">time</code></li>
   <li><strong>start</strong>: When to start the measure (timestamp or datetime).</li>
   <li><strong>end</strong>: When to stop the measure (timestamp or datetime)</li>
   <li><strong>duration</strong>: Duration of the measure</li>
@@ -100,6 +102,13 @@
 <br />
     You can use <a href="/topics/templating/#home-assistant-template-extensions">template extensions</a> such as <code class="highlighter-rouge">now()</code> or <code class="highlighter-rouge">as_timestamp()</code> to handle dynamic dates, as shown in the examples below.
 </p>
+<h2><a class="title-link" name="sensor-type" href="#sensor-type"></a> Sensor type</h2>
+<p>Depending on the sensor type you choose, the <code class="highlighter-rouge">history_stats</code> component can show different values:</p>
+<ul>
+  <li><strong>time</strong>: The default value, which is the tracked time, in hours</li>
+  <li><strong>ratio</strong>: The tracked time divided by the length of your period, as a percentage</li>
+  <li><strong>count</strong>: How many times the component you track was changed to the state you track</li>
+</ul>
 <h2><a class="title-link" name="time-periods" href="#time-periods"></a> Time periods</h2>
 <p>The <code class="highlighter-rouge">history_stats</code> component will execute a measure within a precise time period. You should always provide 2 of the following :</p>
 <ul>

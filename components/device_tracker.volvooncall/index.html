@@ -66,21 +66,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">volvooncall</code> platform offers presence detection by retrieving your car’s information from the <a href="http://www.volvocars.com/intl/own/connectivity/volvo-on-call">Volvo On Call</a> cloud service.</p>
-<p>To use Volvo On Call in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">device_tracker</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">volvooncall</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
-</code></pre>
-</div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>username</strong> (<em>Required</em>): The username associated with your Volvo On Call account.</li>
-  <li><strong>password</strong> (<em>Required</em>): The password for your given Volvo On Call account.</li>
-</ul>
-<p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the cars to be tracked.</p>
+  <p>Integrates Volvo on Call into Home Assistant. See the <a href="/components/volvooncall/">main component</a> for configuration instructions.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -96,6 +82,14 @@
     <div class='section'>
       This is a platform for
       <a href='/components/device_tracker/'>the Device Tracker component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/volvooncall/'>
+          Volvo On Call
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Presence Detection</h1>

@@ -93,7 +93,7 @@
   <li><strong>port</strong> (<em>Optional</em>): The port Sonarr is running on (Default: 8989).</li>
   <li><strong>urlbase</strong> (<em>Optional</em>): The base URL Sonarr is running under (Default: /).</li>
   <li><strong>days</strong> (<em>Optional</em>): How many days to look ahead for the upcoming sensor, 1 means today only (Default: 1).</li>
-  <li><strong>included_paths</strong> (<em>Optional</em>): Array of filepaths to include when calculating diskspace. Leave blank to include all.</li>
+  <li><strong>include_paths</strong> (<em>Optional</em>): Array of filepaths to include when calculating diskspace. Leave blank to include all.</li>
   <li><strong>unit</strong>: (<em>Optional</em>): The unit to display disk space in (Default: GB).</li>
   <li><strong>ssl</strong>:  boolean (<em>Optional</em>): Whether or not to use SSL for Sonarr.</li>
 </ul>
@@ -143,7 +143,7 @@
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.8</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">diskspace</span>
-    <span class="s">included_paths</span><span class="pi">:</span>
+    <span class="s">include_paths</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">/tank/plex</span>
 </code></pre>
 </div>
