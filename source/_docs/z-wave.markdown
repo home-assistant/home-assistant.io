@@ -16,7 +16,7 @@ There is currently support for climate, covers, lights, locks, sensors, switches
 
 ### {% linkable_title Installation in Virtualenv (python-OpenZWave) %}
 
-If you installed Home Assistant using a virtual environment then please read the instructions on [Installing python-OpenZWave in a virtualenv](https://home-assistant.io/getting-started/installation-virtualenv/#installing-python-openzwave-in-a-virtualenv).
+If you installed Home Assistant using a virtual environment then please read the instructions on [Installing python-OpenZWave in a virtualenv](https://home-assistant.io/docs/installation/virtualenv/#installing-python-openzwave-in-a-virtualenv).
 
 ### {% linkable_title Installation %}
 
