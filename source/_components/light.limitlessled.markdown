@@ -35,10 +35,12 @@ light:
         type: rgbw
         name: Bathroom
     - host: 192.168.1.11
-      bridge_led: True
       groups:
       - number: 1
         name: Living Room & Hall
+      - number: 1
+        type: bridge-led
+        name: Bridge Light
 ```
 
 Configuration variables:
@@ -47,11 +49,10 @@ Configuration variables:
   - **host** (*Required*): IP address of the device, eg. `192.168.1.32`
   - **version** (*Optional*): Bridge version (default is `6`). Don't use if you aren't sure.
   - **port** (*Optional*): Bridge port. Defaults to 5987.
-  - **bridge_led** (*Optional*): If True, the bridge led can be controlled. (Only supported for newer bridges with integrated led)
   - **groups** array (*Required*): The list of available groups.
-    - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote.
+    - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.
     - **name** (*Required*): Any name you'd like. Must be unique among all configured groups.
-    - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw` or `white`. `rgbw` is the default if you don't specify this entry.
+    - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw`, `white`, or `bridge-led`. `rgbw` is the default if you don't specify this entry. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
 
 ### {% linkable_title Properties %}
 
