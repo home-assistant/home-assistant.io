@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
-ha_release: 0.39
+ha_release: 0.41
 ---
 
 Details about the latest release can always be found at:
