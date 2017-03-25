@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Infrastructure
+redirect_from: /cookbook/githubbackup/
 ---
 
 Backing up and regularly syncing your Home Assistant configuration to [GitHub](http://GitHub.com) has several benefits:
@@ -149,7 +149,7 @@ Every time you run this script, you will be prompted for a comment to describe t
 
 [Travis CI](https://travis-ci.org) is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
 
-- [Authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.  
+- [Authorise Travis CI](https://travis-ci.org/auth) to have access to your github repos.
 - Create the build script that travis will run to test your repo.
 - Create a dummy secrets.yaml for Travis.
 
@@ -159,7 +159,7 @@ language: python
 python:
   - "3.4"
 before_install:
-  - mv travis_secrets.yaml secrets.yaml  
+  - mv travis_secrets.yaml secrets.yaml
 install:
   - pip3 install homeassistant
 script:
@@ -188,7 +188,7 @@ $ git status
 Examples:
 
 ```bash
-homeassistant@raspberrypi:~/.homeassistant $ git ls-files    
+homeassistant@raspberrypi:~/.homeassistant $ git ls-files
 .gitignore
 README.md
 automation.yaml
