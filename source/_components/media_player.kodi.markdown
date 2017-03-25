@@ -28,11 +28,11 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi
+- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi.
 - **port** (*Optional*): The HTTP port number. Defaults to 8080.
 - **tcp_port** (*Optional*): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.
 - **name** (*Optional*): The name of the device used in the frontend.
-- **ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`.
+- **proxy_ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
 - **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.

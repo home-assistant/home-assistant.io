@@ -31,6 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **server** (*Optional*): SMTP server which is used to end the notifications. Defaults to `localhost`.
 - **port** (*Optional*): The port that the SMTP server is using. Defaults to 25.
+- **timeout** (*Optional*): The timeout in seconds that the SMTP server is using. Defaults to 5.
 - **sender** (*Optional*): E-mail address of the sender.
 - **username** (*Optional*): Username for the SMTP account.
 - **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
@@ -47,6 +48,7 @@ notify:
     platform: smtp
     server: smtp.gmail.com
     port: 587
+    timeout: 15
     sender: john@gmail.com
     starttls: true
     username: john@gmail.com

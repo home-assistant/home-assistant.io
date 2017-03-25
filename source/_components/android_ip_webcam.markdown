@@ -21,9 +21,17 @@ To set it up, download [the IP Webcam app][app] and add the following informatio
 ```yaml
 # Example configuration.yaml entry
 android_ip_webcam:
+<<<<<<< HEAD
+<<<<<<< HEAD
+  - host: 192.168.1.10
+=======
+  # This should be the ip of your phone
+=======
   # This should be the IP Address of the phone
+>>>>>>> origin/current
   - host: 192.168.1.10
     name: Entrance
+>>>>>>> current
 ```
 
 Configuration variables:
@@ -62,5 +70,8 @@ Settings:
 - torch
 - whitebalance_lock
 - video_recording
+<<<<<<< HEAD
+=======
 
 [app]: https://play.google.com/store/apps/details?id=com.pas.webcam
+>>>>>>> current
