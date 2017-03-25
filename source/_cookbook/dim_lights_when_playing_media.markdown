@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 Like it how the lights dim up/down at the movies? Do it at home as well!
 
-This example uses the media player, Philips Hue (transitions) and the sun component. We'll use actions to detect media player state changes and scenes to control multiple lights, color settings and transition between scenes.
+This example uses the [media player](https://home-assistant.io/components/media_player/), [Philips Hue](https://home-assistant.io/components/light.hue/) (transitions) and the [sun](https://home-assistant.io/components/sun/) component. We'll use actions to detect media player state changes and scenes to control multiple lights, color settings and transition between scenes.
 
 #### {% linkable_title Scenes %}
 One scene for normal light, one for when movies are on. A 2 second transition gives a nice 'feel' to the switch.
