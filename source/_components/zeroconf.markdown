@@ -28,7 +28,7 @@ $ avahi-browse -alr
 + eth0 IPv4 Home                              _home-assistant._tcp local
 = eth0 IPv4 Home                              _home-assistant._tcp local
    hostname = [Home._home-assistant._tcp.local]
-   address = [192.168.0.5]
+   address = [192.168.0.70]
    port = [8123]
-   txt = ["version=0.27.0.dev0" "base_url=http://192.168.0.5:8123" "requires_api_password=true"]
+   txt = ["base_url=http://192.168.0.70:8123" "requires_api_password=true" "version=0.41.0"]
 ```
