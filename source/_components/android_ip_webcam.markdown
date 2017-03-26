@@ -21,17 +21,7 @@ To set it up, download [the IP Webcam app][app] and add the following informatio
 ```yaml
 # Example configuration.yaml entry
 android_ip_webcam:
-<<<<<<< HEAD
-<<<<<<< HEAD
   - host: 192.168.1.10
-=======
-  # This should be the ip of your phone
-=======
-  # This should be the IP Address of the phone
->>>>>>> origin/current
-  - host: 192.168.1.10
-    name: Entrance
->>>>>>> current
 ```
 
 Configuration variables:
@@ -42,7 +32,6 @@ Configuration variables:
 - **username** (*Optional*): The username to access the phone.
 - **password** (*Optional*): The password to access the phone.
 - **scan_interval** (*Optional*): Default is 10 seconds. Defines the update interval of the phone.
-- **auto_discovery** (*Optional*): Default is True. Auto detect which sensors and settings are available for setup.
 - **sensors** array (*Optional*): Conditions to display sensor in the frontend. See list of supported sensors.
 - **switches** array (*Optional*): Conditions to display settings in the frontend. See list of supported settings.
 - **motion_sensor** (*Optional*): Activate motion sensor if auto_discovery is disabled.
