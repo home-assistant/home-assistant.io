@@ -11,3 +11,5 @@ source/stylesheets/screen.css
 vendor
 node_modules
 source/.jekyll-metadata
+*.iml
+.idea/
