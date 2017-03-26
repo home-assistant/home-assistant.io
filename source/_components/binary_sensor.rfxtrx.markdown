@@ -2,7 +2,7 @@
 layout: page
 title: "RFXtrx Binary Sensor"
 description: "Instructions how to integrate RFXtrx binary sensors into Home Assistant."
-date: 2016-10-16 23:33
+date: 2017-03-26 12:45
 sidebar: true
 comments: false
 sharing: true
@@ -11,8 +11,9 @@ logo: rfxtrx.png
 ha_category: Binary Sensor
 ---
 
-The `rfxtrx` platform support binary sensors that communicate in the frequency range of 433.92 MHz. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. This kind of chip is supported by the rfxtrx platform under the *Lighting4* protocol.
-The rfxtrx binary sensor component provides support for those sensors.
+The `rfxtrx` platform support binary sensors that communicate in the frequency range of 433.92 MHz. The rfxtrx binary sensor component provides support for them. 
+
+Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol but most of them are recognized under the *Lighting4* protocol. The rfxtrx binary sensor component provides some special options for them, while other rfxtrx protocols should work too.
 
 # Setting up your devices
 Once you have set up your [rfxtrx hub](/components/rfxtrx/), the easiest way to find your binary sensors is to add this to your `configuration.yaml`:
@@ -42,17 +43,15 @@ Do not forget to tweak the configuration variables:
 - **automatic_add** (*Optional*): To enable the automatic addition of new binary sensors.
 - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
-- **data_bits** (*Optional*): For PT-2262 based sensors, defines how many data bits are used by the device in its RF messages.
-- **command_on** (*Optional*): For PT-2262 based sensors, defines the data bits value that is sent by the device upon an 'On' command.
-- **command_off** (*Optional*): For PT-2262 based sensors, defines the data bits value that is sent by the device upon an 'Off' command.
 
-## Managing single-signal and multiple-signal sensors
-Some sensors always send the same signal. For example, a motion sensor sends "motion detected" signals, but usually does not send any "no more motion" signal. It stays "on" for a few seconds and goes back to sleep, ready to signal other motion events. Some doorbells may also only send "on" signals when the toggle switch is pressed, but no "off" signal when the switch is released.
 
-For those devices, use the *off_delay* parameter. It defines a delay after which a device will go back to an "Off" state. That "Off" state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can fire signals once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
+Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
-Some sensors are able to send different signals for several events: some door sensors can send both
-"open" and "close" signals and let you know if you have left a window opened .
+- Most motion sensors send a signal each time they detect motion. They stay "on" for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep. 
+- Some doorbells may also only send "on" signals when their toggle switch is pressed, but no "off" signal when the switch is released.
+
+For those devices, use the *off_delay* parameter. It defines a delay after which a device will go back to an "Off" state. That "Off" state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can only send signals once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
+
 
 Example configuration:
 
@@ -67,12 +66,72 @@ binary_sensor:
     sensor_class: motion
     off_delay:
       seconds: 5
-    0913000022670e013b70:
-      name: window_room2
-      sensor_class: opening
-      data_bits: 4
-      command_on: 0x0e
-      command_off: 0x07
 ```
 
+## Options for PT-2262 devices under the Lighting4 protocol
 
+PT-2262 devices include their commands in their device id. There is no way to automatically take the real identifier and the command apart, unless special support is provided for each existing device. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For sensors using the Lighting4 protocol, the following options are available in order to circumvent the problem:
+
+- **data_bits** (*Optional*): Defines how many data bits are used by the device in its RF messages.
+- **command_on** (*Optional*): Defines the data bits value that is sent by the device upon an 'On' command.
+- **command_off** (*Optional*): Defines the data bits value that is sent by the device upon an 'Off' command.
+
+Let's try to add a new PT-2262 sensor using the "automatic_add" option and have a look at Home Assistant system log. 
+
+Have your sensor trigger the "On" state for the first time. Some messages will appear:
+
+```
+INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 0913000022670e013970 (Device_id: 22670e Class: LightingDevice Sub: 0)
+```
+
+Here the sensor has the id *22670e*.
+
+
+Now have your sensor trigger the "Off" state and look for the following message in the Home Assistant log. You should see that your device triggering its "Off" state has been detected as a *new* device:
+
+```
+INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 09130000226707013d70 (Device_id: 226707 Class: LightingDevice Sub: 0)
+```
+
+Here the device id is *226707*, which is almost similar to the *22670* we had on the "On" event a few seconds ago. 
+
+From those two values, you can guess that the actual id of your device is *22670*, and that *e* and *7* are commands for "On" and "Off" states respectively. As one hexadecimal digit uses 4 bits, we guess that the device is using 4 data bits.
+
+So here is the actual configuration section for the binary sensor:
+
+```yaml
+platform: rfxtrx
+automatic_add: True
+devices:
+  0913000022670e013b70:
+    name: window_room2
+    sensor_class: opening
+    data_bits: 4
+    command_on: 0xe
+    command_off: 0x7
+```
+
+The *automatic_add* option makes the rfxtrx binary sensor component calculate and display the configuration options for you in the Home Assistant logs:
+
+```
+INFO (Thread-6) [homeassistant.components.rfxtrx] rfxtrx: found possible device 226707 for 22670e with the following configuration:
+data_bits=4
+command_on=0xe
+command_off=0x7
+INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible matching deviceid 22670e.
+```
+
+This automatic guess should work most of the time but there is no guarantee on that. You should activate it only when you want 
+to configure your new devices and leave it off otherwise.
+
+## Known working devices
+
+The following devices are known to work with the rfxtrx binary sensor component. There are too many other to list.
+
+- Motion detectors:
+  - Kerui P817 and P829 PIR motion detector.
+  - Chuango PIR-700 Motion detector.
+
+- Door / window sensors:
+  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a temper switch. 
+  - Nexa LMST-606 Magnetic contact switch.
