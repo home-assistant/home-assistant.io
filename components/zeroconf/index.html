@@ -72,7 +72,7 @@
 <span class="s">zeroconf</span><span class="pi">:</span>
 </code></pre>
 </div>
-<p>The registration will include metadata about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance.</p>
+<p>The registration will include metadata about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance. The examples below show two ways to retrieve the details for testing.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>avahi-browse -alr
 + eth0 IPv4 Home                              _home-assistant._tcp <span class="nb">local</span>
 <span class="o">=</span> eth0 IPv4 Home                              _home-assistant._tcp <span class="nb">local
@@ -80,6 +80,15 @@
    address <span class="o">=</span> <span class="o">[</span>192.168.0.70]
    port <span class="o">=</span> <span class="o">[</span>8123]
    txt <span class="o">=</span> <span class="o">[</span><span class="s2">"base_url=http://192.168.0.70:8123"</span> <span class="s2">"requires_api_password=true"</span> <span class="s2">"version=0.41.0"</span><span class="o">]</span>
+</code></pre>
+</div>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>avahi-discover
+Browsing domain <span class="s1">'local'</span> on -1.-1 ...
+Browsing <span class="k">for </span>services of <span class="nb">type</span> <span class="s1">'_home-assistant._tcp'</span> <span class="k">in </span>domain <span class="s1">'local'</span> on 4.0 ...
+Found service <span class="s1">'Home'</span> of <span class="nb">type</span> <span class="s1">'_home-assistant._tcp'</span> <span class="k">in </span>domain <span class="s1">'local'</span> on 4.0.
+Service data <span class="k">for </span>service <span class="s1">'Home'</span> of <span class="nb">type</span> <span class="s1">'_home-assistant._tcp'</span> <span class="k">in </span>domain <span class="s1">'local'</span> on 4.0:
+	Host Home._home-assistant._tcp.local <span class="o">(</span>192.168.0.70<span class="o">)</span>, port 8123, TXT data: 
+<span class="o">[</span><span class="s1">'requires_api_password=true'</span>, <span class="s1">'base_url=http://192.168.0.70:8123'</span>, <span class="s1">'version=0.41.0'</span><span class="o">]</span>
 </code></pre>
 </div>
 </article>
