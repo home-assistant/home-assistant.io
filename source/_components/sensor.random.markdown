@@ -29,4 +29,5 @@ Configuration variables:
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Random Sensor`.
 - **minimum** (*Optional*): Lower limit for the values. Defaults to `0`.
 - **maximum** (*Optional*): Upper limit for the values. Defaults to `20`.
+- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
 
