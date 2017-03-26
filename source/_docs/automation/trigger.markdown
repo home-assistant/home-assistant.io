@@ -148,3 +148,20 @@ automation:
     # Event is either enter or leave
     event: enter  # or "leave"
 ```
+
+
+### {% linkable_title Multiple triggers %}
+
+When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the lines following accordingly. Whenever one of the triggers fires, your rule is executed.
+
+```yaml
+automation:
+  trigger:
+      # first trigger
+    - platform: time
+      minutes: 5
+      seconds: 00
+      # our second trigger is the sunset
+    - platform: sun
+      event: sunset
+```

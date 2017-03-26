@@ -11,10 +11,11 @@ ha_category: Light
 ha_release: 0.39
 ---
 
-The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.  
-Note that the "Yeelight Sunflower" bulbs are not the same as the "Yeelight WiFi" bulbs. 
+The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.
 
-### {% linkable_title Example configuration %}
+<p class='note warning'>
+The "Yeelight Sunflower" bulbs are not the same as the "Yeelight WiFi" bulbs.
+</p>
 
 To enable your lights, add the following lines to your `configuration.yaml` file:
 
@@ -36,5 +37,4 @@ When the hub is loaded, your lights will appear as devices with their Zigbee IDs
 <p class='note warning'>
 The Yeelight Sunflower hub supports SSDP discovery, but that has not been built into the platform. Let the developer know if that would be helpful to you.
 </p>
-
 

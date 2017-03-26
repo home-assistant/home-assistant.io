@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "Apache Configuration"
-description: "Configure Apache to work with home assistant as a subdomain"
+title: "Apache Proxy"
+description: "Configure Apache to work with Home Assistant as a subdomain"
 date: 2016-06-20 13:05
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Infrastructure
+redirect_from: /cookbook/apache_configuration/
 ---
 
 This example demonstrates how you can configure Apache to act as a proxy for Home Assistant.
@@ -22,7 +22,7 @@ This is useful if you want to have:
 
 So you already have a working Apache server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123
 
-Enable [`mod_proxy_wstunnel`]((https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.htm) by running if you encounter issues while serving Home Assistant through your proxy:
+Enable [`mod_proxy_wstunnel`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.htm) by running if you encounter issues while serving Home Assistant through your proxy:
 
 ```bash
 $ sudo a2enmod proxy_wstunnel

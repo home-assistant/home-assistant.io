@@ -20,6 +20,7 @@ Supported by MQTT discovery:
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
 
+
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
