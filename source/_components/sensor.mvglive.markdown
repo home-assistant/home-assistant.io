@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mvg.png
 ha_category: Transport
-ha_release: 0.41
+ha_release: 0.42
 ha_iot_class: "Cloud Polling"
 ---
 
