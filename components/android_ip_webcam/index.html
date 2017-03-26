@@ -71,17 +71,7 @@
 <p>To set it up, download <a href="https://play.google.com/store/apps/details?id=com.pas.webcam">the IP Webcam app</a> and add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">android_ip_webcam</span><span class="pi">:</span>
-<span class="s">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
-<span class="s">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
-  <span class="s">- host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
-<span class="s">=======</span>
-  <span class="s"># This should be the ip of your phone</span>
-<span class="s">=======</span>
-  <span class="s"># This should be the IP Address of the phone</span>
-<span class="pi">&gt;</span><span class="err">&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="err">origin/current</span>
-  <span class="no">- host: 192.168.1.10</span>
-    <span class="no">name: Entrance</span>
-<span class="pi">&gt;</span><span class="err">&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="err">current</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -92,7 +82,6 @@
   <li><strong>username</strong> (<em>Optional</em>): The username to access the phone.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password to access the phone.</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Default is 10 seconds. Defines the update interval of the phone.</li>
-  <li><strong>auto_discovery</strong> (<em>Optional</em>): Default is True. Auto detect which sensors and settings are available for setup.</li>
   <li><strong>sensors</strong> array (<em>Optional</em>): Conditions to display sensor in the frontend. See list of supported sensors.</li>
   <li><strong>switches</strong> array (<em>Optional</em>): Conditions to display settings in the frontend. See list of supported settings.</li>
   <li><strong>motion_sensor</strong> (<em>Optional</em>): Activate motion sensor if auto_discovery is disabled.</li>

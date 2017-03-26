@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-26T08:48:20+00:00</updated>
+  <updated>2017-03-26T10:23:27+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -46,6 +46,7 @@ The new format of the changelog which was introduced with 0.40 will provide a li
   <li>The <a href="https://home-assistant.io/components/media_player.emby/">Emby mediaplayer</a> platform was changed to avoid name clashes (<a href="https://github.com/home-assistant/home-assistant/pull/6664">#6664</a>).</li>
   <li>In a lot of places were the power and energy units update. This change mostly affects the <code class="highlighter-rouge">switch</code> platforms (<a href="https://github.com/home-assistant/home-assistant/pull/6212">#6212</a>).</li>
   <li>If set to <code class="highlighter-rouge">auto</code> then the <a href="https://home-assistant.io/docs/mqtt/">MQTT</a> implementation will use the bundled certificates automatically (<a href="https://github.com/home-assistant/home-assistant/pull/6707">#6707</a>).</li>
+  <li>Autodiscovery of <a href="https://home-assistant.io/components/android_ip_webcam/">Android IP Webcam</a> was removed (<a href="https://github.com/home-assistant/home-assistant/pull/6528">#6528</a>)</li>
 </ul>
 
 <h2>If you need help…</h2>
@@ -114,12 +115,11 @@ The new format of the changelog which was introduced with 0.40 will provide a li
   <li>Add “Refactor zwave discovery to entity schema” (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6565">#6565</a>)</li>
   <li>Tests for ZWave climate (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6629">#6629</a>)</li>
   <li>Correctly flag Kodi media types (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6628">#6628</a>)</li>
-  <li>since knx_2_float can’t handle 0, bypass converting 0 value from knx to float (<a href="https://github.com/goofz">@goofz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6626">#6626</a>)</li>
   <li>Use sqlite’s WAL mode to avoid <code class="highlighter-rouge">database is locked</code> errors (<a href="https://github.com/n8henrie">@n8henrie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6519">#6519</a>)</li>
   <li>Remove event decorators (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6634">#6634</a>) (Breaking Change)</li>
   <li>Deprecate event forwarding (<a href="https://github.com/balloob">@balloob</a>)</li>
   <li>Upgrade aiohttp to 1.3.4 (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6643">#6643</a>)</li>
-  <li>media_player.kodi extra attributes for tvshow and music media (<a href="https://github.com/mvillarejo">@mvillarejo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6622">#6622</a>)</li>
+  <li>Kodi extra attributes for tvshow and music media (<a href="https://github.com/mvillarejo">@mvillarejo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6622">#6622</a>)</li>
   <li>Add ZWave cover tests (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6648">#6648</a>)</li>
   <li>Kodi: Fix episode media type classification (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6645">#6645</a>)</li>
   <li>Move LIFX to aiolifx for driving the bulbs (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6584">#6584</a>)</li>
@@ -133,7 +133,7 @@ The new format of the changelog which was introduced with 0.40 will provide a li
   <li>Fix hydroquebec (<a href="https://github.com/titilambert">@titilambert</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6574">#6574</a>)</li>
   <li>Update pyecobee version to 0.0.7 (<a href="https://github.com/dale3h">@dale3h</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6593">#6593</a>)</li>
   <li>Update SMA solar sensor to work with the new add_devices callback (<a href="https://github.com/kellerza">@kellerza</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6602">#6602</a>)</li>
-  <li>since knx_2_float can’t handle 0, bypass converting 0 value from knx to float (<a href="https://github.com/goofz">@goofz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6626">#6626</a>)</li>
+  <li>Since knx_2_float can’t handle 0, bypass converting 0 value from knx to float (<a href="https://github.com/goofz">@goofz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6626">#6626</a>)</li>
   <li>Bugfix RFLINK remove group (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6580">#6580</a>)</li>
   <li>Added workday sensor (<a href="https://github.com/BastianPoe">@BastianPoe</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6599">#6599</a>)</li>
   <li>Add test for Z-wave switch (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6619">#6619</a>)</li>
