@@ -21,7 +21,7 @@ To integrate this into Home Assistant, add the following section to your `config
 zeroconf:
 ```
 
-The registration will include metadata about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance.
+The registration will include metadata about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance. The examples below show two ways to retrieve the details for testing. 
 
 ```bash
 $ avahi-browse -alr
@@ -31,4 +31,14 @@ $ avahi-browse -alr
    address = [192.168.0.70]
    port = [8123]
    txt = ["base_url=http://192.168.0.70:8123" "requires_api_password=true" "version=0.41.0"]
+```
+
+```bash
+$ avahi-discover
+Browsing domain 'local' on -1.-1 ...
+Browsing for services of type '_home-assistant._tcp' in domain 'local' on 4.0 ...
+Found service 'Home' of type '_home-assistant._tcp' in domain 'local' on 4.0.
+Service data for service 'Home' of type '_home-assistant._tcp' in domain 'local' on 4.0:
+	Host Home._home-assistant._tcp.local (192.168.0.70), port 8123, TXT data: 
+['requires_api_password=true', 'base_url=http://192.168.0.70:8123', 'version=0.41.0']
 ```
