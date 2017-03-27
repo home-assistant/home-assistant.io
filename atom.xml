@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-03-27T07:53:16+00:00</updated>
+  <updated>2017-03-27T14:13:26+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -47,7 +47,7 @@
   <li>In a lot of places were the power and energy units update. This change mostly affects the <code class="highlighter-rouge">switch</code> platforms (<a href="https://github.com/home-assistant/home-assistant/pull/6212">#6212</a>).</li>
   <li>If set to <code class="highlighter-rouge">auto</code> then the <a href="https://home-assistant.io/docs/mqtt/">MQTT</a> implementation will use the bundled certificates automatically (<a href="https://github.com/home-assistant/home-assistant/pull/6707">#6707</a>).</li>
   <li>Autodiscovery of <a href="https://home-assistant.io/components/android_ip_webcam/">Android IP Webcam</a> was removed (<a href="https://github.com/home-assistant/home-assistant/pull/6528">#6528</a>).</li>
-  <li>The frontend is now using <a href="(https://www.w3.org/TR/shadow-dom/)">Shadow DOM</a> and this could break your custom panels (<a href="https://github.com/home-assistant/home-assistant-polymer/issues/228">#228</a>).</li>
+  <li>The frontend is now using <a href="https://www.w3.org/TR/shadow-dom/">Shadow DOM</a> and this could break your custom panels (<a href="https://github.com/home-assistant/home-assistant-polymer/issues/228">#228</a>).</li>
 </ul>
 
 <h2>If you need help…</h2>
