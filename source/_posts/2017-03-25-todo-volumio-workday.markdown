@@ -343,7 +343,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [volumio]: https://home-assistant.io//components/media_player.volumio/
 [workday]: https://home-assistant.io/components/binary_sensor.workday/
 [android]: https://home-assistant.io/components/android_ip_webcam/
-[shadow]: (https://www.w3.org/TR/shadow-dom/)
+[shadow]: https://www.w3.org/TR/shadow-dom/
 
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
