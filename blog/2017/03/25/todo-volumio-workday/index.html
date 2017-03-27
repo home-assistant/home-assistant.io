@@ -83,8 +83,8 @@
 <p><a href="https://github.com/JesseWebDotCom">@JesseWebDotCom</a> made massive changes to the <a href="https://home-assistant.io/components/media_player.plex/">Plex</a> media player platform. From better metadata support over new configuration options to improved controls and non-controllable clients.</p>
 <h2>Component overview</h2>
 <p>The <a href="https://home-assistant.io/components/">Components</a> overview is now powered by search/filtering feature. This will make it faster to get the component/platform you are looking for more quickly. Thanks again, <a href="https://github.com/bdurrer">@bdurrer</a> for this.</p>
-<p>## Changelog
-The new format of the changelog which was introduced with 0.40 will provide a link to the related pull request. We are not covering everything in our release notes but we think that this addition will make it easier to find details about the change.</p>
+<h2>Changelog</h2>
+<p>The new format of the changelog which was introduced with 0.40 will provide a link to the related pull request. We are not covering everything in our release notes but we think that this addition will make it easier to find details about the change.</p>
 <h2>New platforms/components</h2>
 <ul>
   <li>Support for <a href="https://home-assistant.io/components/climate.tado/">Tado</a> climate devices (<a href="https://github.com/wmalgadey">@wmalgadey</a>)</li>
@@ -99,7 +99,8 @@ The new format of the changelog which was introduced with 0.40 will provide a li
   <li>The <a href="https://home-assistant.io/components/media_player.emby/">Emby mediaplayer</a> platform was changed to avoid name clashes (<a href="https://github.com/home-assistant/home-assistant/pull/6664">#6664</a>).</li>
   <li>In a lot of places were the power and energy units update. This change mostly affects the <code class="highlighter-rouge">switch</code> platforms (<a href="https://github.com/home-assistant/home-assistant/pull/6212">#6212</a>).</li>
   <li>If set to <code class="highlighter-rouge">auto</code> then the <a href="https://home-assistant.io/docs/mqtt/">MQTT</a> implementation will use the bundled certificates automatically (<a href="https://github.com/home-assistant/home-assistant/pull/6707">#6707</a>).</li>
-  <li>Autodiscovery of <a href="https://home-assistant.io/components/android_ip_webcam/">Android IP Webcam</a> was removed (<a href="https://github.com/home-assistant/home-assistant/pull/6528">#6528</a>)</li>
+  <li>Autodiscovery of <a href="https://home-assistant.io/components/android_ip_webcam/">Android IP Webcam</a> was removed (<a href="https://github.com/home-assistant/home-assistant/pull/6528">#6528</a>).</li>
+  <li>The frontend is now using <a href="(https://www.w3.org/TR/shadow-dom/)">Shadow DOM</a> and this could break your custom panels (<a href="https://github.com/home-assistant/home-assistant-polymer/issues/228">#228</a>).</li>
 </ul>
 <h2>If you need help…</h2>
 <p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
