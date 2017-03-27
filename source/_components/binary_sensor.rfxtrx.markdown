@@ -70,9 +70,9 @@ binary_sensor:
 
 ## Options for PT-2262 devices under the Lighting4 protocol
 
-PT-2262 devices include their commands in their device id. There is no way to automatically take the real identifier and the command apart, unless special support is provided for each existing device. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For sensors using the Lighting4 protocol, the following options are available in order to circumvent the problem:
+When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For sur cases, the following options are available in order to circumvent the problem:
 
-- **data_bits** (*Optional*): Defines how many data bits are used by the device in its RF messages.
+- **data_bits** (*Optional*): Defines how many bits are used for commands inside the data packets sent by the device.
 - **command_on** (*Optional*): Defines the data bits value that is sent by the device upon an 'On' command.
 - **command_off** (*Optional*): Defines the data bits value that is sent by the device upon an 'Off' command.
 
@@ -86,16 +86,15 @@ INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sen
 
 Here the sensor has the id *22670e*.
 
-
-Now have your sensor trigger the "Off" state and look for the following message in the Home Assistant log. You should see that your device triggering its "Off" state has been detected as a *new* device:
+Now have your sensor trigger the "Off" state and look for the following message in the Home Assistant log. You should see that your device has been detected as a *new* device when triggering its "Off" state:
 
 ```
 INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 09130000226707013d70 (Device_id: 226707 Class: LightingDevice Sub: 0)
 ```
 
-Here the device id is *226707*, which is almost similar to the *22670* we had on the "On" event a few seconds ago. 
+Here the device id is *226707*, which is almost similar to the *22670e* we had on the "On" event a few seconds ago. 
 
-From those two values, you can guess that the actual id of your device is *22670*, and that *e* and *7* are commands for "On" and "Off" states respectively. As one hexadecimal digit uses 4 bits, we guess that the device is using 4 data bits.
+From those two values, you can guess that the actual id of your device is *22670*, and that *e* and *7* are commands for "On" and "Off" states respectively. As one hexadecimal digit uses 4 bits, we can conclude that the device is using 4 data bits.
 
 So here is the actual configuration section for the binary sensor:
 
@@ -130,8 +129,8 @@ The following devices are known to work with the rfxtrx binary sensor component.
 
 - Motion detectors:
   - Kerui P817 and P829 PIR motion detector.
-  - Chuango PIR-700 Motion detector.
+  - Chuango PIR-700 Motion detector ().
 
 - Door / window sensors:
-  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a temper switch. 
+  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a temper switch.
   - Nexa LMST-606 Magnetic contact switch.
