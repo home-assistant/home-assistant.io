@@ -20,7 +20,8 @@ To enable Matrix notifications in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - platform: matrix
+  - name: NOTIFIER_NAME
+    platform: matrix
     homeserver: HOMESERVER
     username: USERNAME
     password: PASSWORD
