@@ -19,7 +19,7 @@ Welcome to 0.41. There was a lot going on in the last two weeks. Not only from t
 ## Component overview
 The [Components][components] overview is now powered by search/filtering feature. This will make it faster to get the component/platform you are looking for more quickly. Thanks again, [@bdurrer] for this.
 
- ## Changelog
+## Changelog
 The new format of the changelog which was introduced with 0.40 will provide a link to the related pull request. We are not covering everything in our release notes but we think that this addition will make it easier to find details about the change.
 
 ## New platforms/components
@@ -36,7 +36,8 @@ The new format of the changelog which was introduced with 0.40 will provide a li
 - The [Emby mediaplayer][emby] platform was changed to avoid name clashes ([#6664]).
 - In a lot of places were the power and energy units update. This change mostly affects the `switch` platforms ([#6212]).
 - If set to `auto` then the [MQTT][mqtt] implementation will use the bundled certificates automatically ([#6707]).
-- Autodiscovery of [Android IP Webcam][android] was removed ([#6528])
+- Autodiscovery of [Android IP Webcam][android] was removed ([#6528]).
+- The frontend is now using [Shadow DOM][shadow] and this could break your custom panels ([#228](https://github.com/home-assistant/home-assistant-polymer/issues/228)).
 
 ## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -342,6 +343,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [volumio]: https://home-assistant.io//components/media_player.volumio/
 [workday]: https://home-assistant.io/components/binary_sensor.workday/
 [android]: https://home-assistant.io/components/android_ip_webcam/
+[shadow]: (https://www.w3.org/TR/shadow-dom/)
 
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
