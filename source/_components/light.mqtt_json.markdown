@@ -54,7 +54,6 @@ Configuration variables:
 - **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
 - **color_temperature** (*Optional*): Flag that defines if the light supports color temperature. Default is false.
 - **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
-- **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
 - **effect_list** (*Optional*): The list of effects the light supports.
 - **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.
 - **flash_time_short** (*Optional*): The duration, in seconds, of a "short" flash. Default is 2.
