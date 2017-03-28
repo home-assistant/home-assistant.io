@@ -10,6 +10,11 @@ footer: true
 ha_category: Infrastructure
 ---
 
+<p class='warning'>
+Before exposing your HA instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](https://home-assistant.io/docs/configuration/basic/) page.
+</p>
+
+
 This guide was added by mf_social on 16/03/2017 and was valid at the time of writing.  This guide makes the following assumptions:
 
  * You can access your HA instance across your local network, and access the device that it is on via SSH from your local network.
@@ -82,7 +87,7 @@ $ ifconfig
 
 You will receive an ouput similar to the image here...
 
-![alt tag](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/images/screenshots/ssl_chuide_pic_1.jpg)
+![alt tag](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/images/screenshots/ip-set.jpg)
  
 Make a note of the interface name and the IP address you are currently on.  (In the picture it is the wireless connection that is highlighted, but with your setup it may be the wired one (eth0 or similar), make sure you get the correct information.
  
@@ -170,7 +175,7 @@ http://12.12.12.12:8123
 
 Can you see your HA instance?  Awesome! If not, your router may not support ' loopback' - try the next step anyway and if that works, and this one still doesn't, just remember that you cannot use loopback, so will have to use internal addresses when you're on your home network.  More on this later on if it's relevant to you.
 
-Just to verify this isn't some kind of witchcraft that is actualy using your internal network, pick up your phone, disconnect it from your wifi so that you are on your mobile data and not connected to the home network, put the same url in the browser on your phone.
+Just to verify this isn't some kind of witchcraft that is actually using your internal network, pick up your phone, disconnect it from your wifi so that you are on your mobile data and not connected to the home network, put the same url in the browser on your phone.
 
 Can you see it now, from a device that is definitely not connected to your local network?  Excellent!  You now have a remotely accesible HA instance.  
 
@@ -202,10 +207,10 @@ http://examplehome.duckdns.org:8123
 
 What now happens behind the scenes is this:
 
-*DuckDNS receives the request and forwards the request to your router's external IP address (which has been kept up to date by your device running HA)
-*Your router receives the request on port 8123 and checks the port forwarding rules
-*It finds the rule you created in step 2 and forwards the request to your HA instance
-*Your browser displays your HA instance frontend.
+- DuckDNS receives the request and forwards the request to your router's external IP address (which has been kept up to date by your device running HA)
+- Your router receives the request on port 8123 and checks the port forwarding rules
+- It finds the rule you created in step 2 and forwards the request to your HA instance
+- Your browser displays your HA instance frontend.
 
 Did it work? Super!
 
@@ -299,6 +304,8 @@ $ cd ~/.homeassistant
 If you use samba shares to edit your files you can exit your SSH now.
 </p>
 
+If during step 4 you had to use port 443 instead of port 80 to generate your certificate, you should delete that rule now.
+
 Go to your router's configuration pages and set up a new port forwarding rule, thus:
 
 ```text
@@ -308,8 +315,6 @@ Local IP - YOUR-HA-IP
 Local Port - 8123
 Protocol - Both
 ```
-
-If during step 4 you had to use port 443 instead of port 80 to generate your certificate, you should delete that rule now.
 
 Remember to save the rule changes.
 
@@ -363,7 +368,7 @@ In step 2 we created a port forwarding rule called ha_test.  This opens port 812
 
 Go to your router's configuration pages and delete the ha_test rule.
 
-You chould now have two rules in relation to HA for your port forwards, named:
+You should now have two rules in relation to HA for your port forwards, named:
 
 ```text
 ha_ssl and ha_letsencrypt
