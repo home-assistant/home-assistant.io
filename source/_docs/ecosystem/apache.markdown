@@ -53,6 +53,20 @@ Include conf/extra/hass.conf
 If you don't want HTTPS, you can change `<VirtualHost *:443>` to `<VirtualHost *:80>` or better consider redirecting all HTTP to HTTPS.
 
 
+<p class='note'>
+In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
+
+```text
+<VirtualHost *:443>
+  [...]
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket disablereuse=on
+  [...]
+  ProxyPass / http://localhost:8123/ disablereuse=on
+  [...]
+</VirtualHost>
+```
+</p>
+
 #### {% linkable_title Multiple Instance %}
 
 You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in `/home/alice/.homeassistant/configuration.yaml`
