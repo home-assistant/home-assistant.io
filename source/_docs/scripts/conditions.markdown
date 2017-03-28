@@ -58,12 +58,12 @@ condition:
       state: 'home'
     - condition: or
       conditions:
-      - condition: state
-        entity_id: sensor.weather_precip
-        state: 'rain'
-      - condition: numeric_state
-        entity_id: 'sensor.temperature'
-        below: '20'
+        - condition: state
+          entity_id: sensor.weather_precip
+          state: 'rain'
+        - condition: numeric_state
+          entity_id: 'sensor.temperature'
+          below: '20'
 ```
 
 ### {% linkable_title Numeric state condition %}
