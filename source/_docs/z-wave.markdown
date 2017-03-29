@@ -85,6 +85,7 @@ Configuration variables:
   - **ignored** (*Optional*): Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
   - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
+  - **invert_openclose_buttons** (*Optional*): Inverts function of the open and close buttons for the cover domain. Defaults to False
 - **debug** (*Optional*): Print verbose z-wave info to log. Defaults to False.
 
 To find the path of your Z-Wave USB stick or module, run:
