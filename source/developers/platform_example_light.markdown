@@ -35,6 +35,16 @@ from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHE
 from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
 import homeassistant.helpers.config_validation as cv
 
+# Bitfield of features supported by the light entity
+SUPPORT_BRIGHTNESS = 1
+SUPPORT_COLOR_TEMP = 2
+SUPPORT_EFFECT = 4
+SUPPORT_FLASH = 8
+SUPPORT_RGB_COLOR = 16
+SUPPORT_TRANSITION = 32
+SUPPORT_XY_COLOR = 64
+SUPPORT_WHITE_VALUE = 128
+
 # Home Assistant depends on 3rd party packages for API specific code.
 REQUIREMENTS = ['awesome_lights==1.2.3']
 
@@ -84,6 +94,15 @@ class AwesomeLight(Light):
     def name(self):
         """Return the display name of this light."""
         return self._name
+        
+    @property
+    def supported_features(self):
+        """Flag supported features.
+        
+        This definition must be included to enable brightness control of 
+        lights.
+        """
+        return SUPPORT_BRIGHTNESS
 
     @property
     def brightness(self):
