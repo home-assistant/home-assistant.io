@@ -50,6 +50,7 @@ Device configuration variables:
 
 Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
+- Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
