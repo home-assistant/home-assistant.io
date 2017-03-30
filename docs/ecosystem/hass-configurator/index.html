@@ -79,7 +79,8 @@ Essentially this is a browser-based alternative to modifying your configuration 
   <li>Check valid configuration and restart Home Assistant directly with the click of a button</li>
   <li>SSL support</li>
   <li>Optional authentication and IP filtering for additional security</li>
-  <li>Direct links to Home Assistant documentation</li>
+  <li>Direct links to Home Assistant documentation and icons</li>
+  <li>Execute shell commands</li>
   <li>Runs on pretty much any machine Home Assistant can run on</li>
 </ul>
 <p class="note warning">
@@ -88,7 +89,7 @@ Consider running the configurator as a user with limited privileges to limit pos
 <h3><a class="title-link" name="installation-linux-os-x" href="#installation-linux-os-x"></a> Installation (Linux, OS X)</h3>
 <p>There are no dependencies on Python modules that are not part of the standard library. And all the fancy JavaScript libraries are loaded from CDN (which means this doesn’t work when you’re offline).</p>
 <ul>
-  <li>Copy <a href="https://github.com/danielperna84/hass-poc-configurator/blob/master/configurator.py">configurator.py</a> to your Home Assistant configuration directory (e.g /home/homeassistant/.homeassistant)</li>
+  <li>Copy <a href="https://github.com/danielperna84/hass-configurator/blob/master/configurator.py">configurator.py</a> to your Home Assistant configuration directory (e.g /home/homeassistant/.homeassistant)</li>
   <li>Make it executable: <code class="highlighter-rouge">sudo chmod 755 configurator.py</code></li>
   <li>(Optional) Set the <code class="highlighter-rouge">GIT</code> variable in configurator.py to <code class="highlighter-rouge">True</code> if <a href="https://gitpython.readthedocs.io/">GitPython</a> is installed on your system. This is required if you want to make use of the Git integration.</li>
   <li>Execute it: <code class="highlighter-rouge">sudo ./configurator.py</code></li>
@@ -96,7 +97,7 @@ Consider running the configurator as a user with limited privileges to limit pos
 </ul>
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 <p>Near the top of the configurator.py-file you will find some global variables you can change to customize the configurator. If you are unfamiliar with Python: when setting variables of the type <em>string</em>, you have to write that within quotation marks. The default settings are fine for just checking out the configurator quickly. With more customized setups you should change some settings though.<br />
-To keep your settings across updates it is also possible to save settings in an external file. In that case copy <a href="https://github.com/danielperna84/hass-poc-configurator/blob/master/settings.conf">settings.conf</a> whereever you like and append the full path to the file to the command when starting the configurator. E.g. <code class="highlighter-rouge">sudo .configurator.py /home/homeassistant/.homeassistant/mysettings.conf</code>. This file is in JSON format. So make sure it has a valid syntax (you can set the editor to JSON to get syntax highlighting for the settings). The major difference to the settings in the py-file is, that <code class="highlighter-rouge">None</code> becomes <code class="highlighter-rouge">null</code>.</p>
+To keep your settings across updates it is also possible to save settings in an external file. In that case copy <a href="https://github.com/danielperna84/hass-configurator/blob/master/settings.conf">settings.conf</a> whereever you like and append the full path to the file to the command when starting the configurator. E.g. <code class="highlighter-rouge">sudo .configurator.py /home/homeassistant/.homeassistant/mysettings.conf</code>. This file is in JSON format. So make sure it has a valid syntax (you can set the editor to JSON to get syntax highlighting for the settings). The major difference to the settings in the py-file is, that <code class="highlighter-rouge">None</code> becomes <code class="highlighter-rouge">null</code>.</p>
 <h4>LISTENIP (string)</h4>
 <p>The IP the service is listening on. By default it is binding to <code class="highlighter-rouge">0.0.0.0</code>, which is every interface on the system.</p>
 <h4>LISTENPORT (integer)</h4>
@@ -159,14 +160,14 @@ Be careful when setting up port forwarding to the configurator while embedding i
 <ol>
   <li>Fork the process into the background with the command:<br />
 <code class="highlighter-rouge">nohup sudo ./configurator.py &amp;</code></li>
-  <li>If your system is using systemd (that’s usually what you’ll find on a Raspberry PI), there’s a <a href="https://github.com/danielperna84/hass-poc-configurator/blob/master/hass-poc-configurator.systemd">template file</a> you can use and then apply the same process to integrate it as mentioned in the <a href="https://home-assistant.io/docs/autostart/systemd/">Home Assistant documentation</a>. If you use this method you have to set the <code class="highlighter-rouge">BASEPATH</code> variable according to your environment.</li>
-  <li>If you have <a href="http://supervisord.org/">supervisor</a> running on your system, <a href="https://github.com/danielperna84/hass-poc-configurator/blob/master/hass-poc-configurator.supervisor">hass-poc-configurator.supervisor</a> would be an example configuration you could use to control the configurator.</li>
+  <li>If your system is using systemd (that’s usually what you’ll find on a Raspberry PI), there’s a <a href="https://github.com/danielperna84/hass-configurator/blob/master/hass-poc-configurator.systemd">template file</a> you can use and then apply the same process to integrate it as mentioned in the <a href="https://home-assistant.io/docs/autostart/systemd/">Home Assistant documentation</a>. If you use this method you have to set the <code class="highlighter-rouge">BASEPATH</code> variable according to your environment.</li>
+  <li>If you have <a href="http://supervisord.org/">supervisor</a> running on your system, <a href="https://github.com/danielperna84/hass-configurator/blob/master/hass-poc-configurator.supervisor">hass-poc-configurator.supervisor</a> would be an example configuration you could use to control the configurator.</li>
   <li>A tool called <a href="https://tmux.github.io/">tmux</a>, which should be pre-installed with <a href="https://home-assistant.io/docs/hassbian/">HASSbian</a>.</li>
   <li>A tool called <a href="http://ss64.com/bash/screen.html">screen</a> (alternative to tmux). If it’s not already installed on your system, you can do <code class="highlighter-rouge">sudo apt-get install screen</code> or <code class="highlighter-rouge">sudo yum install screen</code> to get it. When it’s installed, start a screen session by executing <code class="highlighter-rouge">screen</code>. Then navigate to your Home Assistant directory and start the configurator like described above. Put the screen session into the background by pressing <code class="highlighter-rouge">CTRL+A</code> and then <code class="highlighter-rouge">CTRL+D</code>. It is now safe to disconnect from your SSH session.
 To resume the screen session, log in to your machine and execute <code class="highlighter-rouge">screen -r</code>.</li>
 </ol>
 <h3><a class="title-link" name="troubleshooting-issues-etc" href="#troubleshooting-issues-etc"></a> Troubleshooting, Issues etc.</h3>
-<p>If you encounter difficulties setting up the configurator or stumble upon a possible bug, head over to the <a href="https://github.com/danielperna84/hass-poc-configurator/issues">Issues</a> section of the configurator repository. Additionally there is a thread at the <a href="https://community.home-assistant.io/t/simplistic-configuration-ui/10175">Home Assistant Community</a> where common problems may have been discussed already. And if not, there are always friendly people around to help finding solutions.</p>
+<p>If you encounter difficulties setting up the configurator or stumble upon a possible bug, head over to the <a href="https://github.com/danielperna84/hass-configurator/issues">Issues</a> section of the configurator repository. Additionally there is a thread at the <a href="https://community.home-assistant.io/t/simplistic-configuration-ui/10175">Home Assistant Community</a> where common problems may have been discussed already. And if not, there are always friendly people around to help finding solutions.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -368,6 +369,7 @@ To resume the screen session, log in to your machine and execute <code class="hi
           <li><a  href='/docs/ecosystem/scenegen/'>scenegen </a></li>
           <li><a  href='/docs/ecosystem/synology/'>Synology </a></li>
           <li><a  href='/docs/ecosystem/backup/backup_github/'>Backup to GitHub </a></li>
+          <li><a class='active' href='/docs/ecosystem/hass-configurator/'>HASS Configurator </a></li>
         </ul>
     </ul>
   </div>
