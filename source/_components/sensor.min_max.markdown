@@ -35,6 +35,10 @@ sensor:
       - sensor.kitchen_temperature
       - sensor.living_room_temperature
       - sensor.office_temperature
+    type: min
+    name: "Lowest House Temperature"
+    unit_of_measurement: '°C'
+    
 ```
 
 Configuration variables:
@@ -42,4 +46,5 @@ Configuration variables:
 - **entity_ids** (*Required*): At least two entities to monitor
 - **type** (*Optional*): The type of sensor: `min`, `max` or `mean`. Defaults to `max`.
 - **name** (*Optional*): Name of the sensor to use in the frontend.
+- **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
 - **round_digits** (*Optional*): Round mean value to specified number of digits. Defaults to 2.
