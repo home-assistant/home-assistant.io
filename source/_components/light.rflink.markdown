@@ -18,17 +18,6 @@ First you have to set up your [rflink hub](/components/rflink/).
 
 After configuring the RFLink hub lights will be automatically discovered and added.
 
-New/unknown lights can be assigned to a default group automatically by specifying the `new_devices_group` option with a group name. If the group doesn't exist it will be created.
-
-For example:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: rflink
-  new_devices_group: "New Rflink Lights"
-```
-
 RFLink switch/light ID's are composed of: protocol, id, switch. For example: `newkaku_0000c6c2_1`.
 
 Once the ID of a light is known it can be used to configure the light in HA, for example to add it to a different group, hide it or configure a nice name.
@@ -49,8 +38,8 @@ light:
 
 Configuration variables:
 
+- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
-- **new_devices_group** (*Optional*): Create group to add new/unknown devices to.
 - **device_defaults**: (*Optional*)
   - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
   - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
@@ -101,7 +90,7 @@ By default new lights are assigned the `switchable` type. Protocol supporting di
 
 Lights are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
-- Configure a `new_devices_group` for lights and optionally add it to a different `view`.
+- Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 

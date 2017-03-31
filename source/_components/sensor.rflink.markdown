@@ -18,17 +18,6 @@ First you have to set up your [rflink hub](/components/rflink/).
 
 After configuring the RFLink hub sensors will be automatically discovered and added.
 
-New/unknown sensors can be assigned to a default group automatically by specifying the `new_devices_group` option with a group name. If the group doesn't exist it will be created.
-
-For example:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: rflink
-  new_devices_group: "New RFLink Sensors"
-```
-
 RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own
 
 Once the ID of a sensor is known it can be used to configure the sensor in HA, for example to add it to a different group, hide it or configure a nice name.
@@ -47,8 +36,8 @@ sensor:
 
 Configuration variables:
 
+- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
-- **new_devices_group** (*Optional*): Create group to add new/unknown devices to.
 
 Device configuration variables:
 
@@ -61,7 +50,7 @@ Device configuration variables:
 
 Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
-- Configure a `new_devices_group` for sensors and optionally add it to a different `view`.
+- Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
