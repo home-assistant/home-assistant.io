@@ -28,6 +28,7 @@ Configuration variables:
 - **ssl** (*Optional*): Set to `True` if your ZoneMinder installation is using SSL. Default to `False`.
 - **username** (*Optional*): Your ZoneMinder username.
 - **password** (*Optional*): Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
+- **trigger_port** (*Optional*): ZM's external trigger port. Default is 6802
 
 ### {% linkable_title Full configuration %}
 
