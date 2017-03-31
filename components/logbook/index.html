@@ -134,8 +134,8 @@ To exclude these entities just add them to the <code class="highlighter-rouge">e
   <span class="s">add_logbook_entry</span><span class="pi">:</span>
     <span class="s">alias</span><span class="pi">:</span> <span class="s">Add Logbook</span>
     <span class="s">sequence</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">event</span><span class="pi">:</span> <span class="s">LOGBOOK_ENTRY</span>
-        <span class="s">event_data</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">logbook.log</span>
+        <span class="s">data_template</span><span class="pi">:</span>
           <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen</span>
           <span class="s">message</span><span class="pi">:</span> <span class="s">is being used</span>
           <span class="c1"># Optional</span>
