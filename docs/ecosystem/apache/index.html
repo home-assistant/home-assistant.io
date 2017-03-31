@@ -99,6 +99,18 @@ Include conf/extra/hass.conf
 </code></pre>
 </div>
 <p>If you don’t want HTTPS, you can change <code class="highlighter-rouge">&lt;VirtualHost *:443&gt;</code> to <code class="highlighter-rouge">&lt;VirtualHost *:80&gt;</code> or better consider redirecting all HTTP to HTTPS.</p>
+<p class="note">
+In case you are getting occasional HTTP 504 error messages (“Gateway Timeout”) when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
+<code class="highlighter-rouge">text
+&lt;VirtualHost *:443&gt;
+  [...]
+  ProxyPass /api/websocket ws://localhost:8123/api/websocket disablereuse=on
+  [...]
+  ProxyPass / http://localhost:8123/ disablereuse=on
+  [...]
+&lt;/VirtualHost&gt;
+</code>
+</p>
 <h4><a class="title-link" name="multiple-instance" href="#multiple-instance"></a> Multiple Instance</h4>
 <p>You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in <code class="highlighter-rouge">/home/alice/.homeassistant/configuration.yaml</code></p>
 <p>You want another instance available at https://countryside.example.org</p>
