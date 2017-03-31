@@ -38,7 +38,6 @@ sensor:
     type: min
     name: "Lowest House Temperature"
     unit_of_measurement: '°C'
-    
 ```
 
 Configuration variables:
