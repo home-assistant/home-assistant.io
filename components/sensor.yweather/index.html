@@ -66,7 +66,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">yweather</code> platform uses <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a> as an source for current meteorological data. The <code class="highlighter-rouge">forecast</code> will show you the condition for 5 days, 0 is the current day. You can use only <code class="highlighter-rouge">weather</code>, <code class="highlighter-rouge">temp_min</code>, and <code class="highlighter-rouge">temp_max</code> with forecast.</p>
+  <p>The <code class="highlighter-rouge">yweather</code> platform uses <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a> as an source for current meteorological data. The <code class="highlighter-rouge">forecast</code> will show you the condition for 5 days, 0 is the current day. You can use only <code class="highlighter-rouge">weather</code>, <code class="highlighter-rouge">temp_min</code>, and <code class="highlighter-rouge">temp_max</code> with forecast. It’s important to note that a yweather sensor will only show ONE days forecast at a time so to show multiple days forecasts, you will need to use the ‘name:’ option and give each sensor a unique name.</p>
 <p class="note warning">
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2,000 signed calls per day.
 </p>
@@ -106,6 +106,35 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
     </ul>
   </li>
 </ul>
+<p>Example of forecast using multiple days. In example, first sensor shows tomorrow’s forecast, second sensor shows the next day and so on:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
+    <span class="s">forecast</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">yw_day1</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">weather</span>
+      <span class="pi">-</span> <span class="s">temp_min</span>
+      <span class="pi">-</span> <span class="s">temp_max</span>
+
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
+    <span class="s">forecast</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">yw_day2</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">weather</span>
+      <span class="pi">-</span> <span class="s">temp_min</span>
+      <span class="pi">-</span> <span class="s">temp_max</span>
+      
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
+    <span class="s">forecast</span><span class="pi">:</span> <span class="s">3</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">yw_day3</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">weather</span>
+      <span class="pi">-</span> <span class="s">temp_min</span>
+      <span class="pi">-</span> <span class="s">temp_max</span>
+
+</code></pre>
+</div>
 <p>Details about the API are available in the <a href="https://developer.yahoo.com/weather/">Yahoo! Developer Network</a>.</p>
 </article>
         </div>
