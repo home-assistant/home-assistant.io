@@ -31,19 +31,9 @@ import logging
 import voluptuous as vol
 
 # Import the device class from the component that you want to support
-from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA
+from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA, SUPPORT_BRIGHTNESS
 from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
 import homeassistant.helpers.config_validation as cv
-
-# Bitfield of features supported by the light entity
-SUPPORT_BRIGHTNESS = 1
-SUPPORT_COLOR_TEMP = 2
-SUPPORT_EFFECT = 4
-SUPPORT_FLASH = 8
-SUPPORT_RGB_COLOR = 16
-SUPPORT_TRANSITION = 32
-SUPPORT_XY_COLOR = 64
-SUPPORT_WHITE_VALUE = 128
 
 # Home Assistant depends on 3rd party packages for API specific code.
 REQUIREMENTS = ['awesome_lights==1.2.3']
