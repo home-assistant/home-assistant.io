@@ -19,7 +19,7 @@ Welcome to 0.41. There was a lot going on in the last two weeks. Not only from t
 ## Component overview
 The [Components][components] overview is now powered by search/filtering feature. This will make it faster to get the component/platform you are looking for more quickly. Thanks again, [@bdurrer] for this.
 
- ## Changelog
+## Changelog
 The new format of the changelog which was introduced with 0.40 will provide a link to the related pull request. We are not covering everything in our release notes but we think that this addition will make it easier to find details about the change.
 
 ## New platforms/components
@@ -36,6 +36,8 @@ The new format of the changelog which was introduced with 0.40 will provide a li
 - The [Emby mediaplayer][emby] platform was changed to avoid name clashes ([#6664]).
 - In a lot of places were the power and energy units update. This change mostly affects the `switch` platforms ([#6212]).
 - If set to `auto` then the [MQTT][mqtt] implementation will use the bundled certificates automatically ([#6707]).
+- Autodiscovery of [Android IP Webcam][android] was removed ([#6528]).
+- The frontend is now using [Shadow DOM][shadow] and this could break your custom panels ([#228](https://github.com/home-assistant/home-assistant-polymer/issues/228)).
 
 ## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -102,12 +104,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add "Refactor zwave discovery to entity schema" ([@balloob] - [#6565])
 - Tests for ZWave climate ([@armills] - [#6629])
 - Correctly flag Kodi media types ([@armills] - [#6628])
-- since knx_2_float can't handle 0, bypass converting 0 value from knx to float ([@goofz] - [#6626])
 - Use sqlite's WAL mode to avoid `database is locked` errors ([@n8henrie] - [#6519])
 - Remove event decorators ([@balloob] - [#6634]) (Breaking Change)
 - Deprecate event forwarding ([@balloob])
 - Upgrade aiohttp to 1.3.4 ([@pvizeli] - [#6643])
-- media_player.kodi extra attributes for tvshow and music media ([@mvillarejo] - [#6622])
+- Kodi extra attributes for tvshow and music media ([@mvillarejo] - [#6622])
 - Add ZWave cover tests ([@armills] - [#6648])
 - Kodi: Fix episode media type classification ([@armills] - [#6645])
 - Move LIFX to aiolifx for driving the bulbs ([@amelchio] - [#6584])
@@ -121,7 +122,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix hydroquebec ([@titilambert] - [#6574])
 - Update pyecobee version to 0.0.7 ([@dale3h] - [#6593])
 - Update SMA solar sensor to work with the new add_devices callback ([@kellerza] - [#6602])
-- since knx_2_float can't handle 0, bypass converting 0 value from knx to float ([@goofz] - [#6626])
+- Since knx_2_float can't handle 0, bypass converting 0 value from knx to float ([@goofz] - [#6626])
 - Bugfix RFLINK remove group ([@pvizeli] - [#6580])
 - Added workday sensor ([@BastianPoe] - [#6599])
 - Add test for Z-wave switch ([@turbokongen] - [#6619])
@@ -341,6 +342,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tado]: https://home-assistant.io/components/climate.tado/
 [volumio]: https://home-assistant.io//components/media_player.volumio/
 [workday]: https://home-assistant.io/components/binary_sensor.workday/
+[android]: https://home-assistant.io/components/android_ip_webcam/
+[shadow]: https://www.w3.org/TR/shadow-dom/
 
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant

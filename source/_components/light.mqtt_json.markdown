@@ -52,8 +52,7 @@ Configuration variables:
 
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
 - **brightness** (*Optional*): Flag that defines if the light supports brightness. Default is false.
-- **color_temperature** (*Optional*): Flag that defines if the light supports color temperature. Default is false.
-- **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
+- **color_temp** (*Optional*): Flag that defines if the light supports color temperature. Default is false.
 - **effect** (*Optional*): Flag that defines if the light supports effects. Default is false.
 - **effect_list** (*Optional*): The list of effects the light supports.
 - **flash_time_long** (*Optional*): The duration, in seconds, of a "long" flash. Default is 10.

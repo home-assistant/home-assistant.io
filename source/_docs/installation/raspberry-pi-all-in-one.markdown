@@ -16,6 +16,8 @@ The only requirement is that you have a Raspberry Pi with a fresh installation o
 Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images.  Adding an empty file called `ssh` to `/boot/` or the FAT32 partition will enable it.  More information is on the Raspberry Pi Foundation [Blog](https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel)
 </p>
 
+Irrespective of whether  you use SSH to connect to the Pi from another computer or not, you need SSH to install Home Assistant. So go ahead and enable SSH.
+
 *  Login to Raspberry Pi. For example with `ssh pi@your_raspberry_pi_ip`
 *  Run the following command
 

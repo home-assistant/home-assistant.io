@@ -12,26 +12,16 @@ ha_category: Hub
 ha_release: "0.40"
 ---
 
-The Android IP webcam component turns an Android phone into a network camera with multiple viewing options.
+The `android_ip_webcam` component turns an Android phone into a network camera with multiple viewing options.
 
 It's setup as a mjpeg camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
 
-To set it up, download [the IP Webcam app][app] and add the following information to your `configuration.yaml` file:
+To set it up, download [the IP Webcam app][app], and add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 android_ip_webcam:
-<<<<<<< HEAD
-<<<<<<< HEAD
   - host: 192.168.1.10
-=======
-  # This should be the ip of your phone
-=======
-  # This should be the IP Address of the phone
->>>>>>> origin/current
-  - host: 192.168.1.10
-    name: Entrance
->>>>>>> current
 ```
 
 Configuration variables:
@@ -42,7 +32,6 @@ Configuration variables:
 - **username** (*Optional*): The username to access the phone.
 - **password** (*Optional*): The password to access the phone.
 - **scan_interval** (*Optional*): Default is 10 seconds. Defines the update interval of the phone.
-- **auto_discovery** (*Optional*): Default is True. Auto detect which sensors and settings are available for setup.
 - **sensors** array (*Optional*): Conditions to display sensor in the frontend. See list of supported sensors.
 - **switches** array (*Optional*): Conditions to display settings in the frontend. See list of supported settings.
 - **motion_sensor** (*Optional*): Activate motion sensor if auto_discovery is disabled.
@@ -70,8 +59,5 @@ Settings:
 - torch
 - whitebalance_lock
 - video_recording
-<<<<<<< HEAD
-=======
 
 [app]: https://play.google.com/store/apps/details?id=com.pas.webcam
->>>>>>> current
