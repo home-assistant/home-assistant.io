@@ -121,3 +121,27 @@ If you find a device is recognized differently, with different protocols or the 
 - The platform implementions take care of creating new devices (if enabled) for unsees incoming packet id's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entitiy logic is maintained in this main component.
 
+### {% linkable_title Debug logging %}
+
+For debugging purposes or context when investigating issues you can enable debug logging for Rflink with the following config snippet:
+
+```yaml
+logger:
+  default: error
+  logs:
+    rflink: debug
+    homeassistant.components.rflink: debug
+```
+
+This will give you output looking like this:
+
+```
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: 20;00;Nod
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: o RadioFrequencyLink - R
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: FLink Gateway V1.1 - R45
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: ;
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] got packet: 20;00;Nodo RadioFrequencyLink - RFLink Gateway V1.1 - R45;
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] decoded packet: {'firmware': 'RFLink Gateway', 'revision': '45', 'node': 'gateway', 'protocol': 'unknown', 'hardware': 'Nodo RadioFrequencyLink', 'version': '1.1'}
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] got event: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
+17-03-07 20:12:05 DEBUG (MainThread) [homeassistant.components.rflink] event of type unknown: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
+```
