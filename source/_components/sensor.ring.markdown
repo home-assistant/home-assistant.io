@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Ring"
+title: "Ring Sensor"
 description: "Instructions on how to integrate your Ring.com devices within Home Assistant."
 date: 2017-04-01 10:00
 sidebar: true
