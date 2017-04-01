@@ -82,6 +82,10 @@ light:
       aliasses:
         - newkaku_000000001_2
         - kaku_000001_a
+    Ansluta_ce30_0:
+      name: Kitchen Under Counter Lights
+    Maclean_0d82_01:
+      name: Bedroom Lamp
 ```
 
 Any on/off command from any allias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
