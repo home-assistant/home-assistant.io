@@ -16,7 +16,7 @@ I would like to thanks all contributors. Your endless effort made this possible.
 
 <img src='/images/blog/2017-04-award/award.jpg' style='border: 0;box-shadow: none;'>
 
-The price beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four [Low Energy Server v2 (LES)][LES] units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.
+The prize beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four [Low Energy Server v2 (LES)][LES] units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.
 
 As a raffle would be to easy, we make a contest out of it. This means that we are looking for your application. Of course, we would like to see those systems goes to active or future developers who can justify their need for one of the systems to run CI, UI tests, public accessible Home Assistant demo instances, etc. At the other hand we would like to keep it open, to see with what people are coming up. Please participate as well if you are planning to automate the public school of your kids with 1000 switches or light, need a server to run it, and want to provide regular feedback about the user experience.
 
