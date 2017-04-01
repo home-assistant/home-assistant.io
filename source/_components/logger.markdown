@@ -67,5 +67,9 @@ data:
   homeassistant.components: warning
   homeassistant.components.media_player.yamaha: debug
 ```
-The log information is put into the file /home/pi/.homeassistant/home-assistant.log and you can read it with cat or follow it dynamicly with tail -f:
-tail -f /home/pi/.homeassistant/home-assistant.log
+
+The log information are stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamicly with `tail -f`. If you are a Rasbian user then like the example below:
+
+```bash
+$ tail -f /home/pi/.homeassistant/home-assistant.log
+```
