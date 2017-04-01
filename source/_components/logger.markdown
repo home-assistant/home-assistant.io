@@ -67,3 +67,5 @@ data:
   homeassistant.components: warning
   homeassistant.components.media_player.yamaha: debug
 ```
+The log information is put into the file /home/pi/.homeassistant/home-assistant.log and you can read it with cat or follow it dynamicly with tail -f:
+tail -f /home/pi/.homeassistant/home-assistant.log
