@@ -14,7 +14,7 @@ You may already know from our social media channels and the release blog post fo
 
 I would like to thanks all contributors. Your endless effort made this possible.
 
-<img src='/images/blog/2017-04-award/social.png' style='border: 0;box-shadow: none;'></a>
+<img src='/images/blog/2017-04-award/award.jpg' style='border: 0;box-shadow: none;'></a>
 
 The price beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four [Low Energy Server v2 (LES)][LES] units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.
 
