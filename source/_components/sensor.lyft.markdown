@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Lyft"
+title: "Lyft Sensor"
 description: "How to integrate Lyft in Home Assistant"
 date: 2017-03-19 21:05
 sidebar: true
@@ -10,7 +10,7 @@ footer: true
 logo: lyft.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 0.41
+ha_release: 0.42
 ---
 
 
@@ -25,12 +25,9 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: lyft
-    client_id: [...]
-    client_secret: [...]
+    client_id: CLIENT_ID
+    client_secret: CLIENT_SECRET
     start_latitude: 37.8116380 
-    start_longitude: -122.2648050
-    end_latitude: 37.615223
-    end_longitude: -122.389977
 ```
 
 Configuration variables:
@@ -49,8 +46,8 @@ A full configuration entry could look like the sample below:
 # Example configuration.yaml entry
 sensor:
   - platform: lyft
-    client_id: [...]
-    client_secret: [...]
+    client_id: CLIENT_ID
+    client_secret: CLIENT_SECRET
     start_latitude: 37.8116380 
     start_longitude: -122.2648050
     end_latitude: 37.615223
