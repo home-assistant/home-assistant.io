@@ -1,18 +1,18 @@
 ---
 layout: page
-title: "TotalConnect Alarm Control Panel"
+title: "Honeywell TotalConnect Alarm Control Panel"
 description: "Instructions how to integrate TotalConnect alarms into Home Assistant."
 date: 2017-04-02 22:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: totalconnect.jpg
+logo: honeywell-tc.png
 ha_category: Alarm
 ha_release: 0.43
 ---
 
-The `totalconnect` platform provides connectivity with the TotalConnect alarm systems used by many alarm companies
+The `totalconnect` platform provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies
 
 To enable this, add the following lines to your `configuration.yaml`:
 
