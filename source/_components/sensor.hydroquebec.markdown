@@ -48,9 +48,11 @@ Configuration variables:
   - **period_total_consumption**: Total Consumption
   - **period_lower_price_consumption**: Period Lower price consumption
   - **period_higher_price_consumption**: Period Higher price consumption
+  - **period_average_temperature**: Period Average temperature
   - **yesterday_total_consumption**: Yesterday total consumption
   - **yesterday_lower_price_consumption**: Yesterday lower price consumption
   - **yesterday_higher_price_consumption**: Yesterday higher price consumption
+  - **yesterday_average_temperature**: Yesterday Average temperature
 
 To find your contract id, go to the [Hydro-Québec website](https://www.hydroquebec.com/portail/)
 and connect to your account.
