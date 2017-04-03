@@ -72,12 +72,6 @@
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nad</span>
     <span class="s">serial_port</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">NAD Receiver</span>
-    <span class="s">min_volume</span><span class="pi">:</span> <span class="s">-60</span>
-    <span class="s">max_volume</span><span class="pi">:</span> <span class="s">-20</span>
-    <span class="s">sources</span><span class="pi">:</span>
-      <span class="s">1</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Kodi'</span>
-      <span class="s">2</span><span class="pi">:</span> <span class="s1">'</span><span class="s">TV'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -88,13 +82,25 @@
   <li><strong>max_volume</strong> (<em>optional</em>): Maximum volume in dB to use with the slider. Default is <code class="highlighter-rouge">-20</code></li>
   <li><strong>sources</strong> (<em>Optional</em>): A list of mappings from source to source name. Valid sources are <code class="highlighter-rouge">1 to 10</code>.</li>
 </ul>
-<p>The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB.
-You can still force it to go higher or lower than the values set with the plus and minus buttons.</p>
+<p>The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.</p>
 <p class="note warning">
 On linux the user running home-assistant needs <code class="highlighter-rouge">dialout</code> permissions to access the serial port.
 This can be added to the user by doing <code class="highlighter-rouge">sudo usermod -a -G dialout &lt;username&gt;</code>.
 Be aware that the user might need to logout and logon again to activate these permissions.
 </p>
+<p>A full configuration example could look like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">nad</span>
+    <span class="s">serial_port</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">NAD Receiver</span>
+    <span class="s">min_volume</span><span class="pi">:</span> <span class="s">-60</span>
+    <span class="s">max_volume</span><span class="pi">:</span> <span class="s">-20</span>
+    <span class="s">sources</span><span class="pi">:</span>
+      <span class="s">1</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Kodi'</span>
+      <span class="s">2</span><span class="pi">:</span> <span class="s1">'</span><span class="s">TV'</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
