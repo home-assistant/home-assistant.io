@@ -11,9 +11,9 @@ logo: mqtt.png
 ha_category: Light
 ---
 
-The `mqtt` light platform lets you control your MQTT enabled light. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
+The `mqtt` light platform lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
 
 When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from device (message from `state_topic`).
 
@@ -127,4 +127,5 @@ light:
 
 ### {% linkable_title Implementations %}
 
-A basic example using a nodeMCU board (ESP8266) to control its built-in led (on/off) can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light). [Here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) is another example to control a RGB led (on/off, brightness and colors).
+- A [basic example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light) using a nodeMCU board (ESP8266) to control its built-in LED (on/off).
+- Another [example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) to control a RGB LED (on/off, brightness, and colors).
