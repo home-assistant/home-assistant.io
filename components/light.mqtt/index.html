@@ -66,8 +66,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">mqtt</code> light platform lets you control your MQTT enabled light. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.</p>
-<p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> light platform lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.</p>
+<p>In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.</p>
 <p>When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 <p>Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect light operation.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
@@ -214,7 +214,10 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="implementations" href="#implementations"></a> Implementations</h3>
-<p>A basic example using a nodeMCU board (ESP8266) to control its built-in led (on/off) can be found <a href="https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light">here</a>. <a href="https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light">Here</a> is another example to control a RGB led (on/off, brightness and colors).</p>
+<ul>
+  <li>A <a href="https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light">basic example</a> using a nodeMCU board (ESP8266) to control its built-in LED (on/off).</li>
+  <li>Another <a href="https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light">example</a> to control a RGB LED (on/off, brightness, and colors).</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
