@@ -19,14 +19,14 @@ All beacons that support the Eddystone protocol, have a temperature sensor and c
 ## Requirements
 
 As this platform uses `bluez` to scan for Bluetooth LE devices **a Linux OS with bluez installed** is required. In addition to that, the `libbluetooth` headers need to be installed:
-```
-sudo apt-get install libbluetooth-dev 
+```shell
+$ sudo apt-get install libbluetooth-dev 
 ```
 
-Scanning for BLE devices also requires special permissions. To grant these to the python executable execute the following:
-```
-sudo apt-get install libcap2-bin
-sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which python3))
+Scanning for Bluetooth LE devices also requires special permissions. To grant these to the python executable execute the following:
+```shell
+$ sudo apt-get install libcap2-bin
+$ sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which python3))
 ```
 
 ## Configuration
@@ -48,7 +48,7 @@ sensor:
         instance: "000000000002"
         name: "Kitchen" # optional
 ```
-
+Configuration variables:
 - **bt_device_id** (*Optional*): The id of the bluetooth device that should be used for scanning (hci*X*). You can find the correct one using `hcitool dev` (default: 0). 
 - **beacons** array (*Required*): The beacons that should be monitored.
   - **[entry]** (*Required*): Name of the beacon.
