@@ -39,7 +39,7 @@ emulated_hue:
 
 Configuration variables:
 
-- **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`, defaults to `alexa`.
+- **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`, defaults to `google_home`.
 - **host_ip** (*Optional*): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
 - **listen_port** (*Optional*): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.
 

@@ -23,14 +23,14 @@ Templating is a powerful feature in Home Assistant that allows the user control 
 
 - Formatting outgoing messages in, for example, the [notify] and [alexa] components.
 - Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
-- [Advanced Automation templating]auto-template]
+- [Automation Templating].
 
 [notify]: /components/notify/
 [alexa]: /components/alexa/
 [MQTT]: /components/mqtt/
 [REST sensor]: /components/sensor.rest/
 [command line sensor]: /components/sensor.command_line/
-[auto-template]: /getting-started/automation-templating/
+[Automation Templating]: /docs/automation/templating/
 
 ## {% linkable_title Building templates %}
 

@@ -124,6 +124,11 @@ allComponents.pop(); // remove placeholder element at the end
       // set default value in search from URL
       jQuery('.component-search input').val(decodeURIComponent(location.hash).substring(8));
     }
+    
+    // add focus to the search field - even on IE
+    setTimeout(function () {
+      jQuery('.component-search input').focus();
+    }, 1);
   }
   init();
   
@@ -222,36 +227,6 @@ allComponents.pop(); // remove placeholder element at the end
 
     return false;
   });
-  
-    /**
-   * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
-   */
-  function debounce(func, wait, immediate) {
-    var timeout;
-    return function() {
-      var context = this, args = arguments;
-      var later = function() {
-        timeout = null;
-        if (!immediate) {
-          func.apply(context, args);
-        }
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) {
-        func.apply(context, args);
-      }
-    };
-  };
-  // update view by search text
-  $('.component-search input').keyup(debounce(function() {
-    var text = $(this).val();
-    // sanitize input
-    text = text.replace(/[(\?|\&\{\}\(\))]/gi, '');
-    updateHash('#search/' + text);
-    applyFilter();
-  }, 500));
 
   /**
    * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
@@ -286,6 +261,5 @@ allComponents.pop(); // remove placeholder element at the end
 
   window.addEventListener('hashchange', applyFilter);
   applyFilter();
-
 })();
 </script>

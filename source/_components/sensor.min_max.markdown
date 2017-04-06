@@ -39,7 +39,7 @@ sensor:
 
 Configuration variables:
 
-- **entity_ids** (*Required*): At least two entities to monitor
+- **entity_ids** (*Required*): At least two entities to monitor. The unit of measurement of the first entry will be the one that's used. All entities must use the same unit of measurement.
 - **type** (*Optional*): The type of sensor: `min`, `max` or `mean`. Defaults to `max`.
 - **name** (*Optional*): Name of the sensor to use in the frontend.
 - **round_digits** (*Optional*): Round mean value to specified number of digits. Defaults to 2.

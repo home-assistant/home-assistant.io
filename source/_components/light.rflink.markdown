@@ -47,10 +47,10 @@ Configuration variables:
 Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
-- **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below.
+- **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below. (default: Switchable)
 - **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
 - **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
-- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1)
+- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
 - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
 
@@ -71,6 +71,10 @@ light:
       aliasses:
         - newkaku_000000001_2
         - kaku_000001_a
+    Ansluta_ce30_0:
+      name: Kitchen Under Counter Lights
+    Maclean_0d82_01:
+      name: Bedroom Lamp
 ```
 
 Any on/off command from any allias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.

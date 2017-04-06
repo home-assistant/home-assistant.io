@@ -13,7 +13,7 @@ ha_release: 0.24
 ---
 
 
-The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition for 5 days, 0 is the current day. You can use only `weather`, `temp_min`, and `temp_max` with forecast.
+The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition for 5 days, 0 is the current day. You can use only `weather`, `temp_min`, and `temp_max` with forecast. It's important to note that a yweather sensor will only show ONE days forecast at a time so to show multiple days forecasts, you will need to use the 'name:' option and give each sensor a unique name.
 
 <p class='note warning'>
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2,000 signed calls per day.
@@ -54,6 +54,37 @@ Configuration variables:
   - **humidity**: The relative humidity.
   - **pressure**: The sea-level air pressure in millibars.
   - **visibility**: The average visibility.
+
+Example of forecast using multiple days. In example, first sensor shows tomorrow's forecast, second sensor shows the next day and so on:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: yweather
+    forecast: 1
+    name: yw_day1
+    monitored_conditions:
+      - weather
+      - temp_min
+      - temp_max
+
+  - platform: yweather
+    forecast: 2
+    name: yw_day2
+    monitored_conditions:
+      - weather
+      - temp_min
+      - temp_max
+      
+  - platform: yweather
+    forecast: 3
+    name: yw_day3
+    monitored_conditions:
+      - weather
+      - temp_min
+      - temp_max
+
+```
 
 
 Details about the API are available in the [Yahoo! Developer Network](https://developer.yahoo.com/weather/).
