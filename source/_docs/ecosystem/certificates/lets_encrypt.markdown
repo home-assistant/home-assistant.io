@@ -28,16 +28,16 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  
 Steps we will take:
  
-0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding
-1 - Set your device to have a static IP address
-2 - Set up port forwarding without TLS/SSL and test connection
-3 - Set up a DuckDNS account
-4 - Obtain a TLS/SSL certificate from Let's Encrypt
-5 - Check the incoming conection
-6 - Clean up port forwards
-7 - Set up a sensor to monitor the expiry date of the certificate
-8 - Set up an automatic renewal of the TLS/SSL certificate
-9 - Set up an alert to warn us if something went wrong
+ - 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding
+ - 1 - Set your device to have a static IP address
+ - 2 - Set up port forwarding without TLS/SSL and test connection
+ - 3 - Set up a DuckDNS account
+ - 4 - Obtain a TLS/SSL certificate from Let's Encrypt
+ - 5 - Check the incoming conection
+ - 6 - Clean up port forwards
+ - 7 - Set up a sensor to monitor the expiry date of the certificate
+ - 8 - Set up an automatic renewal of the TLS/SSL certificate
+ - 9 - Set up an alert to warn us if something went wrong
  
 ### {% linkable_title 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding %}
  
@@ -65,7 +65,7 @@ So, we can use a static IP to ensure that whenever our device running Home Assis
  
 We then have no control over our external IP, as our Service Provider will give us a new one at random intervals. To fix this we will use a service called DuckDNS which will give us a name for our connection (something like examplehome.duckdns.org) and behind the scenes will continue to update your external IP. So no matter how many times the IP address changes, typing examplehome.duckdns.org in to our browser will convert to the correct, up-to-date, IP address.  This is covered in step 3 below.
  
-To get around the issue of not being able to chain the IP addresses together (I can't say I want to call 12:12:12:12 and be put through to 192.168.0.200, and then be put through to extension 8123) we use port forwarding. Port forwarding is the process of telling your router which device to allow the outside connection to speak to.  In the doctors surgery example, port forwarding is the receptionist. This takes a call from outside, and forwards it to the correct extension number inside.  It is important to note that port forwarding can forward an incoming request for one port to a different port on your internal network if you so choose, and we wil be doing this later on. The end result being that when we have our SSL certificate our incoming call will be requesting port 443 (because that is the SSL port, like the SSH port is always 22), but our port forwarding rule will forward this to our HA instance on port 8123. When this guide is completed we will run something like this:
+To get around the issue of not being able to chain the IP addresses together (I can't say I want to call 12:12:12:12 and be put through to 192.168.0.200, and then be put through to extension 8123) we use port forwarding. Port forwarding is the process of telling your router which device to allow the outside connection to speak to.  In the doctors surgery example, port forwarding is the receptionist. This takes a call from outside, and forwards it to the correct extension number inside.  It is important to note that port forwarding can forward an incoming request for one port to a different port on your internal network if you so choose, and we will be doing this later on. The end result being that when we have our SSL certificate our incoming call will be requesting port 443 (because that is the SSL port, like the SSH port is always 22), but our port forwarding rule will forward this to our HA instance on port 8123. When this guide is completed we will run something like this:
  
 ```text
 Outside world -> https://examplehome.duckdns.org -> 12.12.12.12:443 -> your router -> 192.168.0.200:8123
@@ -120,7 +120,7 @@ HA IP: 192.175.96.200
 
 Press Ctrl + x to close the editor, pressing Y to save the changes when prompted.
 
-Reboot your Pi:
+Reboot your device running HA:
 
 ```bash
 $ sudo reboot
@@ -231,15 +231,14 @@ Remember to save the new rule.
 In cases where your ISP blocks port 80 you will need to change the port forward options to forward port 443 from outside to port 443 on your Home Assistant device. Please note that this will limit your options for automatically renewing the certificate, but this is a limitation because of your ISP setup and there is not a lot we can do about it!
 </p>
 
-now SSH in to the device your Home Assistant is running on.
+Now SSH in to the device your Home Assistant is running on.
 
 <p class='note'>
-If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' pi setup, from your 'pi' user issue the following command (where <hass> is the Home Assistant user):
+If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
 
 ```bash
-$ sudo adduser <hass> sudo
+$ sudo adduser hass sudo
 ```
-
 </p>
 
 If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `hass` or `homeassistant` - you may have used a command similar to this in the past):
@@ -314,7 +313,7 @@ Protocol - Both
 
 Remember to save the rule changes.
 
-Now edit your configuration.yaml file to reflect the SSL entries and your base URL (changing the `examplehome` subdomain to yours):
+Now edit your configuration.yaml file to reflect the SSL entries and your base URL (changing the `examplehome` subdomain to yours in all three places):
 
 ```yaml
 http:
@@ -346,7 +345,7 @@ In cases where you need to access via the local network only (which should be fe
 https://YOUR-HA-IP:8123
 ```
 
-and accepting the browsers warning that you are connecting to an insecure site. This warning occurs because your certificate expects your incoming connection to come via your DuckDNS URL. It does not mean that your device has suddenly become insecure.
+...and accepting the browsers warning that you are connecting to an insecure site. This warning occurs because your certificate expects your incoming connection to come via your DuckDNS URL. It does not mean that your device has suddenly become insecure.
 
 Some cases such as this are where your router does not allow 'loopback' or where there is a problem with incoming connections due to technical failure. In these cases you can still use your internal connection and ignore the warnings.
 
@@ -366,9 +365,7 @@ Go to your router's configuration pages and delete the `ha_test` rule.
 
 You should now have two rules in relation to Home Assistant for your port forwards, named:
 
-```text
-ha_ssl and ha_letsencrypt
-```
+`ha_ssl` and `ha_letsencrypt`
 
 If you have any more for Home Assistant you should delete them now. If you only have `ha_ssl` this is probably because during step 4 you had to use port 443 instead of port 80, so we deleted the rule during step 5.
 
@@ -383,7 +380,7 @@ Let's Encrypt certificates only last for 90 days. When they have less than 30 da
  
 Move on to step 7 to see how to monitor your certificates expiry date, and be ready to renew your certificate when the time comes.
 
-#### {% linkable_title 7 - Set up a sensor to monitor the expiry date of the certificate %}
+### {% linkable_title 7 - Set up a sensor to monitor the expiry date of the certificate %}
 
 Setting a sensor to read the number of days left on your TLS/SSL certificate before it expires is not required, but it has the following advantages:
 
@@ -509,7 +506,7 @@ Add the following sections to your configuration.yaml
 shell_command: 
   renew_ssl: ./certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
   
-automation
+automation:
   - alias: 'Auto Renew SSL Cert'
     trigger:
       platform: numeric_state
