@@ -20,10 +20,10 @@ If the preceding command returns the string `systemd`, you are likely using `sys
 
 If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. A service file is needed to control Home Assistant with `systemd`. The template below should be created using a text editor.  Note, root permissions via 'sudo' will likely be needed. The following should be noted to modify the template:
 
-+ `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
-+ If running Home Assistant in a python virtual environment or a docker, please skip to section below.
-+ For most systems, the file is `/etc/systemd/system/home-assistant@[your user].service` with [your user] replaced by the user account that Home Assistant will run as - normally `homeassistant`.  For Ubuntu 16.04, the file is `/lib/systemd/system/home-assistant.service` and requires running this command `sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service` after file is created.  
-+ If unfamiliar with command line text editors, `sudo nano -w [filename]` can be used with `[filename]` replaced with the full path to the file.  Ex. `sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service`.  After text entered, press CTRL-X then press Y to save and exit.
+- `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
+- If running Home Assistant in a Python virtual environment or a Docker container, please skip to section below.
+- For most systems, the file is `/etc/systemd/system/home-assistant@[your user].service` with [your user] replaced by the user account that Home Assistant will run as - normally `homeassistant`.  For Ubuntu 16.04, the file is `/lib/systemd/system/home-assistant.service` and requires running this command `sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service` after file is created.
+- If unfamiliar with command-line text editors, `sudo nano -w [filename]` can be used with `[filename]` replaced with the full path to the file.  Ex. `sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service`.  After text entered, press CTRL-X then press Y to save and exit.
 
 ```
 [Unit]
@@ -39,7 +39,9 @@ ExecStart=/usr/bin/hass
 WantedBy=multi-user.target
 ```
 
-If you've setup Home Assistant in `virtualenv` following our [python installation guide](https://home-assistant.io/getting-started/installation-virtualenv/) or [manual installation guide for raspberry pi](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following template should work for you.  If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately.  
+### {% linkable_title Python virtual environment %}
+
+If you've setup Home Assistant in `virtualenv` following our [Python installation guide](https://home-assistant.io/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](https://home-assistant.io/getting-started/installation-raspberry-pi/), the following template should work for you. If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately.
 
 ```
 [Unit]
@@ -55,7 +57,9 @@ ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 WantedBy=multi-user.target
 ```
 
-If you want to use docker, the following template should work for you.
+### {% linkable_title Docker %}
+
+If you want to use Docker, the following template should work for you.
 
 ```
 [Unit]
