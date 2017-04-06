@@ -30,7 +30,7 @@ Configuration variables:
 
   - **station** (*Required*): Name of the stop or station. Visit [the MVG live web site](http://www.mvg-live.de) to find valid names.
   - **destinations** (*Optional*): One or multiple final stop names, e.g. 'Feldmoching' or ['Feldmoching','Harthof']. This can be used to only consider a particular direction of travel
-  - **ubahndirection** (*Optional*): By default, direction is not filtered. Should only be used in connection with products: ['U-Bahn'] and can be set to 1 or 2. For U1, U2, U3 and U6, direction=1 indicates south-bound trains, direction=2 indicates northbound trains. For U4 and U5, direction=1 indicates east-bound trains, direction=2 indicates west-bound trains. For all other modes of transport, direction is equal to destination and can thus be filtered there.
+  - **directions** (*Optional*): Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz.
   - **lines** (*Optional*): One or more line numbers, e.g. 'U2' or ['U2','U8','N41']
   - **products** (*Optional*): One or more modes of transport, defaults to all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']. 
   - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
@@ -55,6 +55,6 @@ sensor:
        lines: ['U2','U8']
      - station: Scheidplatz
        products: ['U-Bahn']
-       ubahndirection: 1
+       directions: '1'
 ```
 The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away. The second sensor returns U2 and U8 departures from Sendlinger Tor while the third sensor returns all south-bound U-Bahn trains from Scheidplatz.
