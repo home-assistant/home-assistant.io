@@ -74,7 +74,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
 - `now()` will be rendered as current time in your time zone.
 - `utcnow()` will be rendered as UTC time.
-- `as_timestamp` will convert datetime object or string to UNIX timestamp
+- `as_timestamp()` will convert datetime object or string to UNIX timestamp
 - `distance()` will measure the distance in meters between home, entity, coordinates.
 - `closest()` will find the closest entity.
 - `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
