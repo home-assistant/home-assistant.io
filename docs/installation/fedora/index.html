@@ -76,6 +76,22 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
 </code></pre>
 </div>
+<p>To isolate the Home Assistant installation a <a href="https://docs.python.org/3/library/venv.html">venv</a> is handy. First create a new directory to store the installation.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo mkdir -p /opt/homeassistant
+<span class="gp">$ </span><span class="nb">cd</span> /opt/homeassistant
+</code></pre>
+</div>
+<p>Now switch to the new directory, setup the venv, and activate it.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /opt/homeassistant
+<span class="gp">$ </span>pyvenv-3.5 .
+<span class="gp">$ </span><span class="nb">source </span>bin/activate
+</code></pre>
+</div>
+<p>Install Home Assistant itself.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
+</code></pre>
+</div>
+<p>Check the <a href="/docs/autostart/systemd/">autostart</a> section in the documentation for further details.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

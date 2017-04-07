@@ -72,12 +72,12 @@
 </code></pre>
 </div>
 <p>If the preceding command returns the string <code class="highlighter-rouge">systemd</code>, you are likely using <code class="highlighter-rouge">systemd</code>.</p>
-<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. A service file is needed to control Home Assistant with <code class="highlighter-rouge">systemd</code>. The template below should be created using a text editor.  Note, root permissions via ‘sudo’ will likely be needed. The following should be noted to modify the template:</p>
+<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. A service file is needed to control Home Assistant with <code class="highlighter-rouge">systemd</code>. The template below should be created using a text editor. Note, root permissions via <code class="highlighter-rouge">sudo</code> will likely be needed. The following should be noted to modify the template:</p>
 <ul>
   <li><code class="highlighter-rouge">ExecStart</code> contains the path to <code class="highlighter-rouge">hass</code> and this may vary. Check with <code class="highlighter-rouge">whereis hass</code> for the location.</li>
-  <li>If running Home Assistant in a python virtual environment or a docker, please skip to section below.</li>
+  <li>If running Home Assistant in a Python virtual environment or a Docker container, please skip to section below.</li>
   <li>For most systems, the file is <code class="highlighter-rouge">/etc/systemd/system/home-assistant@[your user].service</code> with [your user] replaced by the user account that Home Assistant will run as - normally <code class="highlighter-rouge">homeassistant</code>.  For Ubuntu 16.04, the file is <code class="highlighter-rouge">/lib/systemd/system/home-assistant.service</code> and requires running this command <code class="highlighter-rouge">sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service</code> after file is created.</li>
-  <li>If unfamiliar with command line text editors, <code class="highlighter-rouge">sudo nano -w [filename]</code> can be used with <code class="highlighter-rouge">[filename]</code> replaced with the full path to the file.  Ex. <code class="highlighter-rouge">sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service</code>.  After text entered, press CTRL-X then press Y to save and exit.</li>
+  <li>If unfamiliar with command-line text editors, <code class="highlighter-rouge">sudo nano -w [filename]</code> can be used with <code class="highlighter-rouge">[filename]</code> replaced with the full path to the file.  Ex. <code class="highlighter-rouge">sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service</code>.  After text entered, press CTRL-X then press Y to save and exit.</li>
 </ul>
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
@@ -92,7 +92,8 @@ ExecStart=/usr/bin/hass
 WantedBy=multi-user.target
 </code></pre>
 </div>
-<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for raspberry pi</a>, the following template should work for you.  If Home Assistant install is not located at <code class="highlighter-rouge">/srv/homeassistant</code>, please modify the <code class="highlighter-rouge">ExecStart=</code> line appropriately.</p>
+<h3><a class="title-link" name="python-virtual-environment" href="#python-virtual-environment"></a> Python virtual environment</h3>
+<p>If you’ve setup Home Assistant in <code class="highlighter-rouge">virtualenv</code> following our <a href="https://home-assistant.io/getting-started/installation-virtualenv/">Python installation guide</a> or <a href="https://home-assistant.io/getting-started/installation-raspberry-pi/">manual installation guide for Raspberry Pi</a>, the following template should work for you. If Home Assistant install is not located at <code class="highlighter-rouge">/srv/homeassistant</code>, please modify the <code class="highlighter-rouge">ExecStart=</code> line appropriately.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 After=network.target
@@ -106,7 +107,8 @@ ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
 WantedBy=multi-user.target
 </code></pre>
 </div>
-<p>If you want to use docker, the following template should work for you.</p>
+<h3><a class="title-link" name="docker" href="#docker"></a> Docker</h3>
+<p>If you want to use Docker, the following template should work for you.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 Requires=docker.service
