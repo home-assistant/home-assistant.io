@@ -79,6 +79,12 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     </div>
     <div class='title'>Vagrant</div>
   </a>
+  <a class='option-card' href='/docs/installation/freenas/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/freenas.png' />
+    </div>
+    <div class='title'>FreeNAS</div>
+  </a>
 </div>
 
 Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:
