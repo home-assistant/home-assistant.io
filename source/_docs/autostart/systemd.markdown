@@ -18,7 +18,7 @@ $ ps -p 1 -o comm=
 
 If the preceding command returns the string `systemd`, you are likely using `systemd`.
 
-If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. A service file is needed to control Home Assistant with `systemd`. The template below should be created using a text editor.  Note, root permissions via 'sudo' will likely be needed. The following should be noted to modify the template:
+If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. A service file is needed to control Home Assistant with `systemd`. The template below should be created using a text editor. Note, root permissions via `sudo` will likely be needed. The following should be noted to modify the template:
 
 - `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
 - If running Home Assistant in a Python virtual environment or a Docker container, please skip to section below.
