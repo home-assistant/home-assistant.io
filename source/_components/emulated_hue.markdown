@@ -25,15 +25,15 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
 To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
 
 ```yaml
-# Amazon Echo example configuration.yaml entry
+# Google Home example configuration.yaml entry
 emulated_hue:
+  # Google Home does not work on different ports.
 ```
 
 ```yaml
-# Google Home example configuration.yaml entry
+# Amazon Echo example configuration.yaml entry
 emulated_hue:
-  type: google_home
-  # Google Home does not work on different ports.
+  type: alexa
   listen_port: 80
 ```
 
