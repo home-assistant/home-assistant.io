@@ -68,6 +68,9 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">vera</code> platform allows you to get data from your <a href="http://getvera.com/">Vera</a> sensors from within Home Assistant.</p>
 <p>They will be automatically discovered if the vera component is loaded.</p>
+<p>Please note that some vera sensors (such as <em>motion</em> and <em>flood</em>  sensors) are <em>armable</em> which means that vera will send alerts (email messages ot txts) when they are <em>armed</em> an change state.</p>
+<p>Home Assistant will display the state of these sensors regardless of the <em>armed</em> state.</p>
+<p>To allow you to change the <em>armed state</em> - Home Assistant will create a switch as well as a sensor for each <em>Armable</em> sensor. You can hide these switches using customization if you wish.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
