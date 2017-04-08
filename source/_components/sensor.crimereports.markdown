@@ -9,8 +9,8 @@ sharing: true
 footer: true
 ha_category: Sensor
 featured: false
-ha_release: 0.39
-ha_iot_class: "Local Polling"
+ha_release: 0.42
+ha_iot_class: "Cloud Polling"
 ---
 
 The `crimereports` sensor allows one to track reported incidents occurring in a Home Assistant zone. Incidents include anything reported to [Crime Reports](http://crimereports.com). Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.
