@@ -81,8 +81,9 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>username</strong> (<em>Required</em>): You Fido username (your Fido phone number).</li>
+  <li><strong>username</strong> (<em>Required</em>): You Fido username (your Fido phone number or your email).</li>
   <li><strong>password</strong> (<em>Required</em>): Your Fido password.</li>
+  <li><strong>number</strong> (<em>Optional</em>): Your Fido phone number (it will use your username if empty).</li>
   <li><strong>monitored_variables</strong> array (<em>Required</em>): Variables to monitor.
     <ul>
       <li><strong>fido_dollar</strong>: Your Fido dollar balance</li>
@@ -155,6 +156,9 @@
         </li>
         <li>
             <a href='/components/sensor.command_line/'>Command line Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.crimereports/'>Crime Reports</a>
         </li>
         <li>
             <a href='/components/sensor.dnsip/'>DNS IP</a>
@@ -262,7 +266,7 @@
             <a href='/components/sensor.random/'>Random Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.ring/'>Ring</a>
+            <a href='/components/sensor.ring/'>Ring Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>

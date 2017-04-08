@@ -1,0 +1,361 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="Tons of bug fixes, performance increasements and ">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Tons of bug fixes, performance increasements and ">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-04-0.42/social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@balloob">
+    <meta name="twitter:title" content="Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems">
+    <meta name="twitter:description" content="Tons of bug fixes, performance increasements and ">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-04-0.42/social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="post">
+  <header>
+  <h1 class="title indent">Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems</h1>
+  <div class="meta clearfix">
+    <time datetime="2017-04-08T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 8, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-04-0.42/social.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>It’s time for Home Assistant 0.43. This release has been focused on refining the system and fixing a lot of bugs. We have also upgraded to the latest version of our HTTP library which should give us a significant boost serving files and API.</p>
+<p>On our social media front, we have crossed the 1000 likes on <a href="https://www.facebook.com/homeassistantio">our Facebook page</a>! Also on the social media front, the YouTube channel diyAutomate has been putting out a lot of great getting started videos about Home Assistant, <a href="https://www.youtube.com/c/diyautomate">go check them out!</a></p>
+<p>Also want to take a moment to thank Austin Andrews aka <a href="https://github.com/templarian">Templarian</a> for his <a href="https://materialdesignicons.com/">Material Design Icons</a>. He is part of what makes Home Assistant so beautiful 🤗.</p>
+<h2>New integrations</h2>
+<ul>
+  <li>Lockitron locks (<a href="https://github.com/aarya123">@aarya123</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6805">#6805</a>)</li>
+  <li>Met Office weather and sensor components (<a href="https://github.com/jacobtomlinson">@jacobtomlinson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6742">#6742</a>)</li>
+  <li>Total Connect alarm systems (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6887">#6887</a>)</li>
+  <li>Eddystone Beacon Temperature Sensor (<a href="https://github.com/citruz">@citruz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6789">#6789</a>)</li>
+  <li>CrimeReports.com integration shows crimes around a location in the US (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6966">#6966</a>)</li>
+  <li>The Ring doorbell has been integrated further with the inclusion of binary sensors (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6520">#6520</a>)</li>
+</ul>
+<a name="read-more"></a>
+<h2>Breaking changes</h2>
+<ul>
+  <li>We were incorrectly treating groups named <code class="highlighter-rouge">default_view</code> as default views. Make sure you set <code class="highlighter-rouge">view: true</code> in the config for these groups. <a href="https://github.com/home-assistant/home-assistant-polymer/pull/251">#251 (frontend)</a></li>
+  <li>The last release introduced a revamped LIFX platform. We only realised after deploy that this version does not work on Windows. We have added the old LIFX implementation back as <code class="highlighter-rouge">lifx_legacy</code>.</li>
+  <li>We added indexes to the database to speed up the history view. Initial boot can take a couple of minutes. Do not shut down while migration is occurring. <a href="https://github.com/home-assistant/home-assistant/pull/6688">#6688</a></li>
+  <li>Z-Wave cover workaround has been removed. Use device config instead. <a href="https://github.com/home-assistant/home-assistant/pull/6832">#6832</a></li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
+  <span class="s">device_config</span><span class="pi">:</span>
+    <span class="s">cover.my_cover</span><span class="pi">:</span>
+      <span class="s">invert_openclose_buttons</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+<ul>
+  <li>If you set an initial state for an automation, input_boolean, input_slider or input_select it will overrule over the previous state. <a href="https://github.com/home-assistant/home-assistant/pull/6924">#6911</a></li>
+  <li>Z-Wave rename node service parameter <code class="highlighter-rouge">entity_id</code> has been replaced with <code class="highlighter-rouge">node_id</code> to align parameters <a href="https://github.com/home-assistant/home-assistant/pull/6938">#6938</a></li>
+  <li>Automations are now initialized when Home Assistant finishes starting up. This means that it is deprecated to listen for event <code class="highlighter-rouge">homeassistant_start</code>. Instead, use the new <code class="highlighter-rouge">homeassistant</code> automation platform. <a href="https://github.com/home-assistant/home-assistant/pull/6936">#6936</a></li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">homeassistant</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">start</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+</code></pre>
+</div>
+<ul>
+  <li>The Ring component has moved the authentication to a dedicated ring component. <a href="https://github.com/home-assistant/home-assistant/pull/6520">#6520</a></li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ring</span><span class="pi">:</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">ring_username</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">ring_password</span>
+
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ring</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">ding</span>
+      <span class="pi">-</span> <span class="s">motion</span>
+
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ring</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">battery</span>
+      <span class="pi">-</span> <span class="s">last_activity</span>
+      <span class="pi">-</span> <span class="s">last_ding</span>
+      <span class="pi">-</span> <span class="s">last_motion</span>
+      <span class="pi">-</span> <span class="s">volume</span>
+</code></pre>
+</div>
+<h2>All changes</h2>
+<ul>
+  <li>Flux led update lib (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6763">#6763</a>)</li>
+  <li>Adding expire_after to mqtt sensor to expire outdated values (<a href="https://github.com/micw">@micw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6708">#6708</a>)</li>
+  <li>New indexes for states and recording_runs tables (<a href="https://github.com/m00dawg">@m00dawg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6688">#6688</a>) (breaking change)</li>
+  <li>Fix flaky template test (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6768">#6768</a>)</li>
+  <li>Repair zwave sensor coverage (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6764">#6764</a>)</li>
+  <li>Version bump to 0.42.0.dev0 (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>current temp could be none (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6759">#6759</a>)</li>
+  <li>Typing error and update test (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6757">#6757</a>)</li>
+  <li>Wink Aros Fixes (<a href="https://github.com/geekofweek">@geekofweek</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6726">#6726</a>)</li>
+  <li>Upgrade pydroid-ipcam to 0.7 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6772">#6772</a>)</li>
+  <li>Upgrade psutil to 5.2.1 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6771">#6771</a>)</li>
+  <li>Upgrade sleekxmpp to 1.3.2 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6773">#6773</a>)</li>
+  <li>Tests for zwave workaround detection (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6761">#6761</a>)</li>
+  <li>Bugfix automation fire on bootstrap (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6770">#6770</a>)</li>
+  <li>Homematic Fixes (<a href="https://github.com/danielperna84">@danielperna84</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6769">#6769</a>)</li>
+  <li>Fix wink siren (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6775">#6775</a>)</li>
+  <li>Fix bridge-led support in limitlessled.py (<a href="https://github.com/quadportnick">@quadportnick</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6776">#6776</a>)</li>
+  <li>Wrong info in discovery schema (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6779">#6779</a>)</li>
+  <li>switch.tplink: upgrade to the newest upstream release which adds support for plugs using the newer communication protocol (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6790">#6790</a>)</li>
+  <li>Add switch to MQTT discovery (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6733">#6733</a>)</li>
+  <li>Update docstrings (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6795">#6795</a>)</li>
+  <li>Add optional unit of measurement (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6796">#6796</a>)</li>
+  <li>Upgrade zeroconf to 0.19.0 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6792">#6792</a>)</li>
+  <li>Upgrade pysnmp to 4.3.5 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6793">#6793</a>)</li>
+  <li>Platform for Munich public transport departure times (<a href="https://github.com/DavidMStraub">@DavidMStraub</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6704">#6704</a>)</li>
+  <li>Use string formatting and remove already global disabled pylint issue (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6801">#6801</a>)</li>
+  <li>Fix typo and update name (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6809">#6809</a>)</li>
+  <li>Upgrade matrix-client to 0.0.6 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6808">#6808</a>)</li>
+  <li>Make get_snmp_data more robust (<a href="https://github.com/tantecky">@tantecky</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6798">#6798</a>)</li>
+  <li>Add NVR support to Hikvision Binary Sensors (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6807">#6807</a>)</li>
+  <li>Update Insight parameters using the subscription data. (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6782">#6782</a>)</li>
+  <li>fix WOL in docker/jail (<a href="https://github.com/goto100">@goto100</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6810">#6810</a>)</li>
+  <li>Allow to monitor Windows hosts (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6803">#6803</a>)</li>
+  <li>lights/hue: use device class for on/off devices like the osram lightify plug (<a href="https://github.com/jannau">@jannau</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6817">#6817</a>)</li>
+  <li>[switch.wemo] Fix mW to kW conversion. (<a href="https://github.com/lwis">@lwis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6826">#6826</a>)</li>
+  <li>yeelight: adjust supported features on update() (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6799">#6799</a>)</li>
+  <li>Updated pubnubsub-handler version (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6829">#6829</a>)</li>
+  <li>Remove zwave cover invert workaround. Use config instead. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6832">#6832</a>) (breaking change)</li>
+  <li>history_stats: Fix schema, as <code class="highlighter-rouge">state</code> can be arbitrary string (<a href="https://github.com/leppa">@leppa</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6753">#6753</a>)</li>
+  <li>Rflink group commands (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/5969">#5969</a>)</li>
+  <li>Updating Alarm.com Component for async and no Selenium (<a href="https://github.com/Xorso">@Xorso</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6752">#6752</a>)</li>
+  <li>Add voluptuous config validation to scenes (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6830">#6830</a>)</li>
+  <li>Integration with lockitron (<a href="https://github.com/aarya123">@aarya123</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6805">#6805</a>) (new-platform)</li>
+  <li>[switch.wemo] Fix today_energy_kwh calculation. (<a href="https://github.com/lwis">@lwis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6846">#6846</a>)</li>
+  <li>Locative tests to use aiohttp test utils (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6838">#6838</a>)</li>
+  <li>Convert Alexa tests to use aiohttp test utils (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6839">#6839</a>)</li>
+  <li>Handle initial event after entity is instantiated. (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6760">#6760</a>)</li>
+  <li>Lifx legacy (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6847">#6847</a>) (new-platform)</li>
+  <li>aiohttp 2 (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6835">#6835</a>)</li>
+  <li>Fix configuration setup (<a href="https://github.com/bdurrer">@bdurrer</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6853">#6853</a>)</li>
+  <li>Add option to disable automatic add for lights and sensors. (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6852">#6852</a>)</li>
+  <li>Update aioHTTP to 2.0.5 (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6856">#6856</a>)</li>
+  <li>use change light level to avoid variable ramp speeds (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6860">#6860</a>)</li>
+  <li>Handle aiohttp task cancellation better (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6862">#6862</a>)</li>
+  <li>Introduced Ring binary sensors and refactored Ring component (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6520">#6520</a>) (breaking change) (new-platform)</li>
+  <li>Upgrade sendgrid to 3.6.5 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6866">#6866</a>)</li>
+  <li>Upgrade sphinx-autodoc-typehints to 1.2.0 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6865">#6865</a>)</li>
+  <li>Added Met Office weather and sensor components (<a href="https://github.com/jacobtomlinson">@jacobtomlinson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6742">#6742</a>) (new-platform)</li>
+  <li>Upgrade speedtest-cli to 1.0.3 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6867">#6867</a>)</li>
+  <li>Bumped amcrest module to 1.1.5 (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6872">#6872</a>)</li>
+  <li>Upgrade pytz to 2017.02 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6875">#6875</a>)</li>
+  <li>Upgrade aiohttp_cors to 0.5.2 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6874">#6874</a>)</li>
+  <li>Upgrade sqlalchemy to 1.1.8 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6873">#6873</a>)</li>
+  <li>added support for Fibaro FGR-222 (similar to FGRM-222) (<a href="https://github.com/ChristianKuehnel">@ChristianKuehnel</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6890">#6890</a>)</li>
+  <li>Fluxled (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6892">#6892</a>)</li>
+  <li>Fix Tado climate set off mode (<a href="https://github.com/wmalgadey">@wmalgadey</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6848">#6848</a>)</li>
+  <li>Fox UMP volume set (<a href="https://github.com/danieljkemp">@danieljkemp</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6904">#6904</a>)</li>
+  <li>Move examples out (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6908">#6908</a>)</li>
+  <li>Update README.rst (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Makes amcrest.sensor to handle properly the scan_interval option. (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6885">#6885</a>)</li>
+  <li>Make sensor.ring to handle scan_interval option as expected. (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6886">#6886</a>)</li>
+  <li>Eliminate needless async_add_job invocation of async_add_devices (<a href="https://github.com/nugget">@nugget</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6864">#6864</a>)</li>
+  <li>Onkyo update (<a href="https://github.com/danieljkemp">@danieljkemp</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6906">#6906</a>)</li>
+  <li>Fix for #6691 Neato Connection error handling (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6731">#6731</a>)</li>
+  <li>Adds support for the PlugInDimmer hardware (<a href="https://github.com/gurumitts">@gurumitts</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6915">#6915</a>)</li>
+  <li>Support for zwave light transitions (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6868">#6868</a>)</li>
+  <li>Bump pyHik library version to support more cameras (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6921">#6921</a>)</li>
+  <li>Update vera cover refresh logic (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6897">#6897</a>)</li>
+  <li>Update frontend (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Automation: initial state &gt; restore state (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6911">#6911</a>) (breaking change)</li>
+  <li>Upgrade flux_led to 0.17 (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6929">#6929</a>)</li>
+  <li>Upgrade paho-mqtt to 1.2.1 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6928">#6928</a>)</li>
+  <li>Upgrade distro to 1.0.4 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6926">#6926</a>)</li>
+  <li>Upgrade Sphinx to 1.5.4 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6927">#6927</a>)</li>
+  <li>Allow token authentication for ‘hook’ switch component (<a href="https://github.com/KlaasH">@KlaasH</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6922">#6922</a>)</li>
+  <li>WIP - Fix bug in state handling in Vera Switch and Light (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6931">#6931</a>)</li>
+  <li>total connect alarm support (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6887">#6887</a>) (new-platform)</li>
+  <li>Initial state over restore state (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6924">#6924</a>) (breaking change)</li>
+  <li>Eddystone Beacon Temperature Sensor (<a href="https://github.com/citruz">@citruz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6789">#6789</a>) (new-platform)</li>
+  <li>Add android ip webcam support for aiohttp2 (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6940">#6940</a>)</li>
+  <li>Bump pywemo version. Fixes Osram/Sylvania Lightify tunable white bulbs. (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6946">#6946</a>)</li>
+  <li>Clean artifacts after running Ring tests. (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6944">#6944</a>)</li>
+  <li>Rename zwave nodes by node ID instead of entity ID (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6938">#6938</a>) (breaking change)</li>
+  <li>Report proper features in mqtt_json light (<a href="https://github.com/jawilson">@jawilson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6941">#6941</a>)</li>
+  <li>Add multi phone numbers support (<a href="https://github.com/titilambert">@titilambert</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6605">#6605</a>)</li>
+  <li>Upgrade Sphinx to 1.5.5 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6947">#6947</a>)</li>
+  <li>Upgrade py-cpuinfo to 3.0.0 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6948">#6948</a>)</li>
+  <li>Fix automations listening to HOMEASSISTANT_START (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6936">#6936</a>) (breaking change)</li>
+  <li>Fix startup of sonos / snapshot handling / error handling (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6945">#6945</a>)</li>
+  <li>Upgrade mysensors dep and callbacks (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6950">#6950</a>)</li>
+  <li>Added average temperature for the day before and the current period (<a href="https://github.com/diogos88">@diogos88</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6883">#6883</a>)</li>
+  <li>Upgrade sqlalchemy to 1.1.9 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6955">#6955</a>)</li>
+  <li>Update for 0.42 (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Initial import for HassIO (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6935">#6935</a>) (new-platform)</li>
+  <li>light.yeelight: catch i/o related exceptions from the backend lib (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6952">#6952</a>)</li>
+  <li>Fix current_temperature is rounded (<a href="https://github.com/aufano">@aufano</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6960">#6960</a>)</li>
+  <li>Preserve customize glob order. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6963">#6963</a>)</li>
+  <li>Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any url error to camera (<a href="https://github.com/viswa-swami">@viswa-swami</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6964">#6964</a>)</li>
+  <li>Crime Reports sensor (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6966">#6966</a>) (new-platform)</li>
+  <li>Update kodi for aiohttp2 (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6967">#6967</a>)</li>
+  <li>Bugfix time and task coro (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6968">#6968</a>)</li>
+  <li>Fix control+c quitting HASS (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6974">#6974</a>)</li>
+  <li>Update Emby for aiohttp v2 (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6981">#6981</a>)</li>
+  <li>switch.tplink: bump pyhs100 version requirement (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6986">#6986</a>)</li>
+  <li>Warn if start takes a long time. (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6975">#6975</a>)</li>
+  <li>Bump Amcrest module to 1.1.8 (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6990">#6990</a>)</li>
+</ul>
+</article>
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/"
+     data-counturl="https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/" >Tweet</a>
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/"
+         data-layout="button_count">
+    </div>
+  <div class="g-plusone" data-size="standard"></div>
+</section>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+        <li class="post">
+          <a href="/blog/2017/04/01/thomas-krenn-award/">Thomas Krenn award 2017</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/03/28/http-to-mqtt-bridge/">HTTP to MQTT bridge</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/03/25/todo-volumio-workday/">Home Assistant 0.41: Tado, Volumio, Workday, improved Plex</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/">OpenSourceCraft interviews our founder Paulus Schoutsen</a>
+        </li>
+  </ul>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/';
+    var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

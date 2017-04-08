@@ -1,0 +1,216 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Eddystone Beacon - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.eddystone_temperature/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Eddystone Beacon">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.eddystone_temperature/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Eddystone Beacon">
+    <meta name="twitter:description" content="Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Eddystone Beacon
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">eddystone_temperature</code> sensor platform reads temperature information from Bluetooth LE advertisements transmitted by <a href="https://en.wikipedia.org/wiki/Eddystone_(Google)">Eddystone</a> beacons. Your beacons must be configured to transmit UID frames (for identification) and TLM frames (for temperature).
+All beacons that support the Eddystone protocol, have a temperature sensor and can transmit TLM frames are compatible with this platform. For example <a href="https://store.gimbal.com/collections/beacons/">Gimbal</a>, <a href="http://estimote.com/">Estimote</a> or <a href="https://kontakt.io/">kontakt.io</a>. For more manufacturers see <a href="https://developers.google.com/beacons/eddystone#beacon_manufacturers">this overview</a> by Google.</p>
+<h2>Requirements</h2>
+<p>As this platform uses <code class="highlighter-rouge">bluez</code> to scan for Bluetooth LE devices <strong>a Linux OS with bluez installed</strong> is required. In addition to that, the <code class="highlighter-rouge">libbluetooth</code> headers need to be installed:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libbluetooth-dev 
+</code></pre>
+</div>
+<p>Scanning for Bluetooth LE devices also requires special permissions. To grant these to the python executable execute the following:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libcap2-bin
+<span class="gp">$ </span>sudo setcap <span class="s1">'cap_net_raw,cap_net_admin+eip'</span> <span class="k">$(</span>readlink -f <span class="k">$(</span>which python3<span class="k">))</span>
+</code></pre>
+</div>
+<h2>Configuration</h2>
+<p>To use your Eddystone beacon in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">eddystone_temperature</span>
+    <span class="s">bt_device_id</span><span class="pi">:</span> <span class="s">0</span>  <span class="c1"># optional</span>
+    <span class="s">beacons</span><span class="pi">:</span>
+      <span class="s">living_room</span><span class="pi">:</span>
+        <span class="s">namespace</span><span class="pi">:</span> <span class="s2">"</span><span class="s">112233445566778899AA"</span>
+        <span class="s">instance</span><span class="pi">:</span> <span class="s2">"</span><span class="s">000000000001"</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Living</span><span class="nv"> </span><span class="s">Room"</span> <span class="c1"># optional</span>
+      <span class="s">kitchen</span><span class="pi">:</span>
+        <span class="s">namespace</span><span class="pi">:</span> <span class="s2">"</span><span class="s">112233445566778899AA"</span>
+        <span class="s">instance</span><span class="pi">:</span> <span class="s2">"</span><span class="s">000000000002"</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Kitchen"</span> <span class="c1"># optional</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>bt_device_id</strong> (<em>Optional</em>): The id of the bluetooth device that should be used for scanning (hci<em>X</em>). You can find the correct one using <code class="highlighter-rouge">hcitool dev</code> (default: 0).</li>
+  <li><strong>beacons</strong> array (<em>Required</em>): The beacons that should be monitored.
+    <ul>
+      <li><strong>[entry]</strong> (<em>Required</em>): Name of the beacon.
+        <ul>
+          <li><strong>namespace</strong> (<em>Required</em>): Namespace ID of the beacon in hexadecimal notation. Must be exactly 20 characters (10 bytes) long.</li>
+          <li><strong>namespace</strong> (<em>Required</em>): Instance ID of the beacon in hexadecimal notation. Must be exactly 12 characters (6 bytes) long.</li>
+          <li><strong>name</strong> (<em>Optional</em>): Friendly name of the beacon.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.eddystone_temperature.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/eddystone.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.42
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category DIY</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/arduino/'>Arduino</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arduino/'>Arduino Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.arduino/'>Arduino Switch</a>
+        </li>
+        <li>
+            <a href='/components/bbb_gpio/'>BeagleBone Black GPIO</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dht/'>DHT Sensor</a>
+        </li>
+        <li>
+            Eddystone Beacon
+        </li>
+        <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
+            <a href='/components/sensor.knx/'>KNX Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.knx/'>KNX Switch</a>
+        </li>
+        <li>
+            <a href='/components/climate.knx/'>KNX Thermostat</a>
+        </li>
+        <li>
+            <a href='/components/sensor.miflora/'>Mi Flora plant sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.onewire/'>One wire Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.serial_pm/'>Particulate matter Sensor</a>
+        </li>
+        <li>
+            <a href='/components/rpi_gpio/'>Raspberry PI GPIO</a>
+        </li>
+        <li>
+            <a href='/components/sensor.skybeacon/'>Skybeacon sensor</a>
+        </li>
+        <li>
+            <a href='/components/zigbee/'>ZigBee</a>
+        </li>
+        <li>
+            <a href='/components/maxcube/'>eQ-3 MAX! Cube</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

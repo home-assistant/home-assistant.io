@@ -69,14 +69,6 @@
   <p>The <code class="highlighter-rouge">rflink</code> component support devices that use <a href="http://www.nemcon.nl/blog2/">RFLink gateway firmware</a>, for example the <a href="https://www.nodo-shop.nl/nl/21-rflink-gateway">Nodo RFLink Gateway</a>. RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).</p>
 <p>First you have to set up your <a href="/components/rflink/">rflink hub</a>.</p>
 <p>After configuring the RFLink hub sensors will be automatically discovered and added.</p>
-<p>New/unknown sensors can be assigned to a default group automatically by specifying the <code class="highlighter-rouge">new_devices_group</code> option with a group name. If the group doesn’t exist it will be created.</p>
-<p>For example:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
-  <span class="s">new_devices_group</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">RFLink</span><span class="nv"> </span><span class="s">Sensors"</span>
-</code></pre>
-</div>
 <p>RFLink sensor ID’s are composed of: protocol, id and type (optional). For example: <code class="highlighter-rouge">alectov1_0334_temp</code>. Some sensors emit multiple types of data. Each will be created as its own</p>
 <p>Once the ID of a sensor is known it can be used to configure the sensor in HA, for example to add it to a different group, hide it or configure a nice name.</p>
 <p>Assigning name to a sensor:</p>
@@ -91,8 +83,8 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
+  <li><strong>automatic_add</strong> (<em>Optional</em>): Automatically add new/unconfigured devices to HA if detected (default: True).</li>
   <li><strong>devices</strong>  (<em>Optional</em>): A list of devices with their name to use in the frontend.</li>
-  <li><strong>new_devices_group</strong> (<em>Optional</em>): Create group to add new/unknown devices to.</li>
 </ul>
 <p>Device configuration variables:</p>
 <ul>
@@ -104,7 +96,7 @@
 <h3><a class="title-link" name="hidingignoring-sensors" href="#hidingignoring-sensors"></a> Hiding/ignoring sensors</h3>
 <p>Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:</p>
 <ul>
-  <li>Configure a <code class="highlighter-rouge">new_devices_group</code> for sensors and optionally add it to a different <code class="highlighter-rouge">view</code>.</li>
+  <li>Disable automatically adding of unconfigured new sensors (set <code class="highlighter-rouge">automatic_add</code> to <code class="highlighter-rouge">false</code>).</li>
   <li>Hide unwanted devices using <a href="/getting-started/customizing-devices/">customizations</a></li>
   <li><a href="/components/rflink/#ignoring-devices">Ignore devices on a platform level</a></li>
 </ul>
@@ -168,6 +160,9 @@
         </li>
         <li>
             <a href='/components/sensor.command_line/'>Command line Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.crimereports/'>Crime Reports</a>
         </li>
         <li>
             <a href='/components/sensor.dnsip/'>DNS IP</a>
@@ -275,7 +270,7 @@
             <a href='/components/sensor.random/'>Random Sensor</a>
         </li>
         <li>
-            <a href='/components/sensor.ring/'>Ring</a>
+            <a href='/components/sensor.ring/'>Ring Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>

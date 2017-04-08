@@ -123,6 +123,7 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
       <li><strong>ignored</strong> (<em>Optional</em>): Ignore this entity completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
       <li><strong>refresh_value</strong> (<em>Optional</em>): Enable refreshing of the node value. Only the light component uses this. Defaults to False.</li>
       <li><strong>delay</strong> (<em>Optional</em>): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.</li>
+      <li><strong>invert_openclose_buttons</strong> (<em>Optional</em>): Inverts function of the open and close buttons for the cover domain. Defaults to False</li>
     </ul>
   </li>
   <li><strong>debug</strong> (<em>Optional</em>): Print verbose z-wave info to log. Defaults to False.</li>
@@ -278,7 +279,7 @@ Depending on what’s plugged into your USB ports, the name found above may chan
     </tr>
     <tr>
       <td>rename_node</td>
-      <td>Sets a node’s name. Requires an <code class="highlighter-rouge">entity_id</code> and <code class="highlighter-rouge">name</code> field.</td>
+      <td>Sets a node’s name. Requires a <code class="highlighter-rouge">node_id</code> and <code class="highlighter-rouge">name</code> field.</td>
     </tr>
     <tr>
       <td>remove_failed_node</td>
@@ -375,9 +376,14 @@ Depending on what’s plugged into your USB ports, the name found above may chan
           <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
           <li><a  href='/docs/configuration/templating/'>Templating </a></li>
           <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        Core objects
+        <ul>
           <li><a  href='/docs/configuration/events/'>Events </a></li>
           <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
-          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
         </ul>
       </li>
       <li>
@@ -524,6 +530,7 @@ Depending on what’s plugged into your USB ports, the name found above may chan
             <ul>
               <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
               <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>
+              <li><a  href='/docs/ecosystem/certificates/lets_encrypt/'>Let's Encrypt (detailed) </a></li>
             </ul>
           </li>
           <li><a  href='/docs/ecosystem/scenegen/'>scenegen </a></li>

@@ -67,7 +67,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the <a href="/components/binary_sensor.http/">HTTP binary sensor</a> and the <a href="/components/sensor.http/">HTTP sensor</a>. Currently, binary sensors, lights and sensors are supported. A discovery binary sensor or sensor will load the <code class="highlighter-rouge">mqtt</code> platform. For discovered light components the JSON payload can contain a <code class="highlighter-rouge">platform</code> attribute with one of <code class="highlighter-rouge">mqtt</code>, <code class="highlighter-rouge">mqtt_json</code> or <code class="highlighter-rouge">mqtt_template</code> defined. If no <code class="highlighter-rouge">platform</code> attribute is defined then <code class="highlighter-rouge">mqtt</code> is used.</p>
+  <p>The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the <a href="/components/binary_sensor.http/">HTTP binary sensor</a> and the <a href="/components/sensor.http/">HTTP sensor</a>.</p>
+<p>Supported by MQTT discovery:</p>
+<ul>
+  <li><a href="/components/binary_sensor.mqtt/">Binary sensors</a></li>
+  <li><a href="/components/light.mqtt/">Lights</a></li>
+  <li><a href="/components/sensor.mqtt/">Sensors</a></li>
+  <li><a href="/components/switch.mqtt/">Switches</a></li>
+</ul>
 <p>To enable MQTT discovery, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
@@ -87,11 +94,11 @@
 <ul>
   <li><code class="highlighter-rouge">&lt;component&gt;</code>: One of the supported components, eg. <code class="highlighter-rouge">binary_sensor</code>.</li>
   <li><code class="highlighter-rouge">&lt;object_id&gt;</code>: The ID of the device. This will become the <code class="highlighter-rouge">entity_id</code> in Home Assistant.</li>
-  <li><code class="highlighter-rouge">&lt;config&gt;</code>: The topic <code class="highlighter-rouge">config</code> or <code class="highlighter-rouge">state</code> which defines the current action.</li>
+  <li><code class="highlighter-rouge">&lt;&gt;</code>: The topic <code class="highlighter-rouge">config</code> or <code class="highlighter-rouge">state</code> which defines the current action.</li>
 </ul>
-<p>The payload will be checked like an entry in your <code class="highlighter-rouge">configuration.yaml</code> file if a new device is added. This means that missing variables will be filled with the platform’s default values.</p>
-<h3><a class="title-link" name="example" href="#example"></a> Example</h3>
-<p>A motion detection device which can be represented by a <a href="/components/binary_sensor.mqtt/">binary sensor</a> for your garden would sent its configuration as JSON payload to the Configuration topic. After the first message to <code class="highlighter-rouge">config</code>, then the MQTT messages sent to the State topic will update the state in Home Assistant.</p>
+<p>The payload will be checked like an entry in your <code class="highlighter-rouge">configuration.yaml</code> file if a new device is added. This means that missing variables will be filled with the platform’s default values. All configuration variables which are <em>required</em> must be present in the initial payload send to <code class="highlighter-rouge">/config</code>.</p>
+<h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
+<p>A motion detection device which can be represented by a <a href="/components/binary_sensor.mqtt/">binary sensor</a> for your garden would sent its configuration as JSON payload to the Configuration topic. After the first message to <code class="highlighter-rouge">config</code>, then the MQTT messages sent to the state topic will update the state in Home Assistant.</p>
 <ul>
   <li>Configuration topic: <code class="highlighter-rouge">homeassistant/binary_sensor/garden/config</code></li>
   <li>State topic: <code class="highlighter-rouge">homeassistant/binary_sensor/garden/state</code></li>
@@ -103,6 +110,20 @@
 </div>
 <p>Update the state.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -p 1883 -t <span class="s2">"homeassistant/binary_sensor/garden/state"</span> -m ON
+</code></pre>
+</div>
+<p>Setting up a switch is similar but requires a <code class="highlighter-rouge">command_topic</code> as mentionend in the <a href="/components/switch.mqtt/">MQTT switch documentation</a>.</p>
+<ul>
+  <li>Configuration topic: <code class="highlighter-rouge">homeassistant/switch/irrigation/config</code></li>
+  <li>State topic: <code class="highlighter-rouge">homeassistant/switch/irrigation/state</code></li>
+  <li>Payload:  <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"garden"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command_topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant/switch/irrigation/set"</span><span class="p">}</span></code></li>
+</ul>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -p 1883 -t <span class="s2">"homeassistant/switch/irrigation/config"</span> <span class="se">\</span>
+  -m <span class="s1">'{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set"}'</span>
+</code></pre>
+</div>
+<p>Set the state.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -p 1883 -t <span class="s2">"homeassistant/switch/irrigation/set"</span> -m ON
 </code></pre>
 </div>
 </article>
@@ -152,9 +173,14 @@
           <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
           <li><a  href='/docs/configuration/templating/'>Templating </a></li>
           <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        Core objects
+        <ul>
           <li><a  href='/docs/configuration/events/'>Events </a></li>
           <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
-          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
         </ul>
       </li>
       <li>
@@ -301,6 +327,7 @@
             <ul>
               <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
               <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>
+              <li><a  href='/docs/ecosystem/certificates/lets_encrypt/'>Let's Encrypt (detailed) </a></li>
             </ul>
           </li>
           <li><a  href='/docs/ecosystem/scenegen/'>scenegen </a></li>

@@ -82,10 +82,12 @@
         <span class="s">type</span><span class="pi">:</span> <span class="s">rgbw</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">Bathroom</span>
     <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.11</span>
-      <span class="s">bridge_led</span><span class="pi">:</span> <span class="s">True</span>
       <span class="s">groups</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">number</span><span class="pi">:</span> <span class="s">1</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room &amp; Hall</span>
+      <span class="pi">-</span> <span class="s">number</span><span class="pi">:</span> <span class="s">1</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">bridge-led</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Bridge Light</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -95,12 +97,11 @@
       <li><strong>host</strong> (<em>Required</em>): IP address of the device, eg. <code class="highlighter-rouge">192.168.1.32</code></li>
       <li><strong>version</strong> (<em>Optional</em>): Bridge version (default is <code class="highlighter-rouge">6</code>). Don’t use if you aren’t sure.</li>
       <li><strong>port</strong> (<em>Optional</em>): Bridge port. Defaults to 5987.</li>
-      <li><strong>bridge_led</strong> (<em>Optional</em>): If True, the bridge led can be controlled. (Only supported for newer bridges with integrated led)</li>
       <li><strong>groups</strong> array (<em>Required</em>): The list of available groups.
         <ul>
-          <li><strong>number</strong> (<em>Required</em>): Group number (<code class="highlighter-rouge">1</code>-<code class="highlighter-rouge">4</code>). Corresponds to the group number on the remote.</li>
+          <li><strong>number</strong> (<em>Required</em>): Group number (<code class="highlighter-rouge">1</code>-<code class="highlighter-rouge">4</code>). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.</li>
           <li><strong>name</strong> (<em>Required</em>): Any name you’d like. Must be unique among all configured groups.</li>
-          <li><strong>type</strong> (<em>Optional</em>): Type of group. Choose either <code class="highlighter-rouge">rgbww</code>, <code class="highlighter-rouge">rgbw</code> or <code class="highlighter-rouge">white</code>. <code class="highlighter-rouge">rgbw</code> is the default if you don’t specify this entry.</li>
+          <li><strong>type</strong> (<em>Optional</em>): Type of group. Choose either <code class="highlighter-rouge">rgbww</code>, <code class="highlighter-rouge">rgbw</code>, <code class="highlighter-rouge">white</code>, or <code class="highlighter-rouge">bridge-led</code>. <code class="highlighter-rouge">rgbw</code> is the default if you don’t specify this entry. Use <code class="highlighter-rouge">bridge-led</code> to control the built-in LED of newer WiFi bridges.</li>
         </ul>
       </li>
     </ul>

@@ -144,7 +144,7 @@
 </ul>
 <p>From this we will end up with the binary sensors <code class="highlighter-rouge">calendar.test_unimportant</code> and <code class="highlighter-rouge">calendar.test_important</code> which will toggle themselves on/off based on events on the same calendar that match the search value set for each. You’ll also have a sensor <code class="highlighter-rouge">calendar.test_everything</code> that will not filter events out and always show the next event available.</p>
 <p>But what if you only wanted it to toggle based on all events? Just leave out the <em>search</em> parameter.</p>
-<p><strong>Note</strong>: If you use a <code class="highlighter-rouge">#</code> sign for search then wrap it up. It’s better to be safe!</p>
+<p><strong>Note</strong>: If you use a <code class="highlighter-rouge">#</code> sign for <code class="highlighter-rouge">search</code> then wrap the whole search term in quotes. Otherwise everything following the hash sign would be considered a YAML comment.</p>
 <h3><a class="title-link" name="sensor-attributes" href="#sensor-attributes"></a> Sensor attributes</h3>
 <ul>
   <li>

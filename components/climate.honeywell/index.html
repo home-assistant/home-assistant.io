@@ -82,9 +82,11 @@ Scan interval is expressed in seconds. Omitting scan_interval may result in too-
 <ul>
   <li><strong>username</strong> (<em>Required</em>): The username of an user with access.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
-  <li><strong>away_temperature</strong> (<em>Optional</em>): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.</li>
   <li><strong>region</strong> (<em>Optional</em>): Region identifier (either ‘eu’ or ‘us’). Defaults to ‘eu’ if not provided.</li>
   <li><strong>scan_interval</strong>(<em>Optional</em>): Scan interval is expressed in seconds. Recommended value of 600 seconds. Default value is 120 seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.</li>
+  <li><strong>away_temperature</strong> (<em>Optional</em>) (<em>only for eu region</em>): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.</li>
+  <li><strong>cool_away_temperature</strong> (<em>Optional</em>) (<em>only for us region</em>): Cooling setpoint when away mode is on. If omitted it defaults to 30.0 deg C.</li>
+  <li><strong>heat_away_temperature</strong> (<em>Optional</em>) (<em>only for us region</em>): Heating setpoint when away mode is on. If omitted it defaults to 16.0 deg C.</li>
 </ul>
 </article>
         </div>

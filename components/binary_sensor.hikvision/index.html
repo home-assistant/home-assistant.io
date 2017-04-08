@@ -66,14 +66,21 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The Hikvision Binary Sensor is a platform that parses the event stream of a <a href="http://www.hikvision.com/">Hikvision IP Camera</a> and presents the camera events to Home Assistant as binary sensors with either an “off” or “on” state.</p>
-<p>The platform will automatically add all sensors to Home Assistant that are configured within the camera interface to “Notify the surveillance center” as a trigger.  If you would like to hide a sensor type you can do so by either unchecking “Notify the surveillance center” in the camera configuration or by using the “ignored” customize option detailed below.</p>
+  <p>The Hikvision Binary Sensor is a platform that parses the event stream of a <a href="http://www.hikvision.com/">Hikvision IP Camera or NVR</a> and presents the camera/nvr events to Home Assistant as binary sensors with either an “off” or “on” state.</p>
+<p>The platform will automatically add all sensors to Home Assistant that are configured within the camera/nvr interface to “Notify the surveillance center” as a trigger.  If you would like to hide a sensor type you can do so by either unchecking “Notify the surveillance center” in the camera configuration or by using the “ignored” customize option detailed below.</p>
 <p>For example, if you configure a camera with the name “Front Porch” that has motion detection and line crossing events enabled to notify the surveillance center the following binary sensors will be added to Home Assistant:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>binary_sensor.front_porch_motion
 binary_sensor.front_port_line_crossing
 </code></pre>
 </div>
-<p>This platform should work with all Hikvision cameras, and has been confirmed to work with the following models:</p>
+<p>When used with a NVR device the sensors will be appeneded with the channel number they represent.  For example, if you configure an NVR with the name “Home” that supports 2 cameras with motion detection and line crossing events enabled to notify the surveillance center the following binary sensors will be added to Home Assistant:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>binary_sensor.home_motion_1
+binary_sensor.home_motion_2
+binary_sensor.home_line_crossing_1
+binary_sensor.home_line_crossing_2
+</code></pre>
+</div>
+<p>This platform should work with all Hikvision cameras and nvrs, and has been confirmed to work with the following models:</p>
 <ul>
   <li>DS-2CD3132-I</li>
   <li>DS-2CD2232-I5</li>
@@ -107,7 +114,6 @@ binary_sensor.front_port_line_crossing
 <p>Supported sensor/event types are:</p>
 <ul>
   <li>Motion</li>
-  <li>IO Trigger</li>
   <li>Line Crossing</li>
   <li>Field Detection</li>
   <li>Video Loss</li>
@@ -122,8 +128,9 @@ binary_sensor.front_port_line_crossing
   <li>Bad Video</li>
   <li>PIR Alarm</li>
   <li>Face Detection</li>
+  <li>Scene Change Detection</li>
 </ul>
-<p>Example of a configuration in your <code class="highlighter-rouge">configuration.yaml</code> that utilizes the customize options:</p>
+<p>Example of a configuration in your <code class="highlighter-rouge">configuration.yaml</code> that utilizes the customize options for a camera:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">hikvision</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.X.X</span>
@@ -132,9 +139,24 @@ binary_sensor.front_port_line_crossing
   <span class="s">username</span><span class="pi">:</span> <span class="s">user</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">pass</span>
   <span class="s">customize</span><span class="pi">:</span>
-    <span class="s">sensor_name_1</span><span class="pi">:</span>
+    <span class="s">motion</span><span class="pi">:</span>
       <span class="s">delay</span><span class="pi">:</span> <span class="s">30</span>
-    <span class="s">sensor_name_2</span><span class="pi">:</span>
+    <span class="s">line_crossing</span><span class="pi">:</span>
+      <span class="s">ignored</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
+</div>
+<p>Example of a configuration in your <code class="highlighter-rouge">configuration.yaml</code> that utilizes the customize options for a nvr:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">hikvision</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.X.X</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">80</span>
+  <span class="s">ssl</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">user</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">pass</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">motion_1</span><span class="pi">:</span>
+      <span class="s">delay</span><span class="pi">:</span> <span class="s">30</span>
+    <span class="s">field_detection_2</span><span class="pi">:</span>
       <span class="s">ignored</span><span class="pi">:</span> <span class="s">True</span>
 </code></pre>
 </div>
@@ -254,6 +276,9 @@ binary_sensor.front_port_line_crossing
         </li>
         <li>
             <a href='/components/binary_sensor.rpi_gpio/'>Raspberry PI GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ring/'>Ring Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
