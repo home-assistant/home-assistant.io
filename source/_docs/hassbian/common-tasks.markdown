@@ -93,7 +93,7 @@ This will in order do the following:
 - Change directory to the Home Assistant configuration directory.
 - Open the log file in the nano editor.
 
-Optionaly, you can also view the log with `journalctl`.
+Optionally, you can also view the log with `journalctl`.
 Log in as the `pi` account and execute the following commands:
 
 ```bash
