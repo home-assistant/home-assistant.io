@@ -10,7 +10,7 @@ footer: true
 logo: lyft.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 0.42
+ha_release: 0.41
 ---
 
 
