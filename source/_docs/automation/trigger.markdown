@@ -15,6 +15,8 @@ Triggers are what starts the processing of an automation rule. It is possible to
 ### {% linkable_title Event trigger %}
 Triggers when an event is being processed. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
 
+Events can be fired by components or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
+
 ```yaml
 automation:
   trigger:
@@ -24,7 +26,22 @@ automation:
     event_data:
       mood: happy
 ```
-For example, to carry out actions when Home Assistant starts, you can use `event_type: homeassistant_start`. See other 'events' supported by Home Assistant [here](https://home-assistant.io/topics/events/).
+
+<p class='note warning'>
+  Starting 0.42, it is no longer possible to listen for event `homeassistant_start`. Use the 'homeassistant' platform below instead.
+</p>
+
+### {% linkable_title Home Assistant trigger %}
+
+Use this platform to trigger when Home Assistant starts up and shuts down.
+
+```yaml
+automation:
+  trigger:
+    platform: homeassistant
+    # Event can also be 'shutdown'
+    event: start
+```
 
 ### {% linkable_title MQTT trigger %}
 Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
@@ -62,7 +79,7 @@ automation:
   trigger:
     platform: state
     entity_id: device_tracker.paulus, device_tracker.anne_therese
-    # Optional 
+    # Optional
     from: 'not_home'
     to: 'home'
 
@@ -104,6 +121,8 @@ automation:
     platform: template
     value_template: "{% raw %}{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}{% endraw %}"
 ```
+
+[template]: /docs/configuration/templating/
 
 ### {% linkable_title Time trigger %}
 

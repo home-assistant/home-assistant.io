@@ -13,9 +13,9 @@ ha_release: 0.35
 ha_iot_class: "Local Push"
 ---
 
-The Hikvision Binary Sensor is a platform that parses the event stream of a [Hikvision IP Camera](http://www.hikvision.com/) and presents the camera events to Home Assistant as binary sensors with either an "off" or "on" state.
+The Hikvision Binary Sensor is a platform that parses the event stream of a [Hikvision IP Camera or NVR](http://www.hikvision.com/) and presents the camera/nvr events to Home Assistant as binary sensors with either an "off" or "on" state.
 
-The platform will automatically add all sensors to Home Assistant that are configured within the camera interface to "Notify the surveillance center" as a trigger.  If you would like to hide a sensor type you can do so by either unchecking "Notify the surveillance center" in the camera configuration or by using the "ignored" customize option detailed below.
+The platform will automatically add all sensors to Home Assistant that are configured within the camera/nvr interface to "Notify the surveillance center" as a trigger.  If you would like to hide a sensor type you can do so by either unchecking "Notify the surveillance center" in the camera configuration or by using the "ignored" customize option detailed below.
 
 For example, if you configure a camera with the name "Front Porch" that has motion detection and line crossing events enabled to notify the surveillance center the following binary sensors will be added to Home Assistant:
 
@@ -24,7 +24,16 @@ binary_sensor.front_porch_motion
 binary_sensor.front_port_line_crossing
 ```
 
-This platform should work with all Hikvision cameras, and has been confirmed to work with the following models:
+When used with a NVR device the sensors will be appeneded with the channel number they represent.  For example, if you configure an NVR with the name "Home" that supports 2 cameras with motion detection and line crossing events enabled to notify the surveillance center the following binary sensors will be added to Home Assistant:
+
+```
+binary_sensor.home_motion_1
+binary_sensor.home_motion_2
+binary_sensor.home_line_crossing_1
+binary_sensor.home_line_crossing_2
+```
+
+This platform should work with all Hikvision cameras and nvrs, and has been confirmed to work with the following models:
 - DS-2CD3132-I
 - DS-2CD2232-I5
 - DS-2CD2032-I
@@ -55,7 +64,6 @@ Configuration options for a Hikvision Sensor:
 
 Supported sensor/event types are:
 - Motion
-- IO Trigger
 - Line Crossing
 - Field Detection
 - Video Loss
@@ -70,9 +78,10 @@ Supported sensor/event types are:
 - Bad Video
 - PIR Alarm
 - Face Detection
+- Scene Change Detection
 
 
-Example of a configuration in your `configuration.yaml` that utilizes the customize options:
+Example of a configuration in your `configuration.yaml` that utilizes the customize options for a camera:
 
 ```yaml
 binary_sensor:
@@ -83,8 +92,25 @@ binary_sensor:
   username: user
   password: pass
   customize:
-    sensor_name_1:
+    motion:
       delay: 30
-    sensor_name_2:
+    line_crossing:
+      ignored: True
+```
+
+Example of a configuration in your `configuration.yaml` that utilizes the customize options for a nvr:
+
+```yaml
+binary_sensor:
+  platform: hikvision
+  host: 192.168.X.X
+  port: 80
+  ssl: False
+  username: user
+  password: pass
+  customize:
+    motion_1:
+      delay: 30
+    field_detection_2:
       ignored: True
 ```

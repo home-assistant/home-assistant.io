@@ -32,8 +32,9 @@ sensor:
 
 Configuration variables:
 
-- **username** (*Required*): You Fido username (your Fido phone number).
+- **username** (*Required*): You Fido username (your Fido phone number or your email).
 - **password** (*Required*): Your Fido password.
+- **number** (*Optional*): Your Fido phone number (it will use your username if empty).
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **fido_dollar**: Your Fido dollar balance
   - **balance**: Your account balance

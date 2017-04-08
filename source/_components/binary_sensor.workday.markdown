@@ -15,6 +15,8 @@ ha_release: 0.41
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also uses the python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
 
+To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuation.yaml entry
 binary_sensor:
@@ -32,8 +34,8 @@ Configuration variables:
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`. The keyword `holiday` is used for public holidays identified by the holidays module.
 
-
 Example usage for automation:
+
 ```yaml
 automation:
   alias: Turn on heater on workdays
