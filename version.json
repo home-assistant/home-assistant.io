@@ -4,7 +4,7 @@
   "release_notes": "https://home-assistant.io/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/",
   "release_notes_path": "/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/",
   "release_title": "Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems",
-  "release_description": "Tons of bug fixes, performance increasements and ",
+  "release_description": "Tons of bug fixes, performance increasements and some cool new integrations.",
   "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
