@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: metoffice.jpg
 ha_category: Weather
-ha_release: 0.41
+ha_release: 0.42
 ---
 
 The `metoffice` weather platform uses the Met Office's [DataPoint API][datapoint] for weather data.
