@@ -66,41 +66,23 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">crimereports</code> sensor allows one to track reported incidents occurring in a Home Assistant zone. Incidents include anything reported to <a href="http://crimereports.com">Crime Reports</a>. Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.</p>
+  <p>The <code class="highlighter-rouge">crimereports</code> sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to <a href="http://crimereports.com">Crime Reports</a>. Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.</p>
 <h2>Configuration</h2>
-<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>. Your <code class="highlighter-rouge">zone</code> should be of sufficient size to capture incidents in your area. Your <code class="highlighter-rouge">home</code> zone is probably too small.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zone</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">neighborhood</span>
-    <span class="s">latitude</span><span class="pi">:</span> <span class="s">&lt;your latitude&gt;</span>
-    <span class="s">longitude</span><span class="pi">:</span> <span class="s">&lt;your longitude&gt;</span>
-    <span class="s">radius</span><span class="pi">:</span> <span class="s">&lt;your neighborhood radius&gt;</span>
-
-<span class="s">sensor</span><span class="pi">:</span>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>. Your <code class="highlighter-rouge">radius</code> should be of sufficient size to capture incidents in your area.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">crimereports</span>
-    <span class="s">zone</span><span class="pi">:</span> <span class="s">neighborhood</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">&lt;any name&gt;</span>
+    <span class="s">radius</span><span class="pi">:</span> <span class="s">&lt;your radius&gt;</span>
 </code></pre>
 </div>
 <p>Configuration options for the Crime Reports Sensor:</p>
 <ul>
-  <li><strong>zone</strong> (<em>Required</em>): The zone to monitor.</li>
+  <li><strong>name</strong> (<em>Required</em>): Name the sensor whatever you want.</li>
+  <li><strong>radius</strong> (<em>Required</em>): Radius in meters.</li>
+  <li><strong>latitude</strong> (<em>Optional</em>): Defaults to your home zone latitude.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Defaults to your home zone longitude.</li>
   <li><strong>include</strong> (<em>Optional</em>): List of incident types to include.</li>
   <li><strong>exclude</strong> (<em>Optional</em>): List of incident types to exclude.</li>
-  <li><strong>update_inverval</strong> (<em>Optional</em>): Minimum time interval between updates. Default is 30 minutes. Supported formats:
-    <ul>
-      <li><code class="highlighter-rouge">update_interval: 'HH:MM:SS'</code></li>
-      <li><code class="highlighter-rouge">update_interval: 'HH:MM'</code></li>
-      <li>Time period dictionary, e.g.:
-        <pre>update_interval:
-    # At least one of these must be specified:
-    days: 0
-    hours: 0
-    minutes: 3
-    seconds: 30
-    milliseconds: 0
-</pre>
-      </li>
-    </ul>
-  </li>
 </ul>
 <h2>Notes</h2>
 <h3>Area</h3>
