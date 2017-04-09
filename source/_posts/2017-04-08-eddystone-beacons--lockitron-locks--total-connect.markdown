@@ -84,6 +84,17 @@ sensor:
       - volume
 ```
 
+## If you need help...
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## Reporting Issues
+Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+## {% linkable_title Release 0.42.1 - April 9 %}
+
+- Upgrade aiohttp to 2.0.6
+- Make discovery not cause startup warning
+
 ## All changes
 
 - Flux led update lib ([@danielhiversen] - [#6763])
@@ -359,3 +370,6 @@ sensor:
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wardcraigj]: https://github.com/wardcraigj
 [@wmalgadey]: https://github.com/wmalgadey
+[forum]: https://community.home-assistant.io/
+[gitter]: https://gitter.im/home-assistant/home-assistant
+[issue]: https://github.com/home-assistant/home-assistant/issues
