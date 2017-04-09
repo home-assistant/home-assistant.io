@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: alarmdecoder.png
-ha_release: 0.42
+ha_release: 0.43
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
 ---
