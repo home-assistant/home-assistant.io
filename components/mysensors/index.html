@@ -85,7 +85,6 @@
       <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors4.json'</span>
       <span class="s">topic_in_prefix</span><span class="pi">:</span> <span class="s1">'</span><span class="s">mygateway1-out'</span>
       <span class="s">topic_out_prefix</span><span class="pi">:</span> <span class="s1">'</span><span class="s">mygateway1-in'</span>
-  <span class="s">debug</span><span class="pi">:</span> <span class="s">true</span>
   <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
   <span class="s">persistence</span><span class="pi">:</span> <span class="s">true</span>
   <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
@@ -99,7 +98,7 @@
   <li><strong>tcp_port</strong> (<em>Optional</em>): Specifies the port of the connected tcp ethernet gateway. Default is 5003.</li>
   <li><strong>topic_in_prefix</strong> (<em>Optional</em>): Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant. Default is an empty string.</li>
   <li><strong>topic_out_prefix</strong> (<em>Optional</em>): Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway. Default is an empty string.</li>
-  <li><strong>debug</strong> (<em>Optional</em>): Enable or disable verbose debug logging. Default is false.</li>
+  <li><strong>debug</strong> (<em>DEPRECATED</em>): This option has been deprecated. Please remove this from your config is you have it included. Use the logger component to filter log messages on log level.</li>
   <li><strong>persistence</strong> (<em>Optional</em>): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.</li>
   <li><strong>persistence_file</strong> (<em>Optional</em>): The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</li>
   <li><strong>version</strong> (<em>Optional</em>): Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0. Default is 1.4.</li>
