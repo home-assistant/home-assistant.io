@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-09T06:41:14+00:00</updated>
+  <updated>2017-04-09T08:41:13+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -90,6 +90,17 @@ sensor:
       - last_motion
       - volume
 ```
+
+## If you need help...
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## Reporting Issues
+Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+## <a class='title-link' name='release-0421---april-9' href='#release-0421---april-9'></a> Release 0.42.1 - April 9 
+
+- Upgrade aiohttp to 2.0.6
+- Make discovery not cause startup warning
 
 ## All changes
 
@@ -366,6 +377,9 @@ sensor:
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wardcraigj]: https://github.com/wardcraigj
 [@wmalgadey]: https://github.com/wmalgadey
+[forum]: https://community.home-assistant.io/
+[gitter]: https://gitter.im/home-assistant/home-assistant
+[issue]: https://github.com/home-assistant/home-assistant/issues
 ]]></content>
   </entry>
   
@@ -408,6 +422,7 @@ The new format of the changelog which was introduced with 0.40 will provide a li
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
+<!--more-->
 ## All changes
 
 - Bugfix android camera autodiscovery settings ([@pvizeli] - [#6510])
