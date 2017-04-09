@@ -32,6 +32,16 @@ $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
+To enable a glances server e.g. on Ubuntu edit `/etc/default/glances` this way:
+```shell
+# Default is to launch glances with '-s' option.
+DAEMON_ARGS="-w"
+
+# Change to 'true' to have glances running at startup
+RUN="true"
+```
+This starts a glances RESTFul/JSON server on default port 61208. Be sure to set DEAMON_ARGS="-w". If you leave it with "-s" glances will start in XMLRPC server mode on port 61209. In this mode Home Assistant's glance module won't work.
+
 To enable the Glances sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
