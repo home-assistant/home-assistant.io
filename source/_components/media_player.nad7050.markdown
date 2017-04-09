@@ -37,6 +37,6 @@ Configuration variables:
 - **max_volume** (*optional*): Maximum volume in dB to use with the slider. Default is `-10`
 - **volume_step** (*Optional*): The amount in dB you want to increase the volume with when pressing volume up/down.
 
-The min_volume and max_volume protect you against misclicks on the slider. The maximum volume level of the D 7050 amplifier is +10 db, minimum is -90.
+The maximum volume level of the D 7050 amplifier is +10 db, minimum is -90.
 
 
