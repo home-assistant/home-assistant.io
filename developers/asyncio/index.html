@@ -72,7 +72,7 @@
 <p>The only problem with running everything inside the event loop is when a task is doing blocking I/O, what most third-party Python libraries are doing. For example while requesting new information from a device, the core will stop running until we get a response from the device. To handle this, a task is able to suspend itself until the response is available after which it will be enqueued for the event loop to process the result.</p>
 <p>For a task to be able to suspend itself, all code that it calls has to have this capability added. This means in practice that each device integration will need a full rewrite of the library that offers the integration! As this is not something that can be achieved, ever, a 100% backwards compatible API has been added so that no platform will require updating.</p>
 <p>The backwards compatible API works by scheduling a task from a different thread and blocking that thread until the task has been processed by the event loop.</p>
-<h3><a href="/developers/asyncio_categorizing_functions/">Next step: Categorizing Functions »</a></h3>
+<h3><a href="/developers/asyncio_101/">Next step: asyncio 101 »</a></h3>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -125,6 +125,7 @@
       <li>
         <a class='active' href='/developers/asyncio/'>Asynchronous Programming </a>
         <ul>
+          <li><a  href='/developers/asyncio_101/'>Introduction to asyncio </a></li>
           <li><a  href='/developers/asyncio_categorizing_functions/'>Categorizing Functions </a></li>
           <li><a  href='/developers/asyncio_working_with_async/'>Working with Async </a></li>
           <li><a  href='/developers/asyncio_misc/'>Miscellaneous </a></li>
