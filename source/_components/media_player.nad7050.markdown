@@ -16,22 +16,27 @@ ha_iot_class: "Local Polling"
 
 The `nad7050` platform allows you to control a [NAD D 7050](https://nadelectronics.com/product/d-7050-direct-digital-network-amplifier/) digital amplifier from Home Assistant.
 
-To add a D 7050 amplifier to your installation, add the following to your `configuration.yaml` file:
+To add a NAD receiver to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
   - platform: nad7050
+    name: NAD D 7050
     host: 192.168.0.112
+    min_volume: -60
+    max_volume: -20
+    volume_step: 5
 ```
 
 Configuration variables:
 
 - **host** (*Required*): The IP address of your amplifier.
 - **name** (*Optional*): Name of the device. Default is NAD D 7050.
-- **min_volume** (*optional*): Minimum volume in dB to use with the slider. Default is `-60`.
-- **max_volume** (*optional*): Maximum volume in dB to use with the slider. Default is `-10`.
+- **min_volume** (*optional*): Minimum volume in dB to use with the slider. Default is `-60`
+- **max_volume** (*optional*): Maximum volume in dB to use with the slider. Default is `-10`
+- **volume_step** (*Optional*): The amount in dB you want to increase the volume with when pressing volume up/down.
 
-The maximum volume level of the D 7050 amplifier is +10 db, minimum is -90.
+The min_volume and max_volume protect you against misclicks on the slider. The maximum volume level of the D 7050 amplifier is +10 db, minimum is -90.
 
 
