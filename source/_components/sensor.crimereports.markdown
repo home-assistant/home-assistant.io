@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-featured: false
+logo: crimereports.png
 ha_release: 0.42
 ha_iot_class: "Cloud Polling"
 ---
