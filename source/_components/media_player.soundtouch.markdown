@@ -9,13 +9,15 @@ sharing: true
 footer: true
 logo: soundtouch.jpg
 ha_category: Media Player
-ha_release: X.X.X
+ha_release: 0.34.0
 ha_iot_class: "Local Polling"
 ---
 
 The `soundtouch` platform allows you to control your [Bose Soundtouch](https://www.soundtouch.com/) speakers from Home Assistant.
 
-To add your Soundtouch components to your installation, add the following to your `configuration.yaml` file.
+By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.
+
+Alternatively, you can add the following to your `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml
