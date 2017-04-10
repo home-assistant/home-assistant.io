@@ -72,17 +72,19 @@
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">workday</span>
     <span class="s">country</span><span class="pi">:</span> <span class="s">DE</span>
-    <span class="s">province</span><span class="pi">:</span> <span class="s">BW</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>country</strong> (<em>Required</em>): Country code according to <a href="https://pypi.python.org/pypi/holidays/0.8.1">holidays</a> notation.</li>
-  <li><strong>province</strong> (<em>Optional</em>): Province code according to <a href="https://pypi.python.org/pypi/holidays/0.8.1">holidays</a> notation (defaults to None).</li>
-  <li><strong>workdays</strong> (<em>Optional</em>): List of workdays (defaults to mon, tue, wed, thu, fri).</li>
-  <li><strong>excludes</strong> (<em>Optional</em>): List of workday excludes (defaults to sat, sun, holiday).</li>
+  <li><strong>province</strong> (<em>Optional</em>): Province code according to <a href="https://pypi.python.org/pypi/holidays/0.8.1">holidays</a> notation. Defaults to None.</li>
+  <li><strong>workdays</strong> (<em>Optional</em>): List of workdays. Defaults to <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>.</li>
+  <li><strong>excludes</strong> (<em>Optional</em>): List of workday excludes. Defaults to <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>, <code class="highlighter-rouge">holiday</code>.</li>
 </ul>
 <p>Days are specified as follows: <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>, <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>. The keyword <code class="highlighter-rouge">holiday</code> is used for public holidays identified by the holidays module.</p>
+<p class="note warning">
+If you use the sensor for Canada (<code class="highlighter-rouge">CA</code>) with Ontario (<code class="highlighter-rouge">ON</code>) as <code class="highlighter-rouge">province:</code> then you need to wrap <code class="highlighter-rouge">ON</code> in quotes. Otherwise the value is evaluated as <code class="highlighter-rouge">True</code> (check the YAML documentation for further details) and the sensor will not work.
+</p>
 <p>Example usage for automation:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on heater on workdays</span>
