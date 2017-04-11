@@ -56,5 +56,9 @@ The sun event need to have the type 'sun', which service to call, which event (s
 | --------- | ----------- |
 | `next_rising` | Date and time of the next sun rising (in UTC).
 | `next_setting` | Date and time of the next sun setting (in UTC).
+| `next_dawn` | Date and time of the next dawn (in UTC).
+| `next_dusk` | Date and time of the next dusk (in UTC).
+| `next_noon` | Date and time of the next solar noon (in UTC).
+| `next_midnight` | Date and time of the next solar midnight (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | `azimuth` | Solar azimuth. The angle is shown clockwise from north.
