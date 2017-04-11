@@ -95,6 +95,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade aiohttp to 2.0.6
 - Make discovery not cause startup warning
 
+## {% linkable_title Release 0.42.1 - April 9 %}
+
+ - Revert upgrade to aiothttp 2.0.6
+
+## {% linkable_title Release 0.42.3 - April 11 %}
+
+- Fix Synology camera content type ([@balloob] - [#7010])
+- Fix two more instances of JSON parsing synology ([@balloob] - [#7014])
+- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021])
+- Fix US states check (fixes #7015) ([@fabaff] - [#7017])
+- Plug file leak on LIFX unregister ([@amelchio] - [#7031])
+- Bugfix wait on start event ([@pvizeli] - [#7013])
+
 ## All changes
 
 - Flux led update lib ([@danielhiversen] - [#6763])
@@ -326,25 +339,32 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#6981]: https://github.com/home-assistant/home-assistant/pull/6981
 [#6986]: https://github.com/home-assistant/home-assistant/pull/6986
 [#6990]: https://github.com/home-assistant/home-assistant/pull/6990
+[#7010]: https://github.com/home-assistant/home-assistant/pull/7010
+[#7013]: https://github.com/home-assistant/home-assistant/pull/7013
+[#7014]: https://github.com/home-assistant/home-assistant/pull/7014
+[#7017]: https://github.com/home-assistant/home-assistant/pull/7017
+[#7021]: https://github.com/home-assistant/home-assistant/pull/7021
+[#7031]: https://github.com/home-assistant/home-assistant/pull/7031
+[@Xorso]: https://github.com/Xorso
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@fabaff]: https://github.com/fabaff
+[@pvizeli]: https://github.com/pvizeli
 [@ChristianKuehnel]: https://github.com/ChristianKuehnel
 [@DavidMStraub]: https://github.com/DavidMStraub
 [@KlaasH]: https://github.com/KlaasH
 [@MartinHjelmare]: https://github.com/MartinHjelmare
-[@Xorso]: https://github.com/Xorso
 [@aarya123]: https://github.com/aarya123
 [@aequitas]: https://github.com/aequitas
-[@amelchio]: https://github.com/amelchio
 [@andrey-git]: https://github.com/andrey-git
 [@armills]: https://github.com/armills
 [@aufano]: https://github.com/aufano
-[@balloob]: https://github.com/balloob
 [@bdurrer]: https://github.com/bdurrer
 [@citruz]: https://github.com/citruz
 [@danielhiversen]: https://github.com/danielhiversen
 [@danieljkemp]: https://github.com/danieljkemp
 [@danielperna84]: https://github.com/danielperna84
 [@diogos88]: https://github.com/diogos88
-[@fabaff]: https://github.com/fabaff
 [@geekofweek]: https://github.com/geekofweek
 [@goto100]: https://github.com/goto100
 [@gurumitts]: https://github.com/gurumitts
@@ -359,7 +379,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@micw]: https://github.com/micw
 [@nugget]: https://github.com/nugget
 [@pavoni]: https://github.com/pavoni
-[@pvizeli]: https://github.com/pvizeli
 [@quadportnick]: https://github.com/quadportnick
 [@rytilahti]: https://github.com/rytilahti
 [@tantecky]: https://github.com/tantecky
