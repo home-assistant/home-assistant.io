@@ -21,8 +21,8 @@ To use this device tracker in your installation, add the following to your `conf
 device_tracker:
   - platform: mqtt
     devices:
-      paulus_oneplus: /location/paulus
-      annetherese_n4: /location/annetherese
+      paulus_oneplus: location/paulus
+      annetherese_n4: location/annetherese
 ```
 
 Configuration variables:
@@ -30,12 +30,17 @@ Configuration variables:
 - **devices** (*Required*): List of devices with their topic.
 - **qos** (*Optional*): The QoS level of the topic.
 
-
-Example JSON you can publish to the topic (e.g. via mqtt.publish service):
+This platform allows for two different types of MQTT payloads. The first one is a plain text containing the name of the location. For example, you can publish the following JSON formatted message to the topic (e.g. via mqtt.publish service):
 
 ```json
 {
-  "topic": "/location/paulus",
+  "topic": "location/paulus",
   "payload": "home"
 }
 ```
+The second type of payload is a JSON formatted string containing GPS information, for example:
+```json
+{'lon': 1.0,'acc': 60,'lat': 2.0,'batt': 99.9}
+```
+where `lon` is the longitude, `lat` is the latitude, `acc` is the accuracy in meters, `batt` is the current battery level of the device sending the update.
+`lon` and `lat` are required keys, `acc` and `batt` are optional.
