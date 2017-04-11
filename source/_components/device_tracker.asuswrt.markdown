@@ -16,7 +16,7 @@ ha_release: pre 0.7
 The `asuswrt` platform offers presence detection by looking at connected devices to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
 <p class='note warning'>
-This platform is **NOT** available for [Microsoft Windows installations](http://pexpect.readthedocs.io/en/stable/overview.html#pexpect-on-windows).
+This platform is **NOT** available for [Microsoft Windows installations](http://pexpect.readthedocs.io/en/stable/overview.html#pexpect-on-windows) when using the SSH or Telnet protocols.
 </p>
 
 To use an ASUSWRT router in your installation, add the following to your `configuration.yaml` file:
@@ -32,12 +32,16 @@ device_tracker:
 Configuration variables:
 
 - **host** (*Required*): The IP address of your router, eg. `192.168.1.1`.
-- **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
+- **username** (*Optional*): The username of an user with administrative privileges. Defaults to 'admin'.
 - **password** (*Optional*): The password for your given admin account (use this if no SSH key is given).
-- **protocol** (*Optional*): The protocol (`ssh` or `telnet`) to use. Defaults to `ssh`.
+- **protocol** (*Optional*): The protocol (`ssh`, `telnet` or `http`) to use. Defaults to `ssh`.
 - **port** (*Optional*): SSH port to use. Defaults to `22`.
 - **mode** (*Optional*): The operating mode of the router (`router` or `ap`). Defaults to `router`.
 - **ssh_key** (*Optional*): The path to your SSH private key file associated with your given admin account (instead of password).
+
+2 distinct modes are supported:
+- **HTTP**: Uses the http://HOSTNAME:update_clients.asp page to extract the information
+- **SSH/telnet**: Uses Linux commands to extract the information
 
 <p class='note warning'>
 You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`. 
