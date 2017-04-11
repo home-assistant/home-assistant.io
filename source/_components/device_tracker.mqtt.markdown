@@ -39,7 +39,7 @@ This platform allows for two different types of MQTT payloads. The first one is 
 }
 ```
 The second type of payload is a JSON formatted string containing GPS information, for example:
-```json
+```
 {'lon': 1.0,'acc': 60,'lat': 2.0,'batt': 99.9}
 ```
 where `lon` is the longitude, `lat` is the latitude, `acc` is the accuracy in meters, `batt` is the current battery level of the device sending the update.
