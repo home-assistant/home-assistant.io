@@ -25,7 +25,7 @@ It's an alternative to the [template sensor](/components/sensor.template/)'s `va
 }}{% endraw %}
 ```
 
-Sensors with unknown state will be ignored in calculation. If the "unit of measurement" of the sensors differs, the min_max sensor will go to an error state where the value is UNKNOWN and the unit of measurement is ERR.
+Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and the unit of measurement is `ERR`.
 
 To enable the minimum/maximum sensor, add the following lines to your `configuration.yaml`:
 
@@ -45,4 +45,4 @@ Configuration variables:
 - **type** (*Optional*): The type of sensor: `min`, `max` or `mean`. Defaults to `max`.
 - **name** (*Optional*): Name of the sensor to use in the frontend.
 - **round_digits** (*Optional*): Round mean value to specified number of digits. Defaults to 2.
-- **icon** (*Optional*): The icon to show for this sensor. Defaults to mdi:calculator.
+
