@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-11T06:31:56+00:00</updated>
+  <updated>2017-04-11T17:04:06+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -105,6 +105,23 @@
 <ul>
   <li>Upgrade aiohttp to 2.0.6</li>
   <li>Make discovery not cause startup warning</li>
+</ul>
+
+<h2><a class="title-link" name="release-0421---april-9" href="#release-0421---april-9"></a> Release 0.42.1 - April 9</h2>
+
+<ul>
+  <li>Revert upgrade to aiothttp 2.0.6</li>
+</ul>
+
+<h2><a class="title-link" name="release-0423---april-11" href="#release-0423---april-11"></a> Release 0.42.3 - April 11</h2>
+
+<ul>
+  <li>Fix Synology camera content type (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7010">#7010</a>)</li>
+  <li>Fix two more instances of JSON parsing synology (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7014">#7014</a>)</li>
+  <li>Bump pyalarmdotcom to support new version of aiohttp (<a href="https://github.com/Xorso">@Xorso</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7021">#7021</a>)</li>
+  <li>Fix US states check (fixes #7015) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7017">#7017</a>)</li>
+  <li>Plug file leak on LIFX unregister (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7031">#7031</a>)</li>
+  <li>Bugfix wait on start event (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7013">#7013</a>)</li>
 </ul>
 
 <h2>All changes</h2>
