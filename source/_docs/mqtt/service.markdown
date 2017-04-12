@@ -11,7 +11,7 @@ logo: mqtt.png
 redirect_from: /components/mqtt/#publish-service
 ---
 
-The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are three ways of specifying your payload. You can use `payload` to hard-code a payload, use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload, and `payload_file_path` to specify a local file to be published as binary payload.
+The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are three ways of specifying your payload. You can use `payload` to hard-code a payload, use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload, and `payload_file_path` to specify a file under the local `www` directory to be published as binary payload.
 
 ```json
 {
@@ -30,7 +30,7 @@ The MQTT component will register the service `publish` which allows publishing m
 ```json
 {
   "topic": "home-assistant/webcam/snapshot",
-  "payload_file_path": "/home/user/snapshot.jpg"
+  "payload_file_path": "snapshot.jpg"
 }
 ```
 
@@ -74,5 +74,10 @@ automation:
       - service: mqtt.publish
         data:
           topic: 'home-assistant/webcam/snapshot'
-          payload_file_path: '/home/user/snapshot.jpg'
+          payload_file_path: 'snapshot.jpg'
+```
+
+Note: For security reasons, `payload_file_path` must point to a file within the local `www` directory. Supposing that the Home Assistant config directory is `/home/user/.homeassistant`, `payload_file_path` can indicate only files within the `/home/user/.homeassistant/www/` directory. For example, if the file to be sent is `/home/user/.homeassistant/www/webcam/snapshot.jpg`, in calling the service we would have:
+```
+payload_file_path: 'webcam/snapshot.jpg'
 ```
