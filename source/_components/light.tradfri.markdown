@@ -14,8 +14,6 @@ ha_release: 0.43
 
 Support for the IKEA Tradfri (Trådfri) gateway. The gateway can control lights connected to it.
 
-To enable these lights, add the following lines to your `configuration.yaml` file:
-
 NB: for this to work, you need to install the lib-coap library:
 ```
 $ apt-get install libtool
@@ -29,6 +27,8 @@ $ ./configure --disable-documentation --disable-shared
 $ make
 $ sudo make install
 ```
+
+To enable these lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
