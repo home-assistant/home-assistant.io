@@ -31,7 +31,7 @@ Configuration variables:
 - **qos** (*Optional*): The QoS level of the topic.
 
 This platform receives JSON formatted payloads containing GPS information, for example:
-```
+```json
 {'lon': 1.0,'acc': 60,'lat': 2.0,'batt': 99.9}
 ```
 where `lon` is the longitude, `lat` is the latitude, `acc` is the accuracy in meters, `batt` is the current battery level of the device sending the update.
