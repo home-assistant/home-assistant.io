@@ -49,7 +49,7 @@ Now, to speak to the outside world your connection goes through a router. Your r
  
 So, when we want to connect to our Home Assistant instance from outside our network we will need to call the correct extension number, at the correct phone number, in the correct area code.
  
-We will be looking for a system to run like this (in this example I will pretend our exernal IP is 12.12.12.12):
+We will be looking for a system to run like this (in this example I will pretend our external IP is 12.12.12.12):
  
 ```text
 Outside world -> 12.12.12.12:8123 -> your router -> 192.168.0.200:8123
