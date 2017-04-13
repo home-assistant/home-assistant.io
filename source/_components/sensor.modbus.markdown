@@ -35,6 +35,7 @@ sensor:
       unit_of_measurement: °C
       slave: 1
       register: 120
+      register_type: input
       scale: 0.01
       offset: -273.16
       precision: 2
@@ -46,8 +47,10 @@ Configuration variables:
   - **name** (*Required*): Name of the sensor.
   - **slave** (*Required*): The number of the slave (Optional for tcp and upd Modbus).
   - **register** (*Required*): Register number.
+  - **register_type** (*Optional*): Modbus register type (holding, input), default holding
   - **unit_of_measurement** (*Optional*): Unit to attach to value.
   - **count** (*Optional*): Number of registers to read.
   - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1
   - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
   - **precision** (*Optional*): Number of valid decimals, default 0
+  - **isfloat** (*Optional*): Convert response to  IEEE 754 floating point format, default False
