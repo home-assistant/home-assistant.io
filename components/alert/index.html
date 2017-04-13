@@ -95,6 +95,26 @@
   <li><strong>notifiers</strong> (<em>Required</em>): List of <code class="highlighter-rouge">notification</code> components to use for alerts.</li>
 </ul>
 <p>In this example, the garage door status (<code class="highlighter-rouge">input_boolean.garage_door</code>) is watched and this alert will be triggered when its status is equal to <code class="highlighter-rouge">on</code>. This indicates that the door has been opened. Because the <code class="highlighter-rouge">skip_first</code> option was set to <code class="highlighter-rouge">True</code>, the first notification will not be delivered immediately. However, every 30 minutes, a notification will be delivered until either <code class="highlighter-rouge">input_boolean.garage_door</code> no longer has a state of <code class="highlighter-rouge">on</code> or until the alert is acknowledged using the Home Assistant frontend.</p>
+<p>For notifiers that require other parameters (such as <code class="highlighter-rouge">twilio_sms</code> which requires you specify a <code class="highlighter-rouge">target</code> parameter when sending the notification), you can use the <code class="highlighter-rouge">group</code> notification to wrap them for an alert. Simply create a <code class="highlighter-rouge">group</code> notification type with a single notification member (such as <code class="highlighter-rouge">twilio_sms</code>) specifying the required parameters other than <code class="highlighter-rouge">message</code> provided by the <code class="highlighter-rouge">alert</code> component:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">group</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">john_phone_sms</span>
+  <span class="s">services</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">twilio_sms</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">target</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">john_phone</span>
+</code></pre>
+</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">freshwater_temp_alert</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Warning:</span><span class="nv"> </span><span class="s">I</span><span class="nv"> </span><span class="s">have</span><span class="nv"> </span><span class="s">detected</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">problem</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">freshwater</span><span class="nv"> </span><span class="s">tank</span><span class="nv"> </span><span class="s">temperature"</span>
+  <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.freshwater_temperature_status</span>
+  <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">repeat</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">can_acknowledge</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">skip_first</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="s">notifiers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">john_phone_sms</span>
+</code></pre>
+</div>
 <h3><a class="title-link" name="complex-alert-criteria" href="#complex-alert-criteria"></a> Complex Alert Criteria</h3>
 <p>By design, the <code class="highlighter-rouge">alert</code> component only handles very simple criteria for firing. That is, is only checks if a single entity’s state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a <code class="highlighter-rouge">Template Binary Sensor</code>. The following example does that.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
