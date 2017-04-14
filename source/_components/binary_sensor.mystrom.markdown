@@ -23,6 +23,11 @@ The `mystrom` binary sensor platform allows you to use [myStrom Wifi Buttons](ht
 
 The first usage of the pattern will create the binary sensor for the pattern. If the WiFi Button is pushed one time then a binary sensor for the `single` pattern will be created. The same applies for the other patterns. With the second usage of the pattern the binary sensors become fully functional.
 
+The buttons will give you feedback with its built-in LED:
+
+- white then green: Pattern was submitted successfully
+- white then red: There is a problem with the communication
+
 To use your myStrom WiFi Button in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
