@@ -38,7 +38,7 @@ Turns one light on or multiple lights on using [groups]({{site_root}}/components
 | `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma separated floats that represent the color in XY.
 | `rgb_color` | yes | A list containing three integers representing the rgb color you want the light to be. Three comma separated integers that represent the color in RGB.  You can find a great chart here: [Hue Color Chart](http://www.developers.meethue.com/documentation/hue-xy-values)
 | `color_temp` | yes | An INT in mireds representing the color temperature you want the light to be.
-| `color_name` | yes | A human readable string of a color name, such as `blue` or `goldenrod` or [`chucknorris`](http://stackoverflow.com/questions/8318911/why-does-html-think-chucknorris-is-a-color). If your browser can display it, so can Home Assistant.
+| `color_name` | yes | A human readable string of a color name, such as `blue` or `goldenrod`. All [`CSS3 color names`](https://www.w3.org/TR/2010/PR-css3-color-20101028/#svg-color) are supported.
 | `brightness` | yes | Integer between 0 and 255 for how bright the color should be.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`. *not supported by Wink
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
