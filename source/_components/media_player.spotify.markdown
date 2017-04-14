@@ -20,11 +20,10 @@ The `spotify` media player platform allows you to control [Spotify](https://www.
 
 - Spotify Premium account.
 - Spotify Application, properly configured.
-- Web-accessible Home Assistant.
 
 To create the required Spotify Application, login to [Spotify Developer](https://developer.spotify.com), visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page, and select **Create An App**. Enter any name and description. Once your application is created, you can view it and discover your **Client ID** and **Client Secret**, which are placed in the Home Assistant configuration file. Finally, add a **Redirect URI** in the following form:
 
-`http://<your_home_assistant_url>/api/spotify`
+`http://<your_home_assistant_url_or_local_ip>/api/spotify`
 
 Remember to select **Save** after adding the URI.
 
