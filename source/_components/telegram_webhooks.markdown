@@ -80,7 +80,7 @@ alias: 'telegram bot that reply pong to ping'
 hide_entity: true
 trigger:
   platform: event
-  event_type: telegram.command
+  event_type: telegram_command
   event_data:
     command: '/ping'
 action:
@@ -94,7 +94,7 @@ Example that show keyboard interaction with `notify.telegram`
 ```yaml
 trigger:
   platform: event
-  event_type: telegram.command
+  event_type: telegram_command
   event_data:
     command: '/start'
 action:
@@ -112,7 +112,7 @@ and an automation to trigger a related command "/siren".
 ```yaml
 trigger:
   platform: event
-  event_type: telegram.command
+  event_type: telegram_command
   event_data:
     command: '/siren'
 action:
