@@ -18,6 +18,6 @@ The [logger](/components/logger/) component allow the logging of received MQTT m
 logger:
   default: warning
   logs:
-    homeassistant.components.device_tracker.mqtt: debug
+    homeassistant.components.mqtt: debug
 ```
 
