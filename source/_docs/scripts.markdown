@@ -66,7 +66,7 @@ delay: 00:01:30
 ```yaml
 # Waits 1 minute
 delay:
-  # supports seconds, minutes, hours, days
+  # supports milliseconds, seconds, minutes, hours, days
   minutes: 1
 ```
 
