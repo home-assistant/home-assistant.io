@@ -38,5 +38,7 @@ The app is [open source](https://github.com/home-assistant/home-assistant-iOS), 
 
 <p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
 
+_Please note, you must have Home Assistant 0.42.4 or later installed for the app to function properly._
+
 Thanks for everything so far, I'm looking forward to the road that lies ahead for Home Assistant on iOS!
 
