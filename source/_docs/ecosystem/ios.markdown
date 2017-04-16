@@ -17,14 +17,9 @@ The Home Assistant for iOS app offers a companion app for iOS which is deeply in
 * Basic control of all Home Assistant entities
 * Integration with third party apps
 
-<p class='note warning'>
-Currently, the app is only available via a closed beta. It will be on the App Store within the next few weeks.
-</p>
+The app is available on the iOS App Store in every country that Apple supports.
 
-<p class='img'>
-  <img src='/images/ios/control1.png' width='310' height='552' />
-  An example of a Home Assistant group as seen in the iOS app.
-</p>
+<p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
 
 ## Basic requirements
 
