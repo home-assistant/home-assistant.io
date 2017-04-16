@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-16T21:42:34+00:00</updated>
+  <updated>2017-04-16T23:38:42+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -45,6 +45,8 @@
 <p><strong>Today, April 16th, 2017, I am <em>extremely</em> excited to announce that Home Assistant for iOS has been approved by Apple and is now available to download for <del>a monthly subscription starting at $9.99</del> free! (had to get a joke in here somewhere!) on the iOS App Store in every country.</strong></p>
 
 <p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
+
+<p><em>Please note, you must have Home Assistant 0.42.4 or later installed for the app to function properly.</em></p>
 
 <p>Thanks for everything so far, I’m looking forward to the road that lies ahead for Home Assistant on iOS!</p>
 
@@ -160,6 +162,16 @@
   <li>Fix US states check (fixes #7015) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7017">#7017</a>)</li>
   <li>Plug file leak on LIFX unregister (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7031">#7031</a>)</li>
   <li>Bugfix wait on start event (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7013">#7013</a>)</li>
+</ul>
+
+<h2><a class="title-link" name="release-0424---april-17" href="#release-0424---april-17"></a> Release 0.42.4 - April 17</h2>
+
+<ul>
+  <li>Version bump to 0.42.4 (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix mysensors callback (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7057">#7057</a>)</li>
+  <li>Upgrade aiohttp to 2.0.7 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7106">#7106</a>)</li>
+  <li>Make version number optional and a string to fix identify issue introduced in iOS 1.0.1 (<a href="https://github.com/robbiet480">@robbiet480</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7141">#7141</a>)</li>
+  <li>Fix for zwave RGB setting (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7137">#7137</a>)</li>
 </ul>
 
 <h2>All changes</h2>

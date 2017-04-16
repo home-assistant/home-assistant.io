@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Announcements | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/announcements/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-16T21:42:34+00:00</updated>
+  <updated>2017-04-16T23:38:42+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -45,6 +45,8 @@ The app is [open source](https://github.com/home-assistant/home-assistant-iOS), 
 **Today, April 16th, 2017, I am _extremely_ excited to announce that Home Assistant for iOS has been approved by Apple and is now available to download for ~~a monthly subscription starting at $9.99~~ free! (had to get a joke in here somewhere!) on the iOS App Store in every country.**
 
 <p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
+
+_Please note, you must have Home Assistant 0.42.4 or later installed for the app to function properly._
 
 Thanks for everything so far, I'm looking forward to the road that lies ahead for Home Assistant on iOS!
 
