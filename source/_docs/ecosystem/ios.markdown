@@ -55,10 +55,10 @@ ios:
 
 Configuration variables:
 
-- **push** (*Optional*): Push notification configuration. See the [iOS `notify` platform][ios-notify] for more information.
+- **push** (*Optional*): Actionable push notifications configuration. See the [actionable notifications documentation][actionable-notifications] for more information.
 
 [discovery]: /components/discovery
 [device-tracker]: /components/device_tracker
 [zeroconf]: /components/zeroconf
 [notify]: /components/notify
-[ios-notify]: /ecosystem/ios/notifications/
+[actionable-notifications]: /docs/ecosystem/ios/notifications/actions/
