@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-16T07:53:04+00:00</updated>
+  <updated>2017-04-16T17:38:22+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[1 year and 22 days ago I had an idea...]]></title>
+    <link href="https://home-assistant.io/blog/2017/04/15/ios/"/>
+    <updated>2017-04-15T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/04/15/ios</id>
+    <content type="html"><![CDATA[<p>1 year and 22 days ago, or 387 days ago, on March 25th, 2016, I started a project to bring Home Assistant to the iPhone.</p>
+
+<p>I thought the existing notification and location solutions were lacking in one way or another and had wanted for <em>years</em> to have a project I could call my own which would allow me to learn iOS development. What better way then implementing an extremely complex application like Home Assistant?</p>
+
+<p>I started with a lot of steam. I remember cranking out the initial work that night and showing Paulus who was astounded at how fast the UI was coming together.</p>
+
+<p>Little would I know how many problems I would create and uncover throughout the process. Writing a mobile app for a project that moves as fast as Home Assistant is… tricky, to say the least. In the time since I started writing the app, Home Assistant had 90 releases. I started writing the day before 0.16 was released. Now we are at 0.42.3. Time flies…</p>
+
+<p>I couldn’t have completed the app without help and input from the community. By the end I had 700 beta testers, of which about 500 were very active in testing the app.</p>
+
+<p>I received emails and forum posts almost every day, even when the app would go without an update for weeks and sometimes months at a time as my life got busier and busier.</p>
+
+<p>I wanted this app to be done 9 months ago, at least, but my drive to add more and more features killed that idea. This really taught me the value of the MVP over the kitchen sink.</p>
+
+<p>It may not look the way that I wanted it to initially, with beautiful native UI components, but thats okay. What I really cared about is there. The notification and location engines are some of the most customizable and powerful available in an iOS app if I do say so myself. I made them this way to keep with the spirit of infinite flexibility that is enshrined in Home Assistant.</p>
+
+<p>Just because the app is released doesn’t mean we are at the end of the road. It’s only the beginning. There’s plenty of bugs to fix still, improvements to make, features to add. Beta testing will continue, and if anything, be expanded. I do want to have a native UI someday, but that’s pretty hard with how fast the project moves.</p>
+
+<p>The biggest request I have is for more developers on the project. As many of you know, I have my hands in many different parts of Home Assistant, from governance and organization to managing the forums to writing this app, managing the Homebridge plugin and even sometimes writing code for the actual core codebase! I can’t do it all, and I’m still a new iOS developer who doesn’t know all the best practices.</p>
+
+<p>The app is <a href="https://github.com/home-assistant/home-assistant-iOS">open source</a>, has been for the last few months when I first prepared to submit it to Apple for review. I invite Swift developers to come and join me in building it. Trust me, there’s tons to do.</p>
+
+<p><strong>1 year and 22 days ago, on March 25th, 2016 I began work on Home Assistant for iOS.</strong></p>
+
+<p><strong>Today, April 16th, 2017, I am <em>extremely</em> excited to announce that Home Assistant for iOS has been approved by Apple and is now available to download for <del>a monthly subscription starting at $9.99</del> free! (had to get a joke in here somewhere!) on the iOS App Store in every country.</strong></p>
+
+<p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
+
+<p>Thanks for everything so far, I’m looking forward to the road that lies ahead for Home Assistant on iOS!</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems]]></title>
@@ -1959,105 +1997,6 @@ You have to note:
 <p>We’re taking a well deserved break and we will be back again in 2017 with more awesomeness. Happy holidays!</p>
 
 <p>– Paulus</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[0.35: Text-to-speech, VLC, Flic, netdata]]></title>
-    <link href="https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg/"/>
-    <updated>2016-12-17T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/12/17/text-to-speech-aquostv-flic-zamg</id>
-    <content type="html"><![CDATA[<p>5000 stars on GitHub, 2000 people in out Gitter chatroom and over a million monthly page views. I don’t think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It’s not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.</p>
-
-<p>This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!</p>
-
-<h2><a class="title-link" name="text-to-speech" href="#text-to-speech"></a> Text to Speech</h2>
-<p>With the addition of a <a href="https://home-assistant.io/components/tts/">text-to-speech</a> component by <a href="https://github.com/pvizeli">@pvizeli</a> we have been able to bring Home Assistant to a whole new level. The text-to-speech component will take in any text and will play it on a media player that supports to play media. We have tested this on Sonos, Chromecast, and Google Home.</p>
-
-<p><a href="https://www.youtube.com/watch?v=Ke0QuoJ4tRM">https://www.youtube.com/watch?v=Ke0QuoJ4tRM</a></p>
-
-<h2><a class="title-link" name="call-for-help-with-hassbian-our-raspberry-pi-image" href="#call-for-help-with-hassbian-our-raspberry-pi-image"></a> Call for help with HASSbian (our Raspberry Pi image)</h2>
-<p>In an effort to make Home Assistant, we’re planning to extend the things that people can do out of the box with HASSbian, our Raspberry Pi image. As you might know, the image is currently maintained by <a href="https://github.com/Landrash">@Landrash</a>. However he also spends a lot of time on improving the docs and helping out with a ton of other things.</p>
-
-<p>So if you know your Linux-foo and would love to contribute to open source, join the <a href="https://gitter.im/home-assistant/hassbian">Hassbian developer chat</a> and take a stab at one of <a href="https://github.com/home-assistant/pi-gen/issues">our open issues</a>.</p>
-
-<h2><a class="title-link" name="vlc-media-player-broadlink-and-gpslogger" href="#vlc-media-player-broadlink-and-gpslogger"></a> VLC media player, Broadlink, and GPSLogger</h2>
-<p>Let you control <a href="https://home-assistant.io/components/media_player.vlc/">VLC media player</a> and  play sound on connected speakers.</p>
-
-<p>This Broadlink <a href="https://home-assistant.io/components/switch.broadlink/">switch</a> platform allow to you control Broadlink RM2 Pro and RM mini IR+RF devices. This Broadlink <a href="https://home-assistant.io/components/sensor.broadlink/">sensor</a> platform adds support for Broadlink RM2 and A1 Devices.</p>
-
-<p>The <a href="https://home-assistant.io/components/device_tracker.gpslogger/">GPSLogger</a> now also supports attributes as the speed, direction, altitude, provider, and activity.</p>
-
-<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
-<ul>
-  <li>Media player: Support for Sharp <a href="https://home-assistant.io/components/media_player.aquostv/">AquaosTV</a> (<a href="https://github.com/titilambert">@titilambert</a>)</li>
-  <li>Media player: <a href="https://home-assistant.io/components/media_player.vlc/">VLC</a> support (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Switch: Digital Loggers relay(<a href="https://github.com/dethpickle">@dethpickle</a>)</li>
-  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.netdata/">Netdata</a> (<a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/ezar">@ezar</a>)</li>
-  <li>Sensor: Support weather conditions from Austrian <a href="https://home-assistant.io/components/sensor.zamg/">ZAMG</a> (<a href="https://github.com/mjl">@mjl</a>)</li>
-  <li>Verisure: Add Verisure smartcam capture service (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
-  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.flic/">Flic</a> button support added (<a href="https://github.com/soldag">@soldag</a>)</li>
-  <li>Sensor: Support for <a href="https://home-assistant.io/components/sensor.sensehat/">Sense HAT</a> (<a href="https://github.com/farminf">@farminf</a>)</li>
-  <li>Binary sensor: <a href="https://home-assistant.io/components/binary_sensor.hikvision/">Hikvision</a> binary sensor support (<a href="https://github.com/mezz64">@mezz64</a>)</li>
-  <li><a href="https://home-assistant.io/components/tts/">Text-to-speech</a> support (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Sensor: Support for Broadlink <a href="https://home-assistant.io/components/sensor.broadlink/">sensors</a> (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>
-    <p>Switch: Broadlink <a href="https://home-assistant.io/components/switch.broadlink/">switches</a> supported now (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</p>
-  </li>
-  <li>Media player: Add <code class="highlighter-rouge">source_list</code> to universal media player (<a href="https://github.com/danieljkemp">@danieljkemp</a>)</li>
-  <li>Binary Sensor: Support improvement for Wink (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Sensor: More features for DSMR (<a href="https://github.com/aequitas">@aequitas</a>)</li>
-  <li>Automation: Parse payload as JSON (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Mediap player - Cast: New progress indicator (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Device tracker: New attributes (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Binary sensor - netatmo: Add support for tags (<a href="https://github.com/jabesq">@jabesq</a>)</li>
-  <li>Climate: Add <code class="highlighter-rouge">away_mode</code> for RadioThermostat (<a href="https://github.com/trisk">@trisk</a>)</li>
-  <li>Device tracker - nmap: Make scan option configurable (<a href="https://github.com/Danielhiversen">@Danielhiversen</a>)</li>
-  <li>Climate - Ecobee: Add SmartAway option (<a href="https://github.com/devdelay">@devdelay</a>)</li>
-  <li>Light - Hue: Add support for Hue LightGroups (<a href="https://github.com/michaelarnauts">@michaelarnauts</a>)</li>
-  <li>Media player - Emby: New support for trailer and media position (<a href="https://github.com/mezz64">@mezz64</a>)</li>
-  <li>Camera - Amcrest: Support for resolution (<a href="https://github.com/tchellomello">@tchellomello</a>)</li>
-  <li>Media player - Kodi: Authentification fixed and fan art (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/joopert">@joopert</a>)</li>
-  <li>Minor and not so minor features and bug fixes by <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/jminn">@jminn</a>, <a href="https://github.com/magicus">@magicus</a>, <a href="https://github.com/teodoc">@teodoc</a>, <a href="https://github.com/fabaff">@fabaff</a>, <a href="https://github.com/technicalpickles">@technicalpickles</a>, <a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/lukas-hetzenecker">@lukas-hetzenecker</a>, <a href="https://github.com/rubund">@rubund</a>, <a href="https://github.com/dasos">@dasos</a>, <a href="https://github.com/trisk">@trisk</a>, <a href="https://github.com/armills">@armills</a>, <a href="https://github.com/auduny">@auduny</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/nkgilley">@nkgilley</a>, <a href="https://github.com/janLo">@janLo</a>, <a href="https://github.com/keatontaylor">@keatontaylor</a>, <a href="https://github.com/stefan-jonasson">@stefan-jonasson</a>, <a href="https://github.com/Jypy">@Jypy</a>, <a href="https://github.com/jawilson">@jawilson</a>, <a href="https://github.com/DavidLP">@DavidLP</a>, <a href="https://github.com/molobrakos">@molobrakos</a>, <a href="https://github.com/jabesq">@jabesq</a>, <a href="https://github.com/joerocklin">@joerocklin</a>, <a href="https://github.com/kellerza">@kellerza</a>, <a href="https://github.com/kirichkov">@kirichkov</a>, <a href="https://github.com/r-jordan">@r-jordan</a> and <a href="https://github.com/danielperna84">@danielperna84</a>.</li>
-</ul>
-
-<h3><a class="title-link" name="release-0351---december-18" href="#release-0351---december-18"></a> Release 0.35.1 - December 18</h3>
-
-<p>Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what url you use for hosting Home Assistant:</p>
-
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
-  <span class="s">base_url</span><span class="pi">:</span> <span class="s">example.duckdns.org</span>
-</code></pre>
-</div>
-
-<ul>
-  <li>Fix exit hanging on OS X with async logging (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix Text to speech clearing cache (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Allow setting a base API url in HTTP component (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Fix occasional errors in automation (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="release-0352---december-19" href="#release-0352---december-19"></a> Release 0.35.2 - December 19</h3>
-
-<ul>
-  <li>When base url specified, do not combine it with <code class="highlighter-rouge">server_port</code> (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="release-0353---december-23" href="#release-0353---december-23"></a> Release 0.35.3 - December 23</h3>
-
-<ul>
-  <li>Fix issue with voicerrs and post api (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Fix async component update on service calls (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Fix async log handle do not close (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
-  <li>Fix nest component with various KeyError exceptions (<a href="https://github.com/technicalpickles">@technicalpickles</a>)</li>
-</ul>
-
-<h3><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h3>
-<p>…don’t hesitate to use our <a href="https://community.home-assistant.io/">Forum</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-
-<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h3>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
 
 ]]></content>
   </entry>
