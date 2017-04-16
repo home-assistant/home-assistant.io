@@ -15,7 +15,7 @@ ha_release: 0.12
 
 The `lifx` platform allows you to integrate your [LIFX](http://www.lifx.com) into Home Assistant.
 
-_Please note, LIFX is currently not supported on Windows._
+_Please note, the `lifx` platform does not support Windows. The `lifx_legacy` platform (supporting basic functionality) can be used instead._
 
 ```yaml
 # Example configuration.yaml entry

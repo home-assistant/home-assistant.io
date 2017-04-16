@@ -13,7 +13,7 @@ og_image: /images/blog/2017-04-0.42/social.png
 
 <a href='/components/#added_in_current_version'><img src='/images/blog/2017-04-0.42/social.png' style='border: 0;box-shadow: none;'></a>
 
-It's time for Home Assistant 0.43. This release has been focused on refining the system and fixing a lot of bugs. We have also upgraded to the latest version of our HTTP library which should give us a significant boost serving files and API.
+It's time for Home Assistant 0.42. This release has been focused on refining the system and fixing a lot of bugs. We have also upgraded to the latest version of our HTTP library which should give us a significant boost serving files and API.
 
 On our social media front, we have crossed the 1000 likes on [our Facebook page][hass-fb]! Also on the social media front, the YouTube channel diyAutomate has been putting out a lot of great getting started videos about Home Assistant, [go check them out!][diyAutomate]
 
@@ -83,6 +83,38 @@ sensor:
       - last_motion
       - volume
 ```
+
+## If you need help...
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## Reporting Issues
+Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+## {% linkable_title Release 0.42.1 - April 9 %}
+
+- Upgrade aiohttp to 2.0.6
+- Make discovery not cause startup warning
+
+## {% linkable_title Release 0.42.1 - April 9 %}
+
+ - Revert upgrade to aiothttp 2.0.6
+
+## {% linkable_title Release 0.42.3 - April 11 %}
+
+- Fix Synology camera content type ([@balloob] - [#7010])
+- Fix two more instances of JSON parsing synology ([@balloob] - [#7014])
+- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021])
+- Fix US states check (fixes #7015) ([@fabaff] - [#7017])
+- Plug file leak on LIFX unregister ([@amelchio] - [#7031])
+- Bugfix wait on start event ([@pvizeli] - [#7013])
+
+## {% linkable_title Release 0.42.4 - April 17 %}
+
+- Version bump to 0.42.4 ([@balloob])
+- Fix mysensors callback ([@MartinHjelmare] - [#7057])
+- Upgrade aiohttp to 2.0.7 ([@fabaff] - [#7106])
+- Make version number optional and a string to fix identify issue introduced in iOS 1.0.1 ([@robbiet480] - [#7141])
+- Fix for zwave RGB setting ([@armills] - [#7137])
 
 ## All changes
 
@@ -315,25 +347,32 @@ sensor:
 [#6981]: https://github.com/home-assistant/home-assistant/pull/6981
 [#6986]: https://github.com/home-assistant/home-assistant/pull/6986
 [#6990]: https://github.com/home-assistant/home-assistant/pull/6990
+[#7010]: https://github.com/home-assistant/home-assistant/pull/7010
+[#7013]: https://github.com/home-assistant/home-assistant/pull/7013
+[#7014]: https://github.com/home-assistant/home-assistant/pull/7014
+[#7017]: https://github.com/home-assistant/home-assistant/pull/7017
+[#7021]: https://github.com/home-assistant/home-assistant/pull/7021
+[#7031]: https://github.com/home-assistant/home-assistant/pull/7031
+[@Xorso]: https://github.com/Xorso
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@fabaff]: https://github.com/fabaff
+[@pvizeli]: https://github.com/pvizeli
 [@ChristianKuehnel]: https://github.com/ChristianKuehnel
 [@DavidMStraub]: https://github.com/DavidMStraub
 [@KlaasH]: https://github.com/KlaasH
 [@MartinHjelmare]: https://github.com/MartinHjelmare
-[@Xorso]: https://github.com/Xorso
 [@aarya123]: https://github.com/aarya123
 [@aequitas]: https://github.com/aequitas
-[@amelchio]: https://github.com/amelchio
 [@andrey-git]: https://github.com/andrey-git
 [@armills]: https://github.com/armills
 [@aufano]: https://github.com/aufano
-[@balloob]: https://github.com/balloob
 [@bdurrer]: https://github.com/bdurrer
 [@citruz]: https://github.com/citruz
 [@danielhiversen]: https://github.com/danielhiversen
 [@danieljkemp]: https://github.com/danieljkemp
 [@danielperna84]: https://github.com/danielperna84
 [@diogos88]: https://github.com/diogos88
-[@fabaff]: https://github.com/fabaff
 [@geekofweek]: https://github.com/geekofweek
 [@goto100]: https://github.com/goto100
 [@gurumitts]: https://github.com/gurumitts
@@ -348,7 +387,6 @@ sensor:
 [@micw]: https://github.com/micw
 [@nugget]: https://github.com/nugget
 [@pavoni]: https://github.com/pavoni
-[@pvizeli]: https://github.com/pvizeli
 [@quadportnick]: https://github.com/quadportnick
 [@rytilahti]: https://github.com/rytilahti
 [@tantecky]: https://github.com/tantecky
@@ -359,3 +397,11 @@ sensor:
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wardcraigj]: https://github.com/wardcraigj
 [@wmalgadey]: https://github.com/wmalgadey
+[forum]: https://community.home-assistant.io/
+[gitter]: https://gitter.im/home-assistant/home-assistant
+[issue]: https://github.com/home-assistant/home-assistant/issues
+[#7057]: https://github.com/home-assistant/home-assistant/pull/7057
+[#7106]: https://github.com/home-assistant/home-assistant/pull/7106
+[#7137]: https://github.com/home-assistant/home-assistant/pull/7137
+[#7141]: https://github.com/home-assistant/home-assistant/pull/7141
+[@robbiet480]: https://github.com/robbiet480

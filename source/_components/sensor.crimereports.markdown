@@ -8,46 +8,33 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-featured: false
+logo: crimereports.png
 ha_release: 0.42
 ha_iot_class: "Cloud Polling"
 ---
 
-The `crimereports` sensor allows one to track reported incidents occurring in a Home Assistant zone. Incidents include anything reported to [Crime Reports](http://crimereports.com). Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.
+The `crimereports` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Crime Reports](http://crimereports.com). Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`. Your `zone` should be of sufficient size to capture incidents in your area. Your `home` zone is probably too small.
+To enable this sensor, add the following lines to your `configuration.yaml`. Your `radius` should be of sufficient size to capture incidents in your area.
 
 ```yaml
-zone:
-  - name: neighborhood
-    latitude: <your latitude>
-    longitude: <your longitude>
-    radius: <your neighborhood radius>
-
 sensor:
   - platform: crimereports
-    zone: neighborhood
+    name: <any name>
+    radius: <your radius>
 ```
 
 Configuration options for the Crime Reports Sensor:
 
-- **zone** (*Required*): The zone to monitor.
+- **name** (*Required*): Name the sensor whatever you want.
+- **radius** (*Required*): Radius in meters.
+- **latitude** (*Optional*): Defaults to your home zone latitude.
+- **longitude** (*Optional*): Defaults to your home zone longitude.
 - **include** (*Optional*): List of incident types to include.
 - **exclude** (*Optional*): List of incident types to exclude.
-- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 30 minutes. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
-  - Time period dictionary, e.g.:
-    <pre>update_interval:
-        # At least one of these must be specified:
-        days: 0
-        hours: 0
-        minutes: 3
-        seconds: 30
-        milliseconds: 0
-    </pre>
+
 
 ## Notes
 

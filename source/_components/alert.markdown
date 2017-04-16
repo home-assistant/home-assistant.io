@@ -46,6 +46,29 @@ Configuration variables:
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched and this alert will be triggered when its status is equal to `on`. This indicates that the door has been opened. Because the `skip_first` option was set to `True`, the first notification will not be delivered immediately. However, every 30 minutes, a notification will be delivered until either `input_boolean.garage_door` no longer has a state of `on` or until the alert is acknowledged using the Home Assistant frontend.
 
+For notifiers that require other parameters (such as `twilio_sms` which requires you specify a `target` parameter when sending the notification), you can use the `group` notification to wrap them for an alert. Simply create a `group` notification type with a single notification member (such as `twilio_sms`) specifying the required parameters other than `message` provided by the `alert` component:
+
+```yaml
+- platform: group
+  name: john_phone_sms
+  services:
+    - service: twilio_sms
+      data:
+        target: !secret john_phone
+```
+
+```yaml
+freshwater_temp_alert:
+  name: "Warning: I have detected a problem with the freshwater tank temperature"
+  entity_id: binary_sensor.freshwater_temperature_status
+  state: 'on'
+  repeat: 5
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - john_phone_sms
+```
+
 ### {% linkable_title Complex Alert Criteria %}
 
 By design, the `alert` component only handles very simple criteria for firing. That is, is only checks if a single entity's state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.

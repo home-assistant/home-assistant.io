@@ -17,7 +17,7 @@ Will show a map with a red tipped pin at the coordinates given.
 The map will be centered at the coordinates given.
 
 ```yaml
-service: notify.iOSApp
+service: notify.ios_<your_device_id_here>
 data:
   message: Something happened at home!
   data:
@@ -44,7 +44,7 @@ You can use the attachment parameters `content-type` and `hide-thumbnail` with c
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
 ```yaml
-service: notify.iOSApp
+service: notify.ios_<your_device_id_here>
 data:
   message: Motion detected in the Living Room
   data:
