@@ -87,7 +87,7 @@ $ ifconfig
 You will receive an ouput similar to the image below:
 
 <p class='img'>
-  <img src='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/images/screenshots/ip-set.jpg' />
+  <img src='/images/screenshots/ip-set.jpg' />
   Screenshot
 </p>
  
