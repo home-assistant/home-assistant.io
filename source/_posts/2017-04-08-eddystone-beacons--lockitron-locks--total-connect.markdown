@@ -108,6 +108,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Plug file leak on LIFX unregister ([@amelchio] - [#7031])
 - Bugfix wait on start event ([@pvizeli] - [#7013])
 
+## {% linkable_title Release 0.42.4 - April 17 %}
+
+- Version bump to 0.42.4 ([@balloob])
+- Fix mysensors callback ([@MartinHjelmare] - [#7057])
+- Upgrade aiohttp to 2.0.7 ([@fabaff] - [#7106])
+- Make version number optional and a string to fix identify issue introduced in iOS 1.0.1 ([@robbiet480] - [#7141])
+- Fix for zwave RGB setting ([@armills] - [#7137])
+
 ## All changes
 
 - Flux led update lib ([@danielhiversen] - [#6763])
@@ -392,3 +400,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[#7057]: https://github.com/home-assistant/home-assistant/pull/7057
+[#7106]: https://github.com/home-assistant/home-assistant/pull/7106
+[#7137]: https://github.com/home-assistant/home-assistant/pull/7137
+[#7141]: https://github.com/home-assistant/home-assistant/pull/7141
+[@robbiet480]: https://github.com/robbiet480
