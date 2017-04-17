@@ -74,12 +74,6 @@ To upgrade the All-In-One setup manually:
 *  Type `exit` to logout the hass user and return to the `pi` user.
 </div>
   
-To upgrade with fabric:
-
-*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
-*  Change to `cd ~/fabric-home-assistant`
-*  Run `fab upgrade_homeassistant`
-  
 After upgrading, you can restart Home Assistant a few different ways:
 
 * Restarting the Raspberry Pi `sudo reboot`
