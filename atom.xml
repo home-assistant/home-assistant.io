@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-17T06:48:20+00:00</updated>
+  <updated>2017-04-17T16:35:50+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,128 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[IKEA Trådfri: Internet of Things done right]]></title>
+    <link href="https://home-assistant.io/blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/"/>
+    <updated>2017-04-17T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/04/17/ikea-tradfri-internet-of-things-done-right</id>
+    <content type="html"><![CDATA[<p>Last month IKEA released a new home automation lineup called <a href="http://www.ikea.com/us/en/catalog/categories/departments/lighting/36812/">Trådfri</a>. It consists of white bulbs, dimming remotes, color temperature remotes and motion sensors. After almost two weeks of research, we have come to the conclusion that this is going to be the perfect companion hardware to work with Home Assistant. Here is the gist of our breakdown:</p>
+
+<ul>
+  <li><strong>Works out of the box.</strong> You can get started by just buying the already paired light and remote. You only need to buy the gateway if you want to set time-based rules for your lights or use your phone as a remote.</li>
+  <li><strong>Local only hub.</strong> No cloud that gathers data about how you live your life and it will keep working even if IKEA stops supporting it.</li>
+  <li><strong>Based on open standards.</strong> It uses Zigbee between devices and CoAP/dTLS to talk to the gateway. This means that you are not locked into a single vendor. You can pair it with Philips Hue bulbs and other compatible vendors.</li>
+  <li><strong>Affordable.</strong> Lights start at $12 standalone and $20 if bundled with a remote (USA prices).</li>
+  <li><strong>Useful design.</strong> The gateway has built-in space to hide excess cables and remotes come with magnetic holders for on the wall.</li>
+  <li><strong>Able to subscribe to changes (local push).</strong> Automations will be able to instantly respond to changes to device states by subscribing to the gateway for changes.</li>
+  <li><strong>Full integration in Home Assistant 0.43 (scheduled for release April 22).</strong> Our community built a standalone library <a href="https://github.com/ggravlingen/pytradfri">pytradfri</a> and we use it in Home Assistant. Home Assistant will automatically discover gateways on your network and guide the user to set them up.</li>
+  <li><strong>Downside: no integration with other systems yet.</strong> There are rumors that Homekit support will land in October and I expect both Google Home and Amazon Echo to eventually add support. Use Home Assistant to connect them all in the meanwhile.</li>
+  <li><strong>Semi-downside: you can’t control your lights remotely.</strong> Because it’s local only, you won’t be able to control your lights remotely unless via a third-party integration.</li>
+</ul>
+
+<p>Full breakdown available after clicking read more.</p>
+
+<p><em>(Note: we are not affiliated with IKEA nor do we receive commission for sales. We are just big fans of their new line up!)</em></p>
+
+<!--more-->
+<h2><a class="title-link" name="works-out-of-the-box" href="#works-out-of-the-box"></a> Works out of the box</h2>
+
+<p>IKEA Trådfri focuses on the basics: making a product that works out of the box. They sell various dimming kits. Each contain a light and a remote paired to control the light. You put the light into the socket, slide the battery into the remote and. it. works. No need to purchase a gateway, download an app and use your phone to set it up. Heck, you don’t even need internet to get started!</p>
+
+<p>You will only need to buy the gateway if you want to use your phone as a remote or set up home automation.</p>
+
+<h2><a class="title-link" name="only-works-locally" href="#only-works-locally"></a> Only works locally</h2>
+
+<p>The gateway only works locally. It only reaches out to the internet to synchronize the time and to check for firmware updates. This is awesome for many different reasons.</p>
+
+<p><strong>Privacy &amp; Security.</strong> No one but yourself will have access to the state of your house. And inside your house your communication with the gateway is encrypted.</p>
+
+<p><strong>Reliability &amp; Speed.</strong> All communication will always happen locally. Even if your internet will go out, you can still control your lights and your automations will still run. Even if IKEA would decide to drop support it will still continue to work.</p>
+
+<p>Check out <a href="http://mjg59.dreamwidth.org/47803.html">this blog post by Matthew Garrett</a> for a more in-depth analysis of the security of the gateway. His conclusion:</p>
+
+<blockquote>
+  <p>Overall: as far as design goes, this is one of the most secure IoT-style devices I’ve looked at. I haven’t examined the COAP stack in detail to figure out whether it has any exploitable bugs, but the attack surface is pretty much as minimal as it could be while still retaining any functionality at all. I’m impressed.</p>
+</blockquote>
+
+<h2><a class="title-link" name="based-on-open-standards" href="#based-on-open-standards"></a> Based on open standards</h2>
+
+<p>IKEA Trådfri devices use the open standard Zigbee to communicate. The gateway speaks both Zigbee and connects to your network to offer an API based on the open standard CoAP. The API communication is secured via the open standard DTLS.</p>
+
+<p>Because it’s based on Zigbee, you don’t have to just buy IKEA devices the rest of your life. For example, Philips Hue lights will pair just fine with the IKEA gateway.</p>
+
+<p>Note that there are reports that the other way around, pairing an IKEA light to the Philips Hue hub is currently not possible. IKEA is working on it according to <a href="https://developers.meethue.com/content/philips-hue-and-ikea-tr%C3%A5dfri#comment-2686">a post by Philips Hue support</a>:</p>
+
+<blockquote>
+  <p>The non-interoperability between the newly launched IKEA smart lighting products and the Philips Hue bridge has been analyzed. One of the issues found is that the IKEA bulbs report their ProfileID as corresponding to the ZigBee Home Automation (ZHA) profile rather than the ZigBee Light Link (ZLL) profile. As the IKEA bulbs do not behave fully compliant with the ZLL standard, they are rejected by the Hue bridge. IKEA is aware of this and informed us their intent is to have the IKEA smart lighting bulbs to work with the Philips Hue bridge.</p>
+</blockquote>
+
+<h2><a class="title-link" name="affordable" href="#affordable"></a> Affordable</h2>
+
+<p>A white IKEA light bulb that just supports dimming starts at $12. You’ll have to shell out $18 If you want a white bulb that can control the light temperature to allow for different shades of white (relax, cool, focus etc). These prices are slightly lower than the competition. Right now on Amazon the cheapest just-dimming white bulbs come in at $15.</p>
+
+<p>However what really differentiates this system is the availability of all the cheap remotes and motion sensors. Ranging between $20 and $27 you get a light and a remote. Standalone Zigbee remotes on Amazon currently start at $21!</p>
+
+<p>Remotes are <a href="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/#you-should-not-have-to-adapt-to-technology">a very important aspect of home automation</a>. The electricity has to be always on for the bulbs to function so you’ll need Zigbee switches and remotes to control your lights. The fact that they are so cheap will really help with adoption.</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2017-04-tradfri/prices.png" />
+Prices of the various available dimming kits.
+</p>
+
+<h2><a class="title-link" name="useful-design" href="#useful-design"></a> Useful design</h2>
+
+<p>The lights and gateway are all made with a simple design and will easily blend into your home.  They did sneak in some great and useful things. You can slide the cover off the gateway and open it up. Inside is a mini case for the actual electronics but mainly it’s just empty space so you can roll up any excess network and usb cable from the hub inside!</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2017-04-tradfri/gateway.jpg" />
+The cables you don’t need can be hidden in the gateway.
+</p>
+
+<p>Another nice feature is that the remote comes with a magnetic mount for the wall.</p>
+
+<h2><a class="title-link" name="able-to-subscribe-to-changes-local-push" href="#able-to-subscribe-to-changes-local-push"></a> Able to subscribe to changes (local push)</h2>
+
+<p>This is a feature that I am really excited about. By being able to subscribe to changes in the Zigbee network Home Assistant will be able to instantly be notified about changes and trigger automations if necessary.</p>
+
+<p>This means that you will be able to turn the power on for a light and see it instantly turn on in Home Assistant.</p>
+
+<p><a href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/"><em>(Learn more about the different ways IoT devices broadcast changes)</em></a></p>
+
+<h2><a class="title-link" name="full-integration-in-home-assistant-043-scheduled-for-release-april-22" href="#full-integration-in-home-assistant-043-scheduled-for-release-april-22"></a> Full integration in Home Assistant 0.43 (scheduled for release April 22)</h2>
+
+<p>Home Assistant will automatically discover gateways on your network and guide the user to set them up.</p>
+
+<p>Once IKEA Trådfri got released, our community, lead by <a href="https://github.com/ggravlingen">Patrik</a>, got quickly organized and started analyzing the different aspects <a href="https://community.home-assistant.io/t/ikea-tradfri-gateway-zigbee/14788">in our forums</a>. I am happy to say that the end result is a standalone Python library <a href="https://github.com/ggravlingen/pytradfri">pytradfri</a> to control the gateway. This means that starting from our next release, Home Assistant 0.43, we will auto discover your gateway and integrate all your lights.</p>
+
+<p>The initial version of our integration will not yet stream events from the gateway. We’re still working on figuring out that part of the API.</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/blog/2017-04-tradfri/discovery.png" />
+After automatic discovery, Home Assistant will ask the user to finish pairing with the gateway.
+</p>
+
+<h2><a class="title-link" name="downside-not-many-integrations-yet" href="#downside-not-many-integrations-yet"></a> Downside: not many integrations yet</h2>
+
+<p>The one major downside right now is that there are not many integrations yet because the system is brand new. There are <a href="https://github.com/bwssytems/ha-bridge/issues/570#issuecomment-293505087">rumors</a> that Homekit is planned for October. And given the way the API is set up, I expect Google Home and Amazon Echo (Alexa) to eventually announce integration too.</p>
+
+<p>Since Home Assistant does integrate with it, you can use Home Assistant to bridge to these systems. For Homekit use <a href="https://github.com/nfarina/homebridge">Homebridge</a> with the <a href="https://github.com/home-assistant/homebridge-homeassistant">Home Assistant plugin</a>. For integration with Google Home and Amazon Echo use <a href="https://home-assistant.io/components/emulated_hue/">the Emulated Hue component</a>. For Google Home you can also use <a href="https://home-assistant.io/components/apiai/">the API.ai integration</a> and Amazon Echo can also work with <a href="https://github.com/auchter/haaska">Haaska</a>.</p>
+
+<h2><a class="title-link" name="semi-downside-you-cant-control-your-lights-remotely" href="#semi-downside-you-cant-control-your-lights-remotely"></a> Semi-downside: you can’t control your lights remotely</h2>
+
+<p>Because the system is local only, you won’t be able to control your lights remotely. As with the previous downside, you will be able to use Home Assistant to make your system available remotely.</p>
+
+<p>Classified this as a semi-downside because besides showing off, the actual use cases are very rare. Although it makes <a href="https://i2.wp.com/blog.smartthings.com/wp-content/uploads/2014/06/summer-vacay-683x405-blog.png?fit=683%2C405&amp;ssl=1">great marketing material</a>.</p>
+
+<h2><a class="title-link" name="conclusion" href="#conclusion"></a> Conclusion</h2>
+
+<p>With Trådfri, IKEA has managed to put out an affordable and secure home automation system that does not compromise on functionality or design. There are still some downsides which I expect to get resolved in the future.</p>
+
+<p>As it currently stands, this is going to be the perfect companion hardware to work with Home Assistant: local, affordable, secure. And as cherry on the pie, local push will make us aware of changes right away.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[1 year and 22 days ago I had an idea...]]></title>
@@ -1983,32 +2105,6 @@ You have to note:
 <p>Wishing everyone the best in 2017!</p>
 
 <p>Cheers! -Ben</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Thank You]]></title>
-    <link href="https://home-assistant.io/blog/2016/12/19/thank-you/"/>
-    <updated>2016-12-19T05:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/12/19/thank-you</id>
-    <content type="html"><![CDATA[<p>A year ago <a href="https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/">Home Assistant 0.10</a> landed. Last weekend we released 0.35. Doing 25 releases in a year is a big accomplishment by the community and each release has moved us forwards leaps and bounds. In this year alone we have seen 2800 pull requests on the main repo alone, that’s more than 7 a day!</p>
-
-<p>One of the things that Jon Walker, the founder of the company I work for (<a href="http://www.appfolioinc.com/">AppFolio</a>), has taught me is that the biggest advantage that you can create for yourself compared to your competitors is to release more often. Everytime you release you are able to get the new features into the hands of the users and developers. The faster people start using it, the faster you get feedback on the good and bad parts and thus the faster can you evolve.</p>
-
-<p>That’s why I structured Home Assistant around a two week release cycle. It makes sure that features get out fast and it also forces us to not accumulate a backlog of things to document or test properly. Every two weeks we can start fresh. This makes it easy for new people to start contributing because it’s clear when things go out and people are not afraid to miss a release.</p>
-
-<p>However, being on a two week release cycle also means that the community has to rally each two weeks to make sure everything is ready to go. A lot of people are involved in making sure that all pieces are in place, to all of those: thank you! Thank you for all the time and effort you put in to make Home Assistant the best home automation software out there.</p>
-
-<p>Another big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. Making quality software is not a small feat and all of you can be proud of yourself.</p>
-
-<p>Also a big thanks for the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thanks <a href="https://GitHub.com">GitHub</a>, <a href="https://Travis-ci.org">TravisCI</a>, <a href="https://CloudFlare.com">CloudFlare</a> and <a href="https://Discourse.com">Discourse</a>!</p>
-
-<p>And finally thank you community for being so helpful and awesome 🙇.</p>
-
-<p>We’re taking a well deserved break and we will be back again in 2017 with more awesomeness. Happy holidays!</p>
-
-<p>– Paulus</p>
 
 ]]></content>
   </entry>
