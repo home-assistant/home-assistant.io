@@ -34,8 +34,23 @@ At launch, Home Assistant for iOS sets up geofences for all zones in your Home A
 
 ### Configuration
 
-Add `track_ios: true` to your zone configurations to enable it for tracking in all connected iOS apps.
+Add the `track_ios: true` [customization][customization-docs] to each zone that should be enabled for tracking in all connected iOS apps, like the example below.
+
+```yaml
+homeassistant:
+  name: My Home
+  unit_system: metric
+  # etc
+
+  customize:
+    # Add an entry for each zone that needs to be enabled for location tracking
+    zone.home:
+      track_ios: true
+    zone.work:
+      track_ios: true
+```
 
 [apple-energy-guide]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
 [apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
 [stackoverflow]: http://stackoverflow.com/a/13331625/486182
+[customization-docs]: /docs/configuration/customizing-devices/
