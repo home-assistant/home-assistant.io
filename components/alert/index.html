@@ -126,12 +126,12 @@
 
 <span class="s">alert</span><span class="pi">:</span>
   <span class="s">motion_battery</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Motion Battery is Low</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.motion_battery_low</span>
-      <span class="s">repeat</span><span class="pi">:</span> <span class="s">30</span>
-      <span class="s">notifiers</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">ryans_phone</span>
-        <span class="pi">-</span> <span class="s">kristens_phone</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Motion Battery is Low</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.motion_battery_low</span>
+    <span class="s">repeat</span><span class="pi">:</span> <span class="s">30</span>
+    <span class="s">notifiers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">ryans_phone</span>
+      <span class="pi">-</span> <span class="s">kristens_phone</span>
 </code></pre>
 </div>
 <p>This example will begin firing as soon as the entity <code class="highlighter-rouge">sensor.motion</code>’s <code class="highlighter-rouge">battery</code> attribute falls below 15. It will continue to fire until the battery attribute raises above 15 or the alert is acknowledged on the frontend.</p>
