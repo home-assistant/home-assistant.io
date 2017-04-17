@@ -63,7 +63,7 @@ telegram_webhooks:
 
 ### {% linkable_title Configuration samples %}
 
-Telegram webhooks raise an event `telegram.command` with a payload.
+Telegram webhooks raise an event `telegram_command` with a payload.
 
 ```json
 {
