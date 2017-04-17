@@ -83,12 +83,12 @@ binary_sensor:
 
 alert:
   motion_battery:
-    - name: Motion Battery is Low
-      entity_id: binary_sensor.motion_battery_low
-      repeat: 30
-      notifiers:
-        - ryans_phone
-        - kristens_phone
+    name: Motion Battery is Low
+    entity_id: binary_sensor.motion_battery_low
+    repeat: 30
+    notifiers:
+      - ryans_phone
+      - kristens_phone
 ```
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery` attribute falls below 15. It will continue to fire until the battery attribute raises above 15 or the alert is acknowledged on the frontend.
