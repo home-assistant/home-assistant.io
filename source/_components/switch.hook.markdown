@@ -28,7 +28,7 @@ Configure with either your username/password or your API token for the official 
    username: <email address>
    password: !secret hook
 ```
-OR
+Or
 ```yaml
 # Example configuration.yaml entry
 -  platform: hook
