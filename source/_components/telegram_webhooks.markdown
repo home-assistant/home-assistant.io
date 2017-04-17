@@ -67,9 +67,9 @@ Telegram webhooks raise an event `telegram_command` with a payload.
 
 ```json
 {
- 'command': '/thecommand'
- 'args': 'strings after command'
- 'user_id': 12345
+ "command": "/thecommand",
+ "args": "strings after command",
+ "user_id": "12345"
 }
 ```
 
