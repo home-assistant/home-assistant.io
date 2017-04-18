@@ -27,26 +27,18 @@ sensor:
   - platform: hydroquebec
     username: MYUSERNAME
     password: MYPASSWORD
-    contract: 123456789
+    contract: '123456789'
     monitored_variables:
      - period_total_bill
      - period_length
      - period_total_days
-     - period_mean_daily_bill
-     - period_mean_daily_consumption
-     - period_total_consumption
-     - period_lower_price_consumption
-     - period_higher_price_consumption
-     - yesterday_total_consumption
-     - yesterday_lower_price_consumption
-     - yesterday_higher_price_consumption
 ```
 
 Configuration variables:
 
-- **username** (*Required*): Your Hydro-Québec Username
-- **password** (*Required*): Your Hydro-Québec Password
-- **contract** (*Required*): Your Hydro-Québec Contract
+- **username** (*Required*): Username used to log into the Hydro-Québec site.
+- **password** (*Required*): Password used to log into the Hydro-Québec site.
+- **contract** (required since HA 4.0) Your contract number with Hydro-Québec
 - **monitored_variables** array (*Required*): Variables to monitor.
   - **period_total_bill** : Current period bill
   - **period_length**: Current period length
@@ -56,9 +48,11 @@ Configuration variables:
   - **period_total_consumption**: Total Consumption
   - **period_lower_price_consumption**: Period Lower price consumption
   - **period_higher_price_consumption**: Period Higher price consumption
+  - **period_average_temperature**: Period Average temperature
   - **yesterday_total_consumption**: Yesterday total consumption
   - **yesterday_lower_price_consumption**: Yesterday lower price consumption
   - **yesterday_higher_price_consumption**: Yesterday higher price consumption
+  - **yesterday_average_temperature**: Yesterday Average temperature
 
 To find your contract id, go to the [Hydro-Québec website](https://www.hydroquebec.com/portail/)
 and connect to your account.

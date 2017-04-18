@@ -27,8 +27,16 @@ $ git remote add upstream https://github.com/home-assistant/home-assistant.git
 
 Install the core dependencies.
 ```bash
-$ sudo apt-get install python3-pip python3-dev libssl-dev
+$ sudo apt-get install python3-pip python3-dev
 ```
+
+#### {% linkable_title Platform dependencies %} 
+
+In order to run `script/setup` below you will need some more dependencies.
+```bash
+$ sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev
+```
+
 <p class='note'>
 Different distributions have different package installation mechanisms and sometimes packages names as well. For example Centos would use: `sudo yum install epel-release && sudo yum install python34 python34-devel mysql-devel`
 </p>

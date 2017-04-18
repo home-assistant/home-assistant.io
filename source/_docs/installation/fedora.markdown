@@ -23,3 +23,24 @@ and Home Assistant itself.
 $ pip3 install homeassistant
 ```
 
+To isolate the Home Assistant installation a [venv](https://docs.python.org/3/library/venv.html) is handy. First create a new directory to store the installation.
+
+```bash
+$ sudo mkdir -p /opt/homeassistant
+$ cd /opt/homeassistant
+```
+Now switch to the new directory, setup the venv, and activate it.
+
+```bash
+$ cd /opt/homeassistant
+$ pyvenv-3.5 .
+$ source bin/activate
+```
+
+Install Home Assistant itself.
+
+```bash
+$ pip3 install homeassistant
+```
+
+Check the [autostart](/docs/autostart/systemd/) section in the documentation for further details. 

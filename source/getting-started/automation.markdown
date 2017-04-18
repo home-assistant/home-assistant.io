@@ -18,7 +18,7 @@ automation:
   - alias: Check sensor value and show notification
     trigger:
       platform: numeric_state
-      entity_id: sensor.random
+      entity_id: sensor.random_sensor
       above: 10
     action:
       service: persistent_notification.create

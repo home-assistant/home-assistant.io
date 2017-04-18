@@ -32,6 +32,10 @@ What's the real story on significant-change location updates? Who knows, because
 
 At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant.
 
+### Configuration
+
+Add `track_ios: true` to your zone configurations to enable it for tracking in all connected iOS apps.
+
 [apple-energy-guide]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
 [apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
 [stackoverflow]: http://stackoverflow.com/a/13331625/486182

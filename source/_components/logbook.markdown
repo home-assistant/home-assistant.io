@@ -88,8 +88,8 @@ script:
   add_logbook_entry:
     alias: Add Logbook
     sequence:
-      - event: LOGBOOK_ENTRY
-        event_data:
+      - service: logbook.log
+        data_template:
           name: Kitchen
           message: is being used
           # Optional

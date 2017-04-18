@@ -23,7 +23,7 @@ To get started, create the file `<config dir>/custom_components/hello_state.py` 
 Support for showing text in the frontend.
 
 For more details about this component, please refer to the documentation at
-https://home-assistant.io/components/hello_state/
+https://home-assistant.io/cookbook/python_component_basic_state/
 """
 import logging
 

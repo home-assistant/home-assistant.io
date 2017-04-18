@@ -19,7 +19,7 @@ Here is an example notification that uses one of the pre-installed sounds.
   trigger:
     ...
   action:
-    service: notify.iOSApp
+    service: notify.ios_<your_device_id_here>
     data:
       message: “Something happened at home!”
       data:

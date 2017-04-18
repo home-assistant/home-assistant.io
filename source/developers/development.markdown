@@ -14,7 +14,6 @@ Home Assistant is built from the ground up to be easily extensible using compone
 Home Assistant is open-source and MIT-licensed. Here are links to the source:
 
  - [home-assistant](https://github.com/home-assistant/home-assistant): Python server backend.
- - [home-assistant-js](https://github.com/home-assistant/home-assistant-js): JavaScript backend that powers the client.
  - [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer): Polymer UI.
 
 For those new to contributing to open source software, make sure you are familiar with all of the tools and concepts used in Home Assistant before you start. 

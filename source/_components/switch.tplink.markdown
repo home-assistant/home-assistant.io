@@ -19,6 +19,7 @@ The `tplink` switch platform allows you to control the state of your [TPLink sma
 Supported units:
 
 - HS100
+- HS105
 - HS110
 - HS200
 

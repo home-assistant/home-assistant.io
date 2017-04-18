@@ -16,7 +16,7 @@ There is currently support for climate, covers, lights, locks, sensors, switches
 
 ### {% linkable_title Installation in Virtualenv (python-OpenZWave) %}
 
-If you installed Home Assistant using a virtual environment then please read the instructions on [Installing python-OpenZWave in a virtualenv](https://home-assistant.io/getting-started/installation-virtualenv/#installing-python-openzwave-in-a-virtualenv).
+If you installed Home Assistant using a virtual environment then please read the instructions on [Installing python-OpenZWave in a virtualenv](https://home-assistant.io/docs/installation/virtualenv/#installing-python-openzwave-in-a-virtualenv).
 
 ### {% linkable_title Installation %}
 
@@ -82,9 +82,10 @@ Configuration variables:
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **device_config** (*Optional*): This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
-  - **ignored** (*Optional*): Ignore this entitiy completely. It won't be shown in the Web Interface and no events are generated for it.
+  - **ignored** (*Optional*): Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
   - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
+  - **invert_openclose_buttons** (*Optional*): Inverts function of the open and close buttons for the cover domain. Defaults to False
 - **debug** (*Optional*): Print verbose z-wave info to log. Defaults to False.
 
 To find the path of your Z-Wave USB stick or module, run:
@@ -240,7 +241,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | refresh_entity| Refresh Z-Wave entity by refreshing dependent values.|
 | refresh_node| Refresh Z-Wave node. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
-| rename_node | Sets a node's name. Requires an `entity_id` and `name` field. |
+| rename_node | Sets a node's name. Requires a `node_id` and `name` field. |
 | remove_failed_node | Remove a failed node from the network. The Node should be on the Controllers Failed Node List, otherwise this command will fail.|
 | replace_failed_node | Replace a failed device with another. If the node is not in the controller's failed nodes list, or the node responds, this command will fail.|
 | set_config_parameter | Let's the user set a config parameter to a node. |

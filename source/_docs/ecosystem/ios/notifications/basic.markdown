@@ -34,7 +34,7 @@ automation:
     trigger:
       ...
     action:
-      service: notify.iOSApp
+      service: notify.ios_<your_device_id_here>
       data:
         message: "Something happened at home!"
         data:
@@ -51,7 +51,7 @@ automation
     trigger:
       ...
     action:
-      service: notify.iOSApp
+      service: notify.ios_<your_device_id_here>
       data:
         message: "Something happened at home!"
         data:

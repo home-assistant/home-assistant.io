@@ -22,6 +22,7 @@ By default, every group appears in the HOME tab. If you create a group `default_
 group:
   default_view:
     view: yes
+    icon: mdi:home 
     entities:
       - group.kitchen
       - group.awesome_people

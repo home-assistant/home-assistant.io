@@ -2,7 +2,7 @@
 layout: page
 title: "InfluxDB"
 description: "Record events in InfluxDB."
-date: 2015-12-06 13:08
+date: 2017-03-13 22:09
 sidebar: true
 comments: false
 sharing: true
@@ -27,7 +27,7 @@ You will still need to create a database named `home_assistant` via InfluxDB's w
 
 Configuration variables:
 
-- **host** (*Optional*): IP address of your database host, eg. 192.168.1.10. Defaults to `localhost`.
+- **host** (*Optional*): IP address of your database host, e.g. 192.168.1.10. Defaults to `localhost`.
 - **port** (*Optional*): Port to use. Defaults to 8086.
 - **username** (*Optional*): The username of the database user.
 - **password** (*Optional*): The password for the database user account.
@@ -35,8 +35,8 @@ Configuration variables:
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
-- **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in the singel same measurement.
-- **blacklist** (*Optional*): List of entities not logged to InfluxDB.
+- **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+- **blacklist** (*Optional*): List of entities that should not be logged to InfluxDB.
 - **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
 - **tags** (*Optional*): Tags to mark the data.
 
@@ -44,23 +44,23 @@ Configuration variables:
 
 Starting with 0.36 the InfluxDB component has a new schema to store values in the InfluxDB databases.
 
-- There will not be any tags/fields named time anymore.
+- There will no longer be any tags/fields named `time`.
 - All numeric fields (int/float/bool) will be stored as float inside InfluxDB database.
 - All string fields corresponding to state attributes will be renamed as `FIELDNAME_str`, where `FIELDNAME` is the state attribute, to avoid type conflicts.
-- All string fields corresponding to a state will be renamed as state (former value).
-- Fields named value will always be stored as float.
-- Fields named state will always be stored as string.
+- All string fields corresponding to a state will be renamed as `state` (former value).
+- Fields named `value` will always be stored as float.
+- Fields named `state` will always be stored as string.
 
 ### {% linkable_title Migration script %}
 
-If you need to migrate your database, you may require to run the `influxdb_migrator` script. Run the script after upgrade to 0.36 but before first regular start of `hass` version 0.36.
+If you need to migrate your database, you may require to run the `influxdb_migrator` script. Run the script after upgrade to 0.36 but before the first regular start of `hass` version 0.36.
 
 These are the steps the script will perform:
 1. Create a new database (called `DBNAME__old`) to store old data.
 2. Copy data from `DBNAME` database to `DBNAME__old` database.
 3. Empty `DBNAME` database (using `drop` then `create`). `DBNAME` database is now considered as the new database.
 4. For each measurement of `DBNAME__old` database:
-  1. Read all points from the current measuremnt (by group of `1000` points by default) and convert them.
+  1. Read all points from the current measurement (in groups of 1000 points by default) and convert them.
   2. Send group of points to `DBNAME` database.
 5. Delete the `DBNAME__old` database if needed.
 
@@ -94,7 +94,7 @@ optional arguments:
 - If you run the script with only the `-h` option, you will get a help printout with a short explanation of the different options.
 - The host option defaults to `'127.0.0.1'`.
 - The port option defaults to `8086`.
-- You should be able to omit username and password, if InfluxDB authentication is disabled, which it is by default.
+- You should be able to omit username and password if InfluxDB authentication is disabled, which it is by default.
 - The step option defaults to `1000`.
 
 

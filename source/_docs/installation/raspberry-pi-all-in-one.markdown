@@ -16,6 +16,8 @@ The only requirement is that you have a Raspberry Pi with a fresh installation o
 Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images.  Adding an empty file called `ssh` to `/boot/` or the FAT32 partition will enable it.  More information is on the Raspberry Pi Foundation [Blog](https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel)
 </p>
 
+Irrespective of whether  you use SSH to connect to the Pi from another computer or not, you need SSH to install Home Assistant. So go ahead and enable SSH.
+
 *  Login to Raspberry Pi. For example with `ssh pi@your_raspberry_pi_ip`
 *  Run the following command
 
@@ -63,9 +65,14 @@ To upgrade the All-In-One setup manually:
 *  Update HA `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
 
-<p class='note note'>
-If you deployed Home Assistant via the AiO installer prior to December 2016, replace `sudo su -s /bin/bash homeassistant` with `sudo su -s /bin/bash hass` and `source /srv/homeassistant/homeassistant_venv/bin/activate` with `source /srv/hass/hass_venv/bin/activate`</p>
-
+<div class='note note'>
+**If you deployed Home Assistant via the AiO installer prior to December 2016**
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Change to homeassistant user `sudo su -s /bin/bash hass`
+*  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
+*  Update HA `pip3 install --upgrade homeassistant`
+*  Type `exit` to logout the hass user and return to the `pi` user.
+</div>
   
 To upgrade with fabric:
 
@@ -96,9 +103,15 @@ To launch the OZWCP web application:
 *  Open a web browser to `http://your_pi_ip:8888`
 *  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
 
-<p class='note note'>
-If you deployed Home Assistant via the AiO installer prior to December 2016, replace `cd /srv/homeassistant/src/open-zwave-control-panel/` with `cd /srv/hass/src/open-zwave-control-panel/`
-</p>
+<div class='note note'>
+**If you deployed Home Assistant via the AiO installer prior to December 2016**
+*  Make sure Home Assistant is not running! So stop that first
+*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
+*  Change to the ozwcp directory `cd /srv/hass/src/open-zwave-control-panel/`
+*  Launch the control panel `sudo ./ozwcp -p 8888`
+*  Open a web browser to `http://your_pi_ip:8888`
+*  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
+</div>
 
 <p class='note warning'>
 Don't check the USB box regardless of using a USB based device.

@@ -31,6 +31,7 @@ Configuration variables:
 - **url** (*Required*): The URL to your synology, including port.
 - **username** (*Required*): The username for accessing surveillance station.
 - **password** (*Required*): The password for accessing surveillance station.
+- **timeout** (*Optional*): The timeout in seconds used when connecting to the Surveillance Station. Defaults to 5.
 - **whitelist** (*Optional*): A list of which cameras you want to add, the names must be the same as in Surveillance Station.  If omitted all cameras are added.
 - **verify_ssl** (*Optional*): True to require a valid certificate, False to disable certificate checking. Defaults to `True`.
 
@@ -43,9 +44,10 @@ camera:
     url: https://192.168.1.120:5001
     username: USERNAME
     password: PASSWORD
+    timeout: 15
     verify_ssl: False
 ```
 
 <p class='note'>
-Most users will need to set `valid_ssl` to false unless they have installed a valid SSL certificate in place of the built in self-signed certificate.
+Most users will need to set `verify_ssl` to false unless they have installed a valid SSL certificate in place of the built in self-signed certificate.
 </p>

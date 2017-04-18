@@ -13,16 +13,24 @@ ha_iot_class: "Local Poll"
 ha_release: 0.27
 ---
 
-This tracker discovers new devices on boot and in regular intervals and tracks bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other! 
+<p class='note warning'>
+We have received <a href='https://github.com/home-assistant/home-assistant/issues/4442'>numerous reports</a> that this integration will have a big impact on the performance of the server.
+</p>
+
+This tracker discovers new devices on boot and in regular intervals and tracks bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
 
 Devices discovered are stored with 'BLE_' as the prefix for device mac addresses in `known_devices.yaml`.
 
-This platform requires pybluez to be installed. On Debian based installs, run `sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev libboost-thread-dev libglib2.0-dev python-dev`
+This platform requires pybluez to be installed. On Debian based installs, run
+
+```bash
+$ sudo apt install bluetooth libbluetooth-dev pkg-config libboost-python-dev libboost-thread-dev libglib2.0-dev python-dev
+```
 
 Before you get started with this platform, please note that:
+
  - This platform is incompatible with Windows
  - This platform requires root privileges
- - Don't use on a Raspberry Pi. It will become unusable slow when using this platform.
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
