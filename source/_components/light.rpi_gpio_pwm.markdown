@@ -13,14 +13,14 @@ ha_iot_class: "Local Push"
 ha_release: 0.43
 ---
 
-The `pwm` platform allows to control multiple lights using pulse-width modulation, for example led strips. It supports one-color, RGB and RGBW leds driven by GPIOs of an Raspberry Pi or a PCA9685 controller.
+The `rpi_gpio_pwm` platform allows to control multiple lights using pulse-width modulation, for example led strips. It supports one-color, RGB and RGBW leds driven by GPIOs of an Raspberry Pi or a PCA9685 controller.
 
 ### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: pwm
+  platform: rpi_gpio_pwm
   leds:
     # One-color led directly connected to GPIO
     - name: Lightstrip Cupboard
