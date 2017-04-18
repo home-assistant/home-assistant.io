@@ -1,0 +1,169 @@
+@charset "UTF-8";
+@if $debug-mode == true{
+/*------------------------------------*\
+    $DEBUG
+\*------------------------------------*/
+/**
+ * Enable this stylesheet to visually detect any improperly nested or
+ * potentially invalid markup, or any potentially inaccessible code.
+ *
+ * Red          ==      definite error
+ * Yellow       ==      double-check
+ * None         ==      should be fine
+ *
+ * Please note that this method of checking markup quality should not be relied
+ * upon entirely. Validate your markup!
+ */
+
+
+/**
+ * Are there any empty elements in your page?
+ */
+:empty{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * Images require `alt` attributes, empty `alt`s are fine but should be
+ * double-checked, no `alt` is bad and is flagged red.
+ */
+img{
+    outline:5px solid red;
+}
+img[alt]{
+    outline:none;
+}
+img[alt=""]{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * Links sometimes, though not always, benefit from `title` attributes. Links
+ * without are never invalid but it’s a good idea to check.
+ */
+a{
+    outline:5px solid yellow;
+}
+a[title]{
+    outline:none;
+}
+
+
+/**
+ * Double-check any links whose `href` is something questionable.
+ */
+a[href="#"],
+a[href*="javascript"]{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * The `target` attribute ain’t too nice...
+ */
+a[target]{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * Ensure any lists only contain `li`s as children.
+ */
+ul,
+ol{
+    > *:not(li){
+        outline:5px solid red;
+    }
+}
+
+
+/**
+ * It’s always nice to give `th`s `scope` attributes.
+ */
+th{
+    outline:5px solid yellow;
+}
+th[scope]{
+    outline:none;
+}
+
+
+/**
+ * `tr`s as children of `table`s ain’t great, did you need a `thead`/`tbody`?
+ */
+table > tr{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * `tfoot` needs to come *before* `tbody`.
+ */
+tbody + tfoot{
+    outline:5px solid yellow;
+}
+
+
+/**
+ * Forms require `action` attributes
+ */
+form{
+    outline:5px solid red;
+}
+form[action]{
+    outline:none;
+}
+
+
+/**
+ * Various form-field types have required attributes. `input`s need `type`
+ * attributes, `textarea`s need `rows` and `cols` attributes and submit buttons
+ * need a `value` attribute.
+ */
+textarea,
+input{
+    outline:5px solid red;
+}
+input[type]{
+    outline:none;
+}
+textarea[rows][cols]{
+    outline:none;
+}
+input[type=submit]{
+    outline:5px solid red;
+}
+input[type=submit][value]{
+    outline:none;
+}
+
+
+/**
+ * Avoid inline styles where possible.
+ */
+[style]{
+	outline:5px solid yellow;
+}
+
+
+/**
+ * You should avoid using IDs for CSS, is this doing any styling?
+ */
+[id]{
+	outline:5px solid yellow;
+}
+
+
+/**
+ * Are you using the grid system correctly?
+ */
+.gw > :not(.g),
+.grid-wrapper > :not(.grid),
+.gw--rev > :not(.g),
+.grid-wrapper--rev > :not(.grid){
+	outline:5px solid red;
+}
+
+}/* endif */
