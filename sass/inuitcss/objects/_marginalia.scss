@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@if $use-marginalia == true{
+
+/*------------------------------------*\
+    $MARGINALIA
+\*------------------------------------*/
+/**
+ * Marginalia are, per definition, notes in the margin of a document. The
+ * `marginalia__body` class can be applied to all kinds of content, like text or
+ * images, and is joined by a width class:
+ *
+   <div class="marginalia">
+       <div class="marginalia__body  desk-one-fifth"></div>
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/AemkH
+ *
+ */
+.marginalia{
+    @include font-size($milli-size);
+}
+
+/**
+ * Wait for a certain breakpoint to trigger ‘proper' marginalia. Up to this point,
+ * marginalia are inline with the other text.
+ */
+@media (min-width: $desk-start){
+    .marginalia{
+        position:relative;
+    }
+
+    .marginalia__body,
+    .marginalia__body--right{
+        position:absolute;
+    }
+
+    .marginalia__body{
+      right:100%;
+      padding-right:$base-spacing-unit;
+      text-align:right;
+    }
+
+    /**
+     * Align marginalia to the right of the text.
+     */
+    .marginalia__body--right{
+        left:100%;
+        padding-left:$base-spacing-unit;
+        text-align:left;
+    }
+}
+
+}//endif
