@@ -1,0 +1,4 @@
+[submodule "_deploy"]
+	path = _deploy
+	url = https://github.com/balloob/home-assistant.git
+  branch = gh-pages
