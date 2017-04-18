@@ -34,6 +34,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the switch. Default is 'Wake on LAN'.
 - **host** (*Optional*): The IP address or hostname to check the state of the device (on/off).
 - **turn_off** (*Optional*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
+- **broadcast_address** (*Optional*): The IP address of the host to send the magic packet to (default 255.255.255.255).
 
 ## {% linkable_title Examples %}
 
