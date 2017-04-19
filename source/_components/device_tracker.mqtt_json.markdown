@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Presence Detection
+ha_version: 0.44
 ---
 
 
