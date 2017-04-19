@@ -1,0 +1,365 @@
+@charset "UTF-8";
+
+.hero {
+  background-color: #038FC7;
+  padding-bottom: 0;
+
+  .lead {
+    margin-bottom: 16px;
+  }
+
+  .hero-buttons a {
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .front-install {
+    border: none;
+    font-size: 1em;
+    background-color: #333;
+    margin-bottom: 16px;
+    display: inline-block;
+    padding: 8px;
+    color: #DDD;
+
+    div:before {
+      content: '$';
+      color: #c82829;
+      margin-right: 6px;
+    }
+  }
+}
+
+.supported-brands {
+  text-align: center;
+  img {
+    border: none !important;
+    box-shadow: none !important;
+    max-height: 50px;
+    max-width: 140px;
+    margin: 10px;
+    vertical-align: middle;
+  }
+}
+
+.brand {
+  border: none !important;
+  box-shadow: none !important;
+  max-height: 50px;
+  max-width: 200px;
+  margin: 10px;
+
+  &.overview {
+    max-width: 100px;
+    vertical-align: middle;
+  }
+}
+
+// https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
+
+h1:hover a.title-link,
+h2:hover a.title-link,
+h3:hover a.title-link,
+h4:hover a.title-link,
+h5:hover a.title-link,
+h6:hover a.title-link {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: -50px;
+    padding-right: 40px;
+    font-family: "FontAwesome";
+    content: "\f0c1"
+  }
+}
+
+.ha-title {
+  white-space: nowrap;
+
+  img {
+    width: 40px;
+  }
+
+  a > * {
+    vertical-align: middle;
+  }
+}
+
+.usp {
+  ul {
+    text-align: left;
+    margin-left: 27px;
+    margin-top: -18px;
+  }
+
+  .icon i {
+  border: none !important;
+  }
+}
+
+.hero-buttons a {
+  margin: 0 30px 10px 0;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+article.post, article.page, article.listing {
+  img, table {
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    vertical-align: middle;
+  }
+
+  img.no-shadow {
+    border: 0;
+    box-shadow: none;
+  }
+
+  & > table, & > .entry-content > table {
+    background-color: #F3FCF5;
+  }
+
+  p.img {
+    background-color: #FFF;
+    border-radius: 5px;
+    text-align: center;
+    padding-bottom: 3px;
+    font-size: .9rem;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+    img {
+      display: block;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    & > p {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+
+    &.btn {
+      text-decoration: none;
+    }
+  }
+
+  .frontpage a {
+    text-decoration: none;
+  }
+}
+
+p.note {
+  position: relative;
+
+  background: #e7f2fa;
+
+  padding: 40px 12px 6px 12px;
+  box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+  &::before {
+    font-family: "FontAwesome", sans-serif;
+    content: "\f05a" " Note " attr(data-title);
+    background-color: #6ab0de;
+    color: white;
+    font-weight: bold;
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 6px 14px;
+
+    line-height: 1.5em;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &.warning {
+    background-color: #F7F9E1;
+
+    &::before {
+      background-color: rgb(187, 185, 13);;
+      content: "\f071" " Warning " attr(data-title);
+    }
+  }
+
+}
+
+.copyright {
+  text-align: center;
+
+  i {
+    font-size: 3em;
+    margin-right: 8px;
+    position: relative;
+    top: -5px;
+  }
+  .credit {
+    text-align: left;
+    display: inline-block;
+    font-size: .8em;
+  }
+}
+
+#components-page {
+  .isotope-item {
+      z-index: 2;
+  }
+  .isotope-hidden.isotope-item {
+      pointer-events: none;
+      z-index: 1;
+  }
+  .isotope,
+  .isotope .isotope-item {
+      -webkit-transition-duration: 0.8s;
+      -moz-transition-duration: 0.8s;
+      transition-duration: 0.8s;
+  }
+  .isotope {
+      -webkit-transition-property: height, width;
+      -moz-transition-property: height, width;
+      transition-property: height, width;
+  }
+  .isotope .isotope-item {
+      -webkit-transition-property: -webkit-transform, opacity;
+      -moz-transition-property: -moz-transform, opacity;
+      transition-property: transform, opacity;
+  }
+
+  .filter-button-group {
+    margin-bottom: 16px;
+
+    .btn {
+      margin-right: 8px;
+      margin-bottom: 8px;
+      text-decoration: none;
+
+      &.current {
+        background-color: #3A5561;
+        background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
+      }
+    }
+  }
+
+  #componentContainer {
+    a {
+      display: inline-block;
+      width: 202px;
+      height: 142px;
+      background-color: #fefefe;
+      margin-right: 4px;
+      margin-bottom: 8px;
+      border-radius: 2px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      padding: 8px;
+      text-align: center;
+      text-decoration: none;
+
+      .img-container {
+        height: 50px;
+        margin: 8px 0;
+        font: 0/0 a;
+
+        &:before {    /* create a full-height inline block pseudo=element */
+            content: ' ';
+            display: inline-block;
+            vertical-align: middle;  /* vertical alignment of the inline element */
+            height: 100%;
+        }
+
+        img {
+          max-width: 100%;
+          max-height: 50px;
+          box-shadow: none;
+          border: none;
+          vertical-align: middle;
+        }
+      }
+
+      .title {
+        text-decoration: none;
+        font-size: 18px;
+        color: #000;
+        line-height: 1.3em;
+        height: 2.6em;
+      }
+
+      .category {
+        font-size: 14px;
+        color: #AAA;
+      }
+    }
+  }
+}
+
+.aside-module {
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .brand-logo-container {
+    text-align: center;
+    height: 97px;
+
+    img {
+      max-height: 97px;
+    }
+  }
+}
+
+// Responsive YouTube embeds.
+// https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-bottom: 25px;
+  background: #000;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.edit-github {
+  text-align: right;
+  margin-bottom: 8px;
+  font-size: .8em;
+}
+
+ul.sidebar-menu {
+  a.active {
+    color: #000;
+    font-weight: bold;
+  }
+
+  ul {
+    margin-left: 30px;
+  }
+}
+
+a code {
+  color: #049cdb;
+}
