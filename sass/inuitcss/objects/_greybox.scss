@@ -1,0 +1,59 @@
+@charset "UTF-8";
+@if $use-greybox == true{
+
+/*------------------------------------*\
+    $GREYBOX
+\*------------------------------------*/
+/**
+ * Quickly throw together greybox wireframes. Use in conjunction with other
+ * inuit.css objects to create simple greybox prototypes, e.g.:
+ *
+   <div class="island  greybox  greybox--medium">Header</div>
+
+   <ul class="nav  nav--fit  nav--block  greybox">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ * The beauty of combining the greyboxing with inuit.css objects is that any
+ * prototyping can quickly be converted into/used as production code.
+ *
+ * For a more complete prototyping framework, consider Adam Whitcroft’s Proto:
+ * adamwhitcroft.com/proto
+ *
+ * Demo: jsfiddle.net/inuitcss/qCXfh/
+ *
+ */
+.greybox,
+.graybox{
+    @include font-size(12px);
+    font-family:sans-serif;
+    text-align:center;
+    background-color:rgba(0,0,0,0.2);
+    color:#fff;
+}
+    .greybox a,
+    .graybox a{
+        color:#fff;
+        text-decoration:underline;
+    }
+
+
+/**
+ * All greyboxes will occupy 100% of their parent’s width, but to alter their
+ * heights we apply incrementally larger line-heights:
+ */
+.greybox--small,
+.graybox--small     { line-height: 2 * $base-line-height; }
+.greybox--medium,
+.graybox--medium    { line-height: 4 * $base-line-height; }
+.greybox--large,
+.graybox--large     { line-height: 8 * $base-line-height; }
+.greybox--huge,
+.graybox--huge      { line-height:16 * $base-line-height; }
+.greybox--gigantic,
+.graybox--gigantic  { line-height:32 * $base-line-height; }
+
+}//endif
