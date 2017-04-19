@@ -136,25 +136,27 @@ Configuration variables:
 
 All the conditions listed above will be updated every 5 minutes.
 
-<p class='note'>
-    <a name="12h">[12h]</a> - For 12 hour forecasts, you could replace
-    the ```_1d_``` part of the sensor name to get forecast for different
-    period/daytime, e.g. ```weather_2n``` will give you forecast for
-    tomorrow night. Valid values for day are ```1``` to ```4``` and
-    valid values for daytime are ```d``` or ```n```.
-</p>
+### 12 hour forecasts
 
-<p class='note'>
-    <a name="1d">[1d]</a> - For daily forecasts, you could replace the number
-    in ```_1d_``` part of the sensor name only. Valid values are from
-    ```1``` to ```4```.  That will give you forecast for different day.
-</p>
+Monitored conditions marked with <a name="12h">[12h]</a> are 12 hour 
+forecasts. To get a forecast for different period/daytime replace the
+`_1d_` part of the sensor name.  e.g. `weather_2n` will give you forecast for
+tomorrow night. Valid values for day are `1` to `4` and
+valid values for daytime are `d` or `n`.
 
-<p class='note'>
-    <a name="1h">[1h]</a> - For hourly forecasts, you could replace the number
-    in the ```_1h_``` part of the sensor name with ```1``` to ```36```.
-    E.g. ```weather_24h``` will give you weather in 24 hours.
-</p>
+### Daily forecasts
+
+Conditions above marked with <a name="1d">[1d]</a> are daily forecasts.
+To get forecast for different day, replace the number
+in `_1d_` part of the sensor name. Valid values are from
+`1` to `4`.
+
+### Hourly forecasts
+
+Conditions marked with <a name="1h">[1h]</a> are hourly forecasts.
+To get forecast for different hour, replace the number
+in the `_1h_` part of the sensor name with `1` to `36`.
+E.g. `weather_24h` will give you weather in 24 hours.
 
 Additional examples:
 ====================
