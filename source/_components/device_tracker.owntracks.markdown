@@ -1,0 +1,173 @@
+---
+layout: page
+title: "Owntracks"
+description: "Instructions how to use Owntracks to track devices in Home Assistant."
+date: 2015-09-22 07:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: owntracks.png
+ha_category: Presence Detection
+featured: true
+ha_release: 0.7.4
+---
+
+
+This platform allows you to detect presence using [Owntracks](http://owntracks.org/). OwnTracks allows users to track their location on Android and iOS phones and publish it to an MQTT broker. This platform will connect to the broker and monitor for new locations.
+
+This component requires [the MQTT component](/components/mqtt/) to be set up and works very well together with [the zone component](/components/zone/).
+
+To integrate Owntracks in Home Assistant, add the following section to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  platform: owntracks
+  max_gps_accuracy: 200
+```
+
+Configuration variables:
+
+- **max_gps_accuracy** (*Optional*): Sometimes Owntracks can report GPS location with a very low accuracy (few kilometers). That can trigger false zoning in your Home Assistant installation. With the parameter, you can filter these GPS reports. The number has to be in meter. For example, if you put 200 only GPS report with an accuracy under 200 will be take in account.
+
+### {% linkable_title Using Owntracks with other device trackers %}
+Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_scanner/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
+
+### {% linkable_title Using Owntracks regions %}
+Owntracks can track regions, and send region entry and exit information to Home Assistant(HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/)
+
+Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
+
+When you exit a zone, Home Assistant will start using location updates to track you again. To make sure that Home Assistant correctly exits a zone (which it calculates based on your GPS co-ordinates), you may want to set your Zone radius in HA to be slightly smaller that the Owntracks region radius.
+
+### {% linkable_title Using Owntracks regions - forcing Owntracks to update using  %}iBeacons
+When run in the usual `significant changes mode` (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
+
+iBeacons are simple bluetooth devices that send out an "I'm here" message. They are supported by IOS and some Android devices. Owntracks explain more [here](http://owntracks.org/booklet/guide/beacons/)
+
+When you enter an iBeacon region, Owntracks will send a `region enter` message to HA as described above. So if you want to have an event triggered when you arrive home, you can put an iBeacon outside your front door. If you set up an OwnTracks iBeacon region called `home` then getting close to the beacon will trigger an update to HA that will set your zone to be `home`.
+
+When you exit an iBeacon region HA will switch back to using GPS to determine your location. Depending on the size of your zone, and the accuracy of your GPS location this may change your HA zone.
+
+Sometimes Owntracks will lose connection with an iBeacon for a few seconds. If you name your beacon starting with `-` Owntracks will wait longer before deciding it has exited the beacon zone. HA will ignore the `-` when it matches the Owntracks region with Zones. So if you call your Owntracks region `-home` then HA will recognise it as `home`, but you will have a more stable iBeacon connection.
+
+### {% linkable_title Using Owntracks iBeacons to track devices %}
+iBeacons don't need to be stationary. You could put one on your key ring, or in your car.
+
+When your phone sees a mobile iBeacon that it knows about, it will tell HA the location of that iBeacon. If your phone moves while you are connected to the iBeacon, HA will update the location of the iBeacon. But when your phone loses the connection, HA will stop updating the iBeacon location.
+
+To use mobile iBeacons with HA, you just set up a region that doesn't match your Zone names. If HA sees an entry event for a iBeacon region that doesn't match a Zone name (say `keys`) - it will start tracking it, calling the device `device_tracker.beacon_keys`).
+
+This allows you to write zone automations for devices that can't track themselves (for example `alert me if I leave the house and my keys are still at home`). Another example would be `open the gates if my car arrives home`.
+
+### {% linkable_title Using mobile and fixed iBeacons together %}
+You can use iBeacons of both types together, so if you have a Zone `drive` with an iBeacon region called `-drive` and you arrive home with a mobile iBeacon called `-car`, then `device_tracker.beacon_car` will be set to a state of `drive`.
+
+
+### {% linkable_title Setting up OwnTracks with 2 MQTT (mosquitto) brokers bridged for use with the MQTT bridge for SmartThings %}
+
+I successfully tied in OwnTracks to HASS and SmartThings while using authentication for external access.
+
+The MQTT bridge doesn't support authentication so I set up 2 MQTT instances.
+
+Here are the steps I performed.. Hopefully it saves someone else some time.
+
+It seems to be working pretty well but if anyone sees something incorrect in my config, please let me know.
+This is my first real interaction with MQTT so if anyone seems something incorrect in my config, please let me know.
+
+Here's a summary of my setup
+
+2 Docker instances of MQTT
+  -- 1 for internal use (the MQTT bridge for SmartThings - no authentication)
+  -- 1 for external use ( with authentication - for OwnTracks)
+
+All Docker config files are on my NAS so the docker can be destroyed with affecting my actual config files.
+
+
+
+**Docker setup for the mosquitto internal instance.. no auth.. for use with the mqtt bridge**
+
+```
+docker run -ti -p 1883:1883  \
+-v /volume1/data/mosquitto-int/config:/mqtt/config:ro \
+-v /volume1/data/mosquitto-int/log:/mqtt/log \
+-v /volume1/data/mosquitto-int/data/:/mqtt/data/ \
+--name mosquitto-int -d toke/mosquitto
+```
+
+
+**Docker setup for the mosquitto external instance.. with auth.. for use with the owntracks**
+
+```
+docker run -ti -p 1884:1883  \
+-v /volume1/data/mosquitto-ext/config:/mqtt/config:ro \
+-v /volume1/data/mosquitto-ext/log:/mqtt/log \
+-v /volume1/data/mosquitto-ext/data/:/mqtt/data/ \
+-v /volume1/data/mosquitto-ext/etc:/etc/mosquitto \
+--name mosquitto-ext -d toke/mosquitto
+```
+
+Here are the config files:
+
+**/volume1/data/mosquitto-int/config/mosquitto.conf**
+
+```
+connection mosquitto-ext
+persistence_file mosquitto.db
+try_private true
+address 10.0.0.20:1884
+start_type automatic
+username test
+password test
+notifications true
+topic owntracks/# in
+log_type all                                              
+log_dest file /mqtt/log/mqtt.log 
+log_facility 5
+```
+
+**/volume1/data/mosquitto-ext/config/mosquitto.conf**
+
+```
+connection mosquitto-int
+persistence_file mosquitto.db
+try_private true
+address 10.0.0.20:1883
+start_type automatic
+username test
+password test
+notifications true
+topic owntracks/# out
+log_type all                                              
+log_dest file /mqtt/log/mqtt.log
+log_facility 5
+allow_anonymous false
+password_file /etc/mosquitto/pwfile
+```
+
+
+**create a password for mosquitto-ext**
+
+```
+docker exec -it mosquitto-ext /bin/bash
+
+cd /etc/mosquitto/
+
+mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
+```
+
+**OwnTracks settings - for Android**
+
+```
+Preferences / Connection / Mode - Private MQTT
+
+Fill out
+Host
+Identification
+Security: TLS disabled
+```
+
+
+
+<img src="//community-home-assistant-assets.s3.amazonaws.com/original/2X/5/5ce27145e5b37bac72859e4c36b8269d14f85ce1.png" width="649" height="500">
