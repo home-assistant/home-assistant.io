@@ -32,7 +32,7 @@ Configuration variables:
 
 This platform receives JSON formatted payloads containing GPS information, for example:
 ```json
-{'lon': 1.0,'acc': 60,'lat': 2.0,'batt': 99.9}
+{"longitude": 1.0,"gps_accuracy": 60,"latitude": 2.0,"battery_level": 99.9}
 ```
-Where `lon` is the longitude, `lat` is the latitude, `acc` is the accuracy in meters, `batt` is the current battery level of the device sending the update.
-`lon` and `lat` are required keys, `acc` and `batt` are optional.
+Where `longitude` is the longitude, `latitude` is the latitude, `gps_accuracy` is the accuracy in meters, `battery_level` is the current battery level of the device sending the update.
+`longitude` and `latitude` are required keys, `gps_accuracy` and `battery_level` are optional.
