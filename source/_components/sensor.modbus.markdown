@@ -53,4 +53,4 @@ Configuration variables:
   - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1
   - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
   - **precision** (*Optional*): Number of valid decimals, default 0
-  - **isfloat** (*Optional*): Convert response to  IEEE 754 floating point format, default False
+  - **isfloat** (*Optional*): Convert response to IEEE 754 floating point format, default False
