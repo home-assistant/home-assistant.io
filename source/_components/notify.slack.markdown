@@ -56,6 +56,6 @@ action:
         status_emoji: ":desert_island:"
 ```
 
-**Note**: Your Slack app must have the `users.profile:write` Permission scope to change status. Also, changing status is only available to the user that authorized the app. If your Slack component is configured as a "Bot User", then trying to update status will fail, as bots cannot have statuses.
+**Note**: Your Slack app must have the `users.profile:write` permission scope to change status. Also, changing status is only available to the user that authorized the app. If your Slack component is configured as a "Bot User", then trying to update status will fail, as bots cannot have statuses.
 
 If you want to clear your status, simply pass in an empty `status_text` and `status_emoji`.
