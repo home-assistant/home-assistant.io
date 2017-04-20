@@ -54,7 +54,7 @@ A motion detection device which can be represented by a [binary sensor](/compone
 - State topic: `homeassistant/binary_sensor/garden/state`
 - Payload:  `{"name": "garden", "device_class": "motion"}`
 
-To create a new sensor manually. For more details please refer to the [MQTT testing section](/component/mqtt_testing).
+To create a new sensor manually. For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion"}'
