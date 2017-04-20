@@ -36,6 +36,7 @@ sensor:
       slave: 1
       register: 120
       register_type: input
+      data_type: float
       scale: 0.01
       offset: -273.16
       precision: 2
@@ -53,4 +54,4 @@ Configuration variables:
   - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1
   - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
   - **precision** (*Optional*): Number of valid decimals, default 0
-  - **isfloat** (*Optional*): Convert response to IEEE 754 floating point format, default False
+  - **data_type** (*Optional*): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int
