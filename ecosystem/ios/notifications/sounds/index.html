@@ -1,0 +1,350 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Notification Sounds - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Adding sounds to notifications">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/ecosystem/ios/notifications/sounds/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Notification Sounds">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/ecosystem/ios/notifications/sounds/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Adding sounds to notifications">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Notification Sounds">
+    <meta name="twitter:description" content="Adding sounds to notifications">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_ecosystem/ios/notifications/sounds.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Notification Sounds
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed but you can also upload your own.</p>
+
+<p>Here is an example notification that uses one of the pre-installed sounds.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">...</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.iOSApp</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s">“Something happened at home!”</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">push</span><span class="pi">:</span>
+          <span class="s">sound</span><span class="pi">:</span> <span class="s2">"</span><span class="s">US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"</span>
+</code></pre>
+</div>
+
+<p>Notes:</p>
+<ul>
+  <li>You must use the full filename in the payload (including extension).</li>
+</ul>
+
+<h2><a class="title-link" name="custom-push-notification-sounds" href="#custom-push-notification-sounds"></a> Custom push notification sounds</h2>
+<p>The app allows you to use your own custom sounds in push notifications. The sounds must be formatted following [Apple’s requirements][sound-requirements]. You set the filename of the sound in the notification payload. To add sounds:</p>
+
+<ol>
+  <li>Connect the device to a PC or Mac running the latest version of iTunes.</li>
+  <li>Go to the device in iTunes.</li>
+  <li>Select “Apps” on the left sidebar.</li>
+  <li>Scroll down until you see the section labeled “File Sharing”.</li>
+  <li>Select HomeAssistant.</li>
+  <li>Drag and drop properly formatted sounds.</li>
+  <li>Click Sync in the lower right.</li>
+  <li>Once sync is complete, disconnect the device from the computer.</li>
+  <li>On your iOS device, open the Home Assistant app.</li>
+  <li>Go to Settings -&gt; Notification Settings.</li>
+  <li>Select “Import sounds from iTunes”.</li>
+</ol>
+
+<p>Assuming that you correctly formatted the sounds they are now available to use in push notifications.</p>
+
+<p>Notes:</p>
+<ul>
+  <li><strong>Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.</strong></li>
+  <li>Uploading a file with the same name as an existing one will overwrite the original.</li>
+  <li>You can view what sounds are installed on each device by inspecting the <code class="highlighter-rouge">ios.conf</code> file in your configuration directory. They are listed in the <code class="highlighter-rouge">pushSounds</code> array.</li>
+</ul>
+
+<h3><a class="title-link" name="preinstalled-notification-sounds" href="#preinstalled-notification-sounds"></a> Preinstalled notification sounds</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>US-EN-Alexa-Back-Door-Opened.wav
+US-EN-Alexa-Back-Door-Unlocked.wav
+US-EN-Alexa-Basement-Door-Opened.wav
+US-EN-Alexa-Basement-Door-Unlocked.wav
+US-EN-Alexa-Boyfriend-Is-Arriving.wav
+US-EN-Alexa-Daughter-Is-Arriving.wav
+US-EN-Alexa-Front-Door-Opened.wav
+US-EN-Alexa-Front-Door-Unlocked.wav
+US-EN-Alexa-Garage-Door-Opened.wav
+US-EN-Alexa-Girlfriend-Is-Arriving.wav
+US-EN-Alexa-Good-Morning.wav
+US-EN-Alexa-Good-Night.wav
+US-EN-Alexa-Husband-Is-Arriving.wav
+US-EN-Alexa-Mail-Has-Arrived.wav
+US-EN-Alexa-Motion-At-Back-Door.wav
+US-EN-Alexa-Motion-At-Front-Door.wav
+US-EN-Alexa-Motion-Detected-Generic.wav
+US-EN-Alexa-Motion-In-Back-Yard.wav
+US-EN-Alexa-Motion-In-Basement.wav
+US-EN-Alexa-Motion-In-Front-Yard.wav
+US-EN-Alexa-Motion-In-Garage.wav
+US-EN-Alexa-Patio-Door-Opened.wav
+US-EN-Alexa-Patio-Door-Unlocked.wav
+US-EN-Alexa-Smoke-Detected-Generic.wav
+US-EN-Alexa-Smoke-Detected-In-Basement.wav
+US-EN-Alexa-Smoke-Detected-In-Garage.wav
+US-EN-Alexa-Smoke-Detected-In-Kitchen.wav
+US-EN-Alexa-Son-Is-Arriving.wav
+US-EN-Alexa-Water-Detected-Generic.wav
+US-EN-Alexa-Water-Detected-In-Basement.wav
+US-EN-Alexa-Water-Detected-In-Garage.wav
+US-EN-Alexa-Water-Detected-In-Kitchen.wav
+US-EN-Alexa-Welcome-Home.wav
+US-EN-Alexa-Wife-Is-Arriving.wav
+US-EN-Daisy-Back-Door-Motion.wav
+US-EN-Daisy-Back-Door-Open.wav
+US-EN-Daisy-Front-Door-Motion.wav
+US-EN-Daisy-Front-Door-Open.wav
+US-EN-Daisy-Front-Window-Open.wav
+US-EN-Daisy-Garage-Door-Open.wav
+US-EN-Daisy-Guest-Bath-Leak.wav
+US-EN-Daisy-Kitchen-Sink-Leak.wav
+US-EN-Daisy-Kitchen-Window-Open.wav
+US-EN-Daisy-Laundry-Room-Leak.wav
+US-EN-Daisy-Master-Bath-Leak.wav
+US-EN-Daisy-Master-Bedroom-Window-Open.wav
+US-EN-Daisy-Office-Window-Open.wav
+US-EN-Daisy-Refrigerator-Leak.wav
+US-EN-Daisy-Water-Heater-Leak.wav
+US-EN-Morgan-Freeman-Back-Door-Closed.wav
+US-EN-Morgan-Freeman-Back-Door-Locked.wav
+US-EN-Morgan-Freeman-Back-Door-Opened.wav
+US-EN-Morgan-Freeman-Back-Door-Unlocked.wav
+US-EN-Morgan-Freeman-Basement-Door-Closed.wav
+US-EN-Morgan-Freeman-Basement-Door-Locked.wav
+US-EN-Morgan-Freeman-Basement-Door-Opened.wav
+US-EN-Morgan-Freeman-Basement-Door-Unlocked.wav
+US-EN-Morgan-Freeman-Boss-Is-Arriving.wav
+US-EN-Morgan-Freeman-Boyfriend-Is-Arriving.wav
+US-EN-Morgan-Freeman-Cleaning-Supplies-Closet-Opened.wav
+US-EN-Morgan-Freeman-Coworker-Is-Arriving.wav
+US-EN-Morgan-Freeman-Daughter-Is-Arriving.wav
+US-EN-Morgan-Freeman-Friend-Is-Arriving.wav
+US-EN-Morgan-Freeman-Front-Door-Closed.wav
+US-EN-Morgan-Freeman-Front-Door-Locked.wav
+US-EN-Morgan-Freeman-Front-Door-Opened.wav
+US-EN-Morgan-Freeman-Front-Door-Unlocked.wav
+US-EN-Morgan-Freeman-Garage-Door-Closed.wav
+US-EN-Morgan-Freeman-Garage-Door-Opened.wav
+US-EN-Morgan-Freeman-Girlfriend-Is-Arriving.wav
+US-EN-Morgan-Freeman-Good-Morning.wav
+US-EN-Morgan-Freeman-Good-Night.wav
+US-EN-Morgan-Freeman-Liquor-Cabinet-Opened.wav
+US-EN-Morgan-Freeman-Motion-Detected.wav
+US-EN-Morgan-Freeman-Motion-In-Basement.wav
+US-EN-Morgan-Freeman-Motion-In-Bedroom.wav
+US-EN-Morgan-Freeman-Motion-In-Game-Room.wav
+US-EN-Morgan-Freeman-Motion-In-Garage.wav
+US-EN-Morgan-Freeman-Motion-In-Kitchen.wav
+US-EN-Morgan-Freeman-Motion-In-Living-Room.wav
+US-EN-Morgan-Freeman-Motion-In-Theater.wav
+US-EN-Morgan-Freeman-Motion-In-Wine-Cellar.wav
+US-EN-Morgan-Freeman-Patio-Door-Closed.wav
+US-EN-Morgan-Freeman-Patio-Door-Locked.wav
+US-EN-Morgan-Freeman-Patio-Door-Opened.wav
+US-EN-Morgan-Freeman-Patio-Door-Unlocked.wav
+US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav
+US-EN-Morgan-Freeman-Searching-For-Car-Keys.wav
+US-EN-Morgan-Freeman-Setting-The-Mood.wav
+US-EN-Morgan-Freeman-Smartthings-Detected-A-Flood.wav
+US-EN-Morgan-Freeman-Smartthings-Detected-Carbon-Monoxide.wav
+US-EN-Morgan-Freeman-Smartthings-Detected-Smoke.wav
+US-EN-Morgan-Freeman-Smoke-Detected-In-Basement.wav
+US-EN-Morgan-Freeman-Smoke-Detected-In-Garage.wav
+US-EN-Morgan-Freeman-Smoke-Detected-In-Kitchen.wav
+US-EN-Morgan-Freeman-Someone-Is-Arriving.wav
+US-EN-Morgan-Freeman-Son-Is-Arriving.wav
+US-EN-Morgan-Freeman-Starting-Movie-Mode.wav
+US-EN-Morgan-Freeman-Starting-Party-Mode.wav
+US-EN-Morgan-Freeman-Starting-Romance-Mode.wav
+US-EN-Morgan-Freeman-Turning-Off-All-The-Lights.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Air-Conditioner.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Bar-Lights.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Chandelier.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Family-Room-Lights.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Hallway-Lights.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Kitchen-Light.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Light.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Lights.wav
+US-EN-Morgan-Freeman-Turning-Off-The-Mood-Lights.wav
+US-EN-Morgan-Freeman-Turning-Off-The-TV.wav
+US-EN-Morgan-Freeman-Turning-On-The-Air-Conditioner.wav
+US-EN-Morgan-Freeman-Turning-On-The-Bar-Lights.wav
+US-EN-Morgan-Freeman-Turning-On-The-Chandelier.wav
+US-EN-Morgan-Freeman-Turning-On-The-Family-Room-Lights.wav
+US-EN-Morgan-Freeman-Turning-On-The-Hallway-Lights.wav
+US-EN-Morgan-Freeman-Turning-On-The-Kitchen-Light.wav
+US-EN-Morgan-Freeman-Turning-On-The-Light.wav
+US-EN-Morgan-Freeman-Turning-On-The-Lights.wav
+US-EN-Morgan-Freeman-Turning-On-The-Mood-Lights.wav
+US-EN-Morgan-Freeman-Turning-On-The-TV.wav
+US-EN-Morgan-Freeman-Vacate-The-Premises.wav
+US-EN-Morgan-Freeman-Water-Detected-In-Basement.wav
+US-EN-Morgan-Freeman-Water-Detected-In-Garage.wav
+US-EN-Morgan-Freeman-Water-Detected-In-Kitchen.wav
+US-EN-Morgan-Freeman-Welcome-Home.wav
+US-EN-Morgan-Freeman-Wife-Is-Arriving.wav
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class="section">
+    <h1 class="title delta">iOS Guide</h1>
+    <ul class="divided sidebar-menu">
+      <li>
+        <a  href='/ecosystem/ios/'>General </a>
+      </li>
+      <li>
+        <a  href='/ecosystem/ios/notifications/'>Push Notifications </a>
+        <ul>
+          <li><a  href='/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+          <li>Advanced notifications</li>
+          <ul>
+            <li><a  href='/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+            <li><a  href='/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+            <li><a  href='/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+            <li><a  href='/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+          </ul>
+          <li><a  href='/ecosystem/ios/notifications/examples/'>Examples </a></li>
+          <li><a class='active' href='/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+          <li><a  href='/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+          <li><a  href='/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+        </ul>
+      </li>
+      <li><a  href='/ecosystem/ios/location/'>Location Tracking </a></li>
+      <li><a  href='/ecosystem/ios/integration/'>Integration with other apps </a></li>
+    </ul>
+  </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

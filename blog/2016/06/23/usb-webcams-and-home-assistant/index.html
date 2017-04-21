@@ -1,0 +1,362 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using USB webcams with Home Assistant - Home Assistant</title>
+    <meta name="author" content="Fabian Affolter">
+    <meta name="description" content="A how-to how to repurpose your old USB webcams and integrate them into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Using USB webcams with Home Assistant">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="A how-to how to repurpose your old USB webcams and integrate them into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2016-06-cranberry/social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@fabaff">
+    <meta name="twitter:title" content="Using USB webcams with Home Assistant">
+    <meta name="twitter:description" content="A how-to how to repurpose your old USB webcams and integrate them into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-06-cranberry/social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  
+  <header>
+  
+  <h1 class="title indent">Using USB webcams with Home Assistant</h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-06-23T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 23, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>How-To</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <p><img src="/images/blog/2016-06-cranberry/motion.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="200" />
+In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like <a href="http://www.pygame.org/hifi.html">pygame</a> or <a href="http://www.simplecv.org/">SimpleCV</a> but I never finished something. With the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> by <a href="https://github.com/Landrash">Landrash</a> and <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> you could integrate a local USB webcam with a few very easy steps.</p>
+
+<p>In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old <a href="http://support.logitech.com/en_us/product/quickcam-sphere-af">Logitech QuickCam Orbit AF</a> and a <a href="http://support.logitech.com/en_us/product/hd-webcam-c270">Logitech HD Webcam C270</a>. As a start only the Quickcam is used. No multi-camera setup for now.</p>
+
+<a name="read-more"></a>
+
+<p>Check first if the your operating system lists your cameras.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>lsusb
+<span class="o">[</span>...]
+Bus 002 Device 016: ID 046d:08cc Logitech, Inc. Mic <span class="o">(</span>PTZ<span class="o">)</span>
+<span class="o">[</span>...]
+</code></pre>
+</div>
+
+<p>The camera we are going to use is available at <code class="highlighter-rouge">/dev/video1</code>. The C270 is the one on <code class="highlighter-rouge">/dev/video0</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls -al /dev/video<span class="k">*</span>
+crw-rw----+ 1 root video 81, 0 Jun 23 08:05 /dev/video0
+crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
+</code></pre>
+</div>
+
+<p>We need an additional software part to handle the cameras. <a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations. Make sure that you have the <a href="http://rpmfusion.org/">RPM Fusion respository</a> enabled.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install motion
+</code></pre>
+</div>
+
+<p>For our setup we need to modify the file <code class="highlighter-rouge">/etc/motion/motion.conf</code>. For now the most important parameters are <code class="highlighter-rouge">videodevice</code>, <code class="highlighter-rouge">snapshot_interval</code>, and <code class="highlighter-rouge">target_dir</code>. The other settings can be left to their defaults. We are going to use the device <code class="highlighter-rouge">/dev/video1</code>, use a 30 seconds interval, and set the path to <code class="highlighter-rouge">/tmp</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>...]
+<span class="c">###########################################################</span>
+<span class="c"># Capture device options</span>
+<span class="c">############################################################</span>
+
+<span class="c"># Videodevice to be used for capturing  (default /dev/video0)</span>
+<span class="c"># for FreeBSD default is /dev/bktr0</span>
+videodevice /dev/video1
+
+<span class="o">[</span>..]
+<span class="c">############################################################</span>
+<span class="c"># Snapshots (Traditional Periodic Webcam File Output)</span>
+<span class="c">############################################################</span>
+
+<span class="c"># Make automated snapshot every N seconds (default: 0 = disabled)</span>
+snapshot_interval 30
+
+<span class="o">[</span>...]
+<span class="c">############################################################</span>
+<span class="c"># Target Directories and filenames For Images And Films</span>
+<span class="c"># For the options snapshot_, picture_, movie_ and timelapse_filename</span>
+<span class="c"># you can use conversion specifiers</span>
+<span class="c"># %Y = year, %m = month, %d = date,</span>
+<span class="c"># %H = hour, %M = minute, %S = second,</span>
+<span class="c"># %v = event, %q = frame number, %t = thread (camera) number,</span>
+<span class="c"># %D = changed pixels, %N = noise level,</span>
+<span class="c"># %i and %J = width and height of motion area,</span>
+<span class="c"># %K and %L = X and Y coordinates of motion center</span>
+<span class="c"># %C = value defined by text_event</span>
+<span class="c"># Quotation marks round string are allowed.</span>
+<span class="c">############################################################</span>
+
+<span class="c"># Target base directory for pictures and films</span>
+<span class="c"># Recommended to use absolute path. (Default: current working directory)</span>
+target_dir /tmp
+
+<span class="o">[</span>...]
+</code></pre>
+</div>
+
+<p>It’s suggested that you adjust at least <code class="highlighter-rouge">width</code> and <code class="highlighter-rouge">height</code> to get a bigger image from your camera. If you are done, fire up <code class="highlighter-rouge">motion</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo motion
+<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] conf_load: Processing thread 0 - config file /etc/motion/motion.conf
+<span class="o">[</span>0] <span class="o">[</span>ALR] <span class="o">[</span>ALL] conf_cmdparse: Unknown config option <span class="s2">"sdl_threadnr"</span>
+<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] motion_startup: Motion 3.3.0 Started
+<span class="o">[</span>0] <span class="o">[</span>NTC] <span class="o">[</span>ALL] motion_startup: Logging to file <span class="o">(</span>/var/log/motion.log<span class="o">)</span>
+</code></pre>
+</div>
+
+<p>Your <code class="highlighter-rouge">target_dir</code> will start filling up with images from your camera. <code class="highlighter-rouge">motion</code> will create a symlink called <code class="highlighter-rouge">lastsnap.jpg</code> which always point to the latest snapshot. We will setup the <a href="https://home-assistant.io/components/camera.local_file/">Local File camera platform</a> to use this file.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">local_file</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Cranberry cam</span>
+    <span class="s">file_path</span><span class="pi">:</span> <span class="s">/tmp/lastsnap.jpg</span>
+</code></pre>
+</div>
+
+<p class="img">
+  <img src="/images/blog/2016-06-cranberry/cam.png" />
+  The “Cranberry cam” in action
+</p>
+
+<p>The machine with the attached USB camera will become a webcam server as well because <code class="highlighter-rouge">motion</code>’s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run <code class="highlighter-rouge">motion</code> there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.</p>
+
+<p>In a scenario like this needs a <a href="https://home-assistant.io/components/camera.mjpeg/">Generic MJPEG IP Camera </a> in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mjpeg</span>
+    <span class="s">mjpeg_url</span><span class="pi">:</span> <span class="s">http://[IP of your webcam host]:8081</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Cranberry Live cam</span>
+</code></pre>
+</div>
+
+<p><a href="http://lavrsen.dk/foswiki/bin/view/Motion/WebHome">motion</a> is a powerful tool and this blog post only showed two very simple use cases. Take a look at the <a href="http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide">documentation</a> of <code class="highlighter-rouge">motion</code> to unleash its potential.</p>
+</article>
+
+
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"
+     data-counturl="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/" >Tweet</a>
+  
+  
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/"
+         data-layout="button_count">
+    </div>
+  
+  
+  <div class="g-plusone" data-size="standard"></div>
+  
+</section>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      
+        <li class="post">
+          <a href="/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">0.33: New Calendar component, Wink thermostats and Cisco IOS</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/11/05/hacktoberfest-influxdb-weather/">0.32: Hacktoberfest, InfluxDB sensor, Error reporting, and Weather</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/25/explaining-the-updater/">Explaining the Updater</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/08/hassbian-rest-digital-ocean/">0.30: More Async, HASSbian, Digital Ocean, statistics, REST</a>
+        </li>
+      
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/06/23/usb-webcams-and-home-assistant/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

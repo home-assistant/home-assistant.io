@@ -1,0 +1,544 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Alexa / Amazon Echo - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to connect Alexa/Amazon Echo to Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/alexa/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Alexa / Amazon Echo">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/alexa/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to connect Alexa/Amazon Echo to Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Alexa / Amazon Echo">
+    <meta name="twitter:description" content="Instructions how to connect Alexa/Amazon Echo to Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Alexa / Amazon Echo
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>There are a few ways that you can use Amazon Echo and Home Assistant together.</p>
+
+<ul>
+  <li><a href="#i-just-want-to-turn-devices-on-and-off-using-echo">Turning devices on and off</a></li>
+  <li><a href="#i-want-to-build-custom-commands-to-use-with-echo">Build custom commands to use</a></li>
+  <li><a href="#flash-briefing-skills">Create a new Flash Briefing source</a></li>
+</ul>
+
+<p>No matter which method(s) you decide to use, please remember that Amazon Echo requires an active Internet connection to function. If your Internet is down or experiencing issues (or Amazon’s infrastructure is having issues), none of these methods will work.</p>
+
+<p>Amazon has released <a href="https://echosim.io/">Echosim</a>, a website that simulates the Alexa service in your browser. That way it is easy to test your skills without having access to a physical Amazon Echo.</p>
+
+<h2><a class="title-link" name="i-just-want-to-turn-devices-on-and-off-using-echo" href="#i-just-want-to-turn-devices-on-and-off-using-echo"></a> I just want to turn devices on and off using Echo</h2>
+
+<p>If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, you should enable the <a href="https://home-assistant.io/components/emulated_hue/">Emulated Hue</a> component. It makes your Home Assistant appear as if it were a Phillips Hue bridge, which Echo works with natively.</p>
+
+<p>Enabling the Emulated Hue component means you can turn things on and off by simply saying</p>
+
+<blockquote>
+  <p>Alexa, turn the living room lights on.</p>
+</blockquote>
+
+<p>or</p>
+
+<blockquote>
+  <p>Alexa, set the living room lights to twenty percent.</p>
+</blockquote>
+
+<p>instead of</p>
+
+<blockquote>
+  <p>Alexa, tell Home Assistant to turn the living room lights on.</p>
+</blockquote>
+
+<p>or</p>
+
+<blockquote>
+  <p>Alexa, tell Home Assistant to set the living room lights to twenty percent.</p>
+</blockquote>
+
+<p>In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Emulated Hue.</p>
+
+<p>Please note that you can use Emulated Hue and the built-in Alexa component side-by-side without issue if you wish.</p>
+
+<h2><a class="title-link" name="i-want-to-build-custom-commands-to-use-with-echo" href="#i-want-to-build-custom-commands-to-use-with-echo"></a> I want to build custom commands to use with Echo</h2>
+
+<p>The built-in Alexa component allows you to integrate Home Assistant into Alexa/Amazon Echo. This component will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
+
+<p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using <a href="https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230">this AWS Lambda proxy for Alexa skills</a>.</p>
+
+<p>To get started with Alexa skills:</p>
+
+<ul>
+  <li>Log in to <a href="https://developer.amazon.com">Amazon developer console</a></li>
+  <li>Click the Alexa button at the top of the console</li>
+  <li>Click the yellow “Add a new skill” button in the top right
+    <ul>
+      <li>Skill Type: Custom Interaction Model (default)</li>
+      <li>Name: Home Assistant</li>
+      <li>Invocation name: home assistant (or be creative, up to you)</li>
+      <li>Version: 1.0</li>
+      <li>Endpoint:
+        <ul>
+          <li>https</li>
+          <li>https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>You can use this <a href="/images/components/alexa/alexa-512x512.png">specially sized Home Assistant logo</a> as the large icon and <a href="/images/components/alexa/alexa-108x108.png">this one</a> as the small one.</p>
+
+<h3><a class="title-link" name="configuring-your-amazon-alexa-skill" href="#configuring-your-amazon-alexa-skill"></a> Configuring your Amazon Alexa skill</h3>
+
+<p>Alexa works based on intents. Each intent has a name and variable slots. For example, a <code class="highlighter-rouge">LocateIntent</code> with a slot that contains a <code class="highlighter-rouge">User</code>. Example intent schema:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"intents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocateIntent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMAZON.US_FIRST_NAME"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WhereAreWeIntent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"slots"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>To bind these intents to sentences said by users you define utterances. Example utterances can look like this:</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>LocateIntent Where is {User}
+LocateIntent Where's {User}
+LocateIntent Where {User} is
+LocateIntent Where did {User} go
+
+WhereAreWeIntent where we are
+</code></pre>
+</div>
+
+<p>This means that we can now ask Alexa things like:</p>
+
+<ul>
+  <li>Alexa, ask Home Assistant where Paul is</li>
+  <li>Alexa, ask Home Assistant where we are</li>
+</ul>
+
+<h2><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h2>
+
+<p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/topics/templating/">templates</a> that you define. Each template will have access to the existing states via the <code class="highlighter-rouge">states</code> variable but will also have access to all variables defined in the intent.</p>
+
+<p>You can use <a href="/topics/templating/">templates</a> for the values of <code class="highlighter-rouge">speech/text</code>, <code class="highlighter-rouge">card/title</code> and <code class="highlighter-rouge">card/content</code>.</p>
+
+<p>Actions are using the <a href="/getting-started/scripts/">Home Assistant Script Syntax</a> and also have access to the variables from the intent.</p>
+
+<p>Configuring the Alexa component for the above intents would look like this:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alexa</span><span class="pi">:</span>
+  <span class="s">intents</span><span class="pi">:</span>
+    <span class="s">WhereAreWeIntent</span><span class="pi">:</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{%- if is_state('device_tracker.paulus', 'home') and</span>
+                 <span class="no">is_state('device_tracker.anne_therese', 'home') -%}</span>
+            <span class="no">You are both home, you silly</span>
+          <span class="no">{%- else -%}</span>
+            <span class="no">Anne Therese is at {{ states("device_tracker.anne_therese") }}</span>
+            <span class="no">and Paulus is at {{ states("device_tracker.paulus") }}</span>
+          <span class="no">{% endif %}</span>
+
+    <span class="s">LocateIntent</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s">The location of {{ User }} has been queried via Alexa.</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{%- for state in states.device_tracker -%}</span>
+            <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
+              <span class="no">{{ state.name }} is at {{ state.state }}</span>
+            <span class="no">{%- endif -%}</span>
+          <span class="no">{%- else -%}</span>
+            <span class="no">I am sorry, I do not know where {{ User }} is.</span>
+          <span class="no">{%- endfor -%}</span>
+      <span class="s">card</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">simple</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s">Sample title</span>
+        <span class="s">content</span><span class="pi">:</span> <span class="s">Some more content</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="working-with-scenes" href="#working-with-scenes"></a> Working With Scenes</h3>
+
+<p>One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.</p>
+
+<p>First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ActivateSceneIntent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"slots"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Scene"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Scenes"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Then create a custom slot type called <code class="highlighter-rouge">Scenes</code> listing every scene you want to control:</p>
+
+<p class="img">
+<img src="/images/components/alexa/scene_slot.png" />
+Custom slot type for scene support.
+</p>
+<p>The names must exactly match the scene names (minus underscores - amazon discards them anyway and we later map them back in with the template).</p>
+
+<p>Add a sample utterance:</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>ActivateSceneIntent activate {Scene}
+</code></pre>
+</div>
+
+<p>Then add the intent to your Alexa Section in your HA config file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">ActivateSceneIntent</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">scene.turn_on</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">scene.{{ Scene | replace(" ", "_") }}</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="s">OK</span>
+</code></pre>
+</div>
+
+<p>Here we are using <a href="/topics/templating/">templates</a> to take the name we gave to Alexa e.g. <code class="highlighter-rouge">downstairs on</code> and replace the space with an underscore so it becomes <code class="highlighter-rouge">downstairs_on</code> as Home Assistant expects.</p>
+
+<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
+
+<h3><a class="title-link" name="adding-scripts" href="#adding-scripts"></a> Adding Scripts</h3>
+
+<p>We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RunScriptIntent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"slots"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Script"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Scripts"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Create a custom slot type called <code class="highlighter-rouge">Scripts</code> listing every script you want to run:</p>
+
+<p class="img">
+<img src="/images/components/alexa/script_slot.png" />
+Custom slot type for script support.
+</p>
+
+<p>Add a sample utterance:</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>RunScriptIntent run {Script}
+</code></pre>
+</div>
+
+<p>Then add the intent to your Alexa Section in your HA config file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">RunScriptIntent</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.{{ Script | replace(" ", "_") }}</span>
+      <span class="s">speech</span><span class="pi">:</span>
+        <span class="s">type</span><span class="pi">:</span> <span class="s">plaintext</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="s">OK</span>
+</code></pre>
+</div>
+
+<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
+
+<h2><a class="title-link" name="giving-alexa-some-personality" href="#giving-alexa-some-personality"></a> Giving Alexa Some Personality</h2>
+
+<p>In the examples above, we told Alexa to say <code class="highlighter-rouge">OK</code> when she successfully completed the task. This is effective but a little dull! We can again use <a href="/topics/templating/">templates</a> to spice things up a little.</p>
+
+<p>First create a file called <code class="highlighter-rouge">alexa_confirm.yaml</code> with something like the following in it (go on, be creative!):</p>
+
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>          &gt;
+          {{ [
+          "OK",
+          "Sure",
+          "If you insist",
+          "Done",
+          "No worries",
+          "I can do that",
+          "Leave it to me",
+          "Consider it done",
+          "As you wish",
+          "By your command",
+          "Affirmative",
+          "Yes oh revered one",
+          "I will",
+          "As you decree, so shall it be",
+          "No Problem"
+          ] | random }} 
+</code></pre>
+</div>
+
+<p>Then, wherever you would but some simple text for a response like<code class="highlighter-rouge">OK</code>, replace it with a reference to the file so that:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>text: OK
+</code></pre>
+</div>
+
+<p>becomes:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>text: !include alexa_confirm.yaml
+</code></pre>
+</div>
+
+<p>Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.</p>
+
+<h2><a class="title-link" name="flash-briefing-skills" href="#flash-briefing-skills"></a> Flash Briefing Skills</h2>
+
+<p>As of version <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">0.31</a> Home Assistant supports the new <a href="https://developer.amazon.com/alexa-skills-kit/flash-briefing">Alexa Flash Briefing Skills API</a>. A Flash Briefing Skill adds a new Flash Briefing source that is generated by Home Assistant.</p>
+
+<h3><a class="title-link" name="configuring-a-flash-briefing-skill-in-home-assistant" href="#configuring-a-flash-briefing-skill-in-home-assistant"></a> Configuring a Flash Briefing skill in Home Assistant</h3>
+
+<p>You can use <a href="/topics/templating/">templates</a> for the <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">audio</code>, <code class="highlighter-rouge">text</code> and <code class="highlighter-rouge">display_url</code> configuration parameters.</p>
+
+<p>Here’s an example configuration of a Flash briefing skill that will tell you who is at home:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alexa</span><span class="pi">:</span>
+  <span class="s">flash_briefings</span><span class="pi">:</span>
+    <span class="s">whoishome</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">Who's at home?</span>
+        <span class="s">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{%- if is_state('device_tracker.paulus', 'home') and</span>
+                 <span class="no">is_state('device_tracker.anne_therese', 'home') -%}</span>
+            <span class="no">You are both home, you silly</span>
+          <span class="no">{%- else -%}</span>
+            <span class="no">Anne Therese is at {{ states("device_tracker.anne_therese") }}</span>
+            <span class="no">and Paulus is at {{ states("device_tracker.paulus") }}</span>
+          <span class="no">{% endif %}</span>
+</code></pre>
+</div>
+
+<p>You can add multiple items for a feed if you want. The Amazon required uid and timestamp will be randomly generated at startup and change at every restart of Home Assistant.</p>
+
+<p>Please refer to the <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/flash-briefing-skill-api-feed-reference">Amazon documentation</a> for more information about allowed configuration parameters and formats.</p>
+
+<h3><a class="title-link" name="configuring-your-flash-briefing-skill" href="#configuring-your-flash-briefing-skill"></a> Configuring your Flash Briefing skill</h3>
+
+<ul>
+  <li>Log in to <a href="https://developer.amazon.com">Amazon developer console</a></li>
+  <li>Click the Alexa navigation tab at the top of the console</li>
+  <li>Click on the “Get Started &gt;” button under “Alexa Skills Kit”</li>
+  <li>Click the yellow “Add a new skill” button in the top right
+    <ul>
+      <li>Skill Information
+        <ul>
+          <li>For Skill Type select “Flash Briefing Skill API”</li>
+          <li>You can enter whatever name you want</li>
+          <li>Hit “Next”</li>
+        </ul>
+      </li>
+      <li>Interaction Model
+        <ul>
+          <li>Nothing to do here</li>
+        </ul>
+      </li>
+      <li>Configuration
+        <ul>
+          <li>Add new feed
+            <ul>
+              <li>For URL, enter <code class="highlighter-rouge">https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?api_password=YOUR_API_PASSWORD</code> where <code class="highlighter-rouge">BRIEFING_ID</code> is the key you entered in your configuration (such as <code class="highlighter-rouge">whoishome</code> in the above example). <strong>NOTE:</strong> Do not use a non-standard http or https port, AWS will not connect to it.</li>
+              <li>You can use this <a href="/images/components/alexa/alexa-512x512.png">specially sized Home Assistant logo</a> as the Feed Icon</li>
+              <li>All other settings are up to you</li>
+              <li>Hit “Next”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Test
+        <ul>
+          <li>Having passed all validations to reach this screen you can now click on “&lt; Back to All Skills” as your flash briefing is now available as in “Development” service.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>To invoke your flash briefing, open the Alexa app on your phone or go to [Alexa</td>
+          <td>http://alexa.amazon.com/], open the “Skills” configuration section, select “Your Skills”, scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your “news”,”flash briefing”, or “briefing”.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/alexa.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/amazon-echo.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.1
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Voice</h1>
+    <ul class='divided'>
+        <li>
+            Alexa / Amazon Echo
+        </li>
+        <li>
+            <a href='/components/conversation/'>Conversation</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

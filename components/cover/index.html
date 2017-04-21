@@ -1,0 +1,287 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Covers - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate covers into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/cover/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Covers">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/cover/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate covers into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Covers">
+    <meta name="twitter:description" content="Instructions how to integrate covers into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Covers
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.</p>
+
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+
+<h3><a class="title-link" name="cover-control-services" href="#cover-control-services"></a> Cover control services</h3>
+<p>Available services: <code class="highlighter-rouge">cover.open_cover</code>, <code class="highlighter-rouge">cover.close_cover</code>, <code class="highlighter-rouge">cover.stop_cover</code>, <code class="highlighter-rouge">cover.open_cover_tilt</code>, <code class="highlighter-rouge">cover.close_cover_tilt</code>, <code class="highlighter-rouge">cover.stop_cover_tilt</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of covers. Else targets all.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><a class="title-link" name="service-coverset_cover_position" href="#service-coverset_cover_position"></a> Service <code class="highlighter-rouge">cover.set_cover_position</code></h3>
+
+<p>Set cover position of one or multiple covers.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of covers. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">position</code></td>
+      <td>no</td>
+      <td>Integer between 0 and 100.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.demo</span>
+        <span class="s">position</span><span class="pi">:</span> <span class="s">50</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="service-coverset_cover_tilt_position" href="#service-coverset_cover_tilt_position"></a> Service <code class="highlighter-rouge">cover.set_cover_tilt_position</code></h3>
+
+<p>Set cover tilt position of one or multiple covers.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>’s of covers. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">position</code></td>
+      <td>no</td>
+      <td>Integer between 0 and 100.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="title-link" name="automation-example" href="#automation-example"></a> Automation example</h4>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_tilt_position</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.demo</span>
+        <span class="s">position</span><span class="pi">:</span> <span class="s">50</span>
+</code></pre>
+</div>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/cover.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+  </div>
+            <h1 class='title delta'>Platforms</h1>
+            <ul class='divided'>
+          <li><a href='/components/cover.command_line/'>
+            Command Line Cover
+          </a></li>
+          <li><a href='/components/cover.garadget/'>
+            Garadget Cover
+          </a></li>
+          <li><a href='/components/cover.homematic/'>
+            Homematic Cover
+          </a></li>
+          <li><a href='/components/cover.isy994/'>
+            ISY994 Cover
+          </a></li>
+          <li><a href='/components/cover.mqtt/'>
+            MQTT Cover
+          </a></li>
+          <li><a href='/components/cover.mysensors/'>
+            MySensors Cover
+          </a></li>
+          <li><a href='/components/cover.rfxtrx/'>
+            RFXtrx Cover
+          </a></li>
+          <li><a href='/components/cover.rpi_gpio/'>
+            Raspberry Pi Cover
+          </a></li>
+          <li><a href='/components/cover.scsgate/'>
+            SCSGate Cover
+          </a></li>
+          <li><a href='/components/cover.vera/'>
+            Vera Cover
+          </a></li>
+          <li><a href='/components/cover.wink/'>
+            Wink Cover
+          </a></li>
+          <li><a href='/components/cover.zwave/'>
+            Z-Wave Cover
+          </a></li>
+      </ul>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

@@ -1,0 +1,349 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Notifications - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to add user notifications to Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/notify/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Notifications">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/notify/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to add user notifications to Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Notifications">
+    <meta name="twitter:description" content="Instructions how to add user notifications to Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Notifications
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The <code class="highlighter-rouge">notify</code> component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.</p>
+
+<h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">notify</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pushbullet</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">paulus</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFG</span>
+</code></pre>
+</div>
+
+<p>The <strong>name</strong> parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service <code class="highlighter-rouge">notify/&lt;name&gt;</code>. The name will default to <code class="highlighter-rouge">notify</code> if not supplied.</p>
+
+<h3><a class="title-link" name="service" href="#service"></a> Service</h3>
+
+<p>Once loaded, the <code class="highlighter-rouge">notify</code> platform will expose a service that can be called to send notifications.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message</code></td>
+      <td>no</td>
+      <td>Body of the notification.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td>yes</td>
+      <td>Title of the notification. Default is <code class="highlighter-rouge">Home Assistant</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>yes</td>
+      <td>Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">data</code></td>
+      <td>yes</td>
+      <td>On platforms who have extended functionality. See your platform page if it is supported.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The notification component supports specifying <a href="/topics/templating/">templates</a> with <code class="highlighter-rouge">data_template</code>. This will allow you to use the current state of Home Assistant in your notifications.</p>
+
+<p>In an <a href="https://home-assistant.io/getting-started/automation-action/">action</a> of your <a href="/getting-started/automation/">automation setup</a> it could look like this with a customized subject.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">message</span><span class="nv"> </span><span class="s">goes</span><span class="nv"> </span><span class="s">here"</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Custom</span><span class="nv"> </span><span class="s">subject"</span>
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="test-if-it-works" href="#test-if-it-works"></a> Test if it works</h3>
+
+<p>A simple way to test if you have set up your notify platform correctly is to use <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose your service (<em>notify/xyz</em>) from the list of <strong>Available services:</strong> and enter something like the sample below into  the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>For services which have support for sending images.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test plugin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+    </span><span class="nt">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.gbsun.de/gbpics/berge/berge106.jpg"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>If the service support sending the location, the data from this sample can be used.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test plugin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.3284</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.38234</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/notify.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+  </div>
+            <h1 class='title delta'>Platforms</h1>
+            <ul class='divided'>
+          <li><a href='/components/notify.apns/'>
+            APNS
+          </a></li>
+          <li><a href='/components/notify.aws_lambda/'>
+            AWS Lambda
+          </a></li>
+          <li><a href='/components/notify.aws_sns/'>
+            AWS SNS
+          </a></li>
+          <li><a href='/components/notify.aws_sqs/'>
+            AWS SQS
+          </a></li>
+          <li><a href='/components/notify.command_line/'>
+            Command line Notify
+          </a></li>
+          <li><a href='/components/notify.ecobee/'>
+            Ecobee Notify
+          </a></li>
+          <li><a href='/components/notify.file/'>
+            File
+          </a></li>
+          <li><a href='/components/notify.free_mobile/'>
+            Free Mobile
+          </a></li>
+          <li><a href='/components/notify.gntp/'>
+            GNTP (Growl)
+          </a></li>
+          <li><a href='/components/notify.instapush/'>
+            Instapush
+          </a></li>
+          <li><a href='/components/notify.xmpp/'>
+            Jabber (XMPP)
+          </a></li>
+          <li><a href='/components/notify.joaoapps_join/'>
+            Join Notify
+          </a></li>
+          <li><a href='/components/notify.kodi/'>
+            Kodi
+          </a></li>
+          <li><a href='/components/notify.webostv/'>
+            LG WebOS TV notifications
+          </a></li>
+          <li><a href='/components/notify.llamalab_automate/'>
+            LlamaLab Automate
+          </a></li>
+          <li><a href='/components/notify.mqtt/'>
+            MQTT Notifications
+          </a></li>
+          <li><a href='/components/notify.matrix/'>
+            Matrix
+          </a></li>
+          <li><a href='/components/notify.message_bird/'>
+            MessageBird
+          </a></li>
+          <li><a href='/components/notify.nfandroidtv/'>
+            Notifications for Android TV / FireTV
+          </a></li>
+          <li><a href='/components/notify.group/'>
+            Notify Group
+          </a></li>
+          <li><a href='/components/notify.nma/'>
+            Notify My Android
+          </a></li>
+          <li><a href='/components/notify.html5/'>
+            Push Notifications
+          </a></li>
+          <li><a href='/components/notify.pushbullet/'>
+            Pushbullet
+          </a></li>
+          <li><a href='/components/notify.pushetta/'>
+            Pushetta
+          </a></li>
+          <li><a href='/components/notify.pushover/'>
+            Pushover
+          </a></li>
+          <li><a href='/components/notify.rest/'>
+            REST
+          </a></li>
+          <li><a href='/components/notify.smtp/'>
+            SMTP
+          </a></li>
+          <li><a href='/components/notify.sendgrid/'>
+            SendGrid
+          </a></li>
+          <li><a href='/components/notify.simplepush/'>
+            Simplepush
+          </a></li>
+          <li><a href='/components/notify.slack/'>
+            Slack
+          </a></li>
+          <li><a href='/components/notify.syslog/'>
+            Syslog
+          </a></li>
+          <li><a href='/components/notify.telegram/'>
+            Telegram
+          </a></li>
+          <li><a href='/components/notify.telstra/'>
+            Telstra
+          </a></li>
+          <li><a href='/components/notify.twilio_sms/'>
+            Twilio SMS
+          </a></li>
+          <li><a href='/components/notify.twitter/'>
+            Twitter
+          </a></li>
+      </ul>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

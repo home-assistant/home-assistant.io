@@ -1,0 +1,315 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>0.33: New Calendar component, Wink thermostats and Cisco IOS - Home Assistant</title>
+    <meta name="author" content="Fabian Affolter">
+    <meta name="description" content="Continued our upgrade to Async, fixed tons of bugs and added a few new things.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="0.33: New Calendar component, Wink thermostats and Cisco IOS">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Continued our upgrade to Async, fixed tons of bugs and added a few new things.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2016-11-0.33/social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@fabaff">
+    <meta name="twitter:title" content="0.33: New Calendar component, Wink thermostats and Cisco IOS">
+    <meta name="twitter:description" content="Continued our upgrade to Async, fixed tons of bugs and added a few new things.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-11-0.33/social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="post">
+  
+  <header>
+  
+  <h1 class="title indent">0.33: New Calendar component, Wink thermostats and Cisco IOS</h1>
+  
+
+  
+  <div class="meta clearfix">
+    <time datetime="2016-11-20T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 20, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li>Release-Notes</li>
+      
+    
+    </ul>
+  </span>
+    
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+    
+  </div>
+  
+</header>
+
+
+  <p>For this release we put a lot of focus on finishing our async upgrade and fix a bunch of bugs in the process.</p>
+
+<p>But a new release wouldn’t be awesome if it didn’t had some new goodies and this release is no different. This release includes a new calendar component by <a href="https://github.com/mnestor">@mnestor</a>. It comes now with Google Calendar support, which should allow you to automate things based on your calendar events!</p>
+
+<h3><a class="title-link" name="changes" href="#changes"></a> Changes</h3>
+
+<ul>
+  <li>New <a href="/components/calendar.google/">calendar component</a> including Google support (<a href="https://github.com/mnestor">@mnestor</a>)</li>
+  <li>Final core upgrade for async (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li><a href="/components/neato/">Neato</a> refactor + sensor support (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.swisscom/">Swisscom Internet-Box</a> now supported (<a href="https://github.com/betrisey">@betrisey</a>)</li>
+  <li>Device Tracker - Locative: <a href="/components/device_tracker.locative/">Map support</a> added (<a href="https://github.com/danijelst">@danijelst</a>)</li>
+  <li><a href="/components/emulated_hue/">Emulated Hue</a> will now sent request info as variables to scripts that get called (<a href="https://github.com/bah2830">@bah2830</a>)</li>
+  <li>Wink: <a href="/components/climate.wink/">Thermostats</a> are now supported (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
+  <li>Light: New <a href="/components/light.mqtt_template/">MQTT template</a> platform for custom communication (<a href="https://github.com/Diaoul">@Diaoul</a>)</li>
+  <li><a href="/components/switch.wake_on_lan/">Wake on Lan switch</a> can now configure a custom OFF script (<a href="https://github.com/Chris-V">@Chris-V</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.cisco_ios/">Cisco IOS</a> now supported (<a href="https://github.com/fbradyirl">@fbradyirl</a>)</li>
+  <li>Sensor: Support for <a href="/components/sensor.pvoutput/">PVOutput</a> snesor (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Sensor: Show count of connected clients to the <a href="/components/sensor.api_stream/">API stream</a> (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>Fix platforms from doing I/O in the event loop (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/pvizeli">@pvizeli</a>, <a href="https://github.com/lwis">@lwis</a>, <a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Switch - <a href="/components/switch.tplink/">TP Link</a>: Add daily consumption (<a href="https://github.com/">@gonzalezcalleja</a>)</li>
+  <li>Templates: Add new <code class="highlighter-rouge">strptime</code> <a href="/topics/templating/#home-assistant-template-extensions">template function</a> for parsing times (<a href="https://github.com/lwis">@lwis</a>)</li>
+  <li><a href="/components/http/">HTTP</a> component: Fix X-Forwarded-For parsing (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Switch - <a href="/components/switch.command_line/">Command Line</a>: Use configured object_id for entity IDs (<a href="https://github.com/n8henrie">@n8henrie</a>)</li>
+  <li><a href="/components/mqtt/">MQTT</a> now supports birth and last will messages (<a href="https://github.com/bestlibre">@bestlibre</a>)</li>
+  <li>Better handling of accented characters in slugify (<a href="https://github.com/magicus">@magicus</a>)</li>
+  <li>Alarm Control Panel - <a href="/components/envisalink/">Envisalink</a>: Add new keypress service (<a href="https://github.com/jnimmo">@jnimmo</a>)</li>
+  <li>Light - <a href="/components/light.hue/">Hue</a>: Add service to activate scenes defined in Hue app (<a href="https://github.com/sdague">@sdague</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0331---november-20" href="#release-0331---november-20"></a> Release 0.33.1 - November 20</h3>
+
+<ul>
+  <li>Fix Z-Wave lights (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0332---november-22" href="#release-0332---november-22"></a> Release 0.33.2 - November 22</h3>
+
+<ul>
+  <li>Fix Device Tracker init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix Discovery init (<a href="https://github.com/pvizeli">@pvizeli</a>)</li>
+  <li>Fix TP-Link switch (<a href="https://github.com/mweinelt">@mweinelt</a>)</li>
+  <li>Fix Zwave light naming &amp; configurable refresh (<a href="https://github.com/jchapple">@jchapple</a>)</li>
+  <li>Neato fixes (<a href="https://github.com/turbokongen">@turbokongen</a>)</li>
+  <li>Fix ‘Unknown’ status for Nest Protect devices (<a href="https://github.com/Khabi">@Khabi</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="release-0333---november-23" href="#release-0333---november-23"></a> Release 0.33.3 - November 23</h3>
+
+<ul>
+  <li>Update Yr.no entities every hour (<a href="https://github.com/kellerza">@kellerza</a>)</li>
+  <li>Bump Netdisco to 0.7.7 (fixes discovery on Synology)</li>
+  <li>Fix discovery race condition (most obvious in Wemo) (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+
+<h3><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h3>
+
+<ul>
+  <li>We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now <code class="highlighter-rouge">Tèst Mörê</code> will become <code class="highlighter-rouge">test_more</code> instead of <code class="highlighter-rouge">tst_mr</code>.</li>
+  <li>Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.</li>
+</ul>
+
+<h3><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting issues</h3>
+
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+</article>
+
+
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+
+    
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/"
+     data-counturl="https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/" >Tweet</a>
+  
+  
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/"
+         data-layout="button_count">
+    </div>
+  
+  
+  <div class="g-plusone" data-size="standard"></div>
+  
+</section>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+    
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/11/05/hacktoberfest-influxdb-weather/">0.32: Hacktoberfest, InfluxDB sensor, Error reporting, and Weather</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/25/explaining-the-updater/">Explaining the Updater</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/22/flash-briefing-updater-hacktoberfest/">0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change</a>
+        </li>
+      
+    
+      
+        <li class="post">
+          <a href="/blog/2016/10/08/hassbian-rest-digital-ocean/">0.30: More Async, HASSbian, Digital Ocean, statistics, REST</a>
+        </li>
+      
+    
+  </ul>
+</section>
+    
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+  
+    
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/11/20/calendar-wink-thermostats-cisco-ios/';
+    var disqus_script = 'embed.js';
+  
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+  </body>
+</html>

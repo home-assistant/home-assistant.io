@@ -1,0 +1,161 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Web server - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Use nmap to scan your Home Assistant instance.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/details/webserver/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Web server">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/details/webserver/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Use nmap to scan your Home Assistant instance.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="Web server">
+    <meta name="twitter:description" content="Use nmap to scan your Home Assistant instance.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_details/webserver.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      Web Server
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>It was only a matter of time till the first queries for tools like <a href="https://www.shodan.io/search?query=Home+Assistant">https://www.shodan.io</a> to search for Home Assistant instances showed up.</p>
+
+<p>To get an idea about how your Home Assistant instance looks like for network scanner, you can use <code class="highlighter-rouge">nmap</code>. The <code class="highlighter-rouge">nmap</code> tool is already available if you are using the <a href="/components/device_tracker/">nmap device tracker</a>.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">$ nmap -sV -p 8123 --script=http-title,http-headers 192.168.1.3</span>
+
+<span class="s">Starting Nmap 7.12 ( https://nmap.org ) at 2016-10-06 10:01 CEST</span>
+<span class="s">Nmap scan report for 192.168.1.3 (192.168.1.3)</span>
+<span class="s">Host is up (0.00011s latency).</span>
+<span class="s">PORT     STATE SERVICE VERSION</span>
+<span class="s">8123/tcp open  http    CherryPy wsgiserver</span>
+<span class="pi">|</span> <span class="err">http-headers:</span> 
+<span class="err">|</span><span class="no">   Content-Type: text/html; charset=utf-8</span>
+<span class="err">|</span><span class="no">   Content-Length: 4309</span>
+<span class="err">|</span><span class="no">   Connection: close</span>
+<span class="err">|</span><span class="no">   Date: Thu, 06 Oct 2016 08:01:31 GMT</span>
+<span class="err">|</span><span class="no">   Server: Home Assistant</span>
+<span class="err">|</span>
+<span class="err">|</span><span class="no">_  (Request type: GET)</span>
+<span class="err">|</span><span class="no">_http-server-header: Home Assistant</span>
+<span class="err">|</span><span class="no">_http-title: Home Assistant</span>
+
+<span class="err">S</span><span class="no">ervice detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span>
+<span class="err">N</span><span class="no">map done: 1 IP address (1 host up) scanned in 6.70 seconds</span>
+</code></pre>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Community | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2016-11-23T14:59:54+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
+    <link href="https://home-assistant.io/blog/2016/10/02/hacktoberfest/"/>
+    <updated>2016-10-02T00:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/10/02/hacktoberfest</id>
+    <content type="html"><![CDATA[Home Assistant will join this year for [Hacktoberfest], an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!
+
+Why contribute to Home Assistant:
+
+ - Written in Python3 with 94% test coverage
+ - Active and helpful community
+ - Friendly to new contributors
+
+Resources to get started:
+
+ - [Sign up for Hacktoberfest][Hacktoberfest-reg]
+ - [List of entry-level issues for Home Assistant][issues]
+ - [Instructions to setup your development environment][dev-env]
+ - [Home Assistant Development Chat][dev-chat]
+ - [Home Assistant Development Forums][dev-forum]
+ - [Hacktoberfest website][Hacktoberfest]
+
+Are you not a programmer but still want to contribute to Home Assistant? Check out our [list of entry-level issues for the Home Assistant website][issues-doc].
+
+[![Hacktober fest logo][logo]][Hacktoberfest]
+
+[logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
+[Hacktoberfest]: https://hacktoberfest.digitalocean.com/
+[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/sign_up/register
+[issues]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
+[issues-doc]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
+[dev-env]: /developers/development_environment/
+[dev-chat]: https://gitter.im/home-assistant/home-assistant/devs
+[dev-forum]: https://community.home-assistant.io/c/development
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Community Highlights]]></title>
+    <link href="https://home-assistant.io/blog/2016/06/01/community-highlights/"/>
+    <updated>2016-06-01T18:34:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/06/01/community-highlights</id>
+    <content type="html"><![CDATA[Our community is amazingly helpful and creative. If you haven't been there yet, make sure to stop by our [chat room] and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.
+
+### <a class='title-link' name='scenegen---cli-for-making-scenes' href='#scenegen---cli-for-making-scenes'></a> SceneGen - cli for making scenes 
+
+[SceneGen] is a new command line utility developed by [Andrew Cockburn] that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.
+
+### <a class='title-link' name='videos' href='#videos'></a> Videos 
+
+[Nick Touran] has been working on integrating IR remotes with Home Assistant. He made it into a component which should be available in the next release which should arrive in a couple of days. In the meanwhile, he wrote up [a blog post] and has put out a video showing the new integration, very cool!
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6I_Lfpda0hc" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Ben from [BRUH Automation] has put out another great video how to get started tracking your location in Home Assistant using MQTT and OwnTracks.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VaWdvVVYU3A" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Muhammed Kilic has created a video how to make your Home Assistant instance accessible from the internet using the free dynamic DNS service DuckDNS.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UM15pRk56h8" frameborder="0" allowfullscreen></iframe>
+</div>
+
+[chat room]: https://gitter.im/home-assistant/home-assistant
+[SceneGen]: https://github.com/acockburn/scenegen
+[Andrew Cockburn]: https://github.com/acockburn
+[BRUH Automation]: http://www.bruhautomation.com/
+[Nick Touran]: https://partofthething.com
+[a blog post]: https://partofthething.com/thoughts/?p=1010
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Community Highlights]]></title>
+    <link href="https://home-assistant.io/blog/2016/02/20/community-highlights/"/>
+    <updated>2016-02-20T09:06:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/20/community-highlights</id>
+    <content type="html"><![CDATA[Home Assistant land has been busy and a lot of people have been creating awesome stuff. We've added [a cookbook section](/cookbook/) to the website full of examples how you can automate different things. Make sure you take a look and share your own recipes too!
+
+### <a class='title-link' name='home-automation-demo-by-part-of-the-thing' href='#home-automation-demo-by-part-of-the-thing'></a> Home automation demo by Part of the Thing 
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mc_29EC3aZw" frameborder="0" allowfullscreen></iframe>
+</div>
+
+### <a class='title-link' name='haaska---alexa-skill-adapter-for-home-assistant' href='#haaska---alexa-skill-adapter-for-home-assistant'></a> Haaska - Alexa Skill Adapter for Home Assistant 
+
+Haaska allows you to control lights, switches, and scenes exposed by your Home Assistant instance using an Amazon Echo. This is different from our own [Alexa](/components/alexa/) component because it will teach the Amazon Echo directly about the devices instead of teaching it to talk to Home Assistant. It will not allow you to use custom sentences but it will allow you to skip the 'Ask Home Assistant' part when giving commands:
+
+ - "Alexa, set kitchen to twenty percent"
+ - "Alexa, turn on evening scene"
+ - "Alexa, turn off bedroom light"
+
+[Haaska on GitHub](https://github.com/auchter/haaska)
+
+### <a class='title-link' name='integrating-home-assistant-with-homekit' href='#integrating-home-assistant-with-homekit'></a> Integrating Home Assistant with HomeKit 
+
+Contributor Maddox has created a plugin for HomeBridge, an open-source HomeKit bridge. This will allow you to control your home using Siri on your Apple devices. HomeBridge has recently restructured so you'll have to install the plugin separately with the homebridge-homeassistant npm package.
+
+Example config.json entry to load Home Assistant:
+
+```json
+"platforms": [
+    {
+        "platform": "HomeAssistant",
+        "name": "HomeAssistant",
+        "host": "http://192.168.1.50:8123",
+        "password": "xxx",
+        "supported_types": ["light", "switch", "media_player", "scene"]
+    }
+]
+```
+
+[HomeBridge on GitHub](https://github.com/nfarina/homebridge)
+[HomeBridge Home Assistant Plugin](https://github.com/maddox/homebridge-homeassistant)
+
+### <a class='title-link' name='custom-alarm-system-with-home-assistant' href='#custom-alarm-system-with-home-assistant'></a> Custom alarm system with Home Assistant 
+
+User thaijames [describes in the Home Assistant forums](https://community.home-assistant.io/t/controlling-house-alarm-from-ha/67) how he has created his own NFC-based alarm system using Home Assistant, DIY components and Garfield dolls.
+
+<p class='img'>
+<img src='https://home-assistant.io/images/blog/2016-02-community-highlights/garfield-nfc.png'>
+Hold your NFC tag against the belly of Garfield to unlock the alarm.
+</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Community Highlights]]></title>
+    <link href="https://home-assistant.io/blog/2015/12/05/community-highlights/"/>
+    <updated>2015-12-05T23:39:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2015/12/05/community-highlights</id>
+    <content type="html"><![CDATA[From time to time we come along things that are worth sharing with fellow Home Assisters. Here a list of some cool stuff from last week:
+
+First is the public beta of [Let's Encrypt](https://letsencrypt.org/). Let's Encrypt is a new certificate authority that is free, automated and open. This means that it will now be very easy to secure your connection to Home Assistant while you are away from home. W1ll1am23 has written up [a guide how to get started](https://community.home-assistant.io/t/homeassistant-nginx-ssl-proxy-setup/53).
+
+The next thing is a show-off of some of the cool stuff people do with Home Assistant. This is miniconfig talking to Home Assistant using the Amazon Echo!
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9QQjklnSQKY" frameborder="0" allowfullscreen></iframe>
+</div>
+
+And last but not least, Midwestern Mac did a [microSD card performance comparison](http://www.midwesternmac.com/blogs/jeff-geerling/raspberry-pi-microsd-card) for the Raspberry Pi. If you're using a Pi, make sure to check it out!
+]]></content>
+  </entry>
+  
+</feed>

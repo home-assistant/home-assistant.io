@@ -1,0 +1,308 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>FFmpeg - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions for how to integrate FFmpeg within Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/ffmpeg/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="FFmpeg">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/ffmpeg/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions for how to integrate FFmpeg within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="FFmpeg">
+    <meta name="twitter:description" content="Instructions for how to integrate FFmpeg within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      FFmpeg
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>The FFmpeg component allows other Home Assistant components to process video and audio streams. This component supports all FFmpeg versions since 3.0.0; if you have a older version, please update.</p>
+
+<p class="note">
+You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system path. On Debian 8 or Raspbian (Jessie) you can install it from <a href="https://backports.debian.org/Instructions/">debian-backports</a>. If you want <a href="https://trac.ffmpeg.org/wiki/HWAccelIntro">hardware acceleration</a> support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are available on the <a href="http://www.ffmpeg.org/">FFmpeg</a> website.
+</p>
+
+<p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ffmpeg</span><span class="pi">:</span>
+</code></pre>
+</div>
+
+<p>Configuration variables:</p>
+
+<ul>
+  <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default ‘ffmpeg’. The name or path to the <code class="highlighter-rouge">ffmpeg</code> binary.</li>
+  <li><strong>run_test</strong> (<em>Optional</em>): Default True. Check if <code class="highlighter-rouge">input</code> is usable by ffmpeg.</li>
+</ul>
+
+<h3><a class="title-link" name="raspbian-debian-jessie-lite-installations" href="#raspbian-debian-jessie-lite-installations"></a> Raspbian Debian Jessie Lite Installations</h3>
+<p>To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo apt-get install libav-tools
+</code></pre>
+</div>
+<p>This will get a forked version of ffmpeg called avconv, once this is installed you need to use the following in the configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg:
+  ffmpeg_bin: /usr/bin/avconv
+</code></pre>
+</div>
+
+<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
+
+<p>In most cases, <code class="highlighter-rouge">ffmpeg</code> automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set options to help <code class="highlighter-rouge">ffmpeg</code> out.</p>
+
+<p>First check that your stream is playable by <code class="highlighter-rouge">ffmpeg</code> outside of Home Assistant with (use option <code class="highlighter-rouge">-an</code> or <code class="highlighter-rouge">-vn</code> to disable video or audio stream):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ ffmpeg -i INPUT -an -f null -
+</code></pre>
+</div>
+
+<p>Now you should be able to see what is going wrong.  The following list contains some common problems and solutions:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">[rtsp @ ...] UDP timeout, retrying with TCP</code>: You need to set an RTSP transport in the configuration with: <code class="highlighter-rouge">input: -rtsp_transport tcp -i INPUT</code></li>
+  <li><code class="highlighter-rouge">[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size</code>: FFmpeg needs more data or time for autodetection (the default is 5 seconds). You can set the <code class="highlighter-rouge">analyzeduration</code> and/or <code class="highlighter-rouge">probesize</code> options to experiment with giving FFmpeg more leeway. If you find the needed value, you can set it  with: <code class="highlighter-rouge">input: -analyzeduration xy -probesize xy -i INPUT</code>. More information about this can be found <a href="https://www.ffmpeg.org/ffmpeg-formats.html#Description">here</a>.</li>
+</ul>
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/ffmpeg.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/ffmpeg.png' />
+  </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/binary_sensor.ffmpeg/'>
+          FFmpeg Binary Sensor
+        </a></li>
+        <li><a href='/components/camera.ffmpeg/'>
+          FFmpeg Camera
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Hub</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/wemo/'>Belkin WeMo</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
+        </li>
+        <li>
+            FFmpeg
+        </li>
+        <li>
+            <a href='/components/homematic/'>Homematic</a>
+        </li>
+        <li>
+            <a href='/components/isy994/'>ISY994 Controller</a>
+        </li>
+        <li>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/litejet/'>LiteJet</a>
+        </li>
+        <li>
+            <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/mochad/'>Mochad</a>
+        </li>
+        <li>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

@@ -1,0 +1,386 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MySensors Light - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate MySensors lights into Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/light.mysensors/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="MySensors Light">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/light.mysensors/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate MySensors lights into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="MySensors Light">
+    <meta name="twitter:description" content="Instructions how to integrate MySensors lights into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      MySensors Light
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Integrates MySensors lights into Home Assistant. See the <a href="/components/mysensors/">main component</a> for configuration instructions.</p>
+
+<p>The following actuator types are supported:</p>
+
+<h5>MySensors version 1.4</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>S_TYPE</th>
+      <th>V_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S_DIMMER</td>
+      <td>V_DIMMER*, V_LIGHT*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5>MySensors version 1.5 and higher</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>S_TYPE</th>
+      <th>V_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S_DIMMER</td>
+      <td>[V_DIMMER* or V_PERCENTAGE*], [V_LIGHT* or V_STATUS*]</td>
+    </tr>
+    <tr>
+      <td>S_RGB_LIGHT</td>
+      <td>V_RGB*, [V_LIGHT* or V_STATUS*], [V_DIMMER or V_PERCENTAGE]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>V_TYPES with a star (*) denotes required V_TYPES. Use either V_LIGHT or V_STATUS and either V_DIMMER or V_PERCENTAGE for an applicable actuator.</p>
+
+<p>For more information, visit the <a href="https://www.mysensors.org/download/serial_api_15">serial api</a> of MySensors.</p>
+
+<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+ *
+ * http://www.mysensors.org/build/dimmer
+ */</span>
+
+<span class="cp">#include &lt;MySensor.h&gt;
+#include &lt;SPI.h&gt;
+</span>
+<span class="cp">#define SN "DimmableRGBLED"
+#define SV "1.0"
+#define CHILD_ID 1
+#define LED_PIN 5
+</span>
+<span class="n">MySensor</span> <span class="n">gw</span><span class="p">;</span>
+
+<span class="kt">char</span> <span class="n">rgb</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="s">"ffffff"</span><span class="p">;</span> <span class="c1">// RGB value.
+</span><span class="kt">int</span> <span class="n">currentLevel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Current dimmer level.
+</span><span class="n">MyMessage</span> <span class="n">dimmerMsg</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_PERCENTAGE</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">lightMsg</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_STATUS</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">rgbMsg</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">V_RGB</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">incomingMessage</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">sendSketchInfo</span><span class="p">(</span><span class="n">SN</span><span class="p">,</span> <span class="n">SV</span><span class="p">);</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID</span><span class="p">,</span> <span class="n">S_RGB_LIGHT</span><span class="p">);</span>
+  <span class="c1">// Send initial values.
+</span>  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">lightMsg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">currentLevel</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">dimmerMsg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">currentLevel</span><span class="p">));</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">rgbMsg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">rgb</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">gw</span><span class="p">.</span><span class="n">process</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">incomingMessage</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_RGB</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Retrieve the RGB value from the incoming message.
+</span>    <span class="c1">// RGB LED not implemented, just a dummy print.
+</span>    <span class="n">String</span> <span class="n">hexstring</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">getString</span><span class="p">();</span>
+    <span class="n">hexstring</span><span class="p">.</span><span class="n">toCharArray</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">rgb</span><span class="p">));</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Changing color to "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">rgb</span><span class="p">);</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">rgbMsg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">rgb</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_STATUS</span> <span class="o">||</span> <span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_PERCENTAGE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Retrieve the light status or dimmer level from the incoming message.
+</span>    <span class="kt">int</span> <span class="n">requestedLevel</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
+
+    <span class="c1">// Adjust incoming level if this is a V_LIGHT update [0 == off, 1 == on].
+</span>    <span class="n">requestedLevel</span> <span class="o">*=</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">V_STATUS</span> <span class="o">?</span> <span class="mi">100</span> <span class="o">:</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// Clip incoming level to valid range of 0 to 100
+</span>    <span class="n">requestedLevel</span> <span class="o">=</span> <span class="n">requestedLevel</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="o">?</span> <span class="mi">100</span> <span class="o">:</span> <span class="n">requestedLevel</span><span class="p">;</span>
+    <span class="n">requestedLevel</span> <span class="o">=</span> <span class="n">requestedLevel</span> <span class="o">&lt;</span> <span class="mi">0</span>   <span class="o">?</span> <span class="mi">0</span>   <span class="o">:</span> <span class="n">requestedLevel</span><span class="p">;</span>
+
+    <span class="c1">// Change level value of LED pin.
+</span>    <span class="n">analogWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">requestedLevel</span> <span class="o">/</span> <span class="mf">100.</span> <span class="o">*</span> <span class="mi">255</span><span class="p">));</span>
+    <span class="n">currentLevel</span> <span class="o">=</span> <span class="n">requestedLevel</span><span class="p">;</span>
+
+    <span class="c1">// Update the gateway with the current V_STATUS and V_PERCENTAGE.
+</span>    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">lightMsg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">currentLevel</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">));</span>
+    <span class="n">gw</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">dimmerMsg</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">currentLevel</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+
+</article>
+
+
+        </div>
+
+        
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+  
+  
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/light.mysensors.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/mysensors.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+    Introduced in release: 0.13
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/light/'>the Lights component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/mysensors/'>
+          MySensors
+        </a></li>
+        <li><a href='/components/binary_sensor.mysensors/'>
+          MySensors Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.mysensors/'>
+          MySensors Cover
+        </a></li>
+        <li><a href='/components/climate.mysensors/'>
+          MySensors HVAC
+        </a></li>
+        <li><a href='/components/sensor.mysensors/'>
+          MySensors Sensor
+        </a></li>
+        <li><a href='/components/switch.mysensors/'>
+          MySensors Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Light</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/light.wemo/'>Belkin WeMo Lights</a>
+        </li>
+        <li>
+            <a href='/components/light.blinksticklight/'>Blinkstick</a>
+        </li>
+        <li>
+            <a href='/components/light.enocean/'>EnOcean Light</a>
+        </li>
+        <li>
+            <a href='/components/light.flux_led/'>Flux Led/MagicLight</a>
+        </li>
+        <li>
+            <a href='/components/light.homematic/'>Homematic Light</a>
+        </li>
+        <li>
+            <a href='/components/light.hyperion/'>Hyperion</a>
+        </li>
+        <li>
+            <a href='/components/light.isy994/'>ISY994 Light</a>
+        </li>
+        <li>
+            <a href='/components/light.insteon_hub/'>Insteon Hub Light</a>
+        </li>
+        <li>
+            <a href='/components/light.lifx/'>LIFX</a>
+        </li>
+        <li>
+            <a href='/components/light.limitlessled/'>LimitlessLED</a>
+        </li>
+        <li>
+            <a href='/components/light.litejet/'>LiteJet Light</a>
+        </li>
+        <li>
+            <a href='/components/light.mqtt_json/'>MQTT JSON Light</a>
+        </li>
+        <li>
+            <a href='/components/light.mqtt/'>MQTT Light</a>
+        </li>
+        <li>
+            <a href='/components/light.mqtt_template/'>MQTT Template Light</a>
+        </li>
+        <li>
+            MySensors Light
+        </li>
+        <li>
+            <a href='/components/light.osramlightify/'>Osram Lightify</a>
+        </li>
+        <li>
+            <a href='/components/light.hue/'>Philips Hue</a>
+        </li>
+        <li>
+            <a href='/components/light.qwikswitch/'>QwikSwitch Light</a>
+        </li>
+        <li>
+            <a href='/components/light.rfxtrx/'>RFXtrx Light</a>
+        </li>
+        <li>
+            <a href='/components/light.scsgate/'>SCSGate Light</a>
+        </li>
+        <li>
+            <a href='/components/light.tellstick/'>TellStick Light</a>
+        </li>
+        <li>
+            <a href='/components/light.vera/'>Vera Light</a>
+        </li>
+        <li>
+            <a href='/components/light.wink/'>Wink Light</a>
+        </li>
+        <li>
+            <a href='/components/light.x10/'>X10</a>
+        </li>
+        <li>
+            <a href='/components/light.yeelight/'>Yeelight Wifi Bulb</a>
+        </li>
+        <li>
+            <a href='/components/light.zwave/'>Z-Wave Light</a>
+        </li>
+        <li>
+            <a href='/components/light.zigbee/'>ZigBee Light</a>
+        </li>
+    </ul>
+    </div>
+</section>
+  
+</div>
+        </aside>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>State Objects - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Describes all there is to know about state objects in Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/topics/state_object/">
+
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="State Objects">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/topics/state_object/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Describes all there is to know about state objects in Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    
+    <meta name="twitter:title" content="State Objects">
+    <meta name="twitter:description" content="Describes all there is to know about state objects in Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+
+  <body >
+
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/ecosystem/">Ecosystem</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+        
+
+          <article class="page">
+  
+  
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_topics/state_object.markdown'>Edit this page on GitHub</a></div>
+  
+
+  
+  <header>
+    <h1 class="title indent">
+      State Objects
+    </h1>
+  </header>
+  <hr class="divider">
+  
+
+  <p>Your devices are represented in Home Assistant as entities. The entities will write their current state to the state machine for other entities/templates/frontend to access. States are a current representation of the entity.</p>
+
+<p>If you overwrite a state via the states dev tool or the API, it will not impact the actual device. If the device state is being polled, it will overwrite the state in the state machine the next polling.</p>
+
+<p>All states will always have an entity id, a state and a timestamp when last updated and last changed.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">state.state</code></td>
+      <td>String representation of the current state of the entity. Example <code class="highlighter-rouge">off</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state.entity_id</code></td>
+      <td>Entity ID. Format: <code class="highlighter-rouge">&lt;domain&gt;.&lt;object_id&gt;</code>. Example: <code class="highlighter-rouge">light.kitchen</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state.domain</code></td>
+      <td>Domain of the entity. Example: <code class="highlighter-rouge">light</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state.object_id</code></td>
+      <td>Object ID of entity. Example: <code class="highlighter-rouge">kitchen</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state.name</code></td>
+      <td>Name of the entity. Based on <code class="highlighter-rouge">friendly_name</code> attribute with fall back to object ID. Example: <code class="highlighter-rouge">Kitchen Ceiling</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state.last_updated</code></td>
+      <td>Time the state was written to the state machine. Note that writing the exact same state including attributes will not result in this field being updated. Example: <code class="highlighter-rouge">14:10:03 13-03-2016</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state.last_changed</code></td>
+      <td>Time the state changed. This is not updated when there are only updated attributes. Example: <code class="highlighter-rouge">14:10:03 13-03-2016</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state.attributes</code></td>
+      <td>A dictionary with extra attributes related to the current state.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The attributes of an entity are optional. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each component will also have it’s own attributes to represent extra state data about the entity. For example, the light component has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.</p>
+
+<p>When using templates, attributes will be available by their name. For example <code class="highlighter-rouge">state.attributes.assumed_state</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">friendly_name</code></td>
+      <td>Name of the entity. Example: <code class="highlighter-rouge">Kitchen Ceiling</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">icon</code></td>
+      <td>Icon to use for the entity in the frontend. Example: <code class="highlighter-rouge">mdi:home</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hidden</code></td>
+      <td>Boolean if the entity should not be shown in the frontend. Example: <code class="highlighter-rouge">true</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_picture</code></td>
+      <td>Url to a picture that should be used instead of showing the domain icon. Example: <code class="highlighter-rouge">http://example.com/picture.jpg</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assumed_state</code></td>
+      <td>Boolean if the current state is an assumption. <a href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#classifiers">More info</a> Example: <code class="highlighter-rouge">True</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">unit_of_measurement</code></td>
+      <td>The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: <code class="highlighter-rouge">°C</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When an attribute contains spaces, you can retrieve it like this: <code class="highlighter-rouge">states.sensor.livingroom.attributes["Battery numeric"]</code>.</p>
+
+
+</article>
+
+
+        </div>
+
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
