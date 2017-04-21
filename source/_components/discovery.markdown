@@ -30,6 +30,7 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Flux Led/MagicLight
  * Linn / Openhome
  * Denon Network Receivers
+ * Bose Soundtouch speakers
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -66,7 +67,7 @@ Valid values for ignore are:
 
 
 <p class='note'>
-Home Assistant must be on the same network as the devices for uPnP discovery to work. 
+Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a Docker container use switch `--net=host` to put it on the host's network.
 </p>
 
