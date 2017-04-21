@@ -13,5 +13,6 @@ ha_release: 0.33
 ---
 
 The `neato` sensor platform allows you to watch status and battery of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
+The status sensor will contain attributes on the robots last clean session.
 
 To add `neato` sensors to your installation, follow instructions in [Neato component](/components/neato/).
