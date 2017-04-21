@@ -16,6 +16,8 @@ The `alert` component is designed to notify you when problematic issues arise. F
 
 Alerts will add an entity to the front end only when they are firing. This entity allows you to silence an alert until it is resolved.
 
+When using the `alert` component it is important that the timezone used for Home Assistant and the underlying operating system match. Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the `America/Detroit` timezone but the operating system uses `UTC`).
+
 ### {% linkable_title Basic Example %}
 
 The `alert` component makes use of any of the `notifications` components. To setup the `alert` component, first, you must setup a `notification` component. Then, add the following to your configuration file:
@@ -83,12 +85,12 @@ binary_sensor:
 
 alert:
   motion_battery:
-    - name: Motion Battery is Low
-      entity_id: binary_sensor.motion_battery_low
-      repeat: 30
-      notifiers:
-        - ryans_phone
-        - kristens_phone
+    name: Motion Battery is Low
+    entity_id: binary_sensor.motion_battery_low
+    repeat: 30
+    notifiers:
+      - ryans_phone
+      - kristens_phone
 ```
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery` attribute falls below 15. It will continue to fire until the battery attribute raises above 15 or the alert is acknowledged on the frontend.
