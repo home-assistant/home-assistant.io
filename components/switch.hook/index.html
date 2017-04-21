@@ -70,10 +70,17 @@
 <p>Hook allows you to control cheap mains electrical outlets, like these ones at <a href="https://www.amazon.com/Etekcity-Wireless-Electrical-Household-Appliances/dp/B00DQELHBS">Amazon</a>.</p>
 <p>In short, Hook is an RF to Wi-Fi bridge, controlling devices that recieve commands at 315MHz and 433MHz. Unfortunately, this does not allow Hook to determine if the command was successful, so the state is assumed.</p>
 <p>Hook provides a simple <a href="https://app.swaggerhub.com/api/rahilj/GetHook_RestAPI/v1">REST API</a>. This Home Assistant component reads in devices that have been set up in the official app.</p>
+<p>Configure with either your username/password or your API token for the official app.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="pi">-</span>  <span class="s">platform</span><span class="pi">:</span> <span class="s">hook</span>
    <span class="s">username</span><span class="pi">:</span> <span class="s">&lt;email address&gt;</span>
    <span class="s">password</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">hook</span>
+</code></pre>
+</div>
+<p>Or</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="pi">-</span>  <span class="s">platform</span><span class="pi">:</span> <span class="s">hook</span>
+   <span class="s">token</span><span class="pi">:</span> <span class="s">&lt;your API token&gt;</span>
 </code></pre>
 </div>
 <p>Extra debug logging is available, if you need it.</p>
