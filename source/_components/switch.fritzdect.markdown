@@ -40,3 +40,8 @@ Configuration variables:
 - **username** (*Required*): The username for your Fritz!Box.
 - **password** (*Required*): The password for your Fritz!Box.
 - **host** (*Optional*): The IP address/hostname of your Fritz!Box. Defaults to `fritz.box`.
+
+
+<p class='note warning'>
+If this component throws an error when starting home-assistant you should check if all actors are plugged in and connected to the FritzBox. Inactive actors that are not deleted from FritzBox configuration might lead to errors.
+</p>
