@@ -7,6 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category: Front end
+ha_release: 0.42.3
 ---
 
 The `rss_feed_template` component can export any information from Home Assistant as static RSS feed. This can be used to display those information on several devices using RSS readers. While native apps for Home Assistant are not widely available, native RSS readers exists for almost any platform.
@@ -26,7 +28,7 @@ rss_feed_template:
 
 Configuration variables:
 
-- **feed_id** (*Required*): The key is used as id of the feed. The feed can be accessed at /api/rss/feed_id (example: 'garden')
+- **feed_id** (*Required*): The key is used as id of the feed. The feed can be accessed at /api/rss_template/feed_id (example: 'garden')
 - **title** (*Optional*): The title of the feed, which is parsed as [template](/topics/templating/).
 - **items** (*Required*): A list of feed items
 - **items/title** (*Optional*): The title of the item, which is parsed as [template](/topics/templating/).
