@@ -12,10 +12,6 @@ ha_category: Hub
 ha_iot_class: "Cloud Polling"
 ---
 
-<p class='note warning'>
-This component has been disabled due to a complaint by Insteon. It will be enabled again once <a href='https://github.com/home-assistant/home-assistant/issues/3811'>this issue</a> has been resolved.
-</p>
-
 The `insteon` component lets you use your [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
 
 You will need to obtain an Insteon REST API key from the [Insteon Developer program](http://www.insteon.com/become-an-insteon-developer) to use this component.
@@ -28,6 +24,7 @@ insteon_hub:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
   api_key: YOUR_API_KEY
+  poll_hub: true
 ```
 
 Configuration variables:
@@ -35,3 +32,4 @@ Configuration variables:
 - **username** (*Required*): The username used to access the Insteon interface (e.g. the [connect.insteon.com](connect.insteon.com) site).
 - **password** (*Required*): The password used to access the Insteon interface.
 - **api_key** (*Required*): The Insteon REST API key emailed to you once you are approved in the Insteon Developer program.
+- **poll_hub** (*Optional*): Flag to determine if you should poll the hub & your devices for their state. (Note: this will poll each device every 30 seconds.)
