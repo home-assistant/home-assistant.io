@@ -35,6 +35,7 @@ Configuration variables:
   - **username** (*Optional*): The username for HTTP authentication.
   - **password** (*Optional*): The password for HTTP authentication.
   - **timeout** (*Optional*): Timeout for requests. Defaults to 10 seconds.
+  - **content_type** (*Optional*): Content type for the request.
 
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for template stuff.
 
