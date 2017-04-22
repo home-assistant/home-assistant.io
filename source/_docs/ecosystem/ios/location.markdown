@@ -34,7 +34,7 @@ At launch, Home Assistant for iOS sets up geofences for all zones in your Home A
 
 ### Configuration
 
-Add `track_ios: true` to your zone configurations to enable it for tracking in all connected iOS apps.
+Add `track_ios: false` to your zone configurations to disable zone location tracking for all connected iOS apps.
 
 ### iBeacons
 
