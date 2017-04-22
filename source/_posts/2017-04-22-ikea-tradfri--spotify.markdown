@@ -26,9 +26,13 @@ A big shout out this release to [@happyleavesaoc] for his constant stream of gre
 
 The new Spotify integration is based on the new Spotify Connect Playback API. It supports playback, album art and switching which Spotify device you're controlling.
 
+Also note that you have till the end of the weekend to [submit an application][application] to our giveaway of low energy servers which we got when [we won the Thomas Krenn award 2017][krenn]. [Go apply!][application]
+
 [ikea-blog]: /blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/
 [ios]: /blog/2017/04/15/ios/
 [ios-source]: https://github.com/home-assistant/home-assistant-ios
+[krenn]: /blog/2017/04/01/thomas-krenn-award/
+[application]: https://community.home-assistant.io/c/contest-2017
 
 ## {% linkable_title New Platforms %}
 
