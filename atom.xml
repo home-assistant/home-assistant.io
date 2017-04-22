@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-22T09:01:44+00:00</updated>
+  <updated>2017-04-22T09:11:06+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -29,7 +29,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
 
 <p>And in case you have missed the other big news: <a href="https://github.com/robbiet480">@robbiet480</a> released the <a href="https://home-assistant.io/blog/2017/04/15/ios/">first version of our iOS app</a>! It took a little over a year but it offers some great ways to make your iDevice work with Home Assistant. Big congrats to Robbie for shipping! As with our other parts, the app is open-sourced under APACHE 2 and contributors are welcome. <a href="https://github.com/home-assistant/home-assistant-ios">Check it out.</a></p>
 
-<p>A big shout out this release to <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> for his constant stream of great contributions to Home Assistant. The first contribution was back in October 2015 and since then @happyleavesaoc has been responsible for many platforms and bug fixes including the Spotify platform this release. Thanks @happyleavesaoc, you’re a great example of what makes our community awesome.</p>
+<p>A big shout out this release to <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> for his constant stream of great contributions to Home Assistant. The first contribution was back in October 2015 and since then <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> has been responsible for many platforms and bug fixes including the Spotify platform this release. Thanks <a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>, you’re a great example of what makes our community awesome.</p>
 
 <p>The new Spotify integration is based on the new Spotify Connect Playback API. It supports playback, album art and switching which Spotify device you’re controlling.</p>
 
@@ -38,16 +38,17 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
 <h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
 
 <ul>
-  <li>Add MaryTTS platform (<a href="https://github.com/johanpalmqvist">@johanpalmqvist</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6988">#6988</a>) (<a href="https://home-assistant.io/components/tts.marytts/">tts.marytts docs</a>) (new-platform)</li>
+  <li>MaryTTS platform (<a href="https://github.com/johanpalmqvist">@johanpalmqvist</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6988">#6988</a>) (<a href="https://home-assistant.io/components/tts.marytts/">tts.marytts docs</a>) (new-platform)</li>
   <li>Telegram bot component (incl. webhook and polling platform) (<a href="https://github.com/sander76">@sander76</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6913">#6913</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>) (breaking change) (new-platform)</li>
-  <li>Add support fo map data from Neato (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6939">#6939</a>) (<a href="https://home-assistant.io/components/neato/">neato docs</a>) (<a href="https://home-assistant.io/components/camera.neato/">camera.neato docs</a>) (<a href="https://home-assistant.io/components/sensor.neato/">sensor.neato docs</a>) (new-platform)</li>
-  <li>Added initial support for IKEA Trådfri Gateway (<a href="https://github.com/ggravlingen">@ggravlingen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7074">#7074</a>) (<a href="https://home-assistant.io/components/light.tradfri/">light.tradfri docs</a>) (new-platform)</li>
+  <li>Support fo map data from Neato (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6939">#6939</a>) (<a href="https://home-assistant.io/components/neato/">neato docs</a>) (<a href="https://home-assistant.io/components/camera.neato/">camera.neato docs</a>) (<a href="https://home-assistant.io/components/sensor.neato/">sensor.neato docs</a>) (new-platform)</li>
+  <li>Support for IKEA Trådfri (<a href="https://github.com/ggravlingen">@ggravlingen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7074">#7074</a>) (<a href="https://home-assistant.io/components/light.tradfri/">light.tradfri docs</a>) (new-platform)</li>
   <li>MQTT camera (<a href="https://github.com/MrMep">@MrMep</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7092">#7092</a>) (<a href="https://home-assistant.io/components/camera.mqtt/">camera.mqtt docs</a>) (new-platform)</li>
-  <li>Add LIFX Cloud scene support (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7124">#7124</a>) (<a href="https://home-assistant.io/components/scene.lifx_cloud/">scene.lifx_cloud docs</a>) (new-platform)</li>
-  <li>spotify media player (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6980">#6980</a>) (<a href="https://home-assistant.io/components/media_player.spotify/">media_player.spotify docs</a>) (new-platform)</li>
+  <li>LIFX Cloud scene support (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7124">#7124</a>) (<a href="https://home-assistant.io/components/scene.lifx_cloud/">scene.lifx_cloud docs</a>) (new-platform)</li>
+  <li>Spotify media player (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6980">#6980</a>) (<a href="https://home-assistant.io/components/media_player.spotify/">media_player.spotify docs</a>) (new-platform)</li>
   <li>JSON MQTT Device tracker (<a href="https://github.com/MrMep">@MrMep</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7055">#7055</a>) (new-platform)</li>
-  <li>opensky sensor (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7061">#7061</a>) (<a href="https://home-assistant.io/components/sensor.opensky/">sensor.opensky docs</a>) (new-platform)</li>
-  <li>Add ping binary sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7052">#7052</a>) (<a href="https://home-assistant.io/components/binary_sensor.ping/">binary_sensor.ping docs</a>) (new-platform)</li>
+  <li>Opensky sensor (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7061">#7061</a>) (<a href="https://home-assistant.io/components/sensor.opensky/">sensor.opensky docs</a>) (new-platform)</li>
+  <li>Ping binary sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7052">#7052</a>) (<a href="https://home-assistant.io/components/binary_sensor.ping/">binary_sensor.ping docs</a>) (new-platform)</li>
+  <li>myStrom Wifi Bulbs (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7161">#7161</a>) (<a href="https://home-assistant.io/components/light.mystrom/">light.mystrom docs</a>) (new-platform)</li>
 </ul>
 
 <h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>

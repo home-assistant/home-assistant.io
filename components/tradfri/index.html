@@ -66,25 +66,30 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Support for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it.</p>
-<p>NB: for this to work, you need to install a modified lib-coap library:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt-get install libtool
+  <p>The <code class="highlighter-rouge">tradfri</code> component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it.</p>
+<p>For this to work, you need to install a modified lib-coap library:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libtool
 
-git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
-<span class="nb">cd </span>libcoap
-./autogen.sh
-./configure --disable-documentation --disable-shared --without-debug <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">"-D COAP_DEBUG_FD=stderr"</span>
-make
-make install
+<span class="gp">$ </span>git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
+<span class="gp">$ </span><span class="nb">cd </span>libcoap
+<span class="gp">$ </span>./autogen.sh
+<span class="gp">$ </span>./configure --disable-documentation --disable-shared --without-debug <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">"-D COAP_DEBUG_FD=stderr"</span>
+<span class="gp">$ </span>make
+<span class="gp">$ </span>make install
 </code></pre>
 </div>
 <p>To enable these lights, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">tradfri</span><span class="pi">:</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.129</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">&lt;on back of gateway&gt;</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your Trådfri gateway.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): Can be found on the back of the Trådfri gateway.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
