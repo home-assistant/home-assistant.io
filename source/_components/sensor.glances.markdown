@@ -16,14 +16,17 @@ ha_release: 0.7.3
 
 The `glances` sensor platform is consuming the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
 
-This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3:
+This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3. 
+To start a Glances RESTful API server on its default port 61208, the a test the following command can be used:
 
 ```bash
 $ sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
 ```
 
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/2`. The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
+Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/2`. Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+
+The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
 
 ```bash
 $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
@@ -31,16 +34,6 @@ $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
 ```
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
-
-To enable a glances server e.g. on Ubuntu edit `/etc/default/glances` this way:
-```shell
-# Default is to launch glances with '-s' option.
-DAEMON_ARGS="-w"
-
-# Change to 'true' to have glances running at startup
-RUN="true"
-```
-This starts a glances RESTFul/JSON server on default port 61208. Be sure to set DEAMON_ARGS="-w". If you leave it with "-s" glances will start in XMLRPC server mode on port 61209. In this mode Home Assistant's glance module won't work.
 
 To enable the Glances sensor, add the following lines to your `configuration.yaml`:
 
