@@ -78,6 +78,150 @@
 <ul>
   <li><strong>server</strong> (<em>Optional</em>): Your server address. Only needed if using more than one network interface. Omit if you are unsure.</li>
 </ul>
+<h2>Light effects</h2>
+<p>The LIFX platform supports several light effects. You can start these effects with default options by using the <code class="highlighter-rouge">effect</code> attribute of the normal <a href="/components/light/#service-lightturn_on"><code class="highlighter-rouge">light.turn_on</code></a> service, for example like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">...</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="c1"># ...</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.office, light.kitchen</span>
+          <span class="s">effect</span><span class="pi">:</span> <span class="s">lifx_effect_breathe</span>
+</code></pre>
+</div>
+<p>However, if you want to fully control a light effect, you have to use its dedicated service call, like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">colorloop_start</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Start</span><span class="nv"> </span><span class="s">colorloop'</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.lifx_effect_colorloop</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.livingroom</span>
+          <span class="s">brightness</span><span class="pi">:</span> <span class="s">255</span>
+          <span class="s">period</span><span class="pi">:</span> <span class="s">10</span>
+          <span class="s">spread</span><span class="pi">:</span> <span class="s">30</span>
+ <span class="s">         change</span><span class="pi">:</span> <span class="s">35</span>
+</code></pre>
+</div>
+<p>The available light effects and their options are listed below.</p>
+<h3><a class="title-link" name="service-lightlifx_effect_breathe" href="#service-lightlifx_effect_breathe"></a> Service <code class="highlighter-rouge">light.lifx_effect_breathe</code></h3>
+<p>Run a breathe effect by fading to a color and back.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of lights. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">color_name</code></td>
+      <td>A color name such as <code class="highlighter-rouge">red</code> or <code class="highlighter-rouge">green</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rgb_color</code></td>
+      <td>A list containing three integers representing the RGB color you want the light to be.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">brightness</code></td>
+      <td>Integer between 0 and 255 for how bright the color should be.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">period</code></td>
+      <td>The duration of a single breathe.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cycles</code></td>
+      <td>The total number of breathes.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">power_on</code></td>
+      <td>Set this to False to skip the effect on lights that are turned off (defaults to True).</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-lightlifx_effect_pulse" href="#service-lightlifx_effect_pulse"></a> Service <code class="highlighter-rouge">light.lifx_effect_pulse</code></h3>
+<p>Run a flash effect by quickly changing to a color and then back.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of lights. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">color_name</code></td>
+      <td>A color name such as <code class="highlighter-rouge">red</code> or <code class="highlighter-rouge">green</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rgb_color</code></td>
+      <td>A list containing three integers representing the RGB color you want the light to be.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">brightness</code></td>
+      <td>Integer between 0 and 255 for how bright the color should be.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">period</code></td>
+      <td>The duration of a single pulse.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cycles</code></td>
+      <td>The total number of pulses.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">power_on</code></td>
+      <td>Set this to False to skip the effect on lights that are turned off (defaults to True).</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-lightlifx_effect_colorloop" href="#service-lightlifx_effect_colorloop"></a> Service <code class="highlighter-rouge">light.lifx_effect_colorloop</code></h3>
+<p>Run an effect with colors looping around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of lights. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">brightness</code></td>
+      <td>Number between 0 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">period</code></td>
+      <td>Duration (in seconds) between the start of a new color change.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">change</code></td>
+      <td>Hue movement per period, in degrees on a color wheel (ranges from 0 to 359).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">spread</code></td>
+      <td>Total hue covered by participating lights, in degrees on a color wheel (ranges from 0 to 359).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">power_on</code></td>
+      <td>Set this to False to skip the effect on lights that are turned off (defaults to True).</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
