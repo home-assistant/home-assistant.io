@@ -13,5 +13,5 @@ ha_iot_class: "Local Polling"
 ha_release: 0.43
 ---
 
-For installation instructions, see [the Trådfri component][/components/tradfri/].
+For installation instructions, see [the Trådfri component](/components/tradfri/).
 
