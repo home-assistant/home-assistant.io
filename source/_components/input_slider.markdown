@@ -20,6 +20,7 @@ input_slider:
   slider1:
     name: Slider 1
     initial: 30
+    restore: startup
     min: -20
     max: 35
     step: 1
@@ -32,6 +33,7 @@ Configuration variables:
 - **max** (*Required*): Maximum value for the slider.
 - **name** (*Optional*): Friendly name of the slider input.
 - **initial** (*Optional*): Initial value when Home Assistant starts.
+- **restore** (*Optional*): Restore last know state on startup (possible values: 'startup')
 - **step** (*Optional*): Step value for the slider.
 
 ## {% linkable_title Automation Examples %}
