@@ -14,19 +14,19 @@ ha_iot_class: "Local Polling"
 ha_release: 0.43
 ---
 
-Support for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it.
+The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it.
 
-NB: for this to work, you need to install a modified lib-coap library:
+For this to work, you need to install a modified lib-coap library:
 
 ```bash
-apt-get install libtool
+$ sudo apt-get install libtool
 
-git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
-cd libcoap
-./autogen.sh
-./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
-make
-make install
+$ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
+$ cd libcoap
+$ ./autogen.sh
+$ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
+$ make
+$ make install
 ```
 
 To enable these lights, add the following lines to your `configuration.yaml` file:
@@ -34,6 +34,11 @@ To enable these lights, add the following lines to your `configuration.yaml` fil
 ```yaml
 # Example configuration.yaml entry
 tradfri:
-  host: 192.168.0.129
-  api_key: <on back of gateway>
+  host: IP_ADDRESS
+  api_key: API_KEY
 ```
+
+Configuration variables:
+
+ - **host** (*Required*): The IP address or hostname of your Trådfri gateway.
+ - **api_key** (*Required*): Can be found on the back of the Trådfri gateway.
