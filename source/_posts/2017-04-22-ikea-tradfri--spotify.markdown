@@ -22,7 +22,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
 
 And in case you have missed the other big news: [@robbiet480] released the [first version of our iOS app][ios]! It took a little over a year but it offers some great ways to make your iDevice work with Home Assistant. Big congrats to Robbie for shipping! As with our other parts, the app is open-sourced under APACHE 2 and contributors are welcome. [Check it out.][ios-source]
 
-A big shout out this release to [@happyleavesaoc] for his constant stream of great contributions to Home Assistant. The first contribution was back in October 2015 and since then @happyleavesaoc has been responsible for many platforms and bug fixes including the Spotify platform this release. Thanks @happyleavesaoc, you're a great example of what makes our community awesome.
+A big shout out this release to [@happyleavesaoc] for his constant stream of great contributions to Home Assistant. The first contribution was back in October 2015 and since then [@happyleavesaoc] has been responsible for many platforms and bug fixes including the Spotify platform this release. Thanks [@happyleavesaoc], you're a great example of what makes our community awesome.
 
 The new Spotify integration is based on the new Spotify Connect Playback API. It supports playback, album art and switching which Spotify device you're controlling.
 
@@ -36,16 +36,17 @@ Also note that you have till the end of the weekend to [submit an application][a
 
 ## {% linkable_title New Platforms %}
 
-- Add MaryTTS platform ([@johanpalmqvist] - [#6988]) ([tts.marytts docs]) (new-platform)
+- MaryTTS platform ([@johanpalmqvist] - [#6988]) ([tts.marytts docs]) (new-platform)
 - Telegram bot component (incl. webhook and polling platform) ([@sander76] - [#6913]) ([telegram_bot docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs]) (breaking change) (new-platform)
-- Add support fo map data from Neato ([@turbokongen] - [#6939]) ([neato docs]) ([camera.neato docs]) ([sensor.neato docs]) (new-platform)
-- Added initial support for IKEA Trådfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
+- Support fo map data from Neato ([@turbokongen] - [#6939]) ([neato docs]) ([camera.neato docs]) ([sensor.neato docs]) (new-platform)
+- Support for IKEA Trådfri ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
 - MQTT camera ([@MrMep] - [#7092]) ([camera.mqtt docs]) (new-platform)
-- Add LIFX Cloud scene support ([@amelchio] - [#7124]) ([scene.lifx_cloud docs]) (new-platform)
-- spotify media player ([@happyleavesaoc] - [#6980]) ([media_player.spotify docs]) (new-platform)
+- LIFX Cloud scene support ([@amelchio] - [#7124]) ([scene.lifx_cloud docs]) (new-platform)
+- Spotify media player ([@happyleavesaoc] - [#6980]) ([media_player.spotify docs]) (new-platform)
 - JSON MQTT Device tracker ([@MrMep] - [#7055]) (new-platform)
-- opensky sensor ([@happyleavesaoc] - [#7061]) ([sensor.opensky docs]) (new-platform)
-- Add ping binary sensor ([@fabaff] - [#7052]) ([binary_sensor.ping docs]) (new-platform)
+- Opensky sensor ([@happyleavesaoc] - [#7061]) ([sensor.opensky docs]) (new-platform)
+- Ping binary sensor ([@fabaff] - [#7052]) ([binary_sensor.ping docs]) (new-platform)
+- myStrom Wifi Bulbs ([@fabaff] - [#7161]) ([light.mystrom docs]) (new-platform)
 
 ## {% linkable_title Breaking changes %}
 
@@ -409,6 +410,7 @@ sensor:
 [light.flux_led docs]: /components/light.flux_led/
 [light.lifx docs]: /components/light.lifx/
 [light.lutron_caseta docs]: /components/light.lutron_caseta/
+[light.mystrom docs]: /components/light.mystrom/
 [light.services.yaml docs]: /components/light.services.yaml/
 [light.tradfri docs]: /components/light.tradfri/
 [light.wemo docs]: /components/light.wemo/
