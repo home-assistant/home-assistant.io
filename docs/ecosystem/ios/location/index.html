@@ -86,6 +86,16 @@
 <p>At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant.</p>
 <h3>Configuration</h3>
 <p>Add <code class="highlighter-rouge">track_ios: true</code> to your zone configurations to enable it for tracking in all connected iOS apps.</p>
+<h3>iBeacons</h3>
+<p>As of 1.0.3 the app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zone.home</span><span class="pi">:</span>
+  <span class="s">beacon</span><span class="pi">:</span>
+    <span class="s">uuid</span><span class="pi">:</span> <span class="s">B9407F30-F5F8-466E-AFF9-25556B57FE6D</span>
+    <span class="s">major</span><span class="pi">:</span> <span class="s">60042</span>
+    <span class="s">minor</span><span class="pi">:</span> <span class="s">43814</span>
+</code></pre>
+</div>
+<p>Restart Home Assistant and then the iOS app. It will begin then begin using iBeacons <em>instead of your location</em> for enter and exit triggers around your zones. To add an iBeacon to <code class="highlighter-rouge">zone.home</code> add the above under your <code class="highlighter-rouge">customize</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
