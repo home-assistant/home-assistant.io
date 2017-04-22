@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: alarmdecoder.png
-ha_category: Alarm
+ha_category: Hub
 ha_release: 0.43
 ha_iot_class: "Local Push"
 ---

@@ -9,7 +9,7 @@ comments: false
 sharing: true
 footer: true
 logo: ikea.svg
-ha_category: Light
+ha_category: Hub
 ha_iot_class: "Local Polling"
 ha_release: 0.43
 ---

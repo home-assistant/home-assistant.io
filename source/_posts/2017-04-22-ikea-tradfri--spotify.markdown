@@ -8,10 +8,12 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2017-04-0.42/social.png
+og_image: /images/blog/2017-04-0.43/components.png
 ---
 
-Oooh yeah. It's time for 0.43 and this is going to be a killer release. For the people that have been following on social media, you might have noticed that [we got pretty excited about the new IKEA Tradfri line up][ikea-blog]. And so we are very happy to announce that thanks to the work by [@ggravlingen], [@MartinHjelmare] and myself that this will be the first release to support the IKEA light bulbs. Home Assistant will automatically detect the gateway on your network and after following the instructions, allow you to control your lights.
+<a href='/components/#added_in_current_version'><img src='/images/blog/2017-04-0.43/components.png' style='border: 0;box-shadow: none;'></a>
+
+Oooh yeah. It's time for 0.43 and this is going to be a killer release. For the people that have been following on social media, you might have noticed that [we got pretty excited about the new IKEA Trådfri line up][ikea-blog]. And so we are very happy to announce that thanks to the work by [@ggravlingen], [@MartinHjelmare] and myself that this will be the first release to support the IKEA light bulbs. Home Assistant will automatically detect the gateway on your network and after following the instructions, allow you to control your lights.
 
 <p class='img'>
 <img src='/images/blog/2017-04-tradfri/discovery.png' />
@@ -33,7 +35,7 @@ The new Spotify integration is based on the new Spotify Connect Playback API. It
 - Add MaryTTS platform ([@johanpalmqvist] - [#6988]) ([tts.marytts docs]) (new-platform)
 - Telegram bot component (incl. webhook and polling platform) ([@sander76] - [#6913]) ([telegram_bot docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs]) (breaking change) (new-platform)
 - Add support fo map data from Neato ([@turbokongen] - [#6939]) ([neato docs]) ([camera.neato docs]) ([sensor.neato docs]) (new-platform)
-- Added initial support for IKEA Tradfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
+- Added initial support for IKEA Trådfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
 - MQTT camera ([@MrMep] - [#7092]) ([camera.mqtt docs]) (new-platform)
 - Add LIFX Cloud scene support ([@amelchio] - [#7124]) ([scene.lifx_cloud docs]) (new-platform)
 - spotify media player ([@happyleavesaoc] - [#6980]) ([media_player.spotify docs]) (new-platform)
@@ -138,7 +140,7 @@ sensor:
 - MQTT: Managing binary payloads ([@MrMep] - [#6976]) ([mqtt docs])
 - Bump qnapstats library version to 0.2.4 ([@colinodell] - [#7085]) ([sensor.qnap docs])
 - Add support fo map data from Neato ([@turbokongen] - [#6939]) ([neato docs]) ([camera.neato docs]) ([sensor.neato docs]) (new-platform)
-- Added initial support for IKEA Tradfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
+- Added initial support for IKEA Trådfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
 - Better thread safety in zwave node_entity ([@andrey-git] - [#7087])
 - Uber version bump ([@armills] - [#7100]) ([sensor.uber docs])
 - No product ids configured should fetch all ids ([@armills] - [#7091])
@@ -153,8 +155,8 @@ sensor:
 - Mqtt camera ([@MrMep] - [#7092]) ([camera.mqtt docs]) (new-platform)
 - Bump version to 0.43.0.dev0 ([@MartinHjelmare] - [#7132])
 - Load zwave panel ([@balloob] - [#7127]) ([zwave docs])
-- IKEA Tradfri Gateway: added support for RGB ([@ggravlingen] - [#7115]) ([light.tradfri docs])
-- Make Tradfri discoverable ([@balloob] - [#7128])
+- IKEA Trådfri Gateway: added support for RGB ([@ggravlingen] - [#7115]) ([light.tradfri docs])
+- Make Trådfri discoverable ([@balloob] - [#7128])
 - Make version number optional and a string to fix identify issue introduced in iOS 1.0.1 ([@robbiet480] - [#7141])
 - Fix for zwave RGB setting ([@armills] - [#7137])
 - Replace rollershutter with cover in demo ([@robbiet480] - [#7140])
