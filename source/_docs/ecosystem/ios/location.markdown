@@ -36,6 +36,20 @@ At launch, Home Assistant for iOS sets up geofences for all zones in your Home A
 
 Add `track_ios: true` to your zone configurations to enable it for tracking in all connected iOS apps.
 
+### iBeacons
+
+As of 1.0.3 the app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:
+
+```yaml
+zone.home:
+  beacon:
+    uuid: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+    major: 60042
+    minor: 43814
+```
+
+Restart Home Assistant and then the iOS app. It will begin then begin using iBeacons _instead of your location_ for enter and exit triggers around your zones. To add an iBeacon to `zone.home` add the above under your `customize`.
+
 [apple-energy-guide]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
 [apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
 [stackoverflow]: http://stackoverflow.com/a/13331625/486182
