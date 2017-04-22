@@ -107,6 +107,85 @@
   </li>
 </ul>
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+<h3><a class="title-link" name="media-control-services" href="#media-control-services"></a> Media control services</h3>
+<p>Available services: <code class="highlighter-rouge">kodi_add_to_playlist</code>, <code class="highlighter-rouge">kodi_set_shuffle</code></p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Target a specific media player. Defaults to all.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-media_playerkodi_set_shuffle" href="#service-media_playerkodi_set_shuffle"></a> Service <code class="highlighter-rouge">media_player/kodi_set_shuffle</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Target a specific media player. It must be of type kodi.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shuffle_on     </code></td>
+      <td>no</td>
+      <td>True/false for shuffle on/off</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-media_playerkodi_add_to_playlist" href="#service-media_playerkodi_add_to_playlist"></a> Service <code class="highlighter-rouge">media_player/kodi_add_to_playlist</code></h4>
+<p>Add a song or an entire album to the default playlist (i.e. playlist id 0).</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Target a specific media player. It must be of type kodi.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_type     </code></td>
+      <td>no</td>
+      <td>either SONG or ALBUM</td>
+    </tr>
+    <tr>
+      <td>media_id</td>
+      <td>yes</td>
+      <td>id of the media as defined in kodi</td>
+    </tr>
+    <tr>
+      <td>media_name</td>
+      <td>yes</td>
+      <td>name of the media, HA will search for the media with name closer to this. If ALL add all albums, if artist_name is provided adds all albums of that artist.</td>
+    </tr>
+    <tr>
+      <td>artist_name</td>
+      <td>yes</td>
+      <td>name of the artist, HA will search for the artist with name closer to this.</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
