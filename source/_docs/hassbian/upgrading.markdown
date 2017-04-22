@@ -25,10 +25,7 @@ To update the Home Assistant installation execute the following command as the `
 
 ```bash
 $ sudo systemctl stop home-assistant@homeassistant.service
-$ sudo su -s /bin/bash homeassistant
-$ source /srv/homeassistant/bin/activate
-$ pip3 install --upgrade homeassistant
-$ exit
+$ sudo su -c "source /srv/homeassistant/bin/activate && pip3 install --upgrade homeassistant" -s /bin/bash homeassistant
 $ sudo systemctl start home-assistant@homeassistant.service
 ```
 
