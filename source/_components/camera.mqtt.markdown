@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "MQTT"
+title: "MQTT Camera"
 description: "Instructions how to use an MQTT image message as a Camera within Home Assistant."
 date: 2017-04-14 00:45
 sidebar: true
