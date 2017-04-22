@@ -20,6 +20,7 @@ For this to work, you need to install a modified lib-coap library:
 
 ```bash
 $ sudo apt-get install libtool
+$ sudo apt-get install autoconf
 
 $ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
 $ cd libcoap
