@@ -54,6 +54,7 @@ sensor:
       - 'process_total'
       - 'process_thread'
       - 'process_sleeping'
+      - 'cpu_temp'
 ```
 
 Configuration variables:
@@ -76,4 +77,5 @@ Configuration variables:
   - **process_total**: Total number of processes
   - **process_thread**: Number of threads
   - **process_sleeping**: Number of sleeping processes
+  - **cpu_temp**: CPU Temperature
 
