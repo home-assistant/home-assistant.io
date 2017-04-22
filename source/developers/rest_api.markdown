@@ -199,9 +199,12 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" http://localhost:8123/api/services
 ```
 
-#### {% linkable_title GET /api/history/period/&lt;timestamp> %}
-Returns an array of state changes in the past. Each object contains further details for the entities.
+#### {% linkable_title GET /api/history/period/&lt;start time>/&lt;end time> %}
+Returns an array of state changes in the past. Each object contains further details for the entities. If end time is not provided, Home Assistant will set end time to one day after the start time. If neither start time nor end time are provided, Home Assistant will deliver the past day's worth of data.
 
+You can also filter the results by appending ?filter_entity_id=<entity_id> to the URL.
+
+Sample Returned JSON:
 ```json
 [
     [
@@ -234,14 +237,28 @@ Sample `curl` commands:
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00
+       http://localhost:8123/api/history/period
 ```
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00?filter_entity_id=sensor.temperature
+       http://localhost:8123/api/history/period/2016-12-25%2013:30:15
 ```
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/history/period/2016-12-26%2000:00:00/2016-12-31%2000:00:00
+```
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/history/period/2016-12-29%2000:00:00?filter_entity_id=sensor.temperature
+```
+
+Note: curl requires spaces to be URL encoded (%20), while other programs and/or languages may not
 
 #### {% linkable_title GET /api/states %}
 Returns an array of state objects. Each state has the following attributes: entity_id, state, last_changed and attributes.
