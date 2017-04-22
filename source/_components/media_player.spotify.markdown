@@ -49,3 +49,7 @@ Configuration variables:
 ## {% linkable_title Setup %}
 
 After the prerequisites and configuration are complete, restart Home Assistant. A **Spotify** configurator element will be available. Follow the instructions to authorize Home Assistant to access your Spotify account. A Spotify media player will then appear.
+
+## {% linkable_title Sources %}
+
+The sources are based on if you have streamed to these devices before in Spotify.  If you don't have any sources, then simply stream from your phone to another device in your house, bluetooth, echo, etc.  Once you do the sources will show up in the developer console as a device to cast/stream to.
