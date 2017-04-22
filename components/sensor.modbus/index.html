@@ -85,6 +85,8 @@
       <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">°C</span>
       <span class="s">slave</span><span class="pi">:</span> <span class="s">1</span>
       <span class="s">register</span><span class="pi">:</span> <span class="s">120</span>
+      <span class="s">register_type</span><span class="pi">:</span> <span class="s">input</span>
+      <span class="s">data_type</span><span class="pi">:</span> <span class="s">float</span>
       <span class="s">scale</span><span class="pi">:</span> <span class="s">0.01</span>
       <span class="s">offset</span><span class="pi">:</span> <span class="s">-273.16</span>
       <span class="s">precision</span><span class="pi">:</span> <span class="s">2</span>
@@ -97,11 +99,13 @@
       <li><strong>name</strong> (<em>Required</em>): Name of the sensor.</li>
       <li><strong>slave</strong> (<em>Required</em>): The number of the slave (Optional for tcp and upd Modbus).</li>
       <li><strong>register</strong> (<em>Required</em>): Register number.</li>
+      <li><strong>register_type</strong> (<em>Optional</em>): Modbus register type (holding, input), default holding</li>
       <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Unit to attach to value.</li>
       <li><strong>count</strong> (<em>Optional</em>): Number of registers to read.</li>
       <li><strong>scale</strong> (<em>Optional</em>): Scale factor (output = scale * value + offset), default 1</li>
       <li><strong>offset</strong> (<em>Optional</em>): Final offset (output = scale * value + offset), default 0</li>
       <li><strong>precision</strong> (<em>Optional</em>): Number of valid decimals, default 0</li>
+      <li><strong>data_type</strong> (<em>Optional</em>): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int</li>
     </ul>
   </li>
 </ul>
@@ -139,6 +143,9 @@
         </li>
         <li>
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.alarmdecoder/'>AlarmDecoder Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
@@ -250,6 +257,9 @@
         </li>
         <li>
             <a href='/components/sensor.openevse/'>OpenEVSE Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.opensky/'>OpenSky Network</a>
         </li>
         <li>
             <a href='/components/sensor.pilight/'>Pilight Sensor</a>

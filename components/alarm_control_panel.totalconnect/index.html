@@ -66,18 +66,18 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">totalconnect</code> platform provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies</p>
+  <p>The <code class="highlighter-rouge">totalconnect</code> platform provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.</p>
 <p>To enable this, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alarm_control_panel</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">totalconnect</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">totalconnect</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Name of device in HomeAssistant</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of device in Home Assistant.</li>
   <li><strong>username</strong> (<em>Required</em>): Username used to sign into the TotalConnect app/web client.</li>
   <li><strong>password</strong> (<em>Required</em>): Password used to sign into the TotalConnect app/web client.</li>
 </ul>
@@ -102,6 +102,9 @@
     <ul class='divided'>
         <li>
             <a href='/components/alarm_control_panel.alarmdotcom/'>Alarm.com Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.alarmdecoder/'>AlarmDecoder Alarm Control Panel</a>
         </li>
         <li>
             <a href='/components/alarm_control_panel.concord232/'>Concord232 Alarm Control Panel</a>

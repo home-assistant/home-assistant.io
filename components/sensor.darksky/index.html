@@ -87,6 +87,8 @@
   <li><strong>api_key</strong> (<em>Required</em>): Your API key.</li>
   <li><strong>name</strong> (<em>Optional</em>): Additional name for the sensors. Default to platform name.</li>
   <li><strong>forecast</strong> array (<em>Optional</em>): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any <code class="highlighter-rouge">monitored_condition</code> with a daily forecast by DarkSky will generate a sensor tagged with <code class="highlighter-rouge">_&lt;day&gt;</code>.</li>
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude coordinate to monitor weather of (required if <strong>longitude</strong> is specificed), defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code></li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Longitude coordinate to monitor weather of (required if <strong>latitude</strong> is specified), defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code></li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend.
     <ul>
       <li><strong>summary</strong>: A human-readable text summary of the current conditions.</li>

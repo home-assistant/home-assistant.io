@@ -74,6 +74,7 @@
 <span class="pi">}}</span>
 </code></pre>
 </div>
+<p>Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the <code class="highlighter-rouge">min_max</code> sensor will go to an error state where the value is <code class="highlighter-rouge">UNKNOWN</code> and the unit of measurement is <code class="highlighter-rouge">ERR</code>.</p>
 <p>To enable the minimum/maximum sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -114,6 +115,9 @@
         </li>
         <li>
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.alarmdecoder/'>AlarmDecoder Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
@@ -225,6 +229,9 @@
         </li>
         <li>
             <a href='/components/sensor.openevse/'>OpenEVSE Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.opensky/'>OpenSky Network</a>
         </li>
         <li>
             <a href='/components/sensor.pilight/'>Pilight Sensor</a>

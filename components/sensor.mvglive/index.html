@@ -71,43 +71,41 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mvglive</span>
-    <span class="s">station</span><span class="pi">:</span> <span class="s">STATION_OR_STOP</span>
+    <span class="s">nextdeparture</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">STATION_OR_STOP_NAME</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>station</strong> (<em>Required</em>): Name of the stop or station. Visit <a href="http://www.mvg-live.de">the MVG live web site</a> to find valid names.</li>
-  <li><strong>destination</strong> (<em>Optional</em>): Name of the line’s final destination to display only connections ending there.</li>
-  <li><strong>line</strong> (<em>Optional</em>): Online display connections from this line, e.g. <code class="highlighter-rouge">'U6'</code>, <code class="highlighter-rouge">'S2'</code>.</li>
-  <li><strong>offset</strong> (<em>Optional</em>): Do not display connections departing sooner than this number of minutes (defaults to 0). Useful if you are a  couple of minutes away from the stop.</li>
-  <li><strong>bus</strong> (<em>Optional</em>): If ‘False’, do not display bus connections</li>
-  <li><strong>tram</strong> (<em>Optional</em>): If ‘False’, do not display tram connections</li>
-  <li><strong>ubahn</strong> (<em>Optional</em>): If ‘False’, do not display U-Bahn (subway) connections</li>
-  <li><strong>sbahn</strong> (<em>Optional</em>): If ‘False’, do not display S-Bahn (suburban train) connections</li>
+  <li><strong>destinations</strong> (<em>Optional</em>): One or multiple final stop names, e.g. ‘Feldmoching’ or [‘Feldmoching’,’Harthof’]. This can be used to only consider a particular direction of travel</li>
+  <li><strong>directions</strong> (<em>Optional</em>): Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction=’1’ indicates south-bound trains, direction=’2’ indicates northbound trains. For U4 and U5, direction=’1’ indicates east-bound trains, direction=’2’ indicates west-bound trains. For example, setting directions: ‘1’ can be used to get all south-bound trains at Scheidplatz.</li>
+  <li><strong>lines</strong> (<em>Optional</em>): One or more line numbers, e.g. ‘U2’ or [‘U2’,’U8’,’N41’]</li>
+  <li><strong>products</strong> (<em>Optional</em>): One or more modes of transport, defaults to all 4 modes [‘U-Bahn’, ‘Tram’, ‘Bus’, ‘S-Bahn’].</li>
+  <li><strong>timeoffset</strong> (<em>Optional</em>): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.</li>
+  <li><strong>name</strong> (<em>Optional</em>): You can customise the name of the sensor, which defaults to the station name.
+    <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+  </li>
 </ul>
-<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
-<p>The example below shows a full configuration using the ‘line’ argument.</p>
+<p>The example below shows a full configuration with three sensors that showcase the various configuration options.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mvglive</span>
-    <span class="s">station</span><span class="pi">:</span> <span class="s">Marienplatz</span>
-    <span class="s">line</span><span class="pi">:</span> <span class="s">U6</span>
-    <span class="s">offset</span><span class="pi">:</span> <span class="s">5</span>
-    <span class="s">destination</span><span class="pi">:</span> <span class="s">Garching-Forschungszentrum</span>
+    <span class="s">nextdeparture</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">Hauptbahnhof</span>
+       <span class="s">name</span><span class="pi">:</span> <span class="s">Hbf</span>
+       <span class="s">destinations</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">München</span><span class="nv"> </span><span class="s">Flughafen</span><span class="nv"> </span><span class="s">Terminal'</span><span class="pi">,</span><span class="s1">'</span><span class="s">Markt</span><span class="nv"> </span><span class="s">Schwaben'</span><span class="pi">]</span>
+       <span class="s">products</span><span class="pi">:</span> <span class="s1">'</span><span class="s">S-Bahn'</span>
+       <span class="s">timeoffset</span><span class="pi">:</span> <span class="s">2</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">Sendlinger Tor</span>
+       <span class="s">lines</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">U2'</span><span class="pi">,</span><span class="s1">'</span><span class="s">U8'</span><span class="pi">]</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">Scheidplatz</span>
+       <span class="s">products</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">U-Bahn'</span><span class="pi">]</span>
+       <span class="s">directions</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1'</span>
 </code></pre>
 </div>
-<p>Another example showing all bus connections at the main station.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mvglive</span>
-    <span class="s">station</span><span class="pi">:</span> <span class="s">Hauptbahnhof</span>
-    <span class="s">offset</span><span class="pi">:</span> <span class="s">2</span>
-    <span class="s">sbahn</span><span class="pi">:</span> <span class="s">False</span>
-    <span class="s">ubahn</span><span class="pi">:</span> <span class="s">False</span>
-    <span class="s">tram</span><span class="pi">:</span> <span class="s">False</span>
-</code></pre>
-</div>
+<p>The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away. The second sensor returns U2 and U8 departures from Sendlinger Tor while the third sensor returns all south-bound U-Bahn trains from Scheidplatz.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

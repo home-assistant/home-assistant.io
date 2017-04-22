@@ -67,7 +67,8 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">soundtouch</code> platform allows you to control your <a href="https://www.soundtouch.com/">Bose Soundtouch</a> speakers from Home Assistant.</p>
-<p>To add your Soundtouch components to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+<p>By default it supports auto-discovery provided by Home Assistant, and you don’t need to add anything to your <code class="highlighter-rouge">configuration.yaml</code>.</p>
+<p>Alternatively, you can add the following to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">soundtouch</span>
@@ -207,7 +208,7 @@ create a new zone in order to be able to add slave(s) again</p>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
     </div>
     <div class='section'>
-    Introduced in release: X.X.X
+    Introduced in release: 0.34.0
     </div>
     <div class='section'>
       This is a platform for
@@ -323,6 +324,9 @@ create a new zone in order to be able to add slave(s) again</p>
         </li>
         <li>
             Soundtouch
+        </li>
+        <li>
+            <a href='/components/media_player.spotify/'>Spotify</a>
         </li>
         <li>
             <a href='/components/media_player.universal/'>Universal</a>
