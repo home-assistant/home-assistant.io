@@ -22,7 +22,7 @@ Irrespective of whether  you use SSH to connect to the Pi from another computer 
 *  Run the following command
 
 ```bash
-$ curl -O https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && sudo chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
+curl -O https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && sudo chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
 ```
 <p class='note warning'>
   Note this command is one-line and not run as sudo.
