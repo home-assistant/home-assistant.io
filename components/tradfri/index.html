@@ -66,7 +66,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">tradfri</code> component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it.</p>
+  <p>The <code class="highlighter-rouge">tradfri</code> component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network.</p>
 <p>For this to work, you need to install a modified lib-coap library:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libtool
 <span class="gp">$ </span>sudo apt-get install autoconf
@@ -79,7 +79,11 @@
 <span class="gp">$ </span>sudo make install
 </code></pre>
 </div>
-<p>To enable these lights, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure</p>
+<p class="note">
+If you see an “Unable to connect” message, restart the gateway and try again.
+</p>
+<p>The gateway can also be manually configured by adding the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">tradfri</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
@@ -89,7 +93,7 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your Trådfri gateway.</li>
-  <li><strong>api_key</strong> (<em>Required</em>): Can be found on the back of the Trådfri gateway.</li>
+  <li><strong>api_key</strong> (<em>Required</em>): Can be found listed as Security Key on the back of the Trådfri gateway.</li>
 </ul>
 </article>
         </div>
