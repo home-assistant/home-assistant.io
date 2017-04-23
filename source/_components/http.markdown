@@ -11,7 +11,7 @@ logo: http.png
 ha_category: "Other"
 ---
 
-The `http` component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The `http` component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings. You can find the documentation for HTTP compenents from [here](/components/http/). 
 
 <p class='note warning'>
 It's HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
