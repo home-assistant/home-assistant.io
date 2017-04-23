@@ -31,7 +31,7 @@ import logging
 import voluptuous as vol
 
 # Import the device class from the component that you want to support
-from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA
+from homeassistant.components.light import ATTR_BRIGHTNESS, Light, PLATFORM_SCHEMA, SUPPORT_BRIGHTNESS
 from homeassistant.const import CONF_HOST, CONF_USERNAME, CONF_PASSWORD
 import homeassistant.helpers.config_validation as cv
 
@@ -84,6 +84,15 @@ class AwesomeLight(Light):
     def name(self):
         """Return the display name of this light."""
         return self._name
+        
+    @property
+    def supported_features(self):
+        """Flag supported features.
+        
+        This definition must be included to enable brightness control of 
+        lights.
+        """
+        return SUPPORT_BRIGHTNESS
 
     @property
     def brightness(self):
