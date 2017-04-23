@@ -42,6 +42,9 @@ Configuration variables:
 
 #### {% linkable_title Music mode  %}
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
+<p class='note'>
+Music mode does not work with Yeelight model YLDP01YL
+</p>
 
 ### {% linkable_title Initial setup %}
 <p class='note'>
