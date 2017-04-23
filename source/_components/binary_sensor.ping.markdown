@@ -38,6 +38,6 @@ The sensor exposes the different round trip times values measured by `ping` as a
 - `round trip time max`
 
 <p class='note'>
-This sensor was only tested on a Linux-based system. 
+When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
 </p>
 
