@@ -111,6 +111,7 @@ http {
 
         # These shouldn't need to be changed
         listen 443 default_server;
+        listen [::]:443 default_server ipv6only=on;
         add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
         ssl on;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
