@@ -28,7 +28,7 @@ Configuration variables:
 - **server** (*Optional*): Your server address. Only needed if using more than one network interface. Omit if you are unsure.
 
 
-## Light effects
+## {% linkable_title Light effects %}
 
 The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) service, for example like this:
 ```yaml
