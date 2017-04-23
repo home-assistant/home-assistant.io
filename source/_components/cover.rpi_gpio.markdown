@@ -56,7 +56,8 @@ cover:
         state_pin: 13
         name: 'Right door'
 ```
-## Remote Raspberry Pi Cover
 
-If you don't have home assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/components/cover.mqtt/). Follow the github instructions to install and configure GarageQTPi and once configured follow the home assistant instructions to configure the MQTT Cover.
+## {% linkable_titleRemote Raspberry Pi Cover %}
+
+If you don't have Home Assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/components/cover.mqtt/). Follow the Github instructions to install and configure GarageQTPi and once configured follow the Home Assistant instructions to configure the MQTT Cover.
 
