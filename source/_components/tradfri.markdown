@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.43
 ---
 
-The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway, The gateway can control lights connected to it and Home Assistant will automatically discover its presents on your network. 
+The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network. 
 
 For this to work, you need to install a modified lib-coap library:
 
@@ -32,7 +32,7 @@ $ make install
 You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
 
 <p class='note'>
-If you see an "Unable to connect" message, restart the gateway and try again
+If you see an "Unable to connect" message, restart the gateway and try again.
 </p>
  
 The gateway can also be manually configured by adding the following lines to your `configuration.yaml` file:
