@@ -53,3 +53,10 @@ After the prerequisites and configuration are complete, restart Home Assistant. 
 ## {% linkable_title Sources %}
 
 The sources are based on if you have streamed to these devices before in Spotify.  If you don't have any sources, then simply stream from your phone to another device in your house, bluetooth, echo, etc.  Once you do the sources will show up in the developer console as a device to cast/stream to.
+
+## {% linkable_title URI Links For Playlists/Etc %}
+You can send playlists to spotify via the "media_content_type": "playlist" and "media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF" which are a part of the media_player.play_media service, you can test this from the services control panel in the Home Assistant Frontend.
+
+In this example this is a URI link to the Reggae Infusions playlist, the link below from Spotify explains how to get this URI value to use for playlists in the Spotify component.
+
+https://support.spotify.com/us/using_spotify/share_music/why-do-you-have-two-different-link-formats/
