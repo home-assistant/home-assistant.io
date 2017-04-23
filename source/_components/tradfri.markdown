@@ -27,7 +27,7 @@ $ cd libcoap
 $ ./autogen.sh
 $ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
 $ make
-$ make install
+$ sudo make install
 ```
 
 To enable these lights, add the following lines to your `configuration.yaml` file:
