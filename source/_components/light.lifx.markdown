@@ -100,3 +100,11 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `change` | Hue movement per period, in degrees on a color wheel (ranges from 0 to 359).
 | `spread` | Total hue covered by participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
+
+### {% linkable_title Service `light.lifx_effect_stop` %}
+
+Run an effect that does nothing, thereby stopping any other effect that might be running.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
