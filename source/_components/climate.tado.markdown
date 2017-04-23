@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Tado"
+title: "Tado Thermostat"
 description: "Instructions on how to integrate Tado thermostats with Home Assistant."
 date: 2017-03-20 12:00
 sidebar: true
