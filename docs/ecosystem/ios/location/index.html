@@ -85,7 +85,7 @@
 <h2><a class="title-link" name="location-tracking-in-home-assistant-zones" href="#location-tracking-in-home-assistant-zones"></a> Location tracking in Home Assistant zones</h2>
 <p>At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant.</p>
 <h3>Configuration</h3>
-<p>Add <code class="highlighter-rouge">track_ios: true</code> to your zone configurations to enable it for tracking in all connected iOS apps.</p>
+<p>Add <code class="highlighter-rouge">track_ios: false</code> to your zone configurations to disable zone location tracking for all connected iOS apps.</p>
 <h3>iBeacons</h3>
 <p>As of 1.0.3 the app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zone.home</span><span class="pi">:</span>
