@@ -74,9 +74,9 @@ The upgrade process differs depending on the installation you have, so please re
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install --upgrade homeassistant
 </code></pre>
 </div>
-<p>After updating, you must restart Home Assistant for the changes to take effect. This means that you will have to restart <code class="highlighter-rouge">hass</code> itself or the <a href="/docs/autostart/">autostarting</a> daemon (if applicable) Startup can take considerable amount of time (i.e. minutes) depending on your device.</p>
+<p>After updating, you must restart Home Assistant for the changes to take effect. This means that you will have to restart <code class="highlighter-rouge">hass</code> itself or the <a href="/docs/autostart/">autostarting</a> daemon (if applicable). Startup can take considerable amount of time (i.e. minutes) depending on your device. This is because all requirements are updated as well.</p>
 <p class="note">
-  To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install <a href="/docs/hassbian/installation/">HASSbian</a>, <a href="/docs/installation/raspberry-pi-all-in-one/">Raspberry Pi All-In-One Installer</a>, <a href="/docs/installation/vagrant/">Vagrant</a>, or <a href="/docs/installation/virtualenv">Virtualenv</a>.
+To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install <a href="/docs/hassbian/installation/">HASSbian</a>, <a href="/docs/installation/raspberry-pi-all-in-one/">Raspberry Pi All-In-One Installer</a>, <a href="/docs/installation/vagrant/">Vagrant</a>, or <a href="/docs/installation/virtualenv">Virtualenv</a>.
 </p>
 <p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=tuG2rs1Cl2Y">a tutorial video</a> explaining how to upgrade Home Assistant.</p>
 <h4><a class="title-link" name="run-a-specific-version" href="#run-a-specific-version"></a> Run a specific version</h4>
