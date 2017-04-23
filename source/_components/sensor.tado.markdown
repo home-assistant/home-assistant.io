@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Tado"
+title: "Tado Sensor"
 description: "Instructions on how to integrate Tado thermostats with Home Assistant."
 date: 2017-03-20 12:00
 sidebar: true
@@ -8,12 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: tado.png
-ha_category: Climate
+ha_category: Sensor
 ha_release: 0.41
 ---
 
-
-The `tado` climate platform is interact with your climate devices.
+The `tado` sensor platform allow you to monitor your tado climate devices.
 
 
 The requirement is that you have set up the [tado](/components/tado/) component.
