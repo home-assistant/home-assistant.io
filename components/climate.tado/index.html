@@ -66,20 +66,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">tado</code> component platform is used as an interface to the my.tado.com website. It adds climate devices for every tado zone and sensors for some additional information of the zones.</p>
-<p>To use your tado thermostats in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">tado</span><span class="pi">:</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
-</code></pre>
-</div>
-<ul>
-  <li><strong>username</strong> (<em>Required</em>): Username for my.tado.com.</li>
-  <li><strong>password</strong> (<em>Required</em>): Password for my.tado.com.</li>
-</ul>
-<p>The tado thermostats are internet connected thermostats. There exists an unofficial api at my.tado.com, which is used by theire website and now by this component.</p>
-<p>It currently supports presenting the current temperature, the setting temperature and the current operation mode. Switching the mode is also supported. If no user is at home anymore, the devices are showing the away-state. Switching to away-mode is not supported.</p>
+  <p>The <code class="highlighter-rouge">tado</code> climate platform is interact with your climate devices.</p>
+<p>The requirement is that you have set up the <a href="/components/tado/">tado</a> component.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -101,6 +89,12 @@
           <ul class='divided'>
         <li><a href='/components/device_tracker.tado/'>
           Tado
+        </a></li>
+        <li><a href='/components/tado/'>
+          Tado
+        </a></li>
+        <li><a href='/components/sensor.tado/'>
+          Tado Sensor
         </a></li>
     </ul>
     </div>
