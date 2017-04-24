@@ -27,6 +27,7 @@ To setup OpenCV with Home Assistant, add the following section to your `configur
 opencv:
   classifier_group:
     - name: Detect Face
+      add_camera: True
       entity_id:
         - camera.front_door
         - camera.living_room
@@ -44,6 +45,7 @@ opencv:
 Configuration variables:
 
 - **name** (*Required*): The name of the OpenCV image processor.
+- **add_camera** (*Optional*): Whether a camera should be created to display the detected regions.
 - **entity_id** (*Required*): The camera entity or list of camera entities that this classification group will be applied to.
 - **classifier** (*Required*): The classification configuration for to be applied:
   - **file_path** (*Required*): The path to the HAARS or LBP classification file (xml).
@@ -57,15 +59,6 @@ Once OpenCV is configured, it will create an `image_processing` entity for each 
 
 ### {% linkable_title Camera %}
 
-If you would like to see what your Home-Assistant is seeing, the OpenCV image processing platform will dispatch a signal `image_processing_{image_processor_name}`.
-
-There is a special camera, specifically for this:
-
-```yaml
-camera:
-  - platform: dispatch
-    name: OpenCV Camera
-    signal: image_processing_detect_faces
-```
+If you would like to see what your Home-Assistant is seeing, simply add the `add_camera: True` configuration line as seen above..
 
 A new camera entity will be added to your Home-Assistant that will highlight the areas it has detected as a match.
