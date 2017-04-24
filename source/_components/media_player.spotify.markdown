@@ -25,7 +25,13 @@ To create the required Spotify Application, login to [Spotify Developer](https:/
 
 `http://<your_home_assistant_url_or_local_ip>/api/spotify`
 
-Remember to select **Save** after adding the URI.
+If you've set up Home Assistant to use SSL encryption, use:
+
+`https://<your_home_assistant_url_or_local_ip>/api/spotify`
+
+The first part of the URL will be whatever you use to access Home Assistant from outside your network (including port if applicable).
+
+Remember to select **Save** after adding the URI. You may also need to set the `base_url` attribute of the [HTTP Component](https://home-assistant.io/components/http/).
 
 
 ## {% linkable_title Configuration %}
@@ -48,7 +54,7 @@ Configuration variables:
 
 ## {% linkable_title Setup %}
 
-After the prerequisites and configuration are complete, restart Home Assistant. A **Spotify** configurator element will be available. Follow the instructions to authorize Home Assistant to access your Spotify account. A Spotify media player will then appear.
+After the prerequisites and configuration are complete, restart Home Assistant. A **Spotify** configurator element will be available. Follow the instructions to authorize Home Assistant to access your Spotify account. A Spotify media player will then appear. If Spotify prompts you to download a file after completing authorization, discard the download. It is not needed.
 
 ## {% linkable_title Sources %}
 
