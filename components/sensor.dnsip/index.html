@@ -68,7 +68,7 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">dnsip</code> sensor will expose an IP address, fetched via DNS resolution, as its value. There are two operational modes:</p>
 <ol>
-  <li>When you enable the sensor with minimal configuration, it will query <a href="https://www.opendns.com/">OpenDNS</a>’ nameserver with the hostname <code class="highlighter-rouge">myip.opendns.com</code>, which will resolve to your external/public IP address.</li>
+  <li>When you enable the sensor with minimal configuration, it will query the <a href="https://www.opendns.com/">OpenDNS</a> nameservers with the hostname <code class="highlighter-rouge">myip.opendns.com</code>, which will resolve to your external/public IP address.</li>
   <li>If you specify a <code class="highlighter-rouge">hostname</code>, a regular DNS lookup will be performed, providing you the IP the hostname resolves to.</li>
 </ol>
 <p>You may also override the nameserver that is being used by setting the <code class="highlighter-rouge">resolver</code> parameter to any nameserver you like.</p>
@@ -82,7 +82,7 @@
 <ul>
   <li><strong>hostname</strong> (<em>Optional</em>): The hostname for which to perform the DNS query. Default: <code class="highlighter-rouge">myip.opendns.com</code> (special hostname that resolves to your public IP)</li>
   <li><strong>resolver</strong> (<em>Optional</em>): The DNS server to target the query at. Default: <code class="highlighter-rouge">208.67.222.222</code> (OpenDNS)</li>
-  <li><strong>ipv6</strong> (<em>Optional</em>): Set this to <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> if IPv6 should be used. When resolving the public IP, this will be the IP of the machine HASS is running on.</li>
+  <li><strong>ipv6</strong> (<em>Optional</em>): Set this to <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> if IPv6 should be used. When resolving the public IP, this will be the IP of the machine where Home Assistant is running on.</li>
   <li><strong>resolver_ipv6</strong> (<em>Optional</em>): The IPv6 DNS server to target the query at. Default: <code class="highlighter-rouge">2620:0:ccc::2</code> (OpenDNS)</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Defines number of seconds for polling interval. Default: <code class="highlighter-rouge">120</code> seconds.</li>
 </ul>

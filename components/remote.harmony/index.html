@@ -84,9 +84,9 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>name</strong> (<em>Required</em>): The hub’s name to display in the front end.</li>
+  <li><strong>name</strong> (<em>Required</em>): The hub’s name to display in the frontend.</li>
   <li><strong>host</strong> (<em>Required</em>): The Harmony device’s IP address.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The Harmony device’s port. 5222 is default.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The Harmony device’s port. Defaults to 5222.</li>
   <li><strong>activity</strong> (<em>Optional</em>): Activity to use when turnon service is called without any data.</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Amount in seconds in between polling for device’s current activity. Defaults to 30 seconds.</li>
 </ul>
@@ -99,10 +99,10 @@
 </ul>
 <p>Supported services:</p>
 <ul>
-  <li><strong>Turn Off</strong>: Turn off all devices that were switched on from the start of the current activity</li>
-  <li><strong>Turn On</strong>: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your HASS config directory.  The service will respond faster if the activity ID is passed instead of the name</li>
-  <li><strong>Send Command</strong>: Send a command to one device, device ID and available commands are written to the configuration file at startup</li>
-  <li><strong>Sync</strong>: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app</li>
+  <li><strong>Turn Off</strong>: Turn off all devices that were switched on from the start of the current activity.</li>
+  <li><strong>Turn On</strong>: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your <a href="/docs/configuration/">Home Assistant configuration directory</a>. The service will respond faster if the activity ID is passed instead of the name.</li>
+  <li><strong>Send Command</strong>: Send a command to one device, device ID and available commands are written to the configuration file at startup.</li>
+  <li><strong>Sync</strong>: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app.</li>
 </ul>
 <h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
 <p>A template switch can be used to display and control the state of an activity in the frontend.</p>
@@ -131,7 +131,7 @@
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">bedroom'</span>
 </code></pre>
 </div>
-<p>The example below shows how to control an <code class="highlighter-rouge">input_boolean</code> switch using the Harmony remote’s current activity.  The switch will turn on when the remote’s state changes and the Kodi activity is started and off when the remote’s state changes and the current activity is PowerOff.</p>
+<p>The example below shows how to control an <code class="highlighter-rouge">input_boolean</code> switch using the Harmony remote’s current activity. The switch will turn on when the remote’s state changes and the Kodi activity is started and off when the remote’s state changes and the current activity is PowerOff.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Watch</span><span class="nv"> </span><span class="s">TV</span><span class="nv"> </span><span class="s">started</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">harmony</span><span class="nv"> </span><span class="s">hub"</span>
     <span class="s">trigger</span><span class="pi">:</span>

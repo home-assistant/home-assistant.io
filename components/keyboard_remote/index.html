@@ -137,17 +137,17 @@ When the keyboard reconnects, an event <code class="highlighter-rouge">keyboard_
 </code></pre>
 </div>
 <h2><a class="title-link" name="permissions" href="#permissions"></a> Permissions</h2>
-<p>There might be permissions problems with the event input device file. If this is the case, the user that hass runs as must be allowed read and write permissions with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo setfacl -m u:HASS_USER:rw /dev/input/event*
+<p>There might be permissions problems with the event input device file. If this is the case, the user that Home Assistant runs as must be allowed read and write permissions with:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo setfacl -m u:HASS_USER:rw /dev/input/event<span class="k">*</span>
 </code></pre>
 </div>
-<p>where <code class="highlighter-rouge">HASS_USER</code> is the user hass runs as.</p>
+<p>where <code class="highlighter-rouge">HASS_USER</code> is the user who runs Home Assistant.</p>
 <p>If you want to make this permanent, you can use a udev rule that sets it for all event input devices. Add a file <code class="highlighter-rouge">/etc/udev/rules.d/99-userdev-input.rules</code> containing:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>KERNEL=="event*", SUBSYSTEM=="input", RUN+="/usr/bin/setfacl -m u:HASS_USER:rw $env{DEVNAME}"
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">"event*"</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">"input"</span>, RUN+<span class="o">=</span><span class="s2">"/usr/bin/setfacl -m u:HASS_USER:rw </span><span class="nv">$env</span><span class="s2">{DEVNAME}"</span>
 </code></pre>
 </div>
 <p>You can check ACLs permissions with</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>getfacl /dev/input/event*
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>getfacl /dev/input/event<span class="k">*</span>
 </code></pre>
 </div>
 </article>

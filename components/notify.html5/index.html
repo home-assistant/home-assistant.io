@@ -268,7 +268,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="making-notifications-work-with-nginx-proxy" href="#making-notifications-work-with-nginx-proxy"></a> Making notifications work with NGINX proxy</h3>
-<p>If you use <a href="/ecosystem/nginx/">NGINX</a> as an proxy with authentication in front of HASS, you may have trouble with receiving events back to HASS. It’s because of authentication token that cannot be passed through the proxy.</p>
+<p>If you use <a href="/ecosystem/nginx/">NGINX</a> as an proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It’s because of authentication token that cannot be passed through the proxy.</p>
 <p>To solve the issue put additional location into your nginx site’s configuration:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>location /api/notify.html5/callback <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="nv">$http_authorization</span> <span class="o">=</span> <span class="s2">""</span><span class="o">)</span> <span class="o">{</span> <span class="k">return </span>403; <span class="o">}</span>

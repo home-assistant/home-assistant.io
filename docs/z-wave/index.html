@@ -123,10 +123,10 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
       <li><strong>ignored</strong> (<em>Optional</em>): Ignore this entity completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
       <li><strong>refresh_value</strong> (<em>Optional</em>): Enable refreshing of the node value. Only the light component uses this. Defaults to False.</li>
       <li><strong>delay</strong> (<em>Optional</em>): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.</li>
-      <li><strong>invert_openclose_buttons</strong> (<em>Optional</em>): Inverts function of the open and close buttons for the cover domain. Defaults to False</li>
+      <li><strong>invert_openclose_buttons</strong> (<em>Optional</em>): Inverts function of the open and close buttons for the cover domain. Defaults to <code class="highlighter-rouge">False</code>.</li>
     </ul>
   </li>
-  <li><strong>debug</strong> (<em>Optional</em>): Print verbose z-wave info to log. Defaults to False.</li>
+  <li><strong>debug</strong> (<em>Optional</em>): Print verbose z-wave info to log. Defaults to <code class="highlighter-rouge">False</code>.</li>
 </ul>
 <p>To find the path of your Z-Wave USB stick or module, run:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyUSB<span class="k">*</span>
@@ -135,7 +135,7 @@ Instead of <code class="highlighter-rouge">make install</code>, you can alternat
 <p>Or, on some other systems (such as Raspberry Pi), use:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyACM<span class="k">*</span>
 
-<span class="c"># If `hass` runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:</span>
+<span class="c"># If Home Assistant (`hass`) runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:</span>
 <span class="gp">$ </span>sudo usermod -a -G dialout homeassistant
 </code></pre>
 </div>

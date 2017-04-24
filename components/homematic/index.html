@@ -87,10 +87,10 @@ You can manually rename the created entities by using Home Assistants <a href="h
 </ul>
 <p>Configuration variables (host):</p>
 <ul>
-  <li><strong>ip</strong> (<em>Required</em>): IP of CCU/Homegear</li>
-  <li><strong>port</strong> (<em>Optional</em>): Port of CCU/Homegear XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)</li>
-  <li><strong>callback_ip</strong> (<em>Optional</em>): Set this, if HASS is reachable under a different IP from the CCU (NAT, Docker etc.)</li>
-  <li><strong>callback_port</strong> (<em>Optional</em>): Set this, if HASS is reachable under a different port from the CCU (NAT, Docker etc.)</li>
+  <li><strong>ip</strong> (<em>Required</em>): IP address of CCU/Homegear device.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Port of CCU/Homegear XML-RPC Server. Default is 2001, use 2000 for wired and 2010 for IP.</li>
+  <li><strong>callback_ip</strong> (<em>Optional</em>): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).</li>
+  <li><strong>callback_port</strong> (<em>Optional</em>): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).</li>
   <li><strong>resolvenames</strong> (<em>Optional</em>): [<code class="highlighter-rouge">metadata</code>, <code class="highlighter-rouge">json</code>, <code class="highlighter-rouge">xml</code>] Try to fetch device names. Defaults to <code class="highlighter-rouge">false</code> if not specified.</li>
   <li><strong>username</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.</li>
   <li><strong>password</strong> (<em>Optional</em>): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.</li>
@@ -128,8 +128,8 @@ You can manually rename the created entities by using Home Assistants <a href="h
 </ol>
 <p>Resolving names can take some time. So when you start Home Assistant you won’t see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.</p>
 <h3><a class="title-link" name="multiple-hosts" href="#multiple-hosts"></a> Multiple hosts</h3>
-<p>In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.<br />
-Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.<br />
+<p>In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
+Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
 This does <em>not</em> affect the entites in Home Assistant. They all use their own connection and work as expected.</p>
 <h3><a class="title-link" name="reading-attributes-of-entities" href="#reading-attributes-of-entities"></a> Reading attributes of entities</h3>
 <p>Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the <a href="https://home-assistant.io/components/sensor.template/">template sensor</a> component. Here’s an example of a template sensor that exposes the valve state of a thermostat.</p>
@@ -143,7 +143,7 @@ This does <em>not</em> affect the entites in Home Assistant. They all use their 
 </code></pre>
 </div>
 <h3><a class="title-link" name="variables" href="#variables"></a> Variables</h3>
-<p>It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables. <br />
+<p>It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables.
 The states of the variables are available through the attributes of your hub entity (e.g. <code class="highlighter-rouge">homematic.rf</code>). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.</p>
 <h3><a class="title-link" name="events" href="#events"></a> Events</h3>
@@ -211,7 +211,7 @@ The name depends on if you chose to resolve names or not. If not, it will be the
 </code></pre>
 </div>
 <h4><a class="title-link" name="advanced-examples" href="#advanced-examples"></a> Advanced examples</h4>
-<p>If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.<br />
+<p>If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
 Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above <code class="highlighter-rouge">rf</code>, <code class="highlighter-rouge">wired</code> and <code class="highlighter-rouge">ip</code> would be valid values.</p>
 <p>Manually turn on a switch actor</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
