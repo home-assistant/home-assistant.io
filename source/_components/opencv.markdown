@@ -22,6 +22,8 @@ Some pre-defined classifiers can be found here: http://alereimondo.no-ip.org/Ope
 To setup OpenCV with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
+
 opencv:
   classifier_group:
     - name: Detect Face
