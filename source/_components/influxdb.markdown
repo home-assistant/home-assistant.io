@@ -37,6 +37,7 @@ Configuration variables:
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
 - **blacklist** (*Optional*): List of entities that should not be logged to InfluxDB.
+- **blacklist_domains** (*Optional*): List of domains not logged to InfluxDB.
 - **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
 - **tags** (*Optional*): Tags to mark the data.
 
@@ -116,6 +117,8 @@ influxdb:
   blacklist:
      - entity.id1
      - entity.id2
+  blacklist_domains:
+     - automation
   whitelist:
      - entity.id3
      - entity.id4
