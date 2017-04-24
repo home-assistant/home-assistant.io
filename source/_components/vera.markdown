@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: vera.png
 ha_category: Hub
+ha_release: pre 0.7
 ---
 
 The [Vera](http://getvera.com) hub is a controller mainly connecting to Z-Wave devices.

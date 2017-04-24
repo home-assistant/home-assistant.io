@@ -9,11 +9,11 @@ sharing: true
 footer: true
 ---
 
-Binary sensors are gathering information about state of switches, contacts, pins, and alike. The return value of those sensors is usually digital (1/0). This means that those sensors knows only two states: **0/off/low/open/false** and **1/on/high/closed/true**.
+Binary sensors are gathering information about state of switches, contacts, pins, and alike. The return value of those sensors is usually digital (1/0). This means that those sensors knows only two states: **0/off/low/closed/false** and **1/on/high/open/true**.
 
 Knowing that there are only two states allows Home Assistant to represent the sensor better in the frontend.
 
-Most binary sensors support the `sensor_class:`  which let you specify the type of your sensor. The following types are supported:
+The display style of each entity can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for binary sensors:
 
 - **None**: Generic on/off
 - **cold**: On means cold (or too cold)
@@ -25,7 +25,7 @@ Most binary sensors support the `sensor_class:`  which let you specify the type 
 - **motion**: Motion sensor
 - **moving**: On means moving, Off means stopped
 - **occupancy**: On means occupied, Off means not occupied
-- **opening**: Door, window, etc
+- **opening**: Door, window, etc. On means open, Off means closed
 - **power**: Power, over-current, etc
 - **safety**: On means unsafe, Off means safe
 - **smoke**: Smoke detector

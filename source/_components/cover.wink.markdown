@@ -18,4 +18,18 @@ The following quote is from Wink.
 
 > As part of our agreement with Chamberlain, third-party access to control Chamberlain garage doors has been restricted. Please contact Chamberlain directly to inquire about permissions.
 
-The requirement is that you have setup your [Wink hub](/components/wink/).
+The requirement is that you have setup [Wink](/components/wink/).
+
+
+### Supported cover devices
+
+- Bali window treatments
+- Lutron shades
+- Pella motorized blinds and shades
+- GoControl garage door opener
+- Chamberlain (Limited functionality) (No Wink hub required)
+
+<p class='note'>
+The above devices are confimed to work, but others may work as well.
+</p>
+

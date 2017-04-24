@@ -7,10 +7,14 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Weather
 ha_iot_class: "Cloud Poll"
 ---
+
+<p class='note warning'>
+**This platform is currently not available. It's possible that `nest_weather` will be removed in the future.**
+</p>
 
 
 The `nest` weather sensor platform let you monitor current weather conditions based on the location of your [Nest](https://nest.com) thermostat.
@@ -26,18 +30,14 @@ sensor:
   - platform: nest
     monitored_conditions:
       - 'weather_temperature'
-      - 'weather_humidity'
-      - 'weather_condition'
-      - 'wind_speed'
-      - 'wind_direction'
 ```
 
 Configuration variables:
 
 - **monitored_conditions** array (*Required*): States to monitor.
-    - 'weather_temperature'
-    - 'weather_humidity'
-    - 'weather_condition'
-    - 'wind_speed'
-    - 'wind_direction'
+  - 'weather_temperature'
+  - 'weather_humidity'
+  - 'weather_condition'
+  - 'wind_speed'
+  - 'wind_direction'
 

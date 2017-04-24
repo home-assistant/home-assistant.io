@@ -14,4 +14,17 @@ ha_category: Light
 
 The wink light platform allows you to use your [Wink](http://www.wink.com/) lights.
 
-The requirement is that you have setup your [Wink hub](/components/wink/).
+The requirement is that you have setup [Wink](/components/wink/).
+
+
+### Supported light devices
+
+- Z-wave switches with dimming
+- Hue
+- Lightify
+- GE link
+
+<p class='note'>
+The above devices are confimed to work, but others may work as well.
+</p>
+

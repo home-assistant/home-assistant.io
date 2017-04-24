@@ -217,7 +217,7 @@ frontend:
 logbook:
 
 http:
-  api_password: Austin12#
+  api_password: [password goes here]
   server_port: 8123
   ssl_certificate: /etc/letsencrypt/live/example.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/example.com/privkey.pem

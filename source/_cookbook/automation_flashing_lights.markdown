@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 #### {% linkable_title Flashing lights triggered by an alarm %}
 
-For flashing regular lights in case the the triggering of an alarm.
+For flashing regular lights in case an alarm is triggered.
 
 ```yaml
 # AlmAct1 - switch to activate the alarm in Room1

@@ -29,8 +29,8 @@ Then when the sensor emits a signal it will be automatically added:
 <img src='/images/components/rfxtrx/sensor.png' />
 </p>
 
-Here the name is `0a52080000301004d240259` and you can verify that it works from the frontend.
-Then you should update your configuration to:
+Here the name is `0a52080000301004d240259` or `0a52080000301004d240259_temperature` and you can verify that it works from the frontend.
+Then you should update your configuration to (_temperature is not needed):
 
 ```yaml
 # Example configuration.yaml entry
@@ -54,6 +54,17 @@ sensor:
        - Humidity
        - Temperature
 ```
+Only these data_type are valid :
+- *Temperature*
+- *Humidity*
+- *Barometer*
+- *Wind direction*
+- *Rain rate*
+- *Energy usage*
+- *Total usage*
+- *Sound*
+- *Sensor Status*
+- *Counter value*
 
 Example configuration:
 
@@ -79,3 +90,5 @@ Configuration variables:
 - **automatic_add** (*Optional*): To enable the automatic addition of new lights.
 - **data_type**  (*Optional*): Which data type the sensor should show
 - **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
+
+

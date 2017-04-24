@@ -16,7 +16,7 @@ ha_release: pre 0.7
 The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device. This includes the ArcherC9 line.
 
 <p class='note'>
-TP-Link devices typically only allow one login at a time to the admin console.  This component will count torwards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant (and waiting a few minutes for the session to timeout) before you'll be able to login.
+TP-Link devices typically only allow one login at a time to the admin console.  This component will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant (and waiting a few minutes for the session to timeout) before you'll be able to login.
 </p>
 
 
@@ -38,7 +38,7 @@ Configuration variables:
 For Archer C9 models running firmware version 150811 or later please use the encrypted password you can retrieve like this:
 
 1. Go to the login page of your router. (default: 192.168.0.1)
-2. Type in the password you use to login into the passsword field.
+2. Type in the password you use to login into the password field.
 3. Click somewhere else on the page so that the password field is not selected anymore.
 4. Open the JavaScript console of your browser (usually by pressing F12 and then clicking on "Console").
 5. Type ```document.getElementById("login-password").value;```.

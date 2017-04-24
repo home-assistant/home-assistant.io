@@ -35,4 +35,4 @@ Configuration variables:
 - **url** (*Required*): The root URL of your Emoncms installation. (Use https://emoncms.org for the cloud based version)
 - **inputnode** (*Required*): Input node that will be used inside emoncms. Please make sure you use a dedicated, not used before, node for this component!
 - **whitelist** (*Required*): List of entity IDs you want to publish.
-- **scan_interval** (*Optional*): Defines, in seconds, how reguarly the states of the whitelisted entities are being gathered and send to emoncms. Default is 30 seconds.
+- **scan_interval** (*Optional*): Defines, in seconds, how regularly the states of the whitelisted entities are being gathered and send to emoncms. Default is 30 seconds.

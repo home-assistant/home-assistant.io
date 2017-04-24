@@ -31,7 +31,7 @@ climate:
 
 Configuration variables:
 
-- **host** (*Required*): Adress of your thermostat, eg. 192.168.1.32
+- **host** (*Required*): Address of your thermostat, eg. 192.168.1.32
 - **username** (*Required*): Username for the thermostat.
 - **password** (*Required*): Password for the thermostat.
 

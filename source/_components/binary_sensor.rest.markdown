@@ -52,13 +52,17 @@ Configuration variables:
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is GET.
 - **name** (*Optional*): Name of the REST binary sensor.
-- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Usualy formed as a dictionary.
+- **payload** (*Optional*): The payload to send with a POST request. Usually formed as a dictionary.
 - **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
+- **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
+- **username** (*Optional*): The username for accessing the REST endpoint.
+- **password** (*Optional*): The password for accessing the REST endpoint.
+- **headers** (*Optional*): The headers for the requests.
 
 <p class='note warning'>
-Make sure that the URL matches exactly your endpoint or resource.
+Make sure that the URL exactly matches your endpoint or resource.
 </p>
 
 
@@ -68,7 +72,7 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title aREST sensor %}
 
-Instead of using an [aREST](/components/binary_sensor.arest/) binary sensor could the value of a device supporting aREST directly retrieved with a REST binary sensor.
+Instead of using an [aREST](/components/binary_sensor.arest/) binary sensor, you could retrieve the value of a device supporting aREST directly with a REST binary sensor.
 
 ```yaml
 binary_sensor:
@@ -76,7 +80,33 @@ binary_sensor:
     resource: http://192.168.0.5/digital/9
     method: GET
     name: Light
-    sensor_class: light
-    value_template: '{{ value_json.return_value }}'
+    device_class: light
+    value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
 ```
 
+### {% linkable_title Accessing an HTTP authentication protected endpoint %}
+
+The REST sensor supports HTTP authentication and customized headers.
+
+```yaml
+binary_sensor:
+  - platform: rest
+    resource: http://IP_ADDRESS:5000/binary_sensor
+    username: ha1
+    password: test1
+    authentication: basic
+    headers:
+      User-Agent: Home Assistant
+      Content-Type: application/json
+```
+
+The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens. 
+
+```bash
+Content-Length: 1024
+Host: IP_ADDRESS1:5000
+Authorization: Basic aGExOnRlc3Qx
+Accept-Encoding: identity
+Content-Type: application/json
+User-Agent: Home Assistant
+```

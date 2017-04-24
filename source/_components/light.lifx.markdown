@@ -15,13 +15,14 @@ ha_release: 0.12
 
 The `lifx` platform allows you to integrate your [LIFX](http://www.lifx.com) into Home Assistant.
 
+_Please note, the `lifx` platform does not support Windows. The `lifx_legacy` platform (supporting basic functionality) can be used instead._
+
 ```yaml
 # Example configuration.yaml entry
 light:
   - platform: lifx
+    server: 192.168.1.10
 ```
 Configuration variables:
 
 - **server** (*Optional*): Your server address. Only needed if using more than one network interface. Omit if you are unsure.
-- **broadcast** (*Optional*): The broadcast address, set to reach all LIFX bulbs.
-

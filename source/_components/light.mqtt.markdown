@@ -11,10 +11,9 @@ logo: mqtt.png
 ha_category: Light
 ---
 
+The `mqtt` light platform lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
-The `mqtt` light platform let you control your MQTT enabled light.
-
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
 
 When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from device (message from `state_topic`).
 
@@ -30,27 +29,55 @@ light:
 Configuration variables:
 
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the switch state.
-- **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
-- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **brightness_state_topic** (*Optional*): The MQTT topic subscribed to receive brightness state updates.
 - **brightness_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's brightness.
-- **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
-- **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
-- **color_temp_state_topic** (*Optional*): The MQTT topic subscribed to receive color temperature state updates.
-- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.
-- **state_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the state value.
-- **brightness_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the brightness value.
-- **rgb_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the RGB value.
-- **color_temp_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the color temperature value.
 - **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
-- **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
-- **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
+- **brightness_state_topic** (*Optional*): The MQTT topic subscribed to receive brightness state updates.
+- **brightness_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the brightness value.
+- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.
+- **color_temp_state_topic** (*Optional*): The MQTT topic subscribed to receive color temperature state updates.
+- **color_temp_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the color temperature value.
+- **effect_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's effect state.
+- **effect_state_topic** (*Optional*): The MQTT topic subscribed to receive effect state updates.
+- **effect_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the effect value.
+- **effect_list** (*Optional*): The list of effects the light supports.
+- **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
+- **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
+- **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
+- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+- **retain** (*Optional*): If the published message should have the retain flag on or not.
+- **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
+- **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
+- **rgb_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the RGB value.
+- **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
+- **state_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the state value.
+- **white_value_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's white value.
+- **white_value_state_topic** (*Optional*): The MQTT topic subscribed to receive white value updates.
+- **white_value_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the white value.
+- **xy_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's XY state.
+- **xy_state_topic** (*Optional*): The MQTT topic subscribed to receive XY state updates.
+- **xy_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the XY value.
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
 </p>
+
+<p class='note warning'>
+  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+</p>
+
+## {% linkable_title Comparison of light MQTT platforms %}
+
+| Function          | [`mqtt`](https://home-assistant.io/components/light.mqtt/) | [`mqtt_json`](https://home-assistant.io/components/light.mqtt_json/) | [`mqtt_template`](https://home-assistant.io/components/light.mqtt_template/) |
+|-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
+| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
+| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
+| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
 
@@ -101,4 +128,5 @@ light:
 
 ### {% linkable_title Implementations %}
 
-A basic example using a nodeMCU board (ESP8266) to control its built-in led (on/off) can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light). [Here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) is another example to control a RGB led (on/off, brightness and colors).
+- A [basic example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light) using a nodeMCU board (ESP8266) to control its built-in LED (on/off).
+- Another [example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) to control a RGB LED (on/off, brightness, and colors).

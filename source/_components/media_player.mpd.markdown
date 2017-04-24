@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `mpd` platform allows you to control a [Music Player Daemon](http://www.musicpd.org/) from Home Assistant. Unfortunatly you will not be able to manipulate the playlist (add or delete songs) or add transitions between the songs. 
+The `mpd` platform allows you to control a [Music Player Daemon](http://www.musicpd.org/) from Home Assistant. Unfortunately you will not be able to manipulate the playlist (add or delete songs) or add transitions between the songs. 
 
 Even though no playlist manipulation is possible, it is possible to use the play_media service to load an existing saved playlist as part of an automation or scene.
 
@@ -31,7 +31,7 @@ Configuration variables:
 
 - **host** (*Required*): IP address of the Host where Music Player Daemon is running.
 - **port** (*Optional*): Port of the Music Player Daemon. Defaults to 6600.
-- **location** (*Optional*): Location of your Music Player Daemon. Defaults to "MPD".
+- **name** (*Optional*): Name of your Music Player Daemon. Defaults to "MPD".
 - **password** (*Optional*): Password for your Music Player Daemon.
 
 Example script to load a saved playlist called "DeckMusic" and set the volume:

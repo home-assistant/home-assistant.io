@@ -10,7 +10,6 @@ footer: true
 logo: html5.png
 ha_category: Notifications
 ha_release: 0.27
-featured: true
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -34,15 +33,22 @@ Configuration variables:
 
 ### {% linkable_title Getting ready for Chrome %}
 
-Google has [a handy guide](https://developers.google.com/web/fundamentals/getting-started/codelabs/push-notifications/#make_a_project_on_the_google_developer_console) that goes into great detail about how to set up for pushing to Chrome. Once you have your GCM API Key and Sender ID in hand, plug them into your configuration as described above.
+- Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
+- Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
+- After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
+- Then, click the cogwheel on top left and select "Project settings".
+- Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
+
 
 ### {% linkable_title Requirements %}
 
 The `html5` platform can only function if all of the following requirements are met:
 
-* You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
+* You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.
 * Your Home Assistant instance is exposed to the world.
-* You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running nginx in front of Home Assistant and this will still work.
+* If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
+* `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
+* You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
 * You are willing to accept the notification permission in your browser.
 
 ### {% linkable_title Setting up %}
@@ -59,6 +65,8 @@ Assuming you have already added the platform to your configuration:
 ### {% linkable_title Usage %}
 
 The `html5` platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.
+
+Any JSON examples below can be [converted to YAML](https://www.json2yaml.com/) for automations.
 
 #### {% linkable_title Actions %}
 
@@ -227,4 +235,28 @@ You will receive an event named `html5_notification.closed` when the notificatio
   trigger:
     platform: event
     event_type: html5_notification.closed
+```
+
+### {% linkable_title Making notifications work with NGINX proxy %}
+
+If you use [NGINX](/ecosystem/nginx/) as an proxy with authentication in front of HASS, you may have trouble with receiving events back to HASS. It's because of authentication token that cannot be passed through the proxy.
+
+To solve the issue put additional location into your nginx site's configuration:
+
+```bash
+location /api/notify.html5/callback {
+    if ($http_authorization = "") { return 403; }
+    allow all;
+    proxy_pass http://localhost:8123;
+    proxy_set_header Host $host;
+    proxy_redirect http:// https://;
+}
+```
+
+This rule check if request have `Authorization` HTTP header and bypass the htpasswd (if you use one).
+
+If you still have the problem, even with mentioned rule, try to add this code:
+```bash
+    proxy_set_header Authorization $http_authorization;
+    proxy_pass_header Authorization;
 ```

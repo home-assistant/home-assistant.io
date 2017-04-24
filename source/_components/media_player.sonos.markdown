@@ -24,6 +24,7 @@ media_player:
   - platform: sonos
 ```
 
+
 If you have multiple network devices, you can provide the IP address of the device that should be used for Sonos auto-discovery.
 
 ```yaml
@@ -61,22 +62,25 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `with_group` | yes | Should be also snapshot the group state of the speaker.
 
 ### {% linkable_title Service `sonos_restore` %}
 
-Restore a previosly taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
+Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of coordinator speakers.
+| `with_group` | yes | Should be also restore the group state of the speaker. Only if was snapshot with group.
 
-### {% linkable_title Service `sonos_group_players` %}
+### {% linkable_title Service `sonos_join` %}
 
-Group all players together under a single coordinator.
+Do group players together under a single coordinator. That will make a new group or join to exists group.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of a single `entity_id` that will become the coordinator speaker.
+| `master` | no | A single `entity_id` that will become/hold the coordinator speaker.
+| `entity_id` | no | String or list of a single `entity_id` that will group to master speaker.
 
 ### {% linkable_title Service `sonos_unjoin` %}
 
@@ -85,4 +89,21 @@ Remove one or more speakers from a group of speakers. If no `entity_id` is provi
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will be separated from their coordinator speaker.
+
+### {% linkable_title Service `sonos_set_sleep_timer` %}
+
+Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers set. Must be a coordinator speaker.
+| `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
+
+### {% linkable_title Service `sonos_clear_sleep_timer` %}
+
+Clear the sleep timer on a speaker, if one is set.
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 

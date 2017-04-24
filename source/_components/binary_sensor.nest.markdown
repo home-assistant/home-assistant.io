@@ -7,47 +7,47 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nest_thermostat.png
+logo: nest.png
 ha_category: Binary Sensor
 ha_release: pre 0.7
 ---
 
 
-The `nest` binary sensor platform let you monitor various states of a thermostat from [Nest](https://nest.com).
+The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use this sensors.
+You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` component is configured and the required configuration for the `nest binary sensor` is set.
 </p>
 
-To set it up, add the following information to your `configuration.yaml` file:
+To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
 
 ```yaml
-binary_sensor:
-  - platform: nest
+# Example configuration.yaml entry
+nest:
+  binary_sensors:
     monitored_conditions:
       - 'fan'
-      - 'hvac_ac_state'
-      - 'hvac_heater_state'
-      - 'hvac_aux_heater_state'
-      - 'hvac_heat_x2_state'
-      - 'hvac_heat_x3_state'
-      - 'hvac_alt_heat_state'
-      - 'hvac_alt_heat_x2_state'
-      - 'hvac_emer_heat_state'
-      - 'online'
+      - 'target'
 ```
+
+By default all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/components/nest/).
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): States to monitor.
-  - 'fan'
-  - 'hvac_ac_state'
-  - 'hvac_aux_heater_state'
-  - 'hvac_heat_x2_state'
-  - 'hvac_heat_x3_state'
-  - 'hvac_alt_heat_state'
-  - 'hvac_alt_heat_x2_state'
-  - 'hvac_emer_heat_state'
-  - 'online'
-- **scan_interval** (*Optional*): Interval in seconds to scan.
+- **monitored_conditions** array (*Optional*): States to monitor.
 
+The following conditions are available by device:
+
+- Nest Thermostat:
+  - online
+  - fan
+  - is\_using\_emergency\_heat
+  - is\_locked
+  - has\_leaf
+- Nest Protect:
+  - online
+- Nest Camera:
+  - online
+  - motion\_detected
+  - person\_detected
+  - sound\_detected

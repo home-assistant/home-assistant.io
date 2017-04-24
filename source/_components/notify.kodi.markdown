@@ -13,21 +13,22 @@ ha_release: 0.29
 ---
 
 
-The `Kodi` platform allows you so send messages to your  [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
+The `Kodi` platform allows you to send messages to your  [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
 To add Kodi to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
-    platform: kodi
-    host: http://192.168.0.123
+  - platform: kodi
+    name: NOTIFIER_NAME
+    host: 192.168.0.123
 ```
 
 - **name** (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **host** (*Required*): The host name or address of the device that is running Kodi.
-- **port** (*Optional*): The port number, the default value is `8080`.
+- **port** (*Optional*): The HTTP port number. Defaults to 8080.
+- **proxy_ssl** (*Optional*): Connect to kodi with HTTPS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
 

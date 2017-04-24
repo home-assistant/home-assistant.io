@@ -21,20 +21,14 @@ If you want to enable the plex sensor, add the following lines to your `configur
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: plex
-  name: Plex Spy
-  host: 192.168.1.100
-  port: 32400
-  username: plexuser
-  password: plexpw
-  server: MyPlexServer
+  - platform: plex
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): The IP address of your Plex server. Defaults to `localhost`.
-- **port** (*Optional*): The port of your Plex Server. Defaults to 32400.
-- **name** (*Optional*): Name of the Plex server. Defaults to Plex.
+- **port** (*Optional*): The port of your Plex Server. Defaults to `32400`.
+- **name** (*Optional*): Name of the Plex server. Defaults to "Plex".
 - **username** (*Optional*): The username for the remote Plex server.
 - **password** (*Optional*): The password for your given account on the remote Plex server.
 - **server** (*Optional*): The name of your remote Plex server.

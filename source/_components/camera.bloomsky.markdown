@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: bloomsky.png
 ha_category: Camera
+ha_release: 0.13
 ---
 
 

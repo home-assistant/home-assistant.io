@@ -33,7 +33,16 @@ The commands can be dynamic, using templates to insert values of other entities.
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
 ```yaml
+
 # Apply value of a GUI slider to the shell_command
+automation:
+  - alias: run_set_ac
+    trigger:
+      platform: state
+      entity_id: input_slider.ac_temperature
+    action:
+      service: shell_command.set_ac_to_slider
+
 input_slider:
   ac_temperature:
     name: A/C Setting
@@ -41,8 +50,9 @@ input_slider:
     min: 18
     max: 32
     step: 1
+    
 {% raw %}
 shell_command:
-  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state}}_AUTO'
+  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state }}_AUTO'
 {% endraw %}
 ```

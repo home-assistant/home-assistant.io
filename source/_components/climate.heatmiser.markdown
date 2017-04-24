@@ -38,4 +38,4 @@ Configuration variables:
 - **port** (*Required*): The port that the interface is listening on.
 - **tstats** (*Required*): A list of thermostats activated on the gateway.
 - **id** (*Required*): The id of the thermostat as configured on the device itself
-- **name** (*Required*): A friendly name for the themostat
+- **name** (*Required*): A friendly name for the thermostat

@@ -21,22 +21,24 @@ The following actuator types are supported:
 
 S_TYPE | V_TYPE
 -------|-----------------------------------------------------------------------------
-S_HVAC | V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED
+S_HVAC | V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED, V_TEMP
 
-V_HVAC_FLOW_STATE is mapped to the state of the Climate component in HA as follows:
+V_HVAC_FLOW_STATE is mapped to the state of the Climate component in Home Assistant as follows:
 
 Home Assistant State | MySensors State
 ---------------------|----------------
 STATE_COOL           | CoolOn
 STATE_HEAT           | HeatOn
-STATE_AUTO           | Off
-STATE_OFF            | AutoChangeOver
+STATE_AUTO           | AutoChangeOver
+STATE_OFF            | Off
 
 Currently humidity, away_mode, aux_heat, swing_mode is not supported. This will be included in later versions as feasible.
 
 Set the target temperature using V_HVAC_SETPOINT_HEAT in Heat mode, and V_HVAC_SETPOINT_COOL in Cool Mode. In case of any Auto Change Over mode you can use V_HVAC_SETPOINT_HEAT as well as V_HVAC_SETPOINT_COOL to set the both the low bound and the high bound temperature of the device.
 
 You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.
+
+You can use V_TEMP to send the current temperature from the node to Home Assistant.
 
 For more information, visit the [serial api] of MySensors.
 
@@ -114,4 +116,4 @@ void incomingMessage(const MyMessage &message) {
 ```
 
 [main component]: /components/mysensors/
-[serial api]: https://www.mysensors.org/download/serial_api_15
+[serial api]: http://www.mysensors.org/download

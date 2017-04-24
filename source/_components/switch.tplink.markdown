@@ -19,7 +19,9 @@ The `tplink` switch platform allows you to control the state of your [TPLink sma
 Supported units:
 
 - HS100
+- HS105
 - HS110
+- HS200
 
 To use your TPLink switch in your installation, add the following to your `configuration.yaml` file:
 
@@ -27,12 +29,12 @@ To use your TPLink switch in your installation, add the following to your `confi
 # Example configuration.yaml entry
 switch:
   - platform: tplink
-    host: IP_ADRRESS
+    host: IP_ADDRESS
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your myStrom switch, eg. `http://192.168.1.32`.
+- **host** (*Required*): The IP address of your TP-Link switch, eg. `192.168.1.32`.
 - **name** (*Optional*): The name to use when displaying this switch.
 
 

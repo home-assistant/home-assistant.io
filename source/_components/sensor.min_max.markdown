@@ -14,7 +14,7 @@ ha_release: "0.31"
 ---
 
 
-The `min_max` sensor platform is consuming the state from other sensors and determine the minimum, maximum, and the mean of the collected states. The sensor will always show you the highest/lowest value which was received from your all monitored sensors. If you have spikes in your values, it's recommanded filter/equalize your values with a [statistics sensor](/components/sensor.statistics/) first.
+The `min_max` sensor platform is consuming the state from other sensors and determine the minimum, maximum, and the mean of the collected states. The sensor will always show you the highest/lowest value which was received from your all monitored sensors. If you have spikes in your values, it's recommended filter/equalize your values with a [statistics sensor](/components/sensor.statistics/) first.
 
 It's an alternative to the [template sensor](/components/sensor.template/)'s `value_template:` to get the average of multiple sensors.
 
@@ -24,6 +24,8 @@ It's an alternative to the [template sensor](/components/sensor.template/)'s `va
      float(states.sensor.office_temperature.state)) / 3) | round(2)
 }}{% endraw %}
 ```
+
+Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and the unit of measurement is `ERR`.
 
 To enable the minimum/maximum sensor, add the following lines to your `configuration.yaml`:
 
@@ -39,7 +41,8 @@ sensor:
 
 Configuration variables:
 
-- **entity_ids** (*Required*): At least two entities to monitor
-- **type** (*Optional*): The type of sensor. Defaults to `max`.
+- **entity_ids** (*Required*): At least two entities to monitor. The unit of measurement of the first entry will be the one that's used. All entities must use the same unit of measurement.
+- **type** (*Optional*): The type of sensor: `min`, `max` or `mean`. Defaults to `max`.
 - **name** (*Optional*): Name of the sensor to use in the frontend.
+- **round_digits** (*Optional*): Round mean value to specified number of digits. Defaults to 2.
 

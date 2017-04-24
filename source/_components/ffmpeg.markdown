@@ -14,7 +14,7 @@ ha_category: Hub
 The FFmpeg component allows other Home Assistant components to process video and audio streams. This component supports all FFmpeg versions since 3.0.0; if you have a older version, please update.
 
 <p class='note'>
-You need the `ffmpeg` binary in your system path. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want [hardware acceleration](https://trac.ffmpeg.org/wiki/HWAccelIntro) support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are avilable on the [FFmpeg](http://www.ffmpeg.org/) website.
+You need the `ffmpeg` binary in your system path. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want [hardware acceleration](https://trac.ffmpeg.org/wiki/HWAccelIntro) support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are available on the [FFmpeg](http://www.ffmpeg.org/) website.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
@@ -30,14 +30,16 @@ Configuration variables:
 
 ### {% linkable_title Raspbian Debian Jessie Lite Installations %}
 To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
-```
-$ sudo apt-get install libav-tools
-```
-This will get a forked version of ffmpeg called avconv, once this is installed you need to use the following in the configuration:
 
+```bash
+$ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+$ sudo apt-get update
+$ sudo apt-get -t jessie-backports install ffmpeg
+```
+We can use now following in the configuration:
 ```
 ffmpeg:
-  ffmpeg_bin: /usr/bin/avconv
+  ffmpeg_bin: /usr/bin/ffmpeg
 ```
 
 ### {% linkable_title Troubleshooting %}

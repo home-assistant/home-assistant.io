@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform supports sensors which breaks out `state_attributes` from other entities.
+The `template` platform supports sensors which break out `state_attributes` from other entities.
 
 To enable Template sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -36,6 +36,7 @@ Configuration variables:
   - **friendly_name** (*Optional*): Name to use in the Frontend.
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **value_template** (*Required*): Defines a [template](/topics/templating/) to extract a value from the event bus.
+  - **icon_template** (*Optional*): Defines a [template](/topics/templating/) for the icon of the sensor.
   - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
 
 
@@ -81,7 +82,7 @@ sensor:
         friendly_name: 'Glances'
 ```
 
-By comparing the details published on the [template](/topics/templating/) page the same can be archived with a different approach: 
+By comparing the details published on the [template](/topics/templating/) page the same can be achieved with a different approach: 
 
 ```yaml
 value_template: {% raw %}"{%if states.sensor.ENTITY_ID.state == 'on' %}running{%elif states.switch.ENTITY_ID.state == 'off' %}not running{% endif %}"{% endraw %}
@@ -91,7 +92,7 @@ The [Binary template sensor](/components/binary_sensor.template/) is the one in 
 
 ### {% linkable_title Multiline example with an if test %}
 
-This example shows a multiple line template with and if test. It looks at a sensing switch and shows on/off in the frontend.
+This example shows a multiple line template with an if test. It looks at a sensing switch and shows on/off in the frontend.
 
 ```yaml
 sensor:
@@ -118,9 +119,9 @@ sensor:
 Please note the blank line to close the multi-line template.
 </p>
 
-### {% linkable_title Change the unit of measurment %}
+### {% linkable_title Change the unit of measurement %}
 
-With a template sensor it's easy to convert given values into others if the unit of measurement don't fit your needs.
+With a template sensor it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 
 ```yaml
 sensor:
@@ -134,5 +135,20 @@ sensor:
         value_template: {% raw %}'{{ states.sensor.transmission_up_speed.state | multiply(1024) }}'{% endraw %}
         friendly_name: 'Transmission Up Speed'
         unit_of_measurement: 'kB/s'
+```
+
+### {% linkable_title Change the icon %}
+
+This example shows how to change the icon based on the day/night cycle.
+
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      day_night:
+        friendly_name: 'Day/Night'
+        value_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'{% endraw %}
+        icon_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'{% endraw %}
+        
 ```
 

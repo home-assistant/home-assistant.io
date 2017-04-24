@@ -67,3 +67,15 @@ Configuration variables:
   - **server_uid_status**: Get the status of the UID light.
   - **server_health**: Get server health information.
   - **network_settings**: Get the iLO network settings.
+
+<p class='note warning'>
+Not every hardware supports all values.
+</p>
+
+### {% linkable_title HP Microserver gen8 %}
+
+On this hardware you need to remove the below listed variables from `monitored_variables:` to avoid errors.
+
+- `server_oa_info`
+- `server_power_readings`
+- `server_power_on_time`
