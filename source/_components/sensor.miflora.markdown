@@ -13,7 +13,7 @@ ha_release: 0.29
 ha_iot_class: "Local Polling"
 ---
 
-The [Mi Flora plant sensor](https://www.open-homeautomation.com/2016/08/23/reverse-engineering-the-mi-plant-sensor/) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
+The `miflora` sensor platform allows one to monitor to plants. The [Mi Flora plant sensor](https://www.aliexpress.com/item/Newest-Original-Xiaomi-Flora-Monitor-Digital-Plants-Flowers-Soil-Water-Light-Tester-Sensor-Monitor-for-Aquarium/32685750372.html) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
 
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -61,7 +61,4 @@ sensor:
       - conductivity
       - battery
 ```
-
-
-
 
