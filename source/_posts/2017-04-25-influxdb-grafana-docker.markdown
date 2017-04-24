@@ -7,17 +7,17 @@ date_formatted: "April 25, 2017"
 author: Alok Saboo
 author_twitter: alokrsaboo
 comments: true
-categories: tutorial
+categories: How-To
 og_image: /images/blog/2017-04-influxdb-grafana/influxdb-grafana-ha.png
 ---
 
 Home Assistant collects volumes of (time series) data that are well suited for some fancy graphs. Although the [History](https://home-assistant.io/components/history/) component provides some nice plots, I am sure you have always wanted those fancy [Grafana](https://grafana.com/) plots. The problem, however, is that low-powered device such as Raspberry Pi that most of us use for our Home Assistant setup are not well suited for such operation.
 
-Instead of running InfluxDB and Grafana on a Raspberry Pi, you can run them in a Docker container on another machine. For this tutorial, I am using a Synology NAS, but the instructions should apply to other devices that can run Docker. Just follow the steps below:
+Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Raspberry Pi or a different system and go through the [classic approach of installing both tools separately](/blog/2015/12/07/influxdb-and-grafana/), you can run them in a Docker container on another machine. For this tutorial, I am using a Synology NAS, but the instructions should apply to other devices that can run Docker. Just follow the steps below:
 
 1.	SSH into your NAS. You may have to run `sudo su` if you are getting permission errors.
 2.	Download the [docker-statsd-influxdb-grafana]( https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/) image using the command:
-` docker pull samuelebistoletti/docker-statsd-influxdb-grafana`
+`docker pull samuelebistoletti/docker-statsd-influxdb-grafana`
 3.	To start the container for the first-time launch:
     ```
     docker run -d \
