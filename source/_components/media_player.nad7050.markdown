@@ -21,12 +21,8 @@ To add a NAD receiver to your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  - platform: nad7050
-    name: NAD D 7050
+    platform: nad7050
     host: 192.168.0.112
-    min_volume: -60
-    max_volume: -20
-    volume_step: 5
 ```
 
 Configuration variables:
@@ -35,7 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the device. Default is NAD D 7050.
 - **min_volume** (*optional*): Minimum volume in dB to use with the slider. Default is `-60`
 - **max_volume** (*optional*): Maximum volume in dB to use with the slider. Default is `-10`
-- **volume_step** (*Optional*): The amount in dB you want to increase the volume with when pressing volume up/down.
+- **volume_step** (*Optional*): The amount in dB you want to increase the volume with when pressing volume up/down. Default is 4 dB.
 
 The maximum volume level of the D 7050 amplifier is +10 db, minimum is -90.
 
