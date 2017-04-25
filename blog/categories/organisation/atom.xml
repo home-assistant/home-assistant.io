@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Organisation | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/organisation/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2017-04-25T18:49:55+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Governance [updated]]]></title>
+    <link href="https://home-assistant.io/blog/2017/01/21/home-assistant-governance/"/>
+    <updated>2017-01-21T23:05:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/01/21/home-assistant-governance</id>
+    <content type="html"><![CDATA[### <a class='title-link' name='update-jan-28-2017' href='#update-jan-28-2017'></a> UPDATE JAN 28, 2017 
+
+After feedback from the community we have updated [the CLA][cla] and the license that Home Assistant is distributed under. For the CLA, instead of enforcing requirements on the grants and code, we now require contributions to be licensed under the Apache 2.0 license. Special thanks to [Matthew Garrett][mjg59] for his feedback and advice.
+
+Starting with release 0.37, Home Assistant will re-license the current code under [the Apache 2.0 license][license]. This is the license that will be used moving forward for all projects under our organization.
+
+---
+
+The Home Assistant project and community has seen enormous growth in the last three years. Many volunteers work tirelessly everyday to give you all the awesomeness that you see today. Much more work is involved than many people realize. Beyond simply coding Home Assistant, volunteers continually maintain related projects, update documentation, post examples, author blog posts, and moderate the forums and chat. This is something that we want to keep safe and functional, even as we grow.
+
+Starting today we are announcing a few initiatives to help protect our users, contributors and community members.
+
+<!--more-->
+## <a class='title-link' name='code-of-conduct' href='#code-of-conduct'></a> Code of Conduct 
+
+More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
+
+Moving forward this Code of Conduct will be active for all projects within the Home Assistant organisation.
+
+[Read the Code of Conduct][coc]
+
+[coc]: /developers/code_of_conduct/
+
+## <a class='title-link' name='contributor-license-agreement' href='#contributor-license-agreement'></a> Contributor License Agreement 
+
+Moving forward we will also require that all contributors to any project have electronically signed our [contributor license agreement (CLA)][cla]. ~~We have adopted the CLA that GitHub uses for their projects~~ (see update at the top). Currently we have no plans to retroactively require a CLA for previous contributions, only those going forward.
+
+Until a signed CLA is on file your pull request will not be reviewed or accepted. When you open a new pull request, if you do not have a CLA on file, our helpful bot will walk you through the steps to complete the process.
+
+**We intend to require an electronically signed contributor licensing agreement for all contributors beginning with our next release (0.37), currently scheduled for release on Saturday, January 28th, 2017 (one week from today).** The CLA is being added to all repositories today.
+
+A CLA is difficult to describe but GitHub did an excellent job so this next section is taken from [https://cla.github.com][gh-cla]:
+
+### <a class='title-link' name='what-is-a-contributor-license-agreement' href='#what-is-a-contributor-license-agreement'></a> What is a Contributor License Agreement? 
+
+A Contributor License Agreement, known as a CLA, asks contributors to confirm that:
+
+1. Anyone can use your contributions anywhere, for free, forever.
+2. Your contributions do not infringe on anyone else's rights.
+
+The GitHub CLA helps ensure the smooth operation and usability of the open source projects that we maintain.
+
+### <a class='title-link' name='why-is-a-cla-necessary' href='#why-is-a-cla-necessary'></a> Why is a CLA necessary? 
+
+It depends on the jurisdiction, but in the United States, contributions are owned by the author or their employer. When the contribution is accepted, the project becomes a bundle of derivative works. The agreement of all contributors are necessary to maintain distribution of the complete project and to any licensing agreement.
+
+### <a class='title-link' name='isnt-that-the-purpose-of-an-open-source-license' href='#isnt-that-the-purpose-of-an-open-source-license'></a> Isn’t that the purpose of an open source license? 
+
+Most open source licenses deal with use of the original code, and don’t refer to contributions, or derivatives of the original.
+
+### <a class='title-link' name='how-does-a-cla-protect-a-project' href='#how-does-a-cla-protect-a-project'></a> How does a CLA protect a project? 
+
+If the owner of a contribution decides that they don’t want the contribution to be part of the project or in any given distribution, the law is on their side. The project, contributors, and users may be subject to legal action. This may require payment of damages and could prevent further usage or contributions until the matter is resolved.
+
+Even when there is no legal pursuit, too much ambiguity can jeopardize or doom a project by preventing those that can’t risk legal action from getting involved.
+
+### <a class='title-link' name='why-does-it-seem-like-only-corporate-projects-have-a-cla' href='#why-does-it-seem-like-only-corporate-projects-have-a-cla'></a> Why does it seem like only "corporate" projects have a CLA? 
+
+There are many projects without corporate ownership that use a CLA or even a copyright assignment: jQuery and Eclipse, for example. However, it is true that projects with financial backing tend to be at a higher risk of becoming a target, so they may have a lower tolerance for legal ambiguity.
+
+## <a class='title-link' name='security-requirements' href='#security-requirements'></a> Security requirements 
+
+With more collaborators involved with Home Assistant we are also exposing ourselves to more risk as more people have write access. As such we taking the following steps.
+
+ 1. As of November 3rd, 2016, all collaborators have been required to have 2 factor authentication (2FA) enabled on their GitHub account.
+ 2. Going forward, we will do an audit from time to time and strip collaborators from write access if they haven't contributed for a while. This is in no sense meant to boot people, and you are absolutely eligible to get it back in the future when you wish start contributing again.
+
+## <a class='title-link' name='licensing' href='#licensing'></a> Licensing 
+
+We will now ensure that a `LICENSE.md` file exists in all projects under the Home Assistant organization and is an [OSI approved open source license](https://opensource.org/licenses) or a [Creative Commons](https://creativecommons.org) license.
+
+### <a class='title-link' name='code-license' href='#code-license'></a> Code License 
+
+The chosen license for all code projects under the Home Assistant organization is [the Apache 2.0 license][license].
+
+### <a class='title-link' name='documentation-license' href='#documentation-license'></a> Documentation License 
+
+All content on home-assistant.io and all other documentation/asset projects under the Home Assistant organization will be licensed under the Creative Commons License, specifically the [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+
+## <a class='title-link' name='crediting-contributors' href='#crediting-contributors'></a> Crediting contributors 
+
+We have now mostly automated updating the [Credits](/developers/credits/) page so that contributors get their attribution more quickly.
+
+## <a class='title-link' name='in-closing' href='#in-closing'></a> In closing 
+
+We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact us via email, Twitter or Gitter.
+
+[cla]: /developers/cla/
+[mjg59]: https://twitter.com/mjg59
+[gh-cla]: https://cla.github.com/
+[license]: /developers/license/
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Explaining the Updater]]></title>
+    <link href="https://home-assistant.io/blog/2016/10/25/explaining-the-updater/"/>
+    <updated>2016-10-25T04:30:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/10/25/explaining-the-updater</id>
+    <content type="html"><![CDATA[On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
+
+<!--more-->
+## <a class='title-link' name='why-we-changed-the-updater' href='#why-we-changed-the-updater'></a> Why we changed the updater 
+This change was driven by two important factors.
+
+### <a class='title-link' name='improving-the-security-of-the-users' href='#improving-the-security-of-the-users'></a> Improving the security of the users. 
+
+As a user, you will be able to be notified if you are running a Home Assistant version that includes components that have known security flaws.
+
+Although we hope to not have to use this feature often, it is important for us to be able to reach out to impacted users. We had the need for such a feature once in the past. Due to a bug the forecast.io sensor was making a huge amount of API requests causing some of our users to get charged because they went over the free quota.
+
+Please note that this functionality is not done yet but will be available in a future release.
+
+### <a class='title-link' name='focusing-our-resources-where-it-matters' href='#focusing-our-resources-where-it-matters'></a> Focusing our resources where it matters 
+
+As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:
+
+* Total number of instances
+* Which operating systems versions and flavors are in use
+* Python version
+* What option is more popular: Docker, Virtualenv or bare metal installs?
+* How popular is our new [Raspberry Pi image][rpi-image]?
+
+
+## <a class='title-link' name='why-we-look-up-your-ip-address-with-geoip' href='#why-we-look-up-your-ip-address-with-geoip'></a> Why we look up your IP address with GeoIP 
+We store the city so that we can see where our users are from. This information will be used to give us a better insight in where our users are from. This will help us gather data to see if we should for example prioritize internationalization. In addition, we previously had a nasty bug with the `sun` component in which users above a certain latitude were having crashes multiple times a day. Had the updater component been in place we could have targeted a special priority update notification only to them.
+
+As stated in the release blog post, the location information is _not_ provided by your local Home Assistant installation but is instead gathered by comparing your IP address against the [GeoLite2 data created by MaxMind][geolite]. From their documentation:
+
+> IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household.
+
+## <a class='title-link' name='why-is-it-enabled-by-default' href='#why-is-it-enabled-by-default'></a> Why is it enabled by default 
+We decided to have it enabled by default because we consider the information that is gathered not harmful. We understand that not everyone will agree with us and so we have provided [multiple ways to opt out][opt-out].
+
+It is in our short-term planning to add an option to control this to our frontend.
+
+## <a class='title-link' name='source-code' href='#source-code'></a> Source Code 
+The source code of our updater AWS Lambda function is now available [here][source].
+
+
+[0.31]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/#comment-2965607849
+[geolite]: https://dev.maxmind.com/geoip/geoip2/geolite2/
+[opt-out]: /components/updater/
+[rpi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
+[source]: https://github.com/home-assistant/Analytics-Receiver
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[To Infinity and Beyond 🚀]]></title>
+    <link href="https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond/"/>
+    <updated>2016-04-19T05:44:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond</id>
+    <content type="html"><![CDATA[After 2.5 years I think we can proudly say: Home Assistant is a success. I write _we_ because Home Assistant is no longer a one-person side project. It has become the side project of many people who spend countless hours on making Home Assistant the best home automation software out there. To acknowledge this we migrated the repositories from being under my name to be under our own [organisation on GitHub][gh-ha].
+
+On our journey we've reached many noteworthy milestones:
+
+ - #1 on HackerNews
+ - Featured on ProductHunt
+ - Trending repository on GitHub
+ - 3000 stars on GitHub
+ - 1.5 million page views on our website
+ - Speaker at OpenIoT Summit 2016
+
+All these accomplishments are a nice pat on the back but our journey is far from over. There are a lot of challenges ahead if we want to become the go to solution for home automation _for everyone_.
+
+Until now the focus has been on making a platform that developers love to use. A platform that is simple but customizable. A platform that is both powerful and reliable. But most important: a platform that is local and open. Home Assistant does a great job at all these things.
+
+There will be some major challenges ahead of us to target groups other than developers. Easy installation and easy configuration being the #1. I'm sure that we'll be able to eventually achieve these goals. I can't say yet how or when. As with everything Home Assistant, we'll take tiny steps, gathering feedback along the way to make sure we're solving the right problems.
+
+I am confident that we will get there because we are set up for success: we have a robust architecture, high test coverage and an active community of world class developers and users. On top of that, we use Python which allows us to move fast and tackle complex problems in elegant ways. It is so easy to learn that it allows any programmer, experienced or not, to contribute support for devices and services. It's as simple as [filling in the blanks].
+
+I would like to put out a big thank you to all our contributors who make Home Assistant what it is today. It doesn't matter if it is form of code, documentation or giving support in our [chat room] or [forums]. You. all. rock.
+
+Cheers to the future!
+
+Paulus
+
+[gh-ha]: https://github.com/home-assistant/
+[filling in the blanks]: /developers/platform_example_sensor/#code
+[chat room]: https://gitter.im/home-assistant/home-assistant
+[forums]: https://community.home-assistant.io/
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New logo for Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2015/03/08/new-logo/"/>
+    <updated>2015-03-08T22:16:10+00:00</updated>
+    <id>https://home-assistant.io/blog/2015/03/08/new-logo</id>
+    <content type="html"><![CDATA[It is well known that you are either a good programmer or a good designer. It's rare you'll meet someone that is both. That's why it wasn't surprising to anyone that the logo that I made was mediocre &mdash; at best. Luckily, [Jeremy Geltman](http://jeremygeltman.com/) has come to the rescue and contributed a brand new logo for Home Assistant.
+
+The new logo follows Googles material design spec. It uses the blue color that Home Assistant uses in the interface and it comes in two versions: a high detailed version (for homescreen icon etc) and a simple version (for favicon etc).
+
+<p class='img'>
+<img src='/images/blog/ha-logo-history.png' />
+The old logo, the new detailed logo and the new simple logo.
+</p>
+]]></content>
+  </entry>
+  
+</feed>

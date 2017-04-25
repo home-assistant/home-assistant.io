@@ -1,0 +1,194 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MVG - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate Munich public transport departure times into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.mvglive/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="MVG">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.mvglive/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate Munich public transport departure times into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="MVG">
+    <meta name="twitter:description" content="Instructions how to integrate Munich public transport departure times into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      MVG
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">mvglive</code> sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mvglive</span>
+    <span class="s">nextdeparture</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">STATION_OR_STOP_NAME</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>station</strong> (<em>Required</em>): Name of the stop or station. Visit <a href="http://www.mvg-live.de">the MVG live web site</a> to find valid names.</li>
+  <li><strong>destinations</strong> (<em>Optional</em>): One or multiple final stop names, e.g. ‘Feldmoching’ or [‘Feldmoching’,’Harthof’]. This can be used to only consider a particular direction of travel</li>
+  <li><strong>directions</strong> (<em>Optional</em>): Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction=’1’ indicates south-bound trains, direction=’2’ indicates northbound trains. For U4 and U5, direction=’1’ indicates east-bound trains, direction=’2’ indicates west-bound trains. For example, setting directions: ‘1’ can be used to get all south-bound trains at Scheidplatz.</li>
+  <li><strong>lines</strong> (<em>Optional</em>): One or more line numbers, e.g. ‘U2’ or [‘U2’,’U8’,’N41’]</li>
+  <li><strong>products</strong> (<em>Optional</em>): One or more modes of transport, defaults to all 4 modes [‘U-Bahn’, ‘Tram’, ‘Bus’, ‘S-Bahn’].</li>
+  <li><strong>timeoffset</strong> (<em>Optional</em>): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.</li>
+  <li><strong>name</strong> (<em>Optional</em>): You can customise the name of the sensor, which defaults to the station name.
+    <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+  </li>
+</ul>
+<h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
+<p>The example below shows a full configuration with three sensors that showcase the various configuration options.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mvglive</span>
+    <span class="s">nextdeparture</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">Hauptbahnhof</span>
+       <span class="s">name</span><span class="pi">:</span> <span class="s">Hbf</span>
+       <span class="s">destinations</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">München</span><span class="nv"> </span><span class="s">Flughafen</span><span class="nv"> </span><span class="s">Terminal'</span><span class="pi">,</span><span class="s1">'</span><span class="s">Markt</span><span class="nv"> </span><span class="s">Schwaben'</span><span class="pi">]</span>
+       <span class="s">products</span><span class="pi">:</span> <span class="s1">'</span><span class="s">S-Bahn'</span>
+       <span class="s">timeoffset</span><span class="pi">:</span> <span class="s">2</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">Sendlinger Tor</span>
+       <span class="s">lines</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">U2'</span><span class="pi">,</span><span class="s1">'</span><span class="s">U8'</span><span class="pi">]</span>
+     <span class="pi">-</span> <span class="s">station</span><span class="pi">:</span> <span class="s">Scheidplatz</span>
+       <span class="s">products</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">U-Bahn'</span><span class="pi">]</span>
+       <span class="s">directions</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1'</span>
+</code></pre>
+</div>
+<p>The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away. The second sensor returns U2 and U8 departures from Sendlinger Tor while the third sensor returns all south-bound U-Bahn trains from Scheidplatz.</p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.mvglive.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/mvg.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.42
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Transport</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/sensor.deutsche_bahn/'>Deutsche Bahn</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dublin_bus_transport/'>Dublin Bus Transport</a>
+        </li>
+        <li>
+            <a href='/components/sensor.google_travel_time/'>Google Maps Travel Time</a>
+        </li>
+        <li>
+            <a href='/components/sensor.lyft/'>Lyft Sensor</a>
+        </li>
+        <li>
+            MVG
+        </li>
+        <li>
+            <a href='/components/sensor.gtfs/'>Public Transit (GTFS)</a>
+        </li>
+        <li>
+            <a href='/components/sensor.swiss_public_transport/'>Swiss Public Transport</a>
+        </li>
+        <li>
+            <a href='/components/sensor.torque/'>Torque (OBD2)</a>
+        </li>
+        <li>
+            <a href='/components/sensor.uber/'>Uber</a>
+        </li>
+        <li>
+            <a href='/components/sensor.vasttrafik/'>Västtrafik Public Transport</a>
+        </li>
+        <li>
+            <a href='/components/sensor.wsdot/'>Washington State DOT</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>
