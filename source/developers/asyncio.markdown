@@ -21,7 +21,7 @@ For a task to be able to suspend itself, all code that it calls has to have this
 
 The backwards compatible API works by scheduling a task from a different thread and blocking that thread until the task has been processed by the event loop.
 
-### [Next step: Categorizing Functions &raquo;](/developers/asyncio_categorizing_functions/)
+### [Next step: asyncio 101 &raquo;](/developers/asyncio_101/)
 
 [0.29]: https://home-assistant.io/blog/2016/09/29/async-sleepiq-emoncms-stocks/
 [ben]: https://github.com/bbangert/

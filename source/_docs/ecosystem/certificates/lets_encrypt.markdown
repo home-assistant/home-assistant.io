@@ -9,8 +9,8 @@ sharing: true
 footer: true
 ---
 
-<p class='warning'>
-Before exposing your Home Aassistant instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](https://home-assistant.io/docs/configuration/basic/) page.
+<p class=' note warning'>
+Before exposing your Home Assistant instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](https://home-assistant.io/docs/configuration/basic/) page.
 </p>
 
 
@@ -19,7 +19,7 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * You can access your Home Assistant instance across your local network, and access the device that it is on via SSH from your local network.
  * You know the internal IP address of your router and can access your router's configuration pages.
  * You have already set up a password for your Home Assistant instance, following the advice on this page: [http](https://home-assistant.io/docs/configuration/basic/)
- * You want to access your Home Assistant instance when you are away from home (ie, not connected to your local network) and secure it with an TLS/SSL certificate.
+ * You want to access your Home Assistant instance when you are away from home (ie, not connected to your local network) and secure it with a TLS/SSL certificate.
  * You have a basic understanding of the phrases I have used so far.
  * You are not currently running anything on port 80 on your network (you'd know if you were).
  * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
@@ -28,16 +28,16 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  
 Steps we will take:
  
-0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding
-1 - Set your device to have a static IP address
-2 - Set up port forwarding without TLS/SSL and test connection
-3 - Set up a DuckDNS account
-4 - Obtain a TLS/SSL certificate from Let's Encrypt
-5 - Check the incoming conection
-6 - Clean up port forwards
-7 - Set up a sensor to monitor the expiry date of the certificate
-8 - Set up an automatic renewal of the TLS/SSL certificate
-9 - Set up an alert to warn us if something went wrong
+ - 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding
+ - 1 - Set your device to have a static IP address
+ - 2 - Set up port forwarding without TLS/SSL and test connection
+ - 3 - Set up a DuckDNS account
+ - 4 - Obtain a TLS/SSL certificate from Let's Encrypt
+ - 5 - Check the incoming conection
+ - 6 - Clean up port forwards
+ - 7 - Set up a sensor to monitor the expiry date of the certificate
+ - 8 - Set up an automatic renewal of the TLS/SSL certificate
+ - 9 - Set up an alert to warn us if something went wrong
  
 ### {% linkable_title 0 - Gain a basic level of understanding around IP addresses, port numbers and port forwarding %}
  
@@ -49,7 +49,7 @@ Now, to speak to the outside world your connection goes through a router. Your r
  
 So, when we want to connect to our Home Assistant instance from outside our network we will need to call the correct extension number, at the correct phone number, in the correct area code.
  
-We will be looking for a system to run like this (in this example I will pretend our exernal IP is 12.12.12.12):
+We will be looking for a system to run like this (in this example I will pretend our external IP is 12.12.12.12):
  
 ```text
 Outside world -> 12.12.12.12:8123 -> your router -> 192.168.0.200:8123
@@ -65,7 +65,7 @@ So, we can use a static IP to ensure that whenever our device running Home Assis
  
 We then have no control over our external IP, as our Service Provider will give us a new one at random intervals. To fix this we will use a service called DuckDNS which will give us a name for our connection (something like examplehome.duckdns.org) and behind the scenes will continue to update your external IP. So no matter how many times the IP address changes, typing examplehome.duckdns.org in to our browser will convert to the correct, up-to-date, IP address.  This is covered in step 3 below.
  
-To get around the issue of not being able to chain the IP addresses together (I can't say I want to call 12:12:12:12 and be put through to 192.168.0.200, and then be put through to extension 8123) we use port forwarding. Port forwarding is the process of telling your router which device to allow the outside connection to speak to.  In the doctors surgery example, port forwarding is the receptionist. This takes a call from outside, and forwards it to the correct extension number inside.  It is important to note that port forwarding can forward an incoming request for one port to a different port on your internal network if you so choose, and we wil be doing this later on. The end result being that when we have our SSL certificate our incoming call will be requesting port 443 (because that is the SSL port, like the SSH port is always 22), but our port forwarding rule will forward this to our HA instance on port 8123. When this guide is completed we will run something like this:
+To get around the issue of not being able to chain the IP addresses together (I can't say I want to call 12:12:12:12 and be put through to 192.168.0.200, and then be put through to extension 8123) we use port forwarding. Port forwarding is the process of telling your router which device to allow the outside connection to speak to.  In the doctors surgery example, port forwarding is the receptionist. This takes a call from outside, and forwards it to the correct extension number inside.  It is important to note that port forwarding can forward an incoming request for one port to a different port on your internal network if you so choose, and we will be doing this later on. The end result being that when we have our TSL/SSL certificate our incoming call will be requesting port 443 (because that is the SSL port, like the SSH port is always 22), but our port forwarding rule will forward this to our HA instance on port 8123. When this guide is completed we will run something like this:
  
 ```text
 Outside world -> https://examplehome.duckdns.org -> 12.12.12.12:443 -> your router -> 192.168.0.200:8123
@@ -86,7 +86,10 @@ $ ifconfig
 
 You will receive an ouput similar to the image below:
 
-![alt tag](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/images/screenshots/ip-set.jpg)
+<p class='img'>
+  <img src='/images/screenshots/ip-set.jpg' />
+  Screenshot
+</p>
  
 Make a note of the interface name and the IP address you are currently on. In the picture it is the wireless connection that is highlighted, but with your setup it may be the wired one (eth0 or similar), make sure you get the correct information.
  
@@ -120,7 +123,7 @@ HA IP: 192.175.96.200
 
 Press Ctrl + x to close the editor, pressing Y to save the changes when prompted.
 
-Reboot your Pi:
+Reboot your device running HA:
 
 ```bash
 $ sudo reboot
@@ -128,7 +131,7 @@ $ sudo reboot
 
 When it comes back up check that you can SSH in to it again on the IP address you wrote down.
 
-Make sure Home Assisstant is running and access it via the local network by typing the IP address and port number in to the browser:
+Make sure Home Assistant is running and access it via the local network by typing the IP address and port number in to the browser:
 
 ```text
 http://192.168.0.200:8123.
@@ -136,7 +139,7 @@ http://192.168.0.200:8123.
 
 All working?  Hooray!  You now have a static IP. This will now always be your internal IP address for your Home Assistant device. This will be known as YOUR-HA-IP for the rest of this guide.
 
-### {% linkable_title 2 - Set up port forwarding without SSL and test connection %}
+### {% linkable_title 2 - Set up port forwarding without TLS/SSL and test connection %}
 
 Log in to your router's configuration pages and find the port forwarding options. This bit is hard to write a guide for because each router has a different way of presenting these options. Searching google for "port forwarding" and the name of your router may help. When you find it you will likely have options similar to:
 
@@ -164,13 +167,13 @@ https://whatismyipaddress.com/
 
 This will tell you your current external IP address
 
-Type the external IP address in to the url bar with http:// in front and :8123 after like so (12.12.12.12 is my example!):
+Type the external IP address in to the URL bar with http:// in front and :8123 after like so (12.12.12.12 is my example!):
 
 ```text
 http://12.12.12.12:8123
 ```
 
-Can you see your Home Assisstant instance? If not, your router may not support 'loopback' - try the next step anyway and if that works, and this one still doesn't, just remember that you cannot use loopback, so will have to use internal addresses when you're on your home network. More on this later on if it's relevant to you.
+Can you see your Home Assistant instance? If not, your router may not support 'loopback' - try the next step anyway and if that works, and this one still doesn't, just remember that you cannot use loopback, so will have to use internal addresses when you're on your home network. More on this later on if it's relevant to you.
 
 Just to verify this isn't some kind of witchcraft that is actually using your internal network, pick up your phone, disconnect it from your wifi so that you are on your mobile data and not connected to the home network, put the same URL in the browser on your phone.
 
@@ -188,7 +191,7 @@ In the domains section pick a name for your subdomain, this can be anything you 
 
 The URL you will be using later to access your Home Assistant instance from outside will be the subdomain you picked, followed by duckdns.org . For our example we will say our URL is examplehome.duckdns.org
 
-On the top left of duckdns.org select the install option. Then pick your operating system from the list. In our example we will use a Raspberry Pi. In the dropdown box select the url you just created.
+On the top left of duckdns.org select the install option. Then pick your operating system from the list. In our example we will use a Raspberry Pi. In the dropdown box select the URL you just created.
 
 Duckdns.org will now generate personalised instructions for you to follow so that your device can update their website every time your IP address changes. Carefully follow the instructions given on duckdns.org to set up your device.
 
@@ -204,16 +207,16 @@ http://examplehome.duckdns.org:8123
 
 What now happens behind the scenes is this:
 
-- DuckDNS receives the request and forwards the request to your router's external IP address (which has been kept up to date by your device running Home Assisstant)
+- DuckDNS receives the request and forwards the request to your router's external IP address (which has been kept up to date by your device running Home Assistant)
 - Your router receives the request on port 8123 and checks the port forwarding rules
 - It finds the rule you created in step 2 and forwards the request to your HA instance
-- Your browser displays your Home Assisstant instance frontend.
+- Your browser displays your Home Assistant instance frontend.
 
 Did it work? Super!
 
-You now have a remotely accesible Home Assistant instance that has a text-based URL and will not drop out if your service provider changes your IP. But, it is only as secure as the password you set, which can be snooped during your session by a malicious hacker with relative ease. So we need to set up some encryption with SSL, read on to find out how.
+You now have a remotely accesible Home Assistant instance that has a text-based URL and will not drop out if your service provider changes your IP. But, it is only as secure as the password you set, which can be snooped during your session by a malicious hacker with relative ease. So we need to set up some encryption with TLS/SSL, read on to find out how.
 
-### {% linkable_title 4 - Obtain an TLS/SSL certificate from Let's Encrypt %}
+### {% linkable_title 4 - Obtain a TLS/SSL certificate from Let's Encrypt %}
 
 First we need to set up another port forward like we did in step 2.  Set your new rule to:
 
@@ -231,15 +234,14 @@ Remember to save the new rule.
 In cases where your ISP blocks port 80 you will need to change the port forward options to forward port 443 from outside to port 443 on your Home Assistant device. Please note that this will limit your options for automatically renewing the certificate, but this is a limitation because of your ISP setup and there is not a lot we can do about it!
 </p>
 
-now SSH in to the device your Home Assistant is running on.
+Now SSH in to the device your Home Assistant is running on.
 
 <p class='note'>
-If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' pi setup, from your 'pi' user issue the following command (where <hass> is the Home Assistant user):
+If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' pi setup, from your 'pi' user issue the following command (where `hass` is the Home Assistant user):
 
-```bash
-$ sudo adduser <hass> sudo
 ```
-
+$ sudo adduser hass sudo
+```
 </p>
 
 If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `hass` or `homeassistant` - you may have used a command similar to this in the past):
@@ -263,7 +265,7 @@ $ wget https://dl.eff.org/certbot-auto
 $ chmod a+x certbot-auto
 ```
 
-Now we will run the certbot program to get our ssl certificate. You will need to include your email address and your DuckDNS url in the appropriate places:
+Now we will run the certbot program to get our ssl certificate. You will need to include your email address and your DuckDNS URL in the appropriate places:
 
 ```text
 $ ./certbot-auto certonly --standalone --preferred-challenges http-01 --email your@email.address -d examplehome.duckdns.org
@@ -277,7 +279,7 @@ Confirm this file has been populated:
 $ ls /etc/letsencrypt/live/
 ```
 
-This should show a folder named exactly after your DuckDNS url.
+This should show a folder named exactly after your DuckDNS URL.
 
 Our Home Assistant user needs access to files within the letsencrypt folder, so issue the following commands to change the permissions.
 
@@ -293,7 +295,7 @@ Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now
 <p class='note'>
 Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to your `homeassistant` folder:
 
-```bash
+```
 $ cd ~/.homeassistant
 ```
 
@@ -314,7 +316,7 @@ Protocol - Both
 
 Remember to save the rule changes.
 
-Now edit your configuration.yaml file to reflect the SSL entries and your base URL (changing the `examplehome` subdomain to yours):
+Now edit your configuration.yaml file to reflect the SSL entries and your base URL (changing the `examplehome` subdomain to yours in all three places):
 
 ```yaml
 http:
@@ -334,7 +336,7 @@ In step 3 we accessed our Home Assistant from the outside world with our DuckDNS
 https://examplehome.duckdns.org
 ```
 
-Note the S after http, and that no port number is added. This is because https will use port 443 automatically, and we have already set up our port forward to redirect this request to our Home Assistant instance on port 8123.
+Note the **S** after http, and that no port number is added. This is because https will use port 443 automatically, and we have already set up our port forward to redirect this request to our Home Assistant instance on port 8123.
 
 You should now be able to see your Home Assistant instance via your DuckDNS URL, and importantly note that your browser shows the connection as secure.
 
@@ -346,9 +348,9 @@ In cases where you need to access via the local network only (which should be fe
 https://YOUR-HA-IP:8123
 ```
 
-and accepting the browsers warning that you are connecting to an insecure site. This warning occurs because your certificate expects your incoming connection to come via your DuckDNS URL. It does not mean that your device has suddenly become insecure.
+...and accepting the browsers warning that you are connecting to an insecure site. This warning occurs because your certificate expects your incoming connection to come via your DuckDNS URL. It does not mean that your device has suddenly become insecure.
 
-Some cases such as this are where your router does not allow 'loopback' or where there is a problem with incoming connections due to technical failure. In these cases you can still use your internal connection and ignore the warnings.
+Some cases such as this are where your router does not allow 'loopback' or where there is a problem with incoming connections due to technical failure. In these cases you can still use your internal connection and safely ignore the warnings.
 
 If you were previously using a webapp on your phone/tablet to access your Home Assistant you should delete the old one and create a new one with the new address. The old one will no longer work as it is not keyed to your new, secure URL.  Instructions for creating your new webapp can be found here: 
 
@@ -366,9 +368,7 @@ Go to your router's configuration pages and delete the `ha_test` rule.
 
 You should now have two rules in relation to Home Assistant for your port forwards, named:
 
-```text
-ha_ssl and ha_letsencrypt
-```
+`ha_ssl` and `ha_letsencrypt`
 
 If you have any more for Home Assistant you should delete them now. If you only have `ha_ssl` this is probably because during step 4 you had to use port 443 instead of port 80, so we deleted the rule during step 5.
 
@@ -383,7 +383,7 @@ Let's Encrypt certificates only last for 90 days. When they have less than 30 da
  
 Move on to step 7 to see how to monitor your certificates expiry date, and be ready to renew your certificate when the time comes.
 
-#### {% linkable_title 7 - Set up a sensor to monitor the expiry date of the certificate %}
+### {% linkable_title 7 - Set up a sensor to monitor the expiry date of the certificate %}
 
 Setting a sensor to read the number of days left on your TLS/SSL certificate before it expires is not required, but it has the following advantages:
 
@@ -507,9 +507,9 @@ Add the following sections to your configuration.yaml
 
 ```yaml 
 shell_command: 
-  renew_ssl: ./certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  renew_ssl: ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
   
-automation
+automation:
   - alias: 'Auto Renew SSL Cert'
     trigger:
       platform: numeric_state

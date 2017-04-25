@@ -16,7 +16,7 @@ ha_release: 0.31
 The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.
 
 <p class='note'>
-You must have the [ZoneMinder component](/components/zoneminder/) configured to use this.
+You must have the [ZoneMinder component](/components/zoneminder/) configured to use this and if ZoneMinder authentication is enabled the account specified in the component configuration must have "Edit" permission for "System".
 </p>
 
 To enable this switch, add the following lines to your `configuration.yaml` file:

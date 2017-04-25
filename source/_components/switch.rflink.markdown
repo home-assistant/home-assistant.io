@@ -43,14 +43,14 @@ Configuration variables:
 
 - **devices** (*Optional*): A list of devices with their name to use in the frontend.
 - **device_defaults**: (*Optional*)
-  - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
+  - **fire_event** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
   - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
 
 Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to RFLink ID.
 - **aliasses** (*Optional*): Alternative RFLink ID's this device is known by.
-- **fire_event_** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every RFLink command this number of times (default: 1)
 
 ### {% linkable_title Switch state %}

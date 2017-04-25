@@ -55,7 +55,7 @@ If you don't want HTTPS, you can change `<VirtualHost *:443>` to `<VirtualHost *
 
 <p class='note'>
 In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
-
+</p>
 ```text
 <VirtualHost *:443>
   [...]
@@ -65,7 +65,6 @@ In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") w
   [...]
 </VirtualHost>
 ```
-</p>
 
 #### {% linkable_title Multiple Instance %}
 

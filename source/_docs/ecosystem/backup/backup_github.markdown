@@ -77,6 +77,9 @@ harmony_media_room.conf
 pyozw.sqlite
 .*
 !/.gitignore
+html5_push_registrations.conf
+ip_bans.yaml
+/icloud/*
 ```
 
 More information on the layout of the file can be found in the [.gitignore manual](https://git-scm.com/docs/gitignore).

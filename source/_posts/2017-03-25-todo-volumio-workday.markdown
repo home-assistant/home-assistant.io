@@ -45,6 +45,7 @@ The new format of the changelog which was introduced with 0.40 will provide a li
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
+<!--more-->
 ## All changes
 
 - Bugfix android camera autodiscovery settings ([@pvizeli] - [#6510])
