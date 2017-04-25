@@ -66,7 +66,7 @@
   <div class="meta clearfix">
     <time datetime="2017-04-22T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 22, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 13 minutes reading time</span>
+    <span><i class='icon-time'></i> 14 minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -91,7 +91,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
 <h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
 <ul>
   <li>MaryTTS platform (<a href="https://github.com/johanpalmqvist">@johanpalmqvist</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6988">#6988</a>) (<a href="/components/tts.marytts/">tts.marytts docs</a>) (new-platform)</li>
-  <li>Telegram bot component (incl. webhook and polling platform) (<a href="https://github.com/sander76">@sander76</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6913">#6913</a>) (<a href="/components/telegram_bot/">telegram_bot docs</a>) (<a href="/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>) (breaking change) (new-platform)</li>
+  <li>Telegram bot component (incl. webhook and polling platform) (<a href="https://github.com/sander76">@sander76</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6913">#6913</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>) (<a href="/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>) (breaking change) (new-platform)</li>
   <li>Support fo map data from Neato (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6939">#6939</a>) (<a href="/components/neato/">neato docs</a>) (<a href="/components/camera.neato/">camera.neato docs</a>) (<a href="/components/sensor.neato/">sensor.neato docs</a>) (new-platform)</li>
   <li>Support for IKEA Trådfri (<a href="https://github.com/ggravlingen">@ggravlingen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7074">#7074</a>) (<a href="/components/light.tradfri/">light.tradfri docs</a>) (new-platform)</li>
   <li>MQTT camera (<a href="https://github.com/MrMep">@MrMep</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7092">#7092</a>) (<a href="/components/camera.mqtt/">camera.mqtt docs</a>) (new-platform)</li>
@@ -102,11 +102,12 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>Ping binary sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7052">#7052</a>) (<a href="/components/binary_sensor.ping/">binary_sensor.ping docs</a>) (new-platform)</li>
   <li>myStrom Wifi Bulbs (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7161">#7161</a>) (<a href="/components/light.mystrom/">light.mystrom docs</a>) (new-platform)</li>
 </ul>
+<a name="read-more"></a>
 <h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
 <ul>
   <li>Remove deprecated classes from <code class="highlighter-rouge">homeassistant.remote</code> (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7011">#7011</a>)</li>
   <li>min_max sensor has a different default name and will ignore states that are unknown (<a href="https://github.com/micw">@micw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6786">#6786</a>)</li>
-  <li><code class="highlighter-rouge">telegram_webhooks</code> has been converted to a new <code class="highlighter-rouge">telegram_bot</code> component. It has two platforms: webhook and polling platform (<a href="https://github.com/sander76">@sander76</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6913">#6913</a>) (<a href="/components/telegram_bot/">telegram_bot docs</a>)(<a href="/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>)</li>
+  <li><code class="highlighter-rouge">telegram_webhooks</code> has been converted to a new <code class="highlighter-rouge">telegram_bot</code> component. It has two platforms: webhook and polling platform (<a href="https://github.com/sander76">@sander76</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6913">#6913</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>)(<a href="/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>)</li>
 </ul>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">telegram_bot</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
@@ -135,7 +136,19 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
        <span class="s">directions</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1'</span>
 </code></pre>
 </div>
-<a name="read-more"></a>
+<h2>If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2>Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+<h2><a class="title-link" name="release-0431---april-25" href="#release-0431---april-25"></a> Release 0.43.1 - April 25</h2>
+<ul>
+  <li>Zwave cover workaround for graber shades. (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7204">#7204</a>) (<a href="https://home-assistant.io/components/cover.zwave/">cover.zwave docs</a>) (<a href="https://home-assistant.io/components/zwave.workaround/">zwave.workaround docs</a>)</li>
+  <li>Upgrade paho-mqtt to 1.2.3 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7214">#7214</a>)</li>
+  <li>Workround for wemo subscription bug. (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7245">#7245</a>) (<a href="https://home-assistant.io/components/wemo/">wemo docs</a>) (<a href="https://home-assistant.io/components/switch.wemo/">switch.wemo docs</a>)</li>
+  <li>Fix telegram webhooks (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7236">#7236</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>)</li>
+  <li>Work around bad content-type in Hook api response (<a href="https://github.com/KlaasH">@KlaasH</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7267">#7267</a>) (<a href="https://home-assistant.io/components/switch.hook/">switch.hook docs</a>)</li>
+  <li>Recorder: Check for ENTITY_ID key that contains None value (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7287">#7287</a>) (<a href="https://home-assistant.io/components/recorder/">recorder docs</a>)</li>
+</ul>
 <h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
 <ul>
   <li>Update kodi for aiohttp2 (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6967">#6967</a>) (<a href="/components/media_player.kodi/">media_player.kodi docs</a>) (<a href="/components/notify.kodi/">notify.kodi docs</a>)</li>
@@ -186,7 +199,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>Fix/slugify with german umlaut ss (<a href="https://github.com/micw">@micw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7029">#7029</a>)</li>
   <li>Speed up aiohttp (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7064">#7064</a>)</li>
   <li>Upgrade netdisco to 1.0.0rc2 (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7008">#7008</a>)</li>
-  <li>Telegram bot component (incl. webhook and polling platform) (<a href="https://github.com/sander76">@sander76</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6913">#6913</a>) (<a href="/components/telegram_bot/">telegram_bot docs</a>) (<a href="/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>) (breaking change) (new-platform)</li>
+  <li>Telegram bot component (incl. webhook and polling platform) (<a href="https://github.com/sander76">@sander76</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6913">#6913</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>) (<a href="/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>) (breaking change) (new-platform)</li>
   <li>Upgrade paho-mqtt to 1.2.2 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7066">#7066</a>)</li>
   <li>Fix handling with register callbacks on added_to_hass (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7067">#7067</a>)</li>
   <li>Lutron. Bugfix callback registration. (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7042">#7042</a>)</li>
@@ -231,7 +244,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>Disable MQTT camera test (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7164">#7164</a>)</li>
   <li>myStrom WiFi bulbs (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7161">#7161</a>)</li>
   <li>Fix #7026 adding a new wol parameter (<a href="https://github.com/titilambert">@titilambert</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7144">#7144</a>) (<a href="/components/switch.wake_on_lan/">switch.wake_on_lan docs</a>)</li>
-  <li>Add subscription update for Wemo switches, fix bug in Insight switches, fix wemo motion bug, fix wemo discovery (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7135">#7135</a>) (<a href="/components/wemo/">wemo docs</a>)</li>
+  <li>Add subscription update for Wemo switches, fix bug in Insight switches, fix wemo motion bug, fix wemo discovery (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7135">#7135</a>) (<a href="https://home-assistant.io/components/wemo/">wemo docs</a>)</li>
   <li>Update neato.py (<a href="https://github.com/michaelarnauts">@michaelarnauts</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7166">#7166</a>) (<a href="/components/neato/">neato docs</a>)</li>
   <li>Keep track of already added players (<a href="https://github.com/molobrakos">@molobrakos</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7149">#7149</a>)</li>
   <li>Fix id zone mismatch (<a href="https://github.com/gurumitts">@gurumitts</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7165">#7165</a>) (<a href="/components/lutron_caseta/">lutron_caseta docs</a>) (breaking change)</li>
@@ -247,7 +260,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>Tweak Tradfri (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7172">#7172</a>) (<a href="/components/light.tradfri/">light.tradfri docs</a>)</li>
   <li>Mqtt camera test (<a href="https://github.com/MrMep">@MrMep</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7175">#7175</a>)</li>
   <li>updated pylgtv module to fix problems with timeouts (<a href="https://github.com/hmn">@hmn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7184">#7184</a>) (<a href="/components/media_player.webostv/">media_player.webostv docs</a>) (<a href="/components/notify.webostv/">notify.webostv docs</a>)</li>
-  <li>Fix wemo discovery (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7183">#7183</a>) (<a href="/components/wemo/">wemo docs</a>) (<a href="/components/light.wemo/">light.wemo docs</a>) (<a href="/components/switch.wemo/">switch.wemo docs</a>)</li>
+  <li>Fix wemo discovery (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7183">#7183</a>) (<a href="https://home-assistant.io/components/wemo/">wemo docs</a>) (<a href="/components/light.wemo/">light.wemo docs</a>) (<a href="https://home-assistant.io/components/switch.wemo/">switch.wemo docs</a>)</li>
   <li>Add Bose soundtouch discovery support and upgrade libsoundtouch library (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7005">#7005</a>)</li>
   <li>spotify media player (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6980">#6980</a>) (<a href="/components/media_player.spotify/">media_player.spotify docs</a>) (new-platform)</li>
   <li>JSON MQTT Device tracker (<a href="https://github.com/MrMep">@MrMep</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7055">#7055</a>) (new-platform)</li>

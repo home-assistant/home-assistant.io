@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-24T22:25:48+00:00</updated>
+  <updated>2017-04-25T04:10:18+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -72,6 +72,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>myStrom Wifi Bulbs (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7161">#7161</a>) (<a href="https://home-assistant.io/components/light.mystrom/">light.mystrom docs</a>) (new-platform)</li>
 </ul>
 
+<!--more-->
 <h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
 
 <ul>
@@ -110,7 +111,23 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
 </code></pre>
 </div>
 
-<!--more-->
+<h2>If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+
+<h2>Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+
+<h2><a class="title-link" name="release-0431---april-25" href="#release-0431---april-25"></a> Release 0.43.1 - April 25</h2>
+
+<ul>
+  <li>Zwave cover workaround for graber shades. (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7204">#7204</a>) (<a href="https://home-assistant.io/components/cover.zwave/">cover.zwave docs</a>) (<a href="https://home-assistant.io/components/zwave.workaround/">zwave.workaround docs</a>)</li>
+  <li>Upgrade paho-mqtt to 1.2.3 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7214">#7214</a>)</li>
+  <li>Workround for wemo subscription bug. (<a href="https://github.com/pavoni">@pavoni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7245">#7245</a>) (<a href="https://home-assistant.io/components/wemo/">wemo docs</a>) (<a href="https://home-assistant.io/components/switch.wemo/">switch.wemo docs</a>)</li>
+  <li>Fix telegram webhooks (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7236">#7236</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>)</li>
+  <li>Work around bad content-type in Hook api response (<a href="https://github.com/KlaasH">@KlaasH</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7267">#7267</a>) (<a href="https://home-assistant.io/components/switch.hook/">switch.hook docs</a>)</li>
+  <li>Recorder: Check for ENTITY_ID key that contains None value (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7287">#7287</a>) (<a href="https://home-assistant.io/components/recorder/">recorder docs</a>)</li>
+</ul>
+
 <h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
 
 <ul>
