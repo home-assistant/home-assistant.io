@@ -124,8 +124,8 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.occasion
-      - platform: event
-        event_type: homeassistant_start
+      - platform: homeassistant
+        event: start
     action:
       service: script.group_visibility
       data:
@@ -169,8 +169,8 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.occasion
-      - platform: event
-        event_type: homeassistant_start
+      - platform: homeassistant
+        event: start
     action:
       service: script.group_visibility
       data:
