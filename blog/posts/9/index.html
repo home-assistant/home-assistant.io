@@ -62,6 +62,36 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Set up encryption using Let's Encrypt</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-13T18:05:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 13, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Martin Hjelmare</span>
+    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Exposing your Home Assistant instance outside of your network always has been tricky. You have to set up port forwarding on your router and most likely add a dynamic DNS service to work around your ISP changing your IP. After this you would be able to use Home Assistant from anywhere but there is one big red flag: no encryption.</p>
+<p>This tutorial will take you through the steps to setup a dynamic DNS for your IP and allow trusted encrypted connection to it - for free using <a href="https://duckdns.org">DuckDNS</a> and <a href="https://letsencrypt.org">Let’s Encrypt</a>.</p>
+<p class="img">
+<img src="/images/blog/2015-12-lets-encrypt/letsencrypt-secured.png" />
+</p>
+      <a class="btn pull-right" href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2015/12/12/philips-hue-blocks-3rd-party-bulbs/">[Update: decision reversed!] Philips Hue blocks 3rd party lights</a>
   </h1>
   <div class="meta clearfix">
@@ -379,45 +409,6 @@ Picture of the final setup (+ 2 LED for decoration)
 Home Assistant will keep track of historical values and allow you to integrate it into automation.
 </p>
       <a class="btn pull-right" href="/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/10/11/rfxtrx-blinkstick-and-snmp-support/">0.7.5: Blinkstick, SNMP, Telegram</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-10-11T17:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 11, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/10/11/rfxtrx-blinkstick-and-snmp-support/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>We discovered two issues annoying enough to warrent the release of 0.7.5:</p>
-<ul>
-  <li>Home Assistant package did not include the CloudMQTT certificate.</li>
-  <li>A bug in the core caused issues when some platforms are loaded twice.</li>
-</ul>
-<p>This release also includes some new platforms (because they keep coming!):</p>
-<p><img src="/images/supported_brands/blinkstick.png" style="border:none; box-shadow: none; float: right;" height="50" /><img src="/images/supported_brands/rfxtrx.png" style="border:none; box-shadow: none; float: right; clear: right;" height="50" /><img src="/images/supported_brands/telegram.png" style="border:none; box-shadow: none; float: right; clear: right;" height="50" /></p>
-<ul>
-  <li>Light: <a href="/components/light.blinksticklight/">blinkstick platform</a> added (<a href="https://github.com/alanbowman">@alanbowman</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.snmp/">SNMP platform</a> added (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
-  <li>Light: <a href="/components/light.rfxtrx/">rfxtrx platform</a> added (<a href="https://github.com/badele">@badele</a>)</li>
-  <li>Switch: <a href="/components/switch.rfxtrx/">rfxtrx platform</a> added (<a href="https://github.com/badele">@badele</a>)</li>
-  <li>Notify: <a href="/components/notify.telegram/">telegram platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-</ul>
-<p>Also, the media player was extended by <a href="https://github.com/maddox">@maddox</a> to support the play media command. This has been implemented for the <a href="/components/media_player.itunes/">iTunes platform</a>.</p>
   </div>
   </article>
   <hr>

@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-25T07:26:49+00:00</updated>
+  <updated>2017-04-25T09:12:40+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up InfluxDB and Grafana using Docker]]></title>
+    <link href="https://home-assistant.io/blog/2017/04/25/influxdb-grafana-docker/"/>
+    <updated>2017-04-25T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/04/25/influxdb-grafana-docker</id>
+    <content type="html"><![CDATA[<p>Home Assistant collects volumes of (time series) data that are well suited for some fancy graphs. Although the <a href="https://home-assistant.io/components/history/">History</a> component provides some nice plots, I am sure you have always wanted those fancy <a href="https://grafana.com/">Grafana</a> plots. The problem, however, is that low-powered device such as Raspberry Pi that most of us use for our Home Assistant setup are not well suited for such operation.</p>
+
+<p>Instead of running <a href="https://www.influxdata.com/">InfluxDB</a> and Grafana on a Raspberry Pi or a different system and go through the <a href="https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/">classic approach of installing both tools separately</a>, you can run them in a Docker container on another machine. For this tutorial, I am using a Synology NAS, but the instructions should apply to other devices that can run Docker. Just follow the steps below:</p>
+
+<ol>
+  <li>SSH into your NAS. You may have to run <code class="highlighter-rouge">sudo su</code> if you are getting permission errors.</li>
+  <li>Download the <a href="https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/">docker-statsd-influxdb-grafana</a> image using the command:
+<code class="highlighter-rouge">docker pull samuelebistoletti/docker-statsd-influxdb-grafana</code></li>
+  <li>To start the container for the first-time launch:
+    <div class="highlighter-rouge"><pre class="highlight"><code>docker run -d \
+  --name docker-statsd-influxdb-grafana \
+  -p 3003:3003 \
+  -p 3004:8083 \
+  -p 8086:8086 \
+  -p 22022:22 \
+  -p 8125:8125/udp \
+  samuelebistoletti/docker-statsd-influxdb-grafana:latest
+</code></pre>
+    </div>
+  </li>
+  <li>The image should now be running and both InfluxBD and Grafana should be now up and running.</li>
+  <li>You can access InfluxDB at http://NAS_IP_ADDRESS:3004/ and Grafana at http://NAS_IP_ADDRESS:3003/</li>
+  <li>Navigate to http://NAS_IP_ADDRESS:3004/ and create the database <code class="highlighter-rouge">home_assistant</code> using the command <code class="highlighter-rouge">CREATE DATABASE home_assistant</code>.
+    <p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-04-influxdb-grafana/create_HA_database.png" />
+</p>
+  </li>
+  <li>Now, you need to configure Home Assistant to use InfluxDB. Since, we did not add any username/password to our database, we can simply add the following to our configuration.yaml (replace the IP address with that of the device running Docker) and restart Home Assistant to setup InfluxDB (you will have to fine tune it based on your preferences):
+    <div class="highlighter-rouge"><pre class="highlight"><code>influxdb:
+  host: 192.168.2.113
+</code></pre>
+    </div>
+  </li>
+  <li>Next, we need to configure Grafana to use InfluxDB. Navigate to http://NAS_IP_ADDRESS:3003/ to access Grafana (login with username and password <code class="highlighter-rouge">root</code>) and add your first data source. Here’s how you can configure Grafana to use InfluxDB database. Note that 192.168.2.113 is the IP address of my NAS.
+    <p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-04-influxdb-grafana/add_data_source.png" />
+</p>
+  </li>
+  <li>You should see <code class="highlighter-rouge">Data source is working</code> if you have configured everything correctly.</li>
+  <li>With all that configured, you are now ready for the fun stuff. You can create as many dashboards as you want and then import the same in Home Assistant.</li>
+  <li>To add the Grafana dashboard in HA, use the following config:
+    <div class="highlighter-rouge"><pre class="highlight"><code>panel_iframe:
+  router:
+    title: 'Temperature'
+    url: 'http://192.168.2.113:3003/dashboard/db/temperature?edit&amp;tab=time%20range'
+</code></pre>
+    </div>
+    <p>The URL can be obtained by clicking Share Dashboard link on your dashboard:</p>
+    <p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-04-influxdb-grafana/share_dashboard.png" />
+</p>
+  </li>
+</ol>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hardware Contest 2017]]></title>
@@ -2185,29 +2246,6 @@ We change the platform name for binary sensor in 0.38 from <code class="highligh
 
 <p>We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact us via email, Twitter or Gitter.</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Numbers]]></title>
-    <link href="https://home-assistant.io/blog/2017/01/18/numbers/"/>
-    <updated>2017-01-18T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/01/18/numbers</id>
-    <content type="html"><![CDATA[<p>It’s week 3 of 2017 and great things did already happen. This is just a little recap.</p>
-
-<ul>
-  <li>In the <a href="https://ossmetrics.com/leaderboard">OSS Metrics leaderboard</a> we are on place 30. Within three months we moved from our starting place which was 66 in September 2016 up to the current one.</li>
-  <li>We were listed on <a href="https://github.com/trending/python">Github Trending</a>. Also, was <a href="https://github.com/balloob">@balloob</a> mentioned as trending developer.</li>
-  <li><a href="https://github.com/balloob">@balloob</a>’s talk at the OpenIoT Summit 2016 was rated as one of the <a href="http://technewsdir.com/top-5-videos-from-embedded-linux-conference-and-openiot-summit-2016">Top 5 videos</a> of the conference.</li>
-  <li>We now ship over <a href="https://home-assistant.io/components/#all/">500</a> components and platforms.</li>
-  <li>We processed over 3500 Pull requests on the <a href="https://github.com/home-assistant/home-assistant">main repository</a> so far.</li>
-</ul>
-
-<p>You may ask yourself why this is amazing. It’s amazing because we are a community-only project driven by volunteers there is no financial support, no company in the background, and no paid developers who are working on Home Assistant. Here is another “Thank you” because you are the driving force behind Home Assistant.</p>
-
-<p>What more numbers? Checkout the <a href="https://home-assistant.io/help/trivia/#numbers/">Trivia page</a>…</p>
-
-<p>– Fabian</p>
 ]]></content>
   </entry>
   
