@@ -52,4 +52,4 @@ After the prerequisites and configuration are complete, restart Home Assistant. 
 
 ## {% linkable_title Sources %}
 
-The sources are based on if you have streamed to these devices before in Spotify.  If you don't have any sources, then simply stream from your phone to another device in your house, bluetooth, echo, etc.  Once you do the sources will show up in the developer console as a device to cast/stream to.
+The sources are based on if you have streamed to these devices before in Spotify.  If you don't have any sources, then simply stream from your phone to another device in your house, bluetooth, echo, etc.  Once you do the sources will show up in the developer console as a device to cast/stream to.  Also know that the devices won't show up in the dev-console as sources unless they are powered on as well.
