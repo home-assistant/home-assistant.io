@@ -68,7 +68,7 @@
   <hr class="divider">
   <p>Use Telegram on your mobile device to send messages or commands to your Home Assistant.</p>
 <p>A command looks like <code class="highlighter-rouge">/thecommand</code></p>
-<p>When received by hass it will fire a <code class="highlighter-rouge">telegram.command</code> event on the event bus with the following <code class="highlighter-rouge">event_data</code>:</p>
+<p>When received by hass it will fire a <code class="highlighter-rouge">telegram_command</code> event on the event bus with the following <code class="highlighter-rouge">event_data</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/thecommand"</span>
 <span class="s">args</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;any</span><span class="nv"> </span><span class="s">other</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">command&gt;"</span>
 <span class="s">from_first</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;first</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
@@ -82,7 +82,7 @@
 <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">true</span>
 <span class="s">trigger</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram.command</span>
+  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
   <span class="s">event_data</span><span class="pi">:</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/ping'</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -94,7 +94,7 @@
 <p>Example that show keyboard interaction with <code class="highlighter-rouge">notify.telegram</code></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">trigger</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram.command</span>
+  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
   <span class="s">event_data</span><span class="pi">:</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/start'</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -110,7 +110,7 @@
 <p>and an automation to trigger a related command “/siren”.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">trigger</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram.command</span>
+  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
   <span class="s">event_data</span><span class="pi">:</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/siren'</span>
 <span class="s">action</span><span class="pi">:</span>

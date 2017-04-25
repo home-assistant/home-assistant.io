@@ -74,7 +74,10 @@
 </ul>
 <p>To create the required Spotify Application, login to <a href="https://developer.spotify.com">Spotify Developer</a>, visit the <a href="https://developer.spotify.com/my-applications/#!/applications">My Applications</a> page, and select <strong>Create An App</strong>. Enter any name and description. Once your application is created, you can view it and discover your <strong>Client ID</strong> and <strong>Client Secret</strong>, which are placed in the Home Assistant configuration file. Finally, add a <strong>Redirect URI</strong> in the following form:</p>
 <p><code class="highlighter-rouge">http://&lt;your_home_assistant_url_or_local_ip&gt;/api/spotify</code></p>
-<p>Remember to select <strong>Save</strong> after adding the URI.</p>
+<p>If you’ve set up Home Assistant to use SSL encryption, use:</p>
+<p><code class="highlighter-rouge">https://&lt;your_home_assistant_url_or_local_ip&gt;/api/spotify</code></p>
+<p>The first part of the URL will be whatever you use to access Home Assistant from outside your network (including port if applicable).</p>
+<p>Remember to select <strong>Save</strong> after adding the URI. You may also need to set the <code class="highlighter-rouge">base_url</code> attribute of the <a href="https://home-assistant.io/components/http/">HTTP Component</a>.</p>
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
 <p>To add Spotify to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -91,9 +94,13 @@
   <li><strong>cache_path</strong> (<em>Optional</em>): Path to cache authentication token (defaults to configuration directory).</li>
 </ul>
 <h2><a class="title-link" name="setup" href="#setup"></a> Setup</h2>
-<p>After the prerequisites and configuration are complete, restart Home Assistant. A <strong>Spotify</strong> configurator element will be available. Follow the instructions to authorize Home Assistant to access your Spotify account. A Spotify media player will then appear.</p>
+<p>After the prerequisites and configuration are complete, restart Home Assistant. A <strong>Spotify</strong> configurator element will be available. Follow the instructions to authorize Home Assistant to access your Spotify account. A Spotify media player will then appear. If Spotify prompts you to download a file after completing authorization, discard the download. It is not needed.</p>
 <h2><a class="title-link" name="sources" href="#sources"></a> Sources</h2>
-<p>The sources are based on if you have streamed to these devices before in Spotify.  If you don’t have any sources, then simply stream from your phone to another device in your house, bluetooth, echo, etc.  Once you do the sources will show up in the developer console as a device to cast/stream to.  Also know that the devices won’t show up in the dev-console as sources unless they are powered on as well.</p>
+<p>The sources are based on if you have streamed to these devices before in Spotify. If you don’t have any sources, then simply stream from your phone to another device in your house, bluetooth, echo, etc. Once you do the sources will show up in the developer console as a device to cast/stream to. Also know that the devices won’t show up in the dev-console as sources unless they are powered on as well.</p>
+<h2><a class="title-link" name="uri-links-for-playlistsetc" href="#uri-links-for-playlistsetc"></a> URI Links For Playlists/Etc</h2>
+<p>You can send playlists to spotify via the “media_content_type”: “playlist” and “media_content_id”: “spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF” which are a part of the media_player.play_media service, you can test this from the services control panel in the Home Assistant frontend.</p>
+<p>In this example this is a URI link to the Reggae Infusions playlist, the link below from Spotify explains how to get this URI value to use for playlists in the Spotify component.</p>
+<p>https://support.spotify.com/us/using_spotify/share_music/why-do-you-have-two-different-link-formats/</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
