@@ -147,6 +147,9 @@ If a sensor belongs to only one group and that group is hidden, the sensor will 
     <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">python3</span><span class="nv"> </span><span class="s">occasion.py"</span>
 </code></pre>
 </div>
+<p class="note">
+If you are using docker to run home assistant then the occasion.py script will be placed under /config. Your command should instead be: command: “python3 /command/occasion.py”
+</p>
 <p>To simplify things, we create a Home Assistant script that changes the visibility of a group, but also verifies that an entity is in a specific state:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
   <span class="s">group_visibility</span><span class="pi">:</span>
@@ -163,8 +166,8 @@ If a sensor belongs to only one group and that group is hidden, the sensor will 
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.occasion</span>
-      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-        <span class="s">event_type</span><span class="pi">:</span> <span class="s">homeassistant_start</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">homeassistant</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">start</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">script.group_visibility</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -205,8 +208,8 @@ If a sensor belongs to only one group and that group is hidden, the sensor will 
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.occasion</span>
-      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-        <span class="s">event_type</span><span class="pi">:</span> <span class="s">homeassistant_start</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">homeassistant</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">start</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">script.group_visibility</span>
       <span class="s">data</span><span class="pi">:</span>
