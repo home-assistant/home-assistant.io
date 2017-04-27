@@ -81,11 +81,10 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install --upgrade <span class="nv">cython</span><span class="o">==</span>0.24.1
 </code></pre>
 </div>
-<p>Then get the OpenZWave files and switch to the <code class="highlighter-rouge">python3</code> branch:</p>
+<p>Then get the OpenZWave files:</p>
 <p class="note warning">Do not use root to build python-openzwave as it will surely fail.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/OpenZWave/python-openzwave.git
 <span class="gp">$ </span><span class="nb">cd </span>python-openzwave
-<span class="gp">$ </span>git checkout python3
 <span class="gp">$ </span><span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="k">$(</span>which python3<span class="k">)</span> make build
 <span class="gp">$ </span>sudo <span class="nv">PYTHON_EXEC</span><span class="o">=</span><span class="k">$(</span>which python3<span class="k">)</span> make install
 </code></pre>
