@@ -36,8 +36,12 @@ Configuration variables:
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
-- **blacklist** (*Optional*): List of entities that should not be logged to InfluxDB.
-- **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
+- **exclude** (*Optional*): Configure which components should be excluded from recording to InfluxDB.
+  - **entities** (*Optional*): The list of entity ids to be excluded from recording to InfluxDB.
+  - **domains** (*Optional*): The list of domains to be excluded from recording to InfluxDB.
+- **include** (*Optional*): Configure which components should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the **blacklist** option will prevail.
+  - **entities** (*Optional*): The list of entity ids to be included from recordings to InfluxDB.
+  - **domains** (*Optional*): The list of domains to be included from recordings to InfluxDB.
 - **tags** (*Optional*): Tags to mark the data.
 
 ## {% linkable_title Data migration %}
@@ -169,12 +173,16 @@ influxdb:
   ssl: true
   verify_ssl: true
   default_measurement: state
-  blacklist:
-     - entity.id1
-     - entity.id2
-  whitelist:
-     - entity.id3
-     - entity.id4
+  exclude:
+    entities:
+       - entity.id1
+       - entity.id2
+    domains:
+       - automation
+  include:
+    entities:
+       - entity.id3
+       - entity.id4
   tags:
     instance: prod
     source: hass
