@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-27T14:36:17+00:00</updated>
+  <updated>2017-04-27T20:18:34+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -187,6 +187,19 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>Fix telegram webhooks (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7236">#7236</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>)</li>
   <li>Work around bad content-type in Hook api response (<a href="https://github.com/KlaasH">@KlaasH</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7267">#7267</a>) (<a href="https://home-assistant.io/components/switch.hook/">switch.hook docs</a>)</li>
   <li>Recorder: Check for ENTITY_ID key that contains None value (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7287">#7287</a>) (<a href="https://home-assistant.io/components/recorder/">recorder docs</a>)</li>
+</ul>
+
+<h2><a class="title-link" name="release-0432---april-27" href="#release-0432---april-27"></a> Release 0.43.2 - April 27</h2>
+
+<ul>
+  <li>Frontend: Fix default date on history/logbook (@amelchio)</li>
+  <li>Frontend: Fix logbook ui (@balloob)</li>
+  <li>Upgrade pytradfri to 1.1 (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7290">#7290</a>)</li>
+  <li>Upgrade python-telegram-bot to 5.3.1 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7311">#7311</a>) (<a href="https://home-assistant.io/components/notify.telegram/">notify.telegram docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.polling/">telegram_bot.polling docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>)</li>
+  <li>Version bump of aioautomatic (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7300">#7300</a>) (<a href="https://home-assistant.io/components/device_tracker.automatic/">device_tracker.automatic docs</a>)</li>
+  <li>Version bump for automatic (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7329">#7329</a>) (<a href="https://home-assistant.io/components/device_tracker.automatic/">device_tracker.automatic docs</a>)</li>
+  <li>Fix breaking SSL in test HTML5 (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7310">#7310</a>) (<a href="https://home-assistant.io/components/notify.html5/">notify.html5 docs</a>)</li>
+  <li>Fix for building Python Open Z-Wave in Docker (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7337">#7337</a>)</li>
 </ul>
 
 <h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
