@@ -111,6 +111,30 @@
           <span class="s">subtitle</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Subtitle</span><span class="nv"> </span><span class="s">goes</span><span class="nv"> </span><span class="s">here"</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="sending-notifications-to-multiple-phones" href="#sending-notifications-to-multiple-phones"></a> Sending notifications to multiple phones</h3>
+<p>To send notifications to multiple phones, create a <a href="https://home-assistant.io/components/notify.group/">notification group</a>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">group</span>
+    <span class="s">services</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">ios_iphone_one</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">ios_iphone_two</span>
+</code></pre>
+</div>
+<p>Now, you can send notifications to everyone in the group using:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">automation</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
+      <span class="s">trigger</span><span class="pi">:</span>
+        <span class="s">...</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Something</span><span class="nv"> </span><span class="s">happened</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">home!"</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">push</span><span class="pi">:</span>
+              <span class="s">badge</span><span class="pi">:</span> <span class="s">5</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
