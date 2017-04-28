@@ -46,7 +46,8 @@ Full configuration sample:
 http:
   base_url: <public_url>
 
-telegram_webhooks:
+telegram_bot:
+  platform: webhooks
   api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
   trusted_networks:
     - 149.154.167.197/32
