@@ -49,7 +49,7 @@ Configuration variables:
 </p>
 
 ```yaml
-{% raw %}# Related configuration.yaml entry
+# Related configuration.yaml entry
 cover:
   platform: opengarage
   covers:
@@ -63,7 +63,7 @@ sensor:
   sensors:
     garage_status:
       friendly_name: 'Honda Door Status'
-      value_template: '{% if states.cover.honda %}
+      value_template: {% raw %}'{% if states.cover.honda %}
           {% if states.cover.honda.attributes["door_state"] == "open" %}
             Open
           {% elif states.cover.honda.attributes["door_state"] == "closed" %}
@@ -77,10 +77,10 @@ sensor:
           {% endif %}
           {% else %}
           n/a
-          {% endif %}'
+          {% endif %}'{% endraw %}
     garage_car_present:
       friendly_name: 'Honda in Garage'
-      value_template: '{% if states.cover.honda %}
+      value_template: {% raw %}'{% if states.cover.honda %}
           {% if states.cover.honda.state == "open" %}
             n/a
           {% elif ((states.cover.honda.attributes["distance_sensor"] > 40) and (states.cover.honda.attributes["distance_sensor"] < 100)) %}
@@ -90,7 +90,7 @@ sensor:
           {% endif %}
           {% else %}
           n/a
-          {% endif %}'
+          {% endif %}'{% endraw %}
 
 group:
   garage:     
