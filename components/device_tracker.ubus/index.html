@@ -67,7 +67,7 @@
   </header>
   <hr class="divider">
   <p><em>This is one of the two ways we support OpenWRT. If you encounter problems, try <a href="/components/device_tracker.luci/">luci</a>.</em></p>
-<p>This is a presence detection scanner for <a href="https://openwrt.org/">OpenWRT</a> using <a href="http://wiki.openwrt.org/doc/techref/ubus">ubus</a>.</p>
+<p>This is a presence detection scanner for <a href="https://openwrt.org/">OpenWRT</a> using <a href="http://wiki.openwrt.org/doc/techref/ubus">ubus</a>. It scans for changes in <code class="highlighter-rouge">hostapd.*</code>, which will detect and report changes in devices connected to the access point on the router.</p>
 <p>Before this scanner can be used you have to install the ubus RPC package on OpenWRT:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>opkg install rpcd-mod-file
 </code></pre>
@@ -112,6 +112,103 @@ file
   <li><strong>password</strong> (<em>Required</em>): The password for your given account.</li>
 </ul>
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
+<h2>Troubleshooting</h2>
+<p>If you find that this never creates <code class="highlighter-rouge">known_devices.yaml</code>, or if you need more information on the communication chain between Home Assistant and OpenWRT, follow these steps to grab the packet stream and gain insight into what’s happening.</p>
+<h3>Increase Log Level</h3>
+<ol>
+  <li>On your Home Assistant device, stop Home Assistant</li>
+  <li>Adjust <code class="highlighter-rouge">configuration.yaml</code> to log more detail for the <code class="highlighter-rouge">device_tracker</code> component
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logger</span><span class="pi">:</span>
+  <span class="s">default</span><span class="pi">:</span> <span class="s">warn</span>
+  <span class="s">logs</span><span class="pi">:</span>
+<span class="err"> </span><span class="s">homeassistant.components.device_tracker</span><span class="pi">:</span> <span class="s">debug</span>
+</code></pre>
+    </div>
+  </li>
+  <li>In another window, tail the logfile in the configuration directory:
+    <div class="highlighter-rouge"><pre class="highlight"><code>$ tail -f home-assistant.log  | grep device_tracker
+</code></pre>
+    </div>
+  </li>
+  <li>If you see a python stack trace like the following, check your configuration for correct username/password.
+    <div class="highlighter-rouge"><pre class="highlight"><code>17-04-28 10:43:30 INFO (MainThread) [homeassistant.loader] Loaded device_tracker from homeassistant.components.device_tracker
+17-04-28 10:43:30 INFO (MainThread) [homeassistant.loader] Loaded device_tracker.ubus from homeassistant.components.device_tracker.ubus
+17-04-28 10:43:30 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
+17-04-28 10:43:31 INFO (MainThread) [homeassistant.components.device_tracker] Setting up device_tracker.ubus
+17-04-28 10:43:31 ERROR (MainThread) [homeassistant.components.device_tracker] Error setting up platform ubus
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/__init__.py", line 152, in async_setup_platform
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 36, in get_scanner
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 58, in __init__
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 156, in _get_session_id
+  File "/opt/homeassistant/venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/ubus.py", line 147, in _req_json_rpc
+17-04-28 10:43:31 INFO (MainThread) [homeassistant.core] Bus:Handling &lt;Event service_registered[L]: domain=device_tracker, service=see&gt;
+17-04-28 10:43:31 INFO (MainThread) [homeassistant.core] Bus:Handling &lt;Event component_loaded[L]: component=device_tracker&gt;
+</code></pre>
+    </div>
+  </li>
+  <li>If you see lines like the following repeated at intervals that correspond to the check interval from the config (12 seconds by default), then Home Assistant is correctly polling the router, and you’ll need to look at what the router is sending back.
+    <div class="highlighter-rouge"><pre class="highlight"><code>17-04-28 10:50:34 INFO (Thread-7) [homeassistant.components.device_tracker.ubus] Checking ARP
+</code></pre>
+    </div>
+  </li>
+</ol>
+<h3>Inspect Packets With TCPDump</h3>
+<p><em>These steps require that <code class="highlighter-rouge">tcpdump</code> is installed on your Home Assistant device, and that you have a utility such as <a href="https://www.wireshark.org">Wireshark</a> for viewing the packets. It also assumes that Home Assistant is communicating with your router over HTTP and not HTTPS.</em></p>
+<ol>
+  <li>On your Home Assistant device, stop Home Assistant</li>
+  <li>In another shell on your Home Assistant device, start tcpdump
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo tcpdump -nnvXSs 0 -w /var/tmp/dt.out <span class="s1">'host &lt;router_ip&gt; and port 80'</span>
+</code></pre>
+    </div>
+    <ul>
+      <li>In this example we are only looking for traffic to or from port 80, and we are writing the packet stream out to <code class="highlighter-rouge">/var/tmp/dt.out</code></li>
+    </ul>
+  </li>
+  <li>Start Home Assistant</li>
+  <li>After a few seconds you should see a line like <code class="highlighter-rouge">Got xx</code> where <code class="highlighter-rouge">xx</code> is an incrementing number. This indicates that it has captured packets that match our filter. After you see this number increment a few times (&gt;20), you can hit <code class="highlighter-rouge">Ctrl-C</code> to cancel the capture.</li>
+  <li>Transfer <code class="highlighter-rouge">/var/tmp/dt.out</code> to the machine where you’re running Wireshark and either drag/drop it onto the Wireshark window or use File/Open to open the capture file.</li>
+  <li>In the window that opens, look for the first line that reads <code class="highlighter-rouge">POST /ubus</code>. Right click on this line, choose Follow and then HTTP Stream to view just the HTTP stream for this connection.</li>
+  <li>The first <code class="highlighter-rouge">POST</code> will show Home Assistant logging into ubus and receiving a session identifier back. It will look something like this:
+```
+POST /ubus HTTP/1.1
+Host: 10.68.0.1
+Accept: <em>/</em>
+User-Agent: python-requests/2.13.0
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Content-Length: 161</li>
+</ol>
+<p>{“jsonrpc”: “2.0”, “params”: [“00000000000000000000000000000000”, “session”, “login”, {“password”: “<password>", "username": "root"}], "method": "call", "id": 1}</password></p>
+<p>HTTP/1.1 200 OK
+Date: Fri, 28 Apr 2017 12:04:46 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive</p>
+<p>{“jsonrpc”:”2.0”,”id”:1,”result”:[0,{“ubus_rpc_session”:”8b4e1632389fcfd09e96a792e01c332c”,”timeout”:300,”expires”:300,”acls”:{“access-group”:{“unauthenticated”:[“read”],”user”:[“read”]},”ubus”:{“<em>”:[“</em>”],”session”:[“access”,”login”]},”uci”:{“*”:[“read”]}},”data”:{“username”:”root”}}]}</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>9. In the response above, the portion that reads `"result":[0,` indicates that ubus accepted the login without issue. If this is not `0`, search online for what ubus status corresponds to the number you're receiving and address any issues that it brings to light.
+10. Otherwise, back in the main Wireshark window click the `x` in the right side of the filter bar where it reads `tcp.stream eq 0`. Scroll down until you find the next `POST /ubus` line and view the HTTP stream again. This request is Home Assistant actually requesting information and will look something like the following:
+</code></pre>
+</div>
+<p>POST /ubus HTTP/1.1
+Host: 10.68.0.1
+Accept: <em>/</em>
+User-Agent: python-requests/2.13.0
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Content-Length: 114</p>
+<p>{“jsonrpc”: “2.0”, “params”: [“8b4e1632389fcfd09e96a792e01c332c”, “hostapd.*”, “”, {}], “method”: “list”, “id”: 1}</p>
+<p>HTTP/1.1 200 OK
+Date: Fri, 28 Apr 2017 12:04:46 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive</p>
+<p>{“jsonrpc”:”2.0”,”id”:1,”result”:{}}
+```</p>
+<ol>
+  <li>In this case we are actually receiving a valid response with no data. The request says that we are looking for ARP information from <code class="highlighter-rouge">hostapd.*</code>, which is the access point on the router. In my environment I don’t use the AP on the router, and so it was correctly returning no data. Armed with this information, I know that I cannot use this component for device tracking or presence.</li>
+</ol>
+<h3>Cleanup</h3>
+<p>When you’re done troubleshooting, remember to reset your logging configuration and delete any capture files that contain sensitive information.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
