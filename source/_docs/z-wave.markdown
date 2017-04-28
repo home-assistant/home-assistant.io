@@ -34,14 +34,13 @@ Make sure you have at least version 0.23 and at the most 0.24.1 of cython.
 $ sudo pip3 install --upgrade cython==0.24.1
 ```
 
-Then get the OpenZWave files and switch to the `python3` branch:
+Then get the OpenZWave files:
 
 <p class='note warning'>Do not use root to build python-openzwave as it will surely fail.</p>
 
 ```bash
 $ git clone https://github.com/OpenZWave/python-openzwave.git
 $ cd python-openzwave
-$ git checkout python3
 $ PYTHON_EXEC=$(which python3) make build
 $ sudo PYTHON_EXEC=$(which python3) make install
 ```

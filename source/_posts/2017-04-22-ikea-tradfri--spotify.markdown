@@ -98,6 +98,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
 - Recorder: Check for ENTITY_ID key that contains None value ([@balloob] - [#7287]) ([recorder docs])
 
+## {% linkable_title Release 0.43.2 - April 27 %}
+
+- Frontend: Fix default date on history/logbook (@amelchio)
+- Frontend: Fix logbook ui (@balloob)
+- Upgrade pytradfri to 1.1 ([@balloob] - [#7290])
+- Upgrade python-telegram-bot to 5.3.1 ([@fabaff] - [#7311]) ([notify.telegram docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs])
+- Version bump of aioautomatic ([@armills] - [#7300]) ([device_tracker.automatic docs])
+- Version bump for automatic ([@armills] - [#7329]) ([device_tracker.automatic docs])
+- Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
+- Fix for building Python Open Z-Wave in Docker ([@balloob] - [#7337])
+
 ## {% linkable_title All changes %}
 
 - Update kodi for aiohttp2 ([@armills] - [#6967]) ([media_player.kodi docs]) ([notify.kodi docs])
@@ -493,3 +504,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
 [wemo docs]: https://home-assistant.io/components/wemo/
 [zwave.workaround docs]: https://home-assistant.io/components/zwave.workaround/
+[#7271]: https://github.com/home-assistant/home-assistant/pull/7271
+[#7282]: https://github.com/home-assistant/home-assistant/pull/7282
+[#7290]: https://github.com/home-assistant/home-assistant/pull/7290
+[#7300]: https://github.com/home-assistant/home-assistant/pull/7300
+[#7310]: https://github.com/home-assistant/home-assistant/pull/7310
+[#7311]: https://github.com/home-assistant/home-assistant/pull/7311
+[#7323]: https://github.com/home-assistant/home-assistant/pull/7323
+[#7324]: https://github.com/home-assistant/home-assistant/pull/7324
+[#7329]: https://github.com/home-assistant/home-assistant/pull/7329
+[#7337]: https://github.com/home-assistant/home-assistant/pull/7337
+[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
+[hassio docs]: https://home-assistant.io/components/hassio/
+[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
+[notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
+[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
