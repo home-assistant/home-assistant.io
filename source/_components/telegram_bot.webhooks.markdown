@@ -12,9 +12,9 @@ ha_category: Telegram chatbot
 ha_release: 0.42
 ---
 
-Telegram chatbot webhooks implementation as described in [docs](https://core.telegram.org/bots/webhooks).
+Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).
 
-One of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your hass instance to be exposed to the internet.
+This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -46,7 +46,8 @@ Full configuration sample:
 http:
   base_url: <public_url>
 
-telegram_webhooks:
+telegram_bot:
+  platform: webhooks
   api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
   trusted_networks:
     - 149.154.167.197/32
