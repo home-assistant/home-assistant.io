@@ -66,8 +66,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Telegram chatbot webhooks implementation as described in <a href="https://core.telegram.org/bots/webhooks">docs</a>.</p>
-<p>One of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your hass instance to be exposed to the internet.</p>
+  <p>Telegram chatbot webhooks implementation as described in the Telegram <a href="https://core.telegram.org/bots/webhooks">documentation</a>.</p>
+<p>This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.</p>
 <p>To integrate this into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">http</span><span class="pi">:</span>
@@ -93,7 +93,8 @@
 <span class="s">http</span><span class="pi">:</span>
   <span class="s">base_url</span><span class="pi">:</span> <span class="s">&lt;public_url&gt;</span>
 
-<span class="s">telegram_webhooks</span><span class="pi">:</span>
+<span class="s">telegram_bot</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
   <span class="s">trusted_networks</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">149.154.167.197/32</span>
