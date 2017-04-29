@@ -72,17 +72,17 @@
 <h5><a class="title-link" name="siemenslightwaverf" href="#siemenslightwaverf"></a> Siemens/LightwaveRF</h5>
 <p>The easiest way to find your roller shutters is to add this to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
-  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+    <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
 </code></pre>
 </div>
 <p>Launch your homeassistant and go the website (e.g http://localhost:8123). Push your remote and your device should be added.</p>
 <p>Once added it will show an ID (e.g <code class="highlighter-rouge">0b11000102ef9f210010f70</code>) and you can verify that it works from the frontend. Then you should update your configuration to:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="s">0b11000102ef9f210010f70</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">device_name</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">0b11000102ef9f210010f70</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">device_name</span>
 </code></pre>
 </div>
 <h5><a class="title-link" name="rfy" href="#rfy"></a> RFY</h5>
@@ -91,14 +91,14 @@
 <p>Example configuration:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">cover</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
-  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">False</span>
-  <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">2</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="s">0b1100ce3213c7f210010f70</span><span class="pi">:</span> <span class="c1"># Siemens/LightwaveRF</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Bedroom Shutter</span>
-    <span class="s">070a00000a000101</span><span class="pi">:</span> <span class="c1"># RFY</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Bathroom Shutter</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+    <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">False</span>
+    <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">0b1100ce3213c7f210010f70</span><span class="pi">:</span> <span class="c1"># Siemens/LightwaveRF</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Bedroom Shutter</span>
+      <span class="s">070a00000a000101</span><span class="pi">:</span> <span class="c1"># RFY</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Bathroom Shutter</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
