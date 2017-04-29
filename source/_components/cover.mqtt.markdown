@@ -99,12 +99,12 @@ cover:
     state_closed: "STATE"
     optimistic: false
     value_template: '{% raw %}{{ value.x }}{% endraw %}'
-    tilt_command_topic: ''
-    tilt_status_topic: ''
-    tilt_min: '0'
-    tilt_max: '180'
-    tilt_closed_value: '70'
-    tilt_opened_value: '180'
+    tilt_command_topic: 'home-assistant/cover/tilt'
+    tilt_status_topic: 'home-assistant/cover/tilt-status'
+    tilt_min: 0
+    tilt_max: 180
+    tilt_closed_value: 70
+    tilt_opened_value: 180
 ```
 
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your cover manually:
