@@ -34,7 +34,7 @@ cover:
 
 Configuration variables:
 
-- **relay_time** (*Optional*): The time that the relay will be on for in seconds. Default is .2 seconds.
+- **relay_time** (*Optional*): The time that the relay will be on for in seconds. Default is 0.2 seconds.
 - **state_pull_mode** (*Optional*): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.
 - **covers** array (*Required*): List of your doors.
   - **relay_pin** (*Required*): The pin of your Raspberry Pi where the relay is connected.
