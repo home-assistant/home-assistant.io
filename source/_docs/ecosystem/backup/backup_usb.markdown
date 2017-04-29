@@ -2,7 +2,7 @@
 layout: page
 title: "Configuration Backup to USB drive"
 description: "Instructions how backup your Home Assistant configuration to USB stick"
-date: 2017-04-29 11:00
+date: 2017-04-29 08:00
 sidebar: true
 comments: false
 sharing: true
