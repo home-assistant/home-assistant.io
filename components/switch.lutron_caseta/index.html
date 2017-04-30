@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Raspberry Pi RF Switch - Home Assistant</title>
+    <title>Lutron Caseta Switch - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch.">
+    <meta name="description" content="Instructions how to setup the Lutron Caseta switches within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/switch.rpi_rf/">
+    <link rel="canonical" href="https://home-assistant.io/components/switch.lutron_caseta/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Raspberry Pi RF Switch">
+    <meta property="og:title" content="Lutron Caseta Switch">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/switch.rpi_rf/">
+    <meta property="og:url" content="https://home-assistant.io/components/switch.lutron_caseta/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch.">
+    <meta property="og:description" content="Instructions how to setup the Lutron Caseta switches within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Raspberry Pi RF Switch">
-    <meta name="twitter:description" content="Instructions how to integrate devices controlled via codes sent with low-cost GPIO RF modules on a Raspberry Pi into Home Assistant as a switch.">
+    <meta name="twitter:title" content="Lutron Caseta Switch">
+    <meta name="twitter:description" content="Instructions how to setup the Lutron Caseta switches within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -62,65 +62,34 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Raspberry Pi RF Switch
+      Lutron Caseta Switch
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">rpi_rf</code> switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a <a href="https://www.raspberrypi.org/">Raspberry Pi</a>.</p>
-<p>Interoperable with codes sniffed via <a href="https://pypi.python.org/pypi/rpi-rf">the rpi-rf module</a> or <a href="https://github.com/sui77/rc-switch">rc-switch</a>.
-For more info see the PyPi module description: <a href="https://pypi.python.org/pypi/rpi-rf">rpi-rf</a>.</p>
-<p>To enable, add the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_rf</span>
-  <span class="s">gpio</span><span class="pi">:</span> <span class="s">17</span>
-  <span class="s">switches</span><span class="pi">:</span>
-    <span class="s">bedroom_light</span><span class="pi">:</span>
-      <span class="s">code_on</span><span class="pi">:</span> <span class="s">1234567</span>
-      <span class="s">code_off</span><span class="pi">:</span> <span class="s">1234568</span>
-    <span class="s">ambilight</span><span class="pi">:</span>
-      <span class="s">pulselength</span><span class="pi">:</span> <span class="s">200</span>
-      <span class="s">code_on</span><span class="pi">:</span> <span class="s">987654</span>
-      <span class="s">code_off</span><span class="pi">:</span> <span class="s">133742</span>
-    <span class="s">living_room_light</span><span class="pi">:</span>
-      <span class="s">protocol</span><span class="pi">:</span> <span class="s">5</span>
-      <span class="s">code_on</span><span class="pi">:</span> <span class="s">654321,565874,233555,149874</span>
-      <span class="s">code_off</span><span class="pi">:</span> <span class="s">654320,565873,233554,149873</span>
-      <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">15</span>
-</code></pre>
-</div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>gpio</strong> (<em>Required</em>): GPIO to which the data line of the TX module is connected.</li>
-  <li><strong>switches:</strong> (<em>Required</em>): The array that contains all switches.
-    <ul>
-      <li><strong>[entry]</strong> (<em>Required</em>): Name of the switch. Multiple entries are possible.
-        <ul>
-          <li><strong>code_on</strong> (<em>Required</em>): Decimal code(s) to switch the device on. To run multiple codes in a sequence, separate the individual codes with commas ‘,’.</li>
-          <li><strong>code_off</strong> (<em>Required</em>): Decimal code(s) to switch the device off. To run multiple codes in a sequence, separate the individual codes with commas ‘,’.</li>
-          <li><strong>protocol</strong> (<em>Optional</em>): RF Protocol (Default is <code class="highlighter-rouge">1</code>).</li>
-          <li><strong>pulselength</strong> (<em>Optional</em>): Pulselength (Default is the protocol default).</li>
-          <li><strong>signal_repetitions</strong> (<em>Optional</em>): Number of times to repeat transmission (default is 10, can increase to try to improve reliability).</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+  <p>To get your Lutron Caseta switches working with Home Assistant, follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/switch.rpi_rf.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/switch.lutron_caseta.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/raspberry-pi.png' />
+      <img src='/images/supported_brands/lutron.png' />
   </div>
-    <div class='section'>
-    Introduced in release: 0.19
-    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/switch/'>the Switches component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/lutron_caseta/'>
+          Lutron Caseta
+        </a></li>
+        <li><a href='/components/light.lutron_caseta/'>
+          Lutron Caseta Light
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Switch</h1>
@@ -189,7 +158,7 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
             <a href='/components/switch.litejet/'>LiteJet Switch</a>
         </li>
         <li>
-            <a href='/components/switch.lutron_caseta/'>Lutron Caseta Switch</a>
+            Lutron Caseta Switch
         </li>
         <li>
             <a href='/components/switch.mqtt/'>MQTT Switch</a>
@@ -234,7 +203,7 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
             <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>
         </li>
         <li>
-            Raspberry Pi RF Switch
+            <a href='/components/switch.rpi_rf/'>Raspberry Pi RF Switch</a>
         </li>
         <li>
             <a href='/components/switch.scsgate/'>SCSGate Switch</a>
