@@ -6,23 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Streaming updates - Home Assistant</title>
-    <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="The frontend will now get the latest changes pushed while open.">
+    <title>HASSbian 1.21 - It's about time isn't it - Home Assistant</title>
+    <meta name="author" content="Fredrik Lindqvist">
+    <meta name="description" content="New release of the HASSbian Raspberry Pi Image for Home Assistant">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/02/24/streaming-updates/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Streaming updates">
+    <meta property="og:title" content="HASSbian 1.21 - It's about time isn't it">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/02/24/streaming-updates/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="The frontend will now get the latest changes pushed while open.">
+    <meta property="og:description" content="New release of the HASSbian Raspberry Pi Image for Home Assistant">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Streaming updates">
-    <meta name="twitter:description" content="The frontend will now get the latest changes pushed while open.">
+    <meta name="twitter:title" content="HASSbian 1.21 - It's about time isn't it">
+    <meta name="twitter:description" content="New release of the HASSbian Raspberry Pi Image for Home Assistant">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -62,15 +61,15 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">Streaming updates</h1>
+  <h1 class="title indent">HASSbian 1.21 - It's about time isn't it</h1>
   <div class="meta clearfix">
-    <time datetime="2015-02-24T22:41:27+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 24, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <time datetime="2017-04-30T15:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 30, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>Release-Notes</li>
+        <li>Technology</li>
     </ul>
   </span>
       <a class='comments'
@@ -78,15 +77,29 @@
          >Comments</a>
   </div>
 </header>
-  <p>Home Assistant has learned a new trick to get the latest information from the server: streaming updates. No longer will the frontend poll every 30 seconds for updates but instead it will keep a connection open and get the latest changes pushed as soon as they happen.</p>
-<p>A new toggle has been added ot the sidebar to turn streaming updates on and off. This preference will be saved on a per-browser basis using local storage. The toggle will also indicate when there is an error setting up a stream after which it will fall back to use polling.</p>
-<p class="img"><img src="/images/screenshots/streaming-updates.png" /></p>
-<a name="read-more"></a>
-<p>Streaming updates has been implemented using the HTML5 <code class="highlighter-rouge">EventSource</code> tag. Implementation is pretty straight forward as all the reconnection logic will be handled by the event source tag. The <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/api.py#L90">server-side code</a> is 50 lines and the <a href="https://github.com/home-assistant/home-assistant-js/blob/master/src/actions/stream.js">client-side code</a> is 80 lines of code.</p>
-<p>All events that happen on the server will now also be sent to the browser. This turns any browser running the UI into a fully functioning <a href="https://home-assistant.io/developers/architecture/#multiple-connected-instances">slave instance</a> of Home Assistant. This opens up new possibilities for Home Assistant components that live completely client-side.</p>
-<p>Implementing EventSource was not without challenges. Here are some of the issues that had to be solved:</p>
-<p>A connection can go stale in Chrome without any event handler being called. This happens when a device goes into standby. For computers this is rare but for phones this occurs quite often. This has been solved by sending a regular ping from the server. The frontend will assume the connection has gone stale when it hasn’t heard any communication for a while. Sending a ping will also help the server detect broken connections and clean them up.</p>
-<p>Another issue that I encountered is that Safari and Firefox would not fire the <code class="highlighter-rouge">open</code> event when the connection has been opened but when the first message has been received. To work around this the server will now fire a ping when the connection gets opened.</p>
+  <h2>It’s about time isn’t it?</h2>
+<p>Since I the developer of HASSbian have been moving, started a new job and so on I’ve had few moments over for HASSbian development. <br />
+The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I’ll do my best to release more often. There’s no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the <a href="https://github.com/home-assistant/hassbian-scripts/releases/latest">hassbian-config</a> package. For more information have a look at the <a href="https://github.com/home-assistant/hassbian-scripts/">hassbian-config</a> page.</p>
+<h3>Hassbian-config</h3>
+<p>To allow you to customize your installation further, we have included a tool called <code class="highlighter-rouge">hassbian-config</code>. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation. This replaces the <code class="highlighter-rouge">hassbian-scripts</code> functionality from 1.1.</p>
+<ul>
+  <li>Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it’s usage is not recommended if you share your network with others.</li>
+  <li>Install Libcec. Adds local <a href="/components/hdmi_cec/">HDMI CEC support</a>.</li>
+  <li>Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.</li>
+  <li>Install Open Z-Wave. Installs Open Z-Wave and prepares for using a USB or GPIO ZWave controller.</li>
+  <li>Install Hue. hue: Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.</li>
+  <li>Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.</li>
+</ul>
+<h3>Spring cleaning</h3>
+<p>With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.</p>
+<ul>
+  <li>Replaced the <code class="highlighter-rouge">hassbian-scripts</code> folder with <code class="highlighter-rouge">hassbian-config</code>.</li>
+  <li>Update pi-gen. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.</li>
+  <li>Added libtool &amp; autoconf  package. Dependencies for some of the pip packages.</li>
+  <li>Pi ZeroW should now work with the image.</li>
+</ul>
+<p>To follow discussions about the development of the HASSbian image or to contribute join the <a href="https://gitter.im/home-assistant/hassbian">HASSbian gitter chat</a>.</p>
+<p>To get started with the new image, check out the installation instructions in the <a href="/getting-started/installation-raspberry-pi-image/">getting started section</a>.</p>
 </article>
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
@@ -116,10 +129,10 @@
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/02/24/streaming-updates/"
-     data-counturl="https://home-assistant.io/blog/2015/02/24/streaming-updates/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/"
+     data-counturl="https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/02/24/streaming-updates/"
+         data-href="https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -128,9 +141,6 @@
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-        <li class="post">
-          <a href="/blog/2017/04/30/hassbian-1.21-its-about-time/">HASSbian 1.21 - It's about time isn't it</a>
-        </li>
         <li class="post">
           <a href="/blog/2017/04/25/influxdb-grafana-docker/">Setting up InfluxDB and Grafana using Docker</a>
         </li>
@@ -178,8 +188,8 @@
 <script>
   var disqus_shortname = 'home-assistant';
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/02/24/streaming-updates/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/02/24/streaming-updates/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/';
     var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

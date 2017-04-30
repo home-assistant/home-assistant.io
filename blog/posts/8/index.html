@@ -62,6 +62,69 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/">0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-03-12T18:55:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 12, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Two weeks has past so here is 0.15! We have been focussing a lot on quality. Making sure the system is more stable and reliable. I usually try to highlight one cool thing in the release notes but this release has 4 exciting announcements!</p>
+<ul>
+  <li><a href="https://github.com/fabaff">@fabaff</a> has upgraded the codebase to follow the PEP257 documentation standard.</li>
+  <li><a href="https://github.com/PartOfTheThing">@partofthething</a> has migrated us to use the main Python Open Z-Wave library instead of our forked version.</li>
+  <li>To make our automations more powerful, <a href="https://github.com/persandstrom">@persandstrom</a> added the option to use templates to dynamically create service calls. This works for automation, Alexa, universal media player, template switch. <a href="/topics/service_calls/#use-templates-to-decide-which-service-to-call">Learn more.</a></li>
+  <li><a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> has upgraded our scene support to now support all built-in services and components.</li>
+</ul>
+<p>Besides bug fixes, this release also brings:</p>
+<p><img src="/images/supported_brands/hunter-douglas-powerview.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<ul>
+  <li>Scene: Converted to a platform based component (<a href="https://github.com/sander76">@sander76</a>)</li>
+  <li>Scene: <a href="/components/scene.hunterdouglas_powerview/">Hunter Douglas Powerview</a> now supported (<a href="https://github.com/sander76">@sander76</a>)</li>
+  <li>Lock: <a href="/components/lock.mqtt/">MQTT</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.owntracks/">OwnTracks</a> will allow filtering inaccurate GPS locations (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a>)</li>
+  <li>Binary Sensor: Wemo Motion now supported (<a href="https://github.com/pavoni">@pavoni</a>, <a href="https://github.com/ryanlaux">@ryanlaux</a>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example using templates for service and data in service call.</span>
+<span class="c1"># Works for automation, Alexa, universal media player, template switch.</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.bathroom</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{% if is_state('switch.bathroom', 'on') %}</span>
+          <span class="no">switch.turn_on</span>
+        <span class="no">{% else %}</span>
+          <span class="no">switch.turn_off</span>
+        <span class="no">{% endif %}</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.{{ states('input_select.is') }}</span>
+</code></pre>
+</div>
+<h3>Breaking Changes</h3>
+<ul>
+  <li>Media Player: Attributes to call service play_media has been renamed to
+<code class="highlighter-rouge">media_content_type</code> and <code class="highlighter-rouge">media_content_id</code>, to match the corresponding media
+player state attributes. This change affects automations, scripts and scenes.</li>
+</ul>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2016/02/27/steam-d-link-smart-plugs-and-neurio-energy-sensors/">0.14: Steam, D-Link smart plugs and Neurio Energy Sensors</a>
   </h1>
   <div class="meta clearfix">
@@ -524,50 +587,6 @@ Example of the new views in the frontend. <a href="/components/group/">Learn mor
   <li><a href="/components/sensor.mysensors/">MySensors sensor platform</a> now requires the <a href="/components/mysensors/">MySensors</a> component to be configured.</li>
   <li>Geofancy platform has been renamed to <a href="/components/device_tracker.locative/">Locative</a>.</li>
 </ul>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/12/22/amazon-echo-icloud-and-templates/">0.10: Amazon Echo, iCloud, Dweet.io, Twitch and templating support!</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-12-22T09:30:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 22, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/12/22/amazon-echo-icloud-and-templates/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Alrighty, it’s time for Home Assistant 0.10. A lot amazing things have changed and sadly we also had to introduce a bunch of backwards incompatible changes. I would like to give a big shoutout to Philip Lundrigan (<a href="https://github.com/philipbl">@philipbl</a>) who put a lot in effort in helping the migration to move towards using templates for a wide variety of platforms.</p>
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
-</div>
-<p><img src="/images/supported_brands/icloud.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/heatmiser.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/dweet.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/amazon-echo.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/eliq.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-<ul>
-  <li>Device tracker: <a href="/components/device_tracker.icloud/">iCloud</a> platform added (<a href="https://github.com/xorso">@xorso</a>, <a href="https://github.com/kevinpanaro">@kevinpanaro</a>)</li>
-  <li>Frontend: Improved caching using service workers if served over SSL (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Sensor: <a href="/components/sensor.twitch/">Twitch</a> platform added (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-  <li><a href="/topics/templating/">Template</a> support (<a href="https://github.com/balloob">@balloob</a>, <a href="https://github.com/philipbl">@philipbl</a>, <a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.heatmiser/">Heatmiser</a> platform added (<a href="https://github.com/andylockran">@andylockran</a>)</li>
-  <li>Sensor: <a href="/components/sensor.dweet/">Dweet.io</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li><a href="/components/alexa/">Alexa/Amazon echo</a> component added (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Device Tracker: <a href="/components/device_tracker.fritz/">FritzBox</a> platform added (<a href="https://github.com/deisi">@deisi</a>, <a href="https://github.com/caiuspb">@caiuspb</a>)</li>
-  <li>Sensor: <a href="/components/sensor.wink/">Wink</a> now supports the Egg minders (<a href="https://github.com/w1ll1am23">@w1ll1am23</a>)</li>
-  <li>Sensor: <a href="/components/sensor.eliqonline/">ELIQ Online</a> platform added (<a href="https://github.com/molobrakos">@molobrakos</a>)</li>
-  <li>Binary sensor: <a href="/components/binary_sensor.rest/">REST</a> platform added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Sensor: <a href="/components/sensor.torque/">Torque (OBD2)</a> platform added (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a>)</li>
-</ul>
-      <a class="btn pull-right" href="/blog/2015/12/22/amazon-echo-icloud-and-templates/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

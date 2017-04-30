@@ -70,11 +70,19 @@
   <p>Some components that are specific for the Raspberry Pi can require some further configuration outside of Home Assistant. All commands below are assumed to be executed with the <code class="highlighter-rouge">pi</code> account. For full documentation of these components refer to the <a href="/components">components</a> page.</p>
 <h3><a class="title-link" name="bluetooth-tracker" href="#bluetooth-tracker"></a> Bluetooth Tracker</h3>
 <p>The Bluetooth tracker will work on a Raspberry Pi 3 with the built-in Bluetooth module or with a USB Bluetooth device on any of the other Raspberry Pi’s.</p>
-<p>Install the following external dependencies.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install bluetooth libbluetooth-dev
-</code></pre>
-</div>
-<p>After this follow the <a href="/components/device_tracker.bluetooth_tracker/">Bluetooth Tracker component</a> and <a href="/components/device_tracker/">Device Tracker page</a> pages.</p>
+<p>Software needed for the tracker is pre-installed so just follow the <a href="/components/device_tracker.bluetooth_tracker/">Bluetooth Tracker component</a> and <a href="/components/device_tracker/">Device Tracker page</a> pages.</p>
+<h3><a class="title-link" name="raspberry-pi-gpio" href="#raspberry-pi-gpio"></a> Raspberry Pi GPIO</h3>
+<p>Each of the following devices are connected to the GPIO pins on the Raspberry Pi.
+For more details about the GPIO layout, visit the <a href="https://www.raspberrypi.org/documentation/usage/gpio/">documentation</a> from the Raspberry Pi foundation.</p>
+<p>Permission have been given to the <code class="highlighter-rouge">homeassistant</code> user to use the GPIO pins and all of the following components should require no underlying changes to work.
+Just follow the component pages for each on how to add them to your Home Assistant installation.</p>
+<ul>
+  <li><a href="/components/sensor.dht/">DHT Sensor</a>.</li>
+  <li><a href="/components/cover.rpi_gpio/">Raspberry Pi Cover</a>.</li>
+  <li><a href="/components/binary_sensor.rpi_gpio/">Raspberry PI GPIO Binary Sensor</a>.</li>
+  <li><a href="/components/switch.rpi_gpio/">Raspberry PI GPIO Switch</a>.</li>
+  <li><a href="/components/switch.rpi_rf/">Raspberry Pi RF Switch</a>.</li>
+</ul>
 <h3><a class="title-link" name="raspberry-pi-camera" href="#raspberry-pi-camera"></a> Raspberry Pi Camera</h3>
 <p>The Raspberry Pi Camera is a specific camera for the Raspberry Pi boards. For more information about the camera I suggest reading the <a href="https://www.raspberrypi.org/documentation/usage/camera/">documentation</a> from the Raspberry Pi foundation.</p>
 <p>To use the camera it needs to be enabled with the <code class="highlighter-rouge">raspi-config</code> utility.</p>
@@ -82,46 +90,7 @@
 </code></pre>
 </div>
 <p>Select <code class="highlighter-rouge">Enable camera</code> choose <code class="highlighter-rouge">&lt;Yes&gt;</code> and hit <code class="highlighter-rouge">Enter</code>, then go to <code class="highlighter-rouge">Finish</code> and you’ll be prompted to reboot.</p>
-<p>After reboot add your <code class="highlighter-rouge">homeassistant</code> account to the <code class="highlighter-rouge">video</code> group.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser homeassistant video
-</code></pre>
-</div>
 <p>After this follow the <a href="/components/camera.rpi_camera/">Raspberry Pi Camera component</a> page.</p>
-<h3><a class="title-link" name="raspberry-pi-gpio" href="#raspberry-pi-gpio"></a> Raspberry Pi GPIO</h3>
-<p>Each of the following devices are connected to the GPIO pins on the Raspberry Pi.
-For more details about the GPIO layout, visit the <a href="https://www.raspberrypi.org/documentation/usage/gpio/">documentation</a> from the Raspberry Pi foundation.</p>
-<p>Since these are not normally used some extra permission will need to be added.
-In general the permission that is needed is granted by adding the <code class="highlighter-rouge">homeassistant</code> account to the <code class="highlighter-rouge">gpio</code> group.</p>
-<h3><a class="title-link" name="raspberry-pi-cover" href="#raspberry-pi-cover"></a> Raspberry Pi Cover</h3>
-<p>Add your <code class="highlighter-rouge">homeassistant</code> account to the <code class="highlighter-rouge">gpio</code> group</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser homeassistant gpio
-</code></pre>
-</div>
-<p>After this follow the <a href="/components/cover.rpi_gpio/">Raspberry Pi Cover component</a> page.</p>
-<h3><a class="title-link" name="dht-sensor" href="#dht-sensor"></a> DHT Sensor</h3>
-<p>Add your <code class="highlighter-rouge">homeassistant</code> account to the <code class="highlighter-rouge">gpio</code> group</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser homeassistant gpio
-</code></pre>
-</div>
-<p>After this follow the <a href="/components/sensor.dht/">DHT Sensor component</a> page.</p>
-<h3><a class="title-link" name="raspberry-pi-gpio-binary-sensor" href="#raspberry-pi-gpio-binary-sensor"></a> Raspberry PI GPIO Binary Sensor</h3>
-<p>Add your <code class="highlighter-rouge">homeassistant</code> account to the <code class="highlighter-rouge">gpio</code> group</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser homeassistant gpio
-</code></pre>
-</div>
-<p>After this follow the <a href="/components/binary_sensor.rpi_gpio/">Raspberry PI GPIO Binary Sensor component</a> page.</p>
-<h3><a class="title-link" name="raspberry-pi-gpio-switch" href="#raspberry-pi-gpio-switch"></a> Raspberry PI GPIO Switch</h3>
-<p>Add your <code class="highlighter-rouge">homeassistant</code> account to the <code class="highlighter-rouge">gpio</code> group.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser homeassistant gpio
-</code></pre>
-</div>
-<p>After this follow the <a href="/components/switch.rpi_gpio/">Raspberry PI GPIO Switch component</a> page.</p>
-<h3><a class="title-link" name="raspberry-pi-rf-switch" href="#raspberry-pi-rf-switch"></a> Raspberry Pi RF Switch</h3>
-<p>Add your <code class="highlighter-rouge">homeassistant</code> account to the <code class="highlighter-rouge">gpio</code> group</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo adduser homeassistant gpio
-</code></pre>
-</div>
-<p>After this follow the <a href="/components/switch.rpi_rf/">Raspberry Pi RF Switch component</a> page.</p>
 <h3><a class="title-link" name="one-wire-sensor" href="#one-wire-sensor"></a> One wire Sensor</h3>
 <p>The One wire sensor requires that support for it is enabled on the Raspberry Pi and that the One Wire device is connected to GPIO pin 4.
 To enable One Wire support add the following line to the end of <code class="highlighter-rouge">/boot/config.txt</code></p>
