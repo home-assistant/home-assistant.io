@@ -69,9 +69,10 @@
   <p><a href="http://www.lutron.com/">Lutron</a> is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The <code class="highlighter-rouge">lutron</code> component in Home Assistant is responsible for communicating with the main hub for these systems.</p>
 <p>Presently, there’s only support for communicating with the <a href="http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx">RadioRA 2</a> Main Repeater and only handle light switches and dimmers.</p>
 <p>When configured, the <code class="highlighter-rouge">lutron</code> component will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.</p>
-<p>To use Lutron RadioRA 2 devices in your installation, add the following to your configuration.yaml file using the IP of your RadioRA 2 Main Repeater:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">lutron</span><span class="pi">:</span>
-  <span class="s">lutron_host</span><span class="pi">:</span> <span class="s">&lt;ip&gt;</span>
+<p>To use Lutron RadioRA 2 devices in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file using the IP of your RadioRA 2 Main Repeater:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">lutron</span><span class="pi">:</span>
+  <span class="s">lutron_host:IP_ADDRESS</span>
   <span class="s">lutron_user</span><span class="pi">:</span> <span class="s">lutron</span>
   <span class="s">lutron_password</span><span class="pi">:</span> <span class="s">integration</span>
 </code></pre>
@@ -83,7 +84,7 @@
   <li><strong>lutron_password</strong> (<em>Required</em>): The password for the user specified above. <code class="highlighter-rouge">integration</code> is the password for the always-present <code class="highlighter-rouge">lutron</code> user.</li>
 </ul>
 <p class="note">
-  It is recommended to assign a static IP address to your Main Repeater. This ensures that it won’t change IP addresses, so you won’t have to change the <code class="highlighter-rouge">lutron_ip</code> if it reboots and comes up with a different IP address.
+It is recommended to assign a static IP address to your Main Repeater. This ensures that it won’t change IP addresses, so you won’t have to change the <code class="highlighter-rouge">lutron_ip</code> if it reboots and comes up with a different IP address.
 </p>
 </article>
         </div>

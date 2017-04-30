@@ -66,12 +66,13 @@
     </h1>
   </header>
   <hr class="divider">
-  <p><a href="http://www.lutron.com/">Lutron</a> is an American lighting control company.  They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc.  The <code class="highlighter-rouge">lutron_caseta</code> component in Home Assistant is responsible for communicating with the Lutron SmartBridge for these systems.</p>
-<p>This component only supports the Caseta line of products.  Current only supports Caseta dimmers as Home Assistant lights and caseta wall switches as Home Assistant switches.</p>
+  <p><a href="http://www.lutron.com/">Lutron</a> is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The <code class="highlighter-rouge">lutron_caseta</code> component in Home Assistant is responsible for communicating with the Lutron SmartBridge for these systems.</p>
+<p>This component only supports the Caseta line of products. Current only supports Caseta dimmers as Home Assistant lights and caseta wall switches as Home Assistant switches.</p>
 <p>When configured, the <code class="highlighter-rouge">lutron_caseta</code> component will automatically discover dimmers and switches as setup in the Lutron SmartBridge.</p>
-<p>To use Lutron Caseta devices in your installation, add the following to your configuration.yaml file using the IP of your lutron Smartbridge:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">lutron_caseta</span><span class="pi">:</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">&lt;ip_address&gt;</span>
+<p>To use Lutron Caseta devices in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file using the IP of your lutron Smartbridge:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">lutron_caseta</span><span class="pi">:</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -79,7 +80,7 @@
   <li><strong>host</strong> (<em>Required</em>): The IP address of the Lutron SmartBridge.</li>
 </ul>
 <p class="note">
-  It is recommended to assign a static IP address to your Lutron SmartBridge.  This ensures that it won’t change IP address, so you won’t have to change the <code class="highlighter-rouge">host</code> if it reboots and comes up with a different IP address.
+It is recommended to assign a static IP address to your Lutron SmartBridge. This ensures that it won’t change IP address, so you won’t have to change the <code class="highlighter-rouge">host</code> if it reboots and comes up with a different IP address.
 </p>
 </article>
         </div>
