@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>myStrom WiFi Bulb - Home Assistant</title>
+    <title>Lutron Light - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate myStrom WiFi Bulbs into Home Assistant.">
+    <meta name="description" content="Instructions how to setup the Lutron lights within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/light.mystrom/">
+    <link rel="canonical" href="https://home-assistant.io/components/light.lutron/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="myStrom WiFi Bulb">
+    <meta property="og:title" content="Lutron Light">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/light.mystrom/">
+    <meta property="og:url" content="https://home-assistant.io/components/light.lutron/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate myStrom WiFi Bulbs into Home Assistant.">
+    <meta property="og:description" content="Instructions how to setup the Lutron lights within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="myStrom WiFi Bulb">
-    <meta name="twitter:description" content="Instructions how to integrate myStrom WiFi Bulbs into Home Assistant.">
+    <meta name="twitter:title" content="Lutron Light">
+    <meta name="twitter:description" content="Instructions how to setup the Lutron lights within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -62,56 +62,20 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      myStrom WiFi Bulb
+      Lutron Light
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">mystrom</code> light platform allows you to control your <a href="https://mystrom.ch/en/">myStrom</a> WiFi Bulbs.</p>
-<p>To use your myStrom WiFi Bulb in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">light</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mystrom</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-    <span class="s">mac</span><span class="pi">:</span> <span class="s">MAC_ADDRESS</span>
-</code></pre>
-</div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your myStrom WiFi Bulb, eg. <code class="highlighter-rouge">192.168.1.32</code>.</li>
-  <li><strong>mac</strong> (<em>Required</em>): The MAC address of your myStrom WiFi Bulb, eg. <code class="highlighter-rouge">5AAC8CA542F3</code>.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name to use when displaying this light.</li>
-</ul>
-<p>Check if you are able to access the light located at <code class="highlighter-rouge">IP_ADRRESS</code>. The details about your light is provided as a JSON response.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl http://[IP_ADDRESS]/api/v1/device/[MAC_ADDRESS]
-
-<span class="o">{</span>
-  <span class="s2">"MAC_ADDRESS"</span>: <span class="o">{</span>
-    <span class="s2">"type"</span>: <span class="s2">"rgblamp"</span>,
-    <span class="s2">"battery"</span>: <span class="nb">false</span>,
-    <span class="s2">"reachable"</span>: <span class="nb">true</span>,
-    <span class="s2">"meshroot"</span>: <span class="nb">false</span>,
-    <span class="s2">"on"</span>: <span class="nb">true</span>,
-    <span class="s2">"color"</span>: <span class="s2">"0;0;100"</span>,
-    <span class="s2">"mode"</span>: <span class="s2">"hsv"</span>,
-    <span class="s2">"ramp"</span>: 409,
-    <span class="s2">"power"</span>: 5.1,
-    <span class="s2">"fw_version"</span>: <span class="s2">"2.25"</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
+  <p>To get your Lutron lights working with Home Assistant, follow the instructions for the general <a href="/components/lutron/">Lutron component</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/light.mystrom.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/light.lutron.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/mystrom.png' />
+      <img src='/images/supported_brands/lutron.png' />
   </div>
-    <div class='section'>
-    Introduced in release: 0.43
-    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/light/'>the Lights component</a>.
@@ -119,8 +83,8 @@
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
-        <li><a href='/components/switch.mystrom/'>
-          myStrom Switch
+        <li><a href='/components/lutron/'>
+          Lutron
         </a></li>
     </ul>
     </div>
@@ -179,7 +143,7 @@
             <a href='/components/light.lutron_caseta/'>Lutron Caseta Light</a>
         </li>
         <li>
-            <a href='/components/light.lutron/'>Lutron Light</a>
+            Lutron Light
         </li>
         <li>
             <a href='/components/light.mqtt_json/'>MQTT JSON Light</a>
@@ -248,7 +212,7 @@
             <a href='/components/light.zigbee/'>ZigBee Light</a>
         </li>
         <li>
-            myStrom WiFi Bulb
+            <a href='/components/light.mystrom/'>myStrom WiFi Bulb</a>
         </li>
     </ul>
     </div>
