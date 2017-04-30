@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-04-30T19:40:59+00:00</updated>
+  <updated>2017-04-30T20:01:39+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -18,11 +18,9 @@
     <link href="https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/"/>
     <updated>2017-04-30T15:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time</id>
-    <content type="html"><![CDATA[<h2>It’s about time isn’t it?</h2>
-<p>Since I the developer of HASSbian have been moving, started a new job and so on I’ve had few moments over for HASSbian development. <br />
-The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I’ll do my best to release more often. There’s no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the <a href="https://github.com/home-assistant/hassbian-scripts/releases/latest">hassbian-config</a> package. For more information have a look at the <a href="https://github.com/home-assistant/hassbian-scripts/">hassbian-config</a> page.</p>
+    <content type="html"><![CDATA[<p>Since I, the developer of HASSbian, have been moving, started a new job and so on I’ve had few moments over for HASSbian development. The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I’ll do my best to release more often. There’s no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the <a href="https://github.com/home-assistant/hassbian-scripts/releases/latest">hassbian-config</a> package. For more information have a look at the <a href="https://github.com/home-assistant/hassbian-scripts/">hassbian-config</a> page.</p>
 
-<h3>Hassbian-config</h3>
+<h3><a class="title-link" name="hassbian-config" href="#hassbian-config"></a> Hassbian-config</h3>
 
 <p>To allow you to customize your installation further, we have included a tool called <code class="highlighter-rouge">hassbian-config</code>. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation. This replaces the <code class="highlighter-rouge">hassbian-scripts</code> functionality from 1.1.</p>
 
@@ -35,9 +33,10 @@ The 1.2 release has been in pre-release for a few months now and just not commun
   <li>Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.</li>
 </ul>
 
-<h3>Spring cleaning</h3>
+<h3><a class="title-link" name="spring-cleaning" href="#spring-cleaning"></a> Spring cleaning</h3>
 
 <p>With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.</p>
+
 <ul>
   <li>Replaced the <code class="highlighter-rouge">hassbian-scripts</code> folder with <code class="highlighter-rouge">hassbian-config</code>.</li>
   <li>Update pi-gen. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.</li>
