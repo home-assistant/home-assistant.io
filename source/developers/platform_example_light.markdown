@@ -63,11 +63,12 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
     # Verify that passed in configuration works
     if not hub.is_valid_login():
-        _LOGGER.error('Could not connect to AwesomeLight hub')
+        _LOGGER.error("Could not connect to AwesomeLight hub")
         return False
 
     # Add devices
     add_devices(AwesomeLight(light) for light in hub.lights())
+
 
 
 class AwesomeLight(Light):
@@ -87,7 +88,7 @@ class AwesomeLight(Light):
 
     @property
     def brightness(self):
-        """Brightness of the light (an integer in the range 1-255).
+        """Return the brightness of the light.
 
         This method is optional. Removing it indicates to Home Assistant
         that brightness is not supported for this light.
