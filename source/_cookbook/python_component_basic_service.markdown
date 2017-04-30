@@ -23,7 +23,7 @@ DEFAULT_NAME = 'World'
 
 
 def setup(hass, config):
-    """Setup is called when Home Assistant is loading our component."""
+    """Set up is called when Home Assistant is loading our component."""
 
     def handle_hello(call):
         name = call.data.get(ATTR_NAME, DEFAULT_NAME)
