@@ -129,7 +129,7 @@ The component will only write a log message. Keep in mind for later that you hav
 <span class="n">DEFAULT_TEXT</span> <span class="o">=</span> <span class="s">'No text!'</span>
 
 <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-    <span class="s">"""Setup the Hello State component. """</span>
+    <span class="s">"""Set up the Hello State component. """</span>
     <span class="c"># Get the text from the configuration. Use DEFAULT_TEXT if no name is provided.</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">DOMAIN</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CONF_TEXT</span><span class="p">,</span> <span class="n">DEFAULT_TEXT</span><span class="p">)</span>
 

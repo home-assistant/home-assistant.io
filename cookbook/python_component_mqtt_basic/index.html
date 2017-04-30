@@ -74,7 +74,7 @@ This example requires you to have the <a href="/components/mqtt/">MQTT component
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.loader</span> <span class="kn">as</span> <span class="nn">loader</span>
 
 <span class="c"># The domain of your component. Should be equal to the name of your component.</span>
-<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">"hello_mqtt"</span>
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'hello_mqtt'</span>
 
 <span class="c"># List of component names (string) your component depends upon.</span>
 <span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'mqtt'</span><span class="p">]</span>
@@ -85,14 +85,14 @@ This example requires you to have the <a href="/components/mqtt/">MQTT component
 
 
 <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-    <span class="s">"""Setup the Hello MQTT component."""</span>
+    <span class="s">"""Set up the Hello MQTT component."""</span>
     <span class="n">mqtt</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s">'mqtt'</span><span class="p">)</span>
     <span class="n">topic</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">DOMAIN</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'topic'</span><span class="p">,</span> <span class="n">DEFAULT_TOPIC</span><span class="p">)</span>
     <span class="n">entity_id</span> <span class="o">=</span> <span class="s">'hello_mqtt.last_message'</span>
 
     <span class="c"># Listener to be called when we receive a message.</span>
     <span class="k">def</span> <span class="nf">message_received</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">qos</span><span class="p">):</span>
-        <span class="s">"""A new MQTT message has been received."""</span>
+        <span class="s">"""Handle new MQTT messages."""</span>
         <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
 
     <span class="c"># Subscribe our listener to a topic.</span>

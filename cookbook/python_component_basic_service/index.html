@@ -76,7 +76,7 @@
 
 
 <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
-    <span class="s">"""Setup is called when Home Assistant is loading our component."""</span>
+    <span class="s">"""Set up is called when Home Assistant is loading our component."""</span>
 
     <span class="k">def</span> <span class="nf">handle_hello</span><span class="p">(</span><span class="n">call</span><span class="p">):</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ATTR_NAME</span><span class="p">,</span> <span class="n">DEFAULT_NAME</span><span class="p">)</span>

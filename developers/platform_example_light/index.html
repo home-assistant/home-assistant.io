@@ -114,11 +114,12 @@
 
     <span class="c"># Verify that passed in configuration works</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">hub</span><span class="o">.</span><span class="n">is_valid_login</span><span class="p">():</span>
-        <span class="n">_LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">'Could not connect to AwesomeLight hub'</span><span class="p">)</span>
+        <span class="n">_LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">"Could not connect to AwesomeLight hub"</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">False</span>
 
     <span class="c"># Add devices</span>
     <span class="n">add_devices</span><span class="p">(</span><span class="n">AwesomeLight</span><span class="p">(</span><span class="n">light</span><span class="p">)</span> <span class="k">for</span> <span class="n">light</span> <span class="ow">in</span> <span class="n">hub</span><span class="o">.</span><span class="n">lights</span><span class="p">())</span>
+
 
 
 <span class="k">class</span> <span class="nc">AwesomeLight</span><span class="p">(</span><span class="n">Light</span><span class="p">):</span>
@@ -138,7 +139,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">brightness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s">"""Brightness of the light (an integer in the range 1-255).
+        <span class="s">"""Return the brightness of the light.
 
         This method is optional. Removing it indicates to Home Assistant
         that brightness is not supported for this light.
