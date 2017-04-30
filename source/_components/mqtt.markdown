@@ -24,6 +24,13 @@ To integrate MQTT into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 mqtt:
 ```
+<p class='note'>
+If you used the All In One installer, HA will have been configured to use [Mosquitto](http://mosquitto.org/).  If you would like to change the default password for that installation, you can run the following command.
+`sudo mosquitto_passwd /etc/mosquitto/pwfile pi`
+
+Be sure to update your configuration.yaml to reflect the change.
+</p>
+
 
 To connect to your [own MQTT broker](/docs/mqtt/broker#run-your-own):
 
