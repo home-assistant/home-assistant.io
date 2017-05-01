@@ -12,7 +12,6 @@ ha_category: Camera
 ha_release: "0.44"
 ---
 
-
 The `Axis` camera platform allows you to stream video from your [Axis](https://www.axis.com/) cameras.
 
 The requirement is that you have setup your [Axis camera](/components/axis/).

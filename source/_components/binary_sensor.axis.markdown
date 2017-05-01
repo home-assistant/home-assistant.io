@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 ha_release: "0.44"
 ---
 
-The `Axis` platform allows you to get data from your [Axis](https://www.axis.com/) binary sensors from within Home Assistant.
+The `Axis` platform allows you to get data from your [Axis](https://www.axis.com/) devices from within Home Assistant.
 
 See the [Axis main component](/components/axis/) for configuration instructions.
 

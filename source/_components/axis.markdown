@@ -44,14 +44,14 @@ Configuration variables:
 - **scan_interval** (*Optional*): How long (in full seconds) a sensors value should keep its positive value. Default 0.
 - **location** (*Optional*): Physical location of your Axis device. Default not set.
 - **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
-- camera: Stream MJPEG video to Home Assistant
-- motion: The Built in motion detection in Axis cameras
-- vmd3: ACAP Motion Detection app which has better algorithms for motion detection
-- pir: PIR sensor that can trigger on motion
-- sound: Sound detector
-- daynight: Certain cameras have day/night mode if they have built-in IR lights
-- tampering: signals when camera believes that it has been tampered with
-- input: trigger on whatever you have connected to device input port
+- **camera**: Stream MJPEG video to Home Assistant
+- **motion**: The Built in motion detection in Axis cameras
+- **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection
+- **pir**: PIR sensor that can trigger on motion
+- **sound**: Sound detector
+- **daynight**: Certain cameras have day/night mode if they have built-in IR lights
+- **tampering**: signals when camera believes that it has been tampered with
+- **input**: trigger on whatever you have connected to device input port
 
 <p class='note'>
 Any specific levels for triggers needs to be configured on the device.
@@ -68,3 +68,7 @@ sudo apt-get install python3-gi gir1.2-gstreamer-1.0
 ```
 
 Depending on how you run Home Assistant you might be needed to symlink the `gi` module into your environment:
+
+```bash
+ln -s /path/to/your/installation/of/gi /path/to/your/venv/lib/python3.4/site-packages
+```
