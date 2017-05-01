@@ -66,9 +66,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Home Assistant enforces strict <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style</a> compliance on all code submitted. We automatically test every pull request with <a href="https://coveralls.io/github/home-assistant/home-assistant">Coveralls</a> and <a href="https://travis-ci.org/home-assistant/home-assistant">Travis CI</a>.</p>
+  <p>As states in the <a href="/developers/development_guidelines/">Style guidelines section</a> all code is checked as part of the linting process and unit test were run.</p>
 <h3><a class="title-link" name="local-testing" href="#local-testing"></a> Local testing</h3>
-<p><strong>Important:</strong> Run tox before you create your pull request to avoid annoying fixes. Local testing requires installing tox.</p>
+<p><strong>Important:</strong> Run <code class="highlighter-rouge">tox</code> before you create your pull request to avoid annoying fixes. Local testing requires installing <code class="highlighter-rouge">tox</code>.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install tox
 </code></pre>
 </div>
@@ -100,8 +100,6 @@
 <p>The <code class="highlighter-rouge">flake8-docstrings</code> extension will check docstrings according to <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> when running Flake8.</p>
 <h3><a class="title-link" name="notes-on-pylint-and-pep8-validation" href="#notes-on-pylint-and-pep8-validation"></a> Notes on PyLint and PEP8 validation</h3>
 <p>If you can’t avoid a PyLint warning, add a comment to disable the PyLint check for that line with <code class="highlighter-rouge"># pylint: disable=YOUR-ERROR-NAME</code>. An example of an unavoidable PyLint warning is not using the passed-in datetime if you’re listening for a time change.</p>
-<h3><a class="title-link" name="maximum-line-length" href="#maximum-line-length"></a> Maximum Line Length</h3>
-<p>As part of the linting process, all code is checked for a maximum line length of 79 characters. This comes directly from the <a href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">PEP8 style guide</a>, and is also used by the Python standard library. All code must pass these linting checks, and no exceptions will be made. There have already been numerous requests to increase the maximum line length, but after evaluating the options, the Home Assistant maintainers have decided to stay at 79 characters. This decision is final.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -124,6 +122,7 @@
           <li><a  href='/developers/development_environment/'>Setting up Environment </a></li>
           <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
           <li><a  href='/developers/development_checklist/'>Checklist </a></li>
+          <li><a  href='/developers/development_guidelines/'>Style guidelines </a></li>
           <li><a class='active' href='/developers/development_testing/'>Testing </a></li>
           <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
           <li><a  href='/developers/development_validation/'>Validation </a></li>
