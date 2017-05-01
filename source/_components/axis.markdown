@@ -12,7 +12,7 @@ ha_category: Hub
 ha_release: "0.44"
 ---
 
-[Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security related network connected hardware.
+[Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security related network connected hardware. Sensor API works with firmware 5.50 and newer.
 
 You will be prompted to configure your devices through the Home Assistant interface, enter the security key when prompted and click configure. You can later change configuration in your Home Assistant directory
 
