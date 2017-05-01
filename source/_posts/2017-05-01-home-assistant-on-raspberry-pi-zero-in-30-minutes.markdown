@@ -2,7 +2,7 @@
 layout: post
 title: "Home Assistant on a Pi Zero W in 30 minutes"
 description: "Installing Home Assistant (Hassbian) on a Pi Zero W"
-date: 2017-05-01 09:00:00 -0500
+date: 2017-05-01 09:00:00
 date_formatted: "May 1, 2017"
 author: Avraham David Gelbfish
 author_twitter: adgelbfish
