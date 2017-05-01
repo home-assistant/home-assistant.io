@@ -6,23 +6,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Category: Presence-Detection - Home Assistant</title>
-    <meta name="author" content="Home Assistant">
-    <meta name="description" content="Category: Presence-Detection">
+    <title>Home Assistant on a Pi Zero W in 30 minutes - Home Assistant</title>
+    <meta name="author" content="Avraham David Gelbfish">
+    <meta name="description" content="Installing Home Assistant (Hassbian) on a Pi Zero W">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/categories/presence-detection/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Category: Presence-Detection">
+    <meta property="og:title" content="Home Assistant on a Pi Zero W in 30 minutes">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/categories/presence-detection/">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Category: Presence-Detection">
-    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Installing Home Assistant (Hassbian) on a Pi Zero W">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Category: Presence-Detection">
-    <meta name="twitter:description" content="Category: Presence-Detection">
-    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:creator" content="@adgelbfish">
+    <meta name="twitter:title" content="Home Assistant on a Pi Zero W in 30 minutes">
+    <meta name="twitter:description" content="Installing Home Assistant (Hassbian) on a Pi Zero W">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
@@ -59,41 +60,69 @@
     <div class="grid-wrapper">
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
-          <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/blog/categories/presence-detection/index.html'>Edit this page on GitHub</a></div>
+          <article class="post">
   <header>
-    <h1 class="title indent">
-      Category: Presence-Detection
-    </h1>
-  </header>
-  <hr class="divider">
-  <div id="archive-list">
-    <h2>2016</h2>
-    <article>
-      <div class="grid">
-  <div class="grid__item one-fifth palm-one-whole">
-    <time datetime="2016-04-30T06:50:09+00:00" pubdate>
-      <span class='month'>Apr</span> <span class='day'>30</span>
-    </time>
-  </div>
-  <div class="grid__item four-fifths palm-one-whole">
-    <h1 class="gamma"><a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/">iBeacons: Making presence detection work better (part I)</a></h1>
-    <footer class="meta">
-      <span>
+  <h1 class="title indent">Home Assistant on a Pi Zero W in 30 minutes</h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-01T09:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 1, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Avraham David Gelbfish</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li><a class='category' href='/blog/categories/owntracks/'>OwnTracks</a></li>
-        <li><a class='category' href='/blog/categories/presence-detection/'>Presence-Detection</a></li>
-        <li><a class='category' href='/blog/categories/ibeacons/'>iBeacons</a></li>
+        <li>How-To</li>
     </ul>
   </span>
-    </footer>
-    <hr class="divider">
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
   </div>
+</header>
+  <p class="img">
+  <img src="/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
+</p>
+<p>Saw the <a href="/blog/2017/04/30/hassbian-1.21-its-about-time/">announcement</a> yesterday for HASSbian 1.21 and got super excited?</p>
+<p>Today we’ll flash the latest HASSbian to a <a href="https://www.raspberrypi.org/products/pi-zero/">Raspbery Pi Zero W</a>.
+<strong>With an added bonus</strong> that besides for an USB cable for power, there’s no need for any cables!</p>
+<p>What you’ll need:</p>
+<ul>
+  <li>a Raspberry Pi Zero W (an amazing tiny computer with built-in wifi)</li>
+  <li>a microSD card</li>
+  <li>some source of USB power</li>
+  <li>Wifi</li>
+  <li>a desktop or laptop</li>
+</ul>
+<p>Let’s get to it!</p>
+<p>First, download the HASSbian 1.21 image from <a href="https://github.com/home-assistant/pi-gen/releases/tag/v1.21">here</a>.</p>
+<p>Unzip it.</p>
+<p>Flash it to the microSD card. If you need a flash tool, try <a href="https://etcher.io/">Etcher</a></p>
+<p>When the flashing finishes, remove it and plug it back in. You should see a drive called “boot”.</p>
+<p>Right in there, not in any folders, create a file called <code class="highlighter-rouge">wpa_supplicant.conf</code>.</p>
+<p>The contents of the configuration file should be something like this:
+(You may have to adjust for your configuration, hints <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">here</a> )</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>network={
+    ssid="YOUR_WIFI_NETWORK_NAME_HERE"
+    psk="YOUR_WIFI_PASSWORD_HERE"
+    key_mgmt=WPA-PSK
+}
+</code></pre>
 </div>
-    </article>
+<p>Next stick your SD card into the Raspberry Pi Zero W, and plug it in.</p>
+<p>After about a minute, use your SSH client to connect to HASSbian (or <code class="highlighter-rouge">hassbian.local</code> from a Mac), with the username <code class="highlighter-rouge">pi</code>. The default password is <code class="highlighter-rouge">raspberry</code>.</p>
+<p>It’s a good idea to change the password. To do so, use the <code class="highlighter-rouge">passwd</code> command.</p>
+<p>Next, type the following two commands into the SSH console:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl enable install_homeassistant.service
+$ sudo systemctl start install_homeassistant.service
+</code></pre>
 </div>
+<p>Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspberry Pi Zero W in 30 minutes.</p>
+<p>To try it out, go to <a href="http://hassbian:8123">http://hassbian:8123</a> or <a href="http://hassbian.local:8123">http://hassbian.local:8123</a> if you’re using Mac.</p>
+<p>For further details about HASSbian, take a look at the <a href="https://home-assistant.io/docs/hassbian/">documentation</a>.</p>
 </article>
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
@@ -118,10 +147,10 @@
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/categories/presence-detection/"
-     data-counturl="https://home-assistant.io/blog/categories/presence-detection/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/"
+     data-counturl="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/categories/presence-detection/"
+         data-href="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -130,9 +159,6 @@
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-        <li class="post">
-          <a href="/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/">Home Assistant on a Pi Zero W in 30 minutes</a>
-        </li>
         <li class="post">
           <a href="/blog/2017/04/30/hassbian-1.21-its-about-time/">HASSbian 1.21 - It's about time isn't it</a>
         </li>
@@ -179,7 +205,10 @@
 </script>
 <script>
   var disqus_shortname = 'home-assistant';
-    var disqus_script = 'count.js';
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/';
+    var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
     dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;

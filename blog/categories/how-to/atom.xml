@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-01T13:19:09+00:00</updated>
+  <updated>2017-05-01T13:53:51+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant on a Pi Zero W in 30 minutes]]></title>
+    <link href="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/"/>
+    <updated>2017-05-01T09:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes</id>
+    <content type="html"><![CDATA[<p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
+</p>
+
+Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited? 
+
+Today we'll flash the latest HASSbian to a [Raspbery Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).
+**With an added bonus** that besides for an USB cable for power, there's no need for any cables!
+
+What you'll need:
+- a Raspberry Pi Zero W (an amazing tiny computer with built-in wifi)
+- a microSD card
+- some source of USB power
+- Wifi
+- a desktop or laptop
+
+Let's get to it!
+
+First, download the HASSbian 1.21 image from [here](https://github.com/home-assistant/pi-gen/releases/tag/v1.21).
+
+Unzip it.
+
+Flash it to the microSD card. If you need a flash tool, try [Etcher](https://etcher.io/) 
+
+When the flashing finishes, remove it and plug it back in. You should see a drive called "boot". 
+
+Right in there, not in any folders, create a file called `wpa_supplicant.conf`.
+
+The contents of the configuration file should be something like this:
+(You may have to adjust for your configuration, hints [here](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) )
+
+```
+network={
+    ssid="YOUR_WIFI_NETWORK_NAME_HERE"
+    psk="YOUR_WIFI_PASSWORD_HERE"
+    key_mgmt=WPA-PSK
+}
+```
+
+Next stick your SD card into the Raspberry Pi Zero W, and plug it in.
+
+After about a minute, use your SSH client to connect to HASSbian (or `hassbian.local` from a Mac), with the username `pi`. The default password is `raspberry`.
+
+It's a good idea to change the password. To do so, use the `passwd` command.
+
+Next, type the following two commands into the SSH console:
+
+```
+$ sudo systemctl enable install_homeassistant.service
+$ sudo systemctl start install_homeassistant.service
+```
+
+Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspberry Pi Zero W in 30 minutes.
+
+To try it out, go to [http://hassbian:8123](http://hassbian:8123) or [http://hassbian.local:8123](http://hassbian.local:8123) if you're using Mac.
+
+For further details about HASSbian, take a look at the [documentation](https://home-assistant.io/docs/hassbian/).
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Setting up InfluxDB and Grafana using Docker]]></title>
@@ -373,25 +439,6 @@ sensor:
 ```
 
 [@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too and shows how to use a button to control a relay.
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Github-style calendar heatmap of device data]]></title>
-    <link href="https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data/"/>
-    <updated>2016-08-19T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data</id>
-    <content type="html"><![CDATA[Thanks to [Anton Kireyeu](https://github.com/kireyeu) we are able to present another awesome [Jupyter notebook]. I guess that you all know the graph which Github is using to visualize your commits per day over a time-line. It's a so-called [heatmap]. If there are more commits, it's getting hotter. The latest [notebook][nb-prev] is capable to do the same thing for your devices. To be more precise, for the hours your devices are home. 
-
-<p class='img'>
-<img src='https://home-assistant.io/images/blog/2016-08-data-exploration/heatmap.png'>
-Heatmap
-</p>
-
-[heatmap]: https://en.wikipedia.org/wiki/Heat_map
-[Jupyter notebook]: https://jupyter.org/
-[nb-prev]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-2/DataExploration-2.ipynb
 
 ]]></content>
   </entry>
