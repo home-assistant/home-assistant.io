@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ZoneMinder Switch"
-description: "Instructions how to integrate ZoneMinder switches into Home Assistant."
+description: "How to toggle the function of ZoneMinder monitors in Home Assistant."
 date: 2016-10-13 22:57
 sidebar: true
 comments: false
@@ -13,10 +13,10 @@ ha_release: 0.31
 ---
 
 
-The `zoneminder` switch platform allows you to toggle the current function of cameras attached to your ZoneMinder instance.
+The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.
 
 <p class='note'>
-You must have the [ZoneMinder component](/components/zoneminder/) configured to use this.
+You must have the [ZoneMinder component](/components/zoneminder/) configured to use this and if ZoneMinder authentication is enabled the account specified in the component configuration must have "Edit" permission for "System".
 </p>
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
@@ -38,4 +38,3 @@ Configuration variables:
 <p class='note'>
 The default functions installed by ZoneMinder are: None, Monitor, Modect, Record, Mocord, Nodect.
 </p>
-

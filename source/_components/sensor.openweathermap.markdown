@@ -45,6 +45,3 @@ Configuration variables:
   - **snow**: The snow volume
 
 Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
-
-Only metric measurements are supported at the moment.
-

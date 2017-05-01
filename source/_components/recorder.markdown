@@ -32,8 +32,8 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
 - **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from the history.
-  - **domains** (*Optional*): The list of domains to be included from the history.
+  - **entities** (*Optional*): The list of entity ids to be included from recordings.
+  - **domains** (*Optional*): The list of domains to be included from recordings.
 - **db_url** (*Optional*): The URL which point to your database. 
 
 
@@ -59,7 +59,7 @@ Define domains and entities to record by using the `include` configuration (aka.
 
 ```yaml
 # Example configuration.yaml entry with include
-history:
+recorder:
   include:
     domains:
       - sensor
@@ -71,7 +71,7 @@ Use the `include` list to define the domains/entities to record, and exclude som
 
 ```yaml
 # Example configuration.yaml entry with include and exclude
-history:
+recorder:
   include:
     domains:
       - sensor
@@ -90,8 +90,10 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
-| MySQL           | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
-| MySQL           | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
+| MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
+| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
+| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
 
@@ -99,22 +101,22 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MYSQL %}
+### {% linkable_title MySQL %}
 
-For MySQL you may have to install a few dependencies:
+For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
 $ sudo apt-get install libmysqlclient-dev
-$ pip3 install pymysql
+$ pip3 install mysqlclient
 ```
 If you are in a virtual environment, don't forget to activate it before installing the pymysql package.
 
 ```bash
 pi@homeassistant:~ $ sudo -i
-root@homeassistant:~# su homeassistant  
+root@homeassistant:~# su homeassistant
 homeassistant@homeassistant:/root$ cd /srv/homeassistant/homeassistant_venv/
 homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/activate
-(homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install pymysql
+(homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install mysqlclient
 ```
 
 ### {% linkable_title PostgreSQL %}

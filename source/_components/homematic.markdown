@@ -42,7 +42,9 @@ Configuration variables (global):
 Configuration variables (host):
 
 - **ip** (*Required*): IP of CCU/Homegear
-- **port** (*Optional*): Port of Homegear/CCU XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)
+- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)
+- **callback_ip** (*Optional*): Set this, if HASS is reachable under a different IP from the CCU (NAT, Docker etc.)
+- **callback_port** (*Optional*): Set this, if HASS is reachable under a different port from the CCU (NAT, Docker etc.)
 - **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.

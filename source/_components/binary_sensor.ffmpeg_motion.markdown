@@ -29,7 +29,7 @@ To add FFmpeg with motion detection to your installation, add the following to y
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  - platform: ffmpeg
+  - platform: ffmpeg_motion
     input: FFMPEG_SUPPORTED_INPUT
 ```
 

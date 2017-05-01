@@ -27,6 +27,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Carrier (Unconfirmed)
 - Honeywell (No wink hub required)
 - Generic Z-Wave
+- Quirky Aros window AC unit
 
 <p class='note'>
 The above devices are confimed to work, but others may work as well.

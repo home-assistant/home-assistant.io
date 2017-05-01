@@ -31,6 +31,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Wink Relay buttons and presense detection
 - Wink spotter loudness and vibration (No Wink hub required)
 - Wink hub devices connection status. This includes any paired hubs like Hue, Wink v1, Wink v2, Wink Relay...
+- Dropcam sensors
 
 <p class='note'>
 The above devices are confimed to work, but others may work as well.

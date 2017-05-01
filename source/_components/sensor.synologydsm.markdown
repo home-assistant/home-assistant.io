@@ -14,7 +14,7 @@ ha_iot_class: depends
 ---
 
 
-This `synologydms` sensor allows getting various statistics from your [Synology NAS](https://www.synology.com).
+This `synologydsm` sensor allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
 To use the `synologydsm` sensor in your installation, add the following to your `configuration.yaml` file:
 

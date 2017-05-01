@@ -37,7 +37,7 @@ And then install the following system dependencies:
 Debian/Ubuntu/Rasbian:
 
 ```bash
-sudo apt-get install python-gst-1.0 \
+sudo apt-get install python3-gst-1.0 \
     gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 \
     gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly \
     gstreamer1.0-tools
@@ -52,10 +52,10 @@ sudo yum install -y python-gstreamer1 gstreamer1-plugins-good \
 
 For Fedora replace `yum` with `dnf`.
 
-If you're running Home Assistant in a virtual environment, you'll need to symlink the system Python's `gst` module into your virtual environment:
+If you're running Home Assistant in a virtual environment, you'll need to symlink the system Python's `gi` module into your virtual environment:
 
 ```bash
-ln -s /path/to/your/installation/of/gst /path/to/your/venv/lib/python3.4/site-packages
+ln -s /path/to/your/installation/of/gi /path/to/your/venv/lib/python3.4/site-packages
 ``` 
 
 On a Raspberry PI, you may need to add the Home Assistant user to the `audio` group:

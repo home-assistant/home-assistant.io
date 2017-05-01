@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "Home Assistant Community",
+  "license": "Apache 2.0",
   "dependencies": {
     "async": "^2.1.4",
     "github": "^8.1.0",

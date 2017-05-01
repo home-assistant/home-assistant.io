@@ -19,6 +19,10 @@ This is a community curated list of different ways to use Home Assistant. Most o
 
 New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook).
 
+<p class='note'>
+A great place to find popular configurations is on this [GitHub search](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories) for repositories with the `home-assistant-config` topic.
+</p>
+
 {% assign cookbook = site.cookbook | sort: 'title' %}
 {% assign categories = cookbook | map: 'ha_category' | uniq | sort %}
 

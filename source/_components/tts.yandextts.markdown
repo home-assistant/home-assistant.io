@@ -25,7 +25,7 @@ tts:
 
 Configuration variables:
 
-- **api_key** (*Requered*): API Key for use this service. 
+- **api_key** (*Required*): API Key for use this service. 
 - **language** (*Optional*): The language to use. Defaults to `en-us`. Supported `en-EN`, `ru-RU`, `uk-UK`, `tr-TR`.
 - **codec** (*Optional*): Audo codec. Default is `mp3`. Supported us `mp3`, `wav`, `opus`.
 - **voice** (*Optional*): Speaker voice. Default is `zahar`. Supported female voices are `jane`, `oksana`, `alyss`, 'omazh` and male voices are `zahar` and `ermil`.

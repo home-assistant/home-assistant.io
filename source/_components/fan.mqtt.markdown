@@ -53,7 +53,7 @@ Configuration variables:
 - **payload_medium_speed** (*Optional*): The payload that represents the fan's medium speed.
 - **payload_high_speed** (*Optional*): The payload that represents the fan's high speed.
 - **speed_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the speed payload.
-- **speeds** array (*Optional*): Valid entries for the list are `off`, `low`, `med`, and `high`.
+- **speeds** array (*Optional*): Valid entries for the list are `off`, `low`, `medium`, and `high`.
 
 <p class='note warning'>
 Make sure that your topic is an exact match. `some-topic/` and `some-topic` are different topics.

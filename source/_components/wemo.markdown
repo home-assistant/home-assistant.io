@@ -34,3 +34,5 @@ wemo:
 Any WeMo devices that are not statically configured but reachable via discovery will still be added automatically.
 
 Note that if you use this, you may want to configure your router (or whatever runs your DHCP server) to force your WeMo devices to use a static IP address. Check the DHCP section of your router configuration for this ability.
+
+If the device doesn't seem to work and all you see is the state "unavailable" on your dashboard, check that your firewall doesn't block incoming request on port 8989 since this is the address to which the WeMo devices sends their update.

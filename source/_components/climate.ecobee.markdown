@@ -34,14 +34,16 @@ limits).
 
 A _climate_ is a predefined or user-defined set of states that the
 thermostat aims to achieve. The ecobee thermostat provides three predefined
-climates: home, away, and sleep. The user can define additional climates.
+climates: Home, Away, and Sleep. The user can define additional climates.
 
 A _hold_ is an override of the target temperature defined in the
 currently active climate. The temperature targeted in the hold mode may be
-explicitly set (temperature hold) or it may be derived from a reference
-climate (home or away hold). All holds are temporary. Temperature and
+explicitly set (temperature hold), it may be derived from a reference
+climate (home, away, sleep, etc.), or it may be derived from a vacation
+defined by the thermostat. All holds are temporary. Temperature and
 climate holds expire when the thermostat transitions to the next climate
-defined in its program.
+defined in its program. A vacation hold starts at the beginning of the
+defined vacation period, and expires when the vacation period ends.
 
 When in _away mode_, the target temperature is permanently overridden by
 the target temperature defined for the away climate. The away mode is a
@@ -59,7 +61,7 @@ The following attributes are provided by the Ecobee Thermostat:
 `target_temperature_low`, `target_temperature_high`, `desired_fan_mode`, 
 `fan`, `current_hold_mode`, `current_operation`, `operation_list`,
 `operation_mode`, `mode`, `fan_min_on_time`, `device_state_attributes`, 
-`is_away_mode_on`.
+`is_away_mode_on`, `vacation`, `climate_list`.
 The attributes `min_temp` and `max_temp` are meaningless constant values.
 
 
@@ -136,7 +138,7 @@ Returns the current temperature hold, if any.
 
 | Attribute type | Description |
 | ---------------| ----------- |
-| String | 'home', 'away', 'temp', None
+| String | 'temp', 'vacation', 'home', 'away', etc., None
 
 ### {% linkable_title Attribute `current_operation` %}
 
@@ -164,7 +166,8 @@ Returns the current operation mode of the thermostat.
 
 ### {% linkable_title Attribute `mode` %}
 
-Returns the climate currently active on the thermostat.
+Returns the climate currently active on the thermostat. The mode
+is returned as the user-visible name (rather than the internally used name).
 
 ### {% linkable_title Attribute `fan_min_on_time` %}
 
@@ -186,6 +189,18 @@ Returns the humidity as measured by the thermostat.
 | Attribute type | Description |
 | ---------------| ----------- |
 | Integer | Current humidity
+
+### {% linkable_title Attribute `vacation` %}
+
+Returns the currently active vacation or `None`.
+
+| Attribute type | Description |
+| ---------------| ----------- |
+| String | Name of currently active vacation |
+
+### {% linkable_title Attribute `climate_list` %}
+
+Returns the list of climates defined in the thermostat.
 
 
 ## {% linkable_title Services %}
@@ -211,15 +226,19 @@ Turns the away mode on or off for the thermostat.
 
 ### {% linkable_title Service `set_hold_mode` %}
 
-Puts the thermostat into the given hold mode. For 'home' and 'away', the
-target temperature is taken from the home or away, climate, respectively.
+Puts the thermostat into the given hold mode. For 'home', 'away', 'sleep',
+and ony other hold based on a reference climate, the
+target temperature is taken from the reference climate.
 For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.
+It is not possible to set a vacation hold; such hold has to be 
+defined on the thermostat directly. However, a vacation hold can be
+cancelled.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `hold_mode` | no | 'home', 'away', 'temp', None
+| `hold_mode` | no | 'temp', 'home', 'away', 'sleep', etc., None
 
 ### {% linkable_title Service `set_temperature` %}
 

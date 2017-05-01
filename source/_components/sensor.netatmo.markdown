@@ -52,7 +52,7 @@ Configuration variables:
     - **sum_rain_1**: Rainfall in the last hour in mm.
     - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
     - **WindAngle**: Wind angle
-    - **WingStrength**: Wind strength
+    - **WindStrength**: Wind strength
     - **GustAngle**: Wind gust angle
     - **GustStrength**: Wind gust strength
     - **min_temp**: Min temperature for today

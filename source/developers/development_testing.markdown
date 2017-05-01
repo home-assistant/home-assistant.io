@@ -62,3 +62,7 @@ The `flake8-docstrings` extension will check docstrings according to [PEP257](ht
 ### {% linkable_title Notes on PyLint and PEP8 validation %}
 
 If you can't avoid a PyLint warning, add a comment to disable the PyLint check for that line with `# pylint: disable=YOUR-ERROR-NAME`. An example of an unavoidable PyLint warning is not using the passed-in datetime if you're listening for a time change.
+
+### {% linkable_title Maximum Line Length %}
+
+As part of the linting process, all code is checked for a maximum line length of 79 characters. This comes directly from the [PEP8 style guide](https://www.python.org/dev/peps/pep-0008/#maximum-line-length), and is also used by the Python standard library. All code must pass these linting checks, and no exceptions will be made. There have already been numerous requests to increase the maximum line length, but after evaluating the options, the Home Assistant maintainers have decided to stay at 79 characters. This decision is final.

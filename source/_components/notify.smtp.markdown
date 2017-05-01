@@ -31,10 +31,11 @@ Configuration variables:
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
 - **server** (*Optional*): SMTP server which is used to end the notifications. Defaults to `localhost`.
 - **port** (*Optional*): The port that the SMTP server is using. Defaults to 25.
+- **timeout** (*Optional*): The timeout in seconds that the SMTP server is using. Defaults to 5.
 - **sender** (*Optional*): E-mail address of the sender.
 - **username** (*Optional*): Username for the SMTP account.
 - **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
-- **recipient** (*Required*): Recipient of the notification.
+- **recipient** (*Required*): E-mail address of the recipient of the notification. This can be a recpient address or a list of addresses for multiple recipients.
 - **starttls** (*Optional*): Enables STARTTLS, eg. True or False. Defaults to False.
 - **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
 
@@ -47,11 +48,14 @@ notify:
     platform: smtp
     server: smtp.gmail.com
     port: 587
+    timeout: 15
     sender: john@gmail.com
     starttls: true
     username: john@gmail.com
     password: thePassword
-    recipient: james@gmail.com
+    recipient:
+      - james@gmail.com
+      - bob@gmail.com
 ```
 
 Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps').

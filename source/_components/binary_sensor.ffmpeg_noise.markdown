@@ -26,7 +26,7 @@ To add FFmpeg with noise detection to your installation, add the following to yo
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  - platform: ffmpeg
+  - platform: ffmpeg_noise
     input: FFMPEG_SUPPORTED_INPUT
 ```
 

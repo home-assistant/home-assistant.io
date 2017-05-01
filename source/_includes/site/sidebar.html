@@ -6,10 +6,10 @@
     {% include asides/cookbook_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'developers' %}
     {% include asides/developers_navigation.html | compact_newlines %}
-  {% elsif url_parts[1] == 'ecosystem' %}
-    {% include asides/ecosystem_navigation.html | compact_newlines %}
   {% elsif url_parts[1] == 'getting-started' %}
     {% include asides/getting_started_navigation.html | compact_newlines %}
+  {% elsif url_parts[1] == 'docs' %}
+    {% include asides/docs_navigation.html | compact_newlines %}
   {% else %}
     {% include asides/about.html %}
 

@@ -11,9 +11,9 @@ ha_category: Binary Sensor
 logo: home-assistant.png
 ---
 
-The `template` platform supports sensors which breaks out the state and `state_attributes` from other entities.
+The `template` platform supports sensors which breaks out the `state` and `state_attributes` from other entities. The state of a template binary sensor can only be `on` or `off`.
 
-To enable Template binary sensors in your installation, add the following to your `configuration.yaml` file:
+To enable template binary sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

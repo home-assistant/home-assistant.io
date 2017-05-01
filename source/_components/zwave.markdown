@@ -12,6 +12,11 @@ ha_category: Hub
 featured: true
 ---
 
-Please see the [getting started section] for in-depth documentation on how to use the Z-Wave component.
+The [Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
-[getting started section]: /getting-started/z-wave/
+If you have setup the requirements, then add the following entry `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+zwave:
+```
