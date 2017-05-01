@@ -20,7 +20,7 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  - platform: mqtt
+  - platform: mqtt_json
     devices:
       paulus_oneplus: location/paulus
       annetherese_n4: location/annetherese
