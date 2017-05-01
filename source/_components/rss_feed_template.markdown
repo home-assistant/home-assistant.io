@@ -21,10 +21,10 @@ E.g. on android, the app "Simple RSS Widget" can be used to display temperatures
 rss_feed_template:
   garden:
     requires_api_password: False
-    title: "Garden {{ as_timestamp(now())|timestamp_custom('%H:%m', True) }}"
+    title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%m', True) }}{% endraw %}"
     items:
     - title: "Outside temperature"
-      description: "{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states.sensor.temp_outside.state}} °C{% endif %}"
+      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states.sensor.temp_outside.state}} °C{% endif %}{% endraw %}"
 ```
 
 Configuration variables:
