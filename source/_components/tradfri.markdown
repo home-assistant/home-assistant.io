@@ -16,11 +16,28 @@ ha_release: 0.43
 
 The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network. 
 
-For this to work, you need to install a modified lib-coap library:
+For this to work, you need to install a modified lib-coap library.
+
+Linux:
 
 ```bash
 $ sudo apt-get install libtool
 $ sudo apt-get install autoconf
+
+$ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
+$ cd libcoap
+$ ./autogen.sh
+$ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
+$ make
+$ sudo make install
+```
+
+macOS:
+
+```bash
+$ sudo brew install libtool
+$ sudo brew install autoconf
+$ sudo brew install automake
 
 $ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
 $ cd libcoap
