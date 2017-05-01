@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: How-To | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2017-04-25T18:49:55+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up InfluxDB and Grafana using Docker]]></title>
+    <link href="https://home-assistant.io/blog/2017/04/25/influxdb-grafana-docker/"/>
+    <updated>2017-04-25T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/04/25/influxdb-grafana-docker</id>
+    <content type="html"><![CDATA[Home Assistant collects volumes of (time series) data that are well suited for some fancy graphs. Although the [History](https://home-assistant.io/components/history/) component provides some nice plots, I am sure you have always wanted those fancy [Grafana](https://grafana.com/) plots. The problem, however, is that low-powered device such as Raspberry Pi that most of us use for our Home Assistant setup are not well suited for such operation.
+
+Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Raspberry Pi or a different system and go through the [classic approach of installing both tools separately](/blog/2015/12/07/influxdb-and-grafana/), you can run them in a Docker container on another machine. For this tutorial, I am using a Synology NAS, but the instructions should apply to other devices that can run Docker. Just follow the steps below:
+
+1.	SSH into your NAS. You may have to run `sudo su` if you are getting permission errors.
+2.	Download the [docker-statsd-influxdb-grafana]( https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/) image using the command:
+`docker pull samuelebistoletti/docker-statsd-influxdb-grafana`
+3.	To start the container for the first-time launch:
+    ```
+    docker run -d \
+      --name docker-statsd-influxdb-grafana \
+      -p 3003:3003 \
+      -p 3004:8083 \
+      -p 8086:8086 \
+      -p 22022:22 \
+      -p 8125:8125/udp \
+      samuelebistoletti/docker-statsd-influxdb-grafana:latest
+    ```
+4.	The image should now be running and both InfluxBD and Grafana should be now up and running.
+5.	You can access InfluxDB at http://NAS_IP_ADDRESS:3004/ and Grafana at http://NAS_IP_ADDRESS:3003/
+6.	Navigate to http://NAS_IP_ADDRESS:3004/ and create the database `home_assistant` using the command `CREATE DATABASE home_assistant`.
+    <p class='img'>
+      <img src='https://home-assistant.io/images/blog/2017-04-influxdb-grafana/create_HA_database.png' />
+    </p>
+7.	Now, you need to configure Home Assistant to use InfluxDB. Since, we did not add any username/password to our database, we can simply add the following to our configuration.yaml (replace the IP address with that of the device running Docker) and restart Home Assistant to setup InfluxDB (you will have to fine tune it based on your preferences):
+    ```
+    influxdb:
+      host: 192.168.2.113
+    ```
+8.	Next, we need to configure Grafana to use InfluxDB. Navigate to http://NAS_IP_ADDRESS:3003/ to access Grafana (login with username and password `root`) and add your first data source. Here’s how you can configure Grafana to use InfluxDB database. Note that 192.168.2.113 is the IP address of my NAS.
+    <p class='img'>
+      <img src='https://home-assistant.io/images/blog/2017-04-influxdb-grafana/add_data_source.png' />
+    </p>
+9.	You should see `Data source is working` if you have configured everything correctly.
+10.	With all that configured, you are now ready for the fun stuff. You can create as many dashboards as you want and then import the same in Home Assistant.
+11.	To add the Grafana dashboard in HA, use the following config:
+    ```
+    panel_iframe:
+      router:
+        title: 'Temperature'
+        url: 'http://192.168.2.113:3003/dashboard/db/temperature?edit&tab=time%20range'
+    ```
+    The URL can be obtained by clicking Share Dashboard link on your dashboard:
+    <p class='img'>
+      <img src='https://home-assistant.io/images/blog/2017-04-influxdb-grafana/share_dashboard.png' />
+    </p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HTTP to MQTT bridge]]></title>
+    <link href="https://home-assistant.io/blog/2017/03/28/http-to-mqtt-bridge/"/>
+    <updated>2017-03-28T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/03/28/http-to-mqtt-bridge</id>
+    <content type="html"><![CDATA[The idea of creating [HTTP to MQTT bridge](https://github.com/petkov/http_to_mqtt) appeared when I was trying to integrate Google Assistant with my Home Assistant after watching [BRUH Automation](https://youtu.be/087tQ7Ly7f4?t=265) video. Right now there is no MQTT service available in [IFTTT](https://ifttt.com/about). Existing integration solution uses [Maker Webhooks](https://ifttt.com/maker_webhooks) which requires that your Home Assistant instance is publically accessible, which I think brings some security concerns or simply not always possible to set up.
+
+The HTTP to MQTT bridge should fill that gap. The idea is to receive messages using HTTP requests and transfer them to your MQTT broker, which can be contacted by Home Assistant. The HTTP to MQTT bridge is written using Node.js with [Express](https://expressjs.com/) for the server part and [MQTT.js](https://www.npmjs.com/package/mqtt) for the client.
+
+<!--more-->
+
+The app could be hosted on any Node.js hosting. I prefer [Heroku: Cloud Application Platform](https://www.heroku.com/home) for its simplicity.
+
+### <a class='title-link' name='bringing-pieces-together' href='#bringing-pieces-together'></a> Bringing pieces together 
+
+1. Configure the Home Assistant [MQTT trigger](https://home-assistant.io/docs/automation/trigger/#mqtt-trigger).
+1. Configure [CloudMQTT](https://www.cloudmqtt.com/). Check this [video tutorial](https://www.youtube.com/watch?v=VaWdvVVYU3A) for details.
+1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/petkov/http_to_mqtt) HTTP to MQTT bridge app.
+1. Add the [Configuration Variables](https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application) to your Heroku app mentioned here.
+   * AUTH_KEY: Can be any string, eg. `912ec803b2ce49e4a541068d495ab570`.
+   * MQTT_HOST: The host of your MQTT broker, eg. mqtts://k99.cloudmqtt.com:21234.
+   * MQTT_USER: MQTT username
+   * MQTT_PASS: MQTT password
+1. Create an IFTTT applet the same way as described in [BRUH Automation](https://youtu.be/087tQ7Ly7f4?t=265) video.
+1. Configure [Maker Webhooks](https://ifttt.com/maker_webhooks) service with below parameters.
+   * URL: `https://<app_name>.herokuapp.com/post/`
+   * Method: `POST`
+   * Content Type: `application/json`
+   * Body: `{"topic":"<mqtt_topic>","message":"<mqtt_message>","key":"<AUTH_KEY>"}`
+
+### <a class='title-link' name='subscribe-to-latest-version' href='#subscribe-to-latest-version'></a> Subscribe to latest version 
+
+Additionally you can make Heroku to update the HTTP to MQTT bridge app to the latest available version from the GitHub repository automatically. To do this follow the instruction on the [Heroku help page](https://devcenter.heroku.com/articles/github-integration#automatic-deploys).
+
+### <a class='title-link' name='improve-response-time' href='#improve-response-time'></a> Improve response time 
+
+After 30 minutes of inactivity Heroku will put your app into sleep mode. This will result in ~10 seconds response time. To prevent Heroku from putting your app into sleep mode, ping it every 10 minutes. You can do that by sending regular HTTP GET request to http://your_app/keep_alive/. But be careful. Heroku free quota is 550 hours per month. Without sleeping your app will be allowed to run only 22 days a month. Additionally the `keep_alive` method will send a simple MQTT message to prevent the broker from sleeping as well. The topic and message can be configured using Heroku environment variables `KEEP_ALIVE_TOPIC` and `KEEP_ALIVE_MESSAGE` and both are set to "keep_alive" by default.
+
+You can even configure Home Assistant to ping HTTP to MQTT bridge every 10 minutes during daytime. Below is an example of how to do that:
+
+```yaml
+rest_command:
+  http_to_mqtt_keep_alive:
+    url: https://<your_app_address>/keep_alive/
+    method: get
+
+automation:
+  alias: HTTP to MQTT keep alive
+  trigger:
+    platform: time
+    minutes: '/10'
+    seconds: 00
+  condition:
+    condition: time
+    after: '7:30:00'
+    before: '23:59:59'
+  action:
+    service: rest_command.http_to_mqtt_keep_alive
+```
+
+### <a class='title-link' name='thanks' href='#thanks'></a> Thanks 
+
+Special thanks to Ben from [BRUH Automation](https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w/featured) for awesome tutorials which inspired me to do this project.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Smart Baby Monitor]]></title>
+    <link href="https://home-assistant.io/blog/2017/02/03/babyphone/"/>
+    <updated>2017-02-03T23:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/02/03/babyphone</id>
+    <content type="html"><![CDATA[One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available on the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (eg. Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.
+
+Obviously, you can use the setup as a general purpose surveillance system to monitor noise in the whole house.
+
+<!--more-->
+
+### <a class='title-link' name='setup' href='#setup'></a> Setup 
+
+We need an IP camera that can capture sound in the baby's room. It is also possible to use a Raspberry Pi with a microphone and send the audio to Home Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast. We can set the `input` option on the Home Assistant side to `rtp://236.0.0.1:2000` in same network.
+
+Next, we attach a FFmpeg noise binary sensor to our IP camera. The sensor has an output `option` that allows us to send the output to an [icecast2](http://icecast.org/) server for playing over speakers integrated with Home Assistant (eg. Sonos). We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don't want to play the audio after the noise sensor trigger.
+
+<p class='note'>
+We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_noise`. Also all service going to component and was rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
+</p>
+
+On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install a [icecast2](http://icecast.org/) server using:
+
+```bash
+$ sudo echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+$ sudo apt-get update
+$ sudo apt-get -t jessie-backports install ffmpeg
+$ sudo apt-get install icecast2
+```
+
+We setup a icecast mount point for our babyphone and update `/etc/icecast2/icecast.xml`:
+
+```
+<mount>
+    <mount-name>/babyphone.mp3</mount-name>
+    <stream-name>Babyphone</stream-name>
+
+    <username>stream_user</username>
+    <password>stream_pw</password>
+</mount>
+```
+
+Now we can add the noise sensor to Home Assistant. We can lower the sensitivity of the sensor (so that you are not inundated with notifications for every cough of the baby) to 2 seconds using the `duration` option. The sensor should wait 60 seconds before restoring and it prevent us that a wine break will triggering a new alarm.
+
+We can optimize the audio stream for human voice by using a highpass filter with 300 Hz and a lowpass filter with 2500 Hz. This filters out all non-human sounds such as background noise. We can even add a volume amplifier if the microphone volume is too low (you can remove it from `extra_arguments`). For icecast2 we convert the audio stream to mp3 with samplerate of 16000 (which is the minimum for Sonos speakers). We use `peak` to set the threshold for noise detection, where 0 dB is very loud and -100 dB is low.
+
+```yaml
+binary_sensor:
+  - platform: ffmpeg_noise
+    input: rtsp://user:pw@my_input/video
+    extra_arguments: -filter:a highpass=f=300,lowpass=f=2500,volume=volume=2 -codec:a libmp3lame -ar 16000
+    output: -f mp3 icecast://stream_user:stream_pw@127.0.0.1:8000/babyphone.mp3
+    initial_state: false
+    duration: 2
+    reset: 60
+    peak: -32
+```
+
+We use the option `initial_state` to prevent the FFmpeg process from starting with Home Assistant and only start it when needed. We use an `input_boolean`  to control the state of FFmpeg services using the following automation.
+
+```yaml
+input_boolean:
+  babyphone:
+    name: babyphone
+    initial: off
+
+automation:
+ - alias: 'Babyphone on'
+   trigger:
+     platform: state
+     entity_id: input_boolean.babyphone
+     from: 'off'
+     to: 'on'
+   action:
+     service: ffmpeg.start
+     entity_id: binary_sensor.ffmpeg_noise
+
+ - alias: 'Babyphone off'
+   trigger:
+     platform: state
+     entity_id: input_boolean.babyphone
+     from: 'on'
+     to: 'off'
+   action:
+     service: ffmpeg.stop
+     entity_id: binary_sensor.ffmpeg_noise
+```
+
+### <a class='title-link' name='trigger-a-alarm' href='#trigger-a-alarm'></a> Trigger a alarm 
+
+Now we can make a lot stuff. Here is a simple example of an automation what should be possible with Sonos speakers.
+
+```yaml
+automation:
+ - alias: 'Babyphone alarm on'
+   trigger:
+     platform: state
+     entity_id: binary_sensor.ffmpeg_noise
+     from: 'off'
+     to: 'on'
+   action:
+    - service: media_player.sonos_snapshot
+      entity_id: media_player.bedroom
+    - service: media_player.sonos_unjoin
+      entity_id: media_player.bedroom
+    - service: media_player.volume_set
+      entity_id: media_player.bedroom
+      data:
+        volume_level: 0.4
+    - service: media_player.play_media
+      entity_id: media_player.bedroom
+      data:
+        media_content_type: 'music'
+        media_content_id: http://my_ip_icecast:8000/babyphone.mp3
+    - service: light.turn_on:
+      entity_id:
+       - light.floor
+       - light.bedroom
+      data:
+        brightness: 150
+
+ - alias: 'Babyphone alarm off'
+   trigger:
+     platform: state
+     entity_id: binary_sensor.ffmpeg_noise
+     from: 'on'
+     to: 'off'
+   action:
+    - service: media_player.sonos_restore
+      entity_id: media_player.bedroom
+    - service: light.turn_off:
+      entity_id:
+       - light.floor
+       - light.bedroom
+```
+
+### <a class='title-link' name='thanks' href='#thanks'></a> Thanks 
+
+Special thanks to [arsaboo](https://github.com/arsaboo) for assistance in writing this blogpost.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2/"/>
+    <updated>2016-08-31T04:17:25+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/31/esp8266-and-micropython-part2</id>
+    <content type="html"><![CDATA[<img src='https://home-assistant.io/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
+So, part 1 of [ESP8266 and MicroPython](/blog/2016/07/28/esp8266-and-micropython-part1/) was pretty lame, right? Instead of getting information out of Home Assistant we are going a step forward and create our own sensor which is sending details about its state to a Home Assistant instance.
+
+<!--more-->
+
+Beside [HTTP POST](https://en.wikipedia.org/wiki/POST_(HTTP)) requests, MQTT is the quickest way (from the author's point of view) to publish information with DIY devices. 
+
+You have to make a decision: Do you want to pull or to [poll](https://en.wikipedia.org/wiki/Polling_(computer_science)) the information for the sensor? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly in Home Assistant or it could be missed. This means the sensor must take initiative and send the data to Home Assistant. 
+
+An example for pulling is [aREST](/components/sensor.arest/). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
+
+### <a class='title-link' name='mqtt' href='#mqtt'></a> MQTT 
+
+You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
+
+The example below is adopted from the work of [@davea](https://github.com/davea) as we don't want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called `/config.json` which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.
+
+
+```python
+import machine
+import time
+import ubinascii
+import webrepl
+
+from umqtt.simple import MQTTClient
+
+# These defaults are overwritten with the contents of /config.json by load_config()
+CONFIG = {
+    "broker": "192.168.1.19",
+    "sensor_pin": 0, 
+    "client_id": b"esp8266_" + ubinascii.hexlify(machine.unique_id()),
+    "topic": b"home",
+}
+
+client = None
+sensor_pin = None
+
+def setup_pins():
+    global sensor_pin
+    sensor_pin = machine.ADC(CONFIG['sensor_pin'])
+
+def load_config():
+    import ujson as json
+    try:
+        with open("/config.json") as f:
+            config = json.loads(f.read())
+    except (OSError, ValueError):
+        print("Couldn't load /config.json")
+        save_config()
+    else:
+        CONFIG.update(config)
+        print("Loaded config from /config.json")
+
+def save_config():
+    import ujson as json
+    try:
+        with open("/config.json", "w") as f:
+            f.write(json.dumps(CONFIG))
+    except OSError:
+        print("Couldn't save /config.json")
+
+def main():
+    client = MQTTClient(CONFIG['client_id'], CONFIG['broker'])
+    client.connect()
+    print("Connected to {}".format(CONFIG['broker']))
+    while True:
+        data = sensor_pin.read()
+        client.publish('{}/{}'.format(CONFIG['topic'],
+                                          CONFIG['client_id']),
+                                          bytes(str(data), 'utf-8'))
+        print('Sensor state: {}'.format(data))
+        time.sleep(5)
+
+if __name__ == '__main__':
+    load_config()
+    setup_pins()
+    main()
+```
+
+Subscribe to the topic `home/#` or create a [MQTT sensor](/components/sensor.mqtt/) to check if the sensor values are published.
+
+```bash
+$ mosquitto_sub -h 192.168.1.19 -v -t "home/#"
+```
+
+```yaml
+sensor:
+  - platform: mqtt
+    state_topic: "home/esp8266_[last part of the MAC address]"
+    name: "MicroPython"
+```
+
+[@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too and shows how to use a button to control a relay.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Github-style calendar heatmap of device data]]></title>
+    <link href="https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data/"/>
+    <updated>2016-08-19T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/08/19/github-style-calendar-heatmap-of-device-data</id>
+    <content type="html"><![CDATA[Thanks to [Anton Kireyeu](https://github.com/kireyeu) we are able to present another awesome [Jupyter notebook]. I guess that you all know the graph which Github is using to visualize your commits per day over a time-line. It's a so-called [heatmap]. If there are more commits, it's getting hotter. The latest [notebook][nb-prev] is capable to do the same thing for your devices. To be more precise, for the hours your devices are home. 
+
+<p class='img'>
+<img src='https://home-assistant.io/images/blog/2016-08-data-exploration/heatmap.png'>
+Heatmap
+</p>
+
+[heatmap]: https://en.wikipedia.org/wiki/Heat_map
+[Jupyter notebook]: https://jupyter.org/
+[nb-prev]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/DataExploration-2/DataExploration-2.ipynb
+
+]]></content>
+  </entry>
+  
+</feed>

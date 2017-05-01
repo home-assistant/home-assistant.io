@@ -1,0 +1,15 @@
+{
+  "current_version": "0.43.1",
+  "release_date": "2017-04-25T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/04/22/ikea-tradfri-spotify/",
+  "release_notes_path": "/blog/2017/04/22/ikea-tradfri-spotify/",
+  "release_title": "Home Assistant 0.43: IKEA Trådfri, Spotify and our iOS app is live",
+  "release_description": "Another packed release. Three major cool new features and a ton of small ones.",
+  "patch_version_notes": "#release-0431---april-25",
+  "root_url": "https://home-assistant.io",
+  "semantic_version": {
+    "major": 0,
+    "minor": 43,
+    "patch": 1
+  }
+}
