@@ -126,6 +126,9 @@ The frontend has a template editor developer tool to help develop and debug temp
   <li>Filter <code class="highlighter-rouge">max</code> will obtain the larget item in a sequence.</li>
   <li>Filter <code class="highlighter-rouge">min</code> will obtain the smallest item in a sequence.</li>
 </ul>
+<p class="note warning">
+If your template uses an <code class="highlighter-rouge">entity_id</code> that begins with a number (example: <code class="highlighter-rouge">states.device_tracker.2008_gmc</code>) you must use a bracket syntax to avoid errors caused by rendering the <code class="highlighter-rouge">entity_id</code> improperly. In the example given, the correct syntax for the device tracker would be: <code class="highlighter-rouge">states.device_tracker['2008_gmc']</code>
+</p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <h3><a class="title-link" name="states" href="#states"></a> States</h3>
 <p>The next two statements result in same value if state exists. The second one will result in an error if state does not exist.</p>
