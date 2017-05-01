@@ -8,8 +8,12 @@ author: Avraham David Gelbfish
 author_twitter: adgelbfish
 comments: true
 categories: tutorial
-og_image: source/images/blog/2017-04-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png
+og_image: /images/blog/2017-04-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png
 ---
+<p class="img">
+  <img src="/images/blog/2017-04-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
+</p>
+
 Saw the announcement today for Hassbian 1.2.1 and got super excited? 
 
 Today we'll flash the latest Hassbian to a Raspbery Pi Zero W.
@@ -55,11 +59,12 @@ It's a good idea to change the password. To do so, use the `passwd` command.
 
 Next, type the following two commands into the ssh console:
 
-`sudo systemctl enable install_homeassistant.service`
+```
+sudo systemctl enable install_homeassistant.service
+sudo systemctl start install_homeassistant.service
+```
 
-`sudo systemctl start install_homeassistant.service`
-
-Wait about 15 -20 minutes and Viola! you have your home assistant on your pi in 30 minutes.
+Wait about 15 - 20 minutes and Viola! you have your home assistant on your pi in 30 minutes.
 
 To try it out, go to [http://hassbian:8123](http://hassbian:8123) or [http://hassbian.local:8123](http://hassbian.local:8123) if you're using Mac
 
