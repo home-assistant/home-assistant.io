@@ -67,9 +67,23 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">tradfri</code> component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network.</p>
-<p>For this to work, you need to install a modified lib-coap library:</p>
+<p>For this to work, you need to install a modified lib-coap library.</p>
+<p>Linux:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libtool
 <span class="gp">$ </span>sudo apt-get install autoconf
+
+<span class="gp">$ </span>git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
+<span class="gp">$ </span><span class="nb">cd </span>libcoap
+<span class="gp">$ </span>./autogen.sh
+<span class="gp">$ </span>./configure --disable-documentation --disable-shared --without-debug <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">"-D COAP_DEBUG_FD=stderr"</span>
+<span class="gp">$ </span>make
+<span class="gp">$ </span>sudo make install
+</code></pre>
+</div>
+<p>macOS:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo brew install libtool
+<span class="gp">$ </span>sudo brew install autoconf
+<span class="gp">$ </span>sudo brew install automake
 
 <span class="gp">$ </span>git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
 <span class="gp">$ </span><span class="nb">cd </span>libcoap
