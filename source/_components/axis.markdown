@@ -31,7 +31,7 @@ axis:
     - pir
     - audio
     - daynight
-    scan_interval: 0
+    trigger_time: 0
     location: köket
 ```
 
@@ -41,7 +41,7 @@ Configuration variables:
 - **host** (*Required*): The IP address to your Axis device.
 - **username** (*Optional*): The username to your Axis device. Default 'root'.
 - **password** (*Optional*): The password to your Axis device. Default 'pass'.
-- **scan_interval** (*Optional*): How long (in full seconds) a sensors value should keep its positive value. Default 0.
+- **trigger_time** (*Optional*): Minimum time (in seconds) a sensor should keep its positive value. Default 0.
 - **location** (*Optional*): Physical location of your Axis device. Default not set.
 - **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
 - **camera**: Stream MJPEG video to Home Assistant
