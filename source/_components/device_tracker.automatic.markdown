@@ -50,9 +50,8 @@ automation:
   - trigger: 
       - platform: event
         event_type: automatic_update
-    condition:
-      - condition: template
-        value_template: '{{ trigger.event.data.type == "ignition:on" }}'
+        event_data:
+          type: "ignition:on"
     action:
       - service: light.turn_off
 ```
