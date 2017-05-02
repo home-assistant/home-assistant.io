@@ -10,12 +10,15 @@ footer: true
 logo: automatic.png
 ha_category: Presence Detection
 ha_release: 0.28
+ha_iot_class: "Cloud Push"
 ---
 
 
 The `automatic` platform offers presence detection by retrieving your car's information from the [Automatic](http://automatic.com/) cloud service.
 
-To use an Automatic ODB reader in your installation, add the following to your `configuration.yaml` file:
+To use Automatic with Home Assistant, first you must [create a free development account](https://developer.automatic.com/). Automatic will generate a Client ID and Secret for you to use in your Home Assistant configuration. You will also need to update your Event Delivery preferences to ensure Home Assistant can receive updates. On the developer page, under App Settings / Event Delivery, select "Websocket" for Event Delivery Preference.
+
+Once your developer account is created, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
