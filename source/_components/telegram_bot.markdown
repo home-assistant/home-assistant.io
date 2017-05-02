@@ -93,5 +93,5 @@ An example to show the use of event_data in the action:
     - service: notify.kitchen_echo
       data_template:
         message: >
-          Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
+          Message from {% raw %}{{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}{% endraw %}
 ```
