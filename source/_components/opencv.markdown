@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 [OpenCV](https://www.opencv.org) is an open source computer vision image and video processing library.
 
-Some pre-defined classifiers can be found here: http://alereimondo.no-ip.org/OpenCV/34
+Some pre-defined classifiers can be found here: https://github.com/opencv/opencv/tree/master/data
 
 ### {% linkable_title Configuration %}
 
@@ -45,7 +45,7 @@ opencv:
 Configuration variables:
 
 - **name** (*Required*): The name of the OpenCV image processor.
-- **add_camera** (*Optional*): Whether a camera should be created to display the detected regions.
+- **add_camera** (*Optional*): Whether a camera should be created to display the detected regions. **SEE NOTE BELOW**
 - **entity_id** (*Required*): The camera entity or list of camera entities that this classification group will be applied to.
 - **classifier** (*Required*): The classification configuration for to be applied:
   - **file_path** (*Required*): The path to the HAARS or LBP classification file (xml).
@@ -59,6 +59,6 @@ Once OpenCV is configured, it will create an `image_processing` entity for each 
 
 ### {% linkable_title Camera %}
 
-If you would like to see what your Home-Assistant is seeing, simply add the `add_camera: True` configuration line as seen above..
+If you would like to see what your Home-Assistant is seeing, simply adding the `add_camera: True` configuration line as seen above is not enough, you will need to copy [camera/opencv.py](https://gist.github.com/Teagan42/4e64b4f97680d468d7c06a4e985b3aac0) to your configuration directory: `.homeassistant/custom_components/camera/opencv.py`
 
 A new camera entity will be added to your Home-Assistant that will highlight the areas it has detected as a match.
