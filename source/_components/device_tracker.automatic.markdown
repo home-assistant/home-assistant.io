@@ -41,4 +41,20 @@ Configuration variables:
 - **password** (*Required*): The password for your given ODB reader account.
 - **devices** (*Optional*): The list of vehicle display names you wish to track. If not provided, all vehicles will be tracked.
 
+Home Assistant will also fire events when an update is received from Automatic. These can be used to trigger automations, as shown in the example below. A list of available event types can be found in the [Automatic Real-Time Events documentation](https://developer.automatic.com/api-reference/#real-time-events).
+
+
+```yaml
+# Example automatic event automation
+automation:
+  - trigger: 
+      - platform: event
+        event_type: automatic_update
+    condition:
+      - condition: template
+        value_template: '{{ trigger.event.data.type == "ignition:on" }}'
+    action:
+      - service: light.turn_off
+```
+
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the cars to be tracked.
