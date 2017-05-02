@@ -18,6 +18,7 @@ The `opencv` image processing platform allows you to create a standalone image p
 ### {% linkable_title Configuration Home Assistant %}
 
 ```yaml
+# Example configuration.yaml entry
 opencv:
   - name: Detect Face
     entity_id:
