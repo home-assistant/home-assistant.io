@@ -25,7 +25,7 @@ binary_sensor:
     payload:
       unitcode: 371399
     payload_on: 'closed'
-    disarm_after_trigger: 'yes'  <-- use this if you want trigger type behavior
+    disarm_after_trigger: True  <-- use this if you want trigger type behavior
 ```
 
 Configuration variables:
