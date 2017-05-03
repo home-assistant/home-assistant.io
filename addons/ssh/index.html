@@ -67,7 +67,18 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>[Placeholder]</p>
+  <p>Setup a <a href="https://openssh.org/">ssh</a> server. Allow to access severals hass.io folders with ssh client. It allow also to do some tunneling for access from outside. It should by used only on a ResinOS platform, generic linux would have here own ssh server.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"authorized_keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"ssh-rsa AKDJD3839...== my-key"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Option variables:</p>
+<ul>
+  <li><strong>authorized_keys</strong> (<em>Required</em>): default empty. Your public-keys for authorized keyfile. Every element will be a line inside that file.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
