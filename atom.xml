@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-02T10:04:37+00:00</updated>
+  <updated>2017-05-03T06:32:36+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -86,7 +86,13 @@ $ sudo systemctl start install_homeassistant.service
     <link href="https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time/"/>
     <updated>2017-04-30T15:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2017/04/30/hassbian-1.21-its-about-time</id>
-    <content type="html"><![CDATA[<p>Since I, the developer of HASSbian, have been moving, started a new job and so on I’ve had few moments over for HASSbian development. The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I’ll do my best to release more often. There’s no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the <a href="https://github.com/home-assistant/hassbian-scripts/releases/latest">hassbian-config</a> package. For more information have a look at the <a href="https://github.com/home-assistant/hassbian-scripts/">hassbian-config</a> page.</p>
+    <content type="html"><![CDATA[<h3>Hassbian 1.21 - It’s about time isn’t it</h3>
+<p>Since I, the developer of HASSbian, have been moving, started a new job and so on I’ve had few moments over for HASSbian development. The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I’ll do my best to release more often. There’s no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the <a href="https://github.com/home-assistant/hassbian-scripts/releases/latest">hassbian-config</a> package. For more information have a look at the <a href="https://github.com/home-assistant/hassbian-scripts/">hassbian-config</a> page.</p>
+
+<h3>Hassbian 1.22 - Sins of last night</h3>
+<p>Development is sometimes fast and joyful but mistakes are made at times.</p>
+
+<p>With the release of 1.21 a small problem with the OpenZWave build script wasn’t corrected even tough it was a known bug. Problem is simple as it’s only a problem with the symlink created for to the configuration folder for OpenZWave. This has been fixed and we bring some new things since they where ready anyway. The list below has been augmented with the updated information.</p>
 
 <h3><a class="title-link" name="hassbian-config" href="#hassbian-config"></a> Hassbian-config</h3>
 
@@ -96,8 +102,10 @@ $ sudo systemctl start install_homeassistant.service
   <li>Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it’s usage is not recommended if you share your network with others.</li>
   <li>Install Libcec. Adds local <a href="https://home-assistant.io/components/hdmi_cec/">HDMI CEC support</a>.</li>
   <li>Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.</li>
-  <li>Install Open Z-Wave. Installs Open Z-Wave and prepares for using a USB or GPIO ZWave controller.</li>
-  <li>Install Hue. hue: Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.</li>
+  <li>Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.</li>
+  <li>Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.</li>
+  <li>Install Tradfri. Installs dependencies for using IKEA Trådfri.</li>
+  <li>Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.</li>
   <li>Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.</li>
 </ul>
 
@@ -107,8 +115,8 @@ $ sudo systemctl start install_homeassistant.service
 
 <ul>
   <li>Replaced the <code class="highlighter-rouge">hassbian-scripts</code> folder with <code class="highlighter-rouge">hassbian-config</code>.</li>
-  <li>Update pi-gen. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.</li>
-  <li>Added libtool &amp; autoconf  package. Dependencies for some of the pip packages.</li>
+  <li>Update <code class="highlighter-rouge">pi-gen</code>. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.</li>
+  <li>Added libtool and autoconf package. Dependencies for some of the pip packages.</li>
   <li>Pi ZeroW should now work with the image.</li>
 </ul>
 
