@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: OpenCV_Logo.png
 ha_category: Hub
-ha_release: 0.40
+ha_release: 0.44
 ha_iot_class: "Local Push"
 ---
 

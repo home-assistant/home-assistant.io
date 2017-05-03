@@ -10,7 +10,7 @@ footer: true
 logo: OpenCV_Logo.png
 ha_category: Image Processing
 featured: false
-ha_release: 0.38
+ha_release: 0.44
 ---
 
 The `opencv` image processing platform allows you to create a standalone image processor without the linked camera entity as mentioned in the [OpenCV page](https://home-assistant.io/components/opencv).
