@@ -35,6 +35,18 @@ axis:
     location: köket
 ```
 
+## {% linkable_title Dependencies %}
+
+```bash
+sudo apt-get install python3-gi gir1.2-gstreamer-1.0
+```
+
+Depending on how you run Home Assistant you might be needed to symlink the `gi` module into your environment (e.g. in Hassbian):
+
+```bash
+ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
+```
+
 ## Configuration variables:
 
 - **device** (*Required*): Unique name 
@@ -61,15 +73,3 @@ Any specific levels for triggers needs to be configured on the device.
 <p class='note'>
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality it is enough to create a user belonging to user group viewer.
 </p>
-
-## {% linkable_title Setup %}
-
-```bash
-sudo apt-get install python3-gi gir1.2-gstreamer-1.0
-```
-
-Depending on how you run Home Assistant you might be needed to symlink the `gi` module into your environment:
-
-```bash
-ln -s /path/to/your/installation/of/gi /path/to/your/venv/lib/python3.4/site-packages
-```
