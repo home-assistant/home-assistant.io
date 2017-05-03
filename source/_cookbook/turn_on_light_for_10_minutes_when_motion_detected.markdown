@@ -20,7 +20,7 @@ automation:
   trigger:
     platform: state
     entity_id: sensor.motion_sensor
-    to: 'on'
+    state: 'on'
   action:
     service: homeassistant.turn_on
     entity_id: light.kitchen
@@ -29,7 +29,7 @@ automation:
   trigger:
     platform: state
     entity_id: sensor.motion_sensor
-    to: 'off'
+    state: 'off'
     for:
       minutes: 10
   action:
