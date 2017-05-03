@@ -22,7 +22,7 @@ Setup a [mosquitto](https://mosquitto.org/) mqtt broker.
 }
 ```
 
-Configuration variables:
+Option variables:
 
 - **plain** (*Optional*): default true. Listen broaker on port 1883 without SSL/TLS.
 - **ssl** (*Optional*): default false. Listen broker on port 8883 with SSL/TLS. Need to have certificates.
