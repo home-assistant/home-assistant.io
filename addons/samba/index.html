@@ -67,7 +67,28 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>[Placeholder]</p>
+  <p>Setup a <a href="https://samba.org/">samba</a> server. Allow to access severals hass.io folders with windows network shares.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"workgroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WORKGROUP"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"guest"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"map_config"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"map_addons"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"map_ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Option variables:</p>
+<ul>
+  <li><strong>workgroup</strong> (<em>Optional</em>): default <code class="highlighter-rouge">WORKGROUP</code>. Set network workgroup.</li>
+  <li><strong>guest</strong> (<em>Optional</em>): default true. Allow login without a username or password.</li>
+  <li><strong>map_config</strong> (<em>Optional</em>): default true. Expose homeassistant config folder.</li>
+  <li><strong>map_addons</strong> (<em>Optional</em>): default true. Expose local custom addons folder.</li>
+  <li><strong>map_ssl</strong> (<em>Optional</em>): default false. Expose ssl folder. Be carfuly with that option!</li>
+  <li><strong>username</strong> (<em>Optional</em>): default empty. The username for login if guest login is not active.</li>
+  <li><strong>password</strong> (<em>Optional</em>): default empty. Set the password for <code class="highlighter-rouge">username</code>. A empty password will be not supported.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
