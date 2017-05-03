@@ -15,7 +15,7 @@ Since I, the developer of HASSbian, have been moving, started a new job and so o
 ### Hassbian 1.22 - Sins of last night
 Development is sometimes fast and joyful but mistakes are made at times.
 
-With the release of 1.21 a small problem with the OpenZWave build script wasn't corrected even tough it was a known bug. Problem is simple as it's only a problem with the symlink created for to the config folder for Open Z-Wave.This has since been fixed and we bring some new things since they where ready anyway. The list below has been augmented with the updated information.
+With the release of 1.21 a small problem with the OpenZWave build script wasn't corrected even tough it was a known bug. Problem is simple as it's only a problem with the symlink created for to the configuration folder for OpenZWave. This has been fixed and we bring some new things since they where ready anyway. The list below has been augmented with the updated information.
 
 ### {% linkable_title Hassbian-config %}
 
@@ -35,8 +35,8 @@ To allow you to customize your installation further, we have included a tool cal
 With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.
 
   - Replaced the `hassbian-scripts` folder with `hassbian-config`.
-  - Update pi-gen. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.
-  - Added libtool & autoconf  package. Dependencies for some of the pip packages.
+  - Update `pi-gen`. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.
+  - Added libtool and autoconf package. Dependencies for some of the pip packages.
   - Pi ZeroW should now work with the image.
 
 To follow discussions about the development of the HASSbian image or to contribute join the [HASSbian gitter chat][hassbian-gitter].
