@@ -35,7 +35,7 @@ axis:
     location: köket
 ```
 
-Configuration variables:
+## Configuration variables:
 
 - **device** (*Required*): Unique name 
 - **host** (*Required*): The IP address to your Axis device.
@@ -43,6 +43,7 @@ Configuration variables:
 - **password** (*Optional*): The password to your Axis device. Default 'pass'.
 - **trigger_time** (*Optional*): Minimum time (in seconds) a sensor should keep its positive value. Default 0.
 - **location** (*Optional*): Physical location of your Axis device. Default not set.
+
 - **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
 - **camera**: Stream MJPEG video to Home Assistant
 - **motion**: The Built in motion detection in Axis cameras
