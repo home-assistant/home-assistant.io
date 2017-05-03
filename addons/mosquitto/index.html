@@ -67,7 +67,24 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>[Placeholder]</p>
+  <p>Setup a <a href="https://mosquitto.org/">mosquitto</a> mqtt broker.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"plain"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anonymous"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testuser"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mypw"</span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Option variables:</p>
+<ul>
+  <li><strong>plain</strong> (<em>Optional</em>): default true. Listen broaker on port 1883 without SSL/TLS.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): default false. Listen broker on port 8883 with SSL/TLS. Need to have certificates.</li>
+  <li><strong>anonymous</strong> (<em>Optional</em>): default true. Allow anonymous connection. If <em>logins</em> is set, anonymous user can only read data.</li>
+  <li><strong>logins</strong> (<em>Optional</em>): default empty. A list of user that will be create with <em>username</em> and <em>password</em>.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
