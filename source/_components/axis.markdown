@@ -14,7 +14,7 @@ ha_release: "0.44"
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security related network connected hardware. Sensor API works with firmware 5.50 and newer.
 
-Home Assistant will automatically discover their presence on your network. 
+Home Assistant will automatically discover their presence on your network.
 
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
@@ -57,14 +57,14 @@ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-pa
 - **location** (*Optional*): Physical location of your Axis device. Default not set.
 
 - **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
-- **camera**: Stream MJPEG video to Home Assistant
-- **motion**: The Built in motion detection in Axis cameras
-- **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection
-- **pir**: PIR sensor that can trigger on motion
-- **sound**: Sound detector
-- **daynight**: Certain cameras have day/night mode if they have built-in IR lights
-- **tampering**: signals when camera believes that it has been tampered with
-- **input**: trigger on whatever you have connected to device input port
+  - **camera**: Stream MJPEG video to Home Assistant
+  - **motion**: The Built in motion detection in Axis cameras
+  - **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection
+  - **pir**: PIR sensor that can trigger on motion
+  - **sound**: Sound detector
+  - **daynight**: Certain cameras have day/night mode if they have built-in IR lights
+  - **tampering**: signals when camera believes that it has been tampered with
+  - **input**: trigger on whatever you have connected to device input port
 
 <p class='note'>
 Any specific levels for triggers needs to be configured on the device.
