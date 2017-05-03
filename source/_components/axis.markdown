@@ -16,7 +16,7 @@ ha_release: "0.44"
 
 Home Assistant will automatically discover their presence on your network. 
 
-You can also add your devices manually to your `configuration.yaml` file:
+You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
