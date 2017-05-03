@@ -26,26 +26,27 @@ To setup OpenCV with Home Assistant, add the following section to your `configur
 
 opencv:
   classifier_group:
-    - name: Detect Face
+    - name: Family
       add_camera: True
       entity_id:
         - camera.front_door
         - camera.living_room
       classifier:
         - file_path: /path/to/classifier/face.xml
-          name: face
+          name: Bob
         - file_path: /path/to/classifier/face_profile.xml
-          name: face profile
+          name: Jill
           min_size: (20, 20)
           color: (255, 0, 0)
           scale: 1.6
           neighbors: 5
+        - file_path: /path/to/classifier/kid_face.xml
+          name: Little Jimmy
 ```
 
 Configuration variables:
 
 - **name** (*Required*): The name of the OpenCV image processor.
-- **add_camera** (*Optional*): Whether a camera should be created to display the detected regions.
 - **entity_id** (*Required*): The camera entity or list of camera entities that this classification group will be applied to.
 - **classifier** (*Required*): The classification configuration for to be applied:
   - **file_path** (*Required*): The path to the HAARS or LBP classification file (xml).
@@ -57,8 +58,18 @@ Configuration variables:
 
 Once OpenCV is configured, it will create an `image_processing` entity for each classification group/camera entity combination as well as a camera so you can see what Home Assistant sees.
 
-### {% linkable_title Camera %}
+The attributes on the `image_processing` entity will be:
 
-If you would like to see what your Home-Assistant is seeing, simply add the `add_camera: True` configuration line as seen above..
-
-A new camera entity will be added to your Home-Assistant that will highlight the areas it has detected as a match.
+```json
+'matches': {
+  'Bob': [
+    (x, y, w, h)
+  ],
+  'Jill': [
+    (x, y, w, h)
+  ],
+  'Little Jimmy': [
+    (x, y, w, h)
+  ]
+}
+```
