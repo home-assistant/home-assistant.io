@@ -128,7 +128,6 @@ Finally, get and install `python-openzwave`.
 (homeassistant)$ cd /srv/homeassistant/src
 (homeassistant)$ git clone https://github.com/OpenZWave/python-openzwave.git
 (homeassistant)$ cd python-openzwave
-(homeassistant)$ git checkout python3
 (homeassistant)$ PYTHON_EXEC=`which python3` make build
 (homeassistant)$ PYTHON_EXEC=`which python3` make install
 ```
