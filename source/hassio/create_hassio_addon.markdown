@@ -9,4 +9,58 @@ sharing: true
 footer: true
 ---
 
-For now, see the instructions in [the add-on repository](https://github.com/home-assistant/hassio-addons).
+Addon
+
+### {% linkable_title Add-on folder %}
+
+```
+addon_name:
+  Dockerfile
+  config.json
+  run.sh
+```
+
+All add-ons are based off Alpine Linux 3.5. To get the macine specific version, use `FROM %%BASE_IMAGE%%` inside your docker file. Your Docker file also needs to include this line:
+
+```docker
+ENV VERSION %%VERSION%%
+```
+
+As a user might run many add-ons, it is encouraged to try to stick to Bash scripts if you're doing simple things.
+
+### {% linkable_title Add-on config %}
+
+```json
+{
+  "name": "xy",
+  "version": "1.2",
+  "slug": "folder",
+  "description": "long descripton",
+  "startup": "before|after|once",
+  "boot": "auto|manual",
+  "ports": {
+    "123/tcp": 123
+  },
+  "map": ["config", "ssl", "addons", "backup"],
+  "options": {},
+  "schema": {
+    "bla": "str|int|float|bool|email|url",
+    "list_1": [
+      "str|int|float|bool|email|url",
+    ],
+    "list_2": [
+      {"ble": "str|int|float|bool|email|url"}
+    ]
+  },
+  "image": "repo/{arch}-my-custom-addon"
+}
+```
+
+If you want to set a value to requered and need to be set from user before it start the addon, set it to null.
+
+### {% linkable_title SSL %}
+
+Default you can use `fullchain.pem` and `privkey.pem` from `/ssl` for you stuff. Your SSL addon should also create default this files.
+
+### {% linkable_title Need to known %}
+`/data` is a volume with a persistant store. `/data/options.json` have the user config inside. You can use `jq` inside shell script to parse this data.
