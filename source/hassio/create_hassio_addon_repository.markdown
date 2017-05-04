@@ -9,6 +9,8 @@ sharing: true
 footer: true
 ---
 
+Look to our example repository: https://github.com/home-assistant/hassio-addons-example
+
 Add a `repository.json` to root of your git repository with:
 ```json
 {
