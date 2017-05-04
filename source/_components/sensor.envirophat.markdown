@@ -12,7 +12,7 @@ ha_category: Sensor
 ha_iot_class: "Local Push"
 ---
 
-The `envirophat` sensor platform allows you to display information collected by an [Enviro pHATT](https://shop.pimoroni.com/products/enviro-phat) add-on board for the Raspberry Pi. The board featues a wide range of sensors, such as:
+The `envirophat` sensor platform allows you to display information collected by an [Enviro pHAT](https://shop.pimoroni.com/products/enviro-phat) add-on board for the Raspberry Pi. The board featues a wide range of sensors, such as:
 
 - BMP280 temperature/pressure sensor
 - TCS3472 light and RGB colour sensor with two LEDs for illumination
@@ -48,7 +48,7 @@ sensor:
 
 Configuration variables:
 
-- **display_options** (*Optional*) array: List of readings to monitor. Defaults is monitoring all of them:
+- **display_options** (*Optional*) array: List of readings to monitor. Default is monitoring all of them:
   - **temperature**: ambient temperature in Celsius. Since the sensor is close to the Raspberry Pi, that migth affect the accuracy of the reading (ie. the Pi might heat up the sensor)
   - **pressure**: atmospheric pressure in hPa.
   - **light**: ambient light, as an integer in the 0-65535 range
@@ -67,7 +67,7 @@ Configuration variables:
   - **voltage_3**: voltage reading on Analog In 3 in units of V
 - **use_led** (*Optional*) True / False boolean; Default value is False, declaring that the onboard LEDs are *not* used for the color measurements thus these readings are based on the ambient light. If the value is set to True, the onboard LEDs will blink whenever a reading is taken.
 
-**Notes**:
+### Notes
 
 * **X, Y, Z axes**
   * X is parallel with the long edge of the board
@@ -78,7 +78,7 @@ Configuration variables:
 
 ### Give the values friendly names & icons
 
-Add something like the following to your [`customize` section](/docs/configuration/customizing-devices/):
+Add something like the following to your [customize section](/docs/configuration/customizing-devices/):
 
 ```yaml
 # Example configuration.yaml entry
@@ -108,24 +108,9 @@ group:
       - sensor.voltage_3
 ```
 
+### Enabling the required `i2c-1` device
 
-### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
-
-Here are the steps to make the _Enviro pHAT_ sensor work _successfully_ with the virtual enviroment versions.
-
-#### Install SenseHAT package to _homeassistant_venv_
-```bash
-# switch to the homeassistant_venv environment
-sudo su -s /bin/bash homeassistant
-source /srv/homeassistant/homeassistant_venv/bin/activate
-
-# install the envirophat library
-pip3 install envirophat
-```
-
-#### Enabling the required `i2c-1` device
-
-You also have to make sure that the I2C devices are enabled, by adding or uncommenting the following line in `/boot/config.txt` (see the [DT Parameters section](https://www.raspberrypi.org/documentation/configuration/device-tree.md) in the Raspberry Pi documentation):
+Since the Enviro pHAT communicates over I2C, you might also need to make sure that the I2C devices are enabled, by adding or uncommenting the following line in `/boot/config.txt` (see the [DT Parameters section](https://www.raspberrypi.org/documentation/configuration/device-tree.md) in the Raspberry Pi documentation):
 
 ```
 dtparam=i2c_arm=on
