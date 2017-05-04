@@ -28,8 +28,7 @@ Known working ZigBee radios:
 - Nortek/GoControl Z-Wave & Zigbee USB Adaptor - Model HUSBZB-1
 
 To configure the component, a `zha` section must be present in the `configuration.yaml`,
-and the path to the serial device for the radio and path to the database which
-will persist your network data is required.
+and the path to the serial device for the radio and path to the database which will persist your network data is required.
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,5 +37,11 @@ zha:
   database_path: zigbee.db
 ```
 
-To add new devices to the network, call the `permit` service on the `zha`
-domain, and then follow the device instructions.
+Configuration variables:
+
+ - **usb_path** (*Required*): Path to the serial device for the radio.
+ - **database_path** (*Required*): Path to the database which will keep persisten newtork data.
+
+
+
+To add new devices to the network, call the `permit` service on the `zha` domain, and then follow the device instructions.
