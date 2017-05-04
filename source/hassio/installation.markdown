@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installing Hass.io"
-description: "Instructions how to install Hass.io."
+description: "Instructions on how-to install Hass.io."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -15,9 +15,9 @@ Hass.io images are available for all available Raspberry Pi platforms. Download 
  - [Raspberry Pi 2][pi2]
  - [Raspberry Pi 3][pi3]
 
-Once downloaded, write it to an SD card using [Etcher]. Then put the SD card into your Raspberry Pi and turn it on. You will be able to reach your installation on [http://hassio.local][local].
+Flash the downloaded image to an SD card using [Etcher]. Insert SD card to Raspberry Pi and turn it on. You will be able to reach your installation on [http://hassio.local][local].
 
-On first boot it does download the HomeAssistant container and they can take a time after we can access to our hub.
+On first boot, it downloads the Home Assistant container and that can take some time.
 
 ### {% linkable_title Alternative: install on generic Linux server %}
 
