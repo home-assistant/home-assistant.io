@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ZigBee Home Automation Switch"
-description: "Instructions how to setup ZHA switches within Home Assistant."
+description: "Instructions how to setup ZigBee Home Automation switches within Home Assistant."
 date: 2017-02-22 00:00
 sidebar: true
 comments: false
