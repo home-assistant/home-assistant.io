@@ -33,7 +33,7 @@ Configuration variables:
 - **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
 - **brightness_state_topic** (*Optional*): The MQTT topic subscribed to receive brightness state updates.
 - **brightness_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the brightness value.
-- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.
+- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.  The color temperature command slider has a range of 157 to 500 mireds (micro reciprocal degrees).    
 - **color_temp_state_topic** (*Optional*): The MQTT topic subscribed to receive color temperature state updates.
 - **color_temp_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the color temperature value.
 - **effect_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's effect state.
