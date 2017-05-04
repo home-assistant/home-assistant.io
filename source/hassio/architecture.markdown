@@ -20,7 +20,7 @@ This is a daemon that runs on the host machine that allows the supervisor to con
 
  - Power cycle (restart, turn off)
  - Manage network settings
- - Update host control
+ - Local updates
 
 ### {% linkable_title Host %}
 
