@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Create an add-on for Hass.io"
-description: "Steps on how to create an add-on for Hass.io."
+description: "Steps on how-to create an add-on for Hass.io."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -20,7 +20,7 @@ addon_name:
   run.sh
 ```
 
-All add-ons are based on Alpine Linux 3.5. You can use `FROM %%BASE_IMAGE%%` inside your docker file to build the right arch or for automatic build with our scripts. 
+All add-ons are based on Alpine Linux 3.5. You can use `FROM %%BASE_IMAGE%%` inside your docker file to build the right arch or for automatic build with our scripts.
 
 Your Docker need also a env variable `VERSION` with the version of the add-on. With our build system include this line:
 ```
@@ -90,5 +90,5 @@ We support:
 
 Default you can use `fullchain.pem` and `privkey.pem` from `/ssl` for you stuff. Your SSL addon should also create default this files.
 
-### {% linkable_title Need to known %}
+### {% linkable_title Need to know %}
 `/data` is a volume with a persistant store. `/data/options.json` have the user config inside. You can use `jq` inside shell script to parse this data.
