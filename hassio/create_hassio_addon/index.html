@@ -91,20 +91,14 @@
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"config"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ssl"</span><span class="p">,</span><span class="w"> </span><span class="s2">"addons"</span><span class="p">,</span><span class="w"> </span><span class="s2">"backup"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-  </span><span class="nt">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"bla"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str|int|float|bool|email|url"</span><span class="p">,</span><span class="w">
- </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="nt">"list_1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"str|int|float|bool|email|url"</span><span class="p">,</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"list_2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="nt">"ble"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str|int|float|bool|email|url"</span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
   </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"repo/{arch}-my-custom-addon"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p>If you want to set a value to requered and need to be set from user before it start the addon, set it to null.</p>
+<h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
+<p>The <code class="highlighter-rouge">options</code> dict have all available options with default value. If you want to set a value to requered and need to be set from user before it start the addon, set it to null.</p>
+<p>The <code class="highlighter-rouge">schmema</code> look like the <code class="highlighter-rouge">options</code> but describe how we should validate the user input.</p>
 <h3><a class="title-link" name="ssl" href="#ssl"></a> SSL</h3>
 <p>Default you can use <code class="highlighter-rouge">fullchain.pem</code> and <code class="highlighter-rouge">privkey.pem</code> from <code class="highlighter-rouge">/ssl</code> for you stuff. Your SSL addon should also create default this files.</p>
 <h3><a class="title-link" name="need-to-known" href="#need-to-known"></a> Need to known</h3>
