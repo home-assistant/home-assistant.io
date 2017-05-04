@@ -67,7 +67,23 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>[Placeholder]</p>
+  <p class="img">
+  <a href="/images/hassio/architecture.png"><img src="/images/hassio/architecture.png" alt="Architecture overview of Hass.io" /></a>
+  Architecture overview of Hass.io
+</p>
+<h3><a class="title-link" name="host-control-hc" href="#host-control-hc"></a> Host Control (HC)</h3>
+<p>This is a daemon that runs on the host machine that allows the supervisor to control certain aspects of the host OS:</p>
+<ul>
+  <li>Power cycle (restart, turn off)</li>
+  <li>Manage network settings</li>
+  <li>Update host control</li>
+</ul>
+<h3><a class="title-link" name="host" href="#host"></a> Host</h3>
+<p>The operating system that runs Hass.io. Our pre-build images are based on <a href="https://resinos.io/">ResinOS</a>. Any Linux machine can be turned into a Hass.io host by running <a href="/hassio/installation/#alternative-install-on-generic-linux-server">the installer</a>.</p>
+<h3><a class="title-link" name="supervisor" href="#supervisor"></a> Supervisor</h3>
+<p>The supervisor offers an API to manage the host and the running Docker containers.</p>
+<h3><a class="title-link" name="configuration-panel" href="#configuration-panel"></a> Configuration panel</h3>
+<p>The configuration panel lives inside the supervisor but is accessible via the Home Assistant user interface. The configuration panel allows the user to manage the installation.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -80,8 +96,15 @@
         <a  href='/hassio/'>Hass.io </a>
         <ul>
           <li><a  href='/hassio/installation/'>Installation </a></li>
-          <li><a class='active' href='/hassio/architecture/'>Architecture </a></li>
           <li><a  href='/addons/'>Available add-ons </a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/hassio/development/'>Development </a>
+        <ul>
+          <li><a class='active' href='/hassio/architecture/'>Architecture </a></li>
           <li><a  href='/hassio/create_hassio_addon/'>Creating add-ons </a></li>
           <li><a  href='/hassio/create_hassio_addon_repository/'>Creating add-on repositories </a></li>
         </ul>
