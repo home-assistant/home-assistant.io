@@ -9,4 +9,11 @@ sharing: true
 footer: true
 ---
 
-[Placeholder]
+Add a `repository.json` to root of your git repository with:
+```json
+{
+  "name": "Needed, Name of repository",
+  "url": "url to website (optional)",
+  "maintainer": "(optional) Pascal Vizeli <pvizeli@syshack.ch>"
+}
+```
