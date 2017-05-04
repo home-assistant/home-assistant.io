@@ -9,4 +9,4 @@ sharing: true
 footer: true
 ---
 
-[Placeholder]
+For now, see the instructions in [the add-on repository](https://github.com/home-assistant/hassio-addons).
