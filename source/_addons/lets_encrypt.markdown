@@ -14,7 +14,7 @@ Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This w
 ```json
 {
   "email": "example@example.com",
-  "domains": ["example.com", "mqtt.example.com", "hass.example.com"],
+  "domains": ["example.com", "mqtt.example.com", "hass.example.com"]
 }
 ```
 
