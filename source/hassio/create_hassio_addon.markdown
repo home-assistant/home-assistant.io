@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Addon
+Add-ons are docker container they run a script and do some things. User are able to set a add-on specific options.
 
 ### {% linkable_title Add-on folder %}
 
@@ -20,9 +20,10 @@ addon_name:
   run.sh
 ```
 
-All add-ons are based off Alpine Linux 3.5. To get the macine specific version, use `FROM %%BASE_IMAGE%%` inside your docker file. Your Docker file also needs to include this line:
+All add-ons are based on Alpine Linux 3.5. You can use `FROM %%BASE_IMAGE%%` inside your docker file to build the right arch or for automatic build with our scripts. 
 
-```docker
+Your Docker need also a env variable `VERSION` with the version of the add-on. With our build system include this line:
+```
 ENV VERSION %%VERSION%%
 ```
 
