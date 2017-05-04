@@ -67,7 +67,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Addon</p>
+  <p>Add-ons are docker container they run a script and do some things. User are able to set a add-on specific options.</p>
 <h3><a class="title-link" name="add-on-folder" href="#add-on-folder"></a> Add-on folder</h3>
 <div class="highlighter-rouge"><pre class="highlight"><code>addon_name:
   Dockerfile
@@ -75,8 +75,11 @@
   run.sh
 </code></pre>
 </div>
-<p>All add-ons are based off Alpine Linux 3.5. To get the macine specific version, use <code class="highlighter-rouge">FROM %%BASE_IMAGE%%</code> inside your docker file. Your Docker file also needs to include this line:</p><pre><code class="language-docker">ENV VERSION %%VERSION%%
+<p>All add-ons are based on Alpine Linux 3.5. You can use <code class="highlighter-rouge">FROM %%BASE_IMAGE%%</code> inside your docker file to build the right arch or for automatic build with our scripts.</p>
+<p>Your Docker need also a env variable <code class="highlighter-rouge">VERSION</code> with the version of the add-on. With our build system include this line:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ENV VERSION %%VERSION%%
 </code></pre>
+</div>
 <p>As a user might run many add-ons, it is encouraged to try to stick to Bash scripts if you’re doing simple things.</p>
 <h3><a class="title-link" name="add-on-config" href="#add-on-config"></a> Add-on config</h3>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
