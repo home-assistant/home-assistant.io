@@ -43,20 +43,16 @@ As a user might run many add-ons, it is encouraged to try to stick to Bash scrip
   },
   "map": ["config", "ssl", "addons", "backup"],
   "options": {},
-  "schema": {
-    "bla": "str|int|float|bool|email|url",
-    "list_1": [
-      "str|int|float|bool|email|url",
-    ],
-    "list_2": [
-      {"ble": "str|int|float|bool|email|url"}
-    ]
-  },
+  "schema": {},
   "image": "repo/{arch}-my-custom-addon"
 }
 ```
 
-If you want to set a value to requered and need to be set from user before it start the addon, set it to null.
+### {% linkable_title Options / Schema %}
+
+The `options` dict have all available options with default value. If you want to set a value to requered and need to be set from user before it start the addon, set it to null.
+
+The `schmema` look like the `options` but describe how we should validate the user input.
 
 ### {% linkable_title SSL %}
 
