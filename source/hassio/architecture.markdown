@@ -16,7 +16,7 @@ footer: true
 
 ### {% linkable_title Host Control (HC) %}
 
-This is a daemon that runs on the host machine that allows the supervisor to control certain aspects of the host OS:
+This is a daemon running on the host machine that allows the supervisor to control certain aspects of the host OS:
 
  - Power cycle (restart, turn off)
  - Manage network settings
@@ -24,11 +24,11 @@ This is a daemon that runs on the host machine that allows the supervisor to con
 
 ### {% linkable_title Host %}
 
-The operating system that runs Hass.io. Our pre-build images are based on [ResinOS]. Any Linux machine can be turned into a Hass.io host by running [the installer][linux].
+Our pre-build images are based on [ResinOS]. Any Linux machine can be turned into a Hass.io host by running [the installer][linux].
 
 ### {% linkable_title Supervisor %}
 
-The supervisor offers an API to manage the host and the running Docker containers.
+The supervisor offers an API to manage the host and running the Docker containers.
 
 ### {% linkable_title Configuration panel %}
 
