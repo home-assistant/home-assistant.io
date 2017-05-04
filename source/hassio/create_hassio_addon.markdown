@@ -51,9 +51,40 @@ As a user might run many add-ons, it is encouraged to try to stick to Bash scrip
 
 ### {% linkable_title Options / Schema %}
 
-The `options` dict have all available options with default value. If you want to set a value to requered and need to be set from user before it start the addon, set it to null.
+The `options` dict have all available options with default value. If you want to set a value to requered and need to be set from user before it start the addon, set it to null. We support arrays for single deeps.
 
-The `schmema` look like the `options` but describe how we should validate the user input.
+```json
+{
+  "message": "custom things",
+  "logins": [
+    { "username": "beer", "password": "123456" },
+    { "username": "cheep", "password": "654321" }
+  ],
+  "random": ["haha", "hihi", "huhu", "hghg"],
+  "link": "http://blebla.com/"
+}
+```
+
+The `schmema` look like the `options` but describe how we should validate the user input. For example above:
+
+```json
+{
+  "message": "str",
+  "logins": [
+    { "username": "str", "password": "str" }
+  ],
+  "random": ["str"],
+  "link": "url"
+}
+```
+
+We support:
+- str
+- bool
+- int
+- float
+- email
+- url
 
 ### {% linkable_title SSL %}
 
