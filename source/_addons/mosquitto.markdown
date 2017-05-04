@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Setup a [mosquitto](https://mosquitto.org/) mqtt broker.
+Set up a [mosquitto](https://mosquitto.org/) MQTT broker.
 
 ```json
 {
@@ -22,9 +22,9 @@ Setup a [mosquitto](https://mosquitto.org/) mqtt broker.
 }
 ```
 
-Option variables:
+Configuration variables:
 
-- **plain** (*Optional*): default true. Listen broaker on port 1883 without SSL/TLS.
-- **ssl** (*Optional*): default false. Listen broker on port 8883 with SSL/TLS. Need to have certificates.
-- **anonymous** (*Optional*): default true. Allow anonymous connection. If *logins* is set, anonymous user can only read data.
-- **logins** (*Optional*): default empty. A list of user that will be create with *username* and *password*.
+- **plain** (*Optional*): Listen to broker on port 1883 without SSL/TLS. Defaults to `true`.
+- **ssl** (*Optional*): Listen to broker on port 8883 with SSL/TLS. This requires certificates. Defaults to `false`.
+- **anonymous** (*Optional*): Allow anonymous connection. If *logins* is set, anonymous user can only read data. Defaults to `true`.
+- **logins** (*Optional*): A list of user that will be created with *username* and *password*.

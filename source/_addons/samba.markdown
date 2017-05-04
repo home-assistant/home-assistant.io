@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Setup a [samba](https://samba.org/) server. Allow to access severals hass.io folders with windows network shares.
+This allows you to set up a [Samba](https://samba.org/) server to access hass.io folders using Windows network shares.
 
 ```json
 {
@@ -23,12 +23,12 @@ Setup a [samba](https://samba.org/) server. Allow to access severals hass.io fol
 }
 ```
 
-Option variables:
+Configuration variables:
 
 - **workgroup** (*Optional*): default `WORKGROUP`. Set network workgroup.
-- **guest** (*Optional*): default true. Allow login without a username or password.
-- **map_config** (*Optional*): default true. Expose homeassistant config folder.
-- **map_addons** (*Optional*): default true. Expose local custom addons folder.
-- **map_ssl** (*Optional*): default false. Expose ssl folder. Be carfuly with that option!
-- **username** (*Optional*): default empty. The username for login if guest login is not active.
-- **password** (*Optional*): default empty. Set the password for `username`. A empty password will be not supported.
+- **guest** (*Optional*): Allow login without a username or password. Defaults to `true`.
+- **map_config** (*Optional*): Expose Home Assistant configuration folder. Defaults to `true`.
+- **map_addons** (*Optional*): Expose local custom addons folder. Defaults to `true`.
+- **map_ssl** (*Optional*): Expose SSL folder. Be careful with this option! Defaults to `false`.
+- **username** (*Optional*): The username for logging in if guest login is not used.
+- **password** (*Optional*): Password for `username`. An empty password is not supported.

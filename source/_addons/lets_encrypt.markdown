@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Setup and manage a [let's encrypt](https://letsencrypt.org/) certificate. The first run will create the certificate and every other run will renew it if they will expire in 30 days. All other run make nothing.
+Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This will create a certificate on the first run and renew it if the certificate is expiring in the next 30 days.
 
 ```json
 {
@@ -18,7 +18,7 @@ Setup and manage a [let's encrypt](https://letsencrypt.org/) certificate. The fi
 }
 ```
 
-Option variables:
+Configuration variables:
 
-- **email** (*Required*): default empty. Your email for register on let's encrypt with your domains.
-- **domains** (*Required*): default empty list. A list of domains for create/renew the certificate.
+- **email** (*Required*): Your email address for registration on Let's Encrypt.
+- **domains** (*Required*): A list of domains to create/renew the certificate.

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Setup a [ssh](https://openssh.org/) server. Allow to access severals hass.io folders with ssh client. It allow also to do some tunneling for access from outside. It should by used only on a ResinOS platform, generic linux would have here own ssh server.
+Setting up a [SSH](https://openssh.org/) server allows access to hass.io folders with SSH client. It also allows tunneling for access from an external network. Please note that you only need to do this on a ResinOS platform as most Linux flavors have their own SSH server.
 
 ```json
 {
@@ -19,6 +19,6 @@ Setup a [ssh](https://openssh.org/) server. Allow to access severals hass.io fol
 }
 ```
 
-Option variables:
+Configuration variables:
 
-- **authorized_keys** (*Required*): default empty. Your public-keys for authorized keyfile. Every element will be a line inside that file.
+- **authorized_keys** (*Required*): Your public-keys for authorized keyfile. Every element will be a line inside that file.
