@@ -67,7 +67,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Setup a <a href="https://samba.org/">samba</a> server. Allow to access severals hass.io folders with windows network shares.</p>
+  <p>This allows you to set up a <a href="https://samba.org/">Samba</a> server to access hass.io folders using Windows network shares.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"workgroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WORKGROUP"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"guest"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -79,15 +79,15 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p>Option variables:</p>
+<p>Configuration variables:</p>
 <ul>
   <li><strong>workgroup</strong> (<em>Optional</em>): default <code class="highlighter-rouge">WORKGROUP</code>. Set network workgroup.</li>
-  <li><strong>guest</strong> (<em>Optional</em>): default true. Allow login without a username or password.</li>
-  <li><strong>map_config</strong> (<em>Optional</em>): default true. Expose homeassistant config folder.</li>
-  <li><strong>map_addons</strong> (<em>Optional</em>): default true. Expose local custom addons folder.</li>
-  <li><strong>map_ssl</strong> (<em>Optional</em>): default false. Expose ssl folder. Be carfuly with that option!</li>
-  <li><strong>username</strong> (<em>Optional</em>): default empty. The username for login if guest login is not active.</li>
-  <li><strong>password</strong> (<em>Optional</em>): default empty. Set the password for <code class="highlighter-rouge">username</code>. A empty password will be not supported.</li>
+  <li><strong>guest</strong> (<em>Optional</em>): Allow login without a username or password. Defaults to <code class="highlighter-rouge">true</code>.</li>
+  <li><strong>map_config</strong> (<em>Optional</em>): Expose Home Assistant configuration folder. Defaults to <code class="highlighter-rouge">true</code>.</li>
+  <li><strong>map_addons</strong> (<em>Optional</em>): Expose local custom addons folder. Defaults to <code class="highlighter-rouge">true</code>.</li>
+  <li><strong>map_ssl</strong> (<em>Optional</em>): Expose SSL folder. Be careful with this option! Defaults to <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username for logging in if guest login is not used.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Password for <code class="highlighter-rouge">username</code>. An empty password is not supported.</li>
 </ul>
 </article>
         </div>

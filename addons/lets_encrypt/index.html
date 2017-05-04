@@ -67,7 +67,18 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>[Placeholder]</p>
+  <p>Setup and manage a <a href="https://letsencrypt.org/">Let’s Encrypt</a> certificate. This will create a certificate on the first run and renew it if the certificate is expiring in the next 30 days.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mqtt.example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hass.example.com"</span><span class="p">],</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>email</strong> (<em>Required</em>): Your email address for registration on Let’s Encrypt.</li>
+  <li><strong>domains</strong> (<em>Required</em>): A list of domains to create/renew the certificate.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
