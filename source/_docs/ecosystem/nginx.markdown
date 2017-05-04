@@ -59,6 +59,10 @@ sudo openssl dhparam -out dhparams.pem 2048
 
 Create a new file `/etc/nginx/sites-available/hass` and copy the configuration file at the bottom of the page into it.
 
+<p class='note'>
+Some Linux distributions (including CentOS and Fedora) will not have the `/etc/nginx/sites-available/` directory. In this case, remove the default server {} block from the `/etc/nginx/nginx.conf` file and paste the contents from the bottom of the page in its place. If doing this, proceed to step 7.
+</p>
+
 ### {% linkable_title 6. Enable the Home Assistant configuration. %}
 
 ```
