@@ -28,7 +28,7 @@ Configuration variables:
  - Alias for the command
  - Command itself.
 
-The commands can be dynamic, using templates to insert values of other entities. When using templates you are limited to only template the arguments. You are also no longer allowed to use pipe symbols when using templates.
+The commands can be dynamic, using templates to insert values for arguments. When using templates, shell_command runs in a more secure environment which doesn't allow any shell helpers like automatically expanding the home dir `~` or using pipe symbols to run multiple commands.
 
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
