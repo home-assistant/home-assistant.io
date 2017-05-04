@@ -100,8 +100,38 @@
 </span></code></pre>
 </div>
 <h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
-<p>The <code class="highlighter-rouge">options</code> dict have all available options with default value. If you want to set a value to requered and need to be set from user before it start the addon, set it to null.</p>
-<p>The <code class="highlighter-rouge">schmema</code> look like the <code class="highlighter-rouge">options</code> but describe how we should validate the user input.</p>
+<p>The <code class="highlighter-rouge">options</code> dict have all available options with default value. If you want to set a value to requered and need to be set from user before it start the addon, set it to null. We support arrays for single deeps.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom things"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beer"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cheep"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"654321"</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"random"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"haha"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hihi"</span><span class="p">,</span><span class="w"> </span><span class="s2">"huhu"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hghg"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://blebla.com/"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>The <code class="highlighter-rouge">schmema</code> look like the <code class="highlighter-rouge">options</code> but describe how we should validate the user input. For example above:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str"</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"random"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"str"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>We support:</p>
+<ul>
+  <li>str</li>
+  <li>bool</li>
+  <li>int</li>
+  <li>float</li>
+  <li>email</li>
+  <li>url</li>
+</ul>
 <h3><a class="title-link" name="ssl" href="#ssl"></a> SSL</h3>
 <p>Default you can use <code class="highlighter-rouge">fullchain.pem</code> and <code class="highlighter-rouge">privkey.pem</code> from <code class="highlighter-rouge">/ssl</code> for you stuff. Your SSL addon should also create default this files.</p>
 <h3><a class="title-link" name="need-to-known" href="#need-to-known"></a> Need to known</h3>
