@@ -67,7 +67,19 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>[placeholder]</p>
+  <p>At the end, all add-ons are simple docker container. You can use our build scripts for automate the hole process our you can build your own docker image and push it manual do a docker hub. Inside your addon <code class="highlighter-rouge">config.json</code> can you use:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myhub/image-addon-name"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myhub/image-{arch}-addon-name"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>To specify from where it will load the addon by user installation. With <code class="highlighter-rouge"><span class="p">{</span><span class="err">arch</span><span class="p">}</span></code> inside image name, you can build your addon for multible architectures.</p>
+<h2><a class="title-link" name="custom-add-ons" href="#custom-add-ons"></a> Custom Add-ons</h2>
+<p>You need a docker hub account. It is also possible to use our own docker registrator.</p>
+<h2><a class="title-link" name="core-add-ons" href="#core-add-ons"></a> Core Add-ons</h2>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
