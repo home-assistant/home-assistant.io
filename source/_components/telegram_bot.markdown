@@ -79,3 +79,19 @@ action:
   - service: homeassistant.turn_off
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
 ```
+
+An example to show the use of event_data in the action:
+
+```
+- alias: 'Kitchen Telegram Speak'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/speak'
+  action:
+    - service: notify.kitchen_echo
+      data_template:
+        message: >
+          Message from {% raw %}{{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}{% endraw %}
+```
