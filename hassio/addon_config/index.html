@@ -6,21 +6,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Create an add-on for Hass.io - Home Assistant</title>
+    <title>Add-On Configuration - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Steps on how-to create an add-on for Hass.io.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/hassio/create_hassio_addon/">
+    <link rel="canonical" href="https://home-assistant.io/hassio/addon_config/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Create an add-on for Hass.io">
+    <meta property="og:title" content="Add-On Configuration">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/hassio/create_hassio_addon/">
+    <meta property="og:url" content="https://home-assistant.io/hassio/addon_config/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Steps on how-to create an add-on for Hass.io.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Create an add-on for Hass.io">
+    <meta name="twitter:title" content="Add-On Configuration">
     <meta name="twitter:description" content="Steps on how-to create an add-on for Hass.io.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -60,28 +60,49 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/hassio/create_hassio_addon.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/hassio/addon_config.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Create an Add-on for Hass.io
+      Add-On Configuration
     </h1>
   </header>
   <hr class="divider">
-  <p>Add-ons are docker container they run a script and do some things. User are able to set a add-on specific options.</p>
-<h3><a class="title-link" name="add-on-folder" href="#add-on-folder"></a> Add-on folder</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>addon_name:
+  <p>Each add-on is stored in a folder. The file structure looks like this:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>addon_name/
   Dockerfile
   config.json
   run.sh
 </code></pre>
 </div>
-<p>All add-ons are based on Alpine Linux 3.5. You can use <code class="highlighter-rouge">FROM %%BASE_IMAGE%%</code> inside your docker file to build the right arch or for automatic build with our scripts.</p>
-<p>Your Docker need also a env variable <code class="highlighter-rouge">VERSION</code> with the version of the add-on. With our build system include this line:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>ENV VERSION %%VERSION%%
+<h2><a class="title-link" name="add-on-script" href="#add-on-script"></a> Add-on script</h2>
+<p>As with every Docker container, you will need a script to run when the container is started. A user might run many add-ons, so it is encouraged to try to stick to Bash scripts if you’re doing simple things.</p>
+<p>When developing your script:</p>
+<ul>
+  <li><code class="highlighter-rouge">/data</code> is a volume for persistent storage.</li>
+  <li><code class="highlighter-rouge">/data/options.json</code> contains the user configuration. You can use <code class="highlighter-rouge">jq</code> inside your shell script to parse this data.</li>
+</ul>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'{ "target": "beer" }'</span> | jq -r <span class="s2">".target"</span>
 </code></pre>
 </div>
-<p>As a user might run many add-ons, it is encouraged to try to stick to Bash scripts if you’re doing simple things.</p>
-<h3><a class="title-link" name="add-on-config" href="#add-on-config"></a> Add-on config</h3>
+<h2><a class="title-link" name="add-on-docker-file" href="#add-on-docker-file"></a> Add-on Docker file</h2>
+<p>All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. The Dockerfile is also required to have a VERSION environment variable which we will substitute with the version of the add-on.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>FROM %%BASE_IMAGE%%
+
+ENV VERSION %%VERSION%%
+ENV LANG C.UTF-8
+
+# Install requirements for add-on
+RUN apk add --no-cache jq
+
+# Copy data for add-on
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]
+</code></pre>
+</div>
+<h2><a class="title-link" name="add-on-config" href="#add-on-config"></a> Add-on config</h2>
+<p>The config for an add-on is stored in <code class="highlighter-rouge">config.json</code>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2"</span><span class="p">,</span><span class="w">
@@ -100,7 +121,7 @@
 </span></code></pre>
 </div>
 <h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
-<p>The <code class="highlighter-rouge">options</code> dict have all available options with default value. If you want to set a value to requered and need to be set from user before it start the addon, set it to null. We support arrays for single deeps.</p>
+<p>The <code class="highlighter-rouge">options</code> dict contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start. Only non-nested arrays are supported.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom things"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -112,7 +133,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p>The <code class="highlighter-rouge">schmema</code> look like the <code class="highlighter-rouge">options</code> but describe how we should validate the user input. For example above:</p>
+<p>The <code class="highlighter-rouge">schema</code> looks like <code class="highlighter-rouge">options</code> but describes how we should validate the user input. For example:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -132,10 +153,6 @@
   <li>email</li>
   <li>url</li>
 </ul>
-<h3><a class="title-link" name="ssl" href="#ssl"></a> SSL</h3>
-<p>Default you can use <code class="highlighter-rouge">fullchain.pem</code> and <code class="highlighter-rouge">privkey.pem</code> from <code class="highlighter-rouge">/ssl</code> for you stuff. Your SSL addon should also create default this files.</p>
-<h3><a class="title-link" name="need-to-know" href="#need-to-know"></a> Need to know</h3>
-<p><code class="highlighter-rouge">/data</code> is a volume with a persistant store. <code class="highlighter-rouge">/data/options.json</code> have the user config inside. You can use <code class="highlighter-rouge">jq</code> inside shell script to parse this data.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -149,16 +166,18 @@
         <ul>
           <li><a  href='/hassio/installation/'>Installation </a></li>
           <li><a  href='/addons/'>Available add-ons </a></li>
+          <li><a  href='/hassio/architecture/'>Architecture </a></li>
         </ul>
       </li>
     </ul>
     <ul class='divided sidebar-menu'>
       <li>
-        <a  href='/hassio/development/'>Development </a>
+        <a  href='/hassio/addon_development/'>Add-on Development </a>
         <ul>
-          <li><a  href='/hassio/architecture/'>Architecture </a></li>
-          <li><a class='active' href='/hassio/create_hassio_addon/'>Creating add-ons </a></li>
-          <li><a  href='/hassio/create_hassio_addon_repository/'>Creating add-on repositories </a></li>
+          <li><a class='active' href='/hassio/addon_config/'>Configuration </a></li>
+          <li><a  href='/hassio/addon_testing/'>Local Testing </a></li>
+          <li><a  href='/hassio/addon_publishing/'>Publishing </a></li>
+          <li><a  href='/hassio/addon_repository/'>Repositories </a></li>
         </ul>
       </li>
     </ul>
