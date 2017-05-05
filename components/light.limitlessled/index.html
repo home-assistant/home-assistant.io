@@ -95,8 +95,8 @@
   <li><strong>bridges</strong> array (<em>Required</em>):
     <ul>
       <li><strong>host</strong> (<em>Required</em>): IP address of the device, eg. <code class="highlighter-rouge">192.168.1.32</code></li>
-      <li><strong>version</strong> (<em>Optional</em>): Bridge version (default is <code class="highlighter-rouge">6</code>). Don’t use if you aren’t sure.</li>
-      <li><strong>port</strong> (<em>Optional</em>): Bridge port. Defaults to 5987.</li>
+      <li><strong>version</strong> (<em>Optional</em>): Bridge version (default is <code class="highlighter-rouge">6</code>).</li>
+      <li><strong>port</strong> (<em>Optional</em>): Bridge port. Defaults to 5987. For older bridges than v6 choose <code class="highlighter-rouge">8899</code>.</li>
       <li><strong>groups</strong> array (<em>Required</em>): The list of available groups.
         <ul>
           <li><strong>number</strong> (<em>Required</em>): Group number (<code class="highlighter-rouge">1</code>-<code class="highlighter-rouge">4</code>). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.</li>
@@ -110,7 +110,7 @@
 <h3><a class="title-link" name="properties" href="#properties"></a> Properties</h3>
 <p>Refer to the <a href="/components/light/">light</a> documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.</p>
 <ul>
-  <li><strong>RGBWW</strong>
+  <li><strong>RGBWW</strong> (Only supported on v6 bridges)
     <ul>
       <li><em>Color</em>: There are 25,856 color possibilities along the LimitlessLED color spectrum. For colors, hue and saturation can be used, but not lightness. If you select a color with lightness, Home Assistant will calculate the nearest valid LimitlessLED color. In white mode the temperature can be set.</li>
       <li><em>Temperature</em>: There are 101 temperature steps.</li>
