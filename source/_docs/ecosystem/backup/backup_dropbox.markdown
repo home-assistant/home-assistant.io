@@ -22,6 +22,9 @@ Become the user you run homeassistant from.
 - The excellent [dropbox uploader script](https://github.com/andreafabrizi/Dropbox-Uploader/blob/master/dropbox_uploader.sh) you can grab the .sh file only.
 
 Download those files to a folder of your liking, after that edit both files and change paths accordingly.
+
+In the python script you can change which fies & dirs are excluded, so like secrets.yaml or the "deps" folder.
+
 ### {% linkable_title Step 1: Linking your dropbox account %}
 
 ```bash
@@ -49,5 +52,3 @@ Add it to your crontab, edit the **path/to** part.
 ```bash
 $ (crontab -l 2>/dev/null; echo "0 3 * * * python /path/to/dropbox.py") | crontab -
 ```
-
-_The python script is very crude, there is room for improvement with regards to not backing up certain files like cache or files that will be installed by HA again after reinstall. But it gets the job done._
