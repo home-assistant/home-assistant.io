@@ -57,6 +57,7 @@ Currently known supported models:
 Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
+- JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
  
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown).
