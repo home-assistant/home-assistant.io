@@ -306,6 +306,34 @@ text: !include alexa_confirm.yaml
 
 Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
 
+<p class='note'>
+As of April 2017, the random filter has been somewhat broken. You'll get a random response the first time this runs, but subsequent commands will reply with the same randomly-chosen phrase. On reboot,  Home Assistant will pick a new random choice, but you're stuck with that choice till you reboot. To get around that, use the following code in alexa_confirm.yaml:
+</p>
+
+```text
+{% raw %}          >
+          {% set responses = [
+          "OK",
+          "Sure",
+          "If you insist",
+          "Done",
+          "No worries",
+          "I can do that",
+          "Leave it to me",
+          "Consider it done",
+          "As you wish",
+          "By your command",
+          "Affirmative",
+          "Yes oh revered one",
+          "I will",
+          "As you decree, so shall it be",
+          "No Problem"
+          ] %}
+          {% set rindex =  (range(0, (responses | length - 1) )|random) -%}
+          {{responses[rindex]}}
+          {% endraw %}
+```
+
 
 ## {% linkable_title Flash Briefing Skills %}
 

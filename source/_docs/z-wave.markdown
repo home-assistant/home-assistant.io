@@ -34,14 +34,13 @@ Make sure you have at least version 0.23 and at the most 0.24.1 of cython.
 $ sudo pip3 install --upgrade cython==0.24.1
 ```
 
-Then get the OpenZWave files and switch to the `python3` branch:
+Then get the OpenZWave files:
 
 <p class='note warning'>Do not use root to build python-openzwave as it will surely fail.</p>
 
 ```bash
 $ git clone https://github.com/OpenZWave/python-openzwave.git
 $ cd python-openzwave
-$ git checkout python3
 $ PYTHON_EXEC=$(which python3) make build
 $ sudo PYTHON_EXEC=$(which python3) make install
 ```
@@ -62,6 +61,7 @@ With this installation, your `config_path` needed below will resemble:
 ```
 
 If you followed along with setting up a virtual environment, your path will be:
+
 ```bash
 /srv/homeassistant/python-openzwave/openzwave/config
 ```
@@ -85,8 +85,8 @@ Configuration variables:
   - **ignored** (*Optional*): Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
   - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
-  - **invert_openclose_buttons** (*Optional*): Inverts function of the open and close buttons for the cover domain. Defaults to False
-- **debug** (*Optional*): Print verbose z-wave info to log. Defaults to False.
+  - **invert_openclose_buttons** (*Optional*): Inverts function of the open and close buttons for the cover domain. Defaults to `False`.
+- **debug** (*Optional*): Print verbose z-wave info to log. Defaults to `False`.
 
 To find the path of your Z-Wave USB stick or module, run:
 
@@ -99,7 +99,7 @@ Or, on some other systems (such as Raspberry Pi), use:
 ```bash
 $ ls /dev/ttyACM*
 
-# If `hass` runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
+# If Home Assistant (`hass`) runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
 $ sudo usermod -a -G dialout homeassistant
 ```
 

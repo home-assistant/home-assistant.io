@@ -31,12 +31,3 @@ $ pip3 install --upgrade homeassistant
 $ exit
 $ sudo systemctl start home-assistant@homeassistant.service
 ```
-
-#### {% linkable_title Upgrading the hassbian-scripts %}
-
-To update the hassbian-scripts directory execute the following command as the `pi` user.
-
-```bash
-$ cd /home/pi/hassbian-scripts
-$ git pull
-```

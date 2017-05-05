@@ -24,8 +24,8 @@ and Home Assistant itself.
 $ pip3 install homeassistant
 ```
 
-Home Assistant is part of the [AUR](https://aur.archlinux.org/packages/home-assistant/). This means that it can be installed directly with `pacman`:
+Home Assistant is part of the [AUR](https://aur.archlinux.org/packages/home-assistant/). This means that it can be installed  with `pacaur`:
 
 ```bash
-$ sudo pacman -S home-assistant
+$ sudo pacaur -S home-assistant
 ```
