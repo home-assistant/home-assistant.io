@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-05T06:15:13+00:00</updated>
+  <updated>2017-05-05T06:34:29+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Podcast.__init__ interview with Paulus Schoutsen]]></title>
+    <link href="https://home-assistant.io/blog/2017/05/05/podcast-init-interview/"/>
+    <updated>2017-05-05T02:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/05/05/podcast-init-interview</id>
+    <content type="html"><![CDATA[<p class='img'>
+<a href='https://www.podcastinit.com/'><img src='https://home-assistant.io/images/blog/2017-05-podcast-init/podcast_init.png' /></a>
+</p>
+
+Earlier this year I was interviewed by Tobias Macey from [Podcast.\_\_init\_\_][pc-init] about Python and Home Assistant. Just realized that we never shared this on the blog, oops. Here it is, enjoy!
+
+<script class="podigee-podcast-player" src="//cdn.podigee.com/podcast-player/javascripts/podigee-podcast-player.js" data-configuration="https://www.podcastinit.com?podigee_player=205"></script>
+
+[pc-init]: https://www.podcastinit.com/]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hardware Contest 2017]]></title>
@@ -109,27 +125,6 @@ Check the Workshop [overview][overview] to get the details.
 [overview]: https://chemnitzer.linux-tage.de/2017/en/programm/beitrag/356
 [anmeldung]: https://chemnitzer.linux-tage.de/2017/en/programm/anmeldung/workshop/356
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Numbers]]></title>
-    <link href="https://home-assistant.io/blog/2017/01/18/numbers/"/>
-    <updated>2017-01-18T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/01/18/numbers</id>
-    <content type="html"><![CDATA[It's week 3 of 2017 and great things did already happen. This is just a little recap.
-
-- In the [OSS Metrics leaderboard](https://ossmetrics.com/leaderboard) we are on place 30. Within three months we moved from our starting place which was 66 in September 2016 up to the current one.
-- We were listed on [Github Trending](https://github.com/trending/python). Also, was [@balloob](https://github.com/balloob) mentioned as trending developer.
-- [@balloob](https://github.com/balloob)'s talk at the OpenIoT Summit 2016 was rated as one of the [Top 5 videos](http://technewsdir.com/top-5-videos-from-embedded-linux-conference-and-openiot-summit-2016) of the conference.
-- We now ship over [500](/components/#all) components and platforms.
-- We processed over 3500 Pull requests on the [main repository](https://github.com/home-assistant/home-assistant) so far. 
-
-You may ask yourself why this is amazing. It's amazing because we are a community-only project driven by volunteers there is no financial support, no company in the background, and no paid developers who are working on Home Assistant. Here is another "Thank you" because you are the driving force behind Home Assistant.
-
-What more numbers? Checkout the [Trivia page](/help/trivia/#numbers)...
-
--- Fabian
 ]]></content>
   </entry>
   
