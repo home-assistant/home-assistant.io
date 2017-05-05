@@ -24,11 +24,13 @@ Supported devices:
 - Denon AVR receivers with Integrated Network support (partial support)
 - Denon AVR-X4100W (via denonavr platform)
 - Denon AVR receivers (via denonavr platform (untested))
+- Marantz M-RC610 (via denonavr platform)
+- Marantz receivers (experimental via denonavr platform)
 
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
-**Telnet interface**
+**Telnet platform**
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -49,7 +51,7 @@ A few notes for platform: denon
 - Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.
 
 
-**denonavr interface**
+**denonavr platform**
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -63,6 +65,6 @@ Configuration variables:
 - **name** (*Optional*): Name of the device. If not set, friendlyName of receiver is used.
 
 A few notes for platform: denonavr
-- Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform
-- denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery
-- Still be careful with the volume. 100% in an action movie will tear down your walls.
+- Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform.
+- denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery.
+- Marantz receivers seem to a have quite simliar interface. Thus if you own one, give it a try.
