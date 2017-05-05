@@ -24,8 +24,8 @@ The easiest way to find your roller shutters is to add this to your `configurati
 
 ```yaml
 cover:
-  platform: rfxtrx
-  automatic_add: True
+  - platform: rfxtrx
+    automatic_add: True
 ```
 
 Launch your homeassistant and go the website (e.g http://localhost:8123). Push your remote and your device should be added.
@@ -34,10 +34,10 @@ Once added it will show an ID (e.g `0b11000102ef9f210010f70`) and you can verify
 
 ```yaml
 cover:
-  platform: rfxtrx
-  devices:
-    0b11000102ef9f210010f70:
-      name: device_name
+  - platform: rfxtrx
+    devices:
+      0b11000102ef9f210010f70:
+        name: device_name
 ```
 
 ##### {% linkable_title RFY %}
@@ -51,14 +51,14 @@ Example configuration:
 ```yaml
 # Example configuration.yaml entry
 cover:
-  platform: rfxtrx
-  automatic_add: False
-  signal_repetitions: 2
-  devices:
-    0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
-      name: Bedroom Shutter
-    070a00000a000101: # RFY
-      name: Bathroom Shutter
+  - platform: rfxtrx
+    automatic_add: False
+    signal_repetitions: 2
+    devices:
+      0b1100ce3213c7f210010f70: # Siemens/LightwaveRF
+        name: Bedroom Shutter
+      070a00000a000101: # RFY
+        name: Bathroom Shutter
 ```
 
 Configuration variables:

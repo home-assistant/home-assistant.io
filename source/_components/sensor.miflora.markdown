@@ -13,7 +13,7 @@ ha_release: 0.29
 ha_iot_class: "Local Polling"
 ---
 
-The [Mi Flora plant sensor](https://www.open-homeautomation.com/2016/08/23/reverse-engineering-the-mi-plant-sensor/) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
+The `miflora` sensor platform allows one to monitor to plants. The [Mi Flora plant sensor](https://www.aliexpress.com/item/Newest-Original-Xiaomi-Flora-Monitor-Digital-Plants-Flowers-Soil-Water-Light-Tester-Sensor-Monitor-for-Aquarium/32685750372.html) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
 
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -38,7 +38,7 @@ sensor:
 - **median** (*Optional*): Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine. 
 - **timeout** (*Optional*): Define the timeout value in seconds when polling (defaults to 10 if not defined)
 - **retries** (*Optional*): Define the number of retries when polling (defaults to 2 if not defined)
-- **cache** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
+- **cache_value** (*Optional*): Define cache expiration value in seconds (defaults to 1200 if not defined)
 - **adapter** (*Optional*): Define the bluetooth adapter to use (defaults to hci0). Run `hciconfig` to get a list of available adapters.
 
 Note that by default the sensor is only polled once every 15 minutes. This means with the `median: 3` setting will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn't a big problem. 
@@ -61,7 +61,4 @@ sensor:
       - conductivity
       - battery
 ```
-
-
-
 

@@ -89,8 +89,7 @@ http {
         server_name example.com;
 
         # These shouldn't need to be changed
-        listen 80 default_server;
-        listen [::]:80 default_server ipv6only=on;
+        listen [::]:80 default_server ipv6only=off;
         return 301 https://$host$request_uri;
     }
 
@@ -110,7 +109,7 @@ http {
 
 
         # These shouldn't need to be changed
-        listen 443 default_server;
+        listen [::]:443 default_server ipv6only=off; # if your nginx version is >= 1.9.5 you can also add the "http2" flag here
         add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
         ssl on;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;

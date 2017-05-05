@@ -16,7 +16,7 @@ Use Telegram on your mobile device to send messages or commands to your Home Ass
 
 A command looks like `/thecommand`
 
-When received by hass it will fire a `telegram.command` event on the event bus with the following `event_data`:
+When received by hass it will fire a `telegram_command` event on the event bus with the following `event_data`:
 
 ```yaml
 command: "/thecommand"
@@ -36,7 +36,7 @@ alias: 'telegram bot that reply pong to ping'
 hide_entity: true
 trigger:
   platform: event
-  event_type: telegram.command
+  event_type: telegram_command
   event_data:
     command: '/ping'
 action:
@@ -50,7 +50,7 @@ Example that show keyboard interaction with `notify.telegram`
 ```yaml
 trigger:
   platform: event
-  event_type: telegram.command
+  event_type: telegram_command
   event_data:
     command: '/start'
 action:
@@ -68,7 +68,7 @@ and an automation to trigger a related command "/siren".
 ```yaml
 trigger:
   platform: event
-  event_type: telegram.command
+  event_type: telegram_command
   event_data:
     command: '/siren'
 action:

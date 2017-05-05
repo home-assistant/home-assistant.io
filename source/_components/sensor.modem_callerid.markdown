@@ -11,7 +11,7 @@ ha_category: Sensor
 ha_release: "0.40"
 ---
 
-The `modem_callerid` sensor platform uses an available modem for collecting caller ID information.  It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
+The `modem_callerid` sensor platform uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
 
 To enable the sensor, add the following lines to your `configuration.yaml`:
 
@@ -19,7 +19,6 @@ To enable the sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: modem_callerid
-
 ```
 
 Configuration variables:
@@ -31,7 +30,7 @@ To find the path of your USB modem, run:
 
 `$ ls /dev/ttyACM*`
 
-If `hass` runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:
+If Home Assistant (`hass`) runs with another user (e.g. `homeassistant` on Hassbian) give access to the stick with:
 
 `$ sudo usermod -a -G dialout homeassistant`
 
@@ -46,7 +45,7 @@ Some example automations:
     trigger: 
       platform: state
       entity_id: sensor.modem_callerid
-      state: "callerid"      
+      state: "callerid"
     action:
       service: notify.notify
       data:

@@ -20,12 +20,12 @@ To enable a command line cover in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 cover:
-- platform: command_line
-  covers:
-    garage_door:
-      command_open: move_command up garage
-      command_close: move_command down garage
-      command_stop: move_command stop garage
+  - platform: command_line
+    covers:
+      garage_door:
+        command_open: move_command up garage
+        command_close: move_command down garage
+        command_stop: move_command stop garage
 ```
 
 Configuration variables:
@@ -48,18 +48,18 @@ In this section you find some real life examples of how to use this sensor.
 ```yaml
 # Example configuration.yaml entry
 cover:
-- platform: command_line
-  covers:
-    garage_door:
-      command_open: move_command up garage
-      command_close: move_command down garage
-      command_stop: move_command stop garage
-      command_state: state_command garage
-      value_template: {% raw %}>
-        {% if value == 'open' %}
-        100
-        {% elif value == 'closed' %}
-        0
-        {% endif %}
-        {% endraw %}
+  - platform: command_line
+    covers:
+      garage_door:
+        command_open: move_command up garage
+        command_close: move_command down garage
+        command_stop: move_command stop garage
+        command_state: state_command garage
+        value_template: {% raw %}>
+          {% if value == 'open' %}
+          100
+          {% elif value == 'closed' %}
+          0
+          {% endif %}
+          {% endraw %}
 ```

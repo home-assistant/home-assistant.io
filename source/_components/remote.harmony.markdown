@@ -36,9 +36,9 @@ remote:
 
 Configuration variables:
 
-- **name** (*Required*): The hub's name to display in the front end.
+- **name** (*Required*): The hub's name to display in the frontend.
 - **host** (*Required*): The Harmony device's IP address.
-- **port** (*Optional*): The Harmony device's port. 5222 is default.
+- **port** (*Optional*): The Harmony device's port. Defaults to 5222.
 - **activity** (*Optional*): Activity to use when turnon service is called without any data.
 - **scan_interval** (*Optional*): Amount in seconds in between polling for device's current activity. Defaults to 30 seconds.
 
@@ -52,10 +52,10 @@ Upon startup one file will be written to your Home Assistant configuration direc
 
 Supported services:
 
-- **Turn Off**: Turn off all devices that were switched on from the start of the current activity
-- **Turn On**: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your HASS config directory.  The service will respond faster if the activity ID is passed instead of the name
-- **Send Command**: Send a command to one device, device ID and available commands are written to the configuration file at startup
-- **Sync**: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app
+- **Turn Off**: Turn off all devices that were switched on from the start of the current activity.
+- **Turn On**: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/). The service will respond faster if the activity ID is passed instead of the name.
+- **Send Command**: Send a command to one device, device ID and available commands are written to the configuration file at startup.
+- **Sync**: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app.
 
 
 ### {% linkable_title Examples %}
@@ -91,7 +91,7 @@ sensor:
 ```
 
 
-The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity.  The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is PowerOff.
+The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is PowerOff.
 
 ```yaml
 automation:
@@ -117,7 +117,8 @@ automation:
       entity_id: input_boolean.notify
 ````
 
-The automation example below shows how to send a command via the harmony remote using the `send_command` service to send the 'Pause' command to the hub, which is already defined as an IR code for each device to be used via the Harmony app. It is checking for the activity name as exposed through the sensor in the harmony remote component using Jinga if statements to set the device_id, sending the correct Pause command for the given activity. This requires checking your activity list and device_id from the `harmony_REMOTENAME.conf` file created when you start the component. In this example, the harmony hub is named bedroom.
+The automation example below shows how to send a command via the harmony remote using the `send_command` service to send the 'Pause' command to the hub, which is already defined as an IR code for each device to be used via the Harmony app. It is checking for the activity name as exposed through the sensor in the harmony remote component using Jinja if statements to set the device_id, sending the correct Pause command for the given activity. This requires checking your activity list and device_id from the `harmony_REMOTENAME.conf` file created when you start the component. In this example, the harmony hub is named bedroom.
+
 ```yaml
 automation:
   - alias: Harmony Pause contextual for activity

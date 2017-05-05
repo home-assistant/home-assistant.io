@@ -57,3 +57,28 @@ automation
         data:
           subtitle: "Subtitle goes here"
 ```
+
+### {% linkable_title Sending notifications to multiple phones %}
+To send notifications to multiple phones, create a [notification group](https://home-assistant.io/components/notify.group/):
+```yaml
+notify:
+  - name: NOTIFIER_NAME
+    platform: group
+    services:
+      - service: ios_iphone_one
+      - service: ios_iphone_two
+```
+Now, you can send notifications to everyone in the group using:
+```yaml
+  automation:
+    - alias: Notify iOS app
+      trigger:
+        ...
+      action:
+        service: notify.NOTIFIER_NAME
+        data:
+          message: "Something happened at home!"
+          data:
+            push:
+              badge: 5
+```
