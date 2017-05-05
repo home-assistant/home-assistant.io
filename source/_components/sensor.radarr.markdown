@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: sonarr.png
+logo: radarr.png
 ha_category: Sensor
 ha_release: 0.34
 ---
@@ -91,7 +91,7 @@ sensor:
 
 ### {% linkable_title Get disk space for listed storage locations %}
 
-The storage locations Sonarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
+The storage locations Radarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
 ```yaml
 # Example configuration.yml entry
