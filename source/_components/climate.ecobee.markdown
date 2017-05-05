@@ -61,7 +61,7 @@ The following attributes are provided by the Ecobee Thermostat:
 `target_temperature_low`, `target_temperature_high`, `desired_fan_mode`, 
 `fan`, `current_hold_mode`, `current_operation`, `operation_list`,
 `operation_mode`, `mode`, `fan_min_on_time`, `device_state_attributes`, 
-`is_away_mode_on`, `vacation`, `climate_list`.
+`is_away_mode_on`, `vacation`, `climate_list`, `aux_heat`.
 The attributes `min_temp` and `max_temp` are meaningless constant values.
 
 
@@ -202,6 +202,13 @@ Returns the currently active vacation or `None`.
 
 Returns the list of climates defined in the thermostat.
 
+### {% linkable_title Attribute `aux_heat` %}
+
+Returns the current auxiliary heat state.
+
+| Attribute type | Description |
+| ---------------| ----------- |
+| String | 'on', 'off'
 
 ## {% linkable_title Services %}
 

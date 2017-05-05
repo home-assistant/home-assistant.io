@@ -100,18 +100,22 @@ automation:
 ```
 
 ## {% linkable_title Permissions %}
-There might be permissions problems with the event input device file. If this is the case, the user that hass runs as must be allowed read and write permissions with:
+There might be permissions problems with the event input device file. If this is the case, the user that Home Assistant runs as must be allowed read and write permissions with:
+
+```bash
+$ sudo setfacl -m u:HASS_USER:rw /dev/input/event*
 ```
-sudo setfacl -m u:HASS_USER:rw /dev/input/event*
-```
-where `HASS_USER` is the user hass runs as.
+
+where `HASS_USER` is the user who runs Home Assistant.
 
 If you want to make this permanent, you can use a udev rule that sets it for all event input devices. Add a file `/etc/udev/rules.d/99-userdev-input.rules` containing:
-```
+
+```bash
 KERNEL=="event*", SUBSYSTEM=="input", RUN+="/usr/bin/setfacl -m u:HASS_USER:rw $env{DEVNAME}"
 ```
 
 You can check ACLs permissions with
-```
-getfacl /dev/input/event*
+
+```bash
+$ getfacl /dev/input/event*
 ```

@@ -52,4 +52,5 @@ media_player:
         - livetv
         - youtube
         - makotv
+        - netflix
 ```

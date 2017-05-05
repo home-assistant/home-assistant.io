@@ -9,11 +9,11 @@ sharing: true
 footer: true
 ---
 
-Home Assistant enforces strict [PEP8 style](https://www.python.org/dev/peps/pep-0008/) compliance on all code submitted. We automatically test every pull request with [Coveralls](https://coveralls.io/github/home-assistant/home-assistant) and [Travis CI](https://travis-ci.org/home-assistant/home-assistant).
+As states in the [Style guidelines section](/developers/development_guidelines/) all code is checked as part of the linting process and unit test were run.
 
 ### {% linkable_title Local testing %}
 
-**Important:** Run tox before you create your pull request to avoid annoying fixes. Local testing requires installing tox.
+**Important:** Run `tox` before you create your pull request to avoid annoying fixes. Local testing requires installing `tox`.
 
 ```bash
 $ pip3 install tox
@@ -63,6 +63,3 @@ The `flake8-docstrings` extension will check docstrings according to [PEP257](ht
 
 If you can't avoid a PyLint warning, add a comment to disable the PyLint check for that line with `# pylint: disable=YOUR-ERROR-NAME`. An example of an unavoidable PyLint warning is not using the passed-in datetime if you're listening for a time change.
 
-### {% linkable_title Maximum Line Length %}
-
-As part of the linting process, all code is checked for a maximum line length of 79 characters. This comes directly from the [PEP8 style guide](https://www.python.org/dev/peps/pep-0008/#maximum-line-length), and is also used by the Python standard library. All code must pass these linting checks, and no exceptions will be made. There have already been numerous requests to increase the maximum line length, but after evaluating the options, the Home Assistant maintainers have decided to stay at 79 characters. This decision is final.

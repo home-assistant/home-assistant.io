@@ -1,0 +1,21 @@
+---
+layout: page
+title: "Hass.io Add-ons"
+description: "List of the built-in add-ons of Hass.io."
+date: 2017-04-30 13:35
+sidebar: true
+comments: false
+sharing: true
+footer: true
+regenerate: true
+---
+
+<p>Add-ons are extensions for your Home Assistant installation.</p>
+
+{% assign addons = site.addons | sort: 'title' %}
+
+<ul>
+{% for addon in addons %}
+  <li><a href='{{ addon.url }}'>{{ addon.title }}</a></li>
+{% endfor %}
+</ul>

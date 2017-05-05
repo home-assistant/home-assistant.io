@@ -52,10 +52,12 @@ Currently known supported models:
 - U6000 (port must be set to 8001)
 - K6500AF (port must be set to 8001)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- K5600AK (partially supported, turn on works but state is not updated)
 
 Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
+- JU7500 - Unable to see state and unable to control
  
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown).
 The first letter (U, P, L, H & K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
@@ -63,4 +65,4 @@ If you add your model remember to remove these before adding them to the list.
 
 Currently the ability to select a source is not implemented.
 
-There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TV's receiving a *Key press UP* that can interrupt certain applications. 
+There's currently a [known issue](https://github.com/home-assistant/home-assistant/issues/2098) with some TVs receiving a *Key press UP* that can interrupt certain applications. 
