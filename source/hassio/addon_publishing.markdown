@@ -48,7 +48,4 @@ For a local repository:
 ./create_hassio_addon.sh -a amd64 -s addon-slug -l /home/xy/my_local_repo -p
 ```
 
-## {% linkable_title Core Add-ons %}
-
-
 [builder]: https://github.com/home-assistant/hassio-build/tree/master/build-scripts/addons
