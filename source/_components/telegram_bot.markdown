@@ -74,7 +74,7 @@ trigger:
 action:
   - service: homeassistant.turn_on
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
-  - delay: 
+  - delay:
       seconds: 10
   - service: homeassistant.turn_off
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
