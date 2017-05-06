@@ -24,7 +24,7 @@ There is one dependency you will need to have installed ahead of time:
 $ sudo apt-get install libudev-dev
 ```
 
-_Note: The Home Assistant docker image and the All In One installer have support for Z-Wave already built-in!_
+_Note: The Home Assistant docker image, HASSbian, and the All In One installer all have support for Z-Wave already built-in!_
 
 ### {% linkable_title Configuration %}
 
