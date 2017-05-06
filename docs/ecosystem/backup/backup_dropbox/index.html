@@ -69,33 +69,33 @@
   <hr class="divider">
   <p>Backing up and regularly syncing your Home Assistant configuration to <a href="http://dropbox.com">Dropbox</a> similar to <a href="https://home-assistant.io/docs/ecosystem/backup/backup_github/">Github Backup</a></p>
 <h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
-<p>You need 2 parts in order to get it working correctly.</p>
-<p>Become the user you run homeassistant from.</p>
+<p>You need two parts in order to get it working correctly.</p>
+<p>Become the user that run Home Assistant.</p>
 <ul>
-  <li>A seperate python script that syncs a specific folder. Which can be found <a href="https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f">here</a></li>
+  <li>A seperate Python script that syncs a specific folder. Which can be found <a href="https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f">here</a></li>
   <li>The excellent <a href="https://github.com/andreafabrizi/Dropbox-Uploader/blob/master/dropbox_uploader.sh">dropbox uploader script</a> you can grab the .sh file only.</li>
 </ul>
 <p>Download those files to a folder of your liking, after that edit both files and change paths accordingly.</p>
-<h3><a class="title-link" name="step-1-linking-your-dropbox-account" href="#step-1-linking-your-dropbox-account"></a> Step 1: Linking your dropbox account</h3>
+<p>In the Python script you can specify which files and directories should be excluded. This allows you to skip <code class="highlighter-rouge">secrets.yaml</code> or the <code class="highlighter-rouge">deps</code> folder.</p>
+<h3><a class="title-link" name="step-1-linking-your-dropbox-account" href="#step-1-linking-your-dropbox-account"></a> Step 1: Linking your Dropbox account</h3>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod +x dropbox_uploader.sh
 <span class="gp">$ </span>./dropbox_uploader.sh
 </code></pre>
 </div>
 <p>Follow the instructions you see on your screen.</p>
-<h3><a class="title-link" name="step-2-running-the-dropbox-uploader" href="#step-2-running-the-dropbox-uploader"></a> Step 2: Running the dropbox uploader</h3>
-<p>Go to the folder you have placed dropbox.py.</p>
+<h3><a class="title-link" name="step-2-running-the-dropbox-uploader" href="#step-2-running-the-dropbox-uploader"></a> Step 2: Running the Dropbox uploader</h3>
+<p>Go to the folder you have placed <code class="highlighter-rouge">dropbox.py</code>.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python dropbox.py
 </code></pre>
 </div>
 <p>The first time can take a lot of time since it will upload all your files!
-Do note, this will <strong>backup your passwords to dropbox too</strong></p>
+Do note, this will <strong>backup your passwords to Dropbox</strong>.</p>
 <h3><a class="title-link" name="automate-the-backup" href="#automate-the-backup"></a> Automate the backup</h3>
 <p>So you just made a full backup, next time you want it to be done automaticly. Since your database can change and so do other files over time.
 Add it to your crontab, edit the <strong>path/to</strong> part.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="o">(</span>crontab -l 2&gt;/dev/null; <span class="nb">echo</span> <span class="s2">"0 3 * * * python /path/to/dropbox.py"</span><span class="o">)</span> | crontab -
 </code></pre>
 </div>
-<p><em>The python script is very crude, there is room for improvement with regards to not backing up certain files like cache or files that will be installed by HA again after reinstall. But it gets the job done.</em></p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
