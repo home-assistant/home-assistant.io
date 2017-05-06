@@ -13,9 +13,9 @@ og_image: /images/blog/2017-05-0.44/components.png
 
 <a href='/components/#added_in_current_version'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
 
-This release brings some great new integrations. The biggest one is the native ZigBee integration by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
+This release brings some great new integrations. The biggest one is the [native ZigBee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
 
-Another great new addition is OpenCV by [Teagan Glenn][@teagan42]. So now you'll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new DLib integration added by [Pascal Vizeli][@pvizeli] in this release.
+Another great new addition is [OpenCV][opencv docs] by [Teagan Glenn][@teagan42]. So now you'll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new [DLib integration][image_processing.dlib_face_identify docs] added by [Pascal Vizeli][@pvizeli] in this release.
 
 This release also includes a [new component][rss_feed_template docs] to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!
 
