@@ -47,6 +47,8 @@ Configuration variables:
 - **icon** (*Optional*): Optional icon to show instead of name.
 - **passive** (*Optional*): Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name. Defaults to false.
 
+To find your latitude / longtitude of a certain place you can use for example [Google Maps](https://www.google.nl/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
+
 #### {% linkable_title Home zone %}
 
 If no configuration is given, the `zone` component will create a zone for home. This zone will use location given in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
