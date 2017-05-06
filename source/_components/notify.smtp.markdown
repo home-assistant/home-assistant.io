@@ -35,7 +35,7 @@ Configuration variables:
 - **sender** (*Optional*): E-mail address of the sender.
 - **username** (*Optional*): Username for the SMTP account.
 - **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
-- **recipient** (*Required*): Recipient of the notification.
+- **recipient** (*Required*): E-mail address of the recipient of the notification. This can be a recpient address or a list of addresses for multiple recipients.
 - **starttls** (*Optional*): Enables STARTTLS, eg. True or False. Defaults to False.
 - **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
 
@@ -53,7 +53,9 @@ notify:
     starttls: true
     username: john@gmail.com
     password: thePassword
-    recipient: james@gmail.com
+    recipient:
+      - james@gmail.com
+      - bob@gmail.com
 ```
 
 Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps').

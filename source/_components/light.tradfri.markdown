@@ -14,4 +14,3 @@ ha_release: 0.43
 ---
 
 For installation instructions, see [the Trådfri component](/components/tradfri/).
-

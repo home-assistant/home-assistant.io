@@ -38,7 +38,6 @@ macOS:
 $ sudo brew install libtool
 $ sudo brew install autoconf
 $ sudo brew install automake
-
 $ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
 $ cd libcoap
 $ ./autogen.sh
@@ -51,7 +50,7 @@ You will be prompted to configure the gateway through the Home Assistant interfa
 <p class='note'>
 If you see an "Unable to connect" message, restart the gateway and try again.
 </p>
- 
+
 The gateway can also be manually configured by adding the following lines to your `configuration.yaml` file:
 
 ```yaml

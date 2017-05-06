@@ -36,8 +36,12 @@ Configuration variables:
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
-- **blacklist** (*Optional*): List of entities that should not be logged to InfluxDB.
-- **whitelist** (*Optional*): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the **blacklist** option will prevail.
+- **exclude** (*Optional*): Configure which components should be excluded from recording to InfluxDB.
+  - **entities** (*Optional*): The list of entity ids to be excluded from recording to InfluxDB.
+  - **domains** (*Optional*): The list of domains to be excluded from recording to InfluxDB.
+- **include** (*Optional*): Configure which components should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the **blacklist** option will prevail.
+  - **entities** (*Optional*): The list of entity ids to be included from recordings to InfluxDB.
+  - **domains** (*Optional*): The list of domains to be included from recordings to InfluxDB.
 - **tags** (*Optional*): Tags to mark the data.
 
 ## {% linkable_title Data migration %}
@@ -98,6 +102,62 @@ optional arguments:
 - The step option defaults to `1000`.
 
 
+## {% linkable_title Data import script %}
+
+If you want to import all the recorded data from your recorder database you can use the data import script.
+It will read all your state_change events from the database and add them as data-points to the InfluxDB.
+You can specify the source database either by pointing the `--config` option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with `--uri`.
+The writing to InfluxDB is done in batches that can be changed with `--step`.
+
+You can control, which data is imported by using the commandline options `--exclude-entities` and `--exclude-domain`.
+Both get a comma separated list of either entity-ids or domain names that are excluded from the import.
+
+To test what gets imported you can use the `--simulate` option, which disables the actual write to the InfluxDB instance.
+This only writes the statistics how much points would be imported from which entity.
+
+Example to run the script:
+
+```bash
+$ hass --script influxdb_import --config CONFIG_DIR \
+    -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
+    --dbname INFLUXDB_DB_NAME --exclude-domain automation,configurator
+```
+Script arguments:
+
+```
+required arguments:
+  -d dbname, --dbname dbname
+                        InfluxDB database name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c path_to_config_dir, --config path_to_config_dir
+                        Directory that contains the Home Assistant
+                        configuration
+  --uri URI             Connect to URI and import (if other than default
+                        sqlite) eg: mysql://localhost/homeassistant
+
+  -H host, --host host  InfluxDB host address
+  -P port, --port port  InfluxDB host port
+  -u username, --username username
+                        InfluxDB username
+  -p password, --password password
+                        InfluxDB password
+  -s step, --step step  How many points to import at the same time
+  -t tags, --tags tags  Comma separated list of tags (key:value) for all
+                        points
+  -D default_measurement, --default-measurement default_measurement
+                        Store all your points in the same measurement
+  -o override_measurement, --override-measurement override_measurement
+                        Store all your points in the same measurement
+  -e exclude_entities, --exclude_entities exclude_entities
+                        Comma separated list of excluded entities
+  -E exclude_domains, --exclude_domains exclude_domains
+                        Comma separated list of excluded domains
+  -S, --simulate        Do not write points but simulate preprocessing
+                        and print statistics
+```
+
 ## {% linkable_title Examples %}
 
 
@@ -113,12 +173,16 @@ influxdb:
   ssl: true
   verify_ssl: true
   default_measurement: state
-  blacklist:
-     - entity.id1
-     - entity.id2
-  whitelist:
-     - entity.id3
-     - entity.id4
+  exclude:
+    entities:
+       - entity.id1
+       - entity.id2
+    domains:
+       - automation
+  include:
+    entities:
+       - entity.id3
+       - entity.id4
   tags:
     instance: prod
     source: hass
