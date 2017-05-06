@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-06T20:41:56+00:00</updated>
+  <updated>2017-05-06T21:02:24+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -20,9 +20,9 @@
     <id>https://home-assistant.io/blog/2017/05/06/zigbee-opencv-dlib</id>
     <content type="html"><![CDATA[<p><a href="https://home-assistant.io/components/#added_in_current_version/"><img src="https://home-assistant.io/images/blog/2017-05-0.44/components.png" style="border: 0;box-shadow: none;" /></a></p>
 
-<p>This release brings some great new integrations. The biggest one is the native ZigBee integration by <a href="https://github.com/rcloran">Russell Cloran</a>. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)</p>
+<p>This release brings some great new integrations. The biggest one is the <a href="https://home-assistant.io/components/zha/">native ZigBee integration</a> by <a href="https://github.com/rcloran">Russell Cloran</a>. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)</p>
 
-<p>Another great new addition is OpenCV by <a href="https://github.com/Teagan42">Teagan Glenn</a>. So now you’ll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new DLib integration added by <a href="https://github.com/pvizeli">Pascal Vizeli</a> in this release.</p>
+<p>Another great new addition is <a href="https://home-assistant.io/components/opencv/">OpenCV</a> by <a href="https://github.com/Teagan42">Teagan Glenn</a>. So now you’ll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new <a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">DLib integration</a> added by <a href="https://github.com/pvizeli">Pascal Vizeli</a> in this release.</p>
 
 <p>This release also includes a <a href="https://home-assistant.io/components/rss_feed_template/">new component</a> to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!</p>
 
@@ -326,14 +326,14 @@ $ sudo systemctl start install_homeassistant.service
 <p>To allow you to customize your installation further, we have included a tool called <code class="highlighter-rouge">hassbian-config</code>. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation. This replaces the <code class="highlighter-rouge">hassbian-scripts</code> functionality from 1.1.</p>
 
 <ul>
-  <li>Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it’s usage is not recommended if you share your network with others.</li>
-  <li>Install Libcec. Adds local <a href="https://home-assistant.io/components/hdmi_cec/">HDMI CEC support</a>.</li>
+  <li>Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.</li>
   <li>Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.</li>
+  <li>Install Libcec. Adds local <a href="https://home-assistant.io/components/hdmi_cec/">HDMI CEC support</a>.</li>
   <li>Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.</li>
   <li>Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.</li>
-  <li>Install Tradfri. Installs dependencies for using IKEA Trådfri.</li>
-  <li>Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.</li>
+  <li>Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it’s usage is not recommended if you share your network with others.</li>
   <li>Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.</li>
+  <li>Install Tradfri. Installs dependencies for using IKEA Trådfri.</li>
 </ul>
 
 <h3><a class="title-link" name="spring-cleaning" href="#spring-cleaning"></a> Spring cleaning</h3>
