@@ -67,7 +67,8 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">automatic</code> platform offers presence detection by retrieving your car’s information from the <a href="http://automatic.com/">Automatic</a> cloud service.</p>
-<p>To use an Automatic ODB reader in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To use Automatic with Home Assistant, first you must <a href="https://developer.automatic.com/">create a free development account</a>. Automatic will generate a Client ID and Secret for you to use in your Home Assistant configuration. You will also need to update your Event Delivery preferences to ensure Home Assistant can receive updates. On the developer page, under App Settings / Event Delivery, select “Websocket” for Event Delivery Preference.</p>
+<p>Once your developer account is created, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">automatic</span>
@@ -88,6 +89,18 @@
   <li><strong>password</strong> (<em>Required</em>): The password for your given ODB reader account.</li>
   <li><strong>devices</strong> (<em>Optional</em>): The list of vehicle display names you wish to track. If not provided, all vehicles will be tracked.</li>
 </ul>
+<p>Home Assistant will also fire events when an update is received from Automatic. These can be used to trigger automations, as shown in the example below. A list of available event types can be found in the <a href="https://developer.automatic.com/api-reference/#real-time-events">Automatic Real-Time Events documentation</a>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example automatic event automation</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">trigger</span><span class="pi">:</span> 
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">automatic_update</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ignition:on"</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
+</code></pre>
+</div>
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the cars to be tracked.</p>
 </article>
         </div>
@@ -98,6 +111,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/automatic.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Push
+    </div>
     <div class='section'>
     Introduced in release: 0.28
     </div>
@@ -158,6 +174,9 @@
         </li>
         <li>
             <a href='/components/sensor.mqtt_room/'>MQTT Room Presence</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.mikrotik/'>Mikrotik</a>
         </li>
         <li>
             <a href='/components/device_tracker.mysensors/'>MySensors Device Tracker</a>

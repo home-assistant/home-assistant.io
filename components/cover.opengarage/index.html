@@ -1,0 +1,261 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>OpenGarage Cover - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate OpenGarage.io covers within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/cover.opengarage/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="OpenGarage Cover">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/cover.opengarage/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate OpenGarage.io covers within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="OpenGarage Cover">
+    <meta name="twitter:description" content="Instructions how to integrate OpenGarage.io covers within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+</ul>
+  </nav>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      OpenGarage Cover
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">opengarage</code> cover platform lets you control the open-source <a href="https://opengarage.io/">OpenGarage.io</a> device through Home Assistant.</p>
+<p>To enable OpenGarage Covers in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">opengarage</span>
+  <span class="s">covers</span><span class="pi">:</span>
+      <span class="s">garage</span><span class="pi">:</span>
+        <span class="s">host</span><span class="pi">:</span>  <span class="s">192.168.1.12</span>
+        <span class="s">device_key</span><span class="pi">:</span> <span class="s">opendoor</span>
+        <span class="s">name</span><span class="pi">:</span>  <span class="s">Left Garage Door</span>
+      <span class="s">garage2</span><span class="pi">:</span>
+        <span class="s">host</span><span class="pi">:</span>  <span class="s">192.168.1.13</span>
+        <span class="s">device_key</span><span class="pi">:</span> <span class="s">opendoor</span>
+        <span class="s">name</span><span class="pi">:</span>  <span class="s">Right Garage Door</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>covers</strong> array (<em>Required</em>): List of your doors.
+    <ul>
+      <li><strong>identifier</strong>  (<em>Required</em>): Name of the cover as slug. Multiple entries are possible.
+        <ul>
+          <li><strong>host</strong> (<em>Required</em>): IP address of device.</li>
+          <li><strong>port</strong> (<em>Optional</em>): HTTP Port. Default is <code class="highlighter-rouge">80</code>.</li>
+          <li><strong>device_key</strong> (<em>Required</em>): Access key to control device. Default is <code class="highlighter-rouge">opendoor</code>.</li>
+          <li><strong>name</strong> (<em>Optional</em>): Name to use in the Frontend. If not provided, it will use name configured in device.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p><strong>Example with more detail:</strong></p>
+<p class="img">
+  <img src="/images/components/opengarage/cover_opengarage_details.jpg" />
+</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Related configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">opengarage</span>
+  <span class="s">covers</span><span class="pi">:</span>
+      <span class="s">garage</span><span class="pi">:</span>        
+        <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.12</span>
+        <span class="s">device_key</span><span class="pi">:</span> <span class="s">opendoor</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">honda</span>
+
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+  <span class="s">sensors</span><span class="pi">:</span>
+    <span class="s">garage_status</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Honda</span><span class="nv"> </span><span class="s">Door</span><span class="nv"> </span><span class="s">Status'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.cover.honda</span><span class="nv"> </span><span class="s">%}</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.cover.honda.attributes["door_state"]</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"open"</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">Open</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">elif</span><span class="nv"> </span><span class="s">states.cover.honda.attributes["door_state"]</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"closed"</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">Closed</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">elif</span><span class="nv"> </span><span class="s">states.cover.honda.attributes["door_state"]</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"opening"</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">Opening</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">elif</span><span class="nv"> </span><span class="s">states.cover.honda.attributes["door_state"]</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"closing"</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">Closing</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">Unknown</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}</span>
+          <span class="s">n/a</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
+    <span class="s">garage_car_present</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Honda</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Garage'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.cover.honda</span><span class="nv"> </span><span class="s">%}</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.cover.honda.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"open"</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">n/a</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">elif</span><span class="nv"> </span><span class="s">((states.cover.honda.attributes["distance_sensor"]</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">40)</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">(states.cover.honda.attributes["distance_sensor"]</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">100))</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">Yes</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}</span>
+            <span class="s">No</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}</span>
+          <span class="s">n/a</span>
+          <span class="s">{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
+
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">garage</span><span class="pi">:</span>     
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Garage</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">cover.honda</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_status</span>
+      <span class="pi">-</span> <span class="s">sensor.garage_car_present</span>     
+
+<span class="s">customize</span><span class="pi">:</span>
+  <span class="s">cover.honda</span><span class="pi">:</span>
+    <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Honda</span>
+    <span class="s">entity_picture</span><span class="pi">:</span> <span class="s">/local/honda.gif</span>
+  <span class="s">sensor.garage_car_present</span><span class="pi">:</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:car</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/cover.opengarage.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/opengarage.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.44
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/cover/'>the Covers component</a>.
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Cover</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/cover.command_line/'>Command Line Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.garadget/'>Garadget Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.homematic/'>Homematic Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.isy994/'>ISY994 Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.mqtt/'>MQTT Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.myq/'>MyQ Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.mysensors/'>MySensors Cover</a>
+        </li>
+        <li>
+            OpenGarage Cover
+        </li>
+        <li>
+            <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>
+        </li>
+        <li>
+            <a href='/components/cover.rfxtrx/'>RFXtrx Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.rpi_gpio/'>Raspberry Pi Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.scsgate/'>SCSGate Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.vera/'>Vera Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.wink/'>Wink Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.zwave/'>Z-Wave Cover</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a>.<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  </body>
+</html>

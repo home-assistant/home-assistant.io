@@ -67,13 +67,16 @@
   </header>
   <hr class="divider">
   <p>The Join platform exposes services from <a href="http://joaoapps.com/join">Join</a>. In Home Assistant, the Join features are divided up in two locations, the Join component, and the Join notify platform. The notify platform allows us to send messages to Join devices, the the component allows us to access the other special features that Join offers.</p>
-<p>In the <code class="highlighter-rouge">configuration.yaml</code> file you need to provide the device id of the target device. If you want to send to a group of devices, you need to provide an api key.  You can find you device id and api key <a href="https://joinjoaomgcd.appspot.com/">here</a>.</p>
+<p>In the <code class="highlighter-rouge">configuration.yaml</code> file you need to provide the api key and device id or name of the target device.  You can find your device id and api key <a href="https://joinjoaomgcd.appspot.com/">here</a>.</p>
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">joaoapps_join</span>
-    <span class="s">device_id</span><span class="pi">:</span> <span class="s">d5asdfasdf54645h45h368761dfe5gt8a</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">droid                                       *optional</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">asd97823jb628a34fwsdfwefd5384345tf2d     *optional</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">asd97823jb628a34fwsdfwefd5384345tf2d</span>
+    <span class="s">device_id</span><span class="pi">:</span> <span class="s">d5asdfasdf54645h45h368761dfe5gt8a   *optional</span>
+    <span class="s">device_ids</span><span class="pi">:</span> <span class="s">d5asdfasdf54645h45h368761dfe5gt8a, a4asdfasdf54645h45h368761dfe5gt3b  *optional</span>
+    <span class="s">device_names</span><span class="pi">:</span> <span class="s">Pixel, iPhone       *optional</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Phones                      *optional</span>
+
 
 <span class="s">joaoapps_join</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">android</span>
@@ -83,24 +86,24 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>device_id</strong> (<em>Required</em>): The Id of your device.</li>
   <li><strong>api_key</strong> (<em>Required</em>): The API key for Join.</li>
+  <li><strong>device_id</strong> (<em>Optional</em>): The id of your device.</li>
+  <li><strong>device_ids</strong> (<em>Optional</em>): Comma separated list of device ids.</li>
+  <li><strong>device_names</strong> (<em>Optional</em>): Comma separated list of device names.</li>
 </ul>
-<p>The notify service has two optional parameters: <code class="highlighter-rouge">icon</code> and <code class="highlighter-rouge">small icon</code>.  You can use them like so:</p>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Hello!"</span><span class="p">,</span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"From Hass"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"icon"</span><span class="p">:</span><span class="s2">"https://goo.gl/KVqcYi"</span><span class="p">,</span><span class="nt">"smallicon"</span><span class="p">:</span><span class="s2">"http://goo.gl/AU4Wf1"</span><span class="p">}}</span><span class="w">
+<p>The notify service has two optional parameters: <code class="highlighter-rouge">icon</code> and <code class="highlighter-rouge">vibration</code>.  You can use them like so:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Hello from Home Assistant!"</span><span class="p">,</span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Home Assistant"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"icon"</span><span class="p">:</span><span class="s2">"https://goo.gl/xeetdy"</span><span class="p">,</span><span class="w"> </span><span class="nt">"vibration"</span><span class="p">:</span><span class="s2">"0,65,706,86,657,95,668,100"</span><span class="p">}}</span><span class="w">
 </span></code></pre>
 </div>
 <p>The services exposed in the joaoapps_join component can be used with the service data described below:</p>
 <table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Data</th>
+    </tr>
+  </thead>
   <tbody>
-    <tr>
-      <td>Service</td>
-      <td>Data</td>
-    </tr>
-    <tr>
-      <td>——————————</td>
-      <td>——————————————————————</td>
-    </tr>
     <tr>
       <td>joaoapps_join/ring</td>
       <td> </td>
@@ -172,6 +175,9 @@
             <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
+            <a href='/components/eight_sleep/'>Eight Sleep</a>
+        </li>
+        <li>
             <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
         </li>
         <li>
@@ -241,6 +247,9 @@
             <a href='/components/octoprint/'>OctoPrint</a>
         </li>
         <li>
+            <a href='/components/opencv/'>OpenCV</a>
+        </li>
+        <li>
             <a href='/components/pilight/'>Pilight</a>
         </li>
         <li>
@@ -287,6 +296,9 @@
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/zha/'>Zigbee Home Automation</a>
         </li>
         <li>
             <a href='/components/zoneminder/'>ZoneMinder</a>

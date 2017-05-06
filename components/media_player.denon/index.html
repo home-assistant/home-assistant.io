@@ -75,9 +75,11 @@
   <li>Denon AVR receivers with Integrated Network support (partial support)</li>
   <li>Denon AVR-X4100W (via denonavr platform)</li>
   <li>Denon AVR receivers (via denonavr platform (untested))</li>
+  <li>Marantz M-RC610 (via denonavr platform)</li>
+  <li>Marantz receivers (experimental via denonavr platform)</li>
 </ul>
 <p>To add a Denon Network Receiver to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<p><strong>Telnet interface</strong></p>
+<p><strong>Telnet platform</strong></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denon</span>
@@ -97,7 +99,7 @@
   <li>Play and pause are supported, toggling is not possible.</li>
   <li>Seeking cannot be implemented as the UI sends absolute positions. Only seeking via simulated button presses is possible.</li>
 </ul>
-<p><strong>denonavr interface</strong></p>
+<p><strong>denonavr platform</strong></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denonavr</span>
@@ -111,9 +113,9 @@
 </ul>
 <p>A few notes for platform: denonavr</p>
 <ul>
-  <li>Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform</li>
-  <li>denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery</li>
-  <li>Still be careful with the volume. 100% in an action movie will tear down your walls.</li>
+  <li>Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform.</li>
+  <li>denonavr platform supports some additional functionalities like album covers, custom input source names and auto discovery.</li>
+  <li>Marantz receivers seem to a have quite simliar interface. Thus if you own one, give it a try.</li>
 </ul>
 </article>
         </div>

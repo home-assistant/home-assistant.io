@@ -62,6 +62,56 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/05/06/zigbee-opencv-dlib/">Home Assistant 0.44: ZigBee, OpenCV and DLib</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-06T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 6, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 13 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/06/zigbee-opencv-dlib/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#added_in_current_version"><img src="/images/blog/2017-05-0.44/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>This release brings some great new integrations. The biggest one is the native ZigBee integration by <a href="https://github.com/rcloran">Russell Cloran</a>. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)</p>
+<p>Another great new addition is OpenCV by <a href="https://github.com/Teagan42">Teagan Glenn</a>. So now you’ll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new DLib integration added by <a href="https://github.com/pvizeli">Pascal Vizeli</a> in this release.</p>
+<p>This release also includes a <a href="https://home-assistant.io/components/rss_feed_template/">new component</a> to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!</p>
+<p>Enjoy!</p>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+<h2><a class="title-link" name="new-integrations" href="#new-integrations"></a> New integrations</h2>
+<ul>
+  <li>Pushbullet notification sensor (<a href="https://github.com/jotunacorn">@jotunacorn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7182">#7182</a>) (<a href="https://home-assistant.io/components/sensor.pushbullet/">sensor.pushbullet docs</a>)</li>
+  <li>Add https certificate expiry sensor (<a href="https://github.com/fabfurnari">@fabfurnari</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7272">#7272</a>) (<a href="https://home-assistant.io/components/sensor.cert_expiry/">sensor.cert_expiry docs</a>)</li>
+  <li>RSS feed template (<a href="https://github.com/micw">@micw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7032">#7032</a>) (<a href="https://home-assistant.io/components/rss_feed_template/">rss_feed_template docs</a>)</li>
+  <li>Add support for Zigbee Home Automation (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6263">#6263</a>) (<a href="https://home-assistant.io/components/zha/">zha docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.zha/">binary_sensor.zha docs</a>) (<a href="https://home-assistant.io/components/light.zha/">light.zha docs</a>) (<a href="https://home-assistant.io/components/sensor.zha/">sensor.zha docs</a>) (<a href="https://home-assistant.io/components/switch.zha/">switch.zha docs</a>)</li>
+  <li>light.blinkt: add support for Blinkt! lights on Raspberry Pi (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7377">#7377</a>) (<a href="https://home-assistant.io/components/light.blinkt/">light.blinkt docs</a>)</li>
+  <li>Plant automation (<a href="https://github.com/ChristianKuehnel">@ChristianKuehnel</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7131">#7131</a>) (<a href="https://home-assistant.io/components/plant/">plant docs</a>)</li>
+  <li>Add Eight sleep component (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7275">#7275</a>) (<a href="https://home-assistant.io/components/eight_sleep/">eight_sleep docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.eight_sleep/">binary_sensor.eight_sleep docs</a>) (<a href="https://home-assistant.io/components/sensor.eight_sleep/">sensor.eight_sleep docs</a>)</li>
+  <li>OpenGarage support (<a href="https://github.com/swbradshaw">@swbradshaw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7338">#7338</a>) (<a href="https://home-assistant.io/components/cover.opengarage/">cover.opengarage docs</a>)</li>
+  <li>Add Sensibo climate platform (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7379">#7379</a>) (<a href="https://home-assistant.io/components/climate/">climate docs</a>)</li>
+  <li>Pilight binary sensor components (<a href="https://github.com/zeltom">@zeltom</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6774">#6774</a>) (<a href="https://home-assistant.io/components/binary_sensor.pilight/">binary_sensor.pilight docs</a>)</li>
+  <li>Opencv (<a href="https://github.com/Teagan42">@Teagan42</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7261">#7261</a>) (<a href="https://home-assistant.io/components/opencv/">opencv docs</a>) (<a href="https://home-assistant.io/components/image_processing.opencv/">image_processing.opencv docs</a>)</li>
+  <li>Add new sensor: Enviro pHAT (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7427">#7427</a>) (<a href="https://home-assistant.io/components/sensor.envirophat/">sensor.envirophat docs</a>)</li>
+  <li>Add support for face recognition with dlib (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7421">#7421</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_detect/">image_processing.dlib_face_detect docs</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">image_processing.dlib_face_identify docs</a>)</li>
+</ul>
+      <a class="btn pull-right" href="/blog/2017/05/06/zigbee-opencv-dlib/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/05/05/podcast-init-interview/">Podcast.__init__ interview with Paulus Schoutsen</a>
   </h1>
   <div class="meta clearfix">
@@ -474,44 +524,6 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>The Ring doorbell has been integrated further with the inclusion of binary sensors (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6520">#6520</a>)</li>
 </ul>
       <a class="btn pull-right" href="/blog/2017/04/08/eddystone-beacons-lockitron-locks-total-connect/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/04/01/thomas-krenn-award/">Thomas Krenn award 2017</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-04-01T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 01, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Community</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/04/01/thomas-krenn-award/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>You may already know from our social media channels and the release blog post for 0.41: We are now an award-winning Open source project. The jury of the <a href="https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/">Thomas-Krenn-Award</a> put us on the 2nd place. This is an awesome achievment for an independent community project.</p>
-<p>I would like to thanks all contributors. Your endless effort made this possible.</p>
-<p><img src="/images/blog/2017-04-award/award.jpg" style="border: 0;box-shadow: none;" /></p>
-<p>The prize beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four <a href="https://www.thomas-krenn.com/en/products/low-energy-systems/les-v2.html">Low Energy Server v2 (LES)</a> units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.</p>
-<p>As a raffle would be to easy, we make a contest out of it. This means that we are looking for your application. Of course, we would like to see those systems goes to active or future developers who can justify their need for one of the systems to run CI, UI tests, public accessible Home Assistant demo instances, etc. At the other hand we would like to keep it open, to see with what people are coming up. Please participate as well if you are planning to automate the public school of your kids with 1000 switches or light, need a server to run it, and want to provide regular feedback about the user experience.</p>
-<p>Create an entry in our <a href="https://community.home-assistant.io/c/contest-2017">Forum</a>. Be creative and use your imagination.</p>
-<h3><a class="title-link" name="the-details" href="#the-details"></a> The details</h3>
-<ul>
-  <li>Jury: The Home Assistant community</li>
-  <li>Dead line: April, 23 2017 - 23.59 UTC</li>
-  <li>Voting period: April, 24th till April, 30 2017 - 23.59 UTC</li>
-</ul>
-<p>The decision of the jury will be final. If there will be a dispute then the Top-5 commiter of the Home Assistant organisation on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the <a href="https://community.home-assistant.io/c/contest-2017">Forum</a> and on <a href="https://twitter.com/home_assistant">Twitter</a>.</p>
-<p>Keep in mind that you may have to pay the fee for customs handling and the import duty by yourself. The plan is to ship the hardware from Germany. If you are located in a country with import/export regulations, we may not be able to ship the hardware to you.</p>
   </div>
   </article>
   <hr>

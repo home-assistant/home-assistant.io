@@ -85,8 +85,18 @@
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
   <li><strong>default_measurement</strong> (<em>Optional</em>): Measurement name to use when an entity doesn’t have a unit. Defaults to entity id.</li>
   <li><strong>override_measurement</strong> (<em>Optional</em>): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.</li>
-  <li><strong>blacklist</strong> (<em>Optional</em>): List of entities that should not be logged to InfluxDB.</li>
-  <li><strong>whitelist</strong> (<em>Optional</em>): List of the entities (only) that will be logged to InfluxDB. If not set, all entities will be logged. Values set by the <strong>blacklist</strong> option will prevail.</li>
+  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should be excluded from recording to InfluxDB.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from recording to InfluxDB.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from recording to InfluxDB.</li>
+    </ul>
+  </li>
+  <li><strong>include</strong> (<em>Optional</em>): Configure which components should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the <strong>blacklist</strong> option will prevail.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from recordings to InfluxDB.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from recordings to InfluxDB.</li>
+    </ul>
+  </li>
   <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
 </ul>
 <h2><a class="title-link" name="data-migration" href="#data-migration"></a> Data migration</h2>
@@ -142,6 +152,55 @@ optional arguments:
   <li>You should be able to omit username and password if InfluxDB authentication is disabled, which it is by default.</li>
   <li>The step option defaults to <code class="highlighter-rouge">1000</code>.</li>
 </ul>
+<h2><a class="title-link" name="data-import-script" href="#data-import-script"></a> Data import script</h2>
+<p>If you want to import all the recorded data from your recorder database you can use the data import script.
+It will read all your state_change events from the database and add them as data-points to the InfluxDB.
+You can specify the source database either by pointing the <code class="highlighter-rouge">--config</code> option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with <code class="highlighter-rouge">--uri</code>.
+The writing to InfluxDB is done in batches that can be changed with <code class="highlighter-rouge">--step</code>.</p>
+<p>You can control, which data is imported by using the commandline options <code class="highlighter-rouge">--exclude-entities</code> and <code class="highlighter-rouge">--exclude-domain</code>.
+Both get a comma separated list of either entity-ids or domain names that are excluded from the import.</p>
+<p>To test what gets imported you can use the <code class="highlighter-rouge">--simulate</code> option, which disables the actual write to the InfluxDB instance.
+This only writes the statistics how much points would be imported from which entity.</p>
+<p>Example to run the script:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script influxdb_import --config CONFIG_DIR <span class="se">\</span>
+    -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD <span class="se">\</span>
+    --dbname INFLUXDB_DB_NAME --exclude-domain automation,configurator
+</code></pre>
+</div>
+<p>Script arguments:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>required arguments:
+  -d dbname, --dbname dbname
+                        InfluxDB database name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c path_to_config_dir, --config path_to_config_dir
+                        Directory that contains the Home Assistant
+                        configuration
+  --uri URI             Connect to URI and import (if other than default
+                        sqlite) eg: mysql://localhost/homeassistant
+
+  -H host, --host host  InfluxDB host address
+  -P port, --port port  InfluxDB host port
+  -u username, --username username
+                        InfluxDB username
+  -p password, --password password
+                        InfluxDB password
+  -s step, --step step  How many points to import at the same time
+  -t tags, --tags tags  Comma separated list of tags (key:value) for all
+                        points
+  -D default_measurement, --default-measurement default_measurement
+                        Store all your points in the same measurement
+  -o override_measurement, --override-measurement override_measurement
+                        Store all your points in the same measurement
+  -e exclude_entities, --exclude_entities exclude_entities
+                        Comma separated list of excluded entities
+  -E exclude_domains, --exclude_domains exclude_domains
+                        Comma separated list of excluded domains
+  -S, --simulate        Do not write points but simulate preprocessing
+                        and print statistics
+</code></pre>
+</div>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">influxdb</span><span class="pi">:</span>
@@ -153,12 +212,16 @@ optional arguments:
   <span class="s">ssl</span><span class="pi">:</span> <span class="s">true</span>
   <span class="s">verify_ssl</span><span class="pi">:</span> <span class="s">true</span>
   <span class="s">default_measurement</span><span class="pi">:</span> <span class="s">state</span>
-  <span class="s">blacklist</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">entity.id1</span>
-     <span class="pi">-</span> <span class="s">entity.id2</span>
-  <span class="s">whitelist</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">entity.id3</span>
-     <span class="pi">-</span> <span class="s">entity.id4</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">entity.id1</span>
+       <span class="pi">-</span> <span class="s">entity.id2</span>
+    <span class="s">domains</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">automation</span>
+  <span class="s">include</span><span class="pi">:</span>
+    <span class="s">entities</span><span class="pi">:</span>
+       <span class="pi">-</span> <span class="s">entity.id3</span>
+       <span class="pi">-</span> <span class="s">entity.id4</span>
   <span class="s">tags</span><span class="pi">:</span>
     <span class="s">instance</span><span class="pi">:</span> <span class="s">prod</span>
     <span class="s">source</span><span class="pi">:</span> <span class="s">hass</span>

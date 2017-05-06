@@ -72,40 +72,40 @@ Support for these components is provided by the Home Assistant community.
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
     <div class="filter-button-group">
-      <a href='#all' class="btn">All (642)</a>
+      <a href='#all' class="btn">All (667)</a>
       <a href='#featured' class="btn featured">Featured</a>
-      <a href='#added_in_current_version' class="btn added_in_current_version">Added in 0.43 (14)</a>
-      <a href='#added_one_version_ago' class="btn added_one_version_ago">Added in 0.42 (14)</a>
-      <a href='#added_two_versions_ago' class="btn added_two_versions_ago">Added in 0.41 (8)</a>
+      <a href='#added_in_current_version' class="btn added_in_current_version">Added in 0.44 (15)</a>
+      <a href='#added_one_version_ago' class="btn added_one_version_ago">Added in 0.43 (16)</a>
+      <a href='#added_two_versions_ago' class="btn added_two_versions_ago">Added in 0.42 (14)</a>
     <a href='#alarm' class="btn">Alarm (12)</a>
     <a href='#automation' class="btn">Automation (15)</a>
-    <a href='#binary-sensor' class="btn">Binary Sensor (43)</a>
+    <a href='#binary-sensor' class="btn">Binary Sensor (46)</a>
     <a href='#calendar' class="btn">Calendar (3)</a>
     <a href='#camera' class="btn">Camera (19)</a>
-    <a href='#climate' class="btn">Climate (17)</a>
-    <a href='#cover' class="btn">Cover (14)</a>
+    <a href='#climate' class="btn">Climate (20)</a>
+    <a href='#cover' class="btn">Cover (15)</a>
     <a href='#diy' class="btn">DIY (17)</a>
     <a href='#downloading' class="btn">Downloading (5)</a>
     <a href='#energy' class="btn">Energy (11)</a>
     <a href='#fan' class="btn">Fan (3)</a>
     <a href='#finance' class="btn">Finance (6)</a>
-    <a href='#front-end' class="btn">Front end (3)</a>
+    <a href='#front-end' class="btn">Front end (4)</a>
     <a href='#health' class="btn">Health (2)</a>
     <a href='#history' class="btn">History (11)</a>
-    <a href='#hub' class="btn">Hub (48)</a>
-    <a href='#image-processing' class="btn">Image Processing (4)</a>
-    <a href='#light' class="btn">Light (41)</a>
+    <a href='#hub' class="btn">Hub (51)</a>
+    <a href='#image-processing' class="btn">Image Processing (7)</a>
+    <a href='#light' class="btn">Light (44)</a>
     <a href='#lock' class="btn">Lock (8)</a>
     <a href='#media-player' class="btn">Media Player (43)</a>
     <a href='#notifications' class="btn">Notifications (43)</a>
     <a href='#organization' class="btn">Organization (3)</a>
-    <a href='#presence-detection' class="btn">Presence Detection (37)</a>
+    <a href='#presence-detection' class="btn">Presence Detection (38)</a>
     <a href='#remote' class="btn">Remote (2)</a>
     <a href='#scene' class="btn">Scene (3)</a>
-    <a href='#sensor' class="btn">Sensor (72)</a>
+    <a href='#sensor' class="btn">Sensor (76)</a>
     <a href='#social' class="btn">Social (5)</a>
-    <a href='#switch' class="btn">Switch (53)</a>
-    <a href='#system-monitor' class="btn">System Monitor (22)</a>
+    <a href='#switch' class="btn">Switch (54)</a>
+    <a href='#system-monitor' class="btn">System Monitor (23)</a>
     <a href='#telegram-chatbot' class="btn">Telegram chatbot (2)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (6)</a>
     <a href='#transport' class="btn">Transport (11)</a>
@@ -138,9 +138,9 @@ Support for these components is provided by the Home Assistant community.
 {{/components}}
 </script>
 <script type="text/javascript">
-var current_minor_version = 43;
-var added_one_ago_minor_version = 42;
-var added_two_ago_minor_version = 41;
+var current_minor_version = 44;
+var added_one_ago_minor_version = 43;
+var added_two_ago_minor_version = 42;
 // This object contains all components we have
 var allComponents = [
 {url:"/components/switch.anel_pwrctrl/", title:"ANEL PwrCtrl Switch", cat:"switch", featured: false, v: 30, logo: "anel.png"},
@@ -199,6 +199,7 @@ var allComponents = [
 {url:"/components/camera.blink/", title:"Blink Camera", cat:"camera", featured: false, v: 40, logo: "blink.png"},
 {url:"/components/sensor.blink/", title:"Blink Sensor", cat:"sensor", featured: false, v: 40, logo: "blink.png"},
 {url:"/components/light.blinksticklight/", title:"Blinkstick", cat:"light", featured: false, v: 7, logo: "blinkstick.png"},
+{url:"/components/light.blinkt/", title:"Blinkt!", cat:"light", featured: false, v: 0, logo: "raspberry-pi.png"},
 {url:"/components/bloomsky/", title:"BloomSky", cat:"hub", featured: false, v: 14, logo: "bloomsky.png"},
 {url:"/components/binary_sensor.bloomsky/", title:"BloomSky Binary Sensor", cat:"binary-sensor", featured: false, v: 14, logo: "bloomsky.png"},
 {url:"/components/camera.bloomsky/", title:"BloomSky Camera", cat:"camera", featured: false, v: 13, logo: "bloomsky.png"},
@@ -211,6 +212,7 @@ var allComponents = [
 {url:"/components/sensor.cpuspeed/", title:"CPU speed", cat:"system-monitor", featured: false, v: 7, logo: "cpu.png"},
 {url:"/components/sensor.cups/", title:"CUPS Sensor", cat:"system-monitor", featured: false, v: 32, logo: "cups.png"},
 {url:"/components/sensor.modem_callerid/", title:"Caller ID Sensor", cat:"sensor", featured: false, v: 40, logo: ""},
+{url:"/components/sensor.cert_expiry/", title:"Certificate Expiry", cat:"system-monitor", featured: false, v: 44, logo: "home-assistant.png"},
 {url:"/components/device_tracker.cisco_ios/", title:"Cisco IOS", cat:"presence-detection", featured: false, v: 33, logo: "cisco.png"},
 {url:"/components/notify.ciscospark/", title:"Cisco Spark", cat:"notifications", featured: false, v: 40, logo: "ciscospark.png"},
 {url:"/components/media_player.clementine/", title:"Clementine Music Player", cat:"media-player", featured: false, v: 39, logo: "clementine.png"},
@@ -247,6 +249,8 @@ var allComponents = [
 {url:"/components/notify.discord/", title:"Discord", cat:"notifications", featured: false, v: 0, logo: "discord.png"},
 {url:"/components/discovery/", title:"Discovery", cat:"other", featured: false, v: 0, logo: "home-assistant.png"},
 {url:"/components/camera.dispatcher/", title:"Dispatcher IP Camera", cat:"camera", featured: false, v: 4, logo: "camcorder.png"},
+{url:"/components/image_processing.dlib_face_detect/", title:"Dlib Face Detect", cat:"image-processing", featured: false, v: 44, logo: "dlib.png"},
+{url:"/components/image_processing.dlib_face_identify/", title:"Dlib Face Identify", cat:"image-processing", featured: false, v: 44, logo: "dlib.png"},
 {url:"/components/sensor.dovado/", title:"Dovado", cat:"system-monitor", featured: false, v: 32, logo: "dovado.png"},
 {url:"/components/downloader/", title:"Downloader", cat:"downloading", featured: false, v: 7, logo: "home-assistant.png"},
 {url:"/components/sensor.dublin_bus_transport/", title:"Dublin Bus Transport", cat:"transport", featured: false, v: 36, logo: "train.png"},
@@ -261,6 +265,9 @@ var allComponents = [
 {url:"/components/sensor.eddystone_temperature/", title:"Eddystone Beacon", cat:"diy", featured: false, v: 42, logo: "eddystone.png"},
 {url:"/components/switch.edimax/", title:"Edimax Switch", cat:"switch", featured: false, v: 7, logo: "edimax.png"},
 {url:"/components/sensor.efergy/", title:"Efergy", cat:"energy", featured: false, v: 7, logo: "efergy.png"},
+{url:"/components/eight_sleep/", title:"Eight Sleep", cat:"hub", featured: false, v: 44, logo: "eight_sleep.png"},
+{url:"/components/binary_sensor.eight_sleep/", title:"Eight Sleep Binary Sensor", cat:"binary-sensor", featured: false, v: 44, logo: "eight_sleep.png"},
+{url:"/components/sensor.eight_sleep/", title:"Eight Sleep Sensor", cat:"sensor", featured: false, v: 44, logo: "eight_sleep.png"},
 {url:"/components/sensor.eliqonline/", title:"Eliqonline", cat:"energy", featured: false, v: 10, logo: "eliq.png"},
 {url:"/components/media_player.emby/", title:"Emby", cat:"media-player", featured: false, v: 32, logo: "emby.png"},
 {url:"/components/sensor.emoncms/", title:"Emoncms Sensor", cat:"sensor", featured: false, v: 29, logo: "emoncms.png"},
@@ -271,6 +278,7 @@ var allComponents = [
 {url:"/components/light.enocean/", title:"EnOcean Light", cat:"light", featured: false, v: 21, logo: "enocean.png"},
 {url:"/components/sensor.enocean/", title:"EnOcean Sensor", cat:"sensor", featured: false, v: 21, logo: "enocean.png"},
 {url:"/components/switch.enocean/", title:"EnOcean Switch", cat:"switch", featured: false, v: 21, logo: "enocean.png"},
+{url:"/components/sensor.envirophat/", title:"Enviro pHAT", cat:"sensor", featured: false, v: 44, logo: "raspberry-pi.png"},
 {url:"/components/alarm_control_panel.envisalink/", title:"Envisalink Alarm", cat:"alarm", featured: false, v: 23, logo: "eyezon.png"},
 {url:"/components/envisalink/", title:"Envisalink Alarm Control Panel", cat:"alarm", featured: false, v: 23, logo: "eyezon.png"},
 {url:"/components/binary_sensor.envisalink/", title:"Envisalink Binary Sensor", cat:"binary-sensor", featured: false, v: 23, logo: "eyezon.png"},
@@ -449,6 +457,7 @@ var allComponents = [
 {url:"/components/microsoft_face/", title:"Microsoft Face", cat:"hub", featured: false, v: 37, logo: "microsoft.png"},
 {url:"/components/image_processing.microsoft_face_detect/", title:"Microsoft Face Detect", cat:"image-processing", featured: false, v: 38, logo: "microsoft.png"},
 {url:"/components/image_processing.microsoft_face_identify/", title:"Microsoft Face Identify", cat:"image-processing", featured: false, v: 37, logo: "microsoft.png"},
+{url:"/components/device_tracker.mikrotik/", title:"Mikrotik", cat:"presence-detection", featured: false, v: 43, logo: "mikrotik.png"},
 {url:"/components/sensor.min_max/", title:"Min/max Sensor", cat:"sensor", featured: false, v: 31, logo: "home-assistant.png"},
 {url:"/components/mochad/", title:"Mochad", cat:"hub", featured: false, v: 32, logo: ""},
 {url:"/components/switch.mochad/", title:"Mochad Switch", cat:"switch", featured: false, v: 32, logo: ""},
@@ -508,8 +517,11 @@ var allComponents = [
 {url:"/components/sensor.openexchangerates/", title:"Open Exchange Rates", cat:"finance", featured: false, v: 23, logo: "openexchangerates.png"},
 {url:"/components/image_processing.openalpr_cloud/", title:"OpenALPR Cloud", cat:"image-processing", featured: false, v: 36, logo: "openalpr.png"},
 {url:"/components/image_processing.openalpr_local/", title:"OpenALPR Local", cat:"image-processing", featured: false, v: 36, logo: "openalpr.png"},
+{url:"/components/image_processing.opencv/", title:"OpenCV", cat:"image-processing", featured: false, v: 44, logo: "opencv.png"},
+{url:"/components/opencv/", title:"OpenCV", cat:"hub", featured: false, v: 44, logo: "opencv.png"},
 {url:"/components/sensor.openevse/", title:"OpenEVSE Sensor", cat:"sensor", featured: false, v: 38, logo: "openevse.png"},
 {url:"/components/climate.oem/", title:"OpenEnergyMonitor WiFi Thermostat", cat:"climate", featured: false, v: 39, logo: "oem.png"},
+{url:"/components/cover.opengarage/", title:"OpenGarage Cover", cat:"cover", featured: false, v: 44, logo: "opengarage.png"},
 {url:"/components/sensor.opensky/", title:"OpenSky Network", cat:"sensor", featured: false, v: 43, logo: "opensky.png"},
 {url:"/components/device_tracker.luci/", title:"OpenWRT (luci)", cat:"presence-detection", featured: false, v: 7, logo: "openwrt.png"},
 {url:"/components/device_tracker.ubus/", title:"OpenWRT (ubus)", cat:"presence-detection", featured: false, v: 7, logo: "openwrt.png"},
@@ -533,11 +545,13 @@ var allComponents = [
 {url:"/components/tts.picotts/", title:"Pico Text-to-Speech", cat:"text-to-speech", featured: false, v: 36, logo: "home-assistant.png"},
 {url:"/components/light.piglow/", title:"Piglow", cat:"light", featured: false, v: 37, logo: "raspberry-pi.png"},
 {url:"/components/pilight/", title:"Pilight", cat:"hub", featured: false, v: 26, logo: "pilight.png"},
+{url:"/components/binary_sensor.pilight/", title:"Pilight Binary Sensor", cat:"binary-sensor", featured: false, v: 44, logo: "pilight.png"},
 {url:"/components/sensor.pilight/", title:"Pilight Sensor", cat:"sensor", featured: false, v: 31, logo: "pilight.png"},
 {url:"/components/switch.pilight/", title:"Pilight Switch", cat:"switch", featured: false, v: 26, logo: "pilight.png"},
 {url:"/components/device_tracker.ping/", title:"Ping (ICMP)", cat:"presence-detection", featured: false, v: 36, logo: "home-assistant.png"},
 {url:"/components/binary_sensor.ping/", title:"Ping (ICMP) Binary sensor", cat:"binary-sensor", featured: false, v: 43, logo: "home-assistant.png"},
 {url:"/components/media_player.pioneer/", title:"Pioneer Network Receivers", cat:"media-player", featured: false, v: 19, logo: "pioneer.png"},
+{url:"/components/plant/", title:"Plant Observer", cat:"other", featured: false, v: 44, logo: ""},
 {url:"/components/media_player.plex/", title:"Plex", cat:"media-player", featured: true, v: 7, logo: "plex.png"},
 {url:"/components/sensor.plex/", title:"Plex Activity Monitor", cat:"media-player", featured: false, v: 22, logo: "plex.png"},
 {url:"/components/sensor.pocketcasts/", title:"PocketCasts", cat:"sensor", featured: false, v: 39, logo: "pocketcasts.png"},
@@ -549,6 +563,7 @@ var allComponents = [
 {url:"/components/switch.pulseaudio_loopback/", title:"PulseAudio Loopback Switch", cat:"switch", featured: false, v: 16, logo: "pulseaudio.png"},
 {url:"/components/notify.html5/", title:"Push Notifications", cat:"notifications", featured: false, v: 27, logo: "html5.png"},
 {url:"/components/notify.pushbullet/", title:"Pushbullet", cat:"notifications", featured: true, v: 0, logo: "pushbullet.png"},
+{url:"/components/sensor.pushbullet/", title:"Pushbullet Mirrors", cat:"sensor", featured: false, v: 44, logo: "pushbullet.png"},
 {url:"/components/notify.pushetta/", title:"Pushetta", cat:"notifications", featured: false, v: 7, logo: "pushetta.png"},
 {url:"/components/notify.pushover/", title:"Pushover", cat:"notifications", featured: false, v: 7, logo: "pushover.png"},
 {url:"/components/notify.pushsafer/", title:"Pushsafer", cat:"notifications", featured: false, v: 39, logo: "pushsafer.png"},
@@ -570,6 +585,7 @@ var allComponents = [
 {url:"/components/light.rfxtrx/", title:"RFXtrx Light", cat:"light", featured: false, v: 7, logo: "rfxtrx.png"},
 {url:"/components/sensor.rfxtrx/", title:"RFXtrx Sensor", cat:"sensor", featured: false, v: 0, logo: "rfxtrx.png"},
 {url:"/components/switch.rfxtrx/", title:"RFXtrx Switch", cat:"switch", featured: false, v: 7, logo: "rfxtrx.png"},
+{url:"/components/rss_feed_template/", title:"RSS feed template", cat:"front-end", featured: false, v: 43, logo: ""},
 {url:"/components/climate.radiotherm/", title:"Radio Thermostat (3M Filtrete) Thermostat", cat:"climate", featured: false, v: 0, logo: "radiotherm.png"},
 {url:"/components/sensor.random/", title:"Random Sensor", cat:"sensor", featured: false, v: 32, logo: "home-assistant.png"},
 {url:"/components/rpi_gpio/", title:"Raspberry PI GPIO", cat:"diy", featured: false, v: 7, logo: "raspberry-pi.png"},
@@ -599,6 +615,8 @@ var allComponents = [
 {url:"/components/script/", title:"Scripts", cat:"automation", featured: false, v: 0, logo: "home-assistant.png"},
 {url:"/components/notify.sendgrid/", title:"SendGrid", cat:"notifications", featured: false, v: 0, logo: "sendgrid.png"},
 {url:"/components/sensor.sensehat/", title:"Sense HAT", cat:"sensor", featured: false, v: 35, logo: "sense-hat.png"},
+{url:"/components/light.sensehat/", title:"Sense HAT Light", cat:"light", featured: false, v: 0, logo: "sense-hat.png"},
+{url:"/components/climate.sensibo/", title:"Sensibo A/C controller", cat:"climate", featured: false, v: 44, logo: "sensibo.png"},
 {url:"/components/media_player.aquostv/", title:"Sharp Aquos TV", cat:"media-player", featured: false, v: 35, logo: "sharp_aquos.jpg"},
 {url:"/components/shell_command/", title:"Shell command", cat:"automation", featured: false, v: 0, logo: "home-assistant.png"},
 {url:"/components/notify.simplepush/", title:"Simplepush", cat:"notifications", featured: false, v: 29, logo: "simplepush.png"},
@@ -743,9 +761,14 @@ var allComponents = [
 {url:"/components/zeroconf/", title:"Zeroconf/Avahi/Bonjour", cat:"other", featured: false, v: 18, logo: "avahi.png"},
 {url:"/components/zigbee/", title:"ZigBee", cat:"diy", featured: false, v: 12, logo: "zigbee.png"},
 {url:"/components/binary_sensor.zigbee/", title:"ZigBee Binary Sensor", cat:"binary-sensor", featured: false, v: 12, logo: "zigbee.png"},
+{url:"/components/binary_sensor.zha/", title:"ZigBee Home Automation Binary Sensor", cat:"binary-sensor", featured: false, v: 0, logo: "zigbee.png"},
+{url:"/components/light.zha/", title:"ZigBee Home Automation Light", cat:"light", featured: false, v: 0, logo: "zigbee.png"},
+{url:"/components/sensor.zha/", title:"ZigBee Home Automation Sensor", cat:"sensor", featured: false, v: 0, logo: "zigbee.png"},
+{url:"/components/switch.zha/", title:"ZigBee Home Automation Switch", cat:"switch", featured: false, v: 0, logo: "zigbee.png"},
 {url:"/components/light.zigbee/", title:"ZigBee Light", cat:"light", featured: false, v: 12, logo: "zigbee.png"},
 {url:"/components/sensor.zigbee/", title:"ZigBee Sensor", cat:"sensor", featured: false, v: 12, logo: "zigbee.png"},
 {url:"/components/switch.zigbee/", title:"ZigBee Switch", cat:"switch", featured: false, v: 12, logo: "zigbee.png"},
+{url:"/components/zha/", title:"Zigbee Home Automation", cat:"hub", featured: false, v: 39, logo: "zigbee.png"},
 {url:"/components/zone/", title:"Zone", cat:"organization", featured: false, v: 0, logo: "home-assistant.png"},
 {url:"/components/zoneminder/", title:"ZoneMinder", cat:"hub", featured: false, v: 31, logo: "zoneminder.png"},
 {url:"/components/camera.zoneminder/", title:"ZoneMinder Camera", cat:"camera", featured: false, v: 39, logo: "zoneminder.png"},
@@ -756,6 +779,8 @@ var allComponents = [
 {url:"/components/switch.arest/", title:"aREST Switch", cat:"switch", featured: false, v: 16, logo: "arest.png"},
 {url:"/components/media_player.cmus/", title:"cmus", cat:"media-player", featured: false, v: 0, logo: ""},
 {url:"/components/maxcube/", title:"eQ-3 MAX! Cube", cat:"climate", featured: false, v: 40, logo: "maxcube.png"},
+{url:"/components/binary_sensor.maxcube/", title:"eQ-3 MAX! Cube binary sensors", cat:"climate", featured: false, v: 40, logo: "maxcube.png"},
+{url:"/components/climate.maxcube/", title:"eQ-3 MAX! Cube binary sensors", cat:"climate", featured: false, v: 40, logo: "maxcube.png"},
 {url:"/components/ecobee/", title:"ecobee", cat:"hub", featured: true, v: 9, logo: "ecobee.png"},
 {url:"/components/device_tracker.icloud/", title:"iCloud", cat:"presence-detection", featured: false, v: 10, logo: "icloud.png"},
 {url:"/components/remote.itach/", title:"iTach Remote", cat:"remote", featured: false, v: 39, logo: "globalcache.png"},

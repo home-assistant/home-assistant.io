@@ -99,7 +99,7 @@
 </ul>
 <p class="note">
 Depending on your controller or bulb type, there are two ways to configure brightness. 
-The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the brighness will set the device to white with your chosen brightness. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
+The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
 </p>
 <h3><a class="title-link" name="example-configuration" href="#example-configuration"></a> Example configuration</h3>
 <p>Will automatically search and add all lights on start up:</p>
@@ -137,7 +137,7 @@ The component defaults to rgbw. If your device has a separate white channel, you
       <span class="s">mode</span><span class="pi">:</span> <span class="s2">"</span><span class="s">rgb"</span>
 </code></pre>
 </div>
-<p>Will add a light with white mode (default). Changing the brightness will set the bulb in white mode:</p>
+<p>Will add a light with rgb+white mode (default). White and RGB channels can be adjusted independently using a slider and color picker respectively.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">192.168.1.10</span><span class="pi">:</span>
       <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
       <span class="s">mode</span><span class="pi">:</span> <span class="s2">"</span><span class="s">rgbw"</span>
@@ -232,6 +232,9 @@ The component defaults to rgbw. If your device has a separate white channel, you
             <a href='/components/light.blinksticklight/'>Blinkstick</a>
         </li>
         <li>
+            <a href='/components/light.blinkt/'>Blinkt!</a>
+        </li>
+        <li>
             <a href='/components/light.decora/'>Decora</a>
         </li>
         <li>
@@ -313,6 +316,9 @@ The component defaults to rgbw. If your device has a separate white channel, you
             <a href='/components/light.scsgate/'>SCSGate Light</a>
         </li>
         <li>
+            <a href='/components/light.sensehat/'>Sense HAT Light</a>
+        </li>
+        <li>
             <a href='/components/light.tellstick/'>TellStick Light</a>
         </li>
         <li>
@@ -338,6 +344,9 @@ The component defaults to rgbw. If your device has a separate white channel, you
         </li>
         <li>
             <a href='/components/light.zengge/'>Zengge</a>
+        </li>
+        <li>
+            <a href='/components/light.zha/'>ZigBee Home Automation Light</a>
         </li>
         <li>
             <a href='/components/light.zigbee/'>ZigBee Light</a>

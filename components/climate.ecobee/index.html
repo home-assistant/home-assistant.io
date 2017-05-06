@@ -104,7 +104,7 @@ auto, and off.</p>
 <code class="highlighter-rouge">target_temperature_low</code>, <code class="highlighter-rouge">target_temperature_high</code>, <code class="highlighter-rouge">desired_fan_mode</code>, 
 <code class="highlighter-rouge">fan</code>, <code class="highlighter-rouge">current_hold_mode</code>, <code class="highlighter-rouge">current_operation</code>, <code class="highlighter-rouge">operation_list</code>,
 <code class="highlighter-rouge">operation_mode</code>, <code class="highlighter-rouge">mode</code>, <code class="highlighter-rouge">fan_min_on_time</code>, <code class="highlighter-rouge">device_state_attributes</code>, 
-<code class="highlighter-rouge">is_away_mode_on</code>, <code class="highlighter-rouge">vacation</code>, <code class="highlighter-rouge">climate_list</code>.
+<code class="highlighter-rouge">is_away_mode_on</code>, <code class="highlighter-rouge">vacation</code>, <code class="highlighter-rouge">climate_list</code>, <code class="highlighter-rouge">aux_heat</code>.
 The attributes <code class="highlighter-rouge">min_temp</code> and <code class="highlighter-rouge">max_temp</code> are meaningless constant values.</p>
 <h3><a class="title-link" name="attribute-name" href="#attribute-name"></a> Attribute <code class="highlighter-rouge">name</code></h3>
 <p>Returns the name of the Ecobee Thermostat.</p>
@@ -357,6 +357,22 @@ service for more detail).</p>
 </table>
 <h3><a class="title-link" name="attribute-climate_list" href="#attribute-climate_list"></a> Attribute <code class="highlighter-rouge">climate_list</code></h3>
 <p>Returns the list of climates defined in the thermostat.</p>
+<h3><a class="title-link" name="attribute-aux_heat" href="#attribute-aux_heat"></a> Attribute <code class="highlighter-rouge">aux_heat</code></h3>
+<p>Returns the current auxiliary heat state.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Attribute type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>‘on’, ‘off’</td>
+    </tr>
+  </tbody>
+</table>
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 <p>The following services are provided by the Ecobee Thermostat:
 <code class="highlighter-rouge">set_away_mode</code>, <code class="highlighter-rouge">set_hold_mode</code>, <code class="highlighter-rouge">set_temperature</code>, <code class="highlighter-rouge">set_operation_mode</code>, 
@@ -594,6 +610,9 @@ be provided.</p>
             <a href='/components/climate.radiotherm/'>Radio Thermostat (3M Filtrete) Thermostat</a>
         </li>
         <li>
+            <a href='/components/climate.sensibo/'>Sensibo A/C controller</a>
+        </li>
+        <li>
             <a href='/components/climate.tado/'>Tado Thermostat</a>
         </li>
         <li>
@@ -607,6 +626,12 @@ be provided.</p>
         </li>
         <li>
             <a href='/components/maxcube/'>eQ-3 MAX! Cube</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.maxcube/'>eQ-3 MAX! Cube binary sensors</a>
+        </li>
+        <li>
+            <a href='/components/climate.maxcube/'>eQ-3 MAX! Cube binary sensors</a>
         </li>
     </ul>
     </div>
