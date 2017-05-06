@@ -21,14 +21,14 @@ With the release of 1.21 a small problem with the OpenZWave build script wasn't 
 
 To allow you to customize your installation further, we have included a tool called `hassbian-config`. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation. This replaces the `hassbian-scripts` functionality from 1.1.
 
-  - Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it's usage is not recommended if you share your network with others.
-  - Install Libcec. Adds local [HDMI CEC support][cec].
-  - Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
-  - Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.
-  - Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.
-  - Install Tradfri. Installs dependencies for using IKEA Trådfri.
   - Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.
-  - Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.
+ - Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
+ - Install Libcec. Adds local [HDMI CEC support][cec].
+ - Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.
+ - Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.
+ - Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it's usage is not recommended if you share your network with others.
+ - Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.
+ - Install Tradfri. Installs dependencies for using IKEA Trådfri.
 
 ### {% linkable_title Spring cleaning %}
 
