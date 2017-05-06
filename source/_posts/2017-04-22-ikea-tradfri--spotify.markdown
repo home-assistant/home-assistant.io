@@ -486,8 +486,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wemo docs]: /components/wemo/
 [zwave docs]: /components/zwave/
 [zwave.node_entity docs]: /components/zwave.node_entity/
-<<<<<<< HEAD
-=======
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
@@ -521,4 +519,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notify.html5 docs]: https://home-assistant.io/components/notify.html5/
 [notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
 [telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
->>>>>>> current
