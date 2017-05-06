@@ -13,7 +13,7 @@ ha_release: 0.44
 ha_iot_class: "Local Push"
 ---
 
-[OpenCV](https://www.opencv.org) is an open source computer vision image and video processing library.
+[OpenCV](http://www.opencv.org) is an open source computer vision image and video processing library.
 
 Some pre-defined classifiers can be found here: https://github.com/opencv/opencv/tree/master/data
 
