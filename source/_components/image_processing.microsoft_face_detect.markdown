@@ -31,7 +31,6 @@ image_processing:
 
 Configuration variables:
 
-- **group** (*Required*): Microsoft Face group used to detect the person.
 - **confidence** (*Optional*): The minimum of confidence in percent to process with Home Assistant. Defaults to 80.
 - **source** array (*Required*): List of image sources.
   - **entity_id** (*Required*): A camera entity id to get picture from.
