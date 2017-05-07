@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-At the end, all add-ons are simple docker container. You can use our [build scripts][builder] that automate the whole process or you can build your own docker image and push it manually to a docker hub. Inside your addon `config.json` you specify the Docker image that will be installed for your add-on:
+All add-ons are simple docker containers. You can use our [build scripts][builder] to automate the whole build process or you can build your own docker image and push it manually to a docker hub. Inside your addon `config.json` you specify the Docker image that will be installed for your add-on:
 
 ```json
 {
@@ -23,7 +23,7 @@ Development best practices is to merge your changes into a branch like `build`. 
 
 ## {% linkable_title Custom Add-ons %}
 
-You need a docker hub account to make your own add-ons. Download our [build script][builder] local.
+You need a docker hub account to make your own add-ons. Download our [build script][builder] and run one of the following commands.
 
 For a git repository:
 
