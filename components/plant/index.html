@@ -66,8 +66,11 @@
     </h1>
   </header>
   <hr class="divider">
-  <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">plant</span><span class="pi">:</span>
-  <span class="s">simulated_plant</span><span class="pi">:</span>
+  <p>This<code class="highlighter-rouge">plant</code>component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to “problem” if it is not within those limits.</p>
+<p>To use your <code class="highlighter-rouge">plant</code> sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">plant</span><span class="pi">:</span>
+  <span class="s">sunflower</span><span class="pi">:</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">moisture</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_moisture</span>
       <span class="s">battery</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_battery</span>
@@ -81,8 +84,51 @@
     <span class="s">min_temperature</span><span class="pi">:</span> <span class="s">15</span>
 </code></pre>
 </div>
-<h2>Using plain MQTT sensor to get the data</h2>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>entity_id</strong> (<em>Required</em>): Set by you and is used by the component as the <code class="highlighter-rouge">entity_id</code>.
+    <ul>
+      <li><strong>sensors</strong> (<em>Required</em>):
+        <ul>
+          <li><strong>moisture</strong> (<em>Optional</em>): Moisture of the plant. Meassured in %. Can have a min and max value set optionally.</li>
+          <li><strong>battery</strong> (<em>Optional</em>): Battery level of the plant sensor. Meassured in %. Can only have a min level set optionally.</li>
+          <li><strong>temperature:</strong> (<em>Optional</em>): Temperaure of the plant. Meassured in degrees Celcius. Can have a min and max value set optionally.</li>
+          <li><strong>conductivity:</strong> (<em>Optional</em>): Conductivity of the plant. Meassured in µS/cm. Can have a min and max value set optionally.</li>
+          <li><strong>brightness:</strong> (<em>Optional</em>): Light exposure of the plant. Meassured in Lux. Can have a min and max value set optionally.</li>
+        </ul>
+      </li>
+      <li><strong>min_moisture</strong> (<em>Optional</em>): Minimum moisture level before triggering a problem.</li>
+      <li><strong>max_moisture</strong> (<em>Optional</em>): Maximum moisture level before triggering a problem.</li>
+      <li><strong>min_battery</strong> (<em>Optional</em>): Minimum battery level before triggering a problem.</li>
+      <li><strong>min_conductivity</strong> (<em>Optional</em>): Minimum conductivity level before triggering a problem.</li>
+      <li><strong>max_conductivity</strong> (<em>Optional</em>): Maximum conductivity level before triggering a problem.</li>
+      <li><strong>min_temperature</strong> (<em>Optional</em>): Minimum temperature before triggering a problem.</li>
+      <li><strong>max_temperature</strong> (<em>Optional</em>): Maximum temperature before triggering a problem.</li>
+      <li><strong>min_brightness</strong> (<em>Optional</em>): Minimum brightness before triggering a problem.</li>
+      <li><strong>max_brightness</strong> (<em>Optional</em>): Maximum brightness before triggering a problem.</li>
+    </ul>
+  </li>
+</ul>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3>Using plain MQTT sensor to get the data</h3>
+<p>This is a practial example that uses a multiple of <code class="highlighter-rouge">MQTT sensors</code> to supply the readings used by the <code class="highlighter-rouge">plant</code> sensor.
+Another good source of this data would be the <a href="https://home-assistant.io/components/sensor.miflora/">Mi Flora</a> component.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">plant</span><span class="pi">:</span>
+  <span class="s">simulated_plant</span><span class="pi">:</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">moisture</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_moisture</span>
+      <span class="s">battery</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_battery</span>
+      <span class="s">temperature</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_temperature</span>
+      <span class="s">conductivity</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_conductivity</span>
+      <span class="s">brightness</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_brightness</span>
+    <span class="s">min_moisture</span><span class="pi">:</span> <span class="s">20</span>
+    <span class="s">max_moisture</span><span class="pi">:</span> <span class="s">60</span>
+    <span class="s">min_battery</span><span class="pi">:</span> <span class="s">17</span>
+    <span class="s">min_conductivity</span><span class="pi">:</span> <span class="s">500</span>
+    <span class="s">min_temperature</span><span class="pi">:</span> <span class="s">15</span>
+    
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">mqtt_plant_moisture</span>
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s">test/simulated_plant</span>
