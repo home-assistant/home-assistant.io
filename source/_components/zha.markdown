@@ -40,7 +40,7 @@ zha:
 Configuration variables:
 
  - **usb_path** (*Required*): Path to the serial device for the radio.
- - **database_path** (*Required*): Path to the database which will keep persisten newtork data.
+ - **database_path** (*Required*): Path to the database which will keep persistent network data.
 
 
 
