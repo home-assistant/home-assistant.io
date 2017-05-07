@@ -77,6 +77,7 @@ harmony_media_room.conf
 pyozw.sqlite
 .*
 !/.gitignore
+!/.travis.yaml
 html5_push_registrations.conf
 ip_bans.yaml
 /icloud/*
