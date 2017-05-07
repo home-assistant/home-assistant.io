@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-07T01:09:34+00:00</updated>
+  <updated>2017-05-07T01:39:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -25,6 +25,8 @@
 <p>Another great new addition is <a href="https://home-assistant.io/components/opencv/">OpenCV</a> by <a href="https://github.com/Teagan42">Teagan Glenn</a>. So now you’ll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new <a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">DLib integration</a> added by <a href="https://github.com/pvizeli">Pascal Vizeli</a> in this release.</p>
 
 <p>This release also includes a <a href="https://home-assistant.io/components/rss_feed_template/">new component</a> to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!</p>
+
+<p>And finally, for users of the config panel in the UI, we have fixed the issue with the group editor.</p>
 
 <p>Enjoy!</p>
 
