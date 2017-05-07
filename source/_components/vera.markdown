@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Vera"
-description: "Instructions how to setup Vera hubs and configure devices within Home Assistant."
+description: "Instructions how to setup Vera Z-Wave hubs and configure devices within Home Assistant."
 date: 2015-03-23 20:04
 sidebar: true
 comments: false
@@ -48,6 +48,6 @@ vera:
   lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
 ```
 
-### {% linkable_title Using z-wave devices in automation %} 
+### {% linkable_title Using Z-Wave devices in automation %} 
 
-If you want to use a z-wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'Vera Device Id' in their attributes, you'll find the entity id on the left.
+If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'Vera Device Id' in their attributes, you'll find the entity id on the left.
