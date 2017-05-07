@@ -45,6 +45,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add new sensor: Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
 
+## {% linkable_title Release 0.44.1 - May 7 %}
+
+- Fix opening add-ons in Hass.io store that are not installed ([@balloob])
+- sensor.envirophat: add missing requirement ([@imrehg] - [#7451]) ([sensor.envirophat docs])
+- Forecasts for weather underground ([@pezinek] - [#7062]) ([sensor.wunderground docs])
+- Upgrade pymysensors to 0.10.0 ([@MartinHjelmare] - [#7469])
+- Fix plant MIN_TEMPERATURE, MAX_TEMPERATURE validation ([@frog32] - [#7476]) ([plant docs])
+- Update to pyunifi 2.12 ([@finish06] - [#7468]) ([device_tracker.unifi docs])
+- MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
+
 <!--more-->
 ## {% linkable_title Breaking changes %}
 
@@ -487,3 +497,12 @@ influxdb:
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[#7062]: https://github.com/home-assistant/home-assistant/pull/7062
+[#7468]: https://github.com/home-assistant/home-assistant/pull/7468
+[#7469]: https://github.com/home-assistant/home-assistant/pull/7469
+[#7476]: https://github.com/home-assistant/home-assistant/pull/7476
+[@finish06]: https://github.com/finish06
+[@frog32]: https://github.com/frog32
+[@pezinek]: https://github.com/pezinek
+[device_tracker.unifi docs]: https://home-assistant.io/components/device_tracker.unifi/
+[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
