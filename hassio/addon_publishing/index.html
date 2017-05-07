@@ -67,24 +67,21 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>At the end, all add-ons are simple docker container. You can use our <a href="https://github.com/home-assistant/hassio-build/tree/master/build-scripts/addons">build scripts</a> for automate the hole process our you can build your own docker image and push it manual do a docker hub. Inside your addon <code class="highlighter-rouge">config.json</code> can you use:</p>
+  <p>At the end, all add-ons are simple docker container. You can use our <a href="https://github.com/home-assistant/hassio-build/tree/master/build-scripts/addons">build scripts</a> that automate the whole process or you can build your own docker image and push it manually to a docker hub. Inside your addon <code class="highlighter-rouge">config.json</code> you specify the Docker image that will be installed for your add-on:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myhub/image-addon-name"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">{</span><span class="w">
   </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myhub/image-{arch}-addon-name"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p>To specify from where it will load the addon by user installation. With <code class="highlighter-rouge"><span class="p">{</span><span class="err">arch</span><span class="p">}</span></code> inside image name, you can build your addon for multible architectures.</p>
-<p>Best praxis is to merge change into a branch like <code class="highlighter-rouge">build</code>. After you push the addon to docker hub, you can merge this branch to master.</p>
+<p>You can use <code class="highlighter-rouge"><span class="p">{</span><span class="err">arch</span><span class="p">}</span></code> inside the image name to support multiple architectures with 1 configuration file. It will be replaced with the architecture of the user when we load the image.</p>
+<p>Development best practices is to merge your changes into a branch like <code class="highlighter-rouge">build</code>. After you push the addon to docker hub, you can merge this branch to master.</p>
 <h2><a class="title-link" name="custom-add-ons" href="#custom-add-ons"></a> Custom Add-ons</h2>
-<p>You need a docker hub account. It is also possible to use our own docker registrator. Download our <a href="https://github.com/home-assistant/hassio-build/tree/master/build-scripts/addons">build script</a> local.</p>
+<p>You need a docker hub account to make your own add-ons. Download our <a href="https://github.com/home-assistant/hassio-build/tree/master/build-scripts/addons">build script</a> local.</p>
 <p>For a git repository:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Test only:</span>
 ./create_hassio_addon.sh -a amd64 -s addon-slug -r https://github.com/xy/addons -b branchname
 
-<span class="c"># push do docker hub:</span>
+<span class="c"># push to docker hub:</span>
 ./create_hassio_addon.sh -a amd64 -s addon-slug -r https://github.com/xy/addons -b branchname -p
 
 <span class="c"># create for all supported arch:</span>
@@ -95,7 +92,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Test only:</span>
 ./create_hassio_addon.sh -a amd64 -s addon-slug -l /home/xy/my_local_repo
 
-<span class="c"># push do docker hub:</span>
+<span class="c"># push to docker hub:</span>
 ./create_hassio_addon.sh -a amd64 -s addon-slug -l /home/xy/my_local_repo -p
 </code></pre>
 </div>
@@ -113,6 +110,7 @@
           <li><a  href='/hassio/installation/'>Installation </a></li>
           <li><a  href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/architecture/'>Architecture </a></li>
+          <li><a  href='/hassio/network/'>Network </a></li>
         </ul>
       </li>
     </ul>
