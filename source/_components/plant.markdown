@@ -18,7 +18,7 @@ To use your `plant` sensor in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 plant:
-  simulated_plant:
+  entity_id:
     sensors:
       moisture: sensor.mqtt_plant_moisture
       battery: sensor.mqtt_plant_battery
@@ -34,18 +34,22 @@ plant:
 
 Configuration variables:
 
-- **simulated_plant** (*Required*):
+- **entity_id** (*Required*): Set by you and is used by the component as the `entity_id`.
   - **sensors** (*Required*): 
-    - **moisture** (*Optional*):  
-    - **battery** (*Optional*):
-    - **temperature:** (*Optional*):
-    - **conductivity:** (*Optional*):
-    - **brightness:** (*Optional*):
-  - **min_moisture** (*Optional*):
-  - **max_moisture** (*Optional*):
-  - **min_battery** (*Optional*):
-  - **min_conductivity** (*Optional*):
-  - **min_temperature** (*Optional*):
+    - **moisture** (*Optional*): Moisture of the plant. Meassured in %. Can have a min and max value set optionally.
+    - **battery** (*Optional*): Battery level of the plant sensor. Meassured in %. Can only have a min level set optionally.
+    - **temperature:** (*Optional*): Temperaure of the plant. Meassured in degrees Celcius. Can have a min and max value set optionally.
+    - **conductivity:** (*Optional*): Conductivity of the plant. Meassured in µS/cm. Can have a min and max value set optionally.
+    - **brightness:** (*Optional*): Light exposure of the plant. Meassured in Lux. Can have a min and max value set optionally.
+  - **min_moisture** (*Optional*): Minimum moisture level before triggering a problem.
+  - **max_moisture** (*Optional*): Maximum moisture level before triggering a problem.
+  - **min_battery** (*Optional*): Minimum battery level before triggering a problem.
+  - **min_conductivity** (*Optional*): Minimum conductivity level before triggering a problem.
+  - **max_conductivity** (*Optional*): Maximum conductivity level before triggering a problem.
+  - **min_temperature** (*Optional*): Minimum temperature before triggering a problem.
+  - **max_temperature** (*Optional*): Maximum temperature before triggering a problem.
+  - **min_brightness** (*Optional*): Minimum brightness before triggering a problem.
+  - **max_brightness** (*Optional*): Maximum brightness before triggering a problem.
 
 ## {% linkable_title Examples %}
 ### Using plain MQTT sensor to get the data
