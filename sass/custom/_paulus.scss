@@ -1,0 +1,375 @@
+@charset "UTF-8";
+
+.hero {
+  background-color: #038FC7;
+  padding-bottom: 0;
+
+  .lead {
+    margin-bottom: 16px;
+  }
+
+  .hero-buttons a {
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+    font-weight: 500;
+  }
+}
+
+.material-card {
+  background-color: #fefefe;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+
+  h1 {
+    font-family: Roboto, Noto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -.012em;
+    line-height: 40px;
+    color: #212121;
+    padding: 20px 16px 12px;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  &.text {
+    padding: 16px;
+
+    h1 {
+      padding: 4px 0px 12px;
+    }
+  }
+
+  .links {
+    margin-top: 8px;
+    margin-left: -8px;
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 0 8px;
+    }
+  }
+}
+
+.frontpage {
+
+  .current-version {
+    margin-bottom: 16px;
+
+    .release-date {
+      white-space: nowrap;
+    }
+
+  }
+
+  .recent-posts {
+    margin-bottom: 16px;
+
+    .blog-date {
+      white-space: nowrap;
+    }
+  }
+
+  .shirt-promo {
+    display: block;
+    padding-top: 30%;
+    background-image: url(/images/merchandise/shirt-frontpage.png);
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+
+    .caption {
+      padding: 16px 12px 12px;
+      background-color: rgba(0, 0, 0, .54);
+      color: white;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        font-weight: initial;
+      }
+    }
+  }
+
+  .supported-brands {
+    text-align: center;
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      border: none !important;
+      box-shadow: none !important;
+      max-height: 50px;
+      max-width: 140px;
+      margin: 10px;
+      vertical-align: middle;
+    }
+  }
+
+}
+
+// https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
+
+h1:hover a.title-link,
+h2:hover a.title-link,
+h3:hover a.title-link,
+h4:hover a.title-link,
+h5:hover a.title-link,
+h6:hover a.title-link {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 2px;
+    left: -25px;
+    padding-right: 40px;
+    font-family: "FontAwesome";
+    font-size: 15px;
+    color: #999;
+    content: "\f0c1"
+  }
+}
+
+.ha-title {
+  white-space: nowrap;
+
+  img {
+    width: 40px;
+  }
+
+  a > * {
+    vertical-align: middle;
+  }
+}
+
+.usp {
+  ul {
+    text-align: left;
+    margin-left: 27px;
+    margin-top: -18px;
+  }
+
+  .icon i {
+  border: none !important;
+  }
+}
+
+.hero-buttons a {
+  margin: 0 30px 10px 0;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+article.post, article.page, article.listing {
+  font-size: 1.125em;
+  line-height: 1.6;
+
+  img, table {
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    vertical-align: middle;
+  }
+
+  img.no-shadow {
+    border: 0;
+    box-shadow: none;
+  }
+
+  & > table, & > .entry-content > table {
+    background-color: #F3FCF5;
+  }
+
+  p.img {
+    background-color: #FFF;
+    border-radius: 5px;
+    text-align: center;
+    padding-bottom: 3px;
+    font-size: .9rem;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+    img {
+      display: block;
+      box-shadow: none;
+      margin: 0 auto;
+    }
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    & > p {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+
+    &.btn {
+      text-decoration: none;
+    }
+  }
+
+  h1 {
+
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    font-size: 1.2rem;
+    margin-top: 2em;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    margin-top: 2em;
+  }
+}
+
+p.note {
+  position: relative;
+
+  background: #e7f2fa;
+
+  padding: 40px 12px 6px 12px;
+  box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+  &::before {
+    font-family: "FontAwesome", sans-serif;
+    content: "\f05a" " Note " attr(data-title);
+    background-color: #6ab0de;
+    color: white;
+    font-weight: bold;
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 6px 14px;
+
+    line-height: 1.5em;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &.warning {
+    background-color: #F7F9E1;
+
+    &::before {
+      background-color: rgb(187, 185, 13);;
+      content: "\f071" " Warning " attr(data-title);
+    }
+  }
+
+}
+
+.copyright {
+  text-align: center;
+
+  i {
+    font-size: 3em;
+    margin-right: 8px;
+    position: relative;
+    top: -5px;
+  }
+  .credit {
+    text-align: left;
+    display: inline-block;
+    font-size: .8em;
+  }
+}
+
+.aside-module {
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .brand-logo-container {
+    text-align: center;
+    height: 97px;
+
+    img {
+      max-height: 97px;
+    }
+  }
+}
+
+// Responsive YouTube embeds.
+// https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-bottom: 25px;
+  background: #000;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.edit-github {
+  text-align: right;
+  margin-bottom: 8px;
+  font-size: .8em;
+}
+
+ul.sidebar-menu {
+  a.active {
+    color: #000;
+    font-weight: bold;
+  }
+
+  ul {
+    margin-left: 30px;
+  }
+}
+
+a code {
+  color: #049cdb;
+}
+
+twitterwidget {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.aside-module {
+  max-width: 100%;
+  overflow: hidden;
+}
