@@ -28,5 +28,5 @@ For advanced users, it is also possible to try Hass.io on your Linux server or i
 [pi1]: https://github.com/home-assistant/hassio-build/releases/download/0.7/resinos-hassio-0.7-raspberrypi.img.bz2
 [pi2]: https://github.com/home-assistant/hassio-build/releases/download/0.7/resinos-hassio-0.7-raspberrypi2.img.bz2
 [pi3]: https://github.com/home-assistant/hassio-build/releases/download/0.7/resinos-hassio-0.7-raspberrypi3.img.bz2
-[linux]: https://github.com/home-assistant/hassio-build/tree/master/install
+[linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
