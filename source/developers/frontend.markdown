@@ -43,22 +43,17 @@ This script will update the git submodule for the polymer project in
 
 `home-assistant/homeassistant/components/frontend/www_static/home-assistant-polymer`. 
 
-If you're planning on issuing a PR back to the HA codebase you need to fork the polymer project and add your fork as a remote.
+If you're planning on issuing a PR back to the Home Assistant codebase you need to fork the polymer project and add your fork as a remote.
 
 ```bash
 $ cd homeassistant/components/frontend/www_static/home-assistant-polymer
 $ git remote add <remote name> <github URL to your fork>
 ```
 
-When you've made your changes and are ready to push them change to the working directory for the polymer project
+When you've made your changes and are ready to push them change to the working directory for the polymer project and then push your changes
 
 ``` bash
 $ cd homeassistant/components/frontend/www_static/home-assistant-polymer
-```
-
-and then push your changes
-
-```bash
 $ git push -u <remote name> HEAD
 ```
 
