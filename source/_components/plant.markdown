@@ -18,7 +18,7 @@ To use your `plant` sensor in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 plant:
-  entity_id:
+  sunflower:
     sensors:
       moisture: sensor.mqtt_plant_moisture
       battery: sensor.mqtt_plant_battery
@@ -54,6 +54,7 @@ Configuration variables:
 ## {% linkable_title Examples %}
 ### Using plain MQTT sensor to get the data
 This is a practial example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
+Another good source of this data would be the [Mi Flora](https://home-assistant.io/components/sensor.miflora/) component. 
 
 
 ```yaml
