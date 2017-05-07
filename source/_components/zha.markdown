@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: zigbee.png
 ha_category: Hub
-ha_release: 0.39
+ha_release: 0.44
 ---
 
 [ZigBee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
