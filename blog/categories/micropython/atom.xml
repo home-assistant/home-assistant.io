@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Micropython | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/micropython/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-07T20:58:01+00:00</updated>
+  <updated>2017-05-07T21:39:23+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Grazer Linuxtage 2017: Python Everywhere]]></title>
+    <link href="https://home-assistant.io/blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/"/>
+    <updated>2017-05-07T02:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere</id>
+    <content type="html"><![CDATA[I like Python. It's a clean easy to read, easy to learn language. Yet when you use it for some time you still find more features to improve your coding. What I probably like most about Python is the community and the great libraries that already exist. Often solving a problem means including a pre-existing library and writing some glue code. That makes it quick to get things up and running.
+
+I just gave a talk on how you can run Python to automate your home (yes with Home-Assistant) but also with [MicroPython]. Micropython allows you to run Python on your DIY sensors and switches around your home. Python everywhere - even on the chips that give Home-Assistant the data to be awesome.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KNFZSSCPUyM" frameborder="0" allowfullscreen></iframe>
+</div>
+
+[MicroPython]: https://micropython.org
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ESP8266 and MicroPython - Part 2]]></title>
