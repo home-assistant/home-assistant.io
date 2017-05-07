@@ -19,6 +19,8 @@ Another great new addition is [OpenCV][opencv docs] by [Teagan Glenn][@teagan42]
 
 This release also includes a [new component][rss_feed_template docs] to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!
 
+And finally, for users of the config panel in the UI, we have fixed the issue with the group editor.
+
 Enjoy!
 
 ## {% linkable_title If you need help... %}
