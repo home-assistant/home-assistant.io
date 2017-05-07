@@ -141,6 +141,9 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
       <li><strong>precip_today_in</strong>: Total precipitation in inches</li>
       <li><strong>precip_today_metric</strong>: Total precipitation in metric units</li>
       <li><strong>precip_today_string</strong>: Text summary of precipitation today</li>
+      <li><strong>precip_1d_mm</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted precipitation intensity in milimeters</li>
+      <li><strong>precip_1d_in</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted precipitation intensity in inches</li>
+      <li><strong>precip_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted precipitation probability in %</li>
       <li><strong>pressure_in</strong>: Atmospheric air pressure in inches</li>
       <li><strong>pressure_mb</strong>: Atmospheric air pressure in millibars</li>
       <li><strong>pressure_trend</strong>: Atmospheric air presure trend signal (+/-)</li>
@@ -150,21 +153,121 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
       <li><strong>temperature_string</strong>: Temperature text combinding Fahrenheit and Celsius</li>
       <li><strong>temp_c</strong>: Current temperature in Celsius</li>
       <li><strong>temp_f</strong>: Current temperature in Fahrenheit</li>
+      <li><strong>temp_high_record_c</strong>: Maximum temperature meassured in Celsius</li>
+      <li><strong>temp_high_record_f</strong>: Maximum temperature meassured in Fahrenheit</li>
+      <li><strong>temp_low_record_c</strong>: Minimal temperature meassured in Celsius</li>
+      <li><strong>temp_low_record_f</strong>: Minimal temperature meassured in Fahrenheit</li>
+      <li><strong>temp_high_avg_c</strong>: Average high for today in Celsius</li>
+      <li><strong>temp_high_avg_f</strong>: Average high for today in Fahrenheit</li>
+      <li><strong>temp_low_avg_c</strong>: Average low for today in Celsius</li>
+      <li><strong>temp_low_avg_f</strong>: Average low for today in Fahrenheit</li>
+      <li><strong>temp_high_1d_c</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted high temperature in Celsius</li>
+      <li><strong>temp_high_1d_f</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted high temperature in Fahrenheit</li>
+      <li><strong>temp_low_1d_c</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted low temperature in Celsius</li>
+      <li><strong>temp_low_1d_f</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted low temperature in Fahrenheit</li>
       <li><strong>UV</strong>: Current levels of UV radiation. See <a href="https://www.wunderground.com/resources/health/uvindex.asp">here</a> for explanation.</li>
       <li><strong>visibility_km</strong>: Average visibility in km</li>
       <li><strong>visibility_mi</strong>: Average visibility in miles</li>
       <li><strong>weather</strong>: A human-readable text summary with picture from Wunderground.</li>
+      <li><strong>weather_1d</strong> <a href="#12h"><sup>[12h]</sup></a>: A human-readable weather forecast using imperial units.</li>
+      <li><strong>weather_1d_metric</strong> <a href="#12h"><sup>[12h]</sup></a>: A human-readable weather forecast using metric units.</li>
+      <li><strong>weather_1h</strong> <a href="#1h"><sup>[1h]</sup></a>: Weather conditions in 1 hour. (e.g. “Thunderstorm” etc.)</li>
       <li><strong>wind_degrees</strong>: Wind degrees</li>
       <li><strong>wind_dir</strong>: Wind direction</li>
       <li><strong>wind_gust_kph</strong>: Wind gusts speed in kph</li>
       <li><strong>wind_gust_mph</strong>: Wind gusts speed in mph</li>
+      <li><strong>wind_gust_1d_kph</strong> <a href="#1d"><sup>[1d]</sup></a>: Max. forecasted Wind in kph</li>
+      <li><strong>wind_gust_1d_mph</strong> <a href="#1d"><sup>[1d]</sup></a>: Max. forecasted Wind in mph</li>
       <li><strong>wind_kph</strong>: Current wind speed in kph</li>
       <li><strong>wind_mph</strong>: Current wind speed in mph</li>
+      <li><strong>wind_1d_kph</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted wind speed in kph</li>
+      <li><strong>wind_1d_mph</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted wind speed in mph</li>
       <li><strong>wind_string</strong>: Text summary of current wind conditions</li>
     </ul>
   </li>
 </ul>
-<p>All the conditions listed above will be updated each 5 minutes with exception of <code class="highlighter-rouge">alerts</code> that will be updated each 15 minutes by default.</p>
+<p>All the conditions listed above will be updated every 5 minutes.</p>
+<h3>Forecasts</h3>
+<p><em>12 hour forecasts</em></p>
+<p>Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour 
+forecasts. To get a forecast for different period/daytime replace the
+<code class="highlighter-rouge">_1d_</code> part of the sensor name.  e.g. <code class="highlighter-rouge">weather_2n</code> will give you forecast for
+tomorrow night. Valid values for day are <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">4</code> and
+valid values for daytime are <code class="highlighter-rouge">d</code> or <code class="highlighter-rouge">n</code>.</p>
+<p><em>Daily forecasts</em></p>
+<p>Conditions above marked with <a name="1d">[1d]</a> are daily forecasts.
+To get forecast for different day, replace the number
+in <code class="highlighter-rouge">_1d_</code> part of the sensor name. Valid values are from
+<code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">4</code>.</p>
+<p><em>Hourly forecasts</em></p>
+<p>Conditions marked with <a name="1h">[1h]</a> are hourly forecasts.
+To get forecast for different hour, replace the number
+in the <code class="highlighter-rouge">_1h_</code> part of the sensor name with <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">36</code>.
+E.g. <code class="highlighter-rouge">weather_24h</code> will give you weather in 24 hours.</p>
+<h1>Additional examples:</h1>
+<h2>Daily forecast</h2>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">wunderground</span>
+  <span class="pi">-</span> <span class="s">api_key</span><span class="pi">:</span> <span class="s">your_api_key</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">weather_1d_metric</span>
+      <span class="pi">-</span> <span class="s">weather_1n_metric</span>
+      <span class="pi">-</span> <span class="s">weather_2d_metric</span>
+      <span class="pi">-</span> <span class="s">weather_2n_metric</span>
+      <span class="pi">-</span> <span class="s">weather_3d_metric</span>
+      <span class="pi">-</span> <span class="s">weather_3n_metric</span>
+      <span class="pi">-</span> <span class="s">weather_4d_metric</span>
+      <span class="pi">-</span> <span class="s">weather_4n_metric</span>
+
+<span class="s">group</span><span class="pi">:</span>
+    <span class="s">dialy_forecast</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Daily Forecast</span>
+      <span class="s">entities</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_1d_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_1n_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_2d_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_2n_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_3d_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_3n_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_4d_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_4n_metric</span>
+</code></pre>
+</div>
+<p><img src="/images/screenshots/wunderground_daily_forecast.png" alt="Daily Forecast" /></p>
+<h2>Weather overview</h2>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">wunderground</span>
+  <span class="pi">-</span> <span class="s">api_key</span><span class="pi">:</span> <span class="s">your_api_key</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temp_high_record_c</span>
+      <span class="pi">-</span> <span class="s">temp_high_1d_c</span>
+      <span class="pi">-</span> <span class="s">temp_c</span>
+      <span class="pi">-</span> <span class="s">temp_low_1d_c</span>
+      <span class="pi">-</span> <span class="s">temp_low_record_c</span>
+      <span class="pi">-</span> <span class="s">precip_1d</span>
+      <span class="pi">-</span> <span class="s">precip_1d_mm</span>
+      <span class="pi">-</span> <span class="s">wind_kph</span>
+      <span class="pi">-</span> <span class="s">wind_1d_kph</span>
+      <span class="pi">-</span> <span class="s">alerts</span>
+
+<span class="s">group</span><span class="pi">:</span>
+    <span class="s">weather_overview</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Weather overview</span>
+      <span class="s">entities</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_weather_1d_metric</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_temp_high_record_c</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_temp_high_1d_c</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_temp_c</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_temp_low_1d_c</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_temp_low_record_c</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_precip_1d</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_precip_1d_mm</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_wind_kph</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_wind_1d_kph</span>
+        <span class="pi">-</span> <span class="s">sensor.pws_alerts</span>
+</code></pre>
+</div>
+<p><img src="/images/screenshots/wunderground_weather_overview.png" alt="Weather overview" /></p>
 <p class="note warning">
 Note: While the platform is called “wunderground” the sensors will show up in Home Assistant as “PWS” (eg: sensor.pws_weather).
 </p>
