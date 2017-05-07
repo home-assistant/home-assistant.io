@@ -5,7 +5,7 @@
   "release_notes_path": "/blog/2017/05/06/zigbee-opencv-dlib/",
   "release_title": "Home Assistant 0.44: ZigBee, OpenCV and DLib",
   "release_description": "Speak natively with Zigbee network, detect faces with OpenCV: 0.44 is here.",
-  "patch_version_notes": "",
+  "patch_version_notes": "#release-0441---may-7",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
