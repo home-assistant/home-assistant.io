@@ -45,10 +45,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
 
-## {% linkable_title Release 0.44.2 - May 7 %}
+## {% linkable_title Release 0.44.2 - May 8 %}
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
-
 
 ## {% linkable_title Release 0.44.1 - May 7 %}
 
