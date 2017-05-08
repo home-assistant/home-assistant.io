@@ -35,15 +35,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add https certificate expiry sensor ([@fabfurnari] - [#7272]) ([sensor.cert_expiry docs])
 - RSS feed template ([@micw] - [#7032]) ([rss_feed_template docs])
 - Add support for Zigbee Home Automation ([@rcloran] - [#6263]) ([zha docs]) ([binary_sensor.zha docs]) ([light.zha docs]) ([sensor.zha docs]) ([switch.zha docs])
-- light.blinkt: add support for Blinkt! lights on Raspberry Pi ([@imrehg] - [#7377]) ([light.blinkt docs])
+- Support for Blinkt! lights on Raspberry Pi ([@imrehg] - [#7377]) ([light.blinkt docs])
 - Plant automation ([@ChristianKuehnel] - [#7131]) ([plant docs])
 - Add Eight sleep component ([@mezz64] - [#7275]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs])
 - OpenGarage support ([@swbradshaw] - [#7338]) ([cover.opengarage docs])
 - Add Sensibo climate platform ([@andrey-git] - [#7379]) ([climate docs])
 - Pilight binary sensor components ([@zeltom] - [#6774]) ([binary_sensor.pilight docs])
 - Opencv ([@Teagan42] - [#7261]) ([opencv docs]) ([image_processing.opencv docs])
-- Add new sensor: Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
+- Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
+
+## {% linkable_title Release 0.44.2 - May 7 %}
+
+- Fix opening add-ons in Hass.io store that are not installed ([@balloob])
+
 
 ## {% linkable_title Release 0.44.1 - May 7 %}
 
