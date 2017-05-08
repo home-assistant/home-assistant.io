@@ -61,6 +61,7 @@ The config for an add-on is stored in `config.json`.
   "version": "1.2",
   "slug": "folder",
   "description": "long descripton",
+  "url": "possible to set a single url",
   "startup": "before|after|once",
   "boot": "auto|manual",
   "ports": {
