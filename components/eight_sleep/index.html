@@ -68,6 +68,7 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">eight_sleep</code> component allows Home Assistant to fetch data from your <a href="https://eightsleep.com/">Eight Sleep</a> smart cover or mattress.</p>
 <p>It’s setup utilizing ‘Sensor’ components to convey the current state of your bed and results of your sleep sessions and a ‘Binary Sensor’ component to indicate your presence in the bed.  A service is also provided to set the heating level and duration of the bed.</p>
+<p>You must have at least two sleep sessions recorded in the Eight Sleep app prior to setting up the Home Assistant component.</p>
 <p>To get started add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">eight_sleep</span><span class="pi">:</span>
@@ -87,6 +88,9 @@
   <li>eight_left/right_bed_state</li>
   <li>eight_left/right_sleep_session</li>
   <li>eight_left/right_previous_sleep_session</li>
+  <li>eight_left/right_bed_temperature</li>
+  <li>eight_left/right_sleep_stage</li>
+  <li>eight_room_temperature</li>
 </ul>
 <p>Binary Sensors:</p>
 <ul>
