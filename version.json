@@ -1,15 +1,15 @@
 {
-  "current_version": "0.44.0",
-  "release_date": "2017-05-06T00:00:00+00:00",
+  "current_version": "0.44.2",
+  "release_date": "2017-05-08T00:00:00+00:00",
   "release_notes": "https://home-assistant.io/blog/2017/05/06/zigbee-opencv-dlib/",
   "release_notes_path": "/blog/2017/05/06/zigbee-opencv-dlib/",
   "release_title": "Home Assistant 0.44: ZigBee, OpenCV and DLib",
   "release_description": "Speak natively with Zigbee network, detect faces with OpenCV: 0.44 is here.",
-  "patch_version_notes": "#release-0441---may-7",
+  "patch_version_notes": "#release-0442---may-8",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
     "minor": 44,
-    "patch": 0
+    "patch": 2
   }
 }
