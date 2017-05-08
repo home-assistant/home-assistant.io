@@ -16,6 +16,8 @@ The `eight_sleep` component allows Home Assistant to fetch data from your [Eight
 
 It's setup utilizing 'Sensor' components to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' component to indicate your presence in the bed.  A service is also provided to set the heating level and duration of the bed.
 
+You must have at least two sleep sessions recorded in the Eight Sleep app prior to setting up the Home Assistant component.
+
 To get started add the following information to your `configuration.yaml` file:
 
 ```yaml
@@ -38,6 +40,9 @@ Sensors:
 - eight_left/right_bed_state
 - eight_left/right_sleep_session
 - eight_left/right_previous_sleep_session
+- eight_left/right_bed_temperature
+- eight_left/right_sleep_stage
+- eight_room_temperature
 
 Binary Sensors:
 
