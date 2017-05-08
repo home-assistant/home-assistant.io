@@ -55,9 +55,9 @@ Another good source of this data would be the [Mi Flora](https://home-assistant.
 
 If the sensor data within the the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
-## data source
+## Data Source
 
-The main sources of the data will usually be a [MiFlora sensor](sensor.miflora) or a [MQTT sensor](sensor.mqtt) receiving the data from a [PlantGatway](https://github.com/ChristianKuehnel/plantgateway).
+The main sources of the data will usually be a [MiFlora sensor](sensor.miflora) or a [MQTT sensor](sensor.mqtt) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
 
 If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:
 ```yaml
