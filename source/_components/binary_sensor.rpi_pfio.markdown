@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Binary Sensor
-ha_release: 0.44.3
+ha_release: 0.45
 ---
 
 The `rpi_pfio` binary sensor platform allows you to read sensor values of the [PiFace Digital I/O](https://www.element14.com/community/docs/DOC-69001) .
