@@ -58,8 +58,8 @@ Next up is to create and change to a virtual environment for Home Assistant. Thi
 ```bash
 $ sudo su -s /bin/bash homeassistant
 $ cd /srv/homeassistant
-$ python3 -m venv .
-$ source bin/activate
+$ python3 -m venv homeassistant_venv
+$ source homeassistant_venv/bin/activate
 ```
 Once you have activated the virtual environment you will notice the prompt change and then you can install Home Assistant.
 
