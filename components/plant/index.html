@@ -110,8 +110,8 @@
 <p>This is a practial example that uses a multiple of <code class="highlighter-rouge">MQTT sensors</code> to supply the readings used by the <code class="highlighter-rouge">plant</code> sensor.
 Another good source of this data would be the <a href="https://home-assistant.io/components/sensor.miflora/">Mi Flora</a> component.</p>
 <p>If the sensor data within the the min/max values the status will be <code class="highlighter-rouge">ok</code>, if not the status will be <code class="highlighter-rouge">problem</code>. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.</p>
-<h2>data source</h2>
-<p>The main sources of the data will usually be a <a href="sensor.miflora">MiFlora sensor</a> or a <a href="sensor.mqtt">MQTT sensor</a> receiving the data from a <a href="https://github.com/ChristianKuehnel/plantgateway">PlantGatway</a>.</p>
+<h2>Data Source</h2>
+<p>The main sources of the data will usually be a <a href="sensor.miflora">MiFlora sensor</a> or a <a href="sensor.mqtt">MQTT sensor</a> receiving the data from a <a href="https://github.com/ChristianKuehnel/plantgateway">PlantGateway</a>.</p>
 <p>If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">plant</span><span class="pi">:</span>
