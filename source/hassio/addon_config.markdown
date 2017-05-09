@@ -63,12 +63,12 @@ The config for an add-on is stored in `config.json`.
   "description": "long descripton",
   "arch": ["amd64"],
   "url": "website with more information about add-on (ie a forum thread for support)",
-  "startup": "before|after|once",
-  "boot": "auto|manual",
+  "startup": "before",
+  "boot": "auto",
   "ports": {
     "123/tcp": 123
   },
-  "map": ["config", "ssl", "addons", "backup"],
+  "map": ["config", "ssl"],
   "options": {},
   "schema": {},
   "image": "repo/{arch}-my-custom-addon"
