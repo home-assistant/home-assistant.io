@@ -11,7 +11,7 @@ footer: true
 
 The following debug tips and tricks are for people who are running the Hass.io image. If you use the generic Linux installer script, you should be able to access your host and logs as per your host.
 
-## {% linkable_title SSH acces to the host %}
+## {% linkable_title SSH access to the host %}
 
 Create an `authorized_keys` file in the root of your SD card with your public key. Once the device is booted, you can acces your device as root over SSH on port 22222.
 
