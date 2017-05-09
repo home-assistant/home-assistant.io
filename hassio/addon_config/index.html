@@ -108,6 +108,7 @@ CMD [ "/run.sh" ]
   </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.2"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"long descripton"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"arch"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"amd64"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website with more information about add-on (ie a forum thread for support)"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"startup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"before|after|once"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"boot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto|manual"</span><span class="p">,</span><span class="w">
@@ -121,6 +122,52 @@ CMD [ "/run.sh" ]
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>yes</td>
+      <td>Name of the addon</td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>yes</td>
+      <td>Version of the addon</td>
+    </tr>
+    <tr>
+      <td>slug</td>
+      <td>yes</td>
+      <td>Slug of the addon</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>yes</td>
+      <td>Description of the addon</td>
+    </tr>
+    <tr>
+      <td>arch</td>
+      <td>no</td>
+      <td>List of supported arch: <code class="highlighter-rouge">armhf</code>, <code class="highlighter-rouge">aarch64</code>, <code class="highlighter-rouge">amd64</code>, <code class="highlighter-rouge">i386</code>. Default all.</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>no</td>
+      <td>Homepage of the addon. Here you can explain the add-ons and options.</td>
+    </tr>
+    <tr>
+      <td>startup</td>
+      <td>yes</td>
+      <td><code class="highlighter-rouge">before</code> homeassistant will start. <code class="highlighter-rouge">after</code> homeassistant will start or <code class="highlighter-rouge">once</code> for application they don’t run as deamon.</td>
+    </tr>
+  </tbody>
+</table>
 <h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
 <p>The <code class="highlighter-rouge">options</code> dict contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start. Only non-nested arrays are supported.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
