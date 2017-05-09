@@ -69,6 +69,16 @@
   <hr class="divider">
   <p>The fastest way to develop add-ons is by adding them to your local add-on repository. To access your local add-on repository, install either the <a href="/addons/samba/">Samba add-on</a> or <a href="/addons/ssh/">SSH add-on</a>.</p>
 <p>Right now add-ons will only work with images that are stored on Dockerhub (using <code class="highlighter-rouge">image</code> from add-on config). We’re working on enabling local add-ons to be built on the device.</p>
+<h2><a class="title-link" name="local-run" href="#local-run"></a> Local run</h2>
+<p>You can build an try the addon on your developer machine also. Move all addon stuff into a temp folder. Replace on Dockerfile: <code class="highlighter-rouge">%%VERSION%%</code> with your version and <code class="highlighter-rouge">%%BASE_IMAGE%%</code> with:</p>
+<ul>
+  <li>armhf: <code class="highlighter-rouge">resin/armhf-alpine:3.5</code></li>
+  <li>aarch64: <code class="highlighter-rouge">resin/aarch64-alpine:3.5</code></li>
+  <li>amd64: <code class="highlighter-rouge">resin/amd64-alpine:3.5</code></li>
+  <li>i386: <code class="highlighter-rouge">resin/i386-alpine:3.5</code></li>
+</ul>
+<p>Use docker to build the test addon: <code class="highlighter-rouge">docker build -t local/my-test-addon .</code></p>
+<p>Create a new folder for data and add a test <em>options.json</em>. After that you can run our addon with: <code class="highlighter-rouge">docker run --rm -v /tmp/my_test_data:/data -p PORT_STUFF_IF_NEEDED local/my-test-addon</code></p>
 <h2><a class="title-link" name="logs" href="#logs"></a> Logs</h2>
 <p>All stdout and stderr is redirected to the Docker logs. The logs can be fetched from the add-on page inside the Hass.io panel in Home Assistant.</p>
 </article>
