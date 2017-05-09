@@ -34,7 +34,6 @@ Configuration variables:
 - **ports** array (*Required*): Array of used ports.
   - **num** (*Required*): Port number.
     - **name** (*Required*): Port name.
-    - **pull_mode** (*Optional*): The internal pull to use (UP or DOWN). Default is UP.
     - **settle_time** (*Optional*): The time in milliseconds for port debouncing. Default is 20ms.
     - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
 
