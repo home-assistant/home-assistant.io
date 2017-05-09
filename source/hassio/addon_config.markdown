@@ -61,6 +61,7 @@ The config for an add-on is stored in `config.json`.
   "version": "1.2",
   "slug": "folder",
   "description": "long descripton",
+  "arch": ["amd64"],
   "url": "website with more information about add-on (ie a forum thread for support)",
   "startup": "before|after|once",
   "boot": "auto|manual",
@@ -73,6 +74,16 @@ The config for an add-on is stored in `config.json`.
   "image": "repo/{arch}-my-custom-addon"
 }
 ```
+
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| name | yes | Name of the addon
+| version | yes | Version of the addon
+| slug | yes | Slug of the addon
+| description | yes | Description of the addon
+| arch | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
+| url | no | Homepage of the addon. Here you can explain the add-ons and options.
+| startup | yes | `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
 
 ### {% linkable_title Options / Schema %}
 
