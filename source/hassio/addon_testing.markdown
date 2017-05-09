@@ -23,7 +23,7 @@ You can build an try the addon on your developer machine also. Move all addon st
 
 Use docker to build the test addon: `docker build -t local/my-test-addon .`
 
-Create a new folder for data and add a test _options.json_. After that you can run our addon with: `docker run --rm -v /tmp/my_test_data:/data -P PORT_STUFF_IF_NEEDED local/my-test-addon`
+Create a new folder for data and add a test _options.json_. After that you can run our addon with: `docker run --rm -v /tmp/my_test_data:/data -p PORT_STUFF_IF_NEEDED local/my-test-addon`
 
 ## {% linkable_title Logs %}
 
