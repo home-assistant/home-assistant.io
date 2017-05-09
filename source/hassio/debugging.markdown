@@ -13,7 +13,7 @@ The following debug tips and tricks are for people who are running the Hass.io i
 
 ## {% linkable_title SSH access to the host %}
 
-Create an `authorized_keys` file in the root of your SD card with your public key. Once the device is booted, you can acces your device as root over SSH on port 22222.
+Create an `authorized_keys` file in the root of your SD card with your public key. Once the device is booted, you can access your device as root over SSH on port 22222.
 
 Windows instructions how to generate and use private/public keys with Putty are [here][windows-keys]. Instead of the droplet instructions, add the public key as per above instructions.
 
