@@ -134,22 +134,22 @@ CMD [ "/run.sh" ]
     <tr>
       <td>name</td>
       <td>yes</td>
-      <td>Name of the addon</td>
+      <td>Name of the add-on</td>
     </tr>
     <tr>
       <td>version</td>
       <td>yes</td>
-      <td>Version of the addon</td>
+      <td>Version of the add-on</td>
     </tr>
     <tr>
       <td>slug</td>
       <td>yes</td>
-      <td>Slug of the addon</td>
+      <td>Slug of the add-on</td>
     </tr>
     <tr>
       <td>description</td>
       <td>yes</td>
-      <td>Description of the addon</td>
+      <td>Description of the add-on</td>
     </tr>
     <tr>
       <td>arch</td>
@@ -165,6 +165,36 @@ CMD [ "/run.sh" ]
       <td>startup</td>
       <td>yes</td>
       <td><code class="highlighter-rouge">before</code> homeassistant will start. <code class="highlighter-rouge">after</code> homeassistant will start or <code class="highlighter-rouge">once</code> for application they don’t run as deamon.</td>
+    </tr>
+    <tr>
+      <td>boot</td>
+      <td>yes</td>
+      <td><code class="highlighter-rouge">auto</code> by system and manual or only <code class="highlighter-rouge">manual</code></td>
+    </tr>
+    <tr>
+      <td>ports</td>
+      <td>no</td>
+      <td>Network ports they will be expose in docker style</td>
+    </tr>
+    <tr>
+      <td>map</td>
+      <td>no</td>
+      <td>List of maps for additional hass.io folders. Possible values: <code class="highlighter-rouge">config</code>, <code class="highlighter-rouge">ssl</code>, <code class="highlighter-rouge">addons</code>, <code class="highlighter-rouge">backup</code></td>
+    </tr>
+    <tr>
+      <td>options</td>
+      <td>yes</td>
+      <td>Default options value of the add-on</td>
+    </tr>
+    <tr>
+      <td>schema</td>
+      <td>yes</td>
+      <td>Schema for options value of the add-on</td>
+    </tr>
+    <tr>
+      <td>image</td>
+      <td>no</td>
+      <td>For custom add-ons.</td>
     </tr>
   </tbody>
 </table>
