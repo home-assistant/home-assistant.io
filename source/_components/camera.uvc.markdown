@@ -23,12 +23,11 @@ camera:
   - platform: uvc
     nvr: IP_ADDRESS
     key: API_KEY
-    password: PASSWORD
 ```
 
 Configuration variables:
 
 - **nvr** (*Required*): The IP or hostname of the NVR (Network Video Recorder) server.
-- **port** (*Optional*): The port number to use for accessing the NVR.
 - **key** (*Required*): The API key available from the NVR web interface.
-- **password** (*Optional*): The camera password. (defaults to `ubnt` if not given)
+- **port** (*Optional*): The port number to use for accessing the NVR.
+- **password** (*Optional*): The camera password. Defaults to `ubnt` if not given.
