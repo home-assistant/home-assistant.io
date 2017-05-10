@@ -15,6 +15,8 @@ ha_release: 0.45
 
 The `toon` component platform can be used to control your Toon thermostat. This component adds a climate device for your Toon thermostat and sensors for power and gas consumption. The component also auto-detects any smart plugs, solar panels and smoke detectors connected to Toon and adds sensors and switches for them.
 
+For the `toon` component to work, you'll need an active Toon subscription with Eneco. The component uses your Mijn Eneco credentials to control your thermostat through the [toonopafstand](https://toonopafstand.eneco.nl) website.
+
 To use your Toon thermostat in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
