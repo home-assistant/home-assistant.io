@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Toon van Eneco"
+title: "Toon"
 description: "Instructions on how to integrate the Toon thermostat with Home Assistant."
 date: 2017-05-10 12:00
 sidebar: true
@@ -13,7 +13,7 @@ ha_release: 0.45
 ---
 
 
-The `toon` component platform can be used to control your Toon thermostat. This component adds a climate device for your Toon thermostat and sensors for power and gas consumption. The component also auto-detects any smart plugs connected, solar panels and smoke detectors connected to Toon and adds sensors and switches for them.
+The `toon` component platform can be used to control your Toon thermostat. This component adds a climate device for your Toon thermostat and sensors for power and gas consumption. The component also auto-detects any smart plugs, solar panels and smoke detectors connected to Toon and adds sensors and switches for them.
 
 To use your Toon thermostat in your installation, add the following to your `configuration.yaml` file:
 
