@@ -12,7 +12,7 @@ ha_category: Binary Sensor
 ha_release: 0.45
 ---
 
-The `rpi_pfio` binary sensor platform allows you to read sensor values of the [PiFace Digital I/O](https://www.element14.com/community/docs/DOC-69001) .
+The `rpi_pfio` binary sensor platform allows you to read sensor values of the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) .
 
 To use your PiFace Digital I/O module in your installation, add the following to your `configuration.yaml` file:
 
@@ -34,6 +34,6 @@ Configuration variables:
 - **ports** array (*Required*): Array of used ports.
   - **num** (*Required*): Port number.
     - **name** (*Required*): Port name.
-    - **settle_time** (*Optional*): The time in milliseconds for port debouncing. Default is 20ms.
+    - **settle_time** (*Optional*): The time in milliseconds for port debouncing. Default is 2 0ms.
     - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
 
