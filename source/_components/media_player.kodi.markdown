@@ -51,11 +51,3 @@ Add music to the default playlist (i.e. playlistid=0).
 | `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.
 | `artist_name` | no | Optional artist name for filtering media.
 
-### {% linkable_title Service `kodi_set_shuffle` %}
-
-Set shuffling state.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of entities to set.
-| `shuffle_on` | yes | True/false for enabling/disabling shuffle
