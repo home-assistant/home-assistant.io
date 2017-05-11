@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Let's Encrypt"
+title: "Duck DNS"
 description: "Automatically update your Duck DNS ip address."
 date: 2017-04-30 13:28
 sidebar: true
@@ -22,3 +22,4 @@ Configuration variables:
 
 - **token** (*Required*): Your Duck DNS API key.
 - **domains** (*Required*): A list of domains to update dns.
+- **seconds** (*Optional*): Seconds between updates to Duck DNS.
