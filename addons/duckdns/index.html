@@ -6,13 +6,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Let's Encrypt - Home Assistant</title>
+    <title>Duck DNS - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Automatically update your Duck DNS ip address.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/addons/duckdns/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Let's Encrypt">
+    <meta property="og:title" content="Duck DNS">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/addons/duckdns/">
     <meta property="og:type" content="article">
@@ -20,7 +20,7 @@
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Let's Encrypt">
+    <meta name="twitter:title" content="Duck DNS">
     <meta name="twitter:description" content="Automatically update your Duck DNS ip address.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -63,14 +63,14 @@
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_addons/duckdns.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Let's Encrypt
+      Duck DNS
     </h1>
   </header>
   <hr class="divider">
   <p><a href="https://duckdns.org/">Duck DNS</a> is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sdfj-2131023-dslfjsd-12321"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mqtt.example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hass.example.com"</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"my-first-accound.duckdns.org"</span><span class="p">,</span><span class="w"> </span><span class="s2">"my-second-account.duckdns.org"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -78,6 +78,7 @@
 <ul>
   <li><strong>token</strong> (<em>Required</em>): Your Duck DNS API key.</li>
   <li><strong>domains</strong> (<em>Required</em>): A list of domains to update dns.</li>
+  <li><strong>seconds</strong> (<em>Optional</em>): Seconds between updates to Duck DNS.</li>
 </ul>
 </article>
         </div>
