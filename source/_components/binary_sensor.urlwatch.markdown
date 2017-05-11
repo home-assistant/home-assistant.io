@@ -13,7 +13,7 @@ ha_release: 0.45
 ---
 
 The `urlwatch` binary sensor fetches web content from a configured URL and calculates and stores a hash from it.
-It will compare this hash against future caclulated hashes for that URL, if it detects a different one it's state switches to on.
+It will compare this hash against future calculated hashes for that URL, if it detects a different one it's state switches to on.
 It currently only compares the html content, no headers.
 
 To use your the `urlwatch` binary sensor in your installation, add the following to your `configuration.yaml` file:
