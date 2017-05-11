@@ -32,6 +32,7 @@ Configuration variables:
 
 - **host** (*Required*): IP address where your NZBGet installation is running.
 - **port** (*Optional*): The port of your NZBGet installation. Defaults to 6789.
+- **ssl** (*Optional*): Whether or not to use SSL to access NZBGet. Defaults to false.
 - **name** (*Optional*): The prefix to use for your sensor. Defaults to NZBGet.
 - **username** (*Optional*): The username to access your NZBGet installation.
 - **password** (*Optional*): The password to access your NZBGet installation.
