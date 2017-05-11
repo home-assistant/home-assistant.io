@@ -22,11 +22,13 @@ To enable the Microsoft Face component, add the following lines to your `configu
 # Example configuration.yaml entry
 microsoft_face:
   api_key: YOUR_API_KEY
+  azure_region: eastus2
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): The API key for your Cognitive resource.
+- **azure_region** (*Optional*): The region where you instantiated your Microsoft Cognitive services endpoint
 - **timeout** (*Optional)*: Set timeout for the API connection. Defaults to 10s.
 
 ### {% linkable_title Person and Groups %}
