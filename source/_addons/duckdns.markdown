@@ -14,7 +14,7 @@ footer: true
 ```json
 {
   "token": "sdfj-2131023-dslfjsd-12321",
-  "domains": ["example.com", "mqtt.example.com", "hass.example.com"]
+  "domains": ["my-first-accound.duckdns.org", "my-second-account.duckdns.org"]
 }
 ```
 
