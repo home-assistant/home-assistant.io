@@ -11,7 +11,7 @@ footer: true
 
 The fastest way to develop add-ons is by adding them to your local add-on repository. To access your local add-on repository, install either the [Samba add-on] or [SSH add-on].
 
-Right now add-ons will only work with images that are stored on Docker Hub (using `image` from add-on config). We're working on enabling local add-ons to be built on the device.
+Right now add-ons will work with images that are stored on Docker Hub (using `image` from add-on config). Without `image` inside local add-ons repository it to be built on the device.
 
 ## {% linkable_title Local run %}
 
