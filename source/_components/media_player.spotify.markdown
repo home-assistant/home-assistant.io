@@ -21,17 +21,19 @@ The `spotify` media player platform allows you to control [Spotify](https://www.
 - Spotify Premium account.
 - Spotify Application, properly configured.
 
-To create the required Spotify Application, login to [Spotify Developer](https://developer.spotify.com), visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page, and select **Create An App**. Enter any name and description. Once your application is created, you can view it and discover your **Client ID** and **Client Secret**, which are placed in the Home Assistant configuration file. Finally, add a **Redirect URI** in the following form:
+To create the required Spotify Application:
+- Login to [Spotify Developer](https://developer.spotify.com)
+- Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page
+- Select **Create An App**. Enter any name and description. Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file. 
+- Add a **Redirect URI** in the following forms:
 
-`http://<your_home_assistant_url_or_local_ip>/api/spotify`
+ No SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
 
-If you've set up Home Assistant to use SSL encryption, use:
+ If using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/api/spotify`
 
-`https://<your_home_assistant_url_or_local_ip>/api/spotify`
+The URL is whatever you use to access Home Assistant from outside your network (including port if applicable).
 
-The first part of the URL will be whatever you use to access Home Assistant from outside your network (including port if applicable).
-
-Remember to select **Save** after adding the URI. You may also need to set the `base_url` attribute of the [HTTP Component](https://home-assistant.io/components/http/).
+- Click **Save** after adding the URI. You may also need to set the `base_url` attribute of the [HTTP Component](https://home-assistant.io/components/http/).
 
 
 ## {% linkable_title Configuration %}
