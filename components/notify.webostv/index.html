@@ -99,22 +99,20 @@
 </code></pre>
 </div>
 <p>The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:</p>
-<p>```yaml
-automation:</p>
-<ul>
-  <li>alias: Front door motion
-trigger: 
-  platform: state
-  entity_id: binary_sensor.front_door_motion
-  state: ‘on’
-action:
-  service: notify.livingroom_tv
-  data:
-    message: “Movement detected: Front Door”
-    data:
-      icon: “/home/homeassistant/images/doorbell.png”
- ```</li>
-</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Front door motion</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.front_door_motion</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.livingroom_tv</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Movement</span><span class="nv"> </span><span class="s">detected:</span><span class="nv"> </span><span class="s">Front</span><span class="nv"> </span><span class="s">Door"</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/home/homeassistant/images/doorbell.png"</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
