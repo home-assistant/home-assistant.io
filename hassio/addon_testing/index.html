@@ -68,7 +68,7 @@
   </header>
   <hr class="divider">
   <p>The fastest way to develop add-ons is by adding them to your local add-on repository. To access your local add-on repository, install either the <a href="/addons/samba/">Samba add-on</a> or <a href="/addons/ssh/">SSH add-on</a>.</p>
-<p>Right now add-ons will only work with images that are stored on Docker Hub (using <code class="highlighter-rouge">image</code> from add-on config). We’re working on enabling local add-ons to be built on the device.</p>
+<p>Right now add-ons will work with images that are stored on Docker Hub (using <code class="highlighter-rouge">image</code> from add-on config). Without <code class="highlighter-rouge">image</code> inside local add-ons repository it to be built on the device.</p>
 <h2><a class="title-link" name="local-run" href="#local-run"></a> Local run</h2>
 <p>You can build an try the addon on your developer machine also. Move all addon stuff into a temp folder. Replace in the Dockerfile: <code class="highlighter-rouge">%%VERSION%%</code> with your version and <code class="highlighter-rouge">%%BASE_IMAGE%%</code> with:</p>
 <ul>
