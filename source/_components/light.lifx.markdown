@@ -96,9 +96,10 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `brightness` | Number between 0 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.
-| `period` | Duration (in seconds) between the start of a new color change.
+| `period` | Duration (in seconds) between starting a new color change.
+| `transition` | Duration (in seconds) where lights are actively changing color.
 | `change` | Hue movement per period, in degrees on a color wheel (ranges from 0 to 359).
-| `spread` | Total hue covered by participating lights, in degrees on a color wheel (ranges from 0 to 359).
+| `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
 ### {% linkable_title Service `light.lifx_effect_stop` %}
