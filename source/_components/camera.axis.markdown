@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: axis.png
 ha_category: Camera
-ha_release: "0.44"
+ha_release: "0.45"
 ---
 
 The `Axis` camera platform allows you to stream video from your [Axis](https://www.axis.com/) cameras.
