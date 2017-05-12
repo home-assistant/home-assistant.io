@@ -31,6 +31,7 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Linn / Openhome
  * Denon Network Receivers
  * Bose Soundtouch speakers
+ * Axis Communications security devices
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -64,6 +65,7 @@ Valid values for ignore are:
  * flux_led: (Flux Led/MagicLight)
  * apple_tv: (Apple TV)
  * openhome: (Linn / Openhome)
+ * axis: (Axis Communications security devices)
 
 
 <p class='note'>
