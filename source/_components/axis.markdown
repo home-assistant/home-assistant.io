@@ -47,7 +47,7 @@ Depending on how you run Home Assistant you might be needed to symlink the `gi` 
 ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
 ```
 
-## {% linkable_title Configuration variables % }
+## {% linkable_title Configuration variables %}
 
 - **device** (*Required*): Unique name 
 - **host** (*Required*): The IP address to your Axis device.
