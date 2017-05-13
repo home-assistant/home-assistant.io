@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Check HomeAssistant config"
-description: "Check HomeAssistant config with a new version"
+title: "Check Home Assistant configuration"
+description: "Check Home Assistant configuration against a new version"
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Check actual HomeAssistant config with a HomeAssistant version.
+You can use this addon to check whether your configuration files are valid against the new version of Home Assistant before you actually update your Home Assistant. This will help you avoid errors due to breaking changes, resulting in smooth update.
 
 ```json
 {
@@ -19,4 +19,4 @@ Check actual HomeAssistant config with a HomeAssistant version.
 
 Configuration variables:
 
-- **version** (*Required*): Version of homeassistant they will install from pip.
+- **version** (*Required*): Version of Home Assistant that you plan to install.
