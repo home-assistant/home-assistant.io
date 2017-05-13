@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-13T13:45:43+00:00</updated>
+  <updated>2017-05-13T15:51:10+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,135 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant on an Orange Pi Zero]]></title>
+    <link href="https://home-assistant.io/blog/2017/05/13/home-assistant-on-orange-pi-zero/"/>
+    <updated>2017-05-13T09:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/05/13/home-assistant-on-orange-pi-zero</id>
+    <content type="html"><![CDATA[<p>This blog post is about the setup of Home Assistant on an (Orange Pi Zero)[http://www.orangepi.org/orangepizero/]. Like the setup on a <a href="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/">Raspberry Pi Zero</a> it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability.</p>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-05-orangepi/orangie-pi-setup.png" />
+</p>
+
+<!--more-->
+
+<p>Download the <a href="https://www.armbian.com/orange-pi-zero/">Armbian</a> and create the SD card with <a href="https://etcher.io/">Etcher</a>. There is no possibility to connect a display to the Orange Pi Zero. This means that you need a wired network setup with DHCP server. After your Orange Pi Zero is running, give it some time, and look for its IP address. The hostname is <code class="highlighter-rouge">orangepizero</code>.</p>
+
+<p>If you found the IP address then use your SSH client to connect to the Orange Pi Zero. The default password is <code class="highlighter-rouge">1234</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssh root@192.168.0.151
+<span class="o">[</span>...]
+root@192.168.0.151<span class="s1">'s password: 
+You are required to change your password immediately (root enforced)
+  ___                               ____  _   _____
+ / _ \ _ __ __ _ _ __   __ _  ___  |  _ \(_) |__  /___ _ __ ___
+| | | | '</span>__/ _<span class="sb">`</span> | <span class="s1">'_ \ / _` |/ _ \ | |_) | |   / // _ \ '</span>__/ _ <span class="se">\ </span>
+| |_| | | | <span class="o">(</span>_| | | | | <span class="o">(</span>_| |  __/ |  __/| |  / /|  __/ | | <span class="o">(</span>_<span class="o">)</span> |
+ <span class="se">\_</span>__/|_|  <span class="se">\_</span>_,_|_| |_|<span class="se">\_</span>_, |<span class="se">\_</span>__| |_|   |_| /____<span class="se">\_</span>__|_|  <span class="se">\_</span>__/ 
+                       |___/                                     
+
+Welcome to ARMBIAN 5.27.170514 nightly Ubuntu 16.04.2 LTS 4.11.0-sun8i
+System load:   0.86 0.35 0.13  	Up <span class="nb">time</span>:       9 min
+Memory usage:  5 % of 496MB  	IP:            192.168.0.151
+CPU temp:      39°C
+Usage of /:    16% of 7.1G
+
+<span class="o">[</span> General system configuration: armbian-config <span class="o">]</span>
+New to Armbian? Check the documentation first: https://docs.armbian.com
+
+Changing password <span class="k">for </span>root.
+<span class="o">(</span>current<span class="o">)</span> UNIX password: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+
+You are using Armbian nightly build.
+
+It is provided AS IS with NO WARRANTY and NO END USER SUPPORT.
+
+Creating a new user account. Press &lt;Ctrl-C&gt; to abort
+
+Please provide a username <span class="o">(</span>eg. your forename<span class="o">)</span>: ha
+Trying to add user ha
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE <span class="o">=</span> <span class="s2">"en_US.UTF-8"</span>,
+	LC_ALL <span class="o">=</span> <span class="o">(</span><span class="nb">unset</span><span class="o">)</span>,
+	LC_PAPER <span class="o">=</span> <span class="s2">"de_CH.UTF-8"</span>,
+	LC_MONETARY <span class="o">=</span> <span class="s2">"de_CH.UTF-8"</span>,
+	LC_NUMERIC <span class="o">=</span> <span class="s2">"de_CH.UTF-8"</span>,
+	LC_MESSAGES <span class="o">=</span> <span class="s2">"en_US.UTF-8"</span>,
+	LC_MEASUREMENT <span class="o">=</span> <span class="s2">"de_CH.UTF-8"</span>,
+	LC_TIME <span class="o">=</span> <span class="s2">"de_CH.UTF-8"</span>,
+	LANG <span class="o">=</span> <span class="s2">"en_US.UTF-8"</span>
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale <span class="o">(</span><span class="s2">"en_US.UTF-8"</span><span class="o">)</span>.
+Adding user <span class="sb">`</span>ha<span class="s1">' ...
+Adding new group `ha'</span> <span class="o">(</span>1000<span class="o">)</span> ...
+Adding new user <span class="sb">`</span>ha<span class="s1">' (1000) with group `ha'</span> ...
+Creating home directory <span class="sb">`</span>/home/ha<span class="s1">' ...
+Copying files from `/etc/skel'</span> ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information <span class="k">for </span>ha
+Enter the new value, or press ENTER <span class="k">for </span>the default
+	Full Name <span class="o">[]</span>: homeassistant
+	Room Number <span class="o">[]</span>: 
+	Work Phone <span class="o">[]</span>: 
+	Home Phone <span class="o">[]</span>: 
+	Other <span class="o">[]</span>: 
+Is the information correct? <span class="o">[</span>Y/n] y
+
+Dear homeassistant, your account ha has been created and is sudo enabled.
+Please use this account <span class="k">for </span>your daily work from now on.
+
+<span class="gp">root@orangepizero:~# </span>
+</code></pre>
+</div>
+<p>Get the latest details about the packages.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">root@orangepizero:~# </span>apt-get update
+Hit:1 http://ports.ubuntu.com xenial InRelease
+Get:2 http://ports.ubuntu.com xenial-security InRelease <span class="o">[</span>102 kB]
+Hit:3 http://beta.armbian.com xenial InRelease
+Get:4 http://ports.ubuntu.com xenial-updates InRelease <span class="o">[</span>102 kB]
+Get:5 http://ports.ubuntu.com xenial-backports InRelease <span class="o">[</span>102 kB]
+Get:6 http://ports.ubuntu.com xenial-updates/main armhf Packages <span class="o">[</span>479 kB]
+Get:7 http://ports.ubuntu.com xenial-updates/universe armhf Packages <span class="o">[</span>419 kB]
+Fetched 1205 kB <span class="k">in </span>7s <span class="o">(</span>158 kB/s<span class="o">)</span>
+Reading package lists... Done
+</code></pre>
+</div>
+<p>Let’s run an upgrade to make sure that all available packages are up-to-date.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">root@orangepizero:~# </span>apt-get upgrade
+</code></pre>
+</div>
+<p>Now, we are installing the requirements for Home Assistant.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">root@orangepizero:~# </span>apt-get install python3-dev python3-pip python3-venv
+</code></pre>
+</div>
+
+<p>Those steps to install Home Assistant are described in the <a href="https://home-assistant.io/docs/installation/armbian/">documentation</a> and the guide for <a href="https://home-assistant.io/docs/installation/virtualenv/"><code class="highlighter-rouge">venv</code></a> as well. Switch to the create user <code class="highlighter-rouge">ha</code> and perform the remaining installation steps which are reduced to the minimum below:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">ha@orangepizero:~$ </span>pyvenv-3.5 homeassistant
+<span class="gp">ha@orangepizero:~$ </span><span class="nb">cd </span>homeassistant <span class="o">&amp;&amp;</span> <span class="nb">source </span>bin/activate
+<span class="o">(</span>homeassistant<span class="o">)</span> ha@orangepizero:~/homeassistant<span class="nv">$ </span>pip3 install --upgrade pip
+<span class="o">(</span>homeassistant<span class="o">)</span> ha@orangepizero:~/homeassistant<span class="nv">$ </span>pip3 install homeassistant
+<span class="o">(</span>homeassistant<span class="o">)</span> ha@orangepizero:~/homeassistant<span class="nv">$ </span>hass
+</code></pre>
+</div>
+
+<p class="img">
+  <img src="https://home-assistant.io/images/blog/2017-05-orangepi/orange-pi-running.png" />
+</p>
+
+<p>To make it ready for daily usage, don’t forget to enable <a href="https://home-assistant.io/docs/autostart/">autostart</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Grazer Linuxtage 2017: Python Everywhere]]></title>
@@ -1996,27 +2125,6 @@ Screenshot of all the different functionality the IP webcam integration offers.
   <img src="https://home-assistant.io/images/blog/2017-02-shirts/kids.png" />
   Cool kid listening to music + sidekick. Both wearing the new blue Home Assistant shirt.  – <a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>
 </p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Workshop at CLT 2017]]></title>
-    <link href="https://home-assistant.io/blog/2017/02/14/clt-workshop/"/>
-    <updated>2017-02-14T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/02/14/clt-workshop</id>
-    <content type="html"><![CDATA[<p>There will be a Home Assistant Workshop at the <a href="https://chemnitzer.linux-tage.de/2017/">Chemnitzer Linux-Tage 2017</a>. First I will cover the installation, the setup, and the configuration process. The second part will be all about automation. Last but not least, we will talk about the integration of a new platform/component.</p>
-
-<p>Check the Workshop <a href="https://chemnitzer.linux-tage.de/2017/en/programm/beitrag/356">overview</a> to get the details.</p>
-
-<p><a href="https://chemnitzer.linux-tage.de/2017/en/programm/anmeldung/workshop/356">Reqistration</a> is required as the places in the room are limited. The deadline for the registration is March, 8th 2017.</p>
-
-<ul>
-  <li>Location: Technische Universität Chemnitz, Reichenhainer Straße 90, 09126 Chemnitz, Germany</li>
-  <li>Date: March, 12th 2017</li>
-  <li>Time: 10:00, Room W2</li>
-  <li>Language: German</li>
-</ul>
 
 ]]></content>
   </entry>
