@@ -11,7 +11,7 @@ categories: How-To
 og_image: /images/blog/2017-05-orangepi/social.png
 ---
 
-This blog post is about the setup of Home Assistant on an (Orange Pi Zero)[http://www.orangepi.org/orangepizero/]. Like the setup on a [Raspberry Pi Zero](/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/) it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability. 
+This blog post is about the setup of Home Assistant on an [Orange Pi Zero](http://www.orangepi.org/orangepizero/). Like the setup on a [Raspberry Pi Zero](/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/) it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability. 
 
 <p class="img">
   <img src="/images/blog/2017-05-orangepi/orangie-pi-setup.png" />
