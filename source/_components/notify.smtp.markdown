@@ -37,7 +37,7 @@ Configuration variables:
 - **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
 - **recipient** (*Required*): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.
 - **starttls** (*Optional*): Enables STARTTLS, eg. True or False. Defaults to False.
-- **product_name** (*Optional*): Sets a custom 'product name' in the emails headers (*From*: Custom name <example@mail.com>, *X-Mailer*: Custom name).
+- **sender_name** (*Optional*): Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>).
 - **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
 
 A sample configuration entry for Google Mail.
@@ -57,7 +57,7 @@ notify:
     recipient:
       - james@gmail.com
       - bob@gmail.com
-    product_name: My Home
+    sender_name: My Home Assistant
 ```
 
 Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps').
