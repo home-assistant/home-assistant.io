@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Duck DNS"
-description: "Automatically update your Duck DNS ip address."
+description: "Automatically update your Duck DNS IP address."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-[Duck DNS](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice
+[Duck DNS](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.
 
 ```json
 {
@@ -21,5 +21,5 @@ footer: true
 Configuration variables:
 
 - **token** (*Required*): Your Duck DNS API key.
-- **domains** (*Required*): A list of domains to update dns.
+- **domains** (*Required*): A list of domains to update DNS.
 - **seconds** (*Optional*): Seconds between updates to Duck DNS.
