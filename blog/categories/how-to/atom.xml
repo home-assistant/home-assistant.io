@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-13T15:51:10+00:00</updated>
+  <updated>2017-05-13T16:00:36+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -18,7 +18,7 @@
     <link href="https://home-assistant.io/blog/2017/05/13/home-assistant-on-orange-pi-zero/"/>
     <updated>2017-05-13T09:00:00+00:00</updated>
     <id>https://home-assistant.io/blog/2017/05/13/home-assistant-on-orange-pi-zero</id>
-    <content type="html"><![CDATA[This blog post is about the setup of Home Assistant on an (Orange Pi Zero)[http://www.orangepi.org/orangepizero/]. Like the setup on a [Raspberry Pi Zero](/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/) it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability. 
+    <content type="html"><![CDATA[This blog post is about the setup of Home Assistant on an [Orange Pi Zero](http://www.orangepi.org/orangepizero/). Like the setup on a [Raspberry Pi Zero](/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/) it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability. 
 
 <p class="img">
   <img src="https://home-assistant.io/images/blog/2017-05-orangepi/orangie-pi-setup.png" />
