@@ -27,7 +27,6 @@ To isolate the Home Assistant installation a [venv](https://docs.python.org/3/li
 
 ```bash
 $ sudo mkdir -p /opt/homeassistant
-$ cd /opt/homeassistant
 ```
 Now switch to the new directory, setup the venv, and activate it.
 
