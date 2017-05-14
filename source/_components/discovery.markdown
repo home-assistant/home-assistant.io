@@ -65,7 +65,7 @@ Valid values for ignore are:
  * flux_led: (Flux Led/MagicLight)
  * apple_tv: (Apple TV)
  * openhome: (Linn / Openhome)
- * ikea_tradfri (IKEA Trådfri)
+ * ikea_tradfri: (IKEA Trådfri)
 
 
 <p class='note'>
