@@ -90,7 +90,7 @@ CMD [ "/run.sh" ]
 <p><code class="highlighter-rouge">config.json</code>:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello_world"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first real add-on!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"startup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"before"</span><span class="p">,</span><span class="w">
@@ -149,7 +149,8 @@ The add-on will print Hello world to the logs and then quit.
 <div class="highlighter-rouge"><pre class="highlight"><code># Install requirements for add-on
 RUN apk add --no-cache python3
 
-# Set directory for Python 3 HTTP server to serve
+# Python 3 HTTP Server serves the current working dir
+# So let's set it to our add-on persistent data directory.
 WORKDIR /data
 </code></pre>
 </div>
