@@ -157,7 +157,7 @@ python3 -m http.server
 
 Since we updated the version number in our `config.json`, Home Assistant will show an update button when looking at the add-on details. You might have to refresh your browser or click the refresh button in the add-on store for it to show up. If you did not update the version number, you can also uninstall and install the add-on again. After installing the add-on again, make sure you start it.
 
-Now navigate to [http://hassio.local:8000] to see our server in action!
+Now navigate to [http://hassio.local:8000](http://hassio.local:8000) to see our server in action!
 
 <p class='img'>
 <img src='/images/hassio/tutorial/python3-http-server.png' />
