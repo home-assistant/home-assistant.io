@@ -89,7 +89,7 @@ The config for an add-on is stored in `config.json`.
 | map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on
-| image | no | For custom add-ons.
+| image | no | For use dockerhub.
 
 ### {% linkable_title Options / Schema %}
 
