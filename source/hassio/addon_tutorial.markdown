@@ -48,7 +48,7 @@ CMD [ "/run.sh" ]
 
 `run.sh`:
 ```bash
-echo Hello from my first add-on!
+echo Hello world!
 ```
 
 ## {% linkable_title Step 2: Installing and testing your add-on %}
