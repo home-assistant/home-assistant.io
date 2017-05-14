@@ -79,6 +79,13 @@
   <li><strong>email</strong> (<em>Required</em>): Your email address for registration on Let’s Encrypt.</li>
   <li><strong>domains</strong> (<em>Required</em>): A list of domains to create/renew the certificate.</li>
 </ul>
+<h2><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h2>
+<p>Use the following configuration in Home Assistant to use the generated certificate:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/ssl/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/ssl/privkey.pem</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
