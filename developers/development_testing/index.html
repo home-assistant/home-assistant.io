@@ -66,21 +66,20 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>As states in the <a href="/developers/development_guidelines/">Style guidelines section</a> all code is checked as part of the linting process and unit test were run.</p>
-<h3><a class="title-link" name="local-testing" href="#local-testing"></a> Local testing</h3>
-<p><strong>Important:</strong> Run <code class="highlighter-rouge">tox</code> before you create your pull request to avoid annoying fixes. Local testing requires installing <code class="highlighter-rouge">tox</code>.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install tox
-</code></pre>
-</div>
-<p>Start your code test with <code class="highlighter-rouge">tox</code>.</p>
+  <p>As states in the <a href="/developers/development_guidelines/">Style guidelines section</a> all code is checked to verify all unit tests pass and that the code passes the linting tools. Local testing is done using Tox, which has been installed as part of running <code class="highlighter-rouge">script/setup</code>. To start the tests, simply run it:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>tox
 </code></pre>
 </div>
-<p>This will run unit tests against Python 3.4 and 3.5 (if both are available locally), as well as tests that validate <code class="highlighter-rouge">pep8</code> and <code class="highlighter-rouge">pylint</code> style.</p>
-<h4><a class="title-link" name="testing-tips" href="#testing-tips"></a> Testing Tips</h4>
-<p>You can run tests on only one tox target – just use <code class="highlighter-rouge">-e</code> to select an environment. For example, <code class="highlighter-rouge">tox -e lint</code> runs the linters only, and <code class="highlighter-rouge">tox -e py34</code> runs unit tests only on Python 3.4.</p>
-<p>tox uses virtual environments under the hood to create isolated testing environments. The tox virtual environments will get out-of-date when requirements change, causing test errors. Run <code class="highlighter-rouge">tox -r</code> to create new tox virtual environments.</p>
-<p>During development on a specific file, speed up your workflow by running tests and linting only for the file that you’re working on. To run individual files:</p>
+<p><strong>Important:</strong> Run <code class="highlighter-rouge">tox</code> before you create your pull request to avoid annoying fixes.</p>
+<p>Running Tox will run unit tests against the locally available Pythons, as well as validate the code and document style using <code class="highlighter-rouge">pycodestyle</code>, <code class="highlighter-rouge">pydocstyle</code> and  <code class="highlighter-rouge">pylint</code>. You can run tests on only one tox target – just use <code class="highlighter-rouge">-e</code> to select an environment. For example, <code class="highlighter-rouge">tox -e lint</code> runs the linters only, and <code class="highlighter-rouge">tox -e py34</code> runs unit tests only on Python 3.4.</p>
+<p>Tox uses virtual environments under the hood to create isolated testing environments. The tox virtual environments will get out-of-date when requirements change, causing test errors. Run <code class="highlighter-rouge">tox -r</code> to tell Tox to recreate the virtual environments.</p>
+<p>If you are working on tests for a component or platform and you need the dependencies available inside the Tox environment, update the list inside <code class="highlighter-rouge">script/gen_requirements_all.py</code>. Then run the script and then run <code class="highlighter-rouge">tox -r</code> to recreate the virtual environments.</p>
+<h3><a class="title-link" name="testing-single-files" href="#testing-single-files"></a> Testing single files</h3>
+<p>Running tox will invoke the full test suite. Even if you specify which tox target to run, you still run all tests inside that target. That’s not very convenient to quickly iterate on your code! To be able to run the specific test suites without Tox, you’ll need to install the test dependencies into your Python environment:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bash pip3 install -r requirements_test_all.txt
+</code></pre>
+</div>
+<p>Now that you have all test dependencies installed, you can run tests on individual files:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>flake8 homeassistant/core.py
 <span class="gp">$ </span>pylint homeassistant/core.py
 <span class="gp">$ </span>pydocstyle homeassistant/core.py
@@ -91,6 +90,18 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/lint --changed
 </code></pre>
 </div>
+<h4><a class="title-link" name="pytest-tips" href="#pytest-tips"></a> Py.test tips</h4>
+<p>Py.test has some great command line parameters to help you with the write-test-fix cycle.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Stop after the first test fails</span>
+<span class="gp">$ </span>py.test tests/test_core.py -x
+<span class="c"># Run test with specified name</span>
+<span class="gp">$ </span>py.test tests/test_core.py -k test_split_entity_id
+<span class="c"># Fail a test after it runs for 2 seconds</span>
+<span class="gp">$ </span>py.test tests/test_core.py --timeout 2
+<span class="c"># Show the 10 slowest tests</span>
+<span class="gp">$ </span>py.test tests/test_core.py --duration<span class="o">=</span>10
+</code></pre>
+</div>
 <h3><a class="title-link" name="preventing-linter-errors" href="#preventing-linter-errors"></a> Preventing Linter Errors</h3>
 <p>Save yourself the hassle of extra commits just to fix style errors by enabling the Flake8 git commit hook. Flake8 will check your code when you try to commit to the repository and block the commit if there are any style errors, which gives you a chance to fix them!</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install flake8 flake8-docstrings
@@ -99,7 +110,7 @@
 </div>
 <p>The <code class="highlighter-rouge">flake8-docstrings</code> extension will check docstrings according to <a href="https://www.python.org/dev/peps/pep-0257/">PEP257</a> when running Flake8.</p>
 <h3><a class="title-link" name="notes-on-pylint-and-pep8-validation" href="#notes-on-pylint-and-pep8-validation"></a> Notes on PyLint and PEP8 validation</h3>
-<p>If you can’t avoid a PyLint warning, add a comment to disable the PyLint check for that line with <code class="highlighter-rouge"># pylint: disable=YOUR-ERROR-NAME</code>. An example of an unavoidable PyLint warning is not using the passed-in datetime if you’re listening for a time change.</p>
+<p>If you can’t avoid a PyLint warning, add a comment to disable the PyLint check for that line with <code class="highlighter-rouge"># pylint: disable=YOUR-ERROR-NAME</code>. Example of an unavoidable one is if PyLint incorrectly reports that a certain object doesn’t have a certain member.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
