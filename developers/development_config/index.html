@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Website home-assistant.io - Home Assistant</title>
+    <title>Using Config - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="home-assistant.io web presence">
+    <meta name="description" content="Introduction to the Config object in Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/website/">
+    <link rel="canonical" href="https://home-assistant.io/developers/development_config/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Website home-assistant.io">
+    <meta property="og:title" content="Using Config">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/website/">
+    <meta property="og:url" content="https://home-assistant.io/developers/development_config/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="home-assistant.io web presence">
+    <meta property="og:description" content="Introduction to the Config object in Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Website home-assistant.io">
-    <meta name="twitter:description" content="home-assistant.io web presence">
+    <meta name="twitter:title" content="Using Config">
+    <meta name="twitter:description" content="Introduction to the Config object in Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -62,118 +62,30 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Website home-assistant.io
+      Using Config
     </h1>
   </header>
   <hr class="divider">
-  <p>The website you are reading now is the home of Home Assistant: <a href="https://home-assistant.io">https://home-assistant.io</a>. This is the place where we provide documentation and additional details about Home Assistant for end users and developers.</p>
-<p>home-assistant.io is built using <a href="http://github.com/mojombo/jekyll">Jekyll</a> and <a href="https://pages.github.com/versions/">these available dependencies</a>. The pages are written in <a href="http://daringfireball.net/projects/markdown/">markdown</a>. To add a page, you don’t need to know about HTML.</p>
-<p>You can use the “<strong>Edit this page on GitHub</strong>” link to edit pages without creating a fork. Keep in mind that you can’t upload images while working this way.</p>
-<p>For larger changes, we suggest that you clone the website repository. This way, you can review your changes locally. The process for working on the website is no different from working on Home Assistant itself. You work on your change and propose it via a pull request.</p>
-<p>To test your changes locally, you need to install <strong>Ruby</strong> and its dependencies (gems):</p>
-<ul>
-  <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Install Ruby</a> if you don’t have it already.</li>
-  <li>Install <code class="highlighter-rouge">bundler</code>, a dependency manager for Ruby: <code class="highlighter-rouge">$ gem install bundler</code></li>
-  <li>In your home-assistant.github.io root directory, run <code class="highlighter-rouge">$ bundle</code> to install the gems you need.</li>
-</ul>
-<p>Short cut for Fedora: <code class="highlighter-rouge">$ sudo dnf -y install gcc-c++ ruby ruby-devel rubygem-bundler &amp;&amp; bundle</code></p>
-<p>Then you can work on the documentation:</p>
-<ul>
-  <li>Fork home-assistant.io <a href="https://github.com/home-assistant/home-assistant.github.io">git repository</a>.</li>
-  <li>Create/edit/update a page in the directory <code class="highlighter-rouge">source/_components/</code> for your platform/component.</li>
-  <li>Test your changes to home-assistant.io locally: run <code class="highlighter-rouge">rake preview</code> and navigate to <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></li>
-  <li>Create a Pull Request (PR) against the <strong>next</strong> branch of home-assistant.github.io if your documentation is a new feature, platform, or component.</li>
-  <li>Create a Pull Request (PR) against the <strong>current</strong> branch of home-assistant.github.io if you fix stuff, create Cookbook entries, or expand existing documentation.</li>
-</ul>
-<p class="note">
-It could be necessary that you run <code class="highlighter-rouge">rake generate</code> prior to <code class="highlighter-rouge">rake preview</code> for the very first preview.
-</p>
-<p class="note">
-Site generated by <code class="highlighter-rouge">rake</code> is only available locally. If you are developing on a headless machine use port forwarding:
-<code class="highlighter-rouge">ssh -L 4000:localhost:4000 user_on_headless_machine@ip_of_headless_machine</code>
-</p>
-<h3><a class="title-link" name="create-a-page" href="#create-a-page"></a> Create a page</h3>
-<p>For a platform page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">Component overview</a> and the <a href="/cookbook/">Examples section</a> are generated automatically, so there is no need to add a link to those pages.</p>
-<p>If you start from scratch with a page, you need to add a header. Different sections of the documentation may need different headers.</p>
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>---
-layout: page
-title: "Website home-assistant.io"
-description: "home-assistant.io web presence"
-date: 2015-06-17 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_release: "0.38"
----
-
-Content...Written in markdown. 
-
-### {% linkable_title Linkable Header %}
-...
+  <p>Based on where you are in the code, <code class="highlighter-rouge">config</code> can mean various things.</p>
+<h3><a class="title-link" name="on-the-hass-object" href="#on-the-hass-object"></a> On the hass object</h3>
+<p>On the hass object is an instance of the Config class. The Config class contains the users preferred units, the path to the config directory and which components are loaded. <a href="https://dev-docs.home-assistant.io/en/master/api/core.html#homeassistant.core.Config">See available methods.</a></p>
+<h3><a class="title-link" name="config-passed-into-component-setup" href="#config-passed-into-component-setup"></a> Config passed into component setup</h3>
+<p>The <code class="highlighter-rouge">config</code> parameter passed to a component setup is a dictionary containing all of the user supplied configuration. The keys of the dictionary are the component names and the value is another dictionary with the component configuration.</p>
+<p>The object will have already been validated using your <code class="highlighter-rouge">CONFIG_SCHEMA</code> or <code class="highlighter-rouge">PLATFORM_SCHEMA</code> if available. If you have defined a <code class="highlighter-rouge">PLATFORM_SCHEMA</code>, all references to your component (ie <code class="highlighter-rouge">light 2:</code> etc) will have been changed to be accessible as a list under <code class="highlighter-rouge">config[DOMAIN]</code>.</p>
+<p>If your configuration file contains the following lines:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">example</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">paulusschoutsen.nl</span>
 </code></pre>
 </div>
-<p>There are <a href="https://jekyllrb.com/docs/variables/">pre-definied variables</a> available but usually, it’s not necessary to use them when writing documentation.</p>
-<p>A couple of points to remember:</p>
-<ul>
-  <li>Document the needed steps to retrieve API keys or access token for the third party service or device if needed.</li>
-  <li>Keep the configuration sample minimal by only adding the <code class="highlighter-rouge">Required</code> options. Full configuration details with further explanations should go into a seperate section.</li>
-  <li>The description of all the configuration variables should contains information about the used defaults.</li>
-  <li>If you’re adding a new component, for the <code class="highlighter-rouge">ha_release</code> part of the header, just increment off the current release. If the current release is 0.37, make <code class="highlighter-rouge">ha_release</code> 0.38.</li>
-</ul>
-<h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
-<p>You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in `. For multi-line, syntax wrap your code as shown below.</p>
-<div class="language-text highlighter-rouge"><pre class="highlight"><code> ```yaml
- sensor:
-   platform: template
- ```
-</code></pre>
-</div>
-<p>Note that you can replace <code class="highlighter-rouge">yaml</code> next to ``` with the language that is within the block.</p>
-<p>When you’re writing code that is to be executed on the terminal, prefix it with <code class="highlighter-rouge">$</code>.</p>
-<h3><a class="title-link" name="templates" href="#templates"></a> Templates</h3>
-<p>For the <a href="/topics/templating/">configuration templating</a> is <a href="http://jinja.pocoo.org/">Jinja</a> used.</p>
-<p>If you are using templates then those parts needs to be <a href="http://stackoverflow.com/a/24102537">escaped</a>. Otherwise they will be rendered and appear blank on the website.</p>
-<h3><a class="title-link" name="html" href="#html"></a> HTML</h3>
-<p>The direct usage of HTML is supported but not recommended. The note boxes are an exception.</p>
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'note warning'</span><span class="nt">&gt;</span>
-  You need to enable telnet on your router. 
-<span class="nt">&lt;/p&gt;</span>
-</code></pre>
-</div>
-<h3><a class="title-link" name="redirects" href="#redirects"></a> Redirects</h3>
-<p>If you rename or move an existing platform or component, create the redirect. Add the old location of the page to the header of the new one.</p><pre><code class="language-test">---
-...
-redirect_from: /getting-started/android/
----
-</code></pre>
-<h3><a class="title-link" name="images-icons-and-logos" href="#images-icons-and-logos"></a> Images, icons, and logos</h3>
-<p>The images which are displayed on the pages are stored in various directories according to their purpose.</p>
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Location</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">screenshots</td>
-      <td style="text-align: left">source/images/screenshots</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">logos</td>
-      <td style="text-align: left">source/images/supported_brands</td>
-    </tr>
-  </tbody>
-</table>
-<p>Not everything (product, component, etc.) has a logo. To show something for internal parts of Home Assistant we are using the <a href="https://materialdesignicons.com/">Material Design Icons</a>.</p>
+<p>Then in the setup method of your component you will be able to refer to <code class="highlighter-rouge">config['example']['host']</code> to get the value <code class="highlighter-rouge">paulusschoutsen.nl</code>.</p>
+<h3><a class="title-link" name="passed-into-platform-setup" href="#passed-into-platform-setup"></a> Passed into platform setup</h3>
+<p>The <code class="highlighter-rouge">config</code> parameter passed to a platform setup function is only the config for that specific platform.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/website.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/development_config.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -203,7 +115,7 @@ redirect_from: /getting-started/android/
           <li><a  href='/developers/development_events/'>Events </a></li>
           <li><a  href='/developers/development_states/'>States </a></li>
           <li><a  href='/developers/development_services/'>Services </a></li>
-          <li><a  href='/developers/development_config/'>Config </a></li>
+          <li><a class='active' href='/developers/development_config/'>Config </a></li>
         </ul>
       </li>
       <li>
@@ -258,7 +170,7 @@ redirect_from: /getting-started/android/
       </li>
       <li><a  href='/developers/helpers/'>Online helpers </a></li>
       <li><a  href='/developers/multiple_instances/'>Multiple Instances </a></li>
-      <li><a class='active' href='/developers/website/'>Home-Assistant.io </a></li>
+      <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
       <li><a  href='/developers/releasing/'>Releasing </a></li>
       <li>
         Governance

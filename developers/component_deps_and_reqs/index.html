@@ -67,12 +67,12 @@
   </header>
   <hr class="divider">
   <p>Home Assistant allows components and platforms to specify their dependencies and requirements using the variables <code class="highlighter-rouge">DEPENDENCIES</code> and <code class="highlighter-rouge">REQUIREMENTS</code>. Both are lists that contain strings.</p>
-<h2>Dependencies</h2>
+<h2><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h2>
 <p>Dependencies are other Home Assistant components that should be setup before the platform is loaded. An example is the MQTT sensor component, which requires an active connection to an MQTT broker. If Home Assistant is unable to load and setup the MQTT component, it will not setup the MQTT sensor component.</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s">'mqtt'</span><span class="p">]</span>
 </code></pre>
 </div>
-<h2>Requirements</h2>
+<h2><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h2>
 <p>Requirements are Python libraries that you would normally install using <code class="highlighter-rouge">pip</code> for your component. Home Assistant will try to install the requirements into the <code class="highlighter-rouge">deps</code> subdirectory of the Home Assistant configuration directory (<code class="highlighter-rouge">.home-assistant</code> by default) or verify it is already installed at startup. If that fails, the component will fail to load.</p>
 <p>Requirements is a list of strings. Each entry is a pip compatible string. For example, the media player Cast platform depends on the Python package PyChromecast v0.6.12:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'pychromecast==0.6.12'</span><span class="p">]</span>
@@ -116,6 +116,16 @@
           <li><a  href='/developers/development_testing/'>Testing </a></li>
           <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
           <li><a  href='/developers/development_validation/'>Validation </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development_101/'>Development 101 </a>
+        <ul>
+          <li><a  href='/developers/development_hass_object/'>Hass object </a></li>
+          <li><a  href='/developers/development_events/'>Events </a></li>
+          <li><a  href='/developers/development_states/'>States </a></li>
+          <li><a  href='/developers/development_services/'>Services </a></li>
+          <li><a  href='/developers/development_config/'>Config </a></li>
         </ul>
       </li>
       <li>
