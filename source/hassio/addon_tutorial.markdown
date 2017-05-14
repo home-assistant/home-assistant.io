@@ -78,7 +78,7 @@ Now comes the fun part, time to open the Hass.io UI and install and run your add
  - On the top right click the shopping basket to go to the add-on store.
 
 <p class='img'>
-<img src='/images/hassio/tutorial/main_panel_store_icon.png' />
+<img src='/images/hassio/screenshots/main_panel_store_icon.png' />
 From the Hass.io main panel open the add-on store.
 </p>
 
@@ -86,7 +86,7 @@ From the Hass.io main panel open the add-on store.
  - You should now see a new card called "Local" that lists your add-on!
 
 <p class='img'>
-<img src='/images/hassio/tutorial/local_repository.png' />
+<img src='/images/hassio/screenshots/local_repository.png' />
 The Hass.io add-on store will list all available local add-ons.
 </p>
 
