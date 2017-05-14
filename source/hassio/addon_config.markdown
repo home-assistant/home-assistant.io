@@ -85,7 +85,7 @@ The config for an add-on is stored in `config.json`.
 | url | no | Homepage of the addon. Here you can explain the add-ons and options.
 | startup | yes | `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
 | boot | yes | `auto` by system and manual or only `manual`
-| ports | no | Network ports they will be expose in docker style
+| ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on
