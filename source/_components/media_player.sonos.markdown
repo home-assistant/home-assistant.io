@@ -107,3 +107,15 @@ Clear the sleep timer on a speaker, if one is set.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 
+### {% linkable_title Service `sonos_update_alarm` %}
+
+Update an existing sonos alarm.
+ 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
+| `alarm_id` | no | Integer that is used in Sonos to refer to your alarm.
+| `time` | yes | Time to set the alarm.
+| `volume` | yes | Float for volume level.
+| `enabled` | yes | Boolean for whether or not to enable this alarm.
+| `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players. 
