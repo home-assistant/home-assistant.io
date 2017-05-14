@@ -26,7 +26,7 @@ The following extras are included on the image:
  - GPIO pins are ready to use.
  - Bluetooth is ready to use (supported models only, no Bluetooth LE).
  - SSH server is enabled.
- - A tool called `hassbian_config`. 
+ - A tool called `hassbian-config`. 
 
 ### {% linkable_title Technical Details %}
 

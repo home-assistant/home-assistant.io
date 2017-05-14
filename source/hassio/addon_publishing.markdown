@@ -9,30 +9,29 @@ sharing: true
 footer: true
 ---
 
-At the end, all add-ons are simple docker container. You can use our [build scripts][builder] for automate the hole process our you can build your own docker image and push it manual do a docker hub. Inside your addon `config.json` can you use:
+All add-ons are simple docker containers. You can use our [build scripts][builder] to automate the whole build process or you can build your own docker image and push it manually to a docker hub. Inside your add-on `config.json` you specify the Docker image that will be installed for your add-on:
+
 ```json
-{
-  "image": "myhub/image-addon-name"
-}
 {
   "image": "myhub/image-{arch}-addon-name"
 }
 ```
 
-To specify from where it will load the addon by user installation. With `{arch}` inside image name, you can build your addon for multible architectures.
+You can use `{arch}` inside the image name to support multiple architectures with 1 configuration file. It will be replaced with the architecture of the user when we load the image.
 
-Best praxis is to merge change into a branch like `build`. After you push the addon to docker hub, you can merge this branch to master.
+Development best practices is to merge your changes into a branch like `build`. After you push the add-on to [Docker Hub](https://hub.docker.com/), you can merge this branch to master.
 
 ## {% linkable_title Custom Add-ons %}
 
-You need a docker hub account. It is also possible to use our own docker registrator. Download our [build script][builder] local.
+You need a Docker Hub account to make your own add-ons. Download our [build script][builder] and run one of the following commands.
 
 For a git repository:
+
 ```bash
 # Test only:
 ./create_hassio_addon.sh -a amd64 -s addon-slug -r https://github.com/xy/addons -b branchname
 
-# push do docker hub:
+# push to docker hub:
 ./create_hassio_addon.sh -a amd64 -s addon-slug -r https://github.com/xy/addons -b branchname -p
 
 # create for all supported arch:
@@ -40,11 +39,12 @@ For a git repository:
 ```
 
 For a local repository:
+
 ```bash
 # Test only:
 ./create_hassio_addon.sh -a amd64 -s addon-slug -l /home/xy/my_local_repo
 
-# push do docker hub:
+# push to docker hub:
 ./create_hassio_addon.sh -a amd64 -s addon-slug -l /home/xy/my_local_repo -p
 ```
 

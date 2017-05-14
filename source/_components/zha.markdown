@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: zigbee.png
 ha_category: Hub
-ha_release: 0.39
+ha_release: 0.44
 ---
 
 [ZigBee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
@@ -40,7 +40,7 @@ zha:
 Configuration variables:
 
  - **usb_path** (*Required*): Path to the serial device for the radio.
- - **database_path** (*Required*): Path to the database which will keep persisten newtork data.
+ - **database_path** (*Required*): Path to the database which will keep persistent network data.
 
 
 

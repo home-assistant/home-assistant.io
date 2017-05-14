@@ -19,6 +19,8 @@ Another great new addition is [OpenCV][opencv docs] by [Teagan Glenn][@teagan42]
 
 This release also includes a [new component][rss_feed_template docs] to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!
 
+And finally, for users of the config panel in the UI, we have fixed the issue with the group editor.
+
 Enjoy!
 
 ## {% linkable_title If you need help... %}
@@ -33,15 +35,29 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add https certificate expiry sensor ([@fabfurnari] - [#7272]) ([sensor.cert_expiry docs])
 - RSS feed template ([@micw] - [#7032]) ([rss_feed_template docs])
 - Add support for Zigbee Home Automation ([@rcloran] - [#6263]) ([zha docs]) ([binary_sensor.zha docs]) ([light.zha docs]) ([sensor.zha docs]) ([switch.zha docs])
-- light.blinkt: add support for Blinkt! lights on Raspberry Pi ([@imrehg] - [#7377]) ([light.blinkt docs])
+- Support for Blinkt! lights on Raspberry Pi ([@imrehg] - [#7377]) ([light.blinkt docs])
 - Plant automation ([@ChristianKuehnel] - [#7131]) ([plant docs])
 - Add Eight sleep component ([@mezz64] - [#7275]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs])
 - OpenGarage support ([@swbradshaw] - [#7338]) ([cover.opengarage docs])
 - Add Sensibo climate platform ([@andrey-git] - [#7379]) ([climate docs])
 - Pilight binary sensor components ([@zeltom] - [#6774]) ([binary_sensor.pilight docs])
 - Opencv ([@Teagan42] - [#7261]) ([opencv docs]) ([image_processing.opencv docs])
-- Add new sensor: Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
+- Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
+
+## {% linkable_title Release 0.44.2 - May 8 %}
+
+- Fix opening add-ons in Hass.io store that are not installed ([@balloob])
+
+## {% linkable_title Release 0.44.1 - May 7 %}
+
+- Fix opening add-ons in Hass.io store that are not installed ([@balloob])
+- sensor.envirophat: add missing requirement ([@imrehg] - [#7451]) ([sensor.envirophat docs])
+- Forecasts for weather underground ([@pezinek] - [#7062]) ([sensor.wunderground docs])
+- Upgrade pymysensors to 0.10.0 ([@MartinHjelmare] - [#7469])
+- Fix plant MIN_TEMPERATURE, MAX_TEMPERATURE validation ([@frog32] - [#7476]) ([plant docs])
+- Update to pyunifi 2.12 ([@finish06] - [#7468]) ([device_tracker.unifi docs])
+- MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
 
 <!--more-->
 ## {% linkable_title Breaking changes %}
@@ -485,3 +501,12 @@ influxdb:
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[#7062]: https://github.com/home-assistant/home-assistant/pull/7062
+[#7468]: https://github.com/home-assistant/home-assistant/pull/7468
+[#7469]: https://github.com/home-assistant/home-assistant/pull/7469
+[#7476]: https://github.com/home-assistant/home-assistant/pull/7476
+[@finish06]: https://github.com/finish06
+[@frog32]: https://github.com/frog32
+[@pezinek]: https://github.com/pezinek
+[device_tracker.unifi docs]: https://home-assistant.io/components/device_tracker.unifi/
+[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/

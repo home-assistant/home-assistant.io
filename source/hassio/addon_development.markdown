@@ -11,4 +11,4 @@ footer: true
 
 Add-ons for Hass.io allows the user to extend the functionality around Home Assistant. This can be running an application that Home Assistant can integrate with (like an MQTT broker) or to share the configuration via Samba for easy editing from other computers. Add-ons can be configured via the Hass.io panel in Home Assistant.
 
-Under the hood, add-ons are Docker images published in Docker hub. Developers can create GitHub repositories that contain multiple references to add-ons for easy sharing with the community.
+Under the hood, add-ons are Docker images published in [Docker Hub](https://hub.docker.com/). Developers can create [GitHub](https://github.com) repositories that contain multiple references to add-ons for easy sharing with the community.

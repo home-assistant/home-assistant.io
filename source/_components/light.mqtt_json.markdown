@@ -60,6 +60,7 @@ Configuration variables:
 - **name** (*Optional*): The name of the light. Default is "MQTT JSON Light."
 - **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic defined, else false.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+- **retain** (*Optional*): If the published message should have the retain flag on or not.
 - **rgb** (*Optional*): Flag that defines if the light supports RGB colors. Default is false.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
 - **white_value** (*Optional*): Flag that defines if the light supports white values. Default is false.

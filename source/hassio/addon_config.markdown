@@ -61,17 +61,35 @@ The config for an add-on is stored in `config.json`.
   "version": "1.2",
   "slug": "folder",
   "description": "long descripton",
-  "startup": "before|after|once",
-  "boot": "auto|manual",
+  "arch": ["amd64"],
+  "url": "website with more information about add-on (ie a forum thread for support)",
+  "startup": "before",
+  "boot": "auto",
   "ports": {
     "123/tcp": 123
   },
-  "map": ["config", "ssl", "addons", "backup"],
+  "map": ["config", "ssl"],
   "options": {},
   "schema": {},
   "image": "repo/{arch}-my-custom-addon"
 }
 ```
+
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| name | yes | Name of the add-on
+| version | yes | Version of the add-on
+| slug | yes | Slug of the add-on
+| description | yes | Description of the add-on
+| arch | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
+| url | no | Homepage of the addon. Here you can explain the add-ons and options.
+| startup | yes | `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
+| boot | yes | `auto` by system and manual or only `manual`
+| ports | no | Network ports they will be expose in docker style
+| map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`
+| options | yes | Default options value of the add-on
+| schema | yes | Schema for options value of the add-on
+| image | no | For custom add-ons.
 
 ### {% linkable_title Options / Schema %}
 
