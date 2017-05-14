@@ -36,7 +36,7 @@ CMD [ "/run.sh" ]
 ```json
 {
   "name": "Hello world",
-  "version": "0.1",
+  "version": "1",
   "slug": "hello_world",
   "description": "My first real add-on!",
   "startup": "before",
@@ -106,7 +106,8 @@ Add to your `Dockerfile` before `RUN`:
 # Install requirements for add-on
 RUN apk add --no-cache python3
 
-# Set directory for Python 3 HTTP server to serve
+# Python 3 HTTP Server serves the current working dir
+# So let's set it to our add-on persistent data directory.
 WORKDIR /data
 ```
 
