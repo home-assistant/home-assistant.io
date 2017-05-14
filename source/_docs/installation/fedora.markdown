@@ -14,7 +14,7 @@ footer: true
 Install the development package of Python.
 
 ```bash
-$ sudo dnf -y install python3-devel
+$ sudo dnf -y install python3-devel redhat-rpm-config
 ```
 
 and Home Assistant itself.
