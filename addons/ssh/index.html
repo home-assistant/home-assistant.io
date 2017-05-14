@@ -67,7 +67,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Setting up a <a href="https://openssh.org/">SSH</a> server allows access to hass.io folders with SSH client. It also allows tunneling for access from an external network. Please note that you only need to do this on a ResinOS platform as most Linux flavors have their own SSH server.</p>
+  <p>Setting up an <a href="https://openssh.org/">SSH</a> server allows access to your Hass.io folders with any SSH client. To use this add-on, you must have a private/public key to log in. To generate them, follow the <a href="https://www.digitalocean.com/community/tutorials/how-to-create-ssh-keys-with-putty-to-connect-to-a-vps">instructions for Windows</a> and <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">these for other platforms</a>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"authorized_keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"ssh-rsa AKDJD3839...== my-key"</span><span class="w">
@@ -79,6 +79,9 @@
 <ul>
   <li><strong>authorized_keys</strong> (<em>Required</em>): Your public-keys for authorized keyfile. Every element will be a line inside that file.</li>
 </ul>
+<p class="note">
+This add-on is not compatible when you installed Hass.io via the generic Linux installer.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
