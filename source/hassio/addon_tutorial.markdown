@@ -11,7 +11,25 @@ footer: true
 
 So you've got Home Assistant going and you've been enjoying the built-in add-ons but you're missing this one application. Time to make your own add-on! In Hass.io 0.24 we introduced the option to have local add-ons be build on your device. This is great for developing new add-ons locally.
 
-To get started with developing add-ons, we first need access to where Hass.io looks for local add-ons. You can choose to either enable the Samba add-on for this or use the SSH add-on. Once you have located your add-on directory, it's time to get started!
+To get started with developing add-ons, we first need access to where Hass.io looks for local add-ons. For this you can use the Samba add-on or the SSH add-on.
+
+For Samba, once you have enabled and started it, your Hass.io instance will show up in your local network tab and share a folder called "addons". This is the folder to store your custom add-ons.
+
+<p class='img'>
+<img src='/images/hassio/tutorial/samba.png' />
+With Samba add-on enabled, you can browse to your Hass.io server over the local network. It will contain an addons folder to store your local add-ons.
+</p>
+
+For SSH, you will have to install it. Before you can start it, you will have to have a private/public key pair and store your public key in the add-on config ([see docs for more info][ssh]). Once started, you can SSH to Hass.io and store your custom add-ons in "/addons".
+
+<p class='img'>
+<img src='/images/hassio/tutorial/ssh.png' />
+Once you SSH into your Hass.io box, you have access to your add-ons in "/addons".
+</p>
+
+Once you have located your add-on directory, it's time to get started!
+
+[ssh]: /addons/ssh/
 
 ## {% linkable_title Step 1: The basics %}
 
