@@ -83,6 +83,7 @@
   <li><strong>community</strong> (<em>Optional</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
   <li><strong>baseoid</strong> (<em>Required</em>): The OID where the information is located. It’s advised to use the numerical notation.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
+  <li><strong>version</strong> (<em>Optional</em>) version of SNMP protocol, <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">2c</code> defaults to <code class="highlighter-rouge">1</code>. Version <code class="highlighter-rouge">2c</code> is needed to read data from 64-bit counters.</li>
 </ul>
 <p>The OIDs may vary on different system because they are vendor-specific. Beside the device’s manual is the <a href="http://www.oid-info.com/">OID Repository</a> a good place to start if you are looking for OIDs. The following OIDs are for the load of a Linux systems.</p>
 <ul>
