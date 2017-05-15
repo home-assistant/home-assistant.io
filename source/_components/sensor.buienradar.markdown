@@ -61,3 +61,26 @@ Configuration variables:
   - **precipitation**: the amount of precipitation/rain in mm/h.
   - **irradiance**: Sun intensity in Watt per square meter (W/m2).
 
+A full configuration example:
+
+```yaml
+# Example configuration.yaml entry
+- platform: buienradar
+    latitude: 51.65
+    longitude: 5.70
+    monitored_conditions:
+      - stationname
+      - symbol
+      - humidity
+      - temperature
+      - groundtemperature
+      - windspeed
+      - windforce
+      - winddirection
+      - windazimuth
+      - pressure
+      - visibility
+      - windgust
+      - precipitation
+      - irradiance
+```
