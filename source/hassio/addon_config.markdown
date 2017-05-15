@@ -33,12 +33,11 @@ echo '{ "target": "beer" }' | jq -r ".target"
 
 ## {% linkable_title Add-on Docker file %}
 
-All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. The Dockerfile is also required to have a VERSION environment variable which we will substitute with the version of the add-on.
+All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. 
 
 ```
 FROM %%BASE_IMAGE%%
 
-ENV VERSION %%VERSION%%
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
@@ -49,6 +48,11 @@ COPY run.sh /
 RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
+```
+
+If you don't use local build on device or our build script, make sure that the Dockerfile have also a set of labels include:
+```
+LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 ```
 
 ## {% linkable_title Add-on config %}
