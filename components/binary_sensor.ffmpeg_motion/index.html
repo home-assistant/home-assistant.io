@@ -68,7 +68,7 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">ffmpeg</code> platform allows you to use any video feed with <a href="http://www.ffmpeg.org/">FFmpeg</a> for motion sensors in Home Assistant.</p>
 <p class="note">
-If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sensor will be unavailable. To controll the ffmpeg process of sensor, use the service <em>ffmpeg.start</em>, <em>ffmpeg.stop</em>, <em>ffmpeg.restart</em>.
+If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service <em>ffmpeg.start</em>, <em>ffmpeg.stop</em>, <em>ffmpeg.restart</em>.
 </p>
 <h3><a class="title-link" name="motion" href="#motion"></a> Motion</h3>
 <p>FFmpeg doesn’t have a motion detection filter, but can use a scene filter to detect a new scene/motion. You can set how much needs to change in order to detect motion with the option ‘changes’, the percent value of change between frames. If you want a really small value for ‘changes’, you can also add a denoise filter.</p>

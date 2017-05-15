@@ -76,7 +76,7 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default ‘ffmpeg’. The name or path to the <code class="highlighter-rouge">ffmpeg</code> binary.</li>
+  <li><strong>ffmpeg_bin</strong> (<em>Optional</em>): Default <code class="highlighter-rouge">ffmpeg</code>. The name or path to the <code class="highlighter-rouge">ffmpeg</code> binary.</li>
   <li><strong>run_test</strong> (<em>Optional</em>): Default True. Check if <code class="highlighter-rouge">input</code> is usable by ffmpeg.</li>
 </ul>
 <h3><a class="title-link" name="raspbian-debian-jessie-lite-installations" href="#raspbian-debian-jessie-lite-installations"></a> Raspbian Debian Jessie Lite Installations</h3>
@@ -97,11 +97,42 @@ You need the <code class="highlighter-rouge">ffmpeg</code> binary in your system
 <div class="highlighter-rouge"><pre class="highlight"><code>$ ffmpeg -i INPUT -an -f null -
 </code></pre>
 </div>
-<p>Now you should be able to see what is going wrong.  The following list contains some common problems and solutions:</p>
+<p>Now you should be able to see what is going wrong. The following list contains some common problems and solutions:</p>
 <ul>
   <li><code class="highlighter-rouge">[rtsp @ ...] UDP timeout, retrying with TCP</code>: You need to set an RTSP transport in the configuration with: <code class="highlighter-rouge">input: -rtsp_transport tcp -i INPUT</code></li>
   <li><code class="highlighter-rouge">[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size</code>: FFmpeg needs more data or time for autodetection (the default is 5 seconds). You can set the <code class="highlighter-rouge">analyzeduration</code> and/or <code class="highlighter-rouge">probesize</code> options to experiment with giving FFmpeg more leeway. If you find the needed value, you can set it  with: <code class="highlighter-rouge">input: -analyzeduration xy -probesize xy -i INPUT</code>. More information about this can be found <a href="https://www.ffmpeg.org/ffmpeg-formats.html#Description">here</a>.</li>
 </ul>
+<h4><a class="title-link" name="usb-cameras" href="#usb-cameras"></a> USB cameras</h4>
+<p>For <code class="highlighter-rouge">INPUT</code> a valid source is needed. USB camera are an easy way to test your video setup. To get all available USB cameras connected to the system, eg. use the v4l2 tools on a Linux machine.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>v4l2-ctl --list-devices
+UVC Camera <span class="o">(</span>046d:0825<span class="o">)</span> <span class="o">(</span>usb-0000:00:14.0-1<span class="o">)</span>:
+	/dev/video1
+
+Integrated Camera <span class="o">(</span>usb-0000:00:14.0-10<span class="o">)</span>:
+	/dev/video0
+</code></pre>
+</div>
+<p>Record a test video with your USB device <code class="highlighter-rouge">/dev/video1</code>:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ffmpeg -i /dev/video1 -codec:v libx264 -qp 0 lossless.mp4
+<span class="o">[</span>...]
+Input <span class="c">#0, video4linux2,v4l2, from '/dev/video1':</span>
+  Duration: N/A, start: 43556.376974, bitrate: 147456 kb/s
+    Stream <span class="c">#0:0: Video: rawvideo (YUY2 / 0x32595559), yuyv422, 640x480, 147456 kb/s, 30 fps, 30 tbr, 1000k tbn, 1000k tbc</span>
+<span class="o">[</span>...]
+Output <span class="c">#0, mp4, to 'lossless.mp4':</span>
+  Metadata:
+    encoder         : Lavf57.41.100
+    Stream <span class="c">#0:0: Video: h264 (libx264) ([33][0][0][0] / 0x0021), yuv422p, 640x480, q=-1--1, 30 fps, 15360 tbn, 30 tbc</span>
+    Metadata:
+      encoder         : Lavc57.48.101 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: -1
+Stream mapping:
+  Stream <span class="c">#0:0 -&gt; #0:0 (rawvideo (native) -&gt; h264 (libx264))</span>
+Press <span class="o">[</span>q] to stop, <span class="o">[</span>?] <span class="k">for </span><span class="nb">help
+</span><span class="nv">frame</span><span class="o">=</span>  223 <span class="nv">fps</span><span class="o">=</span> 40 <span class="nv">q</span><span class="o">=</span>-1.0 <span class="nv">Lsize</span><span class="o">=</span>   16709kB <span class="nb">time</span><span class="o">=</span>00:00:07.40 <span class="nv">bitrate</span><span class="o">=</span>18497.5kbits/s <span class="nv">dup</span><span class="o">=</span>58 <span class="nv">drop</span><span class="o">=</span>0 <span class="nv">speed</span><span class="o">=</span>1.32x
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
