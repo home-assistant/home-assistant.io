@@ -53,9 +53,9 @@ Add music to the default playlist (i.e. playlistid=0).
 | `artist_name` | no | Optional artist name for filtering media.
 
 
-### {% linkable_title Service `kodi_run_method` %}
+### {% linkable_title Service `kodi_call_method` %}
 
-Run a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_run_method_result`.
+Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -66,7 +66,7 @@ Run a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optio
 
 ### {% linkable_title Event triggering %}
 
-When calling the `kodi_run_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_run_method_result` event on the event bus with the following `event_data`:
+When calling the `kodi_call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
 
 ```yaml
 entity_id: "<Kodi media_player entity_id>"
@@ -85,7 +85,7 @@ script:
     alias: Turn on TV
     sequence:
       - alias: TV on
-        service: media_player.kodi_run_method
+        service: media_player.kodi_call_method
         data:
             entity_id: media_player.kodi
             method: Addons.ExecuteAddon
@@ -115,7 +115,7 @@ script:
   get_recent_movies:
     alias: Last added movies
     sequence:
-      - service: media_player.kodi_run_method
+      - service: media_player.kodi_call_method
         data:
           entity_id: media_player.kodi
           method: VideoLibrary.GetRecentlyAddedMovies
@@ -128,7 +128,7 @@ script:
   get_recent_episodes:
     alias: Last TV shows
     sequence:
-      - service: media_player.kodi_run_method
+      - service: media_player.kodi_call_method
         data:
           entity_id: media_player.kodi
           method: VideoLibrary.GetRecentlyAddedEpisodes
@@ -141,7 +141,7 @@ script:
   get_pvr_channels:
     alias: TV Channels
     sequence:
-      - service: media_player.kodi_run_method
+      - service: media_player.kodi_call_method
         data:
           entity_id: media_player.kodi
           method: PVR.GetChannels
@@ -153,7 +153,7 @@ The AppDaemon app:
 ```python
 import appdaemon.appapi as appapi
 from homeassistant.components.media_player.kodi import (
-    EVENT_KODI_RUN_METHOD_RESULT)
+    EVENT_KODI_CALL_METHOD_RESULT)
 
 ENTITY = 'input_select.kodi_results'
 MEDIA_PLAYER = 'media_player.kodi'
@@ -167,7 +167,7 @@ class DynamicKodiInputSelect(appapi.AppDaemon):
     def initialize(self):
         """Set up appdaemon app."""
         self.listen_event(self._receive_kodi_result,
-                          EVENT_KODI_RUN_METHOD_RESULT)
+                          EVENT_KODI_CALL_METHOD_RESULT)
         self.listen_state(self._change_selected_result, ENTITY)
         # Input select:
         self._ids_options = {DEFAULT_ACTION: None}
@@ -176,7 +176,7 @@ class DynamicKodiInputSelect(appapi.AppDaemon):
         result = payload_event['result']
         method = payload_event['input']['method']
 
-        assert event_id == EVENT_KODI_RUN_METHOD_RESULT
+        assert event_id == EVENT_KODI_CALL_METHOD_RESULT
         if method == 'VideoLibrary.GetRecentlyAddedMovies':
             values = result['movies'][:MAX_RESULTS]
             data = [('{} ({})'.format(r['label'], r['year']),
