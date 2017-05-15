@@ -89,9 +89,45 @@
 <p>Device configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Name for the device, defaults to RFLink ID.</li>
-  <li><strong>sensor_type</strong> (<em>Required</em>): Override automatically detected type of sensor.</li>
+  <li><strong>sensor_type</strong> (<em>Required</em>): Override automatically detected type of sensor. For list of values see below.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Override automatically detected unit of sensor.</li>
   <li><strong>aliasses</strong> (<em>Optional</em>): Alternative RFLink ID’s this device is known by.</li>
+</ul>
+<p>Sensor type values:</p>
+<ul>
+  <li>average_windspeed</li>
+  <li>barometric_pressure</li>
+  <li>battery</li>
+  <li>weather_forecast</li>
+  <li>doorbell_melody</li>
+  <li>command</li>
+  <li>co2_air_quality</li>
+  <li>current_phase_1</li>
+  <li>current_phase_2</li>
+  <li>current_phase_3</li>
+  <li>distance</li>
+  <li>firmware</li>
+  <li>humidity_status</li>
+  <li>humidity</li>
+  <li>hardware</li>
+  <li>kilowatt</li>
+  <li>light_intensity</li>
+  <li>meter_value</li>
+  <li>total_rain</li>
+  <li>rain_rate</li>
+  <li>total_rain</li>
+  <li>revision</li>
+  <li>noise_level</li>
+  <li>temperature</li>
+  <li>uv_intensity</li>
+  <li>version</li>
+  <li>voltage</li>
+  <li>watt</li>
+  <li>windchill</li>
+  <li>winddirection</li>
+  <li>windgusts</li>
+  <li>windspeed</li>
+  <li>windtemp</li>
 </ul>
 <h3><a class="title-link" name="hidingignoring-sensors" href="#hidingignoring-sensors"></a> Hiding/ignoring sensors</h3>
 <p>Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:</p>
