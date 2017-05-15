@@ -27,7 +27,7 @@ sensor:
 ```
 
 - **mac** (*Required*): The MAC address of your sensor. You can find this be running `hcitool lescan` from command line.
-- **monitored_conditions** array (*Required*): The paramaters that should be monitored.
+- **monitored_conditions** array (*Optional*): The paramaters that should be monitored (defaults to monitoring all parameters).
   - **moisture**: Moisture in the soil.
   - **light**: Brightness at the sensor's location.
   - **temperature**: Temperature at the sensor's location.
