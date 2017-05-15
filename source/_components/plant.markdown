@@ -21,10 +21,10 @@ plant:
   name_of_your_plant:
     sensors:
       moisture: sensor.my_sensor_moisture
-      battery: sensor.my_sensor_moisture_battery
-      temperature: sensor.my_sensor_moisture_temperature
-      conductivity: sensor.my_sensor_moisture_conductivity
-      brightness: sensor.my_sensor_moisture_brightness
+      battery: sensor.my_sensor_battery
+      temperature: sensor.my_sensor_temperature
+      conductivity: sensor.my_sensor_conductivity
+      brightness: sensor.my_sensor_brightness
     min_moisture: 20
 ```
 

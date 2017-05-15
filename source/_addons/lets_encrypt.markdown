@@ -22,3 +22,13 @@ Configuration variables:
 
 - **email** (*Required*): Your email address for registration on Let's Encrypt.
 - **domains** (*Required*): A list of domains to create/renew the certificate.
+
+## {% linkable_title Home Assistant configuration %}
+
+Use the following configuration in Home Assistant to use the generated certificate:
+
+```yaml
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+```

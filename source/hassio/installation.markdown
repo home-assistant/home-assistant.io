@@ -21,6 +21,10 @@ Hass.io images are available for all available Raspberry Pi and intel nuc platfo
 - Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which can take some time.
 - You will be able to reach your installation at [http://hassio.local][local].
 
+<p class='note'>
+If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
+</p>
+
 ### {% linkable_title Alternative: install on generic Linux server %}
 
 For advanced users, it is also possible to try Hass.io on your Linux server or inside a VM. To do so, [follow these instructions][linux].
