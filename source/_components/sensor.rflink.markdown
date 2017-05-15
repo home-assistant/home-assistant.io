@@ -42,9 +42,45 @@ Configuration variables:
 Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to RFLink ID.
-- **sensor_type** (*Required*): Override automatically detected type of sensor.
+- **sensor_type** (*Required*): Override automatically detected type of sensor. For list of values see below.
 - **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
 - **aliasses** (*Optional*): Alternative RFLink ID's this device is known by.
+
+Sensor type values:
+
+- average_windspeed
+- barometric_pressure
+- battery
+- weather_forecast
+- doorbell_melody
+- command
+- co2_air_quality
+- current_phase_1
+- current_phase_2
+- current_phase_3
+- distance
+- firmware
+- humidity_status
+- humidity
+- hardware
+- kilowatt
+- light_intensity
+- meter_value
+- total_rain
+- rain_rate
+- total_rain
+- revision
+- noise_level
+- temperature
+- uv_intensity
+- version
+- voltage
+- watt
+- windchill
+- winddirection
+- windgusts
+- windspeed
+- windtemp
 
 ### {% linkable_title Hiding/ignoring sensors %}
 
