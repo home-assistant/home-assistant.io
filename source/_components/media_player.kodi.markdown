@@ -53,16 +53,6 @@ Add music to the default playlist (i.e. playlistid=0).
 | `artist_name` | no | Optional artist name for filtering media.
 
 
-### {% linkable_title Service `kodi_execute_addon` %}
-
-Run a [Kodi Addon](https://kodi.tv/addons) with optional parameters. Results of the Kodi API call, if any, will be redirected in a Home Assistant event: `kodi_execute_addon_result`.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Kodi entities where to run the (pre-installed) Kodi Addon.
-| `addonid` | yes | Name of the Kodi addon.
-| any other parameter | no | Optional parameters for the Kodi API call.
-
 ### {% linkable_title Service `kodi_run_method` %}
 
 Run a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_run_method_result`.
@@ -76,7 +66,7 @@ Run a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optio
 
 ### {% linkable_title Event triggering %}
 
-When calling the `kodi_run_method` or the `kodi_execute_addon` services, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_run_method_result` or a `kodi_execute_addon_result` event on the event bus with the following `event_data`:
+When calling the `kodi_run_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_run_method_result` event on the event bus with the following `event_data`:
 
 ```yaml
 entity_id: "<Kodi media_player entity_id>"
@@ -95,9 +85,10 @@ script:
     alias: Turn on TV
     sequence:
       - alias: TV on
-        service: media_player.kodi_execute_addon
+        service: media_player.kodi_run_method
         data:
             entity_id: media_player.kodi
+            method: Addons.ExecuteAddon
             addonid: script.json-cec
             params:
                 command: activate
