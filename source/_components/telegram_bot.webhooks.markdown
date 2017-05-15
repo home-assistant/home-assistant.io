@@ -37,7 +37,7 @@ Configuration variables:
 - **api_key** (*Required*): The API token of your bot.
 - **trusted_networks** (*Optional*): Telegram server access ACL as list. Defaults to `149.154.167.197-233`.
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components.notify.telegram) .
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram) .
 
 Full configuration sample:
 
