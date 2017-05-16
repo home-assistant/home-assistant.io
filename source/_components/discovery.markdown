@@ -30,6 +30,8 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Flux Led/MagicLight
  * Linn / Openhome
  * Denon Network Receivers
+ * Bose Soundtouch speakers
+ * IKEA Trådfri (Tradfri)
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -48,25 +50,26 @@ Configuration variables:
 - **ignore** (*Optional*): A list of platforms that never will be automatically configured by `discovery`.
 
 Valid values for ignore are:
- * philips_hue: (Philips Hue)
- * google_cast: (Google Chromecast)
- * panasonic_viera: (Panasonic Viera)
- * plex_mediaserver: (Plex media server)
- * roku: (Roku media player)
- * sonos: (Sonos Speakers)
- * yamaha: (Yamaha media player)
- * logitech_mediaserver: (Logitech media server - Squeezebox player)
- * directv: (DirecTV)
- * denonavr: (Denon Network Receivers)
- * samsung_tv: (Samsung TV)
- * yeelight: (Yeelight Sunflower Bulb)
- * flux_led: (Flux Led/MagicLight)
- * apple_tv: (Apple TV)
- * openhome: (Linn / Openhome)
 
+ * `apple_tv`: Apple TV
+ * `denonavr`: Denon Network Receivers
+ * `directv`: DirecTV
+ * `flux_led`: Flux Led/MagicLight
+ * `google_cast`: Google Chromecast
+ * `ikea_tradfri`: IKEA Trådfri
+ * `logitech_mediaserver`: Logitech media server - Squeezebox player
+ * `openhome`: Linn / Openhome
+ * `panasonic_viera`: Panasonic Viera
+ * `philips_hue`: Philips Hue
+ * `plex_mediaserver`: Plex media server
+ * `roku`: Roku media player
+ * `samsung_tv`: (Samsung TV
+ * `sonos`: Sonos Speakers
+ * `yamaha`: Yamaha media player
+ * `yeelight`: Yeelight Sunflower Bulb
 
 <p class='note'>
-Home Assistant must be on the same network as the devices for uPnP discovery to work. 
+Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a Docker container use switch `--net=host` to put it on the host's network.
 </p>
 

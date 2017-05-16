@@ -35,29 +35,30 @@ light:
         type: rgbw
         name: Bathroom
     - host: 192.168.1.11
-      bridge_led: True
       groups:
       - number: 1
         name: Living Room & Hall
+      - number: 1
+        type: bridge-led
+        name: Bridge Light
 ```
 
 Configuration variables:
 
 - **bridges** array (*Required*):
   - **host** (*Required*): IP address of the device, eg. `192.168.1.32`
-  - **version** (*Optional*): Bridge version (default is `6`). Don't use if you aren't sure.
-  - **port** (*Optional*): Bridge port. Defaults to 5987.
-  - **bridge_led** (*Optional*): If True, the bridge led can be controlled. (Only supported for newer bridges with integrated led)
+  - **version** (*Optional*): Bridge version (default is `6`).
+  - **port** (*Optional*): Bridge port. Defaults to 5987. For older bridges than v6 choose `8899`.
   - **groups** array (*Required*): The list of available groups.
-    - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote.
+    - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.
     - **name** (*Required*): Any name you'd like. Must be unique among all configured groups.
-    - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw` or `white`. `rgbw` is the default if you don't specify this entry.
+    - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw`, `white`, or `bridge-led`. `rgbw` is the default if you don't specify this entry. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
 
 ### {% linkable_title Properties %}
 
 Refer to the [light]({{site_root}}/components/light/) documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.
 
-- **RGBWW**
+- **RGBWW** (Only supported on v6 bridges)
   - *Color*: There are 25,856 color possibilities along the LimitlessLED color spectrum. For colors, hue and saturation can be used, but not lightness. If you select a color with lightness, Home Assistant will calculate the nearest valid LimitlessLED color. In white mode the temperature can be set.
   - *Temperature*: There are 101 temperature steps.
   - *Brightness*: There are 101 brightness steps.

@@ -33,7 +33,7 @@ Configuration variables:
 - **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
 - **brightness_state_topic** (*Optional*): The MQTT topic subscribed to receive brightness state updates.
 - **brightness_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the brightness value.
-- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.
+- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.  The color temperature command slider has a range of 157 to 500 mireds (micro reciprocal degrees).    
 - **color_temp_state_topic** (*Optional*): The MQTT topic subscribed to receive color temperature state updates.
 - **color_temp_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the color temperature value.
 - **effect_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's effect state.
@@ -45,6 +45,7 @@ Configuration variables:
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+- **retain** (*Optional*): If the published message should have the retain flag on or not.
 - **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
 - **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
 - **rgb_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the RGB value.

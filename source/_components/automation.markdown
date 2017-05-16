@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category: Automation
 ---
 
-Please see the [getting started section](/getting-started/automation/) for in-depth documentation on how to use the automation component.
+Please see the [docs section](/docs/automation/) for in-depth documentation on how to use the automation component.
 
 Starting with 0.28 your automation rules can be controlled with the frontend.
 

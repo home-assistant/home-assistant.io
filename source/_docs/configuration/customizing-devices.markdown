@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Customizing devices and services"
-description: "Simple customization for devices and services in the frontend."
+title: "Customizing entities"
+description: "Simple customization for entities in the frontend."
 date: 2016-04-20 06:00
 sidebar: true
 comments: false
@@ -33,9 +33,11 @@ homeassistant:
       icon: mdi:kettle
     switch.rfxtrx_switch:
       assumed_state: false
+  # Customize all entities in a domain
   customize_domain:
     light:
       icon: mdi:home
+  # Customize entities matching a pattern
   customize_glob:
     "light.kitchen_*":
       icon: mdi:description

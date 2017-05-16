@@ -54,7 +54,7 @@ Configuration variables within devices list:
 
 <p class='note'>
 Depending on your controller or bulb type, there are two ways to configure brightness. 
-The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the brighness will set the device to white with your chosen brightness. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
+The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
 </p>
 
 
@@ -101,7 +101,7 @@ Will add a light without the white mode:
       mode: "rgb"
 ```
 
-Will add a light with white mode (default). Changing the brightness will set the bulb in white mode:
+Will add a light with rgb+white mode (default). White and RGB channels can be adjusted independently using a slider and color picker respectively.
 
 ```yaml
     192.168.1.10:

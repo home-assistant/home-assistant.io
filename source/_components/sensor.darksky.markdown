@@ -11,6 +11,7 @@ logo: dark_sky.png
 ha_category: Weather
 featured: true
 ha_release: 0.30
+redirect_from: /components/sensor.forecast/
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
@@ -39,6 +40,8 @@ Configuration variables:
 - **api_key** (*Required*): Your API key.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`.
+- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specificed), defaults to coordinates defined in your `configuration.yaml`
+- **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **summary**: A human-readable text summary of the current conditions.
   - **precip_type**: The type of precipitation occurring.
@@ -78,7 +81,7 @@ Configuration variables:
     </pre>
 
 <p class='note warning'>
-Note: While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
+While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
 </p>
 
 Details about the API are available in the [Dark Sky documentation](https://darksky.net/dev/docs).

@@ -10,6 +10,7 @@ footer: true
 logo: nasa.png
 ha_category: Binary Sensor
 ha_release: 0.36
+redirect_from: /components/sensor.iss/
 ---
 
 The `iss` platform uses the [Open Notify API](http://open-notify.org/Open-Notify-API/ISS-Location-Now/) to let you know if the station is above your home location. This means that ISS is 10° above the horizon of your home.

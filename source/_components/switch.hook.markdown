@@ -20,11 +20,19 @@ In short, Hook is an RF to Wi-Fi bridge, controlling devices that recieve comman
 
 Hook provides a simple [REST API](https://app.swaggerhub.com/api/rahilj/GetHook_RestAPI/v1). This Home Assistant component reads in devices that have been set up in the official app.
 
+Configure with either your username/password or your API token for the official app.
+
 ```yaml
 # Example configuration.yaml entry
 -  platform: hook
    username: <email address>
    password: !secret hook
+```
+Or
+```yaml
+# Example configuration.yaml entry
+-  platform: hook
+   token: <your API token>
 ```
 
 Extra debug logging is available, if you need it.

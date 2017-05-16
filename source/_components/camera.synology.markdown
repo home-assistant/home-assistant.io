@@ -49,5 +49,5 @@ camera:
 ```
 
 <p class='note'>
-Most users will need to set `valid_ssl` to false unless they have installed a valid SSL certificate in place of the built in self-signed certificate.
+Most users will need to set `verify_ssl` to false unless they have installed a valid SSL certificate in place of the built in self-signed certificate.
 </p>

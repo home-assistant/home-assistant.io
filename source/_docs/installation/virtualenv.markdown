@@ -63,7 +63,7 @@ The `su` command means 'switch' user. We use the '-s' flag because the `homeassi
 
 All this step does is stick a Python environment in the directory we're using. That's it. It's just a directory. There's nothing special about it, and it is entirely self-contained.
 
-It will include a `bin` directory, which will contain all the executables used in the virtualenv (including hass itself). It also includes a script called `activate` which we will use to activate the virtualenv.
+It will include a `bin` directory, which will contain all the executables used in the virtualenv (including Home Assistant itself). It also includes a script called `activate` which we will use to activate the virtualenv.
 
 ```bash
 $ virtualenv -p python3 /srv/homeassistant
@@ -128,7 +128,6 @@ Finally, get and install `python-openzwave`.
 (homeassistant)$ cd /srv/homeassistant/src
 (homeassistant)$ git clone https://github.com/OpenZWave/python-openzwave.git
 (homeassistant)$ cd python-openzwave
-(homeassistant)$ git checkout python3
 (homeassistant)$ PYTHON_EXEC=`which python3` make build
 (homeassistant)$ PYTHON_EXEC=`which python3` make install
 ```

@@ -12,7 +12,7 @@ ha_category: Hub
 ha_release: 0.38
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 Mhz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
@@ -117,7 +117,31 @@ If you find a device is recognized differently, with different protocols or the 
 ### {% linkable_title Technical overview %}
 
 - The`rflink` Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the RFLink gateway.
-- This component uses this callback to distribute 'rflink packet events' over the HASS bus which can be subscribed to by entities/platform implementations.
+- This component uses this callback to distribute 'rflink packet events' over Home Assistant's bus which can be subscribed to by entities/platform implementations.
 - The platform implementions take care of creating new devices (if enabled) for unsees incoming packet id's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entitiy logic is maintained in this main component.
 
+### {% linkable_title Debug logging %}
+
+For debugging purposes or context when investigating issues you can enable debug logging for Rflink with the following config snippet:
+
+```yaml
+logger:
+  default: error
+  logs:
+    rflink: debug
+    homeassistant.components.rflink: debug
+```
+
+This will give you output looking like this:
+
+```bash
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: 20;00;Nod
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: o RadioFrequencyLink - R
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: FLink Gateway V1.1 - R45
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: ;
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] got packet: 20;00;Nodo RadioFrequencyLink - RFLink Gateway V1.1 - R45;
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] decoded packet: {'firmware': 'RFLink Gateway', 'revision': '45', 'node': 'gateway', 'protocol': 'unknown', 'hardware': 'Nodo RadioFrequencyLink', 'version': '1.1'}
+17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] got event: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
+17-03-07 20:12:05 DEBUG (MainThread) [homeassistant.components.rflink] event of type unknown: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
+```

@@ -36,7 +36,6 @@ mysensors:
       persistence_file: 'path/mysensors4.json'
       topic_in_prefix: 'mygateway1-out'
       topic_out_prefix: 'mygateway1-in'
-  debug: true
   optimistic: false
   persistence: true
   retain: true
@@ -50,7 +49,7 @@ Configuration variables:
 - **tcp_port** (*Optional*): Specifies the port of the connected tcp ethernet gateway. Default is 5003.
 - **topic_in_prefix** (*Optional*): Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant. Default is an empty string.
 - **topic_out_prefix** (*Optional*): Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway. Default is an empty string.
-- **debug** (*Optional*): Enable or disable verbose debug logging. Default is false.
+- **debug** (*DEPRECATED*): This option has been deprecated. Please remove this from your config is you have it included. Use the logger component to filter log messages on log level.
 - **persistence** (*Optional*): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.
 - **persistence_file** (*Optional*): The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are 'pickle' and 'json'.
 - **version** (*Optional*): Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0. Default is 1.4.

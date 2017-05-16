@@ -23,14 +23,14 @@ Templating is a powerful feature in Home Assistant that allows the user control 
 
 - Formatting outgoing messages in, for example, the [notify] and [alexa] components.
 - Process incoming data from sources that provide raw data, like [MQTT], [REST sensor], or the [command line sensor].
-- [Advanced Automation templating]auto-template]
+- [Automation Templating].
 
 [notify]: /components/notify/
 [alexa]: /components/alexa/
 [MQTT]: /components/mqtt/
 [REST sensor]: /components/sensor.rest/
 [command line sensor]: /components/sensor.command_line/
-[auto-template]: /getting-started/automation-templating/
+[Automation Templating]: /docs/automation/templating/
 
 ## {% linkable_title Building templates %}
 
@@ -74,7 +74,7 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
 - `now()` will be rendered as current time in your time zone.
 - `utcnow()` will be rendered as UTC time.
-- `as_timestamp` will convert datetime object or string to UNIX timestamp
+- `as_timestamp()` will convert datetime object or string to UNIX timestamp
 - `distance()` will measure the distance in meters between home, entity, coordinates.
 - `closest()` will find the closest entity.
 - `relative_time(timestamp)` will format the date time as relative time vs now (ie 7 seconds)
@@ -88,6 +88,11 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `min` will obtain the smallest item in a sequence.
 
 [strp-format]: https://docs.python.org/3.4/library/datetime.html#strftime-and-strptime-behavior
+
+<p class='note warning'>
+If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
+</p>
+
 
 ## {% linkable_title Examples %}
 
