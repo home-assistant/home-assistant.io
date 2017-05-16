@@ -120,7 +120,7 @@ Example to run the script:
 ```bash
 $ hass --script influxdb_import --config CONFIG_DIR \
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
-    --dbname INFLUXDB_DB_NAME --exclude-domain automation,configurator
+    --dbname INFLUXDB_DB_NAME --exclude_domains automation,configurator
 ```
 Script arguments:
 
