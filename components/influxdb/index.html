@@ -164,7 +164,7 @@ This only writes the statistics how much points would be imported from which ent
 <p>Example to run the script:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script influxdb_import --config CONFIG_DIR <span class="se">\</span>
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD <span class="se">\</span>
-    --dbname INFLUXDB_DB_NAME --exclude-domain automation,configurator
+    --dbname INFLUXDB_DB_NAME --exclude_domains automation,configurator
 </code></pre>
 </div>
 <p>Script arguments:</p>
