@@ -72,7 +72,7 @@ The config for an add-on is stored in `config.json`.
   "ports": {
     "123/tcp": 123
   },
-  "map": ["config", "ssl"],
+  "map": ["config:rw", "ssl"],
   "options": {},
   "schema": {},
   "image": "repo/{arch}-my-custom-addon"
@@ -91,7 +91,7 @@ The config for an add-on is stored in `config.json`.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | devices | no | Device list to map into add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`
-| map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`
+| map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`. Default it map it `ro`, you can change that if you add a ":rw" at the end of name.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on
 | image | no | For use dockerhub.
