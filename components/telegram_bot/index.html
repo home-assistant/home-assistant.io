@@ -123,17 +123,17 @@
 </code></pre>
 </div>
 <p>An example to show the use of event_data in the action:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>- alias: 'Kitchen Telegram Speak'
-  trigger:
-    platform: event
-    event_type: telegram_command
-    event_data:
-      command: '/speak'
-  action:
-    - service: notify.kitchen_echo
-      data_template:
-        message: &gt;
-          Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Kitchen</span><span class="nv"> </span><span class="s">Telegram</span><span class="nv"> </span><span class="s">Speak'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/speak'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.kitchen_echo</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}</span>
 </code></pre>
 </div>
 </article>
