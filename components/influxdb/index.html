@@ -157,7 +157,7 @@ optional arguments:
 It will read all your state_change events from the database and add them as data-points to the InfluxDB.
 You can specify the source database either by pointing the <code class="highlighter-rouge">--config</code> option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with <code class="highlighter-rouge">--uri</code>.
 The writing to InfluxDB is done in batches that can be changed with <code class="highlighter-rouge">--step</code>.</p>
-<p>You can control, which data is imported by using the commandline options <code class="highlighter-rouge">--exclude-entities</code> and <code class="highlighter-rouge">--exclude-domain</code>.
+<p>You can control, which data is imported by using the commandline options <code class="highlighter-rouge">--exclude_entities</code> and <code class="highlighter-rouge">--exclude_domains</code>.
 Both get a comma separated list of either entity-ids or domain names that are excluded from the import.</p>
 <p>To test what gets imported you can use the <code class="highlighter-rouge">--simulate</code> option, which disables the actual write to the InfluxDB instance.
 This only writes the statistics how much points would be imported from which entity.</p>
