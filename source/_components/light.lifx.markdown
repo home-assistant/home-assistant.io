@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: lifx.png
 ha_category: Light
-ha_iot_class: "Local Push"
+ha_iot_class: "Local Polling"
 ha_release: 0.12
 ---
 
@@ -27,6 +27,22 @@ Configuration variables:
 
 - **server** (*Optional*): Your server address. Only needed if using more than one network interface. Omit if you are unsure.
 
+## {% linkable_title Set state %}
+
+The LIFX bulbs allow a change of color and brightness even when they are turned off. This way you can control the light during the day so its settings are correct when events for turning on are received, for example from motion detectors or external buttons.
+
+The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.
+
+### {% linkable_title Service `light.lifx_set_state` %}
+
+Change the light to a new state.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `transition` | Duration (in seconds) for the light to fade to the new state.
+| `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
+| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) to specify the new state.
 
 ## {% linkable_title Light effects %}
 
@@ -96,9 +112,10 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `brightness` | Number between 0 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.
-| `period` | Duration (in seconds) between the start of a new color change.
+| `period` | Duration (in seconds) between starting a new color change.
+| `transition` | Duration (in seconds) where lights are actively changing color.
 | `change` | Hue movement per period, in degrees on a color wheel (ranges from 0 to 359).
-| `spread` | Total hue covered by participating lights, in degrees on a color wheel (ranges from 0 to 359).
+| `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
 ### {% linkable_title Service `light.lifx_effect_stop` %}

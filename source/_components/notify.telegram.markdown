@@ -18,7 +18,8 @@ The `telegram` platform uses [Telegram](https://web.telegram.org) to delivery no
 The requirements are:
 
 - You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
-- The `chat_id` of an user.
+- You need to configure a [Telegram bot in Home Assistant](/components/telegram_bot) and define there your API key and the allowed chat ids to interact with.
+- The `chat_id` of an allowed user.
 
 To retrieve your `chat_id`, contact any of the Telegram bots created for this purpose (@myidbot, @get_id_bot)
 
@@ -45,21 +46,50 @@ $ python3
 To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for the Telegram Bot
+telegram_bot:
+  platform: webhooks
+  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+  allowed_chat_ids:
+    - CHAT_ID_1
+    - CHAT_ID_2
+    - CHAT_ID_3
+
+# Example configuration.yaml entry for the notifier
 notify:
   - name: NOTIFIER_NAME
     platform: telegram
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-    chat_id: YOUR_CHAT_ID
+    chat_id: CHAT_ID_2
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): The API token of your bot.
 - **chat_id** (*Required*): The chat ID of your user.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### {% linkable_title Text message %}
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: '*Send a message*'
+    message: 'That's an example that _sends_ a *formatted* message with a custom keyboard.'
+    data:
+      keyboard:
+        - '/command1, /command2'
+        - '/command3, /command4'
+```
+
+Configuration variables:
+
+- **message** (*Required*): Message text.
+- **title** (*Optional*): Will be composed as '%title\n%message'.
+- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
 
 ### {% linkable_title Photo support %}
 
@@ -81,10 +111,15 @@ action:
           caption: I.e. for a Title
 ```
 
+Configuration variables:
+
 - **url** or **file** (*Required*): For local or remote path to an image.
 - **caption** (*Optional*): The title of the image.
 - **username** (*Optional*): Username for a URL which require HTTP basic authentication.
 - **password** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
+
 
 ### {% linkable_title Document support %}
 
@@ -99,13 +134,16 @@ action:
       document:
         file: /tmp/whatever.odf
         caption: Document Title xy
-        
 ```
+
+Configuration variables:
 
 - **url** or **file** (*Required*): For local or remote path to a document.
 - **caption** (*Optional*): The title of the document.
 - **username** (*Optional*): Username for a URL which require HTTP basic authentication.
 - **password** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
 
 ### {% linkable_title Location support %}
 
@@ -123,7 +161,10 @@ action:
         longitude: 117.22743
 ```
 
+Configuration variables:
+
 - **location** (*Required*): For local or remote path to an image.
 - **latitude** (*Required*): The latitude to send.
 - **longitude** (*Required*): The longitude to send.
-
+- **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.

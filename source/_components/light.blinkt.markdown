@@ -10,6 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: Light
 ha_iot_class: "Local Push"
+ha_release: 0.44
 ---
 
 The `blinkt` light platform lets you control the [Blinkt!](https://shop.pimoroni.com/products/blinkt) board, featuring eight super-bright RGB LEDs.

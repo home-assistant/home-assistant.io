@@ -14,15 +14,18 @@ Backing up and regularly syncing your Home Assistant configuration to [Dropbox](
 
 ### {% linkable_title Requirements %}
 
-You need 2 parts in order to get it working correctly.
+You need two parts in order to get it working correctly.
 
-Become the user you run homeassistant from.
+Become the user that run Home Assistant.
 
-- A seperate python script that syncs a specific folder. Which can be found [here](https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f)
+- A seperate Python script that syncs a specific folder. Which can be found [here](https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f)
 - The excellent [dropbox uploader script](https://github.com/andreafabrizi/Dropbox-Uploader/blob/master/dropbox_uploader.sh) you can grab the .sh file only.
 
 Download those files to a folder of your liking, after that edit both files and change paths accordingly.
-### {% linkable_title Step 1: Linking your dropbox account %}
+
+In the Python script you can specify which files and directories should be excluded. This allows you to skip `secrets.yaml` or the `deps` folder.
+
+### {% linkable_title Step 1: Linking your Dropbox account %}
 
 ```bash
 $ chmod +x dropbox_uploader.sh
@@ -30,16 +33,16 @@ $ ./dropbox_uploader.sh
 ```
 Follow the instructions you see on your screen.
 
-### {% linkable_title Step 2: Running the dropbox uploader %}
+### {% linkable_title Step 2: Running the Dropbox uploader %}
 
-Go to the folder you have placed dropbox.py.
+Go to the folder you have placed `dropbox.py`.
 
 ```bash
 $ python dropbox.py
 ```
 
 The first time can take a lot of time since it will upload all your files!
-Do note, this will **backup your passwords to dropbox too**
+Do note, this will **backup your passwords to Dropbox**.
 
 ### {% linkable_title Automate the backup %}
 
@@ -49,5 +52,3 @@ Add it to your crontab, edit the **path/to** part.
 ```bash
 $ (crontab -l 2>/dev/null; echo "0 3 * * * python /path/to/dropbox.py") | crontab -
 ```
-
-_The python script is very crude, there is room for improvement with regards to not backing up certain files like cache or files that will be installed by HA again after reinstall. But it gets the job done._

@@ -21,13 +21,13 @@ To use your Mi Flora plant sensor in your installation, add the following to you
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: "xx:xx:xx:xx:xx:xx"
+    mac: 'xx:xx:xx:xx:xx:xx'
     monitored_conditions:
       - temperature
 ```
 
 - **mac** (*Required*): The MAC address of your sensor. You can find this be running `hcitool lescan` from command line.
-- **monitored_conditions** array (*Required*): The paramaters that should be monitored.
+- **monitored_conditions** array (*Optional*): The paramaters that should be monitored (defaults to monitoring all parameters).
   - **moisture**: Moisture in the soil.
   - **light**: Brightness at the sensor's location.
   - **temperature**: Temperature at the sensor's location.
@@ -50,7 +50,7 @@ A full configuration example could looks the one below:
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: "xx:xx:xx:xx:xx:xx"
+    mac: 'xx:xx:xx:xx:xx:xx'
     name: Flower 1
     force_update: false
     median: 3

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Setting up a [SSH](https://openssh.org/) server allows access to hass.io folders with SSH client. It also allows tunneling for access from an external network. Please note that you only need to do this on a ResinOS platform as most Linux flavors have their own SSH server.
+Setting up an [SSH](https://openssh.org/) server allows access to your Hass.io folders with any SSH client. To use this add-on, you must have a private/public key to log in. To generate them, follow the [instructions for Windows][win] and [these for other platforms][other].
 
 ```json
 {
@@ -22,3 +22,10 @@ Setting up a [SSH](https://openssh.org/) server allows access to hass.io folders
 Configuration variables:
 
 - **authorized_keys** (*Required*): Your public-keys for authorized keyfile. Every element will be a line inside that file.
+
+[win]: https://www.digitalocean.com/community/tutorials/how-to-create-ssh-keys-with-putty-to-connect-to-a-vps
+[other]: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+<p class='note'>
+This add-on is not compatible when you installed Hass.io via the generic Linux installer.
+</p>
