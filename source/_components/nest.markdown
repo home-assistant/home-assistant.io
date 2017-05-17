@@ -58,7 +58,7 @@ Configuration variables:
 - **client_secret** (*Required*): Your Nest developer client secret.
 - **structure** (*Optional*): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.
 
-Services:
+### {% linkable_title Services %}
 
 Currently there is a single `nest.set_mode` service available to switch between
 "away" and "home" modes. This service requires a `home_mode` param and has an
