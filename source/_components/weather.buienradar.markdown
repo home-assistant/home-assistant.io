@@ -14,22 +14,20 @@ ha_release: 0.44
 
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The 
 weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
-The relevant weatherstation used will be automatically selected based on the location specified in the HA config (or in the buienradar weather/sensor component).
+The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
 
-To add the buienradar sensor to your installation, add the following to your `configuration.yaml` file:
+To add the buienradar weather to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 weather:
   - platform: buienradar
-    name: buienradar
 ```
 
 Configuration variables:
 - **platform** (*Required*): buienradar
-- **name** (*Optional*): A name for the weather platform.
-- **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from HA configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from HA configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
 - **forecast** (*Optional*): 'True' to add a temperature forecast, 'False' to suppress it
 
 
