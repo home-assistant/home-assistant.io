@@ -23,7 +23,6 @@ To setup OpenCV with Home Assistant, add the following section to your `configur
 
 ```yaml
 # Example configuration.yaml entry
-
 opencv:
   classifier_group:
     - name: Family
