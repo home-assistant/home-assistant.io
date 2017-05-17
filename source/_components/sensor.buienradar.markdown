@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "buienradar"
+title: "Buienradar"
 description: "Instructions how to integrate buienradar.nl sensor within Home Assistant."
 date: 2017-05-15 14:00
 sidebar: true
@@ -15,29 +15,20 @@ ha_release: 0.44
 
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The 
 weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
-The relevant weatherstation used will be automatically selected based on the location specified in the HA config (or in the buienradar weather/sensor component).
+The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
 
-To add the buienradar sensor to your installation, add the following to your `configuration.yaml` file:
+To integrate `buienradar` with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: buienradar
     monitored_conditions:
-      - stationname
       - symbol
       - humidity
       - temperature
-      - groundtemperature
       - windspeed
-      - windforce
-      - winddirection
-      - windazimuth
       - pressure
-      - visibility
-      - windgust
-      - precipitation
-      - irradiance
 ```
 
 Configuration variables:
@@ -61,7 +52,7 @@ Configuration variables:
   - **precipitation**: the amount of precipitation/rain in mm/h.
   - **irradiance**: Sun intensity in Watt per square meter (W/m2).
 
-A full configuration example:
+Full configuration example where location is manually specified:
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,3 +75,4 @@ A full configuration example:
       - precipitation
       - irradiance
 ```
+  
