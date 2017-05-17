@@ -34,8 +34,8 @@ sensor:
 Configuration variables:
 
 - **platform**  (*Required*): buienradar.
-- **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from HA configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from HA configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
 - **monitored_conditions** array (*Required*): one or more conditions to display in the frontend.
   - **stationname**: the name of the selected meteo-station.
   - **symbol**: A symbol for the current weather.
