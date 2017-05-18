@@ -64,3 +64,4 @@ Configuration variables:
 
  - **host** (*Required*): The IP address or hostname of your Trådfri gateway.
  - **api_key** (*Required*): Can be found listed as Security Key on the back of the Trådfri gateway.
+ - **allow_tradfri_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Tradfri bridge.
