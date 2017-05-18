@@ -160,8 +160,14 @@ void receive(const MyMessage &message) {
       break;
   }
   sendHeatpumpCommand();
+  sendNewStateToGateway();
 }
 
+void sendNewStateToGateway() {
+  send(msgHVACSetPointC.set(TEMP_STATE));
+  send(msgHVACSpeed.set(FAN_STATE));
+  send(msgHVACFlowState.set(MODE_STATE));
+}
 
 void sendHeatpumpCommand() {
   Serial.println("Power = " + (String)POWER_STATE);
