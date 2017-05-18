@@ -109,7 +109,7 @@ It will read all your state_change events from the database and add them as data
 You can specify the source database either by pointing the `--config` option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with `--uri`.
 The writing to InfluxDB is done in batches that can be changed with `--step`.
 
-You can control, which data is imported by using the commandline options `--exclude-entities` and `--exclude-domain`.
+You can control, which data is imported by using the commandline options `--exclude_entities` and `--exclude_domains`.
 Both get a comma separated list of either entity-ids or domain names that are excluded from the import.
 
 To test what gets imported you can use the `--simulate` option, which disables the actual write to the InfluxDB instance.
@@ -120,7 +120,7 @@ Example to run the script:
 ```bash
 $ hass --script influxdb_import --config CONFIG_DIR \
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
-    --dbname INFLUXDB_DB_NAME --exclude-domain automation,configurator
+    --dbname INFLUXDB_DB_NAME --exclude_domains automation,configurator
 ```
 Script arguments:
 

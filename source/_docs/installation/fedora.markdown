@@ -14,7 +14,7 @@ footer: true
 Install the development package of Python.
 
 ```bash
-$ sudo dnf -y install python3-devel
+$ sudo dnf -y install python3-devel redhat-rpm-config
 ```
 
 and Home Assistant itself.
@@ -27,7 +27,6 @@ To isolate the Home Assistant installation a [venv](https://docs.python.org/3/li
 
 ```bash
 $ sudo mkdir -p /opt/homeassistant
-$ cd /opt/homeassistant
 ```
 Now switch to the new directory, setup the venv, and activate it.
 
@@ -40,7 +39,7 @@ $ source bin/activate
 Install Home Assistant itself.
 
 ```bash
-$ pip3 install homeassistant
+$ pip3 install homeassistant colorlog
 ```
 
-Check the [autostart](/docs/autostart/systemd/) section in the documentation for further details. 
+Check the [autostart](/docs/autostart/systemd/) section in the documentation for further details and the [Firewall section](/docs/installation/troubleshooting/#no-access-to-the-frontend) if you want to access your Home Assistant installation.

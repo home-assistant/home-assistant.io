@@ -40,7 +40,6 @@ Once you have located your add-on directory, it's time to get started!
 ```
 FROM %%BASE_IMAGE%%
 
-ENV VERSION %%VERSION%%
 ENV LANG C.UTF-8
 
 # Copy data for add-on

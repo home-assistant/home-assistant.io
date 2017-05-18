@@ -223,7 +223,7 @@ action:
 
 An example to show the use of event_data in the action:
 
-```
+```yaml
 - alias: 'Kitchen Telegram Speak'
   trigger:
     platform: event

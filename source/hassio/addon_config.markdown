@@ -33,12 +33,11 @@ echo '{ "target": "beer" }' | jq -r ".target"
 
 ## {% linkable_title Add-on Docker file %}
 
-All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. The Dockerfile is also required to have a VERSION environment variable which we will substitute with the version of the add-on.
+All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. 
 
 ```
 FROM %%BASE_IMAGE%%
 
-ENV VERSION %%VERSION%%
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
@@ -49,6 +48,11 @@ COPY run.sh /
 RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
+```
+
+If you don't use local build on device or our build script, make sure that the Dockerfile have also a set of labels include:
+```
+LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 ```
 
 ## {% linkable_title Add-on config %}
@@ -68,7 +72,7 @@ The config for an add-on is stored in `config.json`.
   "ports": {
     "123/tcp": 123
   },
-  "map": ["config", "ssl"],
+  "map": ["config:rw", "ssl"],
   "options": {},
   "schema": {},
   "image": "repo/{arch}-my-custom-addon"
@@ -86,7 +90,9 @@ The config for an add-on is stored in `config.json`.
 | startup | yes | `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
-| map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`
+| devices | no | Device list to map into add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`
+| map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`, `mnt`. Default it map it `ro`, you can change that if you add a ":rw" at the end of name.
+| environment | no | A dict of environment variable to run add-on.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on
 | image | no | For use dockerhub.

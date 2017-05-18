@@ -11,6 +11,10 @@ footer: true
 
 Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This will create a certificate on the first run and renew it if the certificate is expiring in the next 30 days.
 
+<p class='note warning'>
+This add-on need port 80/443 to verify the certificate request, please stop all add-ons they use also this ports, otherwise you can not start this add-on.
+</p>
+
 ```json
 {
   "email": "example@example.com",

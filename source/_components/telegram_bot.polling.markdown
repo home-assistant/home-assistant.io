@@ -35,5 +35,5 @@ Configuration variables:
 - **api_key** (*Required*): The API token of your bot.
 - **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram/) .
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram/).
 

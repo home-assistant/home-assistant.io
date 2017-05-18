@@ -247,7 +247,7 @@ $ sudo adduser hass sudo
 If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `hass` or `homeassistant` - you may have used a command similar to this in the past):
 
 ```bash
-$ su -s /bin/bash hass 
+$ sudo su -s /bin/bash hass 
 ```
 
 Make sure you are in the home directory for the HA user:
