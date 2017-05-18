@@ -115,7 +115,141 @@
 <p>You can use V_HVAC_SPEED to control the Speed setting of the Fan in the HVAC.</p>
 <p>You can use V_TEMP to send the current temperature from the node to Home Assistant.</p>
 <p>For more information, visit the <a href="http://www.mysensors.org/download">serial api</a> of MySensors.</p>
-<h3><a class="title-link" name="example-sketch" href="#example-sketch"></a> Example sketch</h3>
+<h3><a class="title-link" name="example-sketch-for-mysensors-2x" href="#example-sketch-for-mysensors-2x"></a> Example sketch for MySensors 2.x</h3>
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
+* Documentation: http://www.mysensors.org
+* Support Forum: http://forum.mysensors.org
+*/</span>
+
+<span class="cp">#define MY_RADIO_NRF24
+#define CHILD_ID_HVAC 0
+</span>
+<span class="cp">#include &lt;MySensors.h&gt;
+</span>
+<span class="c1">// Uncomment your heatpump model
+//#include &lt;FujitsuHeatpumpIR.h&gt;
+//#include &lt;PanasonicCKPHeatpumpIR.h&gt;
+//#include &lt;PanasonicHeatpumpIR.h&gt;
+//#include &lt;CarrierHeatpumpIR.h&gt;
+//#include &lt;MideaHeatpumpIR.h&gt;
+//#include &lt;MitsubishiHeatpumpIR.h&gt;
+//#include &lt;SamsungHeatpumpIR.h&gt;
+//#include &lt;SharpHeatpumpIR.h&gt;
+//#include &lt;DaikinHeatpumpIR.h&gt;
+</span>
+<span class="c1">//Some global variables to hold the states
+</span><span class="kt">int</span> <span class="n">POWER_STATE</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">TEMP_STATE</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">FAN_STATE</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">MODE_STATE</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">VDIR_STATE</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">HDIR_STATE</span><span class="p">;</span>
+
+<span class="n">IRSenderPWM</span> <span class="n">irSender</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>       <span class="c1">// IR led on Arduino digital pin 3, using Arduino PWM
+</span>
+<span class="c1">//Change to your Heatpump
+</span><span class="n">HeatpumpIR</span> <span class="o">*</span><span class="n">heatpumpIR</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PanasonicNKEHeatpumpIR</span><span class="p">();</span>
+
+<span class="cm">/*
+new PanasonicDKEHeatpumpIR()
+new PanasonicJKEHeatpumpIR()
+new PanasonicNKEHeatpumpIR()
+new CarrierHeatpumpIR()
+new MideaHeatpumpIR()
+new FujitsuHeatpumpIR()
+new MitsubishiFDHeatpumpIR()
+new MitsubishiFEHeatpumpIR()
+new SamsungHeatpumpIR()
+new SharpHeatpumpIR()
+new DaikinHeatpumpIR()
+*/</span>
+
+<span class="n">MyMessage</span> <span class="n">msgHVACSetPointC</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_SETPOINT_COOL</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgHVACSpeed</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_SPEED</span><span class="p">);</span>
+<span class="n">MyMessage</span> <span class="n">msgHVACFlowState</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_FLOW_STATE</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">presentation</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">sendSketchInfo</span><span class="p">(</span><span class="s">"Heatpump"</span><span class="p">,</span> <span class="s">"2.1"</span><span class="p">);</span>
+  <span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">S_HVAC</span><span class="p">,</span> <span class="s">"Thermostat"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// put your main code here, to run repeatedly:
+</span><span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">receive</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">isAck</span><span class="p">())</span> <span class="p">{</span>
+     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"This is an ack from gateway"</span><span class="p">);</span>
+     <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Incoming message for: "</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">sensor</span><span class="p">);</span>
+
+  <span class="n">String</span> <span class="n">recvData</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+  <span class="n">recvData</span><span class="p">.</span><span class="n">trim</span><span class="p">();</span>
+
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">", New status: "</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">recvData</span><span class="p">);</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">V_HVAC_SPEED</span><span class="p">:</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"V_HVAC_SPEED"</span><span class="p">);</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"auto"</span><span class="p">))</span> <span class="n">FAN_STATE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"min"</span><span class="p">))</span> <span class="n">FAN_STATE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"normal"</span><span class="p">))</span> <span class="n">FAN_STATE</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"max"</span><span class="p">))</span> <span class="n">FAN_STATE</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="n">V_HVAC_SETPOINT_COOL</span><span class="p">:</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"V_HVAC_SETPOINT_COOL"</span><span class="p">);</span>
+      <span class="n">TEMP_STATE</span> <span class="o">=</span> <span class="n">message</span><span class="p">.</span><span class="n">getFloat</span><span class="p">();</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">TEMP_STATE</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="n">V_HVAC_FLOW_STATE</span><span class="p">:</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"V_HVAC_FLOW_STATE"</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"coolon"</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">POWER_STATE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">MODE_STATE</span> <span class="o">=</span> <span class="n">MODE_COOL</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"heaton"</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">POWER_STATE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">MODE_STATE</span> <span class="o">=</span> <span class="n">MODE_HEAT</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"autochangeover"</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">POWER_STATE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">MODE_STATE</span> <span class="o">=</span> <span class="n">MODE_AUTO</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">recvData</span><span class="p">.</span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="s">"off"</span><span class="p">)){</span>
+        <span class="n">POWER_STATE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">sendHeatpumpCommand</span><span class="p">();</span>
+  <span class="n">sendNewStateToGateway</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">sendNewStateToGateway</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">send</span><span class="p">(</span><span class="n">msgHVACSetPointC</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">TEMP_STATE</span><span class="p">));</span>
+  <span class="n">send</span><span class="p">(</span><span class="n">msgHVACSpeed</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">FAN_STATE</span><span class="p">));</span>
+  <span class="n">send</span><span class="p">(</span><span class="n">msgHVACFlowState</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">MODE_STATE</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">sendHeatpumpCommand</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Power = "</span> <span class="o">+</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">POWER_STATE</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Mode = "</span> <span class="o">+</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">MODE_STATE</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Fan = "</span> <span class="o">+</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">FAN_STATE</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Temp = "</span> <span class="o">+</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">TEMP_STATE</span><span class="p">);</span>
+
+  <span class="n">heatpumpIR</span><span class="o">-&gt;</span><span class="n">send</span><span class="p">(</span><span class="n">irSender</span><span class="p">,</span> <span class="n">POWER_STATE</span><span class="p">,</span> <span class="n">MODE_STATE</span><span class="p">,</span> <span class="n">FAN_STATE</span><span class="p">,</span> <span class="n">TEMP_STATE</span><span class="p">,</span> <span class="n">VDIR_AUTO</span><span class="p">,</span> <span class="n">HDIR_AUTO</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="example-sketch-for-mysensors-1x" href="#example-sketch-for-mysensors-1x"></a> Example sketch for MySensors 1.x</h3>
 <div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cm">/*
 * Documentation: http://www.mysensors.org
 * Support Forum: http://forum.mysensors.org
