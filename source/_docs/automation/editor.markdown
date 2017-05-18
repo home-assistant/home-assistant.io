@@ -48,7 +48,7 @@ If you want to migrate your old automations to use the editor, you'll have to co
     below: 25
     condition: numeric_state
     entity_id: sensor.temperature
-    value_template: '{{ float(state.state) + 2 }}'
+    value_template: '{% raw %}{{ float(state.state) + 2 }}{% endraw %}'
   action:
   - service: light.turn_on
 ```
