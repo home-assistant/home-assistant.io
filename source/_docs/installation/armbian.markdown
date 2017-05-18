@@ -21,5 +21,5 @@ $ sudo apt-get install python3-dev python3-pip
 Install Home Assistant.
 
 ```bash
-$ pip3 install homeassistant
+$ sudo pip3 install homeassistant
 ```
