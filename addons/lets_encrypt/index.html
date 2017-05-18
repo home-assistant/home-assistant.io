@@ -68,6 +68,9 @@
   </header>
   <hr class="divider">
   <p>Setup and manage a <a href="https://letsencrypt.org/">Let’s Encrypt</a> certificate. This will create a certificate on the first run and renew it if the certificate is expiring in the next 30 days.</p>
+<p class="note warning">
+This add-on need port 80/443 to verify the certificate request, please stop all add-ons they use also this ports, otherwise you can not start this add-on.
+</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@example.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mqtt.example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hass.example.com"</span><span class="p">]</span><span class="w">
