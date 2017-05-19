@@ -97,6 +97,10 @@ To launch the OZWCP web application:
 *  Open a web browser to `http://your_pi_ip:8888`
 *  Specify your zwave controller, for example `/dev/ttyACM0` and hit initialize
 
+<p class='note warning'>
+  If ozwcp is running really slow verify that your not running Home Assistant or have another page running ozwcp open or strange errors might occur.
+</p>
+
 <div class='note note'>
 **If you deployed Home Assistant via the AiO installer prior to December 2016**
 *  Make sure Home Assistant is not running! So stop that first
