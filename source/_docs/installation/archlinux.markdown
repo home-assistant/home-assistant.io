@@ -27,5 +27,5 @@ $ pip3 install homeassistant
 Home Assistant is part of the [AUR](https://aur.archlinux.org/packages/home-assistant/). This means that it can be installed  with `pacaur`:
 
 ```bash
-$ sudo pacaur -S home-assistant
+$ pacaur -S home-assistant
 ```
