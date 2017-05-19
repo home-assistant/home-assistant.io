@@ -87,7 +87,7 @@ The config for an add-on is stored in `config.json`.
 | description | yes | Description of the add-on
 | arch | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
 | url | no | Homepage of the addon. Here you can explain the add-ons and options.
-| startup | yes | `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
+| startup | yes | `initialize` will start addon on setup of hassio. `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | devices | no | Device list to map into add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`
