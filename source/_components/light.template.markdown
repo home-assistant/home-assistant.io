@@ -58,9 +58,11 @@ If you are using the state of a platform that takes extra time to load, the temp
 
 ## {% linkable_title Examples %}
 
-## {% linkable_title Theater Volume Control %}
+In this section you will find some real life examples of how to use this light.
 
-You can even control things that aren't lights! This component gives you the flexibility to provide whatever you'd like to send as the payload to the consumer including any scale conversions you may need to make. The media_player component needs a floating point percentage value 0.0-1.0
+### {% linkable_title Theater Volume Control %}
+
+This example shows a light that is actually a home theater's volume. This component gives you the flexibility to provide whatever you'd like to send as the payload to the consumer including any scale conversions you may need to make; the media_player component needs a floating point percentage value 0.0-1.0
 
 ```yaml
 light:
