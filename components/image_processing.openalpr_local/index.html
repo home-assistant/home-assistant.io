@@ -70,13 +70,15 @@
 <p>For using inside automation look on <a href="/components/image_processing">component</a> page.</p>
 <h3><a class="title-link" name="local-installation" href="#local-installation"></a> Local installation</h3>
 <p>If you want process all data locally, you need version 2.3.1 or higher of the <code class="highlighter-rouge">alpr</code> commandline tool.</p>
-<p>If you don’t find binaries for your distribution you can compile from source. Documention of how to build openalpr is found <a href="https://github.com/openalpr/openalpr/wiki">here</a>.</p>
+<p>If you don’t find binaries for your distribution you can compile from source. Documention of how to build OpenALPR is found <a href="https://github.com/openalpr/openalpr/wiki">here</a>.</p>
 <p>On a Debian system you can use this <code class="highlighter-rouge">cmake</code> command to build only the command line tool:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cmake -DWITH_TEST<span class="o">=</span>FALSE -DWITH_BINDING_JAVA<span class="o">=</span>FALSE --DWITH_BINDING_PYTHON<span class="o">=</span>FALSE --DWITH_BINDING_GO<span class="o">=</span>FALSE -DWITH_DAEMON<span class="o">=</span>FALSE -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/usr ..
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cmake -DWITH_TEST<span class="o">=</span>FALSE -DWITH_BINDING_JAVA<span class="o">=</span>FALSE --DWITH_BINDING_PYTHON<span class="o">=</span>FALSE <span class="se">\</span>
+  --DWITH_BINDING_GO<span class="o">=</span>FALSE -DWITH_DAEMON<span class="o">=</span>FALSE -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/usr ..
 </code></pre>
 </div>
+<p>For other operating system please refer to the <a href="https://github.com/openalpr/openalpr/wiki">OpenALPR wiki</a>.</p>
 <p>Verify your <code class="highlighter-rouge">alpr</code> installation with:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 </code></pre>
 </div>
 <h3><a class="title-link" name="configuration-home-assistant" href="#configuration-home-assistant"></a> Configuration Home Assistant</h3>
