@@ -13,7 +13,7 @@ ha_release: 0.32
 ---
 
 
-Notification platform for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google&hl=de) and [Notifications for FireTV](https://play.google.com/store/apps/details?id=de.cyberdream.firenotifications.google).
+Notification platform for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google&hl=en) and [Notifications for FireTV](https://play.google.com/store/apps/details?id=de.cyberdream.firenotifications.google).
 The notifications are in the global scope of your Android TV device. They will be displayed regardless of which application is running.
 The In-App purchases only apply to the client for Android smartphones, so there isn't any limit when pushing notifications from Home Assistant.
 
