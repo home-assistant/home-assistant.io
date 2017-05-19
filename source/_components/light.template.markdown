@@ -29,6 +29,7 @@ light:
       theater_volume:
         friendly_name: 'Receiver Volume'
         value_template: >-
+        {% raw %}
           {%- if is_state("media_player.receiver", "on") -%}
                 {%- if states.media_player.receiver.attributes.is_volume_muted -%}
                         off
@@ -38,6 +39,7 @@ light:
           {%- else -%}
             off
           {%- endif -%}
+        {% endraw %}
         turn_on:
           service: media_player.volume_mute
           data:
@@ -53,14 +55,15 @@ light:
           data:
             entity_id: media_player.receiver
           data_template:
-            volume_level: '{{((brightness / 255 * 100) | int)/100}}'
+          volume_level: '{% raw %}{{((brightness / 255 * 100) | int)/100}}{% endraw %}'
         level_template: >-
+        {% raw %}
           {%- if is_state("media_player.receiver", "on") -%}
             {{(255 * states.media_player.receiver.attributes.volume_level) | int}}
           {%- else -%}
             0
           {%- endif -%}
-
+        {% endraw %}
 ```
 
 Configuration variables:
