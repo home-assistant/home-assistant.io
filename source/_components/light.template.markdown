@@ -15,9 +15,9 @@ logo: home-assistant.png
 
 The `template` platform creates lights that combine components.
 
-For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed. If your garage door also has the ability to where you can set its position, you can bind the `set_level` command to a script or service and capture the brightness variable and manipulate it before sending it to your script or service.
+This provides pretty much the same functionality as a [template switch](/components/switch.template/) with the exception is that you can pass brightness commands through.
 
-This can simplify the gui, and make it easier to write automations. You can mark the components you have combined as `hidden` so they don't appear themselves.
+You can run scripts or invoke services for each of the 3 commands: on/off/level
 
 To enable Template lights in your installation, add the following to your `configuration.yaml` file:
 
@@ -27,43 +27,17 @@ light:
   - platform: template
     lights:
       theater_volume:
-        friendly_name: 'Receiver Volume'
-        value_template: >-
-        {% raw %}
-          {%- if is_state("media_player.receiver", "on") -%}
-                {%- if states.media_player.receiver.attributes.is_volume_muted -%}
-                        off
-                {%- else -%}
-                        on
-                {%- endif -%}
-          {%- else -%}
-            off
-          {%- endif -%}
-        {% endraw %}
+        friendly_name: "Theater Lights"
+        value_template: "{% raw %}{{is_state('sensor.theater_brightness.attributes.lux > 0'}}{% endraw %}"
         turn_on:
-          service: media_player.volume_mute
-          data:
-            entity_id: media_player.receiver
-            is_volume_muted: false
+          service: script.theater_lights_on
         turn_off:
-          service: media_player.volume_mute
-          data:
-            entity_id: media_player.receiver
-            is_volume_muted: true
+          service: script.theater_lights_off
         set_level:
-          service: media_player.volume_set
-          data:
-            entity_id: media_player.receiver
+          service: script.theater_lights_level
           data_template:
-          volume_level: '{% raw %}{{((brightness / 255 * 100) | int)/100}}{% endraw %}'
-        level_template: >-
-        {% raw %}
-          {%- if is_state("media_player.receiver", "on") -%}
-            {{(255 * states.media_player.receiver.attributes.volume_level) | int}}
-          {%- else -%}
-            0
-          {%- endif -%}
-        {% endraw %}
+          volume_level: "{% raw %}{{brightness}}{% endraw %}"
+        level_template: "{% raw %}{{is_state('sensor.theater_brightness.attributes.lux'}}{% endraw %}"
 ```
 
 Configuration variables:
@@ -82,3 +56,52 @@ Configuration variables:
 If you are using the state of a platform that takes extra time to load, the template light may get an 'unknown' state during startup. This results in error messages in your log file until that platform has completed loading. If you use is_state() function in your template, you can avoid this situation. For example, you would replace {% raw %}'{{ states.switch.source.state }}'{% endraw %} with this equivalent that returns true/false and never gives an unknown result:
 {% raw %}'{{ is_state('switch.source', 'on') }}'{% endraw %}
 
+## {% linkable_title Examples %}
+
+## {% linkable_title Theater Volume Control %}
+
+You can even control things that aren't lights! This component gives you the flexibility to provide whatever you'd like to send as the payload to the consumer including any scale conversions you may need to make. The media_player component needs a floating point percentage value 0.0-1.0
+
+```yaml
+light:
+  - platform: template
+    lights:
+      theater_volume:
+        friendly_name: 'Receiver Volume'
+        value_template: >-
+          {% raw %}
+          {%- if is_state("media_player.receiver", "on") -%}
+                {%- if states.media_player.receiver.attributes.is_volume_muted -%}
+                        off
+                {%- else -%}
+                        on
+                {%- endif -%}
+          {%- else -%}
+            off
+          {%- endif -%}
+          {% endraw %}
+        turn_on:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: false
+        turn_off:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: true
+        set_level:
+          service: media_player.volume_set
+          data:
+            entity_id: media_player.receiver
+          data_template:
+            volume_level: '{% raw %}{{((brightness / 255 * 100) | int)/100}}{% endraw %}'
+        level_template: >-
+          {% raw %}
+          {%- if is_state("media_player.receiver", "on") -%}
+            {{(255 * states.media_player.receiver.attributes.volume_level) | int}}
+          {%- else -%}
+            0
+          {%- endif -%}
+          {% endraw %}
+```
