@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-19T01:13:10+00:00</updated>
+  <updated>2017-05-19T07:05:28+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant at PyCon US 2017]]></title>
+    <link href="https://home-assistant.io/blog/2017/05/19/home-assistant-at-pycon-us-2017/"/>
+    <updated>2017-05-19T00:00:01+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/05/19/home-assistant-at-pycon-us-2017</id>
+    <content type="html"><![CDATA[<p>In just 12 hours PyCon US 2017 starts. This is an exciting conference because there will be a bunch of Home Assistant developers and users there being able to meet in person.</p>
+
+<p>Just like last year, we’ll be hosting a <a href="https://us.pycon.org/2017/events/open-spaces/">Home Assistant Open Space</a>. Please stop by to ask any questions you have to the available developers. We haven’t reserved a slot yet but will do so tomorrow. We’ll update this post and announce it on social media as we know time and location.</p>
+
+<p>We will also be taken part in the <a href="https://us.pycon.org/2017/community/sprints/">development sprints</a> from Monday-Wednesday. You only need to bring a laptop. We’ll help you get set up with a dev environment and you can be coding on top of Home Assistant in no time. Exact location inside the conference center to be announced.</p>
+
+<p>On a final note, the Home Assistant community is very very active so don’t take it personal if we don’t remember your name, issue or contribution.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant on an Orange Pi Zero]]></title>
@@ -2062,69 +2077,6 @@ Screenshot of all the different functionality the IP webcam integration offers.
 
 <h3>Reporting Issues</h3>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant t-shirts have arrived!]]></title>
-    <link href="https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/"/>
-    <updated>2017-02-22T00:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived</id>
-    <content type="html"><![CDATA[<p class="img">
-  <img src="https://home-assistant.io/images/blog/2017-02-shirts/beard.png" />
-  Cool dude with beard and tattoo wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
-</p>
-
-<p>What time is it? Yep, t-shirt time. Today we’re launching the first two Home Assistant designs. We have a blue t-shirt (<a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>) as pictured above and a design for on black/gray shirts (<a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>) as pictured below.</p>
-
-<ul>
-  <li><a href="https://teespring.com/stores/home-assistant-us-store">Visit the 🇺🇸 US store</a></li>
-  <li><a href="https://teespring.com/stores/home-assistant-eu-store">Visit the 🇪🇺 EU store</a></li>
-</ul>
-
-<p><a href="https://www.eff.org"><img src="https://home-assistant.io/images/supported_brands/eff.png" style="width: 150px; float: right; box-shadow: none; border: 0; margin-left: 15px;" /></a></p>
-
-<p>And because we love the internet and all the things that it has brought us, <strong>we will start with having 100% of the profit from the sales be donated to the <a href="https://www.eff.org">Electronic Frontier Foundation</a></strong>. If you buy a shirt you will hit two birds with one stone (figuratively): you get to wear a kick-ass Home Assistant t-shirt and you help fund defending civil liberties in the digital world.</p>
-
-<p>The EFF is a nonprofit organization that aims to protect the rights of technology users. You might however be more familiar with one of their projects: <a href="https://letsencrypt.org">Let’s Encrypt</a>. <a href="https://www.eff.org/issues">Read more about what the EFF does.</a></p>
-
-<p>So, what are you waiting for? Get yourself a shirt! <a href="https://teespring.com/stores/home-assistant-eu-store">🇪🇺 EU store</a> – <a href="https://teespring.com/stores/home-assistant-us-store">🇺🇸 US store</a></p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2017-02-shirts/family.png" />
-  Family of 4 on a bench wearing the new black Home Assistant shirt. <a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>
-</p>
-
-<p>We are using <a href="https://teespring.com">Teespring.com</a> to manage all the sales, production and distribution of the shirts and they will also donate our profits to the EFF. It’s also how we got all these amazing stockphotos. Some extra things to note about our teespring shop:</p>
-
-<ul>
-  <li>Teespring shows that there is a number of days left until the end of the campaign for the shirts. Don’t worry about that, it should automatically relaunch.</li>
-</ul>
-
-<p>More photos after the click.
-<!--more--></p>
-
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2017-02-shirts/pull-finger.png" />
-  Moment suprême of a solo pull-my-finger joke while wearing the new blue Home Assistant shirt. – <a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>
-</p>
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2017-02-shirts/group.png" />
-   Two men carrying two women and the new blue Home Assistant shirt. – <a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>
-</p>
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2017-02-shirts/lollipop.png" />
-  Cute girl with gigantic lollipop rocking the new black Home Assistant shirt. – <a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>
-</p>
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2017-02-shirts/shout.png" />
-  Frustrated user wearing the new blue Home Assistant shirt. – <a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>
-</p>
-<p class="img">
-  <img src="https://home-assistant.io/images/blog/2017-02-shirts/kids.png" />
-  Cool kid listening to music + sidekick. Both wearing the new blue Home Assistant shirt.  – <a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>
-</p>
 
 ]]></content>
   </entry>

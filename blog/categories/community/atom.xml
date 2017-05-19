@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-19T01:13:10+00:00</updated>
+  <updated>2017-05-19T07:05:28+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant at PyCon US 2017]]></title>
+    <link href="https://home-assistant.io/blog/2017/05/19/home-assistant-at-pycon-us-2017/"/>
+    <updated>2017-05-19T00:00:01+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/05/19/home-assistant-at-pycon-us-2017</id>
+    <content type="html"><![CDATA[In just 12 hours PyCon US 2017 starts. This is an exciting conference because there will be a bunch of Home Assistant developers and users there being able to meet in person.
+
+Just like last year, we'll be hosting a [Home Assistant Open Space](https://us.pycon.org/2017/events/open-spaces/). Please stop by to ask any questions you have to the available developers. We haven't reserved a slot yet but will do so tomorrow. We'll update this post and announce it on social media as we know time and location.
+
+We will also be taken part in the [development sprints](https://us.pycon.org/2017/community/sprints/) from Monday-Wednesday. You only need to bring a laptop. We'll help you get set up with a dev environment and you can be coding on top of Home Assistant in no time. Exact location inside the conference center to be announced.
+
+On a final note, the Home Assistant community is very very active so don't take it personal if we don't remember your name, issue or contribution.
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Grazer Linuxtage 2017: Python Everywhere]]></title>
@@ -104,22 +119,6 @@ Keep in mind that you may have to pay the fee for customs handling and the impor
 [forum]: https://community.home-assistant.io/c/contest-2017
 [twitter]: https://twitter.com/home_assistant
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OpenSourceCraft interviews our founder Paulus Schoutsen]]></title>
-    <link href="https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/"/>
-    <updated>2017-03-23T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen</id>
-    <content type="html"><![CDATA[Last month Gregg Pollack from [OpenSourceCraft] visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the [full article including extra video material][article].
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/osq_2-Qlan0" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-[OpenSourceCraft]: http://codepop.com/open-sourcecraft
-[article]: http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/
 ]]></content>
   </entry>
   
