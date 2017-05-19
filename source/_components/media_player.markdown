@@ -71,4 +71,4 @@ Currently only supports Spotify.
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
-| `source`               |       no | `true`/`false` for enabling/disabling shuffle            |
+| `shuffle`               |       no | `true`/`false` for enabling/disabling shuffle            |
