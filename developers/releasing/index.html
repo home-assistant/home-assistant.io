@@ -70,15 +70,15 @@
 <h3><a class="title-link" name="github-3-days-before-release" href="#github-3-days-before-release"></a> GitHub (3 days before release)</h3>
 <ol>
   <li>Merge <code class="highlighter-rouge">master</code> into <code class="highlighter-rouge">dev</code> to make the PR mergeable.</li>
-  <li>Cut a release branch from <code class="highlighter-rouge">dev</code>. Example name <code class="highlighter-rouge">release-0-40</code>.</li>
-  <li>Create a pull request from release branch to <code class="highlighter-rouge">master</code> with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author.</li>
+  <li>Cut a release branch from <code class="highlighter-rouge">dev</code>. Example name <code class="highlighter-rouge">release-0-46</code>.</li>
+  <li>Create a pull request from release branch to <code class="highlighter-rouge">master</code> with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author. Use [hass-release]https://github.com/home-assistant/hass-release) to collect the details.</li>
   <li>Update <code class="highlighter-rouge">homeassistant/const.py</code> with the correct version number (remove the <code class="highlighter-rouge">dev</code> tag) and push that commit to release branch.</li>
-  <li>From now until the release branch has been merged, we tag bugfixes with the milestone for the release (create if doesn’t exist)</li>
+  <li>From now until the release branch has been merged, we tag bugfixes with the milestone for the release (create if doesn’t exist).</li>
 </ol>
 <h3><a class="title-link" name="website-3-days-before-release" href="#website-3-days-before-release"></a> Website (3 days before release)</h3>
 <ol>
   <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code></li>
-  <li>Cut release branch of <code class="highlighter-rouge">next</code>. For example <code class="highlighter-rouge">release-0-40</code>.</li>
+  <li>Cut release branch of <code class="highlighter-rouge">next</code>. For example <code class="highlighter-rouge">release-0-46</code>.</li>
   <li>Open a PR from release branch to <code class="highlighter-rouge">current</code> with the upcoming release number as the title.</li>
 </ol>
 <h3><a class="title-link" name="github" href="#github"></a> GitHub</h3>
@@ -93,7 +93,7 @@
   <li>Create missing documentation as stubs.</li>
   <li>Update <code class="highlighter-rouge">config.yml</code> with link to the new release blog post and version number (at the bottom of the file).</li>
   <li>Merge <code class="highlighter-rouge">current</code> into release branch (<code class="highlighter-rouge">$ git checkout release-0-40 &amp;&amp; git merge current</code>) to make the PR mergeable.</li>
-  <li>Merge pull request (blog post, updated frontpage, and all new documentation) to <code class="highlighter-rouge">current</code>.</li>
+  <li>Merge pull request (blog post, updated frontpage, and all new documentation) to <code class="highlighter-rouge">current</code>. DO NOT SQUASH!</li>
   <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code>.</li>
 </ol>
 <h3><a class="title-link" name="docker-hub" href="#docker-hub"></a> Docker Hub</h3>
