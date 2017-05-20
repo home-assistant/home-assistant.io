@@ -67,12 +67,12 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <a href="https://github.com/home-assistant/fabric-home-assistant">Raspberry Pi All-In-One Installer</a> deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the Open-Zwave Control Panel.</p>
+  <p>The <a href="https://github.com/home-assistant/fabric-home-assistant">Raspberry Pi All-In-One Installer</a> deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the OpenZWave Control Panel.</p>
 <p>The only requirement is that you have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> connected to your network.</p>
 <p class="note">
-Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images.  Adding an empty file called <code class="highlighter-rouge">ssh</code> to <code class="highlighter-rouge">/boot/</code> or the FAT32 partition will enable it.  More information is on the Raspberry Pi Foundation <a href="https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel">Blog</a>
+Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images. Adding an empty file called <code class="highlighter-rouge">ssh</code> to <code class="highlighter-rouge">/boot/</code> or the FAT32 partition will enable it. More information is on the Raspberry Pi Foundation <a href="https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel">Blog</a>.
 </p>
-<p>Irrespective of whether  you use SSH to connect to the Pi from another computer or not, you need SSH to install Home Assistant. So go ahead and enable SSH.</p>
+<p>Irrespective of whether you use SSH to connect to the Pi from another computer or not, you need SSH to install Home Assistant. So go ahead and enable SSH.</p>
 <ul>
   <li>Login to Raspberry Pi. For example with <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
   <li>Run the following command</li>
@@ -83,7 +83,7 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
 <p class="note warning">
   Note this command is one-line and not run as sudo.
 </p>
-<p>Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against. The installer will identitfy what Raspberry PI hardware revision you are using and adjust commands accordingly. A complete log of the install is located at: <code class="highlighter-rouge">/home/pi/fabric-home-assistant/installation_report.txt</code> The installer has been updated to simply log any errors encountered, but resume installing. Please consult the “installation report” if your install encountered issues.</p>
+<p>Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against. The installer will identitfy what Raspberry Pi hardware revision you are using and adjust commands accordingly. A complete log of the install is located at: <code class="highlighter-rouge">/home/pi/fabric-home-assistant/installation_report.txt</code> The installer has been updated to simply log any errors encountered, but resume installing. Please consult the “installation report” if your install encountered issues.</p>
 <p><a href="http://www.bruhautomation.com">BRUH automation</a> has created <a href="https://www.youtube.com/watch?v=VGl3KTrYo6s">a tutorial video</a> explaining how to install Raspbian on your Raspberry Pi and install Home Assistant using the All-In-One Installer.</p>
 <p>Once rebooted, your Raspberry Pi will be up and running with Home Assistant. You can access it at <a href="http://your_raspberry_pi_ip:8123">http://your_raspberry_pi_ip:8123</a>.</p>
 <p>The Home Assistant configuration is located at <code class="highlighter-rouge">/home/homeassistant/.homeassistant</code> (or <code class="highlighter-rouge">/home/hass/.homeassistant</code> if installed prior to December 2016). The <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> with the Home Assistant installation is located at <code class="highlighter-rouge">/srv/homeassistant/homeassistant_venv</code>. As part of the secure installation, a new user (<strong>homeassistant</strong>) is added to your Raspberry Pi to run Home Assistant. This is a system account and does not have login or other abilities by design. When editing your <code class="highlighter-rouge">configuration.yaml</code> files, you will need to run the commands with <code class="highlighter-rouge">sudo</code> or by switching user.</p>
@@ -101,7 +101,7 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
   <li>Install Home Assistant in a virtualenv</li>
   <li>Install Mosquitto with websocket support running on ports 1883 and 9001</li>
   <li>Build and Install Python-openzwave in the Home Assistant virtualenv</li>
-  <li>Build openzwave-control-panel in <code class="highlighter-rouge">/srv/homeassistant/src/open-zwave-control-panel</code></li>
+  <li>Build OpenZWave Control Panel in <code class="highlighter-rouge">/srv/homeassistant/src/open-zwave-control-panel</code></li>
   <li>Add Home Assistant to systemd services to start at boot</li>
 </ul>
 <h3><a class="title-link" name="upgrading" href="#upgrading"></a> Upgrading</h3>
@@ -110,7 +110,7 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
   <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
   <li>Change to homeassistant user <code class="highlighter-rouge">sudo su -s /bin/bash homeassistant</code></li>
   <li>Change to virtual enviroment <code class="highlighter-rouge">source /srv/homeassistant/homeassistant_venv/bin/activate</code></li>
-  <li>Update HA <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code></li>
+  <li>Update Home Assistant <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code></li>
   <li>Type <code class="highlighter-rouge">exit</code> to logout the hass user and return to the <code class="highlighter-rouge">pi</code> user.</li>
 </ul>
 <div class="note note">
@@ -119,7 +119,7 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
     <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
     <li>Change to homeassistant user <code class="highlighter-rouge">sudo su -s /bin/bash hass</code></li>
     <li>Change to virtual enviroment <code class="highlighter-rouge">source /srv/hass/hass_venv/bin/activate</code></li>
-    <li>Update HA <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code></li>
+    <li>Update Home Assistant <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code></li>
     <li>Type <code class="highlighter-rouge">exit</code> to logout the hass user and return to the <code class="highlighter-rouge">pi</code> user.</li>
   </ul>
 </div>
@@ -136,27 +136,27 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
   <li>Be sure to update your <code class="highlighter-rouge">configuration.yaml</code> to reflect the new password.</li>
 </ul>
 <h3><a class="title-link" name="using-the-ozwcp-web-application" href="#using-the-ozwcp-web-application"></a> Using the OZWCP web application</h3>
-<p>To launch the OZWCP web application:</p>
+<p>To launch the OpenZWave Control Panel (OZWCP) web application:</p>
 <ul>
   <li>Make sure Home Assistant is not running! So stop that first</li>
   <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
-  <li>Change to the ozwcp directory <code class="highlighter-rouge">cd /srv/homeassistant/src/open-zwave-control-panel/</code></li>
+  <li>Change to the OZWCP directory <code class="highlighter-rouge">cd /srv/homeassistant/src/open-zwave-control-panel/</code></li>
   <li>Launch the control panel <code class="highlighter-rouge">sudo ./ozwcp -p 8888</code></li>
   <li>Open a web browser to <code class="highlighter-rouge">http://your_pi_ip:8888</code></li>
-  <li>Specify your zwave controller, for example <code class="highlighter-rouge">/dev/ttyACM0</code> and hit initialize</li>
+  <li>Specify your Z-Wave controller, for example <code class="highlighter-rouge">/dev/ttyACM0</code> and hit initialize</li>
 </ul>
 <p class="note warning">
-  If ozwcp is running really slow verify that your not running Home Assistant or have another page running ozwcp open or strange errors might occur.
+  If OZWCP is running really slow verify that your not running Home Assistant or have another page running OZWCP open or strange errors might occur.
 </p>
 <div class="note note">
   <p><strong>If you deployed Home Assistant via the AiO installer prior to December 2016</strong></p>
   <ul>
     <li>Make sure Home Assistant is not running! So stop that first</li>
     <li>Login to Raspberry Pi <code class="highlighter-rouge">ssh pi@your_raspberry_pi_ip</code></li>
-    <li>Change to the ozwcp directory <code class="highlighter-rouge">cd /srv/hass/src/open-zwave-control-panel/</code></li>
+    <li>Change to the OZWCP directory <code class="highlighter-rouge">cd /srv/hass/src/open-zwave-control-panel/</code></li>
     <li>Launch the control panel <code class="highlighter-rouge">sudo ./ozwcp -p 8888</code></li>
     <li>Open a web browser to <code class="highlighter-rouge">http://your_pi_ip:8888</code></li>
-    <li>Specify your zwave controller, for example <code class="highlighter-rouge">/dev/ttyACM0</code> and hit initialize</li>
+    <li>Specify your Z-Wave controller, for example <code class="highlighter-rouge">/dev/ttyACM0</code> and hit initialize</li>
   </ul>
 </div>
 <p class="note warning">
