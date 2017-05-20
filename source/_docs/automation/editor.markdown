@@ -11,11 +11,41 @@ footer: true
 
 In Home Assistant 0.45 we have introduced the first version of our automation editor. The editor is still in a very early stage and rough around the edges. For now we are only supporting Chrome but better browser support is planned for the future.
 
-If you just created a new config with Home Assistant then you're all set! Go to the UI and enjoy.
+If you just created a new configuration with Home Assistant then you're all set! Go to the UI and enjoy.
 
-## {% linkable_title Updating your config to use the editor %}
+From the UI choose **Automation** which is located in the sidebar. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/components/sensor.random/).
 
-The automation editor reads and writes to the file `automations.yaml` in your configuration folder. Make sure that you have set up the automation component to read from it:
+Choose a meaningful name for your automation rules.
+
+<p class='img'>
+  <img src='{{site_root}}/images/docs/automation-editor/new-automation.png' />
+</p>
+
+If the value of the is greater than 10 then the automation rule should apply.
+
+<p class='img'>
+  <img src='{{site_root}}/images/docs/automation-editor/new-trigger.png' />
+</p>
+
+Firing a [persistent notification](/components/persistent_notification/) is the result.
+
+<p class='img'>
+  <img src='{{site_root}}/images/docs/automation-editor/new-action.png' />
+</p>
+
+As "Service Data" we want a simple text that is shown as part of the notification.
+
+```json
+{ 
+  "message": "Sensor value greater than 10"
+}
+```
+
+Don't forget to save your new automation rule.
+
+## {% linkable_title Updating your configuration to use the editor %}
+
+The automation editor reads and writes to the file `automations.yaml` in your [configuration](/docs/configuration/) folder. Make sure that you have set up the automation component to read from it:
 
 ```yaml
 # Configuration.yaml example
@@ -27,12 +57,12 @@ If you still want to use your old automation section, add a label to the old ent
 ```yaml
 automation old:
 - trigger:
-    platform: …
+    platform: ...
 ```
 
-## {% linkable_title Migrating your automations to automations.yaml %}
+## {% linkable_title Migrating your automations to `automations.yaml` %}
 
-If you want to migrate your old automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over you'll have to add an id. This can be any string as long as it's unique.
+If you want to migrate your old automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over you'll have to add an `id`. This can be any string as long as it's unique.
 
 ```yaml
 # Example automations.yaml entry
@@ -56,3 +86,4 @@ If you want to migrate your old automations to use the editor, you'll have to co
 <p class='note'>
 Any comments in the YAML file will be lost when you update an automation via the editor.
 </p>
+
