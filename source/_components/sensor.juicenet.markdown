@@ -13,7 +13,7 @@ ha_release: "0.45"
 ---
 
 
-The Juicenet sensor platform allows you to get data from your [JuiceNet](https://emotorwerks.com/products/juicenet/) sensors.
+The `juicenet` sensor platform allows you to get data from your [JuiceNet](https://emotorwerks.com/products/juicenet/) sensors.
 
 The requirement is that you have setup [Juicenet](/components/juicenet/).
 
