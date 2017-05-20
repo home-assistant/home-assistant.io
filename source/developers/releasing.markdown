@@ -14,15 +14,15 @@ This page describes the steps for publishing a new Home Assistant release.
 ### {% linkable_title GitHub (3 days before release) %}
 
 1. Merge `master` into `dev` to make the PR mergeable.
-2. Cut a release branch from `dev`. Example name `release-0-40`.
-3. Create a pull request from release branch to `master` with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author.
+2. Cut a release branch from `dev`. Example name `release-0-46`.
+3. Create a pull request from release branch to `master` with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author. Use [hass-release]https://github.com/home-assistant/hass-release) to collect the details.
 4. Update `homeassistant/const.py` with the correct version number (remove the `dev` tag) and push that commit to release branch.
-5. From now until the release branch has been merged, we tag bugfixes with the milestone for the release (create if doesn't exist)
+5. From now until the release branch has been merged, we tag bugfixes with the milestone for the release (create if doesn't exist).
 
 ### {% linkable_title Website (3 days before release) %}
 
 1. Merge `current` into `next`
-2. Cut release branch of `next`. For example `release-0-40`.
+2. Cut release branch of `next`. For example `release-0-46`.
 3. Open a PR from release branch to `current` with the upcoming release number as the title.
 
 ### {% linkable_title GitHub %}
@@ -37,7 +37,7 @@ This page describes the steps for publishing a new Home Assistant release.
 2. Create missing documentation as stubs.
 3. Update `config.yml` with link to the new release blog post and version number (at the bottom of the file).
 4. Merge `current` into release branch (`$ git checkout release-0-40 && git merge current`) to make the PR mergeable.
-5. Merge pull request (blog post, updated frontpage, and all new documentation) to `current`.
+5. Merge pull request (blog post, updated frontpage, and all new documentation) to `current`. DO NOT SQUASH!
 6. Merge `current` into `next`.
 
 ### {% linkable_title Docker Hub %}
