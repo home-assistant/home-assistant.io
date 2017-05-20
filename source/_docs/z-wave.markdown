@@ -14,56 +14,14 @@ redirect_from: /getting-started/z-wave/
 
 There is currently support for climate, covers, lights, locks, sensors, switches and thermostats. All will be picked up automatically after configuring this platform.
 
-### {% linkable_title Installation in Virtualenv (python-OpenZWave) %}
-
-If you installed Home Assistant using a virtual environment then please read the instructions on [Installing python-OpenZWave in a virtualenv](https://home-assistant.io/docs/installation/virtualenv/#installing-python-openzwave-in-a-virtualenv).
-
 ### {% linkable_title Installation %}
 
-To allow Home Assistant to talk to your Z-Wave USB stick you will have to compile the OpenZWave library and install the related [python-OpenZWave package](https://github.com/OpenZWave/python-openzwave). This can be done as follows. _(Note: The Home Assistant docker image and the All In One installer have support for Z-Wave already built-in!)_
+As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed.
 
-Make sure you have the correct dependencies installed before running the script:
-
-```bash
-$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools git
-```
-
-Make sure you have at least version 0.23 and at the most 0.24.1 of cython.
+There is one dependency you will need to have installed ahead of time:
 
 ```bash
-$ sudo pip3 install --upgrade cython==0.24.1
-```
-
-Then get the OpenZWave files:
-
-<p class='note warning'>Do not use root to build python-openzwave as it will surely fail.</p>
-
-```bash
-$ git clone https://github.com/OpenZWave/python-openzwave.git
-$ cd python-openzwave
-$ PYTHON_EXEC=$(which python3) make build
-$ sudo PYTHON_EXEC=$(which python3) make install
-```
-
-<p class='note'>
-Instead of `make install`, you can alternatively build your own python-openzwave package which can be easily uninstalled:
-</p>
-
-```bash
-$ sudo apt-get install -y checkinstall
-$ sudo PYTHON_EXEC=$(which python3) checkinstall --pkgname python-openzwave --pkgversion 1.0 --provides python-openzwave
-```
-
-With this installation, your `config_path` needed below will resemble:
-
-```bash
-/usr/local/lib/python3.4/dist-packages/libopenzwave-0.3.0b8-py3.4-linux-x86_64.egg/config
-```
-
-If you followed along with setting up a virtual environment, your path will be:
-
-```bash
-/srv/homeassistant/src/python-openzwave/openzwave/config
+$ sudo apt-get install libudev-dev
 ```
 
 ### {% linkable_title Configuration %}
@@ -77,7 +35,7 @@ zwave:
 Configuration variables:
 
 - **usb_path** (*Optional*): The port where your device is connected to your Home Assistant host.
-- **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the folder `config` in your Python OpenZWave install directory.
+- **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the 'config' that is installed by python-openzwave
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **device_config** (*Optional*): This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format:
@@ -116,12 +74,12 @@ $ ls /dev/cu.usbmodem*
 ```
 
 <p class='note'>
-Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/). 
+Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
 </p>
 
 ### {% linkable_title Adding Devices %}
 
-To add a Z-Wave device to your system, go to the Services menu and select the `zwave` domain, and select the `add-node` service. Then find your device's add button and press that as well. 
+To add a Z-Wave device to your system, go to the Services menu and select the `zwave` domain, and select the `add-node` service. Then find your device's add button and press that as well.
 
 ### {% linkable_title Adding Security Devices %}
 
