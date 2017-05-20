@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-20T22:54:47+00:00</updated>
+  <updated>2017-05-20T23:39:11+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -29,6 +29,10 @@
 </p>
 
 <p>Check this <a href="https://youtu.be/0j_hWdCTip4">video</a> by <a href="https://twitter.com/BRUHautomation">Ben</a> from <a href="http://www.bruhautomation.com/">BRUHautomation</a> to see the new release in action.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0j_hWdCTip4" frameborder="0" allowfullscreen=""></iframe>
+</div>
 
 <p>As the editor is experimental, there are some limitations. These include that Chrome/Chromium is the only supported browser, we don’t support all triggers and actions and there is no support for conditions yet. But the foundation is there and so if you want to contribute to this, come help!</p>
 
