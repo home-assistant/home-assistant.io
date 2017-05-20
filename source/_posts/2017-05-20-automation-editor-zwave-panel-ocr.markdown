@@ -21,7 +21,7 @@ First thing for this release is a feature that has been requested a lot: an auto
   <img src='{{site_root}}/images/blog/2017-05-0.45/trigger.png' />
 </p>
 
-Check this [video](https://youtu.be/0j_hWdCTip4) by [Ben](https://twitter.com/BRUHautomation) from [BRUHautomation](http://www.bruhautomation.com/) to 0.45 in action. 
+Check this [video](https://youtu.be/0j_hWdCTip4) by [Ben](https://twitter.com/BRUHautomation) from [BRUHautomation](http://www.bruhautomation.com/) to see the new release in action. 
 
 As the editor is experimental, there are some limitations. These include that Chrome/Chromium is the only supported browser, we don't support all triggers and actions and there is no support for conditions yet. But the foundation is there and so if you want to contribute to this, come help! 
 
