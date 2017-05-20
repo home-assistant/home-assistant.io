@@ -8,8 +8,8 @@ comments: false
 sharing: true
 logo: datadog.png
 footer: true
-ha_category: "History"
-ha_release: 0.43
+ha_category: History
+ha_release: 0.45
 ---
 
 The `datadog` component sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](http://docs.datadoghq.com/guides/basic_agent_usage/).
