@@ -75,6 +75,169 @@
   <li>Generic Z-wave</li>
 </ul>
 <p class="note">
+The following services have only been confirmed on Schlage locks.
+</p>
+<h3><a class="title-link" name="service-wink_set_lock_alarm_mode" href="#service-wink_set_lock_alarm_mode"></a> Service <code class="highlighter-rouge">wink_set_lock_alarm_mode</code></h3>
+<p>You can use the service wink/wink_set_lock_alarm_mode to set the alarm mode of your lock.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">mode</code></td>
+      <td>no</td>
+      <td>String one of tamper, activity, or forced_entry</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of locks.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_locks_to_tamper</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.wink_set_lock_alarm_mode</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">mode</span><span class="pi">:</span> <span class="s2">"</span><span class="s">tamper"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-wink_set_lock_alarm_sensitivity" href="#service-wink_set_lock_alarm_sensitivity"></a> Service <code class="highlighter-rouge">wink_set_lock_alarm_sensitivity</code></h3>
+<p>You can use the service wink/wink_set_lock_alarm_sensitivity to set the alarm sensitivity of your lock.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">sensitivity</code></td>
+      <td>no</td>
+      <td>String one of low, medium_low, medium, medium_high, high</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of locks.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_locks_to_high_sensitivity</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.wink_set_lock_alarm_sensitivity</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">sensitivity</span><span class="pi">:</span> <span class="s2">"</span><span class="s">high"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-wink_set_lock_alarm_state" href="#service-wink_set_lock_alarm_state"></a> Service <code class="highlighter-rouge">wink_set_lock_alarm_state</code></h3>
+<p>You can use the service wink/wink_set_lock_alarm_state to set the alarm state of your lock.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>no</td>
+      <td>Boolean enabled or disabled, true or false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of locks.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">disable_all_locks_alarm</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.wink_set_lock_alarm_state</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">enabled</span><span class="pi">:</span> <span class="s">false</span> 
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-wink_set_lock_beeper_state" href="#service-wink_set_lock_beeper_state"></a> Service <code class="highlighter-rouge">wink_set_lock_beeper_state</code></h3>
+<p>You can use the service wink/wink_set_lock_beeper_state to set the beeper state of your lock.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>no</td>
+      <td>Boolean enabled or disabled, true or false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of locks.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">disable_all_locks_beepers</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.wink_set_lock_beeper_state</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">enabled</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-wink_set_lock_vacation_mode" href="#service-wink_set_lock_vacation_mode"></a> Service <code class="highlighter-rouge">wink_set_lock_vacation_mode</code></h3>
+<p>You can use the service wink/wink_set_lock_vacation_mode to set the vacation mode of your lock.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>no</td>
+      <td>Boolean enabled or disabled, true or false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of locks.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">enabled_vacation_mode_on_all_locks</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.wink_set_lock_vacation_mode</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">enabled</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
+</div>
+<p class="note">
 If supported by your lock, a binary sensor will be created for each user key code you have defined. These key codes will turn on when the code is entered and automatically turn off after a few seconds.
 </p>
 </article>

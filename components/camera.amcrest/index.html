@@ -84,9 +84,12 @@
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera. The default is “Amcrest Camera”.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port that the camera is running on. The default is 80.</li>
   <li><strong>resolution</strong> (<em>Optional</em>): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option <code class="highlighter-rouge">high</code>. For VGA resolution (640x480p), specify the option <code class="highlighter-rouge">low</code>. If omitted, it defaults to <em>high</em>.</li>
-  <li><strong>stream_source</strong> (<em>Optional</em>): The data source for the live stream. <code class="highlighter-rouge">mjpeg</code> will use the camera’s native MJPEG stream, whereas <code class="highlighter-rouge">snapshot</code> will use the camera’s snapshot API to create a stream from still images. If omitted, it defaults to <em>mjpeg</em>.</li>
+  <li><strong>stream_source</strong> (<em>Optional</em>): The data source for the live stream. <code class="highlighter-rouge">mjpeg</code> will use the camera’s native MJPEG stream, whereas <code class="highlighter-rouge">snapshot</code> will use the camera’s snapshot API to create a stream from still images. You can also set the <code class="highlighter-rouge">rtsp</code> option to generate the streaming via RTSP protocol. If omitted, it defaults to <em>mjpeg</em>.</li>
+  <li><strong>ffmpeg_arguments</strong>: (<em>Optional</em>): Extra options to pass to ffmpeg, e.g. image quality or video filter options.</li>
 </ul>
 <p><strong>Note:</strong> Amcrest cameras with newer firmwares no longer have the ability to stream <code class="highlighter-rouge">high</code> definition video with MJPEG encoding. You may need to use <code class="highlighter-rouge">low</code> resolution stream or the <code class="highlighter-rouge">snapshot</code> stream source instead.  If the quality seems too poor, lower the <code class="highlighter-rouge">Frame Rate (FPS)</code> and max out the <code class="highlighter-rouge">Bit Rate</code> settings in your camera’s configuration manager.</p>
+<p><strong>Note:</strong> If you set the <code class="highlighter-rouge">stream_source</code> option to <code class="highlighter-rouge">rtsp</code>, make sure to follow the steps mentioned at
+<a href="https://home-assistant.io/components/ffmpeg/">FFMPEG</a> documentation to install the <code class="highlighter-rouge">ffmpeg</code>.</p>
 <p>To check if your Amcrest camera is supported/tested, visit the <a href="https://github.com/tchellomello/python-amcrest#supportability-matrix">supportability matrix</a> link from the <code class="highlighter-rouge">python-amcrest</code> project.</p>
 </article>
         </div>
@@ -117,6 +120,9 @@
     <ul class='divided'>
         <li>
             Amcrest IP Camera
+        </li>
+        <li>
+            <a href='/components/camera.axis/'>Axis Camera</a>
         </li>
         <li>
             <a href='/components/camera.blink/'>Blink Camera</a>

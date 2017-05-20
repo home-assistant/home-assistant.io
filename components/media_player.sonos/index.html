@@ -225,6 +225,49 @@
     </tr>
   </tbody>
 </table>
+<h3><a class="title-link" name="service-sonos_update_alarm" href="#service-sonos_update_alarm"></a> Service <code class="highlighter-rouge">sonos_update_alarm</code></h3>
+<p>Update an existing sonos alarm.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>String or list of <code class="highlighter-rouge">entity_id</code>s that will have their timers cleared. Must be a coordinator speaker.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">alarm_id</code></td>
+      <td>no</td>
+      <td>Integer that is used in Sonos to refer to your alarm.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">time</code></td>
+      <td>yes</td>
+      <td>Time to set the alarm.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">volume</code></td>
+      <td>yes</td>
+      <td>Float for volume level.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>yes</td>
+      <td>Boolean for whether or not to enable this alarm.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">include_linked_zones</code></td>
+      <td>yes</td>
+      <td>Boolean that defines if the alarm also plays on grouped players.</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

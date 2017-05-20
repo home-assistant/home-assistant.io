@@ -85,8 +85,9 @@
   <li><strong>sender</strong> (<em>Optional</em>): E-mail address of the sender.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
-  <li><strong>recipient</strong> (<em>Required</em>): E-mail address of the recipient of the notification. This can be a recpient address or a list of addresses for multiple recipients.</li>
+  <li><strong>recipient</strong> (<em>Required</em>): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.</li>
   <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. True or False. Defaults to False.</li>
+  <li><strong>sender_name</strong> (<em>Optional</em>): Sets a custom ‘sender name’ in the emails headers (<em>From</em>: Custom name <a href="mailto:example@mail.com">example@mail.com</a>).</li>
   <li><strong>debug</strong> (<em>Optional</em>): Enables Debug, eg. True or False. Defaults to False.</li>
 </ul>
 <p>A sample configuration entry for Google Mail.</p>
@@ -104,11 +105,12 @@
     <span class="s">recipient</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">james@gmail.com</span>
       <span class="pi">-</span> <span class="s">bob@gmail.com</span>
+    <span class="s">sender_name</span><span class="pi">:</span> <span class="s">My Home Assistant</span>
 </code></pre>
 </div>
 <p>Keep in mind that Google has some extra layers of protection which need special attention (Hint: ‘Less secure apps’).</p>
 <p>To use the SMTP notification, refer to it in an automation or script like in this example:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">burglar</span><span class="pi">:</span> 
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">burglar</span><span class="pi">:</span>
     <span class="s">alias</span><span class="pi">:</span> <span class="s">Burglar Alarm</span>
     <span class="s">sequence</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.snapshot</span>
@@ -119,12 +121,77 @@
             <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Intruder</span><span class="nv"> </span><span class="s">alert'</span>
             <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Intruder</span><span class="nv"> </span><span class="s">alert</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">apartment!!'</span>
             <span class="s">data</span><span class="pi">:</span>
-                <span class="s">images</span><span class="pi">:</span> 
+                <span class="s">images</span><span class="pi">:</span>
                     <span class="pi">-</span> <span class="s">/home/pi/snapshot1.jpg</span>
                     <span class="pi">-</span> <span class="s">/home/pi/snapshot2.jpg</span>
 </code></pre>
 </div>
 <p>The optional <code class="highlighter-rouge">images</code> field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.</p>
+<p>The optional <code class="highlighter-rouge">html</code> field makes a custom text/HTML multi-part message, allowing total freedom for sending rich html emails. In them, if you need to attach images, you can pass both arguments (<code class="highlighter-rouge">html</code> and <code class="highlighter-rouge">images</code>), the attachments will be joined with the basename of the images, so they can be included in the html page with <code class="highlighter-rouge">src="cid:image_name.ext"</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">burglar</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Burglar Alarm</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.snapshot</span>
+      <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+            <span class="s">seconds</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+            <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Intruder</span><span class="nv"> </span><span class="s">alert</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">apartment!!'</span>
+            <span class="s">data</span><span class="pi">:</span>
+              <span class="s">images</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="s">/home/pi/snapshot1.jpg</span>
+                <span class="pi">-</span> <span class="s">/home/pi/snapshot2.jpg</span>
+              <span class="s">html</span><span class="pi">:</span> <span class="pi">&gt;</span>
+                <span class="no">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+                <span class="no">&lt;html lang="en" xmlns="http://www.w3.org/1999/xhtml"&gt;</span>
+                    <span class="no">&lt;head&gt;</span>
+                        <span class="no">&lt;meta charset="UTF-8"&gt;</span>
+                        <span class="no">&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;</span>
+                        <span class="no">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span>
+                        <span class="no">&lt;title&gt;Intruder alert&lt;/title&gt;</span>
+                        <span class="no">&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"&gt;</span>
+                        <span class="no">&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"&gt;</span>
+                        <span class="no">&lt;style type="text/css"&gt;</span>
+                            <span class="no">@font-face {</span>
+                              <span class="no">font-family: 'Open Sans';</span>
+                              <span class="no">font-style: normal;</span>
+                              <span class="no">font-weight: 300;</span>
+                              <span class="no">src: local('Open Sans Light'), local('OpenSans-Light'), url(http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTZS3E-kSBmtLoNJPDtbj2Pk.ttf) format('truetype');</span>
+                            <span class="no">}</span>
+                            <span class="no">h1,h2,h3,h4,h5,h6 {</span>
+                                <span class="no">font-family:'Open Sans',Arial,sans-serif;</span>
+                                <span class="no">font-weight:400;</span>
+                                <span class="no">margin:10px 0</span>
+                            <span class="no">}</span>
+                        <span class="no">&lt;/style&gt;</span>
+                    <span class="no">&lt;/head&gt;</span>
+                    <span class="no">&lt;body&gt;</span>
+                      <span class="no">&lt;div class="jumbotron jumbotron-fluid" style="background-color: #f00a2d; color: white;"&gt;</span>
+                          <span class="no">&lt;div class="container py-0"&gt;</span>
+                              <span class="no">&lt;h1&gt;Intruder alert at apartment!!&lt;/h1&gt;</span>
+                          <span class="no">&lt;/div&gt;</span>
+                      <span class="no">&lt;/div&gt;</span>
+                      <span class="no">&lt;div class="container-fluid"&gt;</span>
+                        <span class="no">&lt;div class="row"&gt;</span>
+                          <span class="no">&lt;div class="col-xs-12 col-md-6 px-0"&gt;</span>
+                            <span class="no">&lt;img class="rounded" style="width: 100%;"</span>
+                                <span class="no">alt="snapshot1" src="cid:snapshot1.jpg" /&gt;</span>
+                          <span class="no">&lt;/div&gt;</span>
+                          <span class="no">&lt;div class="col-xs-12 col-md-6 px-0"&gt;</span>
+                            <span class="no">&lt;img class="rounded" style="width: 100%;"</span>
+                                <span class="no">alt="snapshot2" src="cid:snapshot2.jpg" /&gt;</span>
+                          <span class="no">&lt;/div&gt;</span>
+                        <span class="no">&lt;/div&gt;</span>
+                        <span class="no">&lt;br&gt;</span>
+                      <span class="no">&lt;/div&gt;</span>
+                    <span class="no">&lt;/body&gt;</span>
+                    <span class="no">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt;&lt;/script&gt;</span>
+                    <span class="no">&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"&gt;&lt;/script&gt;</span>
+                <span class="no">&lt;/html&gt;</span>
+
+</code></pre>
+</div>
+<p>Obviously, this kind of complex html email reporting is done much more conveniently using Jinja2 templating from an <a href="https://home-assistant.io/docs/ecosystem/appdaemon/tutorial/">AppDaemon app</a>, for example.</p>
 <p>This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.</p>
 <p>A combination that will work properly is port 587 and STARTTLS. It’s recommended to enable STARTTLS, if possible.</p>
 <p>Keep in mind that if the password contains a colon, it needs to be wrapped in apostrophes in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>

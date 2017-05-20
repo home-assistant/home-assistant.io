@@ -68,6 +68,7 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">automatic</code> platform offers presence detection by retrieving your car’s information from the <a href="http://automatic.com/">Automatic</a> cloud service.</p>
 <p>To use Automatic with Home Assistant, first you must <a href="https://developer.automatic.com/">create a free development account</a>. Automatic will generate a Client ID and Secret for you to use in your Home Assistant configuration. You will also need to update your Event Delivery preferences to ensure Home Assistant can receive updates. On the developer page, under App Settings / Event Delivery, select “Websocket” for Event Delivery Preference.</p>
+<p>Home Assistant will also take advantage of <code class="highlighter-rouge">scope:current_location</code> if available. This will allow Home Assistant to receive periodic location updates during a trip. In order to use this functionality, you must request the scope for your application from Automatic. Once <code class="highlighter-rouge">scope:current_location</code> is available, Home Assistant will automatically make use of it after the next restart.</p>
 <p>Once your developer account is created, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>

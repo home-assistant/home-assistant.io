@@ -66,9 +66,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p><a href="http://www.lutron.com/">Lutron</a> is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The <code class="highlighter-rouge">lutron_caseta</code> component in Home Assistant is responsible for communicating with the Lutron SmartBridge for these systems.</p>
-<p>This component only supports the Caseta line of products. Current only supports Caseta dimmers as Home Assistant lights and caseta wall switches as Home Assistant switches.</p>
-<p>When configured, the <code class="highlighter-rouge">lutron_caseta</code> component will automatically discover dimmers and switches as setup in the Lutron SmartBridge.</p>
+  <p><a href="http://www.lutron.com/">Lutron</a> is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The <code class="highlighter-rouge">lutron_caseta</code> component in Home Assistant is responsible for communicating with the Lutron SmartBridge for these systems.  Both ‘pro’ and ‘standard’ models are supported.</p>
+<p>This component only supports the Caseta line of products. The current supported Caseta devices are:</p>
+<ul>
+  <li>Dimmers as Home Assistant lights</li>
+  <li>Wall switches as Home Assistant switches</li>
+  <li>Serena shades as Home Assistant covers</li>
+</ul>
+<p>When configured, the <code class="highlighter-rouge">lutron_caseta</code> component will automatically discover the currently support devices as setup in the Lutron SmartBridge.</p>
 <p>To use Lutron Caseta devices in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file using the IP of your lutron Smartbridge:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">lutron_caseta</span><span class="pi">:</span>
@@ -97,6 +102,9 @@ It is recommended to assign a static IP address to your Lutron SmartBridge. This
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/cover.lutron_caseta/'>
+          Lutron Caseta Cover
+        </a></li>
         <li><a href='/components/light.lutron_caseta/'>
           Lutron Caseta Light
         </a></li>
@@ -116,6 +124,9 @@ It is recommended to assign a static IP address to your Lutron SmartBridge. This
         </li>
         <li>
             <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/axis/'>Axis</a>
         </li>
         <li>
             <a href='/components/wemo/'>Belkin WeMo</a>
@@ -161,6 +172,9 @@ It is recommended to assign a static IP address to your Lutron SmartBridge. This
         </li>
         <li>
             <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/kira/'>Kira</a>
         </li>
         <li>
             <a href='/components/litejet/'>LiteJet</a>

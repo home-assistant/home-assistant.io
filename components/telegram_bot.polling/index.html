@@ -67,7 +67,7 @@
   </header>
   <hr class="divider">
   <p>Telegram chatbot polling implementation.</p>
-<p>One of two bot implementations supported by Telegram. Your hass does not have to be exposed to the internet.</p>
+<p>One of two bot implementations supported by Telegram. Your Home Assistant does not have to be exposed to the internet.</p>
 <p>To integrate this into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 
@@ -83,8 +83,9 @@
 <ul>
   <li><strong>allowed_chat_ids</strong> (<em>Required</em>): A list of user in the <code class="highlighter-rouge">user_id</code> Telegram format enabled to interact to webhook</li>
   <li><strong>api_key</strong> (<em>Required</em>): The API token of your bot.</li>
+  <li><strong>parse_mode</strong> (<em>Optional</em>): Default parser for messages if not explicit in message data: ‘html’ or ‘markdown’. Default is ‘markdown’.</li>
 </ul>
-<p>To get your <code class="highlighter-rouge">chat_id</code> and <code class="highlighter-rouge">api_key</code> follow the instructions <a href="/components/notify.telegram">here</a> .</p>
+<p>To get your <code class="highlighter-rouge">chat_id</code> and <code class="highlighter-rouge">api_key</code> follow the instructions <a href="/components/notify.telegram/">here</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

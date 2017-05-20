@@ -70,7 +70,8 @@
 <p>The requirements are:</p>
 <ul>
   <li>You need a <a href="https://core.telegram.org/bots">Telegram bot</a>. Please follow those <a href="https://core.telegram.org/bots#6-botfather">instructions</a> to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.</li>
-  <li>The <code class="highlighter-rouge">chat_id</code> of an user.</li>
+  <li>You need to configure a <a href="/components/telegram_bot">Telegram bot in Home Assistant</a> and define there your API key and the allowed chat ids to interact with.</li>
+  <li>The <code class="highlighter-rouge">chat_id</code> of an allowed user.</li>
 </ul>
 <p>To retrieve your <code class="highlighter-rouge">chat_id</code>, contact any of the Telegram bots created for this purpose (@myidbot, @get_id_bot)</p>
 <p>The quickest way to retrieve your <code class="highlighter-rouge">chat_id</code> is visiting <a href="https://api.telegram.org/botYOUR_API_TOKEN/getUpdates">https://api.telegram.org/botYOUR_API_TOKEN/getUpdates</a> or to use <code class="highlighter-rouge">$ curl -X GET https:/api.telegram.org/botYOUR_API_TOKEN/getUpdates</code>. Replace <code class="highlighter-rouge">YOUR_API_TOKEN</code> with your actual token.</p>
@@ -89,21 +90,48 @@
 </code></pre>
 </div>
 <p>To enable Telegram notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for the Telegram Bot</span>
+<span class="s">telegram_bot</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+  <span class="s">allowed_chat_ids</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">CHAT_ID_1</span>
+    <span class="pi">-</span> <span class="s">CHAT_ID_2</span>
+    <span class="pi">-</span> <span class="s">CHAT_ID_3</span>
+
+<span class="c1"># Example configuration.yaml entry for the notifier</span>
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">telegram</span>
-    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
-    <span class="s">chat_id</span><span class="pi">:</span> <span class="s">YOUR_CHAT_ID</span>
+    <span class="s">chat_id</span><span class="pi">:</span> <span class="s">CHAT_ID_2</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>api_key</strong> (<em>Required</em>): The API token of your bot.</li>
   <li><strong>chat_id</strong> (<em>Required</em>): The chat ID of your user.</li>
 </ul>
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
+<h3><a class="title-link" name="text-message" href="#text-message"></a> Text message</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*Send</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">message*'</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">That's an example that _sends_ a *formatted* message with a custom keyboard.'</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">keyboard</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s1">'</span><span class="s">/command1,</span><span class="nv"> </span><span class="s">/command2'</span>
+        <span class="pi">-</span> <span class="s1">'</span><span class="s">/command3,</span><span class="nv"> </span><span class="s">/command4'</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>message</strong> (<em>Required</em>): Message text.</li>
+  <li><strong>title</strong> (<em>Optional</em>): Will be composed as ‘%title\n%message’.</li>
+  <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
+  <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.</li>
+</ul>
 <h3><a class="title-link" name="photo-support" href="#photo-support"></a> Photo support</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
 <span class="s">action</span><span class="pi">:</span>
@@ -122,11 +150,14 @@
           <span class="s">caption</span><span class="pi">:</span> <span class="s">I.e. for a Title</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
 <ul>
   <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to an image.</li>
   <li><strong>caption</strong> (<em>Optional</em>): The title of the image.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
   <li><strong>password</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
+  <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
+  <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.</li>
 </ul>
 <h3><a class="title-link" name="document-support" href="#document-support"></a> Document support</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
@@ -139,14 +170,16 @@
       <span class="s">document</span><span class="pi">:</span>
         <span class="s">file</span><span class="pi">:</span> <span class="s">/tmp/whatever.odf</span>
         <span class="s">caption</span><span class="pi">:</span> <span class="s">Document Title xy</span>
-        
 </code></pre>
 </div>
+<p>Configuration variables:</p>
 <ul>
   <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to a document.</li>
   <li><strong>caption</strong> (<em>Optional</em>): The title of the document.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
   <li><strong>password</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
+  <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
+  <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.</li>
 </ul>
 <h3><a class="title-link" name="location-support" href="#location-support"></a> Location support</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
@@ -162,10 +195,13 @@
         <span class="s">longitude</span><span class="pi">:</span> <span class="s">117.22743</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
 <ul>
   <li><strong>location</strong> (<em>Required</em>): For local or remote path to an image.</li>
   <li><strong>latitude</strong> (<em>Required</em>): The latitude to send.</li>
   <li><strong>longitude</strong> (<em>Required</em>): The longitude to send.</li>
+  <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
+  <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.</li>
 </ul>
 </article>
         </div>

@@ -71,11 +71,12 @@
 <p>To integrate this into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">http</span><span class="pi">:</span>
-  <span class="s">base_url</span><span class="pi">:</span> <span class="s">&lt;public_url&gt;</span> <span class="c1"># the hass https url which is exposed to the internet.</span>
+  <span class="s">base_url</span><span class="pi">:</span> <span class="s">&lt;public_url&gt;</span> <span class="c1"># the Home Assistant https url which is exposed to the internet.</span>
 
 <span class="s">telegram_bot</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">telegram api key</span>
+  <span class="s">parse_mode</span><span class="pi">:</span> <span class="s">html</span>
   <span class="s">allowed_chat_ids</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">12345</span>
     <span class="pi">-</span> <span class="s">67890</span>
@@ -86,6 +87,7 @@
   <li><strong>allowed_chat_ids</strong> (<em>Required</em>): A list of user in the <code class="highlighter-rouge">user_id</code> Telegram format enabled to interact to webhook</li>
   <li><strong>api_key</strong> (<em>Required</em>): The API token of your bot.</li>
   <li><strong>trusted_networks</strong> (<em>Optional</em>): Telegram server access ACL as list. Defaults to <code class="highlighter-rouge">149.154.167.197-233</code>.</li>
+  <li><strong>parse_mode</strong> (<em>Optional</em>): Default parser for messages if not explicit in message data: ‘html’ or ‘markdown’. Default is ‘markdown’.</li>
 </ul>
 <p>To get your <code class="highlighter-rouge">chat_id</code> and <code class="highlighter-rouge">api_key</code> follow the instructions <a href="/components/notify.telegram">here</a> .</p>
 <p>Full configuration sample:</p>

@@ -66,15 +66,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">Mikrotik</code> platform offers presence detection by looking at connected devices to a <a href="http://routerboard.com">Mikrotik Routerboard</a> based router.</p>
+  <p>The <code class="highlighter-rouge">mikrotik</code> platform offers presence detection by looking at connected devices to a <a href="http://routerboard.com">Mikrotik Routerboard</a> based router.</p>
 <p>To use an Mikrotik router in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mikrotik</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.81.1</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">admin</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">hellomoto</span>
-    <span class="s">port</span><span class="pi">:</span> <span class="s">1603</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">ADMIN_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">ADMIN_PASSWORD</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -82,7 +81,7 @@
   <li><strong>host</strong> (<em>Required</em>): The IP address of your router.</li>
   <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
-  <li><strong>port</strong> (<em>Optional</em>): Mikrotik api port (See IP -&gt; Services -&gt; api ), default 8728</li>
+  <li><strong>port</strong> (<em>Optional</em>): Mikrotik API port (see IP -&gt; Services -&gt; api ). Defaults to <code class="highlighter-rouge">8728</code>.</li>
 </ul>
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
 </article>
@@ -95,7 +94,7 @@
       <img src='/images/supported_brands/mikrotik.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.43
+    Introduced in release: 0.44
     </div>
     <div class='section'>
       This is a platform for

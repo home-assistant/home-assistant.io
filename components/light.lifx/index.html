@@ -78,6 +78,37 @@
 <ul>
   <li><strong>server</strong> (<em>Optional</em>): Your server address. Only needed if using more than one network interface. Omit if you are unsure.</li>
 </ul>
+<h2><a class="title-link" name="set-state" href="#set-state"></a> Set state</h2>
+<p>The LIFX bulbs allow a change of color and brightness even when they are turned off. This way you can control the light during the day so its settings are correct when events for turning on are received, for example from motion detectors or external buttons.</p>
+<p>The normal <code class="highlighter-rouge">light.turn_on</code> call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.</p>
+<h3><a class="title-link" name="service-lightlifx_set_state" href="#service-lightlifx_set_state"></a> Service <code class="highlighter-rouge">light.lifx_set_state</code></h3>
+<p>Change the light to a new state.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of lights. Else targets all.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">transition</code></td>
+      <td>Duration (in seconds) for the light to fade to the new state.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">power</code></td>
+      <td>Turn the light on (<code class="highlighter-rouge">True</code>) or off (<code class="highlighter-rouge">False</code>). Leave out to keep the power as it is.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">...</code></td>
+      <td>Use <code class="highlighter-rouge">color_name</code>, <code class="highlighter-rouge">brightness</code> etc. from <a href="/components/light/#service-lightturn_on"><code class="highlighter-rouge">light.turn_on</code></a> to specify the new state.</td>
+    </tr>
+  </tbody>
+</table>
 <h2><a class="title-link" name="light-effects" href="#light-effects"></a> Light effects</h2>
 <p>The LIFX platform supports several light effects. You can start these effects with default options by using the <code class="highlighter-rouge">effect</code> attribute of the normal <a href="/components/light/#service-lightturn_on"><code class="highlighter-rouge">light.turn_on</code></a> service, for example like this:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>

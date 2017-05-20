@@ -78,7 +78,7 @@
 </div>
 <ul>
   <li><strong>mac</strong> (<em>Required</em>): The MAC address of your sensor. You can find this be running <code class="highlighter-rouge">hcitool lescan</code> from command line.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): The paramaters that should be monitored.
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): The paramaters that should be monitored (defaults to monitoring all parameters).
     <ul>
       <li><strong>moisture</strong>: Moisture in the soil.</li>
       <li><strong>light</strong>: Brightness at the sensor’s location.</li>
@@ -174,7 +174,13 @@ Reducing polling intervals will have a negative effect on the battery life.</p>
             <a href='/components/sensor.serial_pm/'>Particulate matter Sensor</a>
         </li>
         <li>
+            <a href='/components/rpi_pfio/'>PiFace Digital I/O</a>
+        </li>
+        <li>
             <a href='/components/rpi_gpio/'>Raspberry PI GPIO</a>
+        </li>
+        <li>
+            <a href='/components/raspihats/'>Raspihats</a>
         </li>
         <li>
             <a href='/components/sensor.skybeacon/'>Skybeacon sensor</a>
