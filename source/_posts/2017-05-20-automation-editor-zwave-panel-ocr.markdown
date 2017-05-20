@@ -2,7 +2,7 @@
 layout: post
 title: "Home Assistant 0.45: Automation editor, Z-Wave panel, OCR"
 description: "AXIS and Keene support, PiFace, Raspihats, and Datadog integration"
-date: 2017-05-20 13:0:00 +0000
+date: 2017-05-20 13:00:00 +0000
 date_formatted: "May 20, 2017"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
@@ -51,10 +51,10 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 [hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296
 [hass.io-install]: https://home-assistant.io/hassio/installation/
 
-## New platform and components
+## {% linkable_title New integrations %}
 
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)
-- Add datadog component ([@nunofgs] - #7158) ([datadog docs]) (new-platform)
+- Add datadog component ([@nunofgs] - [#7158]) ([datadog docs]) (new-platform)
 - Add support for automation config panel ([@balloob] - [#7509]) ([config.automation docs]) (new-platform)
 - Z-Wave panel API ([@turbokongen] - [#7456]) ([zwave docs]) ([zwave.api docs]) (new-platform)
 - myStrom Buttons support ([@fabaff] - [#7099]) ([binary_sensor.mystrom docs]) (new-platform)
@@ -66,12 +66,19 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 - Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) (new-platform)
 - Axis component ([@Kane610] - [#7381]) ([axis docs]) (new-platform)
 
-## Breaking changes
+## {% linkable_title If you need help... %}
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## {% linkable_title Reporting Issues %}
+Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+<!--more-->
+## {% linkable_title Breaking changes %}
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)
 
-## All changes
+## {% linkable_title All changes %}
 
 - Add hass to rfxtrx object ([@danielhiversen] - [#6844])
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)
