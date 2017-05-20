@@ -412,3 +412,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [websocket_api docs]: https://home-assistant.io/components/websocket_api/
 [zwave docs]: https://home-assistant.io/components/zwave/
 [zwave.api docs]: https://home-assistant.io/components/zwave.api/
+[forum]: https://community.home-assistant.io/
+[gitter]: https://gitter.im/home-assistant/home-assistant
+[issue]: https://github.com/home-assistant/home-assistant/issues
