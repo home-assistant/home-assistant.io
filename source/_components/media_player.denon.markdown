@@ -21,12 +21,15 @@ Supported devices:
 - Denon DRA-N5
 - Denon RCD-N8 (untested)
 - Denon RCD-N9 (partial support)
-- Denon AVR receivers with Integrated Network support (partial support)
+- Denon AVR receivers with integrated Network support (partial support)
 - Denon AVR-X4100W (via denonavr platform)
 - Denon AVR receivers (via denonavr platform (untested))
 - Marantz M-RC610 (via denonavr platform)
 - Marantz receivers (experimental via denonavr platform)
 
+<pre class='note'>
+If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
+</pre>
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
