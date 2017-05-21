@@ -19,7 +19,7 @@ The `mqtt` binary sensor platform uses the MQTT message payload as the sensor va
 To use your MQTT binary sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 binary_sensor:
   - platform: mqtt
     state_topic: "home-assistant/window/contact"
@@ -44,7 +44,7 @@ $  mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
 An extended configuration for the same sensor could look like this if you want/need to be more specific.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 binary_sensor:
   - platform: mqtt
     state_topic: "home-assistant/window/contact"
