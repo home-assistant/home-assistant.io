@@ -110,4 +110,18 @@ switch:
           service: switch.turn_on
           entity_id: switch.skylight_close
 ```
+### {% linkable_title Change the icon %}
+
+This example shows how to change the icon based on the day/night cycle.
+
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      day_night:
+        friendly_name: 'Day/Night'
+        value_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'{% endraw %}
+        icon_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'{% endraw %}
+        
+```
 

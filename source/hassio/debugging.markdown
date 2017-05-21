@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The following debug tips and tricks are for people who are running the Hass.io image. If you use the generic Linux installer script, you should be able to access your host and logs as per your host.
+The following debug tips and tricks are for people who are running the Hass.io image and are working on the base image. If you use the generic Linux installer script, you should be able to access your host and logs as per your host.
 
 ## {% linkable_title SSH access to the host %}
 

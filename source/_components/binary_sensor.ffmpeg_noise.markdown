@@ -16,7 +16,7 @@ ha_release: 0.27
 The `ffmpeg` platform allows you to use any video or audio feed with [FFmpeg](http://www.ffmpeg.org/) for various sensors in Home Assistant.
 
 <p class='note'>
-If the `ffmpeg` process is broken, the sensor will be unavailable. To controll the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
+If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
 </p>
 
 ### {% linkable_title Noise %}

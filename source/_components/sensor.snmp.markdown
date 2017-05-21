@@ -34,6 +34,7 @@ Configuration variables:
 - **community** (*Optional*): The SNMP community which is set for the device. Most devices have a default community set to to `public` with read-only permission (which is sufficient).
 - **baseoid** (*Required*): The OID where the information is located. It's advised to use the numerical notation.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
+- **version** (*Optional*) version of SNMP protocol, `1` or `2c` defaults to `1`. Version `2c` is needed to read data from 64-bit counters.
 
 The OIDs may vary on different system because they are vendor-specific. Beside the device's manual is the [OID Repository](http://www.oid-info.com/) a good place to start if you are looking for OIDs. The following OIDs are for the load of a Linux systems.
 
