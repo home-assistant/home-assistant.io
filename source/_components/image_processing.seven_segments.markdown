@@ -35,7 +35,7 @@ image_processing:
 
 Configuration variables:
 
-- **ssocr_bin** (*Optional*): The command line tool `ssocr`. Set it if you use a different name for the executable. Defaults to `ssorc`.
+- **ssocr_bin** (*Optional*): The command line tool `ssocr`. Set it if you use a different name for the executable. Defaults to `ssocr`.
 - **x_position** (*Optional*): X coordinate of the upper left corner of the area to crop. Defaults to `0`.
 - **y_position** (*Optional*):  Y coordinate of the upper left corner of the area to crop. Defaults to `0`.
 - **height** (*Optional*): Height of the area to crop. Defaults to `0`.
