@@ -27,9 +27,9 @@ Supported devices:
 - Marantz M-RC610 (via denonavr platform)
 - Marantz receivers (experimental via denonavr platform)
 
-Unsupported devices: 
+**Read This:**
 
-- Denon AVR 3808CI (tested!)
+- Denon AVR 3808CI. If you have something else using the IP controller, such as my URC controller it will not work! There was either a bug or security issue with this model where only one device could be controlling the IP functionality.
 
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
