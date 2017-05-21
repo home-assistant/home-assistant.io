@@ -27,6 +27,10 @@ Supported devices:
 - Marantz M-RC610 (via denonavr platform)
 - Marantz receivers (experimental via denonavr platform)
 
+Unsupported devices: 
+
+- Denon AVR 3808CI (tested!)
+
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
