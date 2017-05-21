@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-20T23:39:11+00:00</updated>
+  <updated>2017-05-21T07:53:03+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -83,12 +83,12 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 ## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-<!--more-->
 ## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking changes 
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)
 
+<!--more-->
 ## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - Add hass to rfxtrx object ([@danielhiversen] - [#6844])
