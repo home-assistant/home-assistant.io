@@ -15,7 +15,7 @@ ha_iot_class: "Local Push"
 
 [OpenCV](http://www.opencv.org) is an open source computer vision image and video processing library.
 
-Some pre-defined classifiers can be found here: https://github.com/opencv/opencv/tree/master/data
+Some pre-defined classifiers can be found [here](https://github.com/opencv/opencv/tree/master/data).
 
 ### {% linkable_title Configuration %}
 
@@ -72,4 +72,3 @@ The attributes on the `image_processing` entity will be:
   ]
 }
 ```
-
