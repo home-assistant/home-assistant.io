@@ -24,14 +24,28 @@ Supported units:
 - Harmony Elite
 
 
-To use your Harmony remote in your installation, add the following to your `configuration.yaml` file:
+The preferred way to setup the Harmony remote is by enabling the [discovery component](/components/discovery/).
+
+You can override some discovered values (e.g. the `port` or `activity`) by adding a `configuration.yaml` setting.
+In this case the `name` used in the config must match exactly the name you have chosen for your hub. You must also leave the `host`
+setting empty to force the platform to discover the host IP automatically.
+
+If you want to manually configure all device settings, you will need to add its settings to your `configuration.yaml`.
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry if you need any manual configuration
 remote:
+  # Specifying a hub manually, without discovery
   - platform: harmony
     name: Bedroom
     host: 10.168.1.13
+
+  # Overriding some discovered settings, note no host setting!
+  - platform: harmony
+    # name - This name must match the name you have set on the Hub
+    name: Living Room
+    # activity - The setting we want to use for the discovered Hub
+    activity: Watch TV
 ```
 
 Configuration variables:
@@ -134,12 +148,12 @@ automation:
       data_template:
       # using a data template to have if brances for relavant device
         # Always the same entity_id - the harmony hub
-        entity_id: remote.bedroom 
+        entity_id: remote.bedroom
         # Always the same command - the Pause key
         command: Pause
         # select device based upon the activity being undertaken.
         device: >
-          # when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101 
+          # when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101
           {% raw %}{% if is_state("sensor.bedroom", "WATCH TV") %}{% raw %}
             22987101
           # when in WATCH APPLE TV activity, the pause key relates to an Apple TV, which is device 23002316
