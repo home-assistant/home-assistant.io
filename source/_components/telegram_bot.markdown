@@ -13,7 +13,7 @@ ha_release: 0.42
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
 
-This component creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/_components/telegram_bot.polling.markdown) method or with the [webhooks](/_components/telegram_bot.webhooks.markdown) one, and trigger events when receiving messages.
+This component creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/components/telegram_bot.polling) method or with the [webhooks](/components/telegram_bot.webhooks) one, and trigger events when receiving messages.
 
 
 ### {% linkable_title Notification services %}
@@ -121,7 +121,7 @@ Respond to a callback query originated by clicking on an online keyboard button.
 ### {% linkable_title `Telegram` notification platform %}
 
 
-The [Telegram notification platform](/_components/notify.telegram.markdown) requires the `telegram_bot` component to work with, and it's designed to generate a customised shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
+The [Telegram notification platform](/components/notify.telegram) requires the `telegram_bot` component to work with, and it's designed to generate a customised shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
 The required yaml configuration now reduces to:
 ```yaml
@@ -215,7 +215,7 @@ trigger:
 action:
   - service: homeassistant.turn_on
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
-  - delay: 
+  - delay:
       seconds: 10
   - service: homeassistant.turn_off
     entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
