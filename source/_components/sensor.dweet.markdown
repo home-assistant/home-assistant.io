@@ -19,19 +19,31 @@ To use Dweet.io in your installation, add the following to your `configuration.y
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: dweet
-  name: Dweet.io Temperature
-  device: THING_NAME
-  value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
-  unit_of_measurement: "°C"
+  - platform: dweet
+    device: THING_NAME
+    value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
 ```
 
 Configuration variables:
 
 - **device** (*Required*): Identification of the device (also known as `thing`).
-- **name** (*Optional*): Let you overwrite the the name of the device in the frontend.
 - **value_template** (*Required*): The variable to extract a value from the content.
+- **name** (*Optional*): Let you overwrite the the name of the device in the frontend.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
+
+### {% linkable_title Full configuration sample %}
+
+A ful configuration entry could look like the sample below.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: dweet
+    name: Temperature
+    device: THING_NAME
+    value_template: '{% raw %}{{ value_json.VARIABLE }}{% endraw %}'
+    unit_of_measurement: "°C"
+```
 
 ### {% linkable_title Interacting with Dweet.io %}
 

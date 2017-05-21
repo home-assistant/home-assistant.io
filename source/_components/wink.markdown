@@ -75,6 +75,16 @@ Configuration variables:
 
 This will connect to the Wink API and automatically set up any switches, lights, locks, fans, climate devices, covers, and sensors.
 
+### {% linkable_title Service `refresh_state_from_wink` %}
+
+The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions were an update isn't pushed device states can be out of sync. 
+
+You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices.
+
+### {% linkable_title Service `add_new_devices` %}
+
+You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
+
 <p class='note'>
 The Wink hub can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
 </p>

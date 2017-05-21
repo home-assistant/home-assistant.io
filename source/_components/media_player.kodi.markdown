@@ -37,3 +37,17 @@ Configuration variables:
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
 - **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.
 - **enable_websocket** (*Optional*): Enable websocket connections to Kodi via the TCP port. Defaults to `true`. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
+
+
+### {% linkable_title Service `kodi_add_to_playlist` %}
+
+Add music to the default playlist (i.e. playlistid=0).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | Name(s) of the Kodi entities where to add the media.
+| `media_type` | yes | Media type identifier. It must be one of SONG or ALBUM.
+| `media_id` | no | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library.
+| `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.
+| `artist_name` | no | Optional artist name for filtering media.
+

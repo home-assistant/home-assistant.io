@@ -34,7 +34,7 @@ $ sudo apt-get install python3-pip python3-dev
 
 In order to run `script/setup` below you will need some more dependencies.
 ```bash
-$ sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev
+$ sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev libudev-dev
 ```
 
 <p class='note'>

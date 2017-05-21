@@ -12,7 +12,7 @@ ha_category: Switch
 ha_release: 0.45
 ---
 
-The `rpi_pfio` switch platform allows you to control the [PiFace Digital I/O](https://www.element14.com/community/docs/DOC-69001) module.
+The `rpi_pfio` switch platform allows you to control the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) module.
 
 To use your PiFace Digital I/O module in your installation, add the following to your `configuration.yaml` file:
 

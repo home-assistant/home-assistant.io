@@ -10,7 +10,7 @@ footer: true
 logo: mystrom.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Polling"
-ha_release: 0.43
+ha_release: 0.45
 ---
 
 

@@ -1,13 +1,12 @@
 ---
 layout: page
-title: "Basic Service Example"
-description: ""
-date: 2016-02-07 12:13
+title: "Using Services"
+description: "Introduction to services in Home Assistant."
+date: 2017-05-13 05:40:00 +0000
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Custom Python Component Examples
 ---
 
 This is a simple "hello world" example to show the basics of registering a service. To use this example, create the file `<config dir>/custom_components/hello_service.py` and copy the below example code.
