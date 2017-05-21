@@ -14,6 +14,8 @@ The core of Home Assistant is the event bus. The event bus allows any component 
 
 Home Assistant contains a few built-in events that are used to coordinate between various components.
 
+WARNING: Below documentation is out of date for version 0.42. homeassistant_start is no longer used. Please see https://home-assistant.io/docs/automation/trigger/
+
 ### {% linkable_title Event `homeassistant_start` %}
 Event `homeassistant_start` is fired when all components from the configuration have been intitialized. This is the event that will start the timer firing off `time_changed` events.
 
