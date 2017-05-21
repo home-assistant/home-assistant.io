@@ -331,8 +331,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alexa docs]: https://home-assistant.io/components/alexa/
 [axis docs]: https://home-assistant.io/components/axis/
 [config.automation docs]: https://home-assistant.io/docs/automation/editor/
-[automation.event docs]: https://home-assistant.io/components/automation.event/
-[automation.state docs]: https://home-assistant.io/components/automation.state/
+[automation.event docs]: https://home-assistant.io/docs/configuration/events/
+[automation.state docs]: https://home-assistant.io/docs/configuration/state_object/
 [binary_sensor.mystrom docs]: https://home-assistant.io/components/binary_sensor.mystrom/
 [binary_sensor.raspihats docs]: https://home-assistant.io/components/binary_sensor.raspihats/
 [binary_sensor.rpi_pfio docs]: https://home-assistant.io/components/binary_sensor.rpi_pfio/
@@ -342,7 +342,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.zoneminder docs]: https://home-assistant.io/components/camera.zoneminder/
 [climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
 [config.__init__ docs]: https://home-assistant.io/components/config.__init__/
-[config.automation docs]: https://home-assistant.io/components/config.automation/
 [configurator docs]: https://home-assistant.io/components/configurator/
 [cover.lutron_caseta docs]: https://home-assistant.io/components/cover.lutron_caseta/
 [datadog docs]: https://home-assistant.io/components/datadog/
