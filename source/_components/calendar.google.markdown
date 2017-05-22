@@ -62,6 +62,11 @@ A basic entry for a single calendar looks like:
   - device_id: test_everything
     name: Give me everything
     track: true
+  - device_id: trash_day
+    name: Trash Day
+    track: true
+    search: trash
+    default_offset: -06:00
 - cal_id: "***************************@group.calendar.google.com"
   entities:
   - device_id: test_important
@@ -91,7 +96,9 @@ Variables:
   
   - **offset**: (*Optional*): A set of characters that precede a number in the event title for designating a pre-trigger state change on the sensor. (Default: `!!`)
   
-From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each. You'll also have a sensor `calendar.test_everything` that will not filter events out and always show the next event available.
+  - **default_offset**: (*Optional*): A time offset in the form of MM or HH:MM to designate a pre-trigger state change to be applied to all events for this sensor. (Default: `0`)
+  
+From this we will end up with the binary sensors `calendar.test_unimportant` and `calendar.test_important` which will toggle themselves on/off based on events on the same calendar that match the search value set for each. You'll also have a sensor `calendar.test_everything` that will not filter events out and always show the next event available. You'll also have a sensor `calendar.trash_day`, which will match any calendar event with the word trash in the summary. The `offset_reached` attribute (see below) of `calendar.trash_day` will always be set to `on` 6 hours before the event.
 
 But what if you only wanted it to toggle based on all events? Just leave out the *search* parameter.
 
@@ -113,3 +120,5 @@ But what if you only wanted it to toggle based on all events? Just leave out the
  - **start_time**: Start time of event.
 
  - **end_time**: End time of event.
+
+**Note**: If you specify a default offset for a sensor as well as an offset for a specific event, both will be applied to the event. If the example `Very important meeting #Important !!-10` also had `default_offset: -15` specified in `google_calendars.yaml` the `offset_reached` attribute would be set to `on` 25 minutes before the event.
