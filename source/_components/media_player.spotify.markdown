@@ -46,6 +46,9 @@ media_player:
   - platform: spotify
     client_id: <your client id>
     client_secret: <your client secret>
+    aliases:
+        abc123def456: 'Living Room'
+        9183abas000: 'Bed Room'
 ```
 
 Configuration variables:
@@ -53,6 +56,7 @@ Configuration variables:
 - **client_id** (*Required*): Client ID from your Spotify Application.
 - **client_secret** (*Required*): Client Secret from your Spotify Application.
 - **cache_path** (*Optional*): Path to cache authentication token (defaults to configuration directory).
+- **aliases** (*Optional*): Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the `info` channel for ease of aliasing.
 
 ## {% linkable_title Setup %}
 
