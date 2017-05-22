@@ -5,7 +5,7 @@
   "release_notes_path": "/blog/2017/05/20/automation-editor-zwave-panel-ocr/",
   "release_title": "Home Assistant 0.45: Automation editor, Z-Wave panel, OCR",
   "release_description": "AXIS and Keene support, PiFace, Raspihats, and Datadog integration",
-  "patch_version_notes": "#",
+  "patch_version_notes": "#release-0451---may-22",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
