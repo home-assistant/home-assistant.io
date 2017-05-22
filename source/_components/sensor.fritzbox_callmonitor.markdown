@@ -56,3 +56,30 @@ sensor:
       - '+4989'
       - '089'
 ```
+
+### {% linkable_title Send notifications on state change %}
+
+This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
+
+```yaml
+# Example configuration.yml entry.
+automation:
+  - alias: "Notify about phone state"
+    trigger:
+      - platform: state
+        entity_id: sensor.phone
+    action:
+      - service: notify.notify
+        data:
+          title: "Phone"
+          message: >-
+            {% if is_state("sensor.phone", "idle") %}
+              Idle
+            {% elif is_state("sensor.phone", "dialing") %}
+              {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
+            {% elif is_state("sensor.phone", "ringing") %}
+              {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
+            {% else %}
+              {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
+            {% endif %}
+```
