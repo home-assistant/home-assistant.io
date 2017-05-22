@@ -542,8 +542,8 @@
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.send_message</span>
       <span class="s">data_template</span><span class="pi">:</span>
         <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*Dumb</span><span class="nv"> </span><span class="s">automation*'</span>
-        <span class="s">target</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
-        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">You</span><span class="nv"> </span><span class="s">said:</span><span class="nv"> </span><span class="s">```</span><span class="nv">  </span><span class="s">```'</span>
+        <span class="s">target</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.user_id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">You</span><span class="nv"> </span><span class="s">said:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.text</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">disable_notification</span><span class="pi">:</span> <span class="s">true</span>
         <span class="s">inline_keyboard</span><span class="pi">:</span>
           <span class="pi">-</span> <span class="s1">'</span><span class="s">/edit,/NO'</span>
@@ -566,16 +566,16 @@
         <span class="s">show_alert</span><span class="pi">:</span> <span class="s">true</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.edit_message</span>
       <span class="s">data_template</span><span class="pi">:</span>
-        <span class="s">message_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
-        <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">message_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.message.message_id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.user_id</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*Message</span><span class="nv"> </span><span class="s">edit*'</span>
         <span class="s">inline_keyboard</span><span class="pi">:</span>
           <span class="pi">-</span> <span class="s1">'</span><span class="s">/edit,/NO'</span>
           <span class="pi">-</span> <span class="s1">'</span><span class="s">/remove</span><span class="nv"> </span><span class="s">button'</span>
         <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
-          <span class="no">Callback received from .</span>
-          <span class="no">Message id: .</span>
-          <span class="no">Data: ```  ```</span>
+          <span class="no">Callback received from {% raw %}{{ trigger.event.data.from_first }}.</span>
+          <span class="no">Message id: {{ trigger.event.data.message.message_id }}.</span>
+          <span class="no">Data: {{ trigger.event.data.data }}</span>
 </code></pre>
 </div>
 <p>Keyboard editor:</p>
@@ -589,12 +589,12 @@
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.answer_callback_query</span>
       <span class="s">data_template</span><span class="pi">:</span>
-        <span class="s">callback_query_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">callback_query_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.id</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Callback</span><span class="nv"> </span><span class="s">received</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">editing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">inline</span><span class="nv"> </span><span class="s">keyboard!'</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.edit_replymarkup</span>
       <span class="s">data_template</span><span class="pi">:</span>
         <span class="s">message_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">last'</span>
-        <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.user_id</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">inline_keyboard</span><span class="pi">:</span>
           <span class="pi">-</span> <span class="s1">'</span><span class="s">/edit,/NO'</span>
 </code></pre>
@@ -610,7 +610,7 @@
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.answer_callback_query</span>
       <span class="s">data_template</span><span class="pi">:</span>
-        <span class="s">callback_query_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">callback_query_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.id</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">OK,</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">said</span><span class="nv"> </span><span class="s">no!'</span>
 </code></pre>
 </div>
