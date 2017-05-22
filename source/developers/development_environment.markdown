@@ -63,7 +63,11 @@ $ cd home-assistant
 $ script/setup
 ```
 
-* On Windows, you can use `python setup.py develop` instead of the setup script.
+* On Windows:
+```bash
+$ cd home-assistant
+$ python setup.py develop
+```
 
 * Run `hass` to invoke your local installation.
 
