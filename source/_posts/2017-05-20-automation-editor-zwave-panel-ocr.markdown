@@ -70,6 +70,13 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 - Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) (new-platform)
 - Axis component ([@Kane610] - [#7381]) ([axis docs]) (new-platform)
 
+## {% linkable_title Release 0.45.1 - May 22 %}
+
+- Fix telegram chats ([@azogue] - [#7689]) ([notify.telegram docs]) ([telegram_bot.__init__ docs])
+- Fix playback control of web streams ([@cgtobi] - [#7683]) ([media_player.volumio docs])
+- device_tracker.ubus: Handle empty results ([@tobygray] - [#7673]) ([device_tracker.ubus docs])
+- Allow fetching hass.io panel without auth ([@balloob] - [#7714]) ([hassio docs])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -418,3 +425,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[#7673]: https://github.com/home-assistant/home-assistant/pull/7673
+[#7683]: https://github.com/home-assistant/home-assistant/pull/7683
+[#7689]: https://github.com/home-assistant/home-assistant/pull/7689
+[#7714]: https://github.com/home-assistant/home-assistant/pull/7714
+[@cgtobi]: https://github.com/cgtobi
+[@tobygray]: https://github.com/tobygray
+[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
+[hassio docs]: https://home-assistant.io/components/hassio/
+[media_player.volumio docs]: https://home-assistant.io/components/media_player.volumio/
+[telegram_bot.__init__ docs]: https://home-assistant.io/components/telegram_bot.__init__/
