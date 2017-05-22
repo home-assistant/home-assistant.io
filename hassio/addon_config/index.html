@@ -180,6 +180,11 @@ CMD [ "/run.sh" ]
       <td>Network ports to expose from the container. Format is <code class="highlighter-rouge">"container-port/type": host-port</code>.</td>
     </tr>
     <tr>
+      <td>host_network</td>
+      <td>no</td>
+      <td>If that is True, the add-on run on host network.</td>
+    </tr>
+    <tr>
       <td>devices</td>
       <td>no</td>
       <td>Device list to map into add-on. Format is: <code class="highlighter-rouge">&lt;path_on_host&gt;:&lt;path_in_container&gt;:&lt;cgroup_permissions&gt;</code></td>
