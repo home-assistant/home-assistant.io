@@ -13,11 +13,7 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform creates lights that combine components.
-
-This provides pretty much the same functionality as a [template switch](/components/switch.template/) with the exception is that you can pass brightness commands through.
-
-You can run scripts or invoke services for each of the 3 commands: on/off/level
+The `template` platform creates lights that combine components and provides the ability to run scripts or invoke services for each of the on, off, and brightness commands of a light. 
 
 To enable Template lights in your installation, add the following to your `configuration.yaml` file:
 
