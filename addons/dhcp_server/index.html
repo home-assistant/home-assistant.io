@@ -77,7 +77,7 @@
       </span><span class="nt">"netmask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"255.255.255.0"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"range_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.100"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"range_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"broadcast"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.254"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"broadcast"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.255"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"routers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"192.168.1.1"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -93,9 +93,22 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>token</strong> (<em>Required</em>): Your Duck DNS API key.</li>
-  <li><strong>domains</strong> (<em>Required</em>): A list of domains to update DNS.</li>
-  <li><strong>seconds</strong> (<em>Optional</em>): Seconds between updates to Duck DNS.</li>
+  <li><strong>domain</strong> (<em>Required</em>): Your network domain name.</li>
+  <li><strong>dns</strong> (<em>Required</em>): A list of DNS server for your network.</li>
+  <li><strong>networks</strong> (<em>Optional</em>): A list of network to provide DHCP.
+  - <strong>subnet</strong> (<em>Required</em>): Your network schema.
+  - <strong>netmask</strong> (<em>Required</em>): Your network netmask.
+  - <strong>range_start</strong> (<em>Required</em>): Start address for dhcp leases.
+  - <strong>range_end</strong> (<em>Required</em>): End address for dhcp leases.
+  - <strong>broadcast</strong> (<em>Required</em>): Network broadcast address.
+  - <strong>routers</strong> (<em>Required</em>): A List of gateways.</li>
+  <li><strong>hosts</strong> (<em>Optional</em>): A list of fixed IPs for devices.
+    <ul>
+      <li><strong>name</strong> (<em>Required</em>): Name/hostname of your device.
+  - <strong>mac</strong> (<em>Required</em>): Mac address of your device.
+  - <strong>ip</strong> (<em>Required</em>): Fix ip address for device.</li>
+    </ul>
+  </li>
 </ul>
 </article>
         </div>
