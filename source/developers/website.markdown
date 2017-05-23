@@ -88,6 +88,24 @@ You can use the default markdown syntax to generate syntax highlighted code. For
 
 Note that you can replace `yaml` next to \`\`\` with the language that is within the block.
 
+Please add `{% raw %} ... {% endraw %}` around variables and other things that should not be rendered on the website:
+```yaml
+# Example configuration.yml entry.
+automation:
+  - alias: "Example notification"
+    trigger:
+      - platform: state
+        entity_id: sensor.example
+    action:
+      - service: notify.notify
+        data:
+          title: "Test"
+          message: >-
+            {% raw %}{% if is_state("sensor.example", "test") %}
+              Example notification
+             {% endif %}{% endraw %}
+```
+
 When you're writing code that is to be executed on the terminal, prefix it with `$`.
 
 ### {% linkable_title Templates %}
