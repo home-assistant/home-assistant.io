@@ -22,20 +22,20 @@ To enable notification by e-mail in your installation, add the following to your
 notify:
   - name: NOTIFIER_NAME
     platform: smtp
-    server: MAIL_SERVER
+    sender: YOUR_SENDER
     recipient: YOUR_RECIPIENT
 ```
 
 Configuration variables:
 
 - **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- **sender** (*Required*): E-mail address of the sender.
+- **recipient** (*Required*): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.
 - **server** (*Optional*): SMTP server which is used to end the notifications. Defaults to `localhost`.
 - **port** (*Optional*): The port that the SMTP server is using. Defaults to 25.
 - **timeout** (*Optional*): The timeout in seconds that the SMTP server is using. Defaults to 5.
-- **sender** (*Optional*): E-mail address of the sender.
 - **username** (*Optional*): Username for the SMTP account.
 - **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
-- **recipient** (*Required*): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.
 - **starttls** (*Optional*): Enables STARTTLS, eg. True or False. Defaults to False.
 - **sender_name** (*Optional*): Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>).
 - **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
