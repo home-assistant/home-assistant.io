@@ -77,13 +77,13 @@
 <h3><a class="title-link" name="running-single-tests-using-tox" href="#running-single-tests-using-tox"></a> Running single tests using Tox</h3>
 <p>You can pass arguments via Tox to py.test to be able to run single test suites or test files. Replace <code class="highlighter-rouge">py36</code> with the Python version that you use.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Stop after the first test fails</span>
-<span class="gp">$ </span>tox -e py36 tests/test_core.py -x
+<span class="gp">$ </span>tox -e py36 -- tests/test_core.py -x
 <span class="c"># Run test with specified name</span>
-<span class="gp">$ </span>tox -e py36 tests/test_core.py -k test_split_entity_id
+<span class="gp">$ </span>tox -e py36 -- tests/test_core.py -k test_split_entity_id
 <span class="c"># Fail a test after it runs for 2 seconds</span>
-<span class="gp">$ </span>tox -e py36 tests/test_core.py --timeout 2
+<span class="gp">$ </span>tox -e py36 -- tests/test_core.py --timeout 2
 <span class="c"># Show the 10 slowest tests</span>
-<span class="gp">$ </span>tox -e py36 tests/test_core.py --duration<span class="o">=</span>10
+<span class="gp">$ </span>tox -e py36 -- tests/test_core.py --duration<span class="o">=</span>10
 </code></pre>
 </div>
 <h3><a class="title-link" name="testing-outside-of-tox" href="#testing-outside-of-tox"></a> Testing outside of Tox</h3>
