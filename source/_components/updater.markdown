@@ -23,6 +23,22 @@ updater:
 
 If you choose not to share any information when checking for updates, you can add `reporting: False`.
 
+The other option, is to share a little bit more information. You can enable sharing of component information. To do this you have to add `share_components_info: True`. 
+
+The data sent back is fairly limitied:
+```json
+"components": [
+    "apcupsd",
+    "api",
+    "automation",
+    "binary_sensor",
+    "binary_sensor.zwave",
+    "camera",
+    "camera.uvc",
+    "config",
+    "config.core"...
+```
+
 ### {% linkable_title Notification %}
 
 For an added bonus, an automation component can be created to send a message with a notifier when that state of this component's entity changes.
