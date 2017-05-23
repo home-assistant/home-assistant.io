@@ -87,6 +87,7 @@
 </div>
 <h3><a class="title-link" name="setup-of-the-mystrom-buttons" href="#setup-of-the-mystrom-buttons"></a> Setup of the myStrom Buttons</h3>
 <p>You need to configure every button to make it work with Home Assistant. First connect the Wifi Buttons to your wireless network. Keep in mind that they only support WPS (Wi-FI Protected Setup). Once a button is connected you have three minutes to set the actions for the push patterns. The fastest way is to use <code class="highlighter-rouge">curl</code>. Check the <a href="https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt">documentation</a> of the WiFi Button for further details about the implementation (<code class="highlighter-rouge">http://</code> is replaced by <code class="highlighter-rouge">get://</code> or <code class="highlighter-rouge">post://</code>). <code class="highlighter-rouge">action</code> is the name of the corresponding push pattern (see above).</p>
+<p>The endpoint that is recieving the data is <code class="highlighter-rouge">[IP address Home Assistant]:8123/api/mystrom</code>.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s2">"[action]=get://[IP address Home Assistant]:8123/api/mystrom?[action]%3D[ID of the button]"</span> http://[IP address of the button]/api/v1/device/[MAC address of the button]
 <span class="o">{</span>
   <span class="s2">"[MAC address of the button]"</span>: <span class="o">{</span>
