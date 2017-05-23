@@ -73,10 +73,22 @@
 <span class="gp">$ </span>sudo apt-get install python3-dev python3-pip
 </code></pre>
 </div>
-<p>Install Home Assistant.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install homeassistant
+<p>Now that you installed python, there are two ways to install Home Assistant:</p>
+<ol>
+  <li>It is recommended to install Home Assistant in a virtual environment to avoid using <code class="highlighter-rouge">root</code>, using the [VirtualEnv instructions](/docs/installation/virtualenv/</li>
+  <li>Alternatively, you can install Home Assistant for the user you created when first booting Armbian:
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install homeassistant
+<span class="gp">$ </span>hass --open-ui
 </code></pre>
-</div>
+    </div>
+    <p>Running these commands will:</p>
+  </li>
+</ol>
+<ul>
+  <li>Install Home Assistant</li>
+  <li>Launch Home Assistant and serve the web interface on <a href="http://localhost:8123">http://localhost:8123</a></li>
+  <li>the configuration files will be created in /home/<user>/.homeassistant</user></li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
