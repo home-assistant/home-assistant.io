@@ -73,13 +73,13 @@ automation:
         data:
           title: "Phone"
           message: >-
-            {% if is_state("sensor.phone", "idle") %}
-              Idle
+            {% raw %}{% if is_state("sensor.phone", "idle") %}
+              Phone is idle
             {% elif is_state("sensor.phone", "dialing") %}
-              {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
+              Calling {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
             {% elif is_state("sensor.phone", "ringing") %}
-              {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
+              Incoming call from {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
             {% else %}
-              {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
-            {% endif %}
+              Talking to {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
+            {% endif %}{% endraw %}
 ```
