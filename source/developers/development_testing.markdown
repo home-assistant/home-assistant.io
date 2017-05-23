@@ -28,13 +28,13 @@ You can pass arguments via Tox to py.test to be able to run single test suites o
 
 ```bash
 # Stop after the first test fails
-$ tox -e py36 tests/test_core.py -x
+$ tox -e py36 -- tests/test_core.py -x
 # Run test with specified name
-$ tox -e py36 tests/test_core.py -k test_split_entity_id
+$ tox -e py36 -- tests/test_core.py -k test_split_entity_id
 # Fail a test after it runs for 2 seconds
-$ tox -e py36 tests/test_core.py --timeout 2
+$ tox -e py36 -- tests/test_core.py --timeout 2
 # Show the 10 slowest tests
-$ tox -e py36 tests/test_core.py --duration=10
+$ tox -e py36 -- tests/test_core.py --duration=10
 ```
 
 ### {% linkable_title Testing outside of Tox %}
