@@ -78,7 +78,8 @@
       </span><span class="nt">"range_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.100"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"range_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.200"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"broadcast"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.255"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w">
+      </span><span class="nt">"gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"interface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth0"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -101,7 +102,11 @@
   - <strong>range_start</strong> (<em>Required</em>): Start address for dhcp leases.
   - <strong>range_end</strong> (<em>Required</em>): End address for dhcp leases.
   - <strong>broadcast</strong> (<em>Required</em>): Network broadcast address.
-  - <strong>routers</strong> (<em>Required</em>): A List of gateways.</li>
+  - <strong>gateway</strong> (<em>Required</em>): A List of gateways.
+    <ul>
+      <li><strong>interface</strong> (<em>Required</em>): Inteface on that will be listen.</li>
+    </ul>
+  </li>
   <li><strong>hosts</strong> (<em>Optional</em>): A list of fixed IPs for devices.
     <ul>
       <li><strong>name</strong> (<em>Required</em>): Name/hostname of your device.
