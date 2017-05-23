@@ -67,7 +67,7 @@
   </header>
   <hr class="divider">
   <p>Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.</p>
-<p>This component creates notification services to send, or edit previously sent, messages from a <a href="https://core.telegram.org/bots">Telegram Bot account</a> configured either with the <a href="/_components/telegram_bot.polling.markdown">polling</a> method or with the <a href="/_components/telegram_bot.webhooks.markdown">webhooks</a> one, and trigger events when receiving messages.</p>
+<p>This component creates notification services to send, or edit previously sent, messages from a <a href="https://core.telegram.org/bots">Telegram Bot account</a> configured either with the <a href="/components/telegram_bot.polling/">polling</a> method or with the <a href="/components/telegram_bot.webhooks/">webhooks</a> one, and trigger events when receiving messages.</p>
 <h3><a class="title-link" name="notification-services" href="#notification-services"></a> Notification services</h3>
 <p>Available services: <code class="highlighter-rouge">send_message</code>, <code class="highlighter-rouge">send_photo</code>, <code class="highlighter-rouge">send_document</code>, <code class="highlighter-rouge">send_location</code>, <code class="highlighter-rouge">edit_message</code>, <code class="highlighter-rouge">edit_replymarkup</code>, <code class="highlighter-rouge">edit_caption</code>, <code class="highlighter-rouge">answer_callback_query</code>.</p>
 <h4><a class="title-link" name="service-telegram_botsend_message" href="#service-telegram_botsend_message"></a> Service <code class="highlighter-rouge">telegram_bot/send_message</code></h4>
@@ -430,7 +430,7 @@
   </tbody>
 </table>
 <h3><a class="title-link" name="telegram-notification-platform" href="#telegram-notification-platform"></a> <code class="highlighter-rouge">Telegram</code> notification platform</h3>
-<p>The <a href="/_components/notify.telegram.markdown">Telegram notification platform</a> requires the <code class="highlighter-rouge">telegram_bot</code> component to work with, and it’s designed to generate a customised shortcut (<code class="highlighter-rouge">notify.USERNAME</code>) to send notifications (messages, photos, documents and locations) to a particular <code class="highlighter-rouge">chat_id</code> with the old syntax, allowing backward compatibility.</p>
+<p>The <a href="/components/notify.telegram/">Telegram notification platform</a> requires the <code class="highlighter-rouge">telegram_bot</code> component to work with, and it’s designed to generate a customised shortcut (<code class="highlighter-rouge">notify.USERNAME</code>) to send notifications (messages, photos, documents and locations) to a particular <code class="highlighter-rouge">chat_id</code> with the old syntax, allowing backward compatibility.</p>
 <p>The required yaml configuration now reduces to:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
@@ -446,6 +446,7 @@
 <span class="s">from_first</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;first</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">from_last</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;last</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
 </code></pre>
 </div>
 <p>Any other message not starting with <code class="highlighter-rouge">/</code> will be processed as simple text, firing a <code class="highlighter-rouge">telegram_text</code> event on the event bus with the following <code class="highlighter-rouge">event_data</code>:</p>
@@ -453,6 +454,7 @@
 <span class="s">from_first</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;first</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">from_last</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;last</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
 </code></pre>
 </div>
 <p>if the message is sent from a <a href="https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating">press from an inline button</a>, for example, a callback query is received, and Home Assistant will fire a <code class="highlighter-rouge">telegram_callback</code> event with:</p>
@@ -463,6 +465,7 @@
 <span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;unique</span><span class="nv"> </span><span class="s">id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">callback&gt;"</span>
 <span class="s">chat_instance</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;chat</span><span class="nv"> </span><span class="s">instance&gt;"</span>
+<span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="configuration-samples" href="#configuration-samples"></a> Configuration samples</h3>
@@ -505,7 +508,7 @@
 <span class="s">action</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.vision_zm1601eu5_battery_operated_siren_switch_9_0</span>
-  <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span> 
+  <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
       <span class="s">seconds</span><span class="pi">:</span> <span class="s">10</span>
   <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.vision_zm1601eu5_battery_operated_siren_switch_9_0</span>
@@ -614,7 +617,7 @@
         <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">OK,</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">said</span><span class="nv"> </span><span class="s">no!'</span>
 </code></pre>
 </div>
-<p>For a more complex usage of the <code class="highlighter-rouge">telegram_bot</code> capabilities, using <a href="https://home-assistant.io/docs/ecosystem/appdaemon/tutorial/">AppDaemon</a> is advised.</p>
+<p>For a more complex usage of the <code class="highlighter-rouge">telegram_bot</code> capabilities, using <a href="/docs/ecosystem/appdaemon/tutorial/">AppDaemon</a> is advised.</p>
 <p>This is how the previous 4 automations would be through a simple AppDaemon app:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appdaemon.appapi</span> <span class="kn">as</span> <span class="nn">appapi</span>
 
