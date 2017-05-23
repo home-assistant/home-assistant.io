@@ -22,7 +22,7 @@ Create a simple DHCP server for your network and allow set fix ip for some devic
       "range_start": "192.168.1.100",
       "range_end": "192.168.1.200",
       "broadcast": "192.168.1.255",
-      "routers": ["192.168.1.1"]
+      "gateway": "192.168.1.1"
     }
   ],
   "hosts": [
