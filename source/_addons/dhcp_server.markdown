@@ -22,7 +22,8 @@ Create a simple DHCP server for your network and allow set fix ip for some devic
       "range_start": "192.168.1.100",
       "range_end": "192.168.1.200",
       "broadcast": "192.168.1.255",
-      "gateway": "192.168.1.1"
+      "gateway": "192.168.1.1",
+      "interface": "eth0"
     }
   ],
   "hosts": [
@@ -45,7 +46,8 @@ Configuration variables:
   - **range_start** (*Required*): Start address for dhcp leases.
   - **range_end** (*Required*): End address for dhcp leases.
   - **broadcast** (*Required*): Network broadcast address.
-  - **routers** (*Required*): A List of gateways.
+  - **gateway** (*Required*): A List of gateways.
+  - **interface** (*Required*): Inteface on that will be listen.
 - **hosts** (*Optional*): A list of fixed IPs for devices.
   - **name** (*Required*): Name/hostname of your device.
   - **mac** (*Required*): Mac address of your device.
