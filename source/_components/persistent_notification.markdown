@@ -44,7 +44,7 @@ The service `persistent_notification/dismiss` requires a `notification_id`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `notification_id`      |      no  | necessary to remove given notification.
+| `notification_id`      |      no  | the `notification_id` is required to identify the notification that should be removed.
 
 This service allows you to remove a notifications by script or automation.
 
