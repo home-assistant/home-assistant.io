@@ -27,6 +27,7 @@ Configuration variables:
 
 - **host** (*Required*): The host FQDN (or IP) to retrieve certificate from.
 - **port** (*Optional*): The port number where the server is running. Defaults to `443`.
+- **name** (*Optional*): The friendly name for the certificate.
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
