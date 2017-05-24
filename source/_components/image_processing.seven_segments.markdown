@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Image Processing
 featured: false
 ha_release: 0.45
+og_image: /images/screenshots/ssocr.png
 ---
 
 The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/components/camera/). `ssocr` need to be available on your system. Check the installation instruction for Fedora below or use `$ sudo apt-get install ssocr` on a Debian-based system:
@@ -35,7 +36,7 @@ image_processing:
 
 Configuration variables:
 
-- **ssocr_bin** (*Optional*): The command line tool `ssocr`. Set it if you use a different name for the executable. Defaults to `ssorc`.
+- **ssocr_bin** (*Optional*): The command line tool `ssocr`. Set it if you use a different name for the executable. Defaults to `ssocr`.
 - **x_position** (*Optional*): X coordinate of the upper left corner of the area to crop. Defaults to `0`.
 - **y_position** (*Optional*):  Y coordinate of the upper left corner of the area to crop. Defaults to `0`.
 - **height** (*Optional*): Height of the area to crop. Defaults to `0`.

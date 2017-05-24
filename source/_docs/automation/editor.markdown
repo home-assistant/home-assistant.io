@@ -21,7 +21,7 @@ Choose a meaningful name for your automation rules.
   <img src='{{site_root}}/images/docs/automation-editor/new-automation.png' />
 </p>
 
-If the value of the is greater than 10 then the automation rule should apply.
+If the value of the sensor is greater than 10 then the automation rule should apply.
 
 <p class='img'>
   <img src='{{site_root}}/images/docs/automation-editor/new-trigger.png' />

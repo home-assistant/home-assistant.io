@@ -70,18 +70,25 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 - Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) (new-platform)
 - Axis component ([@Kane610] - [#7381]) ([axis docs]) (new-platform)
 
+## {% linkable_title Release 0.45.1 - May 22 %}
+
+- Fix telegram chats ([@azogue] - [#7689]) ([notify.telegram docs]) ([telegram_bot.__init__ docs])
+- Fix playback control of web streams ([@cgtobi] - [#7683]) ([media_player.volumio docs])
+- device_tracker.ubus: Handle empty results ([@tobygray] - [#7673]) ([device_tracker.ubus docs])
+- Allow fetching hass.io panel without auth ([@balloob] - [#7714]) ([hassio docs])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-<!--more-->
 ## {% linkable_title Breaking changes %}
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)
 
+<!--more-->
 ## {% linkable_title All changes %}
 
 - Add hass to rfxtrx object ([@danielhiversen] - [#6844])
@@ -331,8 +338,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alexa docs]: https://home-assistant.io/components/alexa/
 [axis docs]: https://home-assistant.io/components/axis/
 [config.automation docs]: https://home-assistant.io/docs/automation/editor/
-[automation.event docs]: https://home-assistant.io/components/automation.event/
-[automation.state docs]: https://home-assistant.io/components/automation.state/
+[automation.event docs]: https://home-assistant.io/docs/configuration/events/
+[automation.state docs]: https://home-assistant.io/docs/configuration/state_object/
 [binary_sensor.mystrom docs]: https://home-assistant.io/components/binary_sensor.mystrom/
 [binary_sensor.raspihats docs]: https://home-assistant.io/components/binary_sensor.raspihats/
 [binary_sensor.rpi_pfio docs]: https://home-assistant.io/components/binary_sensor.rpi_pfio/
@@ -342,7 +349,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.zoneminder docs]: https://home-assistant.io/components/camera.zoneminder/
 [climate.sensibo docs]: https://home-assistant.io/components/climate.sensibo/
 [config.__init__ docs]: https://home-assistant.io/components/config.__init__/
-[config.automation docs]: https://home-assistant.io/components/config.automation/
 [configurator docs]: https://home-assistant.io/components/configurator/
 [cover.lutron_caseta docs]: https://home-assistant.io/components/cover.lutron_caseta/
 [datadog docs]: https://home-assistant.io/components/datadog/
@@ -419,3 +425,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[#7673]: https://github.com/home-assistant/home-assistant/pull/7673
+[#7683]: https://github.com/home-assistant/home-assistant/pull/7683
+[#7689]: https://github.com/home-assistant/home-assistant/pull/7689
+[#7714]: https://github.com/home-assistant/home-assistant/pull/7714
+[@cgtobi]: https://github.com/cgtobi
+[@tobygray]: https://github.com/tobygray
+[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
+[hassio docs]: https://home-assistant.io/components/hassio/
+[media_player.volumio docs]: https://home-assistant.io/components/media_player.volumio/
+[telegram_bot.__init__ docs]: https://home-assistant.io/components/telegram_bot.__init__/

@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: telegram.png
+ha_category: Hub
 ha_release: 0.42
 ---
 
@@ -258,8 +259,8 @@ Text repeater:
     - service: telegram_bot.send_message
       data_template:
         title: '*Dumb automation*'
-        target: '{{ trigger.event.data.user_id }}'
-        message: 'You said: ``` {{ trigger.event.data.text }} ```'
+        target: {% raw %}'{{ trigger.event.data.user_id }}'{% endraw %}
+        message: 'You said: {% raw %}{{ trigger.event.data.text }}{% endraw %}'
         disable_notification: true
         inline_keyboard:
           - '/edit,/NO'
@@ -283,16 +284,16 @@ Message editor:
         show_alert: true
     - service: telegram_bot.edit_message
       data_template:
-        message_id: '{{ trigger.event.data.message.message_id }}'
-        chat_id: '{{ trigger.event.data.user_id }}'
+        message_id: {% raw %}'{{ trigger.event.data.message.message_id }}'{% endraw %}
+        chat_id: {% raw %}'{{ trigger.event.data.user_id }}'{% endraw %}
         title: '*Message edit*'
         inline_keyboard:
           - '/edit,/NO'
           - '/remove button'
         message: >
-          Callback received from {{ trigger.event.data.from_first }}.
-          Message id: {{ trigger.event.data.message.message_id }}.
-          Data: ``` {{ trigger.event.data.data }} ```
+          {% raw %}Callback received from {% raw %}{{ trigger.event.data.from_first }}{% endraw %}.
+          Message id: {% raw %}{{ trigger.event.data.message.message_id }}{% endraw %}.
+          Data: {% raw %}{{ trigger.event.data.data }}{% endraw %}
 ```
 
 Keyboard editor:
@@ -307,12 +308,12 @@ Keyboard editor:
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
-        callback_query_id: '{{ trigger.event.data.id }}'
+        callback_query_id: {% raw %}'{{ trigger.event.data.id }}'{% endraw %}
         message: 'Callback received for editing the inline keyboard!'
     - service: telegram_bot.edit_replymarkup
       data_template:
         message_id: 'last'
-        chat_id: '{{ trigger.event.data.user_id }}'
+        chat_id: {% raw %}'{{ trigger.event.data.user_id }}'{% endraw %}
         inline_keyboard:
           - '/edit,/NO'
 ```
@@ -329,7 +330,7 @@ Only acknowledges the 'NO' answer:
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
-        callback_query_id: '{{ trigger.event.data.id }}'
+        callback_query_id: {% raw %}'{{ trigger.event.data.id }}'{% endraw %}
         message: 'OK, you said no!'
 ```
 

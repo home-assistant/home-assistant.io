@@ -33,7 +33,7 @@ echo '{ "target": "beer" }' | jq -r ".target"
 
 ## {% linkable_title Add-on Docker file %}
 
-All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. 
+All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. Add `tzdata` if you need run in correct timezone.
 
 ```
 FROM %%BASE_IMAGE%%
@@ -41,7 +41,7 @@ FROM %%BASE_IMAGE%%
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
-RUN apk add --no-cache jq
+RUN apk add --no-cache tzdata jq
 
 # Copy data for add-on
 COPY run.sh /
@@ -90,6 +90,7 @@ The config for an add-on is stored in `config.json`.
 | startup | yes | `initialize` will start addon on setup of hassio. `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
+| host_network | no | If that is True, the add-on run on host network.
 | devices | no | Device list to map into add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`
 | map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Default it map it `ro`, you can change that if you add a ":rw" at the end of name.
 | environment | no | A dict of environment variable to run add-on.
