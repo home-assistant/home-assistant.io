@@ -13,7 +13,7 @@ On a normal installation you have access to base machine and can install or add 
 
 If you need run a script to read data for a sensor or send commands to other device, you can do that with a add-on or on inside HomeAssistant container with a custom component. We look now how we can to do that in a modern way inside a add-on. For custom component you can look into [devoloper site][custom-component].
 
-Before you read more on that page, please read the [add-ons turtorial][addons-turtorial]. Now you can resize your horizen to new way to do things safe.
+Before you read more on that page, please read the [add-ons turtorial][addons-turtorial]. Now you can resize your horizen to make things in a safe way.
 
 First you need install a MQTT broker. You can use our [mqtt broker add-on][mqtt-addon]. Make sure you use logins and disable anonymos access if you want control sensible systems. We provide no Hass.IO way to exchange data, that will be not realy good for security and is also to slow to exchange data between containers or stop and go stuff.
 
