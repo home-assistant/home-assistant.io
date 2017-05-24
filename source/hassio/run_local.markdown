@@ -47,17 +47,51 @@ while true
 do
   if OUTPUT="$(/read_my_sensor.sh)"
   then
-    mosquitto_pub -h "$MQTT_SERVER" -p "$MQTT_PORT" -t "$TOPIC" -m "$OUTPUT" || true
+    mosquitto_pub -h "$MQTT_SERVER" -p "$MQTT_PORT" -u "$USER" -P "$PASSWORD" -t "$TOPIC" -m "$OUTPUT" || true
   else
     echo "$(data) [ERROR] can't read sensor: $OUTPUT"
   fi
 
   sleep "$WAIT_TIME"
 done
+
 ```
 
 ### {% linkable_title Commands %}
+Short story of that caption: We wait on incoming data from mqtt broker to do some things. We can also use on HomeAssistant input_boolean that trigger a automation to publish a custom command to mqtt topic they can process multible things in one add-on.
 
+Our Dockerfile need to install:
+
+```
+RUN apk --no-cache add tzdata jq mosquitto-clients
+```
+
+Now we can process it with `run.sh`:
+```bash
+#!/bin/bash
+set -e
+
+CONFIG_PATH=/data/options.json
+
+# possible options for processing
+MQTT_SERVER=$(jq --raw-output '.server' $CONFIG_PATH)
+MQTT_PORT=$(jq --raw-output '.port' $CONFIG_PATH)
+TOPIC=$(jq --raw-output '.topic' $CONFIG_PATH)
+USER=$(jq --raw-output '.user' $CONFIG_PATH)
+PASSWORD=$(jq --raw-output '.password' $CONFIG_PATH)
+
+# read data
+while read -r message
+do
+  if [ "$message" == "on" ]; then
+    /do_command_on.sh || true
+  else
+    /do_command_off.sh || true
+  fi
+
+done <<(mosquitto_sub -h "$MQTT_SERVER" -p "$MQTT_PORT" -u "$USER" -P "$PASSWORD" -t "$TOPIC" -q 1)
+
+```
 
 
 [mqtt-addon]: /addons/mosquitto/
