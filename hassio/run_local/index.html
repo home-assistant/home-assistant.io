@@ -68,12 +68,41 @@
   </header>
   <hr class="divider">
   <p>On a normal installation you have access to base machine and can install or add every things of script they you can call with a <code class="highlighter-rouge">command_line</code> sensor/switch. Since Hass.IO use docker and every application is strict limited to other, you can not use this old way to perform local stuff. For first view it look very limited but if you look better to that conecpt you will see that make all very stable and a wrong thing can not break your system. It will also warrenty that your system is in every time clear to eatch running thing.</p>
-<p>If you need run a script to read data for a sensor or switch commands to other device, you can do that with a add-on or on HomeAssistant container with a custom component. We look now to do that in a modern way inside a add-on. For custom component you can look into [custom-component][devoloper site].</p>
-<p>Before you read more on that page, please read the [addons-turtorial][add-ons turtorial]. Now you can resize your horizen to new way to do things safe.</p>
-<p>First you need install a MQTT broker. You can use our [mqtt-addon][mqtt broker add-on]. Make sure you use logins and disable anonymos access if you want control sensible systems. We provide no Hass.IO way to exchange data, that will be not realy good for security and is also to slow to exchange data between containers or stop and go stuff.</p>
+<p>If you need run a script to read data for a sensor or switch commands to other device, you can do that with a add-on or on HomeAssistant container with a custom component. We look now to do that in a modern way inside a add-on. For custom component you can look into <a href="/developers/component_loading/">devoloper site</a>.</p>
+<p>Before you read more on that page, please read the <a href="/hassio/addon_tutorial/">add-ons turtorial</a>. Now you can resize your horizen to new way to do things safe.</p>
+<p>First you need install a MQTT broker. You can use our <a href="/addons/mosquitto/">mqtt broker add-on</a>. Make sure you use logins and disable anonymos access if you want control sensible systems. We provide no Hass.IO way to exchange data, that will be not realy good for security and is also to slow to exchange data between containers or stop and go stuff.</p>
 <h3><a class="title-link" name="sensors" href="#sensors"></a> Sensors</h3>
 <p>Short story of that caption: We loop in our script to fetch data push to mqtt and wait until next processing is ready. Here is a basic example and struct for that process.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
+<p>Our Dockerfile need to install:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add tzdata jq mosquitto-clients
+</code></pre>
+</div>
+<p>Now we can process it with <code class="highlighter-rouge">run.sh</code>:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">set</span> -e
+
+<span class="nv">CONFIG_PATH</span><span class="o">=</span>/data/options.json
+
+<span class="c"># possible options for processing</span>
+<span class="nv">MQTT_SERVER</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.server'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">MQTT_PORT</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.port'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">TOPIC</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.topic'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">USER</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.user'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">PASSWORD</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.password'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">WAIT_TIME</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.seconds'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+
+<span class="c"># read data</span>
+<span class="k">while </span><span class="nb">true
+</span><span class="k">do
+  if </span><span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/read_my_sensor.sh<span class="k">)</span><span class="s2">"</span>
+  <span class="k">then
+    </span>mosquitto_pub -h <span class="s2">"</span><span class="nv">$MQTT_SERVER</span><span class="s2">"</span> -p <span class="s2">"</span><span class="nv">$MQTT_PORT</span><span class="s2">"</span> -t <span class="s2">"</span><span class="nv">$TOPIC</span><span class="s2">"</span> -m <span class="s2">"</span><span class="nv">$OUTPUT</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">true
+  </span><span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>data<span class="k">)</span><span class="s2"> [ERROR] can't read sensor: </span><span class="nv">$OUTPUT</span><span class="s2">"</span>
+  <span class="k">fi
+
+  </span>sleep <span class="s2">"</span><span class="nv">$WAIT_TIME</span><span class="s2">"</span>
+<span class="k">done</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="commands" href="#commands"></a> Commands</h3>
