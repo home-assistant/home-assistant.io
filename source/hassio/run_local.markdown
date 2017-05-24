@@ -11,7 +11,7 @@ footer: true
 
 On a normal installation you have access to base machine and can install or add every things of script they you can call with a `command_line` sensor/switch. Since Hass.IO use docker and every application is strict limited to other, you can not use this old way to perform local stuff. For first view it look very limited but if you look better to that conecpt you will see that make all very stable and a wrong thing can not break your system. It will also warrenty that your system is in every time clear to eatch running thing.
 
-If you need run a script to read data for a sensor or switch commands to other device, you can do that with a add-on or on HomeAssistant container with a custom component. We look now to do that in a modern way inside a add-on. For custom component you can look into [devoloper site][custom-component].
+If you need run a script to read data for a sensor or send commands to other device, you can do that with a add-on or on inside HomeAssistant container with a custom component. We look now to do that in a modern way inside a add-on. For custom component you can look into [devoloper site][custom-component].
 
 Before you read more on that page, please read the [add-ons turtorial][addons-turtorial]. Now you can resize your horizen to new way to do things safe.
 
