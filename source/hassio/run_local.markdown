@@ -19,7 +19,7 @@ First you need install a MQTT broker. You can use our [mqtt broker add-on][mqtt-
 
 ### {% linkable_title Sensors %}
 
-Short story of that caption: We loop in our script to fetch data push to mqtt and wait until next processing is ready. Here is a basic example and struct for that process.
+Short story of that caption: We loop in our script to fetch data and push it to mqtt and wait until next processing is ready. Here is a basic example and struct for that process.
 
 Our Dockerfile need to install:
 
