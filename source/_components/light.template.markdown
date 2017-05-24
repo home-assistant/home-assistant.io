@@ -22,7 +22,7 @@ To enable Template lights in your installation, add the following to your `confi
 light:
   - platform: template
     lights:
-      theater_volume:
+      theater_lights:
         friendly_name: "Theater Lights"
         value_template: "{% raw %}{{is_state('sensor.theater_brightness.attributes.lux > 0'}}{% endraw %}"
         turn_on:
@@ -45,6 +45,7 @@ Configuration variables:
   - **turn_off** (*Required*): Defines an [action](/getting-started/automation/) to run when the light is turned off.
   - **set_level** (*Optional*): Defines an [action](/getting-started/automation/) to run when the light is given a brightness command.
   - **level_template** (*Optional): Defines a [template](/topics/templating/) to get the brightness of the light. If not provided the component defaults to optimisitc brightness determination.
+  - **entity_id** (*Optional*): Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the light will try to update it's state.
 
 
 ## {% linkable_title Considerations %}
