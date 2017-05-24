@@ -41,7 +41,7 @@ FROM %%BASE_IMAGE%%
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
-RUN apk add --no-cache jq
+RUN apk add --no-cache tzdata jq
 
 # Copy data for add-on
 COPY run.sh /
