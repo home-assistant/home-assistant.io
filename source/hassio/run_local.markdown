@@ -34,7 +34,7 @@ set -e
 
 CONFIG_PATH=/data/options.json
 
-# possile options to process
+# possible options for processing
 MQTT_SERVER=$(jq --raw-output '.server' $CONFIG_PATH)
 MQTT_PORT=$(jq --raw-output '.port' $CONFIG_PATH)
 TOPIC=$(jq --raw-output '.topic' $CONFIG_PATH)
