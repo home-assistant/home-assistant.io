@@ -96,16 +96,48 @@
 </span><span class="k">do
   if </span><span class="nv">OUTPUT</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/read_my_sensor.sh<span class="k">)</span><span class="s2">"</span>
   <span class="k">then
-    </span>mosquitto_pub -h <span class="s2">"</span><span class="nv">$MQTT_SERVER</span><span class="s2">"</span> -p <span class="s2">"</span><span class="nv">$MQTT_PORT</span><span class="s2">"</span> -t <span class="s2">"</span><span class="nv">$TOPIC</span><span class="s2">"</span> -m <span class="s2">"</span><span class="nv">$OUTPUT</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">true
+    </span>mosquitto_pub -h <span class="s2">"</span><span class="nv">$MQTT_SERVER</span><span class="s2">"</span> -p <span class="s2">"</span><span class="nv">$MQTT_PORT</span><span class="s2">"</span> -u <span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span> -P <span class="s2">"</span><span class="nv">$PASSWORD</span><span class="s2">"</span> -t <span class="s2">"</span><span class="nv">$TOPIC</span><span class="s2">"</span> -m <span class="s2">"</span><span class="nv">$OUTPUT</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">true
   </span><span class="k">else
     </span><span class="nb">echo</span> <span class="s2">"</span><span class="k">$(</span>data<span class="k">)</span><span class="s2"> [ERROR] can't read sensor: </span><span class="nv">$OUTPUT</span><span class="s2">"</span>
   <span class="k">fi
 
   </span>sleep <span class="s2">"</span><span class="nv">$WAIT_TIME</span><span class="s2">"</span>
 <span class="k">done</span>
+
 </code></pre>
 </div>
 <h3><a class="title-link" name="commands" href="#commands"></a> Commands</h3>
+<p>Short story of that caption: We wait on incoming data from mqtt broker to do some things. We can also use on HomeAssistant input_boolean that trigger a automation to publish a custom command to mqtt topic they can process multible things in one add-on.</p>
+<p>Our Dockerfile need to install:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add tzdata jq mosquitto-clients
+</code></pre>
+</div>
+<p>Now we can process it with <code class="highlighter-rouge">run.sh</code>:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">set</span> -e
+
+<span class="nv">CONFIG_PATH</span><span class="o">=</span>/data/options.json
+
+<span class="c"># possible options for processing</span>
+<span class="nv">MQTT_SERVER</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.server'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">MQTT_PORT</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.port'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">TOPIC</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.topic'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">USER</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.user'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">PASSWORD</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s1">'.password'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+
+<span class="c"># read data</span>
+<span class="k">while </span><span class="nb">read</span> -r message
+<span class="k">do
+  if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$message</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"on"</span> <span class="o">]</span>; <span class="k">then</span>
+    /do_command_on.sh <span class="o">||</span> <span class="nb">true
+  </span><span class="k">else</span>
+    /do_command_off.sh <span class="o">||</span> <span class="nb">true
+  </span><span class="k">fi
+
+done</span> &lt; &lt;<span class="o">(</span>mosquitto_sub -h <span class="s2">"</span><span class="nv">$MQTT_SERVER</span><span class="s2">"</span> -p <span class="s2">"</span><span class="nv">$MQTT_PORT</span><span class="s2">"</span> -u <span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span> -P <span class="s2">"</span><span class="nv">$PASSWORD</span><span class="s2">"</span> -t <span class="s2">"</span><span class="nv">$TOPIC</span><span class="s2">"</span> -q 1<span class="o">)</span>
+
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -121,6 +153,7 @@
           <li><a  href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/installing_third_party_addons/'>Installing third-party add-ons </a></li>
           <li><a  href='/hassio/external_storage/'>External storage </a></li>
+          <li><a class='active' href='/hassio/run_local/'>Execute local things </a></li>
           <li><a  href='/hassio/architecture/'>Architecture </a></li>
         </ul>
       </li>
