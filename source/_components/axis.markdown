@@ -29,7 +29,7 @@ axis:
     - camera
     - motion
     - pir
-    - audio
+    - sound
     - daynight
     trigger_time: 0
     location: köket
