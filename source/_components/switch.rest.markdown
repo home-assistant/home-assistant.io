@@ -37,3 +37,23 @@ Configuration variables:
 Make sure that the URL matches exactly your endpoint or resource.
 </p>
 
+
+## {% linkable_title Example %}
+
+### {% linkable_title Switch with templated value %}
+
+This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example the REST endpoint returns this JSON response with true indicating the switch is on
+
+```json
+{"is_active": "true"}
+```
+
+
+```yaml
+switch:
+  - platform: rest
+    resource: http://<address>/led_endpoint
+    body_on: '{"active": "true"}
+    body_off: '{"active": "false"}
+    is_on_template: '{{value_json.is_active}}'
+```
