@@ -10,25 +10,26 @@ footer: true
 ha_category: Infrastructure
 ---
 
-This is a quick guide on how to setup fail2ban for Home Assistant. This was originally in the forums but I created this here for people. ([Forum link]( https://community.home-assistant.io/t/is-there-a-log-file-for-invalid-logins-blocking-hackers/2892))
+This is a quick guide on how to setup fail2ban for Home Assistant. This was originally in the [forum](https://community.home-assistant.io/t/is-there-a-log-file-for-invalid-logins-blocking-hackers/2892) but I created this here for people.
 
-First install fail2ban. On Debian/Ubuntu this would be `apt-get install fail2ban`. On other distros you can google it.
+First install `fail2ban`. On Debian/Ubuntu this would be `apt-get install fail2ban`. On other distros you can google it.
 
 Next we will be creating these three files :
-```
-/etc/fail2ban/fail2ban.local
-/etc/fail2ban/filter.d/hass.local
-/etc/fail2ban/jail.local
-```
 
-Contents of /etc/fail2ban/fail2ban.local :
-```
+- `/etc/fail2ban/fail2ban.local`
+- `/etc/fail2ban/filter.d/hass.local`
+- `/etc/fail2ban/jail.local`
+
+Contents of `/etc/fail2ban/fail2ban.local`:
+
+```text
 [Definition]
 logtarget = SYSLOG
 ```
 
-Contents of /etc/fail2ban/filter.d/hass.local :
-```
+Contents of `/etc/fail2ban/filter.d/hass.local`:
+
+```text
 [INCLUDES]
 before = common.conf
 
@@ -39,26 +40,26 @@ ignoreregex =
 
 [Init]
 datepattern = ^%%y-%%m-%%d %%H:%%M:%%S
-
 ```
 
-Contents of /etc/fail2ban/jail.local : (Note that you'll need to change the `logpath` to match your logfile which will be different from the path listed.)
-```
+Contents of `/etc/fail2ban/jail.local` (Note that you'll need to change the `logpath` to match your logfile which will be different from the path listed.):
+
+```text
 [hass-iptables]
 enabled = true
 filter = hass
 action = iptables-allports[name=HASS]
 logpath = /opt/hass-prod-cfg/home-assistant.log
 maxretry = 5
-
 ```
 
-Finally restart fail2ban : `systemctl restart fail2ban`
+Finally restart fail2ban : `sudo systemctl restart fail2ban`
 
 Check your log to make sure it read in your settings : `tail -100 /var/log/syslog|grep fail`
 
 If all is well you should see this from your syslog:
-```
+
+```bash
 May 24 20:58:01 homeauto fail2ban.server[14997]: INFO Stopping all jails
 May 24 20:58:02 homeauto fail2ban.jail[14997]: INFO Jail 'sshd' stopped
 May 24 20:58:02 homeauto fail2ban-client[15206]: Shutdown successful
@@ -88,7 +89,6 @@ May 24 20:58:02 homeauto fail2ban.filter[15217]: INFO Set jail log file encoding
 May 24 20:58:02 homeauto fail2ban.filter[15217]: INFO Date pattern set to `'^%y-%m-%d %H:%M:%S'`: `^Year2-Month-Day 24hour:Minute:Second`
 May 24 20:58:02 homeauto fail2ban.jail[15217]: INFO Jail 'sshd' started
 May 24 20:58:02 homeauto fail2ban.jail[15217]: INFO Jail 'hass-iptables' started
-
 ```
 
 That's it!
