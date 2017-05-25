@@ -107,15 +107,15 @@
 <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">my_unique_id</span>  <span class="c1"># &lt;-- Required for editor to work.</span>
   <span class="s">alias</span><span class="pi">:</span> <span class="s">Hello world</span>
   <span class="s">trigger</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span> 
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
     <span class="s">from</span><span class="pi">:</span> <span class="s">below_horizon</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
     <span class="s">to</span><span class="pi">:</span> <span class="s">above_horizon</span>
   <span class="s">condition</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">above</span><span class="pi">:</span> <span class="s">17</span>
-    <span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
-    <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
+  <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.temperature</span>
+    <span class="s">above</span><span class="pi">:</span> <span class="s">17</span>
+    <span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">float(state.state)</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">}}'</span>
   <span class="s">action</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
