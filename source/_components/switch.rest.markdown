@@ -32,6 +32,10 @@ Configuration variables:
 - **body_off** (*Optional*): The body of the POST request that commands the switch to become disabled. Default is "OFF". This value can also be a template.
 - **is_on_template** (*Optional*): A [template](/topics/templating/) that determines the state of the switch from the value returned by the GET request on the resource url. This template should compute to a boolean (True or False). Default is equivalent to `'{% raw %}{{ value_json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches `body_on`.
 
+<p class='note info'>
+When Home Assistant is trying to update the state of the device by issuing a GET to the endpoint, the value returned from the endpoint is made available to the template as `value_json`. Values within the JSON can be referenced using dot notation:
+`{"state": "off"}` would be referenced as `{% raw %}{{value_json.state}}{% endraw $}`
+</p>
 
 <p class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
@@ -55,5 +59,5 @@ switch:
     resource: http://<address>/led_endpoint
     body_on: '{"active": "true"}
     body_off: '{"active": "false"}
-    is_on_template: '{{value_json.is_active}}'
+    is_on_template: '{% raw %}{{value_json.is_active}}{% endraw %}'
 ```
