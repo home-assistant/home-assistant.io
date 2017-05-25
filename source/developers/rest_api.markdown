@@ -202,6 +202,12 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 #### {% linkable_title GET /api/history/period/&lt;timestamp> %}
 Returns an array of state changes in the past. Each object contains further details for the entities.
 
+The `<timestamp>` is optional and defaults to 1 day before the time of the request. It determines the beginning of the period.
+
+You can pass the following optional GET parameters:
+  - `filter_entity_id=<entity_id>` to filter on a single entity
+  - `end_time=<timestamp>` to choose the end of the period (defaults to 1 day)
+
 ```json
 [
     [
