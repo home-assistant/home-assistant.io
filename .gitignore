@@ -3,6 +3,7 @@
 .sass-cache
 .gist-cache
 .pygments-cache
+.project
 public
 sass.old
 source.old
