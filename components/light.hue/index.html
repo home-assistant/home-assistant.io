@@ -107,8 +107,9 @@
 <p>More information can be found on the <a href="https://www.developers.meethue.com/documentation/groups-api#22_create_group">Philips Hue API documentation</a> website.</p>
 <h3><a class="title-link" name="using-hue-scenes-in-home-assistant" href="#using-hue-scenes-in-home-assistant"></a> Using Hue Scenes in Home Assistant</h3>
 <p>The Hue platform has it’s own concept of Scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you’ve never used, almost all very poorly named.</p>
-<p>To avoid user interface overload we don’t expose Scenes directly. Instead there is a <a href="/components/light/#service-lighthue_activate_scene">light.hue_activate_scene</a> service which can be used by <code class="highlighter-rouge">automation</code> or <code class="highlighter-rouge">script</code> components. For
-instance:</p>
+<p>To avoid user interface overload we don’t expose Scenes directly. Instead there is a <a href="/components/light/#service-lighthue_activate_scene">light.hue_activate_scene</a> service which can be used by <code class="highlighter-rouge">automation</code> or <code class="highlighter-rouge">script</code> components.
+This will have all the bulbs transitioned at once, instead of one at a time using standard scenes in Home Assistant.
+For instance:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
   <span class="s">porch_on</span><span class="pi">:</span>
     <span class="s">sequence</span><span class="pi">:</span>
@@ -118,6 +119,28 @@ instance:</p>
           <span class="s">scene_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Porch</span><span class="nv"> </span><span class="s">Orange"</span>
 </code></pre>
 </div>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">group_name</code></td>
+      <td>no</td>
+      <td>The group/room name of the lights. Find this in the Hue official app.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scene_name</code></td>
+      <td>no</td>
+      <td>The name of the Scene. Find this in the Hue official app.</td>
+    </tr>
+  </tbody>
+</table>
+<p><em>Note</em>: <code class="highlighter-rouge">group_name</code> is not linked to Home Assistant group name.</p>
 <p><em>** Finding Group and Scene Names **</em></p>
 <p>How do you find these names?</p>
 <p>The easiest way to do this is only use the scenes from the 2nd generation Hue app. That is organized by Room (Group) and Scene

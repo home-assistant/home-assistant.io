@@ -66,19 +66,13 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This component allows you to track and control various light bulbs.</p>
-<p>It has <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv">4 built-in light profiles</a> which you’re able to extend by putting a <code class="highlighter-rouge">light_profiles.csv</code> file in your config dir.</p>
-<p>Preferred way to setup the Philips Hue platform is through the <a href="/components/discovery/">the discovery component</a>. For the Wink light platform enable <a href="/components/wink/">the wink component</a>.</p>
-<p>If you want to enable the light component directly, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
-</code></pre>
-</div>
+  <p>This component allows you to track and control various light bulbs. Read the platform documentation for your particular light hardware to learn how to enable it.</p>
 <p class="note">
 The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.
 </p>
 <h3><a class="title-link" name="service-lightturn_on" href="#service-lightturn_on"></a> Service <code class="highlighter-rouge">light.turn_on</code></h3>
 <p>Turns one light on or multiple lights on using <a href="/components/group/">groups</a>.</p>
+<p>Most lights do not support all attributes. You can check the platform documentation of your particular light for hints but in general you will have to try things out and see what works.</p>
 <table>
   <thead>
     <tr>
@@ -96,12 +90,12 @@ The light component supports multiple entries in <code>configuration.yaml</code>
     <tr>
       <td><code class="highlighter-rouge">transition</code></td>
       <td>yes</td>
-      <td>Integer that represents the time the light should take to transition to the new state in seconds. *Not supported by all lights.</td>
+      <td>Integer that represents the time the light should take to transition to the new state in seconds.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">profile</code></td>
       <td>yes</td>
-      <td>String with the name of one of the built-in profiles (relax, energize, concentrate, reading) or one of the custom profiles defined in <code class="highlighter-rouge">light_profiles.csv</code> in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.</td>
+      <td>String with the name of one of the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv">built-in profiles</a> (relax, energize, concentrate, reading) or one of the custom profiles defined in <code class="highlighter-rouge">light_profiles.csv</code> in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">xy_color</code></td>
@@ -141,7 +135,7 @@ The light component supports multiple entries in <code>configuration.yaml</code>
     <tr>
       <td><code class="highlighter-rouge">flash</code></td>
       <td>yes</td>
-      <td>Tell light to flash, can be either value <code class="highlighter-rouge">short</code> or <code class="highlighter-rouge">long</code>. *Not supported by all lights.</td>
+      <td>Tell light to flash, can be either value <code class="highlighter-rouge">short</code> or <code class="highlighter-rouge">long</code>.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">effect</code></td>
@@ -197,33 +191,6 @@ The light component supports multiple entries in <code>configuration.yaml</code>
     </tr>
   </tbody>
 </table>
-<h3><a class="title-link" name="service-lighthue_activate_scene" href="#service-lighthue_activate_scene"></a> Service <code class="highlighter-rouge">light.hue_activate_scene</code></h3>
-<p>If you have hue lights, there is a service call to directly activate
-scenes that are stored in your hue hub. This will have all the bulbs
-transitioned at once, instead of one at a time using standard scenes
-in Home Assistant.</p>
-<table>
-  <thead>
-    <tr>
-      <th>Service data attribute</th>
-      <th>Optional</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">group_name</code></td>
-      <td>no</td>
-      <td>The group/room name of the lights. Find this in the Hue official app.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">scene_name</code></td>
-      <td>no</td>
-      <td>The name of the Scene. Find this in the Hue official app.</td>
-    </tr>
-  </tbody>
-</table>
-<p><em>Note</em>: <code class="highlighter-rouge">group_name</code> is not linked to Home Assistant group name.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
