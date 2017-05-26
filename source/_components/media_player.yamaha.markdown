@@ -29,6 +29,8 @@ To add a Yamaha Network Receiver to your installation, add the following to your
 # Example configuration.yaml entry
 media_player:
   - platform: yamaha
+    host: 192.168.1.100
+    name: 'Basement Receiver'
 ```
 Configuration variables:
 
