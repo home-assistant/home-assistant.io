@@ -146,6 +146,7 @@ from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
+chat: "<chat info>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -156,6 +157,7 @@ from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
 chat_id: "<origin chat id>"
+chat: "<chat info>"
 ```
 
 if the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
@@ -263,8 +265,8 @@ Text repeater:
         message: 'You said: {% raw %}{{ trigger.event.data.text }}{% endraw %}'
         disable_notification: true
         inline_keyboard:
-          - '/edit,/NO'
-          - '/remove button'
+          - "Edit message:/edit_msg, Don't:/do_nothing"
+          - "Remove this button:/remove button"
 ```
 
 Message editor:
@@ -275,7 +277,7 @@ Message editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/edit'
+      data: '/edit_msg'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -288,8 +290,8 @@ Message editor:
         chat_id: {% raw %}'{{ trigger.event.data.user_id }}'{% endraw %}
         title: '*Message edit*'
         inline_keyboard:
-          - '/edit,/NO'
-          - '/remove button'
+          - "Edit message:/edit_msg, Don't:/do_nothing"
+          - "Remove this button:/remove button"
         message: >
           {% raw %}Callback received from {% raw %}{{ trigger.event.data.from_first }}{% endraw %}.
           Message id: {% raw %}{{ trigger.event.data.message.message_id }}{% endraw %}.
@@ -315,7 +317,7 @@ Keyboard editor:
         message_id: 'last'
         chat_id: {% raw %}'{{ trigger.event.data.user_id }}'{% endraw %}
         inline_keyboard:
-          - '/edit,/NO'
+          - "Edit message:/edit_msg, Don't:/do_nothing"
 ```
 
 Only acknowledges the 'NO' answer:
@@ -326,7 +328,7 @@ Only acknowledges the 'NO' answer:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/NO'
+      data: '/do_nothing'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -354,7 +356,9 @@ class TelegramBotEventListener(appapi.AppDaemon):
         assert event_id == 'telegram_text'
         user_id = payload_event['user_id']
         msg = 'You said: ``` %s ```' % payload_event['text']
-        keyboard = ['/edit,/NO', '/remove button']
+        keyboard = [[("Edit message", "/edit_msg"),
+                     ("Don't", "/do_nothing")],
+                    [("Remove this button", "/remove button")]]
         self.call_service('telegram_bot/send_message',
                           title='*Dumb automation*',
                           target=user_id,
@@ -368,8 +372,13 @@ class TelegramBotEventListener(appapi.AppDaemon):
         data_callback = payload_event['data']
         callback_id = payload_event['id']
         user_id = payload_event['user_id']
+        # keyboard = ["Edit message:/edit_msg, Don't:/do_nothing",
+        #             "Remove this button:/remove button"]
+        keyboard = [[("Edit message", "/edit_msg"),
+                     ("Don't", "/do_nothing")],
+                    [("Remove this button", "/remove button")]]
 
-        if data_callback == '/edit':  # Message editor:
+        if data_callback == '/edit_msg':  # Message editor:
             # Answer callback query
             self.call_service('telegram_bot/answer_callback_query',
                               message='Editing the message!',
@@ -381,7 +390,6 @@ class TelegramBotEventListener(appapi.AppDaemon):
             user = payload_event['from_first']
             title = '*Message edit*'
             msg = 'Callback received from %s. Message id: %s. Data: ``` %s ```'
-            keyboard = ['/edit,/NO', '/remove button']
             self.call_service('telegram_bot/edit_message',
                               chat_id=user_id,
                               message_id=msg_id,
@@ -397,13 +405,13 @@ class TelegramBotEventListener(appapi.AppDaemon):
                               callback_query_id=callback_id)
 
             # Edit the keyboard
-            new_keyboard = ['/edit,/NO']
+            new_keyboard = keyboard[:1]
             self.call_service('telegram_bot/edit_replymarkup',
                               chat_id=user_id,
                               message_id='last',
                               inline_keyboard=new_keyboard)
 
-        elif data_callback == '/NO':  # Only Answer to callback query
+        elif data_callback == '/do_nothing':  # Only Answer to callback query
             self.call_service('telegram_bot/answer_callback_query',
                               message='OK, you said no!',
                               callback_query_id=callback_id)

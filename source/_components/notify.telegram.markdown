@@ -77,11 +77,11 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: '*Send a message*'
-    message: 'That's an example that _sends_ a *formatted* message with a custom keyboard.'
+    message: 'That's an example that _sends_ a *formatted* message with a custom inline keyboard.'
     data:
-      keyboard:
-        - '/command1, /command2'
-        - '/command3, /command4'
+      inline_keyboard:
+        - 'Task 1:/command1, Task 2:/command2'
+        - 'Task 3:/command3, Task 4:/command4'
 ```
 
 Configuration variables:
@@ -115,8 +115,9 @@ Configuration variables:
 
 - **url** or **file** (*Required*): For local or remote path to an image.
 - **caption** (*Optional*): The title of the image.
-- **username** (*Optional*): Username for a URL which require HTTP basic authentication.
-- **password** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **username** (*Optional*): Username for a URL which require HTTP authentication.
+- **password** (*Optional*): Username for a URL which require HTTP authentication.
+- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
 - **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
 
@@ -129,19 +130,23 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send a document
-    message: That's an example that sends a document.
+    message: That's an example that sends a document and a custom keyboard.
     data:
       document:
         file: /tmp/whatever.odf
         caption: Document Title xy
+    keyboard:
+      - '/command1, /command2'
+      - '/command3, /command4'
 ```
 
 Configuration variables:
 
 - **url** or **file** (*Required*): For local or remote path to a document.
 - **caption** (*Optional*): The title of the document.
-- **username** (*Optional*): Username for a URL which require HTTP basic authentication.
-- **password** (*Optional*): Username for a URL which require HTTP basic authentication.
+- **username** (*Optional*): Username for a URL which require HTTP authentication.
+- **password** (*Optional*): Username for a URL which require HTTP authentication.
+- **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
 - **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
 
@@ -163,7 +168,6 @@ action:
 
 Configuration variables:
 
-- **location** (*Required*): For local or remote path to an image.
 - **latitude** (*Required*): The latitude to send.
 - **longitude** (*Required*): The longitude to send.
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
