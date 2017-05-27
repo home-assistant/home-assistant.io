@@ -12,7 +12,7 @@ ha_release: 0.46
 ---
 
 
-The `date countdown` sensor platform reports the time in days hours and minutes until the specified end date and time
+The `date_countdown` sensor platform reports the time in days hours and minutes until the specified end date and time
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
