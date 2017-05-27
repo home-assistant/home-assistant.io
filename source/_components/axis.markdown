@@ -47,6 +47,10 @@ Depending on how you run Home Assistant you might be needed to symlink the `gi` 
 ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
 ```
 
+<p class='note'>
+If you are using Python3.6 you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
+</p>
+
 ## {% linkable_title Configuration variables %}
 
 - **device** (*Required*): Unique name 
@@ -73,3 +77,18 @@ Any specific levels for triggers needs to be configured on the device.
 <p class='note'>
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality it is enough to create a user belonging to user group viewer.
 </p>
+
+## {% linkable_title Device services %}
+Available services: `vapix_call`.
+
+#### {% linkable_title Service `axis/vapix_call` %}
+Send a command using [Vapix](https://www.axis.com/support/developer-support/vapix). For details please read the API specifications.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `name`                    |       no | Name of device to communicate with. |
+| `param`                   |       no | What parameter to operate on. |
+| `cgi`                     |      yes | Which cgi to call on device. Default is `param.cgi`. |
+| `action`                  |      yes | What type of call. Default is `update`.  |
+
+Response to call can be subscribed to on event `vapix_call_response`
