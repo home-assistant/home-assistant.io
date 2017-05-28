@@ -29,9 +29,9 @@ To enable this platform, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 alarm_control_panel:
-  platform: mqtt
-  state_topic: "home/alarm"
-  command_topic: "home/alarm/set"
+  - platform: mqtt
+    state_topic: "home/alarm"
+    command_topic: "home/alarm/set"
 ```
 
 Configuration variables:

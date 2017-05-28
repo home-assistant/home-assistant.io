@@ -30,8 +30,8 @@ Configuration variables:
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval.
 
 ## {% linkable_title Examples %}
 

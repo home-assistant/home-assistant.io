@@ -20,7 +20,7 @@ The MQTT notification support is different than the other [notification](/compon
 ```
 
 <p class='img'>
-<img src='/images/screenshots/mqtt-notify.png' />
+  <img src='/images/screenshots/mqtt-notify.png' />
 </p>
 
 Using the [REST API](/developers/rest_api/#post-apiservicesltdomainltservice) to send a message to a given topic.

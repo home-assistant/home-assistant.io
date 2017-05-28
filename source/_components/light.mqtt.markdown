@@ -32,13 +32,13 @@ Configuration variables:
 - **brightness_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's brightness.
 - **brightness_scale** (*Optional*): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).
 - **brightness_state_topic** (*Optional*): The MQTT topic subscribed to receive brightness state updates.
-- **brightness_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the brightness value.
-- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.  The color temperature command slider has a range of 157 to 500 mireds (micro reciprocal degrees).    
+- **brightness_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the brightness value.
+- **color_temp_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's color temperature state.  The color temperature command slider has a range of 157 to 500 mireds (micro reciprocal degrees).
 - **color_temp_state_topic** (*Optional*): The MQTT topic subscribed to receive color temperature state updates.
 - **color_temp_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the color temperature value.
 - **effect_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's effect state.
 - **effect_state_topic** (*Optional*): The MQTT topic subscribed to receive effect state updates.
-- **effect_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the effect value.
+- **effect_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the effect value.
 - **effect_list** (*Optional*): The list of effects the light supports.
 - **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
@@ -48,15 +48,15 @@ Configuration variables:
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
 - **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
 - **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
-- **rgb_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the RGB value.
+- **rgb_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **state_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the state value.
+- **state_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the state value.
 - **white_value_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's white value.
 - **white_value_state_topic** (*Optional*): The MQTT topic subscribed to receive white value updates.
-- **white_value_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the white value.
+- **white_value_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the white value.
 - **xy_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's XY state.
 - **xy_state_topic** (*Optional*): The MQTT topic subscribed to receive XY state updates.
-- **xy_value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the XY value.
+- **xy_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the XY value.
 
 <p class='note warning'>
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
@@ -114,16 +114,16 @@ To enable a light with brightness (no RGB version) in your installation, add the
 ```yaml
 # Example configuration.yml entry
 light:
-  platform: mqtt
-  name: "Office light"
-  state_topic: "office/rgb1/light/status"
-  command_topic: "office/rgb1/light/switch"
-  brightness_state_topic: 'office/rgb1/light/brightness'
-  brightness_command_topic: 'office/rgb1/light/brightness/set'
-  qos: 0
-  payload_on: "ON"
-  payload_off: "OFF"
-  optimistic: false
+  - platform: mqtt
+    name: "Office light"
+    state_topic: "office/rgb1/light/status"
+    command_topic: "office/rgb1/light/switch"
+    brightness_state_topic: 'office/rgb1/light/brightness'
+    brightness_command_topic: 'office/rgb1/light/brightness/set'
+    qos: 0
+    payload_on: "ON"
+    payload_off: "OFF"
+    optimistic: false
 ```
 
 ### {% linkable_title Implementations %}
