@@ -12,12 +12,8 @@ redirect_from: /topics/templating/
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of the following things:
 
-- [Home Assistant architecture], especially states.
-- [State object]
-
-
-[Home Assistant architecture]: /developers/architecture/
-[State object]: /topics/state_object/
+- [Home Assistant architecture](/developers/architecture/), especially states.
+- [State object](/topics/state_object/)
 
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
@@ -194,6 +190,23 @@ It depends per component or platform, but it is common to be able to define a te
 | ------------ | -------------------------------------- |
 | `value`      | The incoming value.                    |
 | `value_json` | The incoming value parsed as JSON.     |
+
+This means that if the incoming values looks like the sample below:
+
+```json
+{
+  "on": "true",
+  "temp": 21
+}
+```
+
+The template for `on` would be:
+
+```yaml
+'{% raw %}{{value_json.on}}{% endraw %}'
+```
+
+The following overview contains a couple of options to get the needed values:
 
 ```text
 # Incoming value:
