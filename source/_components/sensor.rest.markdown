@@ -39,7 +39,7 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is `GET`.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.

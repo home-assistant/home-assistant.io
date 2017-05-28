@@ -40,7 +40,7 @@ Configuration variables for the server:
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **measurement** (*Required*):  Defines the measurement name in InfluxDB (the from clause of the query).
   - **where** (*Required*): Defines the data selection clause (the where clause of the query).
-  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`.
   - **group_function** (*Optional*): The group function to be used. Defaults to `mean`.
   - **field** (*Optional*): The field name to select. Defaults to value.

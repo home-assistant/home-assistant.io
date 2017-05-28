@@ -33,7 +33,7 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents on state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents  state. Default is "OFF".
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 For a quick check you can use the commandline tools shipped with `mosquitto` to send MQTT messages. Set the state of a sensor manually:
 

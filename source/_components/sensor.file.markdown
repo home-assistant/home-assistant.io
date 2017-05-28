@@ -30,7 +30,7 @@ Configuration variables:
 - **file_path** (*Required*): path to file that stores the sensor data.
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `File`.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 
