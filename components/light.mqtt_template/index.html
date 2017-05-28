@@ -86,16 +86,16 @@ It is format-agnostic so you can use any data format you want (i.e. string, JSON
   <li><strong>effect_list</strong> (<em>Optional</em>): List of possible effects.</li>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the light’s state.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
-  <li><strong>command_on_template</strong> (<em>Required</em>): The template for <em>on</em> state changes. Available variables: <code class="highlighter-rouge">state</code>, <code class="highlighter-rouge">brightness</code>, <code class="highlighter-rouge">red</code>, <code class="highlighter-rouge">green</code>, <code class="highlighter-rouge">blue</code>, <code class="highlighter-rouge">flash</code>, <code class="highlighter-rouge">transition</code> and <code class="highlighter-rouge">effect</code>.</li>
-  <li><strong>command_off_template</strong> (<em>Required</em>): The template for <em>off</em> state changes. Available variables: <code class="highlighter-rouge">state</code> and <code class="highlighter-rouge">transition</code>.</li>
-  <li><strong>state_template</strong> (<em>Optional</em>): Template to extract state from the state payload value.</li>
-  <li><strong>brightness_template</strong> (<em>Optional</em>): Template to extract brightness from the state payload value.</li>
-  <li><strong>red_template</strong> (<em>Optional</em>): Template to extract red color from the state payload value.</li>
-  <li><strong>green_template</strong> (<em>Optional</em>): Template to extract green color from the state payload value.</li>
-  <li><strong>blue_template</strong> (<em>Optional</em>): Template to extract blue color from the state payload value.</li>
-  <li><strong>color_temp_template</strong> (<em>Optional</em>): Template to extract color temperature from the state payload value.</li>
-  <li><strong>effect_template</strong> (<em>Optional</em>): Template to extract effect from the state payload value.</li>
-  <li><strong>white_value_template</strong> (<em>Optional</em>): Template to extract white value from the state payload value.</li>
+  <li><strong>command_on_template</strong> (<em>Required</em>): The <a href="/docs/configuration/templating/#processing-incoming-data">template</a> for <em>on</em> state changes. Available variables: <code class="highlighter-rouge">state</code>, <code class="highlighter-rouge">brightness</code>, <code class="highlighter-rouge">red</code>, <code class="highlighter-rouge">green</code>, <code class="highlighter-rouge">blue</code>, <code class="highlighter-rouge">flash</code>, <code class="highlighter-rouge">transition</code> and <code class="highlighter-rouge">effect</code>.</li>
+  <li><strong>command_off_template</strong> (<em>Required</em>): The <a href="/docs/configuration/templating/#processing-incoming-data">template</a> for <em>off</em> state changes. Available variables: <code class="highlighter-rouge">state</code> and <code class="highlighter-rouge">transition</code>.</li>
+  <li><strong>state_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract state from the state payload value.</li>
+  <li><strong>brightness_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract brightness from the state payload value.</li>
+  <li><strong>red_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract red color from the state payload value.</li>
+  <li><strong>green_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract green color from the state payload value.</li>
+  <li><strong>blue_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract blue color from the state payload value.</li>
+  <li><strong>color_temp_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract color temperature from the state payload value.</li>
+  <li><strong>effect_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract effect from the state payload value.</li>
+  <li><strong>white_value_template</strong> (<em>Optional</em>): <a href="/docs/configuration/templating/#processing-incoming-data">Template</a> to extract white value from the state payload value.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if the light works in optimistic mode. Default is true if no state topic or state template is defined, else false.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
 </ul>

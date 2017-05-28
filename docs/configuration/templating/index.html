@@ -221,6 +221,18 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
     </tr>
   </tbody>
 </table>
+<p>This means that if the incoming values looks like the sample below:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"temp"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>The template for <code class="highlighter-rouge">on</code> would be:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s1">'</span><span class="s">{{value_json.on}}'</span>
+</code></pre>
+</div>
+<p>The following overview contains a couple of options to get the needed values:</p>
 <div class="language-text highlighter-rouge"><pre class="highlight"><code># Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 

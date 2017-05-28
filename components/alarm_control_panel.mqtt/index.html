@@ -79,9 +79,9 @@
 <p>To enable this platform, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alarm_control_panel</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/alarm"</span>
-  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/alarm/set"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/alarm"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/alarm/set"</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>

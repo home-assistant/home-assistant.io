@@ -84,7 +84,7 @@
   <li><strong>include_only_feed_id</strong> (<em>Optional</em>): Positive integer list of Emoncms feed IDs. Only the feeds with feed IDs specified here will be displayed. Can not be specified if <code class="highlighter-rouge">exclude_feed_id</code> is specified.</li>
   <li><strong>exclude_feed_id</strong> (<em>Optional</em>): Positive integer list of Emoncms feed IDs. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if <code class="highlighter-rouge">include_only_feed_id</code> is specified.</li>
   <li><strong>sensor_names</strong> (<em>Optional</em>): Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of <code class="highlighter-rouge">feedid: name</code> pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name</li>
-  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to alter the feed value.</li>
+  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to alter the feed value.</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Defines the update interval of the sensor in seconds.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of for all the sensors. default is “W”.</li>
 </ul>

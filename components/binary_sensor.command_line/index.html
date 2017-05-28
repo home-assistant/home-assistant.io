@@ -81,7 +81,7 @@
   <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
-  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract a value from the payload.</li>
 </ul>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you find some real life examples of how to use this sensor.</p>
@@ -110,14 +110,15 @@
 </div>
 <p>An alternative solution could look like this:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Printer</span>
-  <span class="s">command</span><span class="pi">:</span> <span class="s">ping -W 1 -c 1 192.168.1.10 &gt; /dev/null 2&gt;&amp;1 &amp;&amp; echo success || echo fail</span>
-  <span class="s">device_class</span><span class="pi">:</span> <span class="s">connectivity</span>
-  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">success"</span>
-  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fail"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Printer</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s">ping -W 1 -c 1 192.168.1.10 &gt; /dev/null 2&gt;&amp;1 &amp;&amp; echo success || echo fail</span>
+    <span class="s">device_class</span><span class="pi">:</span> <span class="s">connectivity</span>
+    <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">success"</span>
+    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">fail"</span>
 </code></pre>
 </div>
+<p>Consider to use the <a href="/components/binary_sensor.ping/"><code class="highlighter-rouge">ping</code> sensor </a> as an alternative to the samples above.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

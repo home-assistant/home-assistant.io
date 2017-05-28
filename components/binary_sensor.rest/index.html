@@ -67,7 +67,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">rest</code> binary sensor platform is consuming a given endpoint which is exposed by a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a> of a device, an application, or a web service. The binary sensor has support for GET and POST requests.</p>
-<p>The JSON messages can contain different values like <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">"1"</code>, <code class="highlighter-rouge">TRUE</code>, <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">on</code>, or <code class="highlighter-rouge">open</code>. If the value is nested then use a <a href="/topics/templating/">template</a>.</p>
+<p>The JSON messages can contain different values like <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">"1"</code>, <code class="highlighter-rouge">TRUE</code>, <code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">on</code>, or <code class="highlighter-rouge">open</code>. If the value is nested then use a <a href="/docs/configuration/templating/#processing-incoming-data">template</a>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Binary sensor"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -98,7 +98,7 @@
   <li><strong>method</strong> (<em>Optional</em>): The method of the request. Default is GET.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the REST binary sensor.</li>
   <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
-  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the value.</li>
+  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the value.</li>
   <li><strong>payload</strong> (<em>Optional</em>): The payload to send with a POST request. Usually formed as a dictionary.</li>
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify the certification of the endpoint. Default to True.</li>
   <li><strong>authentication</strong> (<em>Optional</em>): Type of the HTTP authentication. <code class="highlighter-rouge">basic</code> or <code class="highlighter-rouge">digest</code>.</li>

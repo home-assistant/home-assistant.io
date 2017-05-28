@@ -82,13 +82,13 @@
   <li><strong>brightness_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s brightness.</li>
   <li><strong>brightness_scale</strong> (<em>Optional</em>): Defines the maximum brightness value (i.e. 100%) of the MQTT device (defaults to 255).</li>
   <li><strong>brightness_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive brightness state updates.</li>
-  <li><strong>brightness_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the brightness value.</li>
+  <li><strong>brightness_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the brightness value.</li>
   <li><strong>color_temp_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s color temperature state.  The color temperature command slider has a range of 157 to 500 mireds (micro reciprocal degrees).</li>
   <li><strong>color_temp_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive color temperature state updates.</li>
   <li><strong>color_temp_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the color temperature value.</li>
   <li><strong>effect_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s effect state.</li>
   <li><strong>effect_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive effect state updates.</li>
-  <li><strong>effect_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the effect value.</li>
+  <li><strong>effect_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the effect value.</li>
   <li><strong>effect_list</strong> (<em>Optional</em>): The list of effects the light supports.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.</li>
@@ -98,15 +98,15 @@
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
   <li><strong>rgb_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s RGB state.</li>
   <li><strong>rgb_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive RGB state updates.</li>
-  <li><strong>rgb_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the RGB value.</li>
+  <li><strong>rgb_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the RGB value.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
-  <li><strong>state_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the state value.</li>
+  <li><strong>state_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the state value.</li>
   <li><strong>white_value_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s white value.</li>
   <li><strong>white_value_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive white value updates.</li>
-  <li><strong>white_value_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the white value.</li>
+  <li><strong>white_value_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the white value.</li>
   <li><strong>xy_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s XY state.</li>
   <li><strong>xy_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive XY state updates.</li>
-  <li><strong>xy_value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract the XY value.</li>
+  <li><strong>xy_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the XY value.</li>
 </ul>
 <p class="note warning">
   Make sure that your topics match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
@@ -202,16 +202,16 @@
 <p>To enable a light with brightness (no RGB version) in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">light</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Office</span><span class="nv"> </span><span class="s">light"</span>
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">office/rgb1/light/status"</span>
-  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">office/rgb1/light/switch"</span>
-  <span class="s">brightness_state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/rgb1/light/brightness'</span>
-  <span class="s">brightness_command_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/rgb1/light/brightness/set'</span>
-  <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
-  <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
-  <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
-  <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Office</span><span class="nv"> </span><span class="s">light"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">office/rgb1/light/status"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">office/rgb1/light/switch"</span>
+    <span class="s">brightness_state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/rgb1/light/brightness'</span>
+    <span class="s">brightness_command_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/rgb1/light/brightness/set'</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
+    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+    <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="implementations" href="#implementations"></a> Implementations</h3>

@@ -87,7 +87,7 @@
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if lock works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no <code class="highlighter-rouge">state_topic</code> defined, else <code class="highlighter-rouge">false</code>.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
-  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
+  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract a value from the payload.</li>
 </ul>
 <p class="note warning">
 Make sure that your topic match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
@@ -98,16 +98,16 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
 <p>The example below shows a full configuration for a MQTT lock.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">lock</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Frontdoor</span> 
-  <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/frontdoor/"</span>
-  <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/frontdoor/set"</span>
-  <span class="s">payload_lock</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LOCK"</span>
-  <span class="s">payload_unlock</span><span class="pi">:</span> <span class="s2">"</span><span class="s">UNLOCK"</span>
-  <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
-  <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
-  <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Frontdoor</span> 
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/frontdoor/"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/frontdoor/set"</span>
+    <span class="s">payload_lock</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LOCK"</span>
+    <span class="s">payload_unlock</span><span class="pi">:</span> <span class="s2">"</span><span class="s">UNLOCK"</span>
+    <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">qos</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
 </div>
 <p>Keep an eye on retaining messages to keep the state as you don’t want to unlock your door by accident when you restart something.</p>

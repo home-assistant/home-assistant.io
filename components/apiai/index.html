@@ -88,16 +88,16 @@
   <li>Select name, language (if you are planning to use it with Google Actions check <a href="https://support.google.com/assistant/answer/7108196?hl=en">here</a> supported languages) and time zone</li>
   <li>Click “Save”</li>
   <li>Go to “Fullfiment” (in the left menu)</li>
-  <li>Enable Webhook and set your HA url with the apiai endpoint. Eg.: <code class="highlighter-rouge">https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD</code></li>
+  <li>Enable Webhook and set your Home Assistant URL with the Api.ai endpoint. Eg.: <code class="highlighter-rouge">https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD</code></li>
   <li>Click “Save”</li>
   <li>Create a new intent</li>
   <li>Below “User says” write one phrase that you, the user, will tell Api.ai. Eg.: Which is the temperature at home?</li>
-  <li>In “Action” set some key (this will be the bind with HA config), eg.: GetTemperature</li>
-  <li>In “Response” set “Cannot connect to HA or it is taking to long” (fall back response)</li>
+  <li>In “Action” set some key (this will be the bind with Home Assistant configuration), eg.: GetTemperature</li>
+  <li>In “Response” set “Cannot connect to Home Assistant or it is taking to long” (fall back response)</li>
   <li>At the end of the page, click on “Fulfillment” and check “Use webhook”</li>
   <li>Click “Save”</li>
   <li>On the top right, where is written “Try it now…”, write, or say, the phrase you have previously defined and hit enter</li>
-  <li>Api.ai has send a request to your HA server</li>
+  <li>Api.ai has send a request to your Home Assistant server</li>
 </ul>
 <p>Take a look to “Integrations”, in the left menu, to configure third parties.</p>
 <h3><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h3>
@@ -122,7 +122,7 @@
 <ul>
   <li><strong>speech</strong> (<em>Optional</em>): Text or template to return to Api.ai</li>
   <li><strong>action</strong> (<em>Optional</em>): Script definition</li>
-  <li><strong>async_action</strong> (<em>Optional</em>): If HA should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to <code class="highlighter-rouge">True</code> if Api.ai is returning the “Cannot connect to HA or it is taking to long” message, but then you will not be able to use values based on the result of the action. Defaults to <code class="highlighter-rouge">False</code>.</li>
+  <li><strong>async_action</strong> (<em>Optional</em>): If Home Assistant should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to <code class="highlighter-rouge">True</code> if Api.ai is returning the “Cannot connect to Home Assistant or it is taking to long” message, but then you will not be able to use values based on the result of the action. Defaults to <code class="highlighter-rouge">False</code>.</li>
 </ul>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>Download <a href="https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip">this zip</a> and load it in your Api.ai agent (Settings -&gt; Export and Import) for examples intents to use with this configuration:</p>
