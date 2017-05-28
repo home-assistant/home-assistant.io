@@ -26,26 +26,24 @@ Supported units:
 
 The preferred way to setup the Harmony remote is by enabling the [discovery component](/components/discovery/).
 
-You can override some discovered values (e.g. the `port` or `activity`) by adding a `configuration.yaml` setting.
-In this case the `name` used in the config must match exactly the name you have chosen for your hub. You must also leave the `host`
-setting empty to force the platform to discover the host IP automatically.
-
-If you want to manually configure all device settings, you will need to add its settings to your `configuration.yaml`.
+However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml`.
 
 ```yaml
-# Example configuration.yaml entry if you need any manual configuration
 remote:
-  # Specifying a hub manually, without discovery
   - platform: harmony
     name: Bedroom
-    host: 10.168.1.13
+    host: 10.168.1.13   # The IP of your hub
+```
 
-  # Overriding some discovered settings, note no host setting!
+You can override some default configuration values on a discovered hub (e.g. the `port` or `activity`) by adding
+a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will
+discover the host IP automatically, but set the `name` in the config to match exactly the name you have
+set for your Hub so the platform knows what Hub you are trying to configure.
+
+```yaml
   - platform: harmony
-    # name - This name must match the name you have set on the Hub
-    name: Living Room
-    # activity - The setting we want to use for the discovered Hub
-    activity: Watch TV
+    name: Living Room    # This name must match the name you have set on the Hub
+    activity: Watch TV   # Overriding the 'activity' setting for this discovered hub
 ```
 
 Configuration variables:
