@@ -78,9 +78,9 @@
 <ul>
   <li><strong>resource</strong> (<em>Required</em>): The resource or endpoint that contains the value.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the REST switch.</li>
-  <li><strong>body_on</strong> (<em>Optional</em>): The body of the POST request that commands the switch to become enabled. Default is “ON”. This value can be a <a href="/topics/templating/">template</a>, which is useful if the POST request needs to depend on the state of the system. For example, to enable remote-temperature-sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. On can achieve this using the template <code class="highlighter-rouge">'{"rem_temp":}'</code>.</li>
-  <li><strong>body_off</strong> (<em>Optional</em>): The body of the POST request that commands the switch to become disabled. Default is “OFF”. This value can also be a template.</li>
-  <li><strong>is_on_template</strong> (<em>Optional</em>): A <a href="/topics/templating/">template</a> that determines the state of the switch from the value returned by the GET request on the resource url. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable value_json. See <a href="/docs/configuration/templating/#processing-incoming-data">this example</a> in the template docs. Default is equivalent to <code class="highlighter-rouge">'{{ value_json == body_on }}'</code>. This means that by default, the state of the switch is on if and only if the response to the GET request matches <code class="highlighter-rouge">body_on</code>.</li>
+  <li><strong>body_on</strong> (<em>Optional</em>): The body of the POST request that commands the switch to become enabled. Default is “ON”. This value can be a <a href="/topics/templating/">template</a>.</li>
+  <li><strong>body_off</strong> (<em>Optional</em>): The body of the POST request that commands the switch to become disabled. Default is “OFF”. This value can also be a <a href="/topics/templating/">template</a>.</li>
+  <li><strong>is_on_template</strong> (<em>Optional</em>): A <a href="/topics/templating/">template</a> that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable <code class="highlighter-rouge">value_json</code>. See <a href="/docs/configuration/templating/#processing-incoming-data">this example</a> in the template documentation. Default is equivalent to <code class="highlighter-rouge">'{{ value_json == body_on }}'</code>. This means that by default, the state of the switch is on if and only if the response to the GET request matches .</li>
 </ul>
 <p class="note warning">
 Make sure that the URL matches exactly your endpoint or resource.
@@ -93,12 +93,13 @@ Make sure that the URL matches exactly your endpoint or resource.
 </div>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
-    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://&lt;address&gt;/led_endpoint</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS/led_endpoint</span>
     <span class="s">body_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{"active":</span><span class="nv"> </span><span class="s">"true"}'</span>
     <span class="s">body_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{"active":</span><span class="nv"> </span><span class="s">"false"}'</span>
     <span class="s">is_on_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{value_json.is_active}}'</span>
 </code></pre>
 </div>
+<p><code class="highlighter-rouge">body_on</code> and <code class="highlighter-rouge">body_off</code> can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template <code class="highlighter-rouge">'{"rem_temp":}'</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
