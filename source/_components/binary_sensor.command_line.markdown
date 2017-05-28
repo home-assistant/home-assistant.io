@@ -79,3 +79,4 @@ binary_sensor:
     payload_off: "fail"
 ```
 
+Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alternative to the samples above.
