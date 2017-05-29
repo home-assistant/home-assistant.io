@@ -34,7 +34,7 @@ switch:
 Configuration variables:
 
 - **access_token** (*Required3): Your Rachio API Access Token.
-- **manual_run_mins** (*Optional*): For how long, in minutes, to turn on a station when the switch is enabled.
+- **manual_run_mins** (*Optional*): For how long, in minutes, to turn on a station when the switch is enabled. Defaults to 10 minutes.
 
 ## {% linkable_title Examples %}
 
