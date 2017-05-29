@@ -52,6 +52,11 @@ To find the path of your Z-Wave USB stick or module, run:
 $ ls /dev/ttyUSB*
 ```
 
+Or, if there is no result try to find detailed USB connection info with:
+```bash
+$ dmesg | grep USB
+```
+
 Or, on some other systems (such as Raspberry Pi), use:
 
 ```bash
