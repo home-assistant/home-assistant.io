@@ -15,12 +15,12 @@ ha_release: 0.46
 
 The `rachio` switch platform allows you to control your [Rachio irrigations system](http://rachio.com/).
 
-Getting your Rachio API Access Token:
+## {% linkable_title Getting your Rachio API Access Token %}
 
-- Log in at https://app.rach.io/
-- Click the user button at the top right
-- Click API Access Token
-- Copy it from the dialog that opens
+- Log in at [https://app.rach.io/](https://app.rach.io/).
+- Click the user button at the top right.
+- Click API Access Token.
+- Copy the API access token from the dialog that opens.
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
