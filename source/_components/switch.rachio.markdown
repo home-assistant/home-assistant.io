@@ -71,3 +71,15 @@ zones_back:
   - switch.back_porch
   - switch.back_trees
 ```
+
+### {% linkable_title iFrame %}
+
+If you would like to see the Rachio details then create an [iFrame](/components/panel_iframe/) that contains the information accessible through your panel.
+
+```yaml
+panel_iframe:
+  rachio:
+    title: Rachio
+    url: "https://app.rach.io"
+    icon: mdi:water-pump
+```
