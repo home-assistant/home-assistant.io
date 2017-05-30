@@ -21,7 +21,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: date_countdown
     name: Wedding Countdown
-    date: "05-20-2018 18:00"
+    date: "20-05-2018 18:00"
 ```
 
 Configuration variables:
