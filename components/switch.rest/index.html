@@ -99,7 +99,7 @@ Make sure that the URL matches exactly your endpoint or resource.
     <span class="s">is_on_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{value_json.is_active}}'</span>
 </code></pre>
 </div>
-<p><code class="highlighter-rouge">body_on</code> and <code class="highlighter-rouge">body_off</code> can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template <code class="highlighter-rouge">'{"rem_temp":}'</code>.</p>
+<p><code class="highlighter-rouge">body_on</code> and <code class="highlighter-rouge">body_off</code> can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template <code class="highlighter-rouge">'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

@@ -102,6 +102,10 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyUSB<span class="k">*</span>
 </code></pre>
 </div>
+<p>Or, if there is no result try to find detailed USB connection info with:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>dmesg | grep USB
+</code></pre>
+</div>
 <p>Or, on some other systems (such as Raspberry Pi), use:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyACM<span class="k">*</span>
 
