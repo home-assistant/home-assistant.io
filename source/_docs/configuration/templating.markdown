@@ -206,6 +206,28 @@ The template for `on` would be:
 '{% raw %}{{value_json.on}}{% endraw %}'
 ```
 
+Nested JSON in a response is supported as well
+
+```json
+{
+  "sensor": {
+    "type": "air",
+    "id": "12345"
+  },
+  "values": {
+    "temp": 26.09,
+    "hum": 56.73,
+  }
+}
+```
+
+Just use the "Square bracket notation" to get the value.
+
+```yaml
+'{% raw %}{{ value_json["values"]["temp"] }}{% endraw %}'
+```
+
+
 The following overview contains a couple of options to get the needed values:
 
 ```text
@@ -226,7 +248,4 @@ The following overview contains a couple of options to get the needed values:
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
-
-# Square bracket notation
-{% raw %}{{ value_json["001"] }}{% endraw %}
 ```
