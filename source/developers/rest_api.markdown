@@ -413,13 +413,25 @@ Returns a list of states that have changed while the service was being executed.
 ]
 ```
 
-Sample `curl` command:
+Sample `curl` commands:
+
+Turn the light on:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
        -d '{"entity_id": "switch.christmas_lights"}' \
        http://localhost:8123/api/services/switch/turn_on
+```
+
+Send a MQTT message:
+
+```bash
+$ curl -X POST \
+     -H "Content-Type: application/json" \
+     -H "x-ha-access:YOUR_PASSWORD" \
+     -d '{"payload": "OFF", "topic": "home/fridge", "retain": "True"}' \
+     http://localhost:8123/api/services/mqtt/publish
 ```
 
 <p class='note'>
