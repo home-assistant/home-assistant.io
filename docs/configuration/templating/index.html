@@ -232,6 +232,23 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s1">'</span><span class="s">{{value_json.on}}'</span>
 </code></pre>
 </div>
+<p>Nested JSON in a response is supported as well</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"sensor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"air"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"temp"</span><span class="p">:</span><span class="w"> </span><span class="mf">26.09</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hum"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.73</span><span class="p">,</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Just use the “Square bracket notation” to get the value.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json["values"]["temp"]</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
+</div>
 <p>The following overview contains a couple of options to get the needed values:</p>
 <div class="language-text highlighter-rouge"><pre class="highlight"><code># Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
@@ -250,9 +267,6 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 {{ value_json.tst | timestamp_local }}
 {{ value_json.tst | timestamp_utc }}
 {{ value_json.tst | timestamp_custom('%Y' True) }}
-
-# Square bracket notation
-{{ value_json["001"] }}
 </code></pre>
 </div>
 </article>
