@@ -67,32 +67,32 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Using nginx as a proxy for Home Assistant allows you to serve Home Assistant securely over standard ports. This configuration file and instructions will walk you through setting up Home Assistant over a secure connection.</p>
+  <p>Using NGINX as a proxy for Home Assistant allows you to serve Home Assistant securely over standard ports. This configuration file and instructions will walk you through setting up Home Assistant over a secure connection.</p>
 <h3><a class="title-link" name="1-get-a-domain-name-forwarded-to-your-ip" href="#1-get-a-domain-name-forwarded-to-your-ip"></a> 1. Get a domain name forwarded to your IP</h3>
 <p>Chances are, you have a dynamic IP Address (your ISP changes your address periodically). If this is true, you can use a Dynamic DNS service to obtain a domain and set it up to update with you IP. If you purchase your own domain name, you will be able to easily get a trusted SSL certificate later.</p>
 <h3><a class="title-link" name="2-install-nginx-on-your-server" href="#2-install-nginx-on-your-server"></a> 2 Install nginx on your server</h3>
-<p>This will vary depending on your OS. Check out Google for this. After installing, ensure that nginx is not running.</p>
+<p>This will vary depending on your OS. Check out Google for this. After installing, ensure that NGINX is not running.</p>
 <h3><a class="title-link" name="3-obtain-an-ssl-certificate" href="#3-obtain-an-ssl-certificate"></a> 3. Obtain an SSL certificate</h3>
 <p>There are two ways of obtaining an SSL certificate.</p>
 <h4><a class="title-link" name="using-lets-encrypt" href="#using-lets-encrypt"></a> Using Let’s Encrypt</h4>
 <p>If you purchased your own domain, you can use https://letsencrypt.org/ to obtain a free, publicly trusted SSL certificate. This will allow you to work with services like IFTTT. Download and install per the instructions online and get a certificate using the following command.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
 </code></pre>
 </div>
 <p>Instead of example.com, use your domain. You will need to renew this certificate every 90 days.</p>
 <h4><a class="title-link" name="using-openssl" href="#using-openssl"></a> Using openssl</h4>
 <p>If you do not own your own domain, you may generate a self-signed certificate. This will not work with IFTTT, but it will encrypt all of your Home Assistant traffic.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
-openssl rsa -in key.pem -out key.pem
-sudo cp key.pem cert.pem /etc/nginx/ssl
-sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
-sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 9999
+<span class="gp">$ </span>openssl rsa -in key.pem -out key.pem
+<span class="gp">$ </span>sudo cp key.pem cert.pem /etc/nginx/ssl
+<span class="gp">$ </span>sudo chmod 600 /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
+<span class="gp">$ </span>sudo chown root:root /etc/nginx/ssl/key.pem /etc/nginx/ssl/cert.pem
 </code></pre>
 </div>
 <h3><a class="title-link" name="4-create-dhparams-file" href="#4-create-dhparams-file"></a> 4. Create dhparams file</h3>
 <p>As a fair warning, this file will take a while to generate.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>cd /etc/nginx/ssl
-sudo openssl dhparam -out dhparams.pem 2048
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /etc/nginx/ssl
+<span class="gp">$ </span>sudo openssl dhparam -out dhparams.pem 2048
 </code></pre>
 </div>
 <h3><a class="title-link" name="5-install-configuration-file-in-nginx" href="#5-install-configuration-file-in-nginx"></a> 5. Install configuration file in nginx.</h3>
@@ -101,9 +101,9 @@ sudo openssl dhparam -out dhparams.pem 2048
 Some Linux distributions (including CentOS and Fedora) will not have the <code class="highlighter-rouge">/etc/nginx/sites-available/</code> directory. In this case, remove the default server {} block from the <code class="highlighter-rouge">/etc/nginx/nginx.conf</code> file and paste the contents from the bottom of the page in its place. If doing this, proceed to step 7.
 </p>
 <h3><a class="title-link" name="6-enable-the-home-assistant-configuration" href="#6-enable-the-home-assistant-configuration"></a> 6. Enable the Home Assistant configuration.</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>cd /etc/nginx/sites-enabled
-sudo unlink default
-sudo ln ../sites-available/hass default
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /etc/nginx/sites-enabled
+<span class="gp">$ </span>sudo unlink default
+<span class="gp">$ </span>sudo ln ../sites-available/hass default
 </code></pre>
 </div>
 <h3><a class="title-link" name="7-start-nginx" href="#7-start-nginx"></a> 7. Start NGINX.</h3>
@@ -357,6 +357,7 @@ server {
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
               <li><a class='active' href='/docs/ecosystem/nginx/'>NGINX </a></li>
+              <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>
             </ul>
           </li>

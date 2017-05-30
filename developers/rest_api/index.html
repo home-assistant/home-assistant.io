@@ -401,11 +401,20 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 </div>
-<p>Sample <code class="highlighter-rouge">curl</code> command:</p>
+<p>Sample <code class="highlighter-rouge">curl</code> commands:</p>
+<p>Turn the light on:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST -H <span class="s2">"x-ha-access: YOUR_PASSWORD"</span> <span class="se">\</span>
        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
        -d <span class="s1">'{"entity_id": "switch.christmas_lights"}'</span> <span class="se">\</span>
        http://localhost:8123/api/services/switch/turn_on
+</code></pre>
+</div>
+<p>Send a MQTT message:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -X POST <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -H <span class="s2">"x-ha-access:YOUR_PASSWORD"</span> <span class="se">\</span>
+     -d <span class="s1">'{"payload": "OFF", "topic": "home/fridge", "retain": "True"}'</span> <span class="se">\</span>
+     http://localhost:8123/api/services/mqtt/publish
 </code></pre>
 </div>
 <p class="note">

@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Installation on Vagrant - Home Assistant</title>
+    <title>NGINX Configuration - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions to run Home Assistant on a Vagrant VM.">
+    <meta name="description" content="Configure Nginx to work with Home Assistant as a subdomain">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/docs/installation/vagrant/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/nginx_subdomain/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Installation on Vagrant">
+    <meta property="og:title" content="NGINX Configuration">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/docs/installation/vagrant/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/nginx_subdomain/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions to run Home Assistant on a Vagrant VM.">
+    <meta property="og:description" content="Configure Nginx to work with Home Assistant as a subdomain">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Installation on Vagrant">
-    <meta name="twitter:description" content="Instructions to run Home Assistant on a Vagrant VM.">
+    <meta name="twitter:title" content="NGINX Configuration">
+    <meta name="twitter:description" content="Configure Nginx to work with Home Assistant as a subdomain">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -60,69 +60,100 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/installation/vagrant.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/ecosystem/nginx_subdomain.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Installation on Vagrant
+      NGINX Configuration
     </h1>
   </header>
   <hr class="divider">
-  <p>A <code class="highlighter-rouge">Vagrantfile</code> is available into <code class="highlighter-rouge">virtualization/vagrant</code> folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them. In the same <code class="highlighter-rouge">virtualization/vagrant</code> folder there’s also a <code class="highlighter-rouge">provision.sh</code> shell script which provides an easy way to interact with the Home Assistant instance running within the Vagrant VM.</p>
-<p class="note">
-Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
-</p>
-<h2><a class="title-link" name="install-vagrant" href="#install-vagrant"></a> Install Vagrant</h2>
-<p>You must have <a href="https://www.vagrantup.com/downloads.html">Vagrant</a> and <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a> installed on your workstation. Vagrant and Virtualbox support all the main platforms, including Windows, MacOS and Linux.</p>
-<h2><a class="title-link" name="get-home-assistant-source-code" href="#get-home-assistant-source-code"></a> Get Home Assistant source code</h2>
-<p>Download the Home Assistant source code by either downloading the .zip file from <a href="https://github.com/home-assistant/home-assistant/releases">GitHub releases page</a> or by using <a href="https://git-scm.com/">Git</a></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/home-assistant/home-assistant.git
-<span class="gp">$ </span><span class="nb">cd </span>home-assistant/virtualization/vagrant
+  <p>This example demonstrates how you can configure NGINX to act as a proxy for Home Assistant.</p>
+<p>This is useful if you want to have:</p>
+<ul>
+  <li>a subdomain redirecting to your home assistant instance</li>
+  <li>several subdomain for several instance</li>
+  <li>HTTPS redirection</li>
+</ul>
+<h4><a class="title-link" name="subdomain" href="#subdomain"></a> Subdomain</h4>
+<p>So you already have a working NGINX server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123</p>
+<p>To be able to access to your Home Assistant instance by using https://home.example.org, create file <code class="highlighter-rouge">/etc/nginx/sites-enabled/homeassistant</code> (or symlink via <code class="highlighter-rouge">/etc/nginx/sites-available</code>) and add the following:</p>
+<div class="language-nginx highlighter-rouge"><pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+    <span class="kn">server_name</span>  <span class="s">home.example.org</span><span class="p">;</span>
+    
+    <span class="kn">ssl</span> <span class="no">on</span><span class="p">;</span>
+    <span class="kn">ssl_certificate</span> <span class="n">/etc/nginx/ssl/home.example.org/home.example.org-bundle.crt</span><span class="p">;</span>
+    <span class="kn">ssl_certificate_key</span> <span class="n">/etc/nginx/ssl/home.example.org/home.example.org.key</span><span class="p">;</span>
+    <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">on</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8123/</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="n">/api/websocket</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8123/api/websocket</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+
+        <span class="kn">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">"upgrade"</span><span class="p">;</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
-<p class="note">
-The following instructions will assume you changed your working directory to be <code class="highlighter-rouge">home-assistant/virtualization/vagrant</code>. This is mandatory because Vagrant will look for informations about the running VM inside that folder and won’t work otherwise
-</p>
-<p class="note">
-When using Vagrant on Windows, change git’s <code class="highlighter-rouge">auto.crlf</code> to input before cloning the Home Assistant repository. With input setting git won’t automatically change line endings from Unix LF to Windows CRLF. Shell scripts executed during provision won’t work with Windows line endings.
-</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git config --global core.autocrlf input
+<p>If you don’t want HTTPS, you can change <code class="highlighter-rouge">listen 443 ssl</code> to <code class="highlighter-rouge">listen 80</code> or better, consider redirecting all HTTP to HTTPS. See further down.</p>
+<h4><a class="title-link" name="multiple-instance" href="#multiple-instance"></a> Multiple Instance</h4>
+<p>You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in <code class="highlighter-rouge">/home/alice/.homeassistant/configuration.yaml</code>.</p>
+<p>You want another instance available at https://countryside.example.org</p>
+<p>You can either :</p>
+<ul>
+  <li>Create a new user, <code class="highlighter-rouge">bob</code>, to hold the configuration file in <code class="highlighter-rouge">/home/bob/.homeassistant/configuration.yaml</code> and run home assistant as this new user</li>
+  <li>Create another configuration directory in <code class="highlighter-rouge">/home/alice/.homeassistan2/configuration.yaml</code> and run home assistant using <code class="highlighter-rouge">hass --config /home/alice/.homeassistant2/</code></li>
+</ul>
+<p>In both solution, change port number used by modifying <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">server_port</span><span class="pi">:</span> <span class="s">8124</span>
+  <span class="s">...</span>
 </code></pre>
 </div>
-<h2><a class="title-link" name="create-the-vagrant-vm-and-start-home-assistant" href="#create-the-vagrant-vm-and-start-home-assistant"></a> Create the Vagrant VM and start Home Assistant</h2>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh setup
+<p>Start Home Assistant: Now, you have another instance running on http://localhost:8124</p>
+<p>To access this instance by using https://countryside.example.org create the file <code class="highlighter-rouge">/etc/nginx/sites-enabled/countryside.example.org</code> (or symlink via <code class="highlighter-rouge">/etc/nginx/sites-available</code>) and add the following:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>server <span class="o">{</span>
+    listen       443 ssl;
+    server_name  countryside.example.org;
+    
+    ssl on;
+    ssl_certificate /etc/nginx/ssl/countryside.example.org/countryside.example.org-bundle.crt;
+    ssl_certificate_key /etc/nginx/ssl/countryside.example.org/countryside.example.org.key;
+    ssl_prefer_server_ciphers on;
+
+    location / <span class="o">{</span>
+        proxy_pass http://localhost:8124/;
+        proxy_set_header Host <span class="nv">$host</span>;
+    <span class="o">}</span>
+
+    location /api/websocket <span class="o">{</span>
+        proxy_pass http://localhost:8124/api/websocket;
+        proxy_set_header Host <span class="nv">$host</span>;
+
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade <span class="nv">$http_upgrade</span>;
+        proxy_set_header Connection <span class="s2">"upgrade"</span>;
+
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
 </div>
-<p>This will download and start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant. The whole process might take up to 30 minutes to complete, depending on Internet connection speed and workstation resources. After the VM has started successfully, the Home Assistant frontend will be accessible locally from your browser at <a href="http://localhost:8123">http://localhost:8123</a></p>
-<h2><a class="title-link" name="stopping-vagrant" href="#stopping-vagrant"></a> Stopping Vagrant</h2>
-<p>To shutdown the Vagrant host:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh stop
-</code></pre>
-</div>
-<p>To start it again:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh start
-</code></pre>
-</div>
-<h2><a class="title-link" name="restarting-home-assistant-process-to-test-changes" href="#restarting-home-assistant-process-to-test-changes"></a> Restarting Home Assistant process to test changes</h2>
-<p>The root <code class="highlighter-rouge">home-assistant</code> directory on your workstation will be mirrored with <code class="highlighter-rouge">/home-assistant</code> inside the VM. In <code class="highlighter-rouge">virtualization/vagrant</code> there’s also a <code class="highlighter-rouge">config</code> folder that you can use to drop configuration files (Check the <a href="/docs/configuration/">Configuration section</a> in the docmentation for more information about how to configure Home Assistant).</p>
-<p>Any changes made to the local directory on your workstation will be available from the Vagrant host, so to apply your changes to the Home Assistant process, just restart it using the provided <code class="highlighter-rouge">provision.sh</code> wrapper script:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh restart
-</code></pre>
-</div>
-<p class="note">
-This command will only restart the Home Assistant process inside the Vagrant VM, it will not reboot the virtual machine. If that’s what you want, the right command is <code>vagrant reload</code>
-</p>
-<h2><a class="title-link" name="run-test-suite-tox" href="#run-test-suite-tox"></a> Run test suite (Tox)</h2>
-<p>To run tests against the local version of Home Assistant code:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh tests
-</code></pre>
-</div>
-<h2><a class="title-link" name="cleanup" href="#cleanup"></a> Cleanup</h2>
-<p>To completely remove the VM</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh destroy
-</code></pre>
-</div>
-<p>To completely remove the VM <strong>and</strong> setup a fresh new environment:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./provision.sh recreate
+<h4><a class="title-link" name="http-to-https-redirection" href="#http-to-https-redirection"></a> HTTP to HTTPS redirection</h4>
+<p>Add to your <code class="highlighter-rouge">/etc/nginx/sites-enabled/default</code></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>server <span class="o">{</span>
+    listen       80 default_server;
+    server_name  example.tld;
+
+    <span class="k">return </span>301 https://<span class="nv">$host$request_uri</span>;
+<span class="o">}</span>
 </code></pre>
 </div>
 </article>
@@ -319,7 +350,7 @@ This command will only restart the Home Assistant process inside the Vagrant VM,
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
-              <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
+              <li><a class='active' href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>
             </ul>
           </li>
