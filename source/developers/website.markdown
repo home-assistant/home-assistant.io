@@ -94,7 +94,24 @@ When you're writing code that is to be executed on the terminal, prefix it with 
 
 For the [configuration templating](/topics/templating/) is [Jinja](http://jinja.pocoo.org/) used.
 
-If you are using templates then those parts needs to be [escaped](http://stackoverflow.com/a/24102537). Otherwise they will be rendered and appear blank on the website.
+If you are using templates then those parts needs to be [escaped](http://stackoverflow.com/a/24102537). Otherwise they will be rendered and appear blank on the website:
+
+```yaml
+# Example configuration.yml entry.
+automation:
+  - alias: "Example notification"
+    trigger:
+      - platform: state
+        entity_id: sensor.example
+    action:
+      - service: notify.notify
+        data:
+          title: "Test"
+          message: >-
+            {% raw %}{% if is_state("sensor.example", "test") %}
+              Example notification
+             {% endif %}{% endraw %}
+```
 
 ### {% linkable_title HTML %}
 
