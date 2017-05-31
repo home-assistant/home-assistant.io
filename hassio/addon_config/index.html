@@ -214,6 +214,11 @@ CMD [ "/run.sh" ]
       <td>no</td>
       <td>For use dockerhub.</td>
     </tr>
+    <tr>
+      <td>tmpfs</td>
+      <td>no</td>
+      <td>Mount a tmpfs file system in <code class="highlighter-rouge">/tmpfs</code>. Valide format for this option is : <code class="highlighter-rouge">size=XXXu,uid=N,rw</code>. Size is mandatory, valid units (<code class="highlighter-rouge">u</code>) are <code class="highlighter-rouge">k</code>, <code class="highlighter-rouge">m</code> and <code class="highlighter-rouge">g</code> and <code class="highlighter-rouge">XXX</code> has to be replaced by a number. <code class="highlighter-rouge">uid=N</code> (with <code class="highlighter-rouge">N</code> the uid number) and <code class="highlighter-rouge">rw</code> are optional.</td>
+    </tr>
   </tbody>
 </table>
 <h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
