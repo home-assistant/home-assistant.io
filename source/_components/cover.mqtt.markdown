@@ -45,8 +45,8 @@ Configuration variables:
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no state topic defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0`. Will also be used when publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not. Default is `false`.
-- **set_position_topic** (*Optional*): The MQTT topic to publish position commands to. Default is `None`
-- **set_position_template** (*Optional*): Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. Default is `None` and it will just pass the numeric position (0-100) through.
+- **set_position_topic** (*Optional*): The MQTT topic to publish position commands to.
+- **set_position_template** (*Optional*): Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the numeric position (0-100) will be written directly to the topic.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 - **tilt_command_topic** (*Optional*): The MQTT topic to publish commands to control the cover tilt.
 - **tilt_status_topic** (*Optional*): The MQTT topic subscribed to receive tilt status update values.
