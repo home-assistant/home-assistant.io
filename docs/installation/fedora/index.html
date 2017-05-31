@@ -76,8 +76,9 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install homeassistant
 </code></pre>
 </div>
-<p>To isolate the Home Assistant installation a <a href="https://docs.python.org/3/library/venv.html">venv</a> is handy. First create a new directory to store the installation.</p>
+<p>To isolate the Home Assistant installation a <a href="https://docs.python.org/3/library/venv.html">venv</a> is handy. First create a new directory to store the installation and adjust the permissions.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo mkdir -p /opt/homeassistant
+<span class="gp">$ </span>sudo chown -R user:group /opt/homeassistant
 </code></pre>
 </div>
 <p>Now switch to the new directory, setup the venv, and activate it.</p>
