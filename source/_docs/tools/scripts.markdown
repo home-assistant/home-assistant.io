@@ -9,8 +9,7 @@ sharing: true
 footer: true
 ---
 
-The command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. Please do not confuse those with with Home Assistant's [script](/docs/scripts/) feature. 
-
+The command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. Please do not confuse those with with Home Assistant's [script](/docs/scripts/) feature.
 
 ### {% linkable_title Configuration check %}
 
@@ -36,9 +35,19 @@ There is a method to store secrets outside of your `configuration.yaml` file. Fo
 $ hass --script keyring
 ```
 
+### {% linkable_title Benchmark %}
+
+For testing the performance of Home Assistant the Benchmark scipt runs until you exit using Control+C.
+
+Firing and handling of a million events.
+
+```bash
+$ hass --script benchmark async_million_events
+```
+
 ### {% linkable_title Old scripts %}
 
-Usally those scripts were only use when a massive update happend and was announced in the release notes.
+Usally those scripts were only used when a massive update happend and was announced in the release notes.
 
 - `db_migrator`: Migrate an existing SQLite database to the new schema.
 - `influxdb_migrator`: Convert an old InfluxDB to the new format.
