@@ -36,7 +36,7 @@ Configuration variables:
 
 - **name** (*Optional*): The name of the sensor. Default is `MQTT Cover`.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive sensor values.
-- **command_topic** (*Required*): The MQTT topic to publish commands to control the rollershutter.
+- **command_topic** (*Optional*): The MQTT topic to publish commands to control the cover.
 - **payload_open** (*Optional*): The payload that opens the cover. Default is `OPEN`.
 - **payload_close** (*Optional*): The payload that closes the cover. Default is `CLOSE`.
 - **payload_stop** (*Optional*):  The payload that stops the rollershutter. default is `STOP`.
@@ -45,6 +45,8 @@ Configuration variables:
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no state topic defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0`. Will also be used when publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not. Default is `false`.
+- **set_position_topic** (*Optional*): The MQTT topic to publish position commands to. Default is `None`
+- **set_position_template** (*Optional*): Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Default is `None` and it will just pass the numeric position (0-100) through.
 - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
 - **tilt_command_topic** (*Optional*): The MQTT topic to publish commands to control the cover tilt.
 - **tilt_status_topic** (*Optional*): The MQTT topic subscribed to receive tilt status update values.
