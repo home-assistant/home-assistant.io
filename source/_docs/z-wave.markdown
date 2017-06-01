@@ -217,14 +217,14 @@ automation:
   - alias: soft reset at 2:30am
     trigger:
       platform: time
-      after: '2:30:00'
+      at: '2:30:00'
     action:
       service: zwave.soft_reset
 
   - alias: heal at 2:31am
     trigger:
       platform: time
-      after: '2:31:00'
+      at: '2:31:00'
     action:
       service: zwave.heal_network
 ```

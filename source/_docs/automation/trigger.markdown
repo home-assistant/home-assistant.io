@@ -127,7 +127,7 @@ automation:
 
 ### {% linkable_title Time trigger %}
 
-Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `after` together with hour, minute or second.
+Time can be triggered in many ways. The most common is to specify `at` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `at` together with hour, minute or second.
 
 ```yaml
 automation:
@@ -140,9 +140,9 @@ automation:
 automation 2:
   trigger:
     platform: time
-    # When 'after' is used, you cannot also match on hour, minute, seconds.
+    # When 'at' is used, you cannot also match on hour, minute, seconds.
     # Military time format.
-    after: '15:32:00'
+    at: '15:32:00'
 
 automation 3:
   trigger:
