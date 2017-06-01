@@ -18,7 +18,7 @@ To use your ARWN setup, you must already have configured the [MQTT](mqtt) platfo
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: arwn
+  - platform: arwn
 ```
 
-Currently all temperature, barometer, and wind sensors will be displayed. Support for rain gauge sensors will happen in the future.
+Currently all temperatures, barometers, and wind sensors will be displayed. Support for rain gauge sensors will happen in the future.
