@@ -52,6 +52,9 @@ Device configuration variables:
 - **aliasses** (*Optional*): Alternative RFLink ID's this device is known by.
 - **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every RFLink command this number of times (default: 1)
+- **group** (*Optional*): Allow switch to respond to group commands (ALLON/ALLOFF). (default: yes)
+- **group_aliasses** (*Optional*): `aliasses` which only respond to group commands.
+- **no_group_aliasses** (*Optional*): `aliasses` which do not respond to group commands.
 
 ### {% linkable_title Switch state %}
 

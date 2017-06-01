@@ -53,7 +53,9 @@ Device configuration variables:
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
 - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
-
+- **group** (*Optional*): Allow light to respond to group commands (ALLON/ALLOFF). (default: yes)
+- **group_aliasses** (*Optional*): `aliasses` which only respond to group commands.
+- **no_group_aliasses** (*Optional*): `aliasses` which do not respond to group commands.
 
 ### {% linkable_title Light state %}
 
