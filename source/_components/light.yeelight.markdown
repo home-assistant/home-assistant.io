@@ -26,8 +26,8 @@ light:
       192.168.1.25:
         name: Living Room
         transition: 1000
-        use_music_mode: True (defaults to False)
-        save_on_change: False (defaults to True)
+        use_music_mode: True #(defaults to False)
+        save_on_change: False #(defaults to True)
       192.168.1.13:
         name: Front Door
 ```
