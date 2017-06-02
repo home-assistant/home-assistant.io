@@ -13,6 +13,6 @@ og_image: /images/hasspodcast.jpg
 
 The first podcast by [Home Assistant Podcast](https://hasspodcast.io) contains an introduction and covers the [0.45](/blog/2017/05/20/automation-editor-zwave-panel-ocr/) release of Home Assistant.
 
-- Listen online: https://hasspodcast.io/ha001/
-- Download: https://hasspodcast.io/podcast-download/13/ha001.mp3
+- Listen online: [https://hasspodcast.io/ha001/](https://hasspodcast.io/ha001/)
+- Download: [https://hasspodcast.io/podcast-download/13/ha001.mp3](https://hasspodcast.io/podcast-download/13/ha001.mp3)
 
