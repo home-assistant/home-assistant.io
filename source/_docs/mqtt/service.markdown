@@ -11,7 +11,7 @@ logo: mqtt.png
 redirect_from: /components/mqtt/#publish-service
 ---
 
-The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
+The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are three ways of specifying your payload. You can use `payload` to hard-code a payload, use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload, and `payload_file_path` to specify a file under the local `www` directory to be published as binary payload.
 
 ```json
 {
@@ -27,3 +27,57 @@ The MQTT component will register the service `publish` which allows publishing m
 }
 ```
 
+```json
+{
+  "topic": "home-assistant/webcam/snapshot",
+  "payload_file_path": "snapshot.jpg"
+}
+```
+
+You can call this service from automations or scripts. For example, in a script:
+
+```
+script:
+  send_mqtt_notification:
+    alias: Send MQTT notification
+    sequence:
+      service: mqtt.publish
+      data_template:
+        topic: 'home-assistant/{{ title }}/notification'
+        payload: '{{ message }}'
+        qos: 1
+        retain: 0
+
+automation:
+  - alias: When Alarm is triggered
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'triggered'
+    action:
+      - service: script.send_mqtt_notification
+        data:
+         title: 'Triggered Alarm!"
+         message: "Your home alarm was triggered."
+```
+
+Call from an automation example:
+```
+automation:
+  - alias: Send snapshot
+    trigger:
+      platform: state
+      entity_id: input_boolean.send_snapshot
+      from: 'off'
+      to: 'on'
+    action:
+      - service: mqtt.publish
+        data:
+          topic: 'home-assistant/webcam/snapshot'
+          payload_file_path: 'snapshot.jpg'
+```
+
+Note: For security reasons, `payload_file_path` must point to a file within the local `www` directory. Supposing that the Home Assistant config directory is `/home/user/.homeassistant`, `payload_file_path` can indicate only files within the `/home/user/.homeassistant/www/` directory. For example, if the file to be sent is `/home/user/.homeassistant/www/webcam/snapshot.jpg`, in calling the service we would have:
+```
+payload_file_path: 'webcam/snapshot.jpg'
+```
