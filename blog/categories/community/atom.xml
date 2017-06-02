@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-05-31T08:24:37+00:00</updated>
+  <updated>2017-06-02T08:34:19+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Podcast 1]]></title>
+    <link href="https://home-assistant.io/blog/2017/06/02/home-assistant-podcast-1/"/>
+    <updated>2017-06-02T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/06/02/home-assistant-podcast-1</id>
+    <content type="html"><![CDATA[The first podcast by [Home Assistant Podcast](https://hasspodcast.io) contains an introduction and covers the [0.45](/blog/2017/05/20/automation-editor-zwave-panel-ocr/) release of Home Assistant.
+
+- Listen online: https://hasspodcast.io/ha001/
+- Download: https://hasspodcast.io/podcast-download/13/ha001.mp3
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant at PyCon US 2017]]></title>
@@ -79,42 +92,6 @@ The voting is now open. To keep things simple are we using the voting feature of
 End of the voting period: April, 30 2017 - 23.59 UTC
 
 [hardware]: https://home-assistant.io/blog/2017/04/01/thomas-krenn-award/
-[award]: https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/
-[forum]: https://community.home-assistant.io/c/contest-2017
-[twitter]: https://twitter.com/home_assistant
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Thomas Krenn award 2017]]></title>
-    <link href="https://home-assistant.io/blog/2017/04/01/thomas-krenn-award/"/>
-    <updated>2017-04-01T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/04/01/thomas-krenn-award</id>
-    <content type="html"><![CDATA[You may already know from our social media channels and the release blog post for 0.41: We are now an award-winning Open source project. The jury of the [Thomas-Krenn-Award][award] put us on the 2nd place. This is an awesome achievment for an independent community project.
-
-I would like to thanks all contributors. Your endless effort made this possible.
-
-<img src='https://home-assistant.io/images/blog/2017-04-award/award.jpg' style='border: 0;box-shadow: none;'>
-
-The prize beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four [Low Energy Server v2 (LES)][LES] units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.
-
-As a raffle would be to easy, we make a contest out of it. This means that we are looking for your application. Of course, we would like to see those systems goes to active or future developers who can justify their need for one of the systems to run CI, UI tests, public accessible Home Assistant demo instances, etc. At the other hand we would like to keep it open, to see with what people are coming up. Please participate as well if you are planning to automate the public school of your kids with 1000 switches or light, need a server to run it, and want to provide regular feedback about the user experience.
-
-Create an entry in our [Forum][forum]. Be creative and use your imagination.
-
-
-### <a class='title-link' name='the-details' href='#the-details'></a> The details 
-
-- Jury: The Home Assistant community
-- Dead line: April, 23 2017 - 23.59 UTC
-- Voting period: April, 24th till April, 30 2017 - 23.59 UTC
-
-The decision of the jury will be final. If there will be a dispute then the Top-5 commiter of the Home Assistant organisation on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the [Forum][forum] and on [Twitter][twitter].
-
-Keep in mind that you may have to pay the fee for customs handling and the import duty by yourself. The plan is to ship the hardware from Germany. If you are located in a country with import/export regulations, we may not be able to ship the hardware to you.
-
-[LES]: https://www.thomas-krenn.com/en/products/low-energy-systems/les-v2.html
 [award]: https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/
 [forum]: https://community.home-assistant.io/c/contest-2017
 [twitter]: https://twitter.com/home_assistant
