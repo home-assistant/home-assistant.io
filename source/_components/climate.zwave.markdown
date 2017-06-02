@@ -42,7 +42,7 @@ automation:
   - alias: Turn on Heater at 8pm
     trigger:
       - platform: time
-        after: "20:00:00"
+        at: "20:00:00"
     action:
       - service: climate.set_operation_mode
         entity_id: climate.remotec_zxt120_heating_1_id
@@ -61,7 +61,7 @@ automation:
   - alias: Turn off Heater at 9pm
     trigger:
       - platform: time
-        after: "21:00:00"
+        at: "21:00:00"
     action:
       - service: climate.set_operation_mode
         entity_id: climate.remotec_zxt120_heating_1_id
