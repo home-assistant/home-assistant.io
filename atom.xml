@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-02T08:34:19+00:00</updated>
+  <updated>2017-06-02T16:17:49+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -21,8 +21,8 @@
     <content type="html"><![CDATA[<p>The first podcast by <a href="https://hasspodcast.io">Home Assistant Podcast</a> contains an introduction and covers the <a href="https://home-assistant.io/blog/2017/05/20/automation-editor-zwave-panel-ocr/">0.45</a> release of Home Assistant.</p>
 
 <ul>
-  <li>Listen online: https://hasspodcast.io/ha001/</li>
-  <li>Download: https://hasspodcast.io/podcast-download/13/ha001.mp3</li>
+  <li>Listen online: <a href="https://hasspodcast.io/ha001/">https://hasspodcast.io/ha001/</a></li>
+  <li>Download: <a href="https://hasspodcast.io/podcast-download/13/ha001.mp3">https://hasspodcast.io/podcast-download/13/ha001.mp3</a></li>
 </ul>
 
 ]]></content>
