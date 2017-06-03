@@ -66,7 +66,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">itach</code> remote platform allows you to control IR devices with a <a href="https://www.globalcache.com/products/itach/ip2irspecs">Global Caché iTach Device</a></p>
+  <p>The <code class="highlighter-rouge">itach</code> remote platform allows you to control IR devices with a <a href="https://www.globalcache.com/products/itach/ip2irspecs">Global Caché iTach Device</a> and GC-100 devices. The Global Cache IR API are similar accross their product line. See API documentation links at the end of this page.</p>
 <p>To use your iTach remote in your installation, you will need to know the IR commands for your devices in Pronto hex format and add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">remote</span><span class="pi">:</span>
@@ -85,14 +85,14 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>name</strong> (<em>Required</em>): The iTach’s name to display in the front end.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The iTach’s name to display in the front end.</li>
   <li><strong>host</strong> (<em>Required</em>): The iTach’s IP address.</li>
   <li><strong>port</strong> (<em>Optional</em>): The iTach’s port. 4998 is default.</li>
   <li><strong>devices</strong> array (<em>Required</em>): Devices controlled by the iTach.
     <ul>
       <li><strong>name</strong> (<em>Required</em>): Name of the device.</li>
       <li><strong>modaddr</strong> (<em>Optional</em>): iTach module address for the IR emitter. 1 is default.</li>
-      <li><strong>connaddr</strong> (<em>Required</em>): iTach connection address for the IR emitter.</li>
+      <li><strong>connaddr</strong> (<em>Required</em>): iTach connection location for the IR emitter. (Note connaddr is a misleading label. Do not put the connection address here. Technically the connection address is the combination of the module address plus the connection location).</li>
       <li><strong>commands</strong> array (<em>Required</em>): Commands available to send to the device.
         <ul>
           <li><strong>name</strong> (<em>Required</em>): Command name.</li>
@@ -101,6 +101,13 @@
       </li>
     </ul>
   </li>
+</ul>
+<p>An example to call the component from developer tools using the remote, send_command service <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="s2">"remote.tv"</span><span class="p">,</span><span class="w"> </span><span class="nt">"device"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="s2">"menu"</span><span class="w"> </span><span class="p">}</span></code></p>
+<p>Note: Global Cache devices expect data in their own format of “sendir…”. This component converts hex code to Global Cache IR form.</p>
+<p>API Docs:</p>
+<ul>
+  <li><a href="https://www.globalcache.com/files/docs/API-iTach.pdf">iTach</a></li>
+  <li><a href="http://www.globalcache.com/files/docs/API-GC-100.pdf">GC-100</a></li>
 </ul>
 </article>
         </div>
