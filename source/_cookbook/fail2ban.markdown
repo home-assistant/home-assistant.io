@@ -95,5 +95,5 @@ That's it!
 
 
 If you want to read more about fail2ban, some links are below:
-http://www.fail2ban.org/wiki/index.php/FEATURE_Split_config
-https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04
+ - [fail2ban Split config](http://www.fail2ban.org/wiki/index.php/FEATURE_Split_config)
+ - [How To Protect SSH with Fail2Ban on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-14-04)
