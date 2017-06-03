@@ -41,10 +41,18 @@ axis:
 sudo apt-get install python3-gi gir1.2-gstreamer-1.0
 ```
 
-Depending on how you run Home Assistant you might be needed to symlink the `gi` module into your environment (e.g. in Hassbian):
+Depending on how you run Home Assistant you might be needed to symlink the `gi` module into your environment.
+
+Hassbian:
 
 ```bash
 ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
+```
+
+Raspberry Pi All-In-One Installer:
+
+```bash
+ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
 ```
 
 ## {% linkable_title Configuration variables %}
