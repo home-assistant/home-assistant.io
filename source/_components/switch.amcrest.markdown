@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: amcrest.png
 ha_category: Switch
-ha_release: 0.46
+ha_release: 0.47
 ---
 
 The `amcrest` switch platform allows you to control your motion detection setting on your [Amcrest](https://amcrest.com/) IP camera.
