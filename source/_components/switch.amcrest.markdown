@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Amcrest IP Camera Switch"
-description: "Instructions how to integrate Amcrest IP cameras switches within Home Assistant."
+description: "Instructions on how to integrate Amcrest IP camera switches within Home Assistant."
 date: 2017-06-02 10:00
 sidebar: true
 comments: false
