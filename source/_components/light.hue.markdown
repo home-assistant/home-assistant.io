@@ -75,8 +75,9 @@ More information can be found on the [Philips Hue API documentation](https://www
 
 The Hue platform has it's own concept of Scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
 
-To avoid user interface overload we don't expose Scenes directly. Instead there is a [light.hue_activate_scene](/components/light/#service-lighthue_activate_scene) service which can be used by `automation` or `script` components. For
-instance:
+To avoid user interface overload we don't expose Scenes directly. Instead there is a [light.hue_activate_scene](/components/light/#service-lighthue_activate_scene) service which can be used by `automation` or `script` components.
+This will have all the bulbs transitioned at once, instead of one at a time using standard scenes in Home Assistant.
+For instance:
 
 ```yaml
 script:
@@ -87,6 +88,13 @@ script:
           group_name: "Porch"
           scene_name: "Porch Orange"
 ```
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `group_name` | no | The group/room name of the lights. Find this in the Hue official app.
+| `scene_name` | no | The name of the Scene. Find this in the Hue official app.
+
+*Note*: `group_name` is not linked to Home Assistant group name.
 
 *** Finding Group and Scene Names ***
 

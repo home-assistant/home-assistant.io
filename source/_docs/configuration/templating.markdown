@@ -12,12 +12,8 @@ redirect_from: /topics/templating/
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of the following things:
 
-- [Home Assistant architecture], especially states.
-- [State object]
-
-
-[Home Assistant architecture]: /developers/architecture/
-[State object]: /topics/state_object/
+- [Home Assistant architecture](/developers/architecture/), especially states.
+- [State object](/topics/state_object/)
 
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
@@ -195,6 +191,45 @@ It depends per component or platform, but it is common to be able to define a te
 | `value`      | The incoming value.                    |
 | `value_json` | The incoming value parsed as JSON.     |
 
+This means that if the incoming values looks like the sample below:
+
+```json
+{
+  "on": "true",
+  "temp": 21
+}
+```
+
+The template for `on` would be:
+
+```yaml
+'{% raw %}{{value_json.on}}{% endraw %}'
+```
+
+Nested JSON in a response is supported as well
+
+```json
+{
+  "sensor": {
+    "type": "air",
+    "id": "12345"
+  },
+  "values": {
+    "temp": 26.09,
+    "hum": 56.73,
+  }
+}
+```
+
+Just use the "Square bracket notation" to get the value.
+
+```yaml
+'{% raw %}{{ value_json["values"]["temp"] }}{% endraw %}'
+```
+
+
+The following overview contains a couple of options to get the needed values:
+
 ```text
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
@@ -213,7 +248,4 @@ It depends per component or platform, but it is common to be able to define a te
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
-
-# Square bracket notation
-{% raw %}{{ value_json["001"] }}{% endraw %}
 ```

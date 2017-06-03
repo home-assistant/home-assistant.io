@@ -30,4 +30,3 @@ Configuration variables:
  - **topic** (*Required*): MQTT topic to subscribe to.
  - **name** (*Optional*): Name of the camera
 
-
