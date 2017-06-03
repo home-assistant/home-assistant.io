@@ -21,6 +21,9 @@ To use your Hyperion light in your installation, add the following to your `conf
 light:
   - platform: hyperion
     host: IP_ADDRESS
+    port: PORT
+    name: TV Lights
+    default_color: [0,255,0]
 ```
 
 Configuration variables:
