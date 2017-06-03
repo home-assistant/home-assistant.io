@@ -51,5 +51,5 @@ An example to call the component from developer tools using the remote, send_com
 Note: Global Cache devices expect data in their own format of "sendir...". This component converts hex code to Global Cache IR form.
 
 API Docs:
-https://www.globalcache.com/files/docs/API-iTach.pdf
-http://www.globalcache.com/files/docs/API-GC-100.pdf
+- [iTach](https://www.globalcache.com/files/docs/API-iTach.pdf)
+- [GC-100](http://www.globalcache.com/files/docs/API-GC-100.pdf)
