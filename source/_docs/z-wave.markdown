@@ -205,6 +205,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | refresh_node| Refresh Z-Wave node. |
 | remove_node | Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.|
 | rename_node | Sets a node's name. Requires a `node_id` and `name` field. |
+| rename_value | Sets a value's name. Requires a `node_id`, `value_id`, and `name` field. |
 | remove_failed_node | Remove a failed node from the network. The Node should be on the Controllers Failed Node List, otherwise this command will fail.|
 | replace_failed_node | Replace a failed device with another. If the node is not in the controller's failed nodes list, or the node responds, this command will fail.|
 | reset_node_meters | Reset a node's meter values. Only works if the node supports this. |
