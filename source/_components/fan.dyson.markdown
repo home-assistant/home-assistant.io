@@ -17,15 +17,6 @@ The Dyson fan platform allows you to control your Dyson Purifier fans (Dyson Pur
 
 You have first to setup the [Dyson component](/components/dyson/)
 
-### Configuration
-
-```yaml
-fan:
-  - platform: dyson
-sensor:
-  - platform: dyson
-```
-
 ### Supported fan devices
 
 - Pure Cool link (desk and tower)
