@@ -30,4 +30,4 @@ Configuration variables:
 - **username** (*Required*): The username for accessing your Ring account.
 - **password** (*Required*): The password for accessing your Ring account.
 
-Finish its configuration by visiting the [Ring binary_sensor page](/components/binary_sensor.ring/) or [Ring sensor page](/components/sensor.ring/).
+Finish its configuration by visiting the [Ring binary sensor](/components/binary_sensor.ring/) or [Ring sensor](/components/sensor.ring/) documentation.

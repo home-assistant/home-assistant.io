@@ -97,6 +97,7 @@ The config for an add-on is stored in `config.json`.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on
 | image | no | For use dockerhub.
+| tmpfs | no | Mount a tmpfs file system in `/tmpfs`. Valide format for this option is : `size=XXXu,uid=N,rw`. Size is mandatory, valid units (`u`) are `k`, `m` and `g` and `XXX` has to be replaced by a number. `uid=N` (with `N` the uid number) and `rw` are optional.
 
 ### {% linkable_title Options / Schema %}
 
