@@ -115,11 +115,11 @@ Sometimes you may want more grainular control over an automation based on the el
 
 ```yaml
 automation:
-  alias: 'Exterior Lighting on when dark outside'
+  alias: "Exterior Lighting on when dark outside"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
+    value_template: "{% raw %}{{ state.attributes.elevation }}{% endraw %}"
     # Can be a positive or negetive number
     below: -4.0
   action:
