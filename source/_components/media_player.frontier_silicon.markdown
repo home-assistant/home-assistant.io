@@ -53,10 +53,8 @@ alias: "Bathroom Motion Detected"
 trigger:
   platform: state
   entity_id: binary_sensor.motion_sensor_166d0001171111
-
   from: 'off'
   to: 'on'
-  state: 'on'
 action:
   service: media_player.turn_on
   data:

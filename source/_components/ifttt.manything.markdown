@@ -26,22 +26,22 @@ automation:
     trigger:
       - platform: state
         entity_id: group.all_devices
-       state: 'not_home'
+        to: 'not_home'
     condition:
       - platform: state
         entity_id: sun.sun
-       state: 'above_horizon'
+        state: 'above_horizon'
     action:
       service: ifttt.trigger
       data: {"event":"manything_on"}
 
   - alias: 'ManyThing Recording OFF'
     # This calls an IFTTT recipe to turn off recording of the ManyThing Camera
-    # when we are home unless it's nighttime.
+    # when we get home unless it's nighttime.
     trigger:
       - platform: state
         entity_id: group.all_devices
-        state: 'home'
+        to: 'home'
     condition:
       - condition: state
         entity_id: sun.sun
