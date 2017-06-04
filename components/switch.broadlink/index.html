@@ -70,22 +70,22 @@
 <p>To enable it, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
-  <span class="s">switches</span><span class="pi">:</span>
-    <span class="s">reciever</span><span class="pi">:</span>
-      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">switch_packet</span><span class="nv"> </span><span class="s">on'</span>
-      <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">switch_packet</span><span class="nv"> </span><span class="s">off'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">reciever</span><span class="pi">:</span>
+        <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">switch_packet</span><span class="nv"> </span><span class="s">on'</span>
+        <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">switch_packet</span><span class="nv"> </span><span class="s">off'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The hostname/IP address to connect to.</li>
-  <li><strong>mac</strong> (<em>Required</em>):  Device mac address.</li>
-  <li><strong>timeout</strong> (<em>Optional</em>): Timeout in seconds for the connection to the device</li>
+  <li><strong>mac</strong> (<em>Required</em>):  Device MAC address.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): Timeout in seconds for the connection to the device.</li>
   <li><strong>friendly_name</strong> (<em>Optional</em>): The name used to display the switch in the frontend.</li>
-  <li><strong>type</strong> (<em>Optional</em>): Switch type. (rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl, rm_mini_shate, sp1, sp2, honeywell_sp2, sp3, spmini2 or spminiplus)</li>
+  <li><strong>type</strong> (<em>Optional</em>): Switch type. Choose one from: <code class="highlighter-rouge">rm</code>, <code class="highlighter-rouge">rm2</code>, <code class="highlighter-rouge">rm_mini</code>, <code class="highlighter-rouge">rm_pro_phicomm</code>, <code class="highlighter-rouge">rm2_home_plus</code>, <code class="highlighter-rouge">rm2_home_plus_gdt</code>, <code class="highlighter-rouge">rm2_pro_plus</code>, <code class="highlighter-rouge">rm2_pro_plus2</code>, <code class="highlighter-rouge">rm2_pro_plus_bl</code>, <code class="highlighter-rouge">rm_mini_shate</code>, <code class="highlighter-rouge">sp1</code>, <code class="highlighter-rouge">sp2</code>, <code class="highlighter-rouge">honeywell_sp2</code>, <code class="highlighter-rouge">sp3</code>, <code class="highlighter-rouge">spmini2</code> or <code class="highlighter-rouge">spminiplus</code>.</li>
   <li><strong>switches</strong> (<em>Optional</em>): The array that contains all switches.
     <ul>
       <li><strong>identifier</strong> (<em>Required</em>): Name of the command switch as slug. Multiple entries are possible.
@@ -100,70 +100,59 @@
 </ul>
 <p>Information about how to install on Windows can be found <a href="https://home-assistant.io/components/sensor.broadlink/#microsoft-windows-installation">here</a></p>
 <h3><a class="title-link" name="how-to-obtain-irrf-packets" href="#how-to-obtain-irrf-packets"></a> How to obtain IR/RF packets?</h3>
-<p>Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of Available services:  and hit CALL SERVICE. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in theg States page of the web interface.</p>
-<p>Example config for rm, rm2, rm_mini, rm_pro_phicomm, rm2_home_plus, rm2_home_plus_gdt, rm2_pro_plus, rm2_pro_plus2, rm2_pro_plus_bl and rm_mini_shate devices:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch 2</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">B4:43:0D:CC:0F:58'</span>
-  <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
-  <span class="s">switches</span><span class="pi">:</span>
-<span class="c1"># Will work on most Phillips tvs:</span>
-    <span class="s">tv_phillips</span><span class="pi">:</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Phillips</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">Power"</span>
-      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='</span>
-      <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='</span>
-      
-<span class="c1"># Will work on most LG tvs</span>
-    <span class="s">tv_lg</span><span class="pi">:</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">Power"</span>
-      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='</span>
-      <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='</span>
-
-    <span class="s">tv_lg_hdmi1_hdmi2</span><span class="pi">:</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">HDMI12"</span>
-      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='</span>
-      <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='</span>
-      
-    <span class="s">tv_lg_hdmi3</span><span class="pi">:</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">HDMI3"</span>
-      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='</span>
-
-    <span class="s">tv_lg_av1_av2</span><span class="pi">:</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">AV12"</span>
-      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABIpQPFBITETgSEw8UEhQSEhEVDzgSOBAUETgQOQ84EjgRNxITETgSExA5EDgREhI3EhMROBMSEDkQFBETEjYTEhE4EQANBQ=='</span>
-      <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABH5YPFBETETgUERAUEBURFBATETgROBEUETcSNxE4ETcSOBISEBUQFREUEjUSFBA5ETcRNxE4ETkQOBAUEjcRFRAUEQANBQ=='</span>
-
-
-<span class="s">switch 2</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">B4:43:0D:CC:0F:58'</span>
-  <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
-  <span class="s">switches</span><span class="pi">:</span>
-<span class="c1"># Will work on most Phillips tvs:</span>
-    <span class="s">tv</span><span class="pi">:</span>
-      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Phillips</span><span class="nv"> </span><span class="s">Tv"</span>
-      <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='</span>
-      <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='</span>
-
+<p>Choose Call Service from the Developer Tools. Choose the service broadlink/learn_command from the list of <strong>Available services:</strong> and hit <strong>CALL SERVICE</strong>. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.</p>
+<p>Example config for <code class="highlighter-rouge">rm</code>, <code class="highlighter-rouge">rm2</code>, <code class="highlighter-rouge">rm_mini</code>, <code class="highlighter-rouge">rm_pro_phicomm</code>, <code class="highlighter-rouge">rm2_home_plus</code>, <code class="highlighter-rouge">rm2_home_plus_gdt</code>, <code class="highlighter-rouge">rm2_pro_plus</code>, <code class="highlighter-rouge">rm2_pro_plus2</code>, <code class="highlighter-rouge">rm2_pro_plus_bl</code> and <code class="highlighter-rouge">rm_mini_shate</code> devices:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">B4:43:0D:CC:0F:58'</span>
+    <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="c1"># Will work on most Phillips TVs:</span>
+      <span class="s">tv_phillips</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Phillips</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">Power"</span>
+        <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='</span>
+        <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='</span>
+      <span class="c1"># Will work on most LG TVs</span>
+      <span class="s">tv_lg</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">Power"</span>
+        <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='</span>
+        <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='</span>
+      <span class="s">tv_lg_hdmi1_hdmi2</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">HDMI12"</span>
+        <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='</span>
+        <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='</span>
+      <span class="s">tv_lg_hdmi3</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">HDMI3"</span>
+        <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='</span>
+      <span class="s">tv_lg_av1_av2</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">LG</span><span class="nv"> </span><span class="s">Tv</span><span class="nv"> </span><span class="s">AV12"</span>
+        <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABIpQPFBITETgSEw8UEhQSEhEVDzgSOBAUETgQOQ84EjgRNxITETgSExA5EDgREhI3EhMROBMSEDkQFBETEjYTEhE4EQANBQ=='</span>
+        <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgBIAAABH5YPFBETETgUERAUEBURFBATETgROBEUETcSNxE4ETcSOBISEBUQFREUEjUSFBA5ETcRNxE4ETkQOBAUEjcRFRAUEQANBQ=='</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">B4:43:0D:CC:0F:58'</span>
+    <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
+    <span class="s">switches</span><span class="pi">:</span>
+    <span class="c1"># Will work on most Phillips TVs:</span>
+      <span class="s">tv</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Phillips</span><span class="nv"> </span><span class="s">Tv"</span>
+        <span class="s">command_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='</span>
+        <span class="s">command_off</span><span class="pi">:</span> <span class="s1">'</span><span class="s">JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='</span>
 </code></pre>
 </div>
-<p>Example config for sp1, sp2, honeywell_sp2, sp3, spmini2 and spminiplus devices:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch 1</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
-  <span class="s">type</span><span class="pi">:</span>  <span class="s">sp1</span>
-  <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidifier'</span>
-  
-<span class="s">switch 2</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
-  <span class="s">type</span><span class="pi">:</span>  <span class="s">sp2</span>
-  <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidifier'</span>
-
+<p>Example config for <code class="highlighter-rouge">sp1</code>, <code class="highlighter-rouge">sp2</code>, <code class="highlighter-rouge">honeywell_sp2</code>, <code class="highlighter-rouge">sp3</code>, <code class="highlighter-rouge">spmini2</code> and <code class="highlighter-rouge">spminiplus</code> devices:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+    <span class="s">type</span><span class="pi">:</span>  <span class="s">sp1</span>
+    <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidifier'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+    <span class="s">type</span><span class="pi">:</span>  <span class="s">sp2</span>
+    <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidifier'</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="service-send_packet" href="#service-send_packet"></a> Service <code class="highlighter-rouge">send_packet</code></h3>
@@ -196,8 +185,8 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="using-e-control-remotes" href="#using-e-control-remotes"></a> Using E-Control Remotes</h3>
-<p>If you already have your remotes learned on E-Control app you can use this method to “copy” trem to HA.</p>
-<p>First get or learn all the remotes you want to add on HA in E-Control</p>
+<p>If you already have your remotes learned on E-Control app you can use this method to “copy” them to Home Assistant.</p>
+<p>First get or learn all the remotes you want to add to Home Assistant in E-Control</p>
 <ol>
   <li>
     <p>Download</p>
@@ -209,7 +198,7 @@
   </li>
   <li>
     <p>Get data from your Android device</p>
-    <p>Connect your Android device to your computer and browse the SD card / External Storage folder “/broadlink/newremote/SharedData/”. You need to get the following files and put them in the same folder as this script.:</p>
+    <p>Connect your Android device to your computer and browse the SD card/External Storage folder “/broadlink/newremote/SharedData/”. You need to get the following files and put them in the same folder as this script:</p>
     <p>jsonSubIr
  jsonButton
  jsonIrCode</p>
@@ -232,13 +221,13 @@
   </li>
   <li>
     <p>Test the codes
-Use the <code class="highlighter-rouge">sendcode</code> script you have already downloded to test the codes you got from the device
-You need to edit the script with your RM Pro IP Address and MAC Address and with the code in hex format.
-When run the script, you know the code works when get message 
+Use the <code class="highlighter-rouge">sendcode</code> script you have already downloded to test the codes you got from the device.
+You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
+When run the script, you know the code works when get message .
 Code sent…
 Not every code works.</p>
   </li>
-  <li>Convert the hex codes to base64
+  <li>Convert the HEX codes to base64
 Use <a href="http://tomeko.net/online_tools/hex_to_base64.php?lang=en1">this</a> tool to convert the hex codes to base64 for use with Home Assistant.</li>
 </ol>
 </article>
