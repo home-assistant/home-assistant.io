@@ -77,22 +77,22 @@
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
-       <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+        <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
     <span class="s">condition</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
-       <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">above_horizon'</span>
+        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">above_horizon'</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">ifttt.trigger</span>
       <span class="s">data</span><span class="pi">:</span> <span class="pi">{</span><span class="s2">"</span><span class="s">event"</span><span class="pi">:</span><span class="s2">"</span><span class="s">manything_on"</span><span class="pi">}</span>
 
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ManyThing</span><span class="nv"> </span><span class="s">Recording</span><span class="nv"> </span><span class="s">OFF'</span>
     <span class="c1"># This calls an IFTTT recipe to turn off recording of the ManyThing Camera</span>
-    <span class="c1"># when we are home unless it's nighttime.</span>
+    <span class="c1"># when we get home unless it's nighttime.</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
-        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+        <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
     <span class="s">condition</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>

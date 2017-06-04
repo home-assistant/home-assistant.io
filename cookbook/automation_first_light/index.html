@@ -127,15 +127,15 @@
             <span class="c1"># if light is off, force a 0, otherwise use the brightness value</span>
             <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.light.livingroom_ec.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"on"</span><span class="nv">  </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">states.light.livingroom_ec.attributes.brightness</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}0{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
             <span class="c1"># brightness below 50% (255 = 100%)</span>
-            <span class="s">below</span><span class="pi">:</span> <span class="s">127</span>
+            <span class="s">below</span><span class="pi">:</span> <span class="s">128</span>
           <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
             <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen_bar</span>
             <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.light.kitchen_bar.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"on"</span><span class="nv">  </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">states.light.kitchen_bar.attributes.brightness</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}0{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-            <span class="s">below</span><span class="pi">:</span> <span class="s">127</span>
+            <span class="s">below</span><span class="pi">:</span> <span class="s">128</span>
           <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>
             <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.kitchen_ceiling</span>
             <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">states.light.kitchen_ceiling.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">"on"</span><span class="nv">  </span><span class="s">%}{{</span><span class="nv"> </span><span class="s">states.light.kitchen_ceiling.attributes.brightness</span><span class="nv"> </span><span class="s">}}{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}0{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-            <span class="s">below</span><span class="pi">:</span> <span class="s">127</span>
+            <span class="s">below</span><span class="pi">:</span> <span class="s">128</span>
                 
       <span class="c1"># Trigger a scene</span>
       <span class="c1"># You could add as many services or scenes as you'd like</span>

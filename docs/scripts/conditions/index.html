@@ -114,8 +114,8 @@ This allows you to mix several AND and OR conditions together.</p>
 </code></pre>
 </div>
 <h3><a class="title-link" name="numeric-state-condition" href="#numeric-state-condition"></a> Numeric state condition</h3>
-<p>This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.</p>
-<p>For above, the condition passes if <code class="highlighter-rouge">value &gt;= above</code>. For below, the condition passes if <code class="highlighter-rouge">value &lt;= below</code>. If both <code class="highlighter-rouge">below</code> and <code class="highlighter-rouge">above</code> are specified, both tests have to pass.</p>
+<p>This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches the thresholds.</p>
+<p>If both <code class="highlighter-rouge">below</code> and <code class="highlighter-rouge">above</code> are specified, both tests have to pass.</p>
 <p>You can optionally use a <code class="highlighter-rouge">value_template</code> to process the value of the state before testing it.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">condition</span><span class="pi">:</span>
   <span class="s">condition</span><span class="pi">:</span> <span class="s">numeric_state</span>

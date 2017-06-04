@@ -76,7 +76,7 @@
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.PIR1</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
   <span class="s">condition</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmAct1</span>
@@ -94,7 +94,7 @@
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmSnd1</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.flash_room1</span>
@@ -103,11 +103,11 @@
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.REL1</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
   <span class="s">condition</span><span class="pi">:</span>
     <span class="s">condition</span><span class="pi">:</span> <span class="s">state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.AlmSnd1</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_off</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.flash_room1</span>

@@ -81,7 +81,7 @@
         <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-01:00:00'</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
-        <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
+        <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
     <span class="s">condition</span><span class="pi">:</span>
       <span class="c1"># Prefix the first line of each condition configuration</span>
       <span class="c1"># with a '-'' to enter multiple</span>
@@ -100,7 +100,7 @@
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_devices</span>
-      <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">group.all_lights</span>
