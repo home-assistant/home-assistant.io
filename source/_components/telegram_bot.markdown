@@ -44,6 +44,7 @@ Send a photo.
 | `caption`                 |      yes | The title of the image. |
 | `username`                |      yes | Username for a URL which require HTTP basic authentication. |
 | `password`                |      yes | Password for a URL which require HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
@@ -59,6 +60,7 @@ Send a document.
 | `caption`                 |      yes | The title of the document. |
 | `username`                |      yes | Username for a URL which require HTTP basic authentication. |
 | `password`                |      yes | Password for a URL which require HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
