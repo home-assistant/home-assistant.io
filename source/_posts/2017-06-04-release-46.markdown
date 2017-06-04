@@ -8,6 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
+og_image: /images/blog/2017-06-0.46/components.png
 ---
 
 It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
