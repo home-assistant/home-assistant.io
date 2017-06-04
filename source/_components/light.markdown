@@ -37,12 +37,12 @@ Most lights do not support all attributes. You can check the platform documentat
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
 
 <p class='note'>
-In order to apply atributtes to an entity you will need to add `data:` to the configuration. See example below
+In order to apply attributes to an entity you will need to add `data:` to the configuration. See example below
 </p>
 
 ```yaml
 # Example configuration.yaml entry
-automation
+automation:
 - id: one
   alias: Turn on light when motion is detected
   trigger:
