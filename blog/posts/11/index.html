@@ -62,6 +62,45 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2015/10/11/rfxtrx-blinkstick-and-snmp-support/">0.7.5: Blinkstick, SNMP, Telegram</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-10-11T17:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 11, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/10/11/rfxtrx-blinkstick-and-snmp-support/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>We discovered two issues annoying enough to warrent the release of 0.7.5:</p>
+<ul>
+  <li>Home Assistant package did not include the CloudMQTT certificate.</li>
+  <li>A bug in the core caused issues when some platforms are loaded twice.</li>
+</ul>
+<p>This release also includes some new platforms (because they keep coming!):</p>
+<p><img src="/images/supported_brands/blinkstick.png" style="border:none; box-shadow: none; float: right;" height="50" /><img src="/images/supported_brands/rfxtrx.png" style="border:none; box-shadow: none; float: right; clear: right;" height="50" /><img src="/images/supported_brands/telegram.png" style="border:none; box-shadow: none; float: right; clear: right;" height="50" /></p>
+<ul>
+  <li>Light: <a href="/components/light.blinksticklight/">blinkstick platform</a> added (<a href="https://github.com/alanbowman">@alanbowman</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.snmp/">SNMP platform</a> added (<a href="https://github.com/tomduijf">@tomduijf</a>)</li>
+  <li>Light: <a href="/components/light.rfxtrx/">rfxtrx platform</a> added (<a href="https://github.com/badele">@badele</a>)</li>
+  <li>Switch: <a href="/components/switch.rfxtrx/">rfxtrx platform</a> added (<a href="https://github.com/badele">@badele</a>)</li>
+  <li>Notify: <a href="/components/notify.telegram/">telegram platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+</ul>
+<p>Also, the media player was extended by <a href="https://github.com/maddox">@maddox</a> to support the play media command. This has been implemented for the <a href="/components/media_player.itunes/">iTunes platform</a>.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">Home Assistant goes geo with OwnTracks</a>
   </h1>
   <div class="meta clearfix">
@@ -391,48 +430,6 @@ Inspried by a <a href="https://github.com/home-assistant/home-assistant/issues/3
 </code></pre>
 </div>
       <a class="btn pull-right" href="/blog/2015/08/09/mqtt-raspberry-pi-squeezebox-asuswrt-support/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/07/11/ip-cameras-arduino-kodi-efergy-support/">IP Cameras, Arduinos, Kodi and Efergy Energy Monitors now supported</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-07-11T08:37:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 11, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/07/11/ip-cameras-arduino-kodi-efergy-support/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Another month has passed and some great new features have landed in Home Assistant. This month release has been made possible by <a href="https://github.com/balloob">balloob</a>, <a href="https://github.com/ettisan">ettisan</a>, <a href="https://github.com/fabaff">fabaff</a>, <a href="https://github.com/gyran">gyran</a>, <a href="https://github.com/jamespcole">jamespcole</a>, <a href="https://github.com/michaelarnauts">michaelarnauts</a>, <a href="https://github.com/miniconfig">miniconfig</a> and <a href="https://github.com/rmkraus">rmkraus</a>.</p>
-<p>This release includes some architectural changes by me. The first is that the frontend is now based on a <a href="http://optimizely.github.io/nuclear-js/">NuclearJS</a> JavaScript backend. This has greatly helped to organize and optimize the frontend code. Another change is that Home Assistant will now install dependencies on-demand instead of installing dependencies for all supported devices.</p>
-<p><strong>IP Camera Support</strong>
-James has worked very hard to add support for IP cameras to Home Assistant which is included in this release. The initial release focusses on providing generic IP camera support. This means that any webcam that can exposes a JPEG image via a url can be integrated.</p>
-<p>Home Assistant will route the requests to your camera via the server allowing you to expose IP camera’s inside your network via the Home Assistant app.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">camera</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">generic</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">my sample camera</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">MY_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">MY_PASSWORD</span>
-  <span class="s">still_image_url</span><span class="pi">:</span> <span class="s">http://194.218.96.92/jpg/image.jpg</span>
-</code></pre>
-</div>
-<p class="note">
-To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href="https://github.com/home-assistant/home-assistant/issues">GitHub</a>.
-</p>
-      <a class="btn pull-right" href="/blog/2015/07/11/ip-cameras-arduino-kodi-efergy-support/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

@@ -1,15 +1,15 @@
 {
-  "current_version": "0.45.1",
-  "release_date": "2017-05-22T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2017/05/20/automation-editor-zwave-panel-ocr/",
-  "release_notes_path": "/blog/2017/05/20/automation-editor-zwave-panel-ocr/",
-  "release_title": "Home Assistant 0.45: Automation editor, Z-Wave panel, OCR",
-  "release_description": "AXIS and Keene support, PiFace, Raspihats, and Datadog integration",
-  "patch_version_notes": "#release-0451---may-22",
+  "current_version": "0.46.0",
+  "release_date": "2017-06-04T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/06/04/release-46/",
+  "release_notes_path": "/blog/2017/06/04/release-46/",
+  "release_title": "0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans",
+  "release_description": "Another great new release with a major focus on bugfixes.",
+  "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
-    "minor": 45,
-    "patch": 1
+    "minor": 46,
+    "patch": 0
   }
 }
