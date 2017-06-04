@@ -144,6 +144,25 @@ The light component supports multiple entries in <code>configuration.yaml</code>
     </tr>
   </tbody>
 </table>
+<p class="note">
+In order to apply attributes to an entity you will need to add <code class="highlighter-rouge">data:</code> to the configuration. See example below
+</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">one</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on light when motion is detected</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.motion_1</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.living_room</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">255</span>
+        <span class="s">kelvin</span><span class="pi">:</span> <span class="s">2700</span>
+</code></pre>
+</div>
 <h3><a class="title-link" name="service-lightturn_off" href="#service-lightturn_off"></a> Service <code class="highlighter-rouge">light.turn_off</code></h3>
 <p>Turns one or multiple lights off.</p>
 <table>

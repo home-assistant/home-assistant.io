@@ -66,7 +66,7 @@
   <div class="meta clearfix">
     <time datetime="2017-06-04T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 4, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span><i class='icon-time'></i> 10 minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -104,7 +104,7 @@
 </code></pre>
 </div>
 <ul>
-  <li>Automation - time: the <code class="highlighter-rouge">after</code> keyword has been deprecated in favor of the <code class="highlighter-rouge">at</code> keyword. This resembles better what it does (old one still works, gives a warning) (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7846">#7846</a>) (<a href="https://home-assistant.io/components/automation.time/">automation.time docs</a>) (breaking change)</li>
+  <li>Automation - time: The <code class="highlighter-rouge">after</code> keyword for time triggers (not conditions) has been deprecated in favor of the <code class="highlighter-rouge">at</code> keyword. This resembles better what it does (old one still works, gives a warning) (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7846">#7846</a>) (<a href="https://home-assistant.io/components/automation.time/">automation.time docs</a>) (breaking change)</li>
   <li>Automation - numeric_state: <code class="highlighter-rouge">above</code> and <code class="highlighter-rouge">below</code> will no longer trigger if it is equal. (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7857">#7857</a>) (breaking change)</li>
   <li>Broadlink switches: Entity ids will change for switches that don’t have a default name set. In this case the object_id is now used. (<a href="https://github.com/abmantis">@abmantis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7845">#7845</a>) (<a href="https://home-assistant.io/components/switch.broadlink/">switch.broadlink docs</a>) (breaking change)</li>
   <li>Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both <code class="highlighter-rouge">xy_color</code> and <code class="highlighter-rouge">rgb_color</code>. (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7765">#7765</a>) (breaking change)</li>
