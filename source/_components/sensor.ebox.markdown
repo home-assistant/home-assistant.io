@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: ebox.jpg
+logo: ebox.png
 ha_category: Sensor
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
