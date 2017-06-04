@@ -83,8 +83,14 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script keyring
 </code></pre>
 </div>
+<h3><a class="title-link" name="benchmark" href="#benchmark"></a> Benchmark</h3>
+<p>For testing the performance of Home Assistant the Benchmark scipt runs until you exit using Control+C.</p>
+<p>Firing and handling of a million events.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --script benchmark async_million_events
+</code></pre>
+</div>
 <h3><a class="title-link" name="old-scripts" href="#old-scripts"></a> Old scripts</h3>
-<p>Usally those scripts were only use when a massive update happend and was announced in the release notes.</p>
+<p>Usally those scripts were only used when a massive update happend and was announced in the release notes.</p>
 <ul>
   <li><code class="highlighter-rouge">db_migrator</code>: Migrate an existing SQLite database to the new schema.</li>
   <li><code class="highlighter-rouge">influxdb_migrator</code>: Convert an old InfluxDB to the new format.</li>

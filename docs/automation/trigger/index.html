@@ -116,17 +116,15 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="state-trigger" href="#state-trigger"></a> State trigger</h3>
-<p>Triggers when the state of tracked entities change. If only entity_id given will match all state changes.</p>
+<p>Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus, device_tracker.anne_therese</span>
     <span class="c1"># Optional</span>
     <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">not_home'</span>
+    <span class="c1"># Optional</span>
     <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
-
-    <span class="c1"># Alias for 'to'</span>
-    <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home'</span>
 
     <span class="c1"># If given, will trigger when state has been the to state for X time.</span>
     <span class="s">for</span><span class="pi">:</span>
@@ -137,6 +135,9 @@
 </div>
 <p class="note warning">
   Use quotes around your values for <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code> to avoid the YAML parser interpreting values as booleans.
+</p>
+<p class="note warning">
+  Using <code class="highlighter-rouge">state</code> as an alias for <code class="highlighter-rouge">to</code> is deprecated.
 </p>
 <h3><a class="title-link" name="sun-trigger" href="#sun-trigger"></a> Sun trigger</h3>
 <p>Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.</p>
@@ -159,7 +160,7 @@ With template triggers you can also evaluate attribute changes by using is_state
 </code></pre>
 </div>
 <h3><a class="title-link" name="time-trigger" href="#time-trigger"></a> Time trigger</h3>
-<p>Time can be triggered in many ways. The most common is to specify <code class="highlighter-rouge">after</code> and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a <code class="highlighter-rouge">/</code> to match whenever the value is divisible by that number. You cannot use <code class="highlighter-rouge">after</code> together with hour, minute or second.</p>
+<p>Time can be triggered in many ways. The most common is to specify <code class="highlighter-rouge">at</code> and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a <code class="highlighter-rouge">/</code> to match whenever the value is divisible by that number. You cannot use <code class="highlighter-rouge">at</code> together with hour, minute or second.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
@@ -170,9 +171,9 @@ With template triggers you can also evaluate attribute changes by using is_state
 <span class="s">automation 2</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="c1"># When 'after' is used, you cannot also match on hour, minute, seconds.</span>
+    <span class="c1"># When 'at' is used, you cannot also match on hour, minute, seconds.</span>
     <span class="c1"># Military time format.</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">15:32:00'</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">15:32:00'</span>
 
 <span class="s">automation 3</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>

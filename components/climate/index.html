@@ -106,7 +106,7 @@ Not all climate services may be available for your platform. Be sure to check th
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_aux_heat</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -143,7 +143,7 @@ reflecting a situation where the climate device is set to save energy. This may 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_away_mode</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -181,7 +181,7 @@ temporary target temperature. The particular modes available depend on the clima
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_hold_mode</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -231,7 +231,7 @@ temporary target temperature. The particular modes available depend on the clima
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_temperature</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -267,7 +267,7 @@ temporary target temperature. The particular modes available depend on the clima
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_humidity</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -302,7 +302,7 @@ temporary target temperature. The particular modes available depend on the clima
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_fan_mode</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -337,7 +337,7 @@ temporary target temperature. The particular modes available depend on the clima
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
       <span class="s">data</span><span class="pi">:</span>
@@ -372,7 +372,7 @@ temporary target temperature. The particular modes available depend on the clima
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-    <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
+    <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">07:15:00"</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_swing_mode</span>
       <span class="s">data</span><span class="pi">:</span>

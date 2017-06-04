@@ -72,20 +72,20 @@
 <span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">smtp</span>
-    <span class="s">server</span><span class="pi">:</span> <span class="s">MAIL_SERVER</span>
+    <span class="s">sender</span><span class="pi">:</span> <span class="s">YOUR_SENDER</span>
     <span class="s">recipient</span><span class="pi">:</span> <span class="s">YOUR_RECIPIENT</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
+  <li><strong>sender</strong> (<em>Required</em>): E-mail address of the sender.</li>
+  <li><strong>recipient</strong> (<em>Required</em>): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.</li>
   <li><strong>server</strong> (<em>Optional</em>): SMTP server which is used to end the notifications. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using. Defaults to 25.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): The timeout in seconds that the SMTP server is using. Defaults to 5.</li>
-  <li><strong>sender</strong> (<em>Optional</em>): E-mail address of the sender.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
-  <li><strong>recipient</strong> (<em>Required</em>): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.</li>
   <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. True or False. Defaults to False.</li>
   <li><strong>sender_name</strong> (<em>Optional</em>): Sets a custom ‘sender name’ in the emails headers (<em>From</em>: Custom name <a href="mailto:example@mail.com">example@mail.com</a>).</li>
   <li><strong>debug</strong> (<em>Optional</em>): Enables Debug, eg. True or False. Defaults to False.</li>

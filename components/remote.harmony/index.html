@@ -99,9 +99,9 @@
 </ul>
 <p>Supported services:</p>
 <ul>
-  <li><strong>Turn Off</strong>: Turn off all devices that were switched on from the start of the current activity.</li>
+  <li><strong>Turn Off</strong>: Turn off all devices that were switched on from the start of the current activity.s</li>
   <li><strong>Turn On</strong>: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your <a href="/docs/configuration/">Home Assistant configuration directory</a>. The service will respond faster if the activity ID is passed instead of the name.</li>
-  <li><strong>Send Command</strong>: Send a command to one device, device ID and available commands are written to the configuration file at startup.</li>
+  <li><strong>Send Command</strong>: Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).</li>
   <li><strong>Sync</strong>: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app.</li>
 </ul>
 <h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>

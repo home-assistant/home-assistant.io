@@ -447,6 +447,7 @@
 <span class="s">from_last</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;last</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
+<span class="s">chat</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;chat</span><span class="nv"> </span><span class="s">info&gt;"</span>
 </code></pre>
 </div>
 <p>Any other message not starting with <code class="highlighter-rouge">/</code> will be processed as simple text, firing a <code class="highlighter-rouge">telegram_text</code> event on the event bus with the following <code class="highlighter-rouge">event_data</code>:</p>
@@ -455,6 +456,7 @@
 <span class="s">from_last</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;last</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
 <span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
+<span class="s">chat</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;chat</span><span class="nv"> </span><span class="s">info&gt;"</span>
 </code></pre>
 </div>
 <p>if the message is sent from a <a href="https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating">press from an inline button</a>, for example, a callback query is received, and Home Assistant will fire a <code class="highlighter-rouge">telegram_callback</code> event with:</p>
@@ -549,8 +551,8 @@
         <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">You</span><span class="nv"> </span><span class="s">said:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.text</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">disable_notification</span><span class="pi">:</span> <span class="s">true</span>
         <span class="s">inline_keyboard</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s1">'</span><span class="s">/edit,/NO'</span>
-          <span class="pi">-</span> <span class="s1">'</span><span class="s">/remove</span><span class="nv"> </span><span class="s">button'</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Edit</span><span class="nv"> </span><span class="s">message:/edit_msg,</span><span class="nv"> </span><span class="s">Don't:/do_nothing"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Remove</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">button:/remove</span><span class="nv"> </span><span class="s">button"</span>
 </code></pre>
 </div>
 <p>Message editor:</p>
@@ -560,7 +562,7 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_callback</span>
     <span class="s">event_data</span><span class="pi">:</span>
-      <span class="s">data</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/edit'</span>
+      <span class="s">data</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/edit_msg'</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.answer_callback_query</span>
       <span class="s">data_template</span><span class="pi">:</span>
@@ -573,8 +575,8 @@
         <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.user_id</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*Message</span><span class="nv"> </span><span class="s">edit*'</span>
         <span class="s">inline_keyboard</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s1">'</span><span class="s">/edit,/NO'</span>
-          <span class="pi">-</span> <span class="s1">'</span><span class="s">/remove</span><span class="nv"> </span><span class="s">button'</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Edit</span><span class="nv"> </span><span class="s">message:/edit_msg,</span><span class="nv"> </span><span class="s">Don't:/do_nothing"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Remove</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">button:/remove</span><span class="nv"> </span><span class="s">button"</span>
         <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
           <span class="no">Callback received from {% raw %}{{ trigger.event.data.from_first }}.</span>
           <span class="no">Message id: {{ trigger.event.data.message.message_id }}.</span>
@@ -599,7 +601,7 @@
         <span class="s">message_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">last'</span>
         <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.user_id</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">inline_keyboard</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="s1">'</span><span class="s">/edit,/NO'</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Edit</span><span class="nv"> </span><span class="s">message:/edit_msg,</span><span class="nv"> </span><span class="s">Don't:/do_nothing"</span>
 </code></pre>
 </div>
 <p>Only acknowledges the ‘NO’ answer:</p>
@@ -609,7 +611,7 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_callback</span>
     <span class="s">event_data</span><span class="pi">:</span>
-      <span class="s">data</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/NO'</span>
+      <span class="s">data</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/do_nothing'</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.answer_callback_query</span>
       <span class="s">data_template</span><span class="pi">:</span>
@@ -634,7 +636,9 @@
         <span class="k">assert</span> <span class="n">event_id</span> <span class="o">==</span> <span class="s">'telegram_text'</span>
         <span class="n">user_id</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'user_id'</span><span class="p">]</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s">'You said: ``` </span><span class="si">%</span><span class="s">s ```'</span> <span class="o">%</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'text'</span><span class="p">]</span>
-        <span class="n">keyboard</span> <span class="o">=</span> <span class="p">[</span><span class="s">'/edit,/NO'</span><span class="p">,</span> <span class="s">'/remove button'</span><span class="p">]</span>
+        <span class="n">keyboard</span> <span class="o">=</span> <span class="p">[[(</span><span class="s">"Edit message"</span><span class="p">,</span> <span class="s">"/edit_msg"</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s">"Don't"</span><span class="p">,</span> <span class="s">"/do_nothing"</span><span class="p">)],</span>
+                    <span class="p">[(</span><span class="s">"Remove this button"</span><span class="p">,</span> <span class="s">"/remove button"</span><span class="p">)]]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/send_message'</span><span class="p">,</span>
                           <span class="n">title</span><span class="o">=</span><span class="s">'*Dumb automation*'</span><span class="p">,</span>
                           <span class="n">target</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
@@ -648,8 +652,13 @@
         <span class="n">data_callback</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'data'</span><span class="p">]</span>
         <span class="n">callback_id</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'id'</span><span class="p">]</span>
         <span class="n">user_id</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'user_id'</span><span class="p">]</span>
+        <span class="c"># keyboard = ["Edit message:/edit_msg, Don't:/do_nothing",</span>
+        <span class="c">#             "Remove this button:/remove button"]</span>
+        <span class="n">keyboard</span> <span class="o">=</span> <span class="p">[[(</span><span class="s">"Edit message"</span><span class="p">,</span> <span class="s">"/edit_msg"</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s">"Don't"</span><span class="p">,</span> <span class="s">"/do_nothing"</span><span class="p">)],</span>
+                    <span class="p">[(</span><span class="s">"Remove this button"</span><span class="p">,</span> <span class="s">"/remove button"</span><span class="p">)]]</span>
 
-        <span class="k">if</span> <span class="n">data_callback</span> <span class="o">==</span> <span class="s">'/edit'</span><span class="p">:</span>  <span class="c"># Message editor:</span>
+        <span class="k">if</span> <span class="n">data_callback</span> <span class="o">==</span> <span class="s">'/edit_msg'</span><span class="p">:</span>  <span class="c"># Message editor:</span>
             <span class="c"># Answer callback query</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/answer_callback_query'</span><span class="p">,</span>
                               <span class="n">message</span><span class="o">=</span><span class="s">'Editing the message!'</span><span class="p">,</span>
@@ -661,7 +670,6 @@
             <span class="n">user</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'from_first'</span><span class="p">]</span>
             <span class="n">title</span> <span class="o">=</span> <span class="s">'*Message edit*'</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s">'Callback received from </span><span class="si">%</span><span class="s">s. Message id: </span><span class="si">%</span><span class="s">s. Data: ``` </span><span class="si">%</span><span class="s">s ```'</span>
-            <span class="n">keyboard</span> <span class="o">=</span> <span class="p">[</span><span class="s">'/edit,/NO'</span><span class="p">,</span> <span class="s">'/remove button'</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/edit_message'</span><span class="p">,</span>
                               <span class="n">chat_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
                               <span class="n">message_id</span><span class="o">=</span><span class="n">msg_id</span><span class="p">,</span>
@@ -677,13 +685,13 @@
                               <span class="n">callback_query_id</span><span class="o">=</span><span class="n">callback_id</span><span class="p">)</span>
 
             <span class="c"># Edit the keyboard</span>
-            <span class="n">new_keyboard</span> <span class="o">=</span> <span class="p">[</span><span class="s">'/edit,/NO'</span><span class="p">]</span>
+            <span class="n">new_keyboard</span> <span class="o">=</span> <span class="n">keyboard</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/edit_replymarkup'</span><span class="p">,</span>
                               <span class="n">chat_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
                               <span class="n">message_id</span><span class="o">=</span><span class="s">'last'</span><span class="p">,</span>
                               <span class="n">inline_keyboard</span><span class="o">=</span><span class="n">new_keyboard</span><span class="p">)</span>
 
-        <span class="k">elif</span> <span class="n">data_callback</span> <span class="o">==</span> <span class="s">'/NO'</span><span class="p">:</span>  <span class="c"># Only Answer to callback query</span>
+        <span class="k">elif</span> <span class="n">data_callback</span> <span class="o">==</span> <span class="s">'/do_nothing'</span><span class="p">:</span>  <span class="c"># Only Answer to callback query</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/answer_callback_query'</span><span class="p">,</span>
                               <span class="n">message</span><span class="o">=</span><span class="s">'OK, you said no!'</span><span class="p">,</span>
                               <span class="n">callback_query_id</span><span class="o">=</span><span class="n">callback_id</span><span class="p">)</span>
@@ -721,6 +729,9 @@
         </li>
         <li>
             <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/arlo/'>Arlo</a>
         </li>
         <li>
             <a href='/components/axis/'>Axis</a>

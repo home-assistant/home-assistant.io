@@ -92,12 +92,12 @@
 <p>To enable Telegram notifications in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for the Telegram Bot</span>
 <span class="s">telegram_bot</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">polling</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
-  <span class="s">allowed_chat_ids</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">CHAT_ID_1</span>
-    <span class="pi">-</span> <span class="s">CHAT_ID_2</span>
-    <span class="pi">-</span> <span class="s">CHAT_ID_3</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">polling</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+    <span class="s">allowed_chat_ids</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">CHAT_ID_1</span>
+      <span class="pi">-</span> <span class="s">CHAT_ID_2</span>
+      <span class="pi">-</span> <span class="s">CHAT_ID_3</span>
 
 <span class="c1"># Example configuration.yaml entry for the notifier</span>
 <span class="s">notify</span><span class="pi">:</span>
@@ -118,11 +118,11 @@
   <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
   <span class="s">data</span><span class="pi">:</span>
     <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*Send</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">message*'</span>
-    <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">That's an example that _sends_ a *formatted* message with a custom keyboard.'</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">That's an example that _sends_ a *formatted* message with a custom inline keyboard.'</span>
     <span class="s">data</span><span class="pi">:</span>
-      <span class="s">keyboard</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s1">'</span><span class="s">/command1,</span><span class="nv"> </span><span class="s">/command2'</span>
-        <span class="pi">-</span> <span class="s1">'</span><span class="s">/command3,</span><span class="nv"> </span><span class="s">/command4'</span>
+      <span class="s">inline_keyboard</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s1">'</span><span class="s">Task</span><span class="nv"> </span><span class="s">1:/command1,</span><span class="nv"> </span><span class="s">Task</span><span class="nv"> </span><span class="s">2:/command2'</span>
+        <span class="pi">-</span> <span class="s1">'</span><span class="s">Task</span><span class="nv"> </span><span class="s">3:/command3,</span><span class="nv"> </span><span class="s">Task</span><span class="nv"> </span><span class="s">4:/command4'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -154,8 +154,9 @@
 <ul>
   <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to an image.</li>
   <li><strong>caption</strong> (<em>Optional</em>): The title of the image.</li>
-  <li><strong>username</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
-  <li><strong>password</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
+  <li><strong>username</strong> (<em>Optional</em>): Username for a URL which require HTTP authentication.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Username for a URL which require HTTP authentication.</li>
+  <li><strong>authentication</strong> (<em>Optional</em>): Set to ‘digest’ to use HTTP digest authentication, defaults to ‘basic’.</li>
   <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
   <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.</li>
 </ul>
@@ -165,19 +166,23 @@
   <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
   <span class="s">data</span><span class="pi">:</span>
     <span class="s">title</span><span class="pi">:</span> <span class="s">Send a document</span>
-    <span class="s">message</span><span class="pi">:</span> <span class="s">That's an example that sends a document.</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s">That's an example that sends a document and a custom keyboard.</span>
     <span class="s">data</span><span class="pi">:</span>
       <span class="s">document</span><span class="pi">:</span>
         <span class="s">file</span><span class="pi">:</span> <span class="s">/tmp/whatever.odf</span>
         <span class="s">caption</span><span class="pi">:</span> <span class="s">Document Title xy</span>
+    <span class="s">keyboard</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">/command1,</span><span class="nv"> </span><span class="s">/command2'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">/command3,</span><span class="nv"> </span><span class="s">/command4'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>url</strong> or <strong>file</strong> (<em>Required</em>): For local or remote path to a document.</li>
   <li><strong>caption</strong> (<em>Optional</em>): The title of the document.</li>
-  <li><strong>username</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
-  <li><strong>password</strong> (<em>Optional</em>): Username for a URL which require HTTP basic authentication.</li>
+  <li><strong>username</strong> (<em>Optional</em>): Username for a URL which require HTTP authentication.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Username for a URL which require HTTP authentication.</li>
+  <li><strong>authentication</strong> (<em>Optional</em>): Set to ‘digest’ to use HTTP digest authentication, defaults to ‘basic’.</li>
   <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>
   <li><strong>inline_keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.</li>
 </ul>
@@ -197,7 +202,6 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>location</strong> (<em>Required</em>): For local or remote path to an image.</li>
   <li><strong>latitude</strong> (<em>Required</em>): The latitude to send.</li>
   <li><strong>longitude</strong> (<em>Required</em>): The longitude to send.</li>
   <li><strong>keyboard</strong> (<em>Optional</em>): List of rows of commands, comma-separated, to make a custom keyboard.</li>

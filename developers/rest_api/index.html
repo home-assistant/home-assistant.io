@@ -226,6 +226,12 @@ You can append <code class="highlighter-rouge">?api_password=YOUR_PASSWORD</code
 </div>
 <h4><a class="title-link" name="get-apihistoryperiodlttimestamp" href="#get-apihistoryperiodlttimestamp"></a> GET /api/history/period/&lt;timestamp&gt;</h4>
 <p>Returns an array of state changes in the past. Each object contains further details for the entities.</p>
+<p>The <code class="highlighter-rouge">&lt;timestamp&gt;</code> is optional and defaults to 1 day before the time of the request. It determines the beginning of the period.</p>
+<p>You can pass the following optional GET parameters:</p>
+<ul>
+  <li><code class="highlighter-rouge">filter_entity_id=&lt;entity_id&gt;</code> to filter on a single entity</li>
+  <li><code class="highlighter-rouge">end_time=&lt;timestamp&gt;</code> to choose the end of the period (defaults to 1 day)</li>
+</ul>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">

@@ -91,6 +91,7 @@
   <li><strong>port</strong> (<em>Optional</em>): The port number. Defaults to 80.</li>
   <li><strong>password</strong> (<em>Optional</em>): PIN code of the Internet Radio. Defaults to 1234.</li>
 </ul>
+<p>Some models use a seperate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.</p>
 <p>In case your device (friendly name) is called <em>badezimmer</em>, an example automation can look something like this:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation</span>
 <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bathroom</span><span class="nv"> </span><span class="s">Motion</span><span class="nv"> </span><span class="s">Detected"</span>

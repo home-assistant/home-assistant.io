@@ -181,7 +181,7 @@
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">turn hvac on</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5:30:00'</span>
+      <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5:30:00'</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">switch.mysensors_send_ir_code</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hvac_1_1</span>
@@ -191,7 +191,7 @@
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">turn hvac off</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0:30:00'</span>
+      <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0:30:00'</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">switch.mysensors_send_ir_code</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.hvac_1_1</span>
@@ -469,6 +469,9 @@
         </li>
         <li>
             <a href='/components/switch.rfxtrx/'>RFXtrx Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.rachio/'>Rachio Switch</a>
         </li>
         <li>
             <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>

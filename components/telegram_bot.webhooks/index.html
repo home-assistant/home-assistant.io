@@ -74,12 +74,12 @@
   <span class="s">base_url</span><span class="pi">:</span> <span class="s">&lt;public_url&gt;</span> <span class="c1"># the Home Assistant https url which is exposed to the internet.</span>
 
 <span class="s">telegram_bot</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">telegram api key</span>
-  <span class="s">parse_mode</span><span class="pi">:</span> <span class="s">html</span>
-  <span class="s">allowed_chat_ids</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">12345</span>
-    <span class="pi">-</span> <span class="s">67890</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">telegram api key</span>
+    <span class="s">parse_mode</span><span class="pi">:</span> <span class="s">html</span>
+    <span class="s">allowed_chat_ids</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">12345</span>
+      <span class="pi">-</span> <span class="s">67890</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -88,6 +88,7 @@
   <li><strong>api_key</strong> (<em>Required</em>): The API token of your bot.</li>
   <li><strong>trusted_networks</strong> (<em>Optional</em>): Telegram server access ACL as list. Defaults to <code class="highlighter-rouge">149.154.167.197-233</code>.</li>
   <li><strong>parse_mode</strong> (<em>Optional</em>): Default parser for messages if not explicit in message data: ‘html’ or ‘markdown’. Default is ‘markdown’.</li>
+  <li><strong>url</strong> (<em>Optional</em>): Allow to overwrite the <code class="highlighter-rouge">base_url</code> from http component for diferent configs.</li>
 </ul>
 <p>To get your <code class="highlighter-rouge">chat_id</code> and <code class="highlighter-rouge">api_key</code> follow the instructions <a href="/components/notify.telegram">here</a> .</p>
 <p>Full configuration sample:</p>
@@ -96,18 +97,18 @@
   <span class="s">base_url</span><span class="pi">:</span> <span class="s">&lt;public_url&gt;</span>
 
 <span class="s">telegram_bot</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
-  <span class="s">trusted_networks</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">149.154.167.197/32</span>
-    <span class="pi">-</span> <span class="s">149.154.167.198/31</span>
-    <span class="pi">-</span> <span class="s">149.154.167.200/29</span>
-    <span class="pi">-</span> <span class="s">149.154.167.208/28</span>
-    <span class="pi">-</span> <span class="s">149.154.167.224/29</span>
-    <span class="pi">-</span> <span class="s">149.154.167.232/31</span>
-  <span class="s">allowed_chat_ids</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">12345</span>
-    <span class="pi">-</span> <span class="s">67890</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webhooks</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">ABCDEFGHJKLMNOPQRSTUVXYZ</span>
+    <span class="s">trusted_networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">149.154.167.197/32</span>
+      <span class="pi">-</span> <span class="s">149.154.167.198/31</span>
+      <span class="pi">-</span> <span class="s">149.154.167.200/29</span>
+      <span class="pi">-</span> <span class="s">149.154.167.208/28</span>
+      <span class="pi">-</span> <span class="s">149.154.167.224/29</span>
+      <span class="pi">-</span> <span class="s">149.154.167.232/31</span>
+    <span class="s">allowed_chat_ids</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">12345</span>
+      <span class="pi">-</span> <span class="s">67890</span>
 </code></pre>
 </div>
 </article>

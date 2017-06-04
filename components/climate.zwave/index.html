@@ -87,7 +87,7 @@ If the thermostat support different operating modes, you will get one thermostat
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on Heater at 8pm</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">20:00:00"</span>
+        <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">20:00:00"</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_id</span>
@@ -104,7 +104,7 @@ If the thermostat support different operating modes, you will get one thermostat
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn off Heater at 9pm</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-        <span class="s">after</span><span class="pi">:</span> <span class="s2">"</span><span class="s">21:00:00"</span>
+        <span class="s">at</span><span class="pi">:</span> <span class="s2">"</span><span class="s">21:00:00"</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">climate.set_operation_mode</span>
         <span class="s">entity_id</span><span class="pi">:</span> <span class="s">climate.remotec_zxt120_heating_1_id</span>
@@ -148,6 +148,9 @@ If the thermostat support different operating modes, you will get one thermostat
         </a></li>
         <li><a href='/components/cover.zwave/'>
           Z-Wave Cover
+        </a></li>
+        <li><a href='/components/fan.zwave/'>
+          Z-Wave Fan
         </a></li>
         <li><a href='/components/light.zwave/'>
           Z-Wave Light

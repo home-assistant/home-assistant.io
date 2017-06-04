@@ -264,6 +264,10 @@ Depending on what’s plugged into your USB ports, the name found above may chan
       <td>Replace a failed device with another. If the node is not in the controller’s failed nodes list, or the node responds, this command will fail.</td>
     </tr>
     <tr>
+      <td>reset_node_meters</td>
+      <td>Reset a node’s meter values. Only works if the node supports this.</td>
+    </tr>
+    <tr>
       <td>set_config_parameter</td>
       <td>Let’s the user set a config parameter to a node.</td>
     </tr>
@@ -291,14 +295,14 @@ Depending on what’s plugged into your USB ports, the name found above may chan
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">soft reset at 2:30am</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:30:00'</span>
+      <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:30:00'</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">zwave.soft_reset</span>
 
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">heal at 2:31am</span>
     <span class="s">trigger</span><span class="pi">:</span>
       <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-      <span class="s">after</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:31:00'</span>
+      <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:31:00'</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">zwave.heal_network</span>
 </code></pre>

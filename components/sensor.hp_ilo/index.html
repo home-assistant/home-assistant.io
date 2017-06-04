@@ -66,9 +66,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">hp_ilo</code> platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in (template) sensors.</p>
-<p>The component will output the ILO information in the sensor attributes so they can be accessed like that.</p>
-<p>If the ILO only returns a single value (e.g. a temperature or state), it will be put in the state field.</p>
+  <p>The <code class="highlighter-rouge">hp_ilo</code> platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.</p>
+<p>If the ILO or specified jsonpath query returns only a single value (e.g. a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the <code class="highlighter-rouge">ilo_data</code> attribute.</p>
 <p>Some more details about what can be retrieved from these sensors is available in the <a href="http://pythonhosted.org/python-hpilo/">python-hpilo documentation</a>.</p>
 <p class="img">
   <img src="/images/screenshots/hp_ilo.png" />
@@ -81,17 +80,8 @@
     <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
     <span class="s">monitored_variables</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">server_name</span>
-      <span class="pi">-</span> <span class="s">server_fqdn</span>
-      <span class="pi">-</span> <span class="s">server_host_data</span>
-      <span class="pi">-</span> <span class="s">server_oa_info</span>
-      <span class="pi">-</span> <span class="s">server_power_status</span>
-      <span class="pi">-</span> <span class="s">server_power_readings</span>
-      <span class="pi">-</span> <span class="s">server_power_on_time</span>
-      <span class="pi">-</span> <span class="s">server_asset_tag</span>
-      <span class="pi">-</span> <span class="s">server_uid_status</span>
-      <span class="pi">-</span> <span class="s">server_health</span>
-      <span class="pi">-</span> <span class="s">network_settings</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">SENSOR NAME</span>
+        <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">SENSOR TYPE</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -100,27 +90,59 @@
   <li><strong>port</strong> (<em>Optional</em>): The port on which the ILO can be reached, defaults to port <code class="highlighter-rouge">443</code>.</li>
   <li><strong>username</strong> (<em>Required</em>): The username used to connect to the ILO.</li>
   <li><strong>password</strong> (<em>Required</em>): The password used to connect to the ILO.</li>
-  <li><strong>monitored_variables</strong> array (<em>Optional</em>): Information to be collected from the ILO, defaults to <code class="highlighter-rouge">server_name</code>.
+  <li><strong>monitored_variables</strong> array (<em>Optional</em>): Sensors created from the ILO data. Defaults to an empty list (no sensors are created).
     <ul>
-      <li><strong>server_name</strong>: Get the name of the server this iLO is managing.</li>
-      <li><strong>server_fqdn</strong>: Get the fqdn of the server this iLO is managing.</li>
-      <li><strong>server_host_data</strong>: Get SMBIOS records that describe the host.</li>
-      <li><strong>server_oa_info</strong>: Get information about the Onboard Administrator of the enclosing chassis.</li>
-      <li><strong>server_power_status</strong>: Whether the server is powered on or not.</li>
-      <li><strong>server_power_readings</strong>: Get current, min, max and average power readings.</li>
-      <li><strong>server_power_on_time</strong>: How many minutes ago has the server been powered on.</li>
-      <li><strong>server_asset_tag</strong>: Gets the server asset tag.</li>
-      <li><strong>server_uid_status</strong>: Get the status of the UID light.</li>
-      <li><strong>server_health</strong>: Get server health information.</li>
-      <li><strong>network_settings</strong>: Get the iLO network settings.</li>
+      <li><strong>name</strong> (<em>Required</em>): The sensor name.</li>
+      <li><strong>sensor_type</strong> (<em>Required</em>): The sensor type, has to be one of the specified valid sensor types.</li>
+      <li><strong>unit_of_measurement</strong> (<em>Optional</em>): The sensors’ unit of measurement.</li>
+      <li><strong>value_template</strong> (<em>Optional</em>): When a Jinja2 template is specified here, the created sensor will output the template result. The ILO response can be referenced with the <code class="highlighter-rouge">ilo_data</code> variable.</li>
     </ul>
   </li>
 </ul>
+<p>Valid sensor_types:</p>
+<ul>
+  <li><strong>server_name</strong>: Get the name of the server this iLO is managing.</li>
+  <li><strong>server_fqdn</strong>: Get the fqdn of the server this iLO is managing.</li>
+  <li><strong>server_host_data</strong>: Get SMBIOS records that describe the host.</li>
+  <li><strong>server_oa_info</strong>: Get information about the Onboard Administrator of the enclosing chassis.</li>
+  <li><strong>server_power_status</strong>: Whether the server is powered on or not.</li>
+  <li><strong>server_power_readings</strong>: Get current, min, max and average power readings.</li>
+  <li><strong>server_power_on_time</strong>: How many minutes ago has the server been powered on.</li>
+  <li><strong>server_asset_tag</strong>: Gets the server asset tag.</li>
+  <li><strong>server_uid_status</strong>: Get the status of the UID light.</li>
+  <li><strong>server_health</strong>: Get server health information.</li>
+  <li><strong>network_settings</strong>: Get the iLO network settings.</li>
+</ul>
+<h3>Example</h3>
+<p>In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of <code class="highlighter-rouge">server_health</code> on a HP Microserver Gen8, you could use the following in your <code class="highlighter-rouge">configuration.yaml</code> file</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hp_ilo</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS or HOSTNAME</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+    <span class="s">monitored_variables</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">CPU fanspeed</span>
+        <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">server_health</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Inlet temperature</span>
+        <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">server_health</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Server Health</span>
+        <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">server_health</span>
+
+</code></pre>
+</div>
+<p class="img">
+  <img src="/images/screenshots/hp_ilo_sensors.png" />
+</p>
+<h2><a class="title-link" name="hardware-specifics" href="#hardware-specifics"></a> Hardware specifics</h2>
 <p class="note warning">
 Not every hardware supports all values.
 </p>
-<h3><a class="title-link" name="hp-microserver-gen8" href="#hp-microserver-gen8"></a> HP Microserver gen8</h3>
-<p>On this hardware you need to remove the below listed variables from <code class="highlighter-rouge">monitored_variables:</code> to avoid errors.</p>
+<h3><a class="title-link" name="hp-microserver-gen8" href="#hp-microserver-gen8"></a> HP Microserver Gen8</h3>
+<p>On this hardware you should avoid using the following sensor_types as <code class="highlighter-rouge">monitored_variables:</code> to prevent errors.</p>
 <ul>
   <li><code class="highlighter-rouge">server_oa_info</code></li>
   <li><code class="highlighter-rouge">server_power_readings</code></li>

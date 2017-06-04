@@ -66,8 +66,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">usps</code> platform allows one to track deliveries by the <a href="https://www.usps.com/">US Postal Service (USPS)</a>.
-In addition to having a USPS account, you will need to complete the “Opt-In” process by clicking “Get Started Now” on <a href="https://my.usps.com/mobileWeb/pages/intro/start.action">this page</a>. Currently, you also will need to have a package listed in the “Package Dashboard” in order for the component to complete set-up.</p>
+  <p>The <code class="highlighter-rouge">usps</code> platform allows one to track deliveries and inbound mail from the <a href="https://www.usps.com/">US Postal Service (USPS)</a>.
+In addition to having a USPS account, you will need to complete the “Opt-In” process by clicking “Get Started Now” on <a href="https://my.usps.com/mobileWeb/pages/intro/start.action">this page</a>. You must also “Opt-In” to <a href="https://informeddelivery.usps.com/box/pages/intro/start.action">Informed Delivery</a> to see inbound mail.</p>
 <p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -76,27 +76,12 @@ In addition to having a USPS account, you will need to complete the “Opt-In”
     <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
+<p>You will see two new sensors, one for packages and one for mail.</p>
 <p>Configuration options for the USPS Sensor:</p>
 <ul>
   <li><strong>username</strong> (<em>Required</em>): The username to access the MyUSPS service.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for the given username.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name the sensor (default: your mailing address).</li>
-  <li><strong>update_inverval</strong> (<em>Optional</em>): Minimum time interval between updates. Default is 1 hour. Supported formats:
-    <ul>
-      <li><code class="highlighter-rouge">update_interval: 'HH:MM:SS'</code></li>
-      <li><code class="highlighter-rouge">update_interval: 'HH:MM'</code></li>
-      <li>Time period dictionary, e.g.:
-        <pre>update_interval:
-    # At least one of these must be specified:
-    days: 0
-    hours: 0
-    minutes: 3
-    seconds: 30
-    milliseconds: 0
-</pre>
-      </li>
-    </ul>
-  </li>
+  <li><strong>name</strong> (<em>Optional</em>): Prefix for sensor names (defaults to “USPS”)</li>
 </ul>
 <p class="note warning">
 The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
@@ -130,6 +115,9 @@ The USPS sensor logs into the MyUSPS website to scrape package data. It does not
         </li>
         <li>
             <a href='/components/sensor.android_ip_webcam/'>Android IP Webcam Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arlo/'>Arlo Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.bbox/'>Bbox Sensor</a>

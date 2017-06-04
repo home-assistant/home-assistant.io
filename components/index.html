@@ -72,7 +72,7 @@ Support for these components is provided by the Home Assistant community.
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
     <div class="filter-button-group">
-      <a href='#all' class="btn">All (684)</a>
+      <a href='#all' class="btn">All (690)</a>
       <a href='#featured' class="btn featured">Featured</a>
       <a href='#version/0.45' class="btn added_in_current_version">Added in 0.45 (16)</a>
       <a href='#version/0.44' class="btn added_one_version_ago">Added in 0.44 (20)</a>
@@ -81,20 +81,20 @@ Support for these components is provided by the Home Assistant community.
     <a href='#automation' class="btn">Automation (15)</a>
     <a href='#binary-sensor' class="btn">Binary Sensor (50)</a>
     <a href='#calendar' class="btn">Calendar (3)</a>
-    <a href='#camera' class="btn">Camera (20)</a>
+    <a href='#camera' class="btn">Camera (21)</a>
     <a href='#climate' class="btn">Climate (20)</a>
     <a href='#cover' class="btn">Cover (16)</a>
     <a href='#diy' class="btn">DIY (19)</a>
     <a href='#downloading' class="btn">Downloading (5)</a>
     <a href='#energy' class="btn">Energy (11)</a>
-    <a href='#fan' class="btn">Fan (3)</a>
+    <a href='#fan' class="btn">Fan (4)</a>
     <a href='#finance' class="btn">Finance (6)</a>
     <a href='#front-end' class="btn">Front end (4)</a>
     <a href='#health' class="btn">Health (2)</a>
     <a href='#history' class="btn">History (12)</a>
-    <a href='#hub' class="btn">Hub (54)</a>
+    <a href='#hub' class="btn">Hub (55)</a>
     <a href='#image-processing' class="btn">Image Processing (8)</a>
-    <a href='#light' class="btn">Light (44)</a>
+    <a href='#light' class="btn">Light (45)</a>
     <a href='#lock' class="btn">Lock (8)</a>
     <a href='#media-player' class="btn">Media Player (43)</a>
     <a href='#notifications' class="btn">Notifications (43)</a>
@@ -102,9 +102,9 @@ Support for these components is provided by the Home Assistant community.
     <a href='#presence-detection' class="btn">Presence Detection (38)</a>
     <a href='#remote' class="btn">Remote (3)</a>
     <a href='#scene' class="btn">Scene (3)</a>
-    <a href='#sensor' class="btn">Sensor (78)</a>
+    <a href='#sensor' class="btn">Sensor (79)</a>
     <a href='#social' class="btn">Social (5)</a>
-    <a href='#switch' class="btn">Switch (56)</a>
+    <a href='#switch' class="btn">Switch (57)</a>
     <a href='#system-monitor' class="btn">System Monitor (23)</a>
     <a href='#telegram-chatbot' class="btn">Telegram chatbot (2)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (6)</a>
@@ -174,6 +174,9 @@ var allComponents = [
 {url:"/components/arduino/", title:"Arduino", cat:"diy", featured: true, v: "0.7", logo: "arduino.png"},
 {url:"/components/sensor.arduino/", title:"Arduino Sensor", cat:"diy", featured: false, v: "0.7", logo: "arduino.png"},
 {url:"/components/switch.arduino/", title:"Arduino Switch", cat:"diy", featured: false, v: "0.7", logo: "arduino.png"},
+{url:"/components/arlo/", title:"Arlo", cat:"hub", featured: false, v: "0.46", logo: "arlo.png"},
+{url:"/components/camera.arlo/", title:"Arlo Camera", cat:"camera", featured: false, v: "0.46", logo: "arlo.png"},
+{url:"/components/sensor.arlo/", title:"Arlo Sensor", cat:"sensor", featured: false, v: "0.46", logo: "arlo.png"},
 {url:"/components/device_tracker.aruba/", title:"Aruba", cat:"presence-detection", featured: false, v: "0.7", logo: "aruba.png"},
 {url:"/components/binary_sensor.aurora/", title:"Aurora sensor", cat:"binary-sensor", featured: false, v: "0.39", logo: "noaa.png"},
 {url:"/components/device_tracker.automatic/", title:"Automatic", cat:"presence-detection", featured: false, v: "0.28", logo: "automatic.png"},
@@ -595,6 +598,7 @@ var allComponents = [
 {url:"/components/sensor.rfxtrx/", title:"RFXtrx Sensor", cat:"sensor", featured: false, v: "0.0", logo: "rfxtrx.png"},
 {url:"/components/switch.rfxtrx/", title:"RFXtrx Switch", cat:"switch", featured: false, v: "0.7", logo: "rfxtrx.png"},
 {url:"/components/rss_feed_template/", title:"RSS feed template", cat:"front-end", featured: false, v: "0.44", logo: "home-assistant.png"},
+{url:"/components/switch.rachio/", title:"Rachio Switch", cat:"switch", featured: false, v: "0.46", logo: "rachio.png"},
 {url:"/components/climate.radiotherm/", title:"Radio Thermostat (3M Filtrete) Thermostat", cat:"climate", featured: false, v: "0.0", logo: "radiotherm.png"},
 {url:"/components/sensor.random/", title:"Random Sensor", cat:"sensor", featured: false, v: "0.32", logo: "home-assistant.png"},
 {url:"/components/rpi_gpio/", title:"Raspberry PI GPIO", cat:"diy", featured: false, v: "0.7", logo: "raspberry-pi.png"},
@@ -682,6 +686,7 @@ var allComponents = [
 {url:"/components/sensor.tellduslive/", title:"Telldus Live sensor", cat:"sensor", featured: false, v: "0.0", logo: "telldus.png"},
 {url:"/components/notify.telstra/", title:"Telstra", cat:"notifications", featured: false, v: "0.31", logo: "telstra.png"},
 {url:"/components/binary_sensor.template/", title:"Template Binary Sensor", cat:"binary-sensor", featured: false, v: "0.0", logo: "home-assistant.png"},
+{url:"/components/light.template/", title:"Template Light", cat:"light", featured: false, v: "0.46", logo: "home-assistant.png"},
 {url:"/components/sensor.template/", title:"Template Sensor", cat:"sensor", featured: false, v: "0.12", logo: "home-assistant.png"},
 {url:"/components/switch.template/", title:"Template switch", cat:"switch", featured: false, v: "0.13", logo: "home-assistant.png"},
 {url:"/components/thingspeak/", title:"ThingSpeak", cat:"history", featured: false, v: "0.32", logo: "thingspeak.png"},
@@ -763,6 +768,7 @@ var allComponents = [
 {url:"/components/binary_sensor.zwave/", title:"Z-Wave Binary Sensor", cat:"binary-sensor", featured: false, v: "0.14", logo: "z-wave.png"},
 {url:"/components/climate.zwave/", title:"Z-Wave Climate", cat:"climate", featured: false, v: "0.17", logo: "z-wave.png"},
 {url:"/components/cover.zwave/", title:"Z-Wave Cover", cat:"cover", featured: false, v: "0.23", logo: "z-wave.png"},
+{url:"/components/fan.zwave/", title:"Z-Wave Fan", cat:"fan", featured: false, v: "0.0", logo: "z-wave.png"},
 {url:"/components/light.zwave/", title:"Z-Wave Light", cat:"light", featured: false, v: "0.0", logo: "z-wave.png"},
 {url:"/components/lock.zwave/", title:"Z-Wave Lock", cat:"lock", featured: false, v: "0.19", logo: "z-wave.png"},
 {url:"/components/sensor.zwave/", title:"Z-Wave Sensor", cat:"sensor", featured: false, v: "0.0", logo: "z-wave.png"},
