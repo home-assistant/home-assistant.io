@@ -20,7 +20,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.precip_intensity
-        state: 'rain'
+        to: 'rain'
     condition:
       - platform: state
         entity_id: group.all_devices
@@ -40,7 +40,7 @@ And then of course turn off the lamp when it stops raining but only if it's with
     trigger:
       - platform: state
         entity_id: sensor.precip_intensity
-        state: 'None'
+        to: 'None'
     condition:
       - condition: sun
         after: 'sunset'
