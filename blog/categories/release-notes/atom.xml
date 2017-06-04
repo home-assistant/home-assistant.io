@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-04T09:46:01+00:00</updated>
+  <updated>2017-06-04T09:59:23+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -18,7 +18,9 @@
     <link href="https://home-assistant.io/blog/2017/06/04/release-46/"/>
     <updated>2017-06-04T01:04:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/06/04/release-46</id>
-    <content type="html"><![CDATA[It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
+    <content type="html"><![CDATA[<a href='https://home-assistant.io/components/#added_in_current_version/'><img src='https://home-assistant.io/images/blog/2017-06-0.46/components.png' style='border: 0;box-shadow: none;'></a>
+
+It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
 
 ## New platforms
 
