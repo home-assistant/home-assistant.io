@@ -39,7 +39,7 @@ sensor:
         sensor_type: SENSOR TYPE
 ```
 
-- Automation - time: the `after` keyword has been deprecated in favor of the `at` keyword. This resembles better what it does (old one still works, gives a warning) ([@armills] - [#7846]) ([automation.time docs]) (breaking change)
+- Automation - time: The `after` keyword for time triggers (not conditions) has been deprecated in favor of the `at` keyword. This resembles better what it does (old one still works, gives a warning) ([@armills] - [#7846]) ([automation.time docs]) (breaking change)
 - Automation - numeric_state: `above` and `below` will no longer trigger if it is equal. ([@armills] - [#7857]) (breaking change)
 - Broadlink switches: Entity ids will change for switches that don't have a default name set. In this case the object_id is now used. ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
 - Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both `xy_color` and `rgb_color`. ([@amelchio] - [#7765]) (breaking change)
