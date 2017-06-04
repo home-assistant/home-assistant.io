@@ -13,7 +13,7 @@ ha_release: 0.7.5
 ---
 
 
-The `telegram` platform uses [Telegram](https://web.telegram.org) to delivery notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
+The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
 
 The requirements are:
 
