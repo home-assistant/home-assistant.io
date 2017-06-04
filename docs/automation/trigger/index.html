@@ -150,6 +150,21 @@
     <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-00:45:00'</span>
 </code></pre>
 </div>
+<p>Sometimes you may want more grainular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon even after when it is below the horizon. This is also useful when the “sunset” event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Exterior</span><span class="nv"> </span><span class="s">Lighting</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">dark</span><span class="nv"> </span><span class="s">outside"</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sun.sun</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">state.attributes.elevation</span><span class="nv"> </span><span class="s">}}"</span>
+    <span class="c1"># Can be a positive or negetive number</span>
+    <span class="s">below</span><span class="pi">:</span> <span class="s">-4.0</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.exterior_lighting</span>
+</code></pre>
+</div>
+<p>The US Naval Observatory has a <a href="http://aa.usno.navy.mil/data/docs/AltAz.php">tool</a> that will help you estimate what the solar angle will be at any specific time.</p>
 <h3><a class="title-link" name="template-trigger" href="#template-trigger"></a> Template trigger</h3>
 <p>Template triggers work by evaluating a <a href="/docs/configuration/templating/">template</a> on each state change. The trigger will fire if the state change caused the template to render ‘true’. This is achieved by having the template result in a true boolean expression (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('device_tracker.paulus',</span><span class="w"> </span><span class="err">'home')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>) or by having the template render ‘true’ (example below).
 With template triggers you can also evaluate attribute changes by using is_state_attr (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state_attr('climate.living_room',</span><span class="w"> </span><span class="err">'away_mode',</span><span class="w"> </span><span class="err">'off')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>)</p>
