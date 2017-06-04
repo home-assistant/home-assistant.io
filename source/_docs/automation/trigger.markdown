@@ -72,7 +72,7 @@ automation:
 
 ### {% linkable_title State trigger %}
 
-Triggers when the state of tracked entities change. If only entity_id given will match all state changes.
+Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.
 
 ```yaml
 automation:
@@ -81,10 +81,8 @@ automation:
     entity_id: device_tracker.paulus, device_tracker.anne_therese
     # Optional
     from: 'not_home'
+    # Optional
     to: 'home'
-
-    # Alias for 'to'
-    state: 'home'
 
     # If given, will trigger when state has been the to state for X time.
     for:
@@ -95,6 +93,9 @@ automation:
 
 <p class='note warning'>
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
+</p>
+<p class='note warning'>
+  Using `state` as an alias for `to` is deprecated.
 </p>
 
 ### {% linkable_title Sun trigger %}
@@ -126,7 +127,7 @@ automation:
 
 ### {% linkable_title Time trigger %}
 
-Time can be triggered in many ways. The most common is to specify `after` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `after` together with hour, minute or second.
+Time can be triggered in many ways. The most common is to specify `at` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `at` together with hour, minute or second.
 
 ```yaml
 automation:
@@ -139,9 +140,9 @@ automation:
 automation 2:
   trigger:
     platform: time
-    # When 'after' is used, you cannot also match on hour, minute, seconds.
+    # When 'at' is used, you cannot also match on hour, minute, seconds.
     # Military time format.
-    after: '15:32:00'
+    at: '15:32:00'
 
 automation 3:
   trigger:

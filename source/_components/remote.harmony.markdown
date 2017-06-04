@@ -52,9 +52,9 @@ Upon startup one file will be written to your Home Assistant configuration direc
 
 Supported services:
 
-- **Turn Off**: Turn off all devices that were switched on from the start of the current activity.
+- **Turn Off**: Turn off all devices that were switched on from the start of the current activity.s
 - **Turn On**: Start an activity, will start the default activity from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/). The service will respond faster if the activity ID is passed instead of the name.
-- **Send Command**: Send a command to one device, device ID and available commands are written to the configuration file at startup.
+- **Send Command**: Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
 - **Sync**: Synchronizes the Harmony device with the Harmony web service if any changes are made from the web portal or app.
 
 

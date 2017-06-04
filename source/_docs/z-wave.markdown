@@ -207,6 +207,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | rename_node | Sets a node's name. Requires a `node_id` and `name` field. |
 | remove_failed_node | Remove a failed node from the network. The Node should be on the Controllers Failed Node List, otherwise this command will fail.|
 | replace_failed_node | Replace a failed device with another. If the node is not in the controller's failed nodes list, or the node responds, this command will fail.|
+| reset_node_meters | Reset a node's meter values. Only works if the node supports this. |
 | set_config_parameter | Let's the user set a config parameter to a node. |
 | soft_reset | Tells the controller to do a "soft reset". This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | start_network | Starts the Z-Wave network.|
@@ -221,14 +222,14 @@ automation:
   - alias: soft reset at 2:30am
     trigger:
       platform: time
-      after: '2:30:00'
+      at: '2:30:00'
     action:
       service: zwave.soft_reset
 
   - alias: heal at 2:31am
     trigger:
       platform: time
-      after: '2:31:00'
+      at: '2:31:00'
     action:
       service: zwave.heal_network
 ```

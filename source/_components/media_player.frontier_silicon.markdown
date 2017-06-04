@@ -43,6 +43,8 @@ Configuration variables:
 - **port** (*Optional*): The port number. Defaults to 80.
 - **password** (*Optional*): PIN code of the Internet Radio. Defaults to 1234.
 
+Some models use a seperate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.
+
 In case your device (friendly name) is called *badezimmer*, an example automation can look something like this:
 
 ```yaml

@@ -30,7 +30,7 @@ automation:
   - alias: Enable First Morning Trigger
     trigger:
       - platform: time
-        after: '5:00'
+        at: '5:00'
     action: 
       service: homeassistant.turn_on
       entity_id: input_boolean.trigger_first_morning
