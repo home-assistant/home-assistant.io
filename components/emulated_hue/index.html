@@ -76,6 +76,8 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
 <p>To enable the emulated Hue bridge, add one of the following configs to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Google Home example configuration.yaml entry</span>
 <span class="s">emulated_hue</span><span class="pi">:</span>
+  <span class="s">type</span><span class="pi">:</span> <span class="s">google_home</span>
+  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
   <span class="c1"># Google Home does not work on different ports.</span>
 </code></pre>
 </div>
@@ -160,6 +162,7 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
   <li><code class="highlighter-rouge">http://&lt;HA IP Address&gt;:8300/description.xml</code> - This URL should return a descriptor file in the form of an XML file.</li>
   <li><code class="highlighter-rouge">http://&lt;HA IP Address&gt;:8300/api/pi/lights</code> - This will return a list of devices, lights, scenes, groups, etc.. that <code class="highlighter-rouge">emulated_hue</code> is exposing to Alexa.</li>
 </ul>
+<p>For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. http://<HA IP="" Address="">:80/description.xml).</HA></p>
 <p>An additional step is required to run Home Assistant as non-root user and use port 80 when using the AiO script.  Execute the following command to allow <code class="highlighter-rouge">emulated_hue</code> to use port 80 as non-root user.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo setcap <span class="s1">'cap_net_bind_service=+ep'</span> /srv/homeassistant/homeassistant_venv/bin/python3
 </code></pre>
