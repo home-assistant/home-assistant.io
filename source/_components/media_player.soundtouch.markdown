@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: soundtouch.jpg
+logo: soundtouch.png
 ha_category: Media Player
 ha_release: 0.34.0
 ha_iot_class: "Local Polling"
