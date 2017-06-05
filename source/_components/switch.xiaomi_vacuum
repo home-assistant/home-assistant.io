@@ -1,3 +1,17 @@
+---
+layout: page
+title: "Xiaomi Mi Robot Vacuum"
+description: "Instructions how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant."
+date: 2017-05-05 18:11
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: xiaomi_mirobot_vacuum.png
+ha_category: Switch
+ha_release: 0.4X
+---
+
 The `xiaomi_vacuum`switch platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
 Current supported features are start and stop (go to dock).
 
@@ -19,7 +33,7 @@ which should return something similar to this:
 INFO:mirobo.vacuum:  IP 192.168.8.1: Xiaomi Mi Robot Vacuum - token: b'ffffffffffffffffffffffffffffffff'
 ```
 
-If the value is as shown above, full of ffs, the vacuum has already been connected and it needs a reset.
+If the value is exactly as shown above, meaning a lot of f letters, then the vacuum has already been connected and it needs a reset.
 
 {% linkable_title Configuration %}
 
