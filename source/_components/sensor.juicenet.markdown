@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: juicenet.png
 ha_category: Sensor
-ha_release: "0.45"
+ha_release: 0.47
 ---
 
 
@@ -17,8 +17,7 @@ The `juicenet` sensor platform allows you to get data from your [JuiceNet](https
 
 The requirement is that you have setup [Juicenet](/components/juicenet/).
 
-
-### Added sensors
+### {% linkable_title Added sensors %}
 
 These sensors will be added for each juicenet device in your account:
 
