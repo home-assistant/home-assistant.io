@@ -58,7 +58,9 @@ mqtt:
   keepalive: 60
   username: USERNAME
   password: PASSWORD
-  protocol: 3.1 
+  protocol: 3.1
+  tls_insecure: True
+  tls_version: 1.2
 ```
 
 Configuration variables:
@@ -70,9 +72,13 @@ Configuration variables:
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.
+- **tls_insecure** (*Optional*): Set the verification of the server hostname in the server certificate.
+- **tls_version** (*Optional*): TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`.
 
 <p class='note warning'>
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
+
+If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'`  then you need to set `tls_version: 1.2`.
 </p>
 
 <p class='note'>

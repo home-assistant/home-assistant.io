@@ -35,7 +35,7 @@ sensor:
 - **include_only_feed_id** (*Optional*): Positive integer list of Emoncms feed IDs. Only the feeds with feed IDs specified here will be displayed. Can not be specified if `exclude_feed_id` is specified.
 - **exclude_feed_id** (*Optional*): Positive integer list of Emoncms feed IDs. All the feeds will be displayed as sensors except the ones listed here. Can not be specified if `include_only_feed_id` is specified.
 - **sensor_names** (*Optional*): Dictionary of names for the sensors created that are created based on feed ID. The dictionary consists of `feedid: name` pairs. Sensors for feeds with their feed ID mentioned here will get the chosen name instead of the default name
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to alter the feed value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to alter the feed value.
 - **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of for all the sensors. default is "W".
 

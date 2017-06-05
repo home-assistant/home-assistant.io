@@ -31,7 +31,7 @@ Configuration variables:
 
 - **host** (*Required*): The IP or hostname of the Nuki bridge.
 - **port** (*Optional*): The port on which the Nuki bridge is listening on. Defaults to `8080`.
-- **token** (*Optional*): The token that was defined when setting up the bridge.
+- **token** (*Required*): The token that was defined when setting up the bridge.
 
 ## {% linkable_title Full configuration %}
 

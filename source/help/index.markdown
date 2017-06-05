@@ -42,6 +42,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 ### {% linkable_title Media coverage %}
 
+- [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs﻿) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017
 - [Zammad, Home Assistant und Freifunk - are the winner of the Thomas-Krenn-Awards 2017](https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/) - March 2017
 - [10 open source software tools for developing IoT applications](http://www.cbronline.com/news/internet-of-things/10-open-source-software-tools-developing-iot-applications/) - March 2017
