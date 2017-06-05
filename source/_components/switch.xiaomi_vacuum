@@ -19,7 +19,7 @@ which should return something similar to this:
 INFO:mirobo.vacuum:  IP 192.168.8.1: Xiaomi Mi Robot Vacuum - token: b'ffffffffffffffffffffffffffffffff'
 ```
 
-If the value is as shown above, the vacuum has already been connected and it needs a reset.
+If the value is as shown above, full of ffs, the vacuum has already been connected and it needs a reset.
 
 {% linkable_title Configuration %}
 
