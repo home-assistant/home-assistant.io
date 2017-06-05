@@ -1,0 +1,47 @@
+The `xiaomi_vacuum`switch platforms allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
+Current supported features are start and stop (go to dock).
+
+{% linkable_title Installation %}
+
+The easiest way to install the package is to use pip: ```pip3 install python-mirobo``` . [Using virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) is recommended.
+
+In case you get an error similar like ```ImportError: No module named 'packaging'``` during the installation,
+you need to upgrade pip and setuptools:
+
+```
+$ pip3 install -U pip setuptools
+```
+
+{% linkable_title Getting started %}
+
+To be able to communicate with the vacuum one needs to have its IP address as well as an encryption token.
+This token is only attainable before the device has been connected over the app to your local wifi.
+
+In order to fetch the token, reset the robot, connect to its the network its announcing (rockrobo-XXXX)
+and run the following command:
+
+```
+mirobo discover
+```
+
+which should return something similar to this:
+
+```
+INFO:mirobo.vacuum:  IP 192.168.8.1: Xiaomi Mi Robot Vacuum - token: b'ffffffffffffffffffffffffffffffff'
+```
+
+If the value is as shown above, the vacuum has already been connected and it needs a reset.
+
+{% linkable_title Configuration %}
+
+```
+- platform: xiaomi_vacuum
+  name: 'name of the robot'
+  host: 192.168.1.2
+  token: your-token-here
+```
+
+Configuration variables:
+- **name** (*Required*): The name of your robot
+- **host** (*Required*): The IP of your robot
+- **token** (*Required*): The token of your robot. Go to Getting started section to read more about how to get it
