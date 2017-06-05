@@ -162,18 +162,18 @@ pip3 install sense-hat
 <p>Type <code class="highlighter-rouge">exit</code> to quit out of the <em>homeassistant_venv</em> back to your <code class="highlighter-rouge">pi</code> environment.</p>
 <p>As all of the following steps should be under the <code class="highlighter-rouge">pi</code> user environment.</p>
 <h6>Install <em>RTIMU</em></h6>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Install RTIMU to pi user environment</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># pi user environment: Install RTIMU</span>
 pip3 install rtimulib
 
-<span class="c"># Add symlink to RTIMU in _homeassistant_venv_</span>
-<span class="c"># Create a symlink using the following command:</span>
-ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
-
-<span class="c"># Add _homeassistant_ user to the _input_ and the _i2c_ groups</span>
+<span class="c"># pi user environment: Add _homeassistant_ user to the _input_, _video_ and the _i2c_ groups</span>
 sudo addgroup homeassistant input
 sudo addgroup homeassistant i2c
+sudo addgroup homeassistant video
 
-<span class="c"># Reboot Raspberry Pi to apply changes</span>
+<span class="c"># HA environment: Add symlink to RTIMU</span>
+ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-35m-arm-linux-gnueabihf.so /srv/homeassistant/lib/python3.5/site-packages/
+
+<span class="c"># pi user environment: Reboot Raspberry Pi to apply changes</span>
 sudo reboot
 </code></pre>
 </div>
