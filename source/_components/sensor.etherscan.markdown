@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: etherscan.png
 ha_category: Finance
-ha_release: 0.46
+ha_release: 0.47
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -21,10 +21,11 @@ To add the Etherscan sensor to your installation, specify an ethereum address to
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: etherscan
-  address: '0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359'
+  - platform: etherscan
+    address: '0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359'
 ```
 
 Configuration variables:
 
-- **address** (*Required*): Ethereum wallet address to watch 
+- **address** (*Required*): Ethereum wallet address to watch.
+- **name** (*Optional*): The name of the sensor used in the frontend.
