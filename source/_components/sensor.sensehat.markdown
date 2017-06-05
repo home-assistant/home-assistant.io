@@ -2,7 +2,7 @@
 layout: page
 title: "Sense HAT"
 description: "Instructions how to integrate Sense HAT within Home Assistant."
-date: 2016-12-05 07:00
+date: 2017-06-03 04:00
 sidebar: true
 comments: false
 sharing: true
@@ -124,18 +124,18 @@ As all of the following steps should be under the `pi` user environment.
 ###### Install _RTIMU_
 
 ```bash
-# Install RTIMU to pi user environment
+# pi user environment: Install RTIMU
 pip3 install rtimulib
 
-# Add symlink to RTIMU in _homeassistant_venv_
-# Create a symlink using the following command:
-ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-34m-arm-linux-gnueabihf.so /srv/homeassistant/homeassistant_venv/lib/python3.4/
-
-# Add _homeassistant_ user to the _input_ and the _i2c_ groups
+# pi user environment: Add _homeassistant_ user to the _input_, _video_ and the _i2c_ groups
 sudo addgroup homeassistant input
 sudo addgroup homeassistant i2c
+sudo addgroup homeassistant video
 
-# Reboot Raspberry Pi to apply changes
+# HA environment: Add symlink to RTIMU
+ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-35m-arm-linux-gnueabihf.so /srv/homeassistant/lib/python3.5/site-packages/
+
+# pi user environment: Reboot Raspberry Pi to apply changes
 sudo reboot
 ```
 
