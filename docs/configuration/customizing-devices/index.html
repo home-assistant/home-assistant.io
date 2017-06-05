@@ -68,6 +68,9 @@
   </header>
   <hr class="divider">
   <p>By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.</p>
+<p class="note">
+Be carefull not to forget to place <code class="highlighter-rouge">customize</code>, customize_domain<code class="highlighter-rouge">, and </code>customize_glob<code class="highlighter-rouge"> inside </code>homeassistant:` or it will fail.
+</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
   <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
