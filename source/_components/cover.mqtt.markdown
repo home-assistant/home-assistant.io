@@ -46,6 +46,8 @@ Configuration variables:
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0`. Will also be used when publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not. Default is `false`.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+- **set_position_topic** (*Optional*): The MQTT topic to publish position commands to.
+- **set_position_template** (*Optional*): Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the numeric position (0-100) will be written directly to the topic.
 - **tilt_command_topic** (*Optional*): The MQTT topic to publish commands to control the cover tilt.
 - **tilt_status_topic** (*Optional*): The MQTT topic subscribed to receive tilt status update values.
 - **tilt_min** (*Optional*): The minimum tilt value. Default is `0`
