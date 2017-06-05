@@ -111,7 +111,7 @@ automation:
     offset: '-00:45:00'
 ```
 
-Sometimes you may want more grainular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon even after when it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. 
+Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. 
 
 ```yaml
 automation:
@@ -120,7 +120,7 @@ automation:
     platform: numeric_state
     entity_id: sun.sun
     value_template: "{% raw %}{{ state.attributes.elevation }}{% endraw %}"
-    # Can be a positive or negetive number
+    # Can be a positive or negative number
     below: -4.0
   action:
     service: switch.turn_on
