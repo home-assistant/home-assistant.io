@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 The `waqi` sensor platform will query [World Air Quality Index](http://aqicn.org) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.
 
+This sensor requires an API token. Please obtain one at [AQICN API token](http://aqicn.org/data-platform/token/#/).
+
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -30,11 +32,9 @@ sensor:
 
 Configuration variables:
 
-- **locations** (*Required*): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant
-
-- **token** (*Required*): a token for the AQICN public API. Please obtain one at [AQICN API token](http://aqicn.org/data-platform/token/#/)
-
-- **stations** (*Optional*): a list of station names to look for air quality data. Station should be within locations specified above.
+- **locations** (*Required*): A list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant.
+- **token** (*Required*): The token for the AQICN public API.
+- **stations** (*Optional*): A list of station names to look for air quality data. Station should be within locations specified above.
 
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
 
