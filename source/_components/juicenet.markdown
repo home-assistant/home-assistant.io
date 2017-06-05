@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: juicenet.png
 ha_category: Hub
-ha_release: "0.45"
+ha_release: 0.47
 ---
 
 
