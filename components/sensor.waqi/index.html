@@ -67,6 +67,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">waqi</code> sensor platform will query <a href="http://aqicn.org">World Air Quality Index</a> service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.</p>
+<p>This sensor requires an API token. Please obtain one at <a href="http://aqicn.org/data-platform/token/#/">AQICN API token</a>.</p>
 <p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -80,15 +81,9 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li>
-    <p><strong>locations</strong> (<em>Required</em>): a list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant</p>
-  </li>
-  <li>
-    <p><strong>token</strong> (<em>Required</em>): a token for the AQICN public API. Please obtain one at <a href="http://aqicn.org/data-platform/token/#/">AQICN API token</a></p>
-  </li>
-  <li>
-    <p><strong>stations</strong> (<em>Optional</em>): a list of station names to look for air quality data. Station should be within locations specified above.</p>
-  </li>
+  <li><strong>locations</strong> (<em>Required</em>): A list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant.</li>
+  <li><strong>token</strong> (<em>Required</em>): The token for the AQICN public API.</li>
+  <li><strong>stations</strong> (<em>Optional</em>): A list of station names to look for air quality data. Station should be within locations specified above.</li>
 </ul>
 <p>The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:</p>
 <table>
