@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: xiaomi_mirobot_vacuum.png
+logo: xiaomi_vacuum.png
 ha_category: Switch
-ha_release: 0.4X
+ha_release: 0.47
 ---
 
 The `xiaomi_vacuum`switch platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
