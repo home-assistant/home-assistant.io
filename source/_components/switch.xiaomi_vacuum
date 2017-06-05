@@ -13,12 +13,20 @@ ha_release: 0.4X
 ---
 
 The `xiaomi_vacuum`switch platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
-Current supported features are start and stop (go to dock).
+Current supported features are start and stop (goes to dock).
 
 {% linkable_title Getting started %}
 
 To be able to communicate with the vacuum one needs to have its IP address as well as an encryption token.
 This token is only attainable before the device has been connected over the app to your local wifi.
+
+<p class='note warning'>
+If your Home Assistant installation is running on [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
+
+```bash 
+$ sudo su -s /bin/bash homeassistant
+$ source /srv/homeassistant/bin/activate
+```
 
 In order to fetch the token, reset the robot, connect to its the network its announcing (rockrobo-XXXX)
 and run the following command:
