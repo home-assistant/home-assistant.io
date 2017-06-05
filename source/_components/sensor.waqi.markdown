@@ -21,7 +21,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: waqi
-  	token: AQICN_API_TOKEN
+    token: AQICN_API_TOKEN
     locations:
       - beijing
     stations:
