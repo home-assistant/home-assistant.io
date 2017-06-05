@@ -1,16 +1,5 @@
-The `xiaomi_vacuum`switch platforms allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
+The `xiaomi_vacuum`switch platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
 Current supported features are start and stop (go to dock).
-
-{% linkable_title Installation %}
-
-The easiest way to install the package is to use pip: ```pip3 install python-mirobo``` . [Using virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) is recommended.
-
-In case you get an error similar like ```ImportError: No module named 'packaging'``` during the installation,
-you need to upgrade pip and setuptools:
-
-```
-$ pip3 install -U pip setuptools
-```
 
 {% linkable_title Getting started %}
 
@@ -42,6 +31,6 @@ If the value is as shown above, the vacuum has already been connected and it nee
 ```
 
 Configuration variables:
-- **name** (*Required*): The name of your robot
+- **name** (*Optional*): The name of your robot
 - **host** (*Required*): The IP of your robot
 - **token** (*Required*): The token of your robot. Go to Getting started section to read more about how to get it
