@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: sense-hat.png
 ha_category: Sensor
-ha_release: 0.46
+ha_release: 0.35
 ha_iot_class: "Local Push"
 ---
 
