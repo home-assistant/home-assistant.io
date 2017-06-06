@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: radarr.png
 ha_category: Sensor
-ha_release: 0.45
+ha_release: 0.47
 ---
 
 
