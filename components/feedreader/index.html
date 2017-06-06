@@ -100,7 +100,7 @@
       <span class="s">data_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 </code></pre>
 </div>
-<p>*Any field under the <code class="highlighter-rouge">&lt;entry&gt;</code> tag in the feed can be used for example <code class="highlighter-rouge">tigger.event.data.content</code> will get the body of the feed entry.</p>
+<p>*Any field under the <code class="highlighter-rouge">&lt;entry&gt;</code> tag in the feed can be used for example <code class="highlighter-rouge">trigger.event.data.content</code> will get the body of the feed entry.</p>
 <p>For more advanced use cases, a custom component registering to the <code class="highlighter-rouge">feedreader</code> event type could be used instead:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">EVENT_FEEDREADER</span> <span class="o">=</span> <span class="s">"feedreader"</span>
 <span class="n">hass</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">EVENT_FEEDREADER</span><span class="p">,</span> <span class="n">event_listener</span><span class="p">)</span>
