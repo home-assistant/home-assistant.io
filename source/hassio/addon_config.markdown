@@ -92,6 +92,7 @@ The config for an add-on is stored in `config.json`.
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | host_network | no | If that is True, the add-on run on host network.
 | devices | no | Device list to map into add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`. i.e. `/dev/ttyAMA0:/dev/ttyAMA0:rwm` 
+| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`
 | map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Default it map it `ro`, you can change that if you add a ":rw" at the end of name.
 | environment | no | A dict of environment variable to run add-on.
 | options | yes | Default options value of the add-on
