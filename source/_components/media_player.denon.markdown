@@ -22,9 +22,16 @@ Supported devices:
 - Denon RCD-N8 (untested)
 - Denon RCD-N9 (partial support)
 - Denon AVR receivers with integrated Network support (partial support)
+- Denon AVR-X2000 (via denonavr platform)
+- Denon AVR-X2100W (via denonavr platform)
 - Denon AVR-X4100W (via denonavr platform)
-- Denon AVR receivers (via denonavr platform (untested))
+- Denon AVR-1912 (via denonavr platform)
+- Denon AVR-2312CI (via denonavr platform)
+- Denon AVR-3311CI (via denonavr platform)
+- Marantz M-CR603 (via denonavr platform)
 - Marantz M-RC610 (via denonavr platform)
+- Marantz SR5008 (via denonavr platform)
+- Other Denon AVR receivers (via denonavr platform (untested))
 - Marantz receivers (experimental via denonavr platform)
 
 <pre class='note'>
@@ -60,12 +67,14 @@ A few notes for platform: denon
 media_player:
   - platform: denonavr
     host: IP_ADDRESS
+    show_all_sources: True / False
 ```
 
 Configuration variables:
 
 - **host** (*Optional*): IP address of the device. Example: 192.168.1.32. If not set, auto discovery is used.
 - **name** (*Optional*): Name of the device. If not set, friendlyName of receiver is used.
+- **show_all_sources** (*Optional*): If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed (default). Some receivers have a bug that marks all sources as deleted in the interface. In this case this option could help.
 
 A few notes for platform: denonavr
 - Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform.
