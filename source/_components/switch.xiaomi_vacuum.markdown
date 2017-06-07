@@ -31,7 +31,7 @@ $ source /srv/homeassistant/bin/activate
 In order to fetch the token, reset the robot, connect to its the network its announcing (rockrobo-XXXX)
 and run the following command:
 
-```
+```bash
 mirobo discover
 ```
 
@@ -45,7 +45,8 @@ If the value is exactly as shown above, meaning a lot of f letters, then the vac
 
 {% linkable_title Configuration %}
 
-```
+```yaml
+# Example configuration.yaml entry
 - platform: xiaomi_vacuum
   name: 'name of the robot'
   host: 192.168.1.2
