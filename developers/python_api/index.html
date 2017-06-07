@@ -66,23 +66,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>In the package <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py"><code class="highlighter-rouge">homeassistant.remote</code></a> a Python API on top of the <a href="/developers/api/">HTTP API</a> can be found.</p>
-<p>Note: This page is not full documentation for this API, but a collection of examples showing its use.</p>
+  <p>See the <a href="https://dev-docs.home-assistant.io/en/master/api/homeassistant.html#module-homeassistant.remote">developer documentation</a> for a full overview of the documentation. The rest of this page will contain examples on how to use it.</p>
+<p>In the package <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py"><code class="highlighter-rouge">homeassistant.remote</code></a> a Python API on top of the <a href="/developers/api/">HTTP API</a> can be found.</p>
 <p>A simple way to get all current entities is to visit the “Set State” page in the “Developer Tools”. For the examples below just choose one from the available entries. Here the sensor <code class="highlighter-rouge">sensor.office_temperature</code> and the switch <code class="highlighter-rouge">switch.livingroom_pin_2</code> are used.</p>
 <p>First import the module and setup the basics:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">validate_api</span><span class="p">(</span><span class="n">api</span><span class="p">))</span>
-</code></pre>
-</div>
-<p>Here’s another way to use the <code class="highlighter-rouge">homeassistant.remote</code> package:</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'password'</span><span class="p">)</span>
-<span class="n">hass</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">HomeAssistant</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
-<span class="n">hass</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<span class="n">living_room</span> <span class="o">=</span> <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'group.living_room'</span><span class="p">)</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="get-configuration" href="#get-configuration"></a> Get configuration</h3>
@@ -122,7 +113,7 @@
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">office_temperature</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'sensor.office_temperature'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'{} is {} {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">office_temperature</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'friendly_name'</span><span class="p">],</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{} is {} {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">office_temperature</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                             <span class="n">office_temperature</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
                             <span class="n">office_temperature</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'unit_of_measurement'</span><span class="p">]</span>
                             <span class="p">)</span>
@@ -138,7 +129,7 @@
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">switch_livingroom</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'switch.livingroom_pin_2'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'{} is {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">switch_livingroom</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'friendly_name'</span><span class="p">],</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{} is {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">switch_livingroom</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                          <span class="n">switch_livingroom</span><span class="o">.</span><span class="n">state</span>
                          <span class="p">)</span>
       <span class="p">)</span>
@@ -214,7 +205,6 @@ longer timeout.</p>
 <span class="n">remote</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="s">'jabber'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 </code></pre>
 </div>
-<p>For more details, please check the source of <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py">homeassistant.remote</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
