@@ -14,14 +14,14 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `nad7050` platform allows you to control a [NAD D 7050](https://nadelectronics.com/product/d-7050-direct-digital-network-amplifier/) digital amplifier from Home Assistant.
+The `nadtcp` platform allows you to control a [NAD D 7050](https://nadelectronics.com/product/d-7050-direct-digital-network-amplifier/) digital amplifier from Home Assistant.
 
 To add a NAD receiver to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-    platform: nad7050
+    platform: nadtcp
     host: 192.168.0.112
 ```
 
