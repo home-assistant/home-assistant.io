@@ -38,7 +38,7 @@ image_processing:
     - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
 - **classifier** (*Optional*): Dictionary of name to path to the classifier xml file. If this field is not provided, a face classifier will be downloaded from OpenCV's github repo.
 
-**classifier** may either be a path to a classier file or defined as:
+**classifier** may also be defined as a dictionary of names to classifier configurations:
 
 ```yaml
     mom:
