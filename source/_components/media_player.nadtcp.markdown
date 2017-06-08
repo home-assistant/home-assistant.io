@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NAD tcp"
-description: "Instructions how to integrate the NAD D 7050 digital amplifier into Home Assistant."
+description: "Instructions how to integrate the NAD D 7050 or C338 digital amplifiers into Home Assistant."
 date: 2017-06-07 20:00
 sidebar: true
 comments: false
@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `nadtcp` platform allows you to control the D7050 and C338 from Home Assistant via WiFi. Note that it has only been tested with the D 7050.
 
-To add a NAD receiver to your installation, add the following to your `configuration.yaml` file:
+To add a NAD amplifier to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
