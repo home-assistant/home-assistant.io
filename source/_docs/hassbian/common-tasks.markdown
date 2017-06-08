@@ -84,7 +84,7 @@ Log in as the `pi` account and execute the following commands:
 ```bash
 $ sudo su -s /bin/bash homeassistant
 $ cd /home/homeassistant/.homeassistant
-$ nano homeassistant.log
+$ nano home-assistant.log
 ```
 
 This will in order do the following:
