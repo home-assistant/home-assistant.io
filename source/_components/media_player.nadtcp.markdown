@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "NAD D 7050"
+title: "NAD tcp"
 description: "Instructions how to integrate the NAD D 7050 digital amplifier into Home Assistant."
-date: 2017-04-01 20:00
+date: 2017-06-07 20:00
 sidebar: true
 comments: false
 sharing: true
@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `nadtcp` platform allows you to control a [NAD D 7050](https://nadelectronics.com/product/d-7050-direct-digital-network-amplifier/) digital amplifier from Home Assistant.
+The `nadtcp` platform allows you to control the D7050 and C338 from Home Assistant via WiFi. Note that it has only been tested with the D 7050.
 
 To add a NAD receiver to your installation, add the following to your `configuration.yaml` file:
 
@@ -28,7 +28,7 @@ media_player:
 Configuration variables:
 
 - **host** (*Required*): The IP address of your amplifier.
-- **name** (*Optional*): Name of the device. Default is NAD D 7050.
+- **name** (*Optional*): Name of the device. Default is NAD amplifier.
 - **min_volume** (*optional*): Minimum volume in dB to use with the slider. Default is `-60`
 - **max_volume** (*optional*): Maximum volume in dB to use with the slider. Default is `-10`
 - **volume_step** (*Optional*): The amount in dB you want to increase the volume with when pressing volume up/down. Default is 4 dB.
