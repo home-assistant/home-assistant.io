@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: flexit.png
 ha_category: Climate
-ha_release: 0.46
+ha_release: 0.47
 ha_iot_class: "Local Polling"
 ---
 
@@ -30,3 +30,29 @@ Configuration variables:
 
 - **slave** (*Required*): The slave ID of the modbus adapter, set using DIP-switches.
 - **name** (*Optional*): Displayed name of the A/C unit
+
+<p class='note'>
+This component requires the [Modbus](/components/modbus/) component to be set up to work
+</p>
+
+Full configuration example including modbus setup shown below:
+
+DIP-switch settings on the CI66:
+1=ON, 2=ON, 3=OFF, 4=ON, 5=OFF, 6=ON, 7=ON, 8=ON
+
+```yaml
+# Full example configuration.yaml entry
+modbus:
+  type: serial
+  method: rtu
+  port: /dev/ttyUSB0
+  baudrate: 56000
+  stopbits: 1
+  bytesize: 8
+  parity: E
+
+climate:
+  - platform: flexit
+    name: Main A/C
+    slave: 21
+```
