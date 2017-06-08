@@ -2,7 +2,7 @@
 layout: page
 title: "OpenCV"
 description: "Instructions how to integrate OpenCV image processing into Home Assistant."
-date: 2017-06-24 00:00
+date: 2017-01-25 00:00
 sidebar: true
 comments: false
 sharing: true
