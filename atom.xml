@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-07T15:07:16+00:00</updated>
+  <updated>2017-06-08T12:04:11+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -22,7 +22,7 @@
 
 <p>It’s time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.</p>
 
-<h2>New platforms</h2>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h2>
 
 <ul>
   <li>Template light (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7657">#7657</a>) (<a href="https://home-assistant.io/components/light.template/">light.template docs</a>) (new-platform)</li>
@@ -31,7 +31,7 @@
   <li>Introduced support to Netgear Arlo Cameras (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7826">#7826</a>) (<a href="https://home-assistant.io/components/arlo/">arlo docs</a>) (<a href="https://home-assistant.io/components/camera.arlo/">camera.arlo docs</a>) (<a href="https://home-assistant.io/components/sensor.arlo/">sensor.arlo docs</a>) (new-platform)</li>
 </ul>
 
-<h2>Breaking changes</h2>
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
 
 <ul>
   <li>The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use <code class="highlighter-rouge">scan_interval</code> instead of <code class="highlighter-rouge">update_interval</code>  (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7655">#7655</a>) (<a href="https://home-assistant.io/components/sensor.usps/">sensor.usps docs</a>) (breaking change)</li>
@@ -64,7 +64,7 @@
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
 
 <!--more-->
-<h2>All changes</h2>
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
 
 <ul>
   <li>Align with OpenALPR platform for naming conf variables (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7650">#7650</a>) (<a href="https://home-assistant.io/components/image_processing.seven_segments/">image_processing.seven_segments docs</a>)</li>
