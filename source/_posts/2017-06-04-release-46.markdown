@@ -15,14 +15,14 @@ og_image: /images/blog/2017-06-0.46/components.png
 
 It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
 
-## New platforms
+## {% linkable_title New platforms %}
 
 - Template light ([@cribbstechnologies] - [#7657]) ([light.template docs]) (new-platform)
 - Support for GE Zwave fan controller ([@armills] - [#7767]) ([zwave docs]) ([fan.zwave docs]) (new-platform)
 - Rachio (Sprinklers) ([@Klikini] - [#7600]) ([switch.rachio docs]) (new-platform)
 - Introduced support to Netgear Arlo Cameras ([@tchellomello] - [#7826]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs]) (new-platform)
 
-## Breaking changes
+## {% linkable_title Breaking changes %}
 
 - The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)
@@ -51,7 +51,7 @@ sensor:
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## All changes
+## {% linkable_title All changes %}
 
 - Align with OpenALPR platform for naming conf variables ([@fabaff] - [#7650]) ([image_processing.seven_segments docs])
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])
