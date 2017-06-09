@@ -22,6 +22,16 @@ It's time for 0.46! This release does not have too many new integrations, instea
 - Rachio (Sprinklers) ([@Klikini] - [#7600]) ([switch.rachio docs]) (new-platform)
 - Introduced support to Netgear Arlo Cameras ([@tchellomello] - [#7826]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs]) (new-platform)
 
+## {% linkable_title Release 0.46.1 - June 9 %}
+
+- Support for renaming ZWave values ([@armills] - [#7780]) ([zwave docs])
+- Dsmr5 revert ([@aequitas] - [#7900]) ([sensor.dsmr docs])
+- Fix typos in Wunderground component (Percipitation -> Precipitation) ([@mje-nz] - [#7901]) ([sensor.wunderground docs])
+- Mqtt cover: Making command topic optional and add ability to set up/down position including ability to template the value ([@cribbstechnologies] - [#7841]) ([cover.mqtt docs])
+- Media Player - OpenHome: Fixed metadata issue ([@bazwilliams] - [#7932]) ([media_player.openhome docs])
+- Sensor - MetOffice: Fix last updated date ([@cyberjacob] - [#7965]) ([sensor.metoffice docs])
+- Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
+
 ## {% linkable_title Breaking changes %}
 
 - The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
@@ -374,3 +384,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[#7780]: https://github.com/home-assistant/home-assistant/pull/7780
+[#7841]: https://github.com/home-assistant/home-assistant/pull/7841
+[#7900]: https://github.com/home-assistant/home-assistant/pull/7900
+[#7901]: https://github.com/home-assistant/home-assistant/pull/7901
+[#7932]: https://github.com/home-assistant/home-assistant/pull/7932
+[#7965]: https://github.com/home-assistant/home-assistant/pull/7965
+[#7969]: https://github.com/home-assistant/home-assistant/pull/7969
+[@cyberjacob]: https://github.com/cyberjacob
+[@mje-nz]: https://github.com/mje-nz
+[cover.mqtt docs]: https://home-assistant.io/components/cover.mqtt/
+[sensor.metoffice docs]: https://home-assistant.io/components/sensor.metoffice/
+[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
+[media_player.roku docs]: https://home-assistant.io/components/media_player.roku/
