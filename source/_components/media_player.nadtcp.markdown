@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nad.png
 ha_category: Media Player
-ha_release: 0.4x
+ha_release: 0.47
 ha_iot_class: "Local Polling"
 ---
 
