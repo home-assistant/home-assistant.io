@@ -52,7 +52,7 @@ automation:
       data_template: "{{ trigger.event.data.title }}"
 ```
 
-*Any field under the `<entry>` tag in the feed can be used for example `tigger.event.data.content` will get the body of the feed entry.
+*Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
 For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
 

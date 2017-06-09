@@ -111,6 +111,23 @@ automation:
     offset: '-00:45:00'
 ```
 
+Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. 
+
+```yaml
+automation:
+  alias: "Exterior Lighting on when dark outside"
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{% raw %}{{ state.attributes.elevation }}{% endraw %}"
+    # Can be a positive or negative number
+    below: -4.0
+  action:
+    service: switch.turn_on
+    entity_id: switch.exterior_lighting
+```
+The US Naval Observatory has a [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time.
+
 ### {% linkable_title Template trigger %}
 
 Template triggers work by evaluating a [template] on each state change. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below).

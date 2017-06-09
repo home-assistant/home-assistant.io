@@ -43,16 +43,16 @@ automation:
   trigger:
     - platform: state
       entity_id: sensor.pir1
-      state: 'active'
+      to: 'active'
     - platform: state
       entity_id: sensor.pir2
-      state: 'active'
+      to: 'active'
     - platform: state
       entity_id: sensor.door
-      state: 'open'
+      to: 'open'
     - platform: state
       entity_id: sensor.window
-      state: 'open'
+      to: 'open'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm

@@ -23,7 +23,7 @@ If you want Home Assistant to be launched automatically, an extra step is needed
 - `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
 - If running Home Assistant in a Python virtual environment or a Docker container, please skip to section below.
 - For most systems, the file is `/etc/systemd/system/home-assistant@[your user].service` with [your user] replaced by the user account that Home Assistant will run as - normally `homeassistant`.  For Ubuntu 16.04, the file is `/lib/systemd/system/home-assistant.service` and requires running this command `sudo ln -s /lib/systemd/system/home-assistant.service /etc/systemd/system/home-assistant.service` after file is created.
-- If unfamiliar with command-line text editors, `sudo nano -w [filename]` can be used with `[filename]` replaced with the full path to the file.  Ex. `sudo nano -w /etc/systemd/system/home-assistant@homeassistant.service`.  After text entered, press CTRL-X then press Y to save and exit.
+- If unfamiliar with command-line text editors, `sudo nano -w [filename]` can be used with `[filename]` replaced with the full path to the file.  Ex. `sudo nano -w /etc/systemd/system/home-assistant@[your user].service`.  After text entered, press CTRL-X then press Y to save and exit.
 
 ```
 [Unit]

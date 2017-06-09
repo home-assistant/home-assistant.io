@@ -12,7 +12,7 @@ ha_category: Camera
 ha_release: 0.46
 ---
 
-To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).
+To get your [Arlo](https://arlo.netgear.com/) cameras working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).
 
 This component is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
 

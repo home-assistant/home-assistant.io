@@ -13,7 +13,7 @@ ha_release: 0.7.5
 ---
 
 
-The `telegram` platform uses [Telegram](https://web.telegram.org) to delivery notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
+The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
 
 The requirements are:
 
@@ -89,7 +89,7 @@ Configuration variables:
 - **message** (*Required*): Message text.
 - **title** (*Optional*): Will be composed as '%title\n%message'.
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
 ### {% linkable_title Photo support %}
 
@@ -119,7 +119,7 @@ Configuration variables:
 - **password** (*Optional*): Username for a URL which require HTTP authentication.
 - **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
 
 ### {% linkable_title Document support %}
@@ -148,7 +148,7 @@ Configuration variables:
 - **password** (*Optional*): Username for a URL which require HTTP authentication.
 - **authentication** (*Optional*): Set to 'digest' to use HTTP digest authentication, defaults to 'basic'.
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
 ### {% linkable_title Location support %}
 
@@ -171,4 +171,4 @@ Configuration variables:
 - **latitude** (*Required*): The latitude to send.
 - **longitude** (*Required*): The longitude to send.
 - **keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom keyboard.
-- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with asociated callback data.
+- **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.

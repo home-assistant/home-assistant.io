@@ -68,8 +68,8 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 automation:
   alias: Startup Notification
   trigger:
-    platform: event
-    event_type: homeassistant_start
+    platform: homeassistant
+    event: start
   action:
     service: ifttt.trigger
     data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
@@ -82,8 +82,8 @@ IFTTT can also be used in scripts and with `data_template`.  Here is the above a
 automation:
   alias: Startup Notification
   trigger:
-    platform: event
-    event_type: homeassistant_start
+    platform: homeassistant
+    event: start
   action:
     service: script.ifttt_notify
     data_template:

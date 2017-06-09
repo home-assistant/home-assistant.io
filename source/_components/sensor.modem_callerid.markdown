@@ -45,7 +45,7 @@ Some example automations:
     trigger: 
       platform: state
       entity_id: sensor.modem_callerid
-      state: "callerid"
+      to: "callerid"
     action:
       service: notify.notify
       data:
@@ -54,7 +54,7 @@ Some example automations:
     trigger: 
       platform: state
       entity_id: sensor.modem_callerid
-      state: "callerid"      
+      to: "callerid"
     action:
       service: persistent_notification.create
       data:
@@ -64,7 +64,7 @@ Some example automations:
     trigger: 
       platform: state
       entity_id: sensor.modem_callerid
-      state: "callerid"      
+      to: "callerid"
     action:
       service: tts.google_say
       data_template:
