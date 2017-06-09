@@ -101,6 +101,30 @@ It can also access the internal phone book of the router to look up the names co
       <span class="pi">-</span> <span class="s1">'</span><span class="s">089'</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="send-notifications-on-state-change" href="#send-notifications-on-state-change"></a> Send notifications on state change</h3>
+<p>This example shows how to send notifications whenever the sensor’s state changes. You will get notified both when you receive a call and also when a call is placed.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry.</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Notify</span><span class="nv"> </span><span class="s">about</span><span class="nv"> </span><span class="s">phone</span><span class="nv"> </span><span class="s">state"</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.phone</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Phone"</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+            <span class="no">{% if is_state("sensor.phone", "idle") %}</span>
+              <span class="no">Phone is idle</span>
+            <span class="no">{% elif is_state("sensor.phone", "dialing") %}</span>
+              <span class="no">Calling {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})</span>
+            <span class="no">{% elif is_state("sensor.phone", "ringing") %}</span>
+              <span class="no">Incoming call from {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})</span>
+            <span class="no">{% else %}</span>
+              <span class="no">Talking to {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})</span>
+            <span class="no">{% endif %}</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
