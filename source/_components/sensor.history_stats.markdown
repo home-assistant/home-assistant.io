@@ -43,7 +43,8 @@ Configuration variables:
 
  - **entity_id** (*Required*): The entity you want to track
  - **state** (*Required*): The state you want to track
- - **name** (*Optional*): Name displayed on the frontend
+ - **name** (*Optional*): Sensor Entity ID
+ - **friendly_name** (*Optional*): Friendly Name displayed on the frontend
  - **type** (*Optional*): The type of sensor: `time`, `ratio`, or `count`. Defaults to `time`
  - **start**: When to start the measure (timestamp or datetime).
  - **end**: When to stop the measure (timestamp or datetime)
