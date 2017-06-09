@@ -124,11 +124,11 @@
       <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">CPU fanspeed</span>
         <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">server_health</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">%'</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">ilo_data.fans["Fan</span><span class="nv"> </span><span class="s">1"].speed[0]</span><span class="nv"> </span><span class="s">}}'</span>
       <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Inlet temperature</span>
         <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">server_health</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°C'</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">ilo_data.temperature["01-Inlet</span><span class="nv"> </span><span class="s">Ambient"].currentreading[0]</span><span class="nv"> </span><span class="s">}}'</span>
       <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Server Health</span>
         <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">server_health</span>
 
