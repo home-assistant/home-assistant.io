@@ -64,23 +64,25 @@ Configuration variables:
 #### Customizing the sensor data
 
 **Give the values friendly names & icons**
+
 Add the following to your `customize`
 
 ```yaml
 # Example configuration.yaml entry
 customize:
-  sensor.bme280_sensor_temperature:
+  sensor.ambient_temperature:
     icon: mdi:thermometer
     friendly_name: "Temperature"
-  sensor.bme280_sensor_humidity:
+  sensor.ambient_humidity:
     icon: mdi:weather-rainy
     friendly_name: "Humidity"
-  sensor.bme280_sensor_pressure:
+  sensor.ambient_pressure:
     icon: mdi:gauge
     friendly_name: "Pressure"
 ```
 
 **Create a group**
+
 Add the following to your `groups`
 
 ```yaml
@@ -89,9 +91,9 @@ group:
   ambient_sensor:
     name: BME280 Environment sensor
     entities:
-      - sensor.bme280_sensor_temperature
-      - sensor.bme280_sensor_humidity
-      - sensor.bme280_sensor_pressure
+      - sensor.ambient_temperature
+      - sensor.ambient_humidity
+      - sensor.ambient_pressure
 ```
 
 
