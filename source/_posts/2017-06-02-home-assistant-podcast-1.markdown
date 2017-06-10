@@ -7,7 +7,7 @@ date_formatted: "June 02, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
 comments: true
-categories: Community
+categories: Media
 og_image: /images/hasspodcast.jpg
 ---
 
