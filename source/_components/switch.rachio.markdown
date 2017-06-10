@@ -9,18 +9,18 @@ sharing: true
 footer: true
 logo: rachio.png
 ha_category: Switch
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Polling"
 ha_release: 0.46
 ---
 
-The `rachio` switch platform allows you to control your [Rachio irrigations system](http://rachio.com/).
+The `rachio` switch platform allows you to control your [Rachio irrigation system](http://rachio.com/).
 
 ## {% linkable_title Getting your Rachio API Access Token %}
 
-- Log in at [https://app.rach.io/](https://app.rach.io/).
-- Click the user button at the top right.
-- Click API Access Token.
-- Copy the API access token from the dialog that opens.
+1. Log in at [https://app.rach.io/](https://app.rach.io/).
+1. Click the user button at the top right.
+1. Click API Access Token.
+1. Copy the API access token from the dialog that opens.
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
@@ -33,7 +33,7 @@ switch:
 
 Configuration variables:
 
-- **access_token** (*Required): Your Rachio API Access Token.
+- **access_token** (*Required*): Your Rachio API Access Token.
 - **manual_run_mins** (*Optional*): For how long, in minutes, to turn on a station when the switch is enabled. Defaults to 10 minutes.
 
 ## {% linkable_title Examples %}
@@ -74,7 +74,7 @@ zones_back:
 
 ### {% linkable_title iFrame %}
 
-If you would like to see the Rachio details then create an [iFrame](/components/panel_iframe/) that contains the information accessible through your panel.
+If you would like to see and control more detailed zone information, create an [iFrame](/components/panel_iframe/) that renders the Rachio web app.
 
 ```yaml
 panel_iframe:
