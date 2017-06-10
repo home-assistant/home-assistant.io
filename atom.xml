@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-09T15:56:51+00:00</updated>
+  <updated>2017-06-10T03:40:12+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Linux Action Show special about Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2017/06/10/interview-with-jupiter-broadcasting/"/>
+    <updated>2017-06-10T01:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/06/10/interview-with-jupiter-broadcasting</id>
+    <content type="html"><![CDATA[<p>Our founder Paulus Schoutsen is interviewed by Chris Fisher for a Linux Action Show special about home automation, <a href="https://community.home-assistant.io/t/introducing-hass-io/17296/48">Hass.io</a> and the new <a href="https://hasspodcast.io/">Home Assistant podcast</a>.</p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/LQbOtUmITv8" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans]]></title>
@@ -1928,20 +1942,6 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>Add zwave per-node entity. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6690">#6690</a>)</li>
   <li>Version bump to 0.41 (<a href="https://github.com/balloob">@balloob</a>)</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OpenSourceCraft interviews our founder Paulus Schoutsen]]></title>
-    <link href="https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/"/>
-    <updated>2017-03-23T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen</id>
-    <content type="html"><![CDATA[<p>Last month Gregg Pollack from <a href="http://codepop.com/open-sourcecraft">OpenSourceCraft</a> visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the <a href="http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/">full article including extra video material</a>.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/osq_2-Qlan0" frameborder="0" allowfullscreen=""></iframe>
-</div>
 
 ]]></content>
   </entry>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Media | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/media/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2017-06-10T03:40:12+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux Action Show special about Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2017/06/10/interview-with-jupiter-broadcasting/"/>
+    <updated>2017-06-10T01:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/06/10/interview-with-jupiter-broadcasting</id>
+    <content type="html"><![CDATA[Our founder Paulus Schoutsen is interviewed by Chris Fisher for a Linux Action Show special about home automation, [Hass.io] and the new [Home Assistant podcast].
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LQbOtUmITv8" frameborder="0" allowfullscreen></iframe>
+</div>
+
+[Hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296/48
+[Home Assistant podcast]: https://hasspodcast.io/
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Podcast 1]]></title>
+    <link href="https://home-assistant.io/blog/2017/06/02/home-assistant-podcast-1/"/>
+    <updated>2017-06-02T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/06/02/home-assistant-podcast-1</id>
+    <content type="html"><![CDATA[The first podcast by [Home Assistant Podcast](https://hasspodcast.io) contains an introduction and covers the [0.45](/blog/2017/05/20/automation-editor-zwave-panel-ocr/) release of Home Assistant.
+
+- Listen online: [https://hasspodcast.io/ha001/](https://hasspodcast.io/ha001/)
+- Download: [https://hasspodcast.io/podcast-download/13/ha001.mp3](https://hasspodcast.io/podcast-download/13/ha001.mp3)
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Podcast.__init__ interview with Paulus Schoutsen]]></title>
+    <link href="https://home-assistant.io/blog/2017/05/05/podcast-init-interview/"/>
+    <updated>2017-05-05T02:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/05/05/podcast-init-interview</id>
+    <content type="html"><![CDATA[<p class='img'>
+<a href='https://www.podcastinit.com/'><img src='https://home-assistant.io/images/blog/2017-05-podcast-init/podcast_init.png' /></a>
+</p>
+
+Earlier this year I was interviewed by Tobias Macey from [Podcast.\_\_init\_\_][pc-init] about Python and Home Assistant. Just realized that we never shared this on the blog, oops. Here it is, enjoy!
+
+<script class="podigee-podcast-player" src="//cdn.podigee.com/podcast-player/javascripts/podigee-podcast-player.js" data-configuration="https://www.podcastinit.com?podigee_player=205" async></script>
+
+[pc-init]: https://www.podcastinit.com/
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OpenSourceCraft interviews our founder Paulus Schoutsen]]></title>
+    <link href="https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/"/>
+    <updated>2017-03-23T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen</id>
+    <content type="html"><![CDATA[Last month Gregg Pollack from [OpenSourceCraft] visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the [full article including extra video material][article].
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/osq_2-Qlan0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+[OpenSourceCraft]: http://codepop.com/open-sourcecraft
+[article]: http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/
+]]></content>
+  </entry>
+  
+</feed>
