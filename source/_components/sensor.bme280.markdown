@@ -27,7 +27,7 @@ sensor:
 
 Or, if you want to specify the working mode of the digital sensor or need to change the default I2c address (which is 0x76), add more details to the yaml config:
 
-```
+```yaml
 # Example of customized configuration.yaml entry
 sensor:
   - platform: bme280
@@ -45,6 +45,7 @@ sensor:
       - pressure
     scan_interval: 40
 ```
+
 This sensor is somehow famous for generating relatively high temperature measurements compared to other sensors (it looks like self-heating does not feel good for some encapsulations). If you experience this problem, you can define an absolute delta of temperature correction using a negative number.
 
 Configuration variables:
