@@ -107,6 +107,30 @@
     <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Custom</span><span class="nv"> </span><span class="s">subject"</span>
 </code></pre>
 </div>
+<p>The service <code class="highlighter-rouge">persistent_notification/dismiss</code> requires a <code class="highlighter-rouge">notification_id</code>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">notification_id</code></td>
+      <td>no</td>
+      <td>the <code class="highlighter-rouge">notification_id</code> is required to identify the notification that should be removed.</td>
+    </tr>
+  </tbody>
+</table>
+<p>This service allows you to remove a notifications by script or automation.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">persistent_notification.dismiss</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">notification_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1234"</span>
+</code></pre>
+</div>
 <h3><a class="title-link" name="create-a-persistent-notification" href="#create-a-persistent-notification"></a> Create a persistent notification</h3>
 <p>Choose <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong> to call the <code class="highlighter-rouge">persistent_notification</code> service. Select <code class="highlighter-rouge">persistent_notification/create</code> from the list of <strong>Available services:</strong> and enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
