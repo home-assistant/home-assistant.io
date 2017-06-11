@@ -40,6 +40,21 @@ action:
     title: "Custom subject"
 ```
 
+The service `persistent_notification/dismiss` requires a `notification_id`.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `notification_id`      |      no  | the `notification_id` is required to identify the notification that should be removed.
+
+This service allows you to remove a notifications by script or automation.
+
+```yaml
+action:
+  service: persistent_notification.dismiss
+  data:
+    notification_id: "1234"
+```
+
 ### {% linkable_title Create a persistent notification %}
 
 Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools** to call the `persistent_notification` service. Select `persistent_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
