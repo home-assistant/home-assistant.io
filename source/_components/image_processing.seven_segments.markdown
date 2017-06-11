@@ -41,8 +41,10 @@ Configuration variables:
 - **y_position** (*Optional*):  Y coordinate of the upper left corner of the area to crop. Defaults to `0`.
 - **height** (*Optional*): Height of the area to crop. Defaults to `0`.
 - **width** (*Optional*): Width of the area to crop. Defaults to `0`.
+- **rotate** (*Optional*): Rotation of the image. Defaults to `0`.
 - **threshold** (*Optional*): Threshold for the difference between the digits and the background. Defaults to `0`.
 - **digits** (*Optional*): Number of digits in the display. Defaults to `-1`.
+- **extra_arguments** (*Optional*): Other arguments to use. Like `-D`, `dilation`, `erosion`, `greyscale`, `make_mono`, etc.
 - **source** array (*Required*): List of image sources.
   - **entity_id** (*Required*): A camera entity id to get picture from.
   - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
@@ -53,7 +55,7 @@ Configuration variables:
 It's suggested that the first attempt to determine the needed parameters is using `ssocr` directly. This may require a couple of iterations to get the result
 
 ```bash
-$ ssocr -D erosion crop 390 250 490 280 -t 20 -d 4 ss-test.jpg
+$ ssocr -D erosion crop 390 250 490 280 -t 20 -d 4 seven-seg.png
 ```
 
 This would lead to the following entry for the `configuration.yaml` file:
@@ -61,7 +63,7 @@ This would lead to the following entry for the `configuration.yaml` file:
 ```yaml
 camera:
   - platform: local_file
-    file_path: /home/fab/.homeassistant/seven-seg.png
+    file_path: /home/homeassistant/.homeassistant/seven-seg.png
     name: seven_segments
 image_processing:
   - platform: seven_segments
