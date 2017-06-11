@@ -41,6 +41,7 @@ Change the light to a new state.
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
+| `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) to specify the new state.
 
