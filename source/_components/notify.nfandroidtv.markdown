@@ -10,6 +10,7 @@ footer: true
 logo: nfandroidtv.png
 ha_category: Notifications
 ha_release: 0.32
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -22,9 +23,9 @@ To enable the notification platform, add the following to your `configuration.ya
 ```yaml
 # Example configuration.yaml entry
 notify:
-- platform: nfandroidtv
-  name: Kitchen
-  host: 192.168.1.12
+  - platform: nfandroidtv
+    name: Kitchen
+    host: 192.168.1.12
 ```
 
 Configuration variables:

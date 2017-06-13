@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: netatmo.png
 ha_category: Weather
+ha_iot_class: "Cloud Polling"
 ---
 
 ### {% linkable_title Basic Configuration %}
@@ -28,14 +29,14 @@ To enable the Netatmo sensor, you first have to set up [netatmo](/components/net
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: netatmo
-  station: STATION_NAME
-  modules:
-    module_name1:
-      - temperature
-    module_name2:
-      - temperature
-      - battery_vp
+  - platform: netatmo
+    station: STATION_NAME
+    modules:
+      module_name1:
+        - temperature
+      module_name2:
+        - temperature
+        - battery_vp
 ```
 
 Configuration variables:

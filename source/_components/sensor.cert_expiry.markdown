@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: System Monitor
 ha_release: 0.44
+ha_iot_class: "depends"
 ---
 
 The `cert_expiry` sensor fetches information from a configured URL and displays the certificate expiry in days. 

@@ -10,6 +10,7 @@ footer: true
 logo: yr.png
 ha_category: Weather
 ha_release: 0.11
+ha_iot_class: "Cloud Polling"
 ---
 
 

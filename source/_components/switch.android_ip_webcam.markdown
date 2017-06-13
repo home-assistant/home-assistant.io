@@ -10,6 +10,7 @@ footer: true
 logo: android_ip_webcam.png
 ha_category: Switch
 ha_release: "0.40"
+ha_iot_class: "Local Polling"
 ---
 
 
