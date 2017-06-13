@@ -72,21 +72,21 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
 <p>To enable, add the following to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_rf</span>
-  <span class="s">gpio</span><span class="pi">:</span> <span class="s">17</span>
-  <span class="s">switches</span><span class="pi">:</span>
-    <span class="s">bedroom_light</span><span class="pi">:</span>
-      <span class="s">code_on</span><span class="pi">:</span> <span class="s">1234567</span>
-      <span class="s">code_off</span><span class="pi">:</span> <span class="s">1234568</span>
-    <span class="s">ambilight</span><span class="pi">:</span>
-      <span class="s">pulselength</span><span class="pi">:</span> <span class="s">200</span>
-      <span class="s">code_on</span><span class="pi">:</span> <span class="s">987654</span>
-      <span class="s">code_off</span><span class="pi">:</span> <span class="s">133742</span>
-    <span class="s">living_room_light</span><span class="pi">:</span>
-      <span class="s">protocol</span><span class="pi">:</span> <span class="s">5</span>
-      <span class="s">code_on</span><span class="pi">:</span> <span class="s">654321,565874,233555,149874</span>
-      <span class="s">code_off</span><span class="pi">:</span> <span class="s">654320,565873,233554,149873</span>
-      <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">15</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_rf</span>
+    <span class="s">gpio</span><span class="pi">:</span> <span class="s">17</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">bedroom_light</span><span class="pi">:</span>
+        <span class="s">code_on</span><span class="pi">:</span> <span class="s">1234567</span>
+        <span class="s">code_off</span><span class="pi">:</span> <span class="s">1234568</span>
+      <span class="s">ambilight</span><span class="pi">:</span>
+        <span class="s">pulselength</span><span class="pi">:</span> <span class="s">200</span>
+        <span class="s">code_on</span><span class="pi">:</span> <span class="s">987654</span>
+        <span class="s">code_off</span><span class="pi">:</span> <span class="s">133742</span>
+      <span class="s">living_room_light</span><span class="pi">:</span>
+        <span class="s">protocol</span><span class="pi">:</span> <span class="s">5</span>
+        <span class="s">code_on</span><span class="pi">:</span> <span class="s">654321,565874,233555,149874</span>
+        <span class="s">code_off</span><span class="pi">:</span> <span class="s">654320,565873,233554,149873</span>
+        <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">15</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -115,6 +115,9 @@ For more info see the PyPi module description: <a href="https://pypi.python.org/
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/raspberry-pi.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Assumed state
+    </div>
     <div class='section'>
     Introduced in release: 0.19
     </div>

@@ -69,10 +69,10 @@
   <p>The <code class="highlighter-rouge">honeywell</code> climate platform let you control <a href="http://getconnected.honeywell.com/en/">Honeywell Connected</a> thermostats from Home Assistant.</p>
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">honeywell</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
-  <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">600</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">honeywell</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+    <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">600</span>
 </code></pre>
 </div>
 <p class="note">
@@ -97,6 +97,12 @@ Scan interval is expressed in seconds. Omitting scan_interval may result in too-
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/honeywell.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+    Introduced in release: pre 0.7
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/climate/'>the Climate component</a>.

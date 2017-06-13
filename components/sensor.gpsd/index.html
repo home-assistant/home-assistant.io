@@ -81,8 +81,7 @@ Jul 16 09:30:33 laptop019 gpsdctl[5305]: reached a running gpsd
 </code></pre>
 </div>
 <p>To check if your setup is working, connect to port 2947 on the host where <code class="highlighter-rouge">gpsd</code> is running with <code class="highlighter-rouge">telnet</code>. This may need adjustments to your firewall.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>
-<span class="gp">$ </span>telnet localhost 2947
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>telnet localhost 2947
 Trying 127.0.0.1...
 Connected to localhost.
 Escape character is <span class="s1">'^]'</span>.
@@ -304,6 +303,9 @@ Escape character is <span class="s1">'^]'</span>.
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ted5000/'>TED5000 electricity monitoring</a>
         </li>
         <li>
             <a href='/components/sensor.temper/'>TEMPer Sensor</a>

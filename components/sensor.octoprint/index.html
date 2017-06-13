@@ -71,7 +71,8 @@
 You must have the <a href="/components/octoprint/">OctoPrint component</a> configured to use this sensor.
 </p>
 <p>To set it up, add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">octoprint</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">OctoPrint</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
@@ -100,6 +101,9 @@ You must have the <a href="/components/octoprint/">OctoPrint component</a> confi
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/octoprint.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.19
     </div>
@@ -302,6 +306,9 @@ You must have the <a href="/components/octoprint/">OctoPrint component</a> confi
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ted5000/'>TED5000 electricity monitoring</a>
         </li>
         <li>
             <a href='/components/sensor.temper/'>TEMPer Sensor</a>

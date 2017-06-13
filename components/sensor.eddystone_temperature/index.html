@@ -70,15 +70,14 @@
 All beacons that support the Eddystone protocol, have a temperature sensor and can transmit TLM frames are compatible with this platform. For example <a href="https://store.gimbal.com/collections/beacons/">Gimbal</a>, <a href="http://estimote.com/">Estimote</a> or <a href="https://kontakt.io/">kontakt.io</a>. For more manufacturers see <a href="https://developers.google.com/beacons/eddystone#beacon_manufacturers">this overview</a> by Google.</p>
 <h2>Requirements</h2>
 <p>As this platform uses <code class="highlighter-rouge">bluez</code> to scan for Bluetooth LE devices <strong>a Linux OS with bluez installed</strong> is required. In addition to that, the <code class="highlighter-rouge">libbluetooth</code> headers need to be installed:</p>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libbluetooth-dev 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libbluetooth-dev 
 </code></pre>
 </div>
 <p>Scanning for Bluetooth LE devices also requires special permissions. To grant these to the python executable execute the following:</p>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libcap2-bin
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libcap2-bin
 <span class="gp">$ </span>sudo setcap <span class="s1">'cap_net_raw,cap_net_admin+eip'</span> <span class="k">$(</span>readlink -f <span class="k">$(</span>which python3<span class="k">))</span>
 </code></pre>
 </div>
-<h2>Configuration</h2>
 <p>To use your Eddystone beacon in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -88,11 +87,9 @@ All beacons that support the Eddystone protocol, have a temperature sensor and c
       <span class="s">living_room</span><span class="pi">:</span>
         <span class="s">namespace</span><span class="pi">:</span> <span class="s2">"</span><span class="s">112233445566778899AA"</span>
         <span class="s">instance</span><span class="pi">:</span> <span class="s2">"</span><span class="s">000000000001"</span>
-        <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Living</span><span class="nv"> </span><span class="s">Room"</span> <span class="c1"># optional</span>
       <span class="s">kitchen</span><span class="pi">:</span>
         <span class="s">namespace</span><span class="pi">:</span> <span class="s2">"</span><span class="s">112233445566778899AA"</span>
         <span class="s">instance</span><span class="pi">:</span> <span class="s2">"</span><span class="s">000000000002"</span>
-        <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Kitchen"</span> <span class="c1"># optional</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -103,7 +100,7 @@ All beacons that support the Eddystone protocol, have a temperature sensor and c
       <li><strong>[entry]</strong> (<em>Required</em>): Name of the beacon.
         <ul>
           <li><strong>namespace</strong> (<em>Required</em>): Namespace ID of the beacon in hexadecimal notation. Must be exactly 20 characters (10 bytes) long.</li>
-          <li><strong>namespace</strong> (<em>Required</em>): Instance ID of the beacon in hexadecimal notation. Must be exactly 12 characters (6 bytes) long.</li>
+          <li><strong>instance</strong> (<em>Required</em>): Instance ID of the beacon in hexadecimal notation. Must be exactly 12 characters (6 bytes) long.</li>
           <li><strong>name</strong> (<em>Optional</em>): Friendly name of the beacon.</li>
         </ul>
       </li>

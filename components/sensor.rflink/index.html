@@ -74,11 +74,10 @@
 <p>Assigning name to a sensor:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="c1"># assign name to a sensor</span>
-    <span class="s">alectov1_0334_temp</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Temperature Outside</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">alectov1_0334_temp</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Temperature Outside</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -147,6 +146,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/rflink.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.38
     </div>
@@ -352,6 +354,9 @@
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ted5000/'>TED5000 electricity monitoring</a>
         </li>
         <li>
             <a href='/components/sensor.temper/'>TEMPer Sensor</a>

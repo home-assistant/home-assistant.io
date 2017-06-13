@@ -74,13 +74,13 @@
 <p>Configuring a device as light with a nice name:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
-  <span class="s">device_defaults</span><span class="pi">:</span>
-    <span class="s">fire_event</span><span class="pi">:</span> <span class="s">true</span>
-    <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">2</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="s">newkaku_0000c6c2_1</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Living room</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
+    <span class="s">device_defaults</span><span class="pi">:</span>
+      <span class="s">fire_event</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">signal_repetitions</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">newkaku_0000c6c2_1</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Living room</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -109,17 +109,17 @@
 <p>Sometimes a light is controlled by multiple remotes, each remote has its own code programmed in the light. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliasses:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="s">newkaku_0000c6c2_1</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Living room</span>
-      <span class="s">aliasses</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">newkaku_000000001_2</span>
-        <span class="pi">-</span> <span class="s">kaku_000001_a</span>
-    <span class="s">Ansluta_ce30_0</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen Under Counter Lights</span>
-    <span class="s">Maclean_0d82_01</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Bedroom Lamp</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">newkaku_0000c6c2_1</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Living room</span>
+        <span class="s">aliasses</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">newkaku_000000001_2</span>
+          <span class="pi">-</span> <span class="s">kaku_000001_a</span>
+      <span class="s">Ansluta_ce30_0</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen Under Counter Lights</span>
+      <span class="s">Maclean_0d82_01</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Bedroom Lamp</span>
 </code></pre>
 </div>
 <p>Any on/off command from any allias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.</p>
@@ -150,6 +150,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/rflink.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Assumed state
+    </div>
     <div class='section'>
     Introduced in release: 0.38
     </div>

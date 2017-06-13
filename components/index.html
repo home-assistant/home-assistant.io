@@ -102,7 +102,7 @@ Support for these components is provided by the Home Assistant community.
     <a href='#presence-detection' class="btn">Presence Detection (38)</a>
     <a href='#remote' class="btn">Remote (3)</a>
     <a href='#scene' class="btn">Scene (3)</a>
-    <a href='#sensor' class="btn">Sensor (79)</a>
+    <a href='#sensor' class="btn">Sensor (80)</a>
     <a href='#social' class="btn">Social (5)</a>
     <a href='#switch' class="btn">Switch (57)</a>
     <a href='#system-monitor' class="btn">System Monitor (23)</a>
@@ -349,7 +349,7 @@ var allComponents = [
 {url:"/components/sensor.homematic/", title:"Homematic Sensor", cat:"sensor", featured: false, v: "0.23", logo: "homematic.png"},
 {url:"/components/switch.homematic/", title:"Homematic Switch", cat:"switch", featured: false, v: "0.23", logo: "homematic.png"},
 {url:"/components/climate.homematic/", title:"Homematic Thermostats", cat:"climate", featured: false, v: "0.23", logo: "homematic.png"},
-{url:"/components/climate.honeywell/", title:"Honeywell Thermostat", cat:"climate", featured: false, v: "0.0", logo: "honeywell.png"},
+{url:"/components/climate.honeywell/", title:"Honeywell Thermostat", cat:"climate", featured: false, v: "0.7", logo: "honeywell.png"},
 {url:"/components/alarm_control_panel.totalconnect/", title:"Honeywell TotalConnect Alarm Control Panel", cat:"alarm", featured: false, v: "0.42", logo: "honeywell-tc.png"},
 {url:"/components/switch.hook/", title:"Hook Switch", cat:"switch", featured: false, v: "0.34", logo: "hook.png"},
 {url:"/components/sensor.hydroquebec/", title:"Hydro-Québec", cat:"energy", featured: false, v: "0.35", logo: "hydroquebec.svg"},
@@ -666,7 +666,8 @@ var allComponents = [
 {url:"/components/sensor.systemmonitor/", title:"System Monitor", cat:"system-monitor", featured: false, v: "0.7", logo: "system_monitor.png"},
 {url:"/components/binary_sensor.tcp/", title:"TCP Binary Sensor", cat:"binary-sensor", featured: false, v: "0.14", logo: "tcp_ip.png"},
 {url:"/components/sensor.tcp/", title:"TCP Sensor", cat:"sensor", featured: false, v: "0.14", logo: "tcp_ip.png"},
-{url:"/components/sensor.temper/", title:"TEMPer Sensor", cat:"sensor", featured: false, v: "0.0", logo: ""},
+{url:"/components/sensor.ted5000/", title:"TED5000 electricity monitoring", cat:"sensor", featured: false, v: "0.3", logo: "ted.png"},
+{url:"/components/sensor.temper/", title:"TEMPer Sensor", cat:"sensor", featured: false, v: "0.7", logo: ""},
 {url:"/components/device_tracker.tplink/", title:"TP-Link", cat:"presence-detection", featured: false, v: "0.7", logo: "tp-link.png"},
 {url:"/components/switch.tplink/", title:"TPLink Switch", cat:"switch", featured: false, v: "0.24", logo: "tp-link.png"},
 {url:"/components/device_tracker.tado/", title:"Tado", cat:"presence-detection", featured: false, v: "0.37", logo: "tado.png"},
@@ -740,16 +741,16 @@ var allComponents = [
 {url:"/components/sensor.wsdot/", title:"Washington State DOT", cat:"transport", featured: false, v: "0.37", logo: "wsdot.png"},
 {url:"/components/sensor.wunderground/", title:"Weather Underground (WUnderground)", cat:"weather", featured: false, v: "0.27", logo: "wunderground.png"},
 {url:"/components/weblink/", title:"Weblink", cat:"front-end", featured: false, v: "0.13", logo: "home-assistant.png"},
-{url:"/components/wink/", title:"Wink", cat:"hub", featured: true, v: "0.0", logo: "wink.png"},
+{url:"/components/wink/", title:"Wink", cat:"hub", featured: true, v: "0.7", logo: "wink.png"},
 {url:"/components/alarm_control_panel.wink/", title:"Wink Alarm", cat:"alarm", featured: false, v: "0.37", logo: "wink.png"},
 {url:"/components/binary_sensor.wink/", title:"Wink Binary Sensor", cat:"binary-sensor", featured: false, v: "0.14", logo: "wink.png"},
 {url:"/components/cover.wink/", title:"Wink Cover", cat:"cover", featured: false, v: "0.13", logo: "wink.png"},
 {url:"/components/fan.wink/", title:"Wink Fan", cat:"fan", featured: false, v: "0.36", logo: "wink.png"},
-{url:"/components/light.wink/", title:"Wink Light", cat:"light", featured: false, v: "0.0", logo: "wink.png"},
+{url:"/components/light.wink/", title:"Wink Light", cat:"light", featured: false, v: "0.7", logo: "wink.png"},
 {url:"/components/lock.wink/", title:"Wink Lock", cat:"lock", featured: false, v: "0.9", logo: "wink.png"},
 {url:"/components/scene.wink/", title:"Wink Scene", cat:"scene", featured: false, v: "0.41", logo: "wink.png"},
-{url:"/components/sensor.wink/", title:"Wink Sensor", cat:"sensor", featured: false, v: "0.0", logo: "wink.png"},
-{url:"/components/switch.wink/", title:"Wink Switch", cat:"switch", featured: false, v: "0.0", logo: "wink.png"},
+{url:"/components/sensor.wink/", title:"Wink Sensor", cat:"sensor", featured: false, v: "0.7", logo: "wink.png"},
+{url:"/components/switch.wink/", title:"Wink Switch", cat:"switch", featured: false, v: "0.7", logo: "wink.png"},
 {url:"/components/climate.wink/", title:"Wink Thermostat", cat:"climate", featured: false, v: "0.32", logo: "wink.png"},
 {url:"/components/binary_sensor.workday/", title:"Workday Binary Sensor", cat:"binary-sensor", featured: false, v: "0.41", logo: "home-assistant.png"},
 {url:"/components/sensor.waqi/", title:"World Air Quality Index", cat:"health", featured: false, v: "0.34", logo: "waqi.png"},
@@ -768,11 +769,11 @@ var allComponents = [
 {url:"/components/binary_sensor.zwave/", title:"Z-Wave Binary Sensor", cat:"binary-sensor", featured: false, v: "0.14", logo: "z-wave.png"},
 {url:"/components/climate.zwave/", title:"Z-Wave Climate", cat:"climate", featured: false, v: "0.17", logo: "z-wave.png"},
 {url:"/components/cover.zwave/", title:"Z-Wave Cover", cat:"cover", featured: false, v: "0.23", logo: "z-wave.png"},
-{url:"/components/fan.zwave/", title:"Z-Wave Fan", cat:"fan", featured: false, v: "0.0", logo: "z-wave.png"},
-{url:"/components/light.zwave/", title:"Z-Wave Light", cat:"light", featured: false, v: "0.0", logo: "z-wave.png"},
+{url:"/components/fan.zwave/", title:"Z-Wave Fan", cat:"fan", featured: false, v: "0.38", logo: "z-wave.png"},
+{url:"/components/light.zwave/", title:"Z-Wave Light", cat:"light", featured: false, v: "0.7", logo: "z-wave.png"},
 {url:"/components/lock.zwave/", title:"Z-Wave Lock", cat:"lock", featured: false, v: "0.19", logo: "z-wave.png"},
-{url:"/components/sensor.zwave/", title:"Z-Wave Sensor", cat:"sensor", featured: false, v: "0.0", logo: "z-wave.png"},
-{url:"/components/switch.zwave/", title:"Z-Wave Switch", cat:"switch", featured: false, v: "0.0", logo: "z-wave.png"},
+{url:"/components/sensor.zwave/", title:"Z-Wave Sensor", cat:"sensor", featured: false, v: "0.7", logo: "z-wave.png"},
+{url:"/components/switch.zwave/", title:"Z-Wave Switch", cat:"switch", featured: false, v: "0.7", logo: "z-wave.png"},
 {url:"/components/sensor.zamg/", title:"ZAMG Sensor", cat:"weather", featured: false, v: "0.35", logo: "zamg.png"},
 {url:"/components/weather.zamg/", title:"ZAMG Weather", cat:"weather", featured: false, v: "0.39", logo: "zamg.png"},
 {url:"/components/zabbix/", title:"Zabbix", cat:"system-monitor", featured: false, v: "0.37", logo: "zabbix.png"},
@@ -805,7 +806,7 @@ var allComponents = [
 {url:"/components/device_tracker.icloud/", title:"iCloud", cat:"presence-detection", featured: false, v: "0.10", logo: "icloud.png"},
 {url:"/components/remote.itach/", title:"iTach Remote", cat:"remote", featured: false, v: "0.39", logo: "globalcache.png"},
 {url:"/components/media_player.itunes/", title:"iTunes", cat:"media-player", featured: false, v: "0.7", logo: "itunes.png"},
-{url:"/components/sensor.mfi/", title:"mFi Sensor", cat:"sensor", featured: false, v: "0.0", logo: "ubiquiti.png"},
+{url:"/components/sensor.mfi/", title:"mFi Sensor", cat:"sensor", featured: false, v: "0.32", logo: "ubiquiti.png"},
 {url:"/components/switch.mfi/", title:"mFi Switch", cat:"switch", featured: false, v: "0.0", logo: "ubiquiti.png"},
 {url:"/components/binary_sensor.mystrom/", title:"myStrom Binary Sensor", cat:"binary-sensor", featured: false, v: "0.45", logo: "mystrom.png"},
 {url:"/components/switch.mystrom/", title:"myStrom Switch", cat:"switch", featured: false, v: "0.0", logo: "mystrom.png"},

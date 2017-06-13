@@ -78,7 +78,6 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>api_key</strong> (<em>Required</em>): Your Sonarr API key, found in Settings &gt; General in the Sonarr Web UI.</li>
   <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your charger</li>
   <li><strong>monitored_variables</strong> array (<em>Required</em>): Conditions to display on the frontend.
     <ul>
@@ -101,6 +100,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/openevse.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.38
     </div>
@@ -292,6 +294,9 @@
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ted5000/'>TED5000 electricity monitoring</a>
         </li>
         <li>
             <a href='/components/sensor.temper/'>TEMPer Sensor</a>

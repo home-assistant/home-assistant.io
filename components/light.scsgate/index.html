@@ -70,11 +70,11 @@
 <p>To enable SCSGate lights in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">light</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">scsgate</span>
-  <span class="s">devices</span><span class="pi">:</span>
-    <span class="s">living_room</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room</span>
-      <span class="s">scs_id</span><span class="pi">:</span> <span class="s">XXXXX</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">scsgate</span>
+    <span class="s">devices</span><span class="pi">:</span>
+      <span class="s">living_room</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room</span>
+        <span class="s">scs_id</span><span class="pi">:</span> <span class="s">XXXXX</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -90,6 +90,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/bus_scs.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.13
     </div>

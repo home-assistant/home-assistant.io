@@ -78,7 +78,7 @@
   <li><strong>device</strong> (<em>Required</em>): The path to your device, e.g. <code class="highlighter-rouge">/dev/ttyACM0</code></li>
 </ul>
 <h3><a class="title-link" name="how-to-find-the-scs_id-for-your-devices" href="#how-to-find-the-scs_id-for-your-devices"></a> How to find the scs_id for your devices</h3>
-<p>The SCSGate component relies on the <a href="https://github.com/flavio/scsgate">scsgate</a> python module.</p>
+<p>The SCSGate component relies on the <a href="https://github.com/flavio/scsgate">scsgate</a> Python module.</p>
 <p>This module provides also a command line tool called <code class="highlighter-rouge">scs-monitor</code>. This program can be used to find the IDs of your lights, switches and roller shutters and produce the YAML snippet to insert into your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 <p>For more information checkout <a href="http://scsgate.readthedocs.org/en/latest/?badge=latest#creation-of-a-home-assistant-configuration-file">this</a> section of <code class="highlighter-rouge">scsgate</code>’s documentation.</p>
 </article>
@@ -90,6 +90,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/bus_scs.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.13
     </div>

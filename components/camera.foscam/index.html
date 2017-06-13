@@ -70,10 +70,10 @@
 <p>To enable your Foscam IP camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">camera</span><span class="pi">:</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">foscam</span>
-  <span class="s">ip</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-  <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">foscam</span>
+    <span class="s">ip</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -98,6 +98,9 @@ There seems to be some issues within Foscam with lengthy passwords and passwords
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/foscam.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/camera/'>the Camera component</a>.

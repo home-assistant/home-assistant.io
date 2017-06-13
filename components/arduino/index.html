@@ -89,7 +89,7 @@
 A word of caution: The Arduino boards are not storing states. This means that with every initialization the pins are set to off/low.
 </p>
 <p>Add the user who is used to run Home Assistant to the groups to allow access to the serial port.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo usermod -a -G dialout,lock <span class="nv">$USER</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo usermod -a -G dialout,lock <span class="nv">$USER</span>
 </code></pre>
 </div>
 </article>
@@ -101,6 +101,9 @@ A word of caution: The Arduino boards are not storing states. This means that wi
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/arduino.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: pre 0.7
     </div>

@@ -69,7 +69,8 @@
   <p>The MH-Z19 is a small nondispersive infrared sensor that can measure CO2 level. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.</p>
 <p>Check out the <a href="https://www.open-homeautomation.com/2016/08/24/monitor-co2-levels-in-your-house/">Open Home Automation web site</a> for a quick guide how to connect the sensor to your PC or Raspberry Pi.</p>
 <p>To use this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mhz19</span>
     <span class="s">serial_device</span><span class="pi">:</span> <span class="s">/dev/tty.SLAB_USBtoUART</span>
 </code></pre>
@@ -103,6 +104,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/mhz19_logo.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.27
     </div>
@@ -294,6 +298,9 @@
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ted5000/'>TED5000 electricity monitoring</a>
         </li>
         <li>
             <a href='/components/sensor.temper/'>TEMPer Sensor</a>
