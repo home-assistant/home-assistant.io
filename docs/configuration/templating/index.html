@@ -270,16 +270,18 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 </code></pre>
 </div>
 <p>To evaluate a response, go to the <img src="/images/screenshots/developer-tool-templates-icon.png" alt="template developer tool icon" class="no-shadow" height="38" /> template developer tools, create your output into “Template”, and check the result.</p>
-<p>``yaml</p>
-<p>{% set value_json=
-    {“name”:”Outside”,
-	 “device”:”weather-ha”,
-     “data”:
-	    {“temp”:”24C”,
-		 “hum”:”35%”
-		 }	}%}</p>
-<p>{{value_json.data.hum[:-1]}}
-```</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="pi">{</span><span class="err">%</span> <span class="nv">set value_json=</span>
+    <span class="pi">{</span><span class="s2">"</span><span class="s">name"</span><span class="pi">:</span><span class="s2">"</span><span class="s">Outside"</span><span class="pi">,</span>
+	 <span class="s2">"</span><span class="s">device"</span><span class="pi">:</span><span class="s2">"</span><span class="s">weather-ha"</span><span class="pi">,</span>
+     <span class="s2">"</span><span class="s">data"</span><span class="pi">:</span>
+	    <span class="pi">{</span><span class="s2">"</span><span class="s">temp"</span><span class="pi">:</span><span class="s2">"</span><span class="s">24C"</span><span class="pi">,</span>
+		 <span class="s2">"</span><span class="s">hum"</span><span class="pi">:</span><span class="s2">"</span><span class="s">35%"</span>
+		 <span class="pi">}</span>	<span class="pi">}</span><span class="err">%</span><span class="pi">}</span>
+
+<span class="pi">{{</span><span class="nv">value_json.data.hum</span><span class="pi">[:</span><span class="nv">-1</span><span class="pi">]}}</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
