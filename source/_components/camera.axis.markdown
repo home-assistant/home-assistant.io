@@ -10,6 +10,7 @@ footer: true
 logo: axis.png
 ha_category: Camera
 ha_release: "0.45"
+ha_iot_class: "Local Polling"
 ---
 
 The `Axis` camera platform allows you to stream video from your [Axis](https://www.axis.com/) cameras.

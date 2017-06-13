@@ -10,6 +10,7 @@ footer: true
 logo: beaglebone-black.png
 ha_category: Switch
 ha_release: 0.36
+ha_iot_class: "Local Push"
 ---
 
 The `bbb_gpio` switch platform allows you to control the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).

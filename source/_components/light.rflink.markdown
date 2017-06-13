@@ -10,6 +10,7 @@ footer: true
 logo: rflink.png
 ha_category: Light
 ha_release: 0.38
+ha_iot_class: "Assumed state"
 ---
 
 The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -27,13 +28,13 @@ Configuring a device as light with a nice name:
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: rflink
-  device_defaults:
-    fire_event: true
-    signal_repetitions: 2
-  devices:
-    newkaku_0000c6c2_1:
-      name: Living room
+  - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    devices:
+      newkaku_0000c6c2_1:
+        name: Living room
 ```
 
 Configuration variables:
@@ -64,17 +65,17 @@ Sometimes a light is controlled by multiple remotes, each remote has its own cod
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: rflink
-  devices:
-    newkaku_0000c6c2_1:
-      name: Living room
-      aliasses:
-        - newkaku_000000001_2
-        - kaku_000001_a
-    Ansluta_ce30_0:
-      name: Kitchen Under Counter Lights
-    Maclean_0d82_01:
-      name: Bedroom Lamp
+  - platform: rflink
+    devices:
+      newkaku_0000c6c2_1:
+        name: Living room
+        aliasses:
+          - newkaku_000000001_2
+          - kaku_000001_a
+      Ansluta_ce30_0:
+        name: Kitchen Under Counter Lights
+      Maclean_0d82_01:
+        name: Bedroom Lamp
 ```
 
 Any on/off command from any allias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.

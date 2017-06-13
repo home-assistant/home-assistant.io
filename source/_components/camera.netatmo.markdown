@@ -10,6 +10,7 @@ footer: true
 logo: netatmo.png
 ha_category: Camera
 ha_release: 0.22
+ha_iot_class: "Local Polling"
 ---
 
 ### {% linkable_title Basic Configuration %}
@@ -25,7 +26,7 @@ If you want to select a specific camera, set discovery to False for [netatmo](/c
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: netatmo
+  - platform: netatmo
 ```
 
 Configuration variables:

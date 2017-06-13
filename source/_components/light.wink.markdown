@@ -14,7 +14,7 @@ ha_release: pre 0.7
 ---
 
 
-The wink light platform allows you to use your [Wink](http://www.wink.com/) lights.
+The `wink` light platform allows you to use your [Wink](http://www.wink.com/) lights.
 
 The requirement is that you have setup [Wink](/components/wink/).
 
