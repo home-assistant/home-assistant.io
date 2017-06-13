@@ -252,7 +252,7 @@ The following overview contains a couple of options to get the needed values:
 
 To evaluate a response, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your output into "Template", and check the result.
 
-``yaml
+```yaml
 {% raw %}
 {% set value_json=
     {"name":"Outside",
