@@ -22,7 +22,6 @@ To use your BME280 sensor in your installation, add the following to your `confi
 # Example configuration.yaml entry
 sensor:
   - platform: bme280
-    name: Ambient
 ```
 
 Or, if you want to specify the working mode of the digital sensor or need to change the default I2c address (which is 0x76), add more details to the yaml config:
@@ -121,7 +120,7 @@ sudo reboot
 
 ###### Check the i2c address of the sensor
 
-If you have `sudo apt-get install i2c-tools`, you can call the i2c device detector with:
+After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
 /usr/sbin/i2cdetect -y 1
