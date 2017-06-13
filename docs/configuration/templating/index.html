@@ -269,6 +269,17 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 {{ value_json.tst | timestamp_custom('%Y' True) }}
 </code></pre>
 </div>
+<p>To evaluate a response, go to the <img src="/images/screenshots/developer-tool-templates-icon.png" alt="template developer tool icon" class="no-shadow" height="38" /> template developer tools, create your output into “Template”, and check the result.</p>
+<p>``yaml</p>
+<p>{% set value_json=
+    {“name”:”Outside”,
+	 “device”:”weather-ha”,
+     “data”:
+	    {“temp”:”24C”,
+		 “hum”:”35%”
+		 }	}%}</p>
+<p>{{value_json.data.hum[:-1]}}
+```</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
