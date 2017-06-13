@@ -10,6 +10,7 @@ footer: true
 logo: z-wave.png
 ha_category: Hub
 featured: true
+ha_iot_class: "Local Push"
 ---
 
 The [Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
