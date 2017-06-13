@@ -30,7 +30,7 @@ Configuration variables:
 
 - **[service_name]** (*Required*): The name used to expose the service. E.g. in the above example would it be ` rest_command.example_request`.
   - **url** (*Required*): The URL (support template) for sending request.
-  - **method** (*Optional*): HTTP method (get, post, put, delete). Default is get.
+  - **method** (*Optional*): HTTP method to use (`get`, `post`, `put`, or `delete`). Defaults to `get`.
   - **payload** (*Optional*): A string/template to send with request.
   - **username** (*Optional*): The username for HTTP authentication.
   - **password** (*Optional*): The password for HTTP authentication.
