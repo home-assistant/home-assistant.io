@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: "0.40"
+ha_iot_class: "Local Polling"
 ---
 
 The `modem_callerid` sensor platform uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).

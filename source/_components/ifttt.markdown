@@ -10,6 +10,7 @@ footer: true
 logo: ifttt.png
 ha_category: Automation
 featured: true
+ha_iot_class: "Cloud Push"
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so called "Applets". With the IFTTT component you can trigger applets through the **"Maker"** channel. See the [announcement blog post](/blog/2015/09/13/home-assistant-meets-ifttt/) for examples how to use it.

@@ -10,6 +10,7 @@ footer: true
 logo: garadget_logo.jpg
 ha_category: Cover
 ha_release: 0.32
+ha_iot_class: "Cloud Polling"
 ---
 
 

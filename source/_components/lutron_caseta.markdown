@@ -11,11 +11,13 @@ logo: lutron.png
 ha_category: Hub
 featured: False
 ha_release: 0.41
+ha_iot_class: "Local Polling"
 ---
 
-[Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` component in Home Assistant is responsible for communicating with the Lutron SmartBridge for these systems.  Both 'pro' and 'standard' models are supported.  
+[Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` component in Home Assistant is responsible for communicating with the Lutron SmartBridge for these systems.  Both 'pro' and 'standard' models are supported.
 
 This component only supports the Caseta line of products. The current supported Caseta devices are:
+
 - Dimmers as Home Assistant lights
 - Wall switches as Home Assistant switches
 - Serena shades as Home Assistant covers
