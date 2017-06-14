@@ -8,6 +8,6 @@ comments: false
 sharing: true
 footer: true
 ha_category: Example configuration.yaml
-ha_external_link: https://github.com/brusc/Home-Assistant-Configuration
+ha_external_link: https://github.com/oakbrad/brad-homeassistant-config
 ---
 
