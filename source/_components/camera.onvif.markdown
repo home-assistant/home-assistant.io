@@ -31,7 +31,6 @@ Configuration variables:
 - **username** (*Optional*): The username for the camera.
 - **password** (*Optional*): The password for the camera.
 - **port** (*Optional*): The port for the camera. This defaults to 5000
-- **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. image quality or video filter options.
 
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).
