@@ -21,9 +21,12 @@ The `spotify` media player platform allows you to control [Spotify](https://www.
 - Spotify account.
 - Spotify Application, properly configured
 
-__NOTE__: Controlling the Spotify component (pause, play, next, etc) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+<p class='note'>
+Controlling the Spotify component (pause, play, next, etc) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+</p>
 
 To create the required Spotify Application:
+
 - Login to [Spotify Developer](https://developer.spotify.com)
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page
 - Select **Create An App**. Enter any name and description. Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file. 
