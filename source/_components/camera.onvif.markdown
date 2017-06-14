@@ -21,17 +21,17 @@ To enable your ONVIF in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 camera:
   - platform: onvif
-    input: 192.168.1.111
+    host: 192.168.1.111
 ```
 
 Configuration variables:
 
-- **input** (*Required*): An IP or hostname of the camera.
+- **host** (*Required*): An IP or hostname of the camera.
 - **name** (*Optional*): Override the name of your camera.
 - **username** (*Optional*): The username for the camera.
 - **password** (*Optional*): The password for the camera.
 - **port** (*Optional*): The port for the camera. This defaults to 5000
-- **extra_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. image quality or video filter options.
+- **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg`, e.g. image quality or video filter options.
 
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).
