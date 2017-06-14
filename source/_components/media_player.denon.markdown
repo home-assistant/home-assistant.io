@@ -31,6 +31,7 @@ Supported devices:
 - Marantz M-CR603 (via denonavr platform)
 - Marantz M-RC610 (via denonavr platform)
 - Marantz SR5008 (via denonavr platform)
+- Marantz NR1604 (via denonavr platform)
 - Other Denon AVR receivers (via denonavr platform (untested))
 - Marantz receivers (experimental via denonavr platform)
 
@@ -67,7 +68,11 @@ A few notes for platform: denon
 media_player:
   - platform: denonavr
     host: IP_ADDRESS
+    name: NAME
     show_all_sources: True / False
+    zones:
+      - zone: Zone2 / Zone3
+        name: NAME
 ```
 
 Configuration variables:
@@ -75,6 +80,9 @@ Configuration variables:
 - **host** (*Optional*): IP address of the device. Example: 192.168.1.32. If not set, auto discovery is used.
 - **name** (*Optional*): Name of the device. If not set, friendlyName of receiver is used.
 - **show_all_sources** (*Optional*): If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed (default). Some receivers have a bug that marks all sources as deleted in the interface. In this case this option could help.
+- **zones** (*Optional*): List of additional zones to be activated. They are displayed as additional media players with the same functionality Main Zone of the device supports
+  - **zone**: Zone which should be activated. Valid options are Zone2 and Zone3
+  - **name** (*Optional*): Name of the zone. If not set the name of the main device + zone as suffix is taken.
 
 A few notes for platform: denonavr
 - Additional option the control Denon AVR receivers with a builtin web server is using the HTTP interface with denonavr platform.
