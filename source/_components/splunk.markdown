@@ -25,6 +25,6 @@ splunk:
 Configuration variables:
 
 - **token** (*Required*): The HTTP Event Collector Token already created in your Splunk instance.
-- **host** (*Optional*): IP address or host name of your Splunk host, eg. http://192.168.1.10. Will default to `localhost` if not supplied.
+- **host** (*Optional*): IP address or host name of your Splunk host, eg. 192.168.1.10. Will default to `localhost` if not supplied.
 - **port** (*Optional*): Port to use. Defaults to 8088.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to False.
