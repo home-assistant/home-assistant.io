@@ -84,7 +84,7 @@ sudo reboot
 
 ###### Check the i2c address of the sensor
 
-If you have `sudo apt-get install i2c-tools`, you can call the i2c device detector with:
+After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
 /usr/sbin/i2cdetect -y 1
