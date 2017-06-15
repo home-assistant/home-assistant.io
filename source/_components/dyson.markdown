@@ -9,13 +9,15 @@ sharing: true
 footer: true
 logo: dyson.png
 ha_category: Hub
-featured: false
-ha_release: 0.46
+ha_iot_class: "Cloud Polling"
+ha_release: 0.47
 ---
 
-The Dyson component is the main component to integrate all [Dyson](https://dyson.com) related platforms (only Cool Link Purifier at this time).
+The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms.
 
-### {% linkable_title Configuration %}
+Currently limited to Cool Link Purifier.
+
+To enable this component, add the following lines to your `configuration.yaml`:
 
 ```yaml
 dyson:
@@ -41,14 +43,18 @@ Configuration variables:
 
 `devices` list is optional but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
 To find devices IP address, you can use your router or `nmap`:
-```
+
+```bash
 $ nmap -p 1883 XXX.XXX.XXX.XXX/YY -- open
 ```
+
 Where:
+
 - **XXX.XXX.XXX.XXX** is your network address
 - **YY** is your network mask
 
 For example:
-```
+
+```bash
 $ nmap -p 1883 192.168.0.0/24 -- open
 ```

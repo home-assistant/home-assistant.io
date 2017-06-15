@@ -9,15 +9,16 @@ sharing: true
 footer: true
 logo: dyson.png
 ha_category: Fan
-ha_release: 0.46
+ha_iot_class: "Cloud Polling"
+ha_release: 0.47
 ---
 
 
-The Dyson fan platform allows you to control your Dyson Purifier fans (Dyson Pure Heat/Cool link).
+The `dyson` fan platform allows you to control your Dyson Purifier fans.
 
 You have first to setup the [Dyson component](/components/dyson/)
 
-### Supported fan devices
+### {% linkable_title Supported fan devices %}
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (but heating is not yet supported)
