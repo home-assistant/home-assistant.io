@@ -28,4 +28,9 @@ Configuration variables:
 
 <p class='note'>
 This add-on is not compatible when you installed Hass.io via the generic Linux installer.
+
+If you're coming from Rassbian or similar, use 'root' rather than 'pi' when connecting via ssh or else you will get this error.
+```
+Permission denied (publickey,keyboard-interactive)
+```
 </p>
