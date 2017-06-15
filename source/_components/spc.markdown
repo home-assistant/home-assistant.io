@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Hub
-ha_release: 0.45
+ha_release: 0.47
 logo: vanderbilt_spc.png
 ---
 

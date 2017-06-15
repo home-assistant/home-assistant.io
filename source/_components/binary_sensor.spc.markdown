@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: vanderbilt_spc.png
-ha_release: 0.45
+ha_release: 0.47
 ha_category: Binary Sensor
 ha_iot_class: "Local Push"
 ---
