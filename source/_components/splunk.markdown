@@ -12,7 +12,7 @@ ha_category: "History"
 ha_release: 0.13
 ---
 
-The `splunk` component makes it possible to log all state changes to an external [Splunk](http://splunk.com/) database using Splunk's HTTP Event Collector feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
+The `splunk` component makes it possible to log all state changes to an external [Splunk](http://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
 
 To use the `splunk` component in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,3 +28,4 @@ Configuration variables:
 - **host** (*Optional*): IP address or host name of your Splunk host, eg. 192.168.1.10. Will default to `localhost` if not supplied.
 - **port** (*Optional*): Port to use. Defaults to 8088.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to False.
+- **name** (*Optional*): This parameter allows you to specify a friendly to send to Splunk as the host, instead of using the name of the HEC. Defaults to HASS
