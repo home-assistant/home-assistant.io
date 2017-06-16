@@ -47,7 +47,7 @@ sensor:
     sensors:
       furnace_on:
         value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
-        friendly_name: 'Furnace Running
+        friendly_name: 'Furnace Running'
         device_class: heat
 ```
 
