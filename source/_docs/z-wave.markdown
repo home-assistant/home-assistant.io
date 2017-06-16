@@ -91,18 +91,6 @@ To add a Z-Wave device to your system, go to the Services menu and select the `z
 
 Security Z-Wave devices require a network key before being added to the network using the `zwave.add_node_secure` service. You must set the *network_key* configuration variable to use a network key before adding these devices.
 
-Edit your `options.xml` file:
-
-```bash
-  <!-- <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10" /> -->
-```
-Uncomment the line:
-```bash
-   <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10" />
-```
-
-You can replace these values with your own 16 byte network key. For more information on this process see the [OpenZwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
-
 An easy script to generate a random key:
 ```bash
 cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g'
