@@ -28,7 +28,7 @@ Or, if you want to specify the resolution mode of the digital sensor or need to 
 
 The sensor can work with resolutions of 0.5 lx (high res mode 1), 1 lx (high res mode 2) or 4 lx (low res mode), and make measurements continuously or one time each call. To set any of these operation modes, select one of these combinations: `continuous_low_res_mode`, `continuous_high_res_mode_2`, `continuous_high_res_mode_1`, `one_time_high_res_mode_1`, `one_time_high_res_mode_2`, `one_time_low_res_mode`.
 
-```
+```yaml
 # Example of customized configuration.yaml entry
 sensor:
   - platform: bh1750
@@ -79,7 +79,7 @@ After installing `i2c-tools`, a new utility is available to scan the addresses o
 
 It will output a table like this:
 
-```bash
+```text
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
