@@ -23,9 +23,8 @@ updater:
 
 If you choose not to share any information when checking for updates, you can add `reporting: False`.
 
-The other option, is to share a little bit more information. You can enable sharing of component information. To do this you have to add `share_components_info: True`. 
+It is possible to report the components that you are using to the Home Assistant developers. This will help them focus on improving the popular ones. To enable this option, you have to add `include_used_components: True`. 
 
-The data sent back is fairly limitied:
 ```json
 "components": [
     "apcupsd",
@@ -36,7 +35,9 @@ The data sent back is fairly limitied:
     "camera",
     "camera.uvc",
     "config",
-    "config.core"...
+    "config.core",
+    ...
+]
 ```
 
 ### {% linkable_title Notification %}
