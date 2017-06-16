@@ -11,6 +11,7 @@ logo: lutron.png
 ha_category: Hub
 featured: False
 ha_release: 0.37
+ha_iot_class: "Local Polling"
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` component in Home Assistant is responsible for communicating with the main hub for these systems.

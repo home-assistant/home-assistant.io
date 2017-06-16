@@ -10,6 +10,7 @@ footer: true
 logo: camcorder.png
 ha_category: Camera
 ha_release: pre 0.7
+ha_iot_class: "depends"
 ---
 
 

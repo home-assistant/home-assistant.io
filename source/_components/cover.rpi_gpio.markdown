@@ -10,6 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: Cover
 ha_release: 0.23
+ha_iot_class: "Local Push"
 ---
 
 The `rpi_gpio` cover platform allows you to use a Raspberry Pi to control your cover such as Garage doors.

@@ -10,6 +10,7 @@ footer: true
 logo: z-wave.png
 ha_category: Climate
 ha_release: 0.17
+ha_iot_class: "Local Push"
 ---
 
 
@@ -25,7 +26,7 @@ To enable the climate component for your Z-Wave network, add the following to yo
 
 ```yaml
 climate:
-  platform: zwave
+  - platform: zwave
 ```
 
 Once enabled, any Z-Wave climate devices will be available to Home Assistant. Multiple entities may be created. The following entities are created for a Remotec ZXT-120.

@@ -10,6 +10,7 @@ footer: true
 logo: amcrest.png
 ha_category: Sensor
 ha_release: 0.37
+ha_iot_class: "Local Polling"
 ---
 
 The `amcrest` sensor allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.

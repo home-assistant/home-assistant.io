@@ -7,7 +7,7 @@ date_formatted: "May 5, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Community
+categories: Media
 og_image: /images/blog/2017-05-podcast-init/podcast_init.png
 ---
 

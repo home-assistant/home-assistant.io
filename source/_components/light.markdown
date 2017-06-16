@@ -63,7 +63,7 @@ Turns one or multiple lights off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
 
 ### {% linkable_title Service `light.toggle` %}

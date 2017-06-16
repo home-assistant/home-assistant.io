@@ -11,6 +11,7 @@ logo: arduino.png
 ha_category: DIY
 featured: true
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection. The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of board. The most common ones are the Arduino Uno and the Arduino Leonardo with 14 digital input/output pins and 6 analog input pins.
@@ -48,6 +49,6 @@ A word of caution: The Arduino boards are not storing states. This means that wi
 Add the user who is used to run Home Assistant to the groups to allow access to the serial port.
 
 ```bash
-sudo usermod -a -G dialout,lock $USER
+$ sudo usermod -a -G dialout,lock $USER
 ```
 

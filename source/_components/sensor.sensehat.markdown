@@ -79,7 +79,7 @@ customize:
   sensor.sensehat_pressure:
     icon: mdi:gauge
     friendly_name: "Pressure"
-```  
+```
 
 **Create a group**
 Add the following to your `groups`

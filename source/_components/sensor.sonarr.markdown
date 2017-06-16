@@ -10,6 +10,7 @@ footer: true
 logo: sonarr.png
 ha_category: Sensor
 ha_release: 0.34
+ha_iot_class: "Local Polling"
 ---
 
 

@@ -249,3 +249,18 @@ The following overview contains a couple of options to get the needed values:
 {% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
 ```
+
+To evaluate a response, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your output into "Template", and check the result.
+
+```yaml
+{% raw %}
+{% set value_json=
+    {"name":"Outside",
+	 "device":"weather-ha",
+     "data":
+	    {"temp":"24C",
+		 "hum":"35%"
+		 }	}%}
+
+{{value_json.data.hum[:-1]}}{% endraw %}
+```

@@ -10,6 +10,7 @@ footer: true
 logo: yahooweather.png
 ha_category: Weather
 ha_release: 0.24
+ha_iot_class: "Cloud Polling"
 ---
 
 

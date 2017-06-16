@@ -10,7 +10,7 @@ footer: true
 logo: netdata.png
 ha_category: System Monitor
 ha_release: 0.35
-ha_iot_class: "Local Push"
+ha_iot_class: "Local Polling"
 ---
 
 

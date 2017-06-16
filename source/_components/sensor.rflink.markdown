@@ -10,6 +10,7 @@ footer: true
 logo: rflink.png
 ha_category: Sensor
 ha_release: 0.38
+ha_iot_class: "Local Polling"
 ---
 
 The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -27,11 +28,10 @@ Assigning name to a sensor:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: rflink
-  devices:
-    # assign name to a sensor
-    alectov1_0334_temp:
-      name: Temperature Outside
+  - platform: rflink
+    devices:
+      alectov1_0334_temp:
+        name: Temperature Outside
 ```
 
 Configuration variables:

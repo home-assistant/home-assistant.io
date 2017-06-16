@@ -10,6 +10,7 @@ footer: true
 logo: arlo.png
 ha_category: Sensor
 ha_release: "0.46"
+ha_iot_class: "Cloud Polling"
 ---
 
 To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).

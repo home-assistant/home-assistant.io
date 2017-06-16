@@ -10,6 +10,7 @@ footer: true
 logo: influxdb.png
 ha_category: Sensor
 ha_release: 0.32
+ha_iot_class: "depends"
 ---
 
 The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.

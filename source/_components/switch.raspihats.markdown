@@ -10,6 +10,7 @@ footer: true
 logo: raspihats.png
 ha_category: Switch
 ha_release: 0.45
+ha_iot_class: "Local Push"
 ---
 
 

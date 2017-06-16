@@ -310,8 +310,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alarm_control_panel.concord232 docs]: https://home-assistant.io/components/alarm_control_panel.concord232/
 [apcupsd docs]: https://home-assistant.io/components/apcupsd/
 [arlo docs]: https://home-assistant.io/components/arlo/
-[automation.state docs]: https://home-assistant.io/components/automation.state/
-[automation.time docs]: https://home-assistant.io/components/automation.time/
+[automation.state docs]: https://home-assistant.io/docs/automation/trigger/#state-trigger
+[automation.time docs]: https://home-assistant.io/docs/automation/trigger/#time-trigger
 [calendar.demo docs]: https://home-assistant.io/components/calendar.demo/
 [calendar.google docs]: https://home-assistant.io/components/calendar.google/
 [camera.amcrest docs]: https://home-assistant.io/components/camera.amcrest/

@@ -10,6 +10,7 @@ footer: true
 logo: zoneminder.png
 ha_category: Switch
 ha_release: 0.31
+ha_iot_class: "Local Polling"
 ---
 
 
