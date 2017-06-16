@@ -22,7 +22,6 @@ To use your HTU21D sensor in your installation, add the following to your `confi
 # Example configuration.yaml entry
 sensor:
   - platform: htu21d
-    name: Ambient
 ```
 
 Configuration variables:
@@ -39,10 +38,10 @@ Add the following to your `customize`
 ```yaml
 # Example configuration.yaml entry
 customize:
-  sensor.ambient_temperature:
+  sensor.htu21d_sensor_temperature:
     icon: mdi:thermometer
     friendly_name: "Temperature"
-  sensor.ambient_humidity:
+  sensor.htu21d_sensor_humidity:
     icon: mdi:weather-rainy
     friendly_name: "Humidity"
 ```
@@ -57,8 +56,8 @@ group:
   ambient_sensor:
     name: HTU21D Environment sensor
     entities:
-      - sensor.ambient_temperature
-      - sensor.ambient_humidity
+      - sensor.htu21d_sensor_temperature
+      - sensor.htu21d_sensor_humidity
 ```
 
 ### Directions for installing smbus support on Raspberry Pi:
@@ -92,7 +91,7 @@ After installing `i2c-tools`, a new utility is available to scan the addresses o
 
 It will output a table like this:
 
-```bash
+```text
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
