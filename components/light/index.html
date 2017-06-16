@@ -90,12 +90,12 @@ The light component supports multiple entries in <code>configuration.yaml</code>
     <tr>
       <td><code class="highlighter-rouge">transition</code></td>
       <td>yes</td>
-      <td>Integer that represents the time the light should take to transition to the new state in seconds.</td>
+      <td>Number that represents the time (in seconds) the light should take to transition to the new state.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">profile</code></td>
       <td>yes</td>
-      <td>String with the name of one of the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv">built-in profiles</a> (relax, energize, concentrate, reading) or one of the custom profiles defined in <code class="highlighter-rouge">light_profiles.csv</code> in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness or xy color then the profile values will be overwritten.</td>
+      <td>String with the name of one of the <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv">built-in profiles</a> (relax, energize, concentrate, reading) or one of the custom profiles defined in <code class="highlighter-rouge">light_profiles.csv</code> in the current working directory.  Light profiles define a xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">xy_color</code></td>
@@ -108,9 +108,14 @@ The light component supports multiple entries in <code>configuration.yaml</code>
       <td>A list containing three integers representing the rgb color you want the light to be. Three comma separated integers that represent the color in RGB.  You can find a great chart here: <a href="http://www.developers.meethue.com/documentation/hue-xy-values">Hue Color Chart</a></td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">white_value</code></td>
+      <td>yes</td>
+      <td>Integer between 0 and 255 for how bright a dedicated white LED should be.</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">color_temp</code></td>
       <td>yes</td>
-      <td>An INT in mireds representing the color temperature you want the light to be.</td>
+      <td>An integer in mireds representing the color temperature you want the light to be.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">kelvin</code></td>
