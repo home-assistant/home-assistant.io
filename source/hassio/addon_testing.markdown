@@ -17,10 +17,10 @@ Right now add-ons will work with images that are stored on Docker Hub (using `im
 
 You can build an try the addon on your developer machine also. Move all addon stuff into a temp folder. Replace in the Dockerfile `%%BASE_IMAGE%%` with:
 
-- armhf: `resin/armhf-alpine:3.5`
-- aarch64: `resin/aarch64-alpine:3.5`
-- amd64: `resin/amd64-alpine:3.5`
-- i386: `resin/i386-alpine:3.5`
+- armhf: `homeassistant/armhf-base:latest`
+- aarch64: `homeassistant/aarch64-base:latest`
+- amd64: `homeassistant/amd64-base:latest`
+- i386: `homeassistant/i386-base:latest`
 
 Add also a `LABEL io.hass.version="xy"` into your dockerfile.
 Use `docker` to build the test addon: `docker build -t local/my-test-addon .`
