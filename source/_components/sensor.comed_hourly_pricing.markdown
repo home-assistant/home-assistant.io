@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: comed.jpg
+logo: comed.png
 ha_category: Energy
 ha_release: "0.40"
 ha_iot_class: "Cloud Polling"

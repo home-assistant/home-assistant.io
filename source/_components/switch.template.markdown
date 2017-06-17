@@ -115,13 +115,17 @@ switch:
 This example shows how to change the icon based on the day/night cycle.
 
 ```yaml
-sensor:
+switch:
   - platform: template
-    sensors:
-      day_night:
-        friendly_name: 'Day/Night'
-        value_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'{% endraw %}
-        icon_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'{% endraw %}
-        
+    switches:
+      garage:
+        value_template: {% raw %}"{{ is_state(cover.garage_door', 'on') }}"{% endraw %}
+        turn_on:
+          service: cover.open_cover
+          entity_id: cover.garage_door
+        turn_off:
+          service: cover.close_cover
+          entity_id: cover.garage_door
+        icon_template: {% raw %}"{% if is_state('cover.garage_door', 'open') %}mdi:garage-open{% else %}mdi:garage{% endif %}"{% endraw %}        
 ```
 
