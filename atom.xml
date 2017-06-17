@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-17T19:52:22+00:00</updated>
+  <updated>2017-06-17T20:34:38+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -50,6 +50,16 @@
   <li>Restart Home Assistant to run with new IDs.</li>
   <li>The old entity IDs will be available in the more info dialog to trace down any remaining errors.</li>
 </ol>
+
+<h2><a class="title-link" name="monkey-patching-python-36" href="#monkey-patching-python-36"></a> Monkey Patching Python 3.6</h2>
+
+<p>Some people have noticed that running Home Assistant under Python 3.6 can lead to segfaults. It seems to be related to the <a href="https://github.com/home-assistant/home-assistant/issues/3453">earlier segfault issues</a> that we experienced when we released the asyncio-based core. We thought that those issues would have been fixed when <a href="https://bugs.python.org/issue26617">Python bug 26617</a> was resolved. Although we see less reports compared to the old bug, there are still users <a href="https://github.com/home-assistant/home-assistant/issues/7752">experiencing them</a> (<a href="https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009">gdb stacktrace points at <code class="highlighter-rouge">PyObject_GC_Del()</code></a>).</p>
+
+<p>Since Python 3.6, the Task and Future classes have been moved to C. This gives a nice speed boost but also prevents us from monkey patching the Task class to avoid the segfault. <a href="https://github.com/bbangert">Ben Bangert</a> managed to brew up another monkey patch to stop Python 3.6 from using the C classes, falling back to the Python versions instead. This allows us to apply the original monkey patch again.</p>
+
+<p>Both monkey patches are now active by default starting version 0.47 to avoid our users experiencing segfaults. This comes at a cost of not being able to benefit from all optimizations that were introduced in Python 3.6.</p>
+
+<p>To run without the monkey patch, start Home Assistant with <code class="highlighter-rouge">HASS_NO_MONKEY=1 hass</code>. We will further investigate this issue and try to fix it in a future version of Python.</p>
 
 <h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h2>
 
