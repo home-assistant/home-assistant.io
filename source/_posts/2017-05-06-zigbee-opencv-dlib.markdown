@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-05-0.44/components.png
 ---
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/components/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
 
 This release brings some great new integrations. The biggest one is the [native ZigBee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
 
