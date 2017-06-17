@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dweet.io"
-description: "Record events in InfluxDB."
+description: "Transfer events to Dweet.io."
 date: 2016-05-07 07:08
 sidebar: true
 comments: false
@@ -24,7 +24,7 @@ The `dweet` component makes it possible to transfer details collected with Home 
   The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
 </p>
 
-To use the `deweet` component in your installation, add the following to your `configuration.yaml` file:
+To use the `dweet` component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
