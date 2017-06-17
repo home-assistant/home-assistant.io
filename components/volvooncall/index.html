@@ -74,6 +74,21 @@
   <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
 </code></pre>
 </div>
+<p>Users registered with Volvo in North America or China will need to specify a service url:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># North America </span>
+<span class="s">volvooncall</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+  <span class="s">service_url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">https://vocapi-na.wirelesscar.net/customerapi/rest/v3.0/'</span>
+</code></pre>
+</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># China</span>
+<span class="s">volvooncall</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">username</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">password</span>
+  <span class="s">service_url</span><span class="pi">:</span> <span class="s1">'</span><span class="s">https://vocapi-cn.wirelesscar.net/customerapi/rest/v3.0/'</span>
+</code></pre>
+</div>
 <p>A more advanced example for setting the vehicle name and selecting what resources to display:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">volvooncall</span><span class="pi">:</span>
@@ -91,6 +106,7 @@
 <ul>
   <li><strong>username</strong> (<em>Required</em>): The username associated with your Volvo On Call account.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given Volvo On Call account.</li>
+  <li><strong>service_url</strong> (<em>Optional</em>): The service URL to use for Volvo On Call (defaults to https://vocapi.wirelesscar.net/customerapi/rest/v3.0/).</li>
   <li><strong>name</strong> (<em>Optional</em>): Make it possible to provide a name for the vehicles.</li>
   <li><strong>resources</strong> (<em>Optional</em>): A list of resources to display (defaults to all available).</li>
 </ul>
@@ -148,6 +164,9 @@
             <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
             <a href='/components/eight_sleep/'>Eight Sleep</a>
         </li>
         <li>
@@ -179,6 +198,9 @@
         </li>
         <li>
             <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
         </li>
         <li>
             <a href='/components/kira/'>Kira</a>
@@ -223,9 +245,6 @@
             <a href='/components/octoprint/'>OctoPrint</a>
         </li>
         <li>
-            <a href='/components/opencv/'>OpenCV</a>
-        </li>
-        <li>
             <a href='/components/pilight/'>Pilight</a>
         </li>
         <li>
@@ -242,6 +261,9 @@
         </li>
         <li>
             <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
         </li>
         <li>
             <a href='/components/sleepiq/'>SleepIQ</a>

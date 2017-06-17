@@ -69,9 +69,12 @@
   <p>The <code class="highlighter-rouge">spotify</code> media player platform allows you to control <a href="https://www.spotify.com/">Spotify</a> playback from Home Assistant.</p>
 <h2><a class="title-link" name="prerequisites" href="#prerequisites"></a> Prerequisites</h2>
 <ul>
-  <li>Spotify Premium account.</li>
-  <li>Spotify Application, properly configured.</li>
+  <li>Spotify account.</li>
+  <li>Spotify Application, properly configured</li>
 </ul>
+<p class="note">
+Controlling the Spotify component (pause, play, next, etc) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+</p>
 <p>To create the required Spotify Application:</p>
 <ul>
   <li>Login to <a href="https://developer.spotify.com">Spotify Developer</a></li>
@@ -92,6 +95,9 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">spotify</span>
     <span class="s">client_id</span><span class="pi">:</span> <span class="s">&lt;your client id&gt;</span>
     <span class="s">client_secret</span><span class="pi">:</span> <span class="s">&lt;your client secret&gt;</span>
+    <span class="s">aliases</span><span class="pi">:</span>
+        <span class="s">abc123def456</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Living</span><span class="nv"> </span><span class="s">Room'</span>
+        <span class="s">9183abas000</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Bed</span><span class="nv"> </span><span class="s">Room'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -99,6 +105,7 @@
   <li><strong>client_id</strong> (<em>Required</em>): Client ID from your Spotify Application.</li>
   <li><strong>client_secret</strong> (<em>Required</em>): Client Secret from your Spotify Application.</li>
   <li><strong>cache_path</strong> (<em>Optional</em>): Path to cache authentication token (defaults to configuration directory).</li>
+  <li><strong>aliases</strong> (<em>Optional</em>): Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the <code class="highlighter-rouge">info</code> channel for ease of aliasing.</li>
 </ul>
 <h2><a class="title-link" name="setup" href="#setup"></a> Setup</h2>
 <p>After the prerequisites and configuration are complete, restart Home Assistant. A <strong>Spotify</strong> configurator element will be available. Follow the instructions to authorize Home Assistant to access your Spotify account. A Spotify media player will then appear. If Spotify prompts you to download a file after completing authorization, discard the download. It is not needed.</p>
@@ -189,6 +196,9 @@
         </li>
         <li>
             <a href='/components/media_player.nad/'>NAD</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nadtcp/'>NAD tcp</a>
         </li>
         <li>
             <a href='/components/media_player.onkyo/'>Onkyo</a>

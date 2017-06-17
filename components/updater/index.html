@@ -73,6 +73,21 @@
 </code></pre>
 </div>
 <p>If you choose not to share any information when checking for updates, you can add <code class="highlighter-rouge">reporting: False</code>.</p>
+<p>It is possible to report the components that you are using to the Home Assistant developers. This will help them focus on improving the popular ones. To enable this option, you have to add <code class="highlighter-rouge">include_used_components: True</code>.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"components"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"apcupsd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"api"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"automation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"binary_sensor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"binary_sensor.zwave"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"camera"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"camera.uvc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"config"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"config.core"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
 <h3><a class="title-link" name="notification" href="#notification"></a> Notification</h3>
 <p>For an added bonus, an automation component can be created to send a message with a notifier when that state of this component’s entity changes.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -124,7 +139,7 @@
             <a href='/components/http/'>HTTP</a>
         </li>
         <li>
-            <a href='/components/ha/'>Home Assistant 0.46</a>
+            <a href='/components/ha/'>Home Assistant 0.47</a>
         </li>
         <li>
             <a href='/components/introduction/'>Introduction</a>

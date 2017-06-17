@@ -69,22 +69,22 @@
   <p><a href="http://www.lutron.com/">Lutron</a> is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The <code class="highlighter-rouge">lutron</code> component in Home Assistant is responsible for communicating with the main hub for these systems.</p>
 <p>Presently, there’s only support for communicating with the <a href="http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx">RadioRA 2</a> Main Repeater and only handle light switches and dimmers.</p>
 <p>When configured, the <code class="highlighter-rouge">lutron</code> component will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.</p>
-<p>To use Lutron RadioRA 2 devices in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file using the IP of your RadioRA 2 Main Repeater:</p>
+<p>To use Lutron RadioRA 2 devices in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file using the IP address of your RadioRA 2 main repeater:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">lutron</span><span class="pi">:</span>
-  <span class="s">lutron_host:IP_ADDRESS</span>
-  <span class="s">lutron_user</span><span class="pi">:</span> <span class="s">lutron</span>
-  <span class="s">lutron_password</span><span class="pi">:</span> <span class="s">integration</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">lutron</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">integration</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>lutron_ip</strong> (<em>Required</em>): The IP address of the Main Repeater.</li>
-  <li><strong>lutron_user</strong> (<em>Required</em>): The login name of the user. The user <code class="highlighter-rouge">lutron</code> always exists, but other users can be added via RadioRA 2 software.</li>
-  <li><strong>lutron_password</strong> (<em>Required</em>): The password for the user specified above. <code class="highlighter-rouge">integration</code> is the password for the always-present <code class="highlighter-rouge">lutron</code> user.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of the Main Repeater.</li>
+  <li><strong>username</strong> (<em>Required</em>): The login name of the user. The user <code class="highlighter-rouge">lutron</code> always exists, but other users can be added via RadioRA 2 software.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password for the user specified above. <code class="highlighter-rouge">integration</code> is the password for the always-present <code class="highlighter-rouge">lutron</code> user.</li>
 </ul>
 <p class="note">
-It is recommended to assign a static IP address to your Main Repeater. This ensures that it won’t change IP addresses, so you won’t have to change the <code class="highlighter-rouge">lutron_ip</code> if it reboots and comes up with a different IP address.
+It is recommended to assign a static IP address to your main repeater. This ensures that it won’t change IP addresses, so you won’t have to change the <code class="highlighter-rouge">host</code> if it reboots and comes up with a different IP address.
 </p>
 </article>
         </div>
@@ -140,6 +140,9 @@ It is recommended to assign a static IP address to your Main Repeater. This ensu
             <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
             <a href='/components/eight_sleep/'>Eight Sleep</a>
         </li>
         <li>
@@ -171,6 +174,9 @@ It is recommended to assign a static IP address to your Main Repeater. This ensu
         </li>
         <li>
             <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
         </li>
         <li>
             <a href='/components/kira/'>Kira</a>
@@ -215,9 +221,6 @@ It is recommended to assign a static IP address to your Main Repeater. This ensu
             <a href='/components/octoprint/'>OctoPrint</a>
         </li>
         <li>
-            <a href='/components/opencv/'>OpenCV</a>
-        </li>
-        <li>
             <a href='/components/pilight/'>Pilight</a>
         </li>
         <li>
@@ -234,6 +237,9 @@ It is recommended to assign a static IP address to your Main Repeater. This ensu
         </li>
         <li>
             <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
         </li>
         <li>
             <a href='/components/sleepiq/'>SleepIQ</a>

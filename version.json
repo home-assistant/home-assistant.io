@@ -1,15 +1,15 @@
 {
-  "current_version": "0.46.1",
-  "release_date": "2017-06-09T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2017/06/04/release-46/",
-  "release_notes_path": "/blog/2017/06/04/release-46/",
-  "release_title": "0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans",
-  "release_description": "Another great new release with a major focus on bugfixes.",
-  "patch_version_notes": "#release-0461---june-9",
+  "current_version": "0.47.0",
+  "release_date": "2017-06-17T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/06/17/release-47/",
+  "release_notes_path": "/blog/2017/06/17/release-47/",
+  "release_title": "0.47: Python Scripts, Sesame Smart Lock, Gitter, Onvif cameras",
+  "release_description": "Use Python to script Hass and enjoy a ton of new integrations. We now passed the 700 integrations!",
+  "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
-    "minor": 46,
-    "patch": 1
+    "minor": 47,
+    "patch": 0
   }
 }

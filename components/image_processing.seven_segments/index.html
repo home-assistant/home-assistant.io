@@ -89,8 +89,10 @@
   <li><strong>y_position</strong> (<em>Optional</em>):  Y coordinate of the upper left corner of the area to crop. Defaults to <code class="highlighter-rouge">0</code>.</li>
   <li><strong>height</strong> (<em>Optional</em>): Height of the area to crop. Defaults to <code class="highlighter-rouge">0</code>.</li>
   <li><strong>width</strong> (<em>Optional</em>): Width of the area to crop. Defaults to <code class="highlighter-rouge">0</code>.</li>
+  <li><strong>rotate</strong> (<em>Optional</em>): Rotation of the image. Defaults to <code class="highlighter-rouge">0</code>.</li>
   <li><strong>threshold</strong> (<em>Optional</em>): Threshold for the difference between the digits and the background. Defaults to <code class="highlighter-rouge">0</code>.</li>
   <li><strong>digits</strong> (<em>Optional</em>): Number of digits in the display. Defaults to <code class="highlighter-rouge">-1</code>.</li>
+  <li><strong>extra_arguments</strong> (<em>Optional</em>): Other arguments to use. Like <code class="highlighter-rouge">-D</code>, <code class="highlighter-rouge">dilation</code>, <code class="highlighter-rouge">erosion</code>, <code class="highlighter-rouge">greyscale</code>, <code class="highlighter-rouge">make_mono</code>, etc.</li>
   <li><strong>source</strong> array (<em>Required</em>): List of image sources.
     <ul>
       <li><strong>entity_id</strong> (<em>Required</em>): A camera entity id to get picture from.</li>
@@ -100,13 +102,13 @@
 </ul>
 <h3><a class="title-link" name="setup-process" href="#setup-process"></a> Setup process</h3>
 <p>It’s suggested that the first attempt to determine the needed parameters is using <code class="highlighter-rouge">ssocr</code> directly. This may require a couple of iterations to get the result</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssocr -D erosion crop 390 250 490 280 -t 20 -d 4 ss-test.jpg
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssocr -D erosion crop 390 250 490 280 -t 20 -d 4 seven-seg.png
 </code></pre>
 </div>
 <p>This would lead to the following entry for the <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">local_file</span>
-    <span class="s">file_path</span><span class="pi">:</span> <span class="s">/home/fab/.homeassistant/seven-seg.png</span>
+    <span class="s">file_path</span><span class="pi">:</span> <span class="s">/home/homeassistant/.homeassistant/seven-seg.png</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">seven_segments</span>
 <span class="s">image_processing</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">seven_segments</span>

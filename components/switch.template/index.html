@@ -150,14 +150,18 @@
 </div>
 <h3><a class="title-link" name="change-the-icon" href="#change-the-icon"></a> Change the icon</h3>
 <p>This example shows how to change the icon based on the day/night cycle.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
-    <span class="s">sensors</span><span class="pi">:</span>
-      <span class="s">day_night</span><span class="pi">:</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Day/Night'</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}Day{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}Night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-        <span class="s">icon_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}mdi:weather-sunny{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:weather-night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-        
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">garage</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state(cover.garage_door',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">turn_on</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">cover.open_cover</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.garage_door</span>
+        <span class="s">turn_off</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">cover.close_cover</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.garage_door</span>
+        <span class="s">icon_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state('cover.garage_door',</span><span class="nv"> </span><span class="s">'open')</span><span class="nv"> </span><span class="s">%}mdi:garage-open{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:garage{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>        
 </code></pre>
 </div>
 </article>

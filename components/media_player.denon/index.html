@@ -73,9 +73,17 @@
   <li>Denon RCD-N8 (untested)</li>
   <li>Denon RCD-N9 (partial support)</li>
   <li>Denon AVR receivers with integrated Network support (partial support)</li>
+  <li>Denon AVR-X2000 (via denonavr platform)</li>
+  <li>Denon AVR-X2100W (via denonavr platform)</li>
   <li>Denon AVR-X4100W (via denonavr platform)</li>
-  <li>Denon AVR receivers (via denonavr platform (untested))</li>
+  <li>Denon AVR-1912 (via denonavr platform)</li>
+  <li>Denon AVR-2312CI (via denonavr platform)</li>
+  <li>Denon AVR-3311CI (via denonavr platform)</li>
+  <li>Marantz M-CR603 (via denonavr platform)</li>
   <li>Marantz M-RC610 (via denonavr platform)</li>
+  <li>Marantz SR5008 (via denonavr platform)</li>
+  <li>Marantz NR1604 (via denonavr platform)</li>
+  <li>Other Denon AVR receivers (via denonavr platform (untested))</li>
   <li>Marantz receivers (experimental via denonavr platform)</li>
 </ul><pre class="note">
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
@@ -106,12 +114,24 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">denonavr</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
+    <span class="s">show_all_sources</span><span class="pi">:</span> <span class="s">True / False</span>
+    <span class="s">zones</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">zone</span><span class="pi">:</span> <span class="s">Zone2 / Zone3</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): IP address of the device. Example: 192.168.1.32. If not set, auto discovery is used.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the device. If not set, friendlyName of receiver is used.</li>
+  <li><strong>show_all_sources</strong> (<em>Optional</em>): If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed (default). Some receivers have a bug that marks all sources as deleted in the interface. In this case this option could help.</li>
+  <li><strong>zones</strong> (<em>Optional</em>): List of additional zones to be activated. They are displayed as additional media players with the same functionality Main Zone of the device supports
+    <ul>
+      <li><strong>zone</strong>: Zone which should be activated. Valid options are Zone2 and Zone3</li>
+      <li><strong>name</strong> (<em>Optional</em>): Name of the zone. If not set the name of the main device + zone as suffix is taken.</li>
+    </ul>
+  </li>
 </ul>
 <p>A few notes for platform: denonavr</p>
 <ul>
@@ -200,6 +220,9 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
         </li>
         <li>
             <a href='/components/media_player.nad/'>NAD</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nadtcp/'>NAD tcp</a>
         </li>
         <li>
             <a href='/components/media_player.onkyo/'>Onkyo</a>

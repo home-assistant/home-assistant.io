@@ -94,6 +94,8 @@ state from <code class="highlighter-rouge">state_topic</code>. If these messages
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is <code class="highlighter-rouge">0</code>. Will also be used when publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not. Default is <code class="highlighter-rouge">false</code>.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract a value from the payload.</li>
+  <li><strong>set_position_topic</strong> (<em>Optional</em>): The MQTT topic to publish position commands to.</li>
+  <li><strong>set_position_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to define the position to be sent to the <code class="highlighter-rouge">set_position_topic</code> topic. Incoming position value is available for use in the template ``. If no template is defined, the numeric position (0-100) will be written directly to the topic.</li>
   <li><strong>tilt_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to control the cover tilt.</li>
   <li><strong>tilt_status_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive tilt status update values.</li>
   <li><strong>tilt_min</strong> (<em>Optional</em>): The minimum tilt value. Default is <code class="highlighter-rouge">0</code></li>

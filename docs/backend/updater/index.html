@@ -68,6 +68,11 @@
   </header>
   <hr class="divider">
   <p>Starting with 0.31 the <a href="/components/updater/">updater component</a> sends an optional report about Home Assistant instance.</p>
+<p>If you want to opt-in to include component information, add <code class="highlighter-rouge">include_used_components</code> to your config. This will allow the Home Assistant developers to focus development efforts on the most popular components.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">updater</span><span class="pi">:</span>
+  <span class="s">include_used_components</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
 <p>We are only collecting this information to better understand our user base to provide better long term support and feature development.</p>
 <table>
   <thead>
@@ -226,7 +231,7 @@
   <li>the original date your instance UUID was first seen</li>
   <li>the timestamp of the last time we have seen your instance</li>
 </ul>
-<p>There are currently no plans to publicly expose any of this information. If we did do such a thing in the future we would of course notify you in advance. It must also be stated that we will never sell or allow the use of this information for non-Home Assistant purposes.</p>
+<p>We will never publicly expose individual gathered data. We might however publish aggregated stats about our user base (example: 70% of all users use Linux). We will never sell or allow the use of this information for non-Home Assistant development purposes.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -412,7 +417,7 @@
               <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
               <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
               <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
-              <li><a  href='/docs/ecosystem/notebooks/database/'>Databsase </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Database </a></li>
               <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
             </ul>
           </li>

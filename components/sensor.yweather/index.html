@@ -6,13 +6,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Yahoo Weather - Home Assistant</title>
+    <title>Yahoo Weather Sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to integrate Yahoo Weather within Home Assistant.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.yweather/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Yahoo Weather">
+    <meta property="og:title" content="Yahoo Weather Sensor">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/sensor.yweather/">
     <meta property="og:type" content="article">
@@ -20,7 +20,7 @@
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Yahoo Weather">
+    <meta name="twitter:title" content="Yahoo Weather Sensor">
     <meta name="twitter:description" content="Instructions how to integrate Yahoo Weather within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -62,15 +62,15 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Yahoo Weather
+      Yahoo Weather Sensor
     </h1>
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">yweather</code> platform uses <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a> as an source for current meteorological data. The <code class="highlighter-rouge">forecast</code> will show you the condition for 5 days, 0 is the current day. You can use only <code class="highlighter-rouge">weather</code>, <code class="highlighter-rouge">temp_min</code>, and <code class="highlighter-rouge">temp_max</code> with forecast. It’s important to note that a yweather sensor will only show ONE days forecast at a time so to show multiple days forecasts, you will need to use the ‘name:’ option and give each sensor a unique name.</p>
 <p class="note warning">
-Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2,000 signed calls per day.
+Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
 </p>
-<p>The <code class="highlighter-rouge">woeid</code> (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a>. If you don’t add a woeid it generate it from Home Assistant’s latitude and longitude.</p>
+<p>The <code class="highlighter-rouge">woeid</code> (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at <a href="https://www.yahoo.com/news/weather/">Yahoo Weather</a>. If you don’t add a WOEID it generate it from Home Assistant’s latitude and longitude.</p>
 <p>To add Yahoo Weather to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -116,7 +116,6 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
       <span class="pi">-</span> <span class="s">weather</span>
       <span class="pi">-</span> <span class="s">temp_min</span>
       <span class="pi">-</span> <span class="s">temp_max</span>
-
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
     <span class="s">forecast</span><span class="pi">:</span> <span class="s">2</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">yw_day2</span>
@@ -124,7 +123,6 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
       <span class="pi">-</span> <span class="s">weather</span>
       <span class="pi">-</span> <span class="s">temp_min</span>
       <span class="pi">-</span> <span class="s">temp_max</span>
-      
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yweather</span>
     <span class="s">forecast</span><span class="pi">:</span> <span class="s">3</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">yw_day3</span>
@@ -132,7 +130,6 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
       <span class="pi">-</span> <span class="s">weather</span>
       <span class="pi">-</span> <span class="s">temp_min</span>
       <span class="pi">-</span> <span class="s">temp_max</span>
-
 </code></pre>
 </div>
 <p>Details about the API are available in the <a href="https://developer.yahoo.com/weather/">Yahoo! Developer Network</a>.</p>
@@ -151,6 +148,14 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
     <div class='section'>
     Introduced in release: 0.24
     </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/weather.yweather/'>
+          Yahoo Weather
+        </a></li>
+    </ul>
+    </div>
     <div class='section'>
     <h1 class="title delta">Category Weather</h1>
     <ul class='divided'>
@@ -159,6 +164,12 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
         </li>
         <li>
             <a href='/components/sensor.bom/'>BOM Australia Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.buienradar/'>Buienradar</a>
+        </li>
+        <li>
+            <a href='/components/weather.buienradar/'>Buienradar Weather</a>
         </li>
         <li>
             <a href='/components/sensor.darksky/'>Dark Sky</a>
@@ -191,13 +202,19 @@ Use of the Yahoo Weather API should not exceed reasonable request volume. Access
             <a href='/components/sensor.swiss_hydrological_data/'>Swiss Hydrological Data</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.tapsaff/'>Taps Aff</a>
+        </li>
+        <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>
         </li>
         <li>
-            Yahoo Weather
+            <a href='/components/weather.yweather/'>Yahoo Weather</a>
+        </li>
+        <li>
+            Yahoo Weather Sensor
         </li>
         <li>
             <a href='/components/sensor.zamg/'>ZAMG Sensor</a>

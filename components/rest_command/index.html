@@ -79,7 +79,7 @@
   <li><strong>[service_name]</strong> (<em>Required</em>): The name used to expose the service. E.g. in the above example would it be ` rest_command.example_request`.
     <ul>
       <li><strong>url</strong> (<em>Required</em>): The URL (support template) for sending request.</li>
-      <li><strong>method</strong> (<em>Optional</em>): HTTP method (get, post, put, delete). Default is get.</li>
+      <li><strong>method</strong> (<em>Optional</em>): HTTP method to use (<code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">post</code>, <code class="highlighter-rouge">put</code>, or <code class="highlighter-rouge">delete</code>). Defaults to <code class="highlighter-rouge">get</code>.</li>
       <li><strong>payload</strong> (<em>Optional</em>): A string/template to send with request.</li>
       <li><strong>username</strong> (<em>Optional</em>): The username for HTTP authentication.</li>
       <li><strong>password</strong> (<em>Optional</em>): The password for HTTP authentication.</li>
@@ -142,6 +142,9 @@
         </li>
         <li>
             <a href='/components/proximity/'>Proximity</a>
+        </li>
+        <li>
+            <a href='/components/python_script/'>Python Scripts</a>
         </li>
         <li>
             RESTful Command

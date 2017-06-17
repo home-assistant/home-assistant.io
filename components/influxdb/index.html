@@ -73,12 +73,12 @@
 <span class="s">influxdb</span><span class="pi">:</span>
 </code></pre>
 </div>
-<p>You will still need to create a database named <code class="highlighter-rouge">home_assistant</code> via InfluxDB’s web interface or command line. For instructions how to create a database check the <a href="https://docs.influxdata.com/influxdb/v1.0/introduction/getting_started/#creating-a-database">InfluxDB documentation</a> relevant to the version you have installed.</p>
+<p>You will still need to create a database named <code class="highlighter-rouge">home_assistant</code> via InfluxDB’s web interface or command line. For instructions how to create a database check the <a href="https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database">InfluxDB documentation</a> relevant to the version you have installed.</p>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): IP address of your database host, e.g. 192.168.1.10. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): Port to use. Defaults to 8086.</li>
-  <li><strong>username</strong> (<em>Optional</em>): The username of the database user.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username of the database user. The user needs read/write privileges on the database.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password for the database user account.</li>
   <li><strong>database</strong> (<em>Optional</em>): Name of the database to use. Defaults to <code class="highlighter-rouge">home_assistant</code>. The database must already exist.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Use https instead of http to connect. Defaults to false.</li>

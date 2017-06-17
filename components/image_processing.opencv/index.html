@@ -66,8 +66,46 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">opencv</code> image processing platform allows you to create a standalone image processor without the linked camera entity as mentioned in the <a href="https://home-assistant.io/components/opencv">OpenCV page</a>.</p>
-<p>Please refer to the <a href="/components/opencv/">component</a> configuration on how to setup the image processor.</p>
+  <p><a href="http://www.opencv.org">OpenCV</a> is an open source computer vision image and video processing library.</p>
+<p>Some pre-defined classifiers can be found here: https://github.com/opencv/opencv/tree/master/data</p>
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+<p>To setup OpenCV with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">image_processing</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">opencv</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Front Door Faces</span>
+    <span class="s">source</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">camera.front_door</span>
+    <span class="s">classifier</span><span class="pi">:</span>
+      <span class="s">mom</span><span class="pi">:</span> <span class="s">/path/to/classifier.xml</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>name</strong> (<em>Required</em>): The name of the OpenCV image processor.</li>
+  <li><strong>source</strong> array (<em>Required</em>): List of image sources.
+    <ul>
+      <li><strong>entity_id</strong> (<em>Required</em>): A camera entity id to get picture from.
+        <ul>
+          <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your <code class="highlighter-rouge">image_processing</code> entity.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>classifier</strong> (<em>Optional</em>): Dictionary of name to path to the classifier xml file. If this field is not provided, a face classifier will be downloaded from OpenCV’s github repo.</li>
+</ul>
+<p><strong>classifier</strong> may also be defined as a dictionary of names to classifier configurations:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>    <span class="s">mom</span><span class="pi">:</span>
+      <span class="s">file</span><span class="pi">:</span> <span class="s">/path/to/classifier/xml</span>
+      <span class="s">neighbors</span><span class="pi">:</span> <span class="s">4</span>
+      <span class="s">min_size</span><span class="pi">:</span> <span class="s">(40, 40)</span>
+      <span class="s">scale</span><span class="pi">:</span> <span class="s">1.1f</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>file</strong> (<em>Required</em>): The path to the classifier xml file.</li>
+  <li><strong>scale</strong> (<em>Optional</em>): The scale to perform when processing, this is a <code class="highlighter-rouge">float</code> value that must be greater than or equal to <code class="highlighter-rouge">1.0</code>, default is <code class="highlighter-rouge">1.1</code>.</li>
+  <li><strong>neighbors</strong> (<em>Optional</em>): The minimum number of neighbors required for a match, default is <code class="highlighter-rouge">4</code>. The higher this number, the more picky the matching will be; lower the number, the more false positives you may experience.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -78,19 +116,11 @@
       <img src='/images/supported_brands/opencv.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.44
+    Introduced in release: 0.47
     </div>
     <div class='section'>
       This is a platform for
       <a href='/components/image_processing/'>the Image Processing component</a>.
-    </div>
-          <div class='section'>
-          <h1 class='title delta'>Related components</h1>
-          <ul class='divided'>
-        <li><a href='/components/opencv/'>
-          OpenCV
-        </a></li>
-    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Image Processing</h1>
