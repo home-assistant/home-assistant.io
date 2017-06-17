@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `openhardwaremonitor` platform uses your [Open Hardware Monitor](http://openhardwaremonitor.org/) installation as an source for sensors that will display system information.
+The `openhardwaremonitor` platform uses your [Open Hardware Monitor](http://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
 
 To add Open Hardware Monitor to your installation, add the following to your `configuration.yaml` file:
 
@@ -27,5 +27,5 @@ sensor:
 
 Configuration variables:
 
-- **port** (*Optional*): The port for your Open Hardware Monitor API. Default to 8085.
+- **port** (*Optional*): The port of your Open Hardware Monitor API. Default to 8085.
 
