@@ -72,10 +72,10 @@
 <h2><a class="title-link" name="local-run" href="#local-run"></a> Local run</h2>
 <p>You can build an try the addon on your developer machine also. Move all addon stuff into a temp folder. Replace in the Dockerfile <code class="highlighter-rouge">%%BASE_IMAGE%%</code> with:</p>
 <ul>
-  <li>armhf: <code class="highlighter-rouge">resin/armhf-alpine:3.5</code></li>
-  <li>aarch64: <code class="highlighter-rouge">resin/aarch64-alpine:3.5</code></li>
-  <li>amd64: <code class="highlighter-rouge">resin/amd64-alpine:3.5</code></li>
-  <li>i386: <code class="highlighter-rouge">resin/i386-alpine:3.5</code></li>
+  <li>armhf: <code class="highlighter-rouge">homeassistant/armhf-base:latest</code></li>
+  <li>aarch64: <code class="highlighter-rouge">homeassistant/aarch64-base:latest</code></li>
+  <li>amd64: <code class="highlighter-rouge">homeassistant/amd64-base:latest</code></li>
+  <li>i386: <code class="highlighter-rouge">homeassistant/i386-base:latest</code></li>
 </ul>
 <p>Add also a <code class="highlighter-rouge">LABEL io.hass.version="xy"</code> into your dockerfile.
 Use <code class="highlighter-rouge">docker</code> to build the test addon: <code class="highlighter-rouge">docker build -t local/my-test-addon .</code></p>
