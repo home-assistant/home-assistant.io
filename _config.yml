@@ -77,6 +77,8 @@ collections:
     output: true
   addons:
     output: true
+  faq:
+    output: true
 
 # ----------------------- #
 #   3rd Party Settings    #
