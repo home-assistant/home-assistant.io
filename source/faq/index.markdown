@@ -1,9 +1,9 @@
 ---
 layout: page
 title: "FAQ"
-description: "Home Assistant' FAQ"
+description: "Home Assistant's FAQ"
 date: 2015-10-08 19:05
-sidebar: false
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -26,3 +26,4 @@ This is a community curated list of frequently asked questions (FAQ) about the i
     {% endif %}
   {% endfor %}
 {% endfor %}
+

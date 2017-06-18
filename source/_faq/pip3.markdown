@@ -1,9 +1,8 @@
 ---
 layout: page
-title: "pip3"
+title: "pip3: command not found"
 description: "pip3: command not found"
 date: 2017-06-18 09:00
-sidebar: true
 comments: false
 sharing: true
 footer: true
