@@ -20,7 +20,7 @@ To use the Bluetooth tracker in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  - platform: bluetooth_tracker
+  platform: bluetooth_tracker
 ```
 
 In some cases it can be that your device is not discovered. In that case let your phone scan for BT devices while you restart Home Assistant. Just hit `Scan` on your phone all the time until Home Assistant is fully restarted and the device should appear in `known_devices.yaml`.
