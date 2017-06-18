@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Velbus lights"
-description: "Access and control your Velbus Lights."
+description: "Access and control your Velbus lights."
 date: 2017-06-17 16.58
 sidebar: true
 comments: false
