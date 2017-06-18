@@ -27,6 +27,6 @@ sensor:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address or hostname of your Trådfri gateway.
+- **host** (*Required*): The IP address or hostname of your Open Hardware Monitor.
 - **port** (*Optional*): The port of your Open Hardware Monitor API. Default to 8085.
 
