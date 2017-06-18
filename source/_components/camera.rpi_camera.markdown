@@ -21,7 +21,7 @@ To enable this camera in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 camera:
-  - platform: rpi_camera
+  platform: rpi_camera
 ```
 
 Configuration variables:
