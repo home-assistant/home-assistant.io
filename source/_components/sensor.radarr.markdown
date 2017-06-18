@@ -15,7 +15,7 @@ ha_release: 0.47
 
 This `radarr` sensor platform pulls data from a given Radarr instance.
 
-To use your [Radarr](https://radarr.tv/) sensor in your installation, add the following to your `configuration.yaml` file:
+To use your [Radarr](https://radarr.video/) sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
