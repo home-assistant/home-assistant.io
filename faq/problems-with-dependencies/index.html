@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>distutils.errors.DistutilsOptionError - Home Assistant</title>
+    <title>Problems with dependencies - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both">
+    <meta name="description" content="Problems with dependencies">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/faq/distutils/">
+    <link rel="canonical" href="https://home-assistant.io/faq/problems-with-dependencies/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="distutils.errors.DistutilsOptionError">
+    <meta property="og:title" content="Problems with dependencies">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/faq/distutils/">
+    <meta property="og:url" content="https://home-assistant.io/faq/problems-with-dependencies/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both">
+    <meta property="og:description" content="Problems with dependencies">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="distutils.errors.DistutilsOptionError">
-    <meta name="twitter:description" content="distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both">
+    <meta name="twitter:title" content="Problems with dependencies">
+    <meta name="twitter:description" content="Problems with dependencies">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -60,14 +60,15 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_faq/distutils.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_faq/problems-with-dependencies.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      distutils.errors.DistutilsOptionError
+      Problems With Dependencies
     </h1>
   </header>
   <hr class="divider">
-  <p>The problem which leads to <code class="highlighter-rouge">distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both</code> is a known issue if you’re on a Mac using Homebrew to install Python. Please follow <a href="https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md#note-on-pip-install---user">these instructions</a> to resolve it.</p>
+  <p>Almost all components have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in <code class="highlighter-rouge">home-assistant.log</code>.</p>
+<p>The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can’t figure it out, please <a href="https://github.com/home-assistant/home-assistant/issues">report it</a> so we can investigate what is going on.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
