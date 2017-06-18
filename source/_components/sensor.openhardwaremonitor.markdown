@@ -22,10 +22,11 @@ To add Open Hardware Monitor to your installation, add the following to your `co
 # Example configuration.yaml entry
 sensor:
   - platform: openhardwaremonitor
-    host: HOSTNAME_OF_OPENHARDWAREMONITOR
+    host: IP_ADDRESS
 ```
 
 Configuration variables:
 
+- **host** (*Required*): The IP address or hostname of your Trådfri gateway.
 - **port** (*Optional*): The port of your Open Hardware Monitor API. Default to 8085.
 
