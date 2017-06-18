@@ -1,9 +1,8 @@
 ---
 layout: page
-title: "pip"
+title: "No module named pip"
 description: "No module named pip"
 date: 2017-06-18 09:00
-sidebar: true
 comments: false
 sharing: true
 footer: true

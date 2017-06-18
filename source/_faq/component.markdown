@@ -1,9 +1,8 @@
 ---
 layout: page
-title: "Component"
+title: "My component does not show up"
 description: "My component does not show up"
 date: 2017-06-18 09:00
-sidebar: true
 comments: false
 sharing: true
 footer: true
