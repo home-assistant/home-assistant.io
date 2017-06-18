@@ -48,15 +48,15 @@ Configuration variables:
   - **disk_size**: Disk size of the storage location
   - **disk_free**: Free disk space at the storage location
 
-Note that this will create sensors under the name 'sab' and NOT 'sabnzbd' as follows:
+Note that this will create the following sensors:
 
 ```
- - sensor.sab_status
- - sensor.sab_speed
- - sensor.sab_queue
- - sensor.sab_left
- - sensor.sab_disk
- - sensor.sab_disk_free
+ - sensor.sabnzbd_status
+ - sensor.sabnzbd_speed
+ - sensor.sabnzbd_queue
+ - sensor.sabnzbd_left
+ - sensor.sabnzbd_disk
+ - sensor.sabnzbd_disk_free
 ```
 
 As always, you can determine the names of sensors by looking at the dev-state page `< >` in the web interface.

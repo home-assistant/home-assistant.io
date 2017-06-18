@@ -37,5 +37,6 @@ Configuration variables:
 - **consumer_secret** (*Required*): Your "Consumer Secret" (API Secret) for the application.
 - **access_token** (*Required*): Your "Access Token" for the application.
 - **access_token_secret** (*Required*): Your "Access Token Secret" for the application.
+- **username** (*Optional*): Twitter handle without `@` or with `@` and quoting for direct messaging.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

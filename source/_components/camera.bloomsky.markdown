@@ -10,6 +10,7 @@ footer: true
 logo: bloomsky.png
 ha_category: Camera
 ha_release: 0.13
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -20,5 +21,5 @@ To enable this camera in your installation, set up the [BloomSky component](/com
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: bloomsky
+  - platform: bloomsky
 ```

@@ -32,7 +32,7 @@ Configuration variables:
 
 - **hosts** (*Required*): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.
 - **home_interval** (*Optional*): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.
-- **exclude** (*Optional*): Hosts not to include in nmap scanning.
+- **exclude** (*Optional*): Hosts not to include in nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
 - **scan_options** (*Optional*): Configurable scan options for nmap. Default to `-F --host-timeout 5s`
 
 
@@ -60,6 +60,8 @@ device_tracker:
       - 10.0.0.2
       - 10.0.0.15
 ```
+In the above example, Nmap will be call with the process:
+`nmap -oX - 192.168.1.1/24 10.0.0.2 10.0.0.15 -F --host-timeout 5s`
 
 An example of how the Nmap scanner can be customized:
 

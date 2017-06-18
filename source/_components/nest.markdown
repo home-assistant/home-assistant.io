@@ -10,9 +10,10 @@ footer: true
 logo: nest.png
 ha_category: Hub
 featured: true
+ha_iot_class: "Cloud Polling"
 ---
 
-The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a client_id and client_secret.
+The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
 
 ### {% linkable_title Setting up developer account %}
 
@@ -25,6 +26,7 @@ The Nest component is the main component to integrate all [Nest](https://nest.co
 6. Fill in details:
   - Product name must be unique. We recommend [email] - Home Assistant.
   - The description, users, urls can all be anything you want.
+  - Leave the "Redirect URI" Field blank
 7. For permissions check every box and if it's an option select the read/write option.
   - The description requires a specific format to be accepted.
     - Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
@@ -53,6 +55,6 @@ nest:
 
 Configuration variables:
 
-- **client_id** (*Required*): Your Nest developer client id.
+- **client_id** (*Required*): Your Nest developer client ID.
 - **client_secret** (*Required*): Your Nest developer client secret.
 - **structure** (*Optional*): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.

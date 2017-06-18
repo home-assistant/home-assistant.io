@@ -15,7 +15,7 @@ There are also trackers available which use different technologies like [MQTT](/
 
 An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time. 
 
-# {% linkable_title Configuring a `device_tracker` platform %}
+## {% linkable_title Configuring a `device_tracker` platform %}
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
@@ -51,7 +51,7 @@ device_tracker:
 
 Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
 
-# {% linkable_title `known_devices.yaml` %}
+## {% linkable_title `known_devices.yaml` %}
 
 Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
 
@@ -62,7 +62,6 @@ devicename:
   name: Friendly Name
   mac: EA:AA:55:E7:C6:94
   picture: https://home-assistant.io/images/favicon-192x192.png
-  gravatar: test@example.com
   track: yes
   hide_if_away: no
 ```
@@ -72,7 +71,8 @@ devicename:
 | `name`         | Host name or "Unnamed Device" | The friendly name of the device                                                                         |
 | `mac`          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP     |
 | `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`.                                      |
+| `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`                        |
-| `track`        | False                         | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update |
+| `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update |
 | `hide_if_away` | False                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home                                |
 | `consider_home` | [uses platform setting]      | Allows you to override the global `consider_home` setting from the platform configuration on a per device level                                |

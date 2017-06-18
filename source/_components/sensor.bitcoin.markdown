@@ -21,29 +21,10 @@ To add the Bitcoin sensor to your installation, add a selection of the available
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: bitcoin
-  display_options:
-    - exchangerate
-    - trade_volume_btc
-    - miners_revenue_usd
-    - btc_mined
-    - trade_volume_usd
-    - difficulty
-    - minutes_between_blocks
-    - number_of_transactions
-    - hash_rate
-    - timestamp
-    - mined_blocks
-    - blocks_size
-    - total_fees_btc
-    - total_btc_sent
-    - estimated_btc_sent
-    - total_btc
-    - total_blocks
-    - next_retarget
-    - estimated_transaction_volume_usd
-    - miners_revenue_btc
-    - market_price_usd
+  - platform: bitcoin
+    display_options:
+      - exchangerate
+      - trade_volume_btc
 ```
 
 Configuration variables:

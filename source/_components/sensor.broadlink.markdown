@@ -10,6 +10,7 @@ footer: true
 logo: broadlink.png
 ha_category: Sensor
 ha_release: 0.35
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -19,7 +20,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
+sensor:
   - platform: broadlink
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'

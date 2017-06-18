@@ -1,52 +1,33 @@
 ---
 layout: page
-title: "Getting Started"
-description: "Step by step guide to get started with Home Assistant."
-date: 2014-12-18 22:57
+title: "Installing Home Assistant"
+description: "Instructions to get started using Home Assistant."
+date: 2016-09-26 21:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ---
 
-Below you can find the standard instructions. See the sidebar for installation instructions for specific platforms. If you're running a Linux-based platform, we suggest you follow the [VirtualEnv Linux instructions] to avoid using root.
+You will need to install Home Assistant before we can get started. You can install Home Assistant on your computer or you can turn a Raspberry Pi into a dedicated Home Assistant hub.
 
-[Virtualenv Linux instructions]: /getting-started/installation-virtualenv/
+<div class="text-center hass-option-cards" markdown="0">
+  <a class='option-card' href='/docs/hassbian/installation/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/raspberry-pi.png' />
+    </div>
+    <div class='title'>Install Hassbian on your Raspberry Pi 3</div>
+  </a>
+  <a class='option-card' href='/docs/installation/python/'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/python.svg' />
+    </div>
+    <div class='title'>Install Home Assistant on your computer</div>
+  </a>
+</div>
 
-Installing and running Home Assistant on your local machine is easy. The only requirement is that you have [Python](https://www.python.org/downloads/) installed. For Windows we require at least Python 3.5 and for other operating systems at least Python 3.4.2. Once installed, execute the following code in a console:
+For alternative installation methods please take a look at the [installation documentation](/docs/installation/).
 
-```bash
-$ pip3 install homeassistant
-$ hass --open-ui
-```
-
-Running these commands will:
-
- - Install Home Assistant
- - Launch Home Assistant and serve the web interface on [http://localhost:8123](http://localhost:8123)
-
-If you prefer to watch a video tutorial, [tktino](https://github.com/tktino) has made some great ones:
-
- - [Windows 10](https://www.youtube.com/watch?v=X27eVvuqwnY)
- - [Mac OS X](https://www.youtube.com/watch?v=hej6ipN86ls)
- - [Ubuntu 14.04](https://www.youtube.com/watch?v=SXaAG1lGNH0)
-
-### {% linkable_title Updating %}
-
-To update Home Assistant to the latest release check the [Updating section](/getting-started/updating/).
-
-### {% linkable_title Troubleshooting %}
-
-If you run into any issues, please see [the troubleshooting page](/getting-started/troubleshooting/). It contains solutions to many commonly encountered issues.
-
-In addition to this site, check out these sources for additional help:
-
- - [Forum](https://community.home-assistant.io) for Home Assistant discussions and questions
- - [Gitter Chat Room](https://gitter.im/home-assistant/home-assistant) for real-time chat about Home Assistant
- - [GitHub Page](https://github.com/home-assistant/home-assistant/issues) for issue reporting
-
-### {% linkable_title What's next? %}
-
-To see what Home Assistant can do, launch demo mode: `hass --demo-mode` or visit the [demo page](/demo).
+If you run into any issues, please see [the troubleshooting page](/docs/installation/troubleshooting/) or [communication channels](/help/). It contains solutions to many commonly encountered issues.
 
 ### [Next step: Configuring Home Assistant &raquo;](/getting-started/configuration/)

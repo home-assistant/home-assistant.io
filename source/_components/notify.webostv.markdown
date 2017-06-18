@@ -25,12 +25,15 @@ notify:
   - platform: webostv
     host: 192.168.0.112
     name: livingroom_tv
+    filename: webostv.conf
 ```
 
 Configuration variables:
 
 - **host** (*Required*): The IP of the LG WebOS Smart TV, e.g. 192.168.0.10
 - **name** (*Required*): The name you would like to give to the LG WebOS Smart TV.
+- **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
+- **icon** (*Optional*): The path to an image file to use as the icon in notifications. If provided, this image will override the Home Assistant logo.
 
 A possible automation could be:
 
@@ -46,4 +49,21 @@ automation:
       service: notify.livingroom_tv
       data:
         message: "You should open a window! (Livingroom Co2: {{ states.sensor.netatmo_livingroom_co2.state }}ppm)"
+```
+
+The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:
+
+```yaml
+automation:
+  - alias: Front door motion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.front_door_motion
+      to: 'on'
+    action:
+      service: notify.livingroom_tv
+      data:
+        message: "Movement detected: Front Door"
+        data:
+          icon: "/home/homeassistant/images/doorbell.png"
 ```

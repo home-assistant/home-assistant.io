@@ -158,9 +158,11 @@ alexa:
           {%- for state in states.device_tracker -%}
             {%- if state.name.lower() == User.lower() -%}
               {{ state.name }} is at {{ state.state }}
+            {%- elif loop.last -%}
+              I am sorry, I do not know where {{ User }} is.
             {%- endif -%}
           {%- else -%}
-            I am sorry, I do not know where {{ User }} is.
+            Sorry, I don't have any trackers registered.
           {%- endfor -%}
       card:
         type: simple
@@ -304,6 +306,34 @@ text: !include alexa_confirm.yaml
 
 Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
 
+<p class='note'>
+As of April 2017, the random filter has been somewhat broken. You'll get a random response the first time this runs, but subsequent commands will reply with the same randomly-chosen phrase. On reboot,  Home Assistant will pick a new random choice, but you're stuck with that choice till you reboot. To get around that, use the following code in alexa_confirm.yaml:
+</p>
+
+```text
+{% raw %}          >
+          {% set responses = [
+          "OK",
+          "Sure",
+          "If you insist",
+          "Done",
+          "No worries",
+          "I can do that",
+          "Leave it to me",
+          "Consider it done",
+          "As you wish",
+          "By your command",
+          "Affirmative",
+          "Yes oh revered one",
+          "I will",
+          "As you decree, so shall it be",
+          "No Problem"
+          ] %}
+          {% set rindex =  (range(0, (responses | length - 1) )|random) -%}
+          {{responses[rindex]}}
+          {% endraw %}
+```
+
 
 ## {% linkable_title Flash Briefing Skills %}
 
@@ -355,7 +385,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - Hit "Next"
   - Test
       - Having passed all validations to reach this screen you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
-- To invoke your flash briefing, open the Alexa app on your phone or go to [Alexa|http://alexa.amazon.com/], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
+- To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
@@ -364,3 +394,4 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 [small-icon]: /images/components/alexa/alexa-108x108.png
 [templates]: /topics/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
+[alexa-settings-site]: http://alexa.amazon.com/

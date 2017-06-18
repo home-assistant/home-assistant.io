@@ -11,9 +11,9 @@ ha_category: Binary Sensor
 logo: home-assistant.png
 ---
 
-The `template` platform supports sensors which breaks out the state and `state_attributes` from other entities.
+The `template` platform supports sensors which breaks out the `state` and `state_attributes` from other entities. The state of a template binary sensor can only be `on` or `off`.
 
-To enable Template binary sensors in your installation, add the following to your `configuration.yaml` file:
+To enable template binary sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,7 +29,7 @@ Configuration variables:
 
 - **sensors** array (*Required*): List of your sensors.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
   - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
 
@@ -47,8 +47,8 @@ sensor:
     sensors:
       furnace_on:
         value_template: {% raw %}{{ states.sensor.furnace.state > 2.5 }}{% endraw %}
-        friendly_name: 'Furnace Running
-        sensor_class: heat
+        friendly_name: 'Furnace Running'
+        device_class: heat
 ```
 
 ### {% linkable_title Switch as sensor %}
@@ -61,10 +61,10 @@ binary_sensor:
     sensors:
       movement:
         value_template: {% raw %}"{{ states.switch.movement.state == 'on' }}"{% endraw %}
-        sensor_class: motion
+        device_class: motion
       door:
         value_template: {% raw %}"{{ states.switch.door.state == 'on' }}"{% endraw %} 
-        sensor_class: opening
+        device_class: opening
 ```
 
 
@@ -78,7 +78,7 @@ binary_sensor:
     sensors:
       co:
         friendly_name: 'CO'
-        sensor_class: 'gas'
+        device_class: 'gas'
         value_template: {% raw %}>-
           {%- if is_state("sensor.bedroom_co_status", "Ok") 
               and is_state("sensor.kitchen_co_status", "Ok")
@@ -91,4 +91,18 @@ binary_sensor:
           - sensor.bedroom_co_status
           - sensor.kitchen_co_status
           - sensor.wardrobe_co_status
+```
+### {% linkable_title Change the icon %}
+
+This example shows how to change the icon based on the day/night cycle.
+
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      day_night:
+        friendly_name: 'Day/Night'
+        value_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'{% endraw %}
+        icon_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'{% endraw %}
+        
 ```

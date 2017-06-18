@@ -10,6 +10,7 @@ footer: true
 logo: netatmo.png
 ha_category: Hub
 ha_release: "0.20"
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -28,15 +29,15 @@ netatmo:
 
 Configuration variables:
 
-- **api_key** (*Required*): The API key for your netatmo account.
-- **secret_key** (*Required*): Your netatmo secret key
-- **username** (*Required*): Username for the netatmo account.
-- **password** (*Required*): Password for the netatmo account.
+- **api_key** (*Required*): The API key for your Netatmo account.
+- **secret_key** (*Required*): Your Netatmo secret key
+- **username** (*Required*): Username for the Netatmo account.
+- **password** (*Required*): Password for the Netatmo account.
 - **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
 
 ### {% linkable_title Get API and Secret Key %}
 
-To get your API credentials, you have to declare a new application in the [NetAtmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular NetAtmo account.
+To get your API credentials, you have to declare a new application in the [NetAtmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
 Click on 'Create an App' at the top of the page.
 
 <p class='img'>

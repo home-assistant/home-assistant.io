@@ -10,6 +10,7 @@ footer: true
 logo: octoprint.png
 ha_category: Sensor
 ha_release: 0.19
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -22,6 +23,7 @@ You must have the [OctoPrint component](/components/octoprint/) configured to us
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
+# Example configuration.yaml entry
 sensor:
   - platform: octoprint
     name: OctoPrint

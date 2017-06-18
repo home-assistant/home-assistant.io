@@ -45,7 +45,7 @@ Configuration variables:
     - **on_code_receive** (*Optional*): If given, this command will turn the switch on if it is received by Pilight.
     - **off_code_receive** (*Optional*): If given, this command will turn the switch off if it is received by Pilight.
 
-Variables for the different codes:
+Variables for the different codes (`on_code` and `off_code`):
 
 - **protocol** (*Required*): Protocol to use, eg. `intertechno_old` or `daycom`.
 - **systemcode** (*Optional*): The systemcode of the device.
@@ -55,8 +55,13 @@ Variables for the different codes:
 - **'off'** (*Optional*): `1` or `0`
 - **'on'** (*Optional*): `1` or `0`
 
-For possible code entries look at the [pilight API](https://www.pilight.org/development/api/). All commands allowed by [pilight-send](https://wiki.pilight.org/doku.php/psend) can be used. Which means that if for a certain protocol there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
+For possible code entries look at the [pilight API](https://www.pilight.org/development/api/). All commands allowed by [pilight-send](https://wiki.pilight.org/doku.php/psend) can be used. Which means that if for a certain protocol there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occuring.
 
+Variables for the different receive codes (`on_code_receive` and `off_code_receive`):
+
+- **echo** (*Optional*) Set to `true` if the on-/off-code should be sent if the given code was received.
+
+This is useful if you have paired your sender directly with the receiver to prevent sending the signal twice.
 
 ## {% linkable_title Examples %}
 

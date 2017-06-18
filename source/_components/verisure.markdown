@@ -10,6 +10,7 @@ footer: true
 logo: verisure.png
 ha_category: Hub
 ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.

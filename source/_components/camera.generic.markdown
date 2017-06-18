@@ -33,8 +33,8 @@ Configuration variables:
 - **name** (*Optional*): This parameter allows you to override the name of your camera.
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
-- **authentication** (*Optional*): `basic` (default) or `digest` auth for requests.
-- **limit_refetch_to_url_change** (*Optional*): true/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.
+- **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
+- **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.
 
 <p class='img'>
   <a href='/cookbook/google_maps_card/'>
