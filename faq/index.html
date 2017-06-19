@@ -72,7 +72,7 @@
 <p>When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the <code class="highlighter-rouge">home-assistant.log</code> file and see if there are any errors related to your component you are trying to set up.</p>
 <p>If you have incorrect entries in your configuration files you can use the <code class="highlighter-rouge">check_config</code> script to assist in identifying them: <code class="highlighter-rouge">hass --script check_config</code>.</p>
 <h2><a class="title-link" name="documentation" href="#documentation"></a> Documentation</h2>
-<h3><a class="title-link" name="the-docs-are-missing-or-outdated" href="#the-docs-are-missing-or-outdated"></a> The docs are missing or outdated</h3>
+<h3><a class="title-link" name="missing-documentation" href="#missing-documentation"></a> Missing Documentation</h3>
 <p>Home Assistant is a FAST moving open source project. This means occasionally the official documentation will not be 100% current or complete. Since this is an open source volunteer project, we would encourage anyone who finds gaps in the documentation to click the <code class="highlighter-rouge">edit this page on Github</code> link in the top right and submit any corrections/enhancements they may find useful.</p>
 <p>In the absence of information, many users find it beneficial to look at other people’s configurations to find examples of what they want to accomplish in thier own configurations. The easiest way to find these configurations is through this <a href="https://github.com/search?q=topic%3Ahome-assistant-config&amp;type=Repositories">Github search</a>.</p>
 <h2><a class="title-link" name="installation" href="#installation"></a> Installation</h2>
@@ -82,7 +82,7 @@
   <pre class="highlight"><code><span class="gp">$ </span>python3 get-pip.py
 </code></pre>
 </div>
-<h3><a class="title-link" name="distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both" href="#distutilserrorsdistutilsoptionerror-must-supply-either-home-or-prefixexec-prefix----not-both"></a> distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix – not both</h3>
+<h3><a class="title-link" name="distutilserrorsdistutilsoptionerror" href="#distutilserrorsdistutilsoptionerror"></a> distutils.errors.DistutilsOptionError</h3>
 <p>The problem which leads to <code class="highlighter-rouge">distutils.errors.DistutilsOptionError: must supply either home or prefix/exec-prefix -- not both</code> is a known issue if you’re on a Mac using Homebrew to install Python. Please follow <a href="https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md#note-on-pip-install---user">these instructions</a> to resolve it.</p>
 <h3><a class="title-link" name="libyaml-is-not-found-or-a-compiler-error" href="#libyaml-is-not-found-or-a-compiler-error"></a> libyaml is not found or a compiler error</h3>
 <p>On a Debian system, install the Python 3 YAML library by <code class="highlighter-rouge">sudo apt-get install python3-yaml</code>.</p>
