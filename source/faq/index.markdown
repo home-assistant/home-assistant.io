@@ -21,7 +21,7 @@ This is a community curated list of frequently asked questions (FAQ) about the i
 
   {% for entry in faq %}
     {% if entry.ha_category == category %}
-### {% linkable_title {{ entry.description }} %}
+### {% linkable_title {{ entry.title }} %}
 {{entry.content}}
     {% endif %}
   {% endfor %}
