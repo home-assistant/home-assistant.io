@@ -108,9 +108,10 @@
 <span class="s">mqtt</span><span class="pi">:</span>
 </code></pre>
 </div>
-<p class="note">
-This broker does not currently work with OwnTracks because of a protocol version issue.
-</p>
+<h3><a class="title-link" name="owntracks" href="#owntracks"></a> Owntracks</h3>
+<p>To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).</p>
+<p>In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open <strong>Configuration Management</strong>; Find the value named <code class="highlighter-rouge">mqttProtocolLevel</code> and set the value to <code class="highlighter-rouge">4</code>. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.</p>
+<h3><a class="title-link" name="settings" href="#settings"></a> Settings</h3>
 <p>If you want to customize the settings of the embedded broker, use <code class="highlighter-rouge">embedded:</code> and the values shown in the <a href="http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration">HBMQTT Broker configuration</a>. This will replace the default configuration.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
