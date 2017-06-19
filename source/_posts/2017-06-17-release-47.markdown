@@ -125,6 +125,28 @@ notify:
     recipient: !secret mailgun_recipient
 ```
 
+- Z-Wave node and scene activated trigger events now use the full entity ID ([@armills] - [#7786]) ([zwave docs]) (breaking change)
+```yaml
+automation:
+  - alias: Button 1
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: living_room_remote_13
+        scene_id: 1
+```
+```yaml
+automation:
+  - alias: Event 1
+    trigger:
+      platform: event
+      event_type: zwave.node_event
+      event_data:
+        entity_id: zwave.living_room_remote_13
+        basic_level: 1
+```
+
 - LIFX: add multiple modes to pulse effect. The `lifx_effect_breathe` call has been deprecated. Use `lifx_effect_pulse` with the new `mode: breathe` attribute instead. ([@amelchio] - [#8016]) ([light.lifx docs]) (breaking change)
 - Use standard entity_ids for zwave entities. This also introduces a small API breakage, where `EVENT_SCENE_ACTIVATED` and `EVENT_NODE_EVENT` will no longer supply an `object_id`. They will now be tied to the node entity_id. ([@armills] - [#7786]) ([zwave docs]) ([light.zwave docs]) (breaking change)
 - Fix attribute entities. Home Assistant will no longer filter out entities that are 'falsey'. So you might see more entity attributes show up. ([@pvizeli] - [#8066]) (breaking change)
