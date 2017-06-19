@@ -66,7 +66,7 @@
   <div class="meta clearfix">
     <time datetime="2017-06-17T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 17, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 15 minutes reading time</span>
+    <span><i class='icon-time'></i> 16 minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -170,6 +170,30 @@
 </code></pre>
 </div>
 <ul>
+  <li>Z-Wave node and scene activated trigger events now use the full entity ID (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7786">#7786</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (breaking change)
+```yaml
+automation:
+    <ul>
+      <li>alias: Button 1
+trigger:
+  platform: event
+  event_type: zwave.scene_activated
+  event_data:
+    entity_id: living_room_remote_13
+    scene_id: 1
+<code class="highlighter-rouge">
+</code>yaml
+automation:</li>
+      <li>alias: Event 1
+trigger:
+  platform: event
+  event_type: zwave.node_event
+  event_data:
+    entity_id: zwave.living_room_remote_13
+    basic_level: 1
+```</li>
+    </ul>
+  </li>
   <li>LIFX: add multiple modes to pulse effect. The <code class="highlighter-rouge">lifx_effect_breathe</code> call has been deprecated. Use <code class="highlighter-rouge">lifx_effect_pulse</code> with the new <code class="highlighter-rouge">mode: breathe</code> attribute instead. (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8016">#8016</a>) (<a href="https://home-assistant.io/components/light.lifx/">light.lifx docs</a>) (breaking change)</li>
   <li>Use standard entity_ids for zwave entities. This also introduces a small API breakage, where <code class="highlighter-rouge">EVENT_SCENE_ACTIVATED</code> and <code class="highlighter-rouge">EVENT_NODE_EVENT</code> will no longer supply an <code class="highlighter-rouge">object_id</code>. They will now be tied to the node entity_id. (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7786">#7786</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (<a href="https://home-assistant.io/components/light.zwave/">light.zwave docs</a>) (breaking change)</li>
   <li>Fix attribute entities. Home Assistant will no longer filter out entities that are ‘falsey’. So you might see more entity attributes show up. (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8066">#8066</a>) (breaking change)</li>

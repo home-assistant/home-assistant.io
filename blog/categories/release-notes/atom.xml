@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-19T13:56:20+00:00</updated>
+  <updated>2017-06-19T15:09:43+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -130,6 +130,28 @@ notify:
   - name: mailgun
     platform: mailgun
     recipient: !secret mailgun_recipient
+```
+
+- Z-Wave node and scene activated trigger events now use the full entity ID ([@armills] - [#7786]) ([zwave docs]) (breaking change)
+```yaml
+automation:
+  - alias: Button 1
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: living_room_remote_13
+        scene_id: 1
+```
+```yaml
+automation:
+  - alias: Event 1
+    trigger:
+      platform: event
+      event_type: zwave.node_event
+      event_data:
+        entity_id: zwave.living_room_remote_13
+        basic_level: 1
 ```
 
 - LIFX: add multiple modes to pulse effect. The `lifx_effect_breathe` call has been deprecated. Use `lifx_effect_pulse` with the new `mode: breathe` attribute instead. ([@amelchio] - [#8016]) ([light.lifx docs]) (breaking change)
