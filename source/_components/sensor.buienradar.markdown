@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: 
 ha_category: Weather
-ha_release: 0.44
+ha_release: 0.47
 ---
 
 
