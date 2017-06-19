@@ -17,6 +17,16 @@ Create an `authorized_keys` file in the root of your SD card with your public ke
 
 Windows instructions how to generate and use private/public keys with Putty are [here][windows-keys]. Instead of the droplet instructions, add the public key as per above instructions.
 
+Alternative instructions, for Mac, Windows and Linux can be found [here](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-mac).
+
+Follow steps 1-4 under 'Generating a new SSH key' (The other sections are not applicable to Hass.io and can be ignored.)
+
+Step 3 in the link above, shows the path to the private key file `id_rsa` for your chosen operating system. Your public key, `id_rsa.pub`, is saved in the same folder. Next, copy your public key file to the root of your SD card.
+
+<p class='note'>
+Make sure when you are copying the public key to the root of the SD card that you rename the file correctly with no `.pub` file extension.
+</p> 
+
 ## {% linkable_title Checking the logs %}
 
 ```bash
