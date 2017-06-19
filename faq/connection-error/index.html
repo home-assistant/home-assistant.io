@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>My component does not show up - Home Assistant</title>
+    <title>Connection error - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="My component does not show up">
+    <meta name="description" content="Connection error">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/faq/component/">
+    <link rel="canonical" href="https://home-assistant.io/faq/connection-error/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="My component does not show up">
+    <meta property="og:title" content="Connection error">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/faq/component/">
+    <meta property="og:url" content="https://home-assistant.io/faq/connection-error/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="My component does not show up">
+    <meta property="og:description" content="Connection error">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="My component does not show up">
-    <meta name="twitter:description" content="My component does not show up">
+    <meta name="twitter:title" content="Connection error">
+    <meta name="twitter:description" content="Connection error">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -60,15 +60,18 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_faq/component.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_faq/connection-error.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      My Component Does Not Show Up
+      Connection Error
     </h1>
   </header>
   <hr class="divider">
-  <p>When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the <code class="highlighter-rouge">home-assistant.log</code> file and see if there are any errors related to your component you are trying to set up.</p>
-<p>If you have incorrect entries in your configuration files you can use the <code class="highlighter-rouge">check_config</code> script to assist in identifying them: <code class="highlighter-rouge">hass --script check_config</code>.</p>
+  <p>It can happen that you get a traceback that notify you about connection issues while running Home Assistant. Eg.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ConnectionRefusedError: <span class="o">[</span>Errno 111] Connection refused
+</code></pre>
+</div>
+<p>The chance is very high that this is not a bug but an issue with the service/daemon itself. Check your network (DNS, DHCP, uplink, etc.) first and make sure that Home Assistant and the service are poperly configured. Keep in mind that webservices can be down.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

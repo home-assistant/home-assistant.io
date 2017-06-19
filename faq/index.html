@@ -99,6 +99,13 @@
 <p>After upgrading to a new version, you may notice your browser gets stuck at the “loading data” login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work.</p>
 <p>Android Chrome 
 chrome -&gt; settings -&gt; site settings -&gt; storage -&gt; search for your URL for home assistant-&gt; “clear &amp; reset”</p>
+<h3><a class="title-link" name="connection-error" href="#connection-error"></a> Connection error</h3>
+<p>It can happen that you get a traceback that notify you about connection issues while running Home Assistant. Eg.</p>
+<div class="language-bash highlighter-rouge">
+  <pre class="highlight"><code>ConnectionRefusedError: <span class="o">[</span>Errno 111] Connection refused
+</code></pre>
+</div>
+<p>The chance is very high that this is not a bug but an issue with the service/daemon itself. Check your network (DNS, DHCP, uplink, etc.) first and make sure that Home Assistant and the service are poperly configured. Keep in mind that webservices can be down.</p>
 <h3><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h3>
 <p>The dependencies which are used by Home Assistant are stored in the folder <code class="highlighter-rouge">deps</code> of the <a href="/docs/configuration/">configuration folder</a> directory. After an <a href="/docs/installation/updating/">upgrade</a> the dependences will be upgraded as well.</p>
 <h3><a class="title-link" name="problems-with-dependencies" href="#problems-with-dependencies"></a> Problems with dependencies</h3>
@@ -137,6 +144,7 @@ chrome -&gt; settings -&gt; site settings -&gt; storage -&gt; search for your UR
         <b>Usage</b>
         <ul>
 <li><a href='/faq#after-upgrading-your-browser-login-gets-stuck'>After upgrading, your browser login gets stuck</a></li>
+<li><a href='/faq#connection-error'>Connection error</a></li>
 <li><a href='/faq#dependencies'>Dependencies</a></li>
 <li><a href='/faq#problems-with-dependencies'>Problems with dependencies</a></li>
         </ul>
