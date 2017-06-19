@@ -66,8 +66,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">buienradar</code> platform uses <a href="http://buienradar.nl/">buienradar.nl</a> as an source for current meteorological data for your location. The 
-weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
+  <p>The <code class="highlighter-rouge">buienradar</code> platform uses <a href="http://buienradar.nl/">buienradar.nl</a> as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
 The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).</p>
 <p>To add the buienradar weather to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -77,13 +76,13 @@ The relevant weatherstation used will be automatically selected based on the loc
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>platform</strong> (<em>Required</em>): buienradar</li>
-  <li><strong>latitude</strong>  (<em>Optional</em>): latitude to use for selection of data source location. Longitude &amp; latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
-  <li><strong>longitude</strong> (<em>Optional</em>): longitude to use for selection of data source location. Longitude &amp; latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
-  <li><strong>forecast</strong> (<em>Optional</em>): ‘True’ to add a temperature forecast, ‘False’ to suppress it</li>
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude to use for selection of data source location. Longitude &amp; latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
+  <li><strong>longitude</strong>(<em>Optional</em>): Longitude to use for selection of data source location. Longitude &amp; latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
+  <li><strong>forecast</strong> (<em>Optional</em>): ‘True’ to add a temperature forecast, ‘False’ to suppress it.</li>
 </ul>
 <p>A full configuration example:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">weather</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">weather</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">buienradar</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">buienradar</span>
     <span class="s">latitude</span><span class="pi">:</span> <span class="s">51.65</span>
@@ -102,7 +101,11 @@ The weather platform is easier to configure but less customisable.
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/weather.buienradar.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/buienradar.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.44
     </div>

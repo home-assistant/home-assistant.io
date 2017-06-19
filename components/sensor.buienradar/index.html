@@ -66,8 +66,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">buienradar</code> platform uses <a href="http://buienradar.nl/">buienradar.nl</a> as an source for current meteorological data for your location. The 
-weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
+  <p>The <code class="highlighter-rouge">buienradar</code> platform uses <a href="http://buienradar.nl/">buienradar.nl</a> as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
 The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).</p>
 <p>To integrate <code class="highlighter-rouge">buienradar</code> with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -83,12 +82,11 @@ The relevant weatherstation used will be automatically selected based on the loc
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>platform</strong>  (<em>Required</em>): buienradar.</li>
-  <li><strong>latitude</strong>  (<em>Optional</em>): latitude to use for selection of data source location. Longitude &amp; latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
-  <li><strong>longitude</strong> (<em>Optional</em>): longitude to use for selection of data source location. Longitude &amp; latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): one or more conditions to display in the frontend.
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Longitude to use for selection of data source location. Longitude &amp; latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.</li>
+  <li><strong>monitored_conditions</strong> array (<em>Required</em>): One or more conditions to display in the frontend.
     <ul>
-      <li><strong>stationname</strong>: the name of the selected meteo-station.</li>
+      <li><strong>stationname</strong>: The name of the selected meteo-station.</li>
       <li><strong>symbol</strong>: A symbol for the current weather.</li>
       <li><strong>humidity</strong>: The relative humidity (%).</li>
       <li><strong>temperature</strong>: The current temperature (in C).</li>
@@ -96,11 +94,11 @@ The relevant weatherstation used will be automatically selected based on the loc
       <li><strong>windspeed</strong>: The wind speed in m/s.</li>
       <li><strong>windforce</strong>: The wind speed/force in Bft.</li>
       <li><strong>winddirection</strong>: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.</li>
-      <li><strong>windazimuth</strong>: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc..</li>
+      <li><strong>windazimuth</strong>: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.</li>
       <li><strong>pressure</strong>: The sea-level air pressure in hPa.</li>
       <li><strong>visibility</strong>: Visibility in meters (m).</li>
       <li><strong>windgust</strong>: The windspeed of wind gusts (m/s).</li>
-      <li><strong>precipitation</strong>: the amount of precipitation/rain in mm/h.</li>
+      <li><strong>precipitation</strong>: The amount of precipitation/rain in mm/h.</li>
       <li><strong>irradiance</strong>: Sun intensity in Watt per square meter (W/m2).</li>
     </ul>
   </li>
@@ -134,7 +132,11 @@ The relevant weatherstation used will be automatically selected based on the loc
     <section class="aside-module grid__item one-whole lap-one-half">
   <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.buienradar.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/buienradar.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.44
     </div>
