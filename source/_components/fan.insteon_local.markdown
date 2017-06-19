@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: insteon.png
 ha_category: fan
-ha_version: 0.42
+ha_version: 0.48
 ---
 
 The `insteon_local` fan component lets you control your fan connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.
