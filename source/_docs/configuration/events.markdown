@@ -14,9 +14,15 @@ The core of Home Assistant is the event bus. The event bus allows any component 
 
 Home Assistant contains a few built-in events that are used to coordinate between various components.
 
-### {% linkable_title Event `homeassistant_start` %}
-Event `homeassistant_start` is fired when all components from the configuration have been intitialized. This is the event that will start the timer firing off `time_changed` events.
+### {% linkable_title Event `homeassistant_start` %} - DEPRECATED
+Event `homeassistant_start` was fired when all components from the configuration had been intitialized. This was the event that started the timer firing off `time_changed` events.
 
+Similar functionality can now be achieved using:
+```yaml
+trigger:
+  platform:homeassistant
+  event:start
+```
 
 ### {% linkable_title Event `homeassistant_stop` %}
 Event `homeassistant_stop` is fired when Home Assistant is shutting down. It should be used to close any open connection or release any resources.
