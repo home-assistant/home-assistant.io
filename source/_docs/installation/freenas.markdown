@@ -29,13 +29,13 @@ Install Home Assistant itself.
 # pip3 install homeassistant
 ```
 
-Create an /etc/rc.local file to enable Home Assistant to start when the jail starts. The command in /etc/rc.local can also be run in a terminal session but Home Assistant will exit when that session is closed.  
+Create an `/etc/rc.local` file to enable Home Assistant to start when the jail starts. The command in `/etc/rc.local` can also be run in a terminal session but Home Assistant will exit when that session is closed.  
 
 ```bash
 # /usr/local/bin/hass --open-ui --config /home/.homeassistant/ &
 ```
 
-Make /etc/rc.local executable so it runs on startup
+Make `/etc/rc.local` executable so it runs on startup
 
 ```bash
 # chmod 755 /etc/rc.local
@@ -44,5 +44,5 @@ Make /etc/rc.local executable so it runs on startup
 Finally restart the jail from the Freenas GUI.
 
 <p class='note'>
-USB Z-wave sticks may give dmesg warnings similar to "data interface 1, has no CM over data, has no break".  This doesn't impact the function of the Z-wave stick in Hass.  Just make sure the proper /dev/cu* is used in the Home Assistant configuration.yaml file.  
+USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break".  This doesn't impact the function of the Z-wave stick in Hass. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.  
 </p>
