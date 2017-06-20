@@ -81,11 +81,18 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># pip3 install homeassistant</span>
 </code></pre>
 </div>
-<p>Finally start Home Assistant.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># hass --open-ui</span>
+<p>Create an <code class="highlighter-rouge">/etc/rc.local</code> file to enable Home Assistant to start when the jail starts. The command in <code class="highlighter-rouge">/etc/rc.local</code> can also be run in a terminal session but Home Assistant will exit when that session is closed.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># /usr/local/bin/hass --open-ui --config /home/.homeassistant/ &amp;</span>
 </code></pre>
 </div>
-<p>Some suggestions on using a tmux to keep it running can be found in the FreeNAS forums <a href="https://forums.freenas.org/index.php?threads/how-to-home-assistant-in-a-jail-tested-on-9-10.50371/">HERE</a></p>
+<p>Make <code class="highlighter-rouge">/etc/rc.local</code> executable so it runs on startup</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># chmod 755 /etc/rc.local</span>
+</code></pre>
+</div>
+<p>Finally restart the jail from the Freenas GUI.</p>
+<p class="note">
+USB Z-wave sticks may give <code class="highlighter-rouge">dmesg</code> warnings similar to “data interface 1, has no CM over data, has no break”.  This doesn’t impact the function of the Z-wave stick in Hass. Just make sure the proper <code class="highlighter-rouge">/dev/cu*</code> is used in the Home Assistant <code class="highlighter-rouge">configuration.yaml</code> file.<br />
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
