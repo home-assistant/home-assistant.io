@@ -69,14 +69,8 @@
   <hr class="divider">
   <p>The core of Home Assistant is the event bus. The event bus allows any component to fire or listen for events. It is the core of everything. For example, any state change will be announced on the event bus as a <code class="highlighter-rouge">state_changed</code> event containing the previous and the new state of an entity.</p>
 <p>Home Assistant contains a few built-in events that are used to coordinate between various components.</p>
-<h3><a class="title-link" name="event-homeassistant_start" href="#event-homeassistant_start"></a> Event <code class="highlighter-rouge">homeassistant_start</code>  - DEPRECATED</h3>
-<p>Event <code class="highlighter-rouge">homeassistant_start</code> was fired when all components from the configuration had been intitialized. This was the event that started the timer firing off <code class="highlighter-rouge">time_changed</code> events.</p>
-<p>Similar functionality can now be achieved using:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">trigger</span><span class="pi">:</span>
-  <span class="s">platform:homeassistant</span>
-  <span class="s">event:start</span>
-</code></pre>
-</div>
+<h3><a class="title-link" name="event-homeassistant_start" href="#event-homeassistant_start"></a> Event <code class="highlighter-rouge">homeassistant_start</code></h3>
+<p>Event <code class="highlighter-rouge">homeassistant_start</code> is fired when all components from the configuration have been intitialized. This is the event that will start the timer firing off <code class="highlighter-rouge">time_changed</code> events.</p>
 <h3><a class="title-link" name="event-homeassistant_stop" href="#event-homeassistant_stop"></a> Event <code class="highlighter-rouge">homeassistant_stop</code></h3>
 <p>Event <code class="highlighter-rouge">homeassistant_stop</code> is fired when Home Assistant is shutting down. It should be used to close any open connection or release any resources.</p>
 <h3><a class="title-link" name="event-state_changed" href="#event-state_changed"></a> Event <code class="highlighter-rouge">state_changed</code></h3>
