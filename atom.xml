@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-20T06:34:36+00:00</updated>
+  <updated>2017-06-20T07:09:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A frank and serious warning about Senic COVI]]></title>
+    <link href="https://home-assistant.io/blog/2017/06/20/things-you-should-know-about-senic-covi/"/>
+    <updated>2017-06-20T01:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/06/20/things-you-should-know-about-senic-covi</id>
+    <content type="html"><![CDATA[<p class="note">
+TL;DR: We are not affiliated with Senic or their COVI product. We will not support their users and you will get a subpar Home Assistant experience by using their product. <strong>Furthermore, we cannot guarantee stability or security if you use Senic products.</strong>
+</p>
+
+<p>Recently Home Assistant has been made aware of a product by <a href="https://www.senic.com/en/">Senic</a> that will be launching later today on <a href="https://www.kickstarter.com/projects/802159142/1793705123?token=03dc08b4#">Kickstarter</a> (<a href="https://home-assistant.io/images/blog/2017-06-senic-covi/covi-kickstarter-screenshot.png">screenshot</a>). Senic is not new in the IoT business, we have had support for their first product (<a href="https://home-assistant.io/components/nuimo_controller/">Nuimo</a>) since last September. Their new product, COVI, uses Home Assistant as its core home automation codebase. This is great, that is what open source is all about. However, they also use our name and logo in their Kickstarter, with the press and in their <a href="http://blog.senic.com/posts/the-senic-hub-a-brief-software-overview">developer documentation</a> (<a href="https://home-assistant.io/images/blog/2017-06-senic-covi/senic-docs-screenshot.png">screenshot</a>) to give the appearance of being affiliated with Home Assistant, against our wishes. Which is not great, at all.</p>
+
+<p>Take some of the following quotes from their Kickstarter campaign:</p>
+
+<blockquote>
+  <p>COVI is built on an open source platform. The Senic team, along with outside developers, contributes to this platform to create the integrations for COVI.</p>
+</blockquote>
+
+<blockquote>
+  <p>With COVI, we have built upon an open platform called Home Assistant that anyone can contribute to alongside our engineers and the Home Assistant community.</p>
+</blockquote>
+
+<p>Although those quotes are technically correct, they are very misleading. The Senic team contributes only to their own platform, they have not contributed to Home Assistant, its integrations or related projects. We did receive <a href="https://github.com/home-assistant/netdisco/pull/94">1 contribution</a> from them for <a href="https://github.com/home-assistant/netdisco">Netdisco</a>, our network discovery package. It included a memory leak and required us to publish <a href="https://home-assistant.io/blog/2017/02/25/config-panel-and-state-restoration/#release-0392---march-1/">a hotfix release</a> for the 0.39 series. Their contribution has since been reverted. A third party contributor had contributed support for their Nuimo controller.</p>
+
+<p>Here is a quote that their CEO Tobias Eichenwald gave <a href="https://webcache.googleusercontent.com/search?q=cache:https://www.forbes.com/sites/paularmstrongtech/2017/06/19/covi-is-about-to-make-some-general-electric-execs-very-unhappy/">to Forbes</a>:</p>
+
+<blockquote>
+  <p>Unlike many larger companies who build closed automation platforms, COVI is built on an open source platform called Home Assistant that includes 500+ contributors. This allows COVI to be integrated into any ecosystem or platform with an open API.</p>
+</blockquote>
+
+<p>They reached out to us on April 7 (<a href="https://home-assistant.io/images/blog/2017-06-senic-covi/email-senic.png">screenshot</a>). We replied on April 11 and told them they should not use our name as we do not want to be affiliated with them because we do not want to support their users. After that one e-mail we had never heard from them again until Forbes accidentally published an article about it before the Kickstarter launched. We did not get any chance to give feedback on their Kickstarter campaign content and they went ahead and used our name and logo without authorization or permission.</p>
+
+<p>If you want an open source and constantly evolving product, get yourself a $35 Raspberry Pi, install our hub <a href="https://home-assistant.io/hassio/">Hass.io</a> for free and buy yourself some cheap and reliable <a href="https://home-assistant.io/blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/">IKEA Trådfri lights</a> to get yourself a basic home automation setup. If you want a $250 talking lamp, go buy the COVI. Just know that we are not affiliated with Senic, we will not support their users and you will get a subpar Home Assistant experience by using their product. <strong>Furthermore, we cannot guarantee stability or security if you use Senic products.</strong></p>
+
+<p>Senic, we know that this is probably not what you wanted to wake up to on the first day of your Kickstarter but you left us no choice. Please reach out to us to help make this right. <strong>We will always do everything in our power to protect the best interests of the Home Assistant community, <span style="text-decoration: underline;">our</span> 500+ contributors and 250,000+ users.</strong> If we don’t hear from you by Wednesday, June 21st, we will be forced to consider further actions.</p>
+
+<p>Sincerely,</p>
+
+<p><strong>Paulus Schoutsen</strong><br />
+Founder, Home Assistant</p>
+
+<p><strong>Robbie Trencheny</strong><br />
+Core Developer, Home Assistant</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.47: Python Scripts, Sesame Smart Lock, Gitter, Onvif cameras]]></title>
@@ -1950,38 +1996,6 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
   <li>Warn if start takes a long time. (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6975">#6975</a>)</li>
   <li>Bump Amcrest module to 1.1.8 (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6990">#6990</a>)</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Thomas Krenn award 2017]]></title>
-    <link href="https://home-assistant.io/blog/2017/04/01/thomas-krenn-award/"/>
-    <updated>2017-04-01T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/04/01/thomas-krenn-award</id>
-    <content type="html"><![CDATA[<p>You may already know from our social media channels and the release blog post for 0.41: We are now an award-winning Open source project. The jury of the <a href="https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/">Thomas-Krenn-Award</a> put us on the 2nd place. This is an awesome achievment for an independent community project.</p>
-
-<p>I would like to thanks all contributors. Your endless effort made this possible.</p>
-
-<p><img src="https://home-assistant.io/images/blog/2017-04-award/award.jpg" style="border: 0;box-shadow: none;" /></p>
-
-<p>The prize beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four <a href="https://www.thomas-krenn.com/en/products/low-energy-systems/les-v2.html">Low Energy Server v2 (LES)</a> units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.</p>
-
-<p>As a raffle would be to easy, we make a contest out of it. This means that we are looking for your application. Of course, we would like to see those systems goes to active or future developers who can justify their need for one of the systems to run CI, UI tests, public accessible Home Assistant demo instances, etc. At the other hand we would like to keep it open, to see with what people are coming up. Please participate as well if you are planning to automate the public school of your kids with 1000 switches or light, need a server to run it, and want to provide regular feedback about the user experience.</p>
-
-<p>Create an entry in our <a href="https://community.home-assistant.io/c/contest-2017">Forum</a>. Be creative and use your imagination.</p>
-
-<h3><a class="title-link" name="the-details" href="#the-details"></a> The details</h3>
-
-<ul>
-  <li>Jury: The Home Assistant community</li>
-  <li>Dead line: April, 23 2017 - 23.59 UTC</li>
-  <li>Voting period: April, 24th till April, 30 2017 - 23.59 UTC</li>
-</ul>
-
-<p>The decision of the jury will be final. If there will be a dispute then the Top-5 commiter of the Home Assistant organisation on Github will decide. Also, we reserve us the right to ban applications if we suspect cheating or unfair methods. Updates will be available in the <a href="https://community.home-assistant.io/c/contest-2017">Forum</a> and on <a href="https://twitter.com/home_assistant">Twitter</a>.</p>
-
-<p>Keep in mind that you may have to pay the fee for customs handling and the import duty by yourself. The plan is to ship the hardware from Germany. If you are located in a country with import/export regulations, we may not be able to ship the hardware to you.</p>
 
 ]]></content>
   </entry>

@@ -62,6 +62,54 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/06/20/things-you-should-know-about-senic-covi/">A frank and serious warning about Senic COVI</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-06-20T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 20, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Robbie Trencheny</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Announcements</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/06/20/things-you-should-know-about-senic-covi/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p class="note">
+TL;DR: We are not affiliated with Senic or their COVI product. We will not support their users and you will get a subpar Home Assistant experience by using their product. <strong>Furthermore, we cannot guarantee stability or security if you use Senic products.</strong>
+</p>
+<p>Recently Home Assistant has been made aware of a product by <a href="https://www.senic.com/en/">Senic</a> that will be launching later today on <a href="https://www.kickstarter.com/projects/802159142/1793705123?token=03dc08b4#">Kickstarter</a> (<a href="/images/blog/2017-06-senic-covi/covi-kickstarter-screenshot.png">screenshot</a>). Senic is not new in the IoT business, we have had support for their first product (<a href="/components/nuimo_controller/">Nuimo</a>) since last September. Their new product, COVI, uses Home Assistant as its core home automation codebase. This is great, that is what open source is all about. However, they also use our name and logo in their Kickstarter, with the press and in their <a href="http://blog.senic.com/posts/the-senic-hub-a-brief-software-overview">developer documentation</a> (<a href="/images/blog/2017-06-senic-covi/senic-docs-screenshot.png">screenshot</a>) to give the appearance of being affiliated with Home Assistant, against our wishes. Which is not great, at all.</p>
+<p>Take some of the following quotes from their Kickstarter campaign:</p>
+<blockquote>
+  <p>COVI is built on an open source platform. The Senic team, along with outside developers, contributes to this platform to create the integrations for COVI.</p>
+</blockquote>
+<blockquote>
+  <p>With COVI, we have built upon an open platform called Home Assistant that anyone can contribute to alongside our engineers and the Home Assistant community.</p>
+</blockquote>
+<p>Although those quotes are technically correct, they are very misleading. The Senic team contributes only to their own platform, they have not contributed to Home Assistant, its integrations or related projects. We did receive <a href="https://github.com/home-assistant/netdisco/pull/94">1 contribution</a> from them for <a href="https://github.com/home-assistant/netdisco">Netdisco</a>, our network discovery package. It included a memory leak and required us to publish <a href="/blog/2017/02/25/config-panel-and-state-restoration/#release-0392---march-1">a hotfix release</a> for the 0.39 series. Their contribution has since been reverted. A third party contributor had contributed support for their Nuimo controller.</p>
+<p>Here is a quote that their CEO Tobias Eichenwald gave <a href="https://webcache.googleusercontent.com/search?q=cache:https://www.forbes.com/sites/paularmstrongtech/2017/06/19/covi-is-about-to-make-some-general-electric-execs-very-unhappy/">to Forbes</a>:</p>
+<blockquote>
+  <p>Unlike many larger companies who build closed automation platforms, COVI is built on an open source platform called Home Assistant that includes 500+ contributors. This allows COVI to be integrated into any ecosystem or platform with an open API.</p>
+</blockquote>
+<p>They reached out to us on April 7 (<a href="/images/blog/2017-06-senic-covi/email-senic.png">screenshot</a>). We replied on April 11 and told them they should not use our name as we do not want to be affiliated with them because we do not want to support their users. After that one e-mail we had never heard from them again until Forbes accidentally published an article about it before the Kickstarter launched. We did not get any chance to give feedback on their Kickstarter campaign content and they went ahead and used our name and logo without authorization or permission.</p>
+<p>If you want an open source and constantly evolving product, get yourself a $35 Raspberry Pi, install our hub <a href="/hassio/">Hass.io</a> for free and buy yourself some cheap and reliable <a href="/blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/">IKEA Trådfri lights</a> to get yourself a basic home automation setup. If you want a $250 talking lamp, go buy the COVI. Just know that we are not affiliated with Senic, we will not support their users and you will get a subpar Home Assistant experience by using their product. <strong>Furthermore, we cannot guarantee stability or security if you use Senic products.</strong></p>
+<p>Senic, we know that this is probably not what you wanted to wake up to on the first day of your Kickstarter but you left us no choice. Please reach out to us to help make this right. <strong>We will always do everything in our power to protect the best interests of the Home Assistant community, <span style="text-decoration: underline;">our</span> 500+ contributors and 250,000+ users.</strong> If we don’t hear from you by Wednesday, June 21st, we will be forced to consider further actions.</p>
+<p>Sincerely,</p>
+<p><strong>Paulus Schoutsen</strong><br />
+Founder, Home Assistant</p>
+<p><strong>Robbie Trencheny</strong><br />
+Core Developer, Home Assistant</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/06/17/release-47/">0.47: Python Scripts, Sesame Smart Lock, Gitter, Onvif cameras</a>
   </h1>
   <div class="meta clearfix">
@@ -455,71 +503,6 @@ If you have a security key set in your Open Z-Wave <code class="highlighter-roug
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/KNFZSSCPUyM" frameborder="0" allowfullscreen=""></iframe>
 </div>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/05/06/zigbee-opencv-dlib/">Home Assistant 0.44: ZigBee, OpenCV and DLib</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-05-06T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 6, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 14 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/05/06/zigbee-opencv-dlib/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.44"><img src="/images/blog/2017-05-0.44/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p>This release brings some great new integrations. The biggest one is the <a href="https://home-assistant.io/components/zha/">native ZigBee integration</a> by <a href="https://github.com/rcloran">Russell Cloran</a>. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)</p>
-<p>Another great new addition is <a href="https://home-assistant.io/components/opencv/">OpenCV</a> by <a href="https://github.com/Teagan42">Teagan Glenn</a>. So now you’ll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new <a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">DLib integration</a> added by <a href="https://github.com/pvizeli">Pascal Vizeli</a> in this release.</p>
-<p>This release also includes a <a href="https://home-assistant.io/components/rss_feed_template/">new component</a> to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!</p>
-<p>And finally, for users of the config panel in the UI, we have fixed the issue with the group editor.</p>
-<p>Enjoy!</p>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-<h2><a class="title-link" name="new-integrations" href="#new-integrations"></a> New integrations</h2>
-<ul>
-  <li>Pushbullet notification sensor (<a href="https://github.com/jotunacorn">@jotunacorn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7182">#7182</a>) (<a href="https://home-assistant.io/components/sensor.pushbullet/">sensor.pushbullet docs</a>)</li>
-  <li>Add https certificate expiry sensor (<a href="https://github.com/fabfurnari">@fabfurnari</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7272">#7272</a>) (<a href="https://home-assistant.io/components/sensor.cert_expiry/">sensor.cert_expiry docs</a>)</li>
-  <li>RSS feed template (<a href="https://github.com/micw">@micw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7032">#7032</a>) (<a href="https://home-assistant.io/components/rss_feed_template/">rss_feed_template docs</a>)</li>
-  <li>Add support for Zigbee Home Automation (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6263">#6263</a>) (<a href="https://home-assistant.io/components/zha/">zha docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.zha/">binary_sensor.zha docs</a>) (<a href="https://home-assistant.io/components/light.zha/">light.zha docs</a>) (<a href="https://home-assistant.io/components/sensor.zha/">sensor.zha docs</a>) (<a href="https://home-assistant.io/components/switch.zha/">switch.zha docs</a>)</li>
-  <li>Support for Blinkt! lights on Raspberry Pi (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7377">#7377</a>) (<a href="https://home-assistant.io/components/light.blinkt/">light.blinkt docs</a>)</li>
-  <li>Plant automation (<a href="https://github.com/ChristianKuehnel">@ChristianKuehnel</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7131">#7131</a>) (<a href="https://home-assistant.io/components/plant/">plant docs</a>)</li>
-  <li>Add Eight sleep component (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7275">#7275</a>) (<a href="https://home-assistant.io/components/eight_sleep/">eight_sleep docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.eight_sleep/">binary_sensor.eight_sleep docs</a>) (<a href="https://home-assistant.io/components/sensor.eight_sleep/">sensor.eight_sleep docs</a>)</li>
-  <li>OpenGarage support (<a href="https://github.com/swbradshaw">@swbradshaw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7338">#7338</a>) (<a href="https://home-assistant.io/components/cover.opengarage/">cover.opengarage docs</a>)</li>
-  <li>Add Sensibo climate platform (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7379">#7379</a>) (<a href="https://home-assistant.io/components/climate/">climate docs</a>)</li>
-  <li>Pilight binary sensor components (<a href="https://github.com/zeltom">@zeltom</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6774">#6774</a>) (<a href="https://home-assistant.io/components/binary_sensor.pilight/">binary_sensor.pilight docs</a>)</li>
-  <li>Opencv (<a href="https://github.com/Teagan42">@Teagan42</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7261">#7261</a>) (<a href="https://home-assistant.io/components/opencv/">opencv docs</a>) (<a href="https://home-assistant.io/components/image_processing.opencv/">image_processing.opencv docs</a>)</li>
-  <li>Enviro pHAT (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7427">#7427</a>) (<a href="https://home-assistant.io/components/sensor.envirophat/">sensor.envirophat docs</a>)</li>
-  <li>Add support for face recognition with dlib (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7421">#7421</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_detect/">image_processing.dlib_face_detect docs</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">image_processing.dlib_face_identify docs</a>)</li>
-</ul>
-<h2><a class="title-link" name="release-0442---may-8" href="#release-0442---may-8"></a> Release 0.44.2 - May 8</h2>
-<ul>
-  <li>Fix opening add-ons in Hass.io store that are not installed (<a href="https://github.com/balloob">@balloob</a>)</li>
-</ul>
-<h2><a class="title-link" name="release-0441---may-7" href="#release-0441---may-7"></a> Release 0.44.1 - May 7</h2>
-<ul>
-  <li>Fix opening add-ons in Hass.io store that are not installed (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>sensor.envirophat: add missing requirement (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7451">#7451</a>) (<a href="https://home-assistant.io/components/sensor.envirophat/">sensor.envirophat docs</a>)</li>
-  <li>Forecasts for weather underground (<a href="https://github.com/pezinek">@pezinek</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7062">#7062</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
-  <li>Upgrade pymysensors to 0.10.0 (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7469">#7469</a>)</li>
-  <li>Fix plant MIN_TEMPERATURE, MAX_TEMPERATURE validation (<a href="https://github.com/frog32">@frog32</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7476">#7476</a>) (<a href="https://home-assistant.io/components/plant/">plant docs</a>)</li>
-  <li>Update to pyunifi 2.12 (<a href="https://github.com/finish06">@finish06</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7468">#7468</a>) (<a href="https://home-assistant.io/components/device_tracker.unifi/">device_tracker.unifi docs</a>)</li>
-  <li>MQTT Cover: Fixed status reporting for range with non-zero base (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a>)</li>
-</ul>
-      <a class="btn pull-right" href="/blog/2017/05/06/zigbee-opencv-dlib/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>
