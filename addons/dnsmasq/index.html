@@ -68,9 +68,6 @@
   </header>
   <hr class="divider">
   <p>Setup and manage a <a href="http://thekelleys.org.uk/dnsmasq/doc.html">Dnsmasq</a> dns server. This allow your to manipulate some dns requests. I.e. that inside your network, your homeassistant domain will resolve with a internal address.</p>
-<p class="note warning">
-At the moment, it will not work with resinos!
-</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"defaults"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8.8.8.8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"8.8.4.4"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"forwards"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -79,7 +76,8 @@ At the moment, it will not work with resinos!
   </span><span class="nt">"hosts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home.mydomain.io"</span><span class="p">,</span><span class="w"> </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.10"</span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="nt">"interface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -87,6 +85,7 @@ At the moment, it will not work with resinos!
   <li><strong>defaults</strong> (<em>Required</em>): A list of dns server to forward default requests.</li>
   <li><strong>forwards</strong> (<em>Optional</em>): A list of domains that will forward to a specific server.</li>
   <li><strong>hosts</strong> (<em>Optional</em>): A list of hosts to resolve it static.</li>
+  <li><strong>interface</strong> (<em>Optional</em>): If a interface is set, it listen only on this interface. Need to set for resinos.</li>
 </ul>
 </article>
         </div>
