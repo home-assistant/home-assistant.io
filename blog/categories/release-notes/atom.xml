@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-21T12:53:58+00:00</updated>
+  <updated>2017-06-21T17:01:09+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -64,6 +64,14 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 [new-bug]: https://github.com/home-assistant/home-assistant/issues/7752
 [gdb]: https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009
 [Ben Bangert]: https://github.com/bbangert
+
+## <a class='title-link' name='release-0471---june-21' href='#release-0471---june-21'></a> Release 0.47.1 - June 21 
+
+- Fix Vera lights issue #8098 ([@tsvi] - [#8101]) ([light.vera docs])
+- Fix Dyson async_add_job ([@CharlesBlonde] - [#8113]) ([fan.dyson docs]) ([sensor.dyson docs])
+- Update InfluxDB to handle datetime objects and multiple decimal points ([@philhawthorne] - [#8080]) ([influxdb docs])
+- Fixed iTach command parsing with empty data ([@alanfischer] - [#8104]) ([remote.itach docs])
+- Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
 
 ## <a class='title-link' name='new-platforms' href='#new-platforms'></a> New platforms 
 
@@ -565,6 +573,15 @@ automation:
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [first-commit]: https://home-assistant.io/help/trivia/#first-commit
+[#8080]: https://github.com/home-assistant/home-assistant/pull/8080
+[#8101]: https://github.com/home-assistant/home-assistant/pull/8101
+[#8104]: https://github.com/home-assistant/home-assistant/pull/8104
+[#8113]: https://github.com/home-assistant/home-assistant/pull/8113
+[#8134]: https://github.com/home-assistant/home-assistant/pull/8134
+[@tsvi]: https://github.com/tsvi
+[fan.dyson docs]: https://home-assistant.io/components/fan.dyson/
+[remote.itach docs]: https://home-assistant.io/components/remote.itach/
+[sensor.dyson docs]: https://home-assistant.io/components/sensor.dyson/
 ]]></content>
   </entry>
   

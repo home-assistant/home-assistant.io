@@ -134,6 +134,14 @@
 <p>Since Python 3.6, the Task and Future classes have been moved to C. This gives a nice speed boost but also prevents us from monkey patching the Task class to avoid the segfault. <a href="https://github.com/bbangert">Ben Bangert</a> managed to brew up another monkey patch to stop Python 3.6 from using the C classes, falling back to the Python versions instead. This allows us to apply the original monkey patch again.</p>
 <p>Both monkey patches are now active by default starting version 0.47 to avoid our users experiencing segfaults. This comes at a cost of not being able to benefit from all optimizations that were introduced in Python 3.6.</p>
 <p>To run without the monkey patch, start Home Assistant with <code class="highlighter-rouge">HASS_NO_MONKEY=1 hass</code>. We will further investigate this issue and try to fix it in a future version of Python.</p>
+<h2><a class="title-link" name="release-0471---june-21" href="#release-0471---june-21"></a> Release 0.47.1 - June 21</h2>
+<ul>
+  <li>Fix Vera lights issue #8098 (<a href="https://github.com/tsvi">@tsvi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8101">#8101</a>) (<a href="https://home-assistant.io/components/light.vera/">light.vera docs</a>)</li>
+  <li>Fix Dyson async_add_job (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8113">#8113</a>) (<a href="https://home-assistant.io/components/fan.dyson/">fan.dyson docs</a>) (<a href="https://home-assistant.io/components/sensor.dyson/">sensor.dyson docs</a>)</li>
+  <li>Update InfluxDB to handle datetime objects and multiple decimal points (<a href="https://github.com/philhawthorne">@philhawthorne</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8080">#8080</a>) (<a href="https://home-assistant.io/components/influxdb/">influxdb docs</a>)</li>
+  <li>Fixed iTach command parsing with empty data (<a href="https://github.com/alanfischer">@alanfischer</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8104">#8104</a>) (<a href="https://home-assistant.io/components/remote.itach/">remote.itach docs</a>)</li>
+  <li>Allow iteration in python_script (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8134">#8134</a>) (<a href="https://home-assistant.io/components/python_script/">python_script docs</a>)</li>
+</ul>
 <h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h2>
 <ul>
   <li>Added a Taps Aff binary sensor (<a href="https://github.com/bazwilliams">@bazwilliams</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7880">#7880</a>) (<a href="https://home-assistant.io/components/binary_sensor.tapsaff/">binary_sensor.tapsaff docs</a>) (new-platform)</li>
