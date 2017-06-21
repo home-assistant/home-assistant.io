@@ -33,7 +33,7 @@ echo '{ "target": "beer" }' | jq -r ".target"
 
 ## {% linkable_title Add-on Docker file %}
 
-All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. Add `tzdata` if you need run in correct timezone.
+All add-ons are based on Alpine Linux 3.6. Hass.io will automatically substitute the right base image based on the machine architecture. Add `tzdata` if you need run in correct timezone, but that is already add in our base images.
 
 ```
 FROM %%BASE_IMAGE%%
@@ -41,7 +41,7 @@ FROM %%BASE_IMAGE%%
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
-RUN apk add --no-cache tzdata jq
+RUN apk add --no-cache jq
 
 # Copy data for add-on
 COPY run.sh /
