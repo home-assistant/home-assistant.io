@@ -58,6 +58,14 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 [gdb]: https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009
 [Ben Bangert]: https://github.com/bbangert
 
+## {% linkable_title Release 0.47.1 - June 21 %}
+
+- Fix Vera lights issue #8098 ([@tsvi] - [#8101]) ([light.vera docs])
+- Fix Dyson async_add_job ([@CharlesBlonde] - [#8113]) ([fan.dyson docs]) ([sensor.dyson docs])
+- Update InfluxDB to handle datetime objects and multiple decimal points ([@philhawthorne] - [#8080]) ([influxdb docs])
+- Fixed iTach command parsing with empty data ([@alanfischer] - [#8104]) ([remote.itach docs])
+- Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
+
 ## {% linkable_title New platforms %}
 
 - Added a Taps Aff binary sensor ([@bazwilliams] - [#7880]) ([binary_sensor.tapsaff docs]) (new-platform)
@@ -558,3 +566,12 @@ automation:
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [first-commit]: https://home-assistant.io/help/trivia/#first-commit
+[#8080]: https://github.com/home-assistant/home-assistant/pull/8080
+[#8101]: https://github.com/home-assistant/home-assistant/pull/8101
+[#8104]: https://github.com/home-assistant/home-assistant/pull/8104
+[#8113]: https://github.com/home-assistant/home-assistant/pull/8113
+[#8134]: https://github.com/home-assistant/home-assistant/pull/8134
+[@tsvi]: https://github.com/tsvi
+[fan.dyson docs]: https://home-assistant.io/components/fan.dyson/
+[remote.itach docs]: https://home-assistant.io/components/remote.itach/
+[sensor.dyson docs]: https://home-assistant.io/components/sensor.dyson/
