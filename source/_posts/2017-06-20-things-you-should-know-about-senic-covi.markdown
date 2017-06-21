@@ -1,15 +1,20 @@
 ---
 layout: post
-title: "A frank and serious warning about Senic COVI"
+title: "[Update: fixed] A frank and serious warning about Senic COVI"
 description: "The picture painted by Senic COVI is not as great as it seems."
 date: 2017-06-20 01:04:05 +0000
 date_formatted: "June 20, 2017"
 author: Paulus Schoutsen & Robbie Trencheny
 author_twitter: balloob
 comments: true
-categories: Announcements
+categories: Public-Service-Announcement
 ---
 
+**Update June 21:** Senic has removed our name from their materials and have [issued an apology][apology]. We wish them best of luck with the launch of COVI.
+
+*Original post:*
+
+<!--more-->
 <p class='note'>
 TL;DR: We are not affiliated with Senic or their COVI product. We will not support their users and you will get a subpar Home Assistant experience by using their product. **Furthermore, we cannot guarantee stability or security if you use Senic products.**
 </p>
@@ -55,3 +60,4 @@ Core Developer, Home Assistant
 [tradfri]: /blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/
 [Nuimo]: /components/nuimo_controller/
 [developer documentation]: http://blog.senic.com/posts/the-senic-hub-a-brief-software-overview
+[apology]: https://medium.com/@senic/an-open-letter-to-home-assistant-5ccb53ccf722
