@@ -46,6 +46,7 @@ Configuration variables:
 - **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
 - **operation_mode** (*Optional*): Working mode for the sensor. Defaults to `continuous_high_res_mode_1` for continuous measurement and 1 lx resolution.
 - **measurement_delay_ms** (*Optional*): Delay time in ms for waiting the sensor to get the measure. Defaults to 120 ms.
+- **multiplier** (*Optional*): Correction coefficient to multiply the measured light level. Value between 0.1 and 10. Default is 1.
 
 
 ### Directions for installing smbus support on Raspberry Pi:
