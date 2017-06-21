@@ -34,6 +34,7 @@ sensor:
 Configuration variables:
 
 - **platform**  (*Required*): buienradar.
+- **name**  (*Optional*): you can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of 'sensor.[name]\_[monitored_condition]', for example: 'sensor.lopik_temperature'; if no name is specified the sensors will be called 'sensor.br_[monitored_condition]', for example 'sensor.br_temperature'.
 - **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
 - **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
 - **monitored_conditions** array (*Required*): one or more conditions to display in the frontend.
@@ -45,20 +46,21 @@ Configuration variables:
   - **windspeed**: The wind speed in m/s.
   - **windforce**: The wind speed/force in Bft.
   - **winddirection**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
-  - **windazimuth**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc..
+  - **windazimuth**: Where the wind is coming from: N (North),Z (south), NO (North-East), etc..
   - **pressure**: The sea-level air pressure in hPa.
   - **visibility**: Visibility in meters (m).
   - **windgust**: The windspeed of wind gusts (m/s).
   - **precipitation**: the amount of precipitation/rain in mm/h.
   - **irradiance**: Sun intensity in Watt per square meter (W/m2).
 
-Full configuration example where location is manually specified:
+Full configuration example where location and name is specified:
 
 ```yaml
 # Example configuration.yaml entry
 - platform: buienradar
-    latitude: 51.65
-    longitude: 5.70
+    name: 'lopik'
+    latitude: 51.97
+    longitude: 4.93
     monitored_conditions:
       - stationname
       - symbol
