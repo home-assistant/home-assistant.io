@@ -22,7 +22,6 @@ To add the buienradar weather to your installation, add the following to your `c
 # Example configuration.yaml entry
 weather:
   - platform: buienradar
-  - name: buienradar
 ```
 
 Configuration variables:
