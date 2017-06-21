@@ -85,13 +85,13 @@
 </code></pre>
 </div>
 <h2><a class="title-link" name="add-on-docker-file" href="#add-on-docker-file"></a> Add-on Docker file</h2>
-<p>All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. Add <code class="highlighter-rouge">tzdata</code> if you need run in correct timezone.</p>
+<p>All add-ons are based on Alpine Linux 3.6. Hass.io will automatically substitute the right base image based on the machine architecture. Add <code class="highlighter-rouge">tzdata</code> if you need run in correct timezone, but that is already add in our base images.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>FROM %%BASE_IMAGE%%
 
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
-RUN apk add --no-cache tzdata jq
+RUN apk add --no-cache jq
 
 # Copy data for add-on
 COPY run.sh /

@@ -73,7 +73,7 @@
 <h3><a class="title-link" name="sensors" href="#sensors"></a> Sensors</h3>
 <p>Short story of that caption: We loop in our script to fetch data and push it to MQTT and wait until next process is ready. Here is a basic example and structure for that process.</p>
 <p>Our Dockerfile need to install:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add tzdata jq mosquitto-clients
+<div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add jq mosquitto-clients
 </code></pre>
 </div>
 <p>Now we can process it with <code class="highlighter-rouge">run.sh</code>:</p>
@@ -108,7 +108,7 @@
 <h3><a class="title-link" name="commands" href="#commands"></a> Commands</h3>
 <p>Short story of that caption: We wait for incoming data from MQTT broker. We can also use an <code class="highlighter-rouge">input_boolean</code> that triggers an automation to publish a custom command to MQTT topic that can process multiple things in one add-on.</p>
 <p>Our Dockerfile need to install:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add tzdata jq mosquitto-clients
+<div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add jq mosquitto-clients
 </code></pre>
 </div>
 <p>Now we can process it with <code class="highlighter-rouge">run.sh</code>:</p>
