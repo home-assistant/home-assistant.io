@@ -82,6 +82,4 @@ Configuration variables:
   - **process_sleeping**: Number of sleeping processes
   - **cpu_temp**: CPU Temperature (may not available on all platforms)
 
-Not all platforms are able to provide all metrics. For instance `cpu_temp` is
-requires installing `lmsensors` in Ubuntu, and may not be available at
-all in other platforms.
+Not all platforms are able to provide all metrics. For instance `cpu_temp` is requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
