@@ -34,7 +34,7 @@ Configuration variables:
 - **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
 
 
-## {% Customizing the sensor data %}
+## {% linkable_title Customizing the sensor data %}
 
 Give the values friendly names and icons, add the following to your `customize:` section.
 
