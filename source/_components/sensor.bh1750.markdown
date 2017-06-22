@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "BH1750 Light sensor"
-description: "Instructions how to integrate a BH1750 light sensor in a Raspberry PI into Home Assistant."
+description: "Instructions how to integrate a BH1750 light sensor into Home Assistant."
 date: 2017-06-10 00:00
 sidebar: true
 comments: false
@@ -9,12 +9,17 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: Sensor
-ha_release: 0.47
+ha_release: 0.48
 ha_iot_class: "Local Push"
 ---
 
 
-The `bh1750` sensor platform allows you to read the ambient light level in lux from a [BH1750FVI sensor](http://cpre.kmutnb.ac.th/esl/learning/bh1750-light-sensor/bh1750fvi-e_datasheet.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins) to your [Raspberry Pi](https://www.raspberrypi.org/). It allows you to use all the resolution modes of the sensor described in its datasheet.
+The `bh1750` sensor platform allows you to read the ambient light level in lux from a [BH1750FVI sensor](http://cpre.kmutnb.ac.th/esl/learning/bh1750-light-sensor/bh1750fvi-e_datasheet.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the resolution modes of the sensor described in its datasheet.
+
+Tested devices:
+
+- [Raspberry Pi](https://www.raspberrypi.org/)
+
 
 To use your BH1750 sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -24,7 +29,19 @@ sensor:
   - platform: BH1750
 ```
 
-Or, if you want to specify the resolution mode of the digital sensor or need to change the default I2c address (which is 0x23), add more details to the yaml config.
+Configuration variables:
+
+- **name** (*Optional*): The name of the sensor
+- **i2c_address** (*Optional*): I2c address of the sensor. It is 0x23 or 0x5C.
+- **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
+- **operation_mode** (*Optional*): Working mode for the sensor. Defaults to `continuous_high_res_mode_1` for continuous measurement and 1 lx resolution.
+- **measurement_delay_ms** (*Optional*): Delay time in ms for waiting the sensor to get the measure. Defaults to 120 ms.
+- **multiplier** (*Optional*): Correction coefficient to multiply the measured light level. Value between 0.1 and 10. Default is 1.
+
+
+## {% linkable_title Full Examples %}
+
+If you want to specify the resolution mode of the digital sensor or need to change the default I2c address (which is 0x23), add more details to the `configuration.yaml` file.
 
 The sensor can work with resolutions of 0.5 lx (high res mode 1), 1 lx (high res mode 2) or 4 lx (low res mode), and make measurements continuously or one time each call. To set any of these operation modes, select one of these combinations: `continuous_low_res_mode`, `continuous_high_res_mode_2`, `continuous_high_res_mode_1`, `one_time_high_res_mode_1`, `one_time_high_res_mode_2`, `one_time_low_res_mode`.
 
@@ -39,43 +56,36 @@ sensor:
     scan_interval: 25
 ```
 
-Configuration variables:
+## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
 
-- **name** (*Optional*): The name of the sensor
-- **i2c_address** (*Optional*): I2c address of the sensor. It is 0x23 or 0x5C.
-- **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
-- **operation_mode** (*Optional*): Working mode for the sensor. Defaults to `continuous_high_res_mode_1` for continuous measurement and 1 lx resolution.
-- **measurement_delay_ms** (*Optional*): Delay time in ms for waiting the sensor to get the measure. Defaults to 120 ms.
-- **multiplier** (*Optional*): Correction coefficient to multiply the measured light level. Value between 0.1 and 10. Default is 1.
+Enable I2c interface with the Raspberry Pi configuration utility:
 
-
-### Directions for installing smbus support on Raspberry Pi:
-
-Enable I2c interface with the Raspberry Pi config utility:
 ```bash
 # pi user environment: Enable i2c interface
-sudo raspi-config
+$ sudo raspi-config
 ```
+
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
 Install dependencies for use the `smbus-cffi` module and enable your _homeassistant_ user to join the _i2c_ group:
+
 ```bash
 # pi user environment: Install i2c dependencies and utilities
-sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+$ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 
 # pi user environment: Add homeassistant user to the i2c group
-sudo addgroup homeassistant i2c
+$ sudo addgroup homeassistant i2c
 
 # pi user environment: Reboot Raspberry Pi to apply changes
-sudo reboot
+$ sudo reboot
 ```
 
-###### Check the i2c address of the sensor
+### {% linkable_title Check the i2c address of the sensor %}
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
-/usr/sbin/i2cdetect -y 1
+$ /usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:
