@@ -10,10 +10,10 @@ footer: true
 logo: buienradar.png
 ha_category: Weather
 ha_release: 0.47
+ha_iot_class: "Cloud Polling"
 ---
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The 
-weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
+The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
 The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
 
 To add the buienradar weather to your installation, add the following to your `configuration.yaml` file:
@@ -25,15 +25,16 @@ weather:
 ```
 
 Configuration variables:
-- **platform** (*Required*): buienradar
-- **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **forecast** (*Optional*): 'True' to add a temperature forecast, 'False' to suppress it
+
+- **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **longitude**(*Optional*): Longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **forecast** (*Optional*): 'True' to add a temperature forecast, 'False' to suppress it.
 
 
 A full configuration example:
 
 ```yaml
+# Example configuration.yaml entry
 weather:
   - platform: buienradar
     name: buienradar

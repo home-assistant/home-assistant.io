@@ -37,7 +37,7 @@ $ hass --script keyring
 
 ### {% linkable_title Benchmark %}
 
-For testing the performance of Home Assistant the Benchmark scipt runs until you exit using Control+C.
+For testing the performance of Home Assistant the Benchmark script runs until you exit using Control+C.
 
 Firing and handling of a million events.
 

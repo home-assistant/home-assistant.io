@@ -17,7 +17,6 @@ Home Assistant contains a few built-in events that are used to coordinate betwee
 ### {% linkable_title Event `homeassistant_start` %}
 Event `homeassistant_start` is fired when all components from the configuration have been intitialized. This is the event that will start the timer firing off `time_changed` events.
 
-
 ### {% linkable_title Event `homeassistant_stop` %}
 Event `homeassistant_stop` is fired when Home Assistant is shutting down. It should be used to close any open connection or release any resources.
 

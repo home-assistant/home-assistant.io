@@ -154,7 +154,7 @@ Example:
      platform: event
      event_type: zwave.node_event
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        basic_level: 255
 ```
 
@@ -172,7 +172,7 @@ automation:
       platform: event
       event_type: zwave.scene_activated
       event_data:
-        object_id: zwaveme_zme_wallcs_secure_wall_controller_8
+        entity_id: zwave.zwaveme_zme_wallcs_secure_wall_controller_8
         scene_id: 11
 ```
 

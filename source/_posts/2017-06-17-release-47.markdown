@@ -42,6 +42,30 @@ Z-Wave is also getting a big update in this release. The confusing entity_ids wi
 6.  Restart Home Assistant to run with new IDs.
 7.  The old entity IDs will be available in the more info dialog to trace down any remaining errors.
 
+## {% linkable_title Monkey Patching Python 3.6 %}
+
+Some people have noticed that running Home Assistant under Python 3.6 can lead to segfaults. It seems to be related to the [earlier segfault issues][old-bug] that we experienced when we released the asyncio-based core. We thought that those issues would have been fixed when [Python bug 26617] was resolved. Although we see less reports compared to the old bug, there are still users [experiencing them][new-bug] ([gdb stacktrace points at `PyObject_GC_Del()`][gdb]).
+
+Since Python 3.6, the Task and Future classes have been moved to C. This gives a nice speed boost but also prevents us from monkey patching the Task class to avoid the segfault. [Ben Bangert] managed to brew up another monkey patch to stop Python 3.6 from using the C classes, falling back to the Python versions instead. This allows us to apply the original monkey patch again.
+
+Both monkey patches are now active by default starting version 0.47 to avoid our users experiencing segfaults. This comes at a cost of not being able to benefit from all optimizations that were introduced in Python 3.6.
+
+To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 hass`. We will further investigate this issue and try to fix it in a future version of Python.
+
+[old-bug]: https://github.com/home-assistant/home-assistant/issues/3453
+[Python bug 26617]: https://bugs.python.org/issue26617
+[new-bug]: https://github.com/home-assistant/home-assistant/issues/7752
+[gdb]: https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009
+[Ben Bangert]: https://github.com/bbangert
+
+## {% linkable_title Release 0.47.1 - June 21 %}
+
+- Fix Vera lights issue #8098 ([@tsvi] - [#8101]) ([light.vera docs])
+- Fix Dyson async_add_job ([@CharlesBlonde] - [#8113]) ([fan.dyson docs]) ([sensor.dyson docs])
+- Update InfluxDB to handle datetime objects and multiple decimal points ([@philhawthorne] - [#8080]) ([influxdb docs])
+- Fixed iTach command parsing with empty data ([@alanfischer] - [#8104]) ([remote.itach docs])
+- Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
+
 ## {% linkable_title New platforms %}
 
 - Added a Taps Aff binary sensor ([@bazwilliams] - [#7880]) ([binary_sensor.tapsaff docs]) (new-platform)
@@ -107,6 +131,28 @@ notify:
   - name: mailgun
     platform: mailgun
     recipient: !secret mailgun_recipient
+```
+
+- Z-Wave node and scene activated trigger events now use the full entity ID ([@armills] - [#7786]) ([zwave docs]) (breaking change)
+```yaml
+automation:
+  - alias: Button 1
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: living_room_remote_13
+        scene_id: 1
+```
+```yaml
+automation:
+  - alias: Event 1
+    trigger:
+      platform: event
+      event_type: zwave.node_event
+      event_data:
+        entity_id: zwave.living_room_remote_13
+        basic_level: 1
 ```
 
 - LIFX: add multiple modes to pulse effect. The `lifx_effect_breathe` call has been deprecated. Use `lifx_effect_pulse` with the new `mode: breathe` attribute instead. ([@amelchio] - [#8016]) ([light.lifx docs]) (breaking change)
@@ -520,3 +566,12 @@ notify:
 [gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [first-commit]: https://home-assistant.io/help/trivia/#first-commit
+[#8080]: https://github.com/home-assistant/home-assistant/pull/8080
+[#8101]: https://github.com/home-assistant/home-assistant/pull/8101
+[#8104]: https://github.com/home-assistant/home-assistant/pull/8104
+[#8113]: https://github.com/home-assistant/home-assistant/pull/8113
+[#8134]: https://github.com/home-assistant/home-assistant/pull/8134
+[@tsvi]: https://github.com/tsvi
+[fan.dyson docs]: https://home-assistant.io/components/fan.dyson/
+[remote.itach docs]: https://home-assistant.io/components/remote.itach/
+[sensor.dyson docs]: https://home-assistant.io/components/sensor.dyson/

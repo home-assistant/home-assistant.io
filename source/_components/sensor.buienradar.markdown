@@ -10,11 +10,11 @@ footer: true
 logo: buienradar.png
 ha_category: Weather
 ha_release: 0.47
+ha_iot_class: "Cloud Polling"
 ---
 
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The 
-weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
+The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
 The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
 
 To integrate `buienradar` with Home Assistant, add the following section to your `configuration.yaml` file:
@@ -33,11 +33,10 @@ sensor:
 
 Configuration variables:
 
-- **platform**  (*Required*): buienradar.
-- **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **monitored_conditions** array (*Required*): one or more conditions to display in the frontend.
-  - **stationname**: the name of the selected meteo-station.
+- **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **monitored_conditions** array (*Required*): One or more conditions to display in the frontend.
+  - **stationname**: The name of the selected meteo-station.
   - **symbol**: A symbol for the current weather.
   - **humidity**: The relative humidity (%).
   - **temperature**: The current temperature (in C).
@@ -45,11 +44,11 @@ Configuration variables:
   - **windspeed**: The wind speed in m/s.
   - **windforce**: The wind speed/force in Bft.
   - **winddirection**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
-  - **windazimuth**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc..
+  - **windazimuth**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.
   - **pressure**: The sea-level air pressure in hPa.
   - **visibility**: Visibility in meters (m).
   - **windgust**: The windspeed of wind gusts (m/s).
-  - **precipitation**: the amount of precipitation/rain in mm/h.
+  - **precipitation**: The amount of precipitation/rain in mm/h.
   - **irradiance**: Sun intensity in Watt per square meter (W/m2).
 
 Full configuration example where location is manually specified:

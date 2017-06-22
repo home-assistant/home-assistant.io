@@ -31,9 +31,13 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 mqtt:
 ```
 
-<p class='note'>
-This broker does not currently work with OwnTracks because of a protocol version issue.
-</p>
+### {% linkable_title Owntracks%}
+
+To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).
+
+In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
+
+### {% linkable_title Settings %}
 
 If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
 

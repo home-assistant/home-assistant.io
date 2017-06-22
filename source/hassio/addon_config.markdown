@@ -33,7 +33,7 @@ echo '{ "target": "beer" }' | jq -r ".target"
 
 ## {% linkable_title Add-on Docker file %}
 
-All add-ons are based on Alpine Linux 3.5. Hass.io will automatically substitute the right base image based on the machine architecture. Add `tzdata` if you need run in correct timezone.
+All add-ons are based on Alpine Linux 3.6. Hass.io will automatically substitute the right base image based on the machine architecture. Add `tzdata` if you need run in correct timezone, but that is already add in our base images.
 
 ```
 FROM %%BASE_IMAGE%%
@@ -41,7 +41,7 @@ FROM %%BASE_IMAGE%%
 ENV LANG C.UTF-8
 
 # Install requirements for add-on
-RUN apk add --no-cache tzdata jq
+RUN apk add --no-cache jq
 
 # Copy data for add-on
 COPY run.sh /
@@ -96,7 +96,7 @@ The config for an add-on is stored in `config.json`.
 | map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Default it map it `ro`, you can change that if you add a ":rw" at the end of name.
 | environment | no | A dict of environment variable to run add-on.
 | options | yes | Default options value of the add-on
-| schema | yes | Schema for options value of the add-on
+| schema | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
 | image | no | For use dockerhub.
 | tmpfs | no | Mount a tmpfs file system in `/tmpfs`. Valide format for this option is : `size=XXXu,uid=N,rw`. Size is mandatory, valid units (`u`) are `k`, `m` and `g` and `XXX` has to be replaced by a number. `uid=N` (with `N` the uid number) and `rw` are optional.
 
