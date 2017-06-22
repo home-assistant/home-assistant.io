@@ -41,7 +41,7 @@ binary_sensor:
 Do not forget to tweak the configuration variables:
 
 - **automatic_add** (*Optional*): To enable the automatic addition of new binary sensors.
-- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+- **device_class** (*Optional*): The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
 - **off_delay** (*Optional*): For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
 
 
@@ -63,7 +63,7 @@ binary_sensor:
   devices:
     091300006ca2c6001080:
     name: motion_hall
-    sensor_class: motion
+    device_class: motion
     off_delay:
       seconds: 5
 ```
@@ -104,7 +104,7 @@ automatic_add: True
 devices:
   0913000022670e013b70:
     name: window_room2
-    sensor_class: opening
+    device_class: opening
     data_bits: 4
     command_on: 0xe
     command_off: 0x7
@@ -128,8 +128,8 @@ to configure your new devices and leave it off otherwise.
 The following devices are known to work with the rfxtrx binary sensor component. There are too many other to list.
 
 - Motion detectors:
-  - Kerui P817 and P829 PIR motion detector.
-  - Chuango PIR-700 Motion detector ().
+  - Kerui P817 and P829.
+  - Chuango PIR-700.
 
 - Door / window sensors:
   - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a temper switch.
