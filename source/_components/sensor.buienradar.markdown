@@ -33,8 +33,9 @@ sensor:
 
 Configuration variables:
 
+- **name**  (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of 'sensor.[name]\_[monitored_condition]', for example: 'sensor.lopik_temperature'; if no name is specified the sensors will be called 'sensor.br_[monitored_condition]', for example 'sensor.br_temperature'.
 - **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
 - **monitored_conditions** array (*Required*): One or more conditions to display in the frontend.
   - **stationname**: The name of the selected meteo-station.
   - **symbol**: A symbol for the current weather.
