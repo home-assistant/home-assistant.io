@@ -1,5 +1,47 @@
 @charset "UTF-8";
 
+$primary-color: #049cdb;
+
+.site-header {
+  position: relative;
+}
+
+.search-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding-top: 19px;
+  padding-right: 15%;
+
+  .search {
+    max-width: 500px;
+    width: 100%;
+    border-bottom: 2px solid $primary-color;
+    float: right;
+
+    .algolia-autocomplete {
+      width: calc(100% - 58px);
+      margin: 0 10px;
+    }
+
+    input {
+      border: 0;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  .search-container {
+    z-index: 20;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
 .hero {
   background-color: #038FC7;
   padding-bottom: 0;
