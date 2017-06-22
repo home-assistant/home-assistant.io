@@ -495,7 +495,7 @@ $ crontab -e
  * Scroll to the bottom of the file and paste in the following line
  
 ```text
-30 2 * * 1 /usr/bin/letsencrypt renew >> /var/log/le-renew.log
+30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 ```
  * Save the file and exit
  
