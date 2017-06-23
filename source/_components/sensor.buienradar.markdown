@@ -17,6 +17,8 @@ ha_iot_class: "Cloud Polling"
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
 The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
 
+From version 0.48, two new sensors have been added `precipitation_forecast_average` and `precipitation_forecast_total` which senses the expected precipitation.
+
 To integrate `buienradar` with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
@@ -35,6 +37,7 @@ Configuration variables:
 
 - **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
 - **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **timeframe** (*Optional*): Minutes to look ahead for precipitation (5..120) [default: 60].
 - **monitored_conditions** array (*Required*): One or more conditions to display in the frontend.
   - **stationname**: The name of the selected meteo-station.
   - **symbol**: A symbol for the current weather.
@@ -50,6 +53,8 @@ Configuration variables:
   - **windgust**: The windspeed of wind gusts (m/s).
   - **precipitation**: The amount of precipitation/rain in mm/h.
   - **irradiance**: Sun intensity in Watt per square meter (W/m2).
+  - **precipitation_forecast_average**: The average expected precipitation/rain in mm/h within the given timeframe.
+  - **precipitation_forecast_total**: The total expected precipitation/rain in mm/h within the given timeframe.
 
 Full configuration example where location is manually specified:
 
@@ -73,5 +78,7 @@ Full configuration example where location is manually specified:
       - windgust
       - precipitation
       - irradiance
+      - precipitation_forecast_average
+      - precipitation_forecast_total
 ```
   
