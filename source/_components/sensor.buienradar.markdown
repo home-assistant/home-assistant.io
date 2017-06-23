@@ -17,8 +17,6 @@ ha_iot_class: "Cloud Polling"
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
 The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
 
-From version 0.48, two new sensors have been added `precipitation_forecast_average` and `precipitation_forecast_total` which senses the expected precipitation.
-
 To integrate `buienradar` with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
