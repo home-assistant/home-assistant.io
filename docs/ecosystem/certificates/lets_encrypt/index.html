@@ -426,7 +426,7 @@ Protocol - Both
 <ul>
   <li>Scroll to the bottom of the file and paste in the following line</li>
 </ul>
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>30 2 * * 1 /usr/bin/letsencrypt renew &gt;&gt; /var/log/le-renew.log
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 </code></pre>
 </div>
 <ul>
