@@ -35,3 +35,12 @@ If you're coming from Rasbian or similar, use `root` rather than `pi` when conne
 Permission denied (publickey,keyboard-interactive)
 ```
 </p>
+
+<p class='note'>
+If you install this addon you can use `sshfs` as well to access files from a remote system where you have git and your favourite editing tools installed. 
+
+```bash
+$ mkdir ~/ha_config
+$ sshfs -o allow_other,defer_permissions root@h[your_hassio_ip]:/config ~/ha_config
+```
+</p>
