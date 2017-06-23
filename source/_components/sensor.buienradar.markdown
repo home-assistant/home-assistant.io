@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: buienradar.png
 ha_category: Weather
-ha_release: 0.44
+ha_release: 0.47
 ha_iot_class: "Cloud Polling"
 ---
 
