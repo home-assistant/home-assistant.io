@@ -14,6 +14,14 @@ This is a quick guide on how to setup fail2ban for Home Assistant. This was orig
 
 First install `fail2ban`. On Debian/Ubuntu this would be `apt-get install fail2ban`. On other distros you can google it.
 
+Then make sure logging is enabled in `/home/homeassistant/.homeassistant/configuration.yaml` for your HA instance:
+```
+logger:
+  default: critical
+  logs:
+    homeassistant.components.http: warning
+```
+
 Next we will be creating these three files :
 
 - `/etc/fail2ban/fail2ban.local`
