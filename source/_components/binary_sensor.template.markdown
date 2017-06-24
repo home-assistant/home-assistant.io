@@ -124,7 +124,7 @@ binary_sensor:
   - platform: template
     sensors:
       people_home:
-        value_template: >-
+        value_template: {% raw %}>-
           {%- if is_state("device_tracker.sean", "home")
           or is_state("device_tracker.susan", "home")
           or is_state("binary_sensor.office_124", "on")
@@ -136,7 +136,7 @@ binary_sensor:
           True
           {%- else -%}
           False
-          {%- endif %}
+          {%- endif %}{% endraw %}
         entity_id:
           - device_tracker.sean
           - device_tracker.susan
