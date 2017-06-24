@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>fail2ban for HASS - Home Assistant</title>
+    <title>fail2ban - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Setting up fail2ban to read HASS log files to improve security.">
+    <meta name="description" content="Setting up fail2ban to read Home Assistant's log files to improve security.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/cookbook/fail2ban/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="fail2ban for HASS">
+    <meta property="og:title" content="fail2ban">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/cookbook/fail2ban/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Setting up fail2ban to read HASS log files to improve security.">
+    <meta property="og:description" content="Setting up fail2ban to read Home Assistant's log files to improve security.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="fail2ban for HASS">
-    <meta name="twitter:description" content="Setting up fail2ban to read HASS log files to improve security.">
+    <meta name="twitter:title" content="fail2ban">
+    <meta name="twitter:description" content="Setting up fail2ban to read Home Assistant's log files to improve security.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,12 +70,19 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Fail2ban for HASS
+      Fail2ban
     </h1>
   </header>
   <hr class="divider">
   <p>This is a quick guide on how to setup fail2ban for Home Assistant. This was originally in the <a href="https://community.home-assistant.io/t/is-there-a-log-file-for-invalid-logins-blocking-hackers/2892">forum</a> but I created this here for people.</p>
 <p>First install <code class="highlighter-rouge">fail2ban</code>. On Debian/Ubuntu this would be <code class="highlighter-rouge">apt-get install fail2ban</code>. On other distros you can google it.</p>
+<p>Then make sure logging is enabled in your <code class="highlighter-rouge">configuration.yaml</code> file for your Home Assistant instance:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logger</span><span class="pi">:</span>
+  <span class="s">default</span><span class="pi">:</span> <span class="s">critical</span>
+  <span class="s">logs</span><span class="pi">:</span>
+    <span class="s">homeassistant.components.http</span><span class="pi">:</span> <span class="s">warning</span>
+</code></pre>
+</div>
 <p>Next we will be creating these three files :</p>
 <ul>
   <li><code class="highlighter-rouge">/etc/fail2ban/fail2ban.local</code></li>
@@ -165,7 +172,7 @@ May 24 20:58:02 homeauto fail2ban.jail[15217]: INFO Jail <span class="s1">'hass-
               <a href='/cookbook/owntracks_two_mqtt_broker/'>OwnTracks with two MQTT brokers</a>
           </li>
           <li>
-              fail2ban for HASS
+              fail2ban
           </li>
     </ul>
   </div>
