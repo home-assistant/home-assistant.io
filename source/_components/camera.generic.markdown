@@ -44,3 +44,16 @@ Configuration variables:
   </a>
 </p>
 
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Weather graph from yr.no %}
+
+```yaml
+camera:
+  - platform: generic
+    name: Weather
+    still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
+    content_type: 'image/svg+xml'
+```
