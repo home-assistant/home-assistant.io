@@ -16,10 +16,10 @@ To update the dashboard after new code has been released, just run the following
 $ git pull origin
 ```
 
-For some releases you may also need to rerun the bundle command:
+For some releases you may also need to rerun the `bundle` command:
 
 ``` bash
 $ bundle
 ```
 
-For docker users, you will also need to rerun the docker build process.
+For Docker users, you will also need to rerun the Docker build process.
