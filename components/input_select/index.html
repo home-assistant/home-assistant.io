@@ -101,6 +101,9 @@
   <li><strong>icon</strong> (<em>Optional</em>): Icon for entry.</li>
 </ul>
 <p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</p>
+<p class="note">
+Because YAML defines <a href="http://yaml.org/type/bool.html">booleans</a> as equivalent, any variations of ‘On’, ‘Yes’, ‘Y’, ‘Off’, ‘No’, or ‘N’  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
+</p>
 <h3><a class="title-link" name="services" href="#services"></a> Services</h3>
 <p>This components provide three services to modify the state of the <code class="highlighter-rouge">input_select</code>:</p>
 <ul>
