@@ -86,14 +86,15 @@ $ cd hadashboard
 
 Essentially, you want to make sure that you have Ruby installed on your local machine. 
 
-For Debian based distros do:
-```
-sudo apt-get install rubygems
+For Debian based distribution do:
+
+```bash
+$ sudo apt-get install rubygems
 ```
 
 Then, install the Dashing gem:
 
-``` bash
+```bash
 $ gem install dashing
 ```
 
