@@ -97,7 +97,7 @@ ImportError: cannot import name 'InsecureRequestWarning'
 </code></pre>
 </div>
 <h2><a class="title-link" name="configuring-hapush-all-installation-methods" href="#configuring-hapush-all-installation-methods"></a> Configuring hapush (all installation methods)</h2>
-<p>When you have all the prereqs in place, copy the hapush.cfg.example file to hapush.cfg then edit it to reflect your environment:</p>
+<p>When you have all the prereqs in place, copy the <code class="highlighter-rouge">hapush.cfg.example</code> file to <code class="highlighter-rouge">hapush.cfg</code> then edit it to reflect your environment:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>ha_url = "http://192.168.1.10:8123"
 ha_key = api_key
 dash_host = "192.168.1.10:3030"
@@ -113,11 +113,11 @@ logfile = "/etc/hapush/hapush.log"
   <li><code class="highlighter-rouge">logfile</code> is the path to where you want <code class="highlighter-rouge">hapush</code> to keep its logs. When run from the command line this is not used - log messages come out on the terminal. When running as a daemon this is where the log information will go. In the example above I created a directory specifically for hapush to run from, although there is no reason you can’t keep it in the <code class="highlighter-rouge">hapush</code> subdirectory of the cloned repository. For Docker installs this should be set to <code class="highlighter-rouge">/app/hapush/hapush.log</code></li>
 </ul>
 <h2><a class="title-link" name="running-hapush" href="#running-hapush"></a> Running hapush</h2>
-<p>For a manual installation you can then run hapush from the command line as follows:</p>
+<p>For a manual installation you can then run <code class="highlighter-rouge">hapush</code> from the command-line as follows:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./hapush.py hapush.cfg
 </code></pre>
 </div>
-<p>For docker installs, hapush will be started automatically when you run the startup command.</p>
+<p>For Docker installs, hapush will be started automatically when you run the startup command.</p>
 <p>If all is well, you should start to see <code class="highlighter-rouge">hapush</code> responding to events as they occur. For a docker installation you should see these messages in <code class="highlighter-rouge">hapush/hapush.log</code>.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>2016-06-19 10:05:59,693 INFO Reading dashboard: /srv/hass/src/hadashboard/dashboards/main.erb
 2016-06-19 10:06:12,362 INFO switch.wendy_bedside -&gt; state <span class="o">=</span> on, brightness <span class="o">=</span> 50

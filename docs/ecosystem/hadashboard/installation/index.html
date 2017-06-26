@@ -75,7 +75,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Installation can be performed using Docker (Contributed by <a href="https://github.com/marijngiesen">marijngiesen</a>) or manually if Docker doesn’t work for you. We also have a Raspberry PI version of Docker contributed by <a href="https://community.home-assistant.io/users/snizzleorg/activity">snizzleorg</a></p>
+  <p>Installation can be performed using Docker (Contributed by <a href="https://github.com/marijngiesen">marijngiesen</a>) or manually if Docker doesn’t work for you. We also have a Raspberry Pi version of Docker contributed by <a href="https://community.home-assistant.io/users/snizzleorg/activity">snizzleorg</a>.</p>
 <h2><a class="title-link" name="using-docker-non-raspian" href="#using-docker-non-raspian"></a> Using Docker (Non Raspian)</h2>
 <p>Assuming you already have Docker installed, installation is fairly easy.</p>
 <h3><a class="title-link" name="clone-the-repository" href="#clone-the-repository"></a> Clone the Repository</h3>
@@ -105,12 +105,11 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="docker-on-raspberry-pi" href="#docker-on-raspberry-pi"></a> Docker on Raspberry Pi</h3>
-<p>Raspberry pi needs to use a different docker build file so the build command is slightly different:</p>
+<p>Raspberry Pi needs to use a different Docker build file so the build command is slightly different:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo docker build -f Docker-raspi/Dockerfile -t hadashboard .
 </code></pre>
 </div>
-<p>Apart from that the other steps are identical.</p>
-<p><em>Note - this is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything</em></p>
+<p>Apart from that the other steps are identical. Running Docker is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything*</p>
 <h2><a class="title-link" name="manual-installation" href="#manual-installation"></a> Manual Installation</h2>
 <h3><a class="title-link" name="clone-the-repository" href="#clone-the-repository"></a> Clone the Repository</h3>
 <p>Clone the <strong>hadashboard</strong> repository to the current local directory on your machine.</p>
@@ -121,13 +120,17 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>hadashboard
 </code></pre>
 </div>
-<h3><a class="title-link" name="2-install-dashing-and-prereqs" href="#2-install-dashing-and-prereqs"></a> 2. Install Dashing and prereqs</h3>
-<p>Essentially, you want to make sure that you have Ruby installed on your local machine. Then, install the Dashing gem:</p>
+<h3><a class="title-link" name="2-install-dashing-and-prerequirments" href="#2-install-dashing-and-prerequirments"></a> 2. Install Dashing and prerequirments</h3>
+<p>Essentially, you want to make sure that you have Ruby installed on your local machine.</p>
+<p>For Debian based distribution do:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install rubygems
+</code></pre>
+</div>
+<p>Then, install the Dashing gem:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install dashing
 </code></pre>
 </div>
-<p>From your repository root, make sure that all dependencies are available.</p>
-<p>Note: on some systems you may also need to install bundler:</p>
+<p>From your repository root, make sure that all dependencies are available. On some systems you may also need to install <code class="highlighter-rouge">bundler</code>:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install bundler
 </code></pre>
 </div>
@@ -135,8 +138,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bundle
 </code></pre>
 </div>
-<p>Bundle will now install all the ruby prereqs for running dashing.</p>
-<p>Note: Prereqs will vary across different machines. So far users have reported requirements for some additional installs to allow the bundle to complete succesfully:</p>
+<p>Bundle will now install all the ruby prerequirements for running dashing. Prerequirements will vary across different machines. So far users have reported requirements for some additional installs to allow the bundle to complete succesfully:</p>
 <ul>
   <li>ruby-dev - <code class="highlighter-rouge">sudo apt-get install ruby-dev</code></li>
   <li>node-js - <code class="highlighter-rouge">sudo apt-get install nodejs</code></li>
@@ -144,15 +146,15 @@
   <li>execjs gem - <code class="highlighter-rouge">gem install execjs</code></li>
 </ul>
 <p>You will need to research what works on your particular architecture and also bear in mind that version numbers may change over time.</p>
-<p>Note: This is currently running on various versions of Ruby and there are no strong dependencies however your mileage may vary.</p>
+<p>This is currently running on various versions of Ruby and there are no strong dependencies however your mileage may vary.</p>
 <h2><a class="title-link" name="updating-configuration-manual-and-docker" href="#updating-configuration-manual-and-docker"></a> Updating configuration (Manual and Docker)</h2>
-<p>Next, in the <code class="highlighter-rouge">./lib</code> directory, copy the ha_conf.rb.example file to ha_conf.rb and edit its settings to reflect your installation, pointing to the machine Home Assistant is running on and adding your api_key.</p>
+<p>Next, in the <code class="highlighter-rouge">./lib</code> directory, copy the <code class="highlighter-rouge">ha_conf.rb.example</code> file to <code class="highlighter-rouge">ha_conf.rb</code> and edit its settings to reflect your installation, pointing to the machine Home Assistant is running on and adding your API key.</p>
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vg">$ha_url</span> <span class="o">=</span> <span class="s2">"http://192.168.1.10:8123"</span>
 <span class="vg">$ha_apikey</span> <span class="o">=</span> <span class="s2">"your key"</span>
 </code></pre>
 </div>
 <ul>
-  <li><code class="highlighter-rouge">$ha_url</code> is a reference to your home assistant installation and must include the correct port number and scheme (<code class="highlighter-rouge">http://</code> or <code class="highlighter-rouge">https://</code> as appropriate)</li>
+  <li><code class="highlighter-rouge">$ha_url</code> is a reference to your Home Assistant installation and must include the correct port number and scheme (<code class="highlighter-rouge">http://</code> or <code class="highlighter-rouge">https://</code> as appropriate)</li>
   <li><code class="highlighter-rouge">$ha_apikey</code> should be set to your key if you have one, otherwise it can remain blank.</li>
 </ul>
 <p>The file also contains example newsfeeds for the News widget:</p>
