@@ -64,7 +64,7 @@ Raspberry Pi needs to use a different Docker build file so the build command is 
 $ sudo docker build -f Docker-raspi/Dockerfile -t hadashboard .
 ```
 
-Apart from that the other steps are identical. Running Docker is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything*
+Apart from that the other steps are identical. Running Docker is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything.
 
 ## {% linkable_title Manual Installation %}
 
