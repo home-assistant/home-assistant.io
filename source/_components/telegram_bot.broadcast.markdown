@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Telegram onlysend"
+title: "Telegram broadcast"
 description: "Telegram support to send messages only"
 date: 2017-06-24 11:20
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Telegram chatbot
 ha_release: 0.48
 ---
 
-Telegram implementation to support **sending messages only**. Your Home Assistant does not have to be exposed to the Internet and there is no polling to receive messages sent to Bot.
+Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the Internet and there is no polling to receive messages sent to the bot.
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -20,7 +20,7 @@ To integrate this into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 
 telegram_bot:
-  - platform: onlysend
+  - platform: broadcast
     api_key: <telegram api key>
     allowed_chat_ids:
       - 12345
