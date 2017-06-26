@@ -1,0 +1,91 @@
+---
+layout: page
+title: "Snips"
+description: "Instructions how to integrate Snips within Home Assistant."
+date: 2017-06-22 12:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: snips.png
+ha_category: Voice
+ha_release: 0.10
+---
+
+The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on Privacy. It runs 100% on-device, and does not require an Internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialogue Management.
+
+![Snips Modules](/images/screenshots/snips_modules.png)
+
+Snips takes voice or text as input, and produces *intents* as output, which are explicit representations of an intention behind an utterance, and which can subsequently be used by Home Assistant to perform appropriate actions.
+
+![Snips Modules](/images/screenshots/snips_nlu.png)
+
+
+## {% linkable_title The Snips Voice Platform %}
+
+### Installation
+
+The Snips Voice Platform is installed on Raspberry Pi with the following command:
+
+```sh
+(pi) $ curl https://install.snips.ai -sSf | sh
+```
+
+### Creating an assistant
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NYnYSgIeKso" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Snips assistants are created via the [Snips Console](console.snips.ai). Once trained, the assistant should be downloaded and copied to the Raspberry Pi
+
+```sh
+$ scp assistantproj_XXX.zip pi@pi_hostname:/home/pi/assistant.zip
+```
+
+and installed locally on the Raspberry Pi via the `snips-install-assistant` helper script:
+
+```sh
+(pi) $ sudo snips-install-assistant assistant.zip
+```
+
+### Running Snips
+
+Make sure that a microphone is plugged to the Raspberry Pi, and start the Snips Voice Platform using the `snips` command:
+
+```sh
+(pi) $ snips
+```
+
+Snips is now ready to take voice commands from the microphone. To trigger the listening, simply say
+
+> Hey Snips
+
+followed by a command, e.g.
+
+> Turn the lights green
+
+We should see the transcribed phrase in the logs, as well as a properly parsed intent. The intent is published on MQTT, on the `hermes/nlu/intentParsed` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml`, as explained below.
+
+## Home Assistant configuration
+
+By default, the Snips MQTT broker runs on port 9898. We should tell Home Assistant to use this as a broker (rather than its own), by adding the following section to `configuration.yaml`:
+
+```yaml
+mqtt:
+  broker: 127.0.0.1
+  port: 9898
+```
+
+In Home Assistant, we trigger actions based on intents produced by Snips. This is done in `configuration.yaml`. For instance, the following block handles `ActivateLightColors` intents (included in the Snips IoT intent bundle) to change light colors:
+
+```yaml
+snips:
+  intents:
+    ActivateLightColor:
+      action:
+        - service: light.turn_on
+          data_template:
+            entity_id: light.{% raw %}{{ objectLocation | replace(" ","_") }}{% endraw %}
+            color_name: {% raw %}{{ objectColor }}{% endraw %}
+```
