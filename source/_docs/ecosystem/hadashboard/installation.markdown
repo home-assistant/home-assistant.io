@@ -84,7 +84,14 @@ $ cd hadashboard
 
 ### {% linkable_title 2. Install Dashing and prereqs %}
 
-Essentially, you want to make sure that you have Ruby installed on your local machine. Then, install the Dashing gem:
+Essentially, you want to make sure that you have Ruby installed on your local machine. 
+
+For Debian based distros do:
+```
+sudo apt-get install rubygems
+```
+
+Then, install the Dashing gem:
 
 ``` bash
 $ gem install dashing
