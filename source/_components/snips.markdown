@@ -34,7 +34,7 @@ The Snips Voice Platform is installed on Raspberry Pi with the following command
 ### Creating an assistant
 
 <div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NYnYSgIeKso" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/223255884" width="700" height="380" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
 Snips assistants are created via the [Snips Console](https://console.snips.ai). Once trained, the assistant should be downloaded and copied to the Raspberry Pi:
@@ -65,7 +65,7 @@ Snips is now ready to take voice commands from the microphone. To trigger the li
 
 followed by a command, e.g.
 
-> Turn the lights green
+> Set the lights to green in the living room
 
 We should see the transcribed phrase in the logs, as well as a properly parsed intent. The intent is published on MQTT, on the `hermes/nlu/intentParsed` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml`, as explained below.
 
