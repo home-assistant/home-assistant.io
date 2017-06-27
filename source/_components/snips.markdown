@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: snips.png
 ha_category: Voice
-ha_release: 0.10
+ha_release: 0.48
 ---
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on Privacy. It runs 100% on-device, and does not require an Internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialogue Management.
