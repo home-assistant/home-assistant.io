@@ -12,7 +12,7 @@ ha_category: Voice
 ha_release: 0.48
 ---
 
-The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on Privacy. It runs 100% on-device, and does not require an Internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialogue Management.
+The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on Privacy. It runs 100% on-device, and does not require an Internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
 ![Snips Modules](/images/screenshots/snips_modules.png)
 
@@ -37,13 +37,13 @@ The Snips Voice Platform is installed on Raspberry Pi with the following command
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NYnYSgIeKso" frameborder="0" allowfullscreen></iframe>
 </div>
 
-Snips assistants are created via the [Snips Console](console.snips.ai). Once trained, the assistant should be downloaded and copied to the Raspberry Pi
+Snips assistants are created via the [Snips Console](https://console.snips.ai). Once trained, the assistant should be downloaded and copied to the Raspberry Pi:
 
 ```sh
 $ scp assistantproj_XXX.zip pi@pi_hostname:/home/pi/assistant.zip
 ```
 
-and installed locally on the Raspberry Pi via the `snips-install-assistant` helper script:
+and installed locally via the `snips-install-assistant` helper script:
 
 ```sh
 (pi) $ sudo snips-install-assistant assistant.zip
@@ -51,7 +51,9 @@ and installed locally on the Raspberry Pi via the `snips-install-assistant` help
 
 ### Running Snips
 
-Make sure that a microphone is plugged to the Raspberry Pi, and start the Snips Voice Platform using the `snips` command:
+Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Audio Configuration](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#configuring-the-audio).
+
+Start the Snips Voice Platform using the `snips` command:
 
 ```sh
 (pi) $ snips
@@ -69,7 +71,7 @@ We should see the transcribed phrase in the logs, as well as a properly parsed i
 
 ## Home Assistant configuration
 
-By default, the Snips MQTT broker runs on port 9898. We should tell Home Assistant to use this as a broker (rather than its own), by adding the following section to `configuration.yaml`:
+By default, the Snips MQTT broker runs on port 9898. We should tell Home Assistant to use this as a broker, rather than its own, by adding the following section to `configuration.yaml`:
 
 ```yaml
 mqtt:
