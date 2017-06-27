@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Set up a [mariadb](https://mariadb.org/) SQL server. It support multible database, users and permission.
+Set up a [mariadb](https://mariadb.org/) SQL server. It support multible database, users and permission. If you want only connect from inside use `172.17.0.1` as host address.
 
 ```json
 {
@@ -17,14 +17,14 @@ Set up a [mariadb](https://mariadb.org/) SQL server. It support multible databas
   "logins": [
     {
       "username": "hass",
-      "host": "localhost",
+      "host": "172.17.0.1",
       "password": null
     }
   ],
   "rights": [
     {
       "username": "hass",
-      "host": "localhost",
+      "host": "172.17.0.1",
       "database": "homeassistant",
       "grant": "ALL PRIVILEGES ON"
     }
