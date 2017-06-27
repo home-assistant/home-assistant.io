@@ -75,20 +75,20 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Set up a <a href="https://mariadb.org/">mariadb</a> SQL server. It support multible database, users and permission.</p>
+  <p>Set up a <a href="https://mariadb.org/">mariadb</a> SQL server. It support multible database, users and permission. If you want only connect from inside use <code class="highlighter-rouge">172.17.0.1</code> as host address.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"databases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"homeassistant"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hass"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.17.0.1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"rights"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hass"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.17.0.1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"database"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"grant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL PRIVILEGES ON"</span><span class="w">
     </span><span class="p">}</span><span class="w">
