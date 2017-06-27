@@ -95,7 +95,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run --name<span class="o">=</span><span class="s2">"hadashboard"</span> -d -v &lt;path_to_hadashboard&gt;/dashboards:/app/dashboards -v &lt;path_to_hadashboard&gt;/lib/ha_conf.rb:/app/lib/ha_conf.rb -v &lt;path_to_hadashboard&gt;/hapush:/app/hapush --net<span class="o">=</span>host hadashboard
 </code></pre>
 </div>
-<p>If you are running docker on windows you should not use the <code class="highlighter-rouge">--net</code> command and explicitly specify the port, aslo for security reason <code class="highlighter-rouge">--net=host</code> should not be used so the following can also be used in unix. This will also set the process to start when the docker process starts so you do not have to worry about reboots. To map the volumes make sure you have ticked the shred drives in the settings. In this example I am using <code class="highlighter-rouge">c:\hadashboard</code> as the location where the git clone was done and mapping to port 3030 on the host.</p>
+<p>If you are running docker on windows you should not use the <code class="highlighter-rouge">--net</code> command and explicitly specify the port, also for security reason <code class="highlighter-rouge">--net=host</code> should not be used so the following can also be used in unix. This will also set the process to start when the docker process starts so you do not have to worry about reboots. To map the volumes make sure you have ticked the shred drives in the settings. In this example I am using <code class="highlighter-rouge">c:\hadashboard</code> as the location where the git clone was done and mapping to port 3030 on the host.</p>
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code>docker run --restart<span class="o">=</span>always --name<span class="o">=</span><span class="s2">"hadashboard"</span> -p 3030:3030 -d -v C:/hadashboard/dashboards:/app/dashboards -v C:/hadashboard/lib/ha_conf.rb:/app/lib/ha_conf.rb -v C:/hadashboard/hapush:/app/hapush hadashboard 
 </code></pre>
 </div>
@@ -109,7 +109,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo docker build -f Docker-raspi/Dockerfile -t hadashboard .
 </code></pre>
 </div>
-<p>Apart from that the other steps are identical. Running Docker is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything*</p>
+<p>Apart from that the other steps are identical. Running Docker is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything.</p>
 <h2><a class="title-link" name="manual-installation" href="#manual-installation"></a> Manual Installation</h2>
 <h3><a class="title-link" name="clone-the-repository" href="#clone-the-repository"></a> Clone the Repository</h3>
 <p>Clone the <strong>hadashboard</strong> repository to the current local directory on your machine.</p>
