@@ -17,6 +17,7 @@ Use Telegram on your mobile or desktop device to send and receive messages or co
 
 This component creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/components/telegram_bot.polling/) method or with the [webhooks](/components/telegram_bot.webhooks/) one, and trigger events when receiving messages.
 
+If you don't need to receive messages, you can use the [broadcast](/components/telegram_bot.broadcast/) platform instead.
 
 ### {% linkable_title Notification services %}
 Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `edit_message`, `edit_replymarkup`, `edit_caption`, `answer_callback_query`.
