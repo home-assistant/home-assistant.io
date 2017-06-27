@@ -42,7 +42,7 @@ When the build completes, you can run the dashboard with the following command f
 $ docker run --name="hadashboard" -d -v <path_to_hadashboard>/dashboards:/app/dashboards -v <path_to_hadashboard>/lib/ha_conf.rb:/app/lib/ha_conf.rb -v <path_to_hadashboard>/hapush:/app/hapush --net=host hadashboard
 ```
 
-If you are running docker on windows you should not use the `--net` command and explicitly specify the port, aslo for security reason `--net=host` should not be used so the following can also be used in unix. This will also set the process to start when the docker process starts so you do not have to worry about reboots. To map the volumes make sure you have ticked the shred drives in the settings. In this example I am using `c:\hadashboard` as the location where the git clone was done and mapping to port 3030 on the host. 
+If you are running docker on windows you should not use the `--net` command and explicitly specify the port, also for security reason `--net=host` should not be used so the following can also be used in unix. This will also set the process to start when the docker process starts so you do not have to worry about reboots. To map the volumes make sure you have ticked the shred drives in the settings. In this example I am using `c:\hadashboard` as the location where the git clone was done and mapping to port 3030 on the host. 
 
 ```powershell
 docker run --restart=always --name="hadashboard" -p 3030:3030 -d -v C:/hadashboard/dashboards:/app/dashboards -v C:/hadashboard/lib/ha_conf.rb:/app/lib/ha_conf.rb -v C:/hadashboard/hapush:/app/hapush hadashboard 
@@ -64,7 +64,7 @@ Raspberry Pi needs to use a different Docker build file so the build command is 
 $ sudo docker build -f Docker-raspi/Dockerfile -t hadashboard .
 ```
 
-Apart from that the other steps are identical. Running Docker is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything*
+Apart from that the other steps are identical. Running Docker is pretty slow even on a PI3, be prepared for it to take an hour or two to build all of the extensions and install everything.
 
 ## {% linkable_title Manual Installation %}
 
