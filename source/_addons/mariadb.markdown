@@ -18,7 +18,7 @@ Set up a [mariadb](https://mariadb.org/) SQL server. It support multible databas
     {
       "username": "hass",
       "host": "172.17.0.1",
-      "password": null
+      "password": "securePassword"
     }
   ],
   "rights": [
@@ -51,5 +51,5 @@ Use the following configuration in Home Assistant to use the database above:
 
 ```yaml
 recorder:
-  db_url: mysql://hass:password@127.0.0.1/homeassistant
+  db_url: mysql://hass:securePassword@127.0.0.1/homeassistant
 ```
