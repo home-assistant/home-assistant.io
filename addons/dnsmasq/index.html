@@ -76,6 +76,9 @@
   </header>
   <hr class="divider">
   <p>Setup and manage a <a href="http://thekelleys.org.uk/dnsmasq/doc.html">Dnsmasq</a> dns server. This allow your to manipulate some dns requests. I.e. that inside your network, your homeassistant domain will resolve with a internal address.</p>
+<p class="note info">
+<code class="highlighter-rouge">interface</code> options are for resinos based installation. On other system you can set it to <code class="highlighter-rouge">""</code>, for listen on every interface.
+</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"defaults"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8.8.8.8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"8.8.4.4"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"forwards"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">

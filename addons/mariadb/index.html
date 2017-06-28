@@ -82,7 +82,7 @@
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hass"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.17.0.1"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"securePassword"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"rights"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -115,6 +115,12 @@
     </ul>
   </li>
 </ul>
+<h2><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h2>
+<p>Use the following configuration in Home Assistant to use the database above:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">recorder</span><span class="pi">:</span>
+  <span class="s">db_url</span><span class="pi">:</span> <span class="s">mysql://hass:securePassword@127.0.0.1/homeassistant</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
