@@ -2,14 +2,14 @@
 layout: page
 title: "Zehnder ComfoAir Q Ventilation"
 description: "Instructions how to integrate Zehnder ComfoAir Q350/450/600 ventilation systems into Home Assistant."
-date: 2017-06-17 18:00
+date: 2017-06-28 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: zehnder.png
 ha_category: Fan
-ha_release: "0.47"
+ha_release: "0.48"
 ---
 
 The `comfoconnect` component lets you control Zehnder ComfoAir [Q350](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-st)/[450](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-st)/[600](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)
@@ -52,6 +52,5 @@ sensor:
 ```
 
 <p class='note'>
-Note that it's not possible to have multiple connection to the bridge at the same time. This component will keep the connection open, and if you open the app, 
-it will ask you to disconnect Home Assistant. If you close the app agian, Home Assistant will reconnect automatically.
+Note that it's not possible to have multiple connection to the bridge at the same time. This component will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
 </p>
