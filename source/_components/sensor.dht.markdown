@@ -35,6 +35,24 @@ Configuration variables:
 - **pin** (*Required*): The pin the sensor is connected to.
 - **name** (*Optional*): The name of the sensor
 - **monitored_conditions** array  (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
+- **temperature_offset** (*Optional*): Add or subtract a valure from the temperature °C
+- **humidity_offset** (*Optional*): Add or subtract a valure from the humidity
 
 The name of the pin to which the sensor is connected has different names on different platforms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
 
+### Example
+
+An example from a Raspberry Pi 3 with DHT22 sensor connected to GPIO4 (pin 7):
+
+```yaml
+sensor:
+  - platform: dht
+    sensor: DHT22
+    pin: 4
+    temperature_offset: 2.1
+    humidity_offset: -3.2
+    monitored_conditions:
+      - temperature
+      - humidity
+
+```
