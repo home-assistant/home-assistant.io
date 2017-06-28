@@ -31,7 +31,7 @@ Configuration variables:
 - **name** (*Optional*): Name of the command sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval.
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
 
 ## {% linkable_title Examples %}
 
@@ -104,7 +104,7 @@ sensor:
 
 ### {% linkable_title Read value out of a remote text file %}
 
-If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value. 
+If you own a devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value.
 
 ```yaml
 sensor:
