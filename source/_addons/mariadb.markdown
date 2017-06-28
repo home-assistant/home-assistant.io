@@ -44,3 +44,12 @@ Configuration variables:
   - **host** (*Require*): Host is a part of username like above.
   - **database** (*Require*): Database name to grant this user rights to.
   - **grant** (*Require*): SQL grant part for access too.
+
+## {% linkable_title Home Assistant configuration %}
+
+Use the following configuration in Home Assistant to use the database above:
+
+```yaml
+recorder:
+  db_url: mysql://hass:password@127.0.0.1/homeassistant
+```
