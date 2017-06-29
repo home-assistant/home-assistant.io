@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Public-Service-Announcement | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/public-service-announcement/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-06-28T20:06:12+00:00</updated>
+  <updated>2017-06-29T03:17:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -14,11 +14,13 @@
 
   
   <entry>
-    <title type="html"><![CDATA[[Update: fixed] A frank and serious warning about Senic COVI]]></title>
+    <title type="html"><![CDATA[[Update: fixed] A frank and serious warning about X]]></title>
     <link href="https://home-assistant.io/blog/2017/06/20/things-you-should-know-about-senic-covi/"/>
     <updated>2017-06-20T01:04:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/06/20/things-you-should-know-about-senic-covi</id>
     <content type="html"><![CDATA[**Update June 21:** Senic has removed our name from their materials and have [issued an apology][apology]. We wish them best of luck with the launch of COVI.
+
+**Update June 28:** Removed the brand name from the title to reduce the search ranking.
 
 *Original post:*
 
