@@ -25,8 +25,8 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 climate:
-  platform: comfoconnect
-  host: 192.168.1.213
+  - platform: comfoconnect
+    host: 192.168.1.213
 ```
 
 Configuration variables:
@@ -41,14 +41,14 @@ To register the sensors, add the following to your `configuration.yaml` file:
 
 ```yaml
 sensor:
-- platform: comfoconnect
-  resources:
-    - current_temperature
-    - current_humidity
-    - outside_temperature
-    - outside_humidity
-    - air_flow_supply
-    - air_flow_exhaust
+  - platform: comfoconnect
+    resources:
+      - current_temperature
+      - current_humidity
+      - outside_temperature
+      - outside_humidity
+      - air_flow_supply
+      - air_flow_exhaust
 ```
 
 <p class='note'>
