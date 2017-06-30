@@ -27,6 +27,7 @@ sensor:
 Configuration variables:
 
 - **host** (*Optional*): The IP address of the Pi-Hole system. Defaults to `localhost`.
+- **location** (*Optional*): The installation location of the Pi-Hole API. Defaults to `admin`.
 - **ssl** (*Optional*): If `true`, use SSL/TLS to connect to the Pi-Hole system. Defaults to `False`.
 - **verify_ssl** (*Optional*): Verify the certification of the system. Default to `True`.
 - **monitored_conditions** (*Optional*): Defines the stats to monitor as sensors.
