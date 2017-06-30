@@ -77,6 +77,7 @@
   <hr class="divider">
   <p>This allows you to set up a <a href="https://samba.org/">Samba</a> server to access hass.io folders using Windows network shares.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hassio"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"workgroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WORKGROUP"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"guest"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"map_config"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -89,6 +90,7 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
+  <li><strong>name</strong> (<em>Optional</em>): default <code class="highlighter-rouge">hassio</code>. Set netbios name of hassio device.</li>
   <li><strong>workgroup</strong> (<em>Optional</em>): default <code class="highlighter-rouge">WORKGROUP</code>. Set network workgroup.</li>
   <li><strong>guest</strong> (<em>Optional</em>): Allow login without a username or password. Defaults to <code class="highlighter-rouge">true</code>.</li>
   <li><strong>map_config</strong> (<em>Optional</em>): Expose Home Assistant configuration folder. Defaults to <code class="highlighter-rouge">true</code>.</li>
