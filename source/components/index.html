@@ -257,3 +257,13 @@ allComponents.pop(); // remove placeholder element at the end
   applyFilter();
 })();
 </script>
+
+<noscript>
+  <ul>
+  {% for component in components %}
+    {% if component.ha_category %}
+      <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</noscript>

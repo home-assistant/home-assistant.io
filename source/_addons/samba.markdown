@@ -13,6 +13,7 @@ This allows you to set up a [Samba](https://samba.org/) server to access hass.io
 
 ```json
 {
+  "name": "hassio",
   "workgroup": "WORKGROUP",
   "guest": true,
   "map_config": true,
@@ -25,6 +26,7 @@ This allows you to set up a [Samba](https://samba.org/) server to access hass.io
 
 Configuration variables:
 
+- **name** (*Optional*): default `hassio`. Set netbios name of hassio device.
 - **workgroup** (*Optional*): default `WORKGROUP`. Set network workgroup.
 - **guest** (*Optional*): Allow login without a username or password. Defaults to `true`.
 - **map_config** (*Optional*): Expose Home Assistant configuration folder. Defaults to `true`.

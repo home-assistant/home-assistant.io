@@ -11,6 +11,10 @@ footer: true
 
 Setup and manage a [Dnsmasq](http://thekelleys.org.uk/dnsmasq/doc.html) dns server. This allow your to manipulate some dns requests. I.e. that inside your network, your homeassistant domain will resolve with a internal address.
 
+<p class='note info'>
+`interface` options are for resinos based installation. On other system you can set it to `""`, for listen on every interface.
+</p>
+
 ```json
 {
   "defaults": ["8.8.8.8", "8.8.4.4"],
