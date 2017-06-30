@@ -80,6 +80,7 @@
 This add-on need port 80/443 to verify the certificate request, please stop all add-ons they use also this ports, otherwise you can not start this add-on.
 </p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"challenge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@example.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mqtt.example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hass.example.com"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -87,6 +88,7 @@ This add-on need port 80/443 to verify the certificate request, please stop all 
 </div>
 <p>Configuration variables:</p>
 <ul>
+  <li><strong>challenge</strong> (<em>Optional</em>): Default it use 443 (‘https’) you can change it to ‘http’ for use port 80.</li>
   <li><strong>email</strong> (<em>Required</em>): Your email address for registration on Let’s Encrypt.</li>
   <li><strong>domains</strong> (<em>Required</em>): A list of domains to create/renew the certificate.</li>
 </ul>
