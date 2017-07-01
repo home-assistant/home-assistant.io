@@ -74,19 +74,20 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This page describes the steps for publishing a new Home Assistant release.</p>
+  <p>This page describes the steps for publishing a new Home Assistant release. Those steps requires that you don’t use forks but work with the repositories themself.</p>
 <h3><a class="title-link" name="github-3-days-before-release" href="#github-3-days-before-release"></a> GitHub (3 days before release)</h3>
 <ol>
   <li>Merge <code class="highlighter-rouge">master</code> into <code class="highlighter-rouge">dev</code> to make the PR mergeable.</li>
-  <li>Cut a release branch from <code class="highlighter-rouge">dev</code>. Example name <code class="highlighter-rouge">release-0-46</code>.</li>
-  <li>Create a pull request from release branch to <code class="highlighter-rouge">master</code> with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author. Use [hass-release]https://github.com/home-assistant/hass-release) to collect the details.</li>
+  <li>Cut a release branch from <code class="highlighter-rouge">dev</code>. Example name <code class="highlighter-rouge">release-0-49</code>.</li>
+  <li>Create a pull request from the release branch to <code class="highlighter-rouge">master</code> with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author. Use <a href="https://github.com/home-assistant/hass-release">hass-release</a> to collect the details.</li>
   <li>Update <code class="highlighter-rouge">homeassistant/const.py</code> with the correct version number (remove the <code class="highlighter-rouge">dev</code> tag) and push that commit to release branch.</li>
   <li>From now until the release branch has been merged, we tag bugfixes with the milestone for the release (create if doesn’t exist).</li>
+  <li>Update <code class="highlighter-rouge">homeassistant/const.py</code> with the upcoming version number (including the <code class="highlighter-rouge">dev</code> tag) and push that commit to the <code class="highlighter-rouge">dev</code> branch.</li>
 </ol>
 <h3><a class="title-link" name="website-3-days-before-release" href="#website-3-days-before-release"></a> Website (3 days before release)</h3>
 <ol>
   <li>Merge <code class="highlighter-rouge">current</code> into <code class="highlighter-rouge">next</code></li>
-  <li>Cut release branch of <code class="highlighter-rouge">next</code>. For example <code class="highlighter-rouge">release-0-46</code>.</li>
+  <li>Cut release branch of <code class="highlighter-rouge">next</code>. For example <code class="highlighter-rouge">release-0-49</code>.</li>
   <li>Open a PR from release branch to <code class="highlighter-rouge">current</code> with the upcoming release number as the title.</li>
 </ol>
 <h3><a class="title-link" name="github" href="#github"></a> GitHub</h3>
