@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: apcupsd.png
-ha_category: Binary Sensor
+ha_category: System Monitor
 ha_release: 0.13
 ha_iot_class: "Local Polling"
 ---

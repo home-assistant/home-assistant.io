@@ -15,6 +15,10 @@ ha_release: pre 0.7
 
 The `asuswrt` platform offers presence detection by looking at connected devices to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
+<p class='note warning'>
+This platform is **NOT** available for [Microsoft Windows installations](http://pexpect.readthedocs.io/en/stable/overview.html#pexpect-on-windows).
+</p>
+
 To use an ASUSWRT router in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -31,6 +35,7 @@ Configuration variables:
 - **username** (*Required*: The username of an user with administrative privileges, usually `admin`.
 - **password** (*Optional*): The password for your given admin account (use this if no SSH key is given).
 - **protocol** (*Optional*): The protocol (`ssh` or `telnet`) to use. Defaults to `ssh`.
+- **port** (*Optional*): SSH port to use. Defaults to `22`.
 - **mode** (*Optional*): The operating mode of the router (`router` or `ap`). Defaults to `router`.
 - **ssh_key** (*Optional*): The path to your SSH private key file associated with your given admin account (instead of password).
 

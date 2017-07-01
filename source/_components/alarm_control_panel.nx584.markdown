@@ -19,11 +19,11 @@ To enable this, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 alarm_control_panel:
-  platform: nx584
+  - platform: nx584
 ```
 
 Configuration variables:
 
-- **host** (*Optional*): The host where the nx584 server process is running. Defaults to localhost.
-- **port** (*Optional*): The port where the Alarm panel ist listening. Defaults to 5007.
+- **host** (*Optional*): The host where the nx584 server process is running. Defaults to `localhost`.
+- **port** (*Optional*): The port where the Alarm panel is listening. Defaults to `5007`.
 

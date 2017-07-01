@@ -16,7 +16,7 @@ ha_release: 0.23
 
 The `fixer` sensor will show you the current exchange rate from [Fixer.io](http://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
 
-To get an owerview about the available [currencies](http://api.fixer.io/latest).
+To get an overview about the available [currencies](http://api.fixer.io/latest).
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

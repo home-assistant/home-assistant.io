@@ -32,7 +32,7 @@ Now login to the regular consumer portal, and in the hamburger menu there will b
 3. Give your app a name (it appears to need to be unique across all users, as I tried 'home-assistant' and it said it was already in use. Try <yournameoralias>-home-assistant) and a summary (neither of these are important as they are not used anywhere). 
 4. For Authorization method select **ecobee PIN**. 
 5. You don't need an Application Icon or Detailed Description. 
-6. Click **Save**. 
+6. Click **Create**. 
 
 Now under the Name and Summary Section you will have an API key. Copy this key and use it in you configuration section below. Click the **X** to close the Developer section. 
 
@@ -54,7 +54,7 @@ ecobee:
 
 Configuration variables:
 
-- **api_key** (*Required*): Your ecobee API key. This is only needed for the inital setup of the component. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to update this again and remove the ecobee.conf file in the `.homeassistant` configuration path.
+- **api_key** (*Required*): Your ecobee API key. This is only needed for the initial setup of the component. Once registered it can be removed. If you revoke the key in the ecobee portal you will need to update this again and remove the ecobee.conf file in the `.homeassistant` configuration path.
 - **hold_temp** (*Optional*): True/False whether or not to hold changes indefinitely (True) or until the next scheduled event. Defaults to `False`.
 
 <p class='img'>

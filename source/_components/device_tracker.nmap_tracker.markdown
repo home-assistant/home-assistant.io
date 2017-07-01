@@ -17,6 +17,8 @@ As an alternative to the router-based device tracking, it is possible to directl
 
 If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
 
+Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds.
+
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -28,14 +30,17 @@ device_tracker:
 
 Configuration variables:
 
-- **hosts** (*Required*): The network range to scan in CIDR notation, eg. `192.168.1.1/24`.
+- **hosts** (*Required*): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.
 - **home_interval** (*Optional*): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.
-- **exclude** (*Optional*): Hosts not to include in nmap scanning.
+- **exclude** (*Optional*): Hosts not to include in nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
+- **scan_options** (*Optional*): Configurable scan options for nmap. Default to `-F --host-timeout 5s`
+
 
 A full example for the `nmap` tracker could look like the following sample:
 
 ```yaml
 # Example configuration.yaml entry for nmap
+# One whole subnet, and skipping two specific IPs.
 device_tracker:
   - platform: nmap_tracker
     hosts: 192.168.1.1/24
@@ -43,6 +48,33 @@ device_tracker:
     exclude:
      - 192.168.1.12
      - 192.168.1.13
+```
+
+```yaml
+# Example configuration.yaml for nmap
+# One subnet, and two specific IPs in another subnet.
+device_tracker:
+  - platform: nmap_tracker
+    hosts:
+      - 192.168.1.1/24
+      - 10.0.0.2
+      - 10.0.0.15
+```
+In the above example, Nmap will be call with the process:
+`nmap -oX - 192.168.1.1/24 10.0.0.2 10.0.0.15 -F --host-timeout 5s`
+
+An example of how the Nmap scanner can be customized:
+
+Add the capabilities to Nmap. Be sure to specify the full path to wherever you installed Nmap:
+
+`sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
+`
+
+And you can set up the device tracker as
+```yaml
+- platform: nmap_tracker
+  hosts: 192.168.1.1-25
+  scan_options: " --privileged -sP "
 ```
 
 

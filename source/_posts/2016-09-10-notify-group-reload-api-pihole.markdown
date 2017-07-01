@@ -147,7 +147,7 @@ The validation of the configuration is still on-going. Approximatly 80 % is done
 [Temper]: /components/sensor.temper/
 [mqtt-fan]: /components/fan.mqtt/
 [Xbox]: /components/sensor.xbox_live/
-[Nmap]: /components/device_tracker.nmap_scanner/
+[Nmap]: /components/device_tracker.nmap_tracker/
 [automatic]: /components/device_tracker.automatic/
 [Owntracks]: /components/device_tracker.owntracks/
 [OpenweatherMap]: /components/sensor.openweathermap/

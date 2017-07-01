@@ -20,7 +20,7 @@ $ find homeassistant -name "*.py" -exec file {} \; | grep BOM
 $ find homeassistant -name "*.py" -exec file {} \; | grep CRLF
 ```
 
-To fix the line spearator, use `dos2unix` or `sed`.
+To fix the line separator, use `dos2unix` or `sed`.
 
 ```bash
 $ dos2unix homeassistant/components/notify/kodi.py

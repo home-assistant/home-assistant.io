@@ -19,7 +19,7 @@ Home Assistant has a discovery service running in the background to discover new
 
 Device discovery  for Home Assistant has been extracted into an external library called [NetDisco](https://github.com/home-assistant/netdisco). This library is integrated using [the `discovery` component](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/discovery.py) and scans the network in intervals for uPnP and zeroconf/mDNS services.
 
-To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. [See the repository for examples of existing discoverables.](https://github.com/home-assistant/netdisco/tree/master/netdisco/discoverables)
+To have your device be discovered, you will have to extend the NetDisco library to be able to find your device. This is done by adding a new discoverable. [See the repository for examples of existing discoverable.](https://github.com/home-assistant/netdisco/tree/master/netdisco/discoverables)
 
 ### {% linkable_title Listening to `SERVICE_DISCOVERED` events %}
 

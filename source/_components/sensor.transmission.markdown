@@ -21,12 +21,12 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: transmission
-  host: IP_ADDRESS
-  monitored_variables:
-    - 'current_status'
-    - 'download_speed'
-    - 'upload_speed'
+  - platform: transmission
+    host: IP_ADDRESS
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
 ```
 
 Configuration variables:
@@ -45,12 +45,12 @@ Configuration variables:
 To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to **Edit** -> **Preferences** and choose the tab **Remote**. Check **Allow remote access**, enter your username and your password, and uncheck the network restriction as needed.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/transmission_perf.png' />
+  <img src='{{site_root}}/images/components/transmission/transmission_perf.png' />
 </p>
 
 If everything is setup correctly, the details will show up in the frontend.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/transmission.png' />
+  <img src='{{site_root}}/images/components/transmission/transmission.png' />
 </p>
 

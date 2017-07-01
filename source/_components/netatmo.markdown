@@ -10,10 +10,11 @@ footer: true
 logo: netatmo.png
 ha_category: Hub
 ha_release: "0.20"
+ha_iot_class: "Cloud Polling"
 ---
 
 
-The `netatmo` component platform is the main component to integrate all Netatmo related platforms. Besides this component you will have to setup any connected sensors separately.
+The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
 
 To enable the Netatmo component, add the following lines to your `configuration.yaml`:
 
@@ -28,14 +29,15 @@ netatmo:
 
 Configuration variables:
 
-- **api_key** (*Required*): The API key for your netatmo account.
-- **secret_key** (*Required*): Your netatmo secret key
-- **username** (*Required*): Username for the netatmo account.
-- **password** (*Required*): Password for the netatmo account.
+- **api_key** (*Required*): The API key for your Netatmo account.
+- **secret_key** (*Required*): Your Netatmo secret key
+- **username** (*Required*): Username for the Netatmo account.
+- **password** (*Required*): Password for the Netatmo account.
+- **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
 
 ### {% linkable_title Get API and Secret Key %}
 
-To get your API credentials, you have to declare a new application in the [NetAtmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular NetAtmo account.
+To get your API credentials, you have to declare a new application in the [NetAtmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
 Click on 'Create an App' at the top of the page.
 
 <p class='img'>
@@ -54,5 +56,5 @@ That's it. You can copy and paste your new API and secret keys in your Home Assi
 </p>
 
 <p class='note'>
-The Home Assistant NetAtmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
+The Home Assistant Netatmo platform has only be tested with the classic indoor, outdoor module and rainmeter. There is no support for the windmeter module at this time because developers does not own these modules.
 </p>

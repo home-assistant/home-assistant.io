@@ -10,7 +10,7 @@ footer: true
 logo: loop.png
 ha_category: Energy
 ha_release: 0.17
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Push"
 ---
 
 

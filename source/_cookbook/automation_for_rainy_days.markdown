@@ -10,48 +10,43 @@ footer: true
 ha_category: Automation Examples
 ---
 
-This requires a [forecast.io](/components/sensor.forecast/) sensor with the condition `weather_precip` that tells if it's raining or not.
+This requires a [Dark Sky](/components/sensor.darksky/) sensor with the condition `precip_intensity` that tells if it's raining or not. You could also experiment with other attributes such as `cloud_cover`.
 
 Turn on a light in the living room when it starts raining, someone is home, and it's afternoon or later.
 
 ```yaml
 automation:
-  alias: 'Rainy Day'
-
-  trigger:
-       - platform: state
-         entity_id: sensor.weather_precip
-         state: 'rain'
-       - platform: state
-         entity_id: group.all_devices
-         state: 'home'
-       - platform: time
-         after: '14:00'
-         before: '23:00'
-
-  condition: use_trigger_values
-
-  action:
-    service: light.turn_on
-    entity_id: light.couch_lamp
+  - alias: 'Rainy Day'
+    trigger:
+      - platform: state
+        entity_id: sensor.precip_intensity
+        to: 'rain'
+    condition:
+      - platform: state
+        entity_id: group.all_devices
+        state: 'home'
+      - platform: time
+        after: '14:00'
+        before: '23:00'
+    action:
+      service: light.turn_on
+      entity_id: light.couch_lamp
 ```
 
 And then of course turn off the lamp when it stops raining but only if it's within an hour before sunset.
 
 ```yaml
-automation 2:
-  alias: 'Rain is over'
-  trigger:
-       - platform: state
-         entity_id: sensor.weather_precip
-         state: 'None'
-       - platform: sun
-         event: 'sunset'
-         offset: '-01:00:00'
-
-  condition: use_trigger_values
-  action:
-    service: light.turn_off
-    entity_id: light.couch_lamp
+  - alias: 'Rain is over'
+    trigger:
+      - platform: state
+        entity_id: sensor.precip_intensity
+        to: 'None'
+    condition:
+      - condition: sun
+        after: 'sunset'
+        offset: '-01:00:00'
+    action:
+      service: light.turn_off
+      entity_id: light.couch_lamp
 ```
 

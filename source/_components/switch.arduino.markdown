@@ -27,7 +27,6 @@ switch:
       name: Fan Office
     12:
       name: Light Desk
-      type: digital
       initial: true
       negate: true
 ```

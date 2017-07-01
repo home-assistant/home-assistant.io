@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: true
 ha_category: Hub
 ha_release: "0.30"
 logo: digital_ocean.png
@@ -19,7 +18,7 @@ The `digital_ocean` component allows you to access the information about your [D
 
 Obtain your API key from your [Digital Ocean dashboard](https://cloud.digitalocean.com/settings/api/tokens).
 
-To integrate your Digital Ocena droplets with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Digital Ocean droplets with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

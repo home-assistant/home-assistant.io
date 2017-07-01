@@ -28,12 +28,21 @@ Configuration variables:
  - Alias for the command
  - Command itself.
 
-The commands can be dynamic, using templates to insert values of other entities. When using templates you are limited to only template the arguments. You are also no longer allowed to use pipe symbols when using templates.
+The commands can be dynamic, using templates to insert values for arguments. When using templates, shell_command runs in a more secure environment which doesn't allow any shell helpers like automatically expanding the home dir `~` or using pipe symbols to run multiple commands.
 
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
 ```yaml
+
 # Apply value of a GUI slider to the shell_command
+automation:
+  - alias: run_set_ac
+    trigger:
+      platform: state
+      entity_id: input_slider.ac_temperature
+    action:
+      service: shell_command.set_ac_to_slider
+
 input_slider:
   ac_temperature:
     name: A/C Setting
@@ -41,8 +50,9 @@ input_slider:
     min: 18
     max: 32
     step: 1
+    
 {% raw %}
 shell_command:
-  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state}}_AUTO'
+  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state }}_AUTO'
 {% endraw %}
 ```

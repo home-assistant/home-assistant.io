@@ -31,7 +31,8 @@ Configuration variables:
 - **name** (*Optional*): The name of the sensor. Default is 'MQTT Sensor'. 
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **expire_after** (*Optional*): Defines the number of seconds after the value expires if it's not updated. Default is 0 (=never expire).
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 
@@ -50,11 +51,11 @@ Thus the trick is extract the battery level from the payload.
 ```yaml
 # Example configuration.yml entry
 sensor:
-  platform: mqtt
-  state_topic: "owntracks/tablet/tablet"
-  name: "Battery Tablet"
-  unit_of_measurement: "%"
-  value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
+  - platform: mqtt
+    state_topic: "owntracks/tablet/tablet"
+    name: "Battery Tablet"
+    unit_of_measurement: "%"
+    value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}
 ```
 
 ### {% linkable_title Get temperature and humidity %}
@@ -73,17 +74,15 @@ Then use this configuration example to extract the data from the payload:
 
 ```yaml
 # Example configuration.yml entry
-sensor 1:
-  platform: mqtt
-  state_topic: 'office/sensor1'
-  name: 'Temperature'
-  unit_of_measurement: '°C'
-  value_template: '{{ value_json.temperature }}'
-
-sensor 2:
-  platform: mqtt
-  state_topic: 'office/sensor1'
-  name: 'Humidity'
-  unit_of_measurement: '%'
-  value_template: '{{ value_json.humidity }}'
+sensor:
+  - platform: mqtt
+    state_topic: 'office/sensor1'
+    name: 'Temperature'
+    unit_of_measurement: '°C'
+    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
+  - platform: mqtt
+    state_topic: 'office/sensor1'
+    name: 'Humidity'
+    unit_of_measurement: '%'
+    value_template: {% raw %}'{{ value_json.humidity }}'{% endraw %}
 ```

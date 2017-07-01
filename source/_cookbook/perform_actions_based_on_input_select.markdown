@@ -43,8 +43,8 @@ automation:
       service: media_player.play_media
       data:
         entity_id: media_player.nursery
-        media_id: http://fileserver/rain.mp3
-        media_type: audio/mp4
+        media_content_id: http://fileserver/rain.mp3
+        media_content_type: audio/mp4
 
 
   # If you select "Babbling Brook", play the "babbling_brook.mp3" file
@@ -59,8 +59,8 @@ automation:
       service: media_player.play_media
       data:
         entity_id: media_player.nursery
-        media_id: http://fileserver/babbling_brook.mp3
-        media_type: audio/mp4
+        media_content_id: http://fileserver/babbling_brook.mp3
+        media_content_type: audio/mp4
 
   # If you select "None, turn the Chromecast off
   - alias: Stop the Lullaby

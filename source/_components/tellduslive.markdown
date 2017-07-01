@@ -35,11 +35,3 @@ Configuration variables:
 - **token** (*Required*): The token for the Telldus Live service.
 - **token_secret** (*Required*): The token secret for the Telldus Live service.
 
-Tellstick Net devices can be auto discovered using [this method](https://developer.telldus.com/doxygen/html/TellStickNet.html).
-
-It might be possible to communicate with the Tellstick Net device directly, bypassing the Tellstick Live service. This however is [poorly documented](http://developer.telldus.se/ticket/114) and yet not [fully supported](https://developer.telldus.com/doxygen/html/TellStickNet.html).
-
-<p class='note warning'>
-API requests to certain methods are limited to one request every 10 minutes.
-</p>
-

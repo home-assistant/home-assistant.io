@@ -46,9 +46,9 @@ automation:
       entity_id: updater.updater
   action:
     service: notify.pushbullet
-    data: 
+    data_template: 
       title: 'New Home Assistant Release'
       target: 'YOUR_TARGET_HERE' #See Pushbullet component for usage
-      message: "Home Assistant {{ states.updater.updater.state }} is now available."
+      message: "Home Assistant {% raw %} {{ states.updater.updater.state }} {% endraw %} is now available."
 ```
 

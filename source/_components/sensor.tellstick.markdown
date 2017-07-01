@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: telldus_tellstick.png
 ha_category: Sensor
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -45,3 +46,4 @@ sensor:
     only_named: True
     temperature_scale: "°C"
     datatype_mask: 1
+```

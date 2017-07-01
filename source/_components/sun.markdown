@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category: Weather
 ---
 
-The sun component will use your current location to track if the sun is above or below the horizon.The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
+The sun component will use your current location to track if the sun is above or below the horizon. The sun can be used within automation as [a trigger with an optional offset to simulate dawn/dusk][automation-trigger].
 
 [automation-trigger]: /getting-started/automation-trigger/#sun-trigger
 
@@ -22,7 +22,7 @@ sun:
 
 Configuration variables:
 
-- **elevation** (*Optional*): The (physical) elevation of your location, in metres above sea level. If ommitted will be retrieved from Google Maps.
+- **elevation** (*Optional*): The (physical) elevation of your location, in metres above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set.
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />
@@ -56,5 +56,9 @@ The sun event need to have the type 'sun', which service to call, which event (s
 | --------- | ----------- |
 | `next_rising` | Date and time of the next sun rising (in UTC).
 | `next_setting` | Date and time of the next sun setting (in UTC).
+| `next_dawn` | Date and time of the next dawn (in UTC).
+| `next_dusk` | Date and time of the next dusk (in UTC).
+| `next_noon` | Date and time of the next solar noon (in UTC).
+| `next_midnight` | Date and time of the next solar midnight (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | `azimuth` | Solar azimuth. The angle is shown clockwise from north.

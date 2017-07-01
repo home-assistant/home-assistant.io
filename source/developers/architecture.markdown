@@ -15,7 +15,7 @@ For more information about each part in this overview, <a href='/blog/2014/12/26
 
  * Home Control is responsible for collecting information and controlling devices.
  * Home Automation triggers commands based on user configurations.
- * Smart Home triggers commands based on previous behavior.
+ * Smart Home triggers commands based on previous behaviour.
 
 <p class='img'>
   <a href='{{site_root}}/images/architecture/home_automation_landscape.png' name='landscape'>
@@ -25,9 +25,9 @@ For more information about each part in this overview, <a href='/blog/2014/12/26
   Overview of the home automation landscape
 </p>
 
-The Home Assistant core is responsible for Home Control. Home Assistant has four parts to make this possible:
+The Home Assistant core is responsible for Home Control. Home Assistant contains four parts which make this possible:
 
- * **Event Bus**: facilitates the firing and listening of events--the beating heart of Home Assistant.
+ * **Event Bus**: facilitates the firing and listening of events -- the beating heart of Home Assistant.
  * **State Machine**: keeps track of the states of things and fires a `state_changed` event when a state has been changed.
  * **Service Registry**: listens on the event bus for `call_service` events and allows other code to register services.
  * **Timer**: sends a `time_changed` event every 1 second on the event bus.

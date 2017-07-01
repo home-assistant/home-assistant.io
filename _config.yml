@@ -49,6 +49,7 @@ kramdown:
 highlighter: rouge
 
 gems:
+  - jekyll-redirect-from
   - jekyll-time-to-read
   - octopress-filters
   - octopress-include-tag
@@ -72,7 +73,11 @@ collections:
     output: true
   cookbook:
     output: true
-  topics:
+  docs:
+    output: true
+  addons:
+    output: true
+  faq:
     output: true
 
 # ----------------------- #
@@ -116,6 +121,17 @@ google_analytics_tracking_id: UA-57927901-1
 # Facebook Like
 facebook_like: true
 
+# Liquid template compressor
+compress_html:
+  clippings: []
+  comments: []
+  endings: []
+  ignore:
+    envs: []
+  blanklines: true
+  profile: false
+  startings: []
+
 social:
   visible: false
   facebook:
@@ -123,3 +139,16 @@ social:
 
   twitter:
     account: home_assistant
+
+# Home Assistant release details
+current_major_version: 0
+current_minor_version: 47
+current_patch_version: 1
+date_released: 2017-06-21
+
+# Either # or the anchor link to latest release notes in the blog post.
+# Must be prefixed with a # and have double quotes around it.
+# Major release:
+patch_version_notes: "#release-0471---june-21"
+# Minor release (Example #release-0431---april-25):
+

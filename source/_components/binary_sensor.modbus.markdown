@@ -34,5 +34,5 @@ Configuration variables:
 
 - **coils** array (*Required*): The array contains a list of coils to read from.
   - **name** (*Required*): Name of the sensor.
-  - **slave** (*Required*): The number of the slave (Optional for tcp and upd Modbus).
+  - **slave** (*Required*): The number of the slave (Optional for TCP and UDP Modbus).
   - **coil** (*Required*): Coil number.

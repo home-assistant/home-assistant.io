@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Switch
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -18,7 +19,7 @@ To add this platform to your installation, add the following to your `configurat
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+switch:
   - platform: mfi
     host: IP_ADDRESS
     username: USERNAME
