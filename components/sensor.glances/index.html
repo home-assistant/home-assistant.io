@@ -75,7 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">glances</code> sensor platform is consuming the system information provided by the <a href="https://github.com/nicolargo/glances">Glances</a> API. This enables one to track remote host and display their stats in Home Assistant.</p>
-<p>This sensors needs a running instance of <code class="highlighter-rouge">glances</code> on the host. The minimal supported version of <code class="highlighter-rouge">glances</code> is 2.3. 
+<p>This sensors needs a running instance of <code class="highlighter-rouge">glances</code> on the host. The minimal supported version of <code class="highlighter-rouge">glances</code> is 2.3.
 To start a Glances RESTful API server on its default port 61208, the a test the following command can be used:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
@@ -108,6 +108,7 @@ Glances web server started on http://0.0.0.0:61208/
       <span class="pi">-</span> <span class="s1">'</span><span class="s">process_total'</span>
       <span class="pi">-</span> <span class="s1">'</span><span class="s">process_thread'</span>
       <span class="pi">-</span> <span class="s1">'</span><span class="s">process_sleeping'</span>
+      <span class="pi">-</span> <span class="s1">'</span><span class="s">cpu_temp'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -131,9 +132,11 @@ Glances web server started on http://0.0.0.0:61208/
       <li><strong>process_total</strong>: Total number of processes</li>
       <li><strong>process_thread</strong>: Number of threads</li>
       <li><strong>process_sleeping</strong>: Number of sleeping processes</li>
+      <li><strong>cpu_temp</strong>: CPU Temperature (may not available on all platforms)</li>
     </ul>
   </li>
 </ul>
+<p>Not all platforms are able to provide all metrics. For instance <code class="highlighter-rouge">cpu_temp</code> is requires installing and configuring <code class="highlighter-rouge">lmsensors</code> in Ubuntu, and may not be available at all in other platforms.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

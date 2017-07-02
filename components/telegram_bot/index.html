@@ -76,6 +76,7 @@
   <hr class="divider">
   <p>Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.</p>
 <p>This component creates notification services to send, or edit previously sent, messages from a <a href="https://core.telegram.org/bots">Telegram Bot account</a> configured either with the <a href="/components/telegram_bot.polling/">polling</a> method or with the <a href="/components/telegram_bot.webhooks/">webhooks</a> one, and trigger events when receiving messages.</p>
+<p>If you don’t need to receive messages, you can use the <a href="/components/telegram_bot.broadcast/">broadcast</a> platform instead.</p>
 <h3><a class="title-link" name="notification-services" href="#notification-services"></a> Notification services</h3>
 <p>Available services: <code class="highlighter-rouge">send_message</code>, <code class="highlighter-rouge">send_photo</code>, <code class="highlighter-rouge">send_document</code>, <code class="highlighter-rouge">send_location</code>, <code class="highlighter-rouge">edit_message</code>, <code class="highlighter-rouge">edit_replymarkup</code>, <code class="highlighter-rouge">edit_caption</code>, <code class="highlighter-rouge">answer_callback_query</code>.</p>
 <h4><a class="title-link" name="service-telegram_botsend_message" href="#service-telegram_botsend_message"></a> Service <code class="highlighter-rouge">telegram_bot/send_message</code></h4>
@@ -314,7 +315,7 @@
     <tr>
       <td><code class="highlighter-rouge">message_id</code></td>
       <td>no</td>
-      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``.</td>
+      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">chat_id</code></td>
@@ -362,7 +363,7 @@
     <tr>
       <td><code class="highlighter-rouge">message_id</code></td>
       <td>no</td>
-      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``.</td>
+      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">chat_id</code></td>
@@ -400,7 +401,7 @@
     <tr>
       <td><code class="highlighter-rouge">message_id</code></td>
       <td>no</td>
-      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``.</td>
+      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">chat_id</code></td>
@@ -444,6 +445,29 @@
       <td><code class="highlighter-rouge">show_alert</code></td>
       <td>yes</td>
       <td>True/false for show a permanent notification. Defaults to False.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botdelete_message" href="#service-telegram_botdelete_message"></a> Service <code class="highlighter-rouge">telegram_bot/delete_message</code></h4>
+<p>Delete a previusly sent message in a conversation.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message_id</code></td>
+      <td>no</td>
+      <td>Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">chat_id</code></td>
+      <td>no</td>
+      <td>The chat_id where to delete the message.</td>
     </tr>
   </tbody>
 </table>
@@ -732,6 +756,9 @@
     </div>
             <h1 class='title delta'>Platforms</h1>
             <ul class='divided'>
+          <li><a href='/components/telegram_bot.broadcast/'>
+            Telegram broadcast
+          </a></li>
           <li><a href='/components/telegram_bot.polling/'>
             Telegram polling
           </a></li>
@@ -903,6 +930,9 @@
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
         </li>
         <li>
             <a href='/components/zha/'>Zigbee Home Automation</a>

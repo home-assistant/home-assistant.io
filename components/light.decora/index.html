@@ -98,6 +98,23 @@
     </ul>
   </li>
 </ul>
+<p class="note">
+If you get an error looking like this:
+<code class="highlighter-rouge">bash
+Jun 20 19:41:18 androlapin hass[29588]: ERROR:homeassistant.components.light:Error while setting up platform decora
+[...]
+Jun 20 19:41:18 androlapin hass[29588]:   File "/usr/lib/python3.6/concurrent/futures/thread.py", line 55, in run
+Jun 20 19:41:18 androlapin hass[29588]:     result = self.fn(*self.args, **self.kwargs)
+Jun 20 19:41:18 androlapin hass[29588]:   File "/opt/homeassistant/custom_components/light/decora.py", line 68, in setup_platform
+Jun 20 19:41:18 androlapin hass[29588]:     light = DecoraLight(device)
+[...]
+Jun 20 19:41:18 androlapin hass[29588]: OSError: [Errno 8] Exec format error
+</code>
+1. Go to your <code class="highlighter-rouge">.homeassistant</code> folder
+2. Then go to <code class="highlighter-rouge">deps/bluepy</code> subfolder.
+3. Then run <code class="highlighter-rouge">make all</code>
+4. Restart home assistant
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

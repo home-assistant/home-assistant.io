@@ -105,6 +105,12 @@
       <td style="text-align: left">Lux</td>
       <td style="text-align: left">2 Byte Float</td>
     </tr>
+    <tr>
+      <td style="text-align: left">Percentage</td>
+      <td style="text-align: left">5.001</td>
+      <td style="text-align: left">%</td>
+      <td style="text-align: left">1 Byte Scaled Unsigned Integer</td>
+    </tr>
   </tbody>
 </table>
 <p>To use your KNX sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -123,6 +129,11 @@
     <span class="s">name</span><span class="pi">:</span> <span class="s">Lux</span>
     <span class="s">type</span><span class="pi">:</span> <span class="s">illuminance</span>
     <span class="s">address</span><span class="pi">:</span> <span class="s">1/0/1</span>
+
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">percent</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">percentage</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s">1/0/4</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -130,8 +141,8 @@
   <li><strong>type</strong> (<em>Required</em>): The type of the sensor. See table above for available options.</li>
   <li><strong>address</strong> (<em>Required</em>): The address of the sensor on the bus.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name to use in the frontend.</li>
-  <li><strong>minimum</strong> (<em>Optional</em>): Minimum sensor value who gets processed. Defaults to a hardcoded default values.</li>
-  <li><strong>maximum</strong> (<em>Optional</em>): Maximum sensor value who gets processed. Defaults to a hardcoded default.</li>
+  <li><strong>minimum</strong> (<em>Optional</em>): Minimum sensor value - defaults to a hardcoded default value.</li>
+  <li><strong>maximum</strong> (<em>Optional</em>): Maximum sensor value - defaults to a hardcoded default value.</li>
 </ul>
 </article>
         </div>
@@ -156,6 +167,9 @@
         </a></li>
         <li><a href='/components/binary_sensor.knx/'>
           KNX Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.knx/'>
+          KNX Cover
         </a></li>
         <li><a href='/components/light.knx/'>
           KNX Light
@@ -191,6 +205,9 @@
         </li>
         <li>
             <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
+            <a href='/components/cover.knx/'>KNX Cover</a>
         </li>
         <li>
             <a href='/components/light.knx/'>KNX Light</a>

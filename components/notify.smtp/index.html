@@ -90,11 +90,11 @@
   <li><strong>sender</strong> (<em>Required</em>): E-mail address of the sender.</li>
   <li><strong>recipient</strong> (<em>Required</em>): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.</li>
   <li><strong>server</strong> (<em>Optional</em>): SMTP server which is used to end the notifications. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using. Defaults to 25.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port that the SMTP server is using. Defaults to 465.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): The timeout in seconds that the SMTP server is using. Defaults to 5.</li>
   <li><strong>username</strong> (<em>Optional</em>): Username for the SMTP account.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.</li>
-  <li><strong>starttls</strong> (<em>Optional</em>): Enables STARTTLS, eg. True or False. Defaults to False.</li>
+  <li><strong>encryption</strong> (<em>Optional</em>): Set mode for encryption, <code class="highlighter-rouge">tls</code>, <code class="highlighter-rouge">starttls</code> or <code class="highlighter-rouge">none</code>. Defaults to <code class="highlighter-rouge">tls</code>.</li>
   <li><strong>sender_name</strong> (<em>Optional</em>): Sets a custom ‘sender name’ in the emails headers (<em>From</em>: Custom name <a href="mailto:example@mail.com">example@mail.com</a>).</li>
   <li><strong>debug</strong> (<em>Optional</em>): Enables Debug, eg. True or False. Defaults to False.</li>
 </ul>
@@ -107,7 +107,7 @@
     <span class="s">port</span><span class="pi">:</span> <span class="s">587</span>
     <span class="s">timeout</span><span class="pi">:</span> <span class="s">15</span>
     <span class="s">sender</span><span class="pi">:</span> <span class="s">john@gmail.com</span>
-    <span class="s">starttls</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">encryption</span><span class="pi">:</span> <span class="s">starttls</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">john@gmail.com</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">thePassword</span>
     <span class="s">recipient</span><span class="pi">:</span>
@@ -239,6 +239,9 @@ which need special attention. By default, the usage by external applications, es
         </li>
         <li>
             <a href='/components/notify.ciscospark/'>Cisco Spark</a>
+        </li>
+        <li>
+            <a href='/components/notify.clicksend/'>ClickSend</a>
         </li>
         <li>
             <a href='/components/notify.command_line/'>Command line Notify</a>

@@ -96,15 +96,17 @@
   <li><strong>discovery_prefix</strong> (<em>Optional</em>): The prefix for the discovery topic. Defaults  to <code class="highlighter-rouge">homeassistant</code>.</li>
 </ul>
 <p>The discovery topic need to follow a specific format:</p>
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;discovery_prefix&gt;/&lt;component&gt;/&lt;object_id&gt;/&lt;&gt;
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;discovery_prefix&gt;/&lt;component&gt;/[&lt;node_id&gt;/]&lt;object_id&gt;/&lt;&gt;
 </code></pre>
 </div>
 <ul>
   <li><code class="highlighter-rouge">&lt;component&gt;</code>: One of the supported components, eg. <code class="highlighter-rouge">binary_sensor</code>.</li>
+  <li><code class="highlighter-rouge">&lt;node_id&gt;</code>: (<em>Optional</em>) id of the node providing the topic.</li>
   <li><code class="highlighter-rouge">&lt;object_id&gt;</code>: The ID of the device. This will become the <code class="highlighter-rouge">entity_id</code> in Home Assistant.</li>
   <li><code class="highlighter-rouge">&lt;&gt;</code>: The topic <code class="highlighter-rouge">config</code> or <code class="highlighter-rouge">state</code> which defines the current action.</li>
 </ul>
 <p>The payload will be checked like an entry in your <code class="highlighter-rouge">configuration.yaml</code> file if a new device is added. This means that missing variables will be filled with the platform’s default values. All configuration variables which are <em>required</em> must be present in the initial payload send to <code class="highlighter-rouge">/config</code>.</p>
+<p>The <code class="highlighter-rouge">&lt;node_id&gt;</code> level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like <code class="highlighter-rouge">&lt;discovery_prefix&gt;/+/&lt;node_id&gt;/+/set</code>.</p>
 <h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
 <p>A motion detection device which can be represented by a <a href="/components/binary_sensor.mqtt/">binary sensor</a> for your garden would sent its configuration as JSON payload to the Configuration topic. After the first message to <code class="highlighter-rouge">config</code>, then the MQTT messages sent to the state topic will update the state in Home Assistant.</p>
 <ul>

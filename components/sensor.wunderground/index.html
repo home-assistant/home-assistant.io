@@ -86,51 +86,15 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">alerts</span>
       <span class="pi">-</span> <span class="s">dewpoint_c</span>
-      <span class="pi">-</span> <span class="s">dewpoint_f</span>
-      <span class="pi">-</span> <span class="s">dewpoint_string</span>
-      <span class="pi">-</span> <span class="s">feelslike_c</span>
-      <span class="pi">-</span> <span class="s">feelslike_f</span>
-      <span class="pi">-</span> <span class="s">feelslike_string</span>
-      <span class="pi">-</span> <span class="s">heat_index_c</span>
-      <span class="pi">-</span> <span class="s">heat_index_f</span>
-      <span class="pi">-</span> <span class="s">heat_index_string</span>
-      <span class="pi">-</span> <span class="s">elevation</span>
-      <span class="pi">-</span> <span class="s">location</span>
-      <span class="pi">-</span> <span class="s">observation_time</span>
-      <span class="pi">-</span> <span class="s">precip_1hr_in</span>
-      <span class="pi">-</span> <span class="s">precip_1hr_metric</span>
-      <span class="pi">-</span> <span class="s">precip_1hr_string</span>
-      <span class="pi">-</span> <span class="s">precip_today_in</span>
-      <span class="pi">-</span> <span class="s">precip_today_metric</span>
-      <span class="pi">-</span> <span class="s">precip_today_string</span>
-      <span class="pi">-</span> <span class="s">pressure_in</span>
-      <span class="pi">-</span> <span class="s">pressure_mb</span>
-      <span class="pi">-</span> <span class="s">pressure_trend</span>
-      <span class="pi">-</span> <span class="s">relative_humidity</span>
-      <span class="pi">-</span> <span class="s">station_id</span>
-      <span class="pi">-</span> <span class="s">solarradiation</span>
-      <span class="pi">-</span> <span class="s">temperature_string</span>
-      <span class="pi">-</span> <span class="s">temp_c</span>
-      <span class="pi">-</span> <span class="s">temp_f</span>
-      <span class="pi">-</span> <span class="s">UV</span>
-      <span class="pi">-</span> <span class="s">visibility_km</span>
-      <span class="pi">-</span> <span class="s">visibility_mi</span>
-      <span class="pi">-</span> <span class="s">weather</span>
-      <span class="pi">-</span> <span class="s">wind_degrees</span>
-      <span class="pi">-</span> <span class="s">wind_dir</span>
-      <span class="pi">-</span> <span class="s">wind_gust_kph</span>
-      <span class="pi">-</span> <span class="s">wind_gust_mph</span>
-      <span class="pi">-</span> <span class="s">wind_kph</span>
-      <span class="pi">-</span> <span class="s">wind_mph</span>
-      <span class="pi">-</span> <span class="s">wind_string</span>
-
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>api_key</strong> (Required): See above.</li>
+  <li><strong>api_key</strong> (Required): The API key for Weather Underground. See above for details.</li>
   <li><strong>pws_id</strong> (Optional): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available <a href="https://www.wunderground.com/weatherstation/ListStations.asp">here</a>. If you do not enter a PWS ID, the current location information (latitude and longitude) from your <code class="highlighter-rouge">configuration.yaml</code> will be used to display weather conditions.</li>
   <li><strong>lang</strong> (Optional): Specify the language that the API returns. The current list of all Wunderground language codes is available <a href="https://www.wunderground.com/weather/api/d/docs?d=language-support">here</a>. If not specified, it defaults to English (EN).</li>
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude coordinate to monitor weather of (required if <strong>longitude</strong> is specificed). Defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code>.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Longitude coordinate to monitor weather of (required if <strong>latitude</strong> is specified). Defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code>.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend. The following conditions can be monitored.
     <ul>
       <li><strong>alerts</strong>: Current severe weather advisories</li>
@@ -195,25 +159,17 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
   </li>
 </ul>
 <p>All the conditions listed above will be updated every 5 minutes.</p>
-<h3>Forecasts</h3>
+<h3><a class="title-link" name="forecasts" href="#forecasts"></a> Forecasts</h3>
 <p><em>12 hour forecasts</em></p>
-<p>Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour 
-forecasts. To get a forecast for different period/daytime replace the
-<code class="highlighter-rouge">_1d_</code> part of the sensor name.  e.g. <code class="highlighter-rouge">weather_2n</code> will give you forecast for
-tomorrow night. Valid values for day are <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">4</code> and
-valid values for daytime are <code class="highlighter-rouge">d</code> or <code class="highlighter-rouge">n</code>.</p>
+<p>Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour forecasts. To get a forecast for different period/daytime replace the <code class="highlighter-rouge">_1d_</code> part of the sensor name.  e.g. <code class="highlighter-rouge">weather_2n</code> will give you forecast for tomorrow night. Valid values for day are <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">4</code> and valid values for daytime are <code class="highlighter-rouge">d</code> or <code class="highlighter-rouge">n</code>.</p>
 <p><em>Daily forecasts</em></p>
-<p>Conditions above marked with <a name="1d">[1d]</a> are daily forecasts.
-To get forecast for different day, replace the number
-in <code class="highlighter-rouge">_1d_</code> part of the sensor name. Valid values are from
-<code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">4</code>.</p>
+<p>Conditions above marked with <a name="1d">[1d]</a> are daily forecasts. To get forecast for different day, replace the number
+in <code class="highlighter-rouge">_1d_</code> part of the sensor name. Valid values are from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">4</code>.</p>
 <p><em>Hourly forecasts</em></p>
-<p>Conditions marked with <a name="1h">[1h]</a> are hourly forecasts.
-To get forecast for different hour, replace the number
-in the <code class="highlighter-rouge">_1h_</code> part of the sensor name with <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">36</code>.
-E.g. <code class="highlighter-rouge">weather_24h</code> will give you weather in 24 hours.</p>
-<h1>Additional examples:</h1>
-<h2>Daily forecast</h2>
+<p>Conditions marked with <a name="1h">[1h]</a> are hourly forecasts. To get forecast for different hour, replace the number
+in the <code class="highlighter-rouge">_1h_</code> part of the sensor name with <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">36</code>. E.g. <code class="highlighter-rouge">weather_24h</code> will give you weather in 24 hours.</p>
+<h3><a class="title-link" name="additional-examples" href="#additional-examples"></a> Additional examples</h3>
+<h4>Daily forecast</h4>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">wunderground</span>
   <span class="pi">-</span> <span class="s">api_key</span><span class="pi">:</span> <span class="s">your_api_key</span>
@@ -228,21 +184,21 @@ E.g. <code class="highlighter-rouge">weather_24h</code> will give you weather in
       <span class="pi">-</span> <span class="s">weather_4n_metric</span>
 
 <span class="s">group</span><span class="pi">:</span>
-    <span class="s">dialy_forecast</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Daily Forecast</span>
-      <span class="s">entities</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_1d_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_1n_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_2d_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_2n_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_3d_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_3n_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_4d_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_4n_metric</span>
+  <span class="s">dialy_forecast</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Daily Forecast</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_1d_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_1n_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_2d_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_2n_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_3d_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_3n_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_4d_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_4n_metric</span>
 </code></pre>
 </div>
 <p><img src="/images/screenshots/wunderground_daily_forecast.png" alt="Daily Forecast" /></p>
-<h2>Weather overview</h2>
+<h4>Weather overview</h4>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">wunderground</span>
   <span class="pi">-</span> <span class="s">api_key</span><span class="pi">:</span> <span class="s">your_api_key</span>
@@ -259,20 +215,20 @@ E.g. <code class="highlighter-rouge">weather_24h</code> will give you weather in
       <span class="pi">-</span> <span class="s">alerts</span>
 
 <span class="s">group</span><span class="pi">:</span>
-    <span class="s">weather_overview</span><span class="pi">:</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s">Weather overview</span>
-      <span class="s">entities</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_weather_1d_metric</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_temp_high_record_c</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_temp_high_1d_c</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_temp_c</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_temp_low_1d_c</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_temp_low_record_c</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_precip_1d</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_precip_1d_mm</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_wind_kph</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_wind_1d_kph</span>
-        <span class="pi">-</span> <span class="s">sensor.pws_alerts</span>
+  <span class="s">weather_overview</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Weather overview</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_weather_1d_metric</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_temp_high_record_c</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_temp_high_1d_c</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_temp_c</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_temp_low_1d_c</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_temp_low_record_c</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_precip_1d</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_precip_1d_mm</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_wind_kph</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_wind_1d_kph</span>
+      <span class="pi">-</span> <span class="s">sensor.pws_alerts</span>
 </code></pre>
 </div>
 <p><img src="/images/screenshots/wunderground_weather_overview.png" alt="Weather overview" /></p>

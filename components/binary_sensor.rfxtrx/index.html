@@ -1,0 +1,431 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RFXtrx Binary Sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate RFXtrx binary sensors into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.rfxtrx/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="RFXtrx Binary Sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.rfxtrx/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate RFXtrx binary sensors into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="RFXtrx Binary Sensor">
+    <meta name="twitter:description" content="Instructions how to integrate RFXtrx binary sensors into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      RFXtrx Binary Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">rfxtrx</code> platform support binary sensors that communicate in the frequency range of 433.92 MHz. The rfxtrx binary sensor component provides support for them.</p>
+<p>Many cheap sensors available on the web today are based on a particular RF chip called <em>PT-2262</em>. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol but most of them are recognized under the <em>Lighting4</em> protocol. The rfxtrx binary sensor component provides some special options for them, while other rfxtrx protocols should work too.</p>
+<h1>Setting up your devices</h1>
+<p>Once you have set up your <a href="/components/rfxtrx/">rfxtrx hub</a>, the easiest way to find your binary sensors is to add this to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+</code></pre>
+</div>
+<p>Open your local home-assistant web UI and go to the “states” page. Then make sure to trigger your sensor. You should see a new entity appear in the <em>Current entites</em> list, starting with “binary_sensor.” and some hexadecimal digits. Those hexadecimal digits are your device id.</p>
+<p>For example: “binary_sensor.0913000022670e013b70”. Here your device id is <code class="highlighter-rouge">0913000022670e013b70</code>. Then you should update your configuration to:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">0913000022670e013b70</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">device_name</span>
+</code></pre>
+</div>
+<p>Do not forget to tweak the configuration variables:</p>
+<ul>
+  <li><strong>automatic_add</strong> (<em>Optional</em>): To enable the automatic addition of new binary sensors.</li>
+  <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type or class of the sensor</a> to set the icon in the frontend.</li>
+  <li><strong>off_delay</strong> (<em>Optional</em>): For sensors that only sends ‘On’ state updates, this variable sets a delay after which the sensor state will be updated back to ‘Off’.</li>
+</ul>
+<p>Binary sensors have only two states - “on” and “off”. Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their “on” state:</p>
+<ul>
+  <li>Most motion sensors send a signal each time they detect motion. They stay “on” for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep.</li>
+  <li>Some doorbells may also only send “on” signals when their toggle switch is pressed, but no “off” signal when the switch is released.</li>
+</ul>
+<p>For those devices, use the <em>off_delay</em> parameter. It defines a delay after which a device will go back to an “Off” state. That “Off” state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can only send signals once every 5 seconds, sets the <em>off_delay</em> parameter to <em>seconds: 5</em>.</p>
+<p>Example configuration:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+  <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+  <span class="s">devices</span><span class="pi">:</span>
+    <span class="s">091300006ca2c6001080</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">motion_hall</span>
+    <span class="s">device_class</span><span class="pi">:</span> <span class="s">motion</span>
+    <span class="s">off_delay</span><span class="pi">:</span>
+      <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
+</code></pre>
+</div>
+<h2>Options for PT-2262 devices under the Lighting4 protocol</h2>
+<p>When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For sur cases, the following options are available in order to circumvent the problem:</p>
+<ul>
+  <li><strong>data_bits</strong> (<em>Optional</em>): Defines how many bits are used for commands inside the data packets sent by the device.</li>
+  <li><strong>command_on</strong> (<em>Optional</em>): Defines the data bits value that is sent by the device upon an ‘On’ command.</li>
+  <li><strong>command_off</strong> (<em>Optional</em>): Defines the data bits value that is sent by the device upon an ‘Off’ command.</li>
+</ul>
+<p>Let’s try to add a new PT-2262 sensor using the “automatic_add” option and have a look at Home Assistant system log.</p>
+<p>Have your sensor trigger the “On” state for the first time. Some messages will appear:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 0913000022670e013970 (Device_id: 22670e Class: LightingDevice Sub: 0)
+</code></pre>
+</div>
+<p>Here the sensor has the id <em>22670e</em>.</p>
+<p>Now have your sensor trigger the “Off” state and look for the following message in the Home Assistant log. You should see that your device has been detected as a <em>new</em> device when triggering its “Off” state:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 09130000226707013d70 (Device_id: 226707 Class: LightingDevice Sub: 0)
+</code></pre>
+</div>
+<p>Here the device id is <em>226707</em>, which is almost similar to the <em>22670e</em> we had on the “On” event a few seconds ago.</p>
+<p>From those two values, you can guess that the actual id of your device is <em>22670</em>, and that <em>e</em> and <em>7</em> are commands for “On” and “Off” states respectively. As one hexadecimal digit uses 4 bits, we can conclude that the device is using 4 data bits.</p>
+<p>So here is the actual configuration section for the binary sensor:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">platform</span><span class="pi">:</span> <span class="s">rfxtrx</span>
+<span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
+<span class="s">devices</span><span class="pi">:</span>
+  <span class="s">0913000022670e013b70</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">window_room2</span>
+    <span class="s">device_class</span><span class="pi">:</span> <span class="s">opening</span>
+    <span class="s">data_bits</span><span class="pi">:</span> <span class="s">4</span>
+    <span class="s">command_on</span><span class="pi">:</span> <span class="s">0xe</span>
+    <span class="s">command_off</span><span class="pi">:</span> <span class="s">0x7</span>
+</code></pre>
+</div>
+<p>The <em>automatic_add</em> option makes the rfxtrx binary sensor component calculate and display the configuration options for you in the Home Assistant logs:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>INFO (Thread-6) [homeassistant.components.rfxtrx] rfxtrx: found possible device 226707 for 22670e with the following configuration:
+data_bits=4
+command_on=0xe
+command_off=0x7
+INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible matching deviceid 22670e.
+</code></pre>
+</div>
+<p>This automatic guess should work most of the time but there is no guarantee on that. You should activate it only when you want 
+to configure your new devices and leave it off otherwise.</p>
+<h2>Known working devices</h2>
+<p>The following devices are known to work with the rfxtrx binary sensor component. There are too many other to list.</p>
+<ul>
+  <li>Motion detectors:
+    <ul>
+      <li>Kerui P817 and P829.</li>
+      <li>Chuango PIR-700.</li>
+    </ul>
+  </li>
+  <li>Door / window sensors:
+    <ul>
+      <li>Kerui D026 door / window sensor: can trigger on “open” and “close”. Has a temper switch.</li>
+      <li>Nexa LMST-606 Magnetic contact switch.</li>
+    </ul>
+  </li>
+</ul>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/binary_sensor.rfxtrx.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/rfxtrx.png' />
+  </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/binary_sensor/'>the Binary Sensor component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/rfxtrx/'>
+          RFXtrx
+        </a></li>
+        <li><a href='/components/cover.rfxtrx/'>
+          RFXtrx Cover
+        </a></li>
+        <li><a href='/components/light.rfxtrx/'>
+          RFXtrx Light
+        </a></li>
+        <li><a href='/components/sensor.rfxtrx/'>
+          RFXtrx Sensor
+        </a></li>
+        <li><a href='/components/switch.rfxtrx/'>
+          RFXtrx Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Binary Sensor</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/binary_sensor.alarmdecoder/'>AlarmDecoder Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.android_ip_webcam/'>Android IP Webcam Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.aurora/'>Aurora sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.axis/'>Axis Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.blink/'>Blink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.concord232/'>Concord232 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ecobee/'>Ecobee Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.eight_sleep/'>Eight Sleep Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.envisalink/'>Envisalink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ffmpeg_motion/'>FFmpeg Motion Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ffmpeg_noise/'>FFmpeg Noise Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.flic/'>Flic Smart Button</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.hikvision/'>Hikvision Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.isy994/'>ISY994 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.insteon_plm/'>Insteon PLM Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.iss/'>International Space Station</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nx584/'>NX584 zones</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nest/'>Nest Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.netatmo/'>Netatmo Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.octoprint/'>OctoPrint Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rpi_pfio/'>PiFace Digital I/O Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.pilight/'>Pilight Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ping/'>Ping (ICMP) Binary sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
+        </li>
+        <li>
+            RFXtrx Binary Sensor
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rpi_gpio/'>Raspberry PI GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.raspihats/'>Raspihats Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ring/'>Ring Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.spc/'>SPC Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.trend/'>Trend Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.vera/'>Vera Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.verisure/'>Verisure Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.workday/'>Workday Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zigbee/'>ZigBee Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zha/'>ZigBee Home Automation Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.arest/'>aREST Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mystrom/'>myStrom Binary Sensor</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

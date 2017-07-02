@@ -111,32 +111,36 @@
 </div>
 <h3><a class="title-link" name="switch-as-sensor" href="#switch-as-sensor"></a> Switch as sensor</h3>
 <p>Some movement sensors and door/window sensors will appear as a switch. By using a template binary sensor, the switch can be displayed as a binary sensors. The original switch can then be hidden by <a href="/getting-started/customizing-devices/">customizing.</a></p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span> 
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">movement</span><span class="pi">:</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.switch.movement.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span>
         <span class="s">device_class</span><span class="pi">:</span> <span class="s">motion</span>
       <span class="s">door</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.switch.door.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span> 
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.switch.door.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span>
         <span class="s">device_class</span><span class="pi">:</span> <span class="s">opening</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="combining-multiple-sensors-and-using-entity_id" href="#combining-multiple-sensors-and-using-entity_id"></a> Combining multiple sensors, and using entity_id:</h3>
-<p>This example combines multiple CO sensors into a single overall status. It also shows how to use <code class="highlighter-rouge">entity_id</code></p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span> 
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span> 
+<p>This example combines multiple CO sensors into a single overall
+status. When using templates with binary sensors, you need to return
+<code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code> explicitly. <code class="highlighter-rouge">entity_id</code> is used to limit which
+sensors are being monitored to update the state, making computing this
+sensor far more efficient.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">co</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">CO'</span>
         <span class="s">device_class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">gas'</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
-          <span class="no">{%- if is_state("sensor.bedroom_co_status", "Ok") </span>
+          <span class="no">{%- if is_state("sensor.bedroom_co_status", "Ok")</span>
               <span class="no">and is_state("sensor.kitchen_co_status", "Ok")</span>
               <span class="no">and is_state("sensor.wardrobe_co_status", "Ok") -%}</span>
-          <span class="no">Off</span>
+          <span class="no">False</span>
           <span class="no">{%- else -%}</span>
-          <span class="no">On</span>
+          <span class="no">True</span>
           <span class="no">{%- endif %}</span>
         <span class="no">entity_id:</span>
           <span class="no">- sensor.bedroom_co_status</span>
@@ -153,7 +157,40 @@
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Day/Night'</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}Day{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}Night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
         <span class="s">icon_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}mdi:weather-sunny{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:weather-night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-        
+</code></pre>
+</div>
+<h3><a class="title-link" name="is-anyone-home" href="#is-anyone-home"></a> Is anyone home?</h3>
+<p>This example is determining if anyone is home based on the combination
+of device tracking and motion sensors. It’s extremely useful if you
+have kids / baby sitter / grand parrents who might still be in your
+house that aren’t represented by a trackable device in home
+assistant. This is providing a composite of wifi based device tracking
+and z-wave multisensor presence sensors.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">people_home</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{%- if is_state("device_tracker.sean", "home")</span>
+          <span class="no">or is_state("device_tracker.susan", "home")</span>
+          <span class="no">or is_state("binary_sensor.office_124", "on")</span>
+          <span class="no">or is_state("binary_sensor.hallway_134", "on")</span>
+          <span class="no">or is_state("binary_sensor.living_room_139", "on")</span>
+          <span class="no">or is_state("binary_sensor.porch_ms6_1_129", "on")</span>
+          <span class="no">or is_state("binary_sensor.family_room_144", "on")</span>
+              <span class="no">-%}</span>
+          <span class="no">True</span>
+          <span class="no">{%- else -%}</span>
+          <span class="no">False</span>
+          <span class="no">{%- endif %}</span>
+        <span class="no">entity_id:</span>
+          <span class="no">- device_tracker.sean</span>
+          <span class="no">- device_tracker.susan</span>
+          <span class="no">- binary_sensor.office_124</span>
+          <span class="no">- binary_sensor.hallway_134</span>
+          <span class="no">- binary_sensor.living_room_139</span>
+          <span class="no">- binary_sensor.porch_ms6_1_129</span>
+          <span class="no">- binary_sensor.family_room_144</span>
 </code></pre>
 </div>
 </article>
@@ -172,6 +209,9 @@
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
+        <li><a href='/components/cover.template/'>
+          Template Cover
+        </a></li>
         <li><a href='/components/light.template/'>
           Template Light
         </a></li>
@@ -292,6 +332,9 @@
             <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.rfxtrx/'>RFXtrx Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.rpi_gpio/'>Raspberry PI GPIO Binary Sensor</a>
         </li>
         <li>
@@ -320,6 +363,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.vera/'>Vera Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.verisure/'>Verisure Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a>

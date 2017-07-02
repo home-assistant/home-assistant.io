@@ -91,6 +91,7 @@
   <li><strong>password</strong> (<em>Optional</em>): The password for accessing your camera.</li>
   <li><strong>authentication</strong> (<em>Optional</em>): Type for authenticating the requests <code class="highlighter-rouge">basic</code> (default) or <code class="highlighter-rouge">digest</code>.</li>
   <li><strong>limit_refetch_to_url_change</strong> (<em>Optional</em>): True/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.</li>
+  <li><strong>content_type</strong> (<em>Optional</em>): Set the content type for the IP camera if it is not a jpg file (default: <code class="highlighter-rouge">image/jpeg</code>). Use <code class="highlighter-rouge">image/svg+xml</code> to add a dynamic svg file.</li>
 </ul>
 <p class="img">
   <a href="/cookbook/google_maps_card/">
@@ -98,6 +99,16 @@
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
   </a>
 </p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<p>In this section you find some real life examples of how to use this camera platform.</p>
+<h3><a class="title-link" name="weather-graph-from-yrno" href="#weather-graph-from-yrno"></a> Weather graph from yr.no</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">generic</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Weather</span>
+    <span class="s">still_image_url</span><span class="pi">:</span> <span class="s">https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg</span>
+    <span class="s">content_type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">image/svg+xml'</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

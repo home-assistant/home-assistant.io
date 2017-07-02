@@ -125,6 +125,28 @@
   <li><strong>client_secret</strong> (<em>Required</em>): Your Nest developer client secret.</li>
   <li><strong>structure</strong> (<em>Optional</em>): The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.</li>
 </ul>
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
+<p>Currently there is a single <code class="highlighter-rouge">nest.set_mode</code> service available to switch between
+“away” and “home” modes. This service requires a <code class="highlighter-rouge">home_mode</code> param and has an
+optional <code class="highlighter-rouge">structure</code> param.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example script to set away, no structure specified so will execute for all</span>
+<span class="s">set_nest_away</span><span class="pi">:</span>
+  <span class="s">sequence</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">nest.set_mode</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">home_mode</span><span class="pi">:</span> <span class="s">away</span>
+</code></pre>
+</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example script to set home, structure specified</span>
+<span class="s">set_nest_home</span><span class="pi">:</span>
+  <span class="s">sequence</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">nest.set_mode</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">home_mode</span><span class="pi">:</span> <span class="s">home</span>
+        <span class="s">structure</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">Building</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -318,6 +340,9 @@
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
         </li>
         <li>
             <a href='/components/zha/'>Zigbee Home Automation</a>

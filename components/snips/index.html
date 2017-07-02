@@ -1,0 +1,213 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Snips - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate Snips within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/snips/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Snips">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/snips/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate Snips within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Snips">
+    <meta name="twitter:description" content="Instructions how to integrate Snips within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Snips
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <a href="https://www.snips.ai">Snips Voice Platform</a> allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on Privacy. It runs 100% on-device, and does not require an Internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.</p>
+<p><img src="/images/screenshots/snips_modules.png" alt="Snips Modules" /></p>
+<p>Snips takes voice or text as input, and produces <em>intents</em> as output, which are explicit representations of an intention behind an utterance, and which can subsequently be used by Home Assistant to perform appropriate actions.</p>
+<p><img src="/images/screenshots/snips_nlu.png" alt="Snips Modules" /></p>
+<h2><a class="title-link" name="the-snips-voice-platform" href="#the-snips-voice-platform"></a> The Snips Voice Platform</h2>
+<h3>Installation</h3>
+<p>The Snips Voice Platform is installed on Raspberry Pi with the following command:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>pi<span class="o">)</span> <span class="nv">$ </span>curl https://install.snips.ai -sSf | sh
+</code></pre>
+</div>
+<h3>Creating an assistant</h3>
+<div class="videoWrapper">
+  <iframe src="https://player.vimeo.com/video/223255884" width="700" height="380" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+</div>
+<p>Snips assistants are created via the <a href="https://console.snips.ai">Snips Console</a>. Once trained, the assistant should be downloaded and copied to the Raspberry Pi:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>scp assistantproj_XXX.zip pi@pi_hostname:/home/pi/assistant.zip
+</code></pre>
+</div>
+<p>and installed locally via the <code class="highlighter-rouge">snips-install-assistant</code> helper script:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>pi<span class="o">)</span> <span class="nv">$ </span>sudo snips-install-assistant assistant.zip
+</code></pre>
+</div>
+<h3>Running Snips</h3>
+<p>Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on <a href="https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi#configuring-the-audio">Raspberry Pi Audio Configuration</a>.</p>
+<p>Start the Snips Voice Platform using the <code class="highlighter-rouge">snips</code> command:</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>pi<span class="o">)</span> <span class="nv">$ </span>snips
+</code></pre>
+</div>
+<p>Snips is now ready to take voice commands from the microphone. To trigger the listening, simply say</p>
+<blockquote>
+  <p>Hey Snips</p>
+</blockquote>
+<p>followed by a command, e.g.</p>
+<blockquote>
+  <p>Set the lights to green in the living room</p>
+</blockquote>
+<p>We should see the transcribed phrase in the logs, as well as a properly parsed intent. The intent is published on MQTT, on the <code class="highlighter-rouge">hermes/nlu/intentParsed</code> topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in <code class="highlighter-rouge">configuration.yaml</code>, as explained below.</p>
+<h2>Home Assistant configuration</h2>
+<p>By default, the Snips MQTT broker runs on port 9898. We should tell Home Assistant to use this as a broker, rather than its own, by adding the following section to <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">9898</span>
+</code></pre>
+</div>
+<p>In Home Assistant, we trigger actions based on intents produced by Snips. This is done in <code class="highlighter-rouge">configuration.yaml</code>. For instance, the following block handles <code class="highlighter-rouge">ActivateLightColors</code> intents (included in the Snips IoT intent bundle) to change light colors:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">snips</span><span class="pi">:</span>
+  <span class="s">intents</span><span class="pi">:</span>
+    <span class="s">ActivateLightColor</span><span class="pi">:</span>
+      <span class="s">action</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+          <span class="s">data_template</span><span class="pi">:</span>
+            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.{{ objectLocation | replace(" ","_") }}</span>
+            <span class="s">color_name</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">objectColor</span> <span class="pi">}}</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/snips.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/snips.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.48
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Voice</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/alexa/'>Alexa / Amazon Echo</a>
+        </li>
+        <li>
+            <a href='/components/apiai/'>Api.AI</a>
+        </li>
+        <li>
+            <a href='/components/conversation/'>Conversation</a>
+        </li>
+        <li>
+            Snips
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

@@ -80,45 +80,46 @@ Support for these components is provided by the Home Assistant community.
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
     <div class="filter-button-group">
-      <a href='#all' class="btn">All (713)</a>
+      <a href='#all' class="btn">All (732)</a>
       <a href='#featured' class="btn featured">Featured</a>
-      <a href='#version/0.47' class="btn added_in_current_version">Added in 0.47 (24)</a>
-      <a href='#version/0.46' class="btn added_one_version_ago">Added in 0.46 (5)</a>
-      <a href='#version/0.45' class="btn added_two_versions_ago">Added in 0.45 (15)</a>
+      <a href='#version/0.48' class="btn added_in_current_version">Added in 0.48 (16)</a>
+      <a href='#version/0.47' class="btn added_one_version_ago">Added in 0.47 (23)</a>
+      <a href='#version/0.46' class="btn added_two_versions_ago">Added in 0.46 (5)</a>
     <a href='#alarm' class="btn">Alarm (13)</a>
     <a href='#automation' class="btn">Automation (16)</a>
-    <a href='#binary-sensor' class="btn">Binary Sensor (52)</a>
+    <a href='#binary-sensor' class="btn">Binary Sensor (54)</a>
     <a href='#calendar' class="btn">Calendar (3)</a>
     <a href='#camera' class="btn">Camera (22)</a>
     <a href='#climate' class="btn">Climate (21)</a>
-    <a href='#cover' class="btn">Cover (16)</a>
-    <a href='#diy' class="btn">DIY (19)</a>
+    <a href='#cover' class="btn">Cover (17)</a>
+    <a href='#diy' class="btn">DIY (20)</a>
     <a href='#downloading' class="btn">Downloading (5)</a>
     <a href='#energy' class="btn">Energy (11)</a>
-    <a href='#fan' class="btn">Fan (5)</a>
+    <a href='#fan' class="btn">Fan (6)</a>
     <a href='#finance' class="btn">Finance (9)</a>
     <a href='#front-end' class="btn">Front end (4)</a>
     <a href='#health' class="btn">Health (2)</a>
-    <a href='#history' class="btn">History (12)</a>
-    <a href='#hub' class="btn">Hub (57)</a>
+    <a href='#history' class="btn">History (13)</a>
+    <a href='#hub' class="btn">Hub (58)</a>
     <a href='#image-processing' class="btn">Image Processing (8)</a>
     <a href='#light' class="btn">Light (45)</a>
     <a href='#lock' class="btn">Lock (9)</a>
-    <a href='#media-player' class="btn">Media Player (44)</a>
-    <a href='#notifications' class="btn">Notifications (44)</a>
+    <a href='#media-player' class="btn">Media Player (45)</a>
+    <a href='#notifications' class="btn">Notifications (45)</a>
     <a href='#organization' class="btn">Organization (3)</a>
-    <a href='#presence-detection' class="btn">Presence Detection (38)</a>
+    <a href='#presence-detection' class="btn">Presence Detection (39)</a>
     <a href='#remote' class="btn">Remote (3)</a>
     <a href='#scene' class="btn">Scene (3)</a>
-    <a href='#sensor' class="btn">Sensor (84)</a>
+    <a href='#sensor' class="btn">Sensor (89)</a>
     <a href='#social' class="btn">Social (5)</a>
     <a href='#switch' class="btn">Switch (57)</a>
     <a href='#system-monitor' class="btn">System Monitor (23)</a>
-    <a href='#telegram-chatbot' class="btn">Telegram chatbot (2)</a>
+    <a href='#telegram-chatbot' class="btn">Telegram chatbot (3)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (6)</a>
     <a href='#transport' class="btn">Transport (11)</a>
-    <a href='#voice' class="btn">Voice (3)</a>
+    <a href='#voice' class="btn">Voice (4)</a>
     <a href='#weather' class="btn">Weather (21)</a>
+    <a href='#fan' class="btn">fan (1)</a>
       <a href='#other' class="btn">Other</a>
     </div>
   </div>
@@ -193,6 +194,8 @@ var allComponents = [
 {url:"/components/axis/", title:"Axis", cat:"hub", featured: false, v: "0.45", logo: "axis.png"},
 {url:"/components/binary_sensor.axis/", title:"Axis Binary Sensor", cat:"binary-sensor", featured: false, v: "0.45", logo: "axis.png"},
 {url:"/components/camera.axis/", title:"Axis Camera", cat:"camera", featured: false, v: "0.45", logo: "axis.png"},
+{url:"/components/sensor.bh1750/", title:"BH1750 Light sensor", cat:"sensor", featured: false, v: "0.48", logo: "raspberry-pi.png"},
+{url:"/components/sensor.bme280/", title:"BME280 Sensor", cat:"sensor", featured: false, v: "0.48", logo: "raspberry-pi.png"},
 {url:"/components/weather.bom/", title:"BOM Australia", cat:"weather", featured: false, v: "0.36", logo: "bom.png"},
 {url:"/components/sensor.bom/", title:"BOM Australia Sensor", cat:"weather", featured: false, v: "0.29", logo: "bom.png"},
 {url:"/components/device_tracker.bt_home_hub_5/", title:"BT Home Hub 5", cat:"presence-detection", featured: false, v: "0.0", logo: "bt.png"},
@@ -230,6 +233,7 @@ var allComponents = [
 {url:"/components/device_tracker.cisco_ios/", title:"Cisco IOS", cat:"presence-detection", featured: false, v: "0.33", logo: "cisco.png"},
 {url:"/components/notify.ciscospark/", title:"Cisco Spark", cat:"notifications", featured: false, v: "0.40", logo: "ciscospark.png"},
 {url:"/components/media_player.clementine/", title:"Clementine Music Player", cat:"media-player", featured: false, v: "0.39", logo: "clementine.png"},
+{url:"/components/notify.clicksend/", title:"ClickSend", cat:"notifications", featured: false, v: "0.48", logo: "clicksend.png"},
 {url:"/components/sensor.coinmarketcap/", title:"CoinMarketCap", cat:"finance", featured: false, v: "0.28", logo: "coinmarketcap.png"},
 {url:"/components/sensor.comed_hourly_pricing/", title:"ComEd Hourly Pricing", cat:"energy", featured: false, v: "0.40", logo: "comed.png"},
 {url:"/components/cover.command_line/", title:"Command Line Cover", cat:"cover", featured: false, v: "0.14", logo: "command_line.png"},
@@ -254,6 +258,7 @@ var allComponents = [
 {url:"/components/datadog/", title:"Datadog", cat:"history", featured: false, v: "0.45", logo: "datadog.png"},
 {url:"/components/light.decora/", title:"Decora", cat:"light", featured: false, v: "0.37", logo: "leviton.png"},
 {url:"/components/demo/", title:"Demo platforms", cat:"other", featured: false, v: "0.0", logo: "home-assistant.png"},
+{url:"/components/media_player.denonavr/", title:"Denon AVR Network Receivers", cat:"media-player", featured: false, v: "0.7", logo: "denon.png"},
 {url:"/components/media_player.denon/", title:"Denon Network Receivers", cat:"media-player", featured: false, v: "0.7", logo: "denon.png"},
 {url:"/components/sensor.deutsche_bahn/", title:"Deutsche Bahn", cat:"transport", featured: false, v: "0.14", logo: "db.png"},
 {url:"/components/switch.digitalloggers/", title:"Digital Loggers Switch", cat:"switch", featured: false, v: "0.35", logo: "digitalloggers.png"},
@@ -352,6 +357,7 @@ var allComponents = [
 {url:"/components/http/", title:"HTTP", cat:"other", featured: false, v: "0.0", logo: "http.png"},
 {url:"/components/binary_sensor.http/", title:"HTTP Binary Sensor", cat:"binary-sensor", featured: false, v: "0.7", logo: "http.png"},
 {url:"/components/sensor.http/", title:"HTTP Sensor", cat:"sensor", featured: false, v: "0.7", logo: "http.png"},
+{url:"/components/sensor.htu21d/", title:"HTU21D Temperature and humidity sensor", cat:"sensor", featured: false, v: "0.48", logo: "raspberry-pi.png"},
 {url:"/components/remote.harmony/", title:"Harmony Hub Remote", cat:"remote", featured: false, v: "0.34", logo: "logitech.png"},
 {url:"/components/sensor.haveibeenpwned/", title:"HaveIBeenPwned Sensor", cat:"sensor", featured: false, v: "0.31", logo: "haveibeenpwned.png"},
 {url:"/components/climate.heatmiser/", title:"Heatmiser Thermostat", cat:"climate", featured: false, v: "0.10", logo: "heatmiser.png"},
@@ -359,7 +365,7 @@ var allComponents = [
 {url:"/components/switch.hikvision/", title:"Hikvision Camera Switch", cat:"switch", featured: false, v: "0.7", logo: "hikvision.png"},
 {url:"/components/history/", title:"History", cat:"history", featured: false, v: "0.7", logo: "home-assistant.png"},
 {url:"/components/sensor.history_stats/", title:"History Statistics Sensor", cat:"sensor", featured: false, v: "0.39", logo: "home-assistant.png"},
-{url:"/components/ha/", title:"Home Assistant 0.47", cat:"other", featured: false, v: "0.47", logo: "home-assistant.png"},
+{url:"/components/ha/", title:"Home Assistant 0.48", cat:"other", featured: false, v: "0.48", logo: "home-assistant.png"},
 {url:"/components/homematic/", title:"Homematic", cat:"hub", featured: false, v: "0.0", logo: "homematic.png"},
 {url:"/components/binary_sensor.homematic/", title:"Homematic Binary Sensor", cat:"binary-sensor", featured: false, v: "0.23", logo: "homematic.png"},
 {url:"/components/cover.homematic/", title:"Homematic Cover", cat:"cover", featured: false, v: "0.27", logo: "homematic.png"},
@@ -391,6 +397,7 @@ var allComponents = [
 {url:"/components/input_select/", title:"Input Select", cat:"automation", featured: false, v: "0.13", logo: "home-assistant.png"},
 {url:"/components/input_slider/", title:"Input Slider", cat:"automation", featured: false, v: "0.16", logo: "home-assistant.png"},
 {url:"/components/notify.instapush/", title:"Instapush", cat:"notifications", featured: false, v: "0.7", logo: "instapush.png"},
+{url:"/components/fan.insteon_local/", title:"Insteon (Local) Fan", cat:"fan", featured: false, v: "0.0", logo: "insteon.png"},
 {url:"/components/light.insteon_local/", title:"Insteon (Local) Light", cat:"light", featured: false, v: "0.0", logo: "insteon.png"},
 {url:"/components/switch.insteon_local/", title:"Insteon (Local) Switch", cat:"switch", featured: false, v: "0.0", logo: "insteon.png"},
 {url:"/components/insteon_local/", title:"Insteon (local)", cat:"hub", featured: false, v: "0.0", logo: "insteon.png"},
@@ -410,6 +417,7 @@ var allComponents = [
 {url:"/components/sensor.juicenet/", title:"Juicenet Sensor", cat:"sensor", featured: false, v: "0.47", logo: "juicenet.png"},
 {url:"/components/knx/", title:"KNX", cat:"diy", featured: false, v: "0.24", logo: "knx.png"},
 {url:"/components/binary_sensor.knx/", title:"KNX Binary Sensor", cat:"binary-sensor", featured: false, v: "0.24", logo: "knx.png"},
+{url:"/components/cover.knx/", title:"KNX Cover", cat:"diy", featured: false, v: "0.48", logo: "knx.png"},
 {url:"/components/light.knx/", title:"KNX Light", cat:"diy", featured: false, v: "0.44", logo: "knx.png"},
 {url:"/components/sensor.knx/", title:"KNX Sensor", cat:"diy", featured: false, v: "0.29", logo: "knx.png"},
 {url:"/components/switch.knx/", title:"KNX Switch", cat:"diy", featured: false, v: "0.24", logo: "knx.png"},
@@ -433,6 +441,7 @@ var allComponents = [
 {url:"/components/sensor.lastfm/", title:"Last.fm", cat:"social", featured: false, v: "0.20", logo: "lastfm.png"},
 {url:"/components/light.limitlessled/", title:"LimitlessLED", cat:"light", featured: false, v: "0.7", logo: "limitlessled_logo.png"},
 {url:"/components/device_tracker.linksys_ap/", title:"Linksys Access Points", cat:"presence-detection", featured: false, v: "0.37", logo: "linksys.png"},
+{url:"/components/device_tracker.linksys_smart/", title:"Linksys Smart Wifi Router", cat:"presence-detection", featured: false, v: "0.48", logo: "linksys.png"},
 {url:"/components/media_player.openhome/", title:"Linn / Openhome", cat:"media-player", featured: false, v: "0.39", logo: "linn.png"},
 {url:"/components/sensor.linux_battery/", title:"Linux Battery", cat:"system-monitor", featured: false, v: "0.28", logo: "linux_battery.png"},
 {url:"/components/litejet/", title:"LiteJet", cat:"hub", featured: false, v: "0.32", logo: ""},
@@ -547,6 +556,7 @@ var allComponents = [
 {url:"/components/sensor.onewire/", title:"One wire Sensor", cat:"diy", featured: false, v: "0.12", logo: "onewire.png"},
 {url:"/components/media_player.onkyo/", title:"Onkyo", cat:"media-player", featured: false, v: "0.17", logo: "onkyo.png"},
 {url:"/components/sensor.openexchangerates/", title:"Open Exchange Rates", cat:"finance", featured: false, v: "0.23", logo: "openexchangerates.png"},
+{url:"/components/sensor.openhardwaremonitor/", title:"Open Hardware Monitor Sensor", cat:"sensor", featured: false, v: "0.48", logo: "openhardwaremonitor.png"},
 {url:"/components/image_processing.openalpr_cloud/", title:"OpenALPR Cloud", cat:"image-processing", featured: false, v: "0.36", logo: "openalpr.png"},
 {url:"/components/image_processing.openalpr_local/", title:"OpenALPR Local", cat:"image-processing", featured: false, v: "0.36", logo: "openalpr.png"},
 {url:"/components/image_processing.opencv/", title:"OpenCV", cat:"image-processing", featured: false, v: "0.47", logo: "opencv.png"},
@@ -616,6 +626,7 @@ var allComponents = [
 {url:"/components/sensor.rflink/", title:"RFLink Sensor", cat:"sensor", featured: false, v: "0.38", logo: "rflink.png"},
 {url:"/components/switch.rflink/", title:"RFLink Switch", cat:"switch", featured: false, v: "0.38", logo: "rflink.png"},
 {url:"/components/rfxtrx/", title:"RFXtrx", cat:"hub", featured: false, v: "0.7", logo: "rfxtrx.png"},
+{url:"/components/binary_sensor.rfxtrx/", title:"RFXtrx Binary Sensor", cat:"binary-sensor", featured: false, v: "0.0", logo: "rfxtrx.png"},
 {url:"/components/cover.rfxtrx/", title:"RFXtrx Cover", cat:"cover", featured: false, v: "0.27", logo: "rfxtrx.png"},
 {url:"/components/light.rfxtrx/", title:"RFXtrx Light", cat:"light", featured: false, v: "0.7", logo: "rfxtrx.png"},
 {url:"/components/sensor.rfxtrx/", title:"RFXtrx Sensor", cat:"sensor", featured: false, v: "0.0", logo: "rfxtrx.png"},
@@ -664,6 +675,7 @@ var allComponents = [
 {url:"/components/image_processing.seven_segments/", title:"Seven segments display", cat:"image-processing", featured: false, v: "0.45", logo: "home-assistant.png"},
 {url:"/components/media_player.aquostv/", title:"Sharp Aquos TV", cat:"media-player", featured: false, v: "0.35", logo: "sharp_aquos.png"},
 {url:"/components/shell_command/", title:"Shell command", cat:"automation", featured: false, v: "0.0", logo: "home-assistant.png"},
+{url:"/components/shiftr/", title:"Shiftr.io", cat:"history", featured: false, v: "0.48", logo: "shiftr.png"},
 {url:"/components/notify.simplepush/", title:"Simplepush", cat:"notifications", featured: false, v: "0.29", logo: "simplepush.png"},
 {url:"/components/alarm_control_panel.simplisafe/", title:"SimpliSafe Alarm Control Panel", cat:"alarm", featured: false, v: "0.24", logo: "simplisafe.png"},
 {url:"/components/device_tracker.sky_hub/", title:"Sky Hub", cat:"presence-detection", featured: false, v: "0.37", logo: "sky.png"},
@@ -673,6 +685,7 @@ var allComponents = [
 {url:"/components/binary_sensor.sleepiq/", title:"SleepIQ Binary Sensor", cat:"binary-sensor", featured: false, v: "0.29", logo: "sleepiq.png"},
 {url:"/components/sensor.sleepiq/", title:"SleepIQ Sensor", cat:"sensor", featured: false, v: "0.29", logo: "sleepiq.png"},
 {url:"/components/media_player.snapcast/", title:"Snapcast", cat:"media-player", featured: false, v: "0.13", logo: "snapcast.png"},
+{url:"/components/snips/", title:"Snips", cat:"voice", featured: false, v: "0.48", logo: "snips.png"},
 {url:"/components/sensor.sonarr/", title:"Sonarr Sensor", cat:"sensor", featured: false, v: "0.34", logo: "sonarr.png"},
 {url:"/components/media_player.sonos/", title:"Sonos", cat:"media-player", featured: true, v: "0.7", logo: "sonos.png"},
 {url:"/components/media_player.braviatv/", title:"Sony Bravia TV", cat:"media-player", featured: false, v: "0.23", logo: "bravia.png"},
@@ -704,6 +717,7 @@ var allComponents = [
 {url:"/components/climate.tado/", title:"Tado Thermostat", cat:"climate", featured: false, v: "0.41", logo: "tado.png"},
 {url:"/components/binary_sensor.tapsaff/", title:"Taps Aff", cat:"weather", featured: false, v: "0.47", logo: "tapsaff.png"},
 {url:"/components/notify.telegram/", title:"Telegram", cat:"notifications", featured: false, v: "0.7", logo: "telegram.png"},
+{url:"/components/telegram_bot.broadcast/", title:"Telegram broadcast", cat:"telegram-chatbot", featured: false, v: "0.48", logo: "telegram.png"},
 {url:"/components/telegram_bot/", title:"Telegram chatbot", cat:"hub", featured: false, v: "0.42", logo: "telegram.png"},
 {url:"/components/telegram_bot.polling/", title:"Telegram polling", cat:"telegram-chatbot", featured: false, v: "0.42", logo: "telegram.png"},
 {url:"/components/telegram_bot.webhooks/", title:"Telegram webhooks", cat:"telegram-chatbot", featured: false, v: "0.42", logo: "telegram.png"},
@@ -716,6 +730,7 @@ var allComponents = [
 {url:"/components/sensor.tellduslive/", title:"Telldus Live sensor", cat:"sensor", featured: false, v: "0.0", logo: "telldus.png"},
 {url:"/components/notify.telstra/", title:"Telstra", cat:"notifications", featured: false, v: "0.31", logo: "telstra.png"},
 {url:"/components/binary_sensor.template/", title:"Template Binary Sensor", cat:"binary-sensor", featured: false, v: "0.0", logo: "home-assistant.png"},
+{url:"/components/cover.template/", title:"Template Cover", cat:"cover", featured: false, v: "0.48", logo: "home-assistant.png"},
 {url:"/components/light.template/", title:"Template Light", cat:"light", featured: false, v: "0.46", logo: "home-assistant.png"},
 {url:"/components/sensor.template/", title:"Template Sensor", cat:"sensor", featured: false, v: "0.12", logo: "home-assistant.png"},
 {url:"/components/switch.template/", title:"Template switch", cat:"switch", featured: false, v: "0.13", logo: "home-assistant.png"},
@@ -738,6 +753,7 @@ var allComponents = [
 {url:"/components/sensor.twitch/", title:"Twitch", cat:"social", featured: false, v: "0.10", logo: "twitch.png"},
 {url:"/components/notify.twitter/", title:"Twitter", cat:"notifications", featured: false, v: "0.12", logo: "twitter.png"},
 {url:"/components/device_tracker.upc_connect/", title:"UPC ConnectBox", cat:"presence-detection", featured: false, v: "0.36", logo: "upc.png"},
+{url:"/components/sensor.upnp/", title:"UPNP Sensor", cat:"other", featured: false, v: "0.48", logo: "upnp.png"},
 {url:"/components/sensor.ups/", title:"UPS Sensor", cat:"sensor", featured: false, v: "0.39", logo: "ups.png"},
 {url:"/components/upnp/", title:"UPnP", cat:"other", featured: false, v: "0.18", logo: "upnp.png"},
 {url:"/components/sensor.usps/", title:"USPS Sensor", cat:"sensor", featured: false, v: "0.36", logo: "usps.png"},
@@ -758,6 +774,7 @@ var allComponents = [
 {url:"/components/climate.vera/", title:"Vera Thermostat", cat:"climate", featured: false, v: "0.13", logo: "vera.png"},
 {url:"/components/verisure/", title:"Verisure", cat:"hub", featured: false, v: "0.7", logo: "verisure.png"},
 {url:"/components/alarm_control_panel.verisure/", title:"Verisure Alarm", cat:"alarm", featured: false, v: "0.7", logo: "verisure.png"},
+{url:"/components/binary_sensor.verisure/", title:"Verisure Binary Sensor", cat:"binary-sensor", featured: false, v: "0.0", logo: "verisure.png"},
 {url:"/components/camera.verisure/", title:"Verisure Camera", cat:"camera", featured: false, v: "0.31", logo: "verisure.png"},
 {url:"/components/lock.verisure/", title:"Verisure Lock", cat:"lock", featured: false, v: "0.13", logo: "verisure.png"},
 {url:"/components/sensor.verisure/", title:"Verisure Sensor", cat:"sensor", featured: false, v: "0.0", logo: "verisure.png"},
@@ -809,6 +826,9 @@ var allComponents = [
 {url:"/components/weather.zamg/", title:"ZAMG Weather", cat:"weather", featured: false, v: "0.39", logo: "zamg.png"},
 {url:"/components/zabbix/", title:"Zabbix", cat:"system-monitor", featured: false, v: "0.37", logo: "zabbix.png"},
 {url:"/components/sensor.zabbix/", title:"Zabbix Sensor", cat:"system-monitor", featured: false, v: "0.37", logo: "zabbix.png"},
+{url:"/components/comfoconnect/", title:"Zehnder ComfoAir Q Ventilation", cat:"hub", featured: false, v: "0.48", logo: "zehnder.png"},
+{url:"/components/fan.comfoconnect/", title:"Zehnder ComfoAir Q Ventilation fans", cat:"fan", featured: false, v: "0.48", logo: "zehnder.png"},
+{url:"/components/sensor.comfoconnect/", title:"Zehnder ComfoAir Q Ventilation sensors", cat:"sensor", featured: false, v: "0.48", logo: "zehnder.png"},
 {url:"/components/light.zengge/", title:"Zengge", cat:"light", featured: false, v: "0.36", logo: "zengge.png"},
 {url:"/components/zeroconf/", title:"Zeroconf/Avahi/Bonjour", cat:"other", featured: false, v: "0.18", logo: "avahi.png"},
 {url:"/components/zigbee/", title:"ZigBee", cat:"diy", featured: false, v: "0.12", logo: "zigbee.png"},
@@ -1029,6 +1049,8 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/axis/'>Axis</a></li>
       <li><a href='/components/binary_sensor.axis/'>Axis Binary Sensor</a></li>
       <li><a href='/components/camera.axis/'>Axis Camera</a></li>
+      <li><a href='/components/sensor.bh1750/'>BH1750 Light sensor</a></li>
+      <li><a href='/components/sensor.bme280/'>BME280 Sensor</a></li>
       <li><a href='/components/weather.bom/'>BOM Australia</a></li>
       <li><a href='/components/sensor.bom/'>BOM Australia Sensor</a></li>
       <li><a href='/components/device_tracker.bt_home_hub_5/'>BT Home Hub 5</a></li>
@@ -1066,6 +1088,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/device_tracker.cisco_ios/'>Cisco IOS</a></li>
       <li><a href='/components/notify.ciscospark/'>Cisco Spark</a></li>
       <li><a href='/components/media_player.clementine/'>Clementine Music Player</a></li>
+      <li><a href='/components/notify.clicksend/'>ClickSend</a></li>
       <li><a href='/components/sensor.coinmarketcap/'>CoinMarketCap</a></li>
       <li><a href='/components/sensor.comed_hourly_pricing/'>ComEd Hourly Pricing</a></li>
       <li><a href='/components/cover.command_line/'>Command Line Cover</a></li>
@@ -1090,6 +1113,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/datadog/'>Datadog</a></li>
       <li><a href='/components/light.decora/'>Decora</a></li>
       <li><a href='/components/demo/'>Demo platforms</a></li>
+      <li><a href='/components/media_player.denonavr/'>Denon AVR Network Receivers</a></li>
       <li><a href='/components/media_player.denon/'>Denon Network Receivers</a></li>
       <li><a href='/components/sensor.deutsche_bahn/'>Deutsche Bahn</a></li>
       <li><a href='/components/switch.digitalloggers/'>Digital Loggers Switch</a></li>
@@ -1188,6 +1212,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/http/'>HTTP</a></li>
       <li><a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a></li>
       <li><a href='/components/sensor.http/'>HTTP Sensor</a></li>
+      <li><a href='/components/sensor.htu21d/'>HTU21D Temperature and humidity sensor</a></li>
       <li><a href='/components/remote.harmony/'>Harmony Hub Remote</a></li>
       <li><a href='/components/sensor.haveibeenpwned/'>HaveIBeenPwned Sensor</a></li>
       <li><a href='/components/climate.heatmiser/'>Heatmiser Thermostat</a></li>
@@ -1195,7 +1220,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/switch.hikvision/'>Hikvision Camera Switch</a></li>
       <li><a href='/components/history/'>History</a></li>
       <li><a href='/components/sensor.history_stats/'>History Statistics Sensor</a></li>
-      <li><a href='/components/ha/'>Home Assistant 0.47</a></li>
+      <li><a href='/components/ha/'>Home Assistant 0.48</a></li>
       <li><a href='/components/homematic/'>Homematic</a></li>
       <li><a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a></li>
       <li><a href='/components/cover.homematic/'>Homematic Cover</a></li>
@@ -1227,6 +1252,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/input_select/'>Input Select</a></li>
       <li><a href='/components/input_slider/'>Input Slider</a></li>
       <li><a href='/components/notify.instapush/'>Instapush</a></li>
+      <li><a href='/components/fan.insteon_local/'>Insteon (Local) Fan</a></li>
       <li><a href='/components/light.insteon_local/'>Insteon (Local) Light</a></li>
       <li><a href='/components/switch.insteon_local/'>Insteon (Local) Switch</a></li>
       <li><a href='/components/insteon_local/'>Insteon (local)</a></li>
@@ -1246,6 +1272,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.juicenet/'>Juicenet Sensor</a></li>
       <li><a href='/components/knx/'>KNX</a></li>
       <li><a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a></li>
+      <li><a href='/components/cover.knx/'>KNX Cover</a></li>
       <li><a href='/components/light.knx/'>KNX Light</a></li>
       <li><a href='/components/sensor.knx/'>KNX Sensor</a></li>
       <li><a href='/components/switch.knx/'>KNX Switch</a></li>
@@ -1269,6 +1296,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.lastfm/'>Last.fm</a></li>
       <li><a href='/components/light.limitlessled/'>LimitlessLED</a></li>
       <li><a href='/components/device_tracker.linksys_ap/'>Linksys Access Points</a></li>
+      <li><a href='/components/device_tracker.linksys_smart/'>Linksys Smart Wifi Router</a></li>
       <li><a href='/components/media_player.openhome/'>Linn / Openhome</a></li>
       <li><a href='/components/sensor.linux_battery/'>Linux Battery</a></li>
       <li><a href='/components/litejet/'>LiteJet</a></li>
@@ -1383,6 +1411,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.onewire/'>One wire Sensor</a></li>
       <li><a href='/components/media_player.onkyo/'>Onkyo</a></li>
       <li><a href='/components/sensor.openexchangerates/'>Open Exchange Rates</a></li>
+      <li><a href='/components/sensor.openhardwaremonitor/'>Open Hardware Monitor Sensor</a></li>
       <li><a href='/components/image_processing.openalpr_cloud/'>OpenALPR Cloud</a></li>
       <li><a href='/components/image_processing.openalpr_local/'>OpenALPR Local</a></li>
       <li><a href='/components/image_processing.opencv/'>OpenCV</a></li>
@@ -1452,6 +1481,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.rflink/'>RFLink Sensor</a></li>
       <li><a href='/components/switch.rflink/'>RFLink Switch</a></li>
       <li><a href='/components/rfxtrx/'>RFXtrx</a></li>
+      <li><a href='/components/binary_sensor.rfxtrx/'>RFXtrx Binary Sensor</a></li>
       <li><a href='/components/cover.rfxtrx/'>RFXtrx Cover</a></li>
       <li><a href='/components/light.rfxtrx/'>RFXtrx Light</a></li>
       <li><a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a></li>
@@ -1500,6 +1530,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/image_processing.seven_segments/'>Seven segments display</a></li>
       <li><a href='/components/media_player.aquostv/'>Sharp Aquos TV</a></li>
       <li><a href='/components/shell_command/'>Shell command</a></li>
+      <li><a href='/components/shiftr/'>Shiftr.io</a></li>
       <li><a href='/components/notify.simplepush/'>Simplepush</a></li>
       <li><a href='/components/alarm_control_panel.simplisafe/'>SimpliSafe Alarm Control Panel</a></li>
       <li><a href='/components/device_tracker.sky_hub/'>Sky Hub</a></li>
@@ -1509,6 +1540,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a></li>
       <li><a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a></li>
       <li><a href='/components/media_player.snapcast/'>Snapcast</a></li>
+      <li><a href='/components/snips/'>Snips</a></li>
       <li><a href='/components/sensor.sonarr/'>Sonarr Sensor</a></li>
       <li><a href='/components/media_player.sonos/'>Sonos</a></li>
       <li><a href='/components/media_player.braviatv/'>Sony Bravia TV</a></li>
@@ -1540,6 +1572,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/climate.tado/'>Tado Thermostat</a></li>
       <li><a href='/components/binary_sensor.tapsaff/'>Taps Aff</a></li>
       <li><a href='/components/notify.telegram/'>Telegram</a></li>
+      <li><a href='/components/telegram_bot.broadcast/'>Telegram broadcast</a></li>
       <li><a href='/components/telegram_bot/'>Telegram chatbot</a></li>
       <li><a href='/components/telegram_bot.polling/'>Telegram polling</a></li>
       <li><a href='/components/telegram_bot.webhooks/'>Telegram webhooks</a></li>
@@ -1552,6 +1585,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.tellduslive/'>Telldus Live sensor</a></li>
       <li><a href='/components/notify.telstra/'>Telstra</a></li>
       <li><a href='/components/binary_sensor.template/'>Template Binary Sensor</a></li>
+      <li><a href='/components/cover.template/'>Template Cover</a></li>
       <li><a href='/components/light.template/'>Template Light</a></li>
       <li><a href='/components/sensor.template/'>Template Sensor</a></li>
       <li><a href='/components/switch.template/'>Template switch</a></li>
@@ -1574,6 +1608,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.twitch/'>Twitch</a></li>
       <li><a href='/components/notify.twitter/'>Twitter</a></li>
       <li><a href='/components/device_tracker.upc_connect/'>UPC ConnectBox</a></li>
+      <li><a href='/components/sensor.upnp/'>UPNP Sensor</a></li>
       <li><a href='/components/sensor.ups/'>UPS Sensor</a></li>
       <li><a href='/components/upnp/'>UPnP</a></li>
       <li><a href='/components/sensor.usps/'>USPS Sensor</a></li>
@@ -1594,6 +1629,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/climate.vera/'>Vera Thermostat</a></li>
       <li><a href='/components/verisure/'>Verisure</a></li>
       <li><a href='/components/alarm_control_panel.verisure/'>Verisure Alarm</a></li>
+      <li><a href='/components/binary_sensor.verisure/'>Verisure Binary Sensor</a></li>
       <li><a href='/components/camera.verisure/'>Verisure Camera</a></li>
       <li><a href='/components/lock.verisure/'>Verisure Lock</a></li>
       <li><a href='/components/sensor.verisure/'>Verisure Sensor</a></li>
@@ -1645,6 +1681,9 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/weather.zamg/'>ZAMG Weather</a></li>
       <li><a href='/components/zabbix/'>Zabbix</a></li>
       <li><a href='/components/sensor.zabbix/'>Zabbix Sensor</a></li>
+      <li><a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a></li>
+      <li><a href='/components/fan.comfoconnect/'>Zehnder ComfoAir Q Ventilation fans</a></li>
+      <li><a href='/components/sensor.comfoconnect/'>Zehnder ComfoAir Q Ventilation sensors</a></li>
       <li><a href='/components/light.zengge/'>Zengge</a></li>
       <li><a href='/components/zeroconf/'>Zeroconf/Avahi/Bonjour</a></li>
       <li><a href='/components/zigbee/'>ZigBee</a></li>
