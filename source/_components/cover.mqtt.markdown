@@ -37,7 +37,7 @@ Configuration variables:
 
 - **name** (*Optional*): The name of the sensor. Default is `MQTT Cover`.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive sensor values.
-- **command_topic** (*Required*): The MQTT topic to publish commands to control the rollershutter.
+- **command_topic** (*Optional*): The MQTT topic to publish commands to control the rollershutter.
 - **payload_open** (*Optional*): The payload that opens the cover. Default is `OPEN`.
 - **payload_close** (*Optional*): The payload that closes the cover. Default is `CLOSE`.
 - **payload_stop** (*Optional*):  The payload that stops the rollershutter. default is `STOP`.

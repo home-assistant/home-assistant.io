@@ -15,6 +15,8 @@ To get started with developing add-ons, we first need access to where Hass.io lo
 
 For Samba, once you have enabled and started it, your Hass.io instance will show up in your local network tab and share a folder called "addons". This is the folder to store your custom add-ons.
 
+If you are on macOS and the folder is not showing up automatically, go to Finder and press CMD+K then enter 'smb://hassio.local'
+
 <p class='img'>
 <img src='/images/hassio/tutorial/samba.png' />
 With Samba add-on enabled, you can browse to your Hass.io server over the local network. It will contain an addons folder to store your local add-ons.

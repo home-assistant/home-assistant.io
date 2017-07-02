@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-06-0.46/components.png
 ---
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-06-0.46/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/components/#version/0.46'><img src='/images/blog/2017-06-0.46/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
 

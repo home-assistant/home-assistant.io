@@ -22,7 +22,7 @@ Short story of that caption: We loop in our script to fetch data and push it to 
 Our Dockerfile need to install:
 
 ```
-RUN apk --no-cache add tzdata jq mosquitto-clients
+RUN apk --no-cache add jq mosquitto-clients
 ```
 
 Now we can process it with `run.sh`:
@@ -61,7 +61,7 @@ Short story of that caption: We wait for incoming data from MQTT broker. We can 
 Our Dockerfile need to install:
 
 ```
-RUN apk --no-cache add tzdata jq mosquitto-clients
+RUN apk --no-cache add jq mosquitto-clients
 ```
 
 Now we can process it with `run.sh`:

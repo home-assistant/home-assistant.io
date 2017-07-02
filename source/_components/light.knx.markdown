@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: DIY
+ha_category: Light
 ha_release: 0.44 
 ha_iot_class: "Local Polling"
 ---

@@ -35,6 +35,7 @@ zwave:
 Configuration variables:
 
 - **usb_path** (*Optional*): The port where your device is connected to your Home Assistant host.
+- **network_key** (*Optional*): The 16 byte network key in the form `"0x01,0x02..."` used in order to connect securely to compatible devices.
 - **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the 'config' that is installed by python-openzwave
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
@@ -45,7 +46,7 @@ Configuration variables:
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
   - **invert_openclose_buttons** (*Optional*): Inverts function of the open and close buttons for the cover domain. Defaults to `False`.
 - **debug** (*Optional*): Print verbose z-wave info to log. Defaults to `False`.
-- **new_entity_ids** (*Optional*): Switch to new entity_id generation. Defaults to `False`.
+- **new_entity_ids** (*Optional*): Switch to new entity_id generation. Defaults to `True`.
 
 To find the path of your Z-Wave USB stick or module, run:
 
@@ -89,19 +90,7 @@ To add a Z-Wave device to your system, go to the Services menu and select the `z
 
 ### {% linkable_title Adding Security Devices %}
 
-Security Z-Wave devices require a network key before being added to the network using the `zwave.add_node_secure` service. You must edit the `options.xml` file, located in your `python-openzwave config_path` to use a network key before adding these devices.
-
-Edit your `options.xml` file:
-
-```bash
-  <!-- <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10" /> -->
-```
-Uncomment the line:
-```bash
-   <Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10" />
-```
-
-You can replace these values with your own 16 byte network key. For more information on this process see the [OpenZwave](https://github.com/OpenZWave/open-zwave) wiki article [Adding Security Devices to OZW](https://github.com/OpenZWave/open-zwave/wiki/Adding-Security-Devices-to-OZW)
+Security Z-Wave devices require a network key before being added to the network using the `zwave.add_node_secure` service. You must set the *network_key* configuration variable to use a network key before adding these devices.
 
 An easy script to generate a random key:
 ```bash
@@ -165,7 +154,7 @@ Example:
      platform: event
      event_type: zwave.node_event
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        basic_level: 255
 ```
 
@@ -183,7 +172,7 @@ automation:
       platform: event
       event_type: zwave.scene_activated
       event_data:
-        object_id: zwaveme_zme_wallcs_secure_wall_controller_8
+        entity_id: zwave.zwaveme_zme_wallcs_secure_wall_controller_8
         scene_id: 11
 ```
 

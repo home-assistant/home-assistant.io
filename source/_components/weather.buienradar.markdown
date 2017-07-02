@@ -7,13 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: 
+logo: buienradar.png
 ha_category: Weather
-ha_release: 0.44
+ha_release: 0.47
+ha_iot_class: "Cloud Polling"
 ---
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The 
-weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
+The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
 The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
 
 To add the buienradar weather to your installation, add the following to your `configuration.yaml` file:
@@ -25,15 +25,17 @@ weather:
 ```
 
 Configuration variables:
-- **platform** (*Required*): buienradar
-- **latitude**  (*Optional*): latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude** (*Optional*): longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **forecast** (*Optional*): 'True' to add a temperature forecast, 'False' to suppress it
+
+- **name** (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the weather component will get an entity name of 'weather.[name]'; if no name is specified, it will try to set its name to 'weather.BR_[stationname]'. However at the moment in time the entity is created, no data has been retrieved yet, so the entity will get named 'weather.BR_unknown_station'. Later the station name will be known and get updated, but the entity name remains.
+- **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **longitude**(*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **forecast** (*Optional*): 'True' to add a temperature forecast, 'False' to suppress it.
 
 
 A full configuration example:
 
 ```yaml
+# Example configuration.yaml entry
 weather:
   - platform: buienradar
     name: buienradar

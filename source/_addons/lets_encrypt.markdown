@@ -17,6 +17,7 @@ This add-on need port 80/443 to verify the certificate request, please stop all 
 
 ```json
 {
+  "challenge": "https",
   "email": "example@example.com",
   "domains": ["example.com", "mqtt.example.com", "hass.example.com"]
 }
@@ -24,6 +25,7 @@ This add-on need port 80/443 to verify the certificate request, please stop all 
 
 Configuration variables:
 
+- **challenge** (*Optional*): Default it use 443 ('https') you can change it to 'http' for use port 80.
 - **email** (*Required*): Your email address for registration on Let's Encrypt.
 - **domains** (*Required*): A list of domains to create/renew the certificate.
 

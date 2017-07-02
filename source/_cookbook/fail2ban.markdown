@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "fail2ban for HASS"
-description: "Setting up fail2ban to read HASS log files to improve security."
+title: "fail2ban"
+description: "Setting up fail2ban to read Home Assistant's log files to improve security."
 date: 2017-05-24 10:05
 sidebar: true
 comments: false
@@ -13,6 +13,15 @@ ha_category: Infrastructure
 This is a quick guide on how to setup fail2ban for Home Assistant. This was originally in the [forum](https://community.home-assistant.io/t/is-there-a-log-file-for-invalid-logins-blocking-hackers/2892) but I created this here for people.
 
 First install `fail2ban`. On Debian/Ubuntu this would be `apt-get install fail2ban`. On other distros you can google it.
+
+Then make sure logging is enabled in your `configuration.yaml` file for your Home Assistant instance:
+
+```yaml
+logger:
+  default: critical
+  logs:
+    homeassistant.components.http: warning
+```
 
 Next we will be creating these three files :
 
