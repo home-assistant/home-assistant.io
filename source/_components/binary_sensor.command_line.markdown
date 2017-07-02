@@ -33,6 +33,7 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
 
 ## {% linkable_title Examples %}
 

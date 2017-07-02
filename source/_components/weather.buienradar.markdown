@@ -26,8 +26,9 @@ weather:
 
 Configuration variables:
 
-- **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude**(*Optional*): Longitude to use for selection of data source location. Longitude & latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **name** (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the weather component will get an entity name of 'weather.[name]'; if no name is specified, it will try to set its name to 'weather.BR_[stationname]'. However at the moment in time the entity is created, no data has been retrieved yet, so the entity will get named 'weather.BR_unknown_station'. Later the station name will be known and get updated, but the entity name remains.
+- **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **longitude**(*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
 - **forecast** (*Optional*): 'True' to add a temperature forecast, 'False' to suppress it.
 
 
