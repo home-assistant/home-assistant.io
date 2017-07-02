@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "London Tube Status"
+title: "London Undergound Status"
 description: "Display the current status of London underground lines within Home Assistant."
 date: 2017-06-29 18:45
 sidebar: true
@@ -10,17 +10,17 @@ footer: true
 logo: train.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 4.2
+ha_release: 4.8
 ---
 
 
-The `tube_state` sensor will display the status of London underground tube lines, as well as the Overground, DLR and Tfl rail.
+The `london_tube` sensor will display the status of London underground tube lines, as well as the Overground, DLR and Tfl rail.
 
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: tube_state
+  - platform: london_tube
     line:
       - Bakerloo
       - Central
