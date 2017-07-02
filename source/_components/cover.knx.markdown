@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: DIY
+ha_category: Cover
 ha_release: 0.48
 ha_iot_class: "Local Polling"
 ---
@@ -22,13 +22,23 @@ To use your KNX covers in your installation, add the following to your `configur
 # Example configuration.yaml entry
 cover:
   - platform: knx
+    name: Bedroom
     updown_address: 9/0/0
     stop_address: 9/0/1
+    setposition_address: 2/62
+    getposition_address: 2/64
+    setangle_address: 2/63
+    getangle_address: 2/65
+    invert_position: True
+    invert_angle: True
 ```
 
+- **name** (*Optional*): A name for this devices used within Home Assistant.
 - **updown_address** (*Required*): The KNX group address that is used to move the cover up and down.
 - **stop_address** (*Required*): The group address that is used to stop the cover.
 - **setposition_address** (*Optional*): The group address that is used to set the position.
 - **getposition_address** (*Optional*): The group address that is used to read the position.
-- **name** (*Optional*): A name for this devices used within Home Assistant.
-
+- **setangle_address** (*Optional*): The group address that is used to set the tilt angle.
+- **getangle_address** (*Optional*): The group address that is used to read the tilt angle.
+- **invert_position** (*Optional*): Set this to true if your actuator report fully closed as 100%
+- **invert_angle** (*Optional*): Set this to true if your actuator reports tilt fully closed as 100%
