@@ -22,15 +22,8 @@ To use your KNX covers in your installation, add the following to your `configur
 # Example configuration.yaml entry
 cover:
   - platform: knx
-    name: Bedroom
     updown_address: 9/0/0
     stop_address: 9/0/1
-    setposition_address: 2/62
-    getposition_address: 2/64
-    setangle_address: 2/63
-    getangle_address: 2/65
-    invert_position: True
-    invert_angle: True
 ```
 
 - **name** (*Optional*): A name for this devices used within Home Assistant.
