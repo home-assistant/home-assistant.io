@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: discord.png
 ha_category: Notifications
-ha_release: 
+ha_release: 0.37
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows components to send messages to the user using Discord.
