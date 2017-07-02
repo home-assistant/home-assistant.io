@@ -10,7 +10,7 @@ footer: true
 logo: train.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: 4.9
+ha_release: 0.49
 ---
 
 
