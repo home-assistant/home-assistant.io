@@ -34,6 +34,7 @@ Configuration variables:
 - **api_key** (*Required*): Your API key for http://openweathermap.org/.
 - **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** (*Optional*): Enables the forecast. The default is to display the current conditions.
+- **language** (*Optional*): The language in which you want text results to be returned. It's a two-characters string, eg. `en`, `es`, `ru`, `it`, etc. Defaults to English.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend.
   - **weather**: A human-readable text summary.
   - **temperature**: The current temperature.

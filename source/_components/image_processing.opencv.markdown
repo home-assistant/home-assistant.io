@@ -51,3 +51,5 @@ image_processing:
 - **file** (*Required*): The path to the classifier xml file.
 - **scale** (*Optional*): The scale to perform when processing, this is a `float` value that must be greater than or equal to `1.0`, default is `1.1`.
 - **neighbors** (*Optional*): The minimum number of neighbors required for a match, default is `4`. The higher this number, the more picky the matching will be; lower the number, the more false positives you may experience.
+
+If you would like to see the regions that OpenCV has detected, add this opencv camera to your config's custom_components/camera directory: [https://gist.github.com/Teagan42/bf4b941b34a79a3e184e149ff1efd82f](https://gist.github.com/Teagan42/bf4b941b34a79a3e184e149ff1efd82f)

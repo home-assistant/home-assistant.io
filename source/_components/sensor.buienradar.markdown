@@ -33,9 +33,10 @@ sensor:
 
 Configuration variables:
 
-- **name**  (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of 'sensor.[name]\_[monitored_condition]', for example: 'sensor.lopik_temperature'; if no name is specified the sensors will be called 'sensor.br_[monitored_condition]', for example 'sensor.br_temperature'.
-- **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
-- **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.
+- **name**  (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of 'sensor.[name]`[monitored_condition]`, for example: `sensor.lopik_temperature`; if no name is specified the sensors will be called `sensor.br_[monitored_condition]`, for example `sensor.br_temperature`.
+- **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+- **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+- **timeframe** (*Optional*): Minutes to look ahead for precipitation (5..120) [default: 60].
 - **monitored_conditions** array (*Required*): One or more conditions to display in the frontend.
   - **stationname**: The name of the selected meteo-station.
   - **symbol**: A symbol for the current weather.
@@ -51,6 +52,8 @@ Configuration variables:
   - **windgust**: The windspeed of wind gusts (m/s).
   - **precipitation**: The amount of precipitation/rain in mm/h.
   - **irradiance**: Sun intensity in Watt per square meter (W/m2).
+  - **precipitation_forecast_average**: The average expected precipitation/rain in mm/h within the given timeframe.
+  - **precipitation_forecast_total**: The total expected precipitation/rain in mm/h within the given timeframe.
 
 Full configuration example where location is manually specified:
 
@@ -74,5 +77,7 @@ Full configuration example where location is manually specified:
       - windgust
       - precipitation
       - irradiance
+      - precipitation_forecast_average
+      - precipitation_forecast_total
 ```
   

@@ -35,6 +35,7 @@ Configuration variables:
 - **password** (*Optional*): The password for accessing your camera.
 - **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
 - **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.
+- **content_type** (*Optional*): Set the content type for the IP camera if it is not a jpg file (default: `image/jpeg`). Use `image/svg+xml` to add a dynamic svg file.
 
 <p class='img'>
   <a href='/cookbook/google_maps_card/'>
@@ -43,3 +44,16 @@ Configuration variables:
   </a>
 </p>
 
+## {% linkable_title Examples %}
+
+In this section you find some real life examples of how to use this camera platform.
+
+### {% linkable_title Weather graph from yr.no %}
+
+```yaml
+camera:
+  - platform: generic
+    name: Weather
+    still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
+    content_type: 'image/svg+xml'
+```

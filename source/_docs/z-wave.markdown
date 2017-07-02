@@ -46,6 +46,7 @@ Configuration variables:
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
   - **invert_openclose_buttons** (*Optional*): Inverts function of the open and close buttons for the cover domain. Defaults to `False`.
 - **debug** (*Optional*): Print verbose z-wave info to log. Defaults to `False`.
+- **new_entity_ids** (*Optional*): Switch to new entity_id generation. Defaults to `True`.
 
 To find the path of your Z-Wave USB stick or module, run:
 

@@ -34,6 +34,10 @@ light:
       - number: 2
         type: rgbw
         name: Bathroom
+      - number: 3
+        type: rgbw
+        name: Kitchen
+        fade: on
     - host: 192.168.1.11
       groups:
       - number: 1
@@ -53,6 +57,7 @@ Configuration variables:
     - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.
     - **name** (*Required*): Any name you'd like. Must be unique among all configured groups.
     - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw`, `white`, or `bridge-led`. `rgbw` is the default if you don't specify this entry. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
+    - **fade** (*Optional*): Fade behavior. Defaults to `off`. If turned on, the group is faded out before being turned off. This makes for a more pleasing transition at the expense of wall switch usability, since the light will turn back on at the lowest brightness if it is power cycled.
 
 ### {% linkable_title Properties %}
 
