@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-05-0.45/components.png
 ---
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-05-0.45/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/components/#version/0.45'><img src='/images/blog/2017-05-0.45/components.png' style='border: 0;box-shadow: none;'></a>
 
 Welcome to another great release of Home Assistant! While some of contributors and users are gathering at PyCon US 2017, we still managed to get a great release together!
 

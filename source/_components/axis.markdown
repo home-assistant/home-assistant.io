@@ -10,11 +10,32 @@ footer: true
 logo: axis.png
 ha_category: Hub
 ha_release: "0.45"
+ha_iot_class: "Local Polling"
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security related network connected hardware. Sensor API works with firmware 5.50 and newer.
 
 Home Assistant will automatically discover their presence on your network.
+
+## {% linkable_title Dependencies %}
+
+```bash
+$ sudo apt-get install python3-gi gir1.2-gstreamer-1.0
+```
+
+Depending on how you run Home Assistant, you may need to symlink the `gi` module into your environment.
+
+Hassbian:
+
+```bash
+$ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
+```
+
+Raspberry Pi All-In-One Installer:
+
+```bash
+$ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
+```
 
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
@@ -23,33 +44,11 @@ You can also manually configure your devices by adding the following lines to yo
 axis:
   m1065lw:
     host: IP ADDRESS
-    username: USERNAME
-    password: PASSWORD
     include:
-    - camera
-    - motion
-    - pir
-    - sound
-    - daynight
-    trigger_time: 0
-    location: köket
+      - camera
 ```
 
-## {% linkable_title Dependencies %}
-
-```bash
-sudo apt-get install python3-gi gir1.2-gstreamer-1.0
-```
-
-Depending on how you run Home Assistant you might be needed to symlink the `gi` module into your environment (e.g. in Hassbian):
-
-```bash
-ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
-```
-
-<p class='note'>
-If you are using Python3.6 you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
-</p>
+Configuration variables:
 
 ## {% linkable_title Configuration variables %}
 
@@ -59,16 +58,38 @@ If you are using Python3.6 you might need to replace the 34m with 36m in the _gi
 - **password** (*Optional*): The password to your Axis device. Default 'pass'.
 - **trigger_time** (*Optional*): Minimum time (in seconds) a sensor should keep its positive value. Default 0.
 - **location** (*Optional*): Physical location of your Axis device. Default not set.
-
 - **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
-  - **camera**: Stream MJPEG video to Home Assistant
-  - **motion**: The Built in motion detection in Axis cameras
-  - **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection
-  - **pir**: PIR sensor that can trigger on motion
-  - **sound**: Sound detector
-  - **daynight**: Certain cameras have day/night mode if they have built-in IR lights
-  - **tampering**: signals when camera believes that it has been tampered with
-  - **input**: trigger on whatever you have connected to device input port
+  - **camera**: Stream MJPEG video to Home Assistant.
+  - **motion**: The built-in motion detection in Axis cameras.
+  - **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection.
+  - **pir**: PIR sensor that can trigger on motion.
+  - **sound**: Sound detector.
+  - **daynight**: Certain cameras have day/night mode if they have built-in IR lights.
+  - **tampering**: Signals when camera believes that it has been tampered with.
+  - **input**: Trigger on whatever you have connected to device input port.
+
+A full configuration example could look like this:
+
+```yaml
+# Example configuration.yaml entry
+axis:
+  m1065lw:
+    host: IP ADDRESS
+    username: USERNAME
+    password: PASSWORD
+    include:
+      - camera
+      - motion
+      - pir
+      - sound
+      - daynight
+    trigger_time: 0
+    location: köket
+```
+
+<p class='note'>
+If you are using Python3.6 you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
+</p>
 
 <p class='note'>
 Any specific levels for triggers needs to be configured on the device.

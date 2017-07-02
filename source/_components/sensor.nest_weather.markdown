@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nest.png
 ha_category: Weather
-ha_iot_class: "Cloud Poll"
+ha_iot_class: "Cloud Polling"
 ---
 
 <p class='note warning'>

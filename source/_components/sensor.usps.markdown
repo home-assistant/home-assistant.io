@@ -10,6 +10,7 @@ footer: true
 logo: usps.png
 ha_category: Sensor
 ha_release: 0.36
+ha_iot_class: "Cloud Polling"
 ---
 
 The `usps` platform allows one to track deliveries and inbound mail from the [US Postal Service (USPS)](https://www.usps.com/).

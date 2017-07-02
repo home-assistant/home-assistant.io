@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Notifications
+ha_iot_class: depends
 ---
 
 The MQTT notification support is different than the other [notification](/components/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details while calling the service.
@@ -20,7 +21,7 @@ The MQTT notification support is different than the other [notification](/compon
 ```
 
 <p class='img'>
-<img src='/images/screenshots/mqtt-notify.png' />
+  <img src='/images/screenshots/mqtt-notify.png' />
 </p>
 
 Using the [REST API](/developers/rest_api/#post-apiservicesltdomainltservice) to send a message to a given topic.

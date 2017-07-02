@@ -8,6 +8,8 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+ha_iot_class: "Local Push"
+ha_release: pre 0.7
 ---
 
 This `temper` sensor platform allows you to get the current temperature from a TEMPer device.
@@ -20,8 +22,7 @@ sensor:
   - platform: temper
 ```
 
-
-Configuration options for the a TCP Sensor:
+Configuration option:
 
 - **name** (*Optional*): The name you would like to give the sensor in Home Assistant.
 - **scale** (*Optional*): The scale for the sensor.

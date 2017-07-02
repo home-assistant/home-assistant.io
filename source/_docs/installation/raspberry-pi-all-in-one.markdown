@@ -19,14 +19,15 @@ Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian i
 Irrespective of whether you use SSH to connect to the Pi from another computer or not, you need SSH to install Home Assistant. So go ahead and enable SSH.
 
 *  Login to Raspberry Pi. For example with `ssh pi@your_raspberry_pi_ip`
-*  Run the following command
+*  Run the following command:
+
+<p class='note warning'>
+  This command is a one-liner and not run as sudo.
+</p>
 
 ```bash
 $ curl -O https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && sudo chown pi:pi hass_rpi_installer.sh && bash hass_rpi_installer.sh
 ```
-<p class='note warning'>
-  Note this command is one-line and not run as sudo.
-</p>
 
 Installation will take approx. 1-2 hours depending on the Raspberry Pi model the installer is being run against. The installer will identitfy what Raspberry Pi hardware revision you are using and adjust commands accordingly. A complete log of the install is located at: `/home/pi/fabric-home-assistant/installation_report.txt` The installer has been updated to simply log any errors encountered, but resume installing. Please consult the "installation report" if your install encountered issues. 
 

@@ -31,9 +31,13 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 mqtt:
 ```
 
-<p class='note'>
-This broker does not currently work with OwnTracks because of a protocol version issue.
-</p>
+### {% linkable_title Owntracks%}
+
+To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).
+
+In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
+
+### {% linkable_title Settings %}
 
 If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
 
@@ -58,7 +62,9 @@ mqtt:
   keepalive: 60
   username: USERNAME
   password: PASSWORD
-  protocol: 3.1 
+  protocol: 3.1
+  tls_insecure: True
+  tls_version: 1.2
 ```
 
 Configuration variables:
@@ -70,9 +76,13 @@ Configuration variables:
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.
+- **tls_insecure** (*Optional*): Set the verification of the server hostname in the server certificate.
+- **tls_version** (*Optional*): TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`.
 
 <p class='note warning'>
 There is an issue with the Mosquitto package included in Ubuntu 14.04 LTS. Specify `protocol: 3.1` in your MQTT configuration to work around this issue.
+
+If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_TLS'`  then you need to set `tls_version: 1.2`.
 </p>
 
 <p class='note'>

@@ -12,10 +12,10 @@ footer: true
 
 ### {% linkable_title ResinOS / Generic %}
 
-Map the usb drive into add-on with `devices` options. If you need it on multible add-ons you can use the `/share` folder which is accessable from multibe add-ons.
+Map the usb drive into add-on with `devices` options. If you need it on multiple add-ons you can use the `/share` folder which is accessable from multiple add-ons.
 It is also possible to create a add-on that only mount stuff to `share`.
 
-You can format the usb device with multible volumes and map it to the specific add-on.
+You can format the usb device with multiple volumes and map it to the specific add-on.
 
 ### {% linkable_title Generic %}
 

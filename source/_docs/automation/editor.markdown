@@ -69,15 +69,15 @@ If you want to migrate your old automations to use the editor, you'll have to co
 - id: my_unique_id  # <-- Required for editor to work.
   alias: Hello world
   trigger:
-  - entity_id: sun.sun
+  - platform: state 
+    entity_id: sun.sun
     from: below_horizon
-    platform: state
     to: above_horizon
   condition:
-  - above: 17
-    below: 25
-    condition: numeric_state
+  - condition: numeric state
     entity_id: sensor.temperature
+    above: 17
+    below: 25
     value_template: '{% raw %}{{ float(state.state) + 2 }}{% endraw %}'
   action:
   - service: light.turn_on

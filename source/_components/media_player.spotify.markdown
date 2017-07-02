@@ -18,10 +18,15 @@ The `spotify` media player platform allows you to control [Spotify](https://www.
 
 ## {% linkable_title Prerequisites %}
 
-- Spotify Premium account.
-- Spotify Application, properly configured.
+- Spotify account.
+- Spotify Application, properly configured
+
+<p class='note'>
+Controlling the Spotify component (pause, play, next, etc) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+</p>
 
 To create the required Spotify Application:
+
 - Login to [Spotify Developer](https://developer.spotify.com)
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page
 - Select **Create An App**. Enter any name and description. Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file. 
@@ -46,6 +51,9 @@ media_player:
   - platform: spotify
     client_id: <your client id>
     client_secret: <your client secret>
+    aliases:
+        abc123def456: 'Living Room'
+        9183abas000: 'Bed Room'
 ```
 
 Configuration variables:
@@ -53,6 +61,7 @@ Configuration variables:
 - **client_id** (*Required*): Client ID from your Spotify Application.
 - **client_secret** (*Required*): Client Secret from your Spotify Application.
 - **cache_path** (*Optional*): Path to cache authentication token (defaults to configuration directory).
+- **aliases** (*Optional*): Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the `info` channel for ease of aliasing.
 
 ## {% linkable_title Setup %}
 

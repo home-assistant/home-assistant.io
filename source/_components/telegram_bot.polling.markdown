@@ -22,11 +22,11 @@ To integrate this into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 
 telegram_bot:
-  platform: polling
-  api_key: <telegram api key>
-  allowed_chat_ids:
-    - 12345
-    - 67890
+  - platform: polling
+    api_key: <telegram api key>
+    allowed_chat_ids:
+      - 12345
+      - 67890
 ```
 
 Configuration variables:

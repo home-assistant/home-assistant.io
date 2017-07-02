@@ -9,20 +9,21 @@ sharing: true
 footer: true
 ---
 
-This page describes the steps for publishing a new Home Assistant release.
+This page describes the steps for publishing a new Home Assistant release. Those steps requires that you don't use forks but work with the repositories themself. 
 
 ### {% linkable_title GitHub (3 days before release) %}
 
 1. Merge `master` into `dev` to make the PR mergeable.
-2. Cut a release branch from `dev`. Example name `release-0-46`.
-3. Create a pull request from release branch to `master` with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author. Use [hass-release]https://github.com/home-assistant/hass-release) to collect the details.
+2. Cut a release branch from `dev`. Example name `release-0-49`.
+3. Create a pull request from the release branch to `master` with the upcoming release number as the title. PR message contains intro, highlighting major changes, and an overview of all changes tagging each author. Use [hass-release](https://github.com/home-assistant/hass-release) to collect the details.
 4. Update `homeassistant/const.py` with the correct version number (remove the `dev` tag) and push that commit to release branch.
 5. From now until the release branch has been merged, we tag bugfixes with the milestone for the release (create if doesn't exist).
+4. Update `homeassistant/const.py` with the upcoming version number (including the `dev` tag) and push that commit to the `dev` branch.
 
 ### {% linkable_title Website (3 days before release) %}
 
 1. Merge `current` into `next`
-2. Cut release branch of `next`. For example `release-0-46`.
+2. Cut release branch of `next`. For example `release-0-49`.
 3. Open a PR from release branch to `current` with the upcoming release number as the title.
 
 ### {% linkable_title GitHub %}

@@ -22,7 +22,7 @@ This is useful if you want to have:
 
 So you already have a working Apache server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123
 
-Enable [`mod_proxy_wstunnel`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.htm) by running if you encounter issues while serving Home Assistant through your proxy:
+Enable [`mod_proxy_wstunnel`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.html) by running if you encounter issues while serving Home Assistant through your proxy:
 
 ```bash
 $ sudo a2enmod proxy_wstunnel

@@ -10,6 +10,7 @@ footer: true
 logo: yeelight.png
 ha_category: Light
 ha_release: 0.32
+ha_iot_class: "Local Polling"
 ---
 
 The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant.
@@ -26,8 +27,8 @@ light:
       192.168.1.25:
         name: Living Room
         transition: 1000
-        use_music_mode: True (defaults to False)
-        save_on_change: False (defaults to True)
+        use_music_mode: True #(defaults to False)
+        save_on_change: False #(defaults to True)
       192.168.1.13:
         name: Front Door
 ```

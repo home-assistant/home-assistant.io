@@ -41,7 +41,7 @@ Set cover position of one or multiple covers.
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: cover.set_cover_position
       data:
@@ -64,7 +64,7 @@ Set cover tilt position of one or multiple covers.
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     - service: cover.set_cover_tilt_position
       data:

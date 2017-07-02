@@ -10,6 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Presence Detection
 ha_version: 0.44
+ha_iot_class: depends
 ---
 
 
@@ -32,8 +33,10 @@ Configuration variables:
 - **qos** (*Optional*): The QoS level of the topic.
 
 This platform receives JSON formatted payloads containing GPS information, for example:
+
 ```json
 {"longitude": 1.0,"gps_accuracy": 60,"latitude": 2.0,"battery_level": 99.9}
 ```
+
 Where `longitude` is the longitude, `latitude` is the latitude, `gps_accuracy` is the accuracy in meters, `battery_level` is the current battery level of the device sending the update.
 `longitude` and `latitude` are required keys, `gps_accuracy` and `battery_level` are optional.

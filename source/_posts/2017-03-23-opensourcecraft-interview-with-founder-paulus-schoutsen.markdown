@@ -7,7 +7,7 @@ date_formatted: "March 23, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Community
+categories: Media
 og_image: /images/blog/2017-03-opensourcecraft/social.jpg
 ---
 

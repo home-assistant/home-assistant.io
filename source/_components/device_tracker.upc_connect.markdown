@@ -33,4 +33,5 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 
 Also known to be working with the following devices:
  - Irish Virgin Media Super Hub 3.0
+ - Ziggo Connectbox NL
 

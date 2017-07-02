@@ -10,6 +10,7 @@ footer: true
 logo: wink.png
 ha_category: Lock
 ha_release: 0.9
+ha_iot_class: "Cloud Polling"
 ---
 
 

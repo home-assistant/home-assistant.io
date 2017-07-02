@@ -15,6 +15,18 @@ ha_iot_class: "Local Polling"
 
 The `miflora` sensor platform allows one to monitor to plants. The [Mi Flora plant sensor](https://www.aliexpress.com/item/Newest-Original-Xiaomi-Flora-Monitor-Digital-Plants-Flowers-Soil-Water-Light-Tester-Sensor-Monitor-for-Aquarium/32685750372.html) is a small Bluetooth Low Energy device that monitors not only the moisture, but also light, temperature and conductivity. As only a single BLE device can be polled at the same time, the library implements locking to make sure this is the case.
 
+Start a scan to determine the MAC addresses of the sensor:
+
+```bash
+$ sudo hcitool lescan
+LE Scan ...
+F8:04:33:AF:AB:A2 [TV] UE48JU6580
+C4:D3:8C:12:4C:57 Flower mate
+[...]
+```
+
+Check for `Flower care` or `Flower mate` entries, those are your sensor.
+
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,7 +38,7 @@ sensor:
       - temperature
 ```
 
-- **mac** (*Required*): The MAC address of your sensor. You can find this be running `hcitool lescan` from command line.
+- **mac** (*Required*): The MAC address of your sensor.
 - **monitored_conditions** array (*Optional*): The paramaters that should be monitored (defaults to monitoring all parameters).
   - **moisture**: Moisture in the soil.
   - **light**: Brightness at the sensor's location.

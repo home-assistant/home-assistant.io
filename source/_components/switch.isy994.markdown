@@ -14,4 +14,4 @@ ha_iot_class: "Local Push"
 
 The `isy994` platform allows you to get data from your [ISY994](https://www.universal-devices.com/residential/isy994i-series/) switch from within Home Assistant.
 
-They will be automatically discovered if the isy994 component is loaded.
+They will be automatically discovered if the `isy994` component is loaded.
