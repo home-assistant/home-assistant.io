@@ -76,6 +76,87 @@
   </header>
   <hr class="divider">
   <p>AppDaemon is a loosely coupled, multithreaded, sandboxed python execution environment for writing automation apps for Home Assistant.</p>
+<h1>Another Take on Automation</h1>
+<p>AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather complement them. For a lot of things, automations work well and can be very succinct. However, there is a class of more complex automations for which they become harder to use, and appdeamon then comes into its own. It brings quite a few things to the table:</p>
+<ul>
+  <li>New paradigm - some problems require a procedural and/or iterative approach, and <code class="highlighter-rouge">AppDaemon</code> Apps are a much more natural fit for this. Recent enhancements to Home Assistant scripts and templates have made huge strides, but for the most complex scenarios, Apps can do things that Automations can’t</li>
+  <li>Ease of use - AppDaemon’s API is full of helper functions that make programming as easy and natural as possible. The functions and their operation are as “Pythonic” as possible, experienced Python programmers should feel right at home.</li>
+  <li>Reuse - write a piece of code once and instantiate it as an app as many times as you need with different parameters e.g. a motion light program that you can use in 5 different places around your home. The code stays the same, you just dynamically add new instances of it in the config file</li>
+  <li>Dynamic - AppDaemon has been designed from the start to enable the user to make changes without requiring a restart of Home Assistant, thanks to it’s loose coupling. However, it is better than that - the user can make changes to code and AppDaemon will automatically reload the code, figure out which Apps were using it and restart them to use the new code with out the need to restart <code class="highlighter-rouge">AppDaemon</code> itself. It is also possible to change parameters for an individual or multiple apps and have them picked up dynamically, and for a final trick, removing or adding apps is also picked up dynamically. Testing cycles become a lot more efficient as a result.</li>
+  <li>Complex logic - Python’s If/Else constructs are clearer and easier to code for arbitrarily complex nested logic</li>
+  <li>Durable variables and state - variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened</li>
+  <li>All the power of Python - use any of Python’s libraries, create your own modules, share variables, refactor and re-use code, create a single app to do everything, or multiple apps for individual tasks - nothing is off limits!</li>
+</ul>
+<p>It is in fact a testament to Home Assistant’s open nature that a component like <code class="highlighter-rouge">AppDaemon</code> can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant’s underlying design is that it makes no assumptions whatever about what it is controlling or reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for <code class="highlighter-rouge">AppDaemon</code> - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner - the bulk of the work after that was adding additonal functions to make things that were already possible easier.</p>
+<h1>How it Works</h1>
+<p>The best way to show what AppDaemon does is through a few simple examples.</p>
+<h2>Sunrise/Sunset Lighting</h2>
+<p>Lets start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its <code class="highlighter-rouge">initialize()</code> function called which gives it a chance to register a callback for AppDaemons’s scheduler for a specific time. In this case we are using <code class="highlighter-rouge">run_at_sunrise()</code> and <code class="highlighter-rouge">run_at_sunset()</code> to register 2 separate callbacks. The argument <code class="highlighter-rouge">0</code> is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals it can be convenient to use Python’s <code class="highlighter-rouge">datetime.timedelta</code> class for calculations. When sunrise or sunset occurs, the appropriate callback function, <code class="highlighter-rouge">sunrise_cb()</code> or <code class="highlighter-rouge">sunset_cb()</code>  is called which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables <code class="highlighter-rouge">args["on_scene"]</code> and <code class="highlighter-rouge">args["off_scene"]</code> are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.appapi</span> <span class="kn">as</span> <span class="nn">appapi</span>
+
+<span class="k">class</span> <span class="nc">OutsideLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunrise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunrise_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunset_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+  <span class="k">def</span> <span class="nf">sunrise_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s">"off_scene"</span><span class="p">])</span>
+
+  <span class="k">def</span> <span class="nf">sunset_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s">"on_scene"</span><span class="p">])</span>
+
+</code></pre>
+</div>
+<p>This is also fairly easy to achieve with Home Assistant automations, but we are just getting started.</p>
+<h2>Motion Light</h2>
+<p>Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the <code class="highlighter-rouge">initialize()</code> function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell AppDaemon that we are only interested in state changes where the motion detector comes on by adding an additional parameter to the callback registration - <code class="highlighter-rouge">new = "on"</code>. When the motion is detected, the callack function <code class="highlighter-rouge">motion()</code> is called, and we check whether or not the sun has set using a built-in convenience function: <code class="highlighter-rouge">sun_down()</code>. Next, we turn the light on with <code class="highlighter-rouge">turn_on()</code>, then set a timer using <code class="highlighter-rouge">run_in()</code> to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in <code class="highlighter-rouge">AppDaemon</code> calling <code class="highlighter-rouge">light_off()</code> 60 seconds later using the <code class="highlighter-rouge">turn_off()</code> call to actually turn the light off. This is still pretty simple in code terms:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.appapi</span> <span class="kn">as</span> <span class="nn">appapi</span>
+
+<span class="k">class</span> <span class="nc">FlashyMotionLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">listen_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span> <span class="s">"binary_sensor.drive"</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="s">"on"</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="nf">motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sun_down</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="nf">light_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_off</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>This is starting to get a little more complex in Home Assistant automations requiring an Automation rule and two separate scripts.</p>
+<p>Now lets extend this with a somewhat artificial example to show something that is simple in AppDaemon but very difficult if not impossible using automations. Lets warn someone inside the house that there has been motion outside by flashing a lamp on and off 10 times. We are reacting to the motion as before by turning on the light and setting a timer to turn it off again, but in addition, we set a 1 second timer to run <code class="highlighter-rouge">flash_warning()</code> which when called, toggles the inside light and sets another timer to call itself a second later. To avoid re-triggering forever, it keeps a count of how many times it has been activated and bales out after 10 iterations.</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.appapi</span> <span class="kn">as</span> <span class="nn">appapi</span>
+
+<span class="k">class</span> <span class="nc">MotionLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">listen_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">motion</span><span class="p">,</span> <span class="s">"binary_sensor.drive"</span><span class="p">,</span> <span class="n">new</span> <span class="o">=</span> <span class="s">"on"</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="nf">motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="bp">self</span><span class="o">.</span><span class="n">sun_down</span><span class="p">():</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">light_off</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flash_warning</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="nf">light_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">turn_off</span><span class="p">(</span><span class="s">"light.drive"</span><span class="p">)</span>
+    
+  <span class="k">def</span> <span class="nf">flash_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">toggle</span><span class="p">(</span><span class="s">"light.living_room"</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flashcount</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flash_warning</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Of course if I wanted to make this App or its predecessor reusable I would have provide parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.</p>
+<p>In addition, Apps can write to <code class="highlighter-rouge">AppDaemon</code>’s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.</p>
+<p>For full installation instructions, see <a href="https://github.com/home-assistant/appdaemon/blob/dev/README.md">README.md</a> in the <code class="highlighter-rouge">AppDaemon</code> repository.</p>
+<p>There is also full documentation for the API and associated configuration in <a href="https://github.com/home-assistant/appdaemon/blob/dev/API.md">API.md</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -234,28 +315,9 @@
           </li>
           <li>
             <a class='active' href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/appdaemon/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/configuration/'>Configuration </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/example_apps/'>Example Apps </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/running/'>Running AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/reboot/'>Starting AppDaemon at Reboot </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/operation/'>Operation </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/windows/'>AppDaemon on Windows </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/updating/'>Updating AppDaemon </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/tutorial/'>AppDaemon Tutorial </a></li>
-              <li><a  href='/docs/ecosystem/appdaemon/api/'>AppDaemon API Reference </a></li>
-            </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
-            <ul>
-              <li><a  href='/docs/ecosystem/hadashboard/installation/'>Installation </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/dash_config/'>Dashboard Configuration </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/hapush/'>HAPush </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/reboot/'>Reboot </a></li>
-              <li><a  href='/docs/ecosystem/hadashboard/updating/'>Updating HADashboard </a></li>
-              </ul>
           </li>
           <li>
             <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
