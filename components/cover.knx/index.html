@@ -84,11 +84,15 @@
 </code></pre>
 </div>
 <ul>
+  <li><strong>name</strong> (<em>Optional</em>): A name for this devices used within Home Assistant.</li>
   <li><strong>updown_address</strong> (<em>Required</em>): The KNX group address that is used to move the cover up and down.</li>
   <li><strong>stop_address</strong> (<em>Required</em>): The group address that is used to stop the cover.</li>
   <li><strong>setposition_address</strong> (<em>Optional</em>): The group address that is used to set the position.</li>
   <li><strong>getposition_address</strong> (<em>Optional</em>): The group address that is used to read the position.</li>
-  <li><strong>name</strong> (<em>Optional</em>): A name for this devices used within Home Assistant.</li>
+  <li><strong>setangle_address</strong> (<em>Optional</em>): The group address that is used to set the tilt angle.</li>
+  <li><strong>getangle_address</strong> (<em>Optional</em>): The group address that is used to read the tilt angle.</li>
+  <li><strong>invert_position</strong> (<em>Optional</em>): Set this to true if your actuator report fully closed as 100%</li>
+  <li><strong>invert_angle</strong> (<em>Optional</em>): Set this to true if your actuator reports tilt fully closed as 100%</li>
 </ul>
 </article>
         </div>
@@ -133,55 +137,61 @@
     </ul>
     </div>
     <div class='section'>
-    <h1 class="title delta">Category DIY</h1>
+    <h1 class="title delta">Category Cover</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/arduino/'>Arduino</a>
+            <a href='/components/cover.command_line/'>Command Line Cover</a>
         </li>
         <li>
-            <a href='/components/sensor.arduino/'>Arduino Sensor</a>
+            <a href='/components/cover.garadget/'>Garadget Cover</a>
         </li>
         <li>
-            <a href='/components/switch.arduino/'>Arduino Switch</a>
+            <a href='/components/cover.homematic/'>Homematic Cover</a>
         </li>
         <li>
-            <a href='/components/bbb_gpio/'>BeagleBone Black GPIO</a>
-        </li>
-        <li>
-            <a href='/components/sensor.dht/'>DHT Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.eddystone_temperature/'>Eddystone Beacon</a>
-        </li>
-        <li>
-            <a href='/components/knx/'>KNX</a>
+            <a href='/components/cover.isy994/'>ISY994 Cover</a>
         </li>
         <li>
             KNX Cover
         </li>
         <li>
-            <a href='/components/sensor.miflora/'>Mi Flora plant sensor</a>
+            <a href='/components/cover.lutron_caseta/'>Lutron Caseta Cover</a>
         </li>
         <li>
-            <a href='/components/sensor.onewire/'>One wire Sensor</a>
+            <a href='/components/cover.mqtt/'>MQTT Cover</a>
         </li>
         <li>
-            <a href='/components/sensor.serial_pm/'>Particulate matter Sensor</a>
+            <a href='/components/cover.myq/'>MyQ Cover</a>
         </li>
         <li>
-            <a href='/components/rpi_pfio/'>PiFace Digital I/O</a>
+            <a href='/components/cover.mysensors/'>MySensors Cover</a>
         </li>
         <li>
-            <a href='/components/rpi_gpio/'>Raspberry PI GPIO</a>
+            <a href='/components/cover.opengarage/'>OpenGarage Cover</a>
         </li>
         <li>
-            <a href='/components/raspihats/'>Raspihats</a>
+            <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>
         </li>
         <li>
-            <a href='/components/sensor.skybeacon/'>Skybeacon sensor</a>
+            <a href='/components/cover.rfxtrx/'>RFXtrx Cover</a>
         </li>
         <li>
-            <a href='/components/zigbee/'>ZigBee</a>
+            <a href='/components/cover.rpi_gpio/'>Raspberry Pi Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.scsgate/'>SCSGate Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.template/'>Template Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.vera/'>Vera Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.wink/'>Wink Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.zwave/'>Z-Wave Cover</a>
         </li>
     </ul>
     </div>

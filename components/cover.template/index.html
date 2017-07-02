@@ -120,13 +120,13 @@
         <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">sensor.garage_door</span><span class="nv"> </span><span class="s">}}"</span>
         <span class="s">open_cover</span><span class="pi">:</span>
           <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
-          <span class="s">entity_is</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
         <span class="s">close_cover</span><span class="pi">:</span>
           <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_off</span>
-          <span class="s">entity_is</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
         <span class="s">stop_cover</span><span class="pi">:</span>
           <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
-          <span class="s">entity_is</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
         <span class="s">icon_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">is_state('sensor.garage_door',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">%}mdi:garage-open{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:garage{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
 
 </code></pre>
@@ -181,6 +181,9 @@
         </li>
         <li>
             <a href='/components/cover.isy994/'>ISY994 Cover</a>
+        </li>
+        <li>
+            <a href='/components/cover.knx/'>KNX Cover</a>
         </li>
         <li>
             <a href='/components/cover.lutron_caseta/'>Lutron Caseta Cover</a>
