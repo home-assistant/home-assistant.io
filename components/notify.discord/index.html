@@ -75,9 +75,8 @@
   </header>
   <hr class="divider">
   <p>The <a href="https://discordapp.com/">Discord service</a> is a platform for the notify component. This allows components to send messages to the user using Discord.</p>
-<p>In order to get a token you need to go to the <a href="https://discordapp.com/developers/applications/me">Discord My Apps page</a> and create a new application. Once the application is ready, create a bot user. Retreive the client ID and the (hidden) token of your bot for later.</p>
+<p>In order to get a token you need to go to the <a href="https://discordapp.com/developers/applications/me">Discord My Apps page</a> and create a new application. Once the application is ready, create a <a href="https://discordapp.com/developers/docs/topics/oauth2#bots">bot</a> user (<strong>Create a Bot User</strong>) and activate <strong>Require OAuth2 Code Grant</strong>. Retreive the <strong>Client ID</strong> and the (hidden) <strong>Token</strong> of your bot for later.</p>
 <p>When setting up the application you can use this <a href="https://home-assistant.io/demo/favicon-192x192.png">icon</a>.</p>
-<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 <p>To use Discord notifications, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">notify</span><span class="pi">:</span>
@@ -91,15 +90,22 @@
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
   <li><strong>token</strong> (<em>Required</em>): Your bot’s token.</li>
 </ul>
-<h3><a class="title-link" name="using-the-bot" href="#using-the-bot"></a> Using the bot</h3>
-<p>Bots can only send messages to servers. To add the bot to a server you are an admin on, use the Discord OAuth2 Authorization page:</p>
-<p><a href="https://discordapp.com/api/oauth2/authorize?client_id=1234567890&amp;scope=bot&amp;permissions=0">https://discordapp.com/api/oauth2/authorize?client_id=1234567890&amp;scope=bot&amp;permissions=0</a></p>
-<p>Replace the client ID with the appropriate one from the <a href="https://discordapp.com/developers/applications/me">Discord My Apps page</a>.</p>
-<p>Once the bot user has been added to your server, get the channel ID of the channel you want the bot to operate in.</p>
-<ul>
-  <li>In The Discord app go to Settings &gt; Appearance &gt; Check developer mode</li>
-  <li>Right click channel name &gt; Copy ID</li>
-</ul>
+<h3><a class="title-link" name="setting-up-the-bot" href="#setting-up-the-bot"></a> Setting up the bot</h3>
+<p>Bots can only send messages to servers. To add the bot to a server you are an admin on, get the details of the bot from the <a href="https://discordapp.com/developers/applications/me">Discord My Apps page</a>.</p>
+<p class="img">
+  <img src="/images/screenshots/discord-bot.png" />
+</p>
+<p>Now use the Discord Authorization page with the <strong>Client ID</strong> of your <a href="https://discordapp.com/developers/docs/topics/oauth2#bots">bot</a>.</p>
+<p><a href="https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&amp;scope=bot&amp;permissions=0">https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&amp;scope=bot&amp;permissions=0</a></p>
+<p class="img">
+  <img src="/images/screenshots/discord-auth.png" />
+</p>
+<p>Wait for the confirmation which should say “Authorized”.</p>
+<p>Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to <strong>Settings</strong> &gt; <strong>Appearance</strong> &gt; <strong>Check developer mode</strong>.</p>
+<p class="img">
+  <img src="/images/screenshots/discord-api.png" />
+</p>
+<p>Right click channel name and copy the channel ID (<strong>Copy ID</strong>).</p>
 <p>This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.</p>
 <h4><a class="title-link" name="example-service-payload" href="#example-service-payload"></a> Example service payload</h4>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -123,6 +129,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/discord.png' />
   </div>
+    <div class='section'>
+    Introduced in release: 0.37
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/notify/'>the Notifications component</a>.
