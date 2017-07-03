@@ -50,5 +50,8 @@ light:
   
 switch:
   - platform: insteon_local
+  
+fan:
+  - platform: insteon_local
 ```
 

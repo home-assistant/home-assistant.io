@@ -52,10 +52,10 @@ Configuration variables:
     - **rain**: Estimated rainfall for today in mm.
     - **sum_rain_1**: Rainfall in the last hour in mm.
     - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
-    - **WindAngle**: Wind angle
-    - **WindStrength**: Wind strength
-    - **GustAngle**: Wind gust angle
-    - **GustStrength**: Wind gust strength
+    - **windangle**: Wind angle
+    - **windstrength**: Wind strength
+    - **gustangle**: Wind gust angle
+    - **guststrength**: Wind gust strength
     - **min_temp**: Min temperature for today
     - **max_temp**: Max temperature for today
     - **rf_status**: Current radio status per module. (90=low, 60=highest)
@@ -69,4 +69,3 @@ You can find your modules name in your [online NetAtmo account](https://my.netat
 <p class='img'>
 <img src='/images/screenshots/netatmo_module.png' />
 </p>
-
