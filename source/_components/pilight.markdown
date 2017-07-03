@@ -53,6 +53,11 @@ pilight:
       - 42
 ```
 
+## {% linkable_title Known issues %}
+
+- You always have to use the correct types for service data for the `pilight.send` service, as all data is sent unchecked and unchanged to the daemon. If you choose the wrong type, your call gets rejected and all you get is a `insufficient number of arguments` in the pilight log. To retrieve the right argument type, read the [implementation of your protocol](https://github.com/pilight/pilight/tree/master/libs/pilight/protocols).
+- The `pilight.send` does **NOT WORK** if you specify the service data with `data_template` instead of `data`. It does not matter if you use an actual template or not. But choosing `data_template` converts all data to strings which gets rejected by the pilight daemon.
+
 ## {% linkable_title Troubleshooting %}
 
 - A list of tested RF transceiver hardware is available [here](https://wiki.pilight.org/doku.php/electronics). This might be useful before buying.
