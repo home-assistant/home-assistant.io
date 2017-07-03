@@ -83,6 +83,7 @@
 <span class="s">alert</span><span class="pi">:</span>
   <span class="s">garage_door</span><span class="pi">:</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Garage is open</span>
+    <span class="s">done_message</span><span class="pi">:</span> <span class="s">Garage is closed</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.garage_door</span>
     <span class="s">state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
     <span class="s">repeat</span><span class="pi">:</span> <span class="s">30</span>
@@ -96,6 +97,7 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The friendly name of the alert.</li>
+  <li><strong>done_message</strong> (<em>Optional</em>): A message sent after an alert transitions from <code class="highlighter-rouge">on</code> to <code class="highlighter-rouge">off</code>.  Is only sent if an alert notification was sent for transitioning from <code class="highlighter-rouge">off</code> to <code class="highlighter-rouge">on</code>.</li>
   <li><strong>entity_id</strong> (<em>Required</em>): The ID of the entity to watch.</li>
   <li><strong>state</strong> (<em>Optional</em>): The problem condition for the entity. Defaults to <code class="highlighter-rouge">on</code>.</li>
   <li><strong>repeat</strong> (<em>Required</em>): Number of minutes before the notification should be repeated. Can be either a number or a list of numbers.</li>
