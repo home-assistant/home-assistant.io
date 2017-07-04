@@ -41,6 +41,7 @@ discover the host IP automatically, but set the `name` in the config to match ex
 set for your Hub so the platform knows what Hub you are trying to configure.
 
 ```yaml
+# Example configuration.yaml entry
   - platform: harmony
     name: Living Room    # This name must match the name you have set on the Hub
     activity: Watch TV   # Overriding the 'activity' setting for this discovered hub
