@@ -74,12 +74,23 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format <code class="highlighter-rouge">turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>.</p>
+  <p>The conversation component can process sentences into commands for Home Assistant. It currently has built in functionality to recognize <code class="highlighter-rouge">turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>, but custom phrases can be added through configuration.</p>
 <p>To enable the conversation option in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example base configuration.yaml entry</span>
 <span class="s">conversation</span><span class="pi">:</span>
 </code></pre>
 </div>
+<p>To add custom phrases to be recognized:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with custom phrasesconversation</span>
+<span class="s">conversation</span><span class="pi">:</span>
+    <span class="s">boolean_test</span><span class="pi">:</span>
+        <span class="s">sentence</span><span class="pi">:</span> <span class="s">switch boolean</span> <span class="c1"># The phrase it will recognize</span>
+        <span class="s">action</span><span class="pi">:</span>
+            <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.toggle</span>
+</code></pre>
+</div>
+<p>The action keyword uses <a href="https://home-assistant.io/docs/scripts/">script
+syntax</a>.</p>
 <p>When this component is active and you are using a supported browser voice commands will be activated in the frontend. Browse to <a href="/demo/">the demo</a> using Chrome or Chromium to see it in action.</p>
 <p class="img">
   <img src="/images/screenshots/voice-commands.png" />
