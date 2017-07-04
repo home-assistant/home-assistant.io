@@ -24,7 +24,7 @@ And finally, for users of the config panel in the UI, we have fixed the issue wi
 Enjoy!
 
 ## {% linkable_title If you need help... %}
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -499,7 +499,6 @@ influxdb:
 [wink docs]: https://home-assistant.io/components/wink/
 [zha docs]: https://home-assistant.io/components/zha/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7062]: https://github.com/home-assistant/home-assistant/pull/7062
 [#7468]: https://github.com/home-assistant/home-assistant/pull/7468
@@ -510,3 +509,4 @@ influxdb:
 [@pezinek]: https://github.com/pezinek
 [device_tracker.unifi docs]: https://home-assistant.io/components/device_tracker.unifi/
 [sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
+[discord]: https://discord.gg/c5DvZ4e

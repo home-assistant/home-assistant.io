@@ -78,7 +78,7 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 - Allow fetching hass.io panel without auth ([@balloob] - [#7714]) ([hassio docs])
 
 ## {% linkable_title If you need help... %}
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -423,7 +423,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zwave docs]: https://home-assistant.io/components/zwave/
 [zwave.api docs]: https://home-assistant.io/components/zwave.api/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7673]: https://github.com/home-assistant/home-assistant/pull/7673
 [#7683]: https://github.com/home-assistant/home-assistant/pull/7683
@@ -435,3 +434,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: https://home-assistant.io/components/hassio/
 [media_player.volumio docs]: https://home-assistant.io/components/media_player.volumio/
 [telegram_bot.__init__ docs]: https://home-assistant.io/components/telegram_bot.__init__/
+[discord]: https://discord.gg/c5DvZ4e
