@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">torque</code> platform will allow you to monitor <a href="http://torque-bhp.com/">Torque</a> data relayed from a bluetooth OBD2 stick via the Torque mobile application.</p>
+  <p>The <code class="highlighter-rouge">torque</code> platform will allow you to monitor <a href="http://torque-bhp.com/">Torque</a> data relayed from a Bluetooth OBD2 stick via the Torque mobile application.</p>
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
 <p>To use Torque sensors with your installation, you must configure both the Torque mobile application and Home Assistant.</p>
 <h3><a class="title-link" name="torque-application" href="#torque-application"></a> Torque application</h3>
@@ -87,7 +87,7 @@
 <p>Under the <strong>Realtime Web Upload</strong> header:</p>
 <ul>
   <li>Check <strong>Upload to webserver</strong>.</li>
-  <li>Enter <code class="highlighter-rouge">http://HOST:PORT/api/torque?api_password=YOUR_PASSWORD</code> as the <strong>Webserver URL</strong>, where <code class="highlighter-rouge">HOST</code> and <code class="highlighter-rouge">PORT</code> are your externally-accessible Home Assistant HTTP host and port and YOUR_PASSWORD is your password.</li>
+  <li>Enter <code class="highlighter-rouge">http://HOST:PORT/api/torque?api_password=YOUR_PASSWORD</code> as the <strong>Webserver URL</strong>, where <code class="highlighter-rouge">HOST</code> and <code class="highlighter-rouge">PORT</code> are your externally accessible Home Assistant HTTP host and port and YOUR_PASSWORD is your Home Assistant’s <a href="/components/http/">API password</a>. It highly recommended that you protect your Home Assistant instance with <a href="/docs/ecosystem/certificates/">SSL/TSL</a>.</li>
   <li>Enter an email address in <strong>User Email Address</strong>.</li>
   <li>Optionally set the <strong>Web Logging Interval</strong>. The 2-second default may quickly fill up the Home Assistant history database.</li>
 </ul>
