@@ -49,7 +49,7 @@ set for your Hub so the platform knows what Hub you are trying to configure.
 Configuration variables:
 
 - **name** (*Required*): The hub's name to display in the frontend.
-- **host** (*Required*): The Harmony device's IP address.
+- **host** (*Optional*): The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
 - **port** (*Optional*): The Harmony device's port. Defaults to 5222.
 - **activity** (*Optional*): Activity to use when turnon service is called without any data.
 - **scan_interval** (*Optional*): Amount in seconds in between polling for device's current activity. Defaults to 30 seconds.
