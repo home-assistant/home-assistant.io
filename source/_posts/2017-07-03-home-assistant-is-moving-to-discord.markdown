@@ -14,7 +14,7 @@ Communities grow, things change. We understand that some people don't like chang
 
 Click `Read on →` to find out more about why we're moving.
 
-<!--more--> 
+<!--more-->
 
 ### {% linkable_title Easy to join %}
 
