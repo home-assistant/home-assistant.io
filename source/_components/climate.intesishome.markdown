@@ -29,7 +29,7 @@ climate:
 
 This component opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
 
-By default the component will be named using the friendly device name from the IntesisHome website or app.
+By default the component will be named using the friendly device name from the IntesisHome website or application.
 
 ### {% linkable_title Supported services %}
 Available services: `climate.set_temperature`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`
