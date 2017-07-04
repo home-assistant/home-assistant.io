@@ -57,14 +57,6 @@ This is the most private option but requires a bit more work. There are multiple
 # Example configuration.yaml entry
 mqtt:
   broker: 192.168.1.100
-  port: 1883
-  client_id: home-assistant-1
-  keepalive: 60
-  username: USERNAME
-  password: PASSWORD
-  protocol: 3.1
-  tls_insecure: True
-  tls_version: 1.2
 ```
 
 Configuration variables:
@@ -76,6 +68,7 @@ Configuration variables:
 - **username** (*Optional*): The username to use with your MQTT broker.
 - **password** (*Optional*): The corresponding password for the username to use with your MQTT broker.
 - **protocol** (*Optional*): Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.
+- **certificate** (*Optional*): Path to the certificate file, eg. `/home/user/.homeassistant/server.crt`.
 - **tls_insecure** (*Optional*): Set the verification of the server hostname in the server certificate.
 - **tls_version** (*Optional*): TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`.
 
