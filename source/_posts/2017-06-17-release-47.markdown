@@ -85,7 +85,7 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 - Add Flexit AC climate platform ([@Sabesto] - [#7871]) ([climate.flexit docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -563,7 +563,6 @@ automation:
 [zwave docs]: https://home-assistant.io/components/zwave/
 [zwave blog post]: https://home-assistant.io/blog/2017/06/15/zwave-entity-ids/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [first-commit]: https://home-assistant.io/help/trivia/#first-commit
 [#8080]: https://github.com/home-assistant/home-assistant/pull/8080
@@ -575,3 +574,4 @@ automation:
 [fan.dyson docs]: https://home-assistant.io/components/fan.dyson/
 [remote.itach docs]: https://home-assistant.io/components/remote.itach/
 [sensor.dyson docs]: https://home-assistant.io/components/sensor.dyson/
+[discord]: https://discord.gg/c5DvZ4e

@@ -84,7 +84,7 @@ sensor:
 ```
 
 ## If you need help...
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -487,7 +487,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zwave docs]: /components/zwave/
 [zwave.node_entity docs]: /components/zwave.node_entity/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7204]: https://github.com/home-assistant/home-assistant/pull/7204
 [#7214]: https://github.com/home-assistant/home-assistant/pull/7214
@@ -519,3 +518,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notify.html5 docs]: https://home-assistant.io/components/notify.html5/
 [notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
 [telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
+[discord]: https://discord.gg/c5DvZ4e

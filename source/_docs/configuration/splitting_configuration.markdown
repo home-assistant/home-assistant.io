@@ -152,7 +152,7 @@ You'll notice that this example includes a secondary parameter section (under th
 
 That about wraps it up.
 
-If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to the [Gitter Chatroom](https://gitter.im/balloob/home-assistant) and ask away.
+If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
 ### {% linkable_title Debugging multiple configuration files %}
 
@@ -441,3 +441,5 @@ front_yard:
     - sensor.mailbox
     - camera.front_porch
 ```
+
+[discord]: https://discord.gg/c5DvZ4e

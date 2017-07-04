@@ -55,7 +55,7 @@ sensor:
 - Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both `xy_color` and `rgb_color`. ([@amelchio] - [#7765]) (breaking change)
 
 ## {% linkable_title If you need help... %}
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -382,7 +382,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zoneminder docs]: https://home-assistant.io/components/zoneminder/
 [zwave docs]: https://home-assistant.io/components/zwave/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7780]: https://github.com/home-assistant/home-assistant/pull/7780
 [#7841]: https://github.com/home-assistant/home-assistant/pull/7841
@@ -397,3 +396,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.metoffice docs]: https://home-assistant.io/components/sensor.metoffice/
 [sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
 [media_player.roku docs]: https://home-assistant.io/components/media_player.roku/
+[discord]: https://discord.gg/c5DvZ4e

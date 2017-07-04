@@ -50,13 +50,13 @@ With this image there also quite a bit of cleaning of the base system and the sc
 There's of course more on the horizon and there's even more plans and wishes for how this image will function in the future.
 On the close horizon from [@Landrash][landrash-github] there a few more script in the works and for tellstick, emulated_hue and for controlling Home Assistant.
 
-To follow discussions about the development of the HASSbian image or to contribute join the [HASSbian gitter chat][hassbian-gitter].
+To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord].
  
 To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
  
 [cec]: /components/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: hassbian.local
-[hassbian-gitter]: https://gitter.im/home-assistant/hassbian
 [landrash-github]: https://github.com/Landrash
 [gs-image]: /getting-started/installation-raspberry-pi-image/
+[discord]: https://discord.gg/8X8DTH4
