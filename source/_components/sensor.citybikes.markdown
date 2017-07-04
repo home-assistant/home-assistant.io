@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_release: 0.48
+ha_release: 0.49
 ---
 
 
