@@ -32,11 +32,11 @@ We have been quite lucky so far as to not have much inappropriate behavior (spam
 
 ### {% linkable_title Great multiple server support %}
 
-Do you already have a Discord account? Great, you can use that account to [join in on the conversation][discord] now. One Discord account works with every Discord server, and it is extremely easy to switch between your servers quickly, and even join new ones. Discord messages also work across servers, so your personal conversations are not scoped to a single server.
+Do you already have a Discord account? Great! You can use that account to [join in on the conversation][discord] now. One Discord account works with every Discord server. It is extremely easy to switch between servers or join new ones. Discord messages also work across servers, so your personal conversations are not scoped to a single server.
 
 ### {% linkable_title It's hosted %}
 
-We are big fans of self-hosted apps and services, but everyone knows they require a fair amount of maintenance and attention to keep them running smoothly. Discord is hosted on on their own servers, so it's better to let them maintain the service while we keep busy on improving Home Assistant to bring you bigger and better features!
+We are big fans of self-hosted apps and services, but everyone knows they require a fair amount of maintenance and attention to keep them running smoothly. Discord is hosted on its own servers, so it's better to let them maintain the service while we keep busy improving Home Assistant to bring you new and exciting features!
 
 ### {% linkable_title Plenty of features %}
 
@@ -46,11 +46,11 @@ Syntax highlighting, voice chats, ability to search chatrooms, private messaging
 
 Are you convinced and ready to make the switch? Join us, we're just [one click away][discord]!
 
-Not convinced? Please take a moment to reach out to us in the comments below to provide your feedback on this change so that we can help making the switch easier for you and everyone else.
+Not convinced? Please take a moment to reach out to us in the comments below to provide your feedback on this change so that we can help make the switch easier for you and everyone else.
 
 ## {% linkable_title The fine print... %}
 
-In the process of switching chat platforms we have decided to go ahead and create what we feel is a very fair set of rules for our chat community. As growth continues, these rules might change. Also be sure to check the [#welcome-rules][discord] channel for the most up-to-date rules for our chat server.
+In the process of switching chat platforms we have decided to create what we feel is a very fair set of rules for our chat community. As growth continues, these rules might change. Also be sure to check the [#welcome-rules][discord] channel for the most up-to-date rules for our chat server.
 
 ### {% linkable_title The rules... %}
 
