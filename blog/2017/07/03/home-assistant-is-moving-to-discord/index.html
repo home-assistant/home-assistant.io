@@ -6,24 +6,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home Assistant meets IFTTT - Home Assistant</title>
-    <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Announcing new integration with IFTTT and some samples to get started.">
+    <title>Home Assistant is moving to Discord - Home Assistant</title>
+    <meta name="author" content="Dale Higgs">
+    <meta name="description" content="The Home Assistant chat community is moving over to Discord.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/09/13/home-assistant-meets-ifttt/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Home Assistant meets IFTTT">
+    <meta property="og:title" content="Home Assistant is moving to Discord">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/09/13/home-assistant-meets-ifttt/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Announcing new integration with IFTTT and some samples to get started.">
-    <meta property="og:image" content="https://home-assistant.io/images/blog/2015-09-ifttt/og_facebook.png">
+    <meta property="og:description" content="The Home Assistant chat community is moving over to Discord.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Home Assistant meets IFTTT">
-    <meta name="twitter:description" content="Announcing new integration with IFTTT and some samples to get started.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2015-09-ifttt/og_facebook.png">
+    <meta name="twitter:creator" content="@dale3h">
+    <meta name="twitter:title" content="Home Assistant is moving to Discord">
+    <meta name="twitter:description" content="The Home Assistant chat community is moving over to Discord.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
@@ -70,16 +70,15 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">Home Assistant meets IFTTT</h1>
+  <h1 class="title indent">Home Assistant is moving to Discord</h1>
   <div class="meta clearfix">
-    <time datetime="2015-09-13T16:28:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 13, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
+    <time datetime="2017-07-03T23:28:01+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 3, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Dale Higgs</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>How-To</li>
-        <li>Release-Notes</li>
+        <li>Community</li>
     </ul>
   </span>
       <a class='comments'
@@ -87,152 +86,57 @@
          >Comments</a>
   </div>
 </header>
-  <p>Today we announce the release of Home Assistant v0.7.2 which includes brand new support by <a href="https://github.com/sfam">@sfam</a> to integrate with <a href="https://ifttt.com">IFTTT</a>. IFTTT stands for If This, Then That and is a webservice that integrates with almost every possible webservice out there. Adding Home Assistant to this mix means Home Assistant can connect with all via IFTTT.</p>
-<p>It is now possible to disable your irregation system if it is going to be cloudy tomorrow or tweet if your smoke alarm goes off.</p>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/splash.png" />
-</p>
-<p>Head over to the <a href="/components/ifttt/">setup instructions</a> to get started with IFTTT. Click the read more button for some example recipes.</p>
+  <p>Communities grow, things change. We understand that some people don’t like change, and that is why we are trying to make our chat transition from Gitter to <a href="https://discord.gg/c5DvZ4e">Discord</a> as smooth as possible for everyone. Join us now with <a href="https://discord.gg/c5DvZ4e">just a click</a>!</p>
+<p>Click <code class="highlighter-rouge">Read on →</code> to find out more about why we’re moving.</p>
 <a name="read-more"></a>
-<p>In each of the following examples, make sure to replace the XXX in the url with your correct host address and api password.</p>
-<h2><a class="title-link" name="turn-off-irregation-system-when-not-needed" href="#turn-off-irregation-system-when-not-needed"></a> Turn off irregation system when not needed</h2>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/recipe-weather.png" />
-</p>
-<p>Maker channel setup:</p>
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>URL</td>
-      <td>http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx</td>
-    </tr>
-    <tr>
-      <td>METHOD</td>
-      <td>POST</td>
-    </tr>
-    <tr>
-      <td>CONTENT TYPE</td>
-      <td>application/json</td>
-    </tr>
-    <tr>
-      <td>BODY</td>
-      <td>{ “entity_id”: “switch.irrigation” }</td>
-    </tr>
-  </tbody>
-</table>
-<h2><a class="title-link" name="tweet-when-important-events-happen" href="#tweet-when-important-events-happen"></a> Tweet when important events happen</h2>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/recipe-twitter.png" />
-</p>
-<p>This will tweet a message when an MQTT message is received that the smoke alarm has been triggered. Setup Maker channel with event name <code class="highlighter-rouge">HA_FIRE_ALARM</code> and Twitter channel to tweet the message in <code class="highlighter-rouge">value1</code>.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Configuration.yaml entry</span>
-<span class="s">automation</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Post a tweet when fire alarm is triggered</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-    <span class="s">mqtt_topic</span><span class="pi">:</span> <span class="s">home/alarm/fire</span>
-    <span class="s">mqtt_payload</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
-
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">ifttt.trigger</span>
-    <span class="s">data</span><span class="pi">:</span> <span class="pi">{</span><span class="s2">"</span><span class="s">event"</span><span class="pi">:</span><span class="s2">"</span><span class="s">HA_FIRE_ALARM"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">value1"</span><span class="pi">:</span><span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">fire</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">just</span><span class="nv"> </span><span class="s">triggered!"</span><span class="pi">}</span>
-</code></pre>
-</div>
-<h2><a class="title-link" name="turn-on-lights-when-i-get-home" href="#turn-on-lights-when-i-get-home"></a> Turn on lights when I get home</h2>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/recipe-geo.png" />
-</p>
-<p>Maker channel setup:</p>
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>URL</td>
-      <td>http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx</td>
-    </tr>
-    <tr>
-      <td>METHOD</td>
-      <td>POST</td>
-    </tr>
-    <tr>
-      <td>CONTENT TYPE</td>
-      <td>application/json</td>
-    </tr>
-    <tr>
-      <td>BODY</td>
-      <td>{ “entity_id”: “light.kitchen” }</td>
-    </tr>
-  </tbody>
-</table>
-<h2><a class="title-link" name="flash-lights-when-a-new-pr-comes-in-for-home-assistant" href="#flash-lights-when-a-new-pr-comes-in-for-home-assistant"></a> Flash lights when a new PR comes in for Home Assistant</h2>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/recipe-github.png" />
-</p>
-<p>Maker channel setup:</p>
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>URL</td>
-      <td>http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx</td>
-    </tr>
-    <tr>
-      <td>METHOD</td>
-      <td>POST</td>
-    </tr>
-    <tr>
-      <td>CONTENT TYPE</td>
-      <td>application/json</td>
-    </tr>
-    <tr>
-      <td>BODY</td>
-      <td>{ “entity_id”: “group.all_lights”, “flash”:”yes” }</td>
-    </tr>
-  </tbody>
-</table>
-<h2><a class="title-link" name="fire-events-when-pressing-the-do-button" href="#fire-events-when-pressing-the-do-button"></a> Fire events when pressing the DO button</h2>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/recipe-do.png" />
-</p>
-<p>Maker channel setup:</p>
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>URL</td>
-      <td>http://xxx.xxx.xxx.xxx:8123/api/events/do_button_pressed?api_password=xxxxxxxx</td>
-    </tr>
-    <tr>
-      <td>METHOD</td>
-      <td>POST</td>
-    </tr>
-    <tr>
-      <td>CONTENT TYPE</td>
-      <td>application/json</td>
-    </tr>
-  </tbody>
-</table>
+<h3><a class="title-link" name="easy-to-join" href="#easy-to-join"></a> Easy to join</h3>
+<p>Discord is a very easy platform to join. New users can immediately jump into the conversations without first having to create an account. Just provide your name and you’re in!</p>
+<p>This is incredibly valuable for us and will make Home Assistant even more accessible than before.</p>
+<h3><a class="title-link" name="great-apps" href="#great-apps"></a> Great apps</h3>
+<p>One of our least favorite things about Gitter is the quality of apps that they provide for iOS and Android devices. Discord, on the other hand, has the fastest and most feature-rich mobile apps that we’ve tried! For those of you who like to post pictures to the chatrooms directly from your phone…now you can. It doesn’t stop there; they also provide well-polished clients for Windows, macOS and even Linux. If you’re more of a browser-based chat client person, their web client will be perfect for you.</p>
+<h3><a class="title-link" name="moderation-tools" href="#moderation-tools"></a> Moderation tools</h3>
+<p>We have been quite lucky so far as to not have much inappropriate behavior (spammers, trolls, etc) in our chatrooms. However, as our community continues to grow, this common issue might come up. Discord has the features that will help us shut this behavior down before it gets out of hand.</p>
+<h3><a class="title-link" name="great-multiple-server-support" href="#great-multiple-server-support"></a> Great multiple server support</h3>
+<p>Do you already have a Discord account? Great, you can use that account to <a href="https://discord.gg/c5DvZ4e">join in on the conversation</a> now. One Discord account works with every Discord server, and it is extremely easy to switch between your servers quickly, and even join new ones. Discord messages also work across servers, so your personal conversations are not scoped to a single server.</p>
+<h3><a class="title-link" name="its-hosted" href="#its-hosted"></a> It’s hosted</h3>
+<p>We are big fans of self-hosted apps and services, but everyone knows they require a fair amount of maintenance and attention to keep them running smoothly. Discord is hosted on on their own servers, so it’s better to let them maintain the service while we keep busy on improving Home Assistant to bring you bigger and better features!</p>
+<h3><a class="title-link" name="plenty-of-features" href="#plenty-of-features"></a> Plenty of features</h3>
+<p>Syntax highlighting, voice chats, ability to search chatrooms, private messaging, and even custom emoji! Discord has a great set of features that will keep us all happy for a long time to come. (Pssst…after you join our server, check out the <code class="highlighter-rouge">:ponder:</code> emoji!)</p>
+<h2><a class="title-link" name="join-us" href="#join-us"></a> Join us!</h2>
+<p>Are you convinced and ready to make the switch? Join us, we’re just <a href="https://discord.gg/c5DvZ4e">one click away</a>!</p>
+<p>Not convinced? Please take a moment to reach out to us in the comments below to provide your feedback on this change so that we can help making the switch easier for you and everyone else.</p>
+<h2><a class="title-link" name="the-fine-print" href="#the-fine-print"></a> The fine print…</h2>
+<p>In the process of switching chat platforms we have decided to go ahead and create what we feel is a very fair set of rules for our chat community. As growth continues, these rules might change. Also be sure to check the <a href="https://discord.gg/c5DvZ4e">#welcome-rules</a> channel for the most up-to-date rules for our chat server.</p>
+<h3><a class="title-link" name="the-rules" href="#the-rules"></a> The rules…</h3>
+<h4><a class="title-link" name="rules" href="#rules"></a> Rules:</h4>
+<p>Please carefully read through these rules <strong>before engaging in conversation.</strong></p>
+<ol>
+  <li>
+    <p><strong>New members: Welcome!</strong> Start by reading over the <a href="https://home-assistant.io/faq/">FAQ</a>. Feel free to introduce yourself, as we are all friends here!</p>
+  </li>
+  <li>
+    <p>If you have a question, please check the <a href="https://home-assistant.io/faq/">FAQ</a> and <a href="https://home-assistant.io/docs/">relevant documentation</a> before posting.</p>
+  </li>
+  <li>
+    <p>Do not insult, belittle, or abuse your fellow community members. Any reports of abuse will not be taken lightly and <strong>will lead to a ban.</strong></p>
+  </li>
+  <li>
+    <p>Our moderators are kind enough to volunteer their time to help keep this a great community for everyone. Any inappropriate or unconstructive comments toward or about them <strong>will result in a ban.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://discord.gg/8X8DTH4">#devs</a> is for <strong>development discussion only</strong>. <a href="https://discord.gg/pywKZRT">#general</a> is for common discussion, support questions, and lending help to others. Please use the appropriate channel as it pertains to the nature of your discussion.</p>
+  </li>
+  <li>
+    <p>Spam will not be tolerated, including but not limited to: self-promotion, flooding, codewalls (longer than 15 lines) and unapproved bots.</p>
+  </li>
+</ol>
+<p>These rules are not to be interpreted how you like, there are no “loopholes.” Anyone claiming not to be breaking the rules due to it “not being in the rules” will result in the according consequence. If you are unsure about something, please ask either myself (@dale3h) or the community.</p>
+<p>If you have any issues with anything or anyone on the server please PM me (@dale3h) with any relevant details. <strong>I cannot help anyone if I am unaware of any issues.</strong></p>
+<h4><a class="title-link" name="infractions-and-bans" href="#infractions-and-bans"></a> Infractions and Bans:</h4>
+<p>Bans <strong>will be issued</strong> after one serious infraction or failing to acknowledge warnings of minor infractions. This is non-negotiable.</p>
+<p>Sincerely,</p>
+<p><strong>Dale Higgs</strong><br />
+Community Leader, Home Assistant</p>
 </article>
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
@@ -262,10 +166,10 @@
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/09/13/home-assistant-meets-ifttt/"
-     data-counturl="https://home-assistant.io/blog/2015/09/13/home-assistant-meets-ifttt/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/"
+     data-counturl="https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/09/13/home-assistant-meets-ifttt/"
+         data-href="https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -274,9 +178,6 @@
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-        <li class="post">
-          <a href="/blog/2017/07/03/home-assistant-is-moving-to-discord/">Home Assistant is moving to Discord</a>
-        </li>
         <li class="post">
           <a href="/blog/2017/07/02/release-48/">0.48: Snips.ai, Shiftr.io and a massive History query speed up</a>
         </li>
@@ -324,8 +225,8 @@
 <script>
   var disqus_shortname = 'home-assistant';
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/09/13/home-assistant-meets-ifttt/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/09/13/home-assistant-meets-ifttt/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/';
     var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

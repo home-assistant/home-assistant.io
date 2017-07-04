@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-03T21:16:28+00:00</updated>
+  <updated>2017-07-04T01:57:58+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant is moving to Discord]]></title>
+    <link href="https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/"/>
+    <updated>2017-07-03T23:28:01+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord</id>
+    <content type="html"><![CDATA[<p>Communities grow, things change. We understand that some people don’t like change, and that is why we are trying to make our chat transition from Gitter to <a href="https://discord.gg/c5DvZ4e">Discord</a> as smooth as possible for everyone. Join us now with <a href="https://discord.gg/c5DvZ4e">just a click</a>!</p>
+
+<p>Click <code class="highlighter-rouge">Read on →</code> to find out more about why we’re moving.</p>
+
+<!--more-->
+
+<h3><a class="title-link" name="easy-to-join" href="#easy-to-join"></a> Easy to join</h3>
+
+<p>Discord is a very easy platform to join. New users can immediately jump into the conversations without first having to create an account. Just provide your name and you’re in!</p>
+
+<p>This is incredibly valuable for us and will make Home Assistant even more accessible than before.</p>
+
+<h3><a class="title-link" name="great-apps" href="#great-apps"></a> Great apps</h3>
+
+<p>One of our least favorite things about Gitter is the quality of apps that they provide for iOS and Android devices. Discord, on the other hand, has the fastest and most feature-rich mobile apps that we’ve tried! For those of you who like to post pictures to the chatrooms directly from your phone…now you can. It doesn’t stop there; they also provide well-polished clients for Windows, macOS and even Linux. If you’re more of a browser-based chat client person, their web client will be perfect for you.</p>
+
+<h3><a class="title-link" name="moderation-tools" href="#moderation-tools"></a> Moderation tools</h3>
+
+<p>We have been quite lucky so far as to not have much inappropriate behavior (spammers, trolls, etc) in our chatrooms. However, as our community continues to grow, this common issue might come up. Discord has the features that will help us shut this behavior down before it gets out of hand.</p>
+
+<h3><a class="title-link" name="great-multiple-server-support" href="#great-multiple-server-support"></a> Great multiple server support</h3>
+
+<p>Do you already have a Discord account? Great, you can use that account to <a href="https://discord.gg/c5DvZ4e">join in on the conversation</a> now. One Discord account works with every Discord server, and it is extremely easy to switch between your servers quickly, and even join new ones. Discord messages also work across servers, so your personal conversations are not scoped to a single server.</p>
+
+<h3><a class="title-link" name="its-hosted" href="#its-hosted"></a> It’s hosted</h3>
+
+<p>We are big fans of self-hosted apps and services, but everyone knows they require a fair amount of maintenance and attention to keep them running smoothly. Discord is hosted on on their own servers, so it’s better to let them maintain the service while we keep busy on improving Home Assistant to bring you bigger and better features!</p>
+
+<h3><a class="title-link" name="plenty-of-features" href="#plenty-of-features"></a> Plenty of features</h3>
+
+<p>Syntax highlighting, voice chats, ability to search chatrooms, private messaging, and even custom emoji! Discord has a great set of features that will keep us all happy for a long time to come. (Pssst…after you join our server, check out the <code class="highlighter-rouge">:ponder:</code> emoji!)</p>
+
+<h2><a class="title-link" name="join-us" href="#join-us"></a> Join us!</h2>
+
+<p>Are you convinced and ready to make the switch? Join us, we’re just <a href="https://discord.gg/c5DvZ4e">one click away</a>!</p>
+
+<p>Not convinced? Please take a moment to reach out to us in the comments below to provide your feedback on this change so that we can help making the switch easier for you and everyone else.</p>
+
+<h2><a class="title-link" name="the-fine-print" href="#the-fine-print"></a> The fine print…</h2>
+
+<p>In the process of switching chat platforms we have decided to go ahead and create what we feel is a very fair set of rules for our chat community. As growth continues, these rules might change. Also be sure to check the <a href="https://discord.gg/c5DvZ4e">#welcome-rules</a> channel for the most up-to-date rules for our chat server.</p>
+
+<h3><a class="title-link" name="the-rules" href="#the-rules"></a> The rules…</h3>
+
+<h4><a class="title-link" name="rules" href="#rules"></a> Rules:</h4>
+
+<p>Please carefully read through these rules <strong>before engaging in conversation.</strong></p>
+
+<ol>
+  <li>
+    <p><strong>New members: Welcome!</strong> Start by reading over the <a href="https://home-assistant.io/faq/">FAQ</a>. Feel free to introduce yourself, as we are all friends here!</p>
+  </li>
+  <li>
+    <p>If you have a question, please check the <a href="https://home-assistant.io/faq/">FAQ</a> and <a href="https://home-assistant.io/docs/">relevant documentation</a> before posting.</p>
+  </li>
+  <li>
+    <p>Do not insult, belittle, or abuse your fellow community members. Any reports of abuse will not be taken lightly and <strong>will lead to a ban.</strong></p>
+  </li>
+  <li>
+    <p>Our moderators are kind enough to volunteer their time to help keep this a great community for everyone. Any inappropriate or unconstructive comments toward or about them <strong>will result in a ban.</strong></p>
+  </li>
+  <li>
+    <p><a href="https://discord.gg/8X8DTH4">#devs</a> is for <strong>development discussion only</strong>. <a href="https://discord.gg/pywKZRT">#general</a> is for common discussion, support questions, and lending help to others. Please use the appropriate channel as it pertains to the nature of your discussion.</p>
+  </li>
+  <li>
+    <p>Spam will not be tolerated, including but not limited to: self-promotion, flooding, codewalls (longer than 15 lines) and unapproved bots.</p>
+  </li>
+</ol>
+
+<p>These rules are not to be interpreted how you like, there are no “loopholes.” Anyone claiming not to be breaking the rules due to it “not being in the rules” will result in the according consequence. If you are unsure about something, please ask either myself (@dale3h) or the community.</p>
+
+<p>If you have any issues with anything or anyone on the server please PM me (@dale3h) with any relevant details. <strong>I cannot help anyone if I am unaware of any issues.</strong></p>
+
+<h4><a class="title-link" name="infractions-and-bans" href="#infractions-and-bans"></a> Infractions and Bans:</h4>
+
+<p>Bans <strong>will be issued</strong> after one serious infraction or failing to acknowledge warnings of minor infractions. This is non-negotiable.</p>
+
+<p>Sincerely,</p>
+
+<p><strong>Dale Higgs</strong><br />
+Community Leader, Home Assistant</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.48: Snips.ai, Shiftr.io and a massive History query speed up]]></title>
@@ -65,7 +155,7 @@
 </ul>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
 
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
@@ -383,7 +473,7 @@ Core Developer, Home Assistant</p>
 </ul>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
 
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
@@ -678,7 +768,7 @@ trigger:
 </ul>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
 
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
@@ -879,7 +969,7 @@ If you have a security key set in your Open Z-Wave <code class="highlighter-roug
 </ul>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
 
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
@@ -1179,7 +1269,7 @@ Reading package lists... Done
 <p>Enjoy!</p>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
 
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
@@ -1515,7 +1605,7 @@ $ sudo systemctl start install_homeassistant.service
   <li>Pi ZeroW should now work with the image.</li>
 </ul>
 
-<p>To follow discussions about the development of the HASSbian image or to contribute join the <a href="https://gitter.im/home-assistant/hassbian">HASSbian gitter chat</a>.</p>
+<p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/8X8DTH4">Discord chat server</a>.</p>
 
 <p>To get started with the new image, check out the installation instructions in the <a href="https://home-assistant.io/getting-started/installation-raspberry-pi-image/">getting started section</a>.</p>
 
@@ -1682,7 +1772,7 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
 </div>
 
 <h2>If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://gitter.im/home-assistant/home-assistant">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
 
 <h2>Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
@@ -1966,46 +2056,6 @@ After automatic discovery, Home Assistant will ask the user to finish pairing wi
 <p>With Trådfri, IKEA has managed to put out an affordable and secure home automation system that does not compromise on functionality or design. There are still some downsides which I expect to get resolved in the future.</p>
 
 <p>As it currently stands, this is going to be the perfect companion hardware to work with Home Assistant: local, affordable, secure. And as cherry on the pie, local push will make us aware of changes right away.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[1 year and 22 days ago I had an idea...]]></title>
-    <link href="https://home-assistant.io/blog/2017/04/15/ios/"/>
-    <updated>2017-04-15T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/04/15/ios</id>
-    <content type="html"><![CDATA[<p>1 year and 22 days ago, or 387 days ago, on March 25th, 2016, I started a project to bring Home Assistant to the iPhone.</p>
-
-<p>I thought the existing notification and location solutions were lacking in one way or another and had wanted for <em>years</em> to have a project I could call my own which would allow me to learn iOS development. What better way then implementing an extremely complex application like Home Assistant?</p>
-
-<p>I started with a lot of steam. I remember cranking out the initial work that night and showing Paulus who was astounded at how fast the UI was coming together.</p>
-
-<p>Little would I know how many problems I would create and uncover throughout the process. Writing a mobile app for a project that moves as fast as Home Assistant is… tricky, to say the least. In the time since I started writing the app, Home Assistant had 90 releases. I started writing the day before 0.16 was released. Now we are at 0.42.3. Time flies…</p>
-
-<p>I couldn’t have completed the app without help and input from the community. By the end I had 700 beta testers, of which about 500 were very active in testing the app.</p>
-
-<p>I received emails and forum posts almost every day, even when the app would go without an update for weeks and sometimes months at a time as my life got busier and busier.</p>
-
-<p>I wanted this app to be done 9 months ago, at least, but my drive to add more and more features killed that idea. This really taught me the value of the MVP over the kitchen sink.</p>
-
-<p>It may not look the way that I wanted it to initially, with beautiful native UI components, but thats okay. What I really cared about is there. The notification and location engines are some of the most customizable and powerful available in an iOS app if I do say so myself. I made them this way to keep with the spirit of infinite flexibility that is enshrined in Home Assistant.</p>
-
-<p>Just because the app is released doesn’t mean we are at the end of the road. It’s only the beginning. There’s plenty of bugs to fix still, improvements to make, features to add. Beta testing will continue, and if anything, be expanded. I do want to have a native UI someday, but that’s pretty hard with how fast the project moves.</p>
-
-<p>The biggest request I have is for more developers on the project. As many of you know, I have my hands in many different parts of Home Assistant, from governance and organization to managing the forums to writing this app, managing the Homebridge plugin and even sometimes writing code for the actual core codebase! I can’t do it all, and I’m still a new iOS developer who doesn’t know all the best practices.</p>
-
-<p>The app is <a href="https://github.com/home-assistant/home-assistant-iOS">open source</a>, has been for the last few months when I first prepared to submit it to Apple for review. I invite Swift developers to come and join me in building it. Trust me, there’s tons to do.</p>
-
-<p><strong>1 year and 22 days ago, on March 25th, 2016 I began work on Home Assistant for iOS.</strong></p>
-
-<p><strong>Today, April 16th, 2017, I am <em>extremely</em> excited to announce that Home Assistant for iOS has been approved by Apple and is now available to download for <del>a monthly subscription starting at $9.99</del> free! (had to get a joke in here somewhere!) on the iOS App Store in every country.</strong></p>
-
-<p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
-
-<p><em>Please note, you must have Home Assistant 0.42.4 or later installed for the app to function properly.</em></p>
-
-<p>Thanks for everything so far, I’m looking forward to the road that lies ahead for Home Assistant on iOS!</p>
 
 ]]></content>
   </entry>
