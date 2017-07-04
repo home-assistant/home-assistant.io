@@ -78,6 +78,7 @@
 <p>There is currently support for the following device types within Home Assistant:</p>
 <ul>
   <li><a href="/components/binary_sensor.knx">Binary Sensor</a></li>
+  <li><a href="/components/cover.knx">Cover</a></li>
   <li><a href="/components/sensor.knx">Sensor</a></li>
   <li><a href="/components/switch.knx">Switch</a></li>
   <li><a href="/components/light.knx">Light</a></li>
@@ -131,52 +132,184 @@
     </ul>
     </div>
     <div class='section'>
-    <h1 class="title delta">Category DIY</h1>
+    <h1 class="title delta">Category Hub</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/arduino/'>Arduino</a>
+            <a href='/components/apcupsd/'>APCUPSd</a>
         </li>
         <li>
-            <a href='/components/sensor.arduino/'>Arduino Sensor</a>
+            <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
         </li>
         <li>
-            <a href='/components/switch.arduino/'>Arduino Switch</a>
+            <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
         </li>
         <li>
-            <a href='/components/bbb_gpio/'>BeagleBone Black GPIO</a>
+            <a href='/components/arlo/'>Arlo</a>
         </li>
         <li>
-            <a href='/components/sensor.dht/'>DHT Sensor</a>
+            <a href='/components/axis/'>Axis</a>
         </li>
         <li>
-            <a href='/components/sensor.eddystone_temperature/'>Eddystone Beacon</a>
+            <a href='/components/wemo/'>Belkin WeMo</a>
+        </li>
+        <li>
+            <a href='/components/blink/'>Blink</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
+            <a href='/components/eight_sleep/'>Eight Sleep</a>
+        </li>
+        <li>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
+        </li>
+        <li>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
+        </li>
+        <li>
+            <a href='/components/homematic/'>Homematic</a>
+        </li>
+        <li>
+            <a href='/components/tradfri/'>IKEA Trådfri (Tradfri)</a>
+        </li>
+        <li>
+            <a href='/components/isy994/'>ISY994 Controller</a>
+        </li>
+        <li>
+            <a href='/components/insteon_local/'>Insteon (local)</a>
+        </li>
+        <li>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/insteon_plm/'>Insteon PLM</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
         </li>
         <li>
             KNX
         </li>
         <li>
-            <a href='/components/sensor.miflora/'>Mi Flora plant sensor</a>
+            <a href='/components/kira/'>Kira</a>
         </li>
         <li>
-            <a href='/components/sensor.onewire/'>One wire Sensor</a>
+            <a href='/components/litejet/'>LiteJet</a>
         </li>
         <li>
-            <a href='/components/sensor.serial_pm/'>Particulate matter Sensor</a>
+            <a href='/components/lutron/'>Lutron</a>
         </li>
         <li>
-            <a href='/components/rpi_pfio/'>PiFace Digital I/O</a>
+            <a href='/components/lutron_caseta/'>Lutron Caseta</a>
         </li>
         <li>
-            <a href='/components/rpi_gpio/'>Raspberry PI GPIO</a>
+            <a href='/components/mqtt/'>MQTT</a>
         </li>
         <li>
-            <a href='/components/raspihats/'>Raspihats</a>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
         </li>
         <li>
-            <a href='/components/sensor.skybeacon/'>Skybeacon sensor</a>
+            <a href='/components/mochad/'>Mochad</a>
         </li>
         <li>
-            <a href='/components/zigbee/'>ZigBee</a>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>RFLink</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/ring/'>Ring</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/tado/'>Tado</a>
+        </li>
+        <li>
+            <a href='/components/telegram_bot/'>Telegram chatbot</a>
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
+        </li>
+        <li>
+            <a href='/components/zha/'>Zigbee Home Automation</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
         </li>
     </ul>
     </div>
