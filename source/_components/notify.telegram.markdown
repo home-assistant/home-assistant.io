@@ -125,6 +125,7 @@ Configuration variables:
 Since Homeassistant version 0.48 you have to whitelist the source folder of the file you want to include in the notification.
 
 ```yaml
+configuration.yaml
 ...
 homeassistant:
   whitelist_external_dirs:
