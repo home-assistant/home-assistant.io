@@ -38,6 +38,16 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 
 [issue-polymer]: https://github.com/home-assistant/home-assistant-polymer/issues
 
+## {% linkable_title Release 0.48.1 - July 5 %}
+
+- Fix arlo sensors. ([@bergemalm] - [#8333]) ([sensor.arlo docs])
+- API POST no longer marks the number zero as invalid ([@azogue] - [#8324]) ([api docs])
+- Fix Snips json schema ([@adrienball] - [#8317]) ([snips docs])
+- Fix pathlib resolve ([@pvizeli] - [#8311])
+- Fix harmony ([@balloob] - [#8302]) ([remote.harmony docs])
+- Fix Arlo startup crash (fixes #8288) ([@fabaff] - [#8290]) ([camera.arlo docs])
+- Temporary fix for the client_id generation (fixes #8315) ([@fabaff] - [#8336]) ([mqtt docs])
+
 ## {% linkable_title New Platforms %}
 
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
@@ -511,3 +521,18 @@ light:
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
+[#8290]: https://github.com/home-assistant/home-assistant/pull/8290
+[#8302]: https://github.com/home-assistant/home-assistant/pull/8302
+[#8311]: https://github.com/home-assistant/home-assistant/pull/8311
+[#8317]: https://github.com/home-assistant/home-assistant/pull/8317
+[#8324]: https://github.com/home-assistant/home-assistant/pull/8324
+[#8333]: https://github.com/home-assistant/home-assistant/pull/8333
+[#8336]: https://github.com/home-assistant/home-assistant/pull/8336
+[@adrienball]: https://github.com/adrienball
+[@bergemalm]: https://github.com/bergemalm
+[api docs]: https://home-assistant.io/components/api/
+[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
+[mqtt docs]: https://home-assistant.io/components/mqtt/
+[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
+[sensor.arlo docs]: https://home-assistant.io/components/sensor.arlo/
+[snips docs]: https://home-assistant.io/components/snips/
