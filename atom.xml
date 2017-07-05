@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-04T21:09:18+00:00</updated>
+  <updated>2017-07-05T03:55:46+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -123,17 +123,17 @@ Community Leader, Home Assistant</p>
 </code></pre>
 </div>
 
-<h2>Big speed up in querying the history</h2>
+<h2><a class="title-link" name="big-speed-up-in-querying-the-history" href="#big-speed-up-in-querying-the-history"></a> Big speed up in querying the history</h2>
 
 <p>Thanks to the work by <a href="https://github.com/cmsimike">@cmsimike</a> in <a href="https://github.com/home-assistant/home-assistant/pull/8255">#8255</a> you’ll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️</p>
 
-<h2>Snips.ai component</h2>
+<h2><a class="title-link" name="snipsai-component" href="#snipsai-component"></a> Snips.ai component</h2>
 
 <p>Snips has contributed a component to integrate with their Snips.ai local voice assistant. This will allow you to hook a speaker and a microphone into your Raspberry Pi and make your own local Amazon Echo quickly. See <a href="https://home-assistant.io/components/snips/">the docs</a> for further instructions.</p>
 
 <p>Also a shoutout to <a href="https://github.com/michaelarnauts">@michaelarnauts</a> for keeping an eye on our Docker build and once again reducing the file size 👍</p>
 
-<h2>New Platforms</h2>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
 
 <ul>
   <li>Add initial support for Shiftr.io (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7974">#7974</a>) (<a href="https://home-assistant.io/components/shiftr/">shiftr docs</a>) (new-platform)</li>
@@ -162,7 +162,7 @@ Community Leader, Home Assistant</p>
 
 <!--more-->
 
-<h2>Breaking Changes</h2>
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking Changes</h2>
 
 <ul>
   <li>We have added a new option to whitelist folders that can be used as sources for sending files. You will need to use this option if you are using files with the telegram component. (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8189">#8189</a>) (breaking change)</li>
@@ -213,7 +213,7 @@ Community Leader, Home Assistant</p>
 </code></pre>
 </div>
 
-<h2>All changes</h2>
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
 
 <ul>
   <li>Update numpy 1.13.0 (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8059">#8059</a>) (<a href="https://home-assistant.io/components/image_processing.opencv/">image_processing.opencv docs</a>)</li>
