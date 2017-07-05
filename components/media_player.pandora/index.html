@@ -76,9 +76,13 @@
   <hr class="divider">
   <p>If you have a Pandora account, you can control it from Home Assistant with this media player.</p>
 <h3><a class="title-link" name="installation-of-pianobar" href="#installation-of-pianobar"></a> Installation of Pianobar</h3>
-<p>This media player uses the <a href="https://github.com/PromyLOPh/pianobar">Pianobar command-line Pandora client</a>, which you have to install separately. This can be done on a Raspberry Pi 2 with Raspbian Jesse as follows . <em>(Note: Other platforms may have different installation processes)</em></p>
-<p>Install the following dependencies:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson0-dev make pkg-config libav-tools libavcodec-extra libavcodec-dev libcurl4-openssl-dev  libavfilter-dev libavformat-dev
+<p>This media player uses the <a href="https://github.com/PromyLOPh/pianobar">Pianobar command-line Pandora client</a>, which you have to install separately. This can be done on a Raspberry Pi 2/3 with Raspbian Jessie as follows . <em>(Note: Other platforms may have different installation processes)</em></p>
+<p>The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with ffmpeg, so you should make sure you go through the backport process documented in <a href="https://home-assistant.io/components/ffmpeg/">The FFmpeg component</a> before doing this. Install the following basic dependencies:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson0-dev make pkg-config  libcurl4-openssl-dev  
+</code></pre>
+</div>
+<p>And now install the backported ffmpeg-related libraries (note that if you’re using an older version of ffmpeg for other things on this machine, you may encounter issues after doings this):</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get -t jessie-backports install libav-tools libavcodec-extra libavcodec-dev libavfilter-dev libavformat-dev
 </code></pre>
 </div>
 <p>Now clone the Pianobar repo and build pianobar:</p>
