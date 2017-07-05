@@ -32,7 +32,7 @@ light:
         set_level:
           service: script.theater_lights_level
           data_template:
-          volume_level: "{% raw %}{{brightness}}{% endraw %}"
+          brightness: "{% raw %}{{brightness}}{% endraw %}"
         level_template: "{% raw %}{{is_state('sensor.theater_brightness.attributes.lux'}}{% endraw %}"
 ```
 
