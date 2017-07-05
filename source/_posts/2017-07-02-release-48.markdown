@@ -26,11 +26,11 @@ zwave:
   new_entity_ids: false
 ```
 
-## Big speed up in querying the history
+## {% linkable_title Big speed up in querying the history %}
 
 Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️ 
 
-## Snips.ai component
+## {% linkable_title Snips.ai component %}
 
 Snips has contributed a component to integrate with their Snips.ai local voice assistant. This will allow you to hook a speaker and a microphone into your Raspberry Pi and make your own local Amazon Echo quickly. See [the docs][snips docs] for further instructions.
 
@@ -38,7 +38,7 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 
 [issue-polymer]: https://github.com/home-assistant/home-assistant-polymer/issues
 
-## New Platforms
+## {% linkable_title New Platforms %}
 
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Upnp properties ([@dgomes] - [#8067]) ([upnp docs]) ([sensor.upnp docs]) (new-platform)
@@ -65,7 +65,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## {% linkable_title Breaking Changes %}
 
 - We have added a new option to whitelist folders that can be used as sources for sending files. You will need to use this option if you are using files with the telegram component. ([@pvizeli] - [#8189]) (breaking change)
 
@@ -110,7 +110,7 @@ light:
         fade: none
 ```
 
-## All changes
+## {% linkable_title All changes %}
 
 - Update numpy 1.13.0 ([@pvizeli] - [#8059]) ([image_processing.opencv docs])
 - No update in MQTT Binary Sensor #7478 ([@pezinek] - [#8057])
