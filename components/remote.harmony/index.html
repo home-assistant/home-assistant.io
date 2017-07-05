@@ -82,18 +82,29 @@
   <li>Harmony Pro</li>
   <li>Harmony Elite</li>
 </ul>
-<p>To use your Harmony remote in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>The preferred way to setup the Harmony remote is by enabling the <a href="/components/discovery/">discovery component</a>.</p>
+<p>However, if you want to manually configure the device, you will need to add its settings to your <code class="highlighter-rouge">configuration.yaml</code>.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">remote</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">harmony</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Bedroom</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">10.168.1.13</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">10.168.1.13</span>   <span class="c1"># The IP of your hub</span>
+</code></pre>
+</div>
+<p>You can override some default configuration values on a discovered hub (e.g. the <code class="highlighter-rouge">port</code> or <code class="highlighter-rouge">activity</code>) by adding
+a <code class="highlighter-rouge">configuration.yaml</code> setting. In this case leave the <code class="highlighter-rouge">host</code> setting empty so the platform will
+discover the host IP automatically, but set the <code class="highlighter-rouge">name</code> in the config to match exactly the name you have
+set for your Hub so the platform knows what Hub you are trying to configure.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with discovery</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">harmony</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room</span>    <span class="c1"># This name must match the name you have set on the Hub</span>
+    <span class="s">activity</span><span class="pi">:</span> <span class="s">Watch TV</span>   <span class="c1"># Overriding the 'activity' setting for this discovered hub</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Required</em>): The hub’s name to display in the frontend.</li>
-  <li><strong>host</strong> (<em>Required</em>): The Harmony device’s IP address.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The Harmony device’s IP address. Leave empty for the IP to be discovered automatically.</li>
   <li><strong>port</strong> (<em>Optional</em>): The Harmony device’s port. Defaults to 5222.</li>
   <li><strong>activity</strong> (<em>Optional</em>): Activity to use when turnon service is called without any data.</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Amount in seconds in between polling for device’s current activity. Defaults to 30 seconds.</li>
@@ -178,12 +189,12 @@
       <span class="s">data_template</span><span class="pi">:</span>
       <span class="c1"># using a data template to have if brances for relavant device</span>
         <span class="c1"># Always the same entity_id - the harmony hub</span>
-        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">remote.bedroom</span> 
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">remote.bedroom</span>
         <span class="c1"># Always the same command - the Pause key</span>
         <span class="s">command</span><span class="pi">:</span> <span class="s">Pause</span>
         <span class="c1"># select device based upon the activity being undertaken.</span>
         <span class="s">device</span><span class="pi">:</span> <span class="pi">&gt;</span>
-          <span class="no"># when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101 </span>
+          <span class="no"># when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101</span>
           <span class="no">{% if is_state("sensor.bedroom", "WATCH TV") %}{% raw %}</span>
             <span class="no">22987101</span>
           <span class="no"># when in WATCH APPLE TV activity, the pause key relates to an Apple TV, which is device 23002316</span>
