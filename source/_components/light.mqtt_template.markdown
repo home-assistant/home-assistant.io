@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Light
-ha_iot_class: "Local Push"
+ha_iot_class: depends
 ha_release: 0.33
 ---
 
@@ -39,16 +39,16 @@ Configuration variables:
 - **effect_list** (*Optional*): List of possible effects.
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the light's state.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
-- **command_on_template** (*Required*): The template for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `flash`, `transition` and `effect`.
-- **command_off_template** (*Required*): The template for *off* state changes. Available variables: `state` and `transition`.
-- **state_template** (*Optional*): Template to extract state from the state payload value.
-- **brightness_template** (*Optional*): Template to extract brightness from the state payload value.
-- **red_template** (*Optional*): Template to extract red color from the state payload value.
-- **green_template** (*Optional*): Template to extract green color from the state payload value.
-- **blue_template** (*Optional*): Template to extract blue color from the state payload value.
-- **color_temp_template** (*Optional*): Template to extract color temperature from the state payload value.
-- **effect_template** (*Optional*): Template to extract effect from the state payload value.
-- **white_value_template** (*Optional*): Template to extract white value from the state payload value.
+- **command_on_template** (*Required*): The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `flash`, `transition` and `effect`.
+- **command_off_template** (*Required*): The [template](/docs/configuration/templating/#processing-incoming-data) for *off* state changes. Available variables: `state` and `transition`.
+- **state_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract state from the state payload value.
+- **brightness_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value.
+- **red_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value.
+- **green_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value.
+- **blue_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value.
+- **color_temp_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value.
+- **effect_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract effect from the state payload value.
+- **white_value_template** (*Optional*): [Template](/docs/configuration/templating/#processing-incoming-data) to extract white value from the state payload value.
 - **optimistic** (*Optional*): Flag that defines if the light works in optimistic mode. Default is true if no state topic or state template is defined, else false.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 

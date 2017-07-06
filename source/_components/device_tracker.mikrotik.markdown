@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: mikrotik.png
 ha_category: Presence Detection
-ha_release: "0.43"
+ha_release: 0.44
 ---
 
 
-The `Mikrotik` platform offers presence detection by looking at connected devices to a [Mikrotik Routerboard](http://routerboard.com) based router.
+The `mikrotik` platform offers presence detection by looking at connected devices to a [Mikrotik Routerboard](http://routerboard.com) based router.
 
 To use an Mikrotik router in your installation, add the following to your `configuration.yaml` file:
 
@@ -21,10 +21,9 @@ To use an Mikrotik router in your installation, add the following to your `confi
 # Example configuration.yaml entry
 device_tracker:
   - platform: mikrotik
-    host: 192.168.81.1
-    username: admin
-    password: hellomoto
-    port: 1603
+    host: IP_ADDRESS
+    username: ADMIN_USERNAME
+    password: ADMIN_PASSWORD
 ```
 
 Configuration variables:
@@ -32,6 +31,6 @@ Configuration variables:
 - **host** (*Required*): The IP address of your router.
 - **username** (*Required*: The username of an user with administrative privileges.
 - **password** (*Required*): The password for your given admin account.
-- **port** (*Optional*): Mikrotik api port (See IP -> Services -> api ), default 8728
+- **port** (*Optional*): Mikrotik API port (see IP -> Services -> api ). Defaults to `8728`.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

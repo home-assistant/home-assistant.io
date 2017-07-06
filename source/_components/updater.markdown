@@ -23,6 +23,23 @@ updater:
 
 If you choose not to share any information when checking for updates, you can add `reporting: False`.
 
+It is possible to report the components that you are using to the Home Assistant developers. This will help them focus on improving the popular ones. To enable this option, you have to add `include_used_components: True`. 
+
+```json
+"components": [
+    "apcupsd",
+    "api",
+    "automation",
+    "binary_sensor",
+    "binary_sensor.zwave",
+    "camera",
+    "camera.uvc",
+    "config",
+    "config.core",
+    ...
+]
+```
+
 ### {% linkable_title Notification %}
 
 For an added bonus, an automation component can be created to send a message with a notifier when that state of this component's entity changes.

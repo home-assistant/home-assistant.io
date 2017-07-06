@@ -10,6 +10,7 @@ footer: true
 logo: http.png
 ha_category: Sensor
 ha_release: pre 0.7
+ha_iot_class: "Local Push"
 ---
 
 The URL for a sensor looks like the example below:

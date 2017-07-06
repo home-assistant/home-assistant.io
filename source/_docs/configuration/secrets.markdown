@@ -59,7 +59,7 @@ This will print all your secrets
 
 ### {% linkable_title Storing passwords in a keyring managed by your OS %}
 
-Using [Keyring](http://pythonhosted.org/keyring/) is an alternative way to `secrets.yaml`. They can be managed from the command line via the keyring script.
+Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. They can be managed from the command line via the keyring script.
 
 ```bash
 $ hass --script keyring --help

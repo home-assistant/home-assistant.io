@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: wink.png
 ha_category: Switch
+ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 

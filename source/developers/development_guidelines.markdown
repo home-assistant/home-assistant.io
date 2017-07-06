@@ -17,7 +17,7 @@ Summary of the most relevant points:
 - Use 4 spaces per indentation level. We don't use tabs.
 - Comments should be full sentences and end with a period.
 - [Imports](https://www.python.org/dev/peps/pep-0008/#imports) should be ordered.
-- Constants and the content of lists and directories should be in alphabetical order.
+- Constants and the content of lists and dictionaries should be in alphabetical order.
 - Avoid trailing whitespace but surround binary operators with a single space.
 - Line separator should be set to `LF`.
 

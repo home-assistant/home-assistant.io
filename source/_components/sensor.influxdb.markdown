@@ -10,6 +10,7 @@ footer: true
 logo: influxdb.png
 ha_category: Sensor
 ha_release: 0.32
+ha_iot_class: "depends"
 ---
 
 The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.
@@ -40,7 +41,7 @@ Configuration variables for the server:
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **measurement** (*Required*):  Defines the measurement name in InfluxDB (the from clause of the query).
   - **where** (*Required*): Defines the data selection clause (the where clause of the query).
-  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`.
   - **group_function** (*Optional*): The group function to be used. Defaults to `mean`.
   - **field** (*Optional*): The field name to select. Defaults to value.

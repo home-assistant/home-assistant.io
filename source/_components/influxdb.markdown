@@ -23,13 +23,13 @@ The default InfluxDB configuration doesn't enforce authentication. If you have i
 influxdb:
 ```
 
-You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. For instructions how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/v1.0/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
+You will still need to create a database named `home_assistant` via InfluxDB's web interface or command line. For instructions how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 Configuration variables:
 
 - **host** (*Optional*): IP address of your database host, e.g. 192.168.1.10. Defaults to `localhost`.
 - **port** (*Optional*): Port to use. Defaults to 8086.
-- **username** (*Optional*): The username of the database user.
+- **username** (*Optional*): The username of the database user. The user needs read/write privileges on the database.
 - **password** (*Optional*): The password for the database user account.
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
@@ -109,7 +109,7 @@ It will read all your state_change events from the database and add them as data
 You can specify the source database either by pointing the `--config` option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with `--uri`.
 The writing to InfluxDB is done in batches that can be changed with `--step`.
 
-You can control, which data is imported by using the commandline options `--exclude-entities` and `--exclude-domain`.
+You can control, which data is imported by using the commandline options `--exclude_entities` and `--exclude_domains`.
 Both get a comma separated list of either entity-ids or domain names that are excluded from the import.
 
 To test what gets imported you can use the `--simulate` option, which disables the actual write to the InfluxDB instance.
@@ -120,7 +120,7 @@ Example to run the script:
 ```bash
 $ hass --script influxdb_import --config CONFIG_DIR \
     -H IP_INFLUXDB_HOST -u INFLUXDB_USERNAME -p INFLUXDB_PASSWORD \
-    --dbname INFLUXDB_DB_NAME --exclude-domain automation,configurator
+    --dbname INFLUXDB_DB_NAME --exclude_domains automation,configurator
 ```
 Script arguments:
 

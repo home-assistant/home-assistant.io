@@ -10,6 +10,7 @@ footer: true
 logo: beaglebone-black.png
 ha_category: Binary Sensor
 ha_release: 0.37
+ha_iot_class: "Local Push"
 ---
 
 The `bbb_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).

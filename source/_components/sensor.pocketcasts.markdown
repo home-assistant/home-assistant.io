@@ -10,6 +10,7 @@ footer: true
 logo: pocketcasts.png
 ha_category: Sensor
 ha_release: 0.39
+ha_iot_class: "Cloud Polling"
 ---
 
 To enable this sensor, add the following lines to your `configuration.yaml`:

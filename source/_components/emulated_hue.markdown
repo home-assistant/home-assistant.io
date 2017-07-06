@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Hub
 ha_release: 0.27
 ha_iot_class: "Local Push"
@@ -27,6 +28,8 @@ To enable the emulated Hue bridge, add one of the following configs to your `con
 ```yaml
 # Google Home example configuration.yaml entry
 emulated_hue:
+  type: google_home
+  listen_port: 80
   # Google Home does not work on different ports.
 ```
 
@@ -109,6 +112,8 @@ You can verify that the `emulated_hue` component has been loaded and is respondi
 
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+
+For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. http://<HA IP Address>:80/description.xml). 
 
 An additional step is required to run Home Assistant as non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as non-root user.
 

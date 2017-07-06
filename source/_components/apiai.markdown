@@ -42,16 +42,16 @@ To use this integration you should define a conversation (intent) in Api.ai, con
 - Select name, language (if you are planning to use it with Google Actions check [here](https://support.google.com/assistant/answer/7108196?hl=en) supported languages) and time zone
 - Click "Save"
 - Go to "Fullfiment" (in the left menu)
-- Enable Webhook and set your HA url with the apiai endpoint. Eg.: ``https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD``
+- Enable Webhook and set your Home Assistant URL with the Api.ai endpoint. Eg.: ``https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD``
 - Click "Save"
 - Create a new intent
 - Below "User says" write one phrase that you, the user, will tell Api.ai. Eg.: Which is the temperature at home?
-- In "Action" set some key (this will be the bind with HA config), eg.: GetTemperature
-- In "Response" set "Cannot connect to HA or it is taking to long" (fall back response)
+- In "Action" set some key (this will be the bind with Home Assistant configuration), eg.: GetTemperature
+- In "Response" set "Cannot connect to Home Assistant or it is taking to long" (fall back response)
 - At the end of the page, click on "Fulfillment" and check "Use webhook"
 - Click "Save"
 - On the top right, where is written "Try it now...", write, or say, the phrase you have previously defined and hit enter
-- Api.ai has send a request to your HA server
+- Api.ai has send a request to your Home Assistant server
 
 Take a look to "Integrations", in the left menu, to configure third parties.
 
@@ -85,7 +85,7 @@ apiai:
 Inside an intent we can define this variables:
 - **speech** (*Optional*): Text or template to return to Api.ai
 - **action** (*Optional*): Script definition
-- **async_action** (*Optional*): If HA should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to `True` if Api.ai is returning the "Cannot connect to HA or it is taking to long" message, but then you will not be able to use values based on the result of the action. Defaults to `False`.
+- **async_action** (*Optional*): If Home Assistant should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to `True` if Api.ai is returning the "Cannot connect to Home Assistant or it is taking to long" message, but then you will not be able to use values based on the result of the action. Defaults to `False`.
 
 
 ## {% linkable_title Examples %}

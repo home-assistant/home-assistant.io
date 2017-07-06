@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: zigbee.png
 ha_category: Switch
+ha_iot_class: "Local Polling"
 ---
 
-To get your ZigBee switches working with Home Assistant, follow the
-instructions for the general [ZigBee Home Automation
-component](/components/zha/).
+To get your ZigBee switches working with Home Assistant, follow theminstructions for the general [ZigBee Home Automation component](/components/zha/).

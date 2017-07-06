@@ -43,7 +43,7 @@ $ sudo pip3 install --upgrade requests
 
 ## {% linkable_title Configuring hapush (all installation methods) %}
 
-When you have all the prereqs in place, copy the hapush.cfg.example file to hapush.cfg then edit it to reflect your environment:
+When you have all the prereqs in place, copy the `hapush.cfg.example` file to `hapush.cfg` then edit it to reflect your environment:
 
 ```
 ha_url = "http://192.168.1.10:8123"
@@ -61,13 +61,13 @@ logfile = "/etc/hapush/hapush.log"
 
 ## {% linkable_title Running hapush %}
 
-For a manual installation you can then run hapush from the command line as follows:
+For a manual installation you can then run `hapush` from the command-line as follows:
 
 ```bash
 $ ./hapush.py hapush.cfg
 ```
 
-For docker installs, hapush will be started automatically when you run the startup command.
+For Docker installs, hapush will be started automatically when you run the startup command.
 
 If all is well, you should start to see `hapush` responding to events as they occur. For a docker installation you should see these messages in `hapush/hapush.log`.
 

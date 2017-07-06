@@ -10,13 +10,12 @@ footer: true
 logo: zamg.png
 ha_category: Weather
 ha_release: 0.39
+ha_iot_class: "Cloud Polling"
 ---
 
-The `zamg` platform uses meteorological details published by the Austrian weather service
-[Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).
+The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).
 
-Only observations for capital cities are publically available.  You can check the
-list of stations in [CSV format](http://www.zamg.ac.at/ogd).
+Only observations for capital cities are publically available. You can check the list of stations in [CSV format](http://www.zamg.ac.at/ogd).
 
 To add ZAMG to your installation, add the following to your `configuration.yaml` file:
 

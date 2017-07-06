@@ -11,6 +11,7 @@ logo: speedtest.png
 ha_category: System Monitor
 featured: false
 ha_release: 0.13
+ha_iot_class: "Cloud Polling"
 ---
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.

@@ -21,14 +21,15 @@ To integrate this into Home Assistant, add the following section to your `config
 ```yaml
 # Example configuration.yaml entry
 http:
-  base_url: <public_url> # the hass https url which is exposed to the internet.
+  base_url: <public_url> # the Home Assistant https url which is exposed to the internet.
 
 telegram_bot:
-  platform: webhooks
-  api_key: telegram api key
-  allowed_chat_ids:
-    - 12345
-    - 67890
+  - platform: webhooks
+    api_key: telegram api key
+    parse_mode: html
+    allowed_chat_ids:
+      - 12345
+      - 67890
 ```
 
 Configuration variables:
@@ -36,8 +37,10 @@ Configuration variables:
 - **allowed_chat_ids** (*Required*): A list of user in the `user_id` Telegram format enabled to interact to webhook
 - **api_key** (*Required*): The API token of your bot.
 - **trusted_networks** (*Optional*): Telegram server access ACL as list. Defaults to `149.154.167.197-233`.
+- **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
+- **url** (*Optional*): Allow to overwrite the `base_url` from http component for diferent configs.
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components.notify.telegram) .
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram) .
 
 Full configuration sample:
 
@@ -47,16 +50,16 @@ http:
   base_url: <public_url>
 
 telegram_bot:
-  platform: webhooks
-  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-  trusted_networks:
-    - 149.154.167.197/32
-    - 149.154.167.198/31
-    - 149.154.167.200/29
-    - 149.154.167.208/28
-    - 149.154.167.224/29
-    - 149.154.167.232/31
-  allowed_chat_ids:
-    - 12345
-    - 67890
+  - platform: webhooks
+    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    trusted_networks:
+      - 149.154.167.197/32
+      - 149.154.167.198/31
+      - 149.154.167.200/29
+      - 149.154.167.208/28
+      - 149.154.167.224/29
+      - 149.154.167.232/31
+    allowed_chat_ids:
+      - 12345
+      - 67890
 ```

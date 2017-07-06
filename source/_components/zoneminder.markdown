@@ -11,6 +11,7 @@ logo: zoneminder.png
 ha_category: Hub
 featured: false
 ha_release: 0.31
+ha_iot_class: "Local Polling"
 ---
 
 The ZoneMinder component sets up the integration with your [ZoneMinder](https://www.zoneminder.com) instance so that [cameras](/components/camera.zoneminder/), [sensors](/components/sensor.zoneminder/), and [switches](/components/switch.zoneminder) can use it.

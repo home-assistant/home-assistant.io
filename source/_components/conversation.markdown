@@ -15,7 +15,7 @@ ha_category: "Voice"
 The conversation component can process sentences into commands for Home Assistant. It is currently limited to parsing commands in the format `turn <Friendly Name> <on/off>`.
 
 
-To enable the conversion option in your installation, add the following to your `configuration.yaml` file:
+To enable the conversation option in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

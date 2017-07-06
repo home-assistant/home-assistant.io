@@ -10,6 +10,7 @@ footer: true
 logo: tado.png
 ha_category: Climate
 ha_release: 0.41
+ha_iot_class: "Cloud Polling"
 ---
 
 

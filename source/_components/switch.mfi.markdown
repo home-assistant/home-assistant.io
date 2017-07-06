@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Switch
+ha_iot_class: "Local Polling"
 ---
 
 

@@ -39,6 +39,24 @@ Next step is to get the frontend code. When you clone the Home Assistant reposit
 $ script/bootstrap_frontend
 ```
 
+This script will update the git submodule for the polymer project in 
+
+`home-assistant/homeassistant/components/frontend/www_static/home-assistant-polymer`. 
+
+If you're planning on issuing a PR back to the Home Assistant codebase you need to fork the polymer project and add your fork as a remote.
+
+```bash
+$ cd homeassistant/components/frontend/www_static/home-assistant-polymer
+$ git remote add <remote name> <github URL to your fork>
+```
+
+When you've made your changes and are ready to push them change to the working directory for the polymer project and then push your changes
+
+``` bash
+$ cd homeassistant/components/frontend/www_static/home-assistant-polymer
+$ git push -u <remote name> HEAD
+```
+
 ## {% linkable_title Development %}
 
 While you are developing, you need to have Rollup running to have changes you make to the JavaScript app-core made available.

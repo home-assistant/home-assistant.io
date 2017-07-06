@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Yahoo Weather"
+title: "Yahoo Weather Sensor"
 description: "Instructions how to integrate Yahoo Weather within Home Assistant."
 date: 2016-07-06 9:06
 sidebar: true
@@ -10,16 +10,17 @@ footer: true
 logo: yahooweather.png
 ha_category: Weather
 ha_release: 0.24
+ha_iot_class: "Cloud Polling"
 ---
 
 
 The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition for 5 days, 0 is the current day. You can use only `weather`, `temp_min`, and `temp_max` with forecast. It's important to note that a yweather sensor will only show ONE days forecast at a time so to show multiple days forecasts, you will need to use the 'name:' option and give each sensor a unique name.
 
 <p class='note warning'>
-Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2,000 signed calls per day.
+Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
 </p>
 
-The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your woeid by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a woeid it generate it from Home Assistant's latitude and longitude.
+The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a WOEID it generate it from Home Assistant's latitude and longitude.
 
 To add Yahoo Weather to your installation, add the following to your `configuration.yaml` file:
 
@@ -67,7 +68,6 @@ sensor:
       - weather
       - temp_min
       - temp_max
-
   - platform: yweather
     forecast: 2
     name: yw_day2
@@ -75,7 +75,6 @@ sensor:
       - weather
       - temp_min
       - temp_max
-      
   - platform: yweather
     forecast: 3
     name: yw_day3
@@ -83,9 +82,7 @@ sensor:
       - weather
       - temp_min
       - temp_max
-
 ```
-
 
 Details about the API are available in the [Yahoo! Developer Network](https://developer.yahoo.com/weather/).
 

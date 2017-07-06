@@ -10,7 +10,7 @@ footer: true
 logo: pilight.png
 ha_category: Binary Sensor
 ha_release: 0.44
-ha_iot_class: Local Poll
+ha_iot_class: "Local Polling"
 ---
 
 This component implement the [pilight hub](https://github.com/home-assistant/home-assistant.github.io/source/_components/pilight.markdown)  binary sensor functionality.

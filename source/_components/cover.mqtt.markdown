@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Cover
+ha_iot_class: "depends"
 ha_release: 0.18
 ---
 
@@ -36,7 +37,7 @@ Configuration variables:
 
 - **name** (*Optional*): The name of the sensor. Default is `MQTT Cover`.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive sensor values.
-- **command_topic** (*Required*): The MQTT topic to publish commands to control the rollershutter.
+- **command_topic** (*Optional*): The MQTT topic to publish commands to control the rollershutter.
 - **payload_open** (*Optional*): The payload that opens the cover. Default is `OPEN`.
 - **payload_close** (*Optional*): The payload that closes the cover. Default is `CLOSE`.
 - **payload_stop** (*Optional*):  The payload that stops the rollershutter. default is `STOP`.
@@ -45,7 +46,9 @@ Configuration variables:
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no state topic defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0`. Will also be used when publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not. Default is `false`.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+- **set_position_topic** (*Optional*): The MQTT topic to publish position commands to.
+- **set_position_template** (*Optional*): Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the numeric position (0-100) will be written directly to the topic.
 - **tilt_command_topic** (*Optional*): The MQTT topic to publish commands to control the cover tilt.
 - **tilt_status_topic** (*Optional*): The MQTT topic subscribed to receive tilt status update values.
 - **tilt_min** (*Optional*): The minimum tilt value. Default is `0`
