@@ -26,6 +26,7 @@ binary_sensor:
       unitcode: 371399
     payload_on: 'closed'
     disarm_after_trigger: True  <-- use this if you want trigger type behavior
+    reset_delay_sec: 30
 ```
 
 Configuration variables:
@@ -35,3 +36,4 @@ Configuration variables:
 - **payload_on** (*Optional*): Variable `on` value. The component will recognize this as logical '1'.
 - **payload_off** (*Optional*): Variable `off` value. The component will recognize this as logical '0'.
 - **disarm_after_trigger:** (*Optional*): Configure sensor as trigger type.
+- **reset_delay_sec:** (*Optional*): Seconds before the sensor is disarmed if `disarm_after_trigger` is set to true. Default is 30 seconds.
