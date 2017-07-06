@@ -77,26 +77,27 @@
   <hr class="divider">
   <p>By default, Home Assistant will try to detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You can overwrite this by adding the following information to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
-  <span class="c1"># Omitted values in this section will be auto detected using freegeoip.io</span>
-
-  <span class="c1"># Location required to calculate the time the sun rises and sets</span>
   <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.87336</span>
   <span class="s">longitude</span><span class="pi">:</span> <span class="s">117.22743</span>
-
-  <span class="c1"># Impacts weather/sunrise data (altitude above sea level in meters) </span>
   <span class="s">elevation</span><span class="pi">:</span> <span class="s">430</span>
-
-  <span class="c1"># 'metric' for Metric, 'imperial' for Imperial</span>
   <span class="s">unit_system</span><span class="pi">:</span> <span class="s">metric</span>
-
-  <span class="c1"># Pick yours from here:</span>
-  <span class="c1"># http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</span>
   <span class="s">time_zone</span><span class="pi">:</span> <span class="s">America/Los_Angeles</span>
-
-  <span class="c1"># Name of the location where Home Assistant is running</span>
   <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude of your location required to calculate the time the sun rises and sets.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Longitude of your location required to calculate the time the sun rises and sets.</li>
+  <li><strong>elevation</strong> (<em>Optional</em>): Altitude above sea level in meters. Impacts weather/sunrise data.</li>
+  <li><strong>unit_system</strong> (<em>Optional</em>): <code class="highlighter-rouge">metric</code> for Metric, <code class="highlighter-rouge">imperial</code> for Imperial.</li>
+  <li><strong>time_zone</strong> (<em>Optional</em>): Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the location where Home Assistant is running.</li>
+  <li><strong>customize</strong> (<em>Optional</em>): <a href="/docs/configuration/customizing-devices/">Customize</a> entities.</li>
+  <li><strong>customize_domain</strong> (<em>Optional</em>): <a href="/docs/configuration/customizing-devices/">Customize</a> all entities in a domain.</li>
+  <li><strong>customize_glob</strong> (<em>Optional</em>): <a href="/docs/configuration/customizing-devices/">Customize</a> entities matching a pattern.</li>
+  <li><strong>whitelist_external_dirs</strong> (<em>Optional</em>): List of folders that can be used as sources for sending files.</li>
+</ul>
 <h3><a class="title-link" name="password-protecting-the-web-interface" href="#password-protecting-the-web-interface"></a> Password protecting the web interface</h3>
 <p>First, you’ll want to add a password for the Home Assistant web interface. Use your favourite text editor to open <code class="highlighter-rouge">configuration.yaml</code> and edit the <code class="highlighter-rouge">http</code> section:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
