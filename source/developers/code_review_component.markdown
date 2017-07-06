@@ -36,5 +36,5 @@ REQUIREMENTS = [
 
 ### {% linkable_title Component/platform communication %}
 
- 1. If you need to share global data with platforms, use the dictionary `hass.data`.
+ 1. If you need to share global data with platforms, use the dictionary `hass.data`. `hass.data[DATA_XY]` while `XY` is the component is preferred over `hass.data[DOMAIN]`.
  2. If the component fetches data that causes related platform entities to update,
