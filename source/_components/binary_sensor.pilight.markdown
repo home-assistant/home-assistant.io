@@ -20,18 +20,30 @@ Two type of pilight binary sensor configuration available. A normal sensor which
 # Example configuration.yml entry
 binary_sensor:
   - platform: pilight
-    name: 'Motion'
     variable: 'state'
-    payload:
-      unitcode: 371399
-    payload_on: 'closed'
-    disarm_after_trigger: True  <-- use this if you want trigger type behavior
 ```
 
 Configuration variables:
+
 - **variable** (*Required*): The variable name in the data stream that defines the sensor value.
 - **payload** (*Required*): Message payload identifiers. Only if all identifiers are matched the sensor value is set.
 - **name** (*Optional*): Name of the sensor.
 - **payload_on** (*Optional*): Variable `on` value. The component will recognize this as logical '1'.
 - **payload_off** (*Optional*): Variable `off` value. The component will recognize this as logical '0'.
 - **disarm_after_trigger:** (*Optional*): Configure sensor as trigger type.
+- **reset_delay_sec** (*Optional*): Seconds before the sensor is disarmed if `disarm_after_trigger` is set to true. Default is 30 seconds.
+
+A full configuration example could look like this:
+
+```yaml
+# Example configuration.yml entry
+binary_sensor:
+  - platform: pilight
+    name: 'Motion'
+    variable: 'state'
+    payload:
+      unitcode: 371399
+    payload_on: 'closed'
+    disarm_after_trigger: True
+    reset_delay_sec: 30
+```
