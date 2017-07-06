@@ -49,18 +49,20 @@ Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
 - **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below. (default: Switchable)
-- **aliasses** (*Optional*): Alternative Rflink ID's this device is known by.
+- **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
 - **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
 - **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
 - **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
 - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
-
+- **group** (*Optional*): Allow light to respond to group commands (ALLON/ALLOFF). (default: yes)
+- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
+- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
 
 ### {% linkable_title Light state %}
 
 Initially the state of a light is unknown. When the light is turned on or off (via frontend or remote) the state is known and will be shown in the frontend.
 
-Sometimes a light is controlled by multiple remotes, each remote has its own code programmed in the light. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliasses:
+Sometimes a light is controlled by multiple remotes, each remote has its own code programmed in the light. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliases:
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,7 +71,7 @@ light:
     devices:
       newkaku_0000c6c2_1:
         name: Living room
-        aliasses:
+        aliases:
           - newkaku_000000001_2
           - kaku_000001_a
       Ansluta_ce30_0:
