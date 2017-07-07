@@ -112,6 +112,13 @@ CMD [ "/run.sh" ]
 <div class="highlighter-rouge"><pre class="highlight"><code>LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 </code></pre>
 </div>
+<p>It is possible to use own base image with follow schema:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>#amd64:FROM...
+#i386:FROM...
+#armhf:FROM...
+#aarch64:FROM...
+</code></pre>
+</div>
 <h2><a class="title-link" name="add-on-config" href="#add-on-config"></a> Add-on config</h2>
 <p>The config for an add-on is stored in <code class="highlighter-rouge">config.json</code>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -271,6 +278,7 @@ CMD [ "/run.sh" ]
   <li>float</li>
   <li>email</li>
   <li>url</li>
+  <li>port</li>
 </ul>
 </article>
         </div>
