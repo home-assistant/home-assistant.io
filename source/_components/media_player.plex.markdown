@@ -29,7 +29,7 @@ If your Plex server has local authentication enabled or multiple users defined, 
 
 If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
 
-If your server enforces SSL connections, write anything in the "Use SSL" field. If it does not have a valid SSL certificate available but you still want to use it, write anything in the "Do not verify SSL" field.
+If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/plex-token.png' />
