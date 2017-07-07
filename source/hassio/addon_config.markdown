@@ -137,3 +137,4 @@ We support:
 - float
 - email
 - url
+- port
