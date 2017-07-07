@@ -15,7 +15,7 @@ ha_category: Alarm
 The `egardia` platform enables the ability to control a Egardia / Woonveilig control panel. [egardia.com](http://egardia.com/).
 These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands.
 
-You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and logging in using your Egardia / Woonveilig account.
+You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and log in in using your Egardia / Woonveilig account.
 
 To enable this, add the following lines to your `configuration.yaml`:
 
