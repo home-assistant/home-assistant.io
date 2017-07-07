@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: egardia.png
-ha_release: 0.24
+ha_release: 0.49
 ha_category: Alarm
 ---
 
