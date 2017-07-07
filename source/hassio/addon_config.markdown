@@ -55,6 +55,14 @@ If you don't use local build on device or our build script, make sure that the D
 LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 ```
 
+It is possible to use own base image with follow schema:
+```
+#amd64:FROM...
+#i386:FROM...
+#armhf:FROM...
+#aarch64:FROM...
+```
+
 ## {% linkable_title Add-on config %}
 
 The config for an add-on is stored in `config.json`.
