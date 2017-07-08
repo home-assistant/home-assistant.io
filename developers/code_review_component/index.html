@@ -101,7 +101,7 @@
 </ol>
 <h3><a class="title-link" name="componentplatform-communication" href="#componentplatform-communication"></a> Component/platform communication</h3>
 <ol>
-  <li>If you need to share global data with platforms, use the dictionary <code class="highlighter-rouge">hass.data</code>.</li>
+  <li>If you need to share global data with platforms, use the dictionary <code class="highlighter-rouge">hass.data</code>. <code class="highlighter-rouge">hass.data[DATA_XY]</code> while <code class="highlighter-rouge">XY</code> is the component is preferred over <code class="highlighter-rouge">hass.data[DOMAIN]</code>.</li>
   <li>If the component fetches data that causes related platform entities to update,</li>
 </ol>
 </article>
