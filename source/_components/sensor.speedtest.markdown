@@ -89,3 +89,7 @@ sensor:
       - download
       - upload
 ```
+
+## {% linkable_title Notes %}
+
+When using on Raspberry Pi, just note that maximum speed is limited by it's 100 mbit/s LAN adapter.
