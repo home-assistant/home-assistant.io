@@ -35,7 +35,12 @@ Configuration variables:
 - **proxy_ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
-- **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.
+- **turn_on_action** (*Optional*): The desired turn off action. Options are `none`, `script` and `wake_on_lan`. Default `none`.
+- **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `script`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.
+- **script_on** (*Optional*): Home Assistant `script` or `python_script` entity_id name to call when turning on. Required when `turn_on_action` is set to `script`.
+- **script_off** (*Optional*): Home Assistant `script` or `python_script` entity_id name to call when turning off. Required when `turn_off_action` is set to `script`.
+- **mac** (*Optional*): Mac address of the device to send a magic packet to. Required when `turn_on_action` is set to `wake_on_lan`.
+- **wake_on_lan_broadcast** (*Optional*): Optional broadcast IP where to send the magic packet when using `wake_on_lan`.
 - **enable_websocket** (*Optional*): Enable websocket connections to Kodi via the TCP port. Defaults to `true`. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
 - **timeout** (*Optional*): Set timeout for connections to Kodi. Defaults to 5 seconds.
 
