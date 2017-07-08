@@ -91,6 +91,8 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>printers</strong> array (<em>Required</em>): List of printers to add.</li>
+  <li><strong>host</strong> (<em>Optional</em>): IP address of the CUPS print server.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Port address of the CUPS print server. Defaults to 631.</li>
 </ul>
 <p class="note">
 You will need to install the <code class="highlighter-rouge">python3-dev</code> or <code class="highlighter-rouge">python3-devel</code> and the development files for CUPS (<code class="highlighter-rouge">libcups2-dev</code> or<code class="highlighter-rouge">cups-devel</code>) package on your system manually (eg. <code class="highlighter-rouge">sudo apt-get install python3-dev libcups2-dev</code> or <code class="highlighter-rouge">sudo dnf -y install python3-devel cups-devel</code>) along with a compiler (<code class="highlighter-rouge">gcc</code>).
