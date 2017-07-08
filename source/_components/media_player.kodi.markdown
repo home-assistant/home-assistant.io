@@ -35,7 +35,7 @@ Configuration variables:
 - **proxy_ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
-- **turn_on_action** (*Optional*): The desired turn off action. Options are `none`, `script` and `wake_on_lan`. Default `none`.
+- **turn_on_action** (*Optional*): The desired turn on action. Options are `none`, `script` and `wake_on_lan`. Default `none`.
 - **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `script`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.
 - **script_on** (*Optional*): Home Assistant `script` or `python_script` entity_id name to call when turning on. Required when `turn_on_action` is set to `script`.
 - **script_off** (*Optional*): Home Assistant `script` or `python_script` entity_id name to call when turning off. Required when `turn_off_action` is set to `script`.
