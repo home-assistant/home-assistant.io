@@ -13,3 +13,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 Integrates Verisure binary sensors into Home Assistant. See the [main component](/components/verisure/) for configuration instructions.
+
+The following binary sensor types are supported:
+
+Door & Window
