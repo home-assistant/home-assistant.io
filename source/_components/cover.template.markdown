@@ -36,9 +36,9 @@ cover:
 Configuration variables:
 
 - **covers** array (*Required*): List of your coverss.
-  - **open_cover** (*Required*): Defines an [action](/getting-started/automation/) to run when the cover is opened.
-  - **close_cover** (*Required*): Defines an [action](/getting-started/automation/) to run when the cover is closed.
-  - **stop_cover** (*Required*): Defines an [action](/getting-started/automation/) to run when the cover is stopped.
+  - **open_cover** (*Optional*): Defines an [action](/getting-started/automation/) to run when the cover is opened.  If `open_cover` is specified, `close_cover` must also be specified.  At least one of `open_cover` and `set_cover_position` must be specified.
+  - **close_cover** (*Optional*): Defines an [action](/getting-started/automation/) to run when the cover is closed.
+  - **stop_cover** (*Optional*): Defines an [action](/getting-started/automation/) to run when the cover is stopped.
   - **set_cover_position** (*Optional*): Defines an [action](/getting-started/automation/) to run when the cover is set to a specific value (between 0 and 100).
   - **set_cover_tilt_position** (*Optional*): Defines an [action](/getting-started/automation/) to run when the cover tilt is set to a specific value (between 0 and 100).
   - **friendly_name** (*Optional*): Name to use in the frontend.
