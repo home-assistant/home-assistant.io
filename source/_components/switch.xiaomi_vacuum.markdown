@@ -17,8 +17,7 @@ Current supported features are start and stop (goes to dock).
 
 {% linkable_title Getting started %}
 
-To be able to communicate with the vacuum one needs to have its IP address as well as an encryption token.
-This token is only attainable before the device has been connected over the app to your local wifi.
+You must retrieve the token from the device before using the mobile app to connect it to your wireless network.
 
 <p class='note warning'>
 If your Home Assistant installation is running on [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
@@ -28,8 +27,7 @@ $ sudo su -s /bin/bash homeassistant
 $ source /srv/homeassistant/bin/activate
 ```
 
-In order to fetch the token, reset the robot, connect to its the network its announcing (rockrobo-XXXX)
-and run the following command:
+In order to fetch the token, reset the vacuum following the instructions in the manual. Then, connect to its built-in wireless network (**rockrobo-XXXX**) with a computer that has the [python-mirobo](https://github.com/rytilahti/python-mirobo) package installed. Run the following command:
 
 ```bash
 mirobo discover
@@ -41,7 +39,9 @@ which should return something similar to this:
 INFO:mirobo.vacuum:  IP 192.168.8.1: Xiaomi Mi Robot Vacuum - token: b'ffffffffffffffffffffffffffffffff'
 ```
 
-If the value is exactly as shown above, meaning a lot of f letters, then the vacuum has already been connected and it needs a reset.
+The token is the value between the single quotes. If the value is exactly as shown above
+(`ffffffffffffffffffffffffffffffff`), the vacuum was previously configured and it needs to be
+reset to obtain a valid token.
 
 {% linkable_title Configuration %}
 
