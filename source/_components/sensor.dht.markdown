@@ -35,8 +35,8 @@ Configuration variables:
 - **pin** (*Required*): The pin the sensor is connected to.
 - **name** (*Optional*): The name of the sensor
 - **monitored_conditions** array  (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
-- **temperature_offset** (*Optional*): Add or subtract a valure from the temperature °C
-- **humidity_offset** (*Optional*): Add or subtract a valure from the humidity
+- **temperature_offset** (*Optional*): Add or subtract a value from the temperature °C
+- **humidity_offset** (*Optional*): Add or subtract a value from the humidity
 
 The name of the pin to which the sensor is connected has different names on different platforms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
 
