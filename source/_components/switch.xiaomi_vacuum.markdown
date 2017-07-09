@@ -17,7 +17,7 @@ Current supported features are start and stop (goes to dock).
 
 {% linkable_title Getting started %}
 
-You must retrieve the token from the device before using the mobile app to connect it to your wireless network.
+Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
 
 <p class='note warning'>
 If your Home Assistant installation is running on [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
@@ -27,21 +27,41 @@ $ sudo su -s /bin/bash homeassistant
 $ source /srv/homeassistant/bin/activate
 ```
 
-In order to fetch the token, reset the vacuum following the instructions in the manual. Then, connect to its built-in wireless network (**rockrobo-XXXX**) with a computer that has the [python-mirobo](https://github.com/rytilahti/python-mirobo) package installed. Run the following command:
+In order to fetch the token follow these instructiosn depending on your mobile phone platform
 
+### Windows and Android
+1. Configure the robot with the Mi-Home app.
+2. Enable developer mode and USB debugging on the android phone and plug it into the computer.
+3. Get ADB tool for Windows : https://developer.android.com/studio/releases/platform-tools.html
+4. Create a backup of the application com.xiaomi.smarthome:
 ```bash
-mirobo discover
+.\adb backup -noapk com.xiaomi.smarthome -f backup.ab
 ```
-
-which should return something similar to this:
-
+5. If you have this message : "More than one device or emulator", use this command to list all devices:
+```bash
+.\adb devices
+``` 
+and execute this command:
+```bash
+.\adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab # (with DEVICEID the device id from the previous command)
 ```
-INFO:mirobo.vacuum:  IP 192.168.8.1: Xiaomi Mi Robot Vacuum - token: b'ffffffffffffffffffffffffffffffff'
+6. On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.
+7. Get ADB Backup Extractor : https://sourceforge.net/projects/adbextractor/
+8. Extract All files from the backup:
+```bash
+java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 ```
+9. Unzip the ".tar" file.
+10. Open the sqlite DB miio2.db with a tool like SQLite Manager extension for FireFox.
+11. Get token from "devicerecord" table.
 
-The token is the value between the single quotes. If the value is exactly as shown above
-(`ffffffffffffffffffffffffffffffff`), the vacuum was previously configured and it needs to be
-reset to obtain a valid token.
+
+### macOS and iOS
+1. Setup iOS device with the Mi-Home app.
+2. Create an unencrypted backup of the device using iTunes.
+3. Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/
+4. Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer
+5. Open the file extracted using notepad. You will then see the list of all the device in your account with their token.
 
 {% linkable_title Configuration %}
 
