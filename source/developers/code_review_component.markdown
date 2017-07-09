@@ -16,7 +16,7 @@ A checklist of things to do when you're adding a new component.
  1. Requirement version pinned: `REQUIREMENTS = ['phue==0.8.1']`
  2. If requirement hosted on GitHub:
      - Point at a zip archive of a release tag or commit SHA.
-     - Add version found in zip-archive as hash to url.
+     - Add version found in zip-archive as hash to URL.
 
 ```python
 REQUIREMENTS = [

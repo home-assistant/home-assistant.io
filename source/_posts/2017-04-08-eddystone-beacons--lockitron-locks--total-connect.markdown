@@ -225,7 +225,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - light.yeelight: catch i/o related exceptions from the backend lib ([@rytilahti] - [#6952])
 - Fix current_temperature is rounded ([@aufano] - [#6960])
 - Preserve customize glob order. ([@andrey-git] - [#6963])
-- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any url error to camera ([@viswa-swami] - [#6964])
+- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any URL error to camera ([@viswa-swami] - [#6964])
 - Crime Reports sensor ([@happyleavesaoc] - [#6966]) (new-platform)
 - Update kodi for aiohttp2 ([@armills] - [#6967])
 - Bugfix time and task coro ([@pvizeli] - [#6968])

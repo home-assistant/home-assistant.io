@@ -204,7 +204,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Fix unnecessary warning for ip bans.yaml ([@balloob])
 - Better restore_state warnings ([@balloob])
 - Set new color before turning LIFX bulbs on ([@amelchio])
-- Don't log username and password in camera url ([@ishults])
+- Don't log username and password in camera URL ([@ishults])
 - Ignore deleted mails in IMAP unread count (#6394) ([@amelchio])
 - Delay zwave updates for 100ms to group them. ([@andrey-git])
 - Rename _scheduled_update to _update_scheduled ([@andrey-git])

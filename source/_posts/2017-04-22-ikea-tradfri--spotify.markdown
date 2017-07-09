@@ -116,7 +116,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bugfix time and task coro ([@pvizeli] - [#6968])
 - Initial import for HassIO ([@pvizeli] - [#6935])
 - Preserve customize glob order. ([@andrey-git] - [#6963])
-- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any url error to camera ([@viswa-swami] - [#6964]) ([camera.foscam docs])
+- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any URL error to camera ([@viswa-swami] - [#6964]) ([camera.foscam docs])
 - light.yeelight: catch i/o related exceptions from the backend lib ([@rytilahti] - [#6952])
 - From Dusk till Dawn ([@BillyNate] - [#6857]) ([sun docs])
 - Tests for zwave services ([@armills] - [#6937]) ([zwave docs])

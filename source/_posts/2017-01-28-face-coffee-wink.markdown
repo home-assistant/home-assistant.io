@@ -137,7 +137,7 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - Fix Telldus Live dim level error on startup ([@molobrakos])
 - Fix Sonos group coordinators ([@pvizeli])
 - UPC Connect: Parse XML outside event loop ([@pvizeli])
-- Fix Netatmo SSL issue with VPN url ([@jabesq])
+- Fix Netatmo SSL issue with VPN URL ([@jabesq])
 - Homematic: Fix bug with UNREACH device state/restore and variables not updating ([@pvizeli])
 - Sonos: Prevent duplicate entries in favorite list ([@pvizeli])
 - Fix Schlage Connect deadbolt integration via Z-Wave ([@turbokongen])

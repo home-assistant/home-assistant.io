@@ -64,7 +64,7 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 
 ### {% linkable_title Release 0.35.1 - December 18 %}
 
-Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what url you use for hosting Home Assistant:
+Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what URL you use for hosting Home Assistant:
 
 ```yaml
 http:
