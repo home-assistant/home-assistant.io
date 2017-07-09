@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">generic</code> camera platform allows you to integrate any IP camera or other url into Home Assistant. Templates can be used to generate the urls on the fly.</p>
+  <p>The <code class="highlighter-rouge">generic</code> camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.</p>
 <p>Home Assistant will serve the images via its server, making it possible to view your IP camera’s while outside of your network. The endpoint is <code class="highlighter-rouge">/api/camera_proxy/camera.[name]</code>.</p>
 <p>To enable this camera in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -90,7 +90,7 @@
   <li><strong>username</strong> (<em>Optional</em>): The username for accessing your camera.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password for accessing your camera.</li>
   <li><strong>authentication</strong> (<em>Optional</em>): Type for authenticating the requests <code class="highlighter-rouge">basic</code> (default) or <code class="highlighter-rouge">digest</code>.</li>
-  <li><strong>limit_refetch_to_url_change</strong> (<em>Optional</em>): True/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.</li>
+  <li><strong>limit_refetch_to_url_change</strong> (<em>Optional</em>): True/false value (default: false). Limits refetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.</li>
   <li><strong>content_type</strong> (<em>Optional</em>): Set the content type for the IP camera if it is not a jpg file (default: <code class="highlighter-rouge">image/jpeg</code>). Use <code class="highlighter-rouge">image/svg+xml</code> to add a dynamic svg file.</li>
 </ul>
 <p class="img">

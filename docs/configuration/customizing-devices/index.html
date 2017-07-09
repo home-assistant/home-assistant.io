@@ -103,11 +103,16 @@ Be careful not to forget to place <code class="highlighter-rouge">customize</cod
   <span class="s">customize_domain</span><span class="pi">:</span>
     <span class="s">light</span><span class="pi">:</span>
       <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:home</span>
+    <span class="s">automation</span><span class="pi">:</span>
+      <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
   <span class="c1"># Customize entities matching a pattern</span>
   <span class="s">customize_glob</span><span class="pi">:</span>
     <span class="s2">"</span><span class="s">light.kitchen_*"</span><span class="pi">:</span>
       <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:description</span>
-
+    <span class="s2">"</span><span class="s">scene.month_*_colors"</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">emulated_hue</span><span class="pi">:</span> <span class="s">false</span>
+      <span class="s">homebridge_hidden</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="possible-values" href="#possible-values"></a> Possible values</h3>
@@ -121,15 +126,23 @@ Be careful not to forget to place <code class="highlighter-rouge">customize</cod
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">friendly_name</code></td>
-      <td>Name of the entity</td>
+      <td>Name of the entity.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">hidden</code></td>
       <td>Set to <code class="highlighter-rouge">true</code> to hide the entity.</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">homebridge_hidden</code></td>
+      <td>Set to <code class="highlighter-rouge">true</code> to hide the entity from <code class="highlighter-rouge">HomeBridge</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">emulated_hue</code></td>
+      <td>Set to <code class="highlighter-rouge">false</code> to hide the entity from emulated_hue.</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">entity_picture</code></td>
-      <td>Url to use as picture for entity</td>
+      <td>Url to use as picture for entity.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">icon</code></td>
@@ -142,6 +155,10 @@ Be careful not to forget to place <code class="highlighter-rouge">customize</cod
     <tr>
       <td><code class="highlighter-rouge">device_class</code></td>
       <td>Sets the class of the device, changing the device state and icon that is displayed on the UI (see below).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">initial_state</code></td>
+      <td>Sets the initial state for automations. <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code>.</td>
     </tr>
   </tbody>
 </table>
