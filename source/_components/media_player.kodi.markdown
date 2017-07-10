@@ -31,6 +31,7 @@ Configuration variables:
 - **host** (*Required*): The host name or address of the device that is running XBMC/Kodi.
 - **port** (*Optional*): The HTTP port number. Defaults to 8080.
 - **tcp_port** (*Optional*): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.
+- **mac** (*Optional*): The MAC address required to turn on the device using [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN).
 - **name** (*Optional*): The name of the device used in the frontend.
 - **proxy_ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
