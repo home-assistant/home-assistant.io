@@ -23,7 +23,7 @@ To use your Velbus fans in your installation, add the following to your `configu
 fan:
   - platform: velbus
     devices:
-       - name: Light 1
+       - name: Fan 1
          module: 0xda
          channel_low: 4
          channel_medium: 3
