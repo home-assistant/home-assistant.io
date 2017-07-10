@@ -13,25 +13,25 @@ ha_release: 0.47
 ---
 
 The `xiaomi_vacuum`switch platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
-Current supported features are start and stop (goes to dock).
+Current supported features are `start` and `stop` (goes to dock).
 
 {% linkable_title Getting started %}
 
 Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
 
 <p class='note warning'>
-If your Home Assistant installation is running on [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
+If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
 
 ```bash 
 $ sudo su -s /bin/bash homeassistant
 $ source /srv/homeassistant/bin/activate
 ```
 
-In order to fetch the token follow these instructiosn depending on your mobile phone platform
+In order to fetch the token follow these instructions depending on your mobile phone platform.
 
 ### Windows and Android
 1. Configure the robot with the Mi-Home app.
-2. Enable developer mode and USB debugging on the android phone and plug it into the computer.
+2. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
 3. Get ADB tool for Windows : https://developer.android.com/studio/releases/platform-tools.html
 4. Create a backup of the application com.xiaomi.smarthome:
 ```bash
