@@ -20,10 +20,11 @@ A `velux` section must be present in the `configuration.yaml` file and contain t
 ```yaml
 # Example configuration.yaml entry
 velux:
-    host: "192.168.1.23"
-    password: "velux123"
+  host: "192.168.1.23"
+  password: "velux123"
 ```
 
+Configuration variables:
 
-- **host** : The IP address or hostname of the KLF 200 to use.
-- **password** : The password of the KLF 200 interface. 
+- **host** (*Required*): The IP address or hostname of the KLF 200 to use.
+- **password** (*Required*): The password of the KLF 200 interface. 
