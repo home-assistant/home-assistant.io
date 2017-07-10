@@ -324,8 +324,8 @@ Protocol - Both
 <p>If you have any more for Home Assistant you should delete them now. If you only have <code class="highlighter-rouge">ha_ssl</code> this is probably because during step 4 you had to use port 443 instead of port 80, so we deleted the rule during step 5.</p>
 <p>You are now part of one of two groups:</p>
 <ul>
-  <li>If you have BOTH rules you are able to set up auto renewals of you certificates.</li>
-  <li>If you only have one, you will have to manually change the rule when you want to update your certificate, and then change it back afterwards.</li>
+  <li>If you have BOTH rules you are able to set up auto renewals of your certificates using port 80 and the standard http challenge, as performed above.</li>
+  <li>If you only have one, you are still able to set up auto renewals of your certificates, but will have to specify additional options when renewing that will temporarily stop Home Assistant and use port 8123 for certificate renewal.</li>
 </ul>
 <p>Please remember whether you are a ONE-RULE person or a BOTH-RULE person for step 8!</p>
 <p>Let’s Encrypt certificates only last for 90 days. When they have less than 30 days left they can be renewed. Renewal is a simple process.</p>
@@ -361,52 +361,9 @@ In cases where, for whatever reason, apt-get installing is not appropriate for y
 <p>Got your sensor up and running and where you want it? Top drawer! Nearly there, now move on to the final steps to ensure that you’re never without a secure connection in the future.</p>
 <h3><a class="title-link" name="8---set-up-an-automatic-renewal-of-the-tlsssl-certificate" href="#8---set-up-an-automatic-renewal-of-the-tlsssl-certificate"></a> 8 - Set up an automatic renewal of the TLS/SSL certificate.</h3>
 <p>The certbot program we downloaded in step 4 contains a script that will renew your certificate. The script will only obtain a new certificate if the current one has less than 30 days left on it, so running the script more often than is actually needed will not cause any harm.</p>
-<p>If you are a ONE-RULE person (from step 6) you cannot ‘automatically’ renew your certificates because you will need to change your port forwarding rules before the renewal takes place, and change it back again afterwards.</p>
-<p>When you are within 30 days of your certificate’s expiry date (you can use the sensor reading from step 7 to tell you this) you will need to complete the following steps:</p>
-<ul>
-  <li>Go to your router’s configuration pages and edit your port forwarding rule to</li>
-</ul>
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>Service name - ha_ssl
-Port Range - 443
-Local IP - YOUR-HA-IP
-Local Port - 443
-Protocol - Both
-</code></pre>
-</div>
-<ul>
-  <li>Save the rule</li>
-  <li>SSH in to your device running HA.</li>
-  <li>Change to your HA user (command similar to):</li>
-</ul>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>su - s /bin/bash hass
-</code></pre>
-</div>
-<ul>
-  <li>Change to your certbot folder</li>
-</ul>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> ~/certbot/
-</code></pre>
-</div>
-<ul>
-  <li>Run the renewal command</li>
-</ul>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
-</code></pre>
-</div>
-<ul>
-  <li>Once succesfully completed, change your port forwarding rule back to</li>
-</ul>
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>Service name - ha_ssl
-Port Range - 443
-Local IP - YOUR-HA-IP
-Local Port - 8123
-Protocol - Both
-</code></pre>
-</div>
-<ul>
-  <li>Save the rule</li>
-</ul>
-<p>If you are a BOTH-RULE person, you have a number of options at this point.</p>
+<p>If you are a ONE-RULE person (from step 6), you can automatically renew your certificate with your current port mapping by temporarily stopping Home Assistant and telling certbot to bind port 8123 internally, and using a <code class="highlighter-rouge">tls-sni</code> challenge so that the Let’s Encrypt CA binds port 443 externally. The flags used to specify these additional steps are shown below.</p>
+<p>If you are a TWO-RULE person (from step 6), you can automatically renew your certificate using a <code class="highlighter-rouge">http-01</code> challenge and port 80.</p>
+<p>There are a number of options for automating the renewal process:</p>
 <h4>Option 1:</h4>
 <p>Your certificate can be renewed as a ‘cron job’ - cron jobs are background tasks run by the computer at specified intervals (and are totally independant of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with <code class="highlighter-rouge">crontab</code> when setting up DuckDNS in step 3</p>
 <p>To set a cron job to run the script at regular intervals:</p>
@@ -424,17 +381,30 @@ Protocol - Both
 </code></pre>
 </div>
 <ul>
-  <li>Scroll to the bottom of the file and paste in the following line</li>
+  <li>If you are a TWO-RULE Person: Scroll to the bottom of the file and paste in the following line</li>
 </ul>
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 </code></pre>
 </div>
 <ul>
+  <li>If you are a ONE-RULE Person: Scroll to the bottom of the file and paste in the following line</li>
+</ul>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>30 2 * * 1 ~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"
+</code></pre>
+</div>
+<ul>
+  <li>Let’s take a moment to look at the differences here:
+    <ol>
+      <li>This method uses a <code class="highlighter-rouge">tls-sni</code> challenge, so the Let’s Encrypt CA will attempt to bind port 443 externally (which you have forwarded)</li>
+      <li><code class="highlighter-rouge">--tls-sni-01-port 8123</code> tells certbot to bind port 8123 internally, which matches with the port forwarding rules that are already in place.</li>
+      <li>We define pre-hooks and post-hooks that stop our Home Assistant service before certbot runs, freeing port 8123 for certificate renewal, and restart Home Assistant after renewal is complete.</li>
+    </ol>
+  </li>
   <li>Save the file and exit</li>
 </ul>
 <h4>Option 2:</h4>
 <p>You can set an automation in Home Assistant to run the certbot renewal script.</p>
-<p>Add the following sections to your configuration.yaml</p>
+<p>Add the following sections to your configuration.yaml if you are a TWO-RULE person</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">shell_command</span><span class="pi">:</span> 
   <span class="s">renew_ssl</span><span class="pi">:</span> <span class="s">~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01</span>
   
@@ -448,6 +418,7 @@ Protocol - Both
       <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.renew_ssl</span>
 </code></pre>
 </div>
+<p>If you are a ONE-RULE person, replace the <code class="highlighter-rouge">certbot-auto</code> command above with <code class="highlighter-rouge">~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"</code></p>
 <h4>Option 3:</h4>
 <p>You can manually update the certificate when your certificate is less than 30 days to expiry.</p>
 <p>To manually update:</p>
@@ -470,6 +441,9 @@ Protocol - Both
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
 </code></pre>
 </div>
+<ul>
+  <li>If you are a ONE-RULE person, replace the <code class="highlighter-rouge">certbot-auto</code> command above with <code class="highlighter-rouge">~/certbot/certbot-auto renew --quiet --no-self-upgrade --standalone --preferred-challenges tls-sni-01 --tls-sni-01-port 8123 --pre-hook "sudo systemctl stop home-assistant@homeassistant.service" --post-hook "sudo systemctl start home-assistant@homeassistant.service"</code></li>
+</ul>
 <p>So, now were all set up. We have our secured, remotely accesible HA instance and we’re on track for keeping our certificates up to date.  But what if something goes wrong?  What if the automation didn’t fire?  What if the cron job forgot to run?  What if the dog ate my homework? Read on to set up an alert so you can be notified in plenty of time if you need to step in and sort out any failures.</p>
 <h3><a class="title-link" name="9---set-up-an-alert-to-warn-us-if-something-went-wrong" href="#9---set-up-an-alert-to-warn-us-if-something-went-wrong"></a> 9 - Set up an alert to warn us if something went wrong.</h3>
 <p>We set up our automatic renewal of our certificates and whatever method we used the certificate should be renewed on or around 30 days before it expires. But what if a week later it still hasn’t been? This alert will go off if the expiry time on the certificate gets down to 21 days. This will give you 3 weeks to fix the problem, get your new certificate installed and get another 90 days of secure Home Assistant connections in play.</p>
