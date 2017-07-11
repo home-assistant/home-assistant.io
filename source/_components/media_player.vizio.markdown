@@ -2,7 +2,7 @@
 layout: page
 title: "Vizio SmartCast TV"
 description: "Instructions how to integrate Vizio SmartCast TV into Home Assistant."
-date: 2015-03-23 19:59
+date: 2017-07-10 19:00
 sidebar: true
 comments: false
 sharing: true
@@ -18,26 +18,26 @@ The `vizio` component will allow you to control [SmartCast](https://www.vizio.co
 
 ## Pairing
 
-Before adding TV into HA you'll need to pair it manually, to do so follow these steps:
+Before adding TV to Home Assistant you'll need to pair it manually, to do so follow these steps:
 
-Install cli using pip (you can choose to download it manually):
+Install the command-line tool using pip (you can choose to download it manually):
 
 ```bash
-pip3 install git+https://github.com/vkorn/pyvizio.git@master
-pip3 install -I .
+$ pip3 install git+https://github.com/vkorn/pyvizio.git@master
+$ pip3 install -I .
 ```
 
 Make sure that your TV is on, as sometimes it won't show PIN code if it wasn't on during pairing initialization.
 If you don't know IP address of your TV run following command:
 
 ```bash 
-pyvizio --ip=0 --auth=0 discover
+$ pyvizio --ip=0 --auth=0 discover
 ```
 
 Initiate pairing:
 
 ```bash
-pyvizio --ip={ip} pair
+$ pyvizio --ip={ip} pair
 ```
 
 Initiation will show you two different values:
@@ -50,23 +50,25 @@ Initiation will show you two different values:
 Finally, at this point PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-pyvizio --ip={ip} pair_finish --token={challenge_token} --pin={tv_pin} 
+$ pyvizio --ip={ip} pair_finish --token={challenge_token} --pin={tv_pin} 
 ```
 
-You will need authentication token returned by this command to configure HASS. 
+You will need authentication token returned by this command to configure Home Assistant. 
 
 ## Configuration
 
-To add Vizio to your installation, add following to your `configuration.yaml` file: 
+To add your Vizio TV to your installation, add following to your `configuration.yaml` file: 
 
 ```yaml
-media_player: 
+# Example configuration.yaml entry
+media_player:
   - platform: vizio
-    host: <ip>
-    access_token: <auth token>
+    host: IP_ADDRESS
+    access_token: AUTH_TOKEN
 ```
 
 Configuration variables:
+
 - **host** (*Required*): IP address of your TV.
 - **access_token** (*Required*): Authentication token you've received in last step of the pairing process.
 
@@ -85,7 +87,7 @@ Changing tracks works like channels switching. If you have source other than reg
 Source list shows all external devices connected to the TV through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).
 
 <p class='note'>
-Vizio SmartCast service is accessible through HTTPS with self-signed certificate. It means that if you have low LOGLEVEL in your HASS configuration, you'll see a lot of warnings like this `InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.` 
+Vizio SmartCast service is accessible through HTTPS with self-signed certificate. It means that if you have low LOGLEVEL in your Home Assistant configuration, you'll see a lot of warnings like this `InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.` 
 
-As an option, you could proxy all calls for example through nginx. 
+As an option, you could proxy all calls for example through NGINX. 
 </p>
