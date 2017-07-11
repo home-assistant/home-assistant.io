@@ -31,18 +31,18 @@ sensor:
 
 Configuration variables:
 
-- **sensor** (*Required*): The sensor type, supported devices are DHT11, DHT22, and AM2302
+- **sensor** (*Required*): The sensor type, supported devices are DHT11, DHT22, and AM2302.
 - **pin** (*Required*): The pin the sensor is connected to.
-- **name** (*Optional*): The name of the sensor
-- **monitored_conditions** array  (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
-- **temperature_offset** (*Optional*): Add or subtract a value from the temperature °C
-- **humidity_offset** (*Optional*): Add or subtract a value from the humidity
+- **name** (*Optional*): The name of the sensor.
+- **monitored_conditions** array (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
+- **temperature_offset** (*Optional*): Add or subtract a value from the temperature.
+- **humidity_offset** (*Optional*): Add or subtract a value from the humidity.
 
 The name of the pin to which the sensor is connected has different names on different platforms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
 
-### Example
+### {% linkable_title Example %}
 
-An example from a Raspberry Pi 3 with DHT22 sensor connected to GPIO4 (pin 7):
+An example for a Raspberry Pi 3 with a DHT22 sensor connected to GPIO4 (pin 7):
 
 ```yaml
 sensor:
@@ -54,5 +54,4 @@ sensor:
     monitored_conditions:
       - temperature
       - humidity
-
 ```
