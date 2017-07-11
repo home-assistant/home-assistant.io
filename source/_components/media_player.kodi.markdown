@@ -35,12 +35,8 @@ Configuration variables:
 - **proxy_ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
-- **turn_on_action** (*Optional*): The desired turn on action. Options are `none`, `script` and `wake_on_lan`. Default `none`.
-- **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `script`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.
-- **script_on** (*Optional*): Home Assistant `script` or `python_script` entity_id name to call when turning on. Required when `turn_on_action` is set to `script`.
-- **script_off** (*Optional*): Home Assistant `script` or `python_script` entity_id name to call when turning off. Required when `turn_off_action` is set to `script`.
-- **mac** (*Optional*): Mac address of the device to send a magic packet to. Required when `turn_on_action` is set to `wake_on_lan`.
-- **wake_on_lan_broadcast** (*Optional*): Optional broadcast IP where to send the magic packet when using `wake_on_lan`.
+- **turn_on_action** (*Optional*): Home Assistant script sequence to call when turning on.
+- **turn_off_action** (*Optional*): Home Assistant script sequence to call when turning off.
 - **enable_websocket** (*Optional*): Enable websocket connections to Kodi via the TCP port. Defaults to `true`. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
 - **timeout** (*Optional*): Set timeout for connections to Kodi. Defaults to 5 seconds.
 
@@ -78,6 +74,94 @@ entity_id: "<Kodi media_player entity_id>"
 result_ok: <boolean>
 input: <input parameters of the service call>
 result: <data received from the Kodi API>
+```
+
+### {% linkable_title Kodi turn on/off samples %}
+
+With the `turn_on_action` and `turn_off_action` parameters you can run any combination of Home Assistant actions to turn on/off your Kodi instance. Here are a few examples of this usage, including the **migration instructions for the old `turn_off_action` list of options**.
+
+#### Turn on Kodi with Wake on LAN
+
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/components/wake_on_lan) component in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: aa:bb:cc:dd:ee:ff
+          broadcast_address: 192.168.255.255
+```
+
+#### Turn off Kodi with API calls
+
+Here are the equivalent ways to configure each of the old options to turn off Kodi (`quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`):
+
+- **Quit** method (before was `turn_off_action: quit`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: Application.Quit
+```
+
+- **Hibernate** method (before was `turn_off_action: hibernate`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Hibernate
+```
+
+- **Suspend** method (before was `turn_off_action: suspend`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Suspend
+```
+
+- **Reboot** method (before was `turn_off_action: reboot`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Reboot
+```
+
+- **Shutdown** method (before was `turn_off_action: shutdown`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Shutdown
 ```
 
 ### {% linkable_title Kodi services samples %}
