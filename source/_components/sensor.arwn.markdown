@@ -22,4 +22,4 @@ sensor:
   - platform: arwn
 ```
 
-Currently all temperatures, barometers, and wind sensors will be displayed. Support for rain gauge sensors will happen in the future.
+Currently all temperatures, barometers, moisture, rain, and wind sensors will be displayed.
