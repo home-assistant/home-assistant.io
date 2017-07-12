@@ -164,23 +164,83 @@ media_player:
         method: System.Shutdown
 ```
 
+#### Turn on and off the TV with the Kodi JSON-CEC Addon
+
+For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_on_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: activate
+    turn_off_action:
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.kodi
+    - service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: standby
+```
+
+
 ### {% linkable_title Kodi services samples %}
 
-#### Simple script to turn on the TV with the Kodi JSON-CEC Addon
+#### Simple script to turn on the PVR in some channel as a time function
 
 ```yaml
 script:
-  activate_tv:
-    alias: Turn on TV
+  play_kodi_pvr:
+    alias: Turn on the silly box
     sequence:
       - alias: TV on
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.kodi
+
+      - alias: Play TV channel
+        service: media_player.play_media
+        data_template:
+          entity_id: media_player.kodi
+          media_content_type: "CHANNEL"
+          media_content_id: >
+            {% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
+              10
+            {% elif (now().hour < 16) %}
+              15
+            {% elif (now().hour < 20) %}
+              2
+            {% elif (now().hour == 20) and (now().minute < 50) %}
+              10
+            {% elif (now().hour == 20) or ((now().hour == 21) and (now().minute < 15)) %}
+              15
+            {% else %}
+              10
+            {% endif %}
+```
+
+#### Trigger a Kodi video library update
+
+```yaml
+script:
+  update_library:
+    alias: Update Kodi Library
+    sequence:
+      - alias: Call Kodi update
         service: media_player.kodi_call_method
         data:
-            entity_id: media_player.kodi
-            method: Addons.ExecuteAddon
-            addonid: script.json-cec
-            params:
-                command: activate
+          entity_id: media_player.kodi
+          method: VideoLibrary.Scan
 ```
 
 For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/kodi_dynamic_input_select/)
