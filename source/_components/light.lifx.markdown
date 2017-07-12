@@ -21,11 +21,11 @@ _Please note, the `lifx` platform does not support Windows. The `lifx_legacy` pl
 # Example configuration.yaml entry
 light:
   - platform: lifx
-    server: 192.168.1.10
 ```
 Configuration variables:
 
-- **server** (*Optional*): Your server address. Only needed if using more than one network interface. Omit if you are unsure.
+- **broadcast** (*Optional*): The broadcast address for discovering lights. Only needed if using more than one network interface. Omit if you are unsure.
+- **server** (*Optional*): Your server address. Will listen on all interfaces if omitted. Omit if you are unsure.
 
 ## {% linkable_title Set state %}
 
