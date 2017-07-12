@@ -75,6 +75,15 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">mikrotik</code> platform offers presence detection by looking at connected devices to a <a href="http://routerboard.com">Mikrotik Routerboard</a> based router.</p>
+<p>You need to enable the RouterOS API to use this platform.</p>
+<p>Terminal:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/ip service
+<span class="nb">set </span>api <span class="nv">disabled</span><span class="o">=</span>no <span class="nv">port</span><span class="o">=</span>8728
+</code></pre>
+</div>
+<p>Web Frontend:</p>
+<p>Go to <strong>IP</strong> -&gt; <strong>Services</strong> -&gt; <strong>API</strong> and enable it.</p>
+<p>Make sure that port 8728 or the port you choose is accessible from your network.</p>
 <p>To use an Mikrotik router in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
@@ -89,7 +98,7 @@
   <li><strong>host</strong> (<em>Required</em>): The IP address of your router.</li>
   <li><strong>username</strong> (<em>Required</em>: The username of an user with administrative privileges.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
-  <li><strong>port</strong> (<em>Optional</em>): Mikrotik API port (see IP -&gt; Services -&gt; api ). Defaults to <code class="highlighter-rouge">8728</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): Mikrotik API port. Defaults to <code class="highlighter-rouge">8728</code>.</li>
 </ul>
 <p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
 </article>
