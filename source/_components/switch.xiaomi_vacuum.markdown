@@ -77,3 +77,61 @@ Configuration variables:
 - **name** (*Optional*): The name of your robot
 - **host** (*Required*): The IP of your robot
 - **token** (*Required*): The token of your robot. Go to Getting started section to read more about how to get it
+
+### {% linkable_title Services %}
+
+The switch has a number of services wich allow you to interact with the vacuum. You can set the fan speed and remote control the vacuum. For all the other possibilities you can send a raw command. See the [Python-mirobo](https://github.com/rytilahti/python-mirobo) package for all available commands.
+
+#### Service `xiaomi_vacuum_set_fanspeed`
+
+Set the fan speed of the vacuum. The default settings from the app are:
+
+38 - Quiet
+60 - Balanced
+77 - Turbo
+90 - Full speed
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ----------- |
+| `fanspeed` | no | Fanspeed, between 0 and 100. | `60` |
+
+#### Service `xiaomi_vacuum_command`
+
+Send a raw command to the vacuum
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ----------- |
+| `command` | no | Command to execute. | `set_dnd_timer` |
+| `params` | yes | Parameters for the command. | `[22,0,6,0]` |
+
+### {% linkable_title Remote control %}
+
+You can remote control the vacuum with services. You have 2 options, with `xiaomi_vacuum_remote_control` the vacuum starts remote control, does one move and then stops remote control. If you want more moves you have to first call `xiaomi_vacuum_remote_control_start`, then a number of movements with `xiaomi_vacuum_remote_control_move` and when done `xiaomi_vacuum_remote_control_stop`.
+
+#### Service `xiaomi_vacuum_remote_control_start`
+
+Start remote control mode of the vacuum. You can then move it with `xiaomi_vacuum_move_remote_control`.
+
+#### Service `xiaomi_vacuum_remote_control_move`
+
+Let's the vacuum move in a particular direction.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ----------- |
+| `velocity` | no | Speed, between -0.3 - 0.3, a negative value is backwards. | `0.2` |
+| `rotation` | yes | Rotation, between -180 degrees and 180 degrees | `90` |
+| `duration` | yes | Not sure where it is used for, defaults to 1500. | `1500` |
+
+#### Service `xiaomi_vacuum_remote_control_stop`
+
+Stop remote control mode of the vacuum.
+
+#### Service `xiaomi_vacuum_remote_control`
+
+Starts remote control mode, makes one move and then stops remote control mode.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ----------- |
+| `velocity` | no | Speed, between -0.3 - 0.3, a negative value is backwards. | `0.2` |
+| `rotation` | yes | Rotation, between -180 degrees and 180 degrees | `90` |
+| `duration` | yes | Not sure where it is used for, defaults to 1500. | `1500` |
