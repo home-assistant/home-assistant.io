@@ -11,12 +11,14 @@ footer: true
 
 There are two different ways of publishing add-ons. One is to publish pre-build containers to Docker Hub and the other option is to have users build the containers locally on their Hass.io instance.
 
-**Pre-build containers**<br>
+#### {% linkable_title Pre-build containers %}
+
 With pre-build containers, the developer is responsible for building the images for each architecture on their machine and push the results out to Docker Hub. This has a lot of advantages for the user. As a user it will only have to download the final container and be up and running once the download finishes. This makes the installation process fast and almost no chance of failure. This is the preferred method.
 
 We have automated the process of building and publishing add-ons. See below for the instructions.
 
-**Locally build containers**<br>
+#### {% linkable_title Locally build containers %}
+
 Starting Hass.io 0.26, it is possible to distribute add-ons that will be built on the users machine. The advantage is that as a developer it is easy to test an idea and see if people are interested in your add-ons. This method includes installing and potentially compiling code. This means that installing such an add-on is slow and adds more wear and tear to users SD card/hard drive than the above mentioned pre-build solution. It also has a higher chance of failure if one of the dependencies of the container has changed or is no longer available.
 
 Use this option when you are playing with add-ons and seeing if someone is interested in your work. Once you're an established repository, please migrate to pushing builds to Docker Hub as it greatly improves the user experience. In the future we will mark locally built add-ons in the add-on store to warn users.
