@@ -30,7 +30,7 @@ This will download the file from the given URL.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Name(s) of entities to seek media on, eg. `media_player.living_room_chromecast`
+| `entity_id`            |      yes | Name(s) of entities to seek media on, eg. `media_player.living_room_chromecast`. Defaults to all.
 | `media_content_id`     |       no | The ID of the content to play. Platform dependent.
 | `media_content_type`   |       no | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC.
 
