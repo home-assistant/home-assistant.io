@@ -13,11 +13,11 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 ### {% linkable_title Communication channels %} 
 
- - [Forum](https://community.home-assistant.io/)
- - [Gitter Chatroom](https://gitter.im/home-assistant/home-assistant) for general Home Assistant discussions and questions.
- - Follow us on [Twitter](https://twitter.com/home_assistant), use [@home_assistant](https://twitter.com/home_assistant)
- - Join the [Google+ community](https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708)
- - Join the [Reddit subreddit](https://reddit.com/r/homeassistant) in [/r/homeassistant](https://reddit.com/r/homeassistant)
+ - [Forum][forum]
+ - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
+ - Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+ - Join the [Google+ community][google-plus]
+ - Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
 
@@ -65,3 +65,9 @@ There is not currently a site search for Home-Assistant.io but it's in the works
 ### {% linkable_title Roadmap %}
 
 There is no explicit roadmap available but the public [tracker](https://www.pivotaltracker.com/n/projects/1250084) can give you some insight into what is going on.
+
+[forum]: https://community.home-assistant.io/
+[twitter]: https://twitter.com/home_assistant
+[google-plus]: https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708
+[reddit]: https://reddit.com/r/homeassistant
+[discord]: https://discord.gg/c5DvZ4e

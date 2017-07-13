@@ -42,7 +42,7 @@ To use the camera it needs to be enabled with the `raspi-config` utility.
 $ sudo raspi-config
 ```
 
-Select `Enable camera` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
+Go to `Interfacing Options`, select `Enable camera` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
 After this follow the [Raspberry Pi Camera component](/components/camera.rpi_camera/) page.
 

@@ -18,7 +18,7 @@ Hass.io images are available for all available Raspberry Pi and intel nuc platfo
   - [Intel Nuc][nuc]
 - Flash the downloaded image to an SD card using [Etcher].
 - Optional - Setup the WiFi or static ip: On the SD-card, edit the `system-connections/resin-sample` file and follow the [ResinOS howto][resinos-network].
-- Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which can take some time.
+- Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
 - You will be able to reach your installation at [http://hassio.local:8123][local].
 
 <p class='note'>

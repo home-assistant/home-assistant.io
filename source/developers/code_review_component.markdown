@@ -16,7 +16,7 @@ A checklist of things to do when you're adding a new component.
  1. Requirement version pinned: `REQUIREMENTS = ['phue==0.8.1']`
  2. If requirement hosted on GitHub:
      - Point at a zip archive of a release tag or commit SHA.
-     - Add version found in zip-archive as hash to url.
+     - Add version found in zip-archive as hash to URL.
 
 ```python
 REQUIREMENTS = [
@@ -36,5 +36,5 @@ REQUIREMENTS = [
 
 ### {% linkable_title Component/platform communication %}
 
- 1. If you need to share global data with platforms, use the dictionary `hass.data`.
+ 1. If you need to share global data with platforms, use the dictionary `hass.data`. `hass.data[DATA_XY]` while `XY` is the component is preferred over `hass.data[DOMAIN]`.
  2. If the component fetches data that causes related platform entities to update,

@@ -25,7 +25,7 @@ volvooncall:
   password: password
 ```
 
-Users registered with Volvo in North America or China will need to specify a service url:
+Users registered with Volvo in North America or China will need to specify a service URL:
 
 ```yaml
 # North America 

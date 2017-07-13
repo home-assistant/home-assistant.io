@@ -14,7 +14,7 @@ ha_iot_class: "depends"
 ---
 
 
-The `generic` camera platform allows you to integrate any IP camera or other url into Home Assistant. Templates can be used to generate the urls on the fly.
+The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
 
 Home Assistant will serve the images via its server, making it possible to view your IP camera's while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
@@ -34,7 +34,7 @@ Configuration variables:
 - **username** (*Optional*): The username for accessing your camera.
 - **password** (*Optional*): The password for accessing your camera.
 - **authentication** (*Optional*): Type for authenticating the requests `basic` (default) or `digest`.
-- **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits refetching of the remote image to when the url changes. Only relevant if using a template to fetch the remote image.
+- **limit_refetch_to_url_change** (*Optional*): True/false value (default: false). Limits refetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
 - **content_type** (*Optional*): Set the content type for the IP camera if it is not a jpg file (default: `image/jpeg`). Use `image/svg+xml` to add a dynamic svg file.
 
 <p class='img'>

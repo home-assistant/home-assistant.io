@@ -26,11 +26,11 @@ zwave:
   new_entity_ids: false
 ```
 
-## Big speed up in querying the history
+## {% linkable_title Big speed up in querying the history %}
 
 Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️ 
 
-## Snips.ai component
+## {% linkable_title Snips.ai component %}
 
 Snips has contributed a component to integrate with their Snips.ai local voice assistant. This will allow you to hook a speaker and a microphone into your Raspberry Pi and make your own local Amazon Echo quickly. See [the docs][snips docs] for further instructions.
 
@@ -38,7 +38,17 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 
 [issue-polymer]: https://github.com/home-assistant/home-assistant-polymer/issues
 
-## New Platforms
+## {% linkable_title Release 0.48.1 - July 5 %}
+
+- Fix arlo sensors. ([@bergemalm] - [#8333]) ([sensor.arlo docs])
+- API POST no longer marks the number zero as invalid ([@azogue] - [#8324]) ([api docs])
+- Fix Snips json schema ([@adrienball] - [#8317]) ([snips docs])
+- Fix pathlib resolve ([@pvizeli] - [#8311])
+- Fix harmony ([@balloob] - [#8302]) ([remote.harmony docs])
+- Fix Arlo startup crash (fixes #8288) ([@fabaff] - [#8290]) ([camera.arlo docs])
+- Temporary fix for the client_id generation (fixes #8315) ([@fabaff] - [#8336]) ([mqtt docs])
+
+## {% linkable_title New Platforms %}
 
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Upnp properties ([@dgomes] - [#8067]) ([upnp docs]) ([sensor.upnp docs]) (new-platform)
@@ -58,14 +68,14 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Snips ASR and NLU component ([@michaelfester] - [#8156]) ([snips docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## {% linkable_title Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## Breaking Changes
+## {% linkable_title Breaking Changes %}
 
 - We have added a new option to whitelist folders that can be used as sources for sending files. You will need to use this option if you are using files with the telegram component. ([@pvizeli] - [#8189]) (breaking change)
 
@@ -110,7 +120,7 @@ light:
         fade: none
 ```
 
-## All changes
+## {% linkable_title All changes %}
 
 - Update numpy 1.13.0 ([@pvizeli] - [#8059]) ([image_processing.opencv docs])
 - No update in MQTT Binary Sensor #7478 ([@pezinek] - [#8057])
@@ -509,5 +519,20 @@ light:
 [weather.buienradar docs]: /components/weather.buienradar/
 [zwave docs]: /components/zwave/
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
+[discord]: https://discord.gg/c5DvZ4e
+[#8290]: https://github.com/home-assistant/home-assistant/pull/8290
+[#8302]: https://github.com/home-assistant/home-assistant/pull/8302
+[#8311]: https://github.com/home-assistant/home-assistant/pull/8311
+[#8317]: https://github.com/home-assistant/home-assistant/pull/8317
+[#8324]: https://github.com/home-assistant/home-assistant/pull/8324
+[#8333]: https://github.com/home-assistant/home-assistant/pull/8333
+[#8336]: https://github.com/home-assistant/home-assistant/pull/8336
+[@adrienball]: https://github.com/adrienball
+[@bergemalm]: https://github.com/bergemalm
+[api docs]: https://home-assistant.io/components/api/
+[camera.arlo docs]: https://home-assistant.io/components/camera.arlo/
+[mqtt docs]: https://home-assistant.io/components/mqtt/
+[remote.harmony docs]: https://home-assistant.io/components/remote.harmony/
+[sensor.arlo docs]: https://home-assistant.io/components/sensor.arlo/
+[snips docs]: https://home-assistant.io/components/snips/

@@ -36,7 +36,8 @@ Go the the "Developer Tools", then to "Call Service", and choose `downloader/dow
 
 This will download the file from the given URL.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                  |       no | The url of the file to download.
+| Service data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `url`                  |       no | The url of the file to download.               |
+| `subdir`               |      yes | Download into subdirectory of **download_dir** |
 

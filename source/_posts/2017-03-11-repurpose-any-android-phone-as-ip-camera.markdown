@@ -64,7 +64,7 @@ twilio:
 - If you are using async custom components, the passed in `async_add_devices` method is now a callback instead of a coroutine function.
 
 ### If you need help...
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -204,7 +204,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Fix unnecessary warning for ip bans.yaml ([@balloob])
 - Better restore_state warnings ([@balloob])
 - Set new color before turning LIFX bulbs on ([@amelchio])
-- Don't log username and password in camera url ([@ishults])
+- Don't log username and password in camera URL ([@ishults])
 - Ignore deleted mails in IMAP unread count (#6394) ([@amelchio])
 - Delay zwave updates for 100ms to group them. ([@andrey-git])
 - Rename _scheduled_update to _update_scheduled ([@andrey-git])
@@ -301,7 +301,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@vroomfonde1]: https://github.com/vroomfonde1
 [@wardcraigj]: https://github.com/wardcraigj
 [@zhelev]: https://github.com/zhelev
-[main chat channel]: https://gitter.im/home-assistant/home-assistant
+[main chat channel]: https://discord.gg/c5DvZ4e
 [@dale3h]: https://github.com/dale3h
 [@CCOSTAN]: https://github.com/CCOSTAN
 [@skalavala]: https://github.com/skalavala
@@ -310,7 +310,6 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@bassclarinetl2]: https://github.com/bassclarinetl2
 [@torn8o]: https://github.com/torn8o
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [EFF]: https://www.eff.org
 [hass-shirt]: https://home-assistant.io/blog/2017/02/22/home-assistant-tshirts-have-arrived/
@@ -329,3 +328,4 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@jnewland]: https://github.com/jnewland
 [#6702]: https://github.com/home-assistant/home-assistant/pull/6702
 [#6738]: https://github.com/home-assistant/home-assistant/pull/6738
+[discord]: https://discord.gg/c5DvZ4e

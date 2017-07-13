@@ -15,7 +15,7 @@ Add-ons repository can contain one or more add-ons. Each add-on is stored in it'
 
 ## Installing a repository
 
-A user can add a repository by going to the Hass.io panel in Home Assistant, clicking on the store icon in the top right, copy/paste the url of your repostory into the repository textarea and click on "Save".
+A user can add a repository by going to the Hass.io panel in Home Assistant, clicking on the store icon in the top right, copy/paste the URL of your repostory into the repository textarea and click on "Save".
 
 ## Repository configuration
 

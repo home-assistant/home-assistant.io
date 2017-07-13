@@ -55,6 +55,14 @@ If you don't use local build on device or our build script, make sure that the D
 LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 ```
 
+It is possible to use own base image with follow schema:
+```
+#amd64:FROM...
+#i386:FROM...
+#armhf:FROM...
+#aarch64:FROM...
+```
+
 ## {% linkable_title Add-on config %}
 
 The config for an add-on is stored in `config.json`.
@@ -98,6 +106,7 @@ The config for an add-on is stored in `config.json`.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
 | image | no | For use dockerhub.
+| timeout | no | Default 10 (second). The timeout to wait until the docker is done or will be killed.
 | tmpfs | no | Mount a tmpfs file system in `/tmpfs`. Valide format for this option is : `size=XXXu,uid=N,rw`. Size is mandatory, valid units (`u`) are `k`, `m` and `g` and `XXX` has to be replaced by a number. `uid=N` (with `N` the uid number) and `rw` are optional.
 
 ### {% linkable_title Options / Schema %}
@@ -136,3 +145,4 @@ We support:
 - float
 - email
 - url
+- port
