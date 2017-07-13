@@ -24,7 +24,6 @@ To add a device to your installation, add the following to your `configuration.y
 media_player:
   - platform: russound_rio
     host: 192.168.1.10
-    port: 9621
     name: Russound
 ```
 
