@@ -95,7 +95,7 @@ The config for an add-on is stored in `config.json`.
 | description | yes | Description of the add-on
 | arch | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
 | url | no | Homepage of the addon. Here you can explain the add-ons and options.
-| startup | yes | `initialize` will start addon on setup of hassio. `before` homeassistant will start. `after` homeassistant will start or `once` for application they don't run as deamon.
+| startup | yes | `initialize` will start addon on setup of hassio. `system` is for things like database and base not on other things. `services` will start before homeassistant. `application` is after homeassistant will start or `once` for application they don't run as deamon.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | host_network | no | If that is True, the add-on run on host network.
@@ -111,7 +111,7 @@ The config for an add-on is stored in `config.json`.
 
 ### {% linkable_title Options / Schema %}
 
-The `options` dict contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start. Only non-nested arrays are supported.
+The `options` dict contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start. Only non-nested arrays and dictorys are supported.
 
 ```json
 {
