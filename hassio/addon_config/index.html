@@ -182,7 +182,7 @@ CMD [ "/run.sh" ]
     <tr>
       <td>startup</td>
       <td>yes</td>
-      <td><code class="highlighter-rouge">initialize</code> will start addon on setup of hassio. <code class="highlighter-rouge">before</code> homeassistant will start. <code class="highlighter-rouge">after</code> homeassistant will start or <code class="highlighter-rouge">once</code> for application they don’t run as deamon.</td>
+      <td><code class="highlighter-rouge">initialize</code> will start addon on setup of hassio. <code class="highlighter-rouge">system</code> is for things like database and base not on other things. <code class="highlighter-rouge">services</code> will start before homeassistant. <code class="highlighter-rouge">application</code> is after homeassistant will start or <code class="highlighter-rouge">once</code> for application they don’t run as deamon.</td>
     </tr>
     <tr>
       <td>boot</td>
@@ -247,7 +247,7 @@ CMD [ "/run.sh" ]
   </tbody>
 </table>
 <h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
-<p>The <code class="highlighter-rouge">options</code> dict contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start. Only non-nested arrays are supported.</p>
+<p>The <code class="highlighter-rouge">options</code> dict contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start. Only non-nested arrays and dictorys are supported.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom things"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
