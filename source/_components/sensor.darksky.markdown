@@ -68,7 +68,7 @@ Configuration variables:
   - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
 - **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, and `uk2`.
 `auto` will let Dark Sky decide the unit system based on location.
-- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
+- **update_interval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
   - `update_interval: 'HH:MM:SS'`
   - `update_interval: 'HH:MM'`
   - Time period dictionary, e.g.:
