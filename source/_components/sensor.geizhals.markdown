@@ -1,0 +1,52 @@
+---
+layout: page
+title: "Geizhals"
+description: "Instructions on how to integrate a Geizhals sensor into Home Assistant."
+date: 2017-07-15 14:15
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: geizhals.png
+ha_category: Sensor
+ha_iot_class: "Cloud Polling"
+ha_release: 0.50
+---
+
+
+The `Geizhals` sensor will give you the best price of a product.
+With this information can be used in e.g. automations to notify you when a price drops.
+
+To enable this sensor, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: geizhals
+    name: qc35
+    friendly_name: "Bose QC35"
+    product_id: 1453021
+```
+
+Configuration variables:
+
+- **name** (*Required*): The internal name of the product in Home Assistant.
+- **friendly_name** (*Required*): The name of the product in the WebUI.
+- **product_id** (*Required*): ID of the product. Get the ID from the geizhals website of your chosen product by clicking on the *Price History* tab, e.g. [here](https://geizhals.de/?phist=1453021). The URL of this site reveals the ID, e.g. <https://geizhals.de/?phist=1453021> with `product_id: 1453021`.
+- **protocol** (*Optional*): Protocol of the request. Set this to `https` or `http`. Default: `https`
+- **domain** (*Optional*): Domain which should be used for the request. Set this to `geizhals.at`, `geizhals.eu`, `geizhals.de`, `skinflint.co.uk` or `cenowarka.pl`. Default: `geizhals.de`
+- **regex** (*Optional*): Regular expression to parse the price. Default: `\D\s(\d*)[\,|\.](\d*)`
+
+#### {% linkable_title Extended example %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: geizhals
+    name: qc35
+    friendly_name: "Bose QC35"
+    product_id: 1453021
+    protocol: https
+    domain: 'geizhals.de'
+    regex: '\D\s(\d*)[\,|\.](\d*)'
+```
