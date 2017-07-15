@@ -53,6 +53,7 @@ sensor:
   - platform: command_line
     name: HD Temperature
     command: "hddtemp -n /dev/sda"
+    # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
 ```
 
@@ -65,6 +66,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
   - platform: command_line
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
+    # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
