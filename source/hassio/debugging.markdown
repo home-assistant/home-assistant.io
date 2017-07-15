@@ -34,7 +34,7 @@ Make sure when you are copying the public key to the root of the SD card that yo
 journalctl -f -u resin-supervisor.service
 
 # Hass.io supervisor logs
-docker logs hassio_supervisor
+docker logs resin_supervisor
 
 # Home Assistant logs
 docker logs homeassistant
