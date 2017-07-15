@@ -81,6 +81,7 @@
   <span class="s">urls</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">https://home-assistant.io/atom.xml</span>
     <span class="pi">-</span> <span class="s">https://github.com/blog.atom</span>
+    <span class="pi">-</span> <span class="s">https://hasspodcast.io/feed/podcast</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -104,12 +105,16 @@
       <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
       <span class="s">event_type</span><span class="pi">:</span> <span class="s">feedreader</span>
     <span class="s">action</span><span class="pi">:</span>
-      <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
-      <span class="s">data_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">persistent_notification.create</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">HA</span><span class="nv"> </span><span class="s">Podcast</span><span class="nv"> </span><span class="s">available"</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">Podcast</span><span class="nv"> </span><span class="s">available</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">"</span>
+        <span class="s">notification_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
 </code></pre>
 </div>
 <p>*Any field under the <code class="highlighter-rouge">&lt;entry&gt;</code> tag in the feed can be used for example <code class="highlighter-rouge">trigger.event.data.content</code> will get the body of the feed entry.</p>
-<p>For more advanced use cases, a custom component registering to the <code class="highlighter-rouge">feedreader</code> event type could be used instead:</p>
+<p>For more advanced use cases, a custom component registering to the <code class="highlighter-rouge">feedreader</code> event type could be used instead:
+For a drop in packaged complete example of Feedreader, you can use the <a href="https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/hasspodcast.yaml">PodCast notifier</a>.</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">EVENT_FEEDREADER</span> <span class="o">=</span> <span class="s">"feedreader"</span>
 <span class="n">hass</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">EVENT_FEEDREADER</span><span class="p">,</span> <span class="n">event_listener</span><span class="p">)</span>
 </code></pre>
