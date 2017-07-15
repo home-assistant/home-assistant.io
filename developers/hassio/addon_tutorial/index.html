@@ -1,0 +1,405 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tutorial: Making your first add-on - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Easy tutorial to get started making your first add-on.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/developers/hassio/addon_tutorial/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Tutorial: Making your first add-on">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/developers/hassio/addon_tutorial/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Easy tutorial to get started making your first add-on.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Tutorial: Making your first add-on">
+    <meta name="twitter:description" content="Easy tutorial to get started making your first add-on.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Tutorial: Making Your First Add-on
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>So you’ve got Home Assistant going and you’ve been enjoying the built-in add-ons but you’re missing this one application. Time to make your own add-on! In Hass.io 0.24 we introduced the option to have local add-ons be build on your device. This is great for developing new add-ons locally.</p>
+<p>To get started with developing add-ons, we first need access to where Hass.io looks for local add-ons. For this you can use the Samba add-on or the SSH add-on.</p>
+<p>For Samba, once you have enabled and started it, your Hass.io instance will show up in your local network tab and share a folder called “addons”. This is the folder to store your custom add-ons.</p>
+<p>If you are on macOS and the folder is not showing up automatically, go to Finder and press CMD+K then enter ‘smb://hassio.local’</p>
+<p class="img">
+<img src="/images/hassio/tutorial/samba.png" />
+With Samba add-on enabled, you can browse to your Hass.io server over the local network. It will contain an addons folder to store your local add-ons.
+</p>
+<p>For SSH, you will have to install it. Before you can start it, you will have to have a private/public key pair and store your public key in the add-on config (<a href="/addons/ssh/">see docs for more info</a>). Once started, you can SSH to Hass.io and store your custom add-ons in “/addons”.</p>
+<p class="img">
+<img src="/images/hassio/tutorial/ssh.png" />
+Once you SSH into your Hass.io box, you have access to your add-ons in “/addons”.
+</p>
+<p>Once you have located your add-on directory, it’s time to get started!</p>
+<h2><a class="title-link" name="step-1-the-basics" href="#step-1-the-basics"></a> Step 1: The basics</h2>
+<ul>
+  <li>Create a new directory called <code class="highlighter-rouge">hello_world</code></li>
+  <li>Inside that directory create three files.</li>
+</ul>
+<p><code class="highlighter-rouge">Dockerfile</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>FROM %%BASE_IMAGE%%
+
+ENV LANG C.UTF-8
+
+# Copy data for add-on
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">config.json</code>:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello_world"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first real add-on!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"startup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"before"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"boot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nt">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p><code class="highlighter-rouge">run.sh</code>:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo </span>Hello world!
+</code></pre>
+</div>
+<h2><a class="title-link" name="step-2-installing-and-testing-your-add-on" href="#step-2-installing-and-testing-your-add-on"></a> Step 2: Installing and testing your add-on</h2>
+<p>Now comes the fun part, time to open the Hass.io UI and install and run your add-on.</p>
+<ul>
+  <li>Open the Home Assistant frontend</li>
+  <li>Go to the Hass.io panel</li>
+  <li>On the top right click the shopping basket to go to the add-on store.</li>
+</ul>
+<p class="img">
+<img src="/images/hassio/screenshots/main_panel_store_icon.png" />
+From the Hass.io main panel open the add-on store.
+</p>
+<ul>
+  <li>On the top right click the refresh button</li>
+  <li>You should now see a new card called “Local” that lists your add-on!</li>
+</ul>
+<p class="img">
+<img src="/images/hassio/screenshots/local_repository.png" />
+The Hass.io add-on store will list all available local add-ons.
+</p>
+<ul>
+  <li>Click on your add-on to go to the add-on details page.</li>
+  <li>Install your add-on</li>
+  <li>Start your add-on</li>
+  <li>Refresh the logs of your add-on, you should now see “Hello world!” in your logs.</li>
+</ul>
+<p class="img">
+<img src="/images/hassio/tutorial/addon_hello_world_logs.png" />
+The add-on will print Hello world to the logs and then quit.
+</p>
+<h3><a class="title-link" name="i-dont-see-my-add-on" href="#i-dont-see-my-add-on"></a> I don’t see my add-on?!</h3>
+<p>Oops! You clicked refresh in the store and your add-on didn’t show up. Or maybe you just updated an option, clicked refresh and saw your add-on disappear.</p>
+<p>When this happens, it means that your <code class="highlighter-rouge">config.json</code> is invalid. It’s either invalid JSON or one of the specified options is incorrect. To see what went wrong, go to the Hass.io panel and in the supervisor card click on “View logs”. This should bring you to a page with the logs of the supervisor. Scroll to the bottom and you should be able to find the validation error.</p>
+<p>Once you fixed the error, go to the add-on store and click refresh again.</p>
+<h2><a class="title-link" name="step-3-hosting-a-server" href="#step-3-hosting-a-server"></a> Step 3: Hosting a server</h2>
+<p>Until now we’ve been able to do some basic stuff, but it’s not very useful yet. So let’s take it one step further and host a server that we expose on a port. For this we’re going to use the built-in HTTP server that comes with Python 3.</p>
+<p>To do this, we will need to update our files as follows:</p>
+<ul>
+  <li><code class="highlighter-rouge">Dockerfile</code>: Install Python 3</li>
+  <li><code class="highlighter-rouge">config.json</code>: Make the port from the container available on the host</li>
+  <li><code class="highlighter-rouge">run.sh</code>: Run the Python 3 command to start the HTTP server</li>
+</ul>
+<p>Add to your <code class="highlighter-rouge">Dockerfile</code> before <code class="highlighter-rouge">RUN</code>:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code># Install requirements for add-on
+RUN apk add --no-cache python3
+
+# Python 3 HTTP Server serves the current working dir
+# So let's set it to our add-on persistent data directory.
+WORKDIR /data
+</code></pre>
+</div>
+<p>Add “ports” to <code class="highlighter-rouge">config.json</code>. This will make TCP on port 8000 inside the container available on the host on port 8000.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hello_world"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My first real add-on!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"startup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"before"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"boot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nt">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nt">"ports"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"8000/tcp"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Update <code class="highlighter-rouge">run.sh</code> to start the Python 3 server:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>python3 -m http.server
+</code></pre>
+</div>
+<h2><a class="title-link" name="step-4-installing-the-update" href="#step-4-installing-the-update"></a> Step 4: Installing the update</h2>
+<p>Since we updated the version number in our <code class="highlighter-rouge">config.json</code>, Home Assistant will show an update button when looking at the add-on details. You might have to refresh your browser or click the refresh button in the add-on store for it to show up. If you did not update the version number, you can also uninstall and install the add-on again. After installing the add-on again, make sure you start it.</p>
+<p>Now navigate to <a href="http://hassio.local:8000">http://hassio.local:8000</a> to see our server in action!</p>
+<p class="img">
+<img src="/images/hassio/tutorial/python3-http-server.png" />
+The Python 3 server will allow you to browse the /data folder.
+</p>
+<h2><a class="title-link" name="bonus-working-with-add-on-options" href="#bonus-working-with-add-on-options"></a> Bonus: Working with add-on options</h2>
+<p>In the screenshot you’ve probably seen that our server only served up 1 file: <code class="highlighter-rouge">options.json</code>. This file contains the user configuration for this add-on. Because we specified an empty “config” and “schema” in our <code class="highlighter-rouge">config.json</code>, the file is currently empty.</p>
+<p>Let’s see if we can get some data into that file!</p>
+<p>To do this, we need to specify the default options and a schema for the user to change the options.</p>
+<p>Change the options and schema entries in your <code class="highlighter-rouge">config.json</code> with the following:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">…</span><span class="w">
+
+  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"beer"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"wine"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"liquor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"world"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2017</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"beer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bool"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"wine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bool"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"liquor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bool"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="err">…</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Refresh the add-on store and re-install your add-on. You will now see the options available in the add-on config screen. When you now go back to our Python 3 server and download <code class="highlighter-rouge">options.json</code>, you’ll see the options you set.</p>
+<ul>
+  <li><a href="/hassio/addon_config/#options--schema">Learn more about the available schema options.</a></li>
+  <li><a href="https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/run.sh#L4-L6">See how options.json can be used inside <code class="highlighter-rouge">run.sh</code></a></li>
+</ul>
+<h3><a href="/developers/hassio/addon_config/">Next step: Add-on config reference »</a></h3>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/hassio/addon_tutorial.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Development Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/developers/'>Introduction </a>
+        <ul>
+          <li><a  href='/developers/architecture/'>Architecture </a></li>
+          <li><a  href='/developers/architecture_components/'>Components </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development/'>Starting with Development </a>
+        <ul>
+          <li><a  href='/developers/development_environment/'>Setting up Environment </a></li>
+          <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
+          <li><a  href='/developers/development_checklist/'>Checklist </a></li>
+          <li><a  href='/developers/development_guidelines/'>Style guidelines </a></li>
+          <li><a  href='/developers/development_testing/'>Testing </a></li>
+          <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
+          <li><a  href='/developers/development_validation/'>Validation </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development_101/'>Development 101 </a>
+        <ul>
+          <li><a  href='/developers/development_hass_object/'>Hass object </a></li>
+          <li><a  href='/developers/development_events/'>Events </a></li>
+          <li><a  href='/developers/development_states/'>States </a></li>
+          <li><a  href='/developers/development_services/'>Services </a></li>
+          <li><a  href='/developers/development_config/'>Config </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/add_new_platform/'>Creating a new platform (to support a new device) </a>
+        <ul>
+          <li><a  href='/developers/code_review_platform/'>Checklist creating a platform </a></li>
+          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/creating_components/'>Adding a new component </a>
+        <ul>
+          <li><a  href='/developers/code_review_component/'>Checklist creating a component </a></li>
+          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
+          <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_states/'>States </a></li>
+          <li><a  href='/developers/component_visibility/'>Visibility </a></li>
+          <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/asyncio/'>Asynchronous Programming </a>
+        <ul>
+          <li><a  href='/developers/asyncio_101/'>Introduction to asyncio </a></li>
+          <li><a  href='/developers/asyncio_categorizing_functions/'>Categorizing Functions </a></li>
+          <li><a  href='/developers/asyncio_working_with_async/'>Working with Async </a></li>
+          <li><a  href='/developers/asyncio_misc/'>Miscellaneous </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/frontend/'>Frontend Development </a>
+        <ul>
+          <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
+          <li><a  href='/developers/frontend_creating_custom_ui/'>Add Custom UI </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/architecture/'>Hass.io architecture </a>
+        <ul>
+          <li><a  href='/developers/hassio/debugging/'>Debugging Hass.io </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
+        <ul>
+          <li><a class='active' href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
+          <li><a  href='/developers/hassio/addon_config/'>Configuration </a></li>
+          <li><a  href='/developers/hassio/addon_testing/'>Local Testing </a></li>
+          <li><a  href='/developers/hassio/addon_publishing/'>Publishing </a></li>
+          <li><a  href='/developers/hassio/addon_repository/'>Repositories </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/api/'>API </a>
+        <ul>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Python API </a></li>
+          <li><a  href='/developers/websocket_api/'>Websocket API </a></li>
+          <li><a  href='/developers/rest_api/'>REST API </a></li>
+          <li><a  href='/developers/python_api/'>Python REST API </a></li>
+          <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
+        </ul>
+      </li>
+      <li><a  href='/developers/helpers/'>Online helpers </a></li>
+      <li><a  href='/developers/website/'>Home-Assistant.io </a></li>
+      <li><a  href='/developers/releasing/'>Releasing </a></li>
+      <li><a  href='/developers/maintenance/'>Maintenance </a></li>
+      <li>
+        Governance
+        <ul>
+          <li><a  href='/developers/cla/'>Contributor License Agreement </a></li>
+          <li><a  href='/developers/code_of_conduct/'>Code of Conduct </a></li>
+          <li><a  href='/developers/credits/'>Credits </a></li>
+          <li><a  href='/developers/license/'>License </a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

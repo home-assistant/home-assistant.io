@@ -75,11 +75,13 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>On a normal Home Assistant installation you have access to the base machine and can install or add scripts that you can call with a <code class="highlighter-rouge">command_line</code> sensor/switch. Since Hass.IO uses Docker, you can not use this old way to perform local stuff. On its face, it looks quite restrictive, but it makes the whole system stable.</p>
-<p>However, if you need to run a script to read data for a sensor or send commands to other devices on Hass.IO, you can do that with a add-on or on inside the Home Assistant container with a custom component. Here is one way to accomplish that using an add-on. For custom component, look at the <a href="/developers/component_loading/">devoloper site</a> and also read the <a href="/hassio/addon_tutorial/">add-ons tutorial</a>. Now you can get started with your custom component in the right way.</p>
-<p>First you need install a MQTT broker. You can use our <a href="/addons/mosquitto/">MQTT broker add-on</a>. Make sure you use logins and disable anonymous access if you want to secure the system. We provide no Hass.IO way to exchange data, that will be not realy good for security and is also to slow to exchange data between containers or stop and go stuff. That is the reason why we use a mqtt broker for it.</p>
+  <p>Hass.io is a managed environment. This means that you’re unable to install applications that you can embed into Home Assistant using the <code class="highlighter-rouge">command_line</code> sensor/switch.</p>
+<p>There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.IO.</p>
+<p>First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, look at the <a href="/developers/component_loading/">devoloper site</a>.</p>
+<p>The second option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on <a href="/developers/hassio/addon_tutorial/">Hass.io add-on development</a>.</p>
+<p>For security and speed, Hass.io does not provide a way for containers to communicate directly. So the first step is to set up a communication channel. We’re going to use MQTT for this using the <a href="/addons/mosquitto/">MQTT broker add-on</a>.</p>
 <h3><a class="title-link" name="sensors" href="#sensors"></a> Sensors</h3>
-<p>Short story of that caption: We loop in our script to fetch data and push it to MQTT and wait until next process is ready. Here is a basic example and structure for that process.</p>
+<p>We loop in our script to fetch data and push it to MQTT and wait until next process is ready. Here is a basic example and structure for that process.</p>
 <p>Our Dockerfile need to install:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add jq mosquitto-clients
 </code></pre>
@@ -110,11 +112,10 @@
 
   </span>sleep <span class="s2">"</span><span class="nv">$WAIT_TIME</span><span class="s2">"</span>
 <span class="k">done</span>
-
 </code></pre>
 </div>
 <h3><a class="title-link" name="commands" href="#commands"></a> Commands</h3>
-<p>Short story of that caption: We wait for incoming data from MQTT broker. We can also use an <code class="highlighter-rouge">input_boolean</code> that triggers an automation to publish a custom command to MQTT topic that can process multiple things in one add-on.</p>
+<p>We wait for incoming data from MQTT broker. We can also use an <code class="highlighter-rouge">input_boolean</code> that triggers an automation to publish a custom command to MQTT topic that can process multiple things in one add-on.</p>
 <p>Our Dockerfile need to install:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>RUN apk --no-cache add jq mosquitto-clients
 </code></pre>
@@ -142,7 +143,6 @@
   </span><span class="k">fi
 
 done</span> &lt; &lt;<span class="o">(</span>mosquitto_sub -h <span class="s2">"</span><span class="nv">$MQTT_SERVER</span><span class="s2">"</span> -p <span class="s2">"</span><span class="nv">$MQTT_PORT</span><span class="s2">"</span> -u <span class="s2">"</span><span class="nv">$USER</span><span class="s2">"</span> -P <span class="s2">"</span><span class="nv">$PASSWORD</span><span class="s2">"</span> -t <span class="s2">"</span><span class="nv">$TOPIC</span><span class="s2">"</span> -q 1<span class="o">)</span>
-
 </code></pre>
 </div>
 </article>
@@ -159,24 +159,21 @@ done</span> &lt; &lt;<span class="o">(</span>mosquitto_sub -h <span class="s2">"
           <li><a  href='/hassio/installation/'>Installation </a></li>
           <li><a  href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/installing_third_party_addons/'>Installing third-party add-ons </a></li>
-          <li><a  href='/hassio/external_storage/'>External storage </a></li>
-          <li><a class='active' href='/hassio/run_local/'>Execute local things </a></li>
-          <li><a  href='/hassio/architecture/'>Architecture </a></li>
         </ul>
       </li>
     </ul>
     <ul class='divided sidebar-menu'>
       <li>
-        <a  href='/hassio/addon_development/'>Add-on Development </a>
+        Advanced
         <ul>
-          <li><a  href='/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
-          <li><a  href='/hassio/addon_config/'>Configuration </a></li>
-          <li><a  href='/hassio/addon_testing/'>Local Testing </a></li>
-          <li><a  href='/hassio/addon_publishing/'>Publishing </a></li>
-          <li><a  href='/hassio/addon_repository/'>Repositories </a></li>
+          <li><a  href='/hassio/zwave/'>Z-Wave </a></li>
+          <li><a  href='/hassio/external_storage/'>External storage </a></li>
+          <li><a class='active' href='/hassio/run_local/'>Execute local things </a></li>
         </ul>
       </li>
-      <li><a  href='/hassio/debugging/'>Debugging Hass.io </a></li>
+    </ul>
+    <ul class='divided sidebar-menu'>
+      <li><a href='/developers/hassio/addon_development/'>Looking to create an add-on?</a></li>
     </ul>
   </div>
 </section>

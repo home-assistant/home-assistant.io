@@ -86,16 +86,22 @@ Diagram showing interaction between components and the Home Assistant core
 <p>If you want to add support for a new platform, check out the <a href="/developers/add_new_platform/">add new platform section</a>.</p>
 <h4><a class="title-link" name="components-that-respond-to-events-that-happen-within-home-assistant" href="#components-that-respond-to-events-that-happen-within-home-assistant"></a> Components that respond to events that happen within Home Assistant</h4>
 <p>These components provide small pieces of home automation logic or involve services that do common tasks within your house.</p>
-<p>For example, the <a href="/components/device_sun_light_trigger/"><code class="highlighter-rouge">device_sun_light_trigger</code> component</a> tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and people are home. The component uses logic like this:</p><pre><code class="language-plain">    In the event that device 'Paulus Nexus 5' changes to the 'Home' state:
-      If the sun has set and the lights are not on:
-        Turn on the lights
-</code></pre><pre><code class="language-plain">    In the event that the combined state of all tracked devices changes to 'Not Home':
-      If the lights are on:
-        Turn off the lights
-</code></pre><pre><code class="language-plain">    In the event of the sun setting:
-      If the lights are off and the combined state of all tracked device equals 'Home':
-        Turn on the lights
+<p>For example, the <a href="/components/device_sun_light_trigger/"><code class="highlighter-rouge">device_sun_light_trigger</code> component</a> tracks the state of devices and the sun to make sure that the lights are turned on when it gets dark and people are home. The component uses logic like this:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>In the event that device 'Paulus Nexus 5' changes to the 'Home' state:
+  If the sun has set and the lights are not on:
+    Turn on the lights
 </code></pre>
+</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>In the event that the combined state of all tracked devices changes to 'Not Home':
+  If the lights are on:
+    Turn off the lights
+</code></pre>
+</div>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>In the event of the sun setting:
+  If the lights are off and the combined state of all tracked device equals 'Home':
+    Turn on the lights
+</code></pre>
+</div>
 <p>Look <a href="https://github.com/home-assistant/home-assistant/blob/master/config/custom_components/example.py">here</a> for a comprehensive example of a home automation component.</p>
 <h3><a class="title-link" name="the-full-picture" href="#the-full-picture"></a> The full picture</h3>
 <p>When we put all the different pieces of Home Assistant together, it’s a close match for the initial home automation overview sketch. The smart home AI has not been implemented yet, so it’s not included in this picture.</p>
@@ -145,7 +151,7 @@ Diagram showing interaction between components and the Home Assistant core
         </ul>
       </li>
       <li>
-        <a  href='/developers/add_new_platform/'>Support a new device (as a platform) </a>
+        <a  href='/developers/add_new_platform/'>Creating a new platform (to support a new device) </a>
         <ul>
           <li><a  href='/developers/code_review_platform/'>Checklist creating a platform </a></li>
           <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
@@ -184,12 +190,28 @@ Diagram showing interaction between components and the Home Assistant core
         </ul>
       </li>
       <li>
+        <a  href='/developers/hassio/architecture/'>Hass.io architecture </a>
+        <ul>
+          <li><a  href='/developers/hassio/debugging/'>Debugging Hass.io </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
+        <ul>
+          <li><a  href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
+          <li><a  href='/developers/hassio/addon_config/'>Configuration </a></li>
+          <li><a  href='/developers/hassio/addon_testing/'>Local Testing </a></li>
+          <li><a  href='/developers/hassio/addon_publishing/'>Publishing </a></li>
+          <li><a  href='/developers/hassio/addon_repository/'>Repositories </a></li>
+        </ul>
+      </li>
+      <li>
         <a  href='/developers/api/'>API </a>
         <ul>
-          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Home Assistant API </a></li>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Python API </a></li>
           <li><a  href='/developers/websocket_api/'>Websocket API </a></li>
-          <li><a  href='/developers/rest_api/'>RESTful API </a></li>
-          <li><a  href='/developers/python_api/'>Python API </a></li>
+          <li><a  href='/developers/rest_api/'>REST API </a></li>
+          <li><a  href='/developers/python_api/'>Python REST API </a></li>
           <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
         </ul>
       </li>

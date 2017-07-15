@@ -75,26 +75,28 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Hass.io images are available for all available Raspberry Pi and intel nuc platforms.</p>
+  <p>Hass.io images are available for all available Raspberry Pi and Intel NUC platforms.</p>
 <ul>
   <li>Download the appropriate image for your Raspberry Pi / intel nuc:
     <ul>
       <li><a href="https://github.com/home-assistant/hassio-build/releases/download/0.8/resinos-hassio-0.8-raspberrypi.img.bz2">Raspberry Pi / Zero</a></li>
       <li><a href="https://github.com/home-assistant/hassio-build/releases/download/0.8/resinos-hassio-0.8-raspberrypi2.img.bz2">Raspberry Pi 2</a></li>
       <li><a href="https://github.com/home-assistant/hassio-build/releases/download/0.8/resinos-hassio-0.8-raspberrypi3.img.bz2">Raspberry Pi 3</a></li>
-      <li><a href="https://github.com/home-assistant/hassio-build/releases/download/0.8/resinos-hassio-0.8-intel-nuc.img.bz2">Intel Nuc</a></li>
+      <li><a href="https://github.com/home-assistant/hassio-build/releases/download/0.8/resinos-hassio-0.8-intel-nuc.img.bz2">Intel NUC</a></li>
     </ul>
   </li>
   <li>Flash the downloaded image to an SD card using <a href="https://etcher.io/">Etcher</a>.</li>
   <li>Optional - Setup the WiFi or static ip: On the SD-card, edit the <code class="highlighter-rouge">system-connections/resin-sample</code> file and follow the <a href="https://docs.resin.io/deployment/network/2.0.0/">ResinOS howto</a>.</li>
   <li>Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).</li>
   <li>You will be able to reach your installation at <a href="http://hassio.local:8123">http://hassio.local:8123</a>.</li>
+  <li>Enable either the <a href="/addons/samba/">Samba add-on</a> or the <a href="/addons/ssh/">SSH add-on</a> to manage your configuration.</li>
 </ul>
 <p class="note">
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either <code class="highlighter-rouge">discovery:</code> or <code class="highlighter-rouge">hassio:</code> to your configuration.
 </p>
-<h3><a class="title-link" name="alternative-install-on-generic-linux-server" href="#alternative-install-on-generic-linux-server"></a> Alternative: install on generic Linux server</h3>
+<h2><a class="title-link" name="alternative-install-on-generic-linux-server" href="#alternative-install-on-generic-linux-server"></a> Alternative: install on generic Linux server</h2>
 <p>For advanced users, it is also possible to try Hass.io on your Linux server or inside a VM. To do so, <a href="https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio">follow these instructions</a>.</p>
+<p class="note">When you use this installation method, some add-ons will not be available and the documentation might not work for your installation.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -109,24 +111,21 @@ If you copy over your existing Home Assistant configuration, make sure to enable
           <li><a class='active' href='/hassio/installation/'>Installation </a></li>
           <li><a  href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/installing_third_party_addons/'>Installing third-party add-ons </a></li>
-          <li><a  href='/hassio/external_storage/'>External storage </a></li>
-          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
-          <li><a  href='/hassio/architecture/'>Architecture </a></li>
         </ul>
       </li>
     </ul>
     <ul class='divided sidebar-menu'>
       <li>
-        <a  href='/hassio/addon_development/'>Add-on Development </a>
+        Advanced
         <ul>
-          <li><a  href='/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
-          <li><a  href='/hassio/addon_config/'>Configuration </a></li>
-          <li><a  href='/hassio/addon_testing/'>Local Testing </a></li>
-          <li><a  href='/hassio/addon_publishing/'>Publishing </a></li>
-          <li><a  href='/hassio/addon_repository/'>Repositories </a></li>
+          <li><a  href='/hassio/zwave/'>Z-Wave </a></li>
+          <li><a  href='/hassio/external_storage/'>External storage </a></li>
+          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
         </ul>
       </li>
-      <li><a  href='/hassio/debugging/'>Debugging Hass.io </a></li>
+    </ul>
+    <ul class='divided sidebar-menu'>
+      <li><a href='/developers/hassio/addon_development/'>Looking to create an add-on?</a></li>
     </ul>
   </div>
 </section>

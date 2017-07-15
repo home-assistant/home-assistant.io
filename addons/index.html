@@ -77,18 +77,58 @@
   <hr class="divider">
   <p>Add-ons for Hass.io allows the user to extend the functionality around Home Assistant. This can be running an application that Home Assistant can integrate with (like an MQTT broker) or to share the configuration via Samba for easy editing from other computers. Add-ons can be configured via the Hass.io panel in Home Assistant.</p>
 <ul>
-  <li><a href='/addons/bluetooth_bcm43xx/'>Bluetooth BCM43xx</a></li>
-  <li><a href='/addons/check_config/'>Check Home Assistant configuration</a></li>
-  <li><a href='/addons/dhcp_server/'>DHCP server</a></li>
-  <li><a href='/addons/dnsmasq/'>Dnsmasq</a></li>
-  <li><a href='/addons/duckdns/'>Duck DNS</a></li>
-  <li><a href='/addons/lets_encrypt/'>Let's Encrypt</a></li>
-  <li><a href='/addons/mariadb/'>MariaDB</a></li>
-  <li><a href='/addons/mosquitto/'>Mosquitto MQTT broker</a></li>
-  <li><a href='/addons/nginx_proxy/'>Nginx SSL proxy</a></li>
-  <li><a href='/addons/ssh/'>SSH Server</a></li>
-  <li><a href='/addons/samba/'>Samba</a></li>
+  <li>
+    <a href='/addons/bluetooth_bcm43xx/'>Bluetooth BCM43xx</a><br>
+    Activate the BCM43xx Bluetooth chipset on a Raspberry Pi 3.
+  </li>
+  <li>
+    <a href='/addons/check_config/'>Check Home Assistant configuration</a><br>
+    Check your current Home Assistant configuration against a new version
+  </li>
+  <li>
+    <a href='/addons/dhcp_server/'>DHCP server</a><br>
+    A simple DHCP server.
+  </li>
+  <li>
+    <a href='/addons/dnsmasq/'>Dnsmasq</a><br>
+    A simple DNS server.
+  </li>
+  <li>
+    <a href='/addons/duckdns/'>Duck DNS</a><br>
+    Automatically update your Duck DNS IP address.
+  </li>
+  <li>
+    <a href='/addons/lets_encrypt/'>Let's Encrypt</a><br>
+    Automatically manage your SSL certificate using Let's Encrypt.
+  </li>
+  <li>
+    <a href='/addons/mariadb/'>MariaDB</a><br>
+    MariaDB Server is one of the most popular database servers in the world.
+  </li>
+  <li>
+    <a href='/addons/mosquitto/'>Mosquitto MQTT broker</a><br>
+    Fast and reliable MQTT broker.
+  </li>
+  <li>
+    <a href='/addons/nginx_proxy/'>Nginx SSL proxy</a><br>
+    Nginx Home Assistant SSL proxy
+  </li>
+  <li>
+    <a href='/addons/ssh/'>SSH Server</a><br>
+    Allow logging in remotely to Hass.io using SSH.
+  </li>
+  <li>
+    <a href='/addons/samba/'>Samba</a><br>
+    Manage your Home Assistant and custom addons over Samba.
+  </li>
+  <li>
+    <a href='/addons/snips/'>Snips.ai</a><br>
+    Enhance your Hass.io installation with a local voice assistant.
+  </li>
 </ul>
+<p>
+  Check the Hass.io forums for <a href='https://community.home-assistant.io/tags/hassio-repository'>add-on repositories managed by the community</a>.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -103,24 +143,21 @@
           <li><a  href='/hassio/installation/'>Installation </a></li>
           <li><a class='active' href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/installing_third_party_addons/'>Installing third-party add-ons </a></li>
-          <li><a  href='/hassio/external_storage/'>External storage </a></li>
-          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
-          <li><a  href='/hassio/architecture/'>Architecture </a></li>
         </ul>
       </li>
     </ul>
     <ul class='divided sidebar-menu'>
       <li>
-        <a  href='/hassio/addon_development/'>Add-on Development </a>
+        Advanced
         <ul>
-          <li><a  href='/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
-          <li><a  href='/hassio/addon_config/'>Configuration </a></li>
-          <li><a  href='/hassio/addon_testing/'>Local Testing </a></li>
-          <li><a  href='/hassio/addon_publishing/'>Publishing </a></li>
-          <li><a  href='/hassio/addon_repository/'>Repositories </a></li>
+          <li><a  href='/hassio/zwave/'>Z-Wave </a></li>
+          <li><a  href='/hassio/external_storage/'>External storage </a></li>
+          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
         </ul>
       </li>
-      <li><a  href='/hassio/debugging/'>Debugging Hass.io </a></li>
+    </ul>
+    <ul class='divided sidebar-menu'>
+      <li><a href='/developers/hassio/addon_development/'>Looking to create an add-on?</a></li>
     </ul>
   </div>
 </section>

@@ -86,6 +86,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+<p class="note">Make sure you use logins and disable anonymous access if you want to secure the system.</p>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>plain</strong> (<em>Optional</em>): Listen to broker on port 1883 without SSL/TLS. Defaults to <code class="highlighter-rouge">true</code>.</li>
@@ -93,6 +94,12 @@
   <li><strong>anonymous</strong> (<em>Optional</em>): Allow anonymous connection. If <em>logins</em> is set, anonymous user can only read data. Defaults to <code class="highlighter-rouge">true</code>.</li>
   <li><strong>logins</strong> (<em>Optional</em>): A list of user that will be created with <em>username</em> and <em>password</em>.</li>
 </ul>
+<h3><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">172.17.0.1</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -107,24 +114,21 @@
           <li><a  href='/hassio/installation/'>Installation </a></li>
           <li><a  href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/installing_third_party_addons/'>Installing third-party add-ons </a></li>
-          <li><a  href='/hassio/external_storage/'>External storage </a></li>
-          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
-          <li><a  href='/hassio/architecture/'>Architecture </a></li>
         </ul>
       </li>
     </ul>
     <ul class='divided sidebar-menu'>
       <li>
-        <a  href='/hassio/addon_development/'>Add-on Development </a>
+        Advanced
         <ul>
-          <li><a  href='/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
-          <li><a  href='/hassio/addon_config/'>Configuration </a></li>
-          <li><a  href='/hassio/addon_testing/'>Local Testing </a></li>
-          <li><a  href='/hassio/addon_publishing/'>Publishing </a></li>
-          <li><a  href='/hassio/addon_repository/'>Repositories </a></li>
+          <li><a  href='/hassio/zwave/'>Z-Wave </a></li>
+          <li><a  href='/hassio/external_storage/'>External storage </a></li>
+          <li><a  href='/hassio/run_local/'>Execute local things </a></li>
         </ul>
       </li>
-      <li><a  href='/hassio/debugging/'>Debugging Hass.io </a></li>
+    </ul>
+    <ul class='divided sidebar-menu'>
+      <li><a href='/developers/hassio/addon_development/'>Looking to create an add-on?</a></li>
     </ul>
   </div>
 </section>

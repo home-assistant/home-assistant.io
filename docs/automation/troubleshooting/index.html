@@ -75,11 +75,13 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>You can verify that your automation rules are being initialized correctly by watching both the realtime logs (<code class="highlighter-rouge">homeassistant.log</code> in the configuration directory) and also the <a href="/components/logbook/">Logbook</a>. The realtime logs will show the rules being initialized (once for each trigger), example:</p><pre><code class="language-plain">INFO [homeassistant.components.automation] Initialized rule Rainy Day
+  <p>You can verify that your automation rules are being initialized correctly by watching both the realtime logs (<code class="highlighter-rouge">homeassistant.log</code> in the configuration directory) and also the <a href="/components/logbook/">Logbook</a>. The realtime logs will show the rules being initialized (once for each trigger), example:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rain is over
 </code></pre>
+</div>
 <p>The Logbook component will show a line entry when an automation is triggered. You can look at the previous entry to determine which trigger in the rule triggered the event.</p>
 <p><img src="/images/components/automation/logbook.png" alt="Logbook example" /></p>
 </article>
