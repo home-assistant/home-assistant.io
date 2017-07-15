@@ -111,13 +111,27 @@
   <p>Set the lights to green in the living room</p>
 </blockquote>
 <p>We should see the transcribed phrase in the logs, as well as a properly parsed intent. The intent is published on MQTT, on the <code class="highlighter-rouge">hermes/nlu/intentParsed</code> topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in <code class="highlighter-rouge">configuration.yaml</code>, as explained below.</p>
+<h4>Optional: specifying an external MQTT broker</h4>
+<p>By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, instead of running the <code class="highlighter-rouge">snips</code> command above (which assumes we are using the internal MQTT broker), we use the full launch command with explicitly specified parameters (replace <code class="highlighter-rouge">MQTT_BROKER_IP</code> and <code class="highlighter-rouge">MQTT_BROKER_PORT</code> with appropriate values):</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -t --rm --name snips --log-driver none -v /home/pi/.asoundrc:/root/.asoundrc -v /opt/snips/config:/opt/snips/config --privileged -v /dev/snd:/dev/snd snipsdocker/platform --mqtt MQTT_BROKER_IP:MQTT_BROKER_PORT
+</code></pre>
+</div>
+<p>For more details on launch options, check the documentation on <a href="https://github.com/snipsco/snips-platform-documentation/wiki/6.--Learn-more:-Platform-Commands#using-a-custom-mqtt-bus">Snips Platform Commands</a>.</p>
 <h2>Home Assistant configuration</h2>
-<p>By default, the Snips MQTT broker runs on port 9898. We should tell Home Assistant to use this as a broker, rather than its own, by adding the following section to <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<h3>Specifying the MQTT broker</h3>
+<p>Messages between Snips and Home Assistant are passed via MQTT. We must tell Home Assistant which MQTT broker to use by adding the following entry to <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">broker</span><span class="pi">:</span> <span class="s">MQTT_BROKER_IP</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">MQTT_BROKER_PORT</span>
+</code></pre>
+</div>
+<p>As explained above, Snips by default runs an MQTT broker on port 9898. So if we wish to use this broker, the entry will look as follows:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
   <span class="s">port</span><span class="pi">:</span> <span class="s">9898</span>
 </code></pre>
 </div>
+<h3>Triggering actions</h3>
 <p>In Home Assistant, we trigger actions based on intents produced by Snips. This is done in <code class="highlighter-rouge">configuration.yaml</code>. For instance, the following block handles <code class="highlighter-rouge">ActivateLightColors</code> intents (included in the Snips IoT intent bundle) to change light colors:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">snips</span><span class="pi">:</span>
   <span class="s">intents</span><span class="pi">:</span>
