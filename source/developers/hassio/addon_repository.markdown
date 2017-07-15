@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /hassio/addon_repository/
 ---
 
 Add-ons repository can contain one or more add-ons. Each add-on is stored in it's own unique folder. For it to be indentified as a repository, a repository contains a configuration file.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Check Home Assistant configuration"
-description: "Check Home Assistant configuration against a new version"
+description: "Check your current Home Assistant configuration against a new version"
 date: 2017-04-30 13:28
 sidebar: true
 comments: false

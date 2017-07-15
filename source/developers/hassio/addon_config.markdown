@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /hassio/addon_config/
 ---
 
 Each add-on is stored in a folder. The file structure looks like this:

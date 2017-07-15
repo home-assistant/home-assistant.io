@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /hassio/addon_tutorial/
 ---
 
 So you've got Home Assistant going and you've been enjoying the built-in add-ons but you're missing this one application. Time to make your own add-on! In Hass.io 0.24 we introduced the option to have local add-ons be build on your device. This is great for developing new add-ons locally.
@@ -203,4 +204,4 @@ Refresh the add-on store and re-install your add-on. You will now see the option
  - [Learn more about the available schema options.](/hassio/addon_config/#options--schema)
  - [See how options.json can be used inside `run.sh`](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/run.sh#L4-L6)
 
-### [Next step: Add-on config reference &raquo;](/hassio/addon_config/)
+### [Next step: Add-on config reference &raquo;](/developers/hassio/addon_config/)
