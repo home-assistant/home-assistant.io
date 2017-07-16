@@ -46,6 +46,7 @@ def setup(hass, config):
 
     # Listener to handle fired events
     def handle_event(event):
+        nonlocal count
         count += 1
         print('Total events received:', count)
 

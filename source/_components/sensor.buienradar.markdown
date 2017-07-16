@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
-The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
+The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). The selected weatherstation will provide all weather data, with the exception of the forecasted precipitaion. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weatherstation).
 
 To integrate `buienradar` with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -45,16 +45,16 @@ Configuration variables:
   - **groundtemperature**: The current ground temperature (in C).
   - **windspeed**: The wind speed in m/s.
   - **windforce**: The wind speed/force in Bft.
-  - **winddirection**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
-  - **windazimuth**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.
+  - **winddirection**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.
+  - **windazimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
   - **pressure**: The sea-level air pressure in hPa.
   - **visibility**: Visibility in meters (m).
   - **windgust**: The windspeed of wind gusts (m/s).
   - **precipitation**: The amount of precipitation/rain in mm/h.
-  - **irradiance**: Sun intensity in Watt per square meter (W/m2).
   - **precipitation_forecast_average**: The average expected precipitation/rain in mm/h within the given timeframe.
-  - **precipitation_forecast_total**: The total expected precipitation/rain in mm/h within the given timeframe.
-
+  - **precipitation_forecast_total**: The total expected precipitation/rain in mm within the given timeframe. The total expected rain in the configured timeframe will be equal to _precipitation_forecast_total_/_timeframe_ mm/min. So, with timeframe configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If timeframe is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.
+  - **irradiance**: Sun intensity in Watt per square meter (W/m2).
+  
 Full configuration example where location is manually specified:
 
 ```yaml

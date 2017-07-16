@@ -44,7 +44,7 @@ Device configuration variables:
 - **name** (*Optional*): Name for the device, defaults to RFLink ID.
 - **sensor_type** (*Required*): Override automatically detected type of sensor. For list of values see below.
 - **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
-- **aliasses** (*Optional*): Alternative RFLink ID's this device is known by.
+- **aliases** (*Optional*): Alternative RFLink ID's this device is known by.
 
 Sensor type values:
 
