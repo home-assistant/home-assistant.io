@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: xiaomi_vacuum.png
+logo: xiaomi.png
 ha_category: Switch
 ha_release: 0.48
 ---
