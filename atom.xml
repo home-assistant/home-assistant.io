@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-16T04:57:40+00:00</updated>
+  <updated>2017-07-16T14:04:18+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -29,7 +29,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">frontend</span><span class="pi">:</span>
   <span class="s">themes</span><span class="pi">:</span>
     <span class="s">green</span><span class="pi">:</span>
-      <span class="s">primary-color</span><span class="pi">:</span> <span class="c1">#6ca518;</span>
+      <span class="s">primary-color</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#6CA518"</span>
 </code></pre>
 </div>
 

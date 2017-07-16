@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-16T04:57:40+00:00</updated>
+  <updated>2017-07-16T14:04:18+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -30,7 +30,7 @@ You can specify themes using new configuration options under frontend.
 frontend:
   themes:
     green:
-      primary-color: #6ca518;
+      primary-color: "#6CA518"
 ```
 
 Once a theme is defined, use the new frontend service `frontend.set_theme` to activate it. More information in [the docs][frontend docs].
