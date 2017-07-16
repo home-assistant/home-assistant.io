@@ -29,6 +29,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, talks, workshops and alike %}
 
+- [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org)- July 2017
 - [Home Automation with Home Assistant](https://github.com/jjmontesl/talk-hass-pydaygalicia2017) at [PyDay Galicia 2017](https://pyday2017.python-vigo.es/gl/)- June 2017
 - [Home Automation with Python](https://www.youtube.com/watch?v=KNFZSSCPUyM) at [GLT 2017](https://glt17.linuxtage.at) - April 2017
 - [Home Assistant workshop](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-clt-workshop) at [CLT 2017](https://chemnitzer.linux-tage.de/2017/de/) - March 2017
@@ -43,6 +44,9 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 ### {% linkable_title Media coverage %}
 
+Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
+
+- [Why can't we have the Internet of Nice Things?](https://opensource.com/article/17/7/home-automation-primer) - July 2017
 - [Jupiter Broadcasting - No Privacy Compromise Home Automation](http://www.jupiterbroadcasting.com/115566/no-privacy-compromise-home-automation/) - June 2017
 - [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs﻿) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017
