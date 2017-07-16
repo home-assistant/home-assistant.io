@@ -108,8 +108,8 @@
       <span class="s">service</span><span class="pi">:</span> <span class="s">persistent_notification.create</span>
       <span class="s">data_template</span><span class="pi">:</span>
         <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">HA</span><span class="nv"> </span><span class="s">Podcast</span><span class="nv"> </span><span class="s">available"</span>
-        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">Podcast</span><span class="nv"> </span><span class="s">available</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">"</span>
-        <span class="s">notification_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">Podcast</span><span class="nv"> </span><span class="s">available</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">as_timestamp(now())</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">timestamp_custom('%I:%M:%S</span><span class="nv"> </span><span class="s">%p</span><span class="nv"> </span><span class="s">%d%b%Y',</span><span class="nv"> </span><span class="s">true)</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">notification_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.title</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
 <p>*Any field under the <code class="highlighter-rouge">&lt;entry&gt;</code> tag in the feed can be used for example <code class="highlighter-rouge">trigger.event.data.content</code> will get the body of the feed entry.</p>
