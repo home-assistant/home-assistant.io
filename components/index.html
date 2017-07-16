@@ -117,7 +117,7 @@ Support for these components is provided by the Home Assistant community.
     <a href='#system-monitor' class="btn">System Monitor (23)</a>
     <a href='#telegram-chatbot' class="btn">Telegram chatbot (3)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (6)</a>
-    <a href='#transport' class="btn">Transport (11)</a>
+    <a href='#transport' class="btn">Transport (12)</a>
     <a href='#voice' class="btn">Voice (4)</a>
     <a href='#weather' class="btn">Weather (21)</a>
       <a href='#other' class="btn">Other</a>
@@ -367,7 +367,6 @@ var allComponents = [
 {url:"/components/switch.hikvision/", title:"Hikvision Camera Switch", cat:"switch", featured: false, v: "0.7", logo: "hikvision.png"},
 {url:"/components/history/", title:"History", cat:"history", featured: false, v: "0.7", logo: "home-assistant.png"},
 {url:"/components/sensor.history_stats/", title:"History Statistics Sensor", cat:"sensor", featured: false, v: "0.39", logo: "home-assistant.png"},
-{url:"/components/ha/", title:"Home Assistant 0.49", cat:"other", featured: false, v: "0.49", logo: "home-assistant.png"},
 {url:"/components/homematic/", title:"Homematic", cat:"hub", featured: false, v: "0.0", logo: "homematic.png"},
 {url:"/components/binary_sensor.homematic/", title:"Homematic Binary Sensor", cat:"binary-sensor", featured: false, v: "0.23", logo: "homematic.png"},
 {url:"/components/cover.homematic/", title:"Homematic Cover", cat:"cover", featured: false, v: "0.27", logo: "homematic.png"},
@@ -460,6 +459,7 @@ var allComponents = [
 {url:"/components/logentries/", title:"Logentries", cat:"history", featured: false, v: "0.0", logo: "logentries.png"},
 {url:"/components/logger/", title:"Logger", cat:"other", featured: false, v: "0.0", logo: "home-assistant.png"},
 {url:"/components/media_player.squeezebox/", title:"Logitech Squeezebox", cat:"media-player", featured: false, v: "0.7", logo: "squeezebox.png"},
+{url:"/components/sensor.london_underground/", title:"London Undergound", cat:"transport", featured: false, v: "0.49", logo: "train.png"},
 {url:"/components/sensor.loop_energy/", title:"Loop Energy", cat:"energy", featured: false, v: "0.17", logo: "loop.png"},
 {url:"/components/lutron/", title:"Lutron", cat:"hub", featured: false, v: "0.37", logo: "lutron.png"},
 {url:"/components/lutron_caseta/", title:"Lutron Caseta", cat:"hub", featured: false, v: "0.41", logo: "lutron.png"},
@@ -1234,7 +1234,6 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/switch.hikvision/'>Hikvision Camera Switch</a></li>
       <li><a href='/components/history/'>History</a></li>
       <li><a href='/components/sensor.history_stats/'>History Statistics Sensor</a></li>
-      <li><a href='/components/ha/'>Home Assistant 0.49</a></li>
       <li><a href='/components/homematic/'>Homematic</a></li>
       <li><a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a></li>
       <li><a href='/components/cover.homematic/'>Homematic Cover</a></li>
@@ -1327,6 +1326,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/logentries/'>Logentries</a></li>
       <li><a href='/components/logger/'>Logger</a></li>
       <li><a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a></li>
+      <li><a href='/components/sensor.london_underground/'>London Undergound</a></li>
       <li><a href='/components/sensor.loop_energy/'>Loop Energy</a></li>
       <li><a href='/components/lutron/'>Lutron</a></li>
       <li><a href='/components/lutron_caseta/'>Lutron Caseta</a></li>
