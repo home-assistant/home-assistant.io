@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: train.png
+logo: london_underground.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
 ha_release: 0.49
