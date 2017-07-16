@@ -38,7 +38,11 @@ $ pip install pyotp
 $ python -c 'import pyotp; print("Token: " + pyotp.random_base32())'
 Token: IHEDPEBEVA2WVHB7
 ```
-
+To run in a docker container
+```shell
+docker exec -it <container name> python -c 'import pyotp; print("Token: " + pyotp.random_base32())'
+Token: IHEDPEBEVA2WVHB7
+```
 Copy and paste the token into your Home Assistant configuration and add it to your OTP generator. Verify that they generate the same code.
 
 <p class='note warning'>
