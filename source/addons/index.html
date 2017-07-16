@@ -16,6 +16,13 @@ regenerate: true
 
 <ul>
 {% for addon in addons %}
-  <li><a href='{{ addon.url }}'>{{ addon.title }}</a></li>
+  <li>
+    <a href='{{ addon.url }}'>{{ addon.title }}</a><br>
+    {{ addon.description }}
+  </li>
 {% endfor %}
 </ul>
+
+<p>
+  Check the Hass.io forums for <a href='https://community.home-assistant.io/tags/hassio-repository'>add-on repositories managed by the community</a>.
+</p>

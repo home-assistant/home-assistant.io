@@ -29,10 +29,10 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The IP/Hostname of the Samsung Smart TV, eg. `192.168.0.10`.
-- **port** (*Optional*): The port of the Samsung Smart TV. Defaults to 10002.
-- **username** (*Optional*): The username of the Samsung Smart TV. Defaults to admin.
-- **password** (*Optional*): The password of the Samsung Smart TV. Defaults to password.
+- **host** (*Required*): The IP/Hostname of the Sharp Aquos TV, eg. `192.168.0.10`.
+- **port** (*Optional*): The port of the Sharp Aquos TV. Defaults to 10002.
+- **username** (*Optional*): The username of the Sharp Aquos TV. Defaults to admin.
+- **password** (*Optional*): The password of the Sharp Aquos TV. Defaults to password.
 - **name** (*Optional*): The name you would like to give to the Sharp Aquos TV.
 - **power_on_enabled** (*Optional*): If you want to be able to turn on your TV. Defaults to False.
 

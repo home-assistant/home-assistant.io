@@ -14,7 +14,7 @@ The easiest way to install Home Assistant on your Raspberry Pi is by using HASSb
 
  1. [Download the Hassbian image][image-download] (364 MB)
  2. Use [Etcher][etcher] to flash the image to your SD card
- 3. Ensure your Raspberry Pi has wired access to the internet.
+ 3. Ensure your Raspberry Pi has wired access to the internet for the entire process.
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.
 
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).  Additional information is available in this [video](https://www.youtube.com/watch?v=tCGlQSsQ-Mc).

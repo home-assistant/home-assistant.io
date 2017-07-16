@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Nginx SSL proxy"
-description: "Nginx HomeAssistant SSL proxy"
+description: "Nginx Home Assistant SSL proxy"
 date: 2017-04-30 13:28
 sidebar: true
 comments: false

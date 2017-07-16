@@ -11,8 +11,8 @@ footer: true
 
 Home Assistant provides various APIs. For detail please refer to [Home Assistant API](https://dev-docs.home-assistant.io/en/dev/) documentation.
 
+  * [Python API](https://dev-docs.home-assistant.io/)
   * [Websocket API](/developers/websocket_api/)
-  * [RESTful API](/developers/rest_api/)
-  * [Python API](/developers/python_api/)
+  * [REST API](/developers/rest_api/)
+  * [Python REST API](/developers/python_api/)
   * [Server-sent events](/developers/server_sent_events/)
-

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dnsmasq"
-description: "A simple dns server with benefits."
+description: "A simple DNS server."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Setup and manage a [Dnsmasq](http://thekelleys.org.uk/dnsmasq/doc.html) dns server. This allow your to manipulate some dns requests. I.e. that inside your network, your homeassistant domain will resolve with a internal address.
+Setup and manage a [Dnsmasq](http://thekelleys.org.uk/dnsmasq/doc.html) DNS server. This allows you to manipulate DNS requests. For example, you can have your Home Assistant domain resolve with an internal address inside your network.
 
 <p class='note info'>
 `interface` options are for resinos based installation. On other system you can set it to `""`, for listen on every interface.
