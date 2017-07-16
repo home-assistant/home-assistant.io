@@ -54,6 +54,7 @@ Valid values for ignore are:
 
  * `apple_tv`: Apple TV
  * `axis`: (Axis Communications security devices)
+ * `bose_soundtouch`: Bose Soundtouch speakers
  * `denonavr`: Denon Network Receivers
  * `directv`: DirecTV
  * `flux_led`: Flux Led/MagicLight
