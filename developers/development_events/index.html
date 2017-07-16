@@ -101,6 +101,7 @@
 
     <span class="c"># Listener to handle fired events</span>
     <span class="k">def</span> <span class="nf">handle_event</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+        <span class="n">nonlocal</span> <span class="n">count</span>
         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">print</span><span class="p">(</span><span class="s">'Total events received:'</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
 

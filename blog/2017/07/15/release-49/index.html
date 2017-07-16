@@ -1,0 +1,389 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>0.49: Themes 🎨, kiosk mode and Prometheus.io - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="Style the frontend the way you want it and present it in Kiosk mode without tabs.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/07/15/release-49/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="0.49: Themes 🎨, kiosk mode and Prometheus.io">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/07/15/release-49/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Style the frontend the way you want it and present it in Kiosk mode without tabs.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-07-0.49/components.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@balloob">
+    <meta name="twitter:title" content="0.49: Themes 🎨, kiosk mode and Prometheus.io">
+    <meta name="twitter:description" content="Style the frontend the way you want it and present it in Kiosk mode without tabs.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-07-0.49/components.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="post">
+  <header>
+  <h1 class="title indent">0.49: Themes 🎨, kiosk mode and Prometheus.io</h1>
+  <div class="meta clearfix">
+    <time datetime="2017-07-15T00:02:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 15, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 12 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <p><a href="/components/#version/0.49"><img src="/images/blog/2017-07-0.49/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<h1><a class="title-link" name="we-have-themes-" href="#we-have-themes-"></a> WE HAVE THEMES 🎨👩‍🎨</h1>
+<p>Our already amazing frontend just got even more amazing thanks to <a href="https://github.com/andrey-git">@andrey-git</a>. With the new theme support you can be in control of the primary color, accent color and a whole bunch more.</p>
+<p>You can specify themes using new configuration options under frontend.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">frontend</span><span class="pi">:</span>
+  <span class="s">themes</span><span class="pi">:</span>
+    <span class="s">green</span><span class="pi">:</span>
+      <span class="s">primary-color</span><span class="pi">:</span> <span class="c1">#6ca518;</span>
+</code></pre>
+</div>
+<p>Once a theme is defined, use the new frontend service <code class="highlighter-rouge">frontend.set_theme</code> to activate it. More information in <a href="https://home-assistant.io/components/frontend/">the docs</a>.</p>
+<p class="img">
+<img src="/images/blog/2017-07-0.49/green-theme.png" alt="Screenshot of a green dashboard" />
+Screenshot of a green dashboard
+</p>
+<p>Not all parts of the user interface are themable yet. Expect improvements in future releases.</p>
+<h2><a class="title-link" name="kiosk-mode" href="#kiosk-mode"></a> Kiosk mode</h2>
+<p>Another great new improvement for the frontend is the addition of a kiosk mode. When the frontend is viewed in kiosk mode, the tab bar will be hidden.</p>
+<p>To activate kiosk mode, navigate to <code class="highlighter-rouge">https://hass.example.com:8123/kiosk/group.living_room_view</code>. Note that for <code class="highlighter-rouge">default_view</code> the url is just <code class="highlighter-rouge">https://hass.example.com:8123/kiosk</code></p>
+<p>This feature has also been brought to you by <a href="https://github.com/andrey-git">@Andrey-git</a>! Big shout out to him for his continuous efforts to bring Home Assistant to the next level.</p>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
+<ul>
+  <li>Add london_underground (<a href="https://github.com/robmarkcole">@robmarkcole</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8272">#8272</a>) (<a href="https://home-assistant.io/components/sensor.london_underground/">sensor.london_underground docs</a>) (new-platform)</li>
+  <li>Add citybikes platform (<a href="https://github.com/aronsky">@aronsky</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8202">#8202</a>) (<a href="https://home-assistant.io/components/sensor.citybikes/">sensor.citybikes docs</a>) (new-platform)</li>
+  <li>Add One-Time Password sensor (OTP) (<a href="https://github.com/postlund">@postlund</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8332">#8332</a>) (<a href="https://home-assistant.io/components/sensor.otp/">sensor.otp docs</a>) (new-platform)</li>
+  <li>Add component for xiaomi robot vacuum (switch.xiaomi_vacuum) (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7913">#7913</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_vacuum/">switch.xiaomi_vacuum docs</a>) (new-platform)</li>
+  <li>LaMetric platform and notify module (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8230">#8230</a>) (<a href="https://home-assistant.io/components/lametric/">lametric docs</a>) (<a href="https://home-assistant.io/components/notify.lametric/">notify.lametric docs</a>) (new-platform)</li>
+  <li>New component to connect to VELUX KLF 200 Interface (<a href="https://github.com/Julius2342">@Julius2342</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8203">#8203</a>) (<a href="https://home-assistant.io/components/velux/">velux docs</a>) (<a href="https://home-assistant.io/components/scene.velux/">scene.velux docs</a>) (new-platform)</li>
+  <li>New service <code class="highlighter-rouge">send_magic_packet</code> with new component <code class="highlighter-rouge">wake_on_lan</code> (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8397">#8397</a>) (<a href="https://home-assistant.io/components/wake_on_lan/">wake_on_lan docs</a>) (new-platform)</li>
+  <li>Add support for Prometheus (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8211">#8211</a>) (<a href="https://home-assistant.io/components/prometheus/">prometheus docs</a>) (new-platform)</li>
+  <li>Refactored Amcrest to use central hub component (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8184">#8184</a>) (<a href="https://home-assistant.io/components/amcrest/">amcrest docs</a>) (<a href="https://home-assistant.io/components/camera.amcrest/">camera.amcrest docs</a>) (<a href="https://home-assistant.io/components/sensor.amcrest/">sensor.amcrest docs</a>) (breaking change) (new-platform)</li>
+  <li>Added media_extractor service (<a href="https://github.com/minchik">@minchik</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8369">#8369</a>) (<a href="https://home-assistant.io/components/media_extractor/">media_extractor docs</a>) (new-platform)</li>
+  <li>Vizio SmartCast support (<a href="https://github.com/vkorn">@vkorn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8260">#8260</a>) (<a href="https://home-assistant.io/components/media_player.vizio/">media_player.vizio docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+<a name="read-more"></a>
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking Changes</h2>
+<ul>
+  <li>UPC Connect component no longer needs a password passed into the configuration. (<a href="https://github.com/Flavien">@Flavien</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8335">#8335</a>) (<a href="https://home-assistant.io/components/device_tracker.upc_connect/">device_tracker.upc_connect docs</a>) (breaking change)</li>
+  <li>The Apple TV platform has been upgraded to a component and a remote platform has been added. This requires your Apple TV configuration to be moved to the new <code class="highlighter-rouge">apple_tv</code> component. (<a href="https://github.com/postlund">@postlund</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8122">#8122</a>) (<a href="https://home-assistant.io/components/media_player.apple_tv/">media_player.apple_tv docs</a>) (breaking change)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">apple_tv</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Apple TV</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">10.0.10.20</span>
+    <span class="s">login_id</span><span class="pi">:</span> <span class="s">00000000-1234-5678-9012-345678901234</span>
+    <span class="s">start_off</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">credentials</span><span class="pi">:</span> <span class="s">8660DEA5154FB46B:20B94847926112B3F46F85DB3A7311830463BF65570C22C3786E27F38C3326CF</span>
+</code></pre>
+</div>
+<ul>
+  <li>Refactored Amcrest to use central hub component to prepare for future integrations. This requires your Amcrest configuration to be moved to the new <code class="highlighter-rouge">amcrest</code> component. (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8184">#8184</a>) (<a href="https://home-assistant.io/components/amcrest/">amcrest docs</a>) (<a href="https://home-assistant.io/components/camera.amcrest/">camera.amcrest docs</a>) (<a href="https://home-assistant.io/components/sensor.amcrest/">sensor.amcrest docs</a>) (breaking change) (new-platform)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">amcrest</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">amcrest_living</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Living</span><span class="nv"> </span><span class="s">Room"</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">amcrest_living_username</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">amcrest_living_password</span>
+    <span class="s">resolution</span><span class="pi">:</span> <span class="s">low</span>
+    <span class="s">stream_source</span><span class="pi">:</span> <span class="s">snapshot</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">motion_detector</span>
+      <span class="pi">-</span> <span class="s">ptz_preset</span>
+</code></pre>
+</div>
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+<ul>
+  <li>Version bump to 0.49.0.dev0 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8266">#8266</a>)</li>
+  <li>Upgrade pyowm to 2.7.1 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8274">#8274</a>) (<a href="https://home-assistant.io/components/sensor.openweathermap/">sensor.openweathermap docs</a>) (<a href="https://home-assistant.io/components/weather.openweathermap/">weather.openweathermap docs</a>)</li>
+  <li>Don’t call update() in constructor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8276">#8276</a>) (<a href="https://home-assistant.io/components/sensor.openweathermap/">sensor.openweathermap docs</a>)</li>
+  <li>Update apcaccess to 0.0.13. Add “Percent Load Capacity” to INFERRED_UNITS. (<a href="https://github.com/michaelarnauts">@michaelarnauts</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8277">#8277</a>) (<a href="https://home-assistant.io/components/apcupsd/">apcupsd docs</a>) (<a href="https://home-assistant.io/components/sensor.apcupsd/">sensor.apcupsd docs</a>)</li>
+  <li>Update knxip to 0.4 (better handling of reconnects) (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8289">#8289</a>) (<a href="https://home-assistant.io/components/knx/">knx docs</a>)</li>
+  <li>Add london_underground (<a href="https://github.com/robmarkcole">@robmarkcole</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8272">#8272</a>) (<a href="https://home-assistant.io/components/sensor.london_underground/">sensor.london_underground docs</a>) (new-platform)</li>
+  <li>pytado moved to pypi (<a href="https://github.com/wmalgadey">@wmalgadey</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8298">#8298</a>) (<a href="https://home-assistant.io/components/tado/">tado docs</a>) (<a href="https://home-assistant.io/components/climate.tado/">climate.tado docs</a>)</li>
+  <li>Fix doc link in header (<a href="https://github.com/robmarkcole">@robmarkcole</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8305">#8305</a>) (<a href="https://home-assistant.io/components/sensor.london_underground/">sensor.london_underground docs</a>)</li>
+  <li>Upgrade discord.py to 0.16.8 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8304">#8304</a>) (<a href="https://home-assistant.io/components/notify.discord/">notify.discord docs</a>)</li>
+  <li>zha: Strip whitespace from device names (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8306">#8306</a>) (<a href="https://home-assistant.io/components/zha/">zha docs</a>)</li>
+  <li>Upgrade chardet to 3.0.4 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8313">#8313</a>)</li>
+  <li>Upgrade aiohttp to 2.2.2 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8314">#8314</a>)</li>
+  <li>Fix pylint issue (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8325">#8325</a>) (<a href="https://home-assistant.io/components/snips/">snips docs</a>)</li>
+  <li>vsure 1.3.7 (<a href="https://github.com/persandstrom">@persandstrom</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8321">#8321</a>) (<a href="https://home-assistant.io/components/verisure/">verisure docs</a>)</li>
+  <li>Update pyEmby to fix media images (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8331">#8331</a>) (<a href="https://home-assistant.io/components/media_player.emby/">media_player.emby docs</a>)</li>
+  <li>Partially revert #7931 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8326">#8326</a>) (<a href="https://home-assistant.io/components/sensor.yweather/">sensor.yweather docs</a>)</li>
+  <li>Only allow ‘tls_insecure_set()’ if cert is present (fixes #8329) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8337">#8337</a>) (<a href="https://home-assistant.io/components/mqtt/">mqtt docs</a>)</li>
+  <li>Fix issue #8285 (<a href="https://github.com/Sabesto">@Sabesto</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8340">#8340</a>) (<a href="https://home-assistant.io/components/modbus/">modbus docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.modbus/">binary_sensor.modbus docs</a>) (<a href="https://home-assistant.io/components/climate.flexit/">climate.flexit docs</a>) (<a href="https://home-assistant.io/components/sensor.modbus/">sensor.modbus docs</a>) (<a href="https://home-assistant.io/components/switch.modbus/">switch.modbus docs</a>)</li>
+  <li>Bump dlib face_recognition to 0.2.0 (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8345">#8345</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_detect/">image_processing.dlib_face_detect docs</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">image_processing.dlib_face_identify docs</a>)</li>
+  <li>Update Avion and Decora switches to match upstream changes (<a href="https://github.com/mjg59">@mjg59</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7903">#7903</a>) (<a href="https://home-assistant.io/components/light.avion/">light.avion docs</a>) (<a href="https://home-assistant.io/components/light.decora/">light.decora docs</a>)</li>
+  <li>Fix the “302” error in the UPC Connect component and remove the need to specify the router password (<a href="https://github.com/Flavien">@Flavien</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8335">#8335</a>) (<a href="https://home-assistant.io/components/device_tracker.upc_connect/">device_tracker.upc_connect docs</a>) (breaking change)</li>
+  <li>Add new feature to Apple TV platform (<a href="https://github.com/postlund">@postlund</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8122">#8122</a>) (<a href="https://home-assistant.io/components/media_player.apple_tv/">media_player.apple_tv docs</a>) (breaking change)</li>
+  <li>Add citybikes platform (<a href="https://github.com/aronsky">@aronsky</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8202">#8202</a>) (<a href="https://home-assistant.io/components/sensor.citybikes/">sensor.citybikes docs</a>) (new-platform)</li>
+  <li>Fix some issues for PyLint 1.7.2 (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8356">#8356</a>)</li>
+  <li>Fix pylint 1.7.2 no-else-return issues (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8361">#8361</a>)</li>
+  <li>Upgrade aiohttp to 2.2.3 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8363">#8363</a>)</li>
+  <li>Remove some more usage of run_in_executor (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8352">#8352</a>)</li>
+  <li>Correct spelling of aliases, deprecate old config options. (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8348">#8348</a>) (<a href="https://home-assistant.io/components/rflink/">rflink docs</a>) (<a href="https://home-assistant.io/components/light.rflink/">light.rflink docs</a>) (<a href="https://home-assistant.io/components/sensor.rflink/">sensor.rflink docs</a>) (<a href="https://home-assistant.io/components/switch.rflink/">switch.rflink docs</a>)</li>
+  <li>Allow Pilight Binary Sensor to control reset_delay_sec through configuration (<a href="https://github.com/clarkewd">@clarkewd</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8358">#8358</a>) (<a href="https://home-assistant.io/components/binary_sensor.pilight/">binary_sensor.pilight docs</a>)</li>
+  <li>Mqtt client_id fix for #8315 (<a href="https://github.com/heinemml">@heinemml</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8366">#8366</a>) (<a href="https://home-assistant.io/components/mqtt/">mqtt docs</a>)</li>
+  <li>Allow all panel urls (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8368">#8368</a>)</li>
+  <li>Update pyHik to catch XML errors (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8384">#8384</a>) (<a href="https://home-assistant.io/components/binary_sensor.hikvision/">binary_sensor.hikvision docs</a>)</li>
+  <li>update version (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8380">#8380</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.totalconnect/">alarm_control_panel.totalconnect docs</a>)</li>
+  <li>Add One-Time Password sensor (OTP) (<a href="https://github.com/postlund">@postlund</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8332">#8332</a>) (<a href="https://home-assistant.io/components/sensor.otp/">sensor.otp docs</a>) (new-platform)</li>
+  <li>buienradar==0.7, fix winddirection/azimuth, logging (<a href="https://github.com/mjj4791">@mjj4791</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8281">#8281</a>) (<a href="https://home-assistant.io/components/sensor.buienradar/">sensor.buienradar docs</a>) (<a href="https://home-assistant.io/components/weather.buienradar/">weather.buienradar docs</a>)</li>
+  <li>Add component for xiaomi robot vacuum (switch.xiaomi_vacuum) (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7913">#7913</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_vacuum/">switch.xiaomi_vacuum docs</a>) (new-platform)</li>
+  <li>Try catch around database updates in recorder. Resolves 6919 (<a href="https://github.com/mitchese">@mitchese</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8349">#8349</a>) (<a href="https://home-assistant.io/components/recorder/">recorder docs</a>)</li>
+  <li>Fix Amazon Polly with non english voices. #8377 (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8378">#8378</a>) (<a href="https://home-assistant.io/components/tts.amazon_polly/">tts.amazon_polly docs</a>)</li>
+  <li>Fix TTS options. #8375 (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8376">#8376</a>) (<a href="https://home-assistant.io/components/tts/">tts docs</a>)</li>
+  <li>Add address-specific KNX listeners that fire events on the HASS bus (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8374">#8374</a>) (<a href="https://home-assistant.io/components/knx/">knx docs</a>)</li>
+  <li>GTFS: check start/end date on services (<a href="https://github.com/Kernald">@Kernald</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8373">#8373</a>) (<a href="https://home-assistant.io/components/sensor.gtfs/">sensor.gtfs docs</a>)</li>
+  <li>Implement KNX dimming functionality (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8371">#8371</a>) (<a href="https://home-assistant.io/components/light.knx/">light.knx docs</a>)</li>
+  <li>Add Soundtouch support for playing an HTTP url (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8370">#8370</a>) (<a href="https://home-assistant.io/components/media_player.soundtouch/">media_player.soundtouch docs</a>)</li>
+  <li>Modbus fixes to work with pymodbus 1.3.1 (<a href="https://github.com/Sabesto">@Sabesto</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8365">#8365</a>) (<a href="https://home-assistant.io/components/modbus/">modbus docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.modbus/">binary_sensor.modbus docs</a>) (<a href="https://home-assistant.io/components/sensor.modbus/">sensor.modbus docs</a>) (<a href="https://home-assistant.io/components/switch.modbus/">switch.modbus docs</a>)</li>
+  <li>Cleanup the asuswrt component (<a href="https://github.com/mattsch">@mattsch</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8359">#8359</a>) (<a href="https://home-assistant.io/components/device_tracker.asuswrt/">device_tracker.asuswrt docs</a>)</li>
+  <li>cover_template:i open/close/stop actions no longer required. Improve tests (<a href="https://github.com/PhracturedBlue">@PhracturedBlue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8344">#8344</a>) (<a href="https://home-assistant.io/components/cover.template/">cover.template docs</a>)</li>
+  <li>Prevent errors on Octoprint sensors and binary_sensors when Octoprint and/or Printer are off (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8343">#8343</a>) (<a href="https://home-assistant.io/components/octoprint/">octoprint docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.octoprint/">binary_sensor.octoprint docs</a>) (<a href="https://home-assistant.io/components/sensor.octoprint/">sensor.octoprint docs</a>)</li>
+  <li>Presence detection for tp link eap225 (<a href="https://github.com/alexrockt">@alexrockt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8322">#8322</a>) (<a href="https://home-assistant.io/components/device_tracker.tplink/">device_tracker.tplink docs</a>)</li>
+  <li>zha light: Refresh at startup (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8310">#8310</a>) (<a href="https://home-assistant.io/components/light.zha/">light.zha docs</a>)</li>
+  <li>zha: Try multiple reads to get manufacturer/model (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8308">#8308</a>) (<a href="https://home-assistant.io/components/zha/">zha docs</a>)</li>
+  <li>Upnp mapping notification (<a href="https://github.com/dgomes">@dgomes</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8303">#8303</a>) (<a href="https://home-assistant.io/components/upnp/">upnp docs</a>)</li>
+  <li>Use user-set device names for Linksys Smart Wi-Fi routers (3) (<a href="https://github.com/Klikini">@Klikini</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8300">#8300</a>) (<a href="https://home-assistant.io/components/device_tracker.linksys_smart/">device_tracker.linksys_smart docs</a>)</li>
+  <li>Added support for upload of remote or local files to slack (<a href="https://github.com/simaosimao">@simaosimao</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8278">#8278</a>) (<a href="https://home-assistant.io/components/notify.slack/">notify.slack docs</a>)</li>
+  <li>Update avion.py (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8364">#8364</a>) (<a href="https://home-assistant.io/components/light.avion/">light.avion docs</a>)</li>
+  <li>LaMetric platform and notify module (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8230">#8230</a>) (<a href="https://home-assistant.io/components/lametric/">lametric docs</a>) (<a href="https://home-assistant.io/components/notify.lametric/">notify.lametric docs</a>) (new-platform)</li>
+  <li>Sets spotify media_type to music (<a href="https://github.com/Tommatheussen">@Tommatheussen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8387">#8387</a>) (<a href="https://home-assistant.io/components/media_player.spotify/">media_player.spotify docs</a>)</li>
+  <li>Update waqi sensor (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8385">#8385</a>) (<a href="https://home-assistant.io/components/sensor.waqi/">sensor.waqi docs</a>)</li>
+  <li>Update aiolifx (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8396">#8396</a>) (<a href="https://home-assistant.io/components/light.lifx/">light.lifx docs</a>)</li>
+  <li>Code owners (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8393">#8393</a>)</li>
+  <li>Add new Dyson sensors (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8199">#8199</a>) (<a href="https://home-assistant.io/components/dyson/">dyson docs</a>) (<a href="https://home-assistant.io/components/fan.dyson/">fan.dyson docs</a>) (<a href="https://home-assistant.io/components/sensor.dyson/">sensor.dyson docs</a>)</li>
+  <li>Fix CODEOWNERS z-wave team name (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8400">#8400</a>)</li>
+  <li>Upgrade Sphinx to 1.6.3 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8405">#8405</a>)</li>
+  <li>Use upstream RachioPy, fix manual run switches (<a href="https://github.com/Klikini">@Klikini</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8286">#8286</a>) (<a href="https://home-assistant.io/components/switch.rachio/">switch.rachio docs</a>)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Marrantz SR5006 &amp; SR5006 treated as AVR-X device</td>
+          <td>Fixed Mapping of Media Player and AUX input functions (<a href="https://github.com/scarface-4711">@scarface-4711</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8409">#8409</a>) (<a href="https://home-assistant.io/components/media_player.denonavr/">media_player.denonavr docs</a>)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>New component to connect to VELUX KLF 200 Interface (<a href="https://github.com/Julius2342">@Julius2342</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8203">#8203</a>) (<a href="https://home-assistant.io/components/velux/">velux docs</a>) (<a href="https://home-assistant.io/components/scene.velux/">scene.velux docs</a>) (new-platform)</li>
+  <li>Properly handle the case when a group includes itself. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8398">#8398</a>) (<a href="https://home-assistant.io/components/group/">group docs</a>)</li>
+  <li>Add set_operation_mode support to generic_thermostat (<a href="https://github.com/mtreinish">@mtreinish</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8392">#8392</a>) (<a href="https://home-assistant.io/components/climate.generic_thermostat/">climate.generic_thermostat docs</a>)</li>
+  <li>Make gzips reproducible by excluding timestamp (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8420">#8420</a>)</li>
+  <li>Do not overwrite a custom hyperion light name with the hostname of the server. (<a href="https://github.com/doctorjames">@doctorjames</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8391">#8391</a>) (<a href="https://home-assistant.io/components/light.hyperion/">light.hyperion docs</a>)</li>
+  <li>Fixed link to documentation (<a href="https://github.com/Julius2342">@Julius2342</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8424">#8424</a>) (<a href="https://home-assistant.io/components/velux/">velux docs</a>) (<a href="https://home-assistant.io/components/scene.velux/">scene.velux docs</a>)</li>
+  <li>Fix KeyError (fixes #3721, fixes #7241) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8428">#8428</a>) (<a href="https://home-assistant.io/components/sensor.uber/">sensor.uber docs</a>)</li>
+  <li>Use HA lat/long for the start (fixes #3971) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8429">#8429</a>) (<a href="https://home-assistant.io/components/sensor.uber/">sensor.uber docs</a>)</li>
+  <li>bump python-mirobo requirement to support newer firmwares and more (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8431">#8431</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_vacuum/">switch.xiaomi_vacuum docs</a>)</li>
+  <li>New service <code class="highlighter-rouge">send_magic_packet</code> with new component <code class="highlighter-rouge">wake_on_lan</code> (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8397">#8397</a>) (<a href="https://home-assistant.io/components/wake_on_lan/">wake_on_lan docs</a>) (new-platform)</li>
+  <li>Integrate utility functions into restricted Python environment (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8427">#8427</a>) (<a href="https://home-assistant.io/components/python_script/">python_script docs</a>)</li>
+  <li>Allow Twitter notifications to include media (<a href="https://github.com/MikeChristianson">@MikeChristianson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8282">#8282</a>) (<a href="https://home-assistant.io/components/notify/">notify docs</a>) (<a href="https://home-assistant.io/components/notify.twitter/">notify.twitter docs</a>)</li>
+  <li>Fix typo (sending USERNAME instead of PASSWORD) introduced in #7963 (<a href="https://github.com/thecynic">@thecynic</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8433">#8433</a>) (<a href="https://home-assistant.io/components/lutron/">lutron docs</a>)</li>
+  <li>zha: Handle both input and output clusters (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8410">#8410</a>) (<a href="https://home-assistant.io/components/zha/">zha docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.zha/">binary_sensor.zha docs</a>) (<a href="https://home-assistant.io/components/light.zha/">light.zha docs</a>) (<a href="https://home-assistant.io/components/sensor.zha/">sensor.zha docs</a>)</li>
+  <li>Add support for Prometheus (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8211">#8211</a>) (<a href="https://home-assistant.io/components/prometheus/">prometheus docs</a>) (new-platform)</li>
+  <li>Refactored Amcrest to use central hub component (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8184">#8184</a>) (<a href="https://home-assistant.io/components/amcrest/">amcrest docs</a>) (<a href="https://home-assistant.io/components/camera.amcrest/">camera.amcrest docs</a>) (<a href="https://home-assistant.io/components/sensor.amcrest/">sensor.amcrest docs</a>) (breaking change) (new-platform)</li>
+  <li>Fix radiothermostat -1 value issue (<a href="https://github.com/aneisch">@aneisch</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8395">#8395</a>) (<a href="https://home-assistant.io/components/climate.radiotherm/">climate.radiotherm docs</a>)</li>
+  <li>Added media_extractor service (<a href="https://github.com/minchik">@minchik</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8369">#8369</a>) (<a href="https://home-assistant.io/components/media_extractor/">media_extractor docs</a>) (new-platform)</li>
+  <li>Updated pyvera (<a href="https://github.com/alanfischer">@alanfischer</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8437">#8437</a>) (<a href="https://home-assistant.io/components/vera/">vera docs</a>)</li>
+  <li>Upgrade phue to 1.0 (fixes #7749) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8444">#8444</a>) (<a href="https://home-assistant.io/components/light.hue/">light.hue docs</a>)</li>
+  <li>Add effects (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8442">#8442</a>) (<a href="https://home-assistant.io/components/light.mystrom/">light.mystrom docs</a>)</li>
+  <li>Exclude ‘TAXI’ product (fixes #8401) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8438">#8438</a>) (<a href="https://home-assistant.io/components/sensor.uber/">sensor.uber docs</a>)</li>
+  <li>Switch pyW215 to pypi (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8445">#8445</a>) (<a href="https://home-assistant.io/components/switch.dlink/">switch.dlink docs</a>)</li>
+  <li>Vizio SmartCast support (<a href="https://github.com/vkorn">@vkorn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8260">#8260</a>) (<a href="https://home-assistant.io/components/media_player.vizio/">media_player.vizio docs</a>) (new-platform)</li>
+  <li>DHT support for humidity and temperature offset (<a href="https://github.com/gitmopp">@gitmopp</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8238">#8238</a>) (<a href="https://home-assistant.io/components/sensor.dht/">sensor.dht docs</a>)</li>
+  <li>Add support for rain and moisture sensors (<a href="https://github.com/sdague">@sdague</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8440">#8440</a>) (<a href="https://home-assistant.io/components/sensor.arwn/">sensor.arwn docs</a>)</li>
+  <li>Hass.io: Disable timeout when updating OS/supervisor/hass (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8447">#8447</a>) (<a href="https://home-assistant.io/hassio/">hassio docs</a>)</li>
+  <li>Fix Arlo Q not working with 0.48.1 (<a href="https://github.com/viswa-swami">@viswa-swami</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8446">#8446</a>) (<a href="https://home-assistant.io/components/camera.arlo/">camera.arlo docs</a>)</li>
+  <li>Support for Plex servers with enforced SSL (<a href="https://github.com/nmaggioni">@nmaggioni</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8341">#8341</a>) (<a href="https://home-assistant.io/components/media_player.plex/">media_player.plex docs</a>)</li>
+  <li>Upgrade youtube_dl to 2017.7.9 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8450">#8450</a>) (<a href="https://home-assistant.io/components/media_extractor/">media_extractor docs</a>)</li>
+  <li>Implement a bridge between HASS event bus and KNX bus to send events (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8449">#8449</a>) (<a href="https://home-assistant.io/components/knx/">knx docs</a>)</li>
+  <li>LIFX: improve light availability (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8451">#8451</a>) (<a href="https://home-assistant.io/components/light.lifx/">light.lifx docs</a>)</li>
+  <li>LIFX: make broadcast address configurable (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8453">#8453</a>) (<a href="https://home-assistant.io/components/light.lifx/">light.lifx docs</a>)</li>
+  <li>Backend support for themes (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8419">#8419</a>)</li>
+  <li>upgrade broadlink (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8462">#8462</a>) (<a href="https://home-assistant.io/components/sensor.broadlink/">sensor.broadlink docs</a>) (<a href="https://home-assistant.io/components/switch.broadlink/">switch.broadlink docs</a>)</li>
+  <li>upgrade rfxtrx lib (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8463">#8463</a>) (<a href="https://home-assistant.io/components/rfxtrx/">rfxtrx docs</a>)</li>
+  <li>Plex: Add exception handler when connection fails (<a href="https://github.com/abmantis">@abmantis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8179">#8179</a>) (<a href="https://home-assistant.io/components/media_player.plex/">media_player.plex docs</a>)</li>
+  <li>HomeMatic dependency upgrade + IP Wall Thermostat support (<a href="https://github.com/danielperna84">@danielperna84</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8465">#8465</a>) (<a href="https://home-assistant.io/components/homematic/">homematic docs</a>)</li>
+  <li>Add kiosk-mode panel (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8457">#8457</a>)</li>
+</ul>
+</article>
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/07/15/release-49/"
+     data-counturl="https://home-assistant.io/blog/2017/07/15/release-49/" >Tweet</a>
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/07/15/release-49/"
+         data-layout="button_count">
+    </div>
+  <div class="g-plusone" data-size="standard"></div>
+</section>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+        <li class="post">
+          <a href="/blog/2017/07/05/hasspodcast-ep-3/">Home Assistant Podcast #3</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/07/03/home-assistant-is-moving-to-discord/">Home Assistant is moving to Discord</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/07/02/release-48/">0.48: Snips.ai, Shiftr.io and a massive History query speed up</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/06/20/things-you-should-know-about-senic-covi/">[Update: fixed] A frank and serious warning about X</a>
+        </li>
+  </ul>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/07/15/release-49/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/07/15/release-49/';
+    var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

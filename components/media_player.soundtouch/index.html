@@ -105,7 +105,7 @@
   <li><strong>port</strong> (<em>Optional</em>): The port number. Defaults to 8090.</li>
 </ul>
 <p>You can switch between one of your 6 pre-configured presets using <code class="highlighter-rouge">media_player.play_media</code></p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Play media in configuration.yaml</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Play media preset</span>
 <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
   <span class="s">data</span><span class="pi">:</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.soundtouch_living_room</span>
@@ -113,6 +113,18 @@
     <span class="s">media_content_type</span><span class="pi">:</span> <span class="s">PLAYLIST</span>
 </code></pre>
 </div>
+<p>You can also play HTTP (not HTTPS) URLs:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Play media URL</span>
+<span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.soundtouch_living_room</span>
+    <span class="s">media_content_id</span><span class="pi">:</span> <span class="s">http://example.com/music.mp3</span>
+    <span class="s">media_content_type</span><span class="pi">:</span> <span class="s">MUSIC</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="text-to-speech-services" href="#text-to-speech-services"></a> Text-to-Speech services</h3>
+<p>You can use TTS services like <a href="/components/tts.google/">Google Text-to-Speech</a> or <a href="/components/tts.amazon_polly">Amazon Polly</a> only if your Home Assistant is configured in HTTP and not HTTPS (current device limitation, a firmware upgrade is planned).</p>
+<p>A workaround if you want to publish your Home Assistant installation on Internet in SSL is to configure an HTTPS Web Server as a reverse proxy (<a href="/docs/ecosystem/nginx/">nginx</a> for example) and let your Home Assistant configuration in HTTP on your local network. The Soundtouch devices will be available to access the TTS files in HTTP in local and your configuration will be in HTTPS on the Internet.</p>
 <h3><a class="title-link" name="service-soundtouch_play_everywhere" href="#service-soundtouch_play_everywhere"></a> Service <code class="highlighter-rouge">soundtouch_play_everywhere</code></h3>
 <p>Create a multi-room (zone) from a master and play same content on all other
  devices (slaves)</p>
@@ -283,6 +295,9 @@ create a new zone in order to be able to add slave(s) again</p>
             <a href='/components/media_player.mpchc/'>MPC-HC</a>
         </li>
         <li>
+            <a href='/components/media_extractor/'>Media Extractor</a>
+        </li>
+        <li>
             <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
         </li>
         <li>
@@ -347,6 +362,9 @@ create a new zone in order to be able to add slave(s) again</p>
         </li>
         <li>
             <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vizio/'>Vizio SmartCast TV</a>
         </li>
         <li>
             <a href='/components/media_player.volumio/'>Volumio Media Player</a>

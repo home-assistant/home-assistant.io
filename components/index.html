@@ -80,11 +80,11 @@ Support for these components is provided by the Home Assistant community.
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
     <div class="filter-button-group">
-      <a href='#all' class="btn">All (732)</a>
+      <a href='#all' class="btn">All (744)</a>
       <a href='#featured' class="btn featured">Featured</a>
-      <a href='#version/0.48' class="btn added_in_current_version">Added in 0.48 (16)</a>
-      <a href='#version/0.47' class="btn added_one_version_ago">Added in 0.47 (23)</a>
-      <a href='#version/0.46' class="btn added_two_versions_ago">Added in 0.46 (5)</a>
+      <a href='#version/0.49' class="btn added_in_current_version">Added in 0.49 (12)</a>
+      <a href='#version/0.48' class="btn added_one_version_ago">Added in 0.48 (16)</a>
+      <a href='#version/0.47' class="btn added_two_versions_ago">Added in 0.47 (23)</a>
     <a href='#alarm' class="btn">Alarm (13)</a>
     <a href='#automation' class="btn">Automation (16)</a>
     <a href='#binary-sensor' class="btn">Binary Sensor (54)</a>
@@ -99,20 +99,21 @@ Support for these components is provided by the Home Assistant community.
     <a href='#finance' class="btn">Finance (9)</a>
     <a href='#front-end' class="btn">Front end (4)</a>
     <a href='#health' class="btn">Health (2)</a>
-    <a href='#history' class="btn">History (13)</a>
-    <a href='#hub' class="btn">Hub (59)</a>
+    <a href='#history' class="btn">History (14)</a>
+    <a href='#hub' class="btn">Hub (63)</a>
     <a href='#image-processing' class="btn">Image Processing (8)</a>
     <a href='#light' class="btn">Light (46)</a>
     <a href='#lock' class="btn">Lock (9)</a>
-    <a href='#media-player' class="btn">Media Player (45)</a>
+    <a href='#media-player' class="btn">Media Player (47)</a>
     <a href='#notifications' class="btn">Notifications (45)</a>
+    <a href='#notify' class="btn">Notify (1)</a>
     <a href='#organization' class="btn">Organization (3)</a>
     <a href='#presence-detection' class="btn">Presence Detection (39)</a>
     <a href='#remote' class="btn">Remote (3)</a>
-    <a href='#scene' class="btn">Scene (3)</a>
-    <a href='#sensor' class="btn">Sensor (90)</a>
+    <a href='#scene' class="btn">Scene (4)</a>
+    <a href='#sensor' class="btn">Sensor (92)</a>
     <a href='#social' class="btn">Social (5)</a>
-    <a href='#switch' class="btn">Switch (58)</a>
+    <a href='#switch' class="btn">Switch (59)</a>
     <a href='#system-monitor' class="btn">System Monitor (23)</a>
     <a href='#telegram-chatbot' class="btn">Telegram chatbot (3)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (6)</a>
@@ -172,6 +173,7 @@ var allComponents = [
 {url:"/components/tts.amazon_polly/", title:"Amazon Polly", cat:"text-to-speech", featured: false, v: "0.37", logo: "polly.png"},
 {url:"/components/camera.amcrest/", title:"Amcrest IP Camera", cat:"camera", featured: false, v: "0.34", logo: "amcrest.png"},
 {url:"/components/sensor.amcrest/", title:"Amcrest IP Camera", cat:"sensor", featured: false, v: "0.37", logo: "amcrest.png"},
+{url:"/components/amcrest/", title:"Amcrest IP Camera", cat:"hub", featured: false, v: "0.49", logo: "amcrest.png"},
 {url:"/components/android_ip_webcam/", title:"Android IP Webcam", cat:"hub", featured: false, v: "0.40", logo: "android_ip_webcam.png"},
 {url:"/components/binary_sensor.android_ip_webcam/", title:"Android IP Webcam Binary Sensor", cat:"binary-sensor", featured: false, v: "0.40", logo: "android_ip_webcam.png"},
 {url:"/components/sensor.android_ip_webcam/", title:"Android IP Webcam Sensor", cat:"sensor", featured: false, v: "0.40", logo: "android_ip_webcam.png"},
@@ -231,6 +233,7 @@ var allComponents = [
 {url:"/components/sensor.cert_expiry/", title:"Certificate Expiry", cat:"system-monitor", featured: false, v: "0.44", logo: "home-assistant.png"},
 {url:"/components/device_tracker.cisco_ios/", title:"Cisco IOS", cat:"presence-detection", featured: false, v: "0.33", logo: "cisco.png"},
 {url:"/components/notify.ciscospark/", title:"Cisco Spark", cat:"notifications", featured: false, v: "0.40", logo: "ciscospark.png"},
+{url:"/components/sensor.citybikes/", title:"CityBikes API sensor", cat:"sensor", featured: false, v: "0.49", logo: ""},
 {url:"/components/media_player.clementine/", title:"Clementine Music Player", cat:"media-player", featured: false, v: "0.39", logo: "clementine.png"},
 {url:"/components/notify.clicksend/", title:"ClickSend", cat:"notifications", featured: false, v: "0.48", logo: "clicksend.png"},
 {url:"/components/sensor.coinmarketcap/", title:"CoinMarketCap", cat:"finance", featured: false, v: "0.28", logo: "coinmarketcap.png"},
@@ -364,7 +367,7 @@ var allComponents = [
 {url:"/components/switch.hikvision/", title:"Hikvision Camera Switch", cat:"switch", featured: false, v: "0.7", logo: "hikvision.png"},
 {url:"/components/history/", title:"History", cat:"history", featured: false, v: "0.7", logo: "home-assistant.png"},
 {url:"/components/sensor.history_stats/", title:"History Statistics Sensor", cat:"sensor", featured: false, v: "0.39", logo: "home-assistant.png"},
-{url:"/components/ha/", title:"Home Assistant 0.48", cat:"other", featured: false, v: "0.48", logo: "home-assistant.png"},
+{url:"/components/ha/", title:"Home Assistant 0.49", cat:"other", featured: false, v: "0.49", logo: "home-assistant.png"},
 {url:"/components/homematic/", title:"Homematic", cat:"hub", featured: false, v: "0.0", logo: "homematic.png"},
 {url:"/components/binary_sensor.homematic/", title:"Homematic Binary Sensor", cat:"binary-sensor", featured: false, v: "0.23", logo: "homematic.png"},
 {url:"/components/cover.homematic/", title:"Homematic Cover", cat:"cover", featured: false, v: "0.27", logo: "homematic.png"},
@@ -436,6 +439,8 @@ var allComponents = [
 {url:"/components/light.lifx/", title:"LIFX", cat:"light", featured: false, v: "0.12", logo: "lifx.png"},
 {url:"/components/scene.lifx_cloud/", title:"LIFX Cloud Scenes", cat:"scene", featured: false, v: "0.43", logo: "lifx.png"},
 {url:"/components/lirc/", title:"LIRC", cat:"automation", featured: false, v: "0.21", logo: "lirc.gif"},
+{url:"/components/lametric/", title:"LaMetric", cat:"hub", featured: false, v: "0.49", logo: ""},
+{url:"/components/notify.lametric/", title:"LaMetric Notify", cat:"notify", featured: false, v: "0.49", logo: ""},
 {url:"/components/notify.lannouncer/", title:"Lannouncer", cat:"notifications", featured: false, v: "0.36", logo: "lannouncer.png"},
 {url:"/components/sensor.lastfm/", title:"Last.fm", cat:"social", featured: false, v: "0.20", logo: "lastfm.png"},
 {url:"/components/light.limitlessled/", title:"LimitlessLED", cat:"light", featured: false, v: "0.7", logo: "limitlessled_logo.png"},
@@ -488,6 +493,7 @@ var allComponents = [
 {url:"/components/ifttt.manything/", title:"ManyThing", cat:"camera", featured: false, v: "0.0", logo: "manything.png"},
 {url:"/components/tts.marytts/", title:"MaryTTS", cat:"text-to-speech", featured: false, v: "0.43", logo: "marytts.png"},
 {url:"/components/notify.matrix/", title:"Matrix", cat:"notifications", featured: false, v: "0.32", logo: "matrix.png"},
+{url:"/components/media_extractor/", title:"Media Extractor", cat:"media-player", featured: false, v: "0.49", logo: "home-assistant.png"},
 {url:"/components/notify.message_bird/", title:"MessageBird", cat:"notifications", featured: false, v: "0.16", logo: "message_bird.png"},
 {url:"/components/weather.metoffice/", title:"Met Office", cat:"weather", featured: false, v: "0.42", logo: "metoffice.jpg"},
 {url:"/components/sensor.metoffice/", title:"Met Office Sensor", cat:"weather", featured: false, v: "0.42", logo: "metoffice.jpg"},
@@ -548,6 +554,7 @@ var allComponents = [
 {url:"/components/nuimo_controller/", title:"Nuimo controller", cat:"hub", featured: false, v: "0.29", logo: "nuimo.png"},
 {url:"/components/lock.nuki/", title:"Nuki Smart Lock", cat:"lock", featured: false, v: "0.38", logo: "nuki.png"},
 {url:"/components/camera.onvif/", title:"ONVIF Camera", cat:"camera", featured: false, v: "0.47", logo: "onvif.png"},
+{url:"/components/sensor.otp/", title:"OTP Sensor", cat:"sensor", featured: false, v: "0.49", logo: "home-assistant.png"},
 {url:"/components/octoprint/", title:"OctoPrint", cat:"hub", featured: false, v: "0.19", logo: "octoprint.png"},
 {url:"/components/binary_sensor.octoprint/", title:"OctoPrint Binary Sensor", cat:"binary-sensor", featured: false, v: "0.19", logo: "octoprint.png"},
 {url:"/components/sensor.octoprint/", title:"OctoPrint Sensor", cat:"sensor", featured: false, v: "0.19", logo: "octoprint.png"},
@@ -601,6 +608,7 @@ var allComponents = [
 {url:"/components/scene.hunterdouglas_powerview/", title:"PowerView Scenes", cat:"cover", featured: false, v: "0.15", logo: "hunter-douglas-powerview.png"},
 {url:"/components/device_sun_light_trigger/", title:"Presence based lights", cat:"automation", featured: false, v: "0.0", logo: "home-assistant.png"},
 {url:"/components/climate.proliphix/", title:"Proliphix Thermostat", cat:"climate", featured: false, v: "0.11", logo: "proliphix.png"},
+{url:"/components/prometheus/", title:"Prometheus", cat:"history", featured: false, v: "0.49", logo: "prometheus.png"},
 {url:"/components/proximity/", title:"Proximity", cat:"automation", featured: false, v: "0.13", logo: "home-assistant.png"},
 {url:"/components/sensor.gtfs/", title:"Public Transit (GTFS)", cat:"transport", featured: false, v: "0.17", logo: "train.png"},
 {url:"/components/switch.pulseaudio_loopback/", title:"PulseAudio Loopback Switch", cat:"switch", featured: false, v: "0.16", logo: "pulseaudio.png"},
@@ -763,6 +771,8 @@ var allComponents = [
 {url:"/components/updater/", title:"Updater", cat:"other", featured: false, v: "0.0", logo: "home-assistant.png"},
 {url:"/components/media_player.vlc/", title:"VLC", cat:"media-player", featured: false, v: "0.35", logo: "videolan.png"},
 {url:"/components/alarm_control_panel.spc/", title:"Vanderbilt SPC Alarm", cat:"alarm", featured: false, v: "0.47", logo: "vanderbilt_spc.png"},
+{url:"/components/velux/", title:"Velux", cat:"hub", featured: false, v: "0.49", logo: "velux.png"},
+{url:"/components/scene.velux/", title:"Velux Scene", cat:"scene", featured: false, v: "0.49", logo: "velux.png"},
 {url:"/components/vera/", title:"Vera", cat:"hub", featured: false, v: "0.7", logo: "vera.png"},
 {url:"/components/binary_sensor.vera/", title:"Vera Binary Sensor", cat:"binary-sensor", featured: false, v: "0.7", logo: "vera.png"},
 {url:"/components/cover.vera/", title:"Vera Cover", cat:"cover", featured: false, v: "0.13", logo: "vera.png"},
@@ -778,11 +788,13 @@ var allComponents = [
 {url:"/components/lock.verisure/", title:"Verisure Lock", cat:"lock", featured: false, v: "0.13", logo: "verisure.png"},
 {url:"/components/sensor.verisure/", title:"Verisure Sensor", cat:"sensor", featured: false, v: "0.0", logo: "verisure.png"},
 {url:"/components/switch.verisure/", title:"Verisure SmartPlug", cat:"switch", featured: false, v: "0.0", logo: "verisure.png"},
+{url:"/components/media_player.vizio/", title:"Vizio SmartCast TV", cat:"media-player", featured: true, v: "0.49", logo: "vizio-smartcast.png"},
 {url:"/components/tts.voicerss/", title:"VoiceRSS", cat:"text-to-speech", featured: false, v: "0.35", logo: "voicerss.png"},
 {url:"/components/media_player.volumio/", title:"Volumio Media Player", cat:"media-player", featured: false, v: "0.41", logo: "volumio.png"},
 {url:"/components/device_tracker.volvooncall/", title:"Volvo On Call", cat:"presence-detection", featured: false, v: "0.30", logo: "volvo.png"},
 {url:"/components/volvooncall/", title:"Volvo On Call", cat:"hub", featured: false, v: "0.39", logo: "volvo.png"},
 {url:"/components/sensor.vasttrafik/", title:"Västtrafik Public Transport", cat:"transport", featured: false, v: "0.30", logo: "vasttrafik.png"},
+{url:"/components/wake_on_lan/", title:"Wake on LAN", cat:"hub", featured: false, v: "0.49", logo: "ethernet.png"},
 {url:"/components/switch.wake_on_lan/", title:"Wake on LAN Switch", cat:"switch", featured: false, v: "0.16", logo: "ethernet.png"},
 {url:"/components/sensor.wsdot/", title:"Washington State DOT", cat:"transport", featured: false, v: "0.37", logo: "wsdot.png"},
 {url:"/components/sensor.wunderground/", title:"Weather Underground (WUnderground)", cat:"weather", featured: false, v: "0.27", logo: "wunderground.png"},
@@ -803,6 +815,7 @@ var allComponents = [
 {url:"/components/sensor.worldclock/", title:"Worldclock", cat:"calendar", featured: false, v: "0.7", logo: "home-assistant.png"},
 {url:"/components/light.x10/", title:"X10", cat:"light", featured: false, v: "0.25", logo: "x10.gif"},
 {url:"/components/sensor.xbox_live/", title:"Xbox Live", cat:"social", featured: false, v: "0.28", logo: "xbox-live.png"},
+{url:"/components/switch.xiaomi_vacuum/", title:"Xiaomi Mi Robot Vacuum", cat:"switch", featured: false, v: "0.48", logo: "xiaomi_vacuum.png"},
 {url:"/components/device_tracker.xiaomi/", title:"Xiaomi Router", cat:"presence-detection", featured: false, v: "0.36", logo: "xiaomi.png"},
 {url:"/components/sensor.yr/", title:"YR", cat:"weather", featured: false, v: "0.11", logo: "yr.png"},
 {url:"/components/sensor.yahoo_finance/", title:"Yahoo Finance", cat:"finance", featured: false, v: "0.29", logo: "yahoo_finance.png"},
@@ -1027,6 +1040,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/tts.amazon_polly/'>Amazon Polly</a></li>
       <li><a href='/components/camera.amcrest/'>Amcrest IP Camera</a></li>
       <li><a href='/components/sensor.amcrest/'>Amcrest IP Camera</a></li>
+      <li><a href='/components/amcrest/'>Amcrest IP Camera</a></li>
       <li><a href='/components/android_ip_webcam/'>Android IP Webcam</a></li>
       <li><a href='/components/binary_sensor.android_ip_webcam/'>Android IP Webcam Binary Sensor</a></li>
       <li><a href='/components/sensor.android_ip_webcam/'>Android IP Webcam Sensor</a></li>
@@ -1086,6 +1100,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.cert_expiry/'>Certificate Expiry</a></li>
       <li><a href='/components/device_tracker.cisco_ios/'>Cisco IOS</a></li>
       <li><a href='/components/notify.ciscospark/'>Cisco Spark</a></li>
+      <li><a href='/components/sensor.citybikes/'>CityBikes API sensor</a></li>
       <li><a href='/components/media_player.clementine/'>Clementine Music Player</a></li>
       <li><a href='/components/notify.clicksend/'>ClickSend</a></li>
       <li><a href='/components/sensor.coinmarketcap/'>CoinMarketCap</a></li>
@@ -1219,7 +1234,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/switch.hikvision/'>Hikvision Camera Switch</a></li>
       <li><a href='/components/history/'>History</a></li>
       <li><a href='/components/sensor.history_stats/'>History Statistics Sensor</a></li>
-      <li><a href='/components/ha/'>Home Assistant 0.48</a></li>
+      <li><a href='/components/ha/'>Home Assistant 0.49</a></li>
       <li><a href='/components/homematic/'>Homematic</a></li>
       <li><a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a></li>
       <li><a href='/components/cover.homematic/'>Homematic Cover</a></li>
@@ -1291,6 +1306,8 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/light.lifx/'>LIFX</a></li>
       <li><a href='/components/scene.lifx_cloud/'>LIFX Cloud Scenes</a></li>
       <li><a href='/components/lirc/'>LIRC</a></li>
+      <li><a href='/components/lametric/'>LaMetric</a></li>
+      <li><a href='/components/notify.lametric/'>LaMetric Notify</a></li>
       <li><a href='/components/notify.lannouncer/'>Lannouncer</a></li>
       <li><a href='/components/sensor.lastfm/'>Last.fm</a></li>
       <li><a href='/components/light.limitlessled/'>LimitlessLED</a></li>
@@ -1343,6 +1360,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/ifttt.manything/'>ManyThing</a></li>
       <li><a href='/components/tts.marytts/'>MaryTTS</a></li>
       <li><a href='/components/notify.matrix/'>Matrix</a></li>
+      <li><a href='/components/media_extractor/'>Media Extractor</a></li>
       <li><a href='/components/notify.message_bird/'>MessageBird</a></li>
       <li><a href='/components/weather.metoffice/'>Met Office</a></li>
       <li><a href='/components/sensor.metoffice/'>Met Office Sensor</a></li>
@@ -1403,6 +1421,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/nuimo_controller/'>Nuimo controller</a></li>
       <li><a href='/components/lock.nuki/'>Nuki Smart Lock</a></li>
       <li><a href='/components/camera.onvif/'>ONVIF Camera</a></li>
+      <li><a href='/components/sensor.otp/'>OTP Sensor</a></li>
       <li><a href='/components/octoprint/'>OctoPrint</a></li>
       <li><a href='/components/binary_sensor.octoprint/'>OctoPrint Binary Sensor</a></li>
       <li><a href='/components/sensor.octoprint/'>OctoPrint Sensor</a></li>
@@ -1456,6 +1475,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a></li>
       <li><a href='/components/device_sun_light_trigger/'>Presence based lights</a></li>
       <li><a href='/components/climate.proliphix/'>Proliphix Thermostat</a></li>
+      <li><a href='/components/prometheus/'>Prometheus</a></li>
       <li><a href='/components/proximity/'>Proximity</a></li>
       <li><a href='/components/sensor.gtfs/'>Public Transit (GTFS)</a></li>
       <li><a href='/components/switch.pulseaudio_loopback/'>PulseAudio Loopback Switch</a></li>
@@ -1618,6 +1638,8 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/updater/'>Updater</a></li>
       <li><a href='/components/media_player.vlc/'>VLC</a></li>
       <li><a href='/components/alarm_control_panel.spc/'>Vanderbilt SPC Alarm</a></li>
+      <li><a href='/components/velux/'>Velux</a></li>
+      <li><a href='/components/scene.velux/'>Velux Scene</a></li>
       <li><a href='/components/vera/'>Vera</a></li>
       <li><a href='/components/binary_sensor.vera/'>Vera Binary Sensor</a></li>
       <li><a href='/components/cover.vera/'>Vera Cover</a></li>
@@ -1633,11 +1655,13 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/lock.verisure/'>Verisure Lock</a></li>
       <li><a href='/components/sensor.verisure/'>Verisure Sensor</a></li>
       <li><a href='/components/switch.verisure/'>Verisure SmartPlug</a></li>
+      <li><a href='/components/media_player.vizio/'>Vizio SmartCast TV</a></li>
       <li><a href='/components/tts.voicerss/'>VoiceRSS</a></li>
       <li><a href='/components/media_player.volumio/'>Volumio Media Player</a></li>
       <li><a href='/components/device_tracker.volvooncall/'>Volvo On Call</a></li>
       <li><a href='/components/volvooncall/'>Volvo On Call</a></li>
       <li><a href='/components/sensor.vasttrafik/'>Västtrafik Public Transport</a></li>
+      <li><a href='/components/wake_on_lan/'>Wake on LAN</a></li>
       <li><a href='/components/switch.wake_on_lan/'>Wake on LAN Switch</a></li>
       <li><a href='/components/sensor.wsdot/'>Washington State DOT</a></li>
       <li><a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a></li>
@@ -1658,6 +1682,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.worldclock/'>Worldclock</a></li>
       <li><a href='/components/light.x10/'>X10</a></li>
       <li><a href='/components/sensor.xbox_live/'>Xbox Live</a></li>
+      <li><a href='/components/switch.xiaomi_vacuum/'>Xiaomi Mi Robot Vacuum</a></li>
       <li><a href='/components/device_tracker.xiaomi/'>Xiaomi Router</a></li>
       <li><a href='/components/sensor.yr/'>YR</a></li>
       <li><a href='/components/sensor.yahoo_finance/'>Yahoo Finance</a></li>

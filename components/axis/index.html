@@ -99,26 +99,24 @@
 </code></pre>
 </div>
 <p>Configuration variables:</p>
+<h2><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration variables</h2>
 <ul>
-  <li><strong>device</strong> (<em>Required</em>): Unique name for the Axis device.
+  <li><strong>device</strong> (<em>Required</em>): Unique name</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address to your Axis device.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username to your Axis device. Default ‘root’.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password to your Axis device. Default ‘pass’.</li>
+  <li><strong>trigger_time</strong> (<em>Optional</em>): Minimum time (in seconds) a sensor should keep its positive value. Default 0.</li>
+  <li><strong>location</strong> (<em>Optional</em>): Physical location of your Axis device. Default not set.</li>
+  <li><strong>include</strong> (<em>Required</em>): This cannot be empty else there would be no use adding the device at all.
     <ul>
-      <li><strong>host</strong> (<em>Required</em>): The IP address to your Axis device.</li>
-      <li><strong>username</strong> (<em>Optional</em>): The username to your Axis device. Defaults to <code class="highlighter-rouge">root</code>.</li>
-      <li><strong>password</strong> (<em>Optional</em>): The password to your Axis device. Defaults to <code class="highlighter-rouge">pass</code>.</li>
-      <li><strong>trigger_time</strong> (<em>Optional</em>): Minimum time (in seconds) a sensor should keep its positive value. Defaults to 0.</li>
-      <li><strong>location</strong> (<em>Optional</em>): Physical location of your Axis device. Default not set.</li>
-      <li><strong>include</strong> (<em>Required</em>): This cannot be empty else there would be no use adding the device at all.
-        <ul>
-          <li><strong>camera</strong>: Stream MJPEG video to Home Assistant.</li>
-          <li><strong>motion</strong>: The built-in motion detection in Axis cameras.</li>
-          <li><strong>vmd3</strong>: ACAP Motion Detection app which has better algorithms for motion detection.</li>
-          <li><strong>pir</strong>: PIR sensor that can trigger on motion.</li>
-          <li><strong>sound</strong>: Sound detector.</li>
-          <li><strong>daynight</strong>: Certain cameras have day/night mode if they have built-in IR lights.</li>
-          <li><strong>tampering</strong>: Signals when camera believes that it has been tampered with.</li>
-          <li><strong>input</strong>: Trigger on whatever you have connected to device input port.</li>
-        </ul>
-      </li>
+      <li><strong>camera</strong>: Stream MJPEG video to Home Assistant.</li>
+      <li><strong>motion</strong>: The built-in motion detection in Axis cameras.</li>
+      <li><strong>vmd3</strong>: ACAP Motion Detection app which has better algorithms for motion detection.</li>
+      <li><strong>pir</strong>: PIR sensor that can trigger on motion.</li>
+      <li><strong>sound</strong>: Sound detector.</li>
+      <li><strong>daynight</strong>: Certain cameras have day/night mode if they have built-in IR lights.</li>
+      <li><strong>tampering</strong>: Signals when camera believes that it has been tampered with.</li>
+      <li><strong>input</strong>: Trigger on whatever you have connected to device input port.</li>
     </ul>
   </li>
 </ul>
@@ -140,11 +138,50 @@
 </code></pre>
 </div>
 <p class="note">
+If you are using Python3.6 you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
+</p>
+<p class="note">
 Any specific levels for triggers needs to be configured on the device.
 </p>
 <p class="note">
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality it is enough to create a user belonging to user group viewer.
 </p>
+<h2><a class="title-link" name="device-services" href="#device-services"></a> Device services</h2>
+<p>Available services: <code class="highlighter-rouge">vapix_call</code>.</p>
+<h4><a class="title-link" name="service-axisvapix_call" href="#service-axisvapix_call"></a> Service <code class="highlighter-rouge">axis/vapix_call</code></h4>
+<p>Send a command using <a href="https://www.axis.com/support/developer-support/vapix">Vapix</a>. For details please read the API specifications.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>no</td>
+      <td>Name of device to communicate with.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">param</code></td>
+      <td>no</td>
+      <td>What parameter to operate on.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cgi</code></td>
+      <td>yes</td>
+      <td>Which cgi to call on device. Default is <code class="highlighter-rouge">param.cgi</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">action</code></td>
+      <td>yes</td>
+      <td>What type of call. Default is <code class="highlighter-rouge">update</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Response to call can be subscribed to on event <code class="highlighter-rouge">vapix_call_response</code></p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -179,6 +216,9 @@ Any specific levels for triggers needs to be configured on the device.
         </li>
         <li>
             <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
+        </li>
+        <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
         </li>
         <li>
             <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
@@ -245,6 +285,9 @@ Any specific levels for triggers needs to be configured on the device.
         </li>
         <li>
             <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
         </li>
         <li>
             <a href='/components/litejet/'>LiteJet</a>
@@ -325,6 +368,9 @@ Any specific levels for triggers needs to be configured on the device.
             <a href='/components/twilio/'>Twilio</a>
         </li>
         <li>
+            <a href='/components/velux/'>Velux</a>
+        </li>
+        <li>
             <a href='/components/vera/'>Vera</a>
         </li>
         <li>
@@ -332,6 +378,9 @@ Any specific levels for triggers needs to be configured on the device.
         </li>
         <li>
             <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/wake_on_lan/'>Wake on LAN</a>
         </li>
         <li>
             <a href='/components/wink/'>Wink</a>

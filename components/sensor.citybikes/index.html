@@ -1,0 +1,449 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CityBikes API sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to integrate data from the CityBikes API into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.citybikes/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="CityBikes API sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.citybikes/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to integrate data from the CityBikes API into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="CityBikes API sensor">
+    <meta name="twitter:description" content="Instructions on how to integrate data from the CityBikes API into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      CityBikes API Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">citybikes</code> sensor platform monitors bike availability at bike sharing stations in a chosen area. The data is provided by <a href="https://citybik.es/#about">CityBikes</a>, which supports bike sharing systems all around the world.</p>
+<p>To enable it, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry (using radius)</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">citybikes</span>
+    <span class="s">radius</span><span class="pi">:</span> <span class="s">500</span>
+</code></pre>
+</div>
+<p>Configuration options:</p>
+<ul>
+  <li><strong>name</strong> (<em>Optional</em>): The base name of this group of monitored stations. The entity ID of every monitored station in this group will be prefixed with this base name, in addition to the network ID.</li>
+  <li><strong>network</strong> (<em>Optional</em>):  The name of the bike sharing system to poll. Defaults to the system that operates in the monitored location.</li>
+  <li><strong>latitude</strong> (<em>Optional</em>):  Latitude of the location, around which bike stations are monitored. Defaults to the latitude in your your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>):  Longitude of the location, around which bike stations are monitored. Defaults to the longitude in your your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><strong>radius</strong> (<em>Optional</em>):  The radius (in meters or feet, depending on the Home Assistant configuration) around the monitored location. Only stations closer than this distance will be monitored.</li>
+  <li><strong>stations</strong> array (<em>Optional</em>): A list of specific stations to monitor. The list should contain station <code class="highlighter-rouge">ID</code>s or <code class="highlighter-rouge">UID</code>s, which can be obtained from the CityBikes API.</li>
+</ul>
+<p>Additional configuration samples:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry (using a list of stations)</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">citybikes</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Work Stations</span>
+    <span class="s">stations</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">123</span>
+      <span class="pi">-</span> <span class="s">145</span>
+      <span class="pi">-</span> <span class="s">436</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.citybikes.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+  </div>
+    <div class='section'>
+    Introduced in release: 0.49
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Sensor</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/sensor.api_stream/'>API Stream Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.alarmdecoder/'>AlarmDecoder Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
+            <a href='/components/sensor.android_ip_webcam/'>Android IP Webcam Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arlo/'>Arlo Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bh1750/'>BH1750 Light sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bme280/'>BME280 Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bbox/'>Bbox Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.blink/'>Blink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bloomsky/'>BloomSky Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.broadlink/'>Broadlink RM2 and A1 sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.modem_callerid/'>Caller ID Sensor</a>
+        </li>
+        <li>
+            CityBikes API sensor
+        </li>
+        <li>
+            <a href='/components/sensor.command_line/'>Command line Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.crimereports/'>Crime Reports</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dnsip/'>DNS IP</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dweet/'>Dweet.io</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dyson/'>Dyson Purifier Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ebox/'>EBox</a>
+        </li>
+        <li>
+            <a href='/components/sensor.eight_sleep/'>Eight Sleep Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.emoncms/'>Emoncms Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.enocean/'>EnOcean Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.envirophat/'>Enviro pHAT</a>
+        </li>
+        <li>
+            <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.fedex/'>Fedex Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.fido/'>Fido</a>
+        </li>
+        <li>
+            <a href='/components/sensor.file/'>File Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.gpsd/'>GPSD</a>
+        </li>
+        <li>
+            <a href='/components/sensor.gitter/'>Gitter Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.http/'>HTTP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.htu21d/'>HTU21D Temperature and humidity sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.haveibeenpwned/'>HaveIBeenPwned Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.history_stats/'>History Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.homematic/'>Homematic Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.imap_email_content/'>IMAP Email Content</a>
+        </li>
+        <li>
+            <a href='/components/sensor.imap/'>IMAP Unread E-mail</a>
+        </li>
+        <li>
+            <a href='/components/sensor.isy994/'>ISY994 Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.influxdb/'>InfluxDB Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.juicenet/'>Juicenet Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.knx/'>KNX Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.kwb/'>KWB Easyfire Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.kira/'>Kira Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mhz19/'>MH-Z19 CO2 Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mqtt/'>MQTT Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.min_max/'>Min/max Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.modbus/'>Modbus Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mold_indicator/'>Mold Indicator</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nest/'>Nest Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.otp/'>OTP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.octoprint/'>OctoPrint Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.openhardwaremonitor/'>Open Hardware Monitor Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.openevse/'>OpenEVSE Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.opensky/'>OpenSky Network</a>
+        </li>
+        <li>
+            <a href='/components/sensor.pilight/'>Pilight Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.pocketcasts/'>PocketCasts</a>
+        </li>
+        <li>
+            <a href='/components/sensor.pushbullet/'>Pushbullet Mirrors</a>
+        </li>
+        <li>
+            <a href='/components/sensor.qnap/'>QNAP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rest/'>RESTful Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rflink/'>RFLink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rfxtrx/'>RFXtrx Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.radarr/'>Radarr Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.random/'>Random Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ring/'>Ring Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.scrape/'>Scrape Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sensehat/'>Sense HAT</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sonarr/'>Sonarr Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.synologydsm/'>SynologyDSM Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tcp/'>TCP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ted5000/'>TED5000 electricity monitoring</a>
+        </li>
+        <li>
+            <a href='/components/sensor.temper/'>TEMPer Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tado/'>Tado Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tellduslive/'>Telldus Live sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.template/'>Template Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ups/'>UPS Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.usps/'>USPS Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.vera/'>Vera Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.verisure/'>Verisure Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.wink/'>Wink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zwave/'>Z-Wave Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.comfoconnect/'>Zehnder ComfoAir Q Ventilation sensors</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zha/'>ZigBee Home Automation Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zigbee/'>ZigBee Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zoneminder/'>ZoneMinder Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.arest/'>aREST Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.mfi/'>mFi Sensor</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

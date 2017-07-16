@@ -75,20 +75,21 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">upnp</code> component enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the Internet Gateway Device (IGD) Protocol if enabled on your router.</p>
-<p>The IGD can also automatically create port forwarding mappings on your router for Home Assistant.</p>
+<p>The IGD automatically creates port forwarding mappings on your router for Home Assistant, exposing your installation to the internet.  The mapping will never automatically expire. Upon stopping Home Assistant, the mapping will be removed from your router.</p>
 <p>Please note that UPnP or NAT-PMP needs to be enabled on your router for this component to work.</p>
 <p>To integrate this into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with custom external portal</span>
 <span class="s">upnp</span><span class="pi">:</span>
+  <span class="s">external_port</span><span class="pi">:</span> <span class="s">80</span>
 </code></pre>
 </div>
-<p>A port mapping will be created using the IP address and port that Home Assistant is running on. The mapping will never automatically expire. Upon stopping Home Assistant, the mapping will be removed from your router.</p>
-<p>If you which to have the statistics without having port mapping done through IGD, add the option:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with port mapping disabled </span>
-<span class="s">upnp</span><span class="pi">:</span>
-  <span class="s">port_mapping</span><span class="pi">:</span> <span class="s">false</span>
-</code></pre>
-</div>
+<p>If you which to have the statistics without having port mapping done through IGD, add the option <strong>port_mapping</strong>.</p>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>external_port</strong> (<em>Optional</em>): Expose Home Assistant to the internet over this TCP port. Defaults to Home Assistant configured port.</li>
+  <li><strong>port_mapping</strong> (<em>Optional</em>): Disables port mapping  maintains the network statistics sensors)</li>
+  <li><strong>unit</strong> (<em>Optional</em>): UPnP sensors unit. Valid units are ‘Bytes’, ‘KBytes’, ‘MBytes’ and ‘GBytes’.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -137,7 +138,7 @@
             <a href='/components/http/'>HTTP</a>
         </li>
         <li>
-            <a href='/components/ha/'>Home Assistant 0.48</a>
+            <a href='/components/ha/'>Home Assistant 0.49</a>
         </li>
         <li>
             <a href='/components/introduction/'>Introduction</a>

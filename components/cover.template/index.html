@@ -95,9 +95,9 @@
 <ul>
   <li><strong>covers</strong> array (<em>Required</em>): List of your coverss.
     <ul>
-      <li><strong>open_cover</strong> (<em>Required</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is opened.</li>
-      <li><strong>close_cover</strong> (<em>Required</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is closed.</li>
-      <li><strong>stop_cover</strong> (<em>Required</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is stopped.</li>
+      <li><strong>open_cover</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is opened.  If <code class="highlighter-rouge">open_cover</code> is specified, <code class="highlighter-rouge">close_cover</code> must also be specified.  At least one of <code class="highlighter-rouge">open_cover</code> and <code class="highlighter-rouge">set_cover_position</code> must be specified.</li>
+      <li><strong>close_cover</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is closed.</li>
+      <li><strong>stop_cover</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is stopped.</li>
       <li><strong>set_cover_position</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is set to a specific value (between 0 and 100).</li>
       <li><strong>set_cover_tilt_position</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover tilt is set to a specific value (between 0 and 100).</li>
       <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the frontend.</li>

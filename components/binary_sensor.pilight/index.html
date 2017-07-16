@@ -79,12 +79,7 @@ Two type of pilight binary sensor configuration available. A normal sensor which
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Motion'</span>
     <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">state'</span>
-    <span class="s">payload</span><span class="pi">:</span>
-      <span class="s">unitcode</span><span class="pi">:</span> <span class="s">371399</span>
-    <span class="s">payload_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">closed'</span>
-    <span class="s">disarm_after_trigger</span><span class="pi">:</span> <span class="s">True  &lt;-- use this if you want trigger type behavior</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -95,7 +90,21 @@ Two type of pilight binary sensor configuration available. A normal sensor which
   <li><strong>payload_on</strong> (<em>Optional</em>): Variable <code class="highlighter-rouge">on</code> value. The component will recognize this as logical ‘1’.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): Variable <code class="highlighter-rouge">off</code> value. The component will recognize this as logical ‘0’.</li>
   <li><strong>disarm_after_trigger:</strong> (<em>Optional</em>): Configure sensor as trigger type.</li>
+  <li><strong>reset_delay_sec</strong> (<em>Optional</em>): Seconds before the sensor is disarmed if <code class="highlighter-rouge">disarm_after_trigger</code> is set to true. Default is 30 seconds.</li>
 </ul>
+<p>A full configuration example could look like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">pilight</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Motion'</span>
+    <span class="s">variable</span><span class="pi">:</span> <span class="s1">'</span><span class="s">state'</span>
+    <span class="s">payload</span><span class="pi">:</span>
+      <span class="s">unitcode</span><span class="pi">:</span> <span class="s">371399</span>
+    <span class="s">payload_on</span><span class="pi">:</span> <span class="s1">'</span><span class="s">closed'</span>
+    <span class="s">disarm_after_trigger</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">reset_delay_sec</span><span class="pi">:</span> <span class="s">30</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

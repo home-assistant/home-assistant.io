@@ -70,6 +70,69 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/07/15/release-49/">0.49: Themes 🎨, kiosk mode and Prometheus.io</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-07-15T00:02:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 15, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 12 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/07/15/release-49/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.49"><img src="/images/blog/2017-07-0.49/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<h1><a class="title-link" name="we-have-themes-" href="#we-have-themes-"></a> WE HAVE THEMES 🎨👩‍🎨</h1>
+<p>Our already amazing frontend just got even more amazing thanks to <a href="https://github.com/andrey-git">@andrey-git</a>. With the new theme support you can be in control of the primary color, accent color and a whole bunch more.</p>
+<p>You can specify themes using new configuration options under frontend.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">frontend</span><span class="pi">:</span>
+  <span class="s">themes</span><span class="pi">:</span>
+    <span class="s">green</span><span class="pi">:</span>
+      <span class="s">primary-color</span><span class="pi">:</span> <span class="c1">#6ca518;</span>
+</code></pre>
+</div>
+<p>Once a theme is defined, use the new frontend service <code class="highlighter-rouge">frontend.set_theme</code> to activate it. More information in <a href="https://home-assistant.io/components/frontend/">the docs</a>.</p>
+<p class="img">
+<img src="/images/blog/2017-07-0.49/green-theme.png" alt="Screenshot of a green dashboard" />
+Screenshot of a green dashboard
+</p>
+<p>Not all parts of the user interface are themable yet. Expect improvements in future releases.</p>
+<h2><a class="title-link" name="kiosk-mode" href="#kiosk-mode"></a> Kiosk mode</h2>
+<p>Another great new improvement for the frontend is the addition of a kiosk mode. When the frontend is viewed in kiosk mode, the tab bar will be hidden.</p>
+<p>To activate kiosk mode, navigate to <code class="highlighter-rouge">https://hass.example.com:8123/kiosk/group.living_room_view</code>. Note that for <code class="highlighter-rouge">default_view</code> the url is just <code class="highlighter-rouge">https://hass.example.com:8123/kiosk</code></p>
+<p>This feature has also been brought to you by <a href="https://github.com/andrey-git">@Andrey-git</a>! Big shout out to him for his continuous efforts to bring Home Assistant to the next level.</p>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
+<ul>
+  <li>Add london_underground (<a href="https://github.com/robmarkcole">@robmarkcole</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8272">#8272</a>) (<a href="https://home-assistant.io/components/sensor.london_underground/">sensor.london_underground docs</a>) (new-platform)</li>
+  <li>Add citybikes platform (<a href="https://github.com/aronsky">@aronsky</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8202">#8202</a>) (<a href="https://home-assistant.io/components/sensor.citybikes/">sensor.citybikes docs</a>) (new-platform)</li>
+  <li>Add One-Time Password sensor (OTP) (<a href="https://github.com/postlund">@postlund</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8332">#8332</a>) (<a href="https://home-assistant.io/components/sensor.otp/">sensor.otp docs</a>) (new-platform)</li>
+  <li>Add component for xiaomi robot vacuum (switch.xiaomi_vacuum) (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7913">#7913</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_vacuum/">switch.xiaomi_vacuum docs</a>) (new-platform)</li>
+  <li>LaMetric platform and notify module (<a href="https://github.com/open-homeautomation">@open-homeautomation</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8230">#8230</a>) (<a href="https://home-assistant.io/components/lametric/">lametric docs</a>) (<a href="https://home-assistant.io/components/notify.lametric/">notify.lametric docs</a>) (new-platform)</li>
+  <li>New component to connect to VELUX KLF 200 Interface (<a href="https://github.com/Julius2342">@Julius2342</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8203">#8203</a>) (<a href="https://home-assistant.io/components/velux/">velux docs</a>) (<a href="https://home-assistant.io/components/scene.velux/">scene.velux docs</a>) (new-platform)</li>
+  <li>New service <code class="highlighter-rouge">send_magic_packet</code> with new component <code class="highlighter-rouge">wake_on_lan</code> (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8397">#8397</a>) (<a href="https://home-assistant.io/components/wake_on_lan/">wake_on_lan docs</a>) (new-platform)</li>
+  <li>Add support for Prometheus (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8211">#8211</a>) (<a href="https://home-assistant.io/components/prometheus/">prometheus docs</a>) (new-platform)</li>
+  <li>Refactored Amcrest to use central hub component (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8184">#8184</a>) (<a href="https://home-assistant.io/components/amcrest/">amcrest docs</a>) (<a href="https://home-assistant.io/components/camera.amcrest/">camera.amcrest docs</a>) (<a href="https://home-assistant.io/components/sensor.amcrest/">sensor.amcrest docs</a>) (breaking change) (new-platform)</li>
+  <li>Added media_extractor service (<a href="https://github.com/minchik">@minchik</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8369">#8369</a>) (<a href="https://home-assistant.io/components/media_extractor/">media_extractor docs</a>) (new-platform)</li>
+  <li>Vizio SmartCast support (<a href="https://github.com/vkorn">@vkorn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8260">#8260</a>) (<a href="https://home-assistant.io/components/media_player.vizio/">media_player.vizio docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/07/15/release-49/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/07/05/hasspodcast-ep-3/">Home Assistant Podcast #3</a>
   </h1>
   <div class="meta clearfix">
@@ -455,88 +518,6 @@
   <li>Listen online: <a href="https://hasspodcast.io/ha001/">https://hasspodcast.io/ha001/</a></li>
   <li>Download: <a href="https://hasspodcast.io/podcast-download/13/ha001.mp3">https://hasspodcast.io/podcast-download/13/ha001.mp3</a></li>
 </ul>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/05/20/automation-editor-zwave-panel-ocr/">Home Assistant 0.45: Automation editor, Z-Wave panel, OCR</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-05-20T13:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 20, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Fabian Affolter</span>
-    <span><i class='icon-time'></i> 12 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/05/20/automation-editor-zwave-panel-ocr/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.45"><img src="/images/blog/2017-05-0.45/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p>Welcome to another great release of Home Assistant! While some of contributors and users are gathering at PyCon US 2017, we still managed to get a great release together!</p>
-<p>First thing for this release is a feature that has been requested a lot: an automation editor! It’s still experimental - and many things are still in progress - but it works! You can create new automations and edit existing ones. If you start a new config, you’re all good to go. Otherwise check <a href="https://home-assistant.io/docs/automation/editor/">these instructions</a> to get your automations ready for editing in the UI.</p>
-<p class="img">
-  <img src="/images/blog/2017-05-0.45/trigger.png" />
-</p>
-<p>Check this <a href="https://youtu.be/0j_hWdCTip4">video</a> by <a href="https://twitter.com/BRUHautomation">Ben</a> from <a href="http://www.bruhautomation.com/">BRUHautomation</a> to see the new release in action.</p>
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/0j_hWdCTip4" frameborder="0" allowfullscreen=""></iframe>
-</div>
-<p>As the editor is experimental, there are some limitations. These include that Chrome/Chromium is the only supported browser, we don’t support all triggers and actions and there is no support for conditions yet. But the foundation is there and so if you want to contribute to this, come help!</p>
-<p>On the Z-Wave front a lot has happened. The biggest one is that we have a major extension of the Z-Wave panel thanks to <a href="https://github.com/turbokongen">@turbokongen</a>! You will now be able to change config parameters and manage your devices.</p>
-<p class="img">
-  <img src="/images/blog/2017-05-0.45/zwave.png" />
-</p>
-<p>Thanks to the work by the Python Open Z-Wave team we are now able to install it on demand from PyPi! There is no longer a need to pre-compile it yourself. This should give us the guarantee that we work with the Python Open Z-Wave version that the code expects.</p>
-<p class="note warning">
-If you have a security key set in your Open Z-Wave <code class="highlighter-rouge">options.xml</code>, copy <code class="highlighter-rouge">options.xml</code> to your Home Assistant configuration directory. This is the only place where options will get persisted. 
-</p>
-<p>Next to that <a href="https://github.com/armills">@armills</a> has lead the charge and managed to get full test coverage for Z-Wave! Thanks for all the hard work!</p>
-<p>This release also contains two integrations which could help you to make non-smart devices a little smarter. The <a href="https://home-assistant.io/components/sensor.file/"><code class="highlighter-rouge">file</code> sensor</a> and the <a href="https://home-assistant.io/components/image_processing.seven_segments/"><code class="highlighter-rouge">seven_segments</code> OCR image processing platform</a>. The first simply reads a plain-text file which was created by a logger or alike. The latter one extracts the value from a captured image that shows a seven-segments display.</p>
-<p class="img">
-  <img src="/images/blog/2017-05-0.45/power-meter.png" />
-</p>
-<p>And last, but not least, our Docker image is now based off Python 3.6. This version is faster and uses less memory than Python 3.5. Win!</p>
-<p>If you are using our <a href="https://community.home-assistant.io/t/introducing-hass-io/17296">experimental Hass.io image</a>, we made a breaking change in how the panel is served. If you have an existing installation, make sure you update your supervisor to the latest version before updating Home Assistant. If you are going to flash a new Hass.io image, make sure to only flash the new 0.8 image as linked on <a href="https://home-assistant.io/hassio/installation/">the installation page</a>.</p>
-<h2><a class="title-link" name="new-integrations" href="#new-integrations"></a> New integrations</h2>
-<ul>
-  <li>Add new raspihats component (<a href="https://github.com/florincosta">@florincosta</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7392">#7392</a>) (<a href="https://home-assistant.io/components/raspihats/">raspihats docs</a>) (new-platform)</li>
-  <li>Add datadog component (<a href="https://github.com/nunofgs">@nunofgs</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7158">#7158</a>) (<a href="https://home-assistant.io/components/datadog/">datadog docs</a>) (new-platform)</li>
-  <li>Add support for automation config panel (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7509">#7509</a>) (<a href="https://home-assistant.io/docs/automation/editor/">config.automation docs</a>) (new-platform)</li>
-  <li>Z-Wave panel API (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7456">#7456</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (<a href="https://home-assistant.io/components/zwave.api/">zwave.api docs</a>) (new-platform)</li>
-  <li>myStrom Buttons support (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7099">#7099</a>) (<a href="https://home-assistant.io/components/binary_sensor.mystrom/">binary_sensor.mystrom docs</a>) (new-platform)</li>
-  <li>Support for the PiFace Digital I/O module (<a href="https://github.com/basschipper">@basschipper</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7494">#7494</a>) (<a href="https://home-assistant.io/components/rpi_pfio/">rpi_pfio docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.rpi_pfio/">binary_sensor.rpi_pfio docs</a>) (<a href="https://home-assistant.io/components/switch.rpi_pfio/">switch.rpi_pfio docs</a>) (new-platform)</li>
-  <li>Add raspihats binary sensor (<a href="https://github.com/florincosta">@florincosta</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7508">#7508</a>) (<a href="https://home-assistant.io/components/binary_sensor.raspihats/">binary_sensor.raspihats docs</a>) (new-platform)</li>
-  <li>Support lutron serena shades (<a href="https://github.com/gurumitts">@gurumitts</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7565">#7565</a>) (<a href="https://home-assistant.io/components/lutron_caseta/">lutron_caseta docs</a>) (<a href="https://home-assistant.io/components/cover.lutron_caseta/">cover.lutron_caseta docs</a>) (new-platform)</li>
-  <li>Add Kira component to sensor and remote platforms (<a href="https://github.com/stu-gott">@stu-gott</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7479">#7479</a>) (<a href="https://home-assistant.io/components/kira/">kira docs</a>) (<a href="https://home-assistant.io/components/remote.kira/">remote.kira docs</a>) (<a href="https://home-assistant.io/components/sensor.kira/">sensor.kira docs</a>) (new-platform)</li>
-  <li>File sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7569">#7569</a>) (<a href="https://home-assistant.io/components/sensor.file/">sensor.file docs</a>) (new-platform)</li>
-  <li>Seven segments OCR image processing (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7632">#7632</a>) (<a href="https://home-assistant.io/components/image_processing.seven_segments/">image_processing.seven_segments docs</a>) (new-platform)</li>
-  <li>Axis component (<a href="https://github.com/Kane610">@Kane610</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7381">#7381</a>) (<a href="https://home-assistant.io/components/axis/">axis docs</a>) (new-platform)</li>
-</ul>
-<h2><a class="title-link" name="release-0451---may-22" href="#release-0451---may-22"></a> Release 0.45.1 - May 22</h2>
-<ul>
-  <li>Fix telegram chats (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7689">#7689</a>) (<a href="https://home-assistant.io/components/notify.telegram/">notify.telegram docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.__init__/">telegram_bot.<strong>init</strong> docs</a>)</li>
-  <li>Fix playback control of web streams (<a href="https://github.com/cgtobi">@cgtobi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7683">#7683</a>) (<a href="https://home-assistant.io/components/media_player.volumio/">media_player.volumio docs</a>)</li>
-  <li>device_tracker.ubus: Handle empty results (<a href="https://github.com/tobygray">@tobygray</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7673">#7673</a>) (<a href="https://home-assistant.io/components/device_tracker.ubus/">device_tracker.ubus docs</a>)</li>
-  <li>Allow fetching hass.io panel without auth (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7714">#7714</a>) (<a href="https://home-assistant.io/components/hassio/">hassio docs</a>)</li>
-</ul>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
-<ul>
-  <li>PyPI Openzwave (<a href="https://github.com/JshWright">@JshWright</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7415">#7415</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (breaking change)</li>
-  <li>Remove listening to <code class="highlighter-rouge">homeassistant_start</code> with event automation (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7474">#7474</a>) (<a href="https://home-assistant.io/docs/configuration/events/">automation.event docs</a>) (breaking change)</li>
-</ul>
-      <a class="btn pull-right" href="/blog/2017/05/20/automation-editor-zwave-panel-ocr/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

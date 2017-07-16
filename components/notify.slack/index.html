@@ -95,6 +95,77 @@
   <li><strong>username</strong> (<em>Optional</em>): Setting username will allow Home Assistant to post to Slack using the username specified. By default not setting this will post to Slack using the user account or botname that you generated the api_key as.</li>
   <li><strong>icon</strong> (<em>Optional</em>): Use one of the Slack emoji’s as an Icon for the supplied username.  Slack uses the standard emoji sets used <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/">here</a>.</li>
 </ul>
+<h3><a class="title-link" name="slack-service-data" href="#slack-service-data"></a> Slack service data</h3>
+<p>The following attributes can be placed <code class="highlighter-rouge">data</code> for extended functionality.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">file</code></td>
+      <td>yes</td>
+      <td>Groups the attributes for file upload. If present, either <code class="highlighter-rouge">url</code> or <code class="highlighter-rouge">path</code> have to be provided.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">path </code></td>
+      <td>yes</td>
+      <td>Local path of file, photo etc to post to slack. Is placed inside <code class="highlighter-rouge">file</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>yes</td>
+      <td>URL of file, photo etc to post to slack. Is placed inside <code class="highlighter-rouge">file</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">username</code></td>
+      <td>yes</td>
+      <td>Username if the url requires authentication. Is placed inside <code class="highlighter-rouge">file</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">password</code></td>
+      <td>yes</td>
+      <td>Password if the url requires authentication. Is placed inside <code class="highlighter-rouge">file</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">auth</code></td>
+      <td>yes</td>
+      <td>If set to <code class="highlighter-rouge">digest</code> HTTP-Digest-Authentication is used. If missing HTTP-BASIC-Authentication is used. Is placed inside <code class="highlighter-rouge">file</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example for posting file from URL</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Message that will be added as a comment to the file."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Title of the file."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"file"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"http://[url to file, photo, security camera etc]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"optional user, if necessary"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"password"</span><span class="p">:</span><span class="s2">"optional password, if necessary"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"auth"</span><span class="p">:</span><span class="s2">"digest"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Example for posting file from local path</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Message that will be added as a comment to the file."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Title of the file."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"file"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="s2">"/path/to/file.ext"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Please note that <code class="highlighter-rouge">path</code> is validated against the <code class="highlighter-rouge">whitelist_external_dirs</code> in the <code class="highlighter-rouge">configuration.yaml</code>.</p>
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 </article>
         </div>
