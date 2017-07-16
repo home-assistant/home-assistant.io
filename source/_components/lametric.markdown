@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: lametric.png
 ha_category: Hub
 ha_release: 0.49
 ---

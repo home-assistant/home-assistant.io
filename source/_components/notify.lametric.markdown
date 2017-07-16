@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Notify
+logo: lametric.png
+ha_category: Notifications
 ha_release: 0.49
 ---
 
