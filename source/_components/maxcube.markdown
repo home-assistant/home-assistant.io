@@ -22,7 +22,7 @@ Limitations:
 
 Supported Devices:
 - MAX! Radiator Thermostat (tested)
-- MAX! Radiator Thermostat+
+- MAX! Radiator Thermostat+ (tested)
 - MAX! Window Sensor (tested)
 - MAX! Wall Thermostat (tested)
 
