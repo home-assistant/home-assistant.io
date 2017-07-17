@@ -36,3 +36,4 @@ maxcube:
 Configuration variables:
 - **host** (*Required*): The IP address of the eQ-3 MAX! Cube to use.
 - **port** (*Optional*): The UDP port number. Defaults to `62910`.
+- **trv_on_off** (*Optional*): Reports the state of TRVs as being either on or off based on actuator position, rather than their configured state.
