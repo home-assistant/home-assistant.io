@@ -82,6 +82,7 @@
   <img src="/images/screenshots/plex-configure.png" />
 </p>
 <p>If you don’t know your token, see <a href="https://support.plex.tv/hc/en-us/articles/204059436">Finding your account token / X-Plex-Token</a>.</p>
+<p>If your server enforces SSL connections, write “<code class="highlighter-rouge">on</code>” or “<code class="highlighter-rouge">true</code>” in the <em>“Use SSL”</em> field. If it does not have a valid SSL certificate available but you still want to use it, write “<code class="highlighter-rouge">on</code>” or “<code class="highlighter-rouge">true</code>” in the <em>“Do not verify SSL”</em> field as well.</p>
 <p class="img">
   <img src="/images/screenshots/plex-token.png" />
 </p>
@@ -92,13 +93,15 @@
 </code></pre>
 </div>
 <p>In case <a href="/components/discovery/">discovery</a> does not work (GDM disabled or non-local plex server), you can create <code class="highlighter-rouge">~/.homeassistant/plex.conf</code> manually.</p>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"IP_ADDRESS:PORT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN"</span><span class="p">}}</span><span class="w">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"IP_ADDRESS:PORT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN"</span><span class="p">,</span><span class="w"> </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"verify"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}}</span><span class="w">
 </span></code></pre>
 </div>
 <ul>
-  <li><strong>IP_ADDRESS</strong> (<em>Required</em>): IP address of the Plex Media Server</li>
-  <li><strong>PORT</strong> (<em>Required</em>): Port where Plex is listening. Default is 32400</li>
+  <li><strong>IP_ADDRESS</strong> (<em>Required</em>): IP address of the Plex Media Server.</li>
+  <li><strong>PORT</strong> (<em>Required</em>): Port where Plex is listening. Default is 32400.</li>
   <li><strong>TOKEN</strong> (<em>Optional</em>): Only if authentication is required. Set to <code class="highlighter-rouge">null</code> (without quotes) otherwise.</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): Whether to use SSL or not. <em>(Boolean)</em></li>
+  <li><strong>verify</strong> (<em>Optional</em>): Whether to allow invalid or self-signed SSL certificates or not. <em>(Boolean)</em></li>
 </ul>
 <h2>Customization</h2>
 <p>You can customize the Plex component by adding any of the variables below to your configuration:</p>
@@ -299,7 +302,7 @@
 INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
 </code></pre>
     </div>
-    <p>If this occurs, try changing the setting <code class="highlighter-rouge">Secure connections</code> in your Plex Media Server to <code class="highlighter-rouge">Preferred</code> (instead of <code class="highlighter-rouge">Required</code>). The Plex component does not currently support HTTPS.</p>
+    <p>If this occurs, check the setting <code class="highlighter-rouge">Server</code>&gt;<code class="highlighter-rouge">Network</code>&gt;<code class="highlighter-rouge">Secure connections</code> in your Plex Media Server: if it is set to <code class="highlighter-rouge">Preferred</code> or <code class="highlighter-rouge">Required</code>, you may need to manually set the <code class="highlighter-rouge">ssl</code> and <code class="highlighter-rouge">verify</code> booleans in the <code class="highlighter-rouge">plex.conf</code> file to, respectively, <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code>. See the <strong>“Setup”</strong> section above for details.</p>
   </li>
 </ul>
 </article>
