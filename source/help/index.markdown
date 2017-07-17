@@ -55,6 +55,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [A Look at HASSbian: Raspberry Pi for Home Automation](http://www.piboards.com/2017/03/07/a-look-at-hassbian-raspberry-pi-for-home-automation/)- March 2017
 - [Home Assistant with Paulus Schoutsen - Episode 94](https://www.podcastinit.com/episode-94-home-assistant-with-paulus-schoutsen/) - January 2017
 - [Episode #11](https://pythonbytes.fm/episodes/show/11/django-2.0-is-dropping-python-2-entirely-pipenv-for-profile-functionality-and-pythonic-home-automation) at minute 15:20 by [Python Bytes](https://pythonbytes.fm/) - January 2017
+- [Now you can hide your smart home on the darknet](https://www.wired.com/2016/07/now-can-hide-smart-home-darknet/) - July 2016
 - [Home Assistant: The Python Approach to Home Automation](https://www.linux.com/news/home-assistant-python-approach-home-automation-video) - June 2016
 - [Secure home automation, without clouds or dedicated hubs](http://linuxgizmos.com/secure-home-automation-without-clouds-or-dedicated-hubs/) - June 2016
 - [Weekend Project: Setting up Home Assistant on your PC or Mac](http://www.automatedhome.co.uk/software/weekend-project-setting-up-home-assistant-on-your-pc-or-mac.html) by [automated home](http://www.automatedhome.co.uk/) - April 2016
