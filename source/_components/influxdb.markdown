@@ -34,6 +34,7 @@ Configuration variables:
 - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`. The database must already exist.
 - **ssl** (*Optional*): Use https instead of http to connect. Defaults to false.
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
+- **max_retries** (*Optional*): Allow the component to retry if there was a network error when transmitting data
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
 - **exclude** (*Optional*): Configure which components should be excluded from recording to InfluxDB.
@@ -172,6 +173,7 @@ influxdb:
   password: MY_PASSWORD
   ssl: true
   verify_ssl: true
+  max_retries: 3
   default_measurement: state
   exclude:
     entities:
