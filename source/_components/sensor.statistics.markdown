@@ -16,7 +16,7 @@ ha_release: "0.30"
 
 The `statistics` sensor platform is consuming the state from other sensors. Beside the maximal and the minimal value also the total, the mean, the median, the variance, and the standard deviation are as attributes available. If it's a binary sensor then only the state changes are counted.
 
-It can take time till the sensor starts to work because a couple of atrributes need more than one value to do the calculation.
+It can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation.
 
 To enable the statistics sensor, add the following lines to your `configuration.yaml`:
 

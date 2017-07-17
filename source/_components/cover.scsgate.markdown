@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: bus_scs.png
 ha_category: Cover
+ha_iot_class: "Local Polling"
 ---
 
 The SCSGate devices can control motorized covers connected to the BTicino MyHome system.
@@ -18,11 +19,11 @@ To enable SCSGate covers in your installation, add the following to your `config
 ```yaml
 # Example configuration.yaml entry
 cover:
-  platform: scsgate
-  devices:
-    living_room:
-      name: Living Room
-      scs_id: XXXXX
+  - platform: scsgate
+    devices:
+      living_room:
+        name: Living Room
+        scs_id: XXXXX
 ```
 
 Configuration variables:

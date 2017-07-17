@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: cups.png
-ha_category: System Monitoring
+ha_category: System Monitor
 ha_iot_class: "Local Polling"
 ha_release: 0.32
 ---
@@ -36,6 +36,8 @@ sensor:
 Configuration variables:
 
 - **printers** array (*Required*): List of printers to add.
+- **host** (*Optional*): IP address of the CUPS print server.
+- **port** (*Optional*): Port address of the CUPS print server. Defaults to 631.
 
 
 <p class='note'>

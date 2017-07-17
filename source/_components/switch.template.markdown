@@ -27,7 +27,7 @@ switch:
   - platform: template
     switches:
       skylight:
-        value_template: {% raw %}'{{ is_state('sensor.skylight', 'on') }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state('sensor.skylight', 'on') }}"{% endraw %}
         turn_on:
           service: switch.turn_on
           entity_id: switch.skylight_open
@@ -64,7 +64,7 @@ switch:
   - platform: template
     switches:
       copy:
-        value_template: {% raw %}'{{ is_state('switch.source', 'on') }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state('switch.source', 'on') }}"{% endraw %}
         turn_on:
           service: switch.turn_on
           entity_id: switch.source
@@ -83,7 +83,7 @@ switch:
     switches:
       blind:
         friendly_name: 'Blind'
-        value_template: {% raw %}'{{ is_state_attr("switch.blind_toggle", "sensor_state", "on") }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state_attr('switch.blind_toggle', 'sensor_state', 'on') }}"{% endraw %}
         turn_on:
           service: switch.toggle
           entity_id: switch.blind_toggle
@@ -102,12 +102,30 @@ switch:
     switches:
       skylight:
         friendly_name: 'Skylight'
-        value_template: {% raw %}'{{ is_state('sensor.skylight.state', 'on') }}'{% endraw %}
+        value_template: {% raw %}"{{ is_state('sensor.skylight.state', 'on') }}"{% endraw %}
         turn_on:
           service: switch.turn_on
           entity_id: switch.skylight_open
         turn_off:
           service: switch.turn_on
           entity_id: switch.skylight_close
+```
+### {% linkable_title Change the icon %}
+
+This example shows how to change the icon based on the day/night cycle.
+
+```yaml
+switch:
+  - platform: template
+    switches:
+      garage:
+        value_template: {% raw %}"{{ is_state(cover.garage_door', 'on') }}"{% endraw %}
+        turn_on:
+          service: cover.open_cover
+          entity_id: cover.garage_door
+        turn_off:
+          service: cover.close_cover
+          entity_id: cover.garage_door
+        icon_template: {% raw %}"{% if is_state('cover.garage_door', 'open') %}mdi:garage-open{% else %}mdi:garage{% endif %}"{% endraw %}        
 ```
 

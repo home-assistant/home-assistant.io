@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `onkyo` platform allows you to control a [Onkyo receiver](http://www.onkyo.com/) from Home Assistant.
+The `onkyo` platform allows you to control a [Onkyo receiver](http://www.onkyo.com/) from Home Assistant. Please be aware that you need to enable "Network Standby" for this component to work in your Hardware.
 
 To add an Onkyo receiver to your installation, add the following to your `configuration.yaml` file:
 

@@ -15,6 +15,8 @@ ha_release: pre 0.7
 
 The `xmpp` platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
 
+To enable Jabber notifications in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 notify:

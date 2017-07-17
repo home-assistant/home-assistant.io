@@ -43,7 +43,32 @@ switch:
       name: device_name
 ```
 
-Example configuration:
+Configuration variables:
+
+- **devices** (*Required*): A list of devices with their name to use in the frontend.
+- **automatic_add** (*Optional*): To enable the automatic addition of new switches.
+- **signal_repetitions** (*Optional*): Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+- **fire_event** (*Optional*): Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.
+
+Generate codes:
+
+If you need to generate codes for switches you can use a template (useful for example COCO switches).
+
+- Go to home-assistant-IP:8123/dev-template
+- Use this code to generate a code:
+
+```yaml
+{% raw %}0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70{% endraw %}
+```
+
+- Use this code to add a new switch in your configuration.yaml
+- Launch your homeassistant and go the website.
+- Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
+- Toggle your new switch in the Home Assistant interface
+
+## {% linkable_title Examples %}
+
+Basic configuration with 3 devices:
 
 ```yaml
 # Example configuration.yaml entry
@@ -61,9 +86,68 @@ switch:
       fire_event: True
 ```
 
-Configuration variables:
+Light hallway if doorbell is pressed (when is sun down):
 
-- **devices** (*Required*): A list of devices with their name to use in the frontend.
-- **automatic_add** (*Optional*): To enable the automatic addition of new switches.
-- **signal_repetitions** (*Optional*): Because the rxftrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
-- **fire_event** (*Optional*): Fires an event even if the state is the same as before. Can be used for automations.
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: rfxtrx
+  automatic_add: False
+  devices:
+    0710014c440f0160:
+      name: Hall
+    0710010244080780:
+      name: Door
+      fire_event: true
+      
+automation:
+  - alias: Switch light on when door bell rings if sun is below horizon and light was off
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"entity_id": "switch.door"}
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
+        - condition: state
+          entity_id: switch.hall
+          state: 'off'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.hall
+```
+
+Use remote to enable scene (using event_data):
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: rfxtrx
+  automatic_add: False
+  devices:
+    0b1100ce3213c7f210010f70:
+      name: Light1
+    0b11000a02ef2gf210010f50:
+      name: Light2
+    0b1111e003af16aa10000060:
+      name: Keychain remote
+      fire_event: true
+scene:
+  name: Livingroom
+  entities:
+    switch.light1: on
+    switch.light2: on
+    
+automation:
+  - alias: Use remote to enable scene
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data: {"state": "on", "entity_id": "switch.keychain_remote"}
+    action:
+      service: scene.turn_on
+      entity_id: scene.livingroom
+```

@@ -1,5 +1,47 @@
 @charset "UTF-8";
 
+$primary-color: #049cdb;
+
+.site-header {
+  position: relative;
+}
+
+.search-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  padding-top: 19px;
+  padding-right: 15%;
+
+  .search {
+    max-width: 500px;
+    width: 100%;
+    border-bottom: 2px solid $primary-color;
+    float: right;
+
+    .algolia-autocomplete {
+      width: calc(100% - 58px);
+      margin: 0 10px;
+    }
+
+    input {
+      border: 0;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  .search-container {
+    z-index: 20;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
 .hero {
   background-color: #038FC7;
   padding-bottom: 0;
@@ -15,26 +57,9 @@
     display: inline-block;
     font-weight: 500;
   }
-
-  .front-install {
-    border: none;
-    font-size: 1em;
-    background-color: #333;
-    margin-bottom: 16px;
-    display: inline-block;
-    padding: 8px;
-    color: #DDD;
-
-    div:before {
-      content: '$';
-      color: #c82829;
-      margin-right: 6px;
-    }
-  }
 }
 
 .material-card {
-  // display: inline-block;
   background-color: #fefefe;
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
@@ -90,6 +115,33 @@
 
     .blog-date {
       white-space: nowrap;
+    }
+  }
+
+  .shirt-promo {
+    display: block;
+    padding-top: 30%;
+    background-image: url(/images/merchandise/shirt-frontpage.png);
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+
+    .caption {
+      padding: 16px 12px 12px;
+      background-color: rgba(0, 0, 0, .54);
+      color: white;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        font-weight: initial;
+      }
     }
   }
 
@@ -296,133 +348,6 @@ p.note {
   }
 }
 
-#components-page {
-  .isotope-item {
-      z-index: 2;
-  }
-  .isotope-hidden.isotope-item {
-      pointer-events: none;
-      z-index: 1;
-  }
-  .isotope,
-  .isotope .isotope-item {
-      -webkit-transition-duration: 0.8s;
-      -moz-transition-duration: 0.8s;
-      transition-duration: 0.8s;
-  }
-  .isotope {
-      -webkit-transition-property: height, width;
-      -moz-transition-property: height, width;
-      transition-property: height, width;
-  }
-  .isotope .isotope-item {
-      -webkit-transition-property: -webkit-transform, opacity;
-      -moz-transition-property: -moz-transform, opacity;
-      transition-property: transform, opacity;
-  }
-
-  #componentContainer {
-    a {
-      display: inline-block;
-      width: 202px;
-      height: 142px;
-      background-color: #fefefe;
-      margin-right: 4px;
-      margin-bottom: 8px;
-      border-radius: 2px;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-      padding: 8px;
-      text-align: center;
-      text-decoration: none;
-
-      .img-container {
-        height: 50px;
-        margin: 8px 0;
-        font: 0/0 a;
-
-        &:before {    /* create a full-height inline block pseudo=element */
-            content: ' ';
-            display: inline-block;
-            vertical-align: middle;  /* vertical alignment of the inline element */
-            height: 100%;
-        }
-
-        img {
-          max-width: 100%;
-          max-height: 50px;
-          box-shadow: none;
-          border: none;
-          vertical-align: middle;
-        }
-      }
-
-      .title {
-        text-decoration: none;
-        font-size: 18px;
-        color: #000;
-        line-height: 1.3em;
-        height: 2.6em;
-      }
-
-      .category {
-        font-size: 14px;
-        color: #AAA;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: $lap-end) {
-  #components-page {
-    .filter-button-group {
-      margin-bottom: 16px;
-
-      .btn {
-        display: inline-block;
-        margin-right: 8px;
-        margin-bottom: 8px;
-
-        &.current {
-          background-color: #3A5561;
-          background-image: linear-gradient(to bottom, #3A5561,#3F6B7D);
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: $desk-start) {
-  #components-page {
-    .filter-button-group {
-      .featured {
-        margin: 12px 0;
-      }
-
-      .added_in_current_version {
-        margin-top: 12px;
-      }
-
-      .added_two_versions_ago {
-        margin-bottom: 12px;
-      }
-
-      .btn {
-        display: block;
-        background: 0;
-        color: black;
-        box-shadow: none;
-        text-shadow: none;
-        padding: 2px;
-
-        &.current {
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
-
-
 .aside-module {
   .section {
     margin-bottom: 16px;
@@ -480,4 +405,13 @@ a code {
 twitterwidget {
   margin-left: auto;
   margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.aside-module {
+  max-width: 100%;
+  overflow: hidden;
 }

@@ -29,10 +29,11 @@ Configuration variables:
 
 - **command** (*Required*): The action to take to get the value.
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
-- **sensor_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
 
 ## {% linkable_title Examples %}
 
@@ -48,7 +49,7 @@ binary_sensor:
   - platform: command_line
     command: netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")
     name: 'sickragerunning'
-    sensor_class: moving
+    device_class: moving
     payload_on: "Running"
     payload_off: "Not running"
 ```
@@ -62,7 +63,7 @@ binary_sensor:
   - platform: command_line
     command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
     name: 'is_rasplex_online'
-    sensor_class: connectivity
+    device_class: connectivity
     payload_on: 1
     payload_off: 0
 ```
@@ -71,10 +72,12 @@ An alternative solution could look like this:
 
 ```yaml
 binary_sensor:
-  platform: command_line
-  name: Printer
-  command: ping -c 1 192.168.1.10 &> /dev/null && echo success || echo fail
-  sensor_class: connectivity
-  payload_on: "success"
-  payload_off: "fail"
+  - platform: command_line
+    name: Printer
+    command: ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail
+    device_class: connectivity
+    payload_on: "success"
+    payload_off: "fail"
 ```
+
+Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alternative to the samples above.

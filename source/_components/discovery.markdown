@@ -18,7 +18,21 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Belkin WeMo switches
  * Philips Hue
  * Netgear routers
- * Plex Media Server
+ * Plex media server
+ * Panasonic Viera
+ * Roku media player
+ * Sonos Speakers
+ * Yamaha media player
+ * Logitech media server (Squeezebox)
+ * DirecTV
+ * Apple TV
+ * Yeelight Sunflower Bulb
+ * Flux Led/MagicLight
+ * Linn / Openhome
+ * Denon Network Receivers
+ * Bose Soundtouch speakers
+ * Axis Communications security devices
+ * IKEA Trådfri (Tradfri)
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -27,11 +41,38 @@ To load this component, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 discovery:
+  ignore:
+    - sonos
+    - samsung_tv
 ```
 
+Configuration variables:
+
+- **ignore** (*Optional*): A list of platforms that never will be automatically configured by `discovery`.
+
+Valid values for ignore are:
+
+ * `apple_tv`: Apple TV
+ * `axis`: (Axis Communications security devices)
+ * `denonavr`: Denon Network Receivers
+ * `directv`: DirecTV
+ * `flux_led`: Flux Led/MagicLight
+ * `google_cast`: Google Chromecast
+ * `ikea_tradfri`: IKEA Trådfri
+ * `logitech_mediaserver`: Logitech media server - Squeezebox player
+ * `openhome`: Linn / Openhome
+ * `panasonic_viera`: Panasonic Viera
+ * `philips_hue`: Philips Hue
+ * `plex_mediaserver`: Plex media server
+ * `roku`: Roku media player
+ * `samsung_tv`: (Samsung TV
+ * `sonos`: Sonos Speakers
+ * `yamaha`: Yamaha media player
+ * `yeelight`: Yeelight Sunflower Bulb
+
 <p class='note'>
-The home-assistant server must be on the same network as the devices for uPnP discovery to work. 
-If running home-assistant in a docker container use switch `--net=host` to put it on the host's network.
+Home Assistant must be on the same network as the devices for uPnP discovery to work.
+If running Home Assistant in a Docker container use switch `--net=host` to put it on the host's network.
 </p>
 
 If you are developing a new platform, please read [how to make your platform discoverable]({{site_root}}/developers/add_new_platform/#discovery).

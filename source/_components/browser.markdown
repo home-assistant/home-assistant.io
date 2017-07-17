@@ -25,7 +25,7 @@ browser:
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `url`                  |       no | The url to open
+| `url`                  |       no | The URL to open.
 
 
 ### {% linkable_title Usage %}

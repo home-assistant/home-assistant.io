@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: telldus.png
 ha_category: Sensor
-featured: false
+ha_iot_class: "Local Polling"
 ---
 
 Integrates Telldus Live sensors into Home Assistant. See the [main component](/components/tellduslive/) for configuration instructions.

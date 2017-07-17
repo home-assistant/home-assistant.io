@@ -10,6 +10,7 @@ footer: true
 logo: http.png
 ha_category: Sensor
 ha_release: pre 0.7
+ha_iot_class: "Local Push"
 ---
 
 The URL for a sensor looks like the example below:
@@ -28,7 +29,7 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 {"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temperature"}}
 ```
 
-For a quick test `curl` can be useful to "simulate" a device.
+For a quick test, `curl` can be useful to "simulate" a device.
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
@@ -37,7 +38,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 ```
 
-Use again `curl` to retrieve the [current state](/developers/rest_api/#get-apistatesltentity_id) to check if the sensor is working.
+You can then use `curl` again to retrieve the [current sensor state](/developers/rest_api/#get-apistatesltentity_id) and verify the sensor is working.
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \

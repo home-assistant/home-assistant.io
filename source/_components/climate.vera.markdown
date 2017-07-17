@@ -10,6 +10,7 @@ footer: true
 logo: vera.png
 ha_category: Climate
 ha_iot_class: "Local Push"
+ha_release: 0.13
 ---
 
 The `vera` climate platform allows you to control your [Vera](http://getvera.com/) thermostats from within Home Assistant.

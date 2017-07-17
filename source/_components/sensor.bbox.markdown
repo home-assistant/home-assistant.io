@@ -10,6 +10,7 @@ footer: true
 logo: bbox.png
 ha_category: Sensor
 ha_release: 0.31
+ha_iot_class: "Local Push"
 ---
 
 The `bbox` platform uses the [Bbox Modem Router](https://fr.wikipedia.org/wiki/Bbox/) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
@@ -37,5 +38,5 @@ Configuration variables:
   - **down_max_bandwidth**: Maximum bandwidth available for download.
   - **up_max_bandwidth**: Maximum bandwidth available for upload.
   - **current_down_bandwidth**: Instant measure of the current used bandwidth for download.
-  - **current_up_bandwidth**: Instant measure of the current used bandwidthfor upload.
+  - **current_up_bandwidth**: Instant measure of the current used bandwidth for upload.
 

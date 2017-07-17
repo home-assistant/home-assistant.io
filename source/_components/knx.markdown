@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: DIY
+ha_category: Hub
 ha_release: 0.24
 ha_iot_class: "Local Polling"
 ---
@@ -18,9 +18,11 @@ ha_iot_class: "Local Polling"
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](/components/binary_sensor.knx)
+- [Cover](/components/cover.knx)
 - [Sensor](/components/sensor.knx)
 - [Switch](/components/switch.knx)
-- [Thermostat](/components/thermostat.knx)
+- [Light](/components/light.knx)
+- [Thermostat](/components/climate.knx)
 
 A `knx` section must be present in the `configuration.yaml` file and contain the following options as required:
 

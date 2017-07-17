@@ -10,9 +10,10 @@ footer: true
 logo: influxdb.png
 ha_category: Sensor
 ha_release: 0.32
+ha_iot_class: "depends"
 ---
 
-The `InfluxDB` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.
+The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to  your `configuration.yaml` file. A sensor will be created for each query:
 
@@ -40,7 +41,7 @@ Configuration variables for the server:
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **measurement** (*Required*):  Defines the measurement name in InfluxDB (the from clause of the query).
   - **where** (*Required*): Defines the data selection clause (the where clause of the query).
-  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+  - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`.
   - **group_function** (*Optional*): The group function to be used. Defaults to `mean`.
   - **field** (*Optional*): The field name to select. Defaults to value.
@@ -63,7 +64,7 @@ sensor:
   queries:
     - name: last value of foo
       unit_of_measurement: °C
-      value_template: '{{ value | round(1) }}'
+      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
       group_function: last
       where: '"name" = ''foo'''
       measurement: '"°C"'
@@ -71,7 +72,7 @@ sensor:
       database: db1
     -  name: Min for last hour
       unit_of_measurement: '%'
-      value_template: '{{ value | round(1) }}'
+      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
       group_function: min
       where: '"entity_id" = ''salon'' and time > now() - 1h'
       measurement: '"%"'

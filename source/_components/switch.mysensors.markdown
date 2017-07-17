@@ -66,7 +66,7 @@ automation:
   - alias: turn hvac on
     trigger:
       platform: time
-      after: '5:30:00'
+      at: '5:30:00'
     action:
       service: switch.mysensors_send_ir_code
       entity_id: switch.hvac_1_1
@@ -76,7 +76,7 @@ automation:
   - alias: turn hvac off
     trigger:
       platform: time
-      after: '0:30:00'
+      at: '0:30:00'
     action:
       service: switch.mysensors_send_ir_code
       entity_id: switch.hvac_1_1
@@ -203,4 +203,4 @@ void incomingMessage(const MyMessage &message) {
 ```
 
 [main component]: /components/mysensors/
-[serial api]: https://www.mysensors.org/download/serial_api_15
+[serial api]: http://www.mysensors.org/download
