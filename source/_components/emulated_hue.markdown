@@ -113,7 +113,7 @@ You can verify that the `emulated_hue` component has been loaded and is respondi
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
-For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. http://<HA IP Address>:80/description.xml). 
+For Google Home, verify that the URLs above are using  port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`). 
 
 An additional step is required to run Home Assistant as non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as non-root user.
 
