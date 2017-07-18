@@ -24,16 +24,14 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: geizhals
     name: qc35
-    friendly_name: "Bose QC35"
     product_id: 1453021
 ```
 
 Configuration variables:
 
 - **name** (*Required*): The internal name of the product in Home Assistant.
-- **friendly_name** (*Required*): The name of the product in the WebUI.
 - **product_id** (*Required*): ID of the product. Get the ID from the geizhals website of your chosen product by clicking on the *Price History* tab, e.g. [here](https://geizhals.de/?phist=1453021). The URL of this site reveals the ID, e.g. <https://geizhals.de/?phist=1453021> with `product_id: 1453021`.
-- **protocol** (*Optional*): Protocol of the request. Set this to `https` or `http`. Default: `https`
+- **description** (*Optional*): The name of the product in the WebUI.
 - **domain** (*Optional*): Domain which should be used for the request. Set this to `geizhals.at`, `geizhals.eu`, `geizhals.de`, `skinflint.co.uk` or `cenowarka.pl`. Default: `geizhals.de`
 - **regex** (*Optional*): Regular expression to parse the price. Default: `\D\s(\d*)[\,|\.](\d*)`
 
@@ -44,9 +42,8 @@ Configuration variables:
 sensor:
   - platform: geizhals
     name: qc35
-    friendly_name: "Bose QC35"
     product_id: 1453021
-    protocol: https
+    description: "Bose QC35"
     domain: 'geizhals.de'
     regex: '\D\s(\d*)[\,|\.](\d*)'
 ```
