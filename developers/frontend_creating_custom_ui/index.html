@@ -75,17 +75,13 @@
   </header>
   <hr class="divider">
   <p>If you would like to use your own <a href="/developers/frontend_add_card/">State card</a> without merging your code into <a href="https://github.com/home-assistant/home-assistant-polymer/">home-assistant-polymer</a> you can create your own implementation.</p>
-<ul>
-  <li>Put the element source file and its dependencies in <code class="highlighter-rouge">www/custom_ui/</code> directory under your homeassistant config directory.</li>
-</ul>
+<p>Put the element source file and its dependencies in <code class="highlighter-rouge">www/custom_ui/</code> directory under your Home Assistant <a href="/docs/configuration/">configuration</a> directory.</p>
 <p>For example if creating a state card for the <code class="highlighter-rouge">light</code> domain named <code class="highlighter-rouge">my_custom_light_card</code> put <code class="highlighter-rouge">state-card-my_custom_light_card.html</code> in <code class="highlighter-rouge">www/custom_ui/</code>.</p>
 <p>That file should implement <code class="highlighter-rouge">&lt;state-card-my_custom_light_card&gt;</code> tag with Polymer.</p>
-<p>In <code class="highlighter-rouge">state-card-my_custom_light_card.html</code> you should use <code class="highlighter-rouge">&lt;link rel="import"&gt;</code> to import all the dependencies <strong>not</strong> used by Homeassistant UI.
-Do not import any dependencies used by Homeassistant UI.
+<p>In <code class="highlighter-rouge">state-card-my_custom_light_card.html</code> you should use <code class="highlighter-rouge">&lt;link rel="import"&gt;</code> to import all the dependencies <strong>not</strong> used by Home Assistant’s UI.
+Do not import any dependencies used by the Home Assistant UI.
 Importing those will work in <code class="highlighter-rouge">development: 1</code> mode, but will fail in production mode.</p>
-<ul>
-  <li>In the <code class="highlighter-rouge">customize:</code> section of <code class="highlighter-rouge">configuration.yaml</code> put <code class="highlighter-rouge">custom_ui_state_card: &lt;element-name&gt;</code>.</li>
-</ul>
+<p>In the <code class="highlighter-rouge">customize:</code> section of the <code class="highlighter-rouge">configuration.yaml</code> file put <code class="highlighter-rouge">custom_ui_state_card: &lt;element-name&gt;</code>.</p>
 <p>For example:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">customize</span><span class="pi">:</span>
