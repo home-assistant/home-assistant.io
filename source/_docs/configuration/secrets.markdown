@@ -46,20 +46,22 @@ When you start splitting your configuration into multiple files, you might end u
 To see where secrets are being loaded from you can either add an option to your `secrets.yaml` file or use the `check_config` script.
 
 *Option 1*: Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
+
 ```yaml
 logger: debug
 ```
 This will not print the actual secret's value to the log.
 
 *Option 2*: View where secrets are retrieved from and the contents of all `secrets.yaml` files used, you can use the `check_config` script from the command line:
+
 ```bash
 hass --script check_config --secrets
 ```
-This will print all your secrets
+This will print all your secrets.
 
 ### {% linkable_title Storing passwords in a keyring managed by your OS %}
 
-Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. They can be managed from the command line via the keyring script.
+Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. They can be managed from the command line via the `keyring` script.
 
 ```bash
 $ hass --script keyring --help
