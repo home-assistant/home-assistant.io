@@ -20,10 +20,10 @@ The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generatio
 Currently you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
 </p>
 
-To use this component, you must first install some system libraries and a compiler. For debian or a similar system, this should be enough:
+To use this component, you must first install some system libraries and a compiler. For Debian or a similar system, this should be enough:
 
 ```shell
-sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+$ sudo apt-get install build-essential libssl-dev libffi-dev python-dev
 ```
 
 If you want to automatically discover new devices, just make sure you have `discovery:` in your `configuration.yaml` file. To manually add one or more Apple TVs to your installation, add the following to your `configuration.yaml` file:
@@ -45,13 +45,13 @@ apple_tv:
 
 Configuration variables:
 
-- **host** (*Required*): The IP-address of the device
-- **login_id** (*Required*): An identifier used to login to the device, see below
-- **name** (*Optional*): The name of the device used in the frontend
-- **start_off** (*Optional*): Set to true if device should start in fake standby
-- **credentials** (*Optional*): Credentials used for AirPlay playback
+- **host** (*Required*): The IP-address of the device.
+- **login_id** (*Required*): An identifier used to login to the device, see below.
+- **name** (*Optional*): The name of the device used in the frontend.
+- **start_off** (*Optional*): Set to true if device should start in fake standby.
+- **credentials** (*Optional*): Credentials used for AirPlay playback.
 
-In order to connect to the device you need a *login id*. The easiest way to obtain this identifier is to use the ``apple_tv_scan`` service (described below). Additional information about ``start_off`` and ``credentials`` can also be found under the guides section.
+In order to connect to the device you need a *login id*. The easiest way to obtain this identifier is to use the `apple_tv_scan` service (described below). Additional information about `start_off` and `credentials` can also be found under the guides section.
 
 ## {% linkable_title Guides %}
 
