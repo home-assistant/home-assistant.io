@@ -35,7 +35,8 @@ Configuration variables:
 - **proxy_ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
 - **username** (*Optional*): The XBMC/Kodi HTTP username.
 - **password** (*Optional*): The XBMC/Kodi HTTP password.
-- **turn_off_action** (*Optional*): The desired turn off action. Options are `none`, `quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`. Default `none`.
+- **turn_on_action** (*Optional*): Home Assistant script sequence to call when turning on.
+- **turn_off_action** (*Optional*): Home Assistant script sequence to call when turning off.
 - **enable_websocket** (*Optional*): Enable websocket connections to Kodi via the TCP port. Defaults to `true`. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
 - **timeout** (*Optional*): Set timeout for connections to Kodi. Defaults to 5 seconds.
 
@@ -75,23 +76,171 @@ input: <input parameters of the service call>
 result: <data received from the Kodi API>
 ```
 
+### {% linkable_title Kodi turn on/off samples %}
+
+With the `turn_on_action` and `turn_off_action` parameters you can run any combination of Home Assistant actions to turn on/off your Kodi instance. Here are a few examples of this usage, including the **migration instructions for the old `turn_off_action` list of options**.
+
+#### Turn on Kodi with Wake on LAN
+
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/components/wake_on_lan) component in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: aa:bb:cc:dd:ee:ff
+          broadcast_address: 192.168.255.255
+```
+
+#### Turn off Kodi with API calls
+
+Here are the equivalent ways to configure each of the old options to turn off Kodi (`quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`):
+
+- **Quit** method (before was `turn_off_action: quit`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: Application.Quit
+```
+
+- **Hibernate** method (before was `turn_off_action: hibernate`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Hibernate
+```
+
+- **Suspend** method (before was `turn_off_action: suspend`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Suspend
+```
+
+- **Reboot** method (before was `turn_off_action: reboot`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Reboot
+```
+
+- **Shutdown** method (before was `turn_off_action: shutdown`)
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_off_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: System.Shutdown
+```
+
+#### Turn on and off the TV with the Kodi JSON-CEC Addon
+
+For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
+
+```yaml
+media_player:
+  - platform: kodi
+    host: 192.168.0.123
+    turn_on_action:
+      service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: activate
+    turn_off_action:
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.kodi
+    - service: media_player.kodi_call_method
+      data:
+        entity_id: media_player.kodi
+        method: Addons.ExecuteAddon
+        addonid: script.json-cec
+        params:
+          command: standby
+```
+
+
 ### {% linkable_title Kodi services samples %}
 
-#### Simple script to turn on the TV with the Kodi JSON-CEC Addon
+#### Simple script to turn on the PVR in some channel as a time function
 
 ```yaml
 script:
-  activate_tv:
-    alias: Turn on TV
+  play_kodi_pvr:
+    alias: Turn on the silly box
     sequence:
       - alias: TV on
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.kodi
+
+      - alias: Play TV channel
+        service: media_player.play_media
+        data_template:
+          entity_id: media_player.kodi
+          media_content_type: "CHANNEL"
+          media_content_id: >
+            {% raw %}{% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
+              10
+            {% elif (now().hour < 16) %}
+              15
+            {% elif (now().hour < 20) %}
+              2
+            {% elif (now().hour == 20) and (now().minute < 50) %}
+              10
+            {% elif (now().hour == 20) or ((now().hour == 21) and (now().minute < 15)) %}
+              15
+            {% else %}
+              10
+            {% endif %}{% endraw %}
+```
+
+#### Trigger a Kodi video library update
+
+```yaml
+script:
+  update_library:
+    alias: Update Kodi Library
+    sequence:
+      - alias: Call Kodi update
         service: media_player.kodi_call_method
         data:
-            entity_id: media_player.kodi
-            method: Addons.ExecuteAddon
-            addonid: script.json-cec
-            params:
-                command: activate
+          entity_id: media_player.kodi
+          method: VideoLibrary.Scan
 ```
 
 For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/kodi_dynamic_input_select/)
