@@ -75,3 +75,78 @@ cover:
         icon_template: "{% raw %}{% if not is_state('sensor.garage_door', 'on') %}mdi:garage-open{% else %}mdi:garage{% endif %}{% endraw %}"
 
 ```
+
+### Multi Covers
+
+This example allows you to control two or more covers at once.
+
+```yaml
+cover:
+  - platform: template
+    covers:
+      all_covers:
+        friendly_name: 'All Covers'
+        value_template: >
+          {% if is_state('cover.bedroom', 'open') %}
+            true
+          {% elif is_state('cover.livingroom', 'open') %}
+            true
+          {% else %}
+            false
+          {% endif %}
+        open_cover:
+          service: script.cover_all_open
+        close_cover:
+          service: script.cover_all_close
+        stop_cover:
+          service: script.cover_all_stop
+        set_cover_position:
+          service: script.cover_all_set_position
+          data_template:
+          position: '{{ position }}'
+        entity_id:
+          - cover.bedroom
+          - cover.livingroom
+
+script:
+  cover_all_open:
+    sequence:
+      - service: cover.open_cover
+        entity_id: cover.bedroom
+      - service: cover.open_cover
+        entity_id: cover.livingroom
+  cover_all_stop:
+    sequence:
+      - service: cover.stop_cover
+        entity_id: cover.bedroom
+      - service: cover.stop_cover
+        entity_id: cover.livingroom
+  cover_all_close:
+    sequence:
+      - service: cover.close_cover
+        entity_id: cover.bedroom
+      - service: cover.close_cover
+        entity_id: cover.livingroom
+  cover_all_set_position:
+    sequence:
+      - service: cover.set_cover_position
+        entity_id: cover.bedroom
+        data_template:
+          position: '{{ position }}'
+      - service: cover.set_cover_position
+        entity_id: cover.livingroom
+        data_template:
+          position: '{{ position }}'
+
+automation:
+  - alias: 'Close covers at night'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '+00:30:00'
+    action:
+      service: cover.set_cover_position
+      entity_id: cover.all_covers
+      data_template:
+        position: 25
+```
