@@ -96,13 +96,13 @@ cover:
           service: script.cover_all_set_position
           data_template:
           position: '{{ position }}'
-        value_template: "{{ states.sensor.all_covers.state }}"
-        icon_template: >
+        value_template: "{% raw %}{{ states.sensor.all_covers.state }}{% endraw %}"
+        icon_template: {% raw %}>
           {% if is_state('sensor.all_covers', 'open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
-          {% endif %}
+          {% endif %}{% endraw %}
         entity_id:
           - cover.bedroom
           - cover.livingroom
@@ -111,12 +111,12 @@ sensor:
   - platform: template
     sensors:
       all_covers:
-        value_template: >
+        value_template: {% raw %}>
           {% if is_state('cover.bedroom', 'open') %}
             open
           {% elif is_state('cover.livingroom', 'open') %}
             open
-          {% endif %}
+          {% endif %}{% endraw %}
         entity_id:
           - cover.bedroom
           - cover.livingroom
