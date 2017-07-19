@@ -10,7 +10,7 @@ footer: true
 ha_category: System Monitor
 logo: google_wifi.png
 ha_iot_class: "Local Polling"
-ha_release: 0.50
+ha_release: "0.50"
 ---
 
 
