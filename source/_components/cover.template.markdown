@@ -86,14 +86,6 @@ cover:
     covers:
       all_covers:
         friendly_name: 'All Covers'
-        value_template: >
-          {% if is_state('cover.bedroom', 'open') %}
-            true
-          {% elif is_state('cover.livingroom', 'open') %}
-            true
-          {% else %}
-            false
-          {% endif %}
         open_cover:
           service: script.cover_all_open
         close_cover:
@@ -104,6 +96,27 @@ cover:
           service: script.cover_all_set_position
           data_template:
           position: '{{ position }}'
+        value_template: "{{ states.sensor.all_covers.state }}"
+        icon_template: >
+          {% if is_state('sensor.all_covers', 'open') %}
+            mdi:window-open
+          {% else %}
+            mdi:window-closed
+          {% endif %}
+        entity_id:
+          - cover.bedroom
+          - cover.livingroom
+
+sensor:
+  - platform: template
+    sensors:
+      all_covers:
+        value_template: >
+          {% if is_state('cover.bedroom', 'open') %}
+            open
+          {% elif is_state('cover.livingroom', 'open') %}
+            open
+          {% endif %}
         entity_id:
           - cover.bedroom
           - cover.livingroom
