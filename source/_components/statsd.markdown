@@ -19,6 +19,9 @@ To use the `statsd` component in your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 statsd:
+  value_mapping:
+    cooling: 1
+    heating: 10
 ```
 
 Configuration variables:
@@ -28,6 +31,8 @@ Configuration variables:
 - **prefix** (*Optional*): Prefix to use. Defaults to `hass`.
 - **rate** (*Optional*): The sample rate. Defaults to 1.
 - **log_attributes** (*Optional*): Log state and attribute changes. This changes the default stats path.
+- **value_mapping** (*Optional*): Map non-numerical values to numerical ones.
+
 
 StatsD supports various [backends](https://github.com/etsy/statsd/blob/master/docs/backend.md).
 
