@@ -58,6 +58,7 @@ homeassistant:
 | Attribute | Description |
 | --------- | ----------- |
 | `friendly_name` | Name of the entity.
+| `homebridge_name` | Name of the entity in `HomeBridge`.
 | `hidden`    | Set to `true` to hide the entity.
 | `homebridge_hidden` | Set to `true` to hide the entity from `HomeBridge`.
 | `emulated_hue` | Set to `false` to hide the entity from emulated_hue.
