@@ -14,7 +14,7 @@ ha_release: 0.50
 
 To get your Xiaomi binary sensors working with Home Assistant, follow the instructions for the general [Xiaomi Gateway component](https://home-assistant.io/components/xiaomi_gw)
 
-Type of sensors supported:
+### Type of sensors supported:
 - Motion
 - Door / Window
 - Smoke
@@ -22,7 +22,7 @@ Type of sensors supported:
 - Xiaomi Wireless Button
 - Xiaomi Cube
 
-Some automation examples to get you started:
+### Some automation examples to get you started:
 - Motion
 ```yaml
     # Trigger for motion sensor
