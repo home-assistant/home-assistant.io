@@ -9,16 +9,16 @@ sharing: true
 footer: true
 ---
 
-[Google Assistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms. It runs on-device and is Private by Design.
+[Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms. It runs on-device and is Private by Design.
 
 To enable access to the Google Assistant API, do the following:
 1) In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new [project]
 2) Enable the Google Assistant [API] on the project you selected
-3) Create a [service account] and download the json credentials. 
+3) Create a [service account][serviceaccount] and download the json credentials. 
 
-Now install and activate the [Samba] add-on so you can upload your training data. Connect to the "share" Samba share and copy your training data over. Name the file `assistant.zip`.
+Now install and activate the [Samba] add-on so you can upload your credential file. Connect to the "share" Samba share and copy your training data over. Name the file `service_account.json`.
 
-Now it's time to start Snips for the first time. When the Snips add-on starts, it will output your audio devices:
+Now it's time to start Snips for the first time. When the Google Assistant add-on starts, it will output your audio devices:
 
 ```plain
 **** List of PLAYBACK Hardware Devices ****
@@ -53,8 +53,8 @@ Now that you've found the microphone and speaker addresses, it's time to configu
 
 Configuration variables:
 
-- **mqtt_bridge** (*Optional*): Snips uses MQTT to communicate and defaults to their own broker. Use this config option to bridge their broker to your own.
-- **mic**: This is the hardware address of your microphone. Look at the Snips 
+- **mic**: This is the hardware address of your microphone. Look at the add-on output 
+- **speaker**: This is the hardware address of your speakers. Look at the add-on output
 
 ### {% linkable_title Home Assistant configuration %}
 
@@ -64,11 +64,9 @@ Use the Home Assistant [Snips.ai component][comp] to integrate the add-on into H
 snips:
 ```
 
-
-
-[Google Assistant]: https://assistant.google.com/
+[GoogleAssistant]: https://assistant.google.com/
 [Samba]: /addons/samba/
 [comp]: /components/snips/
 [project]: https://console.cloud.google.com/project
 [API]: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
-[service account]: https://console.developers.google.com/apis/credentials/serviceaccountkey
+[serviceaccount]: https://console.developers.google.com/apis/credentials/serviceaccountkey
