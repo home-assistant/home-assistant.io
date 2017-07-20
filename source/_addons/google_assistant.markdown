@@ -18,7 +18,7 @@ To enable access to the Google Assistant API, do the following:
 
 Now install and activate the [Samba] add-on so you can upload your credential file. Connect to the "share" Samba share and copy your training data over. Name the file `service_account.json`.
 
-Now it's time to start Snips for the first time. When the Google Assistant add-on starts, it will output your audio devices:
+Now it's time to start Google Assistant for the first time. When the Google Assistant add-on starts, it will output your audio devices:
 
 ```plain
 **** List of PLAYBACK Hardware Devices ****
