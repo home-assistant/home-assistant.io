@@ -53,9 +53,10 @@ Determine your bulb ip (using router, software, ping ...)
 
 <p class='note warning'>
 This component is tested to work with the following models:
-- **YLDP01YL**: LED Bulb   (White)
-- **YLDP02YL**: LED Bulb   (Color)
-- **YLDP03YL**: LED Bulb   (Color) - E26
+
+- **YLDP01YL**: LED Bulb (White)
+- **YLDP02YL**: LED Bulb (Color)
+- **YLDP03YL**: LED Bulb (Color) - E26
 - **YLDD02YL**: Lightstrip (Color)
 
 If you have a different model and it is working please let us know.
