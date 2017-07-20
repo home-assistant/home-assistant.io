@@ -26,24 +26,26 @@ Check the related componets pages for actual devices that are support.
 
 Home Assistant offers multiple ways to authenticate to the Wink API. Each authentication method is described below.
 
-### Authentication with an access token.
+### Authenticate using [developer.wink.com](https://developer.wink.com)
 
 
-To use this form of authentication obtain a token from the form below and insert it into your `configuration.yaml`
+This method will require you to setup a developer account with Wink. This process can take a few days to get approved, but is the recommanded form of authentication. If you would like to use Wink in Home Assistant while you wait, you can use the email and password authentication below.
 
-<iframe src="https://winkbearertoken.appspot.com"
-        style='width: 100%; height: 200px; border: 0; margin: 0 auto 15px; border-left: 2px solid #049cdb; padding-left: 15px;'></iframe>
+This form of authentication doesn't require any settings in the configuration.yaml other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
+
+<p class='note'>
+When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly. 
+</p>
 
 ```yaml
 wink:
-  access_token: YOUR_ACCESS_TOKEN
 ```
+
 
 ### Authentication with your Wink email and password.
 
 
-This method uses the same form from above to obtain an access token, but does so without the user needing to manually do so.
-This method pulls a new token on every startup of Home Assistant.
+This method pulls a new token on every startup of Home Assistant from this [URL](https://winkbearertoken.appspot.com)
 
 ```yaml
 wink:
@@ -51,12 +53,10 @@ wink:
   password: YOUR_WINK_PASSWORD
 ```
 
-### Full oath authentication. (This is the best option!)
+### Full oauth authentication (legacy).
 
+This should be used for users that obtained their client_id and client_secret via email from Wink support.
 
-You can also request API access via Wink's [contact us](http://www.wink.com/help/contact/) page.
-
-You will be provided with a client ID and a client secret via email. These can then be used in your configuration in place of the access_token this will prevent you from having to manually refresh your access token.
 
 ```yaml
 wink:
@@ -68,14 +68,12 @@ wink:
 
 Configuration variables:
 
-- **access_token** (*Required if the below aren't present.*): The retrieved access token.
 - **email** (*Required if access token isn't provided*): Your Wink login email.
 - **password** (*Required if access token isn't provided*): Your Wink login password.
 - **client_id** (*Required if access token isn't provided*): Your provided Wink client_id.
 - **client_secret** (*Required if access token isn't provided*): Your provided Wink client_secret.
-- **user_agent** (*Optional*): The user-agent passed in the API calls to Wink.
 
-This will connect to the Wink API and automatically set up any switches, lights, locks, fans, climate devices, covers, and sensors.
+This will connect to the Wink API and automatically set up any switches, lights, locks, fans, climate devices, covers, sensors, and alarms.
 
 ### {% linkable_title Service `refresh_state_from_wink` %}
 
