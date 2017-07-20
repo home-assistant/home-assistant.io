@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-[Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact over [api.ai] with Home-Assistant.
+[Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact over [api.ai] with Home-Assistant. You can also use [Google Actions][GoogleActions] to make extended functionality.
 
 To enable access to the Google Assistant API, do the following:
 1) In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new [project]
@@ -62,6 +62,7 @@ Use the Home Assistant [api.ai component][comp] to integrate the add-on into Hom
 
 
 [GoogleAssistant]: https://assistant.google.com/
+[GoogleActions]: https://actions.google.com/
 [api.ai]: https://api.ai/
 [Samba]: /addons/samba/
 [comp]: /components/apiai/
