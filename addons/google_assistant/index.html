@@ -75,13 +75,13 @@
     </h1>
   </header>
   <hr class="divider">
-  <p><a href="https://assistant.google.com/">Google Assistant</a> is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms. It runs on-device and is Private by Design.</p>
+  <p><a href="https://assistant.google.com/">Google Assistant</a> is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms. and interact with [API.ai] with Home-Assistant.</p>
 <p>To enable access to the Google Assistant API, do the following:
-1) In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new <a href="https://console.cloud.google.com/project">project</a>
-2) Enable the Google Assistant <a href="https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview">API</a> on the project you selected
-3) Create a <a href="https://console.developers.google.com/apis/credentials/serviceaccountkey">service account</a> and download the json credentials.</p>
-<p>Now install and activate the <a href="/addons/samba/">Samba</a> add-on so you can upload your training data. Connect to the “share” Samba share and copy your training data over. Name the file <code class="highlighter-rouge">assistant.zip</code>.</p>
-<p>Now it’s time to start Snips for the first time. When the Snips add-on starts, it will output your audio devices:</p><pre><code class="language-plain">**** List of PLAYBACK Hardware Devices ****
+1) In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new [project]
+2) Enable the Google Assistant [API] on the project you selected
+3) Create a [service account][serviceaccount] and download the json credentials.</p>
+<p>Now install and activate the [Samba] add-on so you can upload your credential file. Connect to the “share” Samba share and copy your training data over. Name the file <code class="highlighter-rouge">service_account.json</code>.</p>
+<p>Now it’s time to start Snips for the first time. When the Google Assistant add-on starts, it will output your audio devices:</p><pre><code class="language-plain">**** List of PLAYBACK Hardware Devices ****
 card 0: ALSA [bcm2835 ALSA], device 0: bcm2835 ALSA [bcm2835 ALSA]
   Subdevices: 8/8
   Subdevice #0: subdevice #0
@@ -108,14 +108,20 @@ card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI]
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>mqtt_bridge</strong> (<em>Optional</em>): Snips uses MQTT to communicate and defaults to their own broker. Use this config option to bridge their broker to your own.</li>
-  <li><strong>mic</strong>: This is the hardware address of your microphone. Look at the Snips</li>
+  <li><strong>mic</strong>: This is the hardware address of your microphone. Look at the add-on output</li>
+  <li><strong>speaker</strong>: This is the hardware address of your speakers. Look at the add-on output</li>
 </ul>
 <h3><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h3>
-<p>Use the Home Assistant <a href="/components/snips/">Snips.ai component</a> to integrate the add-on into Home Assistant.</p>
+<p>Use the Home Assistant [Snips.ai component][comp] to integrate the add-on into Home Assistant.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">snips</span><span class="pi">:</span>
 </code></pre>
 </div>
+<p>[API.ai] https://api.ai/
+[Samba]: /addons/samba/
+[comp]: /components/snips/
+[project]: https://console.cloud.google.com/project
+[API]: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
+[serviceaccount]: https://console.developers.google.com/apis/credentials/serviceaccountkey</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
