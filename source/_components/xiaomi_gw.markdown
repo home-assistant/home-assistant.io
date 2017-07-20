@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Hub
-ha_release: 0.4X
+ha_release: 0.50
 ---
 
 The `xiaomi_gw` platform allows you to integrate the following devices into HA
@@ -55,21 +55,21 @@ One Gateway
  # You can leave sid empty if you only have one gateway
  xiaomi:
    gateways:
-     - sid:
+     - mac:
        key: xxxxxxxxxxxxxxxx
   ```
 
  Multiple Gateway
   ```yaml
- # 12 characters sid can be obtained from the gateway's MAC address.
+ # 12 characters mac can be obtained from the gateway.
  xiaomi:
    gateways:
-     - sid: xxxxxxxxxxxx
+     - mac: xxxxxxxxxxxx
        key: xxxxxxxxxxxxxxxx
-     - sid: xxxxxxxxxxxx
+     - mac: xxxxxxxxxxxx
        key: xxxxxxxxxxxxxxxx
   ```
 
 Configuration variables:
-- **sid** (*Optional*): The SID of your gateway. Required if you have more than one gateway
+- **mac** (*Optional*): The MAC of your gateway. Required if you have more than one gateway
 - **key** (*Required*): The key of your gateway
