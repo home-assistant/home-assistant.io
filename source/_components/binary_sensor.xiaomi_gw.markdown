@@ -16,6 +16,14 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
 
 Type of sensors supported:
 - Motion
+- Door / Window
+- Smoke
+- Gas
+- Xiaomi Wireless Button
+- Xiaomi Cube
+
+Some automation examples to get you started:
+- Motion
 ```yaml
     # Trigger for motion sensor
 
@@ -152,5 +160,3 @@ Type of sensors supported:
         entity_id: binary_sensor.cube_158d000xxxxxc2
         action_type: flip90
  ```
-
-
