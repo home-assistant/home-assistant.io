@@ -52,7 +52,7 @@ Follow the setup process using your phone and Mi Home app. From here you will be
 
 One Gateway
   ```yaml
- # You can leave sid empty if you only have one gateway
+ # You can leave mac empty if you only have one gateway
  xiaomi:
    gateways:
      - mac:
