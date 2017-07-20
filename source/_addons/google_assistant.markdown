@@ -60,8 +60,9 @@ Configuration variables:
 
 Use the Home Assistant [api.ai component][comp] to integrate the add-on into Home Assistant.
 
+
 [GoogleAssistant]: https://assistant.google.com/
-[api.ai] https://api.ai/
+[api.ai]: https://api.ai/
 [Samba]: /addons/samba/
 [comp]: /components/apiai/
 [project]: https://console.cloud.google.com/project
