@@ -71,5 +71,7 @@ One Gateway
   ```
 
 Configuration variables:
-- **mac** (*Optional*): The MAC of your gateway. Required if you have more than one gateway
-- **key** (*Required*): The key of your gateway
+- **mac** (*Optional*): The MAC of your gateway. Required if you have more than one.
+- **key** (*Optional*): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.
+- **discovery_retry** (*Optional*): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.
+- **interface** (*Optional*): Which network interface to use. Default to any.
