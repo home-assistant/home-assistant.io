@@ -109,7 +109,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
   ```
 - Smoke
 - Gas
-- Xiaomi Wireless Button (available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`.
+- Xiaomi Wireless Button (available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`).
  ```yaml
   automation:
     # Trigger for the wireless button with different click types
@@ -151,7 +151,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
           ringtone_vol: 8
   ```
 
-- Xiaomi Cube (available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`.
+- Xiaomi Cube (available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`).
 ```yaml
     trigger:
       platform: event
