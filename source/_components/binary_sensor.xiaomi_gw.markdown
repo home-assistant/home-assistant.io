@@ -87,7 +87,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
           operation_mode: 'Smart schedule'
   ```
 - Smoke
-  ```yaml
+```yaml
     # Trigger for smoke sensor
 
     - alias: Send notification on fire alarm
@@ -106,7 +106,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
             gw_mac: xxxxxxxxxxxx
             ringtone_id: 2
             ringtone_vol: 100
-  ```
+```
 - Gas
 ```yaml
 # Trigger for natgas detected
