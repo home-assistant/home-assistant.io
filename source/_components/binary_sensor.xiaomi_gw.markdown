@@ -87,7 +87,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
           operation_mode: 'Smart schedule'
   ```
 - Smoke
-```yaml
+  ```yaml
     # Trigger for smoke sensor
 
     - alias: Send notification on fire alarm
@@ -106,10 +106,10 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
             gw_mac: xxxxxxxxxxxx
             ringtone_id: 2
             ringtone_vol: 100
-```
+  ```
 - Gas
 ```yaml
-# Trigger for natgas detected
+    # Trigger for natgas detected
 
     - alias: Send notification on gas alarm
       trigger:
@@ -125,7 +125,6 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
 ```
 - Xiaomi Wireless Button (available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`). For Square version (Aqara brand) only `single` and `double` events are supported. Furthermore the space between two clicks to generate a double click must be quite large now
 ```yaml
-  automation:
     # Trigger for the wireless button with different click types
 
     - alias: Toggle dining light on single press
