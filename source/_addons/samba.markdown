@@ -22,7 +22,7 @@ This allows you to set up a [Samba](https://samba.org/) server to access hass.io
     "share": true,
     "backup": true,
     "ssl": false,
-  }
+  },
   "username": "",
   "password": "",
   "interface": "eth0"
