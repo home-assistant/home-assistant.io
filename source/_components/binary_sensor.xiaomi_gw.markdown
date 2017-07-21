@@ -86,9 +86,9 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
         data:
           operation_mode: 'Smart schedule'
   ```
-
+- Smoke
   ```yaml
-    # Trigger for door window sensor
+    # Trigger for smoke sensor
 
     - alias: Send notification on fire alarm
       trigger:
@@ -107,10 +107,24 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
             ringtone_id: 2
             ringtone_vol: 100
   ```
-- Smoke
 - Gas
-- Xiaomi Wireless Button (available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`).
- ```yaml
+```yaml
+# Trigger for natgas detected
+
+    - alias: Send notification on gas alarm
+      trigger:
+        platform: state
+        entity_id: binary_sensor.natgas_sensor_158dxxxxxxxxxx
+        from: 'off'
+        to: 'on'
+      action:
+        - service: notify.html5
+          data_template:
+            title: Gas alarm!
+            message: 'Gas with a density of {{ states.binary_sensor.natgas_sensor_158dxxxxxxxxxx.attributes.density }} detected.'
+```
+- Xiaomi Wireless Button (available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`). For Square version (Aqara brand) only `single` and `double` events are supported. Furthermore the space between two clicks to generate a double click must be quite large now
+```yaml
   automation:
     # Trigger for the wireless button with different click types
 
@@ -153,10 +167,70 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
 
 - Xiaomi Cube (available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`).
 ```yaml
-    trigger:
-      platform: event
-      event_type: cube_action
-      event_data:
-        entity_id: binary_sensor.cube_158d000xxxxxc2
-        action_type: flip90
+    # Trigger for a few cube events
+
+    - alias: Cube event flip90
+      trigger:
+        platform: event
+        event_type: cube_action
+        event_data:
+          entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+          action_type: flip90
+      action:
+        - service: light.turn_on
+          entity_id: light.gateway_light_28xxxxxxxxxx
+          data:
+            color_name: "springgreen"
+                                                                                                                                                                                                       
+    - alias: Cube event flip180                                                                                                                                                                              
+      trigger:                                                                                                                                                                                         
+        platform: event                                                                                                                                                                                
+        event_type: cube_action                                                                                                                                                                        
+        event_data:                                                                                                                                                                                    
+          entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                                                                                                                                 
+          action_type: flip180                                                                                                                                                                         
+      action:                                                                                                                                                                                          
+        - service: light.turn_on
+          entity_id: light.gateway_light_28xxxxxxxxxx
+          data:
+            color_name: "darkviolet"
+                                                                                                                                                                                                       
+    - alias: Cube event move                                                                                                                                                                                 
+      trigger:                                                                                                                                                                                         
+        platform: event                                                                                                                                                                                
+        event_type: cube_action                                                                                                                                                                        
+        event_data:                                                                                                                                                                                    
+          entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                                                                                                                                 
+          action_type: move                                                                                                                                                                            
+      action:                                                                                                                                                                                          
+        - service: light.turn_on
+          entity_id: light.gateway_light_28xxxxxxxxxx
+          data:
+            color_name: "gold"
+                                                                                                                                                                                                       
+    - alias: Cube event tap_twice                                                                                                                                                                            
+      trigger:                                                                                                                                                                                         
+        platform: event                                                                                                                                                                                
+        event_type: cube_action                                                                                                                                                                        
+        event_data:
+          entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+          action_type: tap_twice
+      action:
+        - service: light.turn_on
+          entity_id: light.gateway_light_28xxxxxxxxxx
+          data:
+            color_name: "deepskyblue"
+    
+    - alias: Cube event shake_air
+      trigger:
+        platform: event
+        event_type: cube_action
+        event_data:
+          entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+          action_type: shake_air
+      action:
+        - service: light.turn_on
+          entity_id: light.gateway_light_28xxxxxxxxxx
+          data:
+            color_name: "blue"
  ```
