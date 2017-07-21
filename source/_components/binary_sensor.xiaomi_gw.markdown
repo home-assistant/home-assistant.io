@@ -54,7 +54,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
       action:
         service: light.turn_off
         entity_id: light.gateway_light_34ce00xxxx11
-  ```
+```
   
 - Door / Window
  ```yaml
