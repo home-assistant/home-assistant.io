@@ -80,11 +80,16 @@
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hassio"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"workgroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WORKGROUP"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"guest"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"map_config"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"map_addons"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"map_ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"config"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"addons"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"share"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"backup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+  </span><span class="s2">"username"</span><span class="err">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"interface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -93,11 +98,10 @@
   <li><strong>name</strong> (<em>Optional</em>): default <code class="highlighter-rouge">hassio</code>. Set netbios name of hassio device.</li>
   <li><strong>workgroup</strong> (<em>Optional</em>): default <code class="highlighter-rouge">WORKGROUP</code>. Set network workgroup.</li>
   <li><strong>guest</strong> (<em>Optional</em>): Allow login without a username or password. Defaults to <code class="highlighter-rouge">true</code>.</li>
-  <li><strong>map_config</strong> (<em>Optional</em>): Expose Home Assistant configuration folder. Defaults to <code class="highlighter-rouge">true</code>.</li>
-  <li><strong>map_addons</strong> (<em>Optional</em>): Expose local custom addons folder. Defaults to <code class="highlighter-rouge">true</code>.</li>
-  <li><strong>map_ssl</strong> (<em>Optional</em>): Expose SSL folder. Be careful with this option! Defaults to <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>map</strong> (<em>Optional</em>): Control whitch folder will be expose. <code class="highlighter-rouge">config</code> is for Home Assistant configuration folder. <code class="highlighter-rouge">addons</code> for local custom repositiory. <code class="highlighter-rouge">share</code> is a folder that can access from add-ons and Home Assistant too. <code class="highlighter-rouge">backup</code> for access to snapshot files. <code class="highlighter-rouge">ssl</code> for certificate storage, be careful with this option! Defaults to <code class="highlighter-rouge">true</code>.</li>
   <li><strong>username</strong> (<em>Optional</em>): The username for logging in if guest login is not used.</li>
   <li><strong>password</strong> (<em>Optional</em>): Password for <code class="highlighter-rouge">username</code>. An empty password is not supported.</li>
+  <li><strong>interface</strong> (<em>Optional</em>): Interface on that will start the share. Normaly is <code class="highlighter-rouge">eth0</code> for ethernet wired connection and <code class="highlighter-rouge">wlan0</code> for wireless connection.</li>
 </ul>
 </article>
         </div>
