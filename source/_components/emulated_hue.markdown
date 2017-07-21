@@ -28,7 +28,6 @@ To enable the emulated Hue bridge, add one of the following configs to your `con
 ```yaml
 # Google Home example configuration.yaml entry
 emulated_hue:
-  type: google_home
   listen_port: 80
   # Google Home does not work on different ports.
 ```
@@ -36,13 +35,11 @@ emulated_hue:
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
-  type: alexa
-  listen_port: 80
 ```
 
 Configuration variables:
 
-- **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`, defaults to `google_home`.
+- **type** (*Optional*): The type of assistant who we are emulated for. Either `alexa` or `google_home`, defaults to `google_home`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
 - **host_ip** (*Optional*): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
 - **listen_port** (*Optional*): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.
 
