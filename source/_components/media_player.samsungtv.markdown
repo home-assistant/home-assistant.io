@@ -47,6 +47,7 @@ Currently known supported models:
 - EH5300
 - EH5600
 - F6400AF
+- F6400
 - D6505
 - D6300SF
 - U6000 (port must be set to 8001)
