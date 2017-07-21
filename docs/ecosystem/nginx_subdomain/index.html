@@ -97,6 +97,10 @@
     <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
         <span class="kn">proxy_pass</span> <span class="s">http://localhost:8123/</span><span class="p">;</span>
         <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+
+        <span class="kn">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">"upgrade"</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="kn">location</span> <span class="n">/api/websocket</span> <span class="p">{</span>

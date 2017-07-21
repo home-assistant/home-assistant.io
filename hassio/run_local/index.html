@@ -75,9 +75,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Hass.io is a managed environment. This means that you’re unable to install applications that you can embed into Home Assistant using the <code class="highlighter-rouge">command_line</code> sensor/switch.</p>
+  <p>Hass.io is a managed environment. This means that you can install applications that can be embedded into Home Assistant using the <code class="highlighter-rouge">command_line</code> sensor/switch.</p>
 <p>There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.IO.</p>
-<p>First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, look at the <a href="/developers/component_loading/">devoloper site</a>.</p>
+<p>First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, look at the <a href="/developers/component_loading/">developer site</a>.</p>
 <p>The second option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on <a href="/developers/hassio/addon_tutorial/">Hass.io add-on development</a>.</p>
 <p>For security and speed, Hass.io does not provide a way for containers to communicate directly. So the first step is to set up a communication channel. We’re going to use MQTT for this using the <a href="/addons/mosquitto/">MQTT broker add-on</a>.</p>
 <h3><a class="title-link" name="sensors" href="#sensors"></a> Sensors</h3>

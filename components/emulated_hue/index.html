@@ -144,7 +144,7 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
     <span class="pi">-</span> <span class="s">light</span>
 </code></pre>
 </div>
-<p>With additional customization you will be able to specify the behaviour of the existing entities.</p>
+<p>With additional customization you will be able to specify the behavior of the existing entities.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example customization</span>
 <span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">customize</span><span class="pi">:</span>
@@ -172,6 +172,7 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo setcap <span class="s1">'cap_net_bind_service=+ep'</span> /srv/homeassistant/homeassistant_venv/bin/python3
 </code></pre>
 </div>
+<p>Please note that your path may be different depending on your installation method. For example, if you followed the <a href="https://home-assistant.io/docs/installation/virtualenv/">Virtualenv instructions</a>, your path will be <code class="highlighter-rouge">/srv/homeassistant/bin/python3</code>.</p>
 <h3><a class="title-link" name="license" href="#license"></a> License</h3>
 <p>Much of this code is based on work done by Bruce Locke on his <a href="https://github.com/blocke/ha-local-echo">ha-local-echo</a> project, originally released under the MIT License. The license is located <a href="https://github.com/blocke/ha-local-echo/blob/b9bf5dcaae6d8e305e2283179ffba64bde9ed29e/LICENSE">here</a>.</p>
 </article>
