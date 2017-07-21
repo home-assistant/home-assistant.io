@@ -84,20 +84,17 @@ The virtual bridge has the ability to turn entities on or off, or change the bri
 <p>To enable the emulated Hue bridge, add one of the following configs to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Google Home example configuration.yaml entry</span>
 <span class="s">emulated_hue</span><span class="pi">:</span>
-  <span class="s">type</span><span class="pi">:</span> <span class="s">google_home</span>
   <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
   <span class="c1"># Google Home does not work on different ports.</span>
 </code></pre>
 </div>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Amazon Echo example configuration.yaml entry</span>
 <span class="s">emulated_hue</span><span class="pi">:</span>
-  <span class="s">type</span><span class="pi">:</span> <span class="s">alexa</span>
-  <span class="s">listen_port</span><span class="pi">:</span> <span class="s">80</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>type</strong> (<em>Optional</em>): The type of assistant who we are emulated for. Either <code class="highlighter-rouge">alexa</code> or <code class="highlighter-rouge">google_home</code>, defaults to <code class="highlighter-rouge">google_home</code>.</li>
+  <li><strong>type</strong> (<em>Optional</em>): The type of assistant who we are emulated for. Either <code class="highlighter-rouge">alexa</code> or <code class="highlighter-rouge">google_home</code>, defaults to <code class="highlighter-rouge">google_home</code>. <strong>This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.</strong></li>
   <li><strong>host_ip</strong> (<em>Optional</em>): The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.</li>
   <li>
     <p><strong>listen_port</strong> (<em>Optional</em>): The port the Hue bridge API web server will run on. If not specified, this defaults to 8300. This can be any free port on your system.</p>
