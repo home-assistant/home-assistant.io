@@ -103,7 +103,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
             message: Fire/Smoke detected!
         - service: xiaomi.play_ringtone
           data:
-            gw_sid: xxxxxxxxxxxx
+            gw_mac: xxxxxxxxxxxx
             ringtone_id: 2
             ringtone_vol: 100
   ```
@@ -146,7 +146,7 @@ To get your Xiaomi binary sensors working with Home Assistant, follow the instru
       action:
         service: xiaomi.play_ringtone
         data:
-          gw_sid: xxxxxxxxxxxx
+          gw_mac: xxxxxxxxxxxx
           ringtone_id: 8
           ringtone_vol: 8
   ```
