@@ -76,10 +76,12 @@
   </header>
   <hr class="divider">
   <p><a href="https://assistant.google.com/">Google Assistant</a> is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact over <a href="https://api.ai/">api.ai</a> with Home-Assistant. You can also use <a href="https://actions.google.com/">Google Actions</a> to make extended functionality.</p>
-<p>To enable access to the Google Assistant API, do the following:
-1) In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new <a href="https://console.cloud.google.com/project">project</a>
-2) Enable the Google Assistant <a href="https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview">API</a> on the project you selected
-3) Create a <a href="https://console.developers.google.com/apis/credentials/serviceaccountkey">service account</a> and download the json credentials.</p>
+<p>To enable access to the Google Assistant API, do the following:</p>
+<ol>
+  <li>In the Cloud Platform Console, go to the Projects page. Select an existing project or create a new <a href="https://console.cloud.google.com/project">project</a></li>
+  <li>Enable the Google Assistant <a href="https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview">API</a> on the project you selected</li>
+  <li>Create an <a href="https://console.developers.google.com/apis/credentials/oauthclient">OAuth Client ID</a> as type “others” and download the json file with arrow done on the right site.</li>
+</ol>
 <p>Now install and activate the <a href="/addons/samba/">Samba</a> add-on so you can upload your credential file. Connect to the “share” Samba share and copy your training data over. Name the file <code class="highlighter-rouge">google_assistant.json</code>.</p>
 <p>Now it’s time to start Google Assistant for the first time. When the Google Assistant add-on starts, it will output your audio devices:</p><pre><code class="language-plain">**** List of PLAYBACK Hardware Devices ****
 card 0: ALSA [bcm2835 ALSA], device 0: bcm2835 ALSA [bcm2835 ALSA]
@@ -97,6 +99,7 @@ card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI]
   Subdevice #0: subdevice #0
 </code></pre>
 <p>You need to use this information to configure the <code class="highlighter-rouge">mic</code> and <code class="highlighter-rouge">speaker</code> configuration options. The format is <code class="highlighter-rouge">&lt;card #&gt;,&lt;device #&gt;</code>. On a Raspberry Pi 3, <code class="highlighter-rouge">0,0</code> is the built-in headset port, <code class="highlighter-rouge">0,1</code> is the HDMI port.</p>
+<p>We need also connect our Google Assistant with google account. Try open the oauth2 interface with http://hassio.local:9324 and follow the steps on that page.</p>
 <p>Now that you’ve found the microphone and speaker addresses, it’s time to configure Google Assistant and restart the add-on.</p>
 <h3>Add-On configuration</h3>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
