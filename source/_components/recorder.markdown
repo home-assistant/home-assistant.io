@@ -14,7 +14,7 @@ ha_release: pre 0.7
 
 The `recorder` component is storing details in a database which then are handled by the [`history` component](/components/history/).
 
-Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relational Mapper (ORM). This means that you can now use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), or [PostgreSQL](https://www.postgresql.org/).
+Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/) as Object Relational Mapper (ORM). This means that you can now use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant_v2.db`.
 
@@ -96,6 +96,7 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 | MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME`        |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
+| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/?charset=utf8`      |
 
 ## {% linkable_title Installation notes %}
 
@@ -126,4 +127,21 @@ For PostgreSQL you may have to install a few dependencies:
 ```bash
 $ sudo apt-get install postgresql-server-dev-X.Y
 $ pip3 install psycopg2
+```
+
+### {% linkable_title MS SQL Server %}
+
+For MS SQL Server you may have to install a few dependencies:
+
+```bash
+$ sudo apt-get install freetds-dev
+$ pip3 install pymssql
+```
+
+If you are in a virtual environment, don't forget to activate it before installing the pymssql package.
+
+```bash
+$ sudo su -s /bin/bash homeassistant
+$ source /srv/homeassistant/bin/activate
+$ pip3 install pymssql
 ```
