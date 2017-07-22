@@ -49,7 +49,7 @@ Now that you've found the microphone and speaker addresses, it's time to configu
 {
   "mic": "1,0",
   "speaker": "1,0",
-  "service_account": "service_account.json",
+  "client_secrets": "google_assistant.json",
 }
 ```
 
