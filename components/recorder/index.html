@@ -75,7 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">recorder</code> component is storing details in a database which then are handled by the <a href="/components/history/"><code class="highlighter-rouge">history</code> component</a>.</p>
-<p>Home Assistant uses <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> as Object Relational Mapper (ORM). This means that you can now use <strong>any</strong> SQL backend for the recorder that is supported by SQLAlchemy, like <a href="https://www.mysql.com/">MySQL</a>, <a href="https://mariadb.org/">MariaDB</a>, or <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+<p>Home Assistant uses <a href="http://www.sqlalchemy.org/">SQLAlchemy</a> as Object Relational Mapper (ORM). This means that you can now use <strong>any</strong> SQL backend for the recorder that is supported by SQLAlchemy, like <a href="https://www.mysql.com/">MySQL</a>, <a href="https://mariadb.org/">MariaDB</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>, or <a href="https://www.microsoft.com/en-us/sql-server/">MS SQL Server</a>.</p>
 <p>The default database engine is <a href="https://www.sqlite.org/">SQLite</a> which doesn’t require any configuration. The database is stored in your Home Assistant configuration directory (<code class="highlighter-rouge">.homeassistant</code>) and called <code class="highlighter-rouge">home-assistant_v2.db</code>.</p>
 <p>To setup the <code class="highlighter-rouge">recorder</code> component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -177,6 +177,10 @@
       <td style="text-align: left">PostgreSQL</td>
       <td style="text-align: left"><code class="highlighter-rouge">postgresql://scott:tiger@SERVER_IP/DB_NAME</code></td>
     </tr>
+    <tr>
+      <td style="text-align: left">MS SQL Server</td>
+      <td style="text-align: left"><code class="highlighter-rouge">mssql+pymssql://user:pass@SERVER_IP/?charset=utf8</code></td>
+    </tr>
   </tbody>
 </table>
 <h2><a class="title-link" name="installation-notes" href="#installation-notes"></a> Installation notes</h2>
@@ -199,6 +203,18 @@
 <p>For PostgreSQL you may have to install a few dependencies:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install postgresql-server-dev-X.Y
 <span class="gp">$ </span>pip3 install psycopg2
+</code></pre>
+</div>
+<h3><a class="title-link" name="ms-sql-server" href="#ms-sql-server"></a> MS SQL Server</h3>
+<p>For MS SQL Server you may have to install a few dependencies:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install freetds-dev
+<span class="gp">$ </span>pip3 install pymssql
+</code></pre>
+</div>
+<p>If you are in a virtual environment, don’t forget to activate it before installing the pymssql package.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+<span class="gp">$ </span>pip3 install pymssql
 </code></pre>
 </div>
 </article>
