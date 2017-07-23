@@ -27,7 +27,7 @@ sensor:
       - symbol
       - humidity
       - temperature
-      - wind_speed
+      - windspeed
       - pressure
 ```
 
@@ -67,11 +67,11 @@ Full configuration example where location is manually specified:
       - symbol
       - humidity
       - temperature
-      - ground_temperature
-      - wind_speed
-      - wind_force
-      - wind_direction
-      - wind_direction_azimuth
+      - groundtemperature
+      - windspeed
+      - windforce
+      - winddirection
+      - windazimuth
       - pressure
       - visibility
       - windgust
