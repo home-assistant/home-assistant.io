@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Hub
 ha_release: "0.50"
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Local Polling"
 ---
 
 The `xiaomi_gw` platform allows you to integrate the following [Xiaomi](http://www.mi.com/en/) devices into Home Assistant.
