@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 ---
 
 [Duck DNS](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.

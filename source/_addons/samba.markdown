@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 ---
 
 This allows you to set up a [Samba](https://samba.org/) server to access hass.io folders using Windows network shares.

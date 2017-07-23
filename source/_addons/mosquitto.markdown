@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 ---
 
 Set up a [mosquitto](https://mosquitto.org/) MQTT broker.
