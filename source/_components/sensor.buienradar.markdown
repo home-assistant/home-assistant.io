@@ -33,7 +33,13 @@ sensor:
 
 Configuration variables:
 
-- **name**  (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of 'sensor.[name]`[monitored_condition]`, for example: `sensor.lopik_temperature`; if no name is specified the sensors will be called `sensor.br_[monitored_condition]`, for example `sensor.br_temperature`.
+- **name**  (*Optional*): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of `sensor.[name]_[default sensor display name]`, for example: 
+  - `sensor.lopik_temperature`, since the name of the sensor is set to `lopik` and the default display name for monitored condition `temperature` is `Temperature` 
+  - `sensor.lopik_wind_force`, since the name of the sensor is set to `lopik` and the default display name for monitored condition `windforce` is `Wind force`
+  
+  If no name is specified the sensors will be called `sensor.br_[default sensor display name]`, for example:
+  - `sensor.br_wind_speed`, since no name has been set for the sensor and the default display name for monitored condition `windspeed` is `Wind speed`
+  - `sensor.br_ground_temperature`, since no name has been set for the sensor and the default display name for monitored condition `groundtemperature` is `Ground Temperature`
 - **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
 - **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
 - **timeframe** (*Optional*): Minutes to look ahead for precipitation (5..120) [default: 60].
