@@ -8,11 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: binary_sensor
-ha_release: 0.50
+ha_category: Binary sensor
+ha_release: "0.50"
 ---
 
-To get your Xiaomi binary sensors working with Home Assistant, follow the instructions for the general [Xiaomi Gateway component](https://home-assistant.io/components/xiaomi_gw)
+To get your Xiaomi binary sensors working with Home Assistant, follow the instructions for the general [Xiaomi Gateway component](/components/xiaomi/)
 
 ### Type of sensors supported:
 - Motion
