@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Hub
-ha_release: 0.50
+ha_release: "0.50"
+ha_iot_class: "Cloud Polling"
 ---
 
-The `xiaomi_gw` platform allows you to integrate the following devices into HA
+The `xiaomi_gw` platform allows you to integrate the following [Xiaomi](http://www.mi.com/en/) devices into Home Assistant.
 
 - Temperature and Humidity Sensor (old and new version)
 - Motion Sensor (old and new version)
@@ -44,33 +45,36 @@ What's not available?
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
-{% linkable_title Getting started %}
 
 Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
 
-{% linkable_title Configuration %}
+To enable Xioami gateway in your installation, add the following to your `configuration.yaml` file:
 
 One Gateway
-  ```yaml
- # You can leave mac empty if you only have one gateway
- xiaomi:
-   gateways:
-     - mac:
-       key: xxxxxxxxxxxxxxxx
-  ```
 
- Multiple Gateway
-  ```yaml
- # 12 characters mac can be obtained from the gateway.
- xiaomi:
-   gateways:
-     - mac: xxxxxxxxxxxx
-       key: xxxxxxxxxxxxxxxx
-     - mac: xxxxxxxxxxxx
-       key: xxxxxxxxxxxxxxxx
-  ```
+```yaml
+# You can leave mac empty if you only have one gateway.
+xiaomi:
+  gateways:
+   - mac:
+     key: xxxxxxxxxxxxxxxx
+```
+
+
+Multiple Gateway
+
+```yaml
+# 12 characters mac can be obtained from the gateway.
+xiaomi:
+  gateways:
+    - mac: xxxxxxxxxxxx
+      key: xxxxxxxxxxxxxxxx
+    - mac: xxxxxxxxxxxx
+      key: xxxxxxxxxxxxxxxx
+```
 
 Configuration variables:
+
 - **mac** (*Optional*): The MAC of your gateway. Required if you have more than one.
 - **key** (*Optional*): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.
 - **discovery_retry** (*Optional*): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.
