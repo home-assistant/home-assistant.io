@@ -118,15 +118,20 @@ $primary-color: #049cdb;
     }
   }
 
-  .founder-vision {
+  .highlight-blog-post {
+    font-size: 2.0rem;
+    line-height: 1.15;
+    padding: 15px;
     display: block;
     text-decoration: none;
     color: white;
-    padding: 15px;
-    font-size: 2.25rem;
-    line-height: 1.33333;
     transition: background-color .5s;
     background-color: #038FC7;
+
+    &.large {
+      font-size: 2.25rem;
+      line-height: 1.33333;
+    }
 
     &:hover {
       background-color: lighten(#038FC7, 10%);
@@ -406,7 +411,8 @@ p.note {
 }
 
 .edit-github {
-  text-align: right;
+  float: right;
+  margin-left: 8px;
   margin-bottom: 8px;
   font-size: .8em;
 }
