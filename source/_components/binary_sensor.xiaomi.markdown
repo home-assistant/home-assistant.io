@@ -185,11 +185,11 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         color_name: "springgreen"
 - alias: Cube event flip180
   trigger:
-    platform: event                                                                                                                                                                                
-    event_type: cube_action                                                                                                                                                                        
-    event_data:                                                                                                                                                                                    
-      entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                                                                                                                                 
-      action_type: flip180                                                                                                                                                                         
+    platform: event
+    event_type: cube_action
+    event_data:
+      entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                       
+      action_type: flip180                               
   action:
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
@@ -197,11 +197,11 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         color_name: "darkviolet"
 - alias: Cube event move
   trigger:
-    platform: event                                                                                                                                                                                
-    event_type: cube_action                                                                                                                                                                        
-    event_data:                                                                                                                                                                                    
-      entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                                                                                                                                 
-      action_type: move                                                                                                                                                                            
+    platform: event                            
+    event_type: cube_action
+    event_data:                                                                                                             
+      entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                        
+      action_type: move
   action:
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
@@ -209,8 +209,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         color_name: "gold"
 - alias: Cube event tap_twice
   trigger:
-    platform: event                                                                                                                                                                                
-    event_type: cube_action                                                                                                                                                                        
+    platform: event
+    event_type: cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: tap_twice
@@ -231,4 +231,65 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "blue"
+```
+#### #### {% linkable_title Aqara Wireless Switch %}
+
+The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
+
+
+```yaml
+    - alias: Decrease brightness of the gateway light
+      trigger:
+        platform: event
+        event_type: click
+        event_data:
+          entity_id: binary_sensor.wall_switch_left_158xxxxxxxxx12
+          click_type: single
+      action:
+        service: light.turn_on
+        entity_id: light.gateway_light_34xxxxxxxx13
+        data_template:
+          brightness: >-
+            {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
+              {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60 >= 10 %}
+                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60}}
+              {% else %}
+                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+              {% endif %}
+            {% else %}
+              10
+            {% endif %}
+    
+    - alias: Increase brightness of the gateway light
+      trigger:
+        platform: event
+        event_type: click
+        event_data:
+          entity_id: binary_sensor.wall_switch_right_158xxxxxxxxx12
+          click_type: single
+      action:
+        service: light.turn_on
+        entity_id: light.gateway_light_34xxxxxxxx13
+        data_template:
+          brightness: >-
+            {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
+              {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60 <= 255 %}
+                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60}}
+              {% else %}
+                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+              {% endif %}
+            {% else %}
+              10
+            {% endif %}
+    
+    - alias: Turn off the gateway light
+      trigger:
+        platform: event
+        event_type: click
+        event_data:
+          entity_id: binary_sensor.wall_switch_both_158xxxxxxxxx12
+          click_type: both
+      action:
+        service: light.turn_off
+        entity_id: light.gateway_light_34xxxxxxxx13
 ```
