@@ -79,3 +79,42 @@ Configuration variables:
 - **key** (*Optional*): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.
 - **discovery_retry** (*Optional*): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.
 - **interface** (*Optional*): Which network interface to use. Default to any.
+
+## {% linkable_title Services %}
+
+The gateway provides two services: `xiaomi.play_ringtone` and `xiaomi.stop_ringtone`. To play ringtones by Home Assistant the version of the gateway firmware must be `1.4.1_145` at least. A `ringtone_id` and `gw_mac` must be supplied. The parameter `ringtone_vol` (percent) is optional. Allowed values of the `ringtone_id` are:
+
+- alarm ringtones [0-8]
+- doorbell ring [10-13]
+- alarm clock [20-29]
+- custom ringtones (uploaded by mi home app) starting from 10001
+
+Automation example
+
+```yaml
+- alias: Let a dog bark on long press
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000xxxxxc2
+      click_type: long_click_press
+  action:
+    service: xiaomi.play_ringtone
+    data:
+      gw_mac: xxxxxxxxxxxx
+      ringtone_id: 8
+      ringtone_vol: 8
+
+- alias: Stop barking immediately on single click
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.switch_158d000xxxxxc2
+      click_type: single
+  action:
+    service: xiaomi.stop_ringtone
+    data:
+      gw_mac: xxxxxxxxxxxx
+```
