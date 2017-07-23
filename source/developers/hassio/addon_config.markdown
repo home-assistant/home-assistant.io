@@ -97,6 +97,7 @@ The config for an add-on is stored in `config.json`.
 | arch | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
 | url | no | Homepage of the addon. Here you can explain the add-ons and options.
 | startup | yes | `initialize` will start addon on setup of hassio. `system` is for things like database and base not on other things. `services` will start before homeassistant. `application` is after homeassistant will start or `once` for application they don't run as deamon.
+| webui | no | A URL for webinterface of this add-on. Like `http://[HOST]:[PORT:2839]/dashboard`, the port need the internal port, we replace it later with the effective port.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | host_network | no | If that is True, the add-on run on host network.
