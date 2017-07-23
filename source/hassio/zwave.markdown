@@ -15,3 +15,8 @@ To enable Z-Wave, plug your Z-Wave USB stick into your Raspberry Pi 3 and add th
 zwave:
   usb_path: /dev/ttyACM0
 ```
+
+If you need GPIO for you Z-Wave module add follow line into `config.txt`:
+```
+dtoverlay=pi3-miniuart-bt
+```
