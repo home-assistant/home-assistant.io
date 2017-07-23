@@ -90,7 +90,17 @@ The relevant weatherstation used will be automatically selected based on the loc
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>name</strong>  (<em>Optional</em>): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of ‘sensor.[name]<code class="highlighter-rouge">[monitored_condition]</code>, for example: <code class="highlighter-rouge">sensor.lopik_temperature</code>; if no name is specified the sensors will be called <code class="highlighter-rouge">sensor.br_[monitored_condition]</code>, for example <code class="highlighter-rouge">sensor.br_temperature</code>.</li>
+  <li><strong>name</strong>  (<em>Optional</em>): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of <code class="highlighter-rouge">sensor.[name]_[default sensor display name]</code>, for example:
+    <ul>
+      <li><code class="highlighter-rouge">sensor.lopik_temperature</code>, since the name of the sensor is set to <code class="highlighter-rouge">lopik</code> and the default display name for monitored condition <code class="highlighter-rouge">temperature</code> is <code class="highlighter-rouge">Temperature</code></li>
+      <li><code class="highlighter-rouge">sensor.lopik_wind_force</code>, since the name of the sensor is set to <code class="highlighter-rouge">lopik</code> and the default display name for monitored condition <code class="highlighter-rouge">windforce</code> is <code class="highlighter-rouge">Wind force</code></li>
+    </ul>
+    <p>If no name is specified the sensors will be called <code class="highlighter-rouge">sensor.br_[default sensor display name]</code>, for example:</p>
+    <ul>
+      <li><code class="highlighter-rouge">sensor.br_wind_speed</code>, since no name has been set for the sensor and the default display name for monitored condition <code class="highlighter-rouge">windspeed</code> is <code class="highlighter-rouge">Wind speed</code></li>
+      <li><code class="highlighter-rouge">sensor.br_ground_temperature</code>, since no name has been set for the sensor and the default display name for monitored condition <code class="highlighter-rouge">groundtemperature</code> is <code class="highlighter-rouge">Ground Temperature</code></li>
+    </ul>
+  </li>
   <li><strong>latitude</strong> (<em>Optional</em>): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.</li>
   <li><strong>longitude</strong> (<em>Optional</em>): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.</li>
   <li><strong>timeframe</strong> (<em>Optional</em>): Minutes to look ahead for precipitation (5..120) [default: 60].</li>

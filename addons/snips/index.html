@@ -78,7 +78,8 @@
   <p><a href="https://snips.ai/">Snips.ai</a> is an AI-powered voice assistant that runs on the Raspberry Pi 3 and x86 platforms. It runs on-device and is Private by Design.</p>
 <p>To get started, follow <a href="https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant">their tutorial</a> to create an assistant and download the training data.</p>
 <p>Now install and activate the <a href="/addons/samba/">Samba</a> add-on so you can upload your training data. Connect to the “share” Samba share and copy your training data over. Name the file <code class="highlighter-rouge">assistant.zip</code>.</p>
-<p>Now it’s time to start Snips for the first time. When the Snips add-on starts, it will output your audio devices:</p><pre><code class="language-plain">**** List of PLAYBACK Hardware Devices ****
+<p>Now it’s time to start Snips for the first time. When the Snips add-on starts, it will output your audio devices:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>**** List of PLAYBACK Hardware Devices ****
 card 0: ALSA [bcm2835 ALSA], device 0: bcm2835 ALSA [bcm2835 ALSA]
   Subdevices: 8/8
   Subdevice #0: subdevice #0
@@ -93,8 +94,10 @@ card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 </code></pre>
-<p>You need to use this information to configure the <code class="highlighter-rouge">mic</code> and <code class="highlighter-rouge">speaker</code> configuration options. The format is <code class="highlighter-rouge">&lt;card #&gt;,&lt;device #&gt;</code>. On a Raspberry Pi 3, <code class="highlighter-rouge">0,0</code> is the built-in headset port, <code class="highlighter-rouge">0,1</code> is the HDMI port.</p>
-<p>Now that you’ve found the microphone and speaker addresses, it’s time to configure Snips and restart the add-on.</p>
+</div>
+<p>You need to use this information to point the add-on at the right speakers and microphone. The information describes different cards and devices. On a Raspberry Pi 3, card 0 - device 0 is the built-in headset port, card 0 - device 1 is the HDMI port. In the example above, the USB microphone showed up as card 1 - device 0.</p>
+<p>Find the microphone and speakers that you want to use and note down their device and card number. We will need that to configure the add-on options <code class="highlighter-rouge">mic</code> (microphone to use) and <code class="highlighter-rouge">speaker</code> (speaker to use). The format for these options is <code class="highlighter-rouge">&lt;card #&gt;,&lt;device #&gt;</code>. Change the configuration options and click save.</p>
+<p>Now start the add-on.</p>
 <h3>Add-On configuration</h3>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"mic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,0"</span><span class="p">,</span><span class="w">
