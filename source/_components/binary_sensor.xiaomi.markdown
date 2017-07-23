@@ -123,7 +123,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
     - service: notify.html5
       data_template:
         title: Gas alarm!
-        message: 'Gas with a density of {{ states.binary_sensor.natgas_sensor_158dxxxxxxxxxx.attributes.density }} detected.'
+        message: 'Gas with a density of {% raw %}{{ states.binary_sensor.natgas_sensor_158dxxxxxxxxxx.attributes.density }}{% endraw %} detected.'
 ```
 
 #### {% linkable_title Xiaomi Wireless Button %}
@@ -236,60 +236,59 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 
-
 ```yaml
-    - alias: Decrease brightness of the gateway light
-      trigger:
-        platform: event
-        event_type: click
-        event_data:
-          entity_id: binary_sensor.wall_switch_left_158xxxxxxxxx12
-          click_type: single
-      action:
-        service: light.turn_on
-        entity_id: light.gateway_light_34xxxxxxxx13
-        data_template:
-          brightness: >-
-            {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
-              {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60 >= 10 %}
-                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60}}
-              {% else %}
-                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
-              {% endif %}
-            {% else %}
-              10
-            {% endif %}
-    
-    - alias: Increase brightness of the gateway light
-      trigger:
-        platform: event
-        event_type: click
-        event_data:
-          entity_id: binary_sensor.wall_switch_right_158xxxxxxxxx12
-          click_type: single
-      action:
-        service: light.turn_on
-        entity_id: light.gateway_light_34xxxxxxxx13
-        data_template:
-          brightness: >-
-            {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
-              {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60 <= 255 %}
-                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60}}
-              {% else %}
-                {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
-              {% endif %}
-            {% else %}
-              10
-            {% endif %}
-    
-    - alias: Turn off the gateway light
-      trigger:
-        platform: event
-        event_type: click
-        event_data:
-          entity_id: binary_sensor.wall_switch_both_158xxxxxxxxx12
-          click_type: both
-      action:
-        service: light.turn_off
-        entity_id: light.gateway_light_34xxxxxxxx13
+- alias: Decrease brightness of the gateway light
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158xxxxxxxxx12
+      click_type: single
+  action:
+    service: light.turn_on
+    entity_id: light.gateway_light_34xxxxxxxx13
+    data_template:
+      brightness: {% raw %}>-
+        {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
+          {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60 >= 10 %}
+            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60}}
+          {% else %}
+            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+          {% endif %}
+        {% else %}
+          10
+        {% endif %}{% endraw %}
+
+- alias: Increase brightness of the gateway light
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158xxxxxxxxx12
+      click_type: single
+  action:
+    service: light.turn_on
+    entity_id: light.gateway_light_34xxxxxxxx13
+    data_template:
+      brightness: {% raw %}>-
+        {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
+          {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60 <= 255 %}
+            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60}}
+          {% else %}
+            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+          {% endif %}
+        {% else %}
+          10
+        {% endif %}{% endraw %}
+
+- alias: Turn off the gateway light
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.wall_switch_both_158xxxxxxxxx12
+      click_type: both
+  action:
+    service: light.turn_off
+    entity_id: light.gateway_light_34xxxxxxxx13
 ```
