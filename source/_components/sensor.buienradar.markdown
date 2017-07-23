@@ -42,11 +42,11 @@ Configuration variables:
   - **symbol**: A symbol for the current weather.
   - **humidity**: The relative humidity (%).
   - **temperature**: The current temperature (in C).
-  - **groundtemperature**: The current ground temperature (in C).
-  - **windspeed**: The wind speed in m/s.
-  - **windforce**: The wind speed/force in Bft.
-  - **winddirection**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.
-  - **windazimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
+  - **ground_temperature**: The current ground temperature (in C).
+  - **wind_speed**: The wind speed in m/s.
+  - **wind_force**: The wind speed/force in Bft.
+  - **wind_direction**: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.
+  - **wind_direction_azimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
   - **pressure**: The sea-level air pressure in hPa.
   - **visibility**: Visibility in meters (m).
   - **windgust**: The windspeed of wind gusts (m/s).
