@@ -16,7 +16,7 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-If you need GPIO for you Z-Wave module add follow line into `config.txt`:
+If you need GPIO on raspberry-pi3 for you Z-Wave module add follow line into `config.txt`:
 ```
 dtoverlay=pi3-miniuart-bt
 ```
