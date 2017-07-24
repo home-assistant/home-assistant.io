@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Xiaomi Gateway”
+title: "Xiaomi Gateway"
 description: "Instructions how to integrate your Xiaomi Gateway within Home Assistant."
 date: 2017-07-21 16:34
 sidebar: true
