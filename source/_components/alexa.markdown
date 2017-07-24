@@ -138,7 +138,7 @@ intent_script:
       data_template:
         entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
     speech:
-      type: plaintext
+      type: plain
       text: OK
 ```
 
@@ -186,7 +186,7 @@ intent_script:
       data_template:
         entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
     speech:
-      type: plaintext
+      type: plain
       text: OK
 ```
 
