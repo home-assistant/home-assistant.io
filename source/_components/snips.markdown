@@ -100,7 +100,7 @@ mqtt:
 ```
 ### Triggering actions
 
-In Home Assistant, we trigger actions based on intents produced by Snips. This is done in `configuration.yaml`. For instance, the following block handles `ActivateLightColors` intents (included in the Snips IoT intent bundle) to change light colors:
+In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles `ActivateLightColors` intents (included in the Snips IoT intent bundle) to change light colors:
 
 ```yaml
 snips:
