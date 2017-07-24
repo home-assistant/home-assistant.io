@@ -74,7 +74,7 @@
   <div class="meta clearfix">
     <time datetime="2017-07-15T00:02:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 15, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 12 minutes reading time</span>
+    <span><i class='icon-time'></i> 13 minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -119,6 +119,25 @@ Screenshot of a green dashboard
   <li>Refactored Amcrest to use central hub component (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8184">#8184</a>) (<a href="https://home-assistant.io/components/amcrest/">amcrest docs</a>) (<a href="https://home-assistant.io/components/camera.amcrest/">camera.amcrest docs</a>) (<a href="https://home-assistant.io/components/sensor.amcrest/">sensor.amcrest docs</a>) (breaking change) (new-platform)</li>
   <li>Added media_extractor service (<a href="https://github.com/minchik">@minchik</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8369">#8369</a>) (<a href="https://home-assistant.io/components/media_extractor/">media_extractor docs</a>) (new-platform)</li>
   <li>Vizio SmartCast support (<a href="https://github.com/vkorn">@vkorn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8260">#8260</a>) (<a href="https://home-assistant.io/components/media_player.vizio/">media_player.vizio docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="release-0491---july-24" href="#release-0491---july-24"></a> Release 0.49.1 - July 24</h2>
+<ul>
+  <li>Fix TP-Link device tracker regression since 0.49 (<a href="https://github.com/maikelwever">@maikelwever</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8497">#8497</a>) (<a href="https://home-assistant.io/components/device_tracker.tplink/">device_tracker.tplink docs</a>)</li>
+  <li>prometheus: Convert fahrenheit to celsius (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8511">#8511</a>) (<a href="https://home-assistant.io/components/prometheus/">prometheus docs</a>)</li>
+  <li>Update dlib_face_detect.py (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8516">#8516</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_detect/">image_processing.dlib_face_detect docs</a>)</li>
+  <li>Realfix for dlib (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8517">#8517</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_detect/">image_processing.dlib_face_detect docs</a>)</li>
+  <li>Attach the <code class="highlighter-rouge">chat_id</code> for a callback query from a chat group (fixes #8461) (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8523">#8523</a>) (<a href="https://home-assistant.io/components/telegram_bot/">telegram_bot docs</a>)</li>
+  <li>Fix support for multiple Apple TVs (<a href="https://github.com/postlund">@postlund</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8539">#8539</a>)</li>
+  <li>LIFX: assume default features for unknown products (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8553">#8553</a>) (<a href="https://home-assistant.io/components/light.lifx/">light.lifx docs</a>)</li>
+  <li>Fix broken status update for lighting4 devices (<a href="https://github.com/ypollart">@ypollart</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8543">#8543</a>) (<a href="https://home-assistant.io/components/rfxtrx/">rfxtrx docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.rfxtrx/">binary_sensor.rfxtrx docs</a>)</li>
+  <li>zha: Update to bellows 0.3.4 (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8594">#8594</a>) (<a href="https://home-assistant.io/components/zha/">zha docs</a>)</li>
+  <li>Fix STATION_SCHEMA validation on longitude (<a href="https://github.com/clkao">@clkao</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8610">#8610</a>) (<a href="https://home-assistant.io/components/sensor.citybikes/">sensor.citybikes docs</a>)</li>
+  <li>Bumped Amcrest version (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8624">#8624</a>) (<a href="https://home-assistant.io/components/amcrest/">amcrest docs</a>)</li>
+  <li>Check if /dev/input/by-id exists (<a href="https://github.com/schaal">@schaal</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8601">#8601</a>) (<a href="https://home-assistant.io/components/keyboard_remote/">keyboard_remote docs</a>)</li>
+  <li>Tado Fix #8606 (<a href="https://github.com/filcole">@filcole</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8621">#8621</a>) (<a href="https://home-assistant.io/components/climate.tado/">climate.tado docs</a>)</li>
+  <li>prometheus: Fix zwave battery level (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8615">#8615</a>) (<a href="https://home-assistant.io/components/prometheus/">prometheus docs</a>)</li>
+  <li>ubus: Make multiple instances work again (<a href="https://github.com/glance-">@glance-</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8571">#8571</a>) (<a href="https://home-assistant.io/components/device_tracker.ubus/">device_tracker.ubus docs</a>)</li>
+  <li>Properly slugify switch.flux update service name (<a href="https://github.com/jawilson">@jawilson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8545">#8545</a>) (<a href="https://home-assistant.io/components/switch.flux/">switch.flux docs</a>)</li>
 </ul>
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
 <p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
