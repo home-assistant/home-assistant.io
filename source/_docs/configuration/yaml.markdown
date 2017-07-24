@@ -61,3 +61,20 @@ sensor:
     state_topic: sensor2/topic
 ```
 
+### {% linkable_title Using Environment Variables %}
+
+You can include values from your system's environment variables with `!env_var`.
+
+```yaml
+http:
+  api_password: !env_var PASSWORD
+```
+
+#### Default Value
+
+If an environment variable is not set, you can fallback to a default value.
+
+```yaml
+http:
+  api_password: !env_var PASSWORD default_password
+```
