@@ -9,11 +9,11 @@ sharing: true
 footer: true
 ---
 
-Hass.io is a managed environment. This means that you're unable to install applications that you can embed into Home Assistant using the `command_line` sensor/switch.
+Hass.io is a managed environment. This means that you can install applications that can be embedded into Home Assistant using the `command_line` sensor/switch.
 
 There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.IO.
 
-First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, look at the [devoloper site][custom-component].
+First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, look at the [developer site][custom-component].
 
 The second option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on [Hass.io add-on development][addons-tutorial].
 

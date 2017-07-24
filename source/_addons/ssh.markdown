@@ -7,9 +7,13 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 ---
 
-Setting up an [SSH](https://openssh.org/) server allows access to your Hass.io folders with any SSH client.
+Setting up an [SSH](https://openssh.org/) server allows access to your Hass.io folders with any SSH client. It include also a cli to access into Hass.IO api. Try it out:
+```bash
+$ hassio help
+```
 
 <p class='note'>This add-on will not enable you to install packages or do anything as root. This is not allowed with Hass.io.</p>
 

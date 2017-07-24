@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 ---
 
 Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This will create a certificate on the first run and renew it if the certificate is expiring in the next 30 days.

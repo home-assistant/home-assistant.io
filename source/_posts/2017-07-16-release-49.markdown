@@ -23,7 +23,7 @@ You can specify themes using new configuration options under frontend.
 frontend:
   themes:
     green:
-      primary-color: #6ca518;
+      primary-color: "#6CA518"
 ```
 
 Once a theme is defined, use the new frontend service `frontend.set_theme` to activate it. More information in [the docs][frontend docs].

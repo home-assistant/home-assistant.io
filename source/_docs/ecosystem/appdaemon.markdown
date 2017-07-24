@@ -107,7 +107,7 @@ Of course if I wanted to make this App or its predecessor reusable I would have 
 
 In addition, Apps can write to `AppDaemon`'s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.
 
-For full installation instructions, see [README.md](https://github.com/home-assistant/appdaemon/blob/dev/README.md) in the `AppDaemon` repository.
+For full installation instructions, see [README.md](https://github.com/home-assistant/appdaemon/blob/dev/README.rst) in the `AppDaemon` repository.
 
 There is also full documentation for the API and associated configuration in [API.md](https://github.com/home-assistant/appdaemon/blob/dev/API.md).
 
