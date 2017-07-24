@@ -20,11 +20,10 @@ intent_script:
   GetTemperature:  # Intent type
     speech:
       text: We have {{ states.sensor.temperature }} degrees
-    async_action: False
     action:
       service: notify.notify
       data_template:
-        message: Api.ai has send a request
+        message: Hello from an intent!
 {% endraw %}
 ```
 
