@@ -11,13 +11,13 @@ categories: Announcements
 og_image: /images/hassio/screenshots/dashboard.png
 ---
 
-**TL;DR:** Today we're introducing [Hass.io]. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons].
+**TL;DR:** Today we're introducing [Hass.io]. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons] including [Google Assistant] and [Let's Encrypt].
 
 ----
 
 Home Assistant is 2 months away from being 4 years old. In that time the Internet of Things has really taken off and we've seen many new devices and services. We saw the introduction of voice assistants like Google Home and new standards like Apple HomeKit.
 
-Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. The latter has caused an increased maintenance burden for people running Home Assistant at home.
+Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. All these moving parts caused our users to spend a lot of time maintaining their systems and applications instead of automating their homes.
 
 So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user's privacy.
 
@@ -38,19 +38,19 @@ As we strongly believe in the openness of technology, we are releasing Hass.io a
 - [Install Hass.io][install]
 - [Available add-ons][addons]
 
+_Some frequently asked questions are answered below in the read more section._
+
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen></iframe>
 </div>
 
 Hass.io has been built by [Pascal Vizeli], the UI has been made by [Paulus Schoutsen] and [BRUHAutomation] made the introduction video. Big thanks to [Resin.io] for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️
 
-_Some frequently asked questions are answered in the read more section._
-
 <!--more-->
 
-#### {% linkable_title Do I need to use Hass.io to run Home Assistant? %}
+#### {% linkable_title Will Hass.io be the only way to run Home Assistant? %}
 
-Hass.io is optional. You can still run Home Assistant standalone.
+Hass.io is and will always be optional. You can still run Home Assistant wherever you can run Python.
 
 #### {% linkable_title Which devices are supported at launch? %}
 
@@ -64,9 +64,9 @@ No, this is not possible as we're using stateless Docker containers. To install 
 
 Yes, any Hass.io snapshot can be restored on any device.
 
-#### {% linkable_title The Hass.io configuration panel contains powerful tools. Why is there no security? %}
+#### {% linkable_title The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login? %}
 
-We have already implemented the backend and plan to release the UI soon.
+This is in the works. We have already implemented [the backend](https://github.com/home-assistant/hassio/pull/41) and plan to release the UI soon.
 
 #### {% linkable_title Is there a roadmap? %}
 
