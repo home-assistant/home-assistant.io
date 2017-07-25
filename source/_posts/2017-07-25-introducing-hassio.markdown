@@ -2,8 +2,8 @@
 layout: post
 title: "Introducing Hass.io"
 description: "The ultimate home automation hub has arrived."
-date: 2017-07-24 00:02:05 +0000
-date_formatted: "July 24, 2017"
+date: 2017-07-25 00:02:05 +0000
+date_formatted: "July 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -37,6 +37,10 @@ As we strongly believe in the openness of technology, we are releasing Hass.io a
 - [Learn more about Hass.io][Hass.io]
 - [Install Hass.io][install]
 - [Available add-ons][addons]
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen></iframe>
+</div>
 
 Hass.io has been built by [Pascal Vizeli], the UI has been made by [Paulus Schoutsen] and [BRUHAutomation] made the introduction video. Big thanks to [Resin.io] for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️
 
