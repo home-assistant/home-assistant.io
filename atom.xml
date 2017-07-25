@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-25T13:26:11+00:00</updated>
+  <updated>2017-07-25T15:49:24+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Hass.io]]></title>
+    <link href="https://home-assistant.io/blog/2017/07/25/introducing-hassio/"/>
+    <updated>2017-07-25T00:02:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/07/25/introducing-hassio</id>
+    <content type="html"><![CDATA[<p><strong>TL;DR:</strong> Today we’re introducing <a href="https://home-assistant.io/hassio/">Hass.io</a>. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using <a href="https://home-assistant.io/addons/">Hass.io add-ons</a> including <a href="https://home-assistant.io/addons/google_assistant/">Google Assistant</a> and <a href="https://home-assistant.io/addons/lets_encrypt/">Let’s Encrypt</a>.</p>
+
+<hr />
+
+<p>Home Assistant is 2 months away from being 4 years old. In that time the Internet of Things has really taken off and we’ve seen many new devices and services. We saw the introduction of voice assistants like Google Home and new standards like Apple HomeKit.</p>
+
+<p>Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. All these moving parts caused our users to spend a lot of time maintaining their systems and applications instead of automating their homes.</p>
+
+<p>So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user’s privacy.</p>
+
+<p>And this is how <a href="https://github.com/pvizeli/">Pascal Vizeli</a> came up with Hass.io, an operating system based on <a href="https://resinos.io/">ResinOS</a> and <a href="https://www.docker.com/">Docker</a>. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using <a href="https://home-assistant.io/addons/">Hass.io add-ons</a>.</p>
+
+<p class="img">
+<img src="https://home-assistant.io/images/hassio/screenshots/dashboard.png" />
+Hass.io dashboard
+</p>
+
+<p>To install add-ons, a user can browse the built-in add-on store and install, configure and update any available application. Want to turn your device into a Google Assistant or make your configuration accessible via Samba/Windows networking? Both are a couple of clicks away! (<a href="https://youtu.be/NfyavpAg4as">Video demo - 38s, no audio</a>)</p>
+
+<p>At launch we have included a couple of <a href="https://home-assistant.io/addons/">built-in add-ons</a> like <a href="https://home-assistant.io/addons/google_assistant/">Google Assistant</a>, <a href="https://home-assistant.io/addons/lets_encrypt/">Let’s Encrypt</a> and <a href="https://home-assistant.io/addons/duckdns/">Duck DNS</a>. Besides our internal add-ons, it is also possible to create and share your own add-on repositories. During our beta period we’ve already seen some great add-ons being shared: <a href="https://community.home-assistant.io/t/repository-homebridge-add-on/18569">Homebridge</a>, <a href="https://community.home-assistant.io/t/repository-bestlibre-addons-repository/18037">InfluxDB</a>, <a href="https://community.home-assistant.io/t/repository-hass-configurator/17838">HASS Configurator</a> and <a href="https://community.home-assistant.io/t/repository-few-addons/20659">AppDaemon</a>.</p>
+
+<p>As we strongly believe in the openness of technology, we are releasing Hass.io as <a href="https://github.com/home-assistant/hassio">open source</a> under the Apache 2.0 license. That way any user can make sure that the code that runs in their homes is secure and safe.</p>
+
+<ul>
+  <li><a href="https://home-assistant.io/hassio/">Learn more about Hass.io</a></li>
+  <li><a href="https://home-assistant.io/hassio/installation/">Install Hass.io</a></li>
+  <li><a href="https://home-assistant.io/addons/">Available add-ons</a></li>
+</ul>
+
+<p><em>Some frequently asked questions are answered below in the read more section.</em></p>
+
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<p>Hass.io has been built by <a href="https://github.com/pvizeli/">Pascal Vizeli</a>, the UI has been made by <a href="https://github.com/balloob/">Paulus Schoutsen</a> and <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a> made the introduction video. Big thanks to <a href="https://resin.io">Resin.io</a> for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️</p>
+
+<!--more-->
+
+<h4><a class="title-link" name="will-hassio-be-the-only-way-to-run-home-assistant" href="#will-hassio-be-the-only-way-to-run-home-assistant"></a> Will Hass.io be the only way to run Home Assistant?</h4>
+
+<p>Hass.io is and will always be optional. You can still run Home Assistant wherever you can run Python.</p>
+
+<h4><a class="title-link" name="which-devices-are-supported-at-launch" href="#which-devices-are-supported-at-launch"></a> Which devices are supported at launch?</h4>
+
+<p>Initially we support the Raspberry Pi 1, 2, 3 and Intel NUC. Advanced users can also <a href="https://home-assistant.io/hassio/installation/#alternative-install-on-generic-linux-server/">install Hass.io on a Linux server</a>.</p>
+
+<h4><a class="title-link" name="can-i-install-packages-or-scripts-on-the-machine" href="#can-i-install-packages-or-scripts-on-the-machine"></a> Can I install packages or scripts on the machine?</h4>
+
+<p>No, this is not possible as we’re using stateless Docker containers. To install a package you’ll have to write a local add-on that interacts with Home Assistant. See <a href="https://home-assistant.io/hassio/run_local/">our tutorial</a>.</p>
+
+<h4><a class="title-link" name="can-i-restore-a-snapshot-on-a-different-device" href="#can-i-restore-a-snapshot-on-a-different-device"></a> Can I restore a snapshot on a different device?</h4>
+
+<p>Yes, any Hass.io snapshot can be restored on any device.</p>
+
+<h4><a class="title-link" name="the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login" href="#the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login"></a> The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login?</h4>
+
+<p>This is in the works. We have already implemented <a href="https://github.com/home-assistant/hassio/pull/41">the backend</a> and plan to release the UI soon.</p>
+
+<h4><a class="title-link" name="is-there-a-roadmap" href="#is-there-a-roadmap"></a> Is there a roadmap?</h4>
+
+<p>We use <a href="https://www.pivotaltracker.com/n/projects/2020851">Pivotal Tracker</a> to track things that are in progress and what we might work on.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.49: Themes 🎨, kiosk mode and Prometheus.io]]></title>
@@ -1928,27 +1999,6 @@ $ sudo systemctl start install_homeassistant.service
 </p>
   </li>
 </ol>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hardware Contest 2017]]></title>
-    <link href="https://home-assistant.io/blog/2017/04/24/hardware-contest-2017/"/>
-    <updated>2017-04-24T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/04/24/hardware-contest-2017</id>
-    <content type="html"><![CDATA[<p>We have four submissions for our <a href="https://home-assistant.io/blog/2017/04/01/thomas-krenn-award/">Hardware Contest 2017</a>.</p>
-
-<ul>
-  <li><a href="https://community.home-assistant.io/t/entry-for-hardware-contest-part-of-iot-course/14827">Part of IoT-course</a></li>
-  <li><a href="https://community.home-assistant.io/t/entry-automating-a-nursing-home/14872">Automating a nursing home!</a></li>
-  <li><a href="https://community.home-assistant.io/t/entry-dedicated-hardware-for-coding-testing-building-and-contributing-to-home-assistant/15515">Dedicated hardware for coding, testing, building, and contributing to Home Assistant</a></li>
-  <li><a href="https://community.home-assistant.io/t/entry-hassio-home-assistant-hub-for-dummies/16037">HassIO - Home Assistant hub for dummies</a></li>
-</ul>
-
-<p>The voting is now open. To keep things simple are we using the voting feature of the <a href="https://community.home-assistant.io/c/contest-2017">forum</a>. Vote for your choices.</p>
-
-<p>End of the voting period: April, 30 2017 - 23.59 UTC</p>
-
 ]]></content>
   </entry>
   

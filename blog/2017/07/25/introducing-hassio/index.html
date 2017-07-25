@@ -6,24 +6,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Perfect Home Automation - Home Assistant</title>
+    <title>Introducing Hass.io - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="A breakdown of what the perfect home automation should consist of.">
+    <meta name="description" content="The ultimate home automation hub has arrived.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/07/25/introducing-hassio/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Perfect Home Automation">
+    <meta property="og:title" content="Introducing Hass.io">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/07/25/introducing-hassio/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="A breakdown of what the perfect home automation should consist of.">
-    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta property="og:description" content="The ultimate home automation hub has arrived.">
+    <meta property="og:image" content="https://home-assistant.io/images/hassio/screenshots/dashboard.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Perfect Home Automation">
-    <meta name="twitter:description" content="A breakdown of what the perfect home automation should consist of.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:title" content="Introducing Hass.io">
+    <meta name="twitter:description" content="The ultimate home automation hub has arrived.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/hassio/screenshots/dashboard.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
@@ -70,15 +70,15 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">Perfect Home Automation</h1>
+  <h1 class="title indent">Introducing Hass.io</h1>
   <div class="meta clearfix">
-    <time datetime="2016-01-19T08:20:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 19, 2016</time>
+    <time datetime="2017-07-25T00:02:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 25, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> five minutes reading time</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>Internet-of-Things</li>
+        <li>Announcements</li>
     </ul>
   </span>
       <a class='comments'
@@ -86,26 +86,42 @@
          >Comments</a>
   </div>
 </header>
-  <p>People often ask me about my vision for Home Assistant. Before I can describe where I want to go with Home Assistant, I should first talk about how home automation would look in my ideal world. This will be the aim of this post. I’m not going to focus on protocols, networks or specific hubs. That’s all implementation details. Instead, this post will focus on what is most important: the interaction between the users and their home.</p>
-<h3><a class="title-link" name="you-should-not-have-to-adapt-to-technology" href="#you-should-not-have-to-adapt-to-technology"></a> You should not have to adapt to technology.</h3>
-<p>When people start using home automation, they always experience home control first: being able to control devices in new ways using a phone or computer. They believe the future is now and their app will be their remote for their lives. They only focus on what they are getting, not on what they are losing. You install some light bulbs and all of a sudden you are no longer able to use the light switches. You’ll arrive at home at night and have to pull out your phone, open the app, let it connect and finally you’ll be able to turn on the light. All while turning the light on could have been a switch away.</p>
-<p>Yes, you can solve this with presence detection. What if  your phone runs out of battery? You’ll have to resort to the switch again.</p>
-<p>If you find that using your new home devices is cumbersome, the promise of home automation technology has failed you. Your lights should work with both a switch (or button) at the entrance of your room and via presence detection. Honestly, there are hardly any valid use cases for being able to control lights from your phone except for showing off.
-<a name="read-more"></a></p>
-<h3><a class="title-link" name="you-are-not-the-only-user-of-your-home-automation" href="#you-are-not-the-only-user-of-your-home-automation"></a> You are not the only user of your home automation.</h3>
-<p>People tend to forget that they are not the only ones in their home. As the developer of your house you’re enthusiastic about the possibilities and are willing to overlook flaws. Chances are very high that the other people in your household have different hobbies and just want to mind their own business.</p>
-<p>This means that everything you automate has to work flawlessly. If you successfully manage to cause a response to some stimulus 90% of the time, you’re going to have a disproportionately poor experience 10% of the time.  A common automation that fits this pattern is to fade the lights when you start watching a movie or series in the living room. It only works if everyone is watching.</p>
-<h3><a class="title-link" name="limit-the-impact-of-false-positives-and-negatives" href="#limit-the-impact-of-false-positives-and-negatives"></a> Limit the impact of false positives and negatives.</h3>
-<p>With every automation, you always have to think: what will be the impact if it doesn’t work? Home automation is composed of many different systems by many different vendors that speak many different protocols: things will go wrong. It’s up to you to make sure that they have a limited impact when they fail. Ideally, devices should fall back to a pre-smart home experience. A Philips Hue bulb will act like a standard white light if turned on/off using a normal switch or when not connected to a hub. If things get worse when your system is out of order, your users will revolt. Take for example the Nest thermostat that <a href="http://www.nytimes.com/2016/01/14/fashion/nest-thermostat-glitch-battery-dies-software-freeze.html">had a bug in the beginning of January</a> which caused it to stop heating the house, yikes!</p>
-<h3><a class="title-link" name="the-perfect-app-is-no-app" href="#the-perfect-app-is-no-app"></a> The perfect app is no app.</h3>
-<p>Home automation should blend with your current workflow, not replace it. For most devices, there is no faster way to control most devices than how you are already doing it today. Most of the time, the best app is no app. The only interface that can be more convenient, and is accessible for visitors of your home of all ages is a voice interface. The industry has realized this too and there are some major players focussing on voice interaction. Take Apple for example: the only way to control your HomeKit devices is with Siri.  Amazon has taken it one step further with the Amazon Echo, providing an always-listening connected speaker/microphone for the living room. I expect a lot more companies to join this segment in 2016.</p>
-<p>Voice interfaces are not perfect either. The speed at which you can issue commands is low because you have to wait for a response. There are also issues with the discoverability of commands, recognition of accents and dependency on the cloud for processing your voice. I believe that all but the first one are problems that are going to be solved eventually.</p>
-<p>This however doesn’t mean there isn’t a place for apps, there definitely is. They are perfectly well-suited for checking in while you’re away, browsing  the state changes of your house or making  the lights go all funky when there are kids visiting.</p>
-<h3><a class="title-link" name="your-system-should-run-at-home-not-in-the-cloud" href="#your-system-should-run-at-home-not-in-the-cloud"></a> Your system should run at home, not in the cloud.</h3>
-<p>The cloud is a magical thing. Somewhere in the world there are computers collecting the data that your house generates, testing them against your automation rules and sending commands back when needed.  The cloud will receive updates and improve itself over time so it is able to serve you better. Until it’s not. There are many reasons why your home might lose its connection to the cloud. The internet can stop working, an update might have gone wrong or the servers running the cloud crash.</p>
-<p>When this happens, your house should be able to keep functioning. The cloud should be treated as an extension to your smart home instead of running it. That way you’ll avoid awkward situations like when Amazon AWS was down and the <a href="http://www.zdnet.com/article/the-night-alexa-lost-her-mind/">Amazon Echo stopped working</a>.</p>
-<p><strong>Good home automation never annoys but is missed when it is not working.</strong></p>
-<p><em>Thanks to Chris LaRose for this feedback and comments.</em></p>
+  <p><strong>TL;DR:</strong> Today we’re introducing <a href="/hassio">Hass.io</a>. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a> including <a href="/addons/google_assistant/">Google Assistant</a> and <a href="/addons/lets_encrypt/">Let’s Encrypt</a>.</p>
+<hr />
+<p>Home Assistant is 2 months away from being 4 years old. In that time the Internet of Things has really taken off and we’ve seen many new devices and services. We saw the introduction of voice assistants like Google Home and new standards like Apple HomeKit.</p>
+<p>Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. All these moving parts caused our users to spend a lot of time maintaining their systems and applications instead of automating their homes.</p>
+<p>So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user’s privacy.</p>
+<p>And this is how <a href="https://github.com/pvizeli/">Pascal Vizeli</a> came up with Hass.io, an operating system based on <a href="https://resinos.io/">ResinOS</a> and <a href="https://www.docker.com/">Docker</a>. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a>.</p>
+<p class="img">
+<img src="/images/hassio/screenshots/dashboard.png" />
+Hass.io dashboard
+</p>
+<p>To install add-ons, a user can browse the built-in add-on store and install, configure and update any available application. Want to turn your device into a Google Assistant or make your configuration accessible via Samba/Windows networking? Both are a couple of clicks away! (<a href="https://youtu.be/NfyavpAg4as">Video demo - 38s, no audio</a>)</p>
+<p>At launch we have included a couple of <a href="/addons/">built-in add-ons</a> like <a href="/addons/google_assistant/">Google Assistant</a>, <a href="/addons/lets_encrypt/">Let’s Encrypt</a> and <a href="/addons/duckdns/">Duck DNS</a>. Besides our internal add-ons, it is also possible to create and share your own add-on repositories. During our beta period we’ve already seen some great add-ons being shared: <a href="https://community.home-assistant.io/t/repository-homebridge-add-on/18569">Homebridge</a>, <a href="https://community.home-assistant.io/t/repository-bestlibre-addons-repository/18037">InfluxDB</a>, <a href="https://community.home-assistant.io/t/repository-hass-configurator/17838">HASS Configurator</a> and <a href="https://community.home-assistant.io/t/repository-few-addons/20659">AppDaemon</a>.</p>
+<p>As we strongly believe in the openness of technology, we are releasing Hass.io as <a href="https://github.com/home-assistant/hassio">open source</a> under the Apache 2.0 license. That way any user can make sure that the code that runs in their homes is secure and safe.</p>
+<ul>
+  <li><a href="/hassio">Learn more about Hass.io</a></li>
+  <li><a href="/hassio/installation">Install Hass.io</a></li>
+  <li><a href="/addons/">Available add-ons</a></li>
+</ul>
+<p><em>Some frequently asked questions are answered below in the read more section.</em></p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<p>Hass.io has been built by <a href="https://github.com/pvizeli/">Pascal Vizeli</a>, the UI has been made by <a href="https://github.com/balloob/">Paulus Schoutsen</a> and <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a> made the introduction video. Big thanks to <a href="https://resin.io">Resin.io</a> for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️</p>
+<a name="read-more"></a>
+<h4><a class="title-link" name="will-hassio-be-the-only-way-to-run-home-assistant" href="#will-hassio-be-the-only-way-to-run-home-assistant"></a> Will Hass.io be the only way to run Home Assistant?</h4>
+<p>Hass.io is and will always be optional. You can still run Home Assistant wherever you can run Python.</p>
+<h4><a class="title-link" name="which-devices-are-supported-at-launch" href="#which-devices-are-supported-at-launch"></a> Which devices are supported at launch?</h4>
+<p>Initially we support the Raspberry Pi 1, 2, 3 and Intel NUC. Advanced users can also <a href="/hassio/installation/#alternative-install-on-generic-linux-server">install Hass.io on a Linux server</a>.</p>
+<h4><a class="title-link" name="can-i-install-packages-or-scripts-on-the-machine" href="#can-i-install-packages-or-scripts-on-the-machine"></a> Can I install packages or scripts on the machine?</h4>
+<p>No, this is not possible as we’re using stateless Docker containers. To install a package you’ll have to write a local add-on that interacts with Home Assistant. See <a href="/hassio/run_local/">our tutorial</a>.</p>
+<h4><a class="title-link" name="can-i-restore-a-snapshot-on-a-different-device" href="#can-i-restore-a-snapshot-on-a-different-device"></a> Can I restore a snapshot on a different device?</h4>
+<p>Yes, any Hass.io snapshot can be restored on any device.</p>
+<h4><a class="title-link" name="the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login" href="#the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login"></a> The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login?</h4>
+<p>This is in the works. We have already implemented <a href="https://github.com/home-assistant/hassio/pull/41">the backend</a> and plan to release the UI soon.</p>
+<h4><a class="title-link" name="is-there-a-roadmap" href="#is-there-a-roadmap"></a> Is there a roadmap?</h4>
+<p>We use <a href="https://www.pivotaltracker.com/n/projects/2020851">Pivotal Tracker</a> to track things that are in progress and what we might work on.</p>
 </article>
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
@@ -135,10 +151,10 @@
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/"
-     data-counturl="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2017/07/25/introducing-hassio/"
+     data-counturl="https://home-assistant.io/blog/2017/07/25/introducing-hassio/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2016/01/19/perfect-home-automation/"
+         data-href="https://home-assistant.io/blog/2017/07/25/introducing-hassio/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -147,9 +163,6 @@
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-        <li class="post">
-          <a href="/blog/2017/07/25/introducing-hassio/">Introducing Hass.io</a>
-        </li>
         <li class="post">
           <a href="/blog/2017/07/15/release-49/">0.49: Themes 🎨, kiosk mode and Prometheus.io</a>
         </li>
@@ -197,8 +210,8 @@
 <script>
   var disqus_shortname = 'home-assistant';
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2016/01/19/perfect-home-automation/';
-    var disqus_url = 'https://home-assistant.io/blog/2016/01/19/perfect-home-automation/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/07/25/introducing-hassio/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/07/25/introducing-hassio/';
     var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
