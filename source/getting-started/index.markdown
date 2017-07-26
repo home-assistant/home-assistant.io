@@ -18,12 +18,6 @@ You will need to install Home Assistant before we can get started. You can insta
     </div>
     <div class='title'>Install Hass.io on your Raspberry Pi 3</div>
   </a>
-  <a class='option-card' href='/docs/hassbian/installation/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/raspberry-pi.png' />
-    </div>
-    <div class='title'>Install Hassbian on your Raspberry Pi 3</div>
-  </a>
   <a class='option-card' href='/docs/installation/python/'>
     <div class='img-container'>
       <img src='/images/supported_brands/python.svg' />
