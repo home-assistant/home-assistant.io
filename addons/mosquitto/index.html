@@ -75,7 +75,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Set up a <a href="https://mosquitto.org/">mosquitto</a> MQTT broker.</p>
+  <p>Set up <a href="https://mosquitto.org/">Mosquitto</a> as MQTT broker.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"plain"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ssl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -90,16 +90,19 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p class="note">Make sure you use logins and disable anonymous access if you want to secure the system.</p>
+<p class="note">
+Make sure you use logins and disable anonymous access if you want to secure the system.
+</p>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>plain</strong> (<em>Optional</em>): Listen to broker on port 1883 without SSL/TLS. Defaults to <code class="highlighter-rouge">true</code>.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Listen to broker on port 8883 with SSL/TLS. This requires certificates. Defaults to <code class="highlighter-rouge">false</code>.</li>
   <li><strong>anonymous</strong> (<em>Optional</em>): Allow anonymous connection. If <em>logins</em> is set, anonymous user can only read data. Defaults to <code class="highlighter-rouge">true</code>.</li>
   <li><strong>logins</strong> (<em>Optional</em>): A list of user that will be created with <em>username</em> and <em>password</em>.</li>
-  <li><strong>customize</strong> (<em>Optional</em>): If you enable it, it read additional config files (<code class="highlighter-rouge">*.conf</code>) from <code class="highlighter-rouge">/share/mosquitto</code>.</li>
+  <li><strong>customize</strong> (<em>Optional</em>): If you enable it, it reads additional configuration files (<code class="highlighter-rouge">*.conf</code>) from <code class="highlighter-rouge">/share/mosquitto</code>.</li>
 </ul>
 <h3><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h3>
+<p>To use the Mosquitto as <a href="/docs/mqtt/broker/#run-your-own">broker</a> add the following entry to the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt</span><span class="pi">:</span>
   <span class="s">broker</span><span class="pi">:</span> <span class="s">172.17.0.1</span>

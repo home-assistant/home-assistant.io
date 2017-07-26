@@ -80,17 +80,19 @@
 </code></pre>
 </div>
 <p class="note">This add-on will not enable you to install packages or do anything as root. This is not allowed with Hass.io.</p>
-<p>To use this add-on, you must have a private/public key to log in. To generate them, follow the <a href="https://www.digitalocean.com/community/tutorials/how-to-create-ssh-keys-with-putty-to-connect-to-a-vps">instructions for Windows</a> and <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">these for other platforms</a>.</p>
+<p>To use this add-on, you must have a private/public key to log in. To generate them, follow the <a href="https://www.digitalocean.com/community/tutorials/how-to-create-ssh-keys-with-putty-to-connect-to-a-vps">instructions for Windows</a> and <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">these for other platforms</a>. It is possible to set a password for login since version 2.0 but for hight security use private/public keys. You can not run both variant at same time.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"authorized_keys"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"ssh-rsa AKDJD3839...== my-key"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>authorized_keys</strong> (<em>Required</em>): Your public-keys for authorized keyfile. Every element will be a line inside that file.</li>
+  <li><strong>authorized_keys</strong> (<em>Optional</em>): Your public-keys for authorized keyfile. Every element will be a line inside that file.</li>
+  <li><strong>password</strong> (<em>Optional</em>): Set a password for login. We do not recommend this variant.</li>
 </ul>
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/GYJTy3UniHc" frameborder="0" allowfullscreen=""></iframe>
