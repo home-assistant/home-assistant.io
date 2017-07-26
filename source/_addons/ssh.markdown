@@ -31,6 +31,10 @@ Configuration variables:
 
 - **authorized_keys** (*Required*): Your public-keys for authorized keyfile. Every element will be a line inside that file.
 
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GYJTy3UniHc" frameborder="0" allowfullscreen></iframe>
+</div>
+
 [win]: https://www.digitalocean.com/community/tutorials/how-to-create-ssh-keys-with-putty-to-connect-to-a-vps
 [other]: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
