@@ -13,7 +13,7 @@ ha_release: 0.47
 ---
 
 
-The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition and tempratures for max 10 days.
+The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition and tempratures for max. 10 days.
 
 <p class='note warning'>
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
