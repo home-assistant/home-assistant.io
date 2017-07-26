@@ -36,7 +36,7 @@ Configuration variables:
 
 - **username** (*Required*): Dyson account username (email address)
 - **password** (*Required*): Dyson account password
-- **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `UK`, `AU`. But others codes should work.
+- **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. But others codes should work.
 - **devices** (*Optional*): List of devices
   - **device_id** (*Required*): Device ID. Available in the mobiles applications (*Settings* page)
   - **device_ip** (*Required*): Device IP address

@@ -58,35 +58,7 @@ Take a look to "Integrations", in the left menu, to configure third parties.
 
 ### {% linkable_title Configuring Home Assistant %}
 
-Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on [templates] that you define. Each template will have access to the existing states via the `states` variable but will also have access to all variables defined in the intent.
-
-You can use [templates] for setting `speech`.
-
-Actions are using the [Home Assistant Script Syntax] and also have access to the variables from the intent.
-
-[Home Assistant Script Syntax]: /getting-started/scripts/
-
-Example of an Api.ai for the above configuration:
-
-```yaml
-{% raw %}# Example configuration.yaml entry
-apiai:
-  intents:
-    GetTemperature:
-      speech: We have {{ states.sensor.temperature }} degrees
-      async_action: False
-      action:
-        service: notify.notify
-        data_template:
-          message: Api.ai has send a request
-{% endraw %}
-```
-
-Inside an intent we can define this variables:
-- **speech** (*Optional*): Text or template to return to Api.ai
-- **action** (*Optional*): Script definition
-- **async_action** (*Optional*): If Home Assistant should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to `True` if Api.ai is returning the "Cannot connect to Home Assistant or it is taking to long" message, but then you will not be able to use values based on the result of the action. Defaults to `False`.
-
+When activated, the Alexa component will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
 
 ## {% linkable_title Examples %}
 
@@ -95,43 +67,44 @@ Download [this zip](https://github.com/home-assistant/home-assistant.github.io/b
 ```yaml
 {% raw %}# Example configuration.yaml entry
 apiai:
-  intents:
-    Temperature:
-      speech: The temperature at home is {{ states('sensor.home_temp') }} degrees
-    LocateIntent:
-      speech: >
-        {%- for state in states.device_tracker -%}
-          {%- if state.name.lower() == User.lower() -%}
-            {{ state.name }} is at {{ state.state }}
-          {%- elif loop.last -%}
-            I am sorry, I do not know where {{ User }} is.
+
+intent_script:
+  Temperature:
+    speech: The temperature at home is {{ states('sensor.home_temp') }} degrees
+  LocateIntent:
+    speech: >
+      {%- for state in states.device_tracker -%}
+        {%- if state.name.lower() == User.lower() -%}
+          {{ state.name }} is at {{ state.state }}
+        {%- elif loop.last -%}
+          I am sorry, I do not know where {{ User }} is.
+        {%- endif -%}
+      {%- else -%}
+        Sorry, I don't have any trackers registered.
+      {%- endfor -%}
+  WhereAreWeIntent:
+    speech: >
+      {%- if is_state('device_tracker.adri', 'home') and
+             is_state('device_tracker.bea', 'home') -%}
+        You are both home, you silly
+      {%- else -%}
+        Bea is at {{ states("device_tracker.bea") }}
+        and Adri is at {{ states("device_tracker.adri") }}
+      {% endif %}
+  TurnLights:
+    speech: Turning {{ Room }} lights {{ OnOff }}
+    action:
+      - service: notify.pushbullet
+        data_template:
+          message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}
+      - service_template: >
+          {%- if OnOff == "on" -%}
+            switch.turn_on
+          {%- else -%}
+            switch.turn_off
           {%- endif -%}
-        {%- else -%}
-          Sorry, I don't have any trackers registered.
-        {%- endfor -%}
-    WhereAreWeIntent:
-      speech: >
-        {%- if is_state('device_tracker.adri', 'home') and
-               is_state('device_tracker.bea', 'home') -%}
-          You are both home, you silly
-        {%- else -%}
-          Bea is at {{ states("device_tracker.bea") }}
-          and Adri is at {{ states("device_tracker.adri") }}
-        {% endif %}
-    TurnLights:
-      speech: Turning {{ Room }} lights {{ OnOff }}
-      action:
-        - service: notify.pushbullet
-          data_template:
-            message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}
-        - service_template: >
-            {%- if OnOff == "on" -%}
-              switch.turn_on
-            {%- else -%}
-              switch.turn_off
-            {%- endif -%}
-          data_template:
-            entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
+        data_template:
+          entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
 {% endraw %}
 ```
 

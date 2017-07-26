@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Configuration.yaml by Nicolo Steffe"
+title: "Configuration.yaml by Ciquattro"
 description: ""
 date: 2017-06-13 12:00
 sidebar: true
