@@ -22,7 +22,7 @@ Set up a [mosquitto](https://mosquitto.org/) MQTT broker.
   ],
   "customize": {
     "active": false,
-    "folder": "mosquitto
+    "folder": "mosquitto",
   }
 }
 ```
