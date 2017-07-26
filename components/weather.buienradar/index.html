@@ -75,7 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">buienradar</code> platform uses <a href="http://buienradar.nl/">buienradar.nl</a> as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
-The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).</p>
+The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).  A map of all available weatherstations can be found <a href="https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0">here</a>.</p>
 <p>To add the buienradar weather to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">weather</span><span class="pi">:</span>
@@ -93,7 +93,8 @@ The relevant weatherstation used will be automatically selected based on the loc
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">weather</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">buienradar</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">buienradar</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">volkel'</span>
+    <span class="c1"># Force 'Meetstation Volkel' to be used:</span>
     <span class="s">latitude</span><span class="pi">:</span> <span class="s">51.65</span>
     <span class="s">longitude</span><span class="pi">:</span> <span class="s">5.70</span>
     <span class="s">forecast</span><span class="pi">:</span> <span class="s">True</span>
@@ -103,6 +104,10 @@ The relevant weatherstation used will be automatically selected based on the loc
 This platform is an alternative to the <a href="/components/sensor.buienradar/"><code class="highlighter-rouge">buienradar</code></a> sensor.
 The weather platform is easier to configure but less customisable.
 </p>
+<p><a href="https://www.buienradar.nl/overbuienradar/gratis-weerdata">Usage statement:</a></p>
+<blockquote>
+  <p>Buienradar makes free weatherdata available for use by individuals and businesses (website/intranet). The use of the weatherdata is allowed for <strong>non-commercial purposes</strong>. Please refer to the full usage statement linked above to confirm your usage or to request permission.</p>
+</blockquote>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
