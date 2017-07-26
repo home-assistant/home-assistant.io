@@ -28,4 +28,5 @@ zwave:
   
 zha:
   usb_path: /dev/ttyUSB1
+  database_path: /config/zigbee.db
 ```
