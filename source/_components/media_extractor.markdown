@@ -13,7 +13,7 @@ ha_release: 0.49
 ---
 
 
-The `media_extractor` component gets an stream URL and send it to a media player entity.
+The `media_extractor` component gets a stream URL and sends it to a media player entity.
 
 To use the media extractor service in your installation, add the following to your `configuration.yaml` file:
 
@@ -24,7 +24,7 @@ media_extractor:
 
 ### {% linkable_title Use the service %}
 
-Go the the "Developer Tools", then to "Call Service", and choose `media_extractor/play_media` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
+Go to the "Developer Tools," then to "Call Service," and choose `media_extractor/play_media` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE."
 
 This will download the file from the given URL.
 
