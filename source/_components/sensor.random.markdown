@@ -14,7 +14,7 @@ ha_release: 0.32
 ---
 
 
-The `random` sensor platform is creating random sensor values (integers) out of a given range. This can be useful if you want to test automation rules. 
+The `random` sensor platform is creating random sensor values (integers) out of a given range. This can be useful if you want to test automation rules. It generates a new value every 30 seconds.
 
 To enable the random sensor, add the following lines to your `configuration.yaml`:
 
