@@ -22,7 +22,7 @@ dtoverlay=pi3-miniuart-bt
 ```
 
 HUSBZB-1:
-```
+```yaml
 zwave:
   usb_path: /dev/ttyUSB0
   
