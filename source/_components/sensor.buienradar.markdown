@@ -14,8 +14,9 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
-The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). The selected weatherstation will provide all weather data, with the exception of the forecasted precipitaion. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weatherstation).
+The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands. The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weatherstations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0). 
+
+The selected weatherstation will provide all weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weatherstation).
 
 To integrate `buienradar` with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -42,7 +43,7 @@ Configuration variables:
   - `sensor.br_ground_temperature`, since no name has been set for the sensor and the default display name for monitored condition `groundtemperature` is `Ground Temperature`
 - **latitude** (*Optional*): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
 - **longitude** (*Optional*): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
-- **timeframe** (*Optional*): Minutes to look ahead for precipitation (5..120) [default: 60].
+- **timeframe** (*Optional*): Minutes to look ahead for precipitation forecast (5..120) [default: 60].
 - **monitored_conditions** array (*Required*): One or more conditions to display in the frontend.
   - **stationname**: The name of the selected meteo-station.
   - **symbol**: A symbol for the current weather.
@@ -66,6 +67,8 @@ Full configuration example where location is manually specified:
 ```yaml
 # Example configuration.yaml entry
 - platform: buienradar
+    name: 'volkel'
+    # Force 'Meetstation Volkel' to be used:
     latitude: 51.65
     longitude: 5.70
     monitored_conditions:
@@ -86,4 +89,6 @@ Full configuration example where location is manually specified:
       - precipitation_forecast_average
       - precipitation_forecast_total
 ```
-  
+
+[Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
+> Buienradar makes free weatherdata available for use by individuals and businesses (website/intranet). The use of the weatherdata is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your usage or to request permission.
