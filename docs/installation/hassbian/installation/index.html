@@ -6,21 +6,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hassbian - Home Assistant</title>
+    <title>Installing Hassbian - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions to flash the Home Assistant HASSbian image on a Raspberry Pi.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/docs/hassbian/">
+    <link rel="canonical" href="https://home-assistant.io/docs/installation/hassbian/installation/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Hassbian">
+    <meta property="og:title" content="Installing Hassbian">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/docs/hassbian/">
+    <meta property="og:url" content="https://home-assistant.io/docs/installation/hassbian/installation/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions to flash the Home Assistant HASSbian image on a Raspberry Pi.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Hassbian">
+    <meta name="twitter:title" content="Installing Hassbian">
     <meta name="twitter:description" content="Instructions to flash the Home Assistant HASSbian image on a Raspberry Pi.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -68,19 +68,35 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/hassbian.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/installation/hassbian/installation.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Hassbian
+      Installing Hassbian
     </h1>
   </header>
   <hr class="divider">
-  <p>Hassbian is our customized operating system for the Raspberry Pi 3. It is the easiest way of installing Home Assistant.</p>
+  <p>The easiest way to install Home Assistant on your Raspberry Pi is by using HASSbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).</p>
+<ol>
+  <li><a href="https://github.com/home-assistant/pi-gen/releases/latest">Download the Hassbian image</a> (364 MB)</li>
+  <li>Use <a href="https://etcher.io/">Etcher</a> to flash the image to your SD card</li>
+  <li>Ensure your Raspberry Pi has wired access to the internet for the entire process.</li>
+  <li>Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.</li>
+</ol>
+<p>These instructions are also available as a <a href="https://www.youtube.com/watch?v=iIz6XqDwHEk">video</a>.  Additional information is available in this <a href="https://www.youtube.com/watch?v=tCGlQSsQ-Mc">video</a>.</p>
+<p>After initial boot an installer will run in the background and takes around 15 minutes to complete, after it has finished you can reach Home Assistant in your browser at <a href="http://hassbian.local:8123">http://hassbian.local:8123</a>. If you want to login via SSH, the default username is <code class="highlighter-rouge">pi</code> and password is <code class="highlighter-rouge">raspberry</code> (please change this by running <code class="highlighter-rouge">passwd</code>). The Home Assistant configuration is located at <code class="highlighter-rouge">/home/homeassistant/.homeassistant/</code>.</p>
+<p>If you find that the web page is not reachable after 30 minutes or so, check that you have files in <code class="highlighter-rouge">/home/homeassistant/.homeassistant/</code>, if there are no files in this location then run the installer manually using this command: <code class="highlighter-rouge">sudo systemctl start install_homeassistant.service</code>.</p>
+<p>The following extras are included on the image:</p>
 <ul>
-  <li><a href="/docs/hassbian/installation/">Install Hassbian</a></li>
-  <li><a href="/docs/hassbian/customization/">Customize your installation</a></li>
-  <li><a href="/docs/hassbian/integrations/">Pi specific integrations</a></li>
-  <li><a href="/docs/hassbian/common-tasks/">Learn how to perform common tasks</a></li>
+  <li>GPIO pins are ready to use.</li>
+  <li>Bluetooth is ready to use (supported models only, no Bluetooth LE).</li>
+  <li>SSH server is enabled.</li>
+  <li>A tool called <code class="highlighter-rouge">hassbian-config</code>.</li>
+</ul>
+<h3><a class="title-link" name="technical-details" href="#technical-details"></a> Technical Details</h3>
+<ul>
+  <li>Home Assistant is installed in a virtual Python environment at <code class="highlighter-rouge">/srv/homeassistant/</code></li>
+  <li>Home Assistant will be started as a service run by the user <code class="highlighter-rouge">homeassistant</code></li>
+  <li>The configuration is located at <code class="highlighter-rouge">/home/homeassistant/.homeassistant</code></li>
 </ul>
 </article>
         </div>
@@ -96,20 +112,12 @@
       <li>
         <b><a  href='/docs/installation/'>Installation </a></b>
         <ul>
+          <li><a  href='/docs/hassio/'>Hass.io </a></li>
           <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/hassbian/'>Hassbian </a></li>
           <li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberry Pi All-in-One </a></li>
           <li><a  href='/docs/installation/updating/'>Updating </a></li>
           <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
-        </ul>
-      </li>
-      <li>
-        <b><a class='active' href='/docs/hassbian/'>Hassbian </a></b>
-        <ul>
-          <li><a  href='/docs/hassbian/installation/'>Installation </a></li>
-          <li><a  href='/docs/hassbian/customization/'>Customization </a></li>
-          <li><a  href='/docs/hassbian/common-tasks/'>Common tasks </a></li>
-          <li><a  href='/docs/hassbian/integrations/'>Integrations </a></li>
-          <li><a  href='/docs/hassbian/upgrading/'>Upgrading </a></li>
         </ul>
       </li>
       <li>
