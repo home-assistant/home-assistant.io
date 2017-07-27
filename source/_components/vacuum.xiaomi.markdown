@@ -8,12 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Switch
-ha_release: 0.48
+ha_category: Vacuum
+ha_release: 0.50
 ---
 
-The `xiaomi_vacuum`switch platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/). 
-Current supported features are `start` and `stop` (goes to dock).
+The `xiaomi` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
+
+Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `turn_off` (stops goes to dock), `locate`, `set_fanspeed` and even remote control your robot.
 
 {% linkable_title Getting started %}
 
@@ -67,7 +68,8 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 
 ```yaml
 # Example configuration.yaml entry
-- platform: xiaomi_vacuum
+vacuum:
+- platform: xiaomi
   name: 'name of the robot'
   host: 192.168.1.2
   token: your-token-here
