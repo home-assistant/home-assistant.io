@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Media | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/media/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-26T22:32:52+00:00</updated>
+  <updated>2017-07-27T06:49:08+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Talk Python interview with Paulus Schoutsen]]></title>
+    <link href="https://home-assistant.io/blog/2017/07/27/talk-python-podcast/"/>
+    <updated>2017-07-27T02:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/07/27/talk-python-podcast</id>
+    <content type="html"><![CDATA[<iframe width="100%" height="166" scrolling="no" frameborder="no"
+     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335038628&color=ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false">
+</iframe>
+
+Join Michael Kennedy at the Talk Python podcast for an hour long interview with Paulus Schoutsen, the founder of Home Assistant, as they discuss the release of Hass.io and the vision for the perfect home automation.
+
+<a href='https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation'>
+  Visit the episode page on Talk Python
+</a>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant Podcast #3]]></title>
@@ -69,22 +86,6 @@ Earlier this year I was interviewed by Tobias Macey from [Podcast.\_\_init\_\_][
 <script class="podigee-podcast-player" src="//cdn.podigee.com/podcast-player/javascripts/podigee-podcast-player.js" data-configuration="https://www.podcastinit.com?podigee_player=205" async></script>
 
 [pc-init]: https://www.podcastinit.com/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OpenSourceCraft interviews our founder Paulus Schoutsen]]></title>
-    <link href="https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/"/>
-    <updated>2017-03-23T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen</id>
-    <content type="html"><![CDATA[Last month Gregg Pollack from [OpenSourceCraft] visited me in San Diego to talk about Home Assistant. We talked about the community and how all these awesome people make Home Assistant possible. The main interview is embedded below but make sure to check out the [full article including extra video material][article].
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/osq_2-Qlan0" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-[OpenSourceCraft]: http://codepop.com/open-sourcecraft
-[article]: http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/
 ]]></content>
   </entry>
   

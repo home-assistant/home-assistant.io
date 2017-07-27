@@ -70,6 +70,35 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/07/27/talk-python-podcast/">Talk Python interview with Paulus Schoutsen</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-07-27T02:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 27, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Media</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/07/27/talk-python-podcast/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335038628&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+<p>Join Michael Kennedy at the Talk Python podcast for an hour long interview with Paulus Schoutsen, the founder of Home Assistant, as they discuss the release of Hass.io and the vision for the perfect home automation.</p>
+<p><a href="https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation">
+  Visit the episode page on Talk Python
+</a></p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/07/25/introducing-hassio/">Introducing Hass.io</a>
   </h1>
   <div class="meta clearfix">
@@ -486,76 +515,6 @@ Screenshot of a green dashboard
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/LQbOtUmITv8" frameborder="0" allowfullscreen=""></iframe>
 </div>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/06/04/release-46/">0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-06-04T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 4, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 10 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/06/04/release-46/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.46"><img src="/images/blog/2017-06-0.46/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p>It’s time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.</p>
-<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h2>
-<ul>
-  <li>Template light (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7657">#7657</a>) (<a href="https://home-assistant.io/components/light.template/">light.template docs</a>) (new-platform)</li>
-  <li>Support for GE Zwave fan controller (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7767">#7767</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (<a href="https://home-assistant.io/components/fan.zwave/">fan.zwave docs</a>) (new-platform)</li>
-  <li>Rachio (Sprinklers) (<a href="https://github.com/Klikini">@Klikini</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7600">#7600</a>) (<a href="https://home-assistant.io/components/switch.rachio/">switch.rachio docs</a>) (new-platform)</li>
-  <li>Introduced support to Netgear Arlo Cameras (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7826">#7826</a>) (<a href="https://home-assistant.io/components/arlo/">arlo docs</a>) (<a href="https://home-assistant.io/components/camera.arlo/">camera.arlo docs</a>) (<a href="https://home-assistant.io/components/sensor.arlo/">sensor.arlo docs</a>) (new-platform)</li>
-</ul>
-<h2><a class="title-link" name="release-0461---june-9" href="#release-0461---june-9"></a> Release 0.46.1 - June 9</h2>
-<ul>
-  <li>Support for renaming ZWave values (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7780">#7780</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>)</li>
-  <li>Dsmr5 revert (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7900">#7900</a>) (<a href="https://home-assistant.io/components/sensor.dsmr/">sensor.dsmr docs</a>)</li>
-  <li>Fix typos in Wunderground component (Percipitation -&gt; Precipitation) (<a href="https://github.com/mje-nz">@mje-nz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7901">#7901</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
-  <li>Mqtt cover: Making command topic optional and add ability to set up/down position including ability to template the value (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7841">#7841</a>) (<a href="https://home-assistant.io/components/cover.mqtt/">cover.mqtt docs</a>)</li>
-  <li>Media Player - OpenHome: Fixed metadata issue (<a href="https://github.com/bazwilliams">@bazwilliams</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7932">#7932</a>) (<a href="https://home-assistant.io/components/media_player.openhome/">media_player.openhome docs</a>)</li>
-  <li>Sensor - MetOffice: Fix last updated date (<a href="https://github.com/cyberjacob">@cyberjacob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7965">#7965</a>) (<a href="https://home-assistant.io/components/sensor.metoffice/">sensor.metoffice docs</a>)</li>
-  <li>Prevent Roku doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7969">#7969</a>) (<a href="https://home-assistant.io/components/media_player.roku/">media_player.roku docs</a>)</li>
-</ul>
-<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
-<ul>
-  <li>The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use <code class="highlighter-rouge">scan_interval</code> instead of <code class="highlighter-rouge">update_interval</code>  (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7655">#7655</a>) (<a href="https://home-assistant.io/components/sensor.usps/">sensor.usps docs</a>) (breaking change)</li>
-  <li>Automation state trigger: From/to checks will now ignore state changes that are just attribute changess (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7651">#7651</a>) (<a href="https://home-assistant.io/docs/automation/trigger/#state-trigger">automation.state docs</a>) (breaking change)</li>
-  <li>Redesign monitored variables for hp_ilo sensor. <code class="highlighter-rouge">monitored_variables</code> is now a list of <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">sensor_type</code> values (<a href="https://github.com/Juggels">@Juggels</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7534">#7534</a>) (<a href="https://home-assistant.io/components/sensor.hp_ilo/">sensor.hp_ilo docs</a>) (breaking change)</li>
-</ul>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hp_ilo</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS or HOSTNAME</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-    <span class="s">monitored_variables</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">SENSOR NAME</span>
-        <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">SENSOR TYPE</span>
-</code></pre>
-</div>
-<ul>
-  <li>Automation - time: The <code class="highlighter-rouge">after</code> keyword for time triggers (not conditions) has been deprecated in favor of the <code class="highlighter-rouge">at</code> keyword. This resembles better what it does (old one still works, gives a warning) (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7846">#7846</a>) (<a href="https://home-assistant.io/docs/automation/trigger/#time-trigger">automation.time docs</a>) (breaking change)</li>
-  <li>Automation - numeric_state: <code class="highlighter-rouge">above</code> and <code class="highlighter-rouge">below</code> will no longer trigger if it is equal. (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7857">#7857</a>) (breaking change)</li>
-  <li>Broadlink switches: Entity ids will change for switches that don’t have a default name set. In this case the object_id is now used. (<a href="https://github.com/abmantis">@abmantis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7845">#7845</a>) (<a href="https://home-assistant.io/components/switch.broadlink/">switch.broadlink docs</a>) (breaking change)</li>
-  <li>Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both <code class="highlighter-rouge">xy_color</code> and <code class="highlighter-rouge">rgb_color</code>. (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7765">#7765</a>) (breaking change)</li>
-</ul>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-      <a class="btn pull-right" href="/blog/2017/06/04/release-46/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

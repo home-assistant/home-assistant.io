@@ -70,6 +70,76 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/06/04/release-46/">0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-06-04T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 4, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 10 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/06/04/release-46/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.46"><img src="/images/blog/2017-06-0.46/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>It’s time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.</p>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h2>
+<ul>
+  <li>Template light (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7657">#7657</a>) (<a href="https://home-assistant.io/components/light.template/">light.template docs</a>) (new-platform)</li>
+  <li>Support for GE Zwave fan controller (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7767">#7767</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (<a href="https://home-assistant.io/components/fan.zwave/">fan.zwave docs</a>) (new-platform)</li>
+  <li>Rachio (Sprinklers) (<a href="https://github.com/Klikini">@Klikini</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7600">#7600</a>) (<a href="https://home-assistant.io/components/switch.rachio/">switch.rachio docs</a>) (new-platform)</li>
+  <li>Introduced support to Netgear Arlo Cameras (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7826">#7826</a>) (<a href="https://home-assistant.io/components/arlo/">arlo docs</a>) (<a href="https://home-assistant.io/components/camera.arlo/">camera.arlo docs</a>) (<a href="https://home-assistant.io/components/sensor.arlo/">sensor.arlo docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="release-0461---june-9" href="#release-0461---june-9"></a> Release 0.46.1 - June 9</h2>
+<ul>
+  <li>Support for renaming ZWave values (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7780">#7780</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>)</li>
+  <li>Dsmr5 revert (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7900">#7900</a>) (<a href="https://home-assistant.io/components/sensor.dsmr/">sensor.dsmr docs</a>)</li>
+  <li>Fix typos in Wunderground component (Percipitation -&gt; Precipitation) (<a href="https://github.com/mje-nz">@mje-nz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7901">#7901</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
+  <li>Mqtt cover: Making command topic optional and add ability to set up/down position including ability to template the value (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7841">#7841</a>) (<a href="https://home-assistant.io/components/cover.mqtt/">cover.mqtt docs</a>)</li>
+  <li>Media Player - OpenHome: Fixed metadata issue (<a href="https://github.com/bazwilliams">@bazwilliams</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7932">#7932</a>) (<a href="https://home-assistant.io/components/media_player.openhome/">media_player.openhome docs</a>)</li>
+  <li>Sensor - MetOffice: Fix last updated date (<a href="https://github.com/cyberjacob">@cyberjacob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7965">#7965</a>) (<a href="https://home-assistant.io/components/sensor.metoffice/">sensor.metoffice docs</a>)</li>
+  <li>Prevent Roku doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7969">#7969</a>) (<a href="https://home-assistant.io/components/media_player.roku/">media_player.roku docs</a>)</li>
+</ul>
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+<ul>
+  <li>The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use <code class="highlighter-rouge">scan_interval</code> instead of <code class="highlighter-rouge">update_interval</code>  (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7655">#7655</a>) (<a href="https://home-assistant.io/components/sensor.usps/">sensor.usps docs</a>) (breaking change)</li>
+  <li>Automation state trigger: From/to checks will now ignore state changes that are just attribute changess (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7651">#7651</a>) (<a href="https://home-assistant.io/docs/automation/trigger/#state-trigger">automation.state docs</a>) (breaking change)</li>
+  <li>Redesign monitored variables for hp_ilo sensor. <code class="highlighter-rouge">monitored_variables</code> is now a list of <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">sensor_type</code> values (<a href="https://github.com/Juggels">@Juggels</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7534">#7534</a>) (<a href="https://home-assistant.io/components/sensor.hp_ilo/">sensor.hp_ilo docs</a>) (breaking change)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hp_ilo</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS or HOSTNAME</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
+    <span class="s">monitored_variables</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">SENSOR NAME</span>
+        <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">SENSOR TYPE</span>
+</code></pre>
+</div>
+<ul>
+  <li>Automation - time: The <code class="highlighter-rouge">after</code> keyword for time triggers (not conditions) has been deprecated in favor of the <code class="highlighter-rouge">at</code> keyword. This resembles better what it does (old one still works, gives a warning) (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7846">#7846</a>) (<a href="https://home-assistant.io/docs/automation/trigger/#time-trigger">automation.time docs</a>) (breaking change)</li>
+  <li>Automation - numeric_state: <code class="highlighter-rouge">above</code> and <code class="highlighter-rouge">below</code> will no longer trigger if it is equal. (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7857">#7857</a>) (breaking change)</li>
+  <li>Broadlink switches: Entity ids will change for switches that don’t have a default name set. In this case the object_id is now used. (<a href="https://github.com/abmantis">@abmantis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7845">#7845</a>) (<a href="https://home-assistant.io/components/switch.broadlink/">switch.broadlink docs</a>) (breaking change)</li>
+  <li>Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both <code class="highlighter-rouge">xy_color</code> and <code class="highlighter-rouge">rgb_color</code>. (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7765">#7765</a>) (breaking change)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/06/04/release-46/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/06/02/home-assistant-podcast-1/">Home Assistant Podcast 1</a>
   </h1>
   <div class="meta clearfix">
@@ -471,81 +541,6 @@ $ sudo systemctl start install_homeassistant.service
 </ul>
 <p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/8X8DTH4">Discord chat server</a>.</p>
 <p>To get started with the new image, check out the installation instructions in the <a href="/getting-started/installation-raspberry-pi-image/">getting started section</a>.</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/04/25/influxdb-grafana-docker/">Setting up InfluxDB and Grafana using Docker</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-04-25T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 25, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Alok Saboo</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>How-To</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/04/25/influxdb-grafana-docker/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Home Assistant collects volumes of (time series) data that are well suited for some fancy graphs. Although the <a href="https://home-assistant.io/components/history/">History</a> component provides some nice plots, I am sure you have always wanted those fancy <a href="https://grafana.com/">Grafana</a> plots. The problem, however, is that low-powered device such as Raspberry Pi that most of us use for our Home Assistant setup are not well suited for such operation.</p>
-<p>Instead of running <a href="https://www.influxdata.com/">InfluxDB</a> and Grafana on a Raspberry Pi or a different system and go through the <a href="/blog/2015/12/07/influxdb-and-grafana/">classic approach of installing both tools separately</a>, you can run them in a Docker container on another machine. For this tutorial, I am using a Synology NAS, but the instructions should apply to other devices that can run Docker. Just follow the steps below:</p>
-<ol>
-  <li>SSH into your NAS. You may have to run <code class="highlighter-rouge">sudo su</code> if you are getting permission errors.</li>
-  <li>Download the <a href="https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/">docker-statsd-influxdb-grafana</a> image using the command:
-<code class="highlighter-rouge">docker pull samuelebistoletti/docker-statsd-influxdb-grafana</code></li>
-  <li>To start the container for the first-time launch:
-    <div class="highlighter-rouge"><pre class="highlight"><code>docker run -d \
-  --name docker-statsd-influxdb-grafana \
-  -p 3003:3003 \
-  -p 3004:8083 \
-  -p 8086:8086 \
-  -p 22022:22 \
-  -p 8125:8125/udp \
-  samuelebistoletti/docker-statsd-influxdb-grafana:latest
-</code></pre>
-    </div>
-  </li>
-  <li>The image should now be running and both InfluxBD and Grafana should be now up and running.</li>
-  <li>You can access InfluxDB at http://NAS_IP_ADDRESS:3004/ and Grafana at http://NAS_IP_ADDRESS:3003/</li>
-  <li>Navigate to http://NAS_IP_ADDRESS:3004/ and create the database <code class="highlighter-rouge">home_assistant</code> using the command <code class="highlighter-rouge">CREATE DATABASE home_assistant</code>.
-    <p class="img">
-  <img src="/images/blog/2017-04-influxdb-grafana/create_HA_database.png" />
-</p>
-  </li>
-  <li>Now, you need to configure Home Assistant to use InfluxDB. Since, we did not add any username/password to our database, we can simply add the following to our configuration.yaml (replace the IP address with that of the device running Docker) and restart Home Assistant to setup InfluxDB (you will have to fine tune it based on your preferences):
-    <div class="highlighter-rouge"><pre class="highlight"><code>influxdb:
-  host: 192.168.2.113
-</code></pre>
-    </div>
-  </li>
-  <li>Next, we need to configure Grafana to use InfluxDB. Navigate to http://NAS_IP_ADDRESS:3003/ to access Grafana (login with username and password <code class="highlighter-rouge">root</code>) and add your first data source. Here’s how you can configure Grafana to use InfluxDB database. Note that 192.168.2.113 is the IP address of my NAS.
-    <p class="img">
-  <img src="/images/blog/2017-04-influxdb-grafana/add_data_source.png" />
-</p>
-  </li>
-  <li>You should see <code class="highlighter-rouge">Data source is working</code> if you have configured everything correctly.</li>
-  <li>With all that configured, you are now ready for the fun stuff. You can create as many dashboards as you want and then import the same in Home Assistant.</li>
-  <li>To add the Grafana dashboard in HA, use the following config:
-    <div class="highlighter-rouge"><pre class="highlight"><code>panel_iframe:
-  router:
-    title: 'Temperature'
-    url: 'http://192.168.2.113:3003/dashboard/db/temperature?edit&amp;tab=time%20range'
-</code></pre>
-    </div>
-    <p>The URL can be obtained by clicking Share Dashboard link on your dashboard:</p>
-    <p class="img">
-  <img src="/images/blog/2017-04-influxdb-grafana/share_dashboard.png" />
-</p>
-  </li>
-</ol>
   </div>
   </article>
   <hr>
