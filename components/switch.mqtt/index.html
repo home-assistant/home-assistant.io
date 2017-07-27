@@ -90,6 +90,7 @@
   <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the switch state.</li>
+  <li><strong>availability_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive availability (online/offline) updates. The payload is the same for the command_topic.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no <code class="highlighter-rouge">state_topic</code> defined, else <code class="highlighter-rouge">false</code>.</li>
@@ -110,6 +111,7 @@ Make sure that your topic match exact. <code class="highlighter-rouge">some-topi
     <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bedroom</span><span class="nv"> </span><span class="s">Switch"</span>
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1"</span>
     <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/set"</span>
+    <span class="s">availability_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home/bedroom/switch1/available"</span>
     <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
     <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
     <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
