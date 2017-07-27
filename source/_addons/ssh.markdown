@@ -30,6 +30,8 @@ To use this add-on, you must have a private/public key to log in. To generate th
 }
 ```
 
+The username needed for login is <i>root<i>.
+
 Configuration variables:
 
 - **authorized_keys** (*Optional*): Your public-keys for authorized keyfile. Every element will be a line inside that file.
