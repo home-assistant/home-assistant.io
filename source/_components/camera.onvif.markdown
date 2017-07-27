@@ -13,7 +13,8 @@ ha_release: 0.47
 ---
 
 
-The `ONVIF` platform allows you to use an ONVIF camera in Home Assistant. This requires FFmpeg component to be already configured.
+The `ONVIF` platform allows you to use an ONVIF camera in Home Assistant. 
+**This requires FFmpeg hub component to be already configured.**
 
 To enable your ONVIF in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,6 +32,7 @@ Configuration variables:
 - **username** (*Optional*): The username for the camera.
 - **password** (*Optional*): The password for the camera.
 - **port** (*Optional*): The port for the camera. This defaults to 5000
+- **STREAM_AUTH** (*Optional*): Boolean to enable the username and password to be used for the RTSP stream. This defaults for false
 
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).
