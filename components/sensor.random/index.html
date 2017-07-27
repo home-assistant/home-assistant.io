@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">random</code> sensor platform is creating random sensor values (integers) out of a given range. This can be useful if you want to test automation rules.</p>
+  <p>The <code class="highlighter-rouge">random</code> sensor platform is creating random sensor values (integers) out of a given range. This can be useful if you want to test automation rules. It generates a new value every time it is polled.</p>
 <p>To enable the random sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -88,6 +88,7 @@
   <li><strong>maximum</strong> (<em>Optional</em>): Upper limit for the values. Defaults to <code class="highlighter-rouge">20</code>.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
 </ul>
+<p>See the <a href="https://home-assistant.io/docs/configuration/platform_options/">entity component options</a> to control how often the main component polls the random sensor. The default is 30 seconds.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
