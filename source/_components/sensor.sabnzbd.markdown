@@ -33,6 +33,8 @@ sensor:
     - 'disk_free'
 ```
 
+If SABnzbd is discovered you can enter your API Key in Configurator and `sensor.sabnzbd_status` will be added.
+
 Configuration variables:
 
 - **host** (*Required*): The host where your SABnzbd instance is running, eg. 192.168.1.32
