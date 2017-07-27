@@ -14,6 +14,8 @@ ha_release: 0.42
 
 Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).
 
+Using Telegrams `setWebhook` method your bot's webhook URL should be set to `https://<public_url>:<port>/api/telegram_webhooks`.
+
 This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
