@@ -34,13 +34,15 @@ telegram_bot:
 
 Configuration variables:
 
-- **allowed_chat_ids** (*Required*): A list of user in the `user_id` Telegram format enabled to interact to webhook
+- **allowed_chat_ids** (*Required*): A list of ids representing the users and group chats that are authorised to interact with the webhook.
 - **api_key** (*Required*): The API token of your bot.
 - **trusted_networks** (*Optional*): Telegram server access ACL as list. Defaults to `149.154.167.197-233`.
 - **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
 - **url** (*Optional*): Allow to overwrite the `base_url` from http component for diferent configs.
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram) .
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). 
+
+*Note: If you have added your bot to a group. In the allowed_chat_ids list you will need to include the id for the chat as well as the user. Both of these ids are visible using the getUpdates methods described in the link above.*
 
 Full configuration sample:
 
