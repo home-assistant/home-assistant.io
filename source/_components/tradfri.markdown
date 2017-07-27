@@ -35,9 +35,9 @@ $ sudo make install
 macOS:
 
 ```bash
-$ sudo brew install libtool
-$ sudo brew install autoconf
-$ sudo brew install automake
+$ brew install libtool
+$ brew install autoconf
+$ brew install automake
 $ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
 $ cd libcoap
 $ ./autogen.sh
