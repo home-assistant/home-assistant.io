@@ -40,12 +40,11 @@ There are 2 themes-related services:
 Example in automation:
 ```yaml
 automation:
-  - alias: 'Set Pink Theme'
+  - alias: 'Set theme at startup'
     initial_state: 'on'
     trigger:
-     - platform: state
-       entity_id: binary_sensor.motion_sensor
-       to: 'on'
+     - platform: homeassistant
+       event: start
     action:
       service: frontend.set_theme
       data:
