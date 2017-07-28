@@ -30,7 +30,7 @@ Configuration variables:
 - **host** (*Optional*): The IP or hostname of the flic service server. Defaults to `localhost`.
 - **port** (*Optional*): The port of the flic service. Defaults to `5551`.
 - **discovery** (*Optional*): If `true` then the component is configured to constantly scan for new buttons. Defaults to  `true`.
-- **ignored_click_types**: List of click types whose occurrence should not trigger a `flic_click` event. For example `single`, `double`.
+- **ignored_click_types**: List of click types whose occurrence should not trigger a `flic_click` event. Click types are `single`, `double`, and `hold`.
 - **timeout** (*Optional*): Maximum time in seconds an event can be queued locally on a button before discarding the event. Defaults to 3.
 
 #### {% linkable_title Discovery %}
