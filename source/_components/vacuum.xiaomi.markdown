@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Vacuum
+ha_category: Hub
 ha_release: 0.50
 ---
 
@@ -16,7 +16,7 @@ The `xiaomi` vacuum platform allows you to control the state of your [Xiaomi Mi 
 
 Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `turn_off` (stops goes to dock), `locate`, `set_fanspeed` and even remote control your robot.
 
-{% linkable_title Getting started %}
+## {% linkable_title Getting started %}
 
 Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
 
@@ -64,7 +64,7 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 4. Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer
 5. Open the file extracted using notepad. You will then see the list of all the device in your account with their token.
 
-{% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -79,3 +79,48 @@ Configuration variables:
 - **name** (*Optional*): The name of your robot
 - **host** (*Required*): The IP of your robot
 - **token** (*Required*): The token of your robot. Go to Getting started section to read more about how to get it
+
+### {% linkable_title Platform services %}
+
+In addition to all [`vacuum` component services](/components/vacuum#component-services) (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fanspeed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the botvac.
+
+These are: `xiaomi_remote_control_start`, `xiaomi_remote_control_stop`, `xiaomi_remote_control_move` and `xiaomi_remote_control_move_step`.
+
+#### {% linkable_title Service `vacuum/xiaomi_remote_control_start` %}
+
+Start the remote control mode of the vacuum cleaner. You can then move it with `remote_control_move`, when done call `remote_control_stop`.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific botvac. Else targets all.        |
+
+#### {% linkable_title Service `vacuum/xiaomi_remote_control_stop` %}
+
+Exit the remote control mode of the vacuum cleaner.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific botvac. Else targets all.        |
+
+#### {% linkable_title Service `vacuum/xiaomi_remote_control_move` %}
+
+Remote control the vacuum cleaner, make sure you first set it in remote control mode with `remote_control_start`.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific botvac. Else targets all.        |
+| `velocity`                |       no | Speed, between -0.29 and 0.29.                        |
+| `rotation`                |       no | Rotation, between -179 degrees and 179 degrees.       |
+| `duration`                |       no | Parameter affecting the duration of the movement.     |
+
+
+#### {% linkable_title Service `vacuum/xiaomi_remote_control_move_step` %}
+
+Use this call to enter the remote control mode, make one movement, and stop and exit the remote control mode.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific botvac. Else targets all.        |
+| `velocity`                |       no | Speed, between -0.29 and 0.29.                        |
+| `rotation`                |       no | Rotation, between -179 degrees and 179 degrees.       |
+| `duration`                |       no | Parameter affecting the duration of the movement.     |
