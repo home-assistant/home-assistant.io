@@ -30,6 +30,8 @@ To use this add-on, you must have a private/public key to log in. To generate th
 }
 ```
 
+The username for login over ssh is `root`.
+
 Configuration variables:
 
 - **authorized_keys** (*Optional*): Your public-keys for authorized keyfile. Every element will be a line inside that file.
