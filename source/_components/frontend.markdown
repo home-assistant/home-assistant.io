@@ -36,3 +36,11 @@ The example above defined two themes named `happy` and `sad`. For each theme you
 There are 2 themes-related services:
  - `frontend.reload_themes` - reloads theme configuration from yaml.
  - `frontend.set_theme(name)` - sets backend-preferred theme name. 
+
+Example in automation:
+```yaml
+    action:
+      service: frontend.set_theme
+      data:
+        name: pink
+```
