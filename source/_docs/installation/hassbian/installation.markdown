@@ -14,7 +14,7 @@ The easiest way to install Home Assistant on your Raspberry Pi is by using HASSb
 
  1. [Download the Hassbian image][image-download] (364 MB)
  2. Use [Etcher][etcher] to flash the image to your SD card
- 3. Ensure your Raspberry Pi has wired access to the internet for the entire process.
+ 3. Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your wireless network (details below).
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.
 
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).  Additional information is available in this [video](https://www.youtube.com/watch?v=tCGlQSsQ-Mc).
@@ -31,6 +31,17 @@ The following extras are included on the image:
  - SSH server is enabled.
  - A tool called `hassbian-config`. 
 
+### {% linkable_title Wireless Network %}
+
+After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up Wifi for Raspbian][wifi-setup]. During the start the file will automatically copied in the right folder and the network connection will be established. The file could look like this:
+
+```conf
+network={
+    ssid="YOUR_SSID"
+    psk="YOUR_PASSWORD"
+}
+```
+
 ### {% linkable_title Technical Details %}
 
  - Home Assistant is installed in a virtual Python environment at `/srv/homeassistant/`
@@ -40,3 +51,5 @@ The following extras are included on the image:
 [image-download]: https://github.com/home-assistant/pi-gen/releases/latest
 [etcher]: https://etcher.io/
 [http://hassbian.local:8123]: http://hassbian.local:8123
+[wifi-setup]: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+
