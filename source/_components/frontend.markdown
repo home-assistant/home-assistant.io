@@ -39,6 +39,13 @@ There are 2 themes-related services:
 
 Example in automation:
 ```yaml
+automation:
+  - alias: 'Set Pink Theme'
+    initial_state: 'on'
+    trigger:
+     - platform: state
+       entity_id: binary_sensor.motion_sensor
+       to: 'on'
     action:
       service: frontend.set_theme
       data:
