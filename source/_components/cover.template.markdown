@@ -76,11 +76,16 @@ cover:
 
 ```
 
-### Multi Covers
+### {% linkable_title Multi Covers %}
 
 This example allows you to control two or more covers at once.
 
 ```yaml
+homeassistant:
+  customize:
+    all_covers:
+      assume_state: true
+
 cover:
   - platform: template
     covers:
@@ -95,7 +100,7 @@ cover:
         set_cover_position:
           service: script.cover_all_set_position
           data_template:
-          position: '{{ position }}'
+          position: "{% raw %}{{ position }}{% endraw %}"
         value_template: {% raw %}>
           {% if is_state('sensor.all_covers', 'open') %}
             open
@@ -156,7 +161,7 @@ script:
       - service: cover.set_cover_position
         entity_id: cover.livingroom
         data_template:
-          position: '{{ position }}'
+          position: "{% raw %}{{ position }}{% endraw %}"
 
 automation:
   - alias: 'Close covers at night'
