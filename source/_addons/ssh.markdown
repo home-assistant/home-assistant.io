@@ -30,7 +30,7 @@ To use this add-on, you must have a private/public key to log in. To generate th
 }
 ```
 
-The username needed for login is <i>root<i>.
+The username for login over ssh is `root`.
 
 Configuration variables:
 
