@@ -16,7 +16,17 @@ ha_iot_class: "Local Polling"
 
 The `sabnzbd` platform will allow you to monitor your downloads with [SABnzbd](http://sabnzbd.org) from within Home Assistant and setup automation based on the information.
 
-To use SABnzbd with your installation, add the following to your `configuration.yaml` file:
+# Setup
+If SABnzbd is discovered on your network you can enter your API Key in the Configurator Press "CONFIGURE" to do it.
+
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/sabnzbd-configure.png' />
+</p>
+
+This will enable a minimal setup where `sensor.sabnzbd_status` is enabled.
+
+
+For more advanced usage, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,8 +42,6 @@ sensor:
     - 'disk_size'
     - 'disk_free'
 ```
-
-If SABnzbd is discovered you can enter your API Key in Configurator and `sensor.sabnzbd_status` will be added.
 
 Configuration variables:
 
