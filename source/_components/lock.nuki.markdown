@@ -45,3 +45,9 @@ lock:
     port: 8080
     token: fe2345ef
 ```
+## {% linkable_title Services %}
+
+Starting with version 0.51, once you've added your Nuki locks, two new services are going to be accessible:
+
+- `nuki.nuki_lock_n_go`: This will first unlock, wait a few seconds (20 by default) then re-lock. See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more information.
+- `nuki.nuki_unlatch`: This will unlatch the door, ie. open it (provided this works with your type of door).
