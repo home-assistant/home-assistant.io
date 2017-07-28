@@ -43,7 +43,7 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be included from recordings to InfluxDB.
   - **domains** (*Optional*): The list of domains to be included from recordings to InfluxDB.
 - **tags** (*Optional*): Tags to mark the data.
-- **tags_attributes** (*Optional*): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addtion to their ids.
+- **tags_attributes** (*Optional*): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
 
 ## {% linkable_title Data migration %}
 
