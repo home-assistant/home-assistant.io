@@ -15,7 +15,7 @@ Knowing that there are only two states allows Home Assistant to represent these 
 
 The way these sensors are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for binary sensors:
 
-- **None**: Generic on/off
+- **None**: Generic on/off. This is the default and doesn't need to be set.
 - **cold**: `On` means cold
 - **connectivity**: `On` means connection present, `Off` means no connection
 - **gas**: `On` means gas detected

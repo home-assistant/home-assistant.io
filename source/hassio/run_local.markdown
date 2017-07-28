@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Run local script"
+title: "Run local scripts"
 description: "Instructions on how-to run local script for Home Assistant."
 date: 2017-04-30 13:28
 sidebar: true
@@ -11,17 +11,17 @@ footer: true
 
 Hass.io is a managed environment. This means that you can install applications that can be embedded into Home Assistant using the `command_line` sensor/switch.
 
-There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.IO.
+There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.io.
 
-First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, look at the [developer site][custom-component].
+First option is to write a custom component for Home Assistant. Using Python you can communicate with your device. For custom component, take a  look at the [developer documentation][custom-component].
 
-The second option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on [Hass.io add-on development][addons-tutorial].
+The second option is to make a local add-on for Hass.io that sends the data to Home Assistant via MQTT. Before we dive into this, read up on [Hass.io add-on development][addons-tutorial] first.
 
 For security and speed, Hass.io does not provide a way for containers to communicate directly. So the first step is to set up a communication channel. We're going to use MQTT for this using the [MQTT broker add-on][mqtt-addon].
 
 ### {% linkable_title Sensors %}
 
-We loop in our script to fetch data and push it to MQTT and wait until next process is ready. Here is a basic example and structure for that process.
+We loop in our script to fetch data and push it to MQTT and wait until the next process is ready. Here is a basic example and structure for that process.
 
 Our Dockerfile need to install:
 
@@ -61,7 +61,7 @@ done
 
 ### {% linkable_title Commands %}
 
-We wait for incoming data from MQTT broker. We can also use an `input_boolean` that triggers an automation to publish a custom command to MQTT topic that can process multiple things in one add-on.
+We wait for incoming data from the MQTT broker. We can also use an `input_boolean` that triggers an automation to publish a custom command to MQTT topic that can process multiple things in one add-on.
 
 Our Dockerfile need to install:
 
@@ -94,7 +94,6 @@ do
 
 done < <(mosquitto_sub -h "$MQTT_SERVER" -p "$MQTT_PORT" -u "$USER" -P "$PASSWORD" -t "$TOPIC" -q 1)
 ```
-
 
 [MQTT-addon]: /addons/mosquitto/
 [custom-component]: /developers/component_loading/

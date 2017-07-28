@@ -57,6 +57,25 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 - Added media_extractor service ([@minchik] - [#8369]) ([media_extractor docs]) (new-platform)
 - Vizio SmartCast support ([@vkorn] - [#8260]) ([media_player.vizio docs]) (new-platform)
 
+## {% linkable_title Release 0.49.1 - July 24 %}
+
+- Fix TP-Link device tracker regression since 0.49 ([@maikelwever] - [#8497]) ([device_tracker.tplink docs])
+- prometheus: Convert fahrenheit to celsius ([@rcloran] - [#8511]) ([prometheus docs])
+- Update dlib_face_detect.py ([@pvizeli] - [#8516]) ([image_processing.dlib_face_detect docs])
+- Realfix for dlib ([@pvizeli] - [#8517]) ([image_processing.dlib_face_detect docs])
+- Attach the `chat_id` for a callback query from a chat group (fixes #8461) ([@azogue] - [#8523]) ([telegram_bot docs])
+- Fix support for multiple Apple TVs ([@postlund] - [#8539])
+- LIFX: assume default features for unknown products ([@amelchio] - [#8553]) ([light.lifx docs])
+- Fix broken status update for lighting4 devices ([@ypollart] - [#8543]) ([rfxtrx docs]) ([binary_sensor.rfxtrx docs])
+- zha: Update to bellows 0.3.4 ([@rcloran] - [#8594]) ([zha docs])
+- Fix STATION_SCHEMA validation on longitude ([@clkao] - [#8610]) ([sensor.citybikes docs])
+- Bumped Amcrest version ([@tchellomello] - [#8624]) ([amcrest docs])
+- Check if /dev/input/by-id exists ([@schaal] - [#8601]) ([keyboard_remote docs])
+- Tado Fix #8606 ([@filcole] - [#8621]) ([climate.tado docs])
+- prometheus: Fix zwave battery level ([@rcloran] - [#8615]) ([prometheus docs])
+- ubus: Make multiple instances work again ([@glance-] - [#8571]) ([device_tracker.ubus docs])
+- Properly slugify switch.flux update service name ([@jawilson] - [#8545]) ([switch.flux docs])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -395,7 +414,6 @@ amcrest:
 [light.zha docs]: https://home-assistant.io/components/light.zha/
 [lutron docs]: https://home-assistant.io/components/lutron/
 [media_extractor docs]: https://home-assistant.io/components/media_extractor/
-[media_extractor docs]: https://home-assistant.io/components/media_extractor/
 [media_player.apple_tv docs]: https://home-assistant.io/components/media_player.apple_tv/
 [media_player.denonavr docs]: https://home-assistant.io/components/media_player.denonavr/
 [media_player.emby docs]: https://home-assistant.io/components/media_player.emby/
@@ -432,7 +450,6 @@ amcrest:
 [sensor.openweathermap docs]: https://home-assistant.io/components/sensor.openweathermap/
 [sensor.otp docs]: https://home-assistant.io/components/sensor.otp/
 [sensor.rflink docs]: https://home-assistant.io/components/sensor.rflink/
-[sensor.london_underground docs]: https://home-assistant.io/components/sensor.london_underground/
 [sensor.uber docs]: https://home-assistant.io/components/sensor.uber/
 [sensor.waqi docs]: https://home-assistant.io/components/sensor.waqi/
 [sensor.yweather docs]: https://home-assistant.io/components/sensor.yweather/
@@ -460,3 +477,31 @@ amcrest:
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
+[#8497]: https://github.com/home-assistant/home-assistant/pull/8497
+[#8511]: https://github.com/home-assistant/home-assistant/pull/8511
+[#8516]: https://github.com/home-assistant/home-assistant/pull/8516
+[#8517]: https://github.com/home-assistant/home-assistant/pull/8517
+[#8523]: https://github.com/home-assistant/home-assistant/pull/8523
+[#8539]: https://github.com/home-assistant/home-assistant/pull/8539
+[#8543]: https://github.com/home-assistant/home-assistant/pull/8543
+[#8553]: https://github.com/home-assistant/home-assistant/pull/8553
+[#8594]: https://github.com/home-assistant/home-assistant/pull/8594
+[#8610]: https://github.com/home-assistant/home-assistant/pull/8610
+[@clkao]: https://github.com/clkao
+[@maikelwever]: https://github.com/maikelwever
+[@ypollart]: https://github.com/ypollart
+[binary_sensor.rfxtrx docs]: https://home-assistant.io/components/binary_sensor.rfxtrx/
+[telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
+[#8545]: https://github.com/home-assistant/home-assistant/pull/8545
+[#8571]: https://github.com/home-assistant/home-assistant/pull/8571
+[#8601]: https://github.com/home-assistant/home-assistant/pull/8601
+[#8615]: https://github.com/home-assistant/home-assistant/pull/8615
+[#8621]: https://github.com/home-assistant/home-assistant/pull/8621
+[#8624]: https://github.com/home-assistant/home-assistant/pull/8624
+[@filcole]: https://github.com/filcole
+[@glance-]: https://github.com/glance-
+[@jawilson]: https://github.com/jawilson
+[@schaal]: https://github.com/schaal
+[device_tracker.ubus docs]: https://home-assistant.io/components/device_tracker.ubus/
+[keyboard_remote docs]: https://home-assistant.io/components/keyboard_remote/
+[switch.flux docs]: https://home-assistant.io/components/switch.flux/

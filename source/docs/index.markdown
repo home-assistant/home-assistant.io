@@ -12,11 +12,11 @@ footer: true
 The documentation covers from beginner to advanced topic around the installation, the setup, the configuration, and the usage of Home Assistant.
 
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/hassbian/installation/'>
+  <a class='option-card' href='/hassio/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/raspberry-pi.png' />
+      <img src='/images/supported_brands/home-assistant.png' />
     </div>
-    <div class='title'>Hassbian</div>
+    <div class='title'>Hass.io</div>
   </a>
   <a class='option-card' href='/docs/configuration/'>
     <div class='img-container'>

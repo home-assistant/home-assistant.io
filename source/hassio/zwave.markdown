@@ -20,3 +20,13 @@ If you need GPIO on raspberry-pi3 for you Z-Wave module add follow line into `co
 ```
 dtoverlay=pi3-miniuart-bt
 ```
+
+HUSBZB-1:
+```yaml
+zwave:
+  usb_path: /dev/ttyUSB0
+  
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /config/zigbee.db
+```

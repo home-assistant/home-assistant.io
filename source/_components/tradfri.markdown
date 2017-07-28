@@ -35,15 +35,15 @@ $ sudo make install
 macOS:
 
 ```bash
-$ sudo brew install libtool
-$ sudo brew install autoconf
-$ sudo brew install automake
+$ brew install libtool
+$ brew install autoconf
+$ brew install automake
 $ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
 $ cd libcoap
 $ ./autogen.sh
 $ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
 $ make
-$ sudo make install
+$ make install
 ```
 You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
 

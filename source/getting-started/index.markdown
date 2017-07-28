@@ -12,11 +12,11 @@ footer: true
 You will need to install Home Assistant before we can get started. You can install Home Assistant on your computer or you can turn a Raspberry Pi into a dedicated Home Assistant hub.
 
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/hassbian/installation/'>
+  <a class='option-card' href='/hassio/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/raspberry-pi.png' />
+      <img src='/images/supported_brands/home-assistant.png' />
     </div>
-    <div class='title'>Install Hassbian on your Raspberry Pi 3</div>
+    <div class='title'>Install Hass.io on your Raspberry Pi 3</div>
   </a>
   <a class='option-card' href='/docs/installation/python/'>
     <div class='img-container'>
@@ -25,6 +25,7 @@ You will need to install Home Assistant before we can get started. You can insta
     <div class='title'>Install Home Assistant on your computer</div>
   </a>
 </div>
+<br>
 
 For alternative installation methods please take a look at the [installation documentation](/docs/installation/).
 

@@ -31,7 +31,7 @@ Follow steps 1-4 under 'Generating a new SSH key' (The other sections are not ap
 Step 3 in the link above, shows the path to the private key file `id_rsa` for your chosen operating system. Your public key, `id_rsa.pub`, is saved in the same folder. Next, copy your public key file to the root of your SD card.
 
 <p class='note'>
-Make sure when you are copying the public key to the root of the SD card that you rename the file correctly with no `.pub` file extension.
+Make sure when you are copying the public key to the root of the /boot partition of the SD card that you rename the file correctly with no `.pub` file extension.
 </p> 
 
 ## {% linkable_title Checking the logs %}

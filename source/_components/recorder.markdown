@@ -120,6 +120,10 @@ homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/ac
 (homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install mysqlclient
 ```
 
+After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 
+
+Once Home Assistant finds the database, with right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
+
 ### {% linkable_title PostgreSQL %}
 
 For PostgreSQL you may have to install a few dependencies:
