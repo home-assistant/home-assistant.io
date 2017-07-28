@@ -45,9 +45,23 @@ lock:
     port: 8080
     token: fe2345ef
 ```
+
 ## {% linkable_title Services %}
 
-Starting with version 0.51, once you've added your Nuki locks, two new services are going to be accessible:
+### {% linkable_title Service `nuki_unlatch` %}
 
-- `nuki.nuki_lock_n_go`: This will first unlock, wait a few seconds (20 by default) then re-lock. See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more information.
-- `nuki.nuki_unlatch`: This will unlatch the door, ie. open it (provided this works with your type of door).
+This will unlatch the door, ie. open it (provided this works with your type of door).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
+
+### {% linkable_title Service `nuki_lock_n_go` %}
+
+This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
+See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more details about this feature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
+| `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
