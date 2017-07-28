@@ -27,7 +27,7 @@ sensor:
 
 Configuration variables:
 
-- **forecast** int (*Optional*): If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.
+- **forecast** integer (*Optional*): If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.
 - **monitored_conditions** array (*Optional*): Conditions to display in the frontend.
   - **symbol**: A symbol for the current weather.
   - **temperature**: The current temperature.
