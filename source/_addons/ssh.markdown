@@ -37,7 +37,7 @@ Configuration variables:
 
 
 <div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GYJTy3UniHc" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L7PCPQYwspo" frameborder="0" allowfullscreen></iframe>
 </div>
 
 [win]: https://www.digitalocean.com/community/tutorials/how-to-create-ssh-keys-with-putty-to-connect-to-a-vps
