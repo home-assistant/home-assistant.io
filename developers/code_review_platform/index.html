@@ -75,22 +75,14 @@
   </header>
   <hr class="divider">
   <p>A checklist of things to do when you’re adding a new platform.</p>
+<p class="note">
+Not all existing platforms follow the requirements in this checklist. This cannot be used as a reason to not follow them!
+</p>
 <h3><a class="title-link" name="1-requirements" href="#1-requirements"></a> 1. Requirements</h3>
 <ol>
-  <li>Requirement version pinned: <code class="highlighter-rouge">REQUIREMENTS = ['phue==0.8.1']</code></li>
-  <li>If requirement hosted on GitHub:
-    <ul>
-      <li>Point at a zip archive of a release tag or commit SHA.</li>
-      <li>Add version found in zip-archive as hash to URL.</li>
-    </ul>
-  </li>
+  <li>Requirement version should be pinned: <code class="highlighter-rouge">REQUIREMENTS = ['phue==0.8.1']</code></li>
+  <li>We no longer want requirements hosted on GitHub. Please upload to PyPi.</li>
 </ol>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s">'http://github.com/technicalpickles/python-nest'</span>
-    <span class="s">'/archive/e6c9d56a8df455d4d7746389811f2c1387e8cb33.zip'</span>
-    <span class="s">'#python-nest==3.0.3'</span><span class="p">]</span>
-</code></pre>
-</div>
 <h3><a class="title-link" name="2-dependencies" href="#2-dependencies"></a> 2. Dependencies</h3>
 <ol>
   <li>If you depend on a component for the connection, add it to your dependencies: <code class="highlighter-rouge">DEPENDENCIES = ['nest']</code></li>
@@ -131,6 +123,19 @@
   <li>Do not call <code class="highlighter-rouge">update()</code> in constructor, use <code class="highlighter-rouge">add_devices(devices, True)</code> instead.</li>
   <li>Do not do any I/O inside properties. Cache values inside <code class="highlighter-rouge">update()</code> instead.</li>
 </ol>
+<h3><a class="title-link" name="6-communication-with-devicesservices" href="#6-communication-with-devicesservices"></a> 6. Communication with devices/services</h3>
+<ol>
+  <li>All API specific code has to be part of a third party library hosted on PyPi. Home Assistant should only interact with objects and not make direct calls to the API.</li>
+</ol>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># bad</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">(</span><span class="s">'/status'</span><span class="p">))</span>
+
+<span class="c"># good</span>
+<span class="kn">from</span> <span class="nn">phue</span> <span class="kn">import</span> <span class="n">Bridge</span>
+<span class="n">bridge</span> <span class="o">=</span> <span class="n">Bridge</span><span class="p">(</span><span class="err">…</span><span class="p">)</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
