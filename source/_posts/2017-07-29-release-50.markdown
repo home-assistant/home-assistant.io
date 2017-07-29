@@ -52,6 +52,10 @@ Yes, it has happened! After being in beta for a while, the Xiaomi support is now
 
 Another awesome integration is that of the Velbus home automation system which has been contributed by [@thomasdelaet]. It integrates their sensors, covers, fans, lights and switches.
 
+### {% linkable_title Manual alarm with MQTT control %}
+
+A new version of the manual alarm component is now available with full MQTT control thanks to [@colinodell]. Using this you can build your own control panel to remotely arm/disarm the alarm. For example, using a [Raspberry Pi to create an alarm](https://www.hackster.io/colinodell/diy-alarm-control-panel-for-home-assistant-ac1813).
+
 ## {% linkable_title New Platforms %}
 
 - Initial support for Google Wifi/OnHub ([@fronzbot] - [#8485]) ([sensor.google_wifi docs]) (new-platform)
