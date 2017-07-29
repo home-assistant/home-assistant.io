@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-29T21:57:28+00:00</updated>
+  <updated>2017-07-29T22:16:29+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -28,8 +28,6 @@
 
 <h3><a class="title-link" name="adding-the-power-of-voice-to-integrations" href="#adding-the-power-of-voice-to-integrations"></a> Adding the power of voice to integrations</h3>
 
-<p>Hass.io will be a great foundation for bigger and better integrated features. Stay tuned.</p>
-
 <p>But enough about Hass.io, let’s not forget about Home Assistant. This release has completely revamped the way how we deal with voice integrations. We turned Home Assistant into a platform to write voice apps, no matter where the processing of the voice happens. This can be done by Alexa, Google Assistant or in the Home Assistant user interface.</p>
 
 <p>We are super excited about the new functionality and hope that it will trigger a new type of applications and systems to be built on top of Home Assistant. This release includes a shopping list to show the new functionality. As a user you can add any item to the shopping list with your voice and also ask what is on your shopping list.</p>
@@ -41,7 +39,9 @@
 
 <p>To make testing these applications easier, we’ve updated the conversation component. The component will now allow sentences to be configured that hook directly into the new voice functionality. Combined with the new interface it will allow for some great interactions!</p>
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://www.youtube.com/watch?v=Ij0zDF3qwmE"></iframe>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Ij0zDF3qwmE" frameborder="0" allowfullscreen=""></iframe>
+</div>
 
 <h3><a class="title-link" name="history-improvements" href="#history-improvements"></a> History improvements</h3>
 
