@@ -74,7 +74,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>To get your Lutron Caseta covers working with Home Assistant, follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+  <p>To get your Lutron Caseta covers (Serena Shades) working with Home Assistant, first follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+<p>You also need to configure Lutron Caseta as a cover platform in your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">lutron_caseta</span>
+</code></pre>
+</div>
+<p>Your Lutron Caseta shades will be pulled into Home Assistant with the names they were assigned in the Lutron Caseta app.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -86,6 +93,9 @@
   </div>
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.45
     </div>
     <div class='section'>
       This is a platform for

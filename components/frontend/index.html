@@ -96,6 +96,19 @@
   <li><code class="highlighter-rouge">frontend.reload_themes</code> - reloads theme configuration from yaml.</li>
   <li><code class="highlighter-rouge">frontend.set_theme(name)</code> - sets backend-preferred theme name.</li>
 </ul>
+<p>Example in automation:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">startup'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">homeassistant</span>
+       <span class="s">event</span><span class="pi">:</span> <span class="s">start</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">frontend.set_theme</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">pink</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
