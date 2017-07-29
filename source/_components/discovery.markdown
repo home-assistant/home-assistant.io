@@ -33,6 +33,7 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Bose Soundtouch speakers
  * Axis Communications security devices
  * IKEA Trådfri (Tradfri)
+ * Harmony Hub
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
