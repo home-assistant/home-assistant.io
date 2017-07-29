@@ -103,7 +103,7 @@ conversation:
 
 - Switch fritzdect: attributes have been renamed to use underscores and no capital letters ([@thomasklingbeil] - [#8436]) ([switch.fritzdect docs]) (breaking change)
 - Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
-- Fix COMMAND_CLASS_BARRIER_OPERATOR for dev branch of OpenZwave ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
+- The Home Assistant Z-Wave Cover implementation has been updated to support the latest development version of OpenZWave. If you are currently applying a workaround to your OpenZWave installation to support the barrier command class, you'll need to make sure you update your workaround to the latest development version of OpenZWave. ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
 
 ## {% linkable_title All changes %}
 
