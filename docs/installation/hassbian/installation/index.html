@@ -79,7 +79,7 @@
 <ol>
   <li><a href="https://github.com/home-assistant/pi-gen/releases/latest">Download the Hassbian image</a> (364 MB)</li>
   <li>Use <a href="https://etcher.io/">Etcher</a> to flash the image to your SD card</li>
-  <li>Ensure your Raspberry Pi has wired access to the internet for the entire process.</li>
+  <li>Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your wireless network (details below).</li>
   <li>Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.</li>
 </ol>
 <p>These instructions are also available as a <a href="https://www.youtube.com/watch?v=iIz6XqDwHEk">video</a>.  Additional information is available in this <a href="https://www.youtube.com/watch?v=tCGlQSsQ-Mc">video</a>.</p>
@@ -92,6 +92,14 @@
   <li>SSH server is enabled.</li>
   <li>A tool called <code class="highlighter-rouge">hassbian-config</code>.</li>
 </ul>
+<h3><a class="title-link" name="wireless-network" href="#wireless-network"></a> Wireless Network</h3>
+<p>After flashing the image to your SD Card open the partition <code class="highlighter-rouge">boot</code> and create a new file <code class="highlighter-rouge">wpa_supplicant.conf</code>. Edit the file and enter your network credentials. For more information visit <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">Setting up Wifi for Raspbian</a>. During the start the file will automatically copied in the right folder and the network connection will be established. The file could look like this:</p>
+<div class="language-conf highlighter-rouge"><pre class="highlight"><code><span class="n">network</span>={
+    <span class="n">ssid</span>=<span class="s2">"YOUR_SSID"</span>
+    <span class="n">psk</span>=<span class="s2">"YOUR_PASSWORD"</span>
+}
+</code></pre>
+</div>
 <h3><a class="title-link" name="technical-details" href="#technical-details"></a> Technical Details</h3>
 <ul>
   <li>Home Assistant is installed in a virtual Python environment at <code class="highlighter-rouge">/srv/homeassistant/</code></li>

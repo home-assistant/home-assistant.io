@@ -75,26 +75,18 @@
   </header>
   <hr class="divider">
   <p>A checklist of things to do when you’re adding a new component.</p>
+<p class="note">
+Not all existing platforms follow the requirements in this checklist. This cannot be used as a reason to not follow them!
+</p>
 <h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
 <ol>
   <li>Requirement version pinned: <code class="highlighter-rouge">REQUIREMENTS = ['phue==0.8.1']</code></li>
-  <li>If requirement hosted on GitHub:
-    <ul>
-      <li>Point at a zip archive of a release tag or commit SHA.</li>
-      <li>Add version found in zip-archive as hash to URL.</li>
-    </ul>
-  </li>
+  <li>We no longer want requirements hosted on GitHub. Please upload to PyPi.</li>
 </ol>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s">'http://github.com/technicalpickles/python-nest'</span>
-    <span class="s">'/archive/e6c9d56a8df455d4d7746389811f2c1387e8cb33.zip'</span>
-    <span class="s">'#python-nest==3.0.3'</span><span class="p">]</span>
-</code></pre>
-</div>
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 <ol>
   <li>Voluptuous schema present for config validation</li>
-  <li>Default parameters specified in voluptuous schema, not in <code class="highlighter-rouge">setup_platform(…)</code></li>
+  <li>Default parameters specified in voluptuous schema, not in <code class="highlighter-rouge">setup(…)</code></li>
   <li>Schema using as many generic config keys as possible from <code class="highlighter-rouge">homeassistant.const</code></li>
   <li>If having platforms, have a <code class="highlighter-rouge">PLATFORM_SCHEMA</code>, otherwise <code class="highlighter-rouge">CONFIG_SCHEMA</code>.</li>
   <li>If <code class="highlighter-rouge">PLATFORM_SCHEMA</code>, import base from <code class="highlighter-rouge">homeassistant.helpers.config_validation</code></li>
