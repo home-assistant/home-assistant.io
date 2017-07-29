@@ -2,14 +2,14 @@
 layout: page
 title: USPS Camera
 description: "Instructions on how to set up USPS camera within Home Assistant."
-date: 2017-07-27 20:00
+date: 2017-07-28 20:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: usps.png
 ha_category: Camera
-ha_release: 0.50
+ha_release: 0.51
 ha_iot_class: "Cloud Polling"
 ---
 

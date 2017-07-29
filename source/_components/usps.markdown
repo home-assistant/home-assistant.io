@@ -2,14 +2,14 @@
 layout: page
 title: USPS
 description: "Interface USPS mail and package information to Home Assistant."
-date: 2017-07-27 20:00
+date: 2017-07-28 20:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: usps.png
 ha_category: Hub
-ha_release: 0.50
+ha_release: 0.51
 ha_iot_class: "Cloud Polling"
 ---
 
