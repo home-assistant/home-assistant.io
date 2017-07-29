@@ -137,7 +137,7 @@ sensor:
       - weather_4n_metric
 
 group:
-  dialy_forecast:
+  daily_forecast:
     name: Daily Forecast
     entities:
       - sensor.pws_weather_1d_metric

@@ -63,6 +63,7 @@ activities/tracker/steps
 body/bmi
 body/fat
 body/weight
+devices/battery
 sleep/awakeningsCount
 sleep/efficiency
 sleep/minutesAfterWakeup

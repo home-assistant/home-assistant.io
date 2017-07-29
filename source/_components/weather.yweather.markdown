@@ -13,7 +13,7 @@ ha_release: 0.47
 ---
 
 
-The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. The `forecast` will show you the condition for 5 days, 0 is the current day.
+The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. This component will show you the condition and tempratures for max. 10 days.
 
 <p class='note warning'>
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
@@ -32,7 +32,6 @@ weather:
 Configuration variables:
 
 - **woeid** (*Optional*): See above.
-- **forecast** (*Optional*): Day of forecast. The default is the current day to display conditions.
 - **name** (*Optional*): The name of the sensor. To easily recognize each sensor when adding more than one Yahoo weather sensor, it is recommended to use the name option. Defaults to `Yweather`. 
 
 
