@@ -109,70 +109,49 @@
 </ul>
 <p>Take a look to “Integrations”, in the left menu, to configure third parties.</p>
 <h3><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h3>
-<p>Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on <a href="/topics/templating/">templates</a> that you define. Each template will have access to the existing states via the <code class="highlighter-rouge">states</code> variable but will also have access to all variables defined in the intent.</p>
-<p>You can use <a href="/topics/templating/">templates</a> for setting <code class="highlighter-rouge">speech</code>.</p>
-<p>Actions are using the <a href="/getting-started/scripts/">Home Assistant Script Syntax</a> and also have access to the variables from the intent.</p>
-<p>Example of an Api.ai for the above configuration:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">apiai</span><span class="pi">:</span>
-  <span class="s">intents</span><span class="pi">:</span>
-    <span class="s">GetTemperature</span><span class="pi">:</span>
-      <span class="s">speech</span><span class="pi">:</span> <span class="s">We have {{ states.sensor.temperature }} degrees</span>
-      <span class="s">async_action</span><span class="pi">:</span> <span class="s">False</span>
-      <span class="s">action</span><span class="pi">:</span>
-        <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
-        <span class="s">data_template</span><span class="pi">:</span>
-          <span class="s">message</span><span class="pi">:</span> <span class="s">Api.ai has send a request</span>
-
-</code></pre>
-</div>
-<p>Inside an intent we can define this variables:</p>
-<ul>
-  <li><strong>speech</strong> (<em>Optional</em>): Text or template to return to Api.ai</li>
-  <li><strong>action</strong> (<em>Optional</em>): Script definition</li>
-  <li><strong>async_action</strong> (<em>Optional</em>): If Home Assistant should execute the action asynchronously (returning response to Api.ai without waiting the action to finish). Should be set to <code class="highlighter-rouge">True</code> if Api.ai is returning the “Cannot connect to Home Assistant or it is taking to long” message, but then you will not be able to use values based on the result of the action. Defaults to <code class="highlighter-rouge">False</code>.</li>
-</ul>
+<p>When activated, the Alexa component will have Home Assistant’s native intent support handle the incoming intents. If you want to run actions based on intents, use the <a href="/components/intent_script"><code class="highlighter-rouge">intent_script</code></a> component.</p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>Download <a href="https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip">this zip</a> and load it in your Api.ai agent (Settings -&gt; Export and Import) for examples intents to use with this configuration:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">apiai</span><span class="pi">:</span>
-  <span class="s">intents</span><span class="pi">:</span>
-    <span class="s">Temperature</span><span class="pi">:</span>
-      <span class="s">speech</span><span class="pi">:</span> <span class="s">The temperature at home is {{ states('sensor.home_temp') }} degrees</span>
-    <span class="s">LocateIntent</span><span class="pi">:</span>
-      <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
-        <span class="no">{%- for state in states.device_tracker -%}</span>
-          <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
-            <span class="no">{{ state.name }} is at {{ state.state }}</span>
-          <span class="no">{%- elif loop.last -%}</span>
-            <span class="no">I am sorry, I do not know where {{ User }} is.</span>
+
+<span class="s">intent_script</span><span class="pi">:</span>
+  <span class="s">Temperature</span><span class="pi">:</span>
+    <span class="s">speech</span><span class="pi">:</span> <span class="s">The temperature at home is {{ states('sensor.home_temp') }} degrees</span>
+  <span class="s">LocateIntent</span><span class="pi">:</span>
+    <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="no">{%- for state in states.device_tracker -%}</span>
+        <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
+          <span class="no">{{ state.name }} is at {{ state.state }}</span>
+        <span class="no">{%- elif loop.last -%}</span>
+          <span class="no">I am sorry, I do not know where {{ User }} is.</span>
+        <span class="no">{%- endif -%}</span>
+      <span class="no">{%- else -%}</span>
+        <span class="no">Sorry, I don't have any trackers registered.</span>
+      <span class="no">{%- endfor -%}</span>
+  <span class="s">WhereAreWeIntent</span><span class="pi">:</span>
+    <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
+      <span class="no">{%- if is_state('device_tracker.adri', 'home') and</span>
+             <span class="no">is_state('device_tracker.bea', 'home') -%}</span>
+        <span class="no">You are both home, you silly</span>
+      <span class="no">{%- else -%}</span>
+        <span class="no">Bea is at {{ states("device_tracker.bea") }}</span>
+        <span class="no">and Adri is at {{ states("device_tracker.adri") }}</span>
+      <span class="no">{% endif %}</span>
+  <span class="s">TurnLights</span><span class="pi">:</span>
+    <span class="s">speech</span><span class="pi">:</span> <span class="s">Turning {{ Room }} lights {{ OnOff }}</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s">Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}</span>
+      <span class="pi">-</span> <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{%- if OnOff == "on" -%}</span>
+            <span class="no">switch.turn_on</span>
+          <span class="no">{%- else -%}</span>
+            <span class="no">switch.turn_off</span>
           <span class="no">{%- endif -%}</span>
-        <span class="no">{%- else -%}</span>
-          <span class="no">Sorry, I don't have any trackers registered.</span>
-        <span class="no">{%- endfor -%}</span>
-    <span class="s">WhereAreWeIntent</span><span class="pi">:</span>
-      <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
-        <span class="no">{%- if is_state('device_tracker.adri', 'home') and</span>
-               <span class="no">is_state('device_tracker.bea', 'home') -%}</span>
-          <span class="no">You are both home, you silly</span>
-        <span class="no">{%- else -%}</span>
-          <span class="no">Bea is at {{ states("device_tracker.bea") }}</span>
-          <span class="no">and Adri is at {{ states("device_tracker.adri") }}</span>
-        <span class="no">{% endif %}</span>
-    <span class="s">TurnLights</span><span class="pi">:</span>
-      <span class="s">speech</span><span class="pi">:</span> <span class="s">Turning {{ Room }} lights {{ OnOff }}</span>
-      <span class="s">action</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
-          <span class="s">data_template</span><span class="pi">:</span>
-            <span class="s">message</span><span class="pi">:</span> <span class="s">Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}</span>
-        <span class="pi">-</span> <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-            <span class="no">{%- if OnOff == "on" -%}</span>
-              <span class="no">switch.turn_on</span>
-            <span class="no">{%- else -%}</span>
-              <span class="no">switch.turn_off</span>
-            <span class="no">{%- endif -%}</span>
-          <span class="s">data_template</span><span class="pi">:</span>
-            <span class="s">entity_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">switch.light_{{</span><span class="nv"> </span><span class="s">Room</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">replace('</span><span class="nv"> </span><span class="s">',</span><span class="nv"> </span><span class="s">'_')</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">switch.light_{{</span><span class="nv"> </span><span class="s">Room</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">replace('</span><span class="nv"> </span><span class="s">',</span><span class="nv"> </span><span class="s">'_')</span><span class="nv"> </span><span class="s">}}"</span>
 
 </code></pre>
 </div>

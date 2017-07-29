@@ -91,7 +91,8 @@
   <li><strong>proxy_ssl</strong> (<em>Optional</em>): Connect to kodi with HTTPS and WSS. Defaults to <code class="highlighter-rouge">false</code>. Useful if Kodi is behind an SSL proxy.</li>
   <li><strong>username</strong> (<em>Optional</em>): The XBMC/Kodi HTTP username.</li>
   <li><strong>password</strong> (<em>Optional</em>): The XBMC/Kodi HTTP password.</li>
-  <li><strong>turn_off_action</strong> (<em>Optional</em>): The desired turn off action. Options are <code class="highlighter-rouge">none</code>, <code class="highlighter-rouge">quit</code>, <code class="highlighter-rouge">hibernate</code>, <code class="highlighter-rouge">suspend</code>, <code class="highlighter-rouge">reboot</code>, or <code class="highlighter-rouge">shutdown</code>. Default <code class="highlighter-rouge">none</code>.</li>
+  <li><strong>turn_on_action</strong> (<em>Optional</em>): Home Assistant script sequence to call when turning on.</li>
+  <li><strong>turn_off_action</strong> (<em>Optional</em>): Home Assistant script sequence to call when turning off.</li>
   <li><strong>enable_websocket</strong> (<em>Optional</em>): Enable websocket connections to Kodi via the TCP port. Defaults to <code class="highlighter-rouge">true</code>. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don’t work on your installation this can be set to <code class="highlighter-rouge">false</code>.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): Set timeout for connections to Kodi. Defaults to 5 seconds.</li>
 </ul>
@@ -169,20 +170,155 @@
 <span class="s">result</span><span class="pi">:</span> <span class="s">&lt;data received from the Kodi API&gt;</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="kodi-turn-onoff-samples" href="#kodi-turn-onoff-samples"></a> Kodi turn on/off samples</h3>
+<p>With the <code class="highlighter-rouge">turn_on_action</code> and <code class="highlighter-rouge">turn_off_action</code> parameters you can run any combination of Home Assistant actions to turn on/off your Kodi instance. Here are a few examples of this usage, including the <strong>migration instructions for the old <code class="highlighter-rouge">turn_off_action</code> list of options</strong>.</p>
+<h4>Turn on Kodi with Wake on LAN</h4>
+<p>With this configuration, when calling <code class="highlighter-rouge">media_player/turn_on</code> on the Kodi device, a <em>magic packet</em> will be sent to the specified MAC address. To use this service, first you need to config the <a href="/components/wake_on_lan"><code class="highlighter-rouge">wake_on_lan</code></a> component in Home Assistant, which is achieved simply by adding <code class="highlighter-rouge">wake_on_lan:</code> to your <code class="highlighter-rouge">configuration.yaml</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_on_action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wake_on_lan.send_magic_packet</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">mac</span><span class="pi">:</span> <span class="s">aa:bb:cc:dd:ee:ff</span>
+          <span class="s">broadcast_address</span><span class="pi">:</span> <span class="s">192.168.255.255</span>
+</code></pre>
+</div>
+<h4>Turn off Kodi with API calls</h4>
+<p>Here are the equivalent ways to configure each of the old options to turn off Kodi (<code class="highlighter-rouge">quit</code>, <code class="highlighter-rouge">hibernate</code>, <code class="highlighter-rouge">suspend</code>, <code class="highlighter-rouge">reboot</code>, or <code class="highlighter-rouge">shutdown</code>):</p>
+<ul>
+  <li><strong>Quit</strong> method (before was <code class="highlighter-rouge">turn_off_action: quit</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">Application.Quit</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Hibernate</strong> method (before was <code class="highlighter-rouge">turn_off_action: hibernate</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Hibernate</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Suspend</strong> method (before was <code class="highlighter-rouge">turn_off_action: suspend</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Suspend</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Reboot</strong> method (before was <code class="highlighter-rouge">turn_off_action: reboot</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Reboot</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Shutdown</strong> method (before was <code class="highlighter-rouge">turn_off_action: shutdown</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Shutdown</span>
+</code></pre>
+</div>
+<h4>Turn on and off the TV with the Kodi JSON-CEC Addon</h4>
+<p>For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi’s, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_on_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+        <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+        <span class="s">params</span><span class="pi">:</span>
+          <span class="s">command</span><span class="pi">:</span> <span class="s">activate</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.media_stop</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+        <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+        <span class="s">params</span><span class="pi">:</span>
+          <span class="s">command</span><span class="pi">:</span> <span class="s">standby</span>
+</code></pre>
+</div>
 <h3><a class="title-link" name="kodi-services-samples" href="#kodi-services-samples"></a> Kodi services samples</h3>
-<h4>Simple script to turn on the TV with the Kodi JSON-CEC Addon</h4>
+<h4>Simple script to turn on the PVR in some channel as a time function</h4>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
-  <span class="s">activate_tv</span><span class="pi">:</span>
-    <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on TV</span>
+  <span class="s">play_kodi_pvr</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on the silly box</span>
     <span class="s">sequence</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">TV on</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Play TV channel</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+          <span class="s">media_content_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CHANNEL"</span>
+          <span class="s">media_content_id</span><span class="pi">:</span> <span class="pi">&gt;</span>
+            <span class="no">{% if (now().hour &lt; 14) or ((now().hour == 14) and (now().minute &lt; 50)) %}</span>
+              <span class="no">10</span>
+            <span class="no">{% elif (now().hour &lt; 16) %}</span>
+              <span class="no">15</span>
+            <span class="no">{% elif (now().hour &lt; 20) %}</span>
+              <span class="no">2</span>
+            <span class="no">{% elif (now().hour == 20) and (now().minute &lt; 50) %}</span>
+              <span class="no">10</span>
+            <span class="no">{% elif (now().hour == 20) or ((now().hour == 21) and (now().minute &lt; 15)) %}</span>
+              <span class="no">15</span>
+            <span class="no">{% else %}</span>
+              <span class="no">10</span>
+            <span class="no">{% endif %}</span>
+</code></pre>
+</div>
+<h4>Trigger a Kodi video library update</h4>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">update_library</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Update Kodi Library</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Call Kodi update</span>
         <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
         <span class="s">data</span><span class="pi">:</span>
-            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
-            <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
-            <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
-            <span class="s">params</span><span class="pi">:</span>
-                <span class="s">command</span><span class="pi">:</span> <span class="s">activate</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+          <span class="s">method</span><span class="pi">:</span> <span class="s">VideoLibrary.Scan</span>
 </code></pre>
 </div>
 <p>For a more complex usage of the <code class="highlighter-rouge">kodi_call_method</code> service, with event triggering of Kodi API results, you can have a look at this <a href="/cookbook/kodi_dynamic_input_select/">example</a></p>

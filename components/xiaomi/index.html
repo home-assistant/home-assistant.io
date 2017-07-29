@@ -1,0 +1,464 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Xiaomi Gateway - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/xiaomi/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Xiaomi Gateway">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/xiaomi/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Xiaomi Gateway">
+    <meta name="twitter:description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Xiaomi Gateway
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">xiaomi_gw</code> platform allows you to integrate the following <a href="http://www.mi.com/en/">Xiaomi</a> devices into Home Assistant.</p>
+<ul>
+  <li>Temperature and Humidity Sensor (old and new version)</li>
+  <li>Motion Sensor (old and new version)</li>
+  <li>Door and Window Sensor (old and new version)</li>
+  <li>Button (old and new version)</li>
+  <li>Plug aka Socket (ZigBee version, reports power consumed, power load, state and if device in use)</li>
+  <li>Wall Plug (reports power consumed, power load and state)</li>
+  <li>Aqara Wall Switch (Single)</li>
+  <li>Aqara Wall Switch (Double)</li>
+  <li>Aqara Wall Switch LN (Single)</li>
+  <li>Aqara Wall Switch LN (Double)</li>
+  <li>Aqara Wireless Switch (Single)</li>
+  <li>Aqara Wireless Switch (Double)</li>
+  <li>Cube</li>
+  <li>Gas Leak Detector (reports alarm and density)</li>
+  <li>Smoke Detector (reports alarm and density)</li>
+  <li>Gateway (Light, Illumination Sensor, Ringtone play)</li>
+  <li>Intelligent Curtain</li>
+  <li>Battery</li>
+</ul>
+<p>What’s not available?</p>
+<ul>
+  <li>Gateway Radio</li>
+  <li>Gateway Button</li>
+  <li>Water Sensor</li>
+  <li>Aqara Air Conditioning Companion</li>
+  <li>Aqara Intelligent Air Conditioner Controller Hub</li>
+  <li>Decoupled mode of the Aqara Wall Switches (Single &amp; Double)</li>
+  <li>Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure</li>
+</ul>
+<p>Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a></p>
+<p>To enable Xioami gateway in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>One Gateway</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># You can leave mac empty if you only have one gateway.</span>
+<span class="s">xiaomi</span><span class="pi">:</span>
+  <span class="s">gateways</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span>
+     <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
+</code></pre>
+</div>
+<p>Multiple Gateway</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
+<span class="s">xiaomi</span><span class="pi">:</span>
+  <span class="s">gateways</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
+      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
+    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
+      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>mac</strong> (<em>Optional</em>): The MAC of your gateway. Required if you have more than one.</li>
+  <li><strong>key</strong> (<em>Optional</em>): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.</li>
+  <li><strong>discovery_retry</strong> (<em>Optional</em>): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.</li>
+  <li><strong>interface</strong> (<em>Optional</em>): Which network interface to use. Default to any.</li>
+</ul>
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+<p>The gateway provides two services: <code class="highlighter-rouge">xiaomi.play_ringtone</code> and <code class="highlighter-rouge">xiaomi.stop_ringtone</code>. To play ringtones by Home Assistant the version of the gateway firmware must be <code class="highlighter-rouge">1.4.1_145</code> at least. A <code class="highlighter-rouge">ringtone_id</code> and <code class="highlighter-rouge">gw_mac</code> must be supplied. The parameter <code class="highlighter-rouge">ringtone_vol</code> (percent) is optional. Allowed values of the <code class="highlighter-rouge">ringtone_id</code> are:</p>
+<ul>
+  <li>alarm ringtones [0-8]</li>
+  <li>doorbell ring [10-13]</li>
+  <li>alarm clock [20-29]</li>
+  <li>custom ringtones (uploaded by mi home app) starting from 10001</li>
+</ul>
+<p>Automation example</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Let a dog bark on long press</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">click</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.switch_158d000xxxxxc2</span>
+      <span class="s">click_type</span><span class="pi">:</span> <span class="s">long_click_press</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi.play_ringtone</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
+      <span class="s">ringtone_id</span><span class="pi">:</span> <span class="s">8</span>
+      <span class="s">ringtone_vol</span><span class="pi">:</span> <span class="s">8</span>
+
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Stop barking immediately on single click</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">click</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.switch_158d000xxxxxc2</span>
+      <span class="s">click_type</span><span class="pi">:</span> <span class="s">single</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi.stop_ringtone</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/xiaomi.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/xiaomi.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.50
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/binary_sensor.xiaomi/'>
+          Xiaomi Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.xiaomi/'>
+          Xiaomi Cover
+        </a></li>
+        <li><a href='/components/light.xiaomi/'>
+          Xiaomi Light
+        </a></li>
+        <li><a href='/components/device_tracker.xiaomi/'>
+          Xiaomi Router
+        </a></li>
+        <li><a href='/components/sensor.xiaomi/'>
+          Xiaomi Sensor
+        </a></li>
+        <li><a href='/components/switch.xiaomi/'>
+          Xiaomi Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Hub</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
+        </li>
+        <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
+            <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
+        </li>
+        <li>
+            <a href='/components/arlo/'>Arlo</a>
+        </li>
+        <li>
+            <a href='/components/axis/'>Axis</a>
+        </li>
+        <li>
+            <a href='/components/wemo/'>Belkin WeMo</a>
+        </li>
+        <li>
+            <a href='/components/blink/'>Blink</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
+            <a href='/components/eight_sleep/'>Eight Sleep</a>
+        </li>
+        <li>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
+        </li>
+        <li>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
+        </li>
+        <li>
+            <a href='/components/homematic/'>Homematic</a>
+        </li>
+        <li>
+            <a href='/components/tradfri/'>IKEA Trådfri (Tradfri)</a>
+        </li>
+        <li>
+            <a href='/components/isy994/'>ISY994 Controller</a>
+        </li>
+        <li>
+            <a href='/components/insteon_local/'>Insteon (local)</a>
+        </li>
+        <li>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/insteon_plm/'>Insteon PLM</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
+        </li>
+        <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
+            <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
+        </li>
+        <li>
+            <a href='/components/litejet/'>LiteJet</a>
+        </li>
+        <li>
+            <a href='/components/lutron/'>Lutron</a>
+        </li>
+        <li>
+            <a href='/components/lutron_caseta/'>Lutron Caseta</a>
+        </li>
+        <li>
+            <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
+        </li>
+        <li>
+            <a href='/components/mochad/'>Mochad</a>
+        </li>
+        <li>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>RFLink</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/ring/'>Ring</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/tado/'>Tado</a>
+        </li>
+        <li>
+            <a href='/components/telegram_bot/'>Telegram chatbot</a>
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
+            <a href='/components/velux/'>Velux</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/wake_on_lan/'>Wake on LAN</a>
+        </li>
+        <li>
+            <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            Xiaomi Gateway
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
+        </li>
+        <li>
+            <a href='/components/zha/'>Zigbee Home Automation</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

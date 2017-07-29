@@ -116,6 +116,18 @@ The other properties (like name) are specified using mappings. Note that the sec
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s">sensor2/topic</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="using-environment-variables" href="#using-environment-variables"></a> Using Environment Variables</h3>
+<p>You can include values from your system’s environment variables with <code class="highlighter-rouge">!env_var</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">api_password</span><span class="pi">:</span> <span class="kt">!env_var</span> <span class="s">PASSWORD</span>
+</code></pre>
+</div>
+<h4>Default Value</h4>
+<p>If an environment variable is not set, you can fallback to a default value.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">api_password</span><span class="pi">:</span> <span class="kt">!env_var</span> <span class="s">PASSWORD default_password</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

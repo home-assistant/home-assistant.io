@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The conversation component can process sentences into commands for Home Assistant. It currently has built in functionality to recognize <code class="highlighter-rouge">turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>, but custom phrases can be added through configuration.</p>
+  <p>The <code class="highlighter-rouge">conversation</code> component can process sentences into commands for Home Assistant. It currently has built in functionality to recognize <code class="highlighter-rouge">turn &lt;Friendly Name&gt; &lt;on/off&gt;</code>, but custom phrases can be added through configuration.</p>
 <p>To enable the conversation option in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example base configuration.yaml entry</span>
 <span class="s">conversation</span><span class="pi">:</span>
@@ -89,8 +89,15 @@
             <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.toggle</span>
 </code></pre>
 </div>
-<p>The action keyword uses <a href="https://home-assistant.io/docs/scripts/">script
-syntax</a>.</p>
+<p>The action keyword uses <a href="https://home-assistant.io/docs/scripts/">script syntax</a>.</p>
+<p>To use the <code class="highlighter-rouge">conversation</code> component with the <a href="/components/shopping_list/"><code class="highlighter-rouge">shopping list</code> component</a> add an intent.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">conversation</span><span class="pi">:</span>
+  <span class="s">intents</span><span class="pi">:</span>
+    <span class="s">ShoppingListAddItem</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">Add {item} to my shopping list</span>
+</code></pre>
+</div>
 <p>When this component is active and you are using a supported browser voice commands will be activated in the frontend. Browse to <a href="/demo/">the demo</a> using Chrome or Chromium to see it in action.</p>
 <p class="img">
   <img src="/images/screenshots/voice-commands.png" />

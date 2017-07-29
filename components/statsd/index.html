@@ -87,7 +87,18 @@
   <li><strong>prefix</strong> (<em>Optional</em>): Prefix to use. Defaults to <code class="highlighter-rouge">hass</code>.</li>
   <li><strong>rate</strong> (<em>Optional</em>): The sample rate. Defaults to 1.</li>
   <li><strong>log_attributes</strong> (<em>Optional</em>): Log state and attribute changes. This changes the default stats path.</li>
+  <li><strong>value_mapping</strong> (<em>Optional</em>): Map non-numerical values to numerical ones.</li>
 </ul>
+<p>Full example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">statsd</span><span class="pi">:</span>
+  <span class="s">prefix</span><span class="pi">:</span> <span class="s">home</span>
+  <span class="s">rate</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">value_mapping</span><span class="pi">:</span>
+    <span class="s">cooling</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="s">heating</span><span class="pi">:</span> <span class="s">10</span>
+</code></pre>
+</div>
 <p>StatsD supports various <a href="https://github.com/etsy/statsd/blob/master/docs/backend.md">backends</a>.</p>
 </article>
         </div>

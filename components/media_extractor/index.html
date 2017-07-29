@@ -74,12 +74,39 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">media_extractor</code> component gets a stream URL and sends it to a media player entity.</p>
+  <p>The <code class="highlighter-rouge">media_extractor</code> component gets an stream URL and send it to a media player entity. This component can extract entity specific streams if configured accordingly.</p>
+<p class="note">
+Media extractor doesn’t transcode streams, it just tries to find stream that match requested query.
+</p>
 <p>To use the media extractor service in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_extractor</span><span class="pi">:</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>default_query</strong> (<em>Optional</em>): Set default stream query for all devices (‘best’ by default).</li>
+  <li><strong>customize</strong> (<em>Optional</em>): Set entity specific values. For example:</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_extractor</span><span class="pi">:</span>
+  <span class="s">default_query</span><span class="pi">:</span> <span class="s">worst</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">media_player.my_sonos</span><span class="pi">:</span>
+      <span class="s">video</span><span class="pi">:</span> <span class="s">bestvideo</span>
+      <span class="s">music</span><span class="pi">:</span> <span class="s">bestaudio[ext=mp3]</span>
+</code></pre>
+</div>
+<p>This configuration sets query for all service calls like: <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"media_player.my_sonos"</span><span class="p">,</span><span class="w"> </span><span class="nt">"media_content_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://soundcloud.com/bruttoband/brutto-11"</span><span class="p">,</span><span class="w"> </span><span class="nt">"media_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"music"</span><span class="p">}</span></code> to ‘bestaudio’ with mp3 extention.</p>
+<p>Query examples with explanations:</p>
+<ul>
+  <li><strong>bestvideo</strong> - best video only stream</li>
+  <li><strong>best</strong> - best video + audio stream</li>
+  <li><strong>bestaudio[ext=m4a]</strong> - best audio stream with m4a extension</li>
+  <li><strong>worst</strong> - worst video + audio stream</li>
+  <li><strong>bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio</strong> - best m4a audio, otherwise best ogg audio and only then any best audio</li>
+</ul>
+<p>More info about queries <a href="https://github.com/rg3/youtube-dl#format-selection">here</a></p>
 <h3><a class="title-link" name="use-the-service" href="#use-the-service"></a> Use the service</h3>
 <p>Go to the “Developer Tools,” then to “Call Service,” and choose <code class="highlighter-rouge">media_extractor/play_media</code> from the list of available services. Fill the “Service Data” field as shown in the example below and hit “CALL SERVICE.”</p>
 <p>This will download the file from the given URL.</p>
