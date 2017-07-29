@@ -75,7 +75,7 @@ Before beginning make sure that you have the following:
    $ sudo -u asterisk asterisk_mbox_server -v --cfg /etc/asterisk/asterisk_mbox.ini
    ```
 
-   Now complete the [Home Assistant configuration](/components/asterisk_mbox) and verify that Home Assistant can com,unicate with the server
+   Now complete the [Home Assistant configuration](/components/asterisk_mbox) and verify that Home Assistant can communicate with the server
 
    You can use `Ctrl-C` to terminate the server when done testing
 
