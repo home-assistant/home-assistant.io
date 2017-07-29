@@ -34,7 +34,9 @@ shopping_list:
 
 To make testing these applications easier, we've updated the conversation component. The component will now allow sentences to be configured that hook directly into the new voice functionality. Combined with the new interface it will allow for some great interactions!
 
-https://www.youtube.com/watch?v=Ij0zDF3qwmE
+<iframe width="100%" height="166" scrolling="no" frameborder="no"
+     src="https://www.youtube.com/watch?v=Ij0zDF3qwmE">
+</iframe>
 
 ### {% linkable_title History improvements %}
 
