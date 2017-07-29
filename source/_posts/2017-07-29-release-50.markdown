@@ -35,11 +35,11 @@ The performance change in some of his tests shows this change to be about 300x f
 
 [hassio-intro]: https://www.youtube.com/watch?v=XWPluWcYRMI&feature=youtu.be
 
-### {% Xiaomi integration %}
+### {% linkable_title Xiaomi integration %}
 
 Yes, it has happened! After being in beta for a while, the Xiaomi support is now available to all. [@danielhiversen] did an amazing job and we now support sensors, switches, lights and covers.
 
-### {% Velbus integration %}
+### {% linkable_title Velbus integration %}
 
 Another awesome integration is that of the Velbus home automation system which has been contributed by [@thomasdelaet]. It integrates their sensors, covers, fans, lights and switches.
 
