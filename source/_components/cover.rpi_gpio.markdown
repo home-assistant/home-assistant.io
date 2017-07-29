@@ -37,6 +37,7 @@ Configuration variables:
 
 - **relay_time** (*Optional*): The time that the relay will be on for in seconds. Default is 0.2 seconds.
 - **state_pull_mode** (*Optional*): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.
+- **state_invert** (*Optional*): Invert the value of the State pin so that 0 means closed. Default is False.
 - **covers** array (*Required*): List of your doors.
   - **relay_pin** (*Required*): The pin of your Raspberry Pi where the relay is connected.
   - **state_pin** (*Required*): The pin of your Raspberry Pi to retrieve the state.
@@ -50,6 +51,7 @@ cover:
   - platform: rpi_gpio
     relay_time: 0.2
     state_pull_mode: 'UP'
+    state_invert: True
     covers:
       - relay_pin: 10
         state_pin: 11
