@@ -15,13 +15,22 @@ og_image: /images/blog/2017-07-0.50/components.png
 
 Last Wednesday we released [Hass.io](https://home-assistant.io/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
 
-The launch has been crazy successful. The [20 minute introduction video][hassio-intro] by BRUHAutomation already has 10k views in just 2 days with no less than 130 comments.
+The launch has been crazy successful. The [20 minute introduction video][hassio-intro] by BRUHAutomation already has 12.5k views in just 4 days with no less than 150 comments.
+
+Hass.io will be a great foundation for bigger and better integrated features. Stay tuned.
+
+### {% linkable_title Adding the power of voice to integrations %}
 
 Hass.io will be a great foundation for bigger and better integrated features. Stay tuned.
 
 But enough about Hass.io, let's not forget about Home Assistant. This release has completely revamped the way how we deal with voice integrations. We turned Home Assistant into a platform to write voice apps, no matter where the processing of the voice happens. This can be done by Alexa, Google Assistant or in the Home Assistant user interface.
 
 We are super excited about the new functionality and hope that it will trigger a new type of applications and systems to be built on top of Home Assistant. This release includes a shopping list to show the new functionality. As a user you can add any item to the shopping list with your voice and also ask what is on your shopping list.
+
+```yaml
+# Example configuration.yaml entry
+shopping_list:
+```
 
 To make testing these applications easier, we've updated the conversation component. The component will now allow sentences to be configured that hook directly into the new voice functionality. Combined with the new interface it will allow for some great interactions!
 
@@ -62,11 +71,38 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## {% linkable_title Breaking Changes %}
 
-- Remove deprecated automation keywords ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
-- Support for Wink oauth application authorization ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)
-- Add Intent component ([@balloob] - [#8434]) ([alexa docs]) ([intent docs]) ([intent_script docs]) ([shopping_list docs]) ([snips docs]) (breaking change) (new-platform)
-- make attributes in the fritzdect module easier to process ([@thomasklingbeil] - [#8436]) ([switch.fritzdect docs]) (breaking change)
-- Yahoo Weather update, supports forecast for more days ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
+- Automations: The state trigger keyword `state` and the time trigger keyword `after` were deprecated in 0.46. They have now been removed. ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
+- Wink: the component is no longer supporting the `access_token` in the config. Use the new OAuth authentication or add your username and password to the config. ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)
+- Alexa/API.AI/Snips.ai/Conversation: configuring responses to intents/sentences has been moved to a new component called `intent_script`. Conversation now allows configuring sentences to map to intents. ([@balloob] - [#8434]) ([alexa docs]) ([intent docs]) ([intent_script docs])
+ ([shopping_list docs]) ([snips docs]) (breaking change) (new-platform)
+
+```yaml
+alexa:
+snips:
+apiai:
+
+intent_script:
+  LightKitchen:
+    speech:
+      type: plain
+      text: I did the work, yay.
+    card:
+      type: simple
+      title: Lights Card
+      content: I have turned on the lights.
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.kitchen
+
+conversation:
+  intents:
+    LightKitchen:
+      - The kitchen is magic
+```
+
+- Switch fritzdect: attributes have been renamed to use underscores and no capital letters ([@thomasklingbeil] - [#8436]) ([switch.fritzdect docs]) (breaking change)
+- Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
 - Fix COMMAND_CLASS_BARRIER_OPERATOR for dev branch of OpenZwave ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
 
 ## {% linkable_title All changes %}
