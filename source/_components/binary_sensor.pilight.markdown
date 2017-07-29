@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pilight Binary Sensor"
-description: "Instructions how to integrate pilight binary sensors within Home Assistant."
+description: "Instructions how to integrate Pilight binary sensors within Home Assistant."
 date: 2017-03-24 20:41
 sidebar: true
 comments: false
@@ -13,8 +13,9 @@ ha_release: 0.44
 ha_iot_class: "Local Polling"
 ---
 
-This component implement the [pilight hub](https://github.com/home-assistant/home-assistant.github.io/source/_components/pilight.markdown)  binary sensor functionality.
-Two type of pilight binary sensor configuration available. A normal sensor which send the on and off state cyclical and a trigger sensor which send only a trigger when an event happend (for example lots of cheap PIR motion detector) (see example configuration below).
+The `pilight` binary sensor platform implement the [pilight hub](/components/pilight/) binary sensor functionality. Two type of Pilight binary sensor configuration available. A normal sensor which send the on and off state cyclical and a trigger sensor which send only a trigger when an event happend (for example lots of cheap PIR motion detector).
+
+To enable a Pilight binary sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
