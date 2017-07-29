@@ -9,10 +9,10 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Alarm
-ha_release: 0.49
+ha_release: "0.50"
 ---
 
-This component extends the [manual alarm](/components/alarm_control_panel.manual/) by adding support for MQTT control of the alarm by a remote device.  It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
+This platform extends the [manual alarm](/components/alarm_control_panel.manual/) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
 
 It's essentially the opposite of the [MQTT Alarm Panel](/components/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
@@ -63,7 +63,7 @@ Refer to the [Manual Alarm Control page](/components/alarm_control_panel.manual/
 
 ## {% linkable_title MQTT Control %}
 
-The state of this alarm can be controlled using [MQTT](/components/mqtt/).  Ensure you've configured that before adding this component.
+The state of this alarm can be controlled using [MQTT](/components/mqtt/). Ensure you've configured that before adding this component.
 
 To change the state of the alarm, publish one of the following messages to the `command_topic`:
 
@@ -71,7 +71,7 @@ To change the state of the alarm, publish one of the following messages to the `
  - `ARM_HOME`
  - `ARM_AWAY`
 
-To receive state updates from HA, subscribe to the `state_topic`.  HA will publish a new message whenever the state changes:
+To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
  - `disarmed`
  - `armed_home`
