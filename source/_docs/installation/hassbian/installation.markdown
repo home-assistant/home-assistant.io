@@ -33,7 +33,7 @@ The following extras are included on the image:
 
 ### {% linkable_title Wireless Network %}
 
-After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up Wifi for Raspbian][wifi-setup]. During the start the file will automatically copied in the right folder and the network connection will be established. The file could look like this:
+After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up Wifi for Raspbian][wifi-setup]. During start the file will automatically be copied in the right folder and the network connection will be established. The file could look like this:
 
 ```conf
 network={
