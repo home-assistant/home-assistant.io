@@ -45,7 +45,7 @@ Another awesome integration is that of the Velbus home automation system which h
 
 ### {% linkable_title Manual alarm with MQTT control %}
 
-A new version of the manual alarm component is now available with full MQTT control thanks to [@colinodell]. Using this you can build your own control panel to remotely arm/disarm the alarm.  For example, here's a guide on creating one with a Raspberry Pi: <https://www.hackster.io/colinodell/diy-alarm-control-panel-for-home-assistant-ac1813>
+A new version of the manual alarm component is now available with full MQTT control thanks to [@colinodell]. Using this you can build your own control panel to remotely arm/disarm the alarm. For example, using a [Raspberry Pi to create an alarm](https://www.hackster.io/colinodell/diy-alarm-control-panel-for-home-assistant-ac1813).
 
 ## {% linkable_title New Platforms %}
 
