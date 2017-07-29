@@ -10,13 +10,17 @@ footer: true
 logo: lutron.png
 ha_category: Cover
 ha_iot_class: "Local Polling"
+ha_release: 0.45
 ---
 
-To get your Lutron Caseta covers (Serena Shades) working with Home Assistant, first,follow the instructions for the general [Lutron Caseta component](/components/lutron_caseta/).
+To get your Lutron Caseta covers (Serena Shades) working with Home Assistant, first follow the instructions for the general [Lutron Caseta component](/components/lutron_caseta/).
 
-You also need to configure lutron caseta as a cover platform in configuration.yaml:
+You also need to configure Lutron Caseta as a cover platform in your `configuration.yaml` file:
 
+```yaml
+# Example configuration.yaml entry
 cover:
   - platform: lutron_caseta
+```
 
-Your Lutron Caseta shades will be pulled into Home Assistant with the names they were assigned in the Lutron Caseta app.  You will need to restart Home Assistant for your shades to be pulled into Home Assistant..
+Your Lutron Caseta shades will be pulled into Home Assistant with the names they were assigned in the Lutron Caseta app.
