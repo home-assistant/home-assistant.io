@@ -10,7 +10,7 @@ footer: true
 logo: velbus.png
 ha_category: Switch
 ha_iot_class: "Local Push"
-ha_release: 0.49
+ha_release: "0.50"
 ---
 
 The `velbus` switch allows you to control [Velbus](http://www.velbus.eu) connected switches.
