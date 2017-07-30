@@ -60,7 +60,7 @@ A new version of the manual alarm component is now available with full MQTT cont
 
 - Initial support for Google Wifi/OnHub ([@fronzbot] - [#8485]) ([sensor.google_wifi docs]) (new-platform)
 - Xiaomi gw support ([@danielhiversen] - [#8555]) ([xiaomi docs]) ([binary_sensor.xiaomi docs]) ([cover.xiaomi docs]) ([light.xiaomi docs]) ([sensor.xiaomi docs]) ([switch.xiaomi docs]) (new-platform)
-- Add Intent component ([@balloob] - [#8434]) ([alexa docs]) ([intent docs]) ([intent_script docs]) ([shopping_list docs]) ([snips docs]) (breaking change) (new-platform)
+- Add Intent component ([@balloob] - [#8434]) ([alexa docs]) ([intent_script docs]) ([shopping_list docs]) ([snips docs]) (breaking change) (new-platform)
 - Manual alarm with MQTT control ([@colinodell] - [#8257]) ([alarm_control_panel.manual_mqtt docs]) (new-platform)
 - Add component Light TPLink ([@gollo] - [#8643]) ([light.tplink docs]) (new-platform)
 - Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
