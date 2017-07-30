@@ -30,7 +30,7 @@ We are super excited about the new functionality and hope that it will trigger a
 shopping_list:
 ```
 
-To make testing these applications easier, we've updated the conversation component. The component will now allow sentences to be configured that hook directly into the new voice functionality. Combined with the new interface it will allow for some great interactions!
+To make testing these applications easier, we've updated the conversation component. The component will now allow sentences to be configured that hook directly into the new voice functionality. Combined with the new interface it will allow for some great interactions! Check out the [developer docs][intent docs] for more information.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ij0zDF3qwmE" frameborder="0" allowfullscreen></iframe>
@@ -338,11 +338,11 @@ conversation:
 [device_tracker.snmp docs]: https://home-assistant.io/components/device_tracker.snmp/
 [emulated_hue docs]: https://home-assistant.io/components/emulated_hue/
 [fan.wink docs]: https://home-assistant.io/components/fan.wink/
-[hassio docs]: https://home-assistant.io/components/hassio/
+[hassio docs]: https://home-assistant.io/hassio/
 [history docs]: https://home-assistant.io/components/history/
 [homematic docs]: https://home-assistant.io/components/homematic/
 [image_processing.dlib_face_identify docs]: https://home-assistant.io/components/image_processing.dlib_face_identify/
-[intent docs]: https://home-assistant.io/components/intent/
+[intent docs]: https://home-assistant.io/developers/intent/
 [intent_script docs]: https://home-assistant.io/components/intent_script/
 [knx docs]: https://home-assistant.io/components/knx/
 [light docs]: https://home-assistant.io/components/light/
@@ -387,9 +387,7 @@ conversation:
 [weather.yweather docs]: https://home-assistant.io/components/weather.yweather/
 [wink docs]: https://home-assistant.io/components/wink/
 [xiaomi docs]: https://home-assistant.io/components/xiaomi/
-
-
-
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
+
