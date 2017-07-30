@@ -34,4 +34,4 @@ The MQTT component will register the service `publish` which allows publishing m
      payload: "on"
 ```
 
-Note that in automations, you may want to use ``data_template`` instead of ``data``.
+Note that in automations, you may want to use `data_template` instead of `data`.
