@@ -21,7 +21,8 @@ The requirement is that you have setup [Wink](/components/wink/).
 
 ### {% linkable_title Supported fan devices %}
 
-- Gardinier
+- Home Decorator Wink-enabled Gardinier ceiling fan
+- Hampton Bay ceiling fan module 
 
 
 <p class='note'>
