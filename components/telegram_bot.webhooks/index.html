@@ -93,13 +93,13 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>allowed_chat_ids</strong> (<em>Required</em>): A list of user in the <code class="highlighter-rouge">user_id</code> Telegram format enabled to interact to webhook</li>
+  <li><strong>allowed_chat_ids</strong> (<em>Required</em>): A list of ids representing the users and group chats that are authorised to interact with the webhook.</li>
   <li><strong>api_key</strong> (<em>Required</em>): The API token of your bot.</li>
   <li><strong>trusted_networks</strong> (<em>Optional</em>): Telegram server access ACL as list. Defaults to <code class="highlighter-rouge">149.154.167.197-233</code>.</li>
   <li><strong>parse_mode</strong> (<em>Optional</em>): Default parser for messages if not explicit in message data: ‘html’ or ‘markdown’. Default is ‘markdown’.</li>
   <li><strong>url</strong> (<em>Optional</em>): Allow to overwrite the <code class="highlighter-rouge">base_url</code> from http component for diferent configs.</li>
 </ul>
-<p>To get your <code class="highlighter-rouge">chat_id</code> and <code class="highlighter-rouge">api_key</code> follow the instructions <a href="/components/notify.telegram">here</a> .</p>
+<p>To get your <code class="highlighter-rouge">chat_id</code> and <code class="highlighter-rouge">api_key</code> follow the instructions <a href="/components/notify.telegram">here</a>. As well as authorising the chat, if you have added your bot to a group you will also need to authorise any user that will be interacting with the webhook. When an unauthorised user tries to interact with the webhook Home Assistant will raise an error (“Incoming message is not allowed”), you can easily obtain the the users id by looking in the “from” section of this error message.</p>
 <p>Full configuration sample:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">http</span><span class="pi">:</span>
