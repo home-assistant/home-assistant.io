@@ -107,19 +107,19 @@ Additional sensors can be added but at the expense of a reduced refresh rate. 2 
   <span class="s">sensors</span><span class="pi">:</span>
     <span class="s">next_train_status</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">train</span><span class="nv"> </span><span class="s">status'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_train_to_wat.attributes.next_trains[0].status}}'</span>
     <span class="s">next_trains_origin</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">train</span><span class="nv"> </span><span class="s">origin'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_train_to_wat.attributes.next_trains[0].origin_name}}'</span>
     <span class="s">next_trains_estimated</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">train</span><span class="nv"> </span><span class="s">estimated'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_train_to_wat.attributes.next_trains[0].estimated}}'</span>
     <span class="s">next_trains_scheduled</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">train</span><span class="nv"> </span><span class="s">scheduled'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_train_to_wat.attributes.next_trains[0].scheduled}}'</span>
     <span class="s">next_trains_platform</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">train</span><span class="nv"> </span><span class="s">platform'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_train_to_wat.attributes.next_trains[0].platform}}'</span>
 
 </code></pre>
 </div>
@@ -153,16 +153,16 @@ stop you’re interested in</li>
   <span class="s">sensors</span><span class="pi">:</span>
     <span class="s">next_bus_route</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">bus</span><span class="nv"> </span><span class="s">route'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].route}}'</span>
     <span class="s">next_bus_direction</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">bus</span><span class="nv"> </span><span class="s">direction'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].direction}}'</span>
     <span class="s">next_bus_scheduled</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">bus</span><span class="nv"> </span><span class="s">scheduled'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].scheduled}}'</span>
     <span class="s">next_bus_estimated</span><span class="pi">:</span>
       <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Next</span><span class="nv"> </span><span class="s">bus</span><span class="nv"> </span><span class="s">estimated'</span>
-      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].estimated}}'</span>
 
 </code></pre>
 </div>
