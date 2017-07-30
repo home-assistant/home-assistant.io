@@ -15,7 +15,7 @@ The display style of each entity can be modified in the [customize section](/get
  
 | Attribute | Default | Description |
 | --------- | ------- | ----------- |
-| `device_class` | | `none` generic cover device<br>`window` window controller<br>`garage` Garage door controller
+| `device_class` | | `none` Generic cover device<br>`window` Window controller<br>`garage` Garage door controller
 | `assumed_state` | `false` | If set to `true`, cover buttons will always be enabled
 
 ## {% linkable_title Services %}
