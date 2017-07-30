@@ -222,7 +222,7 @@ The server will respond with a result message to indicate that unsubscribing was
 
 This will call a service in Home Assistant. Right now there is no return value. The client can listen to `state_changed` events if it is interested in changed entities as a result of a service call.
 
-```json5
+```json
 {
   "id": 24,
   "type": "call_service",
