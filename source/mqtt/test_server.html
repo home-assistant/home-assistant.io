@@ -11,56 +11,89 @@ footer: true
 
 <script src="https://unpkg.com/mqtt@2.9.3/dist/mqtt.min.js"></script>
 
-<form id='connection'>
-  <table>
-    <tr>
-      <td>
-        MQTT Websocket Server<br>
-        <small>Default of Home Assistant embedded websocket server is <code>ws://localhost:8080</code>.</small>
-      </td>
-      <td><input name='host' value="ws://localhost:8080" size="30" /></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><button>Connect</button></td>
-    </tr>
-  </table>
+<style>
+.mqtt-form input {
+  margin-bottom: 24px;
+}
+</style>
+
+<form id='connection' class='mqtt-form'>
+  <div class="grid">
+
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+        <label for="host">MQTT Websocket Server</label>
+        <small>Default for the Home Assistant embedded websocket server is <code>ws://localhost:8080</code>.</small>
+        <br><br>
+    </div>
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+      <input name='host' value="ws://localhost:8080" style='width: 100%' />
+    </div>
+
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+        <label for="password">API Password</label>
+        <small>Enter your Home Assistant password. This is required to connect to the MQTT server. This password will not be stored!</small>
+    </div>
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+      <input type='password' name='password' value="" style='width: 100%' />
+    </div>
+
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+    </div>
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+      <button>Connect</button>
+    </div>
+
+  </div>
 </form>
 
-<div id='connectionStatus' style='display: none'>
-  Host <span id='host'></span>. Status: <span id='status'></span>.
-  <button id='disconnectButton'>Disconnect</button>
+<div id='connectionStatus' class="grid push--bottom" style='display: none'>
+  <div class="grid__item one-half lap-one-half palm-one-whole">
+    Host <span id='host'></span>. Status: <span id='status'></span>.
+  </div>
+  <div class="grid__item one-half lap-one-half palm-one-whole">
+    <button id='disconnectButton'>Disconnect</button>
+  </div>
 </div>
 
-<form id='publisher' style='display: none;'>
-  <table>
-    <tr>
-      <td>Topic</td>
-      <td>
-        <input
-          name='topic'
-          value="homeassistant/kitchen/temperature"
-          size="30"
-          style='width: 100%'
-        />
-      </td>
-    </tr>
-    <tr>
-      <td>Payload</td>
-      <td>
+<form id='publisher' style='display: none;' class='mqtt-form'>
+  <div class="grid">
+
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+        <label for="topic">Topic</label>
+    </div>
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+      <input
+        name='topic'
+        value="homeassistant/kitchen/temperature"
+        style='width: 100%'
+      />
+    </div>
+
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+        Payload
+    </div>
+    <div class="grid__item one-half lap-one-half palm-one-whole">
       <textarea name='payload'>23</textarea>
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><button>Publish</button></td>
-    </tr>
-  </table>
+    </div>
+
+    <div class="grid__item one-half lap-one-half palm-one-whole">
+    </div>
+    <div class="grid__item one-half lap-one-half palm-one-whole push--top">
+      <button>Publish</button>
+    </div>
+
+  </div>
 </form>
 
 <script>
 function updateStatus(status) {
   document.getElementById('status').innerText = status;
+}
+function show(el) {
+  document.getElementById(el).style.display = 'block';
+}
+function hide(el) {
+  document.getElementById(el).style.display = 'none';
 }
 
 document.getElementById('connection').addEventListener('submit', function (ev) {
@@ -70,27 +103,38 @@ document.getElementById('connection').addEventListener('submit', function (ev) {
     window.client.end();
   }
 
-  var host = ev.target.querySelector('input').value;
+  var host = ev.target.querySelector('input[name=host]').value;
+  var password = ev.target.querySelector('input[name=password]').value;
+  var options = {};
 
-  window.client = mqtt.connect(host);
+  if (password) {
+    options.username = 'homeassistant';
+    options.password = password;
+  }
+
+  window.client = mqtt.connect(host, options);
   console.log('Connecting')
   document.getElementById('host').innerText = host;
   updateStatus("Connecting");
-  document.getElementById('connection').style.display = 'none';
-  document.getElementById('connectionStatus').style.display = 'block';
+  hide('connection');
+  show('connectionStatus');
 
   window.client.on("connect", function () {
     console.log('Connected')
     updateStatus("Connected");
-    document.getElementById('publisher').style.display = 'block';
+
+    hide('connection');
+    show('connectionStatus');
+    show('publisher');
   })
 
   window.client.on("close", function () {
     console.log('Connection closed')
     updateStatus("Disconnected");
-    document.getElementById('connection').style.display = 'block';
-    document.getElementById('connectionStatus').style.display = 'none';
-    document.getElementById('publisher').style.display = 'none';
+
+    show('connection');
+    hide('connectionStatus');
+    hide('publisher');
   })
 });
 
