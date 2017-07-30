@@ -98,10 +98,13 @@
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.illumination_34ce00xxxx11</span>
     <span class="s">below</span><span class="pi">:</span> <span class="s">300</span>
   <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.gateway_light_34ce00xxxx11</span>
-    <span class="s">data</span><span class="pi">:</span>
-      <span class="s">brightness</span><span class="pi">:</span> <span class="s">5</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.gateway_light_34ce00xxxx11</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">brightness</span><span class="pi">:</span> <span class="s">5</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">automation.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">automation.MOTION_OFF</span>
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">If there no motion for 5 minutes turn off the gateway light</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
@@ -111,8 +114,11 @@
     <span class="s">for</span><span class="pi">:</span>
       <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
   <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.gateway_light_34ce00xxxx11</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.gateway_light_34ce00xxxx11</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">automation.turn_off</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">automation.Motion_off</span>
 </code></pre>
 </div>
 <h4><a class="title-link" name="door-andor-window" href="#door-andor-window"></a> Door and/or Window</h4>

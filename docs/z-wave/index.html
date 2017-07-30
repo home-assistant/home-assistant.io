@@ -135,12 +135,12 @@
 Depending on what’s plugged into your USB ports, the name found above may change. You can lock in a name, such as <code class="highlighter-rouge">/dev/zwave</code>, by following <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">these instructions</a>.
 </p>
 <h3><a class="title-link" name="adding-devices" href="#adding-devices"></a> Adding Devices</h3>
-<p>To add a Z-Wave device to your system, go to the Services menu and select the <code class="highlighter-rouge">zwave</code> domain, and select the <code class="highlighter-rouge">add-node</code> service. Then find your device’s add button and press that as well.</p>
+<p>To add a Z-Wave device to your system, go to the Z-Wave panel in the Home Assistant frontend and click the Add Node button in the Z-Wave Network Management card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device.</p>
 <p class="note">
 Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devices to the network using their own contol buttons. This method should be avoided as it is prone to errors. Devices added to the Z-Wave network using this method may not function well.
 </p>
 <h3><a class="title-link" name="adding-security-devices" href="#adding-security-devices"></a> Adding Security Devices</h3>
-<p>Security Z-Wave devices require a network key before being added to the network using the <code class="highlighter-rouge">zwave.add_node_secure</code> service. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices.</p>
+<p>Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices.</p>
 <p>An easy script to generate a random key:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'0-9A-F'</span> | fold -w 32 | head -n 1 | sed -e <span class="s1">'s/\(..\)/0x\1, /g'</span>
 </code></pre>
