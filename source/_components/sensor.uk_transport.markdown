@@ -56,19 +56,19 @@ A large amount of information about upcoming departures is available within the 
   sensors:
     next_train_status:
       friendly_name: 'Next train status'
-      value_template: '{{states.sensor.next_train_to_wat.attributes.next_trains[0].status}}'
+      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].status}}'{% endraw %}
     next_trains_origin:
       friendly_name: 'Next train origin'
-      value_template: '{{states.sensor.next_train_to_wat.attributes.next_trains[0].origin_name}}'
+      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].origin_name}}'{% endraw %}
     next_trains_estimated:
       friendly_name: 'Next train estimated'
-      value_template: '{{states.sensor.next_train_to_wat.attributes.next_trains[0].estimated}}'
+      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].estimated}}'{% endraw %}
     next_trains_scheduled:
       friendly_name: 'Next train scheduled'
-      value_template: '{{states.sensor.next_train_to_wat.attributes.next_trains[0].scheduled}}'
+      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].scheduled}}'{% endraw %}
     next_trains_platform:
       friendly_name: 'Next train platform'
-      value_template: '{{states.sensor.next_train_to_wat.attributes.next_trains[0].platform}}'
+      value_template: {% raw %}'{{states.sensor.next_train_to_wat.attributes.next_trains[0].platform}}'{% endraw %}
 
 ```
 
@@ -106,16 +106,16 @@ And the template sensor for viewing the next bus attributes.
   sensors:
     next_bus_route:
       friendly_name: 'Next bus route'
-      value_template: '{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].route}}'
+      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].route}}'{% endraw %}
     next_bus_direction:
       friendly_name: 'Next bus direction'
-      value_template: '{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].direction}}'
+      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].direction}}'{% endraw %}
     next_bus_scheduled:
       friendly_name: 'Next bus scheduled'
-      value_template: '{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].scheduled}}'
+      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].scheduled}}'{% endraw %}
     next_bus_estimated:
       friendly_name: 'Next bus estimated'
-      value_template: '{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].estimated}}'
+      value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].estimated}}'{% endraw %}
 
 ```
 
