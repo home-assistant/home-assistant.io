@@ -54,7 +54,7 @@ More info about queries [here](https://github.com/rg3/youtube-dl#format-selectio
 
 ### {% linkable_title Use the service %}
 
-Go to the "Developer Tools", then to "Call Service", and choose `media_extractor/play_media` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
+Go to the "Developer Tools," then to "Call Service," and choose `media_extractor/play_media` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE."
 
 This will download the file from the given URL.
 

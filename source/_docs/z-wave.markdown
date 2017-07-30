@@ -86,7 +86,7 @@ Depending on what's plugged into your USB ports, the name found above may change
 
 ### {% linkable_title Adding Devices %}
 
-To add a Z-Wave device to your system, go to the Services menu and select the `zwave` domain, and select the `add-node` service. Then find your device's add button and press that as well.
+To add a Z-Wave device to your system, go to the Z-Wave panel in the Home Assistant frontend and click the Add Node button in the Z-Wave Network Management card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device.
 
 <p class='note'>
 Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devices to the network using their own contol buttons. This method should be avoided as it is prone to errors. Devices added to the Z-Wave network using this method may not function well.
@@ -94,7 +94,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
 
 ### {% linkable_title Adding Security Devices %}
 
-Security Z-Wave devices require a network key before being added to the network using the `zwave.add_node_secure` service. You must set the *network_key* configuration variable to use a network key before adding these devices.
+Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the *network_key* configuration variable to use a network key before adding these devices.
 
 An easy script to generate a random key:
 ```bash

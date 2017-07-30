@@ -9,27 +9,28 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Intent
-ha_release: 0.50
+ha_release: "0.50"
 ---
 
 The intent_script component allows users to configure actions and responses to intents. Intents can be fired by any component that supports it. Examples are Alexa (Amazon Echo), API.ai (Google Assistant) and Snips.
 
 ```yaml
-{% raw %}# Example configuration.yaml entry
+# Example configuration.yaml entry
 intent_script:
   GetTemperature:  # Intent type
     speech:
-      text: We have {{ states.sensor.temperature }} degrees
+      text: We have {% raw %}{{ states.sensor.temperature }}{% endraw %} degrees
     action:
       service: notify.notify
       data_template:
         message: Hello from an intent!
-{% endraw %}
 ```
+Configuration variables:
 
 Inside an intent we can define these variables:
-- **speech** (*Optional*): Text or template to return
-- **action** (*Optional*): [Script syntax]
-- **async_action** (*Optional*): Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
 
-[Script syntax]: /docs/scripts/
+- **intent** (*Required*): Name of the intent. Multiple entries are possible.
+  - **speech** (*Optional*): Text or template to return.
+  - **action** (*Optional*): [Script syntax](/docs/scripts/).
+  - **async_action** (*Optional*): Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
+

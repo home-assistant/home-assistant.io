@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: tp-link.png
-ha_category: light
+ha_category: Light
 ha_iot_class: "Local Polling"
 ha_release: "0.50"
 ---

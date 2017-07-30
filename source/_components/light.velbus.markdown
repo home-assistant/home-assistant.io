@@ -10,7 +10,7 @@ footer: true
 logo: velbus.png
 ha_category: Light
 ha_iot_class: "Local Push"
-ha_release: 0.49
+ha_release: "0.50"
 ---
 
 The `velbus` light allows you to control [Velbus](http://www.velbus.eu) lights.

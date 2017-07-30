@@ -43,10 +43,13 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
     entity_id: sensor.illumination_34ce00xxxx11
     below: 300
   action:
-    service: light.turn_on
-    entity_id: light.gateway_light_34ce00xxxx11
-    data:
-      brightness: 5
+    - service: light.turn_on
+      entity_id: light.gateway_light_34ce00xxxx11
+      data:
+        brightness: 5
+    - service: automation.turn_on
+      data:
+        entity_id: automation.MOTION_OFF
 - alias: If there no motion for 5 minutes turn off the gateway light
   trigger:
     platform: state
@@ -56,8 +59,11 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
     for:
       minutes: 5
   action:
-    service: light.turn_off
-    entity_id: light.gateway_light_34ce00xxxx11
+    - service: light.turn_off
+      entity_id: light.gateway_light_34ce00xxxx11
+    - service: automation.turn_off
+      data:
+        entity_id: automation.Motion_off
 ```
   
 #### {% linkable_title Door and/or Window %}
