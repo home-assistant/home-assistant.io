@@ -11,7 +11,7 @@ logo: mqtt.png
 redirect_from: /components/mqtt/#publish-service
 ---
 
-The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifying topics or payloads. You can either use `topic` and `payload` to hard-code them, or use ``topic_template`` and ``payload_template`` to specify a [template](/topics/templating/) that will be rendered to generate the topic and/or payload.
+The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifying topics or payloads. You can either use `topic` and `payload` to hard-code them, or use `topic_template` and `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the topic and/or payload.
 
 ```yaml
 - service: mqtt.publish
