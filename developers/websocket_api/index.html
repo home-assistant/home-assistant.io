@@ -249,17 +249,19 @@ b. Server can send results of previous commands.</li>
 </span></code></pre>
 </div>
 <h3><a class="title-link" name="calling-a-service" href="#calling-a-service"></a> Calling a service</h3>
-<p>This will call a service in Home Assistant. Right now there is no return value. The client can listen to <code class="highlighter-rouge">state_changed</code> events if it is interested in changed entities as a result of a service call.</p><pre><code class="language-json5">{
-  "id": 24,
-  "type": "call_service",
-  "domain": "light",
-  "service": "turn_on",
-  // Optional
-  "service_data": {
-    "entity_id": "light.kitchen"
-  }
-}
-</code></pre>
+<p>This will call a service in Home Assistant. Right now there is no return value. The client can listen to <code class="highlighter-rouge">state_changed</code> events if it is interested in changed entities as a result of a service call.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"call_service"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"light"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"turn_on"</span><span class="p">,</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Optional</span><span class="w">
+  </span><span class="nt">"service_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"light.kitchen"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 <p>The server will indicate with a message indicating that the service is done executing.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">

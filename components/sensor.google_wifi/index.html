@@ -86,12 +86,12 @@
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The address to retreive status from the router. Defaults to <code class="highlighter-rouge">testwifi.here</code> (other options include <code class="highlighter-rouge">onhub.here</code> and your router’s IP such as <code class="highlighter-rouge">192.168.86.1</code>).</li>
   <li><strong>name</strong> (<em>Optional</em>): Name to give the Google Wifi sensor. Defaults to <code class="highlighter-rouge">google_wifi</code>.</li>
-  <li><strong>monitored_conditions</strong> (<em>Optional</em>): Defines the data to monitor as sensors. Defaults to all of the listed options below.
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Defines the data to monitor as sensors. Defaults to all of the listed options below.
     <ul>
       <li><strong>current_version</strong>: Current firmware version of the router.</li>
-      <li><strong>new_version</strong>: Latest availiable firmware version.  If router is up-to-date, this value defaults to <code class="highlighter-rouge">Latest</code>.</li>
+      <li><strong>new_version</strong>: Latest availiable firmware version. If router is up-to-date, this value defaults to <code class="highlighter-rouge">Latest</code>.</li>
       <li><strong>uptime</strong>: Days since router has been turned on.</li>
-      <li><strong>last_restart</strong>: Date of last restart.  Format is <code class="highlighter-rouge">YYYY-MM-DD HH:mm:SS</code>.</li>
+      <li><strong>last_restart</strong>: Date of last restart. Format is <code class="highlighter-rouge">YYYY-MM-DD HH:mm:SS</code>.</li>
       <li><strong>local_ip</strong>: Local public IP address.</li>
       <li><strong>status</strong>: Reports whether the router is or is not connected to the internet.</li>
     </ul>
