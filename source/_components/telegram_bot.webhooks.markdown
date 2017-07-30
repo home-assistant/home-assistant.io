@@ -40,6 +40,8 @@ Configuration variables:
 - **api_key** (*Required*): The API token of your bot.
 - **trusted_networks** (*Optional*): Telegram server access ACL as list. Defaults to `149.154.167.197-233`.
 - **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
+- **proxy_url** (*Optional*): Proxy url if working behind one (`socks5://proxy_ip:proxy_port`)
+- **proxy_params** (*Optional*): Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.)
 - **url** (*Optional*): Allow to overwrite the `base_url` from http component for diferent configs.
 
 To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram) .
