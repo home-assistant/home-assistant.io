@@ -36,13 +36,13 @@ telegram_bot:
 
 Configuration variables:
 
-- **allowed_chat_ids** (*Required*): A list of user in the `user_id` Telegram format enabled to interact to webhook
+- **allowed_chat_ids** (*Required*): A list of ids representing the users and group chats that are authorised to interact with the webhook.
 - **api_key** (*Required*): The API token of your bot.
 - **trusted_networks** (*Optional*): Telegram server access ACL as list. Defaults to `149.154.167.197-233`.
 - **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
 - **url** (*Optional*): Allow to overwrite the `base_url` from http component for diferent configs.
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram) .
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorising the chat, if you have added your bot to a group you will also need to authorise any user that will be interacting with the webhook. When an unauthorised user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the the users id by looking in the "from" section of this error message.
 
 Full configuration sample:
 
