@@ -75,12 +75,28 @@
   </header>
   <hr class="divider">
   <p>Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.</p>
-<p>The display style of each entity can be modified in the <a href="/getting-started/customizing-devices/">customize section</a>. The following device classes are supported for covers:</p>
-<ul>
-  <li><strong>None</strong>: Generic cover device</li>
-  <li><strong>window</strong>: Window controller</li>
-  <li><strong>garage</strong>: Garage door controller</li>
-</ul>
+<p>The display style of each entity can be modified in the <a href="/getting-started/customizing-devices/">customize section</a>. Besides the basic ones like <code class="highlighter-rouge">friendly_name</code> or <code class="highlighter-rouge">hidden</code>, the following attributes are supported for covers:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">device_class</code></td>
+      <td> </td>
+      <td><code class="highlighter-rouge">none</code> Generic cover device<br /><code class="highlighter-rouge">window</code> Window controller<br /><code class="highlighter-rouge">garage</code> Garage door controller</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assumed_state</code></td>
+      <td><code class="highlighter-rouge">false</code></td>
+      <td>If set to <code class="highlighter-rouge">true</code>, cover buttons will always be enabled</td>
+    </tr>
+  </tbody>
+</table>
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 <h3><a class="title-link" name="cover-control-services" href="#cover-control-services"></a> Cover control services</h3>
 <p>Available services: <code class="highlighter-rouge">cover.open_cover</code>, <code class="highlighter-rouge">cover.close_cover</code>, <code class="highlighter-rouge">cover.stop_cover</code>, <code class="highlighter-rouge">cover.open_cover_tilt</code>, <code class="highlighter-rouge">cover.close_cover_tilt</code>, <code class="highlighter-rouge">cover.stop_cover_tilt</code></p>
