@@ -40,9 +40,7 @@ Configuration variables:
 - **parse_mode** (*Optional*): Default parser for messages if not explicit in message data: 'html' or 'markdown'. Default is 'markdown'.
 - **url** (*Optional*): Allow to overwrite the `base_url` from http component for diferent configs.
 
-To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). 
-
-*Note: If you have added your bot to a group. In the allowed_chat_ids list you will need to include the id for the chat as well as the user. Both of these ids are visible using the getUpdates methods described in the link above.*
+To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorising the chat, if you have added your bot to a group you will also need to authorise any user that will be interacting with the webhook. When an unauthorised user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the the users id by looking in the "from" section of this error message.
 
 Full configuration sample:
 
