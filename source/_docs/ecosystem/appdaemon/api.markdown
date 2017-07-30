@@ -356,6 +356,8 @@ A list of keyword values to be changed or added to the entities state. e.g. `sta
 ```python
 status = self.set_state("light.office_1", state = "on", attributes = {"color_name": "red"})
 ```
+When you want to set the value of a template sensor in Homeassistant, leave out the 'value_template' line in the configuration of the sensor.
+
 
 ### {% linkable_title About Callbacks %}
 
