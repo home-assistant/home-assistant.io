@@ -11,7 +11,7 @@ logo: mqtt.png
 redirect_from: /components/mqtt/#publish-service
 ---
 
-The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
+The MQTT component will register the service `publish` which allows publishing messages to MQTT topics. There are two ways of specifying topics or payloads. You can either use `topic` and `payload` to hard-code them, or use ``topic_template`` and ``payload_template`` to specify a [template](/topics/templating/) that will be rendered to generate the topic and/or payload.
 
 ```yaml
 - service: mqtt.publish
@@ -25,5 +25,12 @@ The MQTT component will register the service `publish` which allows publishing m
   data:
      topic: "home-assistant/light/1/state",
      payload_template: "{% raw %}{{ states('device_tracker.paulus') }}{% endraw %}"
+```
+
+```yaml
+- service: mqtt.publish
+  data:
+     topic_template: "home-assistant/light/{% raw %}{{ states('input_select.light_source.state') }}{% endraw }/state",
+     payload: "on"
 ```
 
