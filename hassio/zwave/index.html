@@ -84,7 +84,11 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>dtoverlay=pi3-miniuart-bt
 </code></pre>
 </div>
-<p>HUSBZB-1:</p>
+<p>For very special device, the <code class="highlighter-rouge">/dev/ttyAMA0</code> will not by udev and not mapped to docker. So you need explicit set this device for mapping to Home-Assistant. Execute this command on ssh add-on:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s1">'{"devices": "/dev/ttyAMA0"}'</span> http://172.17.0.2/homeassistant/options
+</code></pre>
+</div>
+<h3>HUSBZB-1:</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
   <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
   
