@@ -78,7 +78,7 @@ The config for an add-on is stored in `config.json`.
   "description": "long descripton",
   "arch": ["amd64"],
   "url": "website with more information about add-on (ie a forum thread for support)",
-  "startup": "before",
+  "startup": "application",
   "boot": "auto",
   "ports": {
     "123/tcp": 123
