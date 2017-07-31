@@ -19,7 +19,9 @@ $ hassio help
 This add-on will not enable you to install packages or do anything as root. This is not allowed with Hass.io.
 </p>
 
-To use this add-on, you must have a private/public key to log in. To generate them, follow the [instructions for Windows][win] and [these for other platforms][other]. It is possible to set a password for login since version 2.0 but for hight security use private/public keys. You can not run both variant at same time.
+To use this add-on, you must have a private/public key to log in. To generate them, follow the [instructions for Windows][win] and [these for other platforms][other]. It is possible to set a password for login since version 2.0 but for high security use private/public keys. You can not run both variant at same time.
+
+In order to start this add-on for the first time, you either need to include an ssh key (enclosed in quotation marks) or set a password in the options section. 
 
 ```json
 {
