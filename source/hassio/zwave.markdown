@@ -25,6 +25,7 @@ For very special device, the `/dev/ttyAMA0` will not detect by udev and not mapp
 ```bash
 $ curl -d '{"devices": ["ttyAMA0"]}' http://172.17.0.2/homeassistant/options
 ```
+After that you need change `usb_path` to `/dev/ttyACM0`.
 
 ### HUSBZB-1:
 ```yaml
