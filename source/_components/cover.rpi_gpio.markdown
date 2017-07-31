@@ -36,6 +36,7 @@ cover:
 Configuration variables:
 
 - **relay_time** (*Optional*): The time that the relay will be on for in seconds. Default is 0.2 seconds.
+- **relay_invert** (*Optional*): Invert the relay pin output so that it is active-high.  Default is False (active-low).
 - **state_pull_mode** (*Optional*): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.
 - **state_invert** (*Optional*): Invert the value of the State pin so that 0 means closed. Default is False.
 - **covers** array (*Required*): List of your doors.
@@ -50,6 +51,7 @@ Full example:
 cover:
   - platform: rpi_gpio
     relay_time: 0.2
+    relay_invert: False
     state_pull_mode: 'UP'
     state_invert: True
     covers:
