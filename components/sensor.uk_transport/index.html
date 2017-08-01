@@ -132,7 +132,7 @@ stop you’re interested in</li>
   <li>Tick the ‘map data’ layer, and wait for clickable objects to load</li>
   <li>Click the bus stop node to reveal its tags on the left</li>
 </ol>
-<p>The <code class="highlighter-rouge">destination</code> must be a valid location returned by the transportAPI query. Valid destinations can be checked by performing a GET query to  <code class="highlighter-rouge">/uk/bus/stop/{atcocode}/live.json</code> in the <a href="https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information">API reference webpage</a>. A bus sensor is added in the following <code class="highlighter-rouge">configuration.yaml</code> file entry:</p>
+<p>The <code class="highlighter-rouge">destination</code> must be a valid location in the “direction” field returned by a GET query to <code class="highlighter-rouge">/uk/bus/stop/{atcocode}/live.json</code> as described in the <a href="https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information">API reference webpage</a>. A bus sensor is added in the following <code class="highlighter-rouge">configuration.yaml</code> file entry:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for multiple sensors</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">uk_transport</span>

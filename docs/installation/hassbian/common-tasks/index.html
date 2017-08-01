@@ -117,7 +117,7 @@ To get the current state of the <code class="highlighter-rouge">homeassistant.se
 <span class="gp">$ </span>hass
 </code></pre>
 </div>
-<p>This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don’t forget to <a href="/getting-started/installation-raspberry-pi-image/#startstoprestart-home-assistant-on-hassbian">stop</a> it first.</p>
+<p>This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don’t forget to <a href="/getting-started/installation-raspberry-pi-image/#startstoprestart-home-assistant-on-hassbian">stop</a> it first. If you want the log output to be colored, execute <code class="highlighter-rouge">hass --script check_config</code> first. This will install the <code class="highlighter-rouge">colorlog</code> module.</p>
 <h3><a class="title-link" name="check-your-configuration" href="#check-your-configuration"></a> Check your configuration</h3>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
