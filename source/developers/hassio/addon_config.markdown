@@ -64,6 +64,8 @@ It is possible to use own base image with follow schema:
 #aarch64:FROM...
 ```
 
+Or if you not want to do a multi arch build/support you can also use a simle docker `FROM`.
+
 ## {% linkable_title Add-on config %}
 
 The config for an add-on is stored in `config.json`.
@@ -76,7 +78,7 @@ The config for an add-on is stored in `config.json`.
   "description": "long descripton",
   "arch": ["amd64"],
   "url": "website with more information about add-on (ie a forum thread for support)",
-  "startup": "before",
+  "startup": "application",
   "boot": "auto",
   "ports": {
     "123/tcp": 123

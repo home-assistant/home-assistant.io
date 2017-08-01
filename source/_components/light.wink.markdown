@@ -25,8 +25,10 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Hue
 - Lightify
 - GE link
+- Wink light groups (User created groups of lights)
 
 <p class='note'>
 The above devices are confimed to work, but others may work as well.
 </p>
+
 
