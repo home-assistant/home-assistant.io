@@ -88,6 +88,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s1">'{"devices": ["ttyAMA0"]}'</span> http://172.17.0.2/homeassistant/options
 </code></pre>
 </div>
+<p>After that you need change <code class="highlighter-rouge">usb_path</code> to <code class="highlighter-rouge">/dev/ttyACM0</code>.</p>
 <h3>HUSBZB-1:</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
   <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>

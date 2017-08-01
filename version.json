@@ -1,15 +1,15 @@
 {
-  "current_version": "0.50.0",
-  "release_date": "2017-07-29T00:00:00+00:00",
+  "current_version": "0.50.2",
+  "release_date": "2017-07-31T00:00:00+00:00",
   "release_notes": "https://home-assistant.io/blog/2017/07/29/release-50/",
   "release_notes_path": "/blog/2017/07/29/release-50/",
   "release_title": "0.50: Voice control, History improvements, and Xiaomi",
   "release_description": "Use your voice to control your Home.",
-  "patch_version_notes": "#",
+  "patch_version_notes": "#release-0502---july-31",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
     "minor": 50,
-    "patch": 0
+    "patch": 2
   }
 }

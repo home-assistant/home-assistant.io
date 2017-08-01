@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-07-31T20:54:41+00:00</updated>
+  <updated>2017-08-01T01:46:15+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -71,6 +71,24 @@
   <li>Add component Light TPLink (<a href="https://github.com/gollo">@gollo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8643">#8643</a>) (<a href="https://home-assistant.io/components/light.tplink/">light.tplink docs</a>) (new-platform)</li>
   <li>Velbus (<a href="https://github.com/thomasdelaet">@thomasdelaet</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8076">#8076</a>) (<a href="https://home-assistant.io/components/velbus/">velbus docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.velbus/">binary_sensor.velbus docs</a>) (<a href="https://home-assistant.io/components/light.velbus/">light.velbus docs</a>) (new-platform)</li>
   <li>Add uk_transport component. (<a href="https://github.com/robmarkcole">@robmarkcole</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8600">#8600</a>) (<a href="https://home-assistant.io/components/sensor.uk_transport/">sensor.uk_transport docs</a>) (new-platform)</li>
+</ul>
+
+<h2><a class="title-link" name="release-0502---july-31" href="#release-0502---july-31"></a> Release 0.50.2 - July 31</h2>
+
+<p>Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.</p>
+
+<ul>
+  <li>Fix TP-Link light brightness issue #8744. (<a href="https://github.com/gollo">@gollo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8755">#8755</a>)</li>
+  <li>Fix typo in script error (<a href="https://github.com/n8henrie">@n8henrie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8754">#8754</a>)</li>
+  <li>Fix tradfri error spam (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8738">#8738</a>) (<a href="https://home-assistant.io/components/light.tradfri/">light.tradfri docs</a>)</li>
+  <li>Media Player - Pioneer: Supress exception if host is not available (fixes #8684) (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8732">#8732</a>) (<a href="https://home-assistant.io/components/media_player.pioneer/">media_player.pioneer docs</a>)</li>
+  <li>Telegram Bot: Retry set_webhook up to three times, reduce timeout to 5s again (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8716">#8716</a>) (<a href="https://home-assistant.io/components/telegram_bot.webhooks/">telegram_bot.webhooks docs</a>)</li>
+  <li>Fixed sensor issue with Google Wifi routers in bridge mode (<a href="https://github.com/fronzbot">@fronzbot</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8710">#8710</a>) (<a href="https://home-assistant.io/components/sensor.google_wifi/">sensor.google_wifi docs</a>)</li>
+  <li>Fix alexa cards (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8708">#8708</a>) (<a href="https://home-assistant.io/components/alexa/">alexa docs</a>)</li>
+  <li>Fix Kodi reconnection after websocket disconnect (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8704">#8704</a>) (<a href="https://home-assistant.io/components/media_player.kodi/">media_player.kodi docs</a>)</li>
+  <li>Move I/O outside of properties for light/tplink platform (<a href="https://github.com/gollo">@gollo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8699">#8699</a>) (<a href="https://home-assistant.io/components/light.tplink/">light.tplink docs</a>) (new-platform)</li>
+  <li>Correctly discover GE Fan Controllers (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8682">#8682</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>)</li>
+  <li>Fix Z-Wave barrier discovery for new API (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8706">#8706</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (<a href="https://home-assistant.io/components/cover.zwave/">cover.zwave docs</a>)</li>
 </ul>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
