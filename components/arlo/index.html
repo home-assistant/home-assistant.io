@@ -89,6 +89,18 @@
 </ul>
 <p>It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.</p>
 <p>Finish its configuration by visiting the <a href="/components/sensor.arlo/">Arlo sensor page</a> or <a href="/components/camera.arlo/">Arlo camera page</a>.</p>
+<p>The Arlo component also provides a service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#automation.yaml</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Enable Arlo upton HA start'</span>
+  <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">homeassitant</span>
+    <span class="s">event</span><span class="pi">:</span> <span class="s">start</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">camera.enable_motion_detection</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">camera.arlo_frontdoor</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
