@@ -81,8 +81,8 @@
 </code></pre>
 </div>
 <h2><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h2>
-<p>Requirements are Python libraries that you would normally install using <code class="highlighter-rouge">pip</code> for your component. Home Assistant will try to install the requirements into the <code class="highlighter-rouge">deps</code> subdirectory of the Home Assistant configuration directory (<code class="highlighter-rouge">.home-assistant</code> by default) or verify it is already installed at startup. If that fails, the component will fail to load.</p>
-<p>Requirements is a list of strings. Each entry is a pip compatible string. For example, the media player Cast platform depends on the Python package PyChromecast v0.6.12:</p>
+<p>Requirements are Python libraries or modules that you would normally install using <code class="highlighter-rouge">pip</code> for your component. Home Assistant will try to install the requirements into the <code class="highlighter-rouge">deps</code> subdirectory of the Home Assistant <a href="/docs/configuration/">configuration directory</a> if you are not using a <code class="highlighter-rouge">venv</code> or in something like <code class="highlighter-rouge">path/to/venv/lib/python3.6/site-packages</code> if you running in a virtual environment. This will make sure that all requirements are present at startup. If steps fails like missing packages for the compilation of a module or other install errors, the component will fail to load.</p>
+<p>Requirements is a list of strings. Each entry is a <code class="highlighter-rouge">pip</code> compatible string. For example, the media player Cast platform depends on the Python package PyChromecast v0.6.12:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">REQUIREMENTS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'pychromecast==0.6.12'</span><span class="p">]</span>
 </code></pre>
 </div>
@@ -92,7 +92,7 @@
   <li><code class="highlighter-rouge">hass --skip-pip</code></li>
 </ul>
 <p>This will use the specified version, and prevent Home Assistant from trying to override it with what is currently in <code class="highlighter-rouge">REQUIREMENTS</code>.</p>
-<p>If you need to make changes to a requirement to support your component, it’s also possible to pip install from a checkout of the requirement.</p>
+<p>If you need to make changes to a requirement to support your component, it’s also possible to <code class="highlighter-rouge">pip install</code> from a checkout of the requirement.</p>
 <ul>
   <li><code class="highlighter-rouge">git clone https://github.com/balloob/pychromecast.git</code></li>
   <li><code class="highlighter-rouge">pip install ./pychromecast</code></li>
