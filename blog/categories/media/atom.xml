@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Media | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/media/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-01T19:21:02+00:00</updated>
+  <updated>2017-08-02T07:19:09+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Podcast #5]]></title>
+    <link href="https://home-assistant.io/blog/2017/08/01/hasspodcast-ep-5/"/>
+    <updated>2017-08-01T00:01:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/08/01/hasspodcast-ep-5</id>
+    <content type="html"><![CDATA[We cover off AppDaemon/HADashboard and all the fun stuff introduced in 0.49 and 0.50.
+
+Show notes available on the [Home Assistant Podcast Website](https://hasspodcast.io/ha005/)
+
+[Listen online][episode]
+
+[episode]: https://hasspodcast.io/ha005/
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Talk Python interview with Paulus Schoutsen]]></title>
@@ -69,19 +84,6 @@ Join Michael Kennedy at the Talk Python podcast for an hour long interview with 
 
 [Hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296/48
 [Home Assistant podcast]: https://hasspodcast.io/
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant Podcast 1]]></title>
-    <link href="https://home-assistant.io/blog/2017/06/02/home-assistant-podcast-1/"/>
-    <updated>2017-06-02T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/06/02/home-assistant-podcast-1</id>
-    <content type="html"><![CDATA[The first podcast by [Home Assistant Podcast](https://hasspodcast.io) contains an introduction and covers the [0.45](/blog/2017/05/20/automation-editor-zwave-panel-ocr/) release of Home Assistant.
-
-- Listen online: [https://hasspodcast.io/ha001/](https://hasspodcast.io/ha001/)
-- Download: [https://hasspodcast.io/podcast-download/13/ha001.mp3](https://hasspodcast.io/podcast-download/13/ha001.mp3)
-
 ]]></content>
   </entry>
   
