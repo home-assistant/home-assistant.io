@@ -76,18 +76,18 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">vizio</code> component will allow you to control <a href="https://www.vizio.com/smartcast-app">SmartCast</a> compatible TVs (2016+ models).</p>
 <h2>Pairing</h2>
-<p>Before adding TV to Home Assistant you’ll need to pair it manually, to do so follow these steps:</p>
-<p>Install the command-line tool using pip (you can choose to download it manually):</p>
+<p>Before adding your TV to Home Assistant you’ll need to pair it manually. To do so follow these steps:</p>
+<p>Install the command-line tool using pip (or you can choose to download it manually):</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install git+https://github.com/vkorn/pyvizio.git@master
 <span class="gp">$ </span>pip3 install -I .
 </code></pre>
 </div>
-<p>Make sure that your TV is on, as sometimes it won’t show PIN code if it wasn’t on during pairing initialization.
-If you don’t know IP address of your TV run following command:</p>
+<p>Make sure that your TV is on before continuing.</p>
+<p>If you don’t know IP address of your TV run following command:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pyvizio --ip<span class="o">=</span>0 --auth<span class="o">=</span>0 discover
 </code></pre>
 </div>
-<p>Initiate pairing:</p>
+<p>Enter the following command to initiate pairing:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pyvizio --ip<span class="o">={</span>ip<span class="o">}</span> pair
 </code></pre>
 </div>
@@ -102,7 +102,7 @@ If you don’t know IP address of your TV run following command:</p>
   <tbody>
     <tr>
       <td style="text-align: left">Challenge type</td>
-      <td style="text-align: left">Usually it’s should be <code class="highlighter-rouge">"1"</code>, if it’s not the case for you, use additional parameter <code class="highlighter-rouge">--ch_type=your_type</code> in the next step</td>
+      <td style="text-align: left">Usually it should be <code class="highlighter-rouge">"1"</code>. If not, use the additional parameter <code class="highlighter-rouge">--ch_type=your_type</code> in the next step</td>
     </tr>
     <tr>
       <td style="text-align: left">Challenge token</td>
@@ -110,13 +110,13 @@ If you don’t know IP address of your TV run following command:</p>
     </tr>
   </tbody>
 </table>
-<p>Finally, at this point PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:</p>
+<p>Finally, at this point a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pyvizio --ip<span class="o">={</span>ip<span class="o">}</span> pair_finish --token<span class="o">={</span>challenge_token<span class="o">}</span> --pin<span class="o">={</span>tv_pin<span class="o">}</span> 
 </code></pre>
 </div>
-<p>You will need authentication token returned by this command to configure Home Assistant.</p>
+<p>You will need the authentication token returned by this command to configure Home Assistant.</p>
 <h2>Configuration</h2>
-<p>To add your Vizio TV to your installation, add following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To add your Vizio TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">vizio</span>
@@ -127,18 +127,19 @@ If you don’t know IP address of your TV run following command:</p>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): IP address of your TV.</li>
-  <li><strong>access_token</strong> (<em>Required</em>): Authentication token you’ve received in last step of the pairing process.</li>
+  <li><strong>access_token</strong> (<em>Required</em>): Authentication token you received in the last step of the pairing process.</li>
 </ul>
 <h2>Notes and limitations</h2>
 <h3>Turning TV on</h3>
-<p>If you do have <code class="highlighter-rouge">Power Mode</code> of your TV configured to be <code class="highlighter-rouge">Eco Mode</code>, turning device ON won’t work.</p>
+<p>If the <code class="highlighter-rouge">Power Mode</code> of your TV is set to <code class="highlighter-rouge">Eco Mode</code>, turning the device ON won’t work.</p>
 <h3>Changing tracks</h3>
 <p>Changing tracks works like channels switching. If you have source other than regular TV it might end do nothing.</p>
 <h3>Sources</h3>
 <p>Source list shows all external devices connected to the TV through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).</p>
 <p class="note">
-Vizio SmartCast service is accessible through HTTPS with self-signed certificate. It means that if you have low LOGLEVEL in your Home Assistant configuration, you’ll see a lot of warnings like this <code class="highlighter-rouge">InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.</code> 
-As an option, you could proxy all calls for example through NGINX. 
+Vizio SmartCast service is accessible through HTTPS with self-signed certificate. If you have low LOGLEVEL in your Home Assistant configuration, you’ll see a lot of warnings like this:
+<code class="highlighter-rouge">InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.</code>
+You can adjust the log level for <code class="highlighter-rouge">media_player</code> components with the <a href="https://home-assistant.io/components/logger/">logger</a> component, or if you need to keep a low log level for <code class="highlighter-rouge">media_player</code> you could proxy calls to your TV through an NGINX reverse proxy.
 </p>
 </article>
         </div>

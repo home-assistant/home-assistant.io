@@ -134,13 +134,14 @@
 <h3>Triggering actions</h3>
 <p>In Home Assistant, we trigger actions based on intents produced by Snips using the <a href="/components/intent_script"><code class="highlighter-rouge">intent_script</code></a> component. For instance, the following block handles <code class="highlighter-rouge">ActivateLightColors</code> intents (included in the Snips IoT intent bundle) to change light colors:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">snips</span><span class="pi">:</span>
-  <span class="s">intents</span><span class="pi">:</span>
-    <span class="s">ActivateLightColor</span><span class="pi">:</span>
-      <span class="s">action</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
-          <span class="s">data_template</span><span class="pi">:</span>
-            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.{{ objectLocation | replace(" ","_") }}</span>
-            <span class="s">color_name</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">objectColor</span> <span class="pi">}}</span>
+
+<span class="s">intent_script</span><span class="pi">:</span>
+  <span class="s">ActivateLightColor</span><span class="pi">:</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.{{ objectLocation | replace(" ","_") }}</span>
+          <span class="s">color_name</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">objectColor</span> <span class="pi">}}</span>
 </code></pre>
 </div>
 </article>
