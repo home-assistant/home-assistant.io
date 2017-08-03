@@ -76,7 +76,7 @@
   <hr class="divider">
   <p>Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the <a href="/components/discovery/">discovery component</a>.</p>
 <p>Once discovered, if you have a custom default view, locate <code class="highlighter-rouge">configurator.philips_hue</code> in the entities list ( &lt; &gt; ) and add it to a group in <code class="highlighter-rouge">configuration.yaml</code>. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on <code class="highlighter-rouge">configurator.philips_hue</code> to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue hub in home assistant. Once complete, the configurator entity isn’t needed anymore and can be removed from any visible group in <code class="highlighter-rouge">configuration.yaml</code>.</p>
-<p>When you configure the Hue bridge from HA, it writes a token to a file in your HA configuration directory. That token authenticates the HA communication with the Hue bridge. This token uses the IP Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with home assistant again. TO avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.</p>
+<p>When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant <a href="/docs/configuration/">configuration directory</a>. That token authenticates the communication with the Hue bridge. This token uses the IP Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with Home Assistant again. To avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.</p>
 <p>Restarting Home Assistant once more should result in the Hue lights listed as “light” entities. Add these light entities to configuration.yaml and restart home assistant once more to complete the installation.</p>
 <p>If you want to enable the component without relying on the <a href="/components/discovery/">discovery component</a>, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -87,9 +87,7 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li>
-    <p><strong>host</strong> (<em>Optional</em>): IP address of the device, eg. 192.168.1.10. Required if not using the <code class="highlighter-rouge">discovery</code> component to discover Hue bridges.</p>
-  </li>
+  <li><strong>host</strong> (<em>Optional</em>): IP address of the device, eg. 192.168.1.10. Required if not using the <code class="highlighter-rouge">discovery</code> component to discover Hue bridges.</li>
   <li><strong>allow_unreachable</strong> (<em>Optional</em>): (true/false)  This will allow unreachable bulbs to report their state correctly.</li>
   <li><strong>filename</strong> (<em>Optional</em>): Make this unique if specifying multiple Hue hubs.</li>
   <li><strong>allow_in_emulated_hue</strong> (<em>Optional</em>): )true/false) Enable this to block all Hue entities from being added to the <code class="highlighter-rouge">emulated_hue</code> component.</li>
@@ -152,8 +150,7 @@ For instance:</p>
 <p><em>Note</em>: <code class="highlighter-rouge">group_name</code> is not linked to Home Assistant group name.</p>
 <p><em>** Finding Group and Scene Names **</em></p>
 <p>How do you find these names?</p>
-<p>The easiest way to do this is only use the scenes from the 2nd generation Hue app. That is organized by Room (Group) and Scene
-Name. Use the values of Room name and Scene name that you see in the app. You can test these work on the <code class="highlighter-rouge">dev-service</code> console of your Home Assistant instance.</p>
+<p>The easiest way to do this is only use the scenes from the 2nd generation Hue app. That is organized by Room (Group) and Scene Name. Use the values of Room name and Scene name that you see in the app. You can test these work on the <code class="highlighter-rouge">dev-service</code> console of your Home Assistant instance.</p>
 <p>Alternatively, you can dump all rooms and scene names using this <a href="https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578">gist</a>. This does <strong>not</strong> tell you which groups and scenes work together but it’s sufficient to get values that you can test in the <code class="highlighter-rouge">dev-service</code> console.</p>
 <p><em>** Caveats **</em></p>
 <p>The Hue API doesn’t activate Scenes directly, only on a Hue Group (typically Rooms, especially if using the 2nd gen app). But Hue Scenes don’t actually reference their group. So heuristic matching is used.</p>
