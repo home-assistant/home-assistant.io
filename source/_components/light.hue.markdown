@@ -18,7 +18,7 @@ Philips Hue support is integrated into Home Assistant as a light platform. The p
 
 Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the entities list ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue hub in home assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
 
-When you configure the Hue bridge from HA, it writes a token to a file in your HA configuration directory. That token authenticates the HA communication with the Hue bridge. This token uses the IP Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with home assistant again. TO avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.
+When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the IP Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with Home Assistant again. To avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.
 
 Restarting Home Assistant once more should result in the Hue lights listed as "light" entities. Add these light entities to configuration.yaml and restart home assistant once more to complete the installation.
 
@@ -33,8 +33,7 @@ light:
 
 Configuration variables:
 
-- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges. 
-
+- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
 - **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
 - **allow_in_emulated_hue** (*Optional*): )true/false) Enable this to block all Hue entities from being added to the `emulated_hue` component.
@@ -102,8 +101,7 @@ script:
 
 How do you find these names?
 
-The easiest way to do this is only use the scenes from the 2nd generation Hue app. That is organized by Room (Group) and Scene
-Name. Use the values of Room name and Scene name that you see in the app. You can test these work on the `dev-service` console of your Home Assistant instance.
+The easiest way to do this is only use the scenes from the 2nd generation Hue app. That is organized by Room (Group) and Scene Name. Use the values of Room name and Scene name that you see in the app. You can test these work on the `dev-service` console of your Home Assistant instance.
 
 Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together but it's sufficient to get values that you can test in the `dev-service` console.
 
