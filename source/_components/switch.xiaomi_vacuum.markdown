@@ -60,7 +60,7 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 1. Setup iOS device with the Mi-Home app.
 2. Create an unencrypted backup of the device using iTunes.
 3. Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/
-4. Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer
+4. Extract this file /raw data/com.xiami.mihome/{USERID}_mihome.sqlite to your computer
 5. Open the file extracted using notepad. You will then see the list of all the device in your account with their token.
 
 {% linkable_title Configuration %}
@@ -76,4 +76,4 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 Configuration variables:
 - **name** (*Optional*): The name of your robot
 - **host** (*Required*): The IP of your robot
-- **token** (*Required*): The token of your robot. Go to Getting started section to read more about how to get it
+- **token** (*Required*): The token of your robot. 32-characters consisting of digits and lowercase letters. Go to Getting started section to read more about how to get it
