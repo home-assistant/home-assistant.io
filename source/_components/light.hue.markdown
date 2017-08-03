@@ -18,6 +18,8 @@ Philips Hue support is integrated into Home Assistant as a light platform. The p
 
 Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the entities list ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue hub in home assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
 
+When you configure the Hue bridge from HA, it writes a token to a file in your HA configuration directory. That token authenticates the HA communication with the Hue bridge. This token uses the IP Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with home assistant again. TO avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.
+
 Restarting Home Assistant once more should result in the Hue lights listed as "light" entities. Add these light entities to configuration.yaml and restart home assistant once more to complete the installation.
 
 If you want to enable the component without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml`:
@@ -31,7 +33,7 @@ light:
 
 Configuration variables:
 
-- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges. 
 
 - **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
