@@ -48,5 +48,5 @@ automation:
     action:
       service: frontend.set_theme
       data:
-        name: pink
+        name: happy
 ```
