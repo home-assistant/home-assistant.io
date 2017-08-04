@@ -50,8 +50,8 @@ Configuration variables:
 - **name** (*Optional*): The name to use when displaying this SABnzbd instance.
 - **ssl** (*Optional*): Use `https` instead of `http` to connect. Defaults to False.
 - **monitored_variables** array (*Required*): List of the monitored variables.
-  - **current_status**: current status of the SABnzbd instance
-  - **speed**: Current speed
+  - **current_status**: Current status of the SABnzbd instance
+  - **speed**: Current speed.
   - **queue_size**: Size of the queue
   - **queue_remaining**: Remaining elements in the queue
   - **disk_size**: Disk size of the storage location
