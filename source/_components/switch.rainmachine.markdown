@@ -75,3 +75,10 @@ panel_iframe:
 ```
 
 You can find `<YOUR_DEVICE_ID>` by logging into [https://my.rainmachine.com](https://my.rainmachine.com ) and taking note of the URL.
+
+## {% linkable_title For Awareness %}
+
+The remote RainMachine API currently has two broken operations (i.e., they return
+error codes): starting a program and stopping a program. Please note that
+starting/stopping programs with the remote API is disabled until RainMachine
+can fix the issue.
