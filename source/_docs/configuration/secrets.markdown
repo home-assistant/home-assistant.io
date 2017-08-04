@@ -92,7 +92,7 @@ Please enter password for encrypted keyring:
   If you are using the Python Keyring, [autostarting](/getting-started/autostart/) of Home Assistant will no longer work.
 </p>
 
-### {% linkable_title Storing passwords in a keyring managed by your OS %}
+### {% linkable_title Storing passwords securely in AWS %}
 
 Using [Credstash](https://github.com/fugue/credstash) is an alternative way to `secrets.yaml`. They can be managed from the command line via the credstash script.
 
