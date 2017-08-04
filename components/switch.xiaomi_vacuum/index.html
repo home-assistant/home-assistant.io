@@ -120,7 +120,7 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
   <li>Setup iOS device with the Mi-Home app.</li>
   <li>Create an unencrypted backup of the device using iTunes.</li>
   <li>Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/</li>
-  <li>Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer</li>
+  <li>Extract this file /raw data/com.xiami.mihome/{USERID}_mihome.sqlite to your computer</li>
   <li>Open the file extracted using notepad. You will then see the list of all the device in your account with their token.</li>
 </ol>
 <p><a class="title-link" name="configuration" href="#configuration"></a> Configuration</p>
@@ -135,7 +135,7 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): The name of your robot</li>
   <li><strong>host</strong> (<em>Required</em>): The IP of your robot</li>
-  <li><strong>token</strong> (<em>Required</em>): The token of your robot. Go to Getting started section to read more about how to get it</li>
+  <li><strong>token</strong> (<em>Required</em>): The token of your robot. 32-characters consisting of digits and lowercase letters. Go to Getting started section to read more about how to get it</li>
 </ul>
 </article>
         </div>
