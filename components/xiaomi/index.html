@@ -115,7 +115,7 @@
      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>Multiple Gateway</p>
+<p>Multiple Gateways</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -125,12 +125,21 @@
       <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
+<p>Search for gateways on specific interface</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
+<span class="s">xiaomi</span><span class="pi">:</span>
+  <span class="s">interface</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.0.1'</span>
+  <span class="s">gateways</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
+      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
+</code></pre>
+</div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>mac</strong> (<em>Optional</em>): The MAC of your gateway. Required if you have more than one.</li>
   <li><strong>key</strong> (<em>Optional</em>): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.</li>
   <li><strong>discovery_retry</strong> (<em>Optional</em>): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.</li>
-  <li><strong>interface</strong> (<em>Optional</em>): Which network interface to use. Default to any.</li>
+  <li><strong>interface</strong> (<em>Optional</em>): Which network interface to use. Defaults to any.</li>
 </ul>
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 <p>The gateway provides two services: <code class="highlighter-rouge">xiaomi.play_ringtone</code> and <code class="highlighter-rouge">xiaomi.stop_ringtone</code>. To play ringtones by Home Assistant the version of the gateway firmware must be <code class="highlighter-rouge">1.4.1_145</code> at least. A <code class="highlighter-rouge">ringtone_id</code> and <code class="highlighter-rouge">gw_mac</code> must be supplied. The parameter <code class="highlighter-rouge">ringtone_vol</code> (percent) is optional. Allowed values of the <code class="highlighter-rouge">ringtone_id</code> are:</p>
