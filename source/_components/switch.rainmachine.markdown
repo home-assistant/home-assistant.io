@@ -18,7 +18,7 @@ a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/).
 
 ## {% linkable_title Configuring the Platform %}
 
-The platform allows for either local (i.e., directly across the LAN) and remote
+The platform allows for either local (i.e., directly across the LAN) or remote
 (i.e., through RainMachine's cloud API) access; the route you choose will
 dictate what your configuration should look like.
 
