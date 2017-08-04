@@ -10,7 +10,7 @@ footer: true
 logo: geizhals.png
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: "0.50"
+ha_release: "0.51"
 ---
 
 
