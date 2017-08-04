@@ -76,7 +76,7 @@
   </header>
   <hr class="divider">
   <p><a href="http://www.z-wave.com/">Z-Wave</a> integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a <a href="https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List">supported Z-Wave USB stick or module</a> to be plugged into the host.</p>
-<p>There is currently support for climate, covers, lights, locks, sensors, switches and thermostats. All will be picked up automatically after configuring this platform.</p>
+<p>There is currently support for climate, covers, lights, locks, sensors, switches, and thermostats. All will be picked up automatically after configuring this platform.</p>
 <h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
 <p>As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed.</p>
 <p>There is one dependency you will need to have installed ahead of time:</p>
@@ -92,7 +92,7 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>usb_path</strong> (<em>Optional</em>): The port where your device is connected to your Home Assistant host.</li>
-  <li><strong>network_key</strong> (<em>Optional</em>): The 16 byte network key in the form <code class="highlighter-rouge">"0x01,0x02..."</code> used in order to connect securely to compatible devices.</li>
+  <li><strong>network_key</strong> (<em>Optional</em>): The 16-byte network key in the form <code class="highlighter-rouge">"0x01,0x02..."</code> used in order to connect securely to compatible devices.</li>
   <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python OpenZWave configuration files. Defaults to the ‘config’ that is installed by python-openzwave</li>
   <li><strong>autoheal</strong> (<em>Optional</em>): Allows disabling auto Z-Wave heal at midnight. Defaults to True.</li>
   <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
@@ -112,7 +112,7 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyUSB<span class="k">*</span>
 </code></pre>
 </div>
-<p>Or, if there is no result try to find detailed USB connection info with:</p>
+<p>Or, if there is no result, try to find detailed USB connection info with:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>dmesg | grep USB
 </code></pre>
 </div>
@@ -137,7 +137,7 @@ Depending on what’s plugged into your USB ports, the name found above may chan
 <h3><a class="title-link" name="adding-devices" href="#adding-devices"></a> Adding Devices</h3>
 <p>To add a Z-Wave device to your system, go to the Z-Wave panel in the Home Assistant frontend and click the Add Node button in the Z-Wave Network Management card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device.</p>
 <p class="note">
-Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devices to the network using their own contol buttons. This method should be avoided as it is prone to errors. Devices added to the Z-Wave network using this method may not function well.
+Some Z-Wave controllers, like Aeotec ZW090 Z-Stick Gen5, have ability to add devices to the network using their own contol buttons. This method should be avoided as it is prone to errors. Devices added to the Z-Wave network using this method may not function well.
 </p>
 <h3><a class="title-link" name="adding-security-devices" href="#adding-security-devices"></a> Adding Security Devices</h3>
 <p>Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices.</p>
@@ -147,7 +147,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
 </div>
 <h3><a class="title-link" name="events" href="#events"></a> Events</h3>
 <h4><a class="title-link" name="zwavenetwork_complete" href="#zwavenetwork_complete"></a> zwave.network_complete</h4>
-<p>Home Assistant will trigger a event when the Z-Wave network is complete. Meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery powered devices on the network.</p>
+<p>Home Assistant will trigger an event when the Z-Wave network is complete, meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery-powered devices on the network.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is complete</span>
    <span class="s">trigger</span><span class="pi">:</span>
      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
@@ -155,7 +155,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
 </code></pre>
 </div>
 <h4><a class="title-link" name="zwavenetwork_ready" href="#zwavenetwork_ready"></a> zwave.network_ready</h4>
-<p>Home Assistant will trigger a event when the Z-Wave network is ready for use. Between <code class="highlighter-rouge">zwave.network_start</code> and <code class="highlighter-rouge">zwave.network_ready</code> Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered all awake nodes have been queried and sleeping nodes will be queried when they awake.</p>
+<p>Home Assistant will trigger an event when the Z-Wave network is ready for use. Between <code class="highlighter-rouge">zwave.network_start</code> and <code class="highlighter-rouge">zwave.network_ready</code> Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered, all awake nodes have been queried and sleeping nodes will be queried when they awake.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is ready</span>
    <span class="s">trigger</span><span class="pi">:</span>
      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
@@ -163,7 +163,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
 </code></pre>
 </div>
 <h4><a class="title-link" name="zwavenetwork_start" href="#zwavenetwork_start"></a> zwave.network_start</h4>
-<p>Home Assistant will trigger a event when the Z-Wave network is set up to be started.</p>
+<p>Home Assistant will trigger an event when the Z-Wave network is set up to be started.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is starting</span>
    <span class="s">trigger</span><span class="pi">:</span>
      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
@@ -171,7 +171,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
 </code></pre>
 </div>
 <h4><a class="title-link" name="zwavenetwork_stop" href="#zwavenetwork_stop"></a> zwave.network_stop</h4>
-<p>Home Assistant will trigger a event when the Z-Wave network stopping.</p>
+<p>Home Assistant will trigger an event when the Z-Wave network is stopping.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is stopping</span>
    <span class="s">trigger</span><span class="pi">:</span>
      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
@@ -179,7 +179,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
 </code></pre>
 </div>
 <h4><a class="title-link" name="zwavenode_event" href="#zwavenode_event"></a> zwave.node_event</h4>
-<p>Home Assistant will trigger a event when command_class_basic changes value on a node. This can be virtually anything, so tests have to be made to determine what value equals what. You can use this for automations.</p>
+<p>Home Assistant will trigger an event when command_class_basic changes value on a node. This can be virtually anything, so tests have to be made to determine what value equals what. You can use this for automations.</p>
 <p>Example:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button Pressed</span>
    <span class="s">trigger</span><span class="pi">:</span>
@@ -192,7 +192,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
 </div>
 <p>The <em>object_id</em> and <em>basic_level</em> of all triggered events can be seen in the console output.</p>
 <h4><a class="title-link" name="zwavescene_activated" href="#zwavescene_activated"></a> zwave.scene_activated</h4>
-<p>Some devices can also trigger scene activation events, which can be used in automation scripts (for example the press of a button on a wall switch):</p>
+<p>Some devices can also trigger scene activation events, which can be used in automation scripts (for example, the press of a button on a wall switch):</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on Desk light</span>
@@ -225,7 +225,7 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
     </tr>
     <tr>
       <td>cancel_command</td>
-      <td>Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decides you are not going to do it, then this must be used to stop the inclusion/exclusion command.</td>
+      <td>Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decide you are not going to do it, then this must be used to stop the inclusion/exclusion command.</td>
     </tr>
     <tr>
       <td>change_association</td>
@@ -265,11 +265,11 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
     </tr>
     <tr>
       <td>remove_failed_node</td>
-      <td>Remove a failed node from the network. The Node should be on the Controllers Failed Node List, otherwise this command will fail.</td>
+      <td>Remove a failed node from the network. The Node should be on the controller’s Failed Node List, otherwise this command will fail.</td>
     </tr>
     <tr>
       <td>replace_failed_node</td>
-      <td>Replace a failed device with another. If the node is not in the controller’s failed nodes list, or the node responds, this command will fail.</td>
+      <td>Replace a failed device with another. If the node is not in the controller’s Failed Node List, or the node responds, this command will fail.</td>
     </tr>
     <tr>
       <td>reset_node_meters</td>
@@ -277,11 +277,11 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
     </tr>
     <tr>
       <td>set_config_parameter</td>
-      <td>Let’s the user set a config parameter to a node. NOTE: Use string for list values. For all others use integer.</td>
+      <td>Lets the user set a config parameter to a node. NOTE: Use string for list values. For all others use integer.</td>
     </tr>
     <tr>
       <td>soft_reset</td>
-      <td>Tells the controller to do a “soft reset”. This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command.</td>
+      <td>Tells the controller to do a “soft reset.” This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command.</td>
     </tr>
     <tr>
       <td>start_network</td>
@@ -293,11 +293,11 @@ Some Z-Wave controllers like Aeotec ZW090 Z-Stick Gen5 have ability to add devic
     </tr>
     <tr>
       <td>test_network</td>
-      <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead”.</td>
+      <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead.”</td>
     </tr>
   </tbody>
 </table>
-<p>The <code class="highlighter-rouge">soft_reset</code> and <code class="highlighter-rouge">heal_network</code> commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below.  By default, Home Assistant will run a <code class="highlighter-rouge">heal_network</code> at midnight.  This is a configuration option for the <code class="highlighter-rouge">zwave</code> component, the option defaults to <code class="highlighter-rouge">true</code> but can be disabled by setting <code class="highlighter-rouge">autoheal</code> to false.  Using the <code class="highlighter-rouge">soft_reset</code> function with some Z-Wave controllers can cause the Z-Wave network to hang. If you’re having issues with your Z-Wave network try disabling this automation.</p>
+<p>The <code class="highlighter-rouge">soft_reset</code> and <code class="highlighter-rouge">heal_network</code> commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below. By default, Home Assistant will run a <code class="highlighter-rouge">heal_network</code> at midnight. This is a configuration option for the <code class="highlighter-rouge">zwave</code> component. The option defaults to <code class="highlighter-rouge">true</code> but can be disabled by setting <code class="highlighter-rouge">autoheal</code> to false. Using the <code class="highlighter-rouge">soft_reset</code> function with some Z-Wave controllers can cause the Z-Wave network to hang. If you’re having issues with your Z-Wave network, try disabling this automation.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">soft reset at 2:30am</span>
