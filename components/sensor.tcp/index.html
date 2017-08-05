@@ -106,14 +106,14 @@
 <p>You will notice that the output from the service is not just a single value (it contains “;ok” as well). To grab the value we’re interested in, we can use a Jinja2 template. The response received is injected into the template as the <code class="highlighter-rouge">value</code> variable. To use this value within Home Assistant, use the following configuration:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
 <span class="c1"># Example configuration.yaml entry</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Central Heating Pressure</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">10.0.0.127</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">8888</span>
-  <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
-  <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="s">r</span><span class="nv"> </span><span class="s">WaterPressure</span><span class="se">\n</span><span class="s">"</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split(';')[0]</span><span class="nv"> </span><span class="s">}}"</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">Bar</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Central Heating Pressure</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">10.0.0.127</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">8888</span>
+    <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
+    <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="s">r</span><span class="nv"> </span><span class="s">WaterPressure</span><span class="se">\n</span><span class="s">"</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split(';')[0]</span><span class="nv"> </span><span class="s">}}"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s">Bar</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="hddtemp" href="#hddtemp"></a> hddtemp</h3>
@@ -133,14 +133,14 @@ Escape character is <span class="s1">'^]'</span>.
 <p>The entry for the <code class="highlighter-rouge">configuration.yaml</code> file for a <code class="highlighter-rouge">hddtemp</code> sensor could look like the example below.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
 <span class="c1"># Example configuration.yaml entry</span>
-  <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">HDD temperature</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
-  <span class="s">port</span><span class="pi">:</span> <span class="s">7634</span>
-  <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
-  <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="se">\n</span><span class="s">"</span>
-  <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split('|')[3]</span><span class="nv"> </span><span class="s">}}"</span>
-  <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">tcp</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">HDD temperature</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">7634</span>
+    <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
+    <span class="s">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="se">\n</span><span class="s">"</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.split('|')[3]</span><span class="nv"> </span><span class="s">}}"</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
 </code></pre>
 </div>
 </article>

@@ -75,6 +75,15 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">supervisord</code> platform allows you to track the states of <a href="http://supervisord.org/">Supervisord</a>.</p>
+<p>It required that you enable the HTTP feature in the <code class="highlighter-rouge">/etc/supervisord.conf</code> configuration file.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>[inet_http_server]
+port=127.0.0.1:9001
+</code></pre>
+</div>
+<p>After a restart of <code class="highlighter-rouge">supervisord</code> you should be able to access the web interface. If needed then this could be added as a <a href="/components/panel_iframe/">iFrame panel</a>.</p>
+<p class="img">
+  <img src="/images/screenshots/supervisor.png" />
+</p>
 <p>To use this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
