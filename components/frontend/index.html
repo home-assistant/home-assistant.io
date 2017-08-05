@@ -79,10 +79,11 @@
 <span class="s">frontend</span><span class="pi">:</span>
 </code></pre>
 </div>
-<h4>Themes</h4>
+<h3><a class="title-link" name="themes" href="#themes"></a> Themes</h3>
 <p>Starting with version 0.49 you can define themes:</p>
 <p>Example:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">frontend</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">frontend</span><span class="pi">:</span>
   <span class="s">themes</span><span class="pi">:</span>
     <span class="s">happy</span><span class="pi">:</span>
       <span class="s">primary-color</span><span class="pi">:</span> <span class="s">pink</span>
@@ -90,11 +91,11 @@
       <span class="s">primary-color</span><span class="pi">:</span> <span class="s">blue</span>
 </code></pre>
 </div>
-<p>The example above defined two themes named <code class="highlighter-rouge">happy</code> and <code class="highlighter-rouge">sad</code>. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html">ha-style.html</a></p>
+<p>The example above defined two themes named <code class="highlighter-rouge">happy</code> and <code class="highlighter-rouge">sad</code>. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html">ha-style.html</a>.</p>
 <p>There are 2 themes-related services:</p>
 <ul>
-  <li><code class="highlighter-rouge">frontend.reload_themes</code> - reloads theme configuration from yaml.</li>
-  <li><code class="highlighter-rouge">frontend.set_theme(name)</code> - sets backend-preferred theme name.</li>
+  <li><code class="highlighter-rouge">frontend.reload_themes</code>: reloads theme configuration from your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><code class="highlighter-rouge">frontend.set_theme(name)</code>: sets backend-preferred theme name.</li>
 </ul>
 <p>Example in automation:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
@@ -106,7 +107,7 @@
     <span class="s">action</span><span class="pi">:</span>
       <span class="s">service</span><span class="pi">:</span> <span class="s">frontend.set_theme</span>
       <span class="s">data</span><span class="pi">:</span>
-        <span class="s">name</span><span class="pi">:</span> <span class="s">pink</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">happy</span>
 </code></pre>
 </div>
 </article>
