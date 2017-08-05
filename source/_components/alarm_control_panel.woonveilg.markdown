@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: woonveilig.png
-ha_release: 0.49
+ha_release: 0.51
 ha_category: Alarm
 ---
 
-For support for the Woonveilig alarm panel, see the ['egardia' platform](https://home-assistant.io/components/alarm_control_panel.egardia/). Woonveilig is a brand name of Egardia, used in the Netherlands. The product is the same.
+For support for the Woonveilig alarm panel, see the [`egardia` platform](/components/alarm_control_panel.egardia/). Woonveilig is a brand name of Egardia, used in the Netherlands. The product is the same.
