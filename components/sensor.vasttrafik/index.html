@@ -83,10 +83,7 @@
     <span class="s">key</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXXXXX</span>
     <span class="s">secret</span><span class="pi">:</span> <span class="s">YYYYYYYYYYYYYYYYY</span>
     <span class="s">departures</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Mot järntorget</span>
-        <span class="s">from</span><span class="pi">:</span> <span class="s">Musikvägen</span>
-        <span class="s">heading</span><span class="pi">:</span> <span class="s">Järntorget</span>
-        <span class="s">delay</span><span class="pi">:</span> <span class="s">10</span>
+      <span class="pi">-</span> <span class="s">from</span><span class="pi">:</span> <span class="s">Musikvägen</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -98,11 +95,24 @@
       <li><strong>name</strong> (<em>Optional</em>): Name of the route.</li>
       <li><strong>from</strong> (<em>Required</em>): The start station.</li>
       <li><strong>heading</strong> (<em>Optional</em>): Direction of the travelling.</li>
-      <li><strong>delay</strong> (<em>Optional</em>): Delay in minutes.</li>
+      <li><strong>delay</strong> (<em>Optional</em>): Delay in minutes. Defaults to 0.</li>
     </ul>
   </li>
 </ul>
 <p>The data are coming from <a href="https://vasttrafik.se/">Västtrafik</a>.</p>
+<p>A full configuration example could look like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">vasttrafik</span>
+    <span class="s">key</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXXXXX</span>
+    <span class="s">secret</span><span class="pi">:</span> <span class="s">YYYYYYYYYYYYYYYYY</span>
+    <span class="s">departures</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Mot järntorget</span>
+        <span class="s">from</span><span class="pi">:</span> <span class="s">Musikvägen</span>
+        <span class="s">heading</span><span class="pi">:</span> <span class="s">Järntorget</span>
+        <span class="s">delay</span><span class="pi">:</span> <span class="s">10</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
