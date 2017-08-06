@@ -19,30 +19,8 @@ First you have to set up your [rflink hub](/components/rflink/).
 
 Second you have to add the Somfy RTS manually with the supplied rflinkloader (Windows Only)
 
-````
-10;RTSSHOW;
-````
 
-````
-RTS Record: 0 Address: FFFFFF RC: FFFF
-RTS Record: 1 Address: FFFFFF RC: FFFF
-RTS Record: 2 Address: FFFFFF RC: FFFF
-RTS Record: 3 Address: FFFFFF RC: FFFF
-RTS Record: 4 Address: FFFFFF RC: FFFF
-RTS Record: 5 Address: FFFFFF RC: FFFF
-RTS Record: 6 Address: FFFFFF RC: FFFF
-RTS Record: 7 Address: FFFFFF RC: FFFF
-RTS Record: 8 Address: FFFFFF RC: FFFF
-RTS Record: 9 Address: FFFFFF RC: FFFF
-RTS Record: 10 Address: FFFFFF RC: FFFF
-RTS Record: 11 Address: FFFFFF RC: FFFF
-RTS Record: 12 Address: FFFFFF RC: FFFF
-RTS Record: 13 Address: FFFFFF RC: FFFF
-RTS Record: 14 Address: FFFFFF RC: FFFF
-RTS Record: 15 Address: FFFFFF RC: FFFF
-````
-
-Press the Learn button on the remote
+Press the Learn button on the original Somfy remote
 enter the following code within 3 seconds. Your blinds will go up and down shortly 
 
 ````
