@@ -24,7 +24,7 @@ vacuum:
 
 ### {% linkable_title Component services %}
 
-Available services: `turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fanspeed` and `send_command`.
+Available services: `turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
 
 Before calling one of these services, make sure your botvac platform supports it.
 
@@ -70,7 +70,15 @@ Tell the botvac to return home.
 
 #### {% linkable_title Service `vacuum/locate` %}
 
-Start a new cleaning task.
+Locate the vacuum cleaner robot.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific botvac. Else targets all.        |
+
+#### {% linkable_title Service `vacuum/clean_spot` %}
+
+Tell the vacuum cleaner to do a spot clean-up.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
