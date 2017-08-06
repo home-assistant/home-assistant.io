@@ -9,12 +9,12 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Hub
-ha_release: 0.50
+ha_release: 0.51
 ---
 
 The `xiaomi` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
 
-Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `turn_off` (stops goes to dock), `locate`, `set_fanspeed` and even remote control your robot.
+Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `turn_off` (stops goes to dock), `locate`, `clean_spot`, `set_fanspeed` and even remote control your robot.
 
 ## {% linkable_title Getting started %}
 
@@ -23,7 +23,7 @@ Follow the pairing process using your phone and Mi-Home app. From here you will 
 <p class='note warning'>
 If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
 
-```bash 
+```bash
 $ sudo su -s /bin/bash homeassistant
 $ source /srv/homeassistant/bin/activate
 ```
@@ -41,7 +41,7 @@ In order to fetch the token follow these instructions depending on your mobile p
 5. If you have this message : "More than one device or emulator", use this command to list all devices:
 ```bash
 .\adb devices
-``` 
+```
 and execute this command:
 ```bash
 .\adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab # (with DEVICEID the device id from the previous command)
