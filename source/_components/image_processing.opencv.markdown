@@ -17,8 +17,6 @@ ha_release: 0.47
 
 Some pre-defined classifiers can be found here: https://github.com/opencv/opencv/tree/master/data
 
-### {% linkable_title Configuration %}
-
 To setup OpenCV with Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml

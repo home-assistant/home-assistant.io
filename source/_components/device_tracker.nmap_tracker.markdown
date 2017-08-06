@@ -17,6 +17,10 @@ As an alternative to the router-based device tracking, it is possible to directl
 
 If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
 
+<p class='note'>
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+</p>
+
 Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
