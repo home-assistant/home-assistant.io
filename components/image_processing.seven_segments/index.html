@@ -75,6 +75,9 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">seven_segments</code> image processing platform allows you to read physical seven segments displays through Home Assistant. <a href="https://www.unix-ag.uni-kl.de/~auerswal/ssocr/"><code class="highlighter-rouge">ssocr</code></a> is used to extract the value shown on the display which is observed by a <a href="/components/camera/">camera</a>. <code class="highlighter-rouge">ssocr</code> need to be available on your system. Check the installation instruction for Fedora below or use <code class="highlighter-rouge">$ sudo apt-get install ssocr</code> on a Debian-based system:</p>
+<p class="note">
+If you are using <a href="/hassio/">Hass.io</a> then just move forward to the configuration as all requirements are already fullfilled.
+</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install imlib2-devel
 <span class="gp">$ </span>git clone https://github.com/auerswal/ssocr.git
 <span class="gp">$ </span><span class="nb">cd </span>ssocr
