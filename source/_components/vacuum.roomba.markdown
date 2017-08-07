@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: irobot_roomba.png
-ha_category: Hub
+ha_category: Vacuum
 ha_release: 0.51
 ---
 
