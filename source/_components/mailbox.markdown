@@ -6,6 +6,7 @@ date: 2017-06-30 18:30
 sidebar: true
 comments: false
 sharing: true
+ha_version: 0.51
 footer: true
 ---
 
@@ -13,5 +14,5 @@ Mailboxes provide an list of messages with short information about each.  Mailbo
 
 Home Assistant currently supports only the [Asterisk Vaoicemail](/component/mailbox.asterisk_mbox) mailbox.
 
-Each mailbox also automatically includes a [Mailbox Sensors](/components/sensor.mailbox) to indicate the number of messages available.
+Each mailbox also provides an entity to indicate the number of messages available on the main page.
 

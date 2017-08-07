@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Other
+ha_version: 0.51
 ha_iot_class: "Local Push"
 ---
 
