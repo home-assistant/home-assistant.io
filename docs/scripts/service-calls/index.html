@@ -99,7 +99,7 @@ Use the <img src="/images/screenshots/developer-tool-services-icon.png" class="n
 <h3><a class="title-link" name="use-templates-to-decide-which-service-to-call" href="#use-templates-to-decide-which-service-to-call"></a> Use templates to decide which service to call</h3>
 <p>You can use <a href="/topics/templating/">templating</a> support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-  <span class="no">{% if states.sensor.temperature | float &gt; 15 %}</span>
+  <span class="no">{% if states.sensor.temperature.state | float &gt; 15 %}</span>
     <span class="no">switch.turn_on</span>
   <span class="no">{% else %}</span>
     <span class="no">switch.turn_off</span>
