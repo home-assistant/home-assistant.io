@@ -10,7 +10,7 @@ footer: true
 ha_category: Light
 ha_iot_class: "Local Polling"
 logo: leviton.png
-ha_release: 0.37
+ha_release: 0.51
 ---
 
 Support for [Leviton Decora Wi-Fi](http://www.leviton.com/en/products/lighting-controls/decora-smart-with-wifi) dimmers/switches.
