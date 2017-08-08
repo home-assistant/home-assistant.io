@@ -210,9 +210,14 @@ CMD [ "/run.sh" ]
       <td>Device list to map into add-on. Format is: <code class="highlighter-rouge">&lt;path_on_host&gt;:&lt;path_in_container&gt;:&lt;cgroup_permissions&gt;</code>. i.e. <code class="highlighter-rouge">/dev/ttyAMA0:/dev/ttyAMA0:rwm</code></td>
     </tr>
     <tr>
+      <td>hassio_api</td>
+      <td>no</td>
+      <td>This add-on can access to hass.io REST API. It set the host alias <code class="highlighter-rouge">hassio</code>.</td>
+    </tr>
+    <tr>
       <td>privileged</td>
       <td>no</td>
-      <td>Privilege for access to hardware/system. Available access: <code class="highlighter-rouge">NET_ADMIN</code>, <code class="highlighter-rouge">SYS_ADMIN</code></td>
+      <td>Privilege for access to hardware/system. Available access: <code class="highlighter-rouge">NET_ADMIN</code>, <code class="highlighter-rouge">SYS_ADMIN</code>, <code class="highlighter-rouge">SYS_RAWIO</code></td>
     </tr>
     <tr>
       <td>map</td>
@@ -223,6 +228,11 @@ CMD [ "/run.sh" ]
       <td>environment</td>
       <td>no</td>
       <td>A dict of environment variable to run add-on.</td>
+    </tr>
+    <tr>
+      <td>audio</td>
+      <td>no</td>
+      <td>Mark this add-on to use internal audio system. Environment is <code class="highlighter-rouge">ALSA_INPUT</code> and <code class="highlighter-rouge">ALSA_OUTPUT</code> to access the internal information for alsa.</td>
     </tr>
     <tr>
       <td>options</td>
