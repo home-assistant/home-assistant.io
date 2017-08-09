@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: doorbird.png
 ha_category: Hub
-ha_release: "0.50"
+ha_release: "0.52"
 ha_iot_class: "Local Polling"
 ---
 
