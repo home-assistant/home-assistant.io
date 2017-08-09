@@ -25,7 +25,7 @@ Hass.io images are available for all available Raspberry Pi and Intel NUC platfo
   <img src='/images/hassio/screenshots/first-start.png' />
 </p>
 
-- Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration.
+- Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration (From the UI choose **Hass.io** which is located in the sidebar).
 
 <p class='note'>
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
