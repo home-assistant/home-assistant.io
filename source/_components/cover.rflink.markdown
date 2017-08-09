@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: rflink.png
 ha_category: Cover
-ha_release: 0.50
-ha_iot_class: "Local Polling"
+ha_release: 0.51
 ---
 
 The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
