@@ -110,6 +110,7 @@
 <h3><a class="title-link" name="cpu-temperature" href="#cpu-temperature"></a> CPU temperature</h3>
 <p>Thanks to the <a href="https://en.wikipedia.org/wiki/Procfs"><code class="highlighter-rouge">proc</code></a> file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">command_line</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">CPU Temperature</span>
     <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cat</span><span class="nv"> </span><span class="s">/sys/class/thermal/thermal_zone0/temp"</span>
