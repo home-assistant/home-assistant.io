@@ -20,13 +20,13 @@ To connect your device, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 doorbird:
-  host: 192.168.2.xx
+  host: 
   username: abcdef0001
   password: xxxxxxxxxx
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The LAN IP address of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
+- **host** (*Required*): The LAN IP address or hostname of your device. You can find this by going to the [DoorBird Online check](http://www.doorbird.com/checkonline) and entering the information from the paper that was included in the box.
 - **username** (*Required*): The username of a non-administrator user account on the device.
 - **password** (*Required*): The password for the user specified.

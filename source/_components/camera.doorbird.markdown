@@ -25,9 +25,8 @@ To enable the camera, add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 camera:
   - platform: doorbird
-    last_visitor: true
 ```
 
 Configuration variables:
 
-- **last_visitor** (*Optional*): Adds a second camera that shows the last picture taken when someone rang the doorbell.
+- **last_visitor** (*Optional*): Adds a second camera that shows the last picture taken when someone rang the doorbell. Default is `false`.

@@ -25,6 +25,4 @@ To enable the binary sensor, add the following to your `configuration.yaml` file
 # Example configuration.yaml entry
 binary_sensor:
   - platform: doorbird
-    monitored_conditions:
-      - doorbell
 ```

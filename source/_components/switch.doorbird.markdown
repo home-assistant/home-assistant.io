@@ -29,3 +29,7 @@ switch:
       - light_on
       - open_door
 ```
+
+Configuration variables:
+
+- **switches** (*Required*): A list of switches to include. Possible entries are `light_on` for control of the IR array and `open_door` for control of an electronic door strike or alarm.
