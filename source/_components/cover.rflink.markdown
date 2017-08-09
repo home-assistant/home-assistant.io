@@ -15,9 +15,11 @@ ha_release: 0.51
 The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First you have to set up your [rflink hub](/components/rflink/).
+After configuring the RFLink hub covers will be automatically discovered and added. With the exeption of the Somfy RTS devices. ( see below )
 
-Second you have to add the Somfy RTS manually with the supplied rflinkloader (Windows Only)
+### {% setting up a Somfy RTS device%}
 
+You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows Only)
 
 Press the Learn button on the original Somfy remote
 enter the following code within 3 seconds. Your blinds will go up and down shortly 
@@ -53,9 +55,9 @@ RTS Record: 15 Address: FFFFFF RC: FFFF
 
 After configuring the RFLink Somfy RTS you have to add the cover to the configuration like any other RFlink device.
 
-RFLink sensor ID's are composed of: protocol, id and gateway. For example: `RTS_0100F2_0`. 
+RFLink cover ID's are composed of: protocol, id and gateway. For example: `RTS_0100F2_0`. 
 
-Once the ID of a cover is known it can be used to configure the sensor in HA, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a cover is known it can be used to configure the cover in HA, for example to add it to a different group, hide it or configure a nice name.
 
 Assigning name to a cover:
 
@@ -65,9 +67,33 @@ Assigning name to a cover:
   devices:
     RTS_0100F2_0:
       name: SunShade
+    bofumotor_455201_0f:
+      name: Sovrumsgardin
 ```
 
 
+### Configuration variables:
+
+- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
+- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
+- **device_defaults**: (*Optional*)
+  - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
+  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
+
+### Device configuration variables:
+
+- **name** (*Optional*): Name for the device, defaults to Rflink ID.
+- **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
+- **fire_event** (*Optional*): Fire an `button_pressed` event if this device is turned on or off (default: False).
+- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
+- **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
+- **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
+- **group** (*Optional*): Allow light to respond to group commands (ALLON/ALLOFF). (default: yes)
+- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
+- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
+
+
+### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
 
