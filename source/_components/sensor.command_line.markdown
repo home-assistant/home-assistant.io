@@ -95,7 +95,7 @@ logger:
 
 ### {% linkable_title Details about the upstream Home Assistant release %}
 
-You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
+You can see directly in the frontend (**Developer tools** -> **About**) see what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
 sensor:
@@ -147,14 +147,14 @@ sensor:
 
 ### {% linkable_title Usage of templating in command %}
 
-command: supports inclusion of templates. Which means you can use various states from other sensors in your commands.
-This is good for example if you need to include a state of a specific sensor as an argument to your cmd script.
+Inclusion of templates is supported in the command variable. Which means you can use various states from other sensors.
+This is good for example if you need to include the state of a specific sensor as an argument to your external script.
 
 ```yaml
 # Example entry for `configuration.yaml` (if applicable):
 sensor:
   - platform: command_line
-    name: yr wind direction cmd
-    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.yr_wind_direction_template.state }}'
+    name: wind direction
+    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
     unit_of_measurement: "Direction"
 ```
