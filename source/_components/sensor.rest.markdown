@@ -94,7 +94,7 @@ sensor:
     unit_of_measurement: MB
 ```
 
-### {% linkable_title Value for other Home Assistant instance %}
+### {% linkable_title Value from another Home Assistant instance %}
 
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
