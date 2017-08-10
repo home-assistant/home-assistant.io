@@ -10,7 +10,7 @@ footer: true
 logo: etherrain.jpg
 ha_category: Hub
 featured: false
-ha_release: 0.31
+ha_release: 0.52
 ha_iot_class: "Local Polling"
 ---
 
@@ -26,19 +26,9 @@ etherrain:
 ```
 
 Configuration variables:
-- **host** (*Required*): The IP address of your EtherRain 8
+- **host** (*Required*): The Hostname or IP address of your EtherRain 8
 - **username** (*Optional*): Your EtherRain username.
 - **password** (*Optional*): Your EtherRain password.
-
-### {% linkable_title Full configuration %}
-
-```yaml
-# Example configuration.yaml entry
-etherrain:
-  host: 192.168.1.1
-  username: admin
-  password: mypassword
-```
 
 ## Notes and Limitations
 - The EtherRain component logs into the EtherRain for each request.  External programs may fail or interfere due to an EtherRain product limitation/assumption that only one IP address can be authenticated with it at a time.

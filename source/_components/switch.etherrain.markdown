@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: etherrain.jpg
 ha_category: Switch
-ha_release: 0.31
+ha_release: 0.52
 ha_iot_class: "Local Polling"
 ---
 

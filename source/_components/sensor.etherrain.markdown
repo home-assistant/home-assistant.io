@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: etherrain.jpg
 ha_category: Sensor
-ha_release: 0.31
+ha_release: 0.52
 ha_iot_class: "Local Polling"
 ---
 
@@ -33,4 +33,4 @@ sensor:
 Configuration variables:
 
 - **valve_id** (*Required*): The valve number [1-8]
-- **name** (*Required*): The name of this valve.
+- **name** (*Optional*): The name of this valve.
