@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `attribute` platform supports sensors which break out specified `attribute` from other entities.
+Allows the creation of a sensor that breaks out an attribute of defined entities.
 
 To enable Attribute sensor in your installation, add the following to your `configuration.yaml` file:
 
