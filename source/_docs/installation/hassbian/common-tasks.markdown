@@ -65,7 +65,7 @@ $ source /srv/homeassistant/bin/activate
 $ hass
 ```
 
-This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don't forget to [stop][stop-homeassistant] it first.
+This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don't forget to [stop][stop-homeassistant] it first. If you want the log output to be colored, execute `hass --script check_config` first. This will install the `colorlog` module.
 
 ### {% linkable_title Check your configuration %}
 Log in as the `pi` account and execute the following commands:

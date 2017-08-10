@@ -31,7 +31,7 @@ Supported devices:
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
-<pre class='note'>
+<pre class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
 </pre>
 

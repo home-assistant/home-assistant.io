@@ -81,7 +81,7 @@ stop you're interested in
 3. Tick the 'map data' layer, and wait for clickable objects to load
 4. Click the bus stop node to reveal its tags on the left
 
-The `destination` must be a valid location returned by the transportAPI query. Valid destinations can be checked by performing a GET query to  `/uk/bus/stop/{atcocode}/live.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information). A bus sensor is added in the following `configuration.yaml` file entry:
+The `destination` must be a valid location in the "direction" field returned by a GET query to `/uk/bus/stop/{atcocode}/live.json` as described in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information). A bus sensor is added in the following `configuration.yaml` file entry:
 
 ```yaml
 # Example configuration.yaml entry for multiple sensors

@@ -81,7 +81,7 @@ Wait until some things are complete. We support at the moment `wait_template` fo
 
 ```yaml
 # wait until media player have stop the playing
-wait_template: {% raw %}"{{ states.media_player.floor.states == 'stop' }}"{% endraw %}
+wait_template: {% raw %}"{{ states.media_player.floor.state == 'stop' }}"{% endraw %}
 ```
 
 ```yaml

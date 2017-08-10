@@ -8,9 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: synology.png
-ha_category: Sensor
+ha_category: System Monitor
 ha_release: 0.32
-ha_iot_class: depends
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -30,14 +30,6 @@ sensor:
       - memory_real_usage
       - network_up
 ```
-
-<p class='note'>
-After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
-</p>
-
-<p class='note warning'>
-This sensor will wake up your Synology NAS if it's in hibernation mode.
-</p>
 
 Configuration variables:
 
@@ -79,7 +71,15 @@ Configuration variables:
   - **volume_disk_temp_avg**: Displays the average temperature of all disks in the volume (creates a new entry for each volume).
   - **volume_disk_temp_max**: Displays the maximum temperature of all disks in the volume (creates a new entry for each volume).
 
-Separate User Configuration:
+<p class='note'>
+After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
+</p>
+
+<p class='note warning'>
+This sensor will wake up your Synology NAS if it's in hibernation mode.
+</p>
+
+## {% linkable_title Separate User Configuration %}
 
 Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 
