@@ -15,7 +15,7 @@ ha_release: 0.51
 The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First you have to set up your [rflink hub](/components/rflink/).
-After configuring the RFLink hub covers will be automatically discovered and added. With the exeption of the Somfy RTS devices. ( see below )
+After configuring the RFLink hub covers will be automatically discovered and added. With the exeption of the Somfy RTS devices.
 
 ### {% setting up a Somfy RTS device%}
 
@@ -74,7 +74,7 @@ Assigning name to a cover:
 
 ### Configuration variables:
 
-- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
+- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to Home Assistant if detected (default: True).
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
 - **device_defaults**: (*Optional*)
   - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
