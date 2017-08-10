@@ -11,6 +11,7 @@ logo: speedtest.png
 ha_category: System Monitor
 featured: false
 ha_release: 0.13
+ha_iot_class: "Cloud Polling"
 ---
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
@@ -76,15 +77,20 @@ Everyday at 12:30AM, 6:30AM, 12:30PM, 6:30PM:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: speedtest
-  minute: 30
-  hour:
-    - 0
-    - 6
-    - 12
-    - 18
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+  - platform: speedtest
+    minute: 30
+    hour:
+      - 0
+      - 6
+      - 12
+      - 18
+    monitored_conditions:
+      - ping
+      - download
+      - upload
 ```
+
+## {% linkable_title Notes %}
+
+- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- Entries under `monitored_conditions` only control what entities are available under home-assistant, it does not disable the condition from running.

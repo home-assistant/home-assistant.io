@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2016-12-0.35/social.png
 ---
 
-5000 stars on GitHub, 2000 people in out Gitter chatroom and over a million monthly page views. I don't think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It's not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.
+5000 stars on GitHub, 2000 people in our [chatroom][discord] and over a million monthly page views. I don't think we could wish for a better place to be at the end of 2016. Feels like an early Christmas present! Our early one for you is 0.35. It's not a single thing inside a nice wrapping, more like several little gifts inside the 0.35 box.
 
 This will be the last release of 2016 as our developers are taking a well deserved break. We will be back in 2017!
 
@@ -23,7 +23,7 @@ With the addition of a [text-to-speech][tts] component by [@pvizeli] we have bee
 ## {% linkable_title Call for help with HASSbian (our Raspberry Pi image) %}
 In an effort to make Home Assistant, we're planning to extend the things that people can do out of the box with HASSbian, our Raspberry Pi image. As you might know, the image is currently maintained by [@Landrash]. However he also spends a lot of time on improving the docs and helping out with a ton of other things.
 
-So if you know your Linux-foo and would love to contribute to open source, join the [Hassbian developer chat](https://gitter.im/home-assistant/hassbian) and take a stab at one of [our open issues](https://github.com/home-assistant/pi-gen/issues).
+So if you know your Linux-foo and would love to contribute to open source, join the [developer chat][discord-devs] and take a stab at one of [our open issues](https://github.com/home-assistant/pi-gen/issues).
 
 ## {% linkable_title VLC media player, Broadlink, and GPSLogger %}
 Let you control [VLC media player][vlc-media] and  play sound on connected speakers.
@@ -60,15 +60,41 @@ The [GPSLogger](https://home-assistant.io/components/device_tracker.gpslogger/) 
 - Media player - Emby: New support for trailer and media position ([@mezz64])
 - Camera - Amcrest: Support for resolution ([@tchellomello])
 - Media player - Kodi: Authentification fixed and fan art ([@balloob], [@joopert])
-- Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], and [@danielperna84].
+- Minor and not so minor features and bug fixes by [@pvizeli], [@jminn], [@magicus], [@teodoc], [@fabaff], [@technicalpickles], [@balloob], [@lukas-hetzenecker], [@rubund], [@dasos], [@trisk], [@armills], [@auduny], [@lwis], [@nkgilley], [@janLo], [@keatontaylor], [@stefan-jonasson], [@Jypy], [@jawilson], [@DavidLP], [@molobrakos], [@jabesq], [@joerocklin], [@kellerza], [@kirichkov], [@r-jordan] and [@danielperna84].
 
+### {% linkable_title Release 0.35.1 - December 18 %}
+
+Some issues have been reported with TTS that will be addressed by 0.35.1. The TTS component had issues linking the media player to the right media file if you were using Docker or SSL certificates. This can be fixed by exposing to your HTTP config what URL you use for hosting Home Assistant:
+
+```yaml
+http:
+  base_url: example.duckdns.org
+```
+
+ - Fix exit hanging on OS X with async logging ([@balloob])
+ - Fix Text to speech clearing cache ([@pvizeli])
+ - Allow setting a base API url in HTTP component ([@balloob])
+ - Fix occasional errors in automation ([@pvizeli])
+
+### {% linkable_title Release 0.35.2 - December 19 %}
+
+ - When base url specified, do not combine it with `server_port` ([@balloob])
+
+### {% linkable_title Release 0.35.3 - December 23 %}
+
+ - Fix issue with voicerrs and post api ([@pvizeli])
+ - Fix async component update on service calls ([@pvizeli])
+ - Fix async log handle do not close ([@pvizeli])
+ - Fix nest component with various KeyError exceptions ([@technicalpickles])
+ 
 ### {% linkable_title  If you need help... %}
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ### {% linkable_title  Reporting Issues %}
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 
+[@r-jordan]: https://github.com/r-jordan
 [@aequitas]: https://github.com/aequitas
 [@armills]: https://github.com/armills
 [@auduny]: https://github.com/auduny
@@ -85,8 +111,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@farminf]: https://github.com/farminf
 [@jabesq]: https://github.com/jabesq
 [@janLo]: https://github.com/janLo
-[@janLo]: https://github.com/janLo
-[@jawilson]: https://github.com/jawilson
 [@jawilson]: https://github.com/jawilson
 [@jminn]: https://github.com/jminn
 [@joerocklin]: https://github.com/joerocklin
@@ -107,7 +131,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@nkgilley]: https://github.com/nkgilley
 [@pvizeli]: https://github.com/pvizeli
 [@rubund]: https://github.com/rubund
-[@rubund]: https://github.com/rubund
 [@soldag]: https://github.com/soldag
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@tchellomello]: https://github.com/tchellomello
@@ -121,7 +144,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vlc-media]: https://home-assistant.io/components/media_player.vlc/
 [aquostv]: https://home-assistant.io/components/media_player.aquostv/
 [digitalloggers]: https://home-assistant.io/components/switch.digitalloggers/
-[netdata]: https://home-assistant.io/components/switch.digitalloggers/
+[netdata]: https://home-assistant.io/components/sensor.netdata/
 [bl-sensor]: https://home-assistant.io/components/sensor.broadlink/
 [bl-switch]: https://home-assistant.io/components/switch.broadlink/
 [hikvision]: https://home-assistant.io/components/binary_sensor.hikvision/
@@ -129,3 +152,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [flic]: https://home-assistant.io/components/binary_sensor.flic/
 [sensehat]: https://home-assistant.io/components/sensor.sensehat/
 [tts]: https://home-assistant.io/components/tts/
+[discord]: https://discord.gg/c5DvZ4e
+[discord-devs]: https://discord.gg/8X8DTH4

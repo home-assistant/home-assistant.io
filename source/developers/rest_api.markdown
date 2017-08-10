@@ -77,22 +77,29 @@ Returns the current configuration as JSON.
     "components": [
         "recorder",
         "http",
-        "sensor.time_date",
+        "weather.openweathermap",
         "api",
+        "websocket_api",
         "frontend",
+        "sensor.time_date",
         "sun",
-        "logbook",
-        "history",
+        "device_tracker",
         "group",
         "automation"
     ],
-    "latitude": 44.1234,
+    "config_dir": "/home/ha/.homeassistant",
+    "elevation": 590,
+    "latitude": 45.92,
     "location_name": "Home",
-    "longitude": 5.5678,
-    "unit_system": "metric",
+    "longitude": 6.52,
     "time_zone": "Europe/Zurich",
-    "config_dir": "/home/hass/.homeassistant",
-    "version": "0.8.0.dev0"
+    "unit_system": {
+        "length": "km",
+        "mass": "g",
+        "temperature": "\\u00b0C",
+        "volume": "L"
+    },
+    "version": "0.37.0.dev0"
 }
 ```
 
@@ -192,8 +199,14 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" http://localhost:8123/api/services
 ```
 
-#### {% linkable_title GET /api/history %}
+#### {% linkable_title GET /api/history/period/&lt;timestamp> %}
 Returns an array of state changes in the past. Each object contains further details for the entities.
+
+The `<timestamp>` is optional and defaults to 1 day before the time of the request. It determines the beginning of the period.
+
+You can pass the following optional GET parameters:
+  - `filter_entity_id=<entity_id>` to filter on a single entity
+  - `end_time=<timestamp>` to choose the end of the period (defaults to 1 day)
 
 ```json
 [
@@ -227,13 +240,13 @@ Sample `curl` commands:
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       http://localhost:8123/api/history/period/2016-02-06
+       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00
 ```
 
 ```bash
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       http://localhost:8123/api/history/period/2016-02-06?filter_entity_id=sensor.temperature
+       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00?filter_entity_id=sensor.temperature
 ```
 
 #### {% linkable_title GET /api/states %}
@@ -406,13 +419,25 @@ Returns a list of states that have changed while the service was being executed.
 ]
 ```
 
-Sample `curl` command:
+Sample `curl` commands:
+
+Turn the light on:
 
 ```bash
 $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
-       -d '{"entity_id": "switch.christmas_lights", "state": "on"}' \
+       -d '{"entity_id": "switch.christmas_lights"}' \
        http://localhost:8123/api/services/switch/turn_on
+```
+
+Send a MQTT message:
+
+```bash
+$ curl -X POST \
+     -H "Content-Type: application/json" \
+     -H "x-ha-access:YOUR_PASSWORD" \
+     -d '{"payload": "OFF", "topic": "home/fridge", "retain": "True"}' \
+     http://localhost:8123/api/services/mqtt/publish
 ```
 
 <p class='note'>

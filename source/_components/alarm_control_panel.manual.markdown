@@ -18,7 +18,7 @@ This platform enables you to set manual alarms in Home Assistant.
 ```yaml
 # Example configuration.yaml entry
 alarm_control_panel:
-  platform: manual
+  - platform: manual
 ```
 
 Configuration variables:
@@ -43,18 +43,18 @@ automation:
   trigger:
     - platform: state
       entity_id: sensor.pir1
-      state: 'active'
+      to: 'active'
     - platform: state
       entity_id: sensor.pir2
-      state: 'active'
+      to: 'active'
     - platform: state
       entity_id: sensor.door
-      state: 'open'
+      to: 'open'
     - platform: state
       entity_id: sensor.window
-      state: 'open'
+      to: 'open'
   condition:
-    - platform: state
+    - condition: state
       entity_id: alarm_control_panel.ha_alarm
       state: armed_away
   action:

@@ -31,15 +31,18 @@ light:
 
 Configuration variables:
 
-- **host** (*Required*): IP address of the device, eg. 192.168.1.10.
-- **allow_unreachable** (*Optional*):  This will allow unreachable bulbs to report their state correctly. By default *name* from the device is used.
+- **host** (*Optional*): IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+
+- **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
 - **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
+- **allow_in_emulated_hue** (*Optional*): )true/false) Enable this to block all Hue entities from being added to the `emulated_hue` component.
+- **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
 
 ### {% linkable_title Using Hue Groups in Home Assistant %}
 
 The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be usefull to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaniously.
 
-These Hue Groups can be a `Luminaire`, `Lightsource`, `LightGroup` or `Room`. The `Luminaire` and `Lightsource` can't be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The `Room` and `LightGroup` can be created manually trough the API, or the mobile app. A bulb can only exist in one `Room`, but can exist in multiple `LightGroup`. The `LightGroup` can be usefull to link certain bulbs together since.
+These Hue Groups can be a `Luminaire`, `Lightsource`, `LightGroup` or `Room`. The `Luminaire` and `Lightsource` can't be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The `Room` and `LightGroup` can be created manually through the API, or the mobile app. A bulb can only exist in one `Room`, but can exist in multiple `LightGroup`. The `LightGroup` can be usefull to link certain bulbs together since.
 
 The 2nd generation Hue app only allows to create a `Room`. You need to use the first generation app or the API to create a `LightGroup`.
 
@@ -72,8 +75,9 @@ More information can be found on the [Philips Hue API documentation](https://www
 
 The Hue platform has it's own concept of Scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
 
-To avoid user interface overload we don't expose Scenes directly. Instead there is a [light.hue_activate_scene](/components/light/#service-lighthue_activate_scene) service which can be used by `automation` or `script` components. For
-instance:
+To avoid user interface overload we don't expose Scenes directly. Instead there is a [light.hue_activate_scene](/components/light/#service-lighthue_activate_scene) service which can be used by `automation` or `script` components.
+This will have all the bulbs transitioned at once, instead of one at a time using standard scenes in Home Assistant.
+For instance:
 
 ```yaml
 script:
@@ -84,6 +88,13 @@ script:
           group_name: "Porch"
           scene_name: "Porch Orange"
 ```
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `group_name` | no | The group/room name of the lights. Find this in the Hue official app.
+| `scene_name` | no | The name of the Scene. Find this in the Hue official app.
+
+*Note*: `group_name` is not linked to Home Assistant group name.
 
 *** Finding Group and Scene Names ***
 

@@ -13,7 +13,7 @@ ha_release: 0.32
 ---
 
 
-The `swisscom` platform offers presence detection by looking at connected devices to an [Internet-Box](https://www.swisscom.ch/en/residential/help/device/internet-router.html) router from [Swisscom](https://www.swisscom.ch), which is the main Internet provider in Switzerland.
+The `swisscom` platform offers presence detection by looking at connected devices to an [Internet-Box](https://www.swisscom.ch/en/residential/help/device/internet-router.html) router from [Swisscom](https://www.swisscom.ch) which is an Internet provider in Switzerland.
 
 <p class='note'>
 There are three models of Internet-Box (light, standard and plus). The platform has only been tested on the Internet-Box plus but the others should work as well because they have the same web interface.
@@ -24,8 +24,11 @@ To use an Internet-Box router in your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  platform: swisscom
-  host: "192.168.1.1" # only required if not 192.168.1.1
+  - platform: swisscom
 ```
+
+Configuration variables:
+
+- **host** (*Optional*): The IP address of your router. Set it if you are not using `192.168.1.1`.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

@@ -10,6 +10,7 @@ footer: true
 logo: digitalloggers.png
 ha_category: Switch
 ha_release: 0.35
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -22,9 +23,6 @@ To use your digitalloggers switch in your installation, add the following to you
 switch:
   - platform: digitalloggers
     host: 192.168.1.43
-    password: SuperSecret123!!
-    name: FantasticRelayDevice
-
 ```
 
 Configuration variables:

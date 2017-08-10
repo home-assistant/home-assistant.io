@@ -35,7 +35,7 @@ _Note, Philips Hue is currently the only light platform that support transitions
 automation:
   trigger:
     platform: time
-    after: "07:15:00"
+    at: "07:15:00"
   action:
     service: light.turn_on
     entity_id: light.bedroom

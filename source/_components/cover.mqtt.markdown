@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Cover
+ha_iot_class: "depends"
 ha_release: 0.18
 ---
 
@@ -36,7 +37,7 @@ Configuration variables:
 
 - **name** (*Optional*): The name of the sensor. Default is `MQTT Cover`.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive sensor values.
-- **command_topic** (*Required*): The MQTT topic to publish commands to control the rollershutter.
+- **command_topic** (*Optional*): The MQTT topic to publish commands to control the rollershutter.
 - **payload_open** (*Optional*): The payload that opens the cover. Default is `OPEN`.
 - **payload_close** (*Optional*): The payload that closes the cover. Default is `CLOSE`.
 - **payload_stop** (*Optional*):  The payload that stops the rollershutter. default is `STOP`.
@@ -45,11 +46,43 @@ Configuration variables:
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no state topic defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0`. Will also be used when publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not. Default is `false`.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+- **set_position_topic** (*Optional*): The MQTT topic to publish position commands to.
+- **set_position_template** (*Optional*): Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the numeric position (0-100) will be written directly to the topic.
+- **tilt_command_topic** (*Optional*): The MQTT topic to publish commands to control the cover tilt.
+- **tilt_status_topic** (*Optional*): The MQTT topic subscribed to receive tilt status update values.
+- **tilt_min** (*Optional*): The minimum tilt value. Default is `0`
+- **tilt_max** (*Optional*): The maximum tilt value. Default is `100`
+- **tilt_closed_value** (*Optional*): The value that will be sent on a `close_cover_tilt` command. Default is `0`
+- **tilt_opened_value** (*Optional*): The value that will be sent on an `open_cover_tilt` command. Default is `100`
+- **tilt_status_optimistic** (*Optional*): Flag that determines if tilt works in optimistic mode. Default is `true` if `tilt_status_topic` is not deinfed, else `false`
+- **tilt_invert_state** (*Optional*): Flag that determines if open/close are flipped; higher values toward closed and lower values toward open. Default is `False`
 
 ## {% linkable_title Examples %}
 
 In this section you find some real life examples of how to use this sensor.
+
+### {% linkable_title Full configuration without tilt %}
+
+The example below shows a full configuration for a cover without tilt.
+
+```yaml
+# Example configuration.yml entry
+cover:
+  - platform: mqtt
+    state_topic: "home-assistant/cover"
+    command_topic: "home-assistant/cover/set"
+    name: "MQTT Cover"
+    qos: 0
+    retain: true
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    state_open: "OPEN"
+    state_closed: "STATE"
+    optimistic: false
+    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+```
 
 ### {% linkable_title Full configuration %}
 
@@ -71,6 +104,12 @@ cover:
     state_closed: "STATE"
     optimistic: false
     value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    tilt_command_topic: 'home-assistant/cover/tilt'
+    tilt_status_topic: 'home-assistant/cover/tilt-status'
+    tilt_min: 0
+    tilt_max: 180
+    tilt_closed_value: 70
+    tilt_opened_value: 180
 ```
 
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your cover manually:

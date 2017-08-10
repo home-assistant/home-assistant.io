@@ -10,6 +10,7 @@ footer: true
 logo: yr.png
 ha_category: Weather
 ha_release: 0.11
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -26,6 +27,7 @@ sensor:
 
 Configuration variables:
 
+- **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **monitored_conditions** array (*Optional*): Conditions to display in the frontend.
   - **symbol**: A symbol for the current weather.
   - **temperature**: The current temperature.
@@ -47,6 +49,7 @@ A full configuration example can be found below:
 # Example configuration.yaml entry
 sensor:
   - platform: yr
+    name: Weather
     monitored_conditions:
       - temperature
       - symbol

@@ -51,7 +51,7 @@ automation:
       message: "Honey, I'm home!"
 ```
 
-You can also set or change the status of an `input_boolean` by using `input_boolean.turn_on` and `input_boolean.turn_off` in your automations.
+You can also set or change the status of an `input_boolean` by using `input_boolean.turn_on`, `input_boolean.turn_off` or `input_boolean.toggle` in your automations.
 
 ```yaml
     - service: input_boolean.turn_on

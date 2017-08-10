@@ -110,4 +110,22 @@ switch:
           service: switch.turn_on
           entity_id: switch.skylight_close
 ```
+### {% linkable_title Change the icon %}
+
+This example shows how to change the icon based on the day/night cycle.
+
+```yaml
+switch:
+  - platform: template
+    switches:
+      garage:
+        value_template: {% raw %}"{{ is_state(cover.garage_door', 'on') }}"{% endraw %}
+        turn_on:
+          service: cover.open_cover
+          entity_id: cover.garage_door
+        turn_off:
+          service: cover.close_cover
+          entity_id: cover.garage_door
+        icon_template: {% raw %}"{% if is_state('cover.garage_door', 'open') %}mdi:garage-open{% else %}mdi:garage{% endif %}"{% endraw %}        
+```
 

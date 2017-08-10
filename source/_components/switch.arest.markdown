@@ -25,8 +25,6 @@ switch:
     pins:
       11:
         name: Fan
-      12:
-        name: Light Desk
 ```
 
 If you want to use custom functions, then add the following to your `configuration.yaml` file:
@@ -39,8 +37,6 @@ switch:
     name: Office
     functions:
       function1:
-        name: 
-      function2:
         name: Light Desk
 ```
 
@@ -48,12 +44,12 @@ Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, eg. http://192.168.1.10 (no-trailing slash)
 - **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
-- **pins** array (*Required*): An array with all used pins.
+- **pins** array (*Optional*): An array with all used pins.
   - **name** (*Required*): The name of the pin to use in the frontend.
 
 or 
 
-- **functions** array (*Required*): An array with all used functions.
+- **functions** array (*Optional*): An array with all used functions.
   - **name** (*Required*): The name to use in the frontend.
 
 You can still switch your pins with a web browser or a command line tool. Use the URL http://192.168.1.10/digital/8/1 to set pin 8 to high/on, the JSON response will give you the feedback.

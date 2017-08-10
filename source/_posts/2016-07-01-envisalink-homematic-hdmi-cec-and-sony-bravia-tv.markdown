@@ -32,7 +32,7 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 - Sensor: [Fixer.io] now supported ([@fabaff])
 - Garage door: Control any garage door using [Raspberry Pi GPIO pins] ([@kellerza])
 - Sensor: [OpenExchangeRates] support added ([@arsaboo])
-- Notify: [Pushover] now supports target device, sound, url and priority ([@dale3h])
+- Notify: [Pushover] now supports target device, sound, URL and priority ([@dale3h])
 - Sensor: [Netatmo] now supports wind, battery and radio signals ([@Jypy])
 - Log successful and failed login attemps ([@fabaff])
 - Config: allow [extracting account info][secrets] into OS keyring or separate YAML file ([@kellerza])

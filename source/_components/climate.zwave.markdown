@@ -10,6 +10,7 @@ footer: true
 logo: z-wave.png
 ha_category: Climate
 ha_release: 0.17
+ha_iot_class: "Local Push"
 ---
 
 
@@ -25,7 +26,7 @@ To enable the climate component for your Z-Wave network, add the following to yo
 
 ```yaml
 climate:
-  platform: zwave
+  - platform: zwave
 ```
 
 Once enabled, any Z-Wave climate devices will be available to Home Assistant. Multiple entities may be created. The following entities are created for a Remotec ZXT-120.
@@ -42,7 +43,7 @@ automation:
   - alias: Turn on Heater at 8pm
     trigger:
       - platform: time
-        after: "20:00:00"
+        at: "20:00:00"
     action:
       - service: climate.set_operation_mode
         entity_id: climate.remotec_zxt120_heating_1_id
@@ -61,7 +62,7 @@ automation:
   - alias: Turn off Heater at 9pm
     trigger:
       - platform: time
-        after: "21:00:00"
+        at: "21:00:00"
     action:
       - service: climate.set_operation_mode
         entity_id: climate.remotec_zxt120_heating_1_id

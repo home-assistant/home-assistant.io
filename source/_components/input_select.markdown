@@ -43,6 +43,10 @@ Configuration variables:
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
+<p class='note'>
+Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
+</p>
+
 ### {% linkable_title Services %}
 
 This components provide three services to modify the state of the `input_select`:
@@ -78,4 +82,50 @@ scene:
     entities:
       input_select.who_cooks:
         option: Paulus
+```
+
+Example of `input_select` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
+
+```yaml
+{% raw %}
+# Example configuration.yaml entry using 'input_select' in an action in an automation
+   
+# Define input_select
+input_select:
+  thermostat_mode:
+    name: Thermostat Mode
+    options:
+      - "auto"
+      - "off"
+      - "cool"
+      - "heat"
+    icon: mdi:target
+
+# Automation.     
+ # This automation script runs when a value is received via MQTT on retained topic: thermostatMode
+ # It sets the value selector on the GUI. This selector also had its own automation when the value is changed.
+- alias: Set Thermostat Mode Selector
+  trigger:
+    platform: mqtt
+    topic: "thermostatMode"
+   # entity_id: input_select.thermostat_mode
+  action:
+     service: input_select.select_option
+     data_template:
+      entity_id: input_select.thermostat_mode
+      option: '{{ trigger.payload }}'
+
+ # This automation script runs when the thermostat mode selector is changed.
+ # It publishes its value to the same MQTT topic it is also subscribed to.
+- alias: Set Thermostat Mode
+  trigger:
+    platform: state
+    entity_id: input_select.thermostat_mode
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "thermostatMode"
+      retain: true
+      payload: '{{ states.input_select.thermostat_mode.state }}'
+{% endraw %}
 ```

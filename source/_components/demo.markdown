@@ -22,6 +22,7 @@ Available demo platforms:
 - [Climate](/components/climate/) (`climate`)
 - [Cover](/components/cover/) (`cover`)
 - [Fan](/components/fan/) (`fan`)
+- [Image Processing](/components/image_processing/) (`image_processing`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)
 - [Notification](/components/notify/) (`notify`)
@@ -30,6 +31,7 @@ Available demo platforms:
 - [Switch](/components/switch/) (`switch`)
 - [Text-to-speech](/components/tts/) (`tts`)
 - [Weather](/components/weather/) (`weather`)
+- [Mailbox](/components/mailbox/) (`mailbox`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 

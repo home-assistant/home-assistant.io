@@ -10,6 +10,7 @@ footer: true
 logo: tcp_ip.png
 ha_category: Sensor
 ha_release: 0.14
+ha_iot_class: "Local Polling"
 ---
 
 The TCP component allows the integration of some services for which a specific Home Assistant component does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this component will allow integration with it.
@@ -32,8 +33,8 @@ Configuration options for the a TCP Sensor:
 - **port** (*Required*): The port to connect to the host on.
 - **payload** (*Required*): What to send to the host in order to get the response we're interested in.
 - **timeout** (*Optional*): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to `10`
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value. By default it's assumed that the entire response is the value.
-- **unit** (*Optional*): The unit of measurement to use for the value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
+- **unit_of_measurement** (*Optional*): The unit of measurement to use for the value.
 - **buffer_size** (*Optional*): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to `1024`.
 
 ## {% linkable_title Examples %}
@@ -61,7 +62,7 @@ sensor:
   timeout: 5
   payload: "r WaterPressure\n"
   value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-  unit: Bar
+  unit_of_measurement: Bar
 ```
 
 ### {% linkable_title hddtemp %}
@@ -95,5 +96,5 @@ sensor:
   timeout: 5
   payload: "\n"
   value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
-  unit: "°C"
+  unit_of_measurement: "°C"
 ```

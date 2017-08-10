@@ -28,12 +28,13 @@ Configuration variables:
 - **api_password** (*Optional*): Protect Home Assistant with a password.
 - **server_host** (*Optional*): Only listen to incoming requests on specific ip/host (default: accept all)
 - **server_port** (*Optional*): Let you set a port to use. Defaults to 8123.
+- **base_url** (*Optional*): The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. Defaults to local IP address. The IOS app finds local installations, if you have an outside URL use this so that you can auto fill when discovered in the app.
 - **development** (*Optional*): Disable caching and load unvulcanized assets. Useful for Frontend development.
 - **ssl_certificate** (*Optional*): Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
 - **ssl_key** (*Optional*): Path to your TLS/SSL key to serve Home Assistant over a secure connection.
 - **cors_allowed_origins** (*Optional*): A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://home-assistant.io` will allow requests from `https://home-assistant.io` but __not__ `http://home-assistant.io`.
 - **use_x_forwarded_for** (*Optional*): Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You should only enable this in a trustworthy network environment, as clients passing that header could easily spoof their source IP address. Defaults to False.
-- **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.
+- **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant. It should be noted that if you use a reverse proxy, all requests to home assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario this option should be used with extreme care.
 - **ip_ban_enabled** (*Optional*): Flag indicating whether additional IP filtering is enabled. Defaults to False.
 - **login_attempts_threshold** (*Optional*): Number of failed login attemt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. Defaults to -1, meaning that no new automatic bans will be added.
 
@@ -61,7 +62,7 @@ http:
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
 
-On top of the `http` component is a [REST API](/developers/rest_api/) and a [Python API](/developers/python_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/) available.
+On top of the `http` component is a [REST API](/developers/rest_api/) and a [Python API](/developers/python_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP. 
 

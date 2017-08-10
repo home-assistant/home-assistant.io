@@ -10,6 +10,7 @@ footer: true
 ha_category: System Monitor
 logo: dovado.png
 ha_release: 0.32
+ha_iot_class: "Local Polling"
 ---
 
 The `dovado` platform let you monitor your router from [Dovado](http://www.dovado.com/)

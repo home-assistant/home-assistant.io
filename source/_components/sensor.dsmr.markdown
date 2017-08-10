@@ -33,10 +33,15 @@ This component is known to work for:
 - Kaifa E0026
 - Kamstrup 382JxC (DSMR 2.2)
 
-And USB serial converters:
+,USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
 - https://sites.google.com/site/nta8130p1smartmeter/webshop
+- https://www.sossolutions.nl/slimme-meter-kabel
+
+And Serial to network proxies:
+
+- ser2net - http://ser2net.sourceforge.net/
 
 ```yaml
 # Example configuration.yaml entry
@@ -46,13 +51,14 @@ sensor:
 
 Configuration variables:
 
-- **port** string (*Optional*): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0).
-- **dsmr_version_** string (*Optional*): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).
+- **port** string (*Optional*): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).
+- **host** string (*Optional*): Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).
+- **dsmr_version** string (*Optional*): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).
 
-A full configuration example can be found below:
+Full configuration examples can be found below:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for USB/serial connected Smartmeter
 sensor:
   - platform: dsmr
     port: /dev/ttyUSB1
@@ -67,6 +73,31 @@ group:
       - sensor.power_production_low
       - sensor.power_production_normal
       - sensor.gas_consumption
+```
+
+```yaml
+# Example configuration.yaml entry for remote (TCP/IP, i.e. via ser2net) connection to host which is connected to Smartmeter
+sensor:
+  - platform: dsmr
+    host: 192.168.1.13
+    port: 2001
+    dsmr_version: 4
+
+group:
+  meter_readings:
+    name: Meter readings
+    entities:
+      - sensor.power_consumption_low
+      - sensor.power_consumption_normal
+      - sensor.power_production_low
+      - sensor.power_production_normal
+      - sensor.gas_consumption
+```
+
+Optional configuration example for ser2net:
+```sh
+# Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv4 smart meters
+2001:raw:600:/dev/ttyUSB0:115200 NONE 1STOPBIT 8DATABITS XONXOFF LOCAL -RTSCTS
 ```
 
 [HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:

@@ -91,7 +91,7 @@ A device is created by creating a directory, with the name for the device, under
 A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored.
 
 <p class='img'>
-  <img src='{{site_root}}/images/isy994/isy994_CoverhExample.png' />
+  <img src='{{site_root}}/images/isy994/isy994_CoverExample.png' />
 </p>
 
 The *status* program in this directory is what indicates the state of the device:

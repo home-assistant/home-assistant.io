@@ -36,6 +36,6 @@ Configuration options for the a TCP Sensor:
 - **payload** (*Required*): What to send to the host in order to get the response we're interested in.
 - **value_on** (*Required*): The value returned when the device is "on".
 - **timeout** (*Optional*): How long in seconds to wait for a response from the service before giving up and disconnecting. Defaults to 10.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value. By default it's assumed that the entire response is the value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value. By default it's assumed that the entire response is the value.
 - **buffer_size** (*Optional*): The size of the receive buffer in bytes. Set this to a larger value if you expect to receive a response larger than the default. Defaults to 1024.
 

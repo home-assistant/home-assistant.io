@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Onkyo"
-description: "Instructions how to integrate Onkyo receivers into Home Assistant."
+description: "Instructions how to integrate Onkyo and some Pioneer receivers into Home Assistant."
 date: 2016-03-30 08:00
 sidebar: true
 comments: false
@@ -14,9 +14,9 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `onkyo` platform allows you to control a [Onkyo receiver](http://www.onkyo.com/) from Home Assistant.
+The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/) and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this component to work in your Hardware.
 
-To add an Onkyo receiver to your installation, add the following to your `configuration.yaml` file:
+To add an Onkyo or Pioneer receiver to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
