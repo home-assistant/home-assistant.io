@@ -32,13 +32,13 @@ binary_sensor:
     type: lower
     entity_id: sensor.random
 
-    # If present, sensor will only switch to on if the threshold is met for this amount of time
+    # If present, sensor will only switch to on if the threshold is met for this amount of time.
     on_delay:
       hours: 1
       minutes: 10
       seconds: 5
 
-    # Same as above, but for the sensor switching to off
+    # Same as above, but for the sensor switching to off.
     off_delay:
       hours: 1
       minutes: 10
@@ -51,8 +51,8 @@ Configuration variables:
 - **threshold** (*Required*): The value which is the threshold.
 - **type** (*Required*): `lower` if the value needs to be below the threshold or `upper` if higher.
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Stats`.
-- **on_delay** (*Optional*): The amount of time the threshold must be met before this sensor will switch to on
-- **off_delay** (*Optional*): The amount of time the threshold must be not met before this sensor will switch to off
+- **on_delay** (*Optional*): The amount of time the threshold must be met before this sensor will switch to on.
+- **off_delay** (*Optional*): The amount of time the threshold must be not met before this sensor will switch to off.
 
 ## {% linkable_title Examples %}
 
@@ -60,10 +60,10 @@ In this section you find some real life examples of how to use this sensor.
 
 ### {% linkable_title Washing Machine Running %}
 
-This example uses `off_delay` to convert an energy meter connected to a washing machine to determine when a load is finished. During the washer's operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing `off_delay`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
+This example creates a washing machine "load running" sensor by monitoring an energy meter connected to the washer. During the washer's operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing `off_delay`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
 
 ```yaml
-# Determine when the washing machine has a load running
+# Determine when the washing machine has a load running.
 binary_sensor:
   - platform: threshold
     name: Washing Machine
