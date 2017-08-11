@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `telnet` switch platform allows you to control devices with telnet commands. It connects to a host on port 23.
+The `telnet` switch platform allows you to control devices with telnet commands.
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
@@ -25,6 +25,7 @@ switch:
   switches:
     projector:
       resource: "host_or_ip"
+      port: 4002
       command_on: "PWR ON"
       command_off: "PWR OFF"
       command_state: "PWR?"
@@ -36,6 +37,7 @@ Configuration variables:
 - **switches** (*Required*): The array that contains all switches.
   - **identifier** (*Required*): Name of the switch as slug. Multiple entries are possible.
     - **resource** (*Required*): Host or IP of the device.
+    - **port** (*Optional*): Port to connect to. Default is 23 if not defined.
     - **command_on** (*Required*): Command to turn device on.
     - **command_off** (*Required*): Command to turn device off.
     - **command_state** (*Required*): Command to determine the state of the switch.
