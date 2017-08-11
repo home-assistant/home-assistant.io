@@ -40,5 +40,5 @@ Configuration variables:
     - **command_off** (*Required*): Command to turn device off.
     - **command_state** (*Required*): Command to determine the state of the switch.
     - **value_template** (*Required*): The template evaluating to `true` will indicate the switch is on.
-    - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no `command_state` defined, else `false
+    - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no `command_state` defined, else `false`.
     - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
