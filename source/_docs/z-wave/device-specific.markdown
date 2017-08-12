@@ -56,7 +56,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
      platform: event
      event_type: zwave.scene_activated
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 1
 
  - alias: Minimote Button 1 Held
@@ -64,7 +64,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
      platform: event
      event_type: zwave.scene_activated
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 2
 
  - alias: Minimote Button 2 Pressed
@@ -72,7 +72,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
      platform: event
      event_type: zwave.scene_activated
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 3
 
  - alias: Minimote Button 2 Held
@@ -80,7 +80,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
      platform: event
      event_type: zwave.scene_activated
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 4
 
  - alias: Minimote Button 3 Pressed
@@ -88,7 +88,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
      platform: event
      event_type: zwave.scene_activated
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 5
 
  - alias: Minimote Button 3 Held
@@ -96,15 +96,15 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
      platform: event
      event_type: zwave.scene_activated
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 6
 
  - alias: Minimote Button 4 Pressed
    trigger:
      platform: event
      event_type: zwave.scene_activated
-     event_data:
-       object_id: aeon_labs_minimote_1
+     entity_data:
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 7
 
  - alias: Minimote Button 4 Held
@@ -112,6 +112,6 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
      platform: event
      event_type: zwave.scene_activated
      event_data:
-       object_id: aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote_1
        scene_id: 8
 ```

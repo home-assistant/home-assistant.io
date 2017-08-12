@@ -18,6 +18,10 @@ The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The ga
 
 For this to work, you need to install a modified lib-coap library.
 
+<p class='note'>
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+</p>
+
 Linux:
 
 ```bash

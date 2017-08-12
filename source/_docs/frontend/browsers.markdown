@@ -29,7 +29,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      |                          |
+| [Safari]              |                | works      | Some problems with the Map.   |
 
 ## {% linkable_title Linux %}
 
@@ -60,7 +60,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Can also be added to desktop |
+| [Safari]              |                | works      | Can also be added to desktop. Some problems with the Map. |
 | [Chrome]              |                | works      |                          |
 
 

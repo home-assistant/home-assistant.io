@@ -61,7 +61,7 @@ xiaomi:
 ```
 
 
-Multiple Gateway
+Multiple Gateways
 
 ```yaml
 # 12 characters mac can be obtained from the gateway.
@@ -73,12 +73,26 @@ xiaomi:
       key: xxxxxxxxxxxxxxxx
 ```
 
+
+
+Search for gateways on specific interface
+
+```yaml
+# 12 characters mac can be obtained from the gateway.
+xiaomi:
+  interface: '192.168.0.1'
+  gateways:
+    - mac: xxxxxxxxxxxx
+      key: xxxxxxxxxxxxxxxx
+```
+
+
 Configuration variables:
 
 - **mac** (*Optional*): The MAC of your gateway. Required if you have more than one.
 - **key** (*Optional*): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.
 - **discovery_retry** (*Optional*): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.
-- **interface** (*Optional*): Which network interface to use. Default to any.
+- **interface** (*Optional*): Which network interface to use. Defaults to any.
 
 ## {% linkable_title Services %}
 

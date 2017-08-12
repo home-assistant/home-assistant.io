@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ethernet.png
-ha_category: Hub
+ha_category: Utility
 ha_release: "0.49"
 ha_iot_class: "Local Push"
 ---
