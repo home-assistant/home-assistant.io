@@ -36,6 +36,8 @@ Configuration variables:
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+- **component_config**, **component_config_domain**, **component_config_glob** (*Optional*): These attributes contains component-specific override values. See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format.
+  - **override_measurement** (*Optional*): Measurement name to use for this component, takes precedence over the global 'override_measurement' and component-specific 'unit_of_measurement' attribute.
 - **exclude** (*Optional*): Configure which components should be excluded from recording to InfluxDB.
   - **entities** (*Optional*): The list of entity ids to be excluded from recording to InfluxDB.
   - **domains** (*Optional*): The list of domains to be excluded from recording to InfluxDB.
@@ -43,6 +45,7 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be included from recordings to InfluxDB.
   - **domains** (*Optional*): The list of domains to be included from recordings to InfluxDB.
 - **tags** (*Optional*): Tags to mark the data.
+- **tags_attributes** (*Optional*): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
 
 ## {% linkable_title Data migration %}
 
