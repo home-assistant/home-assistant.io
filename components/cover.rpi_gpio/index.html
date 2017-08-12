@@ -93,7 +93,9 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>relay_time</strong> (<em>Optional</em>): The time that the relay will be on for in seconds. Default is 0.2 seconds.</li>
+  <li><strong>invert_relay</strong> (<em>Optional</em>): Invert the relay pin output so that it is active-high.  Default is False (active-low).</li>
   <li><strong>state_pull_mode</strong> (<em>Optional</em>): The direction the State pin is pulling. It can be UP or DOWN. Default is UP.</li>
+  <li><strong>invert_state</strong> (<em>Optional</em>): Invert the value of the State pin so that 0 means closed. Default is False.</li>
   <li><strong>covers</strong> array (<em>Required</em>): List of your doors.
     <ul>
       <li><strong>relay_pin</strong> (<em>Required</em>): The pin of your Raspberry Pi where the relay is connected.</li>
@@ -107,7 +109,9 @@
 <span class="s">cover</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
     <span class="s">relay_time</span><span class="pi">:</span> <span class="s">0.2</span>
+    <span class="s">invert_relay</span><span class="pi">:</span> <span class="s">False</span>
     <span class="s">state_pull_mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">UP'</span>
+    <span class="s">invert_state</span><span class="pi">:</span> <span class="s">True</span>
     <span class="s">covers</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">relay_pin</span><span class="pi">:</span> <span class="s">10</span>
         <span class="s">state_pin</span><span class="pi">:</span> <span class="s">11</span>

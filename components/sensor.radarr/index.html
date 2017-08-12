@@ -74,34 +74,32 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This <code class="highlighter-rouge">radarr</code> sensor platform pulls data from a given Radarr instance.</p>
-<p>To use your <a href="https://radarr.video/">Radarr</a> sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+  <p>This <code class="highlighter-rouge">radarr</code> sensor platform pulls data from a given <a href="https://radarr.video/">Radarr</a> instance.</p>
+<p>To use your Radarr sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">radarr</span>
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-    <span class="s">port</span><span class="pi">:</span> <span class="s">PORT</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): Your Radarr API key, found in Settings &gt; General in the Radarr Web UI.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display on the frontend.
+  <li><strong>host</strong> (<em>Optional</em>): The host Radarr is running on. Defaults to <code class="highlighter-rouge">localhost</code>.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port Radarr is running on. Defaults to 7878.</li>
+  <li><strong>urlbase</strong> (<em>Optional</em>): The base URL Radarr is running under. Defaults to <code class="highlighter-rouge">/</code>.</li>
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Conditions to display on the frontend. Defaults to <code class="highlighter-rouge">movies</code>.
     <ul>
       <li><strong>movies</strong>: The number of movies in Radarr.</li>
       <li><strong>upcoming</strong>: The number of upcoming movie releases (physical and in cinemas).</li>
       <li><strong>commands</strong>: The number of commands being run.</li>
-      <li><strong>diskspace</strong>: Available disk space.</li>
-      <li><strong>status</strong>: System status information</li>
+      <li><strong>diskspace</strong>: The available disk space.</li>
+      <li><strong>status</strong>: The current system status information.</li>
     </ul>
   </li>
-  <li><strong>host</strong> (<em>Optional</em>): The host Radarr is running on (Default: localhost).</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port Radarr is running on (Default: 7878).</li>
-  <li><strong>urlbase</strong> (<em>Optional</em>): The base URL Radarr is running under (Default: /).</li>
-  <li><strong>days</strong> (<em>Optional</em>): How many days to look ahead for the upcoming sensor, 1 means today only (Default: 1).</li>
+  <li><strong>days</strong> (<em>Optional</em>): How many days to look ahead for the upcoming sensor, 1 means today only.  Defaults to 1.</li>
   <li><strong>include_paths</strong> (<em>Optional</em>): Array of filepaths to include when calculating diskspace. Leave blank to include all.</li>
-  <li><strong>unit</strong>: (<em>Optional</em>): The unit to display disk space in (Default: GB).</li>
+  <li><strong>unit</strong>: (<em>Optional</em>): The unit to display disk space in. Defaults to GB.</li>
   <li><strong>ssl</strong>:  boolean (<em>Optional</em>): Whether or not to use SSL for Radarr.</li>
 </ul>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
@@ -270,6 +268,9 @@
             <a href='/components/sensor.gpsd/'>GPSD</a>
         </li>
         <li>
+            <a href='/components/sensor.geizhals/'>Geizhals</a>
+        </li>
+        <li>
             <a href='/components/sensor.gitter/'>Gitter Sensor</a>
         </li>
         <li>
@@ -385,6 +386,9 @@
         </li>
         <li>
             <a href='/components/sensor.sensehat/'>Sense HAT</a>
+        </li>
+        <li>
+            <a href='/components/sensor.shodan/'>Shodan Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>

@@ -75,7 +75,12 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">sabnzbd</code> platform will allow you to monitor your downloads with <a href="http://sabnzbd.org">SABnzbd</a> from within Home Assistant and setup automation based on the information.</p>
-<p>To use SABnzbd with your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>If SABnzbd is discovered on your network you can enter your API Key in the Configurator Press “CONFIGURE” to do it.</p>
+<p class="img">
+  <img src="/images/screenshots/sabnzbd-configure.png" />
+</p>
+<p>This will enable a minimal setup where <code class="highlighter-rouge">sensor.sabnzbd_status</code> is enabled.</p>
+<p>For more advanced usage, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">sabnzbd</span>
@@ -99,8 +104,8 @@
   <li><strong>ssl</strong> (<em>Optional</em>): Use <code class="highlighter-rouge">https</code> instead of <code class="highlighter-rouge">http</code> to connect. Defaults to False.</li>
   <li><strong>monitored_variables</strong> array (<em>Required</em>): List of the monitored variables.
     <ul>
-      <li><strong>current_status</strong>: current status of the SABnzbd instance</li>
-      <li><strong>speed</strong>: Current speed</li>
+      <li><strong>current_status</strong>: Current status of the SABnzbd instance</li>
+      <li><strong>speed</strong>: Current speed.</li>
       <li><strong>queue_size</strong>: Size of the queue</li>
       <li><strong>queue_remaining</strong>: Remaining elements in the queue</li>
       <li><strong>disk_size</strong>: Disk size of the storage location</li>

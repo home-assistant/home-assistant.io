@@ -93,6 +93,11 @@
   <li><strong>verify_ssl</strong> (<em>Optional</em>): Verify SSL certificate for https request. Defaults to false.</li>
   <li><strong>default_measurement</strong> (<em>Optional</em>): Measurement name to use when an entity doesn’t have a unit. Defaults to entity id.</li>
   <li><strong>override_measurement</strong> (<em>Optional</em>): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.</li>
+  <li><strong>component_config</strong>, <strong>component_config_domain</strong>, <strong>component_config_glob</strong> (<em>Optional</em>): These attributes contains component-specific override values. See <a href="https://home-assistant.io/getting-started/customizing-devices/">Customizing devices and services</a> for format.
+    <ul>
+      <li><strong>override_measurement</strong> (<em>Optional</em>): Measurement name to use for this component, takes precedence over the global ‘override_measurement’ and component-specific ‘unit_of_measurement’ attribute.</li>
+    </ul>
+  </li>
   <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should be excluded from recording to InfluxDB.
     <ul>
       <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from recording to InfluxDB.</li>
@@ -106,6 +111,7 @@
     </ul>
   </li>
   <li><strong>tags</strong> (<em>Optional</em>): Tags to mark the data.</li>
+  <li><strong>tags_attributes</strong> (<em>Optional</em>): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to <code class="highlighter-rouge">friendly_name</code>, it will be possible to group by entities’ friendly names as well, in addition to their ids.</li>
 </ul>
 <h2><a class="title-link" name="data-migration" href="#data-migration"></a> Data migration</h2>
 <p>Starting with 0.36 the InfluxDB component has a new schema to store values in the InfluxDB databases.</p>

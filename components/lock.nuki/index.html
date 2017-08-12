@@ -100,6 +100,49 @@ Then add the following to your <code class="highlighter-rouge">configuration.yam
     <span class="s">token</span><span class="pi">:</span> <span class="s">fe2345ef</span>
 </code></pre>
 </div>
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+<h3><a class="title-link" name="service-nuki_unlatch" href="#service-nuki_unlatch"></a> Service <code class="highlighter-rouge">nuki_unlatch</code></h3>
+<p>This will unlatch the door, ie. open it (provided this works with your type of door).</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s Nuki Locks.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-nuki_lock_n_go" href="#service-nuki_lock_n_go"></a> Service <code class="highlighter-rouge">nuki_lock_n_go</code></h3>
+<p>This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
+See the <a href="https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/">Nuki Website</a> for more details about this feature.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s Nuki Locks.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">unlatch</code></td>
+      <td>yes</td>
+      <td>Boolean - Whether to unlatch the door when first opening it.</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

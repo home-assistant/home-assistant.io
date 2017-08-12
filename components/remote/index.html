@@ -77,10 +77,10 @@
   <p>Keeps track which remotes are in your environment, their state and allows you to control them.</p>
 <ul>
   <li>Maintains a state per remote and a combined state <code class="highlighter-rouge">all_remotes</code>.</li>
-  <li>Registers services <code class="highlighter-rouge">remote/turn_on</code>, <code class="highlighter-rouge">remote/turn_off</code>,<code class="highlighter-rouge">remote/sync</code>, and <code class="highlighter-rouge">remote/send_command</code> to control remotes.</li>
+  <li>Registers services <code class="highlighter-rouge">remote/turn_on</code>, <code class="highlighter-rouge">remote/turn_off</code>, <code class="highlighter-rouge">remote/toggle</code>, <code class="highlighter-rouge">remote/sync</code>, and <code class="highlighter-rouge">remote/send_command</code> to control remotes.</li>
 </ul>
 <h3><a class="title-link" name="use-the-services" href="#use-the-services"></a> Use the services</h3>
-<p>Go the the <strong>Developer Tools</strong>, then to <strong>Call Service</strong> in the frontend, and choose <code class="highlighter-rouge">remote/turn_on</code> or <code class="highlighter-rouge">remote/turn_off</code> from the list of available services (<strong>Available services:</strong> on the left). Enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>Call Service</strong>.</p>
+<p>Go the the <strong>Developer Tools</strong>, then to <strong>Call Service</strong> in the frontend, and choose <code class="highlighter-rouge">remote/turn_on</code>, <code class="highlighter-rouge">remote/turn_off</code>, or <code class="highlighter-rouge">remote/toggle</code> from the list of available services (<strong>Available services:</strong> on the left). Enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>Call Service</strong>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"entity_id"</span><span class="p">:</span><span class="s2">"remote.family_room"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>

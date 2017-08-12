@@ -80,17 +80,15 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zamg</span>
-    <span class="s">station_id</span><span class="pi">:</span> <span class="s">11035</span>
-    <span class="s">monitored_conditions</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">temperature</span>
-      <span class="pi">-</span> <span class="s">humidity</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>station_id</strong> (<em>Optional</em>): The ID number for a supported ZAMG station.</li>
   <li><strong>name</strong> (<em>Optional</em>): Additional name for the sensors. Defaults to platform name.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend.
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude coordinate to monitor weather of (required if <strong>longitude</strong> is specificed). Defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Longitude coordinate to monitor weather of (required if <strong>latitude</strong> is specified). Defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Conditions to display in the frontend.
     <ul>
       <li><strong>pressure</strong>: Pressure at station level</li>
       <li><strong>pressure_sealevel</strong>: Pressure at sea Level</li>
@@ -106,9 +104,19 @@
     </ul>
   </li>
 </ul>
+<p>A full configuration example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">zamg</span>
+    <span class="s">station_id</span><span class="pi">:</span> <span class="s">11035</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Wien</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+</code></pre>
+</div>
 <p class="note">
-This sensor is an alternative to the <a href="/components/weather.zamg/"><code class="highlighter-rouge">zamg</code></a> weather platform.
-The weather platform is easier to configure but less customisable.
+This sensor is an alternative to the <a href="/components/weather.zamg/"><code class="highlighter-rouge">zamg</code></a> weather platform. The <code class="highlighter-rouge">zamg</code> weather platform is easier to configure but less customisable.
 </p>
 </article>
         </div>

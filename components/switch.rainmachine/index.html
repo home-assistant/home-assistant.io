@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Xiaomi Mi Robot Vacuum - Home Assistant</title>
+    <title>RainMachine Switch - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
+    <meta name="description" content="Instructions on how to use RainMachine units with Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/switch.xiaomi_vacuum/">
+    <link rel="canonical" href="https://home-assistant.io/components/switch.rainmachine/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Xiaomi Mi Robot Vacuum">
+    <meta property="og:title" content="RainMachine Switch">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/switch.xiaomi_vacuum/">
+    <meta property="og:url" content="https://home-assistant.io/components/switch.rainmachine/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
+    <meta property="og:description" content="Instructions on how to use RainMachine units with Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Xiaomi Mi Robot Vacuum">
-    <meta name="twitter:description" content="Instructions how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
+    <meta name="twitter:title" content="RainMachine Switch">
+    <meta name="twitter:description" content="Instructions on how to use RainMachine units with Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,84 +70,79 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Xiaomi Mi Robot Vacuum
+      RainMachine Switch
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi_vacuum</code>switch platform allows you to control the state of your <a href="http://www.mi.com/roomrobot/">Xiaomi Mi Robot Vacuum</a>. 
-Current supported features are <code class="highlighter-rouge">start</code> and <code class="highlighter-rouge">stop</code> (goes to dock).</p>
-<p><a class="title-link" name="getting-started" href="#getting-started"></a> Getting started</p>
-<p>Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.</p>
-<p class="note warning">
-If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
-<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+  <p>The <code class="highlighter-rouge">rainmachine</code> switch platform allows you to control programs and zones within
+a <a href="http://www.rainmachine.com/">RainMachine smart Wi-Fi sprinkler controller</a>.</p>
+<h2><a class="title-link" name="configuring-the-platform" href="#configuring-the-platform"></a> Configuring the Platform</h2>
+<p>The platform allows for either local (i.e., directly across the LAN) or remote
+(i.e., through RainMachine’s cloud API) access; the route you choose will
+dictate what your configuration should look like.</p>
+<p>For local access, specify the IP address/hostname of your RainMachine unit
+and your RainMachine password:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rainmachine</span>
+  <span class="s">ip_address</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">my_password_123</span>
 </code></pre>
 </div>
-<p>In order to fetch the token follow these instructions depending on your mobile phone platform.</p>
-<h3>Windows and Android</h3>
-<ol>
-  <li>Configure the robot with the Mi-Home app.</li>
-  <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
-  <li>Get ADB tool for Windows : https://developer.android.com/studio/releases/platform-tools.html</li>
-  <li>Create a backup of the application com.xiaomi.smarthome:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db backup -noapk com.xiaomi.smarthome -f backup.ab
-</code></pre>
-    </div>
-  </li>
-  <li>If you have this message : “More than one device or emulator”, use this command to list all devices:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db devices
-</code></pre>
-    </div>
-    <p>and execute this command:</p>
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab <span class="c"># (with DEVICEID the device id from the previous command)</span>
-</code></pre>
-    </div>
-  </li>
-  <li>On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.</li>
-  <li>Get ADB Backup Extractor : https://sourceforge.net/projects/adbextractor/</li>
-  <li>Extract All files from the backup:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Unzip the “.tar” file.</li>
-  <li>Open the sqlite DB miio2.db with a tool like SQLite Manager extension for FireFox.</li>
-  <li>Get token from “devicerecord” table.</li>
-</ol>
-<h3>macOS and iOS</h3>
-<ol>
-  <li>Setup iOS device with the Mi-Home app.</li>
-  <li>Create an unencrypted backup of the device using iTunes.</li>
-  <li>Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/</li>
-  <li>Extract this file /raw data/com.xiami.mihome/{USERID}_mihome.sqlite to your computer</li>
-  <li>Open the file extracted using notepad. You will then see the list of all the device in your account with their token.</li>
-</ol>
-<p><a class="title-link" name="configuration" href="#configuration"></a> Configuration</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_vacuum</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">robot'</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
-  <span class="s">token</span><span class="pi">:</span> <span class="s">your-token-here</span>
+<p>For remote access, specify your RainMachine username/email and password:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">rainmachine</span>
+  <span class="s">email</span><span class="pi">:</span> <span class="s">user@host.com</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">my_password_123</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
+<p>Configuration Variables:</p>
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): The name of your robot</li>
-  <li><strong>host</strong> (<em>Required</em>): The IP of your robot</li>
-  <li><strong>token</strong> (<em>Required</em>): The token of your robot. 32-characters consisting of digits and lowercase letters. Go to Getting started section to read more about how to get it</li>
+  <li><strong>ip_address</strong> (<em>Optional</em>): The IP address of your RainMachine unit</li>
+  <li><strong>email</strong> (<em>Optional</em>): Your RainMachine username/email</li>
+  <li><strong>password</strong> (<em>Required</em>): Your RainMachine password</li>
+  <li><strong>zone_run_time</strong> (<em>Optional</em>): The number of seconds that a zone should run when
+turned on; defaults to 600 (10 minutes)</li>
 </ul>
+<h2><a class="title-link" name="controlling-your-device" href="#controlling-your-device"></a> Controlling Your Device</h2>
+<p>After Home Assistant loads, you will see new switches for every enabled program
+and zone. These work as expected:</p>
+<ul>
+  <li>Program On/Off: starts/stops a program</li>
+  <li>Zone On/Off: starts/stops a zone (using the <code class="highlighter-rouge">zone_run_time</code> parameter to
+determine how long to run for)</li>
+</ul>
+<p>Programs and zones are linked. If a program is running its final zone, you will
+see both the program and zone switches turned on; turning either one off will
+turn the other one off (just like in the web app).</p>
+<h2><a class="title-link" name="weblink" href="#weblink"></a> Weblink</h2>
+<p>If you would like to see and control more detailed information, create an <a href="/components/panel_iframe/">iFrame</a> that renders the RainMachine web app:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">panel_iframe</span><span class="pi">:</span>
+  <span class="s">rainmachine</span><span class="pi">:</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s">RainMachine</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://my.rainmachine.com/s/&lt;YOUR_DEVICE_ID&gt;/ui/"</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:water-pump</span>
+</code></pre>
+</div>
+<p>You can find <code class="highlighter-rouge">&lt;YOUR_DEVICE_ID&gt;</code> by logging into <a href="https://my.rainmachine.com">https://my.rainmachine.com</a> and taking note of the URL.</p>
+<h2><a class="title-link" name="for-awareness" href="#for-awareness"></a> For Awareness</h2>
+<p>The remote RainMachine API currently has two broken operations (i.e., they return
+error codes): starting a program and stopping a program. Please note that
+starting/stopping programs with the remote API is disabled until RainMachine
+can fix the issue.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/switch.xiaomi_vacuum.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/switch.rainmachine.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/xiaomi.png' />
+      <img src='/images/supported_brands/rainmachine.png' />
   </div>
     <div class='section'>
-    Introduced in release: 0.48
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.51
     </div>
     <div class='section'>
       This is a platform for
@@ -271,6 +266,9 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
             <a href='/components/switch.rachio/'>Rachio Switch</a>
         </li>
         <li>
+            RainMachine Switch
+        </li>
+        <li>
             <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>
         </li>
         <li>
@@ -311,9 +309,6 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
         </li>
         <li>
             <a href='/components/switch.wink/'>Wink Switch</a>
-        </li>
-        <li>
-            Xiaomi Mi Robot Vacuum
         </li>
         <li>
             <a href='/components/switch.xiaomi/'>Xiaomi Switch</a>

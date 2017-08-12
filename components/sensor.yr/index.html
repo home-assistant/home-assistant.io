@@ -84,6 +84,7 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
 </div>
 <p>Configuration variables:</p>
 <ul>
+  <li><strong>name</strong> (<em>Optional</em>): Additional name for the sensors. Default to platform name.</li>
   <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Conditions to display in the frontend.
     <ul>
       <li><strong>symbol</strong>: A symbol for the current weather.</li>
@@ -106,6 +107,7 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Weather</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">temperature</span>
       <span class="pi">-</span> <span class="s">symbol</span>

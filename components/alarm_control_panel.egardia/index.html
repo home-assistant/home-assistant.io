@@ -1,0 +1,250 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Egardia / Woonveilig Alarm Control Panel - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate Egardia / Woonveilig into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/alarm_control_panel.egardia/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Egardia / Woonveilig Alarm Control Panel">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/alarm_control_panel.egardia/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate Egardia / Woonveilig into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Egardia / Woonveilig Alarm Control Panel">
+    <meta name="twitter:description" content="Instructions how to integrate Egardia / Woonveilig into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Egardia / Woonveilig Alarm Control Panel
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">egardia</code> platform enables the ability to control an <a href="http://egardia.com/">Egardia</a>/Woonveilig control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on a Gate01 version of the Egardia/Woonveilig platform.</p>
+<p>You will need to know the IP of your alarm panel on your local network. Test if you can login to the panel by browsing to the IP address and log in in using your Egardia/Woonveilig account.</p>
+<p>To enable this, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alarm_control_panel</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">egardia</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_HOST</span>
+    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): The local IP address of the Egardia/Woonveilig alarm panel.</li>
+  <li><strong>username</strong> (<em>Required</em>): Username for the Egardia/Woonveilig account.</li>
+  <li><strong>password</strong> (<em>Required</em>): Password for Egardia/Woonveilig account.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port of the alarm panel. Defaults to 80.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name to use for the alarm panel. Defaults to <code class="highlighter-rouge">Egardia</code>.</li>
+  <li><strong>report_server_enabled</strong> (<em>Optional</em>): Enable reporting by server. Defaults to <code class="highlighter-rouge">False</code>.</li>
+  <li><strong>report_server_port</strong> (<em>Optional</em>): Port of the Egardia server. Defaults to 85.</li>
+  <li><strong>report_server_codes</strong> list (<em>Optional</em>): List of codes for the different states.</li>
+</ul>
+<p>Note that this basic configuration will only enable you to read the armed/armed away/disarmed status of your alarm and will <strong>not</strong> update the status if the alarm is triggered. This is because of how Egardia built their system. The alarm triggers normally go through their servers.
+You can change this however, using the following procedure. This is an more advanced configuration.</p>
+<ol>
+  <li>Login into your alarm system’s control panel. You will need to access http://[ip of your control panel]. You know this already, since you need it in the basic configuration from above. Login to the control panel with your Egardia/Woonveilig username and password</li>
+  <li>Once logged in, go to <em>System Settings</em>, <em>Report</em> and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. Also, update the port number 85 or to anything you like. The provided software that you will set up in the next steps runs on port 85 by default. <strong>Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia’s / Woonveilig services.</strong> Maybe, that is just what you want. Make sure to save your settings by selecting ‘OK’.</li>
+  <li>On your Home Assistant machine run <code class="highlighter-rouge">$ sudo python3 egardiaserver.py</code>. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. <strong>Before triggering the alarm it might be good to temporarily disable the siren (can be done in Panel Settings).</strong></li>
+  <li>Once you have the codes, update your <code class="highlighter-rouge">configuration.yaml</code>:
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alarm_control_panel</span><span class="pi">:</span>
+ <span class="s"> - platform</span><span class="pi">:</span> <span class="s">egardia</span>
+ <span class="s">   host</span><span class="pi">:</span> <span class="s">YOUR_HOST</span>
+ <span class="s">   username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
+ <span class="s">   password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
+ <span class="s">report_server_enabled</span><span class="pi">:</span> <span class="s">True</span>
+ <span class="s">report_server_port</span><span class="pi">:</span> <span class="s">PORT_OF_EGARDIASERVER (85 as per the instructions above)</span>
+ <span class="s">report_server_codes</span><span class="pi">:</span>
+   <span class="s">arm</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
+   <span class="s">disarm</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
+   <span class="s">armhome</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
+   <span class="s">triggered</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX</span>
+   <span class="s">standby</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
+</code></pre>
+    </div>
+    <p>Note that your can have more than one code for triggered, since every sensor generates it’s own code. arm, disarm, armhome and standby will all be one code.</p>
+  </li>
+  <li>Start the <code class="highlighter-rouge">egardiaserver.py</code> script on boot of your Home Assistant machine, for example by adding the following to your <code class="highlighter-rouge">/etc/rc.local</code>:
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code> python3 <span class="o">[</span>path/to/]egardiaserver.py &amp;
+</code></pre>
+    </div>
+    <p><strong>Do not forget the trailing &amp; here, otherwise you will be having a hard time logging back in to the machine.</strong></p>
+  </li>
+  <li>Test your setup and enjoy. The component will update if the alarm status changes, including triggers. You can use this to build your own automations and send notifications as you wish.</li>
+</ol>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/alarm_control_panel.egardia.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/egardia.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.51
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/alarm_control_panel/'>the Alarm Control Panels component</a>.
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Alarm</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/alarm_control_panel.alarmdotcom/'>Alarm.com Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.alarmdecoder/'>AlarmDecoder Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.concord232/'>Concord232 Alarm Control Panel</a>
+        </li>
+        <li>
+            Egardia / Woonveilig Alarm Control Panel
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.envisalink/'>Envisalink Alarm</a>
+        </li>
+        <li>
+            <a href='/components/envisalink/'>Envisalink Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.totalconnect/'>Honeywell TotalConnect Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.mqtt/'>MQTT Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.manual/'>Manual Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.manual_mqtt/'>Manual Alarm Control Panel with MQTT Support</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.nx584/'>NX584 Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.simplisafe/'>SimpliSafe Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.spc/'>Vanderbilt SPC Alarm</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.verisure/'>Verisure Alarm</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.wink/'>Wink Alarm</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>
