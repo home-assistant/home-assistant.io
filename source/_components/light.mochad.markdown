@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Light
-ha_release: 0.50
+ha_release: 0.51
 ---
 
 The `mochad` switch platform lets you control an X10 enabled dimmer/light
