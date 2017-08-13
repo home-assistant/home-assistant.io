@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Thosiba Smart TV"
+title: "Thosiba Cast TV"
 description: "Instructions on how to integrate a Toshiba Smart TV into Home Assistant."
 date: 2017-08-13 13:04
 sidebar: true
@@ -37,6 +37,6 @@ media_player:
 
 Configuration variables:
 
-- **host** (*Required*): The IP of the Toshiba Smart TV, e.g. `192.168.0.100`.
-- **port** (*Optional*): The port number of your Toshiba SmART TV. Defaults to `4430`.
-- **name** (*Optional*): The name you would like to give to the Toshiba Smart TV.
+- **host** (*Required*): The IP of the Toshiba Cast TV, e.g. `192.168.0.100`.
+- **port** (*Optional*): The port number of your Toshiba Cast TV. Defaults to `4430`.
+- **name** (*Optional*): The name you would like to give to the Toshiba Cast TV.
