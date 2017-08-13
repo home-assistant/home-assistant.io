@@ -36,7 +36,7 @@ Configuration variables:
 - **color** (*Optional*): Setting color will override the default color for the notification. By default not setting this will post to HipChat using the default color yellow. Valid options are 'yellow', 'green', 'red', 'purple', 'gray', 'random'.
 - **notify** (*Optional*): Setting notify will override the default notify (blink application icon, chime, or otherwise call attention) setting for the notification. By default this is 'false'. Valid options are 'true' and 'false'.
 - **format** (*Optional*): Setting format will override the default message format. Default is 'text'. Valid options are 'text' and 'html'.
-- **host** (*Optional*): Setting the host will override the default HipChat server host. Default is 'api.hipchat.com'.
+- **host** (*Optional*): Setting the host will override the default HipChat server host. Default is 'https://api.hipchat.com/'.
 
 ### {% linkable_title HipChat service data %}
 
@@ -44,7 +44,7 @@ The following attributes can be placed `data` for extended functionality.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `room`                 |      yes | (str) Same usage as in configuration.yaml. Overrides any setting set in configuration.yaml.
+| `room`                 |      yes | (int) Same usage as in configuration.yaml. Overrides any setting set in configuration.yaml.
 | `color`                |      yes | (str) Same usage as in configuration.yaml. Overrides any setting set in configuration.yaml.
 | `notify`                  |      yes | (bool) Same usage as in configuration.yaml. Overrides any setting set in configuration.yaml.
 | `format`             |      yes | (str) Same usage as in configuration.yaml. Overrides any setting set in configuration.yaml.
