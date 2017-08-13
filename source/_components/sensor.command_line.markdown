@@ -145,3 +145,16 @@ sensor:
     command: "python3 /path/to/script/arest-value.py"
     unit_of_measurement: "°C"
 ```
+
+### {% linkable_title Usage of templating in `command:` %}
+
+[Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: wind direction
+    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
+    unit_of_measurement: "Direction"
+```
