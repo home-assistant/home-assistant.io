@@ -23,10 +23,6 @@ switch:
   - platform: broadlink
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
-    switches:
-      reciever:
-        command_on: 'switch_packet on'
-        command_off: 'switch_packet off'
 ```
 
 Configuration variables:
