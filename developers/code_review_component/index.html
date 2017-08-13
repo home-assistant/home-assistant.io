@@ -82,6 +82,7 @@ Not all existing platforms follow the requirements in this checklist. This canno
 <ol>
   <li>Requirement version pinned: <code class="highlighter-rouge">REQUIREMENTS = ['phue==0.8.1']</code></li>
   <li>We no longer want requirements hosted on GitHub. Please upload to PyPi.</li>
+  <li>Requirements only imported inside functions. This is necessary because requirements are installed on the fly.</li>
 </ol>
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 <ol>
