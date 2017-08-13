@@ -20,6 +20,11 @@ Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `tu
 
 Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
 
+Before you begin you need to install libffi-dev by running the command below. This is needed for python-mirobi to be installed correctly. 
+```bash
+$ apt-get install libffi-dev
+```
+
 <p class='note warning'>
 If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
 
