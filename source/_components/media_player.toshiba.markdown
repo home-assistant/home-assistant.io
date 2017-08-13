@@ -39,4 +39,4 @@ Configuration variables:
 
 - **host** (*Required*): The IP of the Toshiba Smart TV, e.g. `192.168.0.100`.
 - **port** (*Optional*): The port number of your Toshiba SmART TV. Defaults to `4430`.
-- **name** (*Optional*): The name you would like to give to the Panasonic Viera TV.
+- **name** (*Optional*): The name you would like to give to the Toshiba Smart TV.
