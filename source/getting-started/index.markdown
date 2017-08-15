@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-You will need to install Home Assistant before we can get started. You can install Home Assistant on your computer or you can turn a Raspberry Pi into a dedicated Home Assistant hub.
+You will need to install Home Assistant before we can get started. You can install Home Assistant on your computer, or you can turn a Raspberry Pi into a dedicated Home Assistant hub.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/hassio/'>
@@ -27,7 +27,7 @@ You will need to install Home Assistant before we can get started. You can insta
 </div>
 <br>
 
-For alternative installation methods please take a look at the [installation documentation](/docs/installation/).
+For alternative installation methods, please take a look at the [installation documentation](/docs/installation/).
 
 If you run into any issues, please see [the troubleshooting page](/docs/installation/troubleshooting/) or [communication channels](/help/). It contains solutions to many commonly encountered issues.
 
