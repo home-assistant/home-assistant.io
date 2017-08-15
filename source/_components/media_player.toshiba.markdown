@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Thosiba Cast TV"
-description: "Instructions on how to integrate a Toshiba Smart TV into Home Assistant."
+title: "Toshiba Cast TV"
+description: "Instructions on how to integrate a Toshiba Cast TV into Home Assistant."
 date: 2017-08-13 13:04
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.17
 ha_iot_class: "Local Polling"
 ---
 
-The `toshiba` platform allows you to control a Toshiba Cast TV.
+The `toshiba` platform allows you to control a Toshiba Cast TV. The component allow to query and set the power, the input source and the volume.
 
 Currently known supported models:
 
@@ -21,18 +21,17 @@ Currently known supported models:
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io).
 
-This TV has a "standby mode" that need to be "active" to allow power-on/power-off
+Toshiba Cast TV has a "standby mode" that need to be set "active" to allow quick power-on/power-off
 
-This TV will also be listed as a Google Cast device with the discovery protocol.  This component allow to manage input, volume and power on/off.
+Toshiba Cast TV integrate a Google Cast and can be used with the discovery component. 
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+To activate the component, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
   - platform: toshiba
     host: 192.168.0.100
-    port: 4430
 ```
 
 Configuration variables:
