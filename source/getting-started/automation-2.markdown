@@ -90,7 +90,7 @@ group:
     - switch.christmas_lights
 
 automation:
-  alias: Turn on the lights when tje sun sets
+  alias: Turn on the lights when the sun sets
   hide_entity: True
   trigger:
     platform: sun
