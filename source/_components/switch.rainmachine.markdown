@@ -2,7 +2,7 @@
 layout: page
 title: "RainMachine Switch"
 description: "Instructions on how to use RainMachine units with Home Assistant."
-date: 2017-08-04 12:00
+date: 2017-08-14 13:30
 sidebar: true
 comments: false
 sharing: true
@@ -23,7 +23,7 @@ The platform allows for either local (i.e., directly across the LAN) or remote
 dictate what your configuration should look like.
 
 For local access, specify the IP address/hostname of your RainMachine unit
-and your RainMachine password:
+, your RainMachine password, and optionally, the device's HTTP port:
 
 ```yaml
 switch:
@@ -43,11 +43,16 @@ switch:
 
 Configuration Variables:
 
-- **ip_address** (*Optional*): The IP address of your RainMachine unit
-- **email** (*Optional*): Your RainMachine username/email
-- **password** (*Required*): Your RainMachine password
-- **zone_run_time** (*Optional*): The number of seconds that a zone should run when
-turned on; defaults to 600 (10 minutes)
+- **ip_address** (*Optional*): the IP address of your RainMachine unit; cannot be
+used with the `email` parameter
+- **email** (*Optional*): your RainMachine username/email; cannot be used with the
+`ip_address` parameter
+- **password** (*Required*): your RainMachine password
+- **port** (*Optional*): the TCP port used by your unit for the REST API (default: 8080)
+- **ssl** (*Optional*): whether communication with the local device should occur
+over HTTPS (default: true)
+- **zone_run_time** (*Optional*): the number of seconds that a zone should run when
+turned on (default: 600)
 
 ## {% linkable_title Controlling Your Device %}
 
