@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: usps.png
 ha_category: Camera
-ha_release: 0.51
+ha_release: 0.52
 ha_iot_class: "Cloud Polling"
 ---
 
