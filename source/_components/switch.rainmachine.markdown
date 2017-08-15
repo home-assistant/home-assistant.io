@@ -10,7 +10,7 @@ footer: true
 logo: rainmachine.png
 ha_category: Switch
 ha_iot_class: "Cloud Polling"
-ha_release: 0.51.3
+ha_release: 0.52
 ---
 
 The `rainmachine` switch platform allows you to control programs and zones within
