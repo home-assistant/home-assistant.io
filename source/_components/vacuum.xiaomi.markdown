@@ -67,8 +67,8 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 1. Setup iOS device with the Mi-Home app.
 2. Create an unencrypted backup of the device using iTunes.
 3. Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/
-4. Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer
-5. Open the file extracted using notepad. You will then see the list of all the device in your account with their token.
+4. Extract this file: **`/raw data/com.xiami.mihome/1234567_mihome.sqlite`** to your computer, where _1234567_ is any string of numbers.
+5. Open the sqlite DB with a tool like SQLite Manager extension for FireFox, DB Browser, etc. You will then see the list of all the devices in your account with their token. The token you need is in the column **`ZToken`** and looks like **`123a1234567b12345c1d123456789e12`**.
 
 ## {% linkable_title Configuration %}
 
