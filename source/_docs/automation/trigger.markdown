@@ -186,7 +186,7 @@ automation:
 
 ### {% linkable_title Multiple triggers %}
 
-When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the lines following accordingly. Whenever one of the triggers fires, your rule is executed.
+When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.
 
 ```yaml
 automation:
