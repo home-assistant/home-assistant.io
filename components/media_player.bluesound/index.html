@@ -94,21 +94,16 @@
   </li>
 </ul>
 <h2>Advanced configuration example</h2>
-<p>```yaml</p>
-<h1>Example configuration.yaml entry with manually specified addresses</h1>
-<p>media_player:</p>
-<ul>
-  <li>platform: bluesound
-hosts:
-    <ul>
-      <li>host: 192.168.1.100
-name: bluesound_kitchen
-port: 11000</li>
-      <li>host: 192.168.1.131
-```</li>
-    </ul>
-  </li>
-</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with manually specified addresses</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bluesound</span>
+    <span class="s">hosts</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">bluesound_kitchen</span>
+        <span class="s">port</span><span class="pi">:</span> <span class="s">11000</span>
+      <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.131</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
