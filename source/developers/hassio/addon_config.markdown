@@ -26,11 +26,19 @@ As with every Docker container, you will need a script to run when the container
 When developing your script:
 
  - `/data` is a volume for persistent storage.
- - `/data/options.json` contains the user configuration. You can use `jq` inside your shell script to parse this data.
+ - `/data/options.json` contains the user configuration. You can use `jq` inside your shell script to parse this data. However you might have to install `jq` as a separate package in your container (see `Dockerfile` below).
 
 ```bash
-echo '{ "target": "beer" }' | jq -r ".target"
+CONFIG_PATH=/data/options.json
+
+TARGET=$(jq --raw-output ".target" $CONFIG_PATH)
 ```
+
+So if your `options`contain
+```json
+{ "target": "beer" }
+```
+then there will be a variable `TARGET`containing `beer` in the environment of your bash file afterwards.
 
 ## {% linkable_title Add-on Docker file %}
 
