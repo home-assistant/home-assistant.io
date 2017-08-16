@@ -70,6 +70,10 @@ automation:
     below: 25
 ```
 
+Note: 
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+
 ### {% linkable_title State trigger %}
 
 Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.
