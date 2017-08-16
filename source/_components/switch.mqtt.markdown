@@ -38,9 +38,9 @@ Configuration variables:
 - **availability_topic** (*Optional*): The MQTT topic subscribed to receive availability (online/offline) updates.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
-- **payload_available** (*Optional*): The payload that represents available state. Default is "ON".
-- **payload_not_available** (*Optional*): The payload that represents unavailable state. Default is "OFF".
-- **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no `state_topic` defined, else `false`.
+- **payload_available** (*Optional*): The payload that represents the available state, e.g. 'online'. Default is "ON".
+- **payload_not_available** (*Optional*): The payload that represents the unavailable state, e.g. 'offline'. Default is "OFF".
+- **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Defau=lt is `true` if no `state_topic` defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
