@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rss.png
 ha_category: Sensor
-ha_version: 0.51
+ha_version: 0.52
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -19,8 +19,8 @@ location and grouped by category.
 
 This sensor is particularly useful if events occur unexpectedly in the
 vicinity of the home while the GeoRSS feed also contains many events
-distant unrelated entries. Typical examples are bush fires alerts or
-earthquakes.
+representing distant unrelated entries. Typical examples are bush fires
+alerts or earthquakes.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/geo-rss-incidents-group-screenshot.png' />
@@ -46,7 +46,6 @@ sensor:
   - platform: geo_rss_events
     name: NSW Fire Service
     url: http://www.rfs.nsw.gov.au/feeds/majorIncidents.xml
-    icon: mdi:fire
     unit_of_measurement: 'Incidents'
     categories:
       - 'Emergency Warning'
@@ -58,7 +57,6 @@ Configuration variables:
 
 - **url** (*Required*): Full URL of the GeoRSS feed.
 - **name** (*Optional*): Name of the sensor used in generating the entity id. Default is 'Event Service'.
-- **icon** (*Optional*): Any icon from [MaterialDesignIcons.com]. Prefix name with `mdi:`. Default is `mdi:alert`.
 - **radius** (*Optional*): The distance in kilometres around the Home Assistant's coordinates in which events are considered. Default is: 20km.
 - **categories** (*Optional*): List of event category names found in the GeoRSS feed. A separate sensor is created for each category defined. Default is to join events from all categories into an 'Any' category.
 - **unit_of_measurement** (*Optional*): The type of events found in the GeoRSS feed. Default is 'Events'.
@@ -72,21 +70,17 @@ sensor:
   - platform: geo_rss_events
     name: Qld Fire and Emergency Services
     url: https://www.qfes.qld.gov.au/data/alerts/bushfireAlert.xml
-    icon: mdi:fire
     unit_of_measurement: 'Alerts'
   - platform: geo_rss_events
     name: Tas Fire Service
     url: http://www.fire.tas.gov.au/Show?pageId=colBushfireSummariesRss
-    icon: mdi:fire
     unit_of_measurement: 'Alerts'
   - platform: geo_rss_events
     name: WA Department of Fire and Emergency Services
     url: https://www.emergency.wa.gov.au/data/incident_FCAD.rss
-    icon: mdi:fire
   - platform: geo_rss_events
     name: ACT Emergency Services Agency
     url: http://www.esa.act.gov.au/feeds/currentincidents.xml
-    icon: mdi:fire
 ```
 
 
