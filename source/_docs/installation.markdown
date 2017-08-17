@@ -23,7 +23,7 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     <div class='img-container'>
       <img src='/images/supported_brands/raspberry-pi.png' />
     </div>
-    <div class='title'>Rasbian</div>
+    <div class='title'>Raspbian</div>
   </a>
   <a class='option-card' href='/docs/installation/archlinux/'>
     <div class='img-container'>
