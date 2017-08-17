@@ -70,9 +70,10 @@ automation:
     below: 25
 ```
 
-Note: 
+<p class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
 In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+</p>
 
 ### {% linkable_title State trigger %}
 
