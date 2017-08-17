@@ -123,6 +123,10 @@
     <span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
 </code></pre>
 </div>
+<p class="note">
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+</p>
 <h3><a class="title-link" name="state-trigger" href="#state-trigger"></a> State trigger</h3>
 <p>Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
