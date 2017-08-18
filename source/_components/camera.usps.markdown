@@ -24,7 +24,7 @@ To customize the interval that mail images are rotated in the mail camera you ca
 ```yaml
 # Example configuration.yaml entry
 camera:
-  - platform:
+  - platform: usps
     scan_interval: 5
 ```
 
