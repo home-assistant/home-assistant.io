@@ -14,7 +14,7 @@ ha_release: 0.51
 ---
 
 
-The `shodan` sensor platform is displaying the total of result of a [Shodan](https://pi-hole.net/) query.
+The `shodan` sensor platform is displaying the total of result of a [Shodan](https://www.shodan.io/) query.
 
 Use "Show API Key" in the upper right corner when you are logged in or got to your "My Account" page to retrieve your API key.
 

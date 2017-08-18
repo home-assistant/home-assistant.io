@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Hass.io turns your Raspberry Pi (or other device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations.
+Hass.io turns your Raspberry Pi (or another device) into the ultimate home automation hub powered by Home Assistant. With Hass.io you can focus on integrating your devices and writing automations.
 
 [Go to the installation instructions &raquo;][install]
 
