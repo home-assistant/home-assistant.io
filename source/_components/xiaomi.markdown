@@ -10,15 +10,15 @@ footer: true
 logo: xiaomi.png
 ha_category: Hub
 ha_release: "0.50"
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
-The `xiaomi_gw` platform allows you to integrate the following [Xiaomi](http://www.mi.com/en/) devices into Home Assistant.
+The `xiaomi` platform allows you to integrate the following [Xiaomi](http://www.mi.com/en/) devices into Home Assistant.
 
-- Temperature and Humidity Sensor (old and new version)
-- Motion Sensor (old and new version)
-- Door and Window Sensor (old and new version)
-- Button (old and new version)
+- Temperature and Humidity Sensor (1st and 2nd generation)
+- Motion Sensor (1st and 2nd generation)
+- Door and Window Sensor (1st and 2nd generation)
+- Button (1st and 2nd generation)
 - Plug aka Socket (ZigBee version, reports power consumed, power load, state and if device in use)
 - Wall Plug (reports power consumed, power load and state)
 - Aqara Wall Switch (Single)
