@@ -32,7 +32,6 @@ Configuration options for the USPS component:
 - **username** (*Required*): The username to access the MyUSPS service.
 - **password** (*Required*): The password for the given username.
 - **name** (*Optional*): Prefix for sensor names (defaults to "USPS")
-- **interval** (*Optional*): Time in seconds to show each mail image. (defaults to 10)
 
 <p class='note warning'>
 The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
