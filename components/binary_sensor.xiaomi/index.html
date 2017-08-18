@@ -77,14 +77,120 @@
   <p>The <code class="highlighter-rouge">xiaomi</code> binary sensor platform allows you to get data from your <a href="http://www.mi.com/en/">Xiaomi</a> binary sensors.</p>
 <p>The requirement is that you have setup the <a href="/components/xiaomi/"><code class="highlighter-rouge">xiaomi</code> component</a>.</p>
 <h3><a class="title-link" name="type-of-sensors-supported" href="#type-of-sensors-supported"></a> Type of sensors supported</h3>
-<ul>
-  <li>Motion</li>
-  <li>Door / Window</li>
-  <li>Smoke</li>
-  <li>Gas</li>
-  <li>Xiaomi Wireless Button</li>
-  <li>Xiaomi Cube</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ZigBee entity</th>
+      <th>Model no.</th>
+      <th>States</th>
+      <th>Event</th>
+      <th>Event key</th>
+      <th>Event values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Motion Sensor (1st gen)</td>
+      <td>motion</td>
+      <td>RTCGQ01LM</td>
+      <td>on, off</td>
+      <td><code class="highlighter-rouge">motion</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Motion Sensor (2nd gen)</td>
+      <td>sensor_motion.aq2</td>
+      <td>RTCGQ11LM</td>
+      <td>on, off</td>
+      <td><code class="highlighter-rouge">motion</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Door and Window Sensor (1st gen)</td>
+      <td>magnet</td>
+      <td>WSDCGQ01LM</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Door and Window Sensor (2nd gen)</td>
+      <td>sensor_magnet.aq2</td>
+      <td>MCCGQ11LM</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Smoke Detector</td>
+      <td>smoke</td>
+      <td>JTYJ-GD-01LM/BW</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Gas Leak Detector</td>
+      <td>natgas</td>
+      <td>JTQJ-BF-01LM/BW</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Button (1st gen)</td>
+      <td>switch</td>
+      <td>WXKG01LM</td>
+      <td>on (thru long_click_press), off</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">long_click_press</code>, <code class="highlighter-rouge">long_click_release</code>, <code class="highlighter-rouge">hold</code>, <code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">double</code></td>
+    </tr>
+    <tr>
+      <td>Button (2nd gen)</td>
+      <td>sensor_switch.aq2</td>
+      <td>WXKG11LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">double</code></td>
+    </tr>
+    <tr>
+      <td>Aqara Wireless Switch (Single)</td>
+      <td>86sw1</td>
+      <td>WXKG03LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">single</code></td>
+    </tr>
+    <tr>
+      <td>Aqara Wireless Switch (Double)</td>
+      <td>86sw2</td>
+      <td>WXKG02LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">both</code></td>
+    </tr>
+    <tr>
+      <td>Cube</td>
+      <td>cube</td>
+      <td>MFKZQ01LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">cube_action</code></td>
+      <td><code class="highlighter-rouge">action_type</code>, <code class="highlighter-rouge">action_value</code> (rotate)</td>
+      <td><code class="highlighter-rouge">flip90</code>, <code class="highlighter-rouge">flip180</code>, <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">tap_twice</code>, <code class="highlighter-rouge">shake_air</code>, <code class="highlighter-rouge">swing</code>, <code class="highlighter-rouge">alert</code>, <code class="highlighter-rouge">free_fall</code>, <code class="highlighter-rouge">rotate</code> (degrees at action_value)</td>
+    </tr>
+  </tbody>
+</table>
 <h3><a class="title-link" name="automation-examples" href="#automation-examples"></a> Automation examples</h3>
 <h4><a class="title-link" name="motion" href="#motion"></a> Motion</h4>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">If there is motion and its dark turn on the gateway light</span>
@@ -237,8 +343,8 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">cube_action</span>
     <span class="s">event_data</span><span class="pi">:</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>                                       
-      <span class="s">action_type</span><span class="pi">:</span> <span class="s">flip180</span>                               
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>
+      <span class="s">action_type</span><span class="pi">:</span> <span class="s">flip180</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.gateway_light_28xxxxxxxxxx</span>
@@ -246,10 +352,10 @@
         <span class="s">color_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">darkviolet"</span>
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Cube event move</span>
   <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>                            
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">cube_action</span>
-    <span class="s">event_data</span><span class="pi">:</span>                                                                                                             
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>                                        
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>
       <span class="s">action_type</span><span class="pi">:</span> <span class="s">move</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
@@ -282,7 +388,7 @@
         <span class="s">color_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">blue"</span>
 </code></pre>
 </div>
-<h4>#### <a class="title-link" name="aqara-wireless-switch" href="#aqara-wireless-switch"></a> Aqara Wireless Switch</h4>
+<h4><a class="title-link" name="aqara-wireless-switch" href="#aqara-wireless-switch"></a> Aqara Wireless Switch</h4>
 <p>The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event <code class="highlighter-rouge">single</code>. The double key version adds a third device called <code class="highlighter-rouge">binary_sensor.wall_switch_both_158xxxxxxxxx12</code> which reports a click event called <code class="highlighter-rouge">both</code> if both keys are pressed.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Decrease brightness of the gateway light</span>
   <span class="s">trigger</span><span class="pi">:</span>
@@ -350,7 +456,7 @@
       <img src='/images/supported_brands/xiaomi.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
     Introduced in release: 0.50
