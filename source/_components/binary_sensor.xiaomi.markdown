@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Binary Sensor
 ha_release: "0.50"
-ha_iot_class: "Local Polling"
+ha_iot_class: "Local Push"
 ---
 
 
@@ -20,12 +20,21 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
 
 
 ### {% linkable_title Type of sensors supported %}
-- Motion
-- Door / Window
-- Smoke
-- Gas
-- Xiaomi Wireless Button
-- Xiaomi Cube
+
+| Name                              | ZigBee entity       | Model no.            | States                            | Event          | Event key                               | Event values                                                                                                             |
+|-----------------------------------|---------------------|----------------------|----------------------------------------------------|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| Motion Sensor (1st gen)           | motion              | RTCGQ01LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
+| Motion Sensor (2nd gen)           | sensor_motion.aq2   | RTCGQ11LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
+| Door and Window Sensor (1st gen)  | magnet              | WSDCGQ01LM           | on, off                           |                |                                         |                                                                                                                          |
+| Door and Window Sensor (2nd gen)  | sensor_magnet.aq2   | MCCGQ11LM            | on, off                           |                |                                         |                                                                                                                          |
+| Smoke Detector                    | smoke               | JTYJ-GD-01LM/BW      | on, off                           |                |                                         |                                                                                                                          |
+| Gas Leak Detector                 | natgas              | JTQJ-BF-01LM/BW      | on, off                           |                |                                         |                                                                                                                          |
+| Button (1st gen)                  | switch              | WXKG01LM             | on (thru long_click_press), off   | `click`        | `click_type`                            | `long_click_press`, `long_click_release`, `hold`, `single`, `double`                                                     |
+| Button (2nd gen)                  | sensor_switch.aq2   | WXKG11LM             | off (always)                      | `click`        | `click_type`                            | `single`, `double`                                                                                                       |
+| Aqara Wireless Switch (Single)    | 86sw1               | WXKG03LM             | off (always)                      | `click`        | `click_type`                            | `single`                                                                                                                 |
+| Aqara Wireless Switch (Double)    | 86sw2               | WXKG02LM             | off (always)                      | `click`        | `click_type`                            | `single`, `both`                                                                                                         |
+| Cube                              | cube                | MFKZQ01LM            | off (always)                      | `cube_action`  | `action_type`, `action_value` (rotate)  | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+
 
 ### {% linkable_title Automation examples %}
 
@@ -65,7 +74,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
       data:
         entity_id: automation.Motion_off
 ```
-  
+
 #### {% linkable_title Door and/or Window %}
 
 ```yaml
@@ -194,8 +203,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
     platform: event
     event_type: cube_action
     event_data:
-      entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                       
-      action_type: flip180                               
+      entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+      action_type: flip180
   action:
     - service: light.turn_on
       entity_id: light.gateway_light_28xxxxxxxxxx
@@ -203,10 +212,10 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         color_name: "darkviolet"
 - alias: Cube event move
   trigger:
-    platform: event                            
+    platform: event
     event_type: cube_action
-    event_data:                                                                                                             
-      entity_id: binary_sensor.cube_15xxxxxxxxxxxx                                        
+    event_data:
+      entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: move
   action:
     - service: light.turn_on
@@ -238,7 +247,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       data:
         color_name: "blue"
 ```
-#### #### {% linkable_title Aqara Wireless Switch %}
+
+#### {% linkable_title Aqara Wireless Switch %}
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 
