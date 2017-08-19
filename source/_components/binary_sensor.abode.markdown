@@ -10,7 +10,7 @@ footer: true
 logo: alarmdecoder.png
 ha_release: 0.52
 ha_category: Binary Sensor
-ha_iot_class: "Local Push"
+ha_iot_class: "Cloud Polling"
 ---
 
 The `abode` security control panel platform allows you to control your [Abode](https://goabode.com/) alarms.

@@ -10,7 +10,7 @@ footer: true
 logo: abode.jpg
 ha_category: Hub
 ha_release: 0.52
-ha_iot_class: "Local Push"
+ha_iot_class: "Cloud Polling"
 ---
 
 The `abode` component will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.  
