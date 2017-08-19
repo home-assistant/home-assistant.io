@@ -55,3 +55,6 @@ automation:
       data:
         name: happy
 ```
+### {% linkable_title Manual Theme Selection %}
+
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under `configuration.yaml` called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
