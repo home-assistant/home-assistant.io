@@ -74,9 +74,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">template</code> platform creates switches that combine components.</p>
+  <p>The <code class="highlighter-rouge">template</code> platform creates switches that combines components.</p>
 <p>For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.</p>
-<p>This can simplify the gui, and make it easier to write automations. You can mark the components you have combined as <code class="highlighter-rouge">hidden</code> so they don’t appear themselves.</p>
+<p>This can simplify the GUI and make it easier to write automations. You can mark the components you have combined as <code class="highlighter-rouge">hidden</code> so they don’t appear themselves.</p>
 <p>To enable Template switches in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">switch</span><span class="pi">:</span>
@@ -105,8 +105,8 @@
   </li>
 </ul>
 <h2><a class="title-link" name="considerations" href="#considerations"></a> Considerations</h2>
-<p>If you are using the state of a platform that takes extra time to load, the template switch may get an ‘unknown’ state during startup. This results in error messages in your log file until that platform has completed loading. If you use is_state() function in your template, you can avoid this situation. For example, you would replace ‘{{ states.switch.source.state }}’ with this equivalent that returns true/false and never gives an unknown result:
-‘{{ is_state(‘switch.source’, ‘on’) }}’</p>
+<p>If you are using the state of a platform that takes extra time to load, the template switch may get an ‘unknown’ state during startup. This results in error messages in your log file until that platform has completed loading. If you use <code class="highlighter-rouge">is_state()</code> function in your template, you can avoid this situation. For example, you would replace <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">states.switch.source.state</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code> with this equivalent that returns true/false and never gives an unknown result:
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('switch.source',</span><span class="w"> </span><span class="err">'on')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code></p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you find some real life examples of how to use this switch.</p>
 <h3><a class="title-link" name="copy-switch" href="#copy-switch"></a> Copy switch</h3>
