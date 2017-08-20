@@ -40,7 +40,6 @@ Configuration variables:
 - **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **device_config** (*Optional*): This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format:
-  - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
   - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
@@ -204,6 +203,7 @@ The `zwave` component exposes multiple services to help maintain the network.
 | replace_failed_node | Replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.|
 | reset_node_meters | Reset a node's meter values. Only works if the node supports this. |
 | set_config_parameter | Lets the user set a config parameter to a node. NOTE: Use string for list values. For all others use integer. |
+| set_poll_intensity | Lets the user set the polling intensity of a value.
 | soft_reset | Tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command.|
 | start_network | Starts the Z-Wave network.|
 | stop_network | Stops the Z-Wave network.|
