@@ -68,7 +68,7 @@ To explore the data available within the `data` attribute of a sensor use the `d
   sensors:
     updated:
       friendly_name: 'Updated'
-{% endraw %}      value_template: {% raw %}'{{states.sensor.merton.attributes.updated}}'
+      value_template: {% raw %}'{{states.sensor.merton.attributes.updated}}'{% endraw %}
     merton_pm10:
       friendly_name: 'Merton PM10'
       value_template: {% raw %}'{{states.sensor.merton.attributes.data[0].pollutants[0].summary}}'{% endraw %}
