@@ -29,5 +29,8 @@ notify:
     token: <YOUR_DEVELOPER_TOKEN>
     roomid: <CISCO_SPARK_ROOMID>
 ```
+
+
+
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
