@@ -72,3 +72,28 @@ action:
 
 - **url** (*Required*): Page URL to send with pushbullet.
 
+### {% linkable_title File support %}
+
+```yaml
+...
+
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send file
+    message: This is a file
+    data:
+      file: /path/to/my/file
+```
+
+- **file** (*Required*): File to send with pushbullet.
+
+<p class='note'>
+If the path to the file is located in an external directory, it has to be whitelisted so homeassistant has access to it.
+</p>
+
+```yaml
+homeassistant:
+  whitelist_external_dirs:
+    - /path/to/my
+```
