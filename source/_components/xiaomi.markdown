@@ -143,7 +143,9 @@ Automation example
 2017-08-20 16:51:20 ERROR (MainThread) [homeassistant.setup] Setup failed for xiaomi: Component failed to initialize.
 ```
 
-That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall. 
+That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
+- Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832
 - Turn off the firewall on the HA computer 
 - Try to leave the mac address blank. 
 - Try to set `discovery_retry: 10`
+- Try to disable and then renable LAN access
