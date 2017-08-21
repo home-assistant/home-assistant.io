@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "London air quality"
+title: "London Air Quality"
 description: "Display the current status of London air quality by area and pollution type."
 date: 2017-08-02 18:00
 sidebar: true
@@ -10,7 +10,7 @@ footer: true
 logo: waqi.png
 ha_category: Health
 ha_iot_class: "Cloud Polling"
-ha_release: 0.51
+ha_release: 0.52
 ---
 
 
@@ -68,11 +68,11 @@ To explore the data available within the `data` attribute of a sensor use the `d
   sensors:
     updated:
       friendly_name: 'Updated'
-      value_template: '{{states.sensor.merton.attributes.updated}}'
+{% endraw %}      value_template: {% raw %}'{{states.sensor.merton.attributes.updated}}'
     merton_pm10:
       friendly_name: 'Merton PM10'
-      value_template: '{{states.sensor.merton.attributes.data[0].pollutants[0].summary}}'
+      value_template: {% raw %}'{{states.sensor.merton.attributes.data[0].pollutants[0].summary}}'{% endraw %}
     westminster_s02:
       friendly_name: 'Westminster S02'
-      value_template: '{{states.sensor.westminster.attributes.data[0].pollutants[3].summary}}'
+      value_template: {% raw %}'{{states.sensor.westminster.attributes.data[0].pollutants[3].summary}}'{% endraw %}
 ```
