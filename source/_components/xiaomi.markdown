@@ -132,3 +132,18 @@ Automation example
     data:
       gw_mac: xxxxxxxxxxxx
 ```
+
+
+### {% linkable_title Troubleshooting  %}
+
+**Connection problem**
+
+```
+2017-08-20 16:51:19 ERROR (SyncWorker_0) [homeassistant.components.xiaomi] No gateway discovered
+2017-08-20 16:51:20 ERROR (MainThread) [homeassistant.setup] Setup failed for xiaomi: Component failed to initialize.
+```
+
+That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall. 
+- Turn off the firewall on the HA computer 
+- Try to leave the mac address blank. 
+- Try to set `discovery_retry: 10`
