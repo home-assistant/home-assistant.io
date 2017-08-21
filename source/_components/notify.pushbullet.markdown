@@ -89,7 +89,7 @@ action:
 - **file** (*Required*): File to send with pushbullet.
 
 <p class='note'>
-If the path to the file is located in an external directory, it has to be whitelisted so homeassistant has access to it.
+Don't forget to whitelist external directories, so Home Assistant has access to them.
 </p>
 
 ```yaml
