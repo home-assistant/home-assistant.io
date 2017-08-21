@@ -134,9 +134,7 @@
 </div>
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
 <h3><a class="title-link" name="url-support" href="#url-support"></a> URL support</h3>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="nn">...</span>
-
-<span class="s">action</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
   <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
   <span class="s">data</span><span class="pi">:</span>
     <span class="s">title</span><span class="pi">:</span> <span class="s">Send URL</span>
@@ -146,8 +144,24 @@
 </code></pre>
 </div>
 <ul>
-  <li><strong>url</strong> (<em>Required</em>): Page URL to send with pushbullet.</li>
+  <li><strong>url</strong> (<em>Required</em>): Page URL to send with Pushbullet.</li>
 </ul>
+<h3><a class="title-link" name="file-support" href="#file-support"></a> File support</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s">Send file</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s">This is a file</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">file</span><span class="pi">:</span> <span class="s">/path/to/my/file</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>file</strong> (<em>Required</em>): File to send with Pushbullet.</li>
+</ul>
+<p class="note">
+Don’t forget to <a href="/docs/configuration/basic/">whitelist external directories</a>, so Home Assistant has access to them.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
