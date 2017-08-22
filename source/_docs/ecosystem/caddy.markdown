@@ -16,5 +16,6 @@ hass.example.org {
     proxy / localhost:8123 {
         websocket
         transparent
+    }
 }
 ```
