@@ -98,6 +98,7 @@
   <li><code class="highlighter-rouge">frontend.set_theme(name)</code>: sets backend-preferred theme name.</li>
 </ul>
 <p>Example in automation:</p>
+<p>Set a theme at the startup of Home Assistant:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">startup'</span>
     <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
@@ -108,6 +109,19 @@
       <span class="s">service</span><span class="pi">:</span> <span class="s">frontend.set_theme</span>
       <span class="s">data</span><span class="pi">:</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">happy</span>
+</code></pre>
+</div>
+<p>To enable “night mode”:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">dark</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">night'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">21:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">frontend.set_theme</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">darkred</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="manual-theme-selection" href="#manual-theme-selection"></a> Manual Theme Selection</h3>
