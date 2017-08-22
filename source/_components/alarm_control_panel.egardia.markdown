@@ -39,11 +39,11 @@ Configuration variables:
 - **report_server_codes** list (*Optional*): List of codes for the different states.
 
 Note that this basic configuration will only enable you to read the armed/armed away/disarmed status of your alarm and will **not** update the status if the alarm is triggered. This is because of how Egardia built their system. The alarm triggers normally go through their servers.
-You can change this however, using the following procedure. This is an more advanced configuration.
+You can change this, however, using the following procedure. This is a more advanced configuration.
 
-1. Login into your alarm system's control panel. You will need to access http://[ip of your control panel]. You know this already, since you need it in the basic configuration from above. Login to the control panel with your Egardia/Woonveilig username and password
+1. Log in into your alarm system's control panel. You will need to access http://[ip of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.
 2. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. Also, update the port number 85 or to anything you like. The provided software that you will set up in the next steps runs on port 85 by default. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'.
-3. On your Home Assistant machine run `$ sudo python3 egardiaserver.py`. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. **Before triggering the alarm it might be good to temporarily disable the siren (can be done in Panel Settings).**
+3. On your Home Assistant machine run `$ sudo python3 egardiaserver.py`. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. **Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).**
 4. Once you have the codes, update your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
@@ -61,10 +61,10 @@ alarm_control_panel:
       triggered: XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX
       standby: XXXXXXXXXXXXXXXX
 ```
-  Note that your can have more than one code for triggered, since every sensor generates it's own code. arm, disarm, armhome and standby will all be one code.
+  Note that you can have more than one code for triggered since every sensor generates its own code. arm, disarm, armhome and standby will all be one code.
 5. Start the `egardiaserver.py` script on boot of your Home Assistant machine, for example by adding the following to your `/etc/rc.local`:
 ```bash
  python3 [path/to/]egardiaserver.py &
 ```
- **Do not forget the trailing & here, otherwise you will be having a hard time logging back in to the machine.**
+ **Do not forget the trailing & here; otherwise you will be having a hard time logging back into the machine.**
 6. Test your setup and enjoy. The component will update if the alarm status changes, including triggers. You can use this to build your own automations and send notifications as you wish.
