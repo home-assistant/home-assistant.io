@@ -10,7 +10,7 @@ footer: true
 logo: abode.jpg
 ha_category: Alarm
 ha_release: 0.52
-ha_iot_class: "Cloud Polling"
+ha_iot_class: "Cloud Push"
 ---
 
 
