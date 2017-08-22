@@ -33,6 +33,7 @@ Home Assistant can discover and automatically configure zeroconf/mDNS and uPnP d
  * Bose Soundtouch speakers
  * Axis Communications security devices
  * IKEA Trådfri (Tradfri)
+ * Harmony Hub
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.
 
@@ -54,6 +55,7 @@ Valid values for ignore are:
 
  * `apple_tv`: Apple TV
  * `axis`: (Axis Communications security devices)
+ * `bose_soundtouch`: Bose Soundtouch speakers
  * `denonavr`: Denon Network Receivers
  * `directv`: DirecTV
  * `flux_led`: Flux Led/MagicLight

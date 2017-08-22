@@ -85,7 +85,7 @@ sensor:
 ```
 
 ## If you need help...
-...don't hesitate to use our very active [forums][forum] or join us for a little [chat][gitter]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
@@ -225,7 +225,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - light.yeelight: catch i/o related exceptions from the backend lib ([@rytilahti] - [#6952])
 - Fix current_temperature is rounded ([@aufano] - [#6960])
 - Preserve customize glob order. ([@andrey-git] - [#6963])
-- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any url error to camera ([@viswa-swami] - [#6964])
+- Foscam Camera: Adding exception handling when fetching the camera image to avoid python exception errors when host is not reachable or rather any URL error to camera ([@viswa-swami] - [#6964])
 - Crime Reports sensor ([@happyleavesaoc] - [#6966]) (new-platform)
 - Update kodi for aiohttp2 ([@armills] - [#6967])
 - Bugfix time and task coro ([@pvizeli] - [#6968])
@@ -398,10 +398,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@wardcraigj]: https://github.com/wardcraigj
 [@wmalgadey]: https://github.com/wmalgadey
 [forum]: https://community.home-assistant.io/
-[gitter]: https://gitter.im/home-assistant/home-assistant
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7057]: https://github.com/home-assistant/home-assistant/pull/7057
 [#7106]: https://github.com/home-assistant/home-assistant/pull/7106
 [#7137]: https://github.com/home-assistant/home-assistant/pull/7137
 [#7141]: https://github.com/home-assistant/home-assistant/pull/7141
 [@robbiet480]: https://github.com/robbiet480
+[discord]: https://discord.gg/c5DvZ4e

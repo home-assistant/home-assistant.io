@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "Other"
+ha_category: "Utility"
 ---
 
 The logger component lets you define the level of logging activities in Home Assistant.

@@ -18,7 +18,7 @@ All states will always have an entity id, a state and a timestamp when last upda
 
 Field | Description
 ----- | -----------
-`state.state` | String representation of the current state of the entity. Example `off`
+`state.state` | String representation of the current state of the entity. Example `off`.
 `state.entity_id` | Entity ID. Format: `<domain>.<object_id>`. Example: `light.kitchen`.
 `state.domain` | Domain of the entity. Example: `light`.
 `state.object_id` | Object ID of entity. Example: `kitchen`.
@@ -36,7 +36,7 @@ Attribute | Description
 `friendly_name` | Name of the entity. Example: `Kitchen Ceiling`.
 `icon` | Icon to use for the entity in the frontend. Example: `mdi:home`.
 `hidden` | Boolean if the entity should not be shown in the frontend. Example: `true`.
-`entity_picture` | Url to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.
+`entity_picture` | URL to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.
 `assumed_state` | Boolean if the current state is an assumption. [More info](https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`.
 `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.
 

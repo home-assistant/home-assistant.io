@@ -34,9 +34,9 @@ sensor:
 
 Configuration variables:
 
-- **api_key** (Required): The API key for Weather Underground. See above for details.
-- **pws_id** (Optional): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions. 
-- **lang** (Optional): Specify the language that the API returns. The current list of all Wunderground language codes is available [here](https://www.wunderground.com/weather/api/d/docs?d=language-support). If not specified, it defaults to English (EN).
+- **api_key** (*Required*): The API key for Weather Underground. See above for details.
+- **pws_id** (*Optional*): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available [here](https://www.wunderground.com/weatherstation/ListStations.asp). If you do not enter a PWS ID, the current location information (latitude and longitude) from your `configuration.yaml` will be used to display weather conditions. 
+- **lang** (*Optional*): Specify the language that the API returns. The current list of all Wunderground language codes is available [here](https://www.wunderground.com/weather/api/d/docs?d=language-support). If not specified, it defaults to English (EN).
 - **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specificed). Defaults to coordinates defined in your `configuration.yaml`.
 - **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified). Defaults to coordinates defined in your `configuration.yaml`.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
@@ -125,7 +125,7 @@ in the `_1h_` part of the sensor name with `1` to `36`. E.g. `weather_24h` will 
 ```yaml
 sensor:
   - platform: wunderground
-  - api_key: your_api_key
+    api_key: your_api_key
     monitored_conditions:
       - weather_1d_metric
       - weather_1n_metric
@@ -137,7 +137,7 @@ sensor:
       - weather_4n_metric
 
 group:
-  dialy_forecast:
+  daily_forecast:
     name: Daily Forecast
     entities:
       - sensor.pws_weather_1d_metric

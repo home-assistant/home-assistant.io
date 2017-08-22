@@ -53,6 +53,7 @@ sensor:
   - platform: command_line
     name: HD Temperature
     command: "hddtemp -n /dev/sda"
+    # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
 ```
 
@@ -62,9 +63,11 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 
 ```yaml
 # Example configuration.yaml entry
+sensor:
   - platform: command_line
     name: CPU Temperature
     command: "cat /sys/class/thermal/thermal_zone0/temp"
+    # If errors occur, remove degree symbol below
     unit_of_measurement: "°C"
     value_template: '{% raw %}{{ value | multiply(0.001) }}{% endraw %}'
 ```
@@ -141,4 +144,17 @@ sensor:
     name: Brightness
     command: "python3 /path/to/script/arest-value.py"
     unit_of_measurement: "°C"
+```
+
+### {% linkable_title Usage of templating in `command:` %}
+
+[Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: wind direction
+    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
+    unit_of_measurement: "Direction"
 ```

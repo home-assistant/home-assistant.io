@@ -15,41 +15,13 @@ ha_release: 0.10
 
 There are a few ways that you can use Amazon Echo and Home Assistant together.
 
-- [Turning devices on and off](#i-just-want-to-turn-devices-on-and-off-using-echo)
 - [Build custom commands to use](#i-want-to-build-custom-commands-to-use-with-echo)
 - [Create a new Flash Briefing source](#flash-briefing-skills)
-
-No matter which method(s) you decide to use, please remember that Amazon Echo requires an active Internet connection to function. If your Internet is down or experiencing issues (or Amazon's infrastructure is having issues), none of these methods will work.
+- Alternative: use the [Emulated Hue component][emulated-hue-component] to trick Alexa to thinking Home Assistant is a Philips Hue hub.
 
 Amazon has released [Echosim], a website that simulates the Alexa service in your browser. That way it is easy to test your skills without having access to a physical Amazon Echo.
 
 [Echosim]: https://echosim.io/
-
-## {% linkable_title I just want to turn devices on and off using Echo %}
-
-If you just want to be able to turn anything with a switch (like lights, switches, media players, etc) on and off, you should enable the [Emulated Hue][emulated-hue-component] component. It makes your Home Assistant appear as if it were a Phillips Hue bridge, which Echo works with natively.
-
-[emulated-hue-component]: https://home-assistant.io/components/emulated_hue/
-
-Enabling the Emulated Hue component means you can turn things on and off by simply saying
-
-> Alexa, turn the living room lights on.
-
-or
-
-> Alexa, set the living room lights to twenty percent.
-
-instead of
-
-> Alexa, tell Home Assistant to turn the living room lights on.
-
-or
-
-> Alexa, tell Home Assistant to set the living room lights to twenty percent.
-
-In addition, you would need to build custom intents for each device and on/off combination using the below method, whereas everything just works without any extra work by using Emulated Hue.
-
-Please note that you can use Emulated Hue and the built-in Alexa component side-by-side without issue if you wish.
 
 ## {% linkable_title I want to build custom commands to use with Echo %}
 
@@ -121,54 +93,7 @@ This means that we can now ask Alexa things like:
 
 ## {% linkable_title Configuring Home Assistant %}
 
-Out of the box, the component will do nothing. You have to teach it about all intents you want it to answer to. The way it works is that the answer for each intent is based on [templates] that you define. Each template will have access to the existing states via the `states` variable but will also have access to all variables defined in the intent.
-
-You can use [templates] for the values of `speech/text`, `card/title` and `card/content`.
-
-Actions are using the [Home Assistant Script Syntax] and also have access to the variables from the intent.
-
-[Home Assistant Script Syntax]: /getting-started/scripts/
-
-Configuring the Alexa component for the above intents would look like this:
-
-```yaml
-{% raw %}# Example configuration.yaml entry
-alexa:
-  intents:
-    WhereAreWeIntent:
-      speech:
-        type: plaintext
-        text: >
-          {%- if is_state('device_tracker.paulus', 'home') and
-                 is_state('device_tracker.anne_therese', 'home') -%}
-            You are both home, you silly
-          {%- else -%}
-            Anne Therese is at {{ states("device_tracker.anne_therese") }}
-            and Paulus is at {{ states("device_tracker.paulus") }}
-          {% endif %}
-
-    LocateIntent:
-      action:
-        service: notify.notify
-        data_template:
-          message: The location of {{ User }} has been queried via Alexa.
-      speech:
-        type: plaintext
-        text: >
-          {%- for state in states.device_tracker -%}
-            {%- if state.name.lower() == User.lower() -%}
-              {{ state.name }} is at {{ state.state }}
-            {%- elif loop.last -%}
-              I am sorry, I do not know where {{ User }} is.
-            {%- endif -%}
-          {%- else -%}
-            Sorry, I don't have any trackers registered.
-          {%- endfor -%}
-      card:
-        type: simple
-        title: Sample title
-        content: Some more content{% endraw %}
-```
+When activated, the Alexa component will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
 
 ### {% linkable_title Working With Scenes %}
 
@@ -203,17 +128,18 @@ Add a sample utterance:
 ActivateSceneIntent activate {Scene}
 ```
 
-Then add the intent to your Alexa Section in your HA config file:
+Then add the intent to your intent_script section in your HA config file:
 
 ```yaml
-    ActivateSceneIntent:
-      action:
-        service: scene.turn_on
-        data_template:
-          entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
-      speech:
-        type: plaintext
-        text: OK
+intent_script:
+  ActivateSceneIntent:
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
+    speech:
+      type: plain
+      text: OK
 ```
 
 Here we are using [templates] to take the name we gave to Alexa e.g. `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
@@ -250,17 +176,18 @@ Add a sample utterance:
 RunScriptIntent run {Script}
 ```
 
-Then add the intent to your Alexa Section in your HA config file:
+Then add the intent to your intent_script section in your HA config file:
 
 ```yaml
-    RunScriptIntent:
-      action:
-        service: script.turn_on
-        data_template:
-          entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
-      speech:
-        type: plaintext
-        text: OK
+intent_script:
+  RunScriptIntent:
+    action:
+      service: script.turn_on
+      data_template:
+        entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
+    speech:
+      type: plain
+      text: OK
 ```
 
 Now say `Alexa ask homeassistant to run <some script>` and Alexa will run that script for you.
@@ -305,35 +232,6 @@ text: !include alexa_confirm.yaml
 ```
 
 Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
-
-<p class='note'>
-As of April 2017, the random filter has been somewhat broken. You'll get a random response the first time this runs, but subsequent commands will reply with the same randomly-chosen phrase. On reboot,  Home Assistant will pick a new random choice, but you're stuck with that choice till you reboot. To get around that, use the following code in alexa_confirm.yaml:
-</p>
-
-```text
-{% raw %}          >
-          {% set responses = [
-          "OK",
-          "Sure",
-          "If you insist",
-          "Done",
-          "No worries",
-          "I can do that",
-          "Leave it to me",
-          "Consider it done",
-          "As you wish",
-          "By your command",
-          "Affirmative",
-          "Yes oh revered one",
-          "I will",
-          "As you decree, so shall it be",
-          "No Problem"
-          ] %}
-          {% set rindex =  (range(0, (responses | length - 1) )|random) -%}
-          {{responses[rindex]}}
-          {% endraw %}
-```
-
 
 ## {% linkable_title Flash Briefing Skills %}
 
@@ -395,3 +293,4 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 [templates]: /topics/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
 [alexa-settings-site]: http://alexa.amazon.com/
+[emulated-hue-component]: /components/emulated_hue/

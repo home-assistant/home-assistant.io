@@ -27,7 +27,7 @@ Starting today we are announcing a few initiatives to help protect our users, co
 
 More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
 
-Moving forward this Code of Conduct will be active for all projects within the Home Assistant organisation.
+Moving forward this Code of Conduct will be active for all projects within the Home Assistant organization.
 
 [Read the Code of Conduct][coc]
 
@@ -95,9 +95,11 @@ We have now mostly automated updating the [Credits](/developers/credits/) page s
 
 ## {% linkable_title In closing %}
 
-We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact us via email, Twitter or Gitter.
+We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact us via email, [Twitter][twitter] or [Discord][discord].
 
 [cla]: /developers/cla/
 [mjg59]: https://twitter.com/mjg59
 [gh-cla]: https://cla.github.com/
 [license]: /developers/license/
+[twitter]: https://twitter.com/home_assistant
+[discord]: https://discord.gg/c5DvZ4e

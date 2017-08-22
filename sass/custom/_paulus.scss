@@ -101,9 +101,11 @@ $primary-color: #049cdb;
 
 .frontpage {
 
-  .current-version {
-    margin-bottom: 16px;
+  .material-card {
+    margin-bottom: 24px;
+  }
 
+  .current-version {
     .release-date {
       white-space: nowrap;
     }
@@ -111,10 +113,28 @@ $primary-color: #049cdb;
   }
 
   .recent-posts {
-    margin-bottom: 16px;
-
     .blog-date {
       white-space: nowrap;
+    }
+  }
+
+  .highlight-blog-post {
+    font-size: 2.0rem;
+    line-height: 1.15;
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    transition: background-color .5s;
+    background-color: #038FC7;
+
+    &.large {
+      font-size: 2.25rem;
+      line-height: 1.33333;
+    }
+
+    &:hover {
+      background-color: lighten(#038FC7, 10%);
     }
   }
 
@@ -162,6 +182,17 @@ $primary-color: #049cdb;
     }
   }
 
+  .seen-press {
+    margin-top: 24px;
+
+    img {
+      border: 0;
+      box-shadow: none;
+      margin: 15px;
+      width: 200px;
+      max-width: 40%;
+    }
+  }
 }
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
@@ -382,7 +413,8 @@ p.note {
 }
 
 .edit-github {
-  text-align: right;
+  float: right;
+  margin-left: 8px;
   margin-bottom: 8px;
   font-size: .8em;
 }

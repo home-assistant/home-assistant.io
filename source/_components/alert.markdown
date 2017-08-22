@@ -27,6 +27,7 @@ The `alert` component makes use of any of the `notifications` components. To set
 alert:
   garage_door:
     name: Garage is open
+    done_message: Garage is closed
     entity_id: input_boolean.garage_door
     state: 'on'
     repeat: 30
@@ -39,6 +40,7 @@ alert:
 Configuration variables:
 
 - **name** (*Required*): The friendly name of the alert.
+- **done_message** (*Optional*): A message sent after an alert transitions from `on` to `off`.  Is only sent if an alert notification was sent for transitioning from `off` to `on`.
 - **entity_id** (*Required*): The ID of the entity to watch.
 - **state** (*Optional*): The problem condition for the entity. Defaults to `on`.
 - **repeat** (*Required*): Number of minutes before the notification should be repeated. Can be either a number or a list of numbers.

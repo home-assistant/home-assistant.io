@@ -29,7 +29,7 @@ rest_command:
 
 Configuration variables:
 
-- **[service_name]** (*Required*): The name used to expose the service. E.g. in the above example would it be ` rest_command.example_request`.
+- **[service_name]** (*Required*): The name used to expose the service. E.g., in the above example, it would be `rest_command.example_request`.
   - **url** (*Required*): The URL (support template) for sending request.
   - **method** (*Optional*): HTTP method to use (`get`, `post`, `put`, or `delete`). Defaults to `get`.
   - **payload** (*Optional*): A string/template to send with request.
@@ -39,4 +39,3 @@ Configuration variables:
   - **content_type** (*Optional*): Content type for the request.
 
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for template stuff.
-

@@ -94,9 +94,6 @@ automation:
 <p class='note warning'>
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
 </p>
-<p class='note warning'>
-  Using `state` as an alias for `to` is deprecated.
-</p>
 
 ### {% linkable_title Sun trigger %}
 Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.

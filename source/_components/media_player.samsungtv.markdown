@@ -47,9 +47,11 @@ Currently known supported models:
 - EH5300
 - EH5600
 - F6400AF
+- F6400
 - D6505
 - D6300SF
 - U6000 (port must be set to 8001)
+- U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - K6500AF (port must be set to 8001)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - K5600AK (partially supported, turn on works but state is not updated)
@@ -59,6 +61,7 @@ Currently tested but not working models:
 - J5200 - Unable to see state and unable to control
 - JU7000 - Unable to see state and unable to control (but port 8001 *is* open)
 - JU7500 - Unable to see state and unable to control
+- JS9500 - State is always "on" and unable to control (but port 8001 *is* open)
  
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown).
 The first letter (U, P, L, H & K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.

@@ -33,7 +33,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 
 | Description | 2015 | 2016 |
 |---|---|
-| [Gitter.io](https://gitter.im/home-assistant/home-assistant) | 334 | 2367 |
+| [Gitter.io](https://discord.gg/c5DvZ4e) | 334 | 2367 |
 | [Forum posts](https://community.home-assistant.io/) | 352 | 33004 |
 | [Forum topics](https://community.home-assistant.io/) | 83 | 4863 |
 | [Forum members](https://community.home-assistant.io/) | 92 | 3931 | 
@@ -43,7 +43,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 
 ### {% linkable_title Commit per year %}
 
-The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), and [home-assistant-js](https://github.com/home-assistant/home-assistant-js)) into account.
+The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), etc.) into account.
 
 ```bash
 2013: 147

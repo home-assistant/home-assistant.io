@@ -12,7 +12,7 @@ redirect_from: /getting-started/automation-troubleshooting/
 
 You can verify that your automation rules are being initialized correctly by watching both the realtime logs (`homeassistant.log` in the configuration directory) and also the [Logbook](/components/logbook/). The realtime logs will show the rules being initialized (once for each trigger), example:
 
-```plain
+```text
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rainy Day

@@ -96,12 +96,12 @@ media_player:
       service: media_player.select_source
       data_template:
         entity_id: media_player.receiver
-        source: '{{ source }}'
+        source: '{% raw %}{{ source }}{% endraw %}'
     volume_set:
       service: media_player.volume_set
       data_template:
         entity_id: media_player.receiver
-        volume_level: '{{ volume_level }}'
+        volume_level: '{% raw %}{{ volume_level }}{% endraw %}'
 
   attributes:
     state: switch.living_room_tv

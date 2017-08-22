@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform can create covers that combine components and provides the ability to run scripts or invoke services for each of the open, close, stop, position, and tilt commands of a cover. 
+The `template` platform can create covers that combine components and provides the ability to run scripts or invoke services for each of the open, close, stop, position, and tilt commands of a cover.
 
 To enable Template covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -65,13 +65,13 @@ cover:
         value_template: "{% raw %}{{ sensor.garage_door }}{% endraw %}"
         open_cover:
           service: switch.turn_on
-          entity_is: switch.garage_door
+          entity_id: switch.garage_door
         close_cover:
           service: switch.turn_off
-          entity_is: switch.garage_door
+          entity_id: switch.garage_door
         stop_cover:
           service: switch.turn_on
-          entity_is: switch.garage_door
+          entity_id: switch.garage_door
         icon_template: "{% raw %}{% if not is_state('sensor.garage_door', 'on') %}mdi:garage-open{% else %}mdi:garage{% endif %}{% endraw %}"
 
 ```

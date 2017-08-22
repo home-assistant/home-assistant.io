@@ -89,3 +89,8 @@ sensor:
       - download
       - upload
 ```
+
+## {% linkable_title Notes %}
+
+- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- Entries under `monitored_conditions` only control what entities are available under home-assistant, it does not disable the condition from running.

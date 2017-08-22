@@ -20,7 +20,8 @@ This component only supports the Caseta line of products. The current supported 
 
 - Dimmers as Home Assistant lights
 - Wall switches as Home Assistant switches
-- Serena shades as Home Assistant covers
+- Scenes as Home Assistant scenes
+- Serena shades (honeycomb and roller) as Home Assistant covers
 
 When configured, the `lutron_caseta` component will automatically discover the currently support devices as setup in the Lutron SmartBridge.
 

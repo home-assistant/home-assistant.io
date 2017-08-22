@@ -69,25 +69,47 @@ followed by a command, e.g.
 
 We should see the transcribed phrase in the logs, as well as a properly parsed intent. The intent is published on MQTT, on the `hermes/nlu/intentParsed` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml`, as explained below.
 
+#### Optional: specifying an external MQTT broker
+
+By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, instead of running the `snips` command above (which assumes we are using the internal MQTT broker), we use the full launch command with explicitly specified parameters (replace `MQTT_BROKER_IP` and `MQTT_BROKER_PORT` with appropriate values):
+
+```sh
+$ docker run -t --rm --name snips --log-driver none -v /home/pi/.asoundrc:/root/.asoundrc -v /opt/snips/config:/opt/snips/config --privileged -v /dev/snd:/dev/snd snipsdocker/platform --mqtt MQTT_BROKER_IP:MQTT_BROKER_PORT
+```
+
+For more details on launch options, check the documentation on [Snips Platform Commands](https://github.com/snipsco/snips-platform-documentation/wiki/6.--Learn-more:-Platform-Commands#using-a-custom-mqtt-bus).
+
 ## Home Assistant configuration
 
-By default, the Snips MQTT broker runs on port 9898. We should tell Home Assistant to use this as a broker, rather than its own, by adding the following section to `configuration.yaml`:
+### Specifying the MQTT broker
+
+Messages between Snips and Home Assistant are passed via MQTT. We must tell Home Assistant which MQTT broker to use by adding the following entry to `configuration.yaml`:
+
+```yaml
+mqtt:
+  broker: MQTT_BROKER_IP
+  port: MQTT_BROKER_PORT
+```
+
+As explained above, Snips by default runs an MQTT broker on port 9898. So if we wish to use this broker, the entry will look as follows:
 
 ```yaml
 mqtt:
   broker: 127.0.0.1
   port: 9898
 ```
+### Triggering actions
 
-In Home Assistant, we trigger actions based on intents produced by Snips. This is done in `configuration.yaml`. For instance, the following block handles `ActivateLightColors` intents (included in the Snips IoT intent bundle) to change light colors:
+In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles `ActivateLightColors` intents (included in the Snips IoT intent bundle) to change light colors:
 
 ```yaml
 snips:
-  intents:
-    ActivateLightColor:
-      action:
-        - service: light.turn_on
-          data_template:
-            entity_id: light.{% raw %}{{ objectLocation | replace(" ","_") }}{% endraw %}
-            color_name: {% raw %}{{ objectColor }}{% endraw %}
+
+intent_script:
+  ActivateLightColor:
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.{% raw %}{{ objectLocation | replace(" ","_") }}{% endraw %}
+          color_name: {% raw %}{{ objectColor }}{% endraw %}
 ```

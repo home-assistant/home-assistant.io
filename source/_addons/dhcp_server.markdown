@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DHCP server"
-description: "A simple dhcp server"
+description: "A simple DHCP server."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Create a simple DHCP server for your network and allow set fix ip for some devices.
+Create a simple DHCP server for your network and allow setting fixed IPs for devices.
 
 ```json
 {
@@ -47,7 +47,7 @@ Configuration variables:
   - **range_end** (*Required*): End address for dhcp leases.
   - **broadcast** (*Required*): Network broadcast address.
   - **gateway** (*Required*): A List of gateways.
-  - **interface** (*Required*): Inteface on that will be listen.
+  - **interface** (*Required*): Inteface on that will be listen. Normaly is `eth0` for ethernet wired connection and `wlan0` for wireless connection.
 - **hosts** (*Optional*): A list of fixed IPs for devices.
   - **name** (*Required*): Name/hostname of your device.
   - **mac** (*Required*): Mac address of your device.

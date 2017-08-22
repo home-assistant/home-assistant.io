@@ -51,5 +51,5 @@ Configuration variables:
 - **stop_colortemp** (*Optional*): The color temperature at the end. Defaults to `1900`.
 - **brightness** (*Optional*): The brightness of the lights. Calculated with `RGB_to_xy` by default.
 - **disable_brightness_adjust** (*Optional*): If true, brightness will not be adjusted besides color temperature. Defaults to False.
-- **mode** (*Optional*): Select how color temperature is passed to lights. Valid values are `xy` and `mired`. Defaults to `xy`.
+- **mode** (*Optional*): Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`. Defaults to `xy`.
 

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: insteon.png
-ha_category: fan
+ha_category: Fan
 ha_version: 0.48
 ---
 

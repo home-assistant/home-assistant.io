@@ -24,20 +24,34 @@ Supported units:
 - Harmony Elite
 
 
-To use your Harmony remote in your installation, add the following to your `configuration.yaml` file:
+The preferred way to setup the Harmony remote is by enabling the [discovery component](/components/discovery/).
+
+However, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
 remote:
   - platform: harmony
     name: Bedroom
-    host: 10.168.1.13
+    host: 10.168.1.13   # The IP of your hub
+```
+
+You can override some default configuration values on a discovered hub (e.g. the `port` or `activity`) by adding
+a `configuration.yaml` setting. In this case leave the `host` setting empty so the platform will
+discover the host IP automatically, but set the `name` in the config to match exactly the name you have
+set for your Hub so the platform knows what Hub you are trying to configure.
+
+```yaml
+# Example configuration.yaml entry with discovery
+  - platform: harmony
+    name: Living Room    # This name must match the name you have set on the Hub
+    activity: Watch TV   # Overriding the 'activity' setting for this discovered hub
 ```
 
 Configuration variables:
 
 - **name** (*Required*): The hub's name to display in the frontend.
-- **host** (*Required*): The Harmony device's IP address.
+- **host** (*Optional*): The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
 - **port** (*Optional*): The Harmony device's port. Defaults to 5222.
 - **activity** (*Optional*): Activity to use when turnon service is called without any data.
 - **scan_interval** (*Optional*): Amount in seconds in between polling for device's current activity. Defaults to 30 seconds.
@@ -134,12 +148,12 @@ automation:
       data_template:
       # using a data template to have if brances for relavant device
         # Always the same entity_id - the harmony hub
-        entity_id: remote.bedroom 
+        entity_id: remote.bedroom
         # Always the same command - the Pause key
         command: Pause
         # select device based upon the activity being undertaken.
         device: >
-          # when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101 
+          # when in WATCH TV activity, the pause key relates to a TiVo, which is device 22987101
           {% raw %}{% if is_state("sensor.bedroom", "WATCH TV") %}{% raw %}
             22987101
           # when in WATCH APPLE TV activity, the pause key relates to an Apple TV, which is device 23002316

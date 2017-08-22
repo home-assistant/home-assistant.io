@@ -13,9 +13,7 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.47
 ---
 
-The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms.
-
-Currently limited to Cool Link Purifier.
+The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms: [Fans](/components/fan/dyson/) and [Robot vacuum](/components/vacuum/dyson/).
 
 To enable this component, add the following lines to your `configuration.yaml`:
 
@@ -25,9 +23,9 @@ dyson:
   password: <dyson_acount_password>
   language: <dyson_account_language>
   devices:
-    - device_id: <device_id_1>
+    - device_id: <device_id_1> # eg: Pure Cool Link device
       device_ip: <device_ip_1>
-    - device_id: <device_id_2>
+    - device_id: <device_id_2> # eg: Eye 360 robot vacuum
       device_ip: <device_ip_2>
     ...
 ```
@@ -36,12 +34,14 @@ Configuration variables:
 
 - **username** (*Required*): Dyson account username (email address)
 - **password** (*Required*): Dyson account password
-- **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `UK`, `AU`. But others codes should work.
+- **language** (*Required*): Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. But others codes should work.
 - **devices** (*Optional*): List of devices
   - **device_id** (*Required*): Device ID. Available in the mobiles applications (*Settings* page)
   - **device_ip** (*Required*): Device IP address
 
 `devices` list is optional but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
+*If your are using a robot vacuum (Dyson 360 Eye), discovery is not yet supported so you have to provide `devices` list.*
+
 To find devices IP address, you can use your router or `nmap`:
 
 ```bash

@@ -36,6 +36,8 @@ sensor:
 Configuration variables:
 
 - **printers** array (*Required*): List of printers to add.
+- **host** (*Optional*): IP address of the CUPS print server.
+- **port** (*Optional*): Port address of the CUPS print server. Defaults to 631.
 
 
 <p class='note'>

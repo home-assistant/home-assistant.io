@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+og_image: /images/architecture/ha_architecture.png
 ---
 
 Before we dive into the Home Assistant architecture, let's get a clear overview of the home automation landscape as a whole. This way, we can show how the different parts of Home Assistant fit into the picture.

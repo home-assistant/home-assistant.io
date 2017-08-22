@@ -39,5 +39,9 @@ Configuration variables:
 - **monitored_conditions** array (*Required*): States to monitor.
   - **Current State**: Text of current state)
   - **Temperatures**:  Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
-  - **Job Percentage**: 
+  - **Job Percentage**: Percentage of the job.
 
+
+<p class='note'>
+If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.
+</p>

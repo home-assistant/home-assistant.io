@@ -46,20 +46,22 @@ When you start splitting your configuration into multiple files, you might end u
 To see where secrets are being loaded from you can either add an option to your `secrets.yaml` file or use the `check_config` script.
 
 *Option 1*: Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
+
 ```yaml
 logger: debug
 ```
 This will not print the actual secret's value to the log.
 
 *Option 2*: View where secrets are retrieved from and the contents of all `secrets.yaml` files used, you can use the `check_config` script from the command line:
+
 ```bash
 hass --script check_config --secrets
 ```
-This will print all your secrets
+This will print all your secrets.
 
 ### {% linkable_title Storing passwords in a keyring managed by your OS %}
 
-Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. They can be managed from the command line via the keyring script.
+Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. They can be managed from the command line via the `keyring` script.
 
 ```bash
 $ hass --script keyring --help
@@ -89,3 +91,26 @@ Please enter password for encrypted keyring:
 <p class='note warning'>
   If you are using the Python Keyring, [autostarting](/getting-started/autostart/) of Home Assistant will no longer work.
 </p>
+
+### {% linkable_title Storing passwords securely in AWS %}
+
+Using [Credstash](https://github.com/fugue/credstash) is an alternative way to `secrets.yaml`. They can be managed from the command line via the credstash script.
+
+Before using credstash, you need to set up AWS credentials either via the `aws` command line tool, or using environment variables as explained in the [AWS CLI docs](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) as well as creating a KMS key named 'credstash' as explained in the [credstash readme](https://github.com/fugue/credstash#setting-up-kms). After that is complete, you can use the provided script to add secrets to your Home Assistant secret store in credstash
+
+```bash
+$ hass --script credstash --help
+```
+
+To store a password in credstash, replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
+
+```yaml
+http:
+  api_password: !secret http_password
+```
+
+Create an entry in your credstash store.
+
+```bash
+$ hass --script credstash set http_password
+```

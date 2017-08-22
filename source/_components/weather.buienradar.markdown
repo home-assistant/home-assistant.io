@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as an source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a webservice that provides detailed weather information for users in The Netherlands.
-The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).
+The relevant weatherstation used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component).  A map of all available weatherstations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
 To add the buienradar weather to your installation, add the following to your `configuration.yaml` file:
 
@@ -38,7 +38,8 @@ A full configuration example:
 # Example configuration.yaml entry
 weather:
   - platform: buienradar
-    name: buienradar
+    name: 'volkel'
+    # Force 'Meetstation Volkel' to be used:
     latitude: 51.65
     longitude: 5.70
     forecast: True
@@ -48,3 +49,6 @@ weather:
 This platform is an alternative to the [`buienradar`](/components/sensor.buienradar/) sensor.
 The weather platform is easier to configure but less customisable.
 </p>
+
+[Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
+> Buienradar makes free weatherdata available for use by individuals and businesses (website/intranet). The use of the weatherdata is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your usage or to request permission.
