@@ -70,9 +70,11 @@ apiai:
 
 intent_script:
   Temperature:
-    speech: The temperature at home is {{ states('sensor.home_temp') }} degrees
+    speech:
+      text: The temperature at home is {{ states.sensor.home_temp }} degrees
   LocateIntent:
-    speech: >
+    speech:
+      text: >
       {%- for state in states.device_tracker -%}
         {%- if state.name.lower() == User.lower() -%}
           {{ state.name }} is at {{ state.state }}
@@ -83,7 +85,8 @@ intent_script:
         Sorry, I don't have any trackers registered.
       {%- endfor -%}
   WhereAreWeIntent:
-    speech: >
+    speech:
+      text: >
       {%- if is_state('device_tracker.adri', 'home') and
              is_state('device_tracker.bea', 'home') -%}
         You are both home, you silly
@@ -92,7 +95,8 @@ intent_script:
         and Adri is at {{ states("device_tracker.adri") }}
       {% endif %}
   TurnLights:
-    speech: Turning {{ Room }} lights {{ OnOff }}
+    speech:
+      text: Turning {{ Room }} lights {{ OnOff }}
     action:
       - service: notify.pushbullet
         data_template:
