@@ -13,9 +13,9 @@ featured: false
 ha_release: 0.38
 ---
 
-This component is designed to be used with the "webhook" integration in [api.ai][apiai-web]. When a conversation ends with an user, api.ai sends an action and parameters to the webhook.
+This component is designed to be used with the "webhook" integration in [api.ai][apiai-web]. When a conversation ends with a user, api.ai sends an action and parameters to the webhook.
 
-api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to Internet. api.ai will return fallback answers if your server do not answer, or takes too long (more than 5 seconds).
+api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. api.ai will return fallback answers if your server does not answer, or takes too long (more than 5 seconds).
 
 api.ai could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. [See here](https://docs.api.ai/docs/integrations) the complete list.
 
@@ -33,7 +33,7 @@ Using Api.ai will be easy to create conversations like:
  >
  > Bot: Turning on kitchen light
 
-To use this integration you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.
+To use this integration, you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.
 
 ### {% linkable_title Configuring your api.ai account %}
 
@@ -41,7 +41,7 @@ To use this integration you should define a conversation (intent) in Api.ai, con
 - Click on "Create Agent"
 - Select name, language (if you are planning to use it with Google Actions check [here](https://support.google.com/assistant/answer/7108196?hl=en) supported languages) and time zone
 - Click "Save"
-- Go to "Fullfiment" (in the left menu)
+- Go to "Fulfillment" (in the left menu)
 - Enable Webhook and set your Home Assistant URL with the Api.ai endpoint. Eg.: ``https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD``
 - Click "Save"
 - Create a new intent

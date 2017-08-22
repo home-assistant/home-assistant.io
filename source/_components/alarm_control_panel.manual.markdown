@@ -31,7 +31,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this panel.
+In this section, you find some real-life examples of how to use this panel.
 
 ### {% linkable_title Sensors %}
 

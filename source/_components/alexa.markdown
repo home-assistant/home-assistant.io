@@ -99,7 +99,7 @@ When activated, the Alexa component will have Home Assistant's native intent sup
 
 One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.
 
-First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:
+First, we will configure Alexa. In the Amazon Interaction module add this to the intent schema:
 
 ```json
 {
@@ -144,7 +144,7 @@ intent_script:
 
 Here we are using [templates] to take the name we gave to Alexa e.g. `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
 
-Now say `Alexa ask homeassistant to activate <some scene>` and Alexa will activate that scene for you.
+Now say `Alexa ask Home Assistant to activate <some scene>` and Alexa will activate that scene for you.
 
 ### {% linkable_title Adding Scripts %}
 
@@ -190,14 +190,14 @@ intent_script:
       text: OK
 ```
 
-Now say `Alexa ask homeassistant to run <some script>` and Alexa will run that script for you.
+Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
 ### {% linkable_title Support for Launch Requests %}
 There may be times when you want to respond to a launch request initiated from a command such as "Alexa, Red Alert!".
 
-To start you need to get the skill id:
+To start, you need to get the skill id:
 
- - Log in to [Amazon developer console][amazon-dev-console]
+ - Log into [Amazon developer console][amazon-dev-console]
  - Click the Alexa button at the top of the console
  - Click the Alexa Skills Kit Get Started button
    - Locate the skill for which you would like Launch Request support
@@ -305,7 +305,7 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - All other settings are up to you
       - Hit "Next"
   - Test
-      - Having passed all validations to reach this screen you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
+      - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.  
 - To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
 
 [amazon-dev-console]: https://developer.amazon.com

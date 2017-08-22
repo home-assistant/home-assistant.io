@@ -51,7 +51,7 @@ All configuration variables from the base manual alarm platform are available:
 Additionally, the following MQTT configuration variables are also available:
 
 - **state_topic** (*Required*): The MQTT topic HA will publish state updates to.
-- **command_topic** (*Required*): The MQTT topic HA will subscribe to to receive commands from a remote device to change the alarm state.
+- **command_topic** (*Required*): The MQTT topic HA will subscribe to, to receive commands from a remote device to change the alarm state.
 - **qos** (*Optional*): The maximum QoS level for subscribing and publishing to MQTT messages. Default is 0.
 - **payload_disarm** (*Optional*): The payload to disarm this Alarm Panel. Default is "DISARM".
 - **payload_arm_home** (*Optional*): The payload to set armed-home mode on this Alarm Panel. Default is "ARM_HOME".

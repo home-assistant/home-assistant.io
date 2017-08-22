@@ -13,7 +13,7 @@ ha_release: "0.45"
 ha_iot_class: "Local Polling"
 ---
 
-[Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security related network connected hardware. Sensor API works with firmware 5.50 and newer.
+[Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.
 
 Home Assistant will automatically discover their presence on your network.
 
@@ -62,7 +62,7 @@ Configuration variables:
   - **camera**: Stream MJPEG video to Home Assistant.
   - **motion**: The built-in motion detection in Axis cameras.
   - **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection.
-  - **pir**: PIR sensor that can trigger on motion.
+  - **pir**: PIR sensor that can trigger on a motion.
   - **sound**: Sound detector.
   - **daynight**: Certain cameras have day/night mode if they have built-in IR lights.
   - **tampering**: Signals when camera believes that it has been tampered with.
@@ -88,7 +88,7 @@ axis:
 ```
 
 <p class='note'>
-If you are using Python3.6 you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
+If you are using Python 3.6, you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
 </p>
 
 <p class='note'>
@@ -96,7 +96,7 @@ Any specific levels for triggers needs to be configured on the device.
 </p>
 
 <p class='note'>
-  It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality it is enough to create a user belonging to user group viewer.
+  It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
 </p>
 
 ## {% linkable_title Device services %}
@@ -109,7 +109,7 @@ Send a command using [Vapix](https://www.axis.com/support/developer-support/vapi
 |---------------------------|----------|--------------------------------------------------|
 | `name`                    |       no | Name of device to communicate with. |
 | `param`                   |       no | What parameter to operate on. |
-| `cgi`                     |      yes | Which cgi to call on device. Default is `param.cgi`. |
+| `cgi`                     |      yes | Which cgi to call on the device. Default is `param.cgi`. |
 | `action`                  |      yes | What type of call. Default is `update`.  |
 
 Response to call can be subscribed to on event `vapix_call_response`
