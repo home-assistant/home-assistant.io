@@ -70,29 +70,33 @@ apiai:
 
 intent_script:
   Temperature:
-    speech: The temperature at home is {{ states('sensor.home_temp') }} degrees
+    speech: 
+      text: The temperature at home is {{ states('sensor.home_temp') }} degrees
   LocateIntent:
-    speech: >
-      {%- for state in states.device_tracker -%}
-        {%- if state.name.lower() == User.lower() -%}
-          {{ state.name }} is at {{ state.state }}
-        {%- elif loop.last -%}
-          I am sorry, I do not know where {{ User }} is.
-        {%- endif -%}
-      {%- else -%}
-        Sorry, I don't have any trackers registered.
-      {%- endfor -%}
+    speech:
+      text: >
+        {%- for state in states.device_tracker -%}
+          {%- if state.name.lower() == User.lower() -%}
+            {{ state.name }} is at {{ state.state }}
+          {%- elif loop.last -%}
+            I am sorry, I do not know where {{ User }} is.
+          {%- endif -%}
+        {%- else -%}
+          Sorry, I don't have any trackers registered.
+        {%- endfor -%}
   WhereAreWeIntent:
-    speech: >
-      {%- if is_state('device_tracker.adri', 'home') and
-             is_state('device_tracker.bea', 'home') -%}
-        You are both home, you silly
-      {%- else -%}
-        Bea is at {{ states("device_tracker.bea") }}
-        and Adri is at {{ states("device_tracker.adri") }}
-      {% endif %}
+    speech:
+      text: >
+        {%- if is_state('device_tracker.adri', 'home') and
+               is_state('device_tracker.bea', 'home') -%}
+          You are both home, you silly
+        {%- else -%}
+          Bea is at {{ states("device_tracker.bea") }}
+          and Adri is at {{ states("device_tracker.adri") }}
+        {% endif %}
   TurnLights:
-    speech: Turning {{ Room }} lights {{ OnOff }}
+    speech:
+      text: Turning {{ Room }} lights {{ OnOff }}
     action:
       - service: notify.pushbullet
         data_template:
