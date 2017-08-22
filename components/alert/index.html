@@ -74,9 +74,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">alert</code> component is designed to notify you when problematic issues arise. For example, if the garage door is left open, the <code class="highlighter-rouge">alert</code> component can be used remind you of this by sending you repeating notifications at customizable intervals. This is also useful for low battery sensors, water leak sensors, or any condition that may need your attention.</p>
+  <p>The <code class="highlighter-rouge">alert</code> component is designed to notify you when problematic issues arise. For example, if the garage door is left open, the <code class="highlighter-rouge">alert</code> component can be used remind you of this by sending you repeating notifications at customizable intervals. This is also used for low battery sensors, water leak sensors, or any condition that may need your attention.</p>
 <p>Alerts will add an entity to the front end only when they are firing. This entity allows you to silence an alert until it is resolved.</p>
-<p>When using the <code class="highlighter-rouge">alert</code> component it is important that the timezone used for Home Assistant and the underlying operating system match. Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the <code class="highlighter-rouge">America/Detroit</code> timezone but the operating system uses <code class="highlighter-rouge">UTC</code>).</p>
+<p>When using the <code class="highlighter-rouge">alert</code> component, it is important that the time zone used for Home Assistant and the underlying operating system match. Failing to do so may result in multiple alerts being sent at the same time (such as when Home Assistant is set to the <code class="highlighter-rouge">America/Detroit</code> time zone but the operating system uses <code class="highlighter-rouge">UTC</code>).</p>
 <h3><a class="title-link" name="basic-example" href="#basic-example"></a> Basic Example</h3>
 <p>The <code class="highlighter-rouge">alert</code> component makes use of any of the <code class="highlighter-rouge">notifications</code> components. To setup the <code class="highlighter-rouge">alert</code> component, first, you must setup a <code class="highlighter-rouge">notification</code> component. Then, add the following to your configuration file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -101,7 +101,7 @@
   <li><strong>entity_id</strong> (<em>Required</em>): The ID of the entity to watch.</li>
   <li><strong>state</strong> (<em>Optional</em>): The problem condition for the entity. Defaults to <code class="highlighter-rouge">on</code>.</li>
   <li><strong>repeat</strong> (<em>Required</em>): Number of minutes before the notification should be repeated. Can be either a number or a list of numbers.</li>
-  <li><strong>can_acknowledge</strong> (<em>Optional</em>): Allows the alert to be unacknowledgable. Defaults to <code class="highlighter-rouge">true</code>.</li>
+  <li><strong>can_acknowledge</strong> (<em>Optional</em>): Allows the alert to be unacknowledgeable. Defaults to <code class="highlighter-rouge">true</code>.</li>
   <li><strong>skip_first</strong> (<em>Optional</em>): Controls whether the notification should be sent immediately or after the first delay. Defaults to <code class="highlighter-rouge">false</code>.</li>
   <li><strong>notifiers</strong> (<em>Required</em>): List of <code class="highlighter-rouge">notification</code> components to use for alerts.</li>
 </ul>

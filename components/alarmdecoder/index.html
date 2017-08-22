@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">alarmdecoder</code> component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and it’s sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.</p>
+  <p>The <code class="highlighter-rouge">alarmdecoder</code> component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.</p>
 <p>Please visit the <a href="https://www.alarmdecoder.com/">AlarmDecoder website</a> for further information about the AlarmDecoder devices.</p>
 <p>There is currently support for the following device types within Home Assistant:</p>
 <ul>
@@ -102,12 +102,12 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>type</strong> (<em>Required</em>): The type of AlarmDecoder device: socket, serial or usb</li>
+  <li><strong>type</strong> (<em>Required</em>): The type of AlarmDecoder device: socket, serial or USB</li>
   <li><strong>host</strong> (<em>Optional</em>): The IP address of the AlarmDecoder device on your home network, if using socket type. Default: <code class="highlighter-rouge">localhost</code></li>
   <li><strong>port</strong> (<em>Optional</em>): The port of the AlarmDecoder device on your home network, if using socket type. Default: <code class="highlighter-rouge">10000</code></li>
   <li><strong>path</strong> (<em>Optional</em>): The path of the AlarmDecoder device, if using socket type. Default: <code class="highlighter-rouge">/dev/ttyUSB0</code></li>
   <li><strong>baud</strong> (<em>Optional</em>): The baud rate of the AlarmDecoder device, if using serial type. Default: <code class="highlighter-rouge">115200</code></li>
-  <li><strong>panel_display</strong> (<em>Optional</em>): Create a sensor called sensor.alarm_display to match the Alarm Keypad dispaly. Default: <code class="highlighter-rouge">off</code></li>
+  <li><strong>panel_display</strong> (<em>Optional</em>): Create a sensor called sensor.alarm_display to match the Alarm Keypad display. Default: <code class="highlighter-rouge">off</code></li>
   <li><strong>zones</strong> (<em>Optional</em>): AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the <a href="/components/binary_sensor.alarmdecoder/">Binary Sensor</a> docs. <em>Note: If no zones are specified, Home Assistant will not load any binary_sensor components.</em></li>
 </ul>
 </article>

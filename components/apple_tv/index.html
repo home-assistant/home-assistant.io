@@ -76,13 +76,13 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">apple_tv</code> platform allows you to control an Apple TV (3rd and 4th generation). See the <a href="/components/remote.apple_tv/">remote platform</a> if you want to send remote control buttons, e.g. arrow keys.</p>
 <p class="note">
-Currently you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
+Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
 </p>
 <p>To use this component, you must first install some system libraries and a compiler. For Debian or a similar system, this should be enough:</p>
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install build-essential libssl-dev libffi-dev python-dev
 </code></pre>
 </div>
-<p>If you want to automatically discover new devices, just make sure you have <code class="highlighter-rouge">discovery:</code> in your <code class="highlighter-rouge">configuration.yaml</code> file. To manually add one or more Apple TVs to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>If you want to discover new devices automatically, just make sure you have <code class="highlighter-rouge">discovery:</code> in your <code class="highlighter-rouge">configuration.yaml</code> file. To manually add one or more Apple TVs to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">apple_tv</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">IP_1</span>
@@ -102,10 +102,10 @@ Currently you must have Home Sharing enabled for this to work. Support for pairi
   <li><strong>host</strong> (<em>Required</em>): The IP-address of the device.</li>
   <li><strong>login_id</strong> (<em>Required</em>): An identifier used to login to the device, see below.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend.</li>
-  <li><strong>start_off</strong> (<em>Optional</em>): Set to true if device should start in fake standby.</li>
+  <li><strong>start_off</strong> (<em>Optional</em>): Set to true if the device should start in fake standby.</li>
   <li><strong>credentials</strong> (<em>Optional</em>): Credentials used for AirPlay playback.</li>
 </ul>
-<p>In order to connect to the device you need a <em>login id</em>. The easiest way to obtain this identifier is to use the <code class="highlighter-rouge">apple_tv_scan</code> service (described below). Additional information about <code class="highlighter-rouge">start_off</code> and <code class="highlighter-rouge">credentials</code> can also be found under the guides section.</p>
+<p>In order to connect to the device, you need a <em>login id</em>. The easiest way to obtain this identifier is to use the <code class="highlighter-rouge">apple_tv_scan</code> service (described below). Additional information about <code class="highlighter-rouge">start_off</code> and <code class="highlighter-rouge">credentials</code> can also be found under the guides section.</p>
 <h2><a class="title-link" name="guides" href="#guides"></a> Guides</h2>
 <h3><a class="title-link" name="scanning-for-devices" href="#scanning-for-devices"></a> Scanning for devices</h3>
 <p>To scan for devices, press the icon in the upper left corner and select the leftmost icon according to the image:</p>
@@ -114,7 +114,7 @@ Currently you must have Home Sharing enabled for this to work. Support for pairi
 <p><img src="/images/components/apple_tv/scan_start.jpg" /></p>
 <p>Scanning will be done for three seconds and notification will be shown in the state view with all found devices:</p>
 <p><img src="/images/components/apple_tv/scan_result.jpg" /></p>
-<p>Alternatively you may use the application <code class="highlighter-rouge">atvremote</code>. Install it with <code class="highlighter-rouge">pip3 install --upgrade pyatv</code> in your Home Assistant environment (note: do <em>not</em> use sudo). Then run <code class="highlighter-rouge">atvremote scan</code> to scan for all devices (try again if a device is missing):</p>
+<p>Alternatively, you may use the application <code class="highlighter-rouge">atvremote</code>. Install it with <code class="highlighter-rouge">pip3 install --upgrade pyatv</code> in your Home Assistant environment (note: do <em>not</em> use sudo). Then run <code class="highlighter-rouge">atvremote scan</code> to scan for all devices (try again if a device is missing):</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>atvremote scan
 Found Apple TVs:
  - Apple TV at 10.0.10.22 <span class="o">(</span>login id: 00000000-1234-5678-9012-345678901234<span class="o">)</span>
@@ -124,17 +124,17 @@ Note: You must use <span class="s1">'pair'</span> with devices that have home sh
 </div>
 <p>Just copy and paste the login id from the device you want to add. For more details about <code class="highlighter-rouge">atvremote</code>, see: <a href="http://pyatv.readthedocs.io/en/master/atvremote.html">this page</a>.</p>
 <h3><a class="title-link" name="my-apple-tv-turns-on-when-i-restart-home-assistant" href="#my-apple-tv-turns-on-when-i-restart-home-assistant"></a> My Apple TV turns on when I restart Home Assistant</h3>
-<p>The Apple TV will automatically turn on if a request is sent to it, e.g. if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it and it will cause problems if you are using HDMI CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.</p>
-<p>So, if your TV is randomly turning on, this is probably the reason. As stated, this is by design and there is no real fix for it. There’s also no known way to turn off the Apple TV via the procotol used for communication. You basically have the following options:</p>
+<p>The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it, and it will cause problems if you are using HDMI CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.</p>
+<p>So, if your TV is randomly turning on, this is probably the reason. As stated, this is by design, and there is no real fix for it. There’s also no known way to turn off the Apple TV via the protocol used for communication. You have the following options:</p>
 <ul>
   <li>Do not use this platform</li>
   <li>Disable HDMI CEC on your Apple TV</li>
   <li>Use “fake standby”</li>
 </ul>
-<p>The first two points are quite obvious. Fake standby is a concept implemented in this platform that disables all requests to the device and make it appear as being “off” in the web interface. This will make sure that the device is not woken up, but it will of course not show any information or allow you to control it. It is however easy to turn it on (or off) in the web interface or using an automation with <code class="highlighter-rouge">turn_on</code>. To make it more useful, you can write automations that turns it on or off depending on some other device, like the input source on your receiver.</p>
+<p>The first two points are quite obvious. Fake standby is a concept implemented in this platform that disables all requests to the device and makes it appear as being “off” in the web interface. This will make sure that the device is not woken up, but it will of course not show any information or allow you to control it. It is however easy to turn it on (or off) in the web interface or to use an automation with <code class="highlighter-rouge">turn_on</code>. To make it more useful, you can write automations that turn it on or off depending on some other device, like the input source on your receiver.</p>
 <p>To put a device into fake standby when starting Home Assistant, add <code class="highlighter-rouge">start_off: true</code> to your configuration.</p>
 <p class="note warning">
-Turning the device on/off in the user interface will <em>not</em> turn the physical device on/off according to description above.
+Turning the device on/off in the user interface will <em>not</em> turn the physical device on/off according to the description above.
 </p>
 <h3><a class="title-link" name="setting-up-device-authentication" href="#setting-up-device-authentication"></a> Setting up device authentication</h3>
 <p>If you, when playing media with <code class="highlighter-rouge">play_url</code>, get the following error message:</p>
@@ -153,10 +153,10 @@ Turning the device on/off in the user interface will <em>not</em> turn the physi
     <span class="s">credentials</span><span class="pi">:</span> <span class="s">1B8C387DDB59BDF6:CF5ABB6A2C070688F5926ADB7C010F6DF847252C15F9BDB6DA3E09D6591E90E5</span>
 </code></pre>
 </div>
-<p>Restart Home Assistant and you should now be able to use <code class="highlighter-rouge">play_url</code> as before.</p>
+<p>Restart Home Assistant, and you should now be able to use <code class="highlighter-rouge">play_url</code> as before.</p>
 <h2><a class="title-link" name="services" href="#services"></a> Services</h2>
 <h3><a class="title-link" name="service-apple_tv_authenticate" href="#service-apple_tv_authenticate"></a> Service <code class="highlighter-rouge">apple_tv_authenticate</code></h3>
-<p>In order to play media on an Apple TV with device authentication enabled (e.g. ATV4 with tvOS 10.2+), Home Assistant must properly authenticated. This method starts the process and presents the credentials needed for playback as a persistent notification. Please see guide above for usage.</p>
+<p>To play media on an Apple TV with device authentication enabled (e.g., ATV4 with tvOS 10.2+), Home Assistant must be properly authenticated. This method starts the process and presents the credentials needed for playback as a persistent notification. Please see guide above for usage.</p>
 <table>
   <thead>
     <tr>

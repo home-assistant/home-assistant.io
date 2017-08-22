@@ -75,7 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">android_ip_webcam</code> component turns an Android phone into a network camera with multiple viewing options.</p>
-<p>It’s setup as a mjpeg camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.</p>
+<p>It’s setup as an M-JPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.</p>
 <p>To set it up, download <a href="https://play.google.com/store/apps/details?id=com.pas.webcam">the IP Webcam app</a>, and add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">android_ip_webcam</span><span class="pi">:</span>
@@ -90,8 +90,8 @@
   <li><strong>username</strong> (<em>Optional</em>): The username to access the phone.</li>
   <li><strong>password</strong> (<em>Optional</em>): The password to access the phone.</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Default is 10 seconds. Defines the update interval of the phone.</li>
-  <li><strong>sensors</strong> array (<em>Optional</em>): Conditions to display sensor in the frontend. See list of supported sensors.</li>
-  <li><strong>switches</strong> array (<em>Optional</em>): Conditions to display settings in the frontend. See list of supported settings.</li>
+  <li><strong>sensors</strong> array (<em>Optional</em>): Conditions to display sensor in the frontend. See the list of supported sensors.</li>
+  <li><strong>switches</strong> array (<em>Optional</em>): Conditions to display settings in the frontend. See the list of supported settings.</li>
   <li><strong>motion_sensor</strong> (<em>Optional</em>): Activate motion sensor if auto_discovery is disabled.</li>
 </ul>
 <h3><a class="title-link" name="supported-features" href="#supported-features"></a> Supported features</h3>

@@ -74,9 +74,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The Asterisk Voicemail integration for Home Assistant allows you to view, listen-to, and delete voicemails from a Asterisk voicemail mailbox.  The component includes a panel on the frontend that provides caller-id and speech-to-text transcription (using Google’s API) of messages in addition to playback and message deletion.  There is also an included sensor that provides an indication of the number of available messages.  There is no requirement that the Asterisk PBX and Home Assistant are running on the same machine.</p>
-<p>To enable the component, configuration is required in both Home Assistant as well as on the Asterisk server.</p>
-<p>First follow the <a href="/docs/asterisk_mbox">Asterisk PBX configuration guide</a> to setup the necessary server on the Asterisk PBX server (this is necessary even if Asterisk and Home Assistant are running on the same server)</p>
+  <p>The Asterisk Voicemail integration for Home Assistant allows you to view, listen to, and delete voicemails from an Asterisk voicemail mailbox.  The component includes a panel on the frontend that provides caller-id and speech-to-text transcription (using Google’s API) of messages in addition to playback and message deletion. There is also an included sensor that indicates of the number of available messages. There is no requirement that the Asterisk PBX and Home Assistant are running on the same machine.</p>
+<p>To enable the component, a configuration is required in both Home Assistant as well as on the Asterisk server.</p>
+<p>First follow the <a href="/docs/asterisk_mbox">Asterisk PBX configuration guide</a> to setup the necessary server on the Asterisk PBX server (this is needed even if Asterisk and Home Assistant are running on the same server)</p>
 <p>Once that is complete, add the the following entry <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">asterisk_mbox</span><span class="pi">:</span>
@@ -88,12 +88,12 @@
 <p>This will add a new ‘Mailbox’ side-panel, as well as a sensor to indicate # of messages available.</p>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>password</strong> (<em>Required</em>): The password that was set during Asterisk PBX confguration</li>
+  <li><strong>password</strong> (<em>Required</em>): The password that was set during Asterisk PBX configuration</li>
   <li><strong>host</strong> (<em>Required</em>): The ip-address of the server that is running the Asterisk PBX</li>
-  <li><strong>port</strong> (<em>Required</em>): The port on the Asterisk PBX server that was configured during Asterisk PBX confguration</li>
+  <li><strong>port</strong> (<em>Required</em>): The port on the Asterisk PBX server that was configured during Asterisk PBX configuration</li>
 </ul>
 <p class="note warning">
-Communication between the Asterisk PBX server and the Home Assistant server is password-protected, but the data transmission is not encrypted.  It is recommended to only use this component when communication will be contained within a local area network.
+Communication between the Asterisk PBX server and the Home Assistant server is password-protected, but the data transmission is not encrypted. It is recommended to only use this component when communication is contained within a local area network.
 </p>
 </article>
         </div>

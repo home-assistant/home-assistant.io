@@ -97,11 +97,11 @@
   <li><strong>report_server_codes</strong> list (<em>Optional</em>): List of codes for the different states.</li>
 </ul>
 <p>Note that this basic configuration will only enable you to read the armed/armed away/disarmed status of your alarm and will <strong>not</strong> update the status if the alarm is triggered. This is because of how Egardia built their system. The alarm triggers normally go through their servers.
-You can change this however, using the following procedure. This is an more advanced configuration.</p>
+You can change this, however, using the following procedure. This is a more advanced configuration.</p>
 <ol>
-  <li>Login into your alarm system’s control panel. You will need to access http://[ip of your control panel]. You know this already, since you need it in the basic configuration from above. Login to the control panel with your Egardia/Woonveilig username and password</li>
+  <li>Log in into your alarm system’s control panel. You will need to access http://[ip of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.</li>
   <li>Once logged in, go to <em>System Settings</em>, <em>Report</em> and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. Also, update the port number 85 or to anything you like. The provided software that you will set up in the next steps runs on port 85 by default. <strong>Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia’s / Woonveilig services.</strong> Maybe, that is just what you want. Make sure to save your settings by selecting ‘OK’.</li>
-  <li>On your Home Assistant machine run <code class="highlighter-rouge">$ sudo python3 egardiaserver.py</code>. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. <strong>Before triggering the alarm it might be good to temporarily disable the siren (can be done in Panel Settings).</strong></li>
+  <li>On your Home Assistant machine run <code class="highlighter-rouge">$ sudo python3 egardiaserver.py</code>. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. <strong>Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).</strong></li>
   <li>Once you have the codes, update your <code class="highlighter-rouge">configuration.yaml</code>:
     <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alarm_control_panel</span><span class="pi">:</span>
@@ -119,13 +119,13 @@ You can change this however, using the following procedure. This is an more adva
    <span class="s">standby</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
 </code></pre>
     </div>
-    <p>Note that your can have more than one code for triggered, since every sensor generates it’s own code. arm, disarm, armhome and standby will all be one code.</p>
+    <p>Note that you can have more than one code for triggered since every sensor generates its own code. arm, disarm, armhome and standby will all be one code.</p>
   </li>
   <li>Start the <code class="highlighter-rouge">egardiaserver.py</code> script on boot of your Home Assistant machine, for example by adding the following to your <code class="highlighter-rouge">/etc/rc.local</code>:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code> python3 <span class="o">[</span>path/to/]egardiaserver.py &amp;
 </code></pre>
     </div>
-    <p><strong>Do not forget the trailing &amp; here, otherwise you will be having a hard time logging back in to the machine.</strong></p>
+    <p><strong>Do not forget the trailing &amp; here; otherwise you will be having a hard time logging back into the machine.</strong></p>
   </li>
   <li>Test your setup and enjoy. The component will update if the alarm status changes, including triggers. You can use this to build your own automations and send notifications as you wish.</li>
 </ol>

@@ -96,7 +96,7 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your camera. If using hostname, make sure the DNS works as expected.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your camera. If using a hostname, make sure the DNS works as expected.</li>
   <li><strong>username</strong> (<em>Required</em>): The username for accessing your camera.</li>
   <li><strong>password</strong> (<em>Required</em>): The password for accessing your camera.</li>
   <li><strong>name</strong> (<em>Optional</em>): This parameter allows you to override the name of your camera. The default is “Amcrest Camera”.</li>
@@ -104,7 +104,7 @@
   <li><strong>resolution</strong> (<em>Optional</em>): This parameter allows you to specify the camera resolution. For a high resolution (1080/720p), specify the option <code class="highlighter-rouge">high</code>. For VGA resolution (640x480p), specify the option <code class="highlighter-rouge">low</code>. If omitted, it defaults to <em>high</em>.</li>
   <li><strong>stream_source</strong> (<em>Optional</em>): The data source for the live stream. <code class="highlighter-rouge">mjpeg</code> will use the camera’s native MJPEG stream, whereas <code class="highlighter-rouge">snapshot</code> will use the camera’s snapshot API to create a stream from still images. You can also set the <code class="highlighter-rouge">rtsp</code> option to generate the streaming via RTSP protocol. If omitted, it defaults to <em>snapshot</em>.</li>
   <li><strong>ffmpeg_arguments</strong>: (<em>Optional</em>): Extra options to pass to ffmpeg, e.g. image quality or video filter options.</li>
-  <li><strong>authentication</strong>: (<em>Optional</em>): Defines which authentication method to use only when <strong>stream_source</strong> is <strong>mjpeg</strong>. Currently <em>aiohttp</em> only support <em>basic</em>. It defaults to <em>basic</em>.</li>
+  <li><strong>authentication</strong>: (<em>Optional</em>): Defines which authentication method to use only when <strong>stream_source</strong> is <strong>mjpeg</strong>. Currently, <em>aiohttp</em> only support <em>basic</em>. It defaults to <em>basic</em>.</li>
   <li><strong>scan_interval</strong> (<em>Optional</em>): Defines the update interval of the sensor in seconds. The default is 10 seconds.</li>
   <li><strong>sensors</strong> array (<em>Optional</em>): Conditions to display in the frontend. By default, <em>none</em> of the conditions are enabled. The following conditions can be monitored.
     <ul>
@@ -114,7 +114,7 @@
     </ul>
   </li>
 </ul>
-<p><strong>Note:</strong> Amcrest cameras with newer firmwares no longer have the ability to stream <code class="highlighter-rouge">high</code> definition video with MJPEG encoding. You may need to use <code class="highlighter-rouge">low</code> resolution stream or the <code class="highlighter-rouge">snapshot</code> stream source instead.  If the quality seems too poor, lower the <code class="highlighter-rouge">Frame Rate (FPS)</code> and max out the <code class="highlighter-rouge">Bit Rate</code> settings in your camera’s configuration manager. If you defined the <em>stream_source</em> to <strong>mjpeg</strong>, make sure your camera supports <em>Basic</em> HTTP authentication. Newer Amcrest firwmares may not work, then <strong>rtsp</strong> is recommended instead.</p>
+<p><strong>Note:</strong> Amcrest cameras with newer firmware no longer have the ability to stream <code class="highlighter-rouge">high</code> definition video with MJPEG encoding. You may need to use <code class="highlighter-rouge">low</code> resolution stream or the <code class="highlighter-rouge">snapshot</code> stream source instead.  If the quality seems too poor, lower the <code class="highlighter-rouge">Frame Rate (FPS)</code> and max out the <code class="highlighter-rouge">Bit Rate</code> settings in your camera’s configuration manager. If you defined the <em>stream_source</em> to <strong>mjpeg</strong>, make sure your camera supports <em>Basic</em> HTTP authentication. Newer Amcrest firmware may not work, then <strong>rtsp</strong> is recommended instead.</p>
 <p><strong>Note:</strong> If you set the <code class="highlighter-rouge">stream_source</code> option to <code class="highlighter-rouge">rtsp</code>, make sure to follow the steps mentioned at
 <a href="https://home-assistant.io/components/ffmpeg/">FFMPEG</a> documentation to install the <code class="highlighter-rouge">ffmpeg</code>.</p>
 <p>Finish its configuration by visiting the <a href="/components/sensor.amcrest/">Amcrest sensor page</a> or <a href="/components/camera.amcrest/">Amcrest camera page</a>.</p>

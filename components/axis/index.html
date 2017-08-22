@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p><a href="https://www.axis.com/">Axis Communications</a> devices are surveillance cameras and other security related network connected hardware. Sensor API works with firmware 5.50 and newer.</p>
+  <p><a href="https://www.axis.com/">Axis Communications</a> devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.</p>
 <p>Home Assistant will automatically discover their presence on your network.</p>
 <h2><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h2>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-gi gir1.2-gstreamer-1.0
@@ -112,7 +112,7 @@
       <li><strong>camera</strong>: Stream MJPEG video to Home Assistant.</li>
       <li><strong>motion</strong>: The built-in motion detection in Axis cameras.</li>
       <li><strong>vmd3</strong>: ACAP Motion Detection app which has better algorithms for motion detection.</li>
-      <li><strong>pir</strong>: PIR sensor that can trigger on motion.</li>
+      <li><strong>pir</strong>: PIR sensor that can trigger on a motion.</li>
       <li><strong>sound</strong>: Sound detector.</li>
       <li><strong>daynight</strong>: Certain cameras have day/night mode if they have built-in IR lights.</li>
       <li><strong>tampering</strong>: Signals when camera believes that it has been tampered with.</li>
@@ -138,13 +138,13 @@
 </code></pre>
 </div>
 <p class="note">
-If you are using Python3.6 you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
+If you are using Python 3.6, you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
 </p>
 <p class="note">
 Any specific levels for triggers needs to be configured on the device.
 </p>
 <p class="note">
-  It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality it is enough to create a user belonging to user group viewer.
+  It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
 </p>
 <h2><a class="title-link" name="device-services" href="#device-services"></a> Device services</h2>
 <p>Available services: <code class="highlighter-rouge">vapix_call</code>.</p>
@@ -172,7 +172,7 @@ Any specific levels for triggers needs to be configured on the device.
     <tr>
       <td><code class="highlighter-rouge">cgi</code></td>
       <td>yes</td>
-      <td>Which cgi to call on device. Default is <code class="highlighter-rouge">param.cgi</code>.</td>
+      <td>Which cgi to call on the device. Default is <code class="highlighter-rouge">param.cgi</code>.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">action</code></td>

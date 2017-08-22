@@ -74,8 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This component is designed to be used with the “webhook” integration in <a href="https://api.ai/">api.ai</a>. When a conversation ends with an user, api.ai sends an action and parameters to the webhook.</p>
-<p>api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to Internet. api.ai will return fallback answers if your server do not answer, or takes too long (more than 5 seconds).</p>
+  <p>This component is designed to be used with the “webhook” integration in <a href="https://api.ai/">api.ai</a>. When a conversation ends with a user, api.ai sends an action and parameters to the webhook.</p>
+<p>api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. api.ai will return fallback answers if your server does not answer, or takes too long (more than 5 seconds).</p>
 <p>api.ai could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. <a href="https://docs.api.ai/docs/integrations">See here</a> the complete list.</p>
 <p>Using Api.ai will be easy to create conversations like:</p>
 <blockquote>
@@ -88,14 +88,14 @@
   <p>User: In the kitchen</p>
   <p>Bot: Turning on kitchen light</p>
 </blockquote>
-<p>To use this integration you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.</p>
+<p>To use this integration, you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.</p>
 <h3><a class="title-link" name="configuring-your-apiai-account" href="#configuring-your-apiai-account"></a> Configuring your api.ai account</h3>
 <ul>
   <li><a href="https://api.ai/">Login</a> with your Google account.</li>
   <li>Click on “Create Agent”</li>
   <li>Select name, language (if you are planning to use it with Google Actions check <a href="https://support.google.com/assistant/answer/7108196?hl=en">here</a> supported languages) and time zone</li>
   <li>Click “Save”</li>
-  <li>Go to “Fullfiment” (in the left menu)</li>
+  <li>Go to “Fulfillment” (in the left menu)</li>
   <li>Enable Webhook and set your Home Assistant URL with the Api.ai endpoint. Eg.: <code class="highlighter-rouge">https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD</code></li>
   <li>Click “Save”</li>
   <li>Create a new intent</li>

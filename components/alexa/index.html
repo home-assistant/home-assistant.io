@@ -146,7 +146,7 @@ WhereAreWeIntent where we are
 <p>When activated, the Alexa component will have Home Assistant’s native intent support handle the incoming intents. If you want to run actions based on intents, use the <a href="/components/intent_script"><code class="highlighter-rouge">intent_script</code></a> component.</p>
 <h3><a class="title-link" name="working-with-scenes" href="#working-with-scenes"></a> Working With Scenes</h3>
 <p>One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.</p>
-<p>First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
+<p>First, we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ActivateSceneIntent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"slots"</span><span class="p">:</span><span class="w">
@@ -182,7 +182,7 @@ Custom slot type for scene support.
 </code></pre>
 </div>
 <p>Here we are using <a href="/topics/templating/">templates</a> to take the name we gave to Alexa e.g. <code class="highlighter-rouge">downstairs on</code> and replace the space with an underscore so it becomes <code class="highlighter-rouge">downstairs_on</code> as Home Assistant expects.</p>
-<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
+<p>Now say <code class="highlighter-rouge">Alexa ask Home Assistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
 <h3><a class="title-link" name="adding-scripts" href="#adding-scripts"></a> Adding Scripts</h3>
 <p>We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -218,12 +218,12 @@ Custom slot type for script support.
       <span class="s">text</span><span class="pi">:</span> <span class="s">OK</span>
 </code></pre>
 </div>
-<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
+<p>Now say <code class="highlighter-rouge">Alexa ask Home Assistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
 <h3><a class="title-link" name="support-for-launch-requests" href="#support-for-launch-requests"></a> Support for Launch Requests</h3>
 <p>There may be times when you want to respond to a launch request initiated from a command such as “Alexa, Red Alert!”.</p>
-<p>To start you need to get the skill id:</p>
+<p>To start, you need to get the skill id:</p>
 <ul>
-  <li>Log in to <a href="https://developer.amazon.com">Amazon developer console</a></li>
+  <li>Log into <a href="https://developer.amazon.com">Amazon developer console</a></li>
   <li>Click the Alexa button at the top of the console</li>
   <li>Click the Alexa Skills Kit Get Started button
     <ul>
@@ -330,7 +330,7 @@ Custom slot type for script support.
       </li>
       <li>Test
         <ul>
-          <li>Having passed all validations to reach this screen you can now click on “&lt; Back to All Skills” as your flash briefing is now available as in “Development” service.</li>
+          <li>Having passed all validations to reach this screen, you can now click on “&lt; Back to All Skills” as your flash briefing is now available as in “Development” service.</li>
         </ul>
       </li>
     </ul>
