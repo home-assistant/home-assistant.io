@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Automation Templating - Home Assistant</title>
+    <title>Caddy Server reverse proxy - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Advanced automation documentation using templating.">
+    <meta name="description" content="Configure Caddy Server as a reverse proxy to Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/docs/automation/templating/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/caddy/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Automation Templating">
+    <meta property="og:title" content="Caddy Server reverse proxy">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/docs/automation/templating/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/caddy/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Advanced automation documentation using templating.">
+    <meta property="og:description" content="Configure Caddy Server as a reverse proxy to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Automation Templating">
-    <meta name="twitter:description" content="Advanced automation documentation using templating.">
+    <meta name="twitter:title" content="Caddy Server reverse proxy">
+    <meta name="twitter:description" content="Configure Caddy Server as a reverse proxy to Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -68,271 +68,22 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/automation/templating.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/ecosystem/caddy.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Automation Templating
+      Caddy Server Reverse Proxy
     </h1>
   </header>
   <hr class="divider">
-  <p>In Home Assistant 0.19 we introduced a new powerful feature: variables in scripts and automations. This makes it possible to adjust your condition and action based on the information of the trigger.</p>
-<p>The trigger data made is available during <a href="/docs/configuration/templating/">template</a> rendering as the <code class="highlighter-rouge">trigger</code> variable.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entries</span>
-<span class="s">automation</span><span class="pi">:</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
-    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">device_tracker.paulus</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
-    <span class="s">data_template</span><span class="pi">:</span>
-      <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
-        <span class="no">Paulus just changed from {{ trigger.from_state.state }}</span>
-        <span class="no">to {{ trigger.to_state.state }}</span>
-
-<span class="s">automation 2</span><span class="pi">:</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-    <span class="s">topic</span><span class="pi">:</span> <span class="s">/notify/+</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-      <span class="no">notify.{{ trigger.topic.split('/')[-1] }}</span>
-    <span class="s">data_template</span><span class="pi">:</span>
-      <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.payload</span><span class="nv"> </span><span class="s">}}'</span>
+  <p>Configure <a href="https://caddyserver.com/">Caddy Server</a> for use as a reverse proxy to Home Assistant.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>hass.example.org {
+    proxy / localhost:8123 {
+        websocket
+        transparent
+    }
+}
 </code></pre>
 </div>
-<h2><a class="title-link" name="important-template-rules" href="#important-template-rules"></a> Important Template Rules</h2>
-<p>There are a few very important rules to remember when writing automation templates:</p>
-<ol>
-  <li>You <strong><em>must</em></strong> use <code class="highlighter-rouge">data_template</code> in place of <code class="highlighter-rouge">data</code> when using templates in the <code class="highlighter-rouge">data</code> section of a service call.</li>
-  <li>You <strong><em>must</em></strong> use <code class="highlighter-rouge">service_template</code> in place of <code class="highlighter-rouge">service</code> when using templates in the <code class="highlighter-rouge">service</code> section of a service call.</li>
-  <li>You <strong><em>must</em></strong> surround single-line templates with double quotes (<code class="highlighter-rouge">"</code>) or single quotes (<code class="highlighter-rouge">'</code>).</li>
-  <li>It is advised that you prepare for undefined variables by using <code class="highlighter-rouge">if ... is not none</code> or the <a href="http://jinja.pocoo.org/docs/dev/templates/#default"><code class="highlighter-rouge">default</code> filter</a>, or both.</li>
-  <li>It is advised that when comparing numbers, you convert the number(s) to a <a href="http://jinja.pocoo.org/docs/dev/templates/#float"><code class="highlighter-rouge">float</code></a> or an <a href="http://jinja.pocoo.org/docs/dev/templates/#int"><code class="highlighter-rouge">int</code></a> by using the respective <a href="http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters">filter</a>.</li>
-  <li>While the <a href="http://jinja.pocoo.org/docs/dev/templates/#float"><code class="highlighter-rouge">float</code></a> and <a href="http://jinja.pocoo.org/docs/dev/templates/#int"><code class="highlighter-rouge">int</code></a> filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.</li>
-</ol>
-<p>Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.</p>
-<h2><a class="title-link" name="available-trigger-data" href="#available-trigger-data"></a> Available Trigger Data</h2>
-<p>The following tables show the available trigger data per platform.</p>
-<h3><a class="title-link" name="event" href="#event"></a> event</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">event</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.event</code></td>
-      <td>Event object that matched.</td>
-    </tr>
-  </tbody>
-</table>
-<h3><a class="title-link" name="mqtt" href="#mqtt"></a> mqtt</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">mqtt</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.topic</code></td>
-      <td>Topic that received payload.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.payload</code></td>
-      <td>Payload.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.payload_json</code></td>
-      <td>Dictonary of the JSON parsed payload.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.qos</code></td>
-      <td>QOS of payload.</td>
-    </tr>
-  </tbody>
-</table>
-<h3><a class="title-link" name="numeric_state" href="#numeric_state"></a> numeric_state</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">numeric_state</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
-      <td>Entity ID that we observe.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.below</code></td>
-      <td>The below threshold, if any.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.above</code></td>
-      <td>The above threshold, if any.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.from_state</code></td>
-      <td>The previous <a href="/docs/configuration/state_object/">state object</a> of the entity.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.to_state</code></td>
-      <td>The new <a href="/docs/configuration/state_object/">state object</a> that triggered trigger.</td>
-    </tr>
-  </tbody>
-</table>
-<h3><a class="title-link" name="state" href="#state"></a> state</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">state</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
-      <td>Entity ID that we observe.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.from_state</code></td>
-      <td>The previous <a href="/docs/configuration/state_object/">state object</a> of the entity.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.to_state</code></td>
-      <td>The new <a href="/docs/configuration/state_object/">state object</a> that triggered trigger.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.for</code></td>
-      <td>Timedelta object how long state has been to state, if any.</td>
-    </tr>
-  </tbody>
-</table>
-<h3><a class="title-link" name="sun" href="#sun"></a> sun</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">sun</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.event</code></td>
-      <td>The event that just happened: <code class="highlighter-rouge">sunset</code> or <code class="highlighter-rouge">sunrise</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.offset</code></td>
-      <td>Timedelta object with offset to the event, if any.</td>
-    </tr>
-  </tbody>
-</table>
-<h3><a class="title-link" name="template" href="#template"></a> template</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">template</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
-      <td>Entity ID that caused change.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.from_state</code></td>
-      <td>Previous <a href="/docs/configuration/state_object/">state object</a> of entity that caused change.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.to_state</code></td>
-      <td>New <a href="/docs/configuration/state_object/">state object</a> of entity that caused template to change.</td>
-    </tr>
-  </tbody>
-</table>
-<h3><a class="title-link" name="time" href="#time"></a> time</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">time</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.now</code></td>
-      <td>DateTime object that triggered the time trigger.</td>
-    </tr>
-  </tbody>
-</table>
-<h3><a class="title-link" name="zone" href="#zone"></a> zone</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Template variable</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.platform</code></td>
-      <td>Hardcoded: <code class="highlighter-rouge">zone</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.entity_id</code></td>
-      <td>Entity ID that we are observing.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.from_state</code></td>
-      <td>Previous <a href="/docs/configuration/state_object/">state object</a> of the entity.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.to_state</code></td>
-      <td>New <a href="/docs/configuration/state_object/">state object</a> of the entity.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.zone</code></td>
-      <td>State object of zone</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trigger.event</code></td>
-      <td>Event that trigger observed: <code class="highlighter-rouge">enter</code> or <code class="highlighter-rouge">leave</code>.</td>
-    </tr>
-  </tbody>
-</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -393,7 +144,7 @@
           <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
           <li><a  href='/docs/automation/condition/'>Conditions </a></li>
           <li><a  href='/docs/automation/action/'>Actions </a></li>
-          <li><a class='active' href='/docs/automation/templating/'>Templates </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
         </ul>
       </li>
       <li>
@@ -502,7 +253,7 @@
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
-              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
+              <li><a class='active' href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>
