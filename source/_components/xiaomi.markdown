@@ -96,7 +96,7 @@ Configuration variables:
 
 ## {% linkable_title Services %}
 
-The gateway provides two services: `xiaomi.play_ringtone` and `xiaomi.stop_ringtone`. To play ringtones by Home Assistant the version of the gateway firmware must be `1.4.1_145` at least. A `ringtone_id` and `gw_mac` must be supplied. The parameter `ringtone_vol` (percent) is optional. Allowed values of the `ringtone_id` are:
+The gateway provides two services: `xiaomi.play_ringtone` and `xiaomi.stop_ringtone`. To play ringtones by Home Assistant, the version of the gateway firmware must be `1.4.1_145` at least. A `ringtone_id` and `gw_mac` must be supplied. The parameter `ringtone_vol` (percent) is optional. Allowed values of the `ringtone_id` are:
 
 - alarm ringtones [0-8]
 - doorbell ring [10-13]
@@ -148,4 +148,4 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Turn off the firewall on the HA computer 
 - Try to leave the mac address blank. 
 - Try to set `discovery_retry: 10`
-- Try to disable and then renable LAN access
+- Try to disable and then enable LAN access

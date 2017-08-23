@@ -86,7 +86,7 @@ Tell the vacuum cleaner to do a spot clean-up.
 
 #### {% linkable_title Service `vacuum/set_fanspeed` %}
 
-Set the fan speed of the botvac. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number, it depends of the `vacuum` platform.
+Set the fan speed of the botvac. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
