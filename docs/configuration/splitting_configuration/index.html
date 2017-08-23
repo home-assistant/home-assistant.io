@@ -272,7 +272,9 @@ customize.yaml
   <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.entryway</span>
 </code></pre>
 </div>
-<p>It is important to note that each file must contain only <strong>one</strong> entry when using <code class="highlighter-rouge">!include_dir_list</code>.</p>
+<p>It is important to note that each file must contain only <strong>one</strong> entry when using <code class="highlighter-rouge">!include_dir_list</code>.
+It is also important to note that if you are splitting a file after adding -id: to support the automation UI,
+the -id: line must be removed from each of the split files.</p>
 <h4><a class="title-link" name="example-include_dir_named" href="#example-include_dir_named"></a> Example: <code class="highlighter-rouge">!include_dir_named</code></h4>
 <p><code class="highlighter-rouge">configuration.yaml</code></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
