@@ -247,6 +247,8 @@ action:
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
+It is also important to note that if you are splitting a file after adding -id: to support the automation UI,
+the -id: line must be removed from each of the split files.
 
 #### {% linkable_title Example: `!include_dir_named` %}
 
