@@ -117,29 +117,33 @@
 
 <span class="s">intent_script</span><span class="pi">:</span>
   <span class="s">Temperature</span><span class="pi">:</span>
-    <span class="s">speech</span><span class="pi">:</span> <span class="s">The temperature at home is {{ states('sensor.home_temp') }} degrees</span>
+    <span class="s">speech</span><span class="pi">:</span> 
+      <span class="s">text</span><span class="pi">:</span> <span class="s">The temperature at home is {{ states('sensor.home_temp') }} degrees</span>
   <span class="s">LocateIntent</span><span class="pi">:</span>
-    <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
-      <span class="no">{%- for state in states.device_tracker -%}</span>
-        <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
-          <span class="no">{{ state.name }} is at {{ state.state }}</span>
-        <span class="no">{%- elif loop.last -%}</span>
-          <span class="no">I am sorry, I do not know where {{ User }} is.</span>
-        <span class="no">{%- endif -%}</span>
-      <span class="no">{%- else -%}</span>
-        <span class="no">Sorry, I don't have any trackers registered.</span>
-      <span class="no">{%- endfor -%}</span>
+    <span class="s">speech</span><span class="pi">:</span>
+      <span class="s">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{%- for state in states.device_tracker -%}</span>
+          <span class="no">{%- if state.name.lower() == User.lower() -%}</span>
+            <span class="no">{{ state.name }} is at {{ state.state }}</span>
+          <span class="no">{%- elif loop.last -%}</span>
+            <span class="no">I am sorry, I do not know where {{ User }} is.</span>
+          <span class="no">{%- endif -%}</span>
+        <span class="no">{%- else -%}</span>
+          <span class="no">Sorry, I don't have any trackers registered.</span>
+        <span class="no">{%- endfor -%}</span>
   <span class="s">WhereAreWeIntent</span><span class="pi">:</span>
-    <span class="s">speech</span><span class="pi">:</span> <span class="pi">&gt;</span>
-      <span class="no">{%- if is_state('device_tracker.adri', 'home') and</span>
-             <span class="no">is_state('device_tracker.bea', 'home') -%}</span>
-        <span class="no">You are both home, you silly</span>
-      <span class="no">{%- else -%}</span>
-        <span class="no">Bea is at {{ states("device_tracker.bea") }}</span>
-        <span class="no">and Adri is at {{ states("device_tracker.adri") }}</span>
-      <span class="no">{% endif %}</span>
+    <span class="s">speech</span><span class="pi">:</span>
+      <span class="s">text</span><span class="pi">:</span> <span class="pi">&gt;</span>
+        <span class="no">{%- if is_state('device_tracker.adri', 'home') and</span>
+               <span class="no">is_state('device_tracker.bea', 'home') -%}</span>
+          <span class="no">You are both home, you silly</span>
+        <span class="no">{%- else -%}</span>
+          <span class="no">Bea is at {{ states("device_tracker.bea") }}</span>
+          <span class="no">and Adri is at {{ states("device_tracker.adri") }}</span>
+        <span class="no">{% endif %}</span>
   <span class="s">TurnLights</span><span class="pi">:</span>
-    <span class="s">speech</span><span class="pi">:</span> <span class="s">Turning {{ Room }} lights {{ OnOff }}</span>
+    <span class="s">speech</span><span class="pi">:</span>
+      <span class="s">text</span><span class="pi">:</span> <span class="s">Turning {{ Room }} lights {{ OnOff }}</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.pushbullet</span>
         <span class="s">data_template</span><span class="pi">:</span>
