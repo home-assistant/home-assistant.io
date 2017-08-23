@@ -12,10 +12,18 @@ logo: linksys.png
 ha_release: 0.48
 ---
 
-The `linksys_smart` platform offers presence detection by looking at connected devices to a Linksys Smart Wifi based 
-router. It was tested with a LINKSYS WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless Router.
+The `linksys_smart` platform offers presence detection by looking at connected devices to a Linksys Smart Wifi based router. 
 
-To use a Linksys Smart Wifi Router in your installation, add the following to your `configuration.yaml` file:
+Tested routers: 
+   LINKSYS WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless Router
+   LINKSYS WRT1900ACS Dual-band Wi-Fi Router
+   
+
+<p class='note'>
+For this platform to work correctly, it is necessary to disable the "Access via wireless" feature in the Local Management Access section of the router administration page. If "Access via wireless" is not disabled, a connectivity conflict arises because the Home Assistant integration is trying to pass userid and password, but the router is only expecting a password.
+</p>
+
+To use a Linksys Smart Wifi Router in your Home Assistant installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
