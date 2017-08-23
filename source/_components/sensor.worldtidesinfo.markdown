@@ -27,6 +27,6 @@ Configuration variables:
 
 - **api_key** (*Required*): Your API key for https://www.worldtides.info/.
 - **name** (*Optional*): Name to use in the frontend.
-- **latitude** (*Optional*): Latitude of the location to display the tides. Defaults to the latitude in your your `configuration.yaml` file. 
+- **latitude** (*Optional*): Latitude of the location to display the tides. Defaults to the latitude in your `configuration.yaml` file. 
 - **longitude** (*Optional*): Longitude of the location to display the tides. Defaults to the longitude in your `configuration.yaml` file.
 
