@@ -20,7 +20,7 @@ Tested routers:
    
 
 <p class='note'>
-For this component to work correctly, it is necessary to disable the "Access via wireless" feature in the Local Management Access section of the router administration page.  If "Access via wireless" is not disabled, a connectivity conflict arises because the home assistant integration is trying to pass userid and password, but the router is only expecting a password.
+For this platform to work correctly, it is necessary to disable the "Access via wireless" feature in the Local Management Access section of the router administration page. If "Access via wireless" is not disabled, a connectivity conflict arises because the Home Assistant integration is trying to pass userid and password, but the router is only expecting a password.
 </p>
 
 To use a Linksys Smart Wifi Router in your Home Assistant installation, add the following to your `configuration.yaml` file:
