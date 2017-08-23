@@ -30,6 +30,7 @@ Configuration variables:
 - **province** (*Optional*): Province code according to [holidays](https://pypi.python.org/pypi/holidays/0.8.1) notation. Defaults to None.
 - **workdays** (*Optional*): List of workdays. Defaults to `mon`, `tue`, `wed`, `thu`, `fri`.
 - **excludes** (*Optional*): List of workday excludes. Defaults to `sat`, `sun`, `holiday`.
+- **days_offset** (*Optional*): Set days offset. Defaults to `0`.
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`. The keyword `holiday` is used for public holidays identified by the holidays module.
 
