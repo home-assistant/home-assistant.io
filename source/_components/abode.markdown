@@ -20,10 +20,10 @@ Please visit the [Abode website](https://goabode.com/) for further information a
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm Control Panel](/components/alarm_control_panel.abode/): Reports on current alarm status and can be used to arm/disarm the system
-- [Binary Sensor](/components/binary_sensor.abode/): Reports on `Door Contacts` (open or close), `Motion Camera` (motion detected or not), `Water Sensors` (detected or not), `Keypad` (online or not), `Glass Break` (online or not), `Status Display` (online or not)
-- [Cover](/components/cover.abode/): Reports on `Secure Barriers` (open or close) and can be used to open/close the cover
+- [Binary Sensor](/components/binary_sensor.abode/): Reports on `Door Contacts` (open or closed), `Motion Camera` (motion detected or not), `Water Sensors` (detected or not), `Keypad` (online or not), `Glass Break` (online or not), `Status Display` (online or not)
+- [Cover](/components/cover.abode/): Reports on `Secure Barriers` (open or closed) and can be used to open/close the cover
 - [Lock](/components/cover.abode/): Reports on `Door Locks` (locked or unlocked) and can be used to lock/unlock the door
-- [Switch](/components/switch.abode/): Reports on `Power Switch Sensors` (on or off) and can be used to turn the power switch on/off
+- [Switch](/components/switch.abode/): Reports on `Power Switch Sensors` (on or off) and can be used to turn the power switch sensor on/off
 
 An `abode` section must be present in the `configuration.yaml` file and contain the following options as required:
 
