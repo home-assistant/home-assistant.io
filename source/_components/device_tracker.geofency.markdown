@@ -31,7 +31,7 @@ A full sample configuration for the `geofency` platform is shown below:
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  - platform: owntracks
+  - platform: geofency
     mobile_beacons:
       - car
       - keys
