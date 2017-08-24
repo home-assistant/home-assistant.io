@@ -74,16 +74,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">roomba</code> component allows you to control your <a href="http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx">Roomba</a>.</p>
+  <p>The <code class="highlighter-rouge">roomba</code> component allows you to control your <a href="http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx">iRobot Roomba</a> vacuum.</p>
 <p class="note">
-This platform has only been tested with an iRobot Roomba 980 but should work find
-with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
+This platform has only been tested with an iRobot Roomba 980 but should work find with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
 </p>
-<p>To add your roomba vacuum to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To add your Roomba vacuum to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">vacuum</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">roomba</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">My Roomba</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS_OR_HOSTNAME</span>
     <span class="s">username</span><span class="pi">:</span> <span class="s">BLID</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
@@ -92,16 +90,16 @@ with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): Hostname or IP address of the Roomba.</li>
-  <li><strong>username</strong> (<em>Required</em>): Username (BLID).</li>
-  <li><strong>password</strong> (<em>Required</em>): Password.</li>
-  <li><strong>certificate</strong> (<em>Optional</em>): Path to your certificate store (Default: <code class="highlighter-rouge">/etc/ssl/certs/ca-certificates.crt</code>)</li>
-  <li><strong>continuous</strong> (<em>Optional</em>): Whether to operate in continuous mode (Default: <code class="highlighter-rouge">True</code>).</li>
+  <li><strong>username</strong> (<em>Required</em>): The username (BLID) fro your device.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password for your device.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the vacuum.</li>
+  <li><strong>certificate</strong> (<em>Optional</em>): Path to your certificate store. Defaults to <code class="highlighter-rouge">/etc/ssl/certs/ca-certificates.crt</code>.</li>
+  <li><strong>continuous</strong> (<em>Optional</em>): Whether to operate in continuous mode. Defaults to <code class="highlighter-rouge">True</code>.</li>
 </ul>
 <p class="note">
-The Roomba’s MQTT server only allows a single connection. Enabling continuous
-mode will force the App to connect via the cloud to your Roomba. <a href="https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes">More info here</a>
+The Roomba’s MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. <a href="https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes">More info here</a>
 </p>
-<h3>Retrieving your credentials</h3>
+<h3><a class="title-link" name="retrieving-your-credentials" href="#retrieving-your-credentials"></a> Retrieving your credentials</h3>
 <p>Please refer to <a href="https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password">here</a> or <a href="https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password">here</a> to retrieve both the BLID (username) and the password.</p>
 </article>
         </div>

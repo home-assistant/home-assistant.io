@@ -89,8 +89,13 @@
 </ul>
 <h2>Generating a token</h2>
 <p>A simple way to generate a <code class="highlighter-rouge">token</code> for a new sensor is to run this snippet of python code in your Home Assistant virtual environment:</p>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip install pyotp
-<span class="gp">$ </span>python -c <span class="s1">'import pyotp; print("Token: " + pyotp.random_base32())'</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install pyotp
+<span class="gp">$ </span>python3 -c <span class="s1">'import pyotp; print("Token:", pyotp.random_base32())'</span>
+Token: IHEDPEBEVA2WVHB7
+</code></pre>
+</div>
+<p>To run in a Docker container:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker <span class="nb">exec</span> -it home-assistant python -c <span class="s1">'import pyotp; print("Token:", pyotp.random_base32())'</span>
 Token: IHEDPEBEVA2WVHB7
 </code></pre>
 </div>
