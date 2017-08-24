@@ -26,7 +26,7 @@ If you are using [Hass.io](/hassio/) then just move forward to the configuration
 ```bash
 $ sudo dnf -y install imlib2-devel # Fedora
 $ sudo apt install libimlib2-dev # Ubuntu
-$ brew install imlib2 # Mac OS
+$ brew install imlib2 # macOS
 $ git clone https://github.com/auerswal/ssocr.git
 $ cd ssocr
 $ make
