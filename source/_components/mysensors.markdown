@@ -61,7 +61,7 @@ Configuration variables:
 - **optimistic** (*Optional*): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
 - **retain** (*Optional*): Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway. Default is true.
 - **nodes** (*Optional*): List of nodes that need a custom name.
-  - **name** (*Required*): The name the node will be renamed to. This nodename becomes part of the entity_id.
+  - **name** (*Optional*): The name the node will be renamed to. This nodename becomes part of the entity_id.
   - **id** (*Required*): Specifies the node_id of the node.
 
 <p class='note'>
