@@ -16,7 +16,7 @@ ha_iot_class: "Local Push"
 
 [Lutron Electronics](http://www.lutron.com/) offers several lines of home automation devices that manage light switches/dimmers, window shades, occupancy sensors, HVAC controls, etc.
 
-The `lutron_qse` component in Home Assistant is responsible for communicating with the Lutron [QSE-CI-NWK-E Control Interface](http://www.lutron.com/TechnicalDocumentLibrary/qse-ci-nwk-e_ENG_24_09_2009.pdf), which is compatible with *wired* Lutron QS devices, including [Sivoia QS](http://www.lutron.com/en-US/Products/Pages/ShadingSystems/SivoiaQS/Components.aspx) shades and blinds. A full list of compatible devices is availble in the [Lutron Integration Protocol](http://www.lutron.com/TechnicalDocumentLibrary/040249.pdf) (search: "QS Standalone"). Currently only Sivoia QS Roller Shades are supported. 
+The `lutron_qse` component in Home Assistant is responsible for communicating with the Lutron [QSE-CI-NWK-E Control Interface](http://www.lutron.com/TechnicalDocumentLibrary/qse-ci-nwk-e_ENG_24_09_2009.pdf), which is compatible with *wired* Lutron QS devices, including [Sivoia QS](http://www.lutron.com/en-US/Products/Pages/ShadingSystems/SivoiaQS/Components.aspx) shades and blinds. A full list of compatible devices is available in the [Lutron Integration Protocol](http://www.lutron.com/TechnicalDocumentLibrary/040249.pdf) (search: "QS Standalone"). Currently, only Sivoia QS Roller Shades are supported. 
 
 The QSE controller exposes a local telnet interface. Device state changes are immediately pushed to the telnet connection. When configured, the `lutron_qse` component will automatically discover devices and assign display names based on either the pre-assigned integration id (see integration protocol above).
 
@@ -33,7 +33,7 @@ Configuration variables:
 - **ignore** (*Optional*): List of device serial numbers to exclude from discovery.
 
 <p class='note'>
-The QSE controller is *not* typically present in a home installation. Check with your Lutron service provider. Or, if you are feeling adventerous, it can be purchased from ebay for around $100 and wired into your [QS Power Panel](http://www.lutron.com/TechnicalDocumentLibrary/045-310%20QSPS-P1-10-60%2002-23-10%20B.pdf) and home ethernet.
+The QSE controller is *not* typically present in a home installation. Check with your Lutron service provider. Or, if you are feeling adventurous, it can be purchased from eBay for around $100 and wired into your [QS Power Panel](http://www.lutron.com/TechnicalDocumentLibrary/045-310%20QSPS-P1-10-60%2002-23-10%20B.pdf) and home ethernet.
 </p>
 
 <p class='note'>

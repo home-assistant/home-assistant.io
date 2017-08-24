@@ -13,6 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: 0.52
 ---
 
-For use with *wired* Lutron QS shades and blinds. Currently only [Sivoia QS Roller Shades](http://www.lutron.com/en-US/Products/Pages/ShadingSystems/SivoiaQS/Components.aspx) are supported.
+For use with *wired* Lutron QS shades and blinds. Currently, only [Sivoia QS Roller Shades](http://www.lutron.com/en-US/Products/Pages/ShadingSystems/SivoiaQS/Components.aspx) are supported.
 
 For information and configuration, see: [Lutron QSE component](/components/lutron_qse)
