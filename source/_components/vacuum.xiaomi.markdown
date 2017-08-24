@@ -28,17 +28,17 @@ $ sudo su -s /bin/bash homeassistant
 $ source /srv/homeassistant/bin/activate
 ```
 
-In order to fetch the token follow these instructions depending on your mobile phone platform.
+To fetch the token follow these instructions depending on your mobile phone platform.
 
 ### Windows and Android
 1. Configure the robot with the Mi-Home app.
 2. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
-3. Get ADB tool for Windows : https://developer.android.com/studio/releases/platform-tools.html
+3. Get ADB tool for Windows: https://developer.android.com/studio/releases/platform-tools.html
 4. Create a backup of the application com.xiaomi.smarthome:
 ```bash
 .\adb backup -noapk com.xiaomi.smarthome -f backup.ab
 ```
-5. If you have this message : "More than one device or emulator", use this command to list all devices:
+5. If you have this message: "More than one device or emulator", use this command to list all devices:
 ```bash
 .\adb devices
 ```
@@ -47,14 +47,14 @@ and execute this command:
 .\adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab # (with DEVICEID the device id from the previous command)
 ```
 6. On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.
-7. Get ADB Backup Extractor : https://sourceforge.net/projects/adbextractor/
+7. Get ADB Backup Extractor: https://sourceforge.net/projects/adbextractor/
 8. Extract All files from the backup:
 ```bash
 java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 ```
 9. Unzip the ".tar" file.
-10. Open the sqlite DB miio2.db with a tool like SQLite Manager extension for FireFox.
-11. Get token from "devicerecord" table.
+10. Open the SQLite DB miio2.db with a tool like SQLite Manager extension for FireFox.
+11. Get the token from "devicerecord" table.
 
 
 ### macOS and iOS
@@ -116,7 +116,7 @@ Remote control the vacuum cleaner, make sure you first set it in remote control 
 
 #### {% linkable_title Service `vacuum/xiaomi_remote_control_move_step` %}
 
-Use this call to enter the remote control mode, make one movement, and stop and exit the remote control mode.
+Use this call to enter the remote control mode, make one move, and stop and exit the remote control mode.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
