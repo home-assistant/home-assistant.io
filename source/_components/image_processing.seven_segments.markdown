@@ -15,18 +15,23 @@ og_image: /images/screenshots/ssocr.png
 ha_iot_class: "Local Polling"
 ---
 
-The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/components/camera/). `ssocr` need to be available on your system. Check the installation instruction for Fedora below or use `$ sudo apt-get install ssocr` on a Debian-based system:
+The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/components/camera/).
 
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
 </p>
 
+`ssocr` needs to be available on your system. Check the installation instruction below:
+
 ```bash
-$ sudo dnf -y install imlib2-devel
+$ sudo dnf -y install imlib2-devel # Fedora
+$ sudo apt install libimlib2-dev # Ubuntu
+$ brew install imlib2 # macOS
 $ git clone https://github.com/auerswal/ssocr.git
 $ cd ssocr
 $ make
-$ sudo make PREFIX=/usr install
+$ sudo make PREFIX=/usr install # On most systems
+$ make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
 ```
 
 To enable the OCR of a seven segement display in your installation, add the following to your `configuration.yaml` file:
