@@ -94,7 +94,7 @@ It tracks all devices in your home that Tado knows about.</p>
 </ul>
 <p>After configuration, your device has to be at home at least once before showing up as <em>home</em> or <em>away</em>.
 Polling Tado API for presence information will happen at most once every 30 seconds.</p>
-<p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.</p>
+<p>See the <a href="/components/device_tracker/">device tracker component page</a> for instructions how to configure the people to be tracked.  Beware that the tado (v2) API does not provide GPS location of devices, only a bearing, therefore home assistant only uses home/not-home status.</p>
 <h3><a class="title-link" name="finding-your-home_id" href="#finding-your-home_id"></a> Finding your <code class="highlighter-rouge">home_id</code></h3>
 <p>Find your <code class="highlighter-rouge">home_id</code> by browsing to <code class="highlighter-rouge">https://my.tado.com/api/v2/me?username=YOUR_USERNAME&amp;password=YOUR_PASSWORD</code>. There you’ll see something like the following:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Mark"</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"your@email.tld"</span><span class="p">,</span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"your@email.tld"</span><span class="p">,</span><span class="w">
