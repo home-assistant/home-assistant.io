@@ -76,7 +76,7 @@
   <hr class="divider">
   <p>Before you commit any changes, check your work against these requirements:</p>
 <ul>
-  <li>All dependencies are included via the <code class="highlighter-rouge">REQUIREMENTS</code> variable in your platform or component and only imported inside functions that use them</li>
+  <li>All dependencies from <a href="https://pypi.python.org/pypi">pypi</a> are included via the <code class="highlighter-rouge">REQUIREMENTS</code> variable in your platform or component and only imported inside functions that use them</li>
   <li>New dependencies are added to <code class="highlighter-rouge">requirements_all.txt</code> (if applicable), using <code class="highlighter-rouge">script/gen_requirements_all.py</code></li>
   <li>The <code class="highlighter-rouge">.coveragerc</code> file is updated to exclude your platform if there are no tests available or your new code uses a third-party library for communication with the device, service, or sensor</li>
   <li>Documentation is developed for <a href="https://home-assistant.io/">home-assistant.io</a>
