@@ -13,13 +13,13 @@ ha_release: 0.47
 ---
 
 
-The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as an source for current meteorological data. This component will show you the condition and tempratures for max. 10 days.
+The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as a source for current meteorological data. This component will show you the condition and temperatures for max. 10 days.
 
 <p class='note warning'>
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
 </p>
 
-The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a WOEID it generate it from Home Assistant's latitude and longitude.
+The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a WOEID, it will be generated from Home Assistant's latitude and longitude.
 
 To add Yahoo Weather to your installation, add the following to your `configuration.yaml` file:
 
