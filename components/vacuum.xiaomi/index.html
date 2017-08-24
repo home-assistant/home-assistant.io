@@ -84,18 +84,18 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
 <span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
 </code></pre>
 </div>
-<p>In order to fetch the token follow these instructions depending on your mobile phone platform.</p>
+<p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
 <h3>Windows and Android</h3>
 <ol>
   <li>Configure the robot with the Mi-Home app.</li>
   <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
-  <li>Get ADB tool for Windows : https://developer.android.com/studio/releases/platform-tools.html</li>
+  <li>Get ADB tool for Windows: https://developer.android.com/studio/releases/platform-tools.html</li>
   <li>Create a backup of the application com.xiaomi.smarthome:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db backup -noapk com.xiaomi.smarthome -f backup.ab
 </code></pre>
     </div>
   </li>
-  <li>If you have this message : “More than one device or emulator”, use this command to list all devices:
+  <li>If you have this message: “More than one device or emulator”, use this command to list all devices:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db devices
 </code></pre>
     </div>
@@ -105,15 +105,15 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
     </div>
   </li>
   <li>On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.</li>
-  <li>Get ADB Backup Extractor : https://sourceforge.net/projects/adbextractor/</li>
+  <li>Get ADB Backup Extractor: https://sourceforge.net/projects/adbextractor/</li>
   <li>Extract All files from the backup:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
 </code></pre>
     </div>
   </li>
   <li>Unzip the “.tar” file.</li>
-  <li>Open the sqlite DB miio2.db with a tool like SQLite Manager extension for FireFox.</li>
-  <li>Get token from “devicerecord” table.</li>
+  <li>Open the SQLite DB miio2.db with a tool like SQLite Manager extension for FireFox.</li>
+  <li>Get the token from “devicerecord” table.</li>
 </ol>
 <h3>macOS and iOS</h3>
 <ol>
@@ -211,7 +211,7 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
   </tbody>
 </table>
 <h4><a class="title-link" name="service-vacuumxiaomi_remote_control_move_step" href="#service-vacuumxiaomi_remote_control_move_step"></a> Service <code class="highlighter-rouge">vacuum/xiaomi_remote_control_move_step</code></h4>
-<p>Use this call to enter the remote control mode, make one movement, and stop and exit the remote control mode.</p>
+<p>Use this call to enter the remote control mode, make one move, and stop and exit the remote control mode.</p>
 <table>
   <thead>
     <tr>

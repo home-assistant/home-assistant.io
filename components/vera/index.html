@@ -89,8 +89,8 @@
   It is recommended to assign a static IP address to your Vera Controller. This ensures that it won’t change IP addresses, so you won’t have to change the <code class="highlighter-rouge">vera_controller_url</code> if it reboots and comes up with a different IP address. See your router’s manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 </p>
 <h3><a class="title-link" name="configure-devices" href="#configure-devices"></a> Configure devices</h3>
-<p>By default your switches will be added to Home Assistant as switches, however if some of them are light switches, you can tell Home Assistant this using the optional <code class="highlighter-rouge">lights</code> parameter as shown below.</p>
-<p>Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don’t use, you can tell Home Assistant not to load these devices using the <code class="highlighter-rouge">exclude:</code> parameter as shown below.</p>
+<p>By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this using the optional <code class="highlighter-rouge">lights</code> parameter as shown below.</p>
+<p>Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don’t use; you can tell Home Assistant not to load these devices using the <code class="highlighter-rouge">exclude:</code> parameter as shown below.</p>
 <p>You can find the Vera device id either via the advanced properties of the device in the Vera UI or by checking the <code class="highlighter-rouge">Vera Device Id</code> attribute on each device imported into Home Assistant (under the developer tools).</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vera</span><span class="pi">:</span>
   <span class="s">vera_controller_url</span><span class="pi">:</span> <span class="s">http://192.168.1.161:3480/</span>
@@ -101,7 +101,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="using-z-wave-devices-in-automation" href="#using-z-wave-devices-in-automation"></a> Using Z-Wave devices in automation</h3>
-<p>If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you’ll need the entity id. In the Home Assistant UI you’ll find all entities listed under the <img src="/images/screenshots/developer-tool-states-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain ‘Vera Device Id’ in their attributes, you’ll find the entity id on the left.</p>
+<p>If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you’ll need the entity id. In the Home Assistant UI you’ll find all entities listed under the <img src="/images/screenshots/developer-tool-states-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain ‘Vera Device Id’ in their attributes, and you’ll find the entity id on the left.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

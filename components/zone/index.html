@@ -100,23 +100,23 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Friendly name of entry.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Friendly name of the zone.</li>
   <li><strong>latitude</strong> (<em>Required</em>): Latitude of the center point of the zone.</li>
   <li><strong>longitude</strong> (<em>Required</em>): Longitude of the center point of the zone.</li>
   <li><strong>radius</strong> (<em>Optional</em>): Optional radius in meters. Defaults to 100 meters.</li>
   <li><strong>icon</strong> (<em>Optional</em>): Optional icon to show instead of name.</li>
   <li><strong>passive</strong> (<em>Optional</em>): Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name. Defaults to false.</li>
 </ul>
-<p>To find your latitude / longtitude of a certain place you can use for example <a href="https://www.google.nl/maps/">Google Maps</a> or <a href="https://www.bing.com/maps">Bing Maps</a>. Just right click and copy the coordinates from there (Bing) or click on the “What is here?” (Google)</p>
+<p>To find your latitude/longitude of a certain place you can use for example <a href="https://www.google.nl/maps/">Google Maps</a> or <a href="https://www.bing.com/maps">Bing Maps</a>. Just right click and copy the coordinates from there (Bing) or click on the “What is here?” (Google)</p>
 <h4><a class="title-link" name="home-zone" href="#home-zone"></a> Home zone</h4>
-<p>If no configuration is given, the <code class="highlighter-rouge">zone</code> component will create a zone for home. This zone will use location given in the <code class="highlighter-rouge">configuration.yaml</code> file and have a radius of 100 meters. To override this, create a zone configuration and name it <strong>‘Home’</strong>.</p>
+<p>If no configuration is given, the <code class="highlighter-rouge">zone</code> component will create a zone for home. This zone will use location provided in the <code class="highlighter-rouge">configuration.yaml</code> file and have a radius of 100 meters. To override this, create a zone configuration and name it <strong>‘Home’</strong>.</p>
 <p class="note">
 Devices that are in the zone <strong>‘Home’</strong> will not appear on the map in the Home Assistant UI.
 </p>
 <h4><a class="title-link" name="icons" href="#icons"></a> Icons</h4>
 <p>It is preferred to pick an icon to use for your zone. Pick any icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:school</code>, <code class="highlighter-rouge">mdi:worker</code>, <code class="highlighter-rouge">mdi:home</code>, <code class="highlighter-rouge">mdi:cart</code>, or <code class="highlighter-rouge">mdi:castle</code>.</p>
 <h4>State</h4>
-<p><code class="highlighter-rouge">zoning</code> is the state a <code class="highlighter-rouge">zone</code> has when it is configured. A <code class="highlighter-rouge">zone</code> doesn’t have another state, all configured zones are <code class="highlighter-rouge">zoning</code> all the time.</p>
+<p><code class="highlighter-rouge">zoning</code> is the state a <code class="highlighter-rouge">zone</code> has when it is configured. A <code class="highlighter-rouge">zone</code> doesn’t have another state; all configured zones are <code class="highlighter-rouge">zoning</code> all the time.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
