@@ -37,7 +37,7 @@ Configuration variables:
 After configuration, your device has to be at home at least once before showing up as *home* or *away*.
 Polling Tado API for presence information will happen at most once every 30 seconds.
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.  Beware that the tado (v2) API does not provide GPS location of devices, only a bearing, therefore home assistant only uses home/not-home status.  
 
 ### {% linkable_title Finding your `home_id` %}
 Find your `home_id` by browsing to `https://my.tado.com/api/v2/me?username=YOUR_USERNAME&password=YOUR_PASSWORD`. There you'll see something like the following:
