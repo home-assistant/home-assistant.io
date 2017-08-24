@@ -74,15 +74,19 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">seven_segments</code> image processing platform allows you to read physical seven segments displays through Home Assistant. <a href="https://www.unix-ag.uni-kl.de/~auerswal/ssocr/"><code class="highlighter-rouge">ssocr</code></a> is used to extract the value shown on the display which is observed by a <a href="/components/camera/">camera</a>. <code class="highlighter-rouge">ssocr</code> need to be available on your system. Check the installation instruction for Fedora below or use <code class="highlighter-rouge">$ sudo apt-get install ssocr</code> on a Debian-based system:</p>
+  <p>The <code class="highlighter-rouge">seven_segments</code> image processing platform allows you to read physical seven segments displays through Home Assistant. <a href="https://www.unix-ag.uni-kl.de/~auerswal/ssocr/"><code class="highlighter-rouge">ssocr</code></a> is used to extract the value shown on the display which is observed by a <a href="/components/camera/">camera</a>.</p>
 <p class="note">
 If you are using <a href="/hassio/">Hass.io</a> then just move forward to the configuration as all requirements are already fullfilled.
 </p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install imlib2-devel
+<p><code class="highlighter-rouge">ssocr</code> needs to be available on your system. Check the installation instruction below:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo dnf -y install imlib2-devel <span class="c"># Fedora</span>
+<span class="gp">$ </span>sudo apt install libimlib2-dev <span class="c"># Ubuntu</span>
+<span class="gp">$ </span>brew install imlib2 <span class="c"># macOS</span>
 <span class="gp">$ </span>git clone https://github.com/auerswal/ssocr.git
 <span class="gp">$ </span><span class="nb">cd </span>ssocr
 <span class="gp">$ </span>make
-<span class="gp">$ </span>sudo make <span class="nv">PREFIX</span><span class="o">=</span>/usr install
+<span class="gp">$ </span>sudo make <span class="nv">PREFIX</span><span class="o">=</span>/usr install <span class="c"># On most systems</span>
+<span class="gp">$ </span>make deb <span class="c"># (Optional) This allows you to make a deb so that you apt is aware of ssocr</span>
 </code></pre>
 </div>
 <p>To enable the OCR of a seven segement display in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
