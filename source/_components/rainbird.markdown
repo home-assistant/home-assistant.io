@@ -26,7 +26,7 @@ rainbird:
 
 Configuration variables:
 
-- **stickip** (*Required*): The IP address of your WiFi LNK Module.
+- **host** (*Required*): The IP address of your WiFi LNK Module.
 - **password** (*Required*): The password for accessing the module.
 
 The active zone (station) will be represented as a number in **rainbird.activestation**
