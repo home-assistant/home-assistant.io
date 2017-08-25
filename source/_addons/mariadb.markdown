@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Set up a [mariadb](https://mariadb.org/) SQL server. It support multible database, users and permission. If you want only connect from inside use `172.17.0.1` as host address.
+Set up a [mariadb](https://mariadb.org/) SQL server. It support multible database, users and permission. If you want only connect from inside use `core-mariadb` as host address.
 
 ```json
 {
@@ -17,14 +17,14 @@ Set up a [mariadb](https://mariadb.org/) SQL server. It support multible databas
   "logins": [
     {
       "username": "hass",
-      "host": "172.17.0.1",
+      "host": "homeassistant",
       "password": "securePassword"
     }
   ],
   "rights": [
     {
       "username": "hass",
-      "host": "172.17.0.1",
+      "host": "homeassistant",
       "database": "homeassistant",
       "grant": "ALL PRIVILEGES ON"
     }
@@ -51,5 +51,5 @@ Use the following configuration in Home Assistant to use the database above:
 
 ```yaml
 recorder:
-  db_url: mysql://hass:securePassword@127.0.0.1/homeassistant
+  db_url: mysql://hass:securePassword@core-mariadb/homeassistant
 ```
