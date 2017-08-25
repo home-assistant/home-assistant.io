@@ -34,5 +34,10 @@ The active zone (station) will be represented as a number in **rainbird.activest
 - *[0-9]* Active zone (station)
 - *-1* Error in communication with WiFi LNK module
 
+You can then create UI elements with your own service calls to the **rainbird** service. 
+
+**stop_irrigation** has no parameters and will stop any running irrigation
+**start_irrigation** takes 2 parameters. To start the sprinkers in zone 2 for the duration of 10 minutes: { "station":2, "duration": 10 }
+
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the rainbird app will give connection issues (like already a connection active).
 The poll interval is set to 30 seconds.
