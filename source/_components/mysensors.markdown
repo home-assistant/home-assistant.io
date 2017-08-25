@@ -27,10 +27,10 @@ mysensors:
       persistence_file: 'path/mysensors.json'
       baud_rate: 38400
       nodes:
-        - name: 'kitchen'
-          id: 1
-        - name: 'living_room'
-          id: 3
+        1: 
+          name: 'kitchen'
+        3: 
+          name: 'living_room'
     - device: '/dev/ttyACM0'
       persistence_file: 'path/mysensors2.json'
       baud_rate: 115200
