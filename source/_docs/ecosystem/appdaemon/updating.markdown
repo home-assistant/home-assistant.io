@@ -13,14 +13,7 @@ redirect_from: /ecosystem/appdaemon/updating/
 To update AppDaemon after I have released new code, just run the following command to update your copy:
 
 ```bash
-$ git pull origin
+$ sudo pip3 install --upgrade appdaemon
 ```
 
-If you are using pip3 for the install do this:
-
-```bash
-$ sudo pip3 uninstall appdaemon
-$ sudo pip3 install .
-```
-
-If you are using docker, rerun the steps to create a new docker image.
+If you are using docker, rerun the steps to grab the latestdocker image.

@@ -35,8 +35,8 @@ Configuration variables:
   - **port** (*Optional*): Port of communication to the device (default: 11000)
   
 ## Advanced configuration example
-  
-  ```yaml
+
+```yaml
 # Example configuration.yaml entry with manually specified addresses
 media_player:
   - platform: bluesound

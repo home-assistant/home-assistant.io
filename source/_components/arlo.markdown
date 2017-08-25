@@ -40,7 +40,7 @@ The Arlo component also provides a service to enable/disable the motion detectio
 - alias: Enable Arlo upton HA start'
   initial_state: 'on'
   trigger:
-    platform: homeassitant
+    platform: homeassistant
     event: start
   action:
     service: camera.enable_motion_detection

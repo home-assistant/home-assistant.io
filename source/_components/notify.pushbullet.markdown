@@ -59,8 +59,6 @@ To use notifications, please see the [getting started with automation page](/get
 ### {% linkable_title URL support %}
 
 ```yaml
-...
-
 action:
   service: notify.NOTIFIER_NAME
   data:
@@ -70,5 +68,23 @@ action:
       url: google.com
 ```
 
-- **url** (*Required*): Page URL to send with pushbullet.
+- **url** (*Required*): Page URL to send with Pushbullet.
+
+### {% linkable_title File support %}
+
+```yaml
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send file
+    message: This is a file
+    data:
+      file: /path/to/my/file
+```
+
+- **file** (*Required*): File to send with Pushbullet.
+
+<p class='note'>
+Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
+</p>
 

@@ -43,6 +43,8 @@ There are 2 themes-related services:
 
 Example in automation:
 
+Set a theme at the startup of Home Assistant:
+
 ```yaml
 automation:
   - alias: 'Set theme at startup'
@@ -55,3 +57,22 @@ automation:
       data:
         name: happy
 ```
+
+To enable "night mode": 
+
+```yaml
+automation:
+  - alias: 'Set dark theme for the night'
+    initial_state: True
+    trigger:
+      - platform: time
+        at: '21:00'
+    action:
+      - service: frontend.set_theme
+        data:
+          name: darkred
+```
+
+### {% linkable_title Manual Theme Selection %}
+
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under `configuration.yaml` called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.

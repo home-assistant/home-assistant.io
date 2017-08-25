@@ -10,11 +10,11 @@ footer: true
 redirect_from: /topics/secrets/
 ---
 
-The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secrets` you can remove any private information from you configuration files. This separation can also help you to keep easier track of your passwords and API keys. As they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple yaml files if you [split up your configuration](/topics/splitting_configuration/).
+The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secrets` you can remove any private information from you configuration files. This separation can also help you to keep easier track of your passwords and API keys. As they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple yaml files if you [split up your configuration](/docs/configuration/splitting_configuration/).
 
 ### {% linkable_title Using secrets.yaml %}
 
-The workflow for moving private information to `secrets.yaml` is very similar to the [splitting of the configuration](/topics/splitting_configuration/). Create a `secrets.yaml` file in your Home assistant configuration directory (The location of the folder differs between operating systems: on OS X and Linux it's `~/.homeassistant` and on Windows it's `%APPDATA%/.homeassistant`).
+The workflow for moving private information to `secrets.yaml` is very similar to the [splitting of the configuration](/docs/configuration/splitting_configuration/). Create a `secrets.yaml` file in your Home Assistant [configuration directory](/docs/configuration/).
 
 The entries for password and API keys in the `configuration.yaml` file usually looks like the example below.
 
@@ -39,7 +39,8 @@ http_password: YOUR_PASSWORD
 ### {% linkable_title Debugging secrets %}
 
 When you start splitting your configuration into multiple files, you might end up with configuration in sub folders. Secrets will be resolved in this order:
-- A `secrets.yaml` located in the same folder as the yaml file referencing the secret,
+
+- A `secrets.yaml` located in the same folder as the YAML file referencing the secret,
 - next, parent folders will be searched for a `secrets.yaml` file with the secret, stopping at the folder with the main `configuration.yaml`,
 - lastly, `keyring` will be queried for the secret (more info below)
 
@@ -55,7 +56,7 @@ This will not print the actual secret's value to the log.
 *Option 2*: View where secrets are retrieved from and the contents of all `secrets.yaml` files used, you can use the `check_config` script from the command line:
 
 ```bash
-hass --script check_config --secrets
+$ hass --script check_config --secrets
 ```
 This will print all your secrets.
 
