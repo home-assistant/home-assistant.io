@@ -80,7 +80,21 @@
 <span class="s">prometheus</span><span class="pi">:</span>
 </code></pre>
 </div>
-<p>The Prometheus component has no configuration variables.</p>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should be excluded from recording.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from recording.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be excluded from recording.</li>
+    </ul>
+  </li>
+  <li><strong>include</strong> (<em>Optional</em>): Configure which components should be included in recordings. If set, all other entities will not be recorded. Values set by the <strong>blacklist</strong> option will prevail.
+    <ul>
+      <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be included from recordings.</li>
+      <li><strong>domains</strong> (<em>Optional</em>): The list of domains to be included from recordings.</li>
+    </ul>
+  </li>
+</ul>
 <p>You can then configure Prometheus to fetch metrics from Home Assistant by adding to its <code class="highlighter-rouge">scrape_configs</code> configuration.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example Prometheus scrape_configs entry</span>
   <span class="pi">-</span> <span class="s">job_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">hass'</span>
