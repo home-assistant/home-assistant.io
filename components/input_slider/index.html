@@ -75,6 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">input_slider</code> component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the slider generate state events. These state events can be utilized as <code class="highlighter-rouge">automation</code> triggers as well.</p>
+<p>To enable this input sliders in your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">input_slider</span><span class="pi">:</span>
   <span class="s">slider1</span><span class="pi">:</span>
@@ -87,12 +88,15 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>[alias]</strong> (<em>Required</em>): Alias for the slider input.</li>
-  <li><strong>min</strong> (<em>Required</em>): Minimum value for the slider.</li>
-  <li><strong>max</strong> (<em>Required</em>): Maximum value for the slider.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Friendly name of the slider input.</li>
-  <li><strong>initial</strong> (<em>Optional</em>): Initial value when Home Assistant starts.</li>
-  <li><strong>step</strong> (<em>Optional</em>): Step value for the slider.</li>
+  <li><strong>[alias]</strong> (<em>Required</em>): Alias for the slider input. Multiple entries are allowed.
+    <ul>
+      <li><strong>min</strong> (<em>Required</em>): Minimum value for the slider.</li>
+      <li><strong>max</strong> (<em>Required</em>): Maximum value for the slider.</li>
+      <li><strong>name</strong> (<em>Optional</em>): Friendly name of the slider input.</li>
+      <li><strong>initial</strong> (<em>Optional</em>): Initial value when Home Assistant starts. Defaults to 0.</li>
+      <li><strong>step</strong> (<em>Optional</em>): Step value for the slider. Defaults to 1.</li>
+    </ul>
+  </li>
 </ul>
 <h2><a class="title-link" name="automation-examples" href="#automation-examples"></a> Automation Examples</h2>
 <p>Here’s an example of <code class="highlighter-rouge">input_slider</code> being used as a trigger in an automation.</p>

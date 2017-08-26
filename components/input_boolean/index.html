@@ -75,6 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">input_boolean</code> component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.</p>
+<p>To enable input booleans in your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">input_boolean</span><span class="pi">:</span>
   <span class="s">notify_home</span><span class="pi">:</span>
@@ -85,10 +86,13 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>[alias]</strong> (<em>Required</em>): Alias for the input.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Friendly name of the input.</li>
-  <li><strong>initial</strong> (<em>Optional</em>): Initial value when Home Assistant starts.</li>
-  <li><strong>icon</strong> (<em>Optional</em>): Icon for entry.</li>
+  <li><strong>[alias]</strong> (<em>Required</em>): Alias for the input.
+    <ul>
+      <li><strong>name</strong> (<em>Optional</em>): Friendly name of the input.</li>
+      <li><strong>initial</strong> (<em>Optional</em>): Initial value when Home Assistant starts. Defaults to <code class="highlighter-rouge">False</code>.</li>
+      <li><strong>icon</strong> (<em>Optional</em>): Icon for entry.</li>
+    </ul>
+  </li>
 </ul>
 <p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your input and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</p>
 <p>Here’s an example of an automation using the above input_boolean. This action will only occur if the switch is on.</p>
