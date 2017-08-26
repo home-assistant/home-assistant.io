@@ -44,10 +44,7 @@ What's not available?
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
-Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
-
-
-
+Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
 
 To enable Xiaomi gateway in your installation, add the following to your `configuration.yaml` file:
 
@@ -129,6 +126,70 @@ Automation example
     data:
       gw_mac: xxxxxxxxxxxx
 ```
+
+### {% linkable_title Retrieving Access Token %}
+
+Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
+
+Before you begin you need to install `libffi-dev` by running the command below. This is needed for `python-mirobi` to be installed correctly.
+
+```bash
+$ sudo apt-get install libffi-dev
+```
+
+If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
+
+```bash
+$ sudo su -s /bin/bash homeassistant
+$ source /srv/homeassistant/bin/activate
+```
+
+To fetch the token follow these instructions depending on your mobile phone platform.
+
+#### {% linkable_title Windows and Android %}
+
+1. Configure the robot with the Mi-Home app.
+2. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
+3. Get ADB tool for Windows: https://developer.android.com/studio/releases/platform-tools.html
+4. Create a backup of the application com.xiaomi.smarthome:
+```bash
+$ adb backup -noapk com.xiaomi.smarthome -f backup.ab
+```
+5. If you have this message: "More than one device or emulator", use this command to list all devices:
+```bash
+$ adb devices
+```
+and execute this command:
+```bash
+$ adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab # (with DEVICEID the device id from the previous command)
+```
+6. On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.
+7. Get ADB Backup Extractor: https://sourceforge.net/projects/adbextractor/
+8. Extract All files from the backup:
+```bash
+$ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
+```
+9. Unzip the ".tar" file.
+10. Open the SQLite DB `miio2.db` with a tool like SQLite Manager extension for FireFox.
+11. Get the token from "devicerecord" table.
+
+#### {% linkable_title Linux and Android (rooted!) %}
+
+1. Configure the light with the Mi-Home app.
+2. Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.
+3. Get ADB f.e. `apt-get install android-tools-adb`
+4. `adb devices` should list your device
+5. `adb root` (does work for development builds only: ones with `ro.debuggable=1`)
+6. `adb shell`
+7. `echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db` returns a list of all registered devices including ip address and token.
+
+#### {% linkable_title macOS and iOS %}
+
+1. Setup iOS device with the Mi-Home app.
+2. Create an unencrypted backup of the device using iTunes.
+3. Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/
+4. Extract this file: **`/raw data/com.xiami.mihome/1234567_mihome.sqlite`** to your computer, where _1234567_ is any string of numbers.
+5. Open the sqlite DB with a tool like SQLite Manager extension for FireFox, DB Browser, etc. You will then see the list of all the devices in your account with their token. The token you need is in the column **`ZToken`** and looks like **`123a1234567b12345c1d123456789e12`**.
 
 ### {% linkable_title Troubleshooting %}
 
