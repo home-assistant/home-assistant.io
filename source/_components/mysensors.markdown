@@ -39,7 +39,7 @@ mysensors:
   optimistic: false
   persistence: true
   retain: true
-  version: 2.0
+  version: '2.0'
 ```
 
 Configuration variables:
@@ -172,7 +172,23 @@ void receive(const MyMessage &message) {
 
 ### {% linkable_title Heartbeats %}
 
-Sending a heartbeat from the MySensors device to Home Assistant activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands.  See the MySensors library API for information on how to send heartbeats and sleep device.  
+Sending a heartbeat from the MySensors device to Home Assistant activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands.  See the MySensors library API for information on how to send heartbeats and sleep device.
+
+### {% linkable_title Message validation %}
+
+Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from home assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
+
+If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` component and the `mysensors` package.
+```yaml
+logger:
+  default: info
+  logs:
+    homeassistant.components.mysensors: debug
+    mysensors: debug
+```
+The log should inform you of messages that failed validation or if a child value is missing that is required for a certain child type. Note that the log will log all possible combinations of platforms for a child type that failed validation. It is normal to see some platforms fail validation if the child type supports multiple platforms and your sketch doesn't send all corresponding value types. Eg. the S_BARO child type supports both V_PRESSURE and V_FORECAST value types. If you only send a V_PRESSURE value, an S_BARO entity with V_PRESSURE value will be set up for the sensor platform. But the log will inform of a sensor platform that failed validation due to missing V_FORECAST value type for the S_BARO child. Home Assistant will log failed validations of child values at warning level if one required value type for a platform has been received, but other required value types are missing. Most failed validations are logged at debug level.
+
+Message validation was introduced in version 0.52 of Home Assistant.
 
 
 Visit the [library api][MySensors library api] of MySensors for more information.

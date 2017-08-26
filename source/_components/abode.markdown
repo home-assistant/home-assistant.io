@@ -2,7 +2,7 @@
 layout: page
 title: "Abode Home Security"
 description: "Instructions on integrating Abode home security with Home Assistant."
-date: 2017-08-26 13:28
+date: 2017-08-26 0:28
 sidebar: true
 comments: false
 sharing: true

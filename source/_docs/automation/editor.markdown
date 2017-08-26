@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Automation Editor"
-description: "Instructions on how to use the new automation editor."
+description: "Instructions on how to use the automation editor."
 date: 2016-04-24 08:30 +0100
 sidebar: true
 comments: false
@@ -9,11 +9,9 @@ sharing: true
 footer: true
 ---
 
-In Home Assistant 0.45 we have introduced the first version of our automation editor. The editor is still in a very early stage and rough around the edges. For now we are only supporting Chrome but better browser support is planned for the future.
+In Home Assistant 0.45 we introduced the first version of our automation editor. If you just created a new configuration with Home Assistant then you're all set! Go to the UI and enjoy.
 
-If you just created a new configuration with Home Assistant then you're all set! Go to the UI and enjoy.
-
-From the UI choose **Automation** which is located in the sidebar. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/components/sensor.random/).
+From the UI choose **Configuration** which is located in the sidebar, then click on **Automation** to go to the automation editor. Press the **+** sign in the lower right corner to get started. This example is based on the manual steps described in the [Getting started section](/getting-started/automation/) for a [`random` sensor](/components/sensor.random/).
 
 Choose a meaningful name for your automation rules.
 
