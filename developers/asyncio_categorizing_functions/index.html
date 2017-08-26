@@ -88,7 +88,7 @@
     <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">"hello {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
 
-<span class="n">hass</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">async_look_my_coroutine</span><span class="p">(</span><span class="s">"world"</span><span class="p">)</span>
+<span class="n">hass</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">async_look_my_coroutine</span><span class="p">(</span><span class="s">"world"</span><span class="p">))</span>
 </code></pre>
 </div>
 <p>In this example, we schedule the coroutine by calling <code class="highlighter-rouge">hass.loop.create_task</code>. This will add the coroutine to the queue of tasks to be run. When the event loop is running <code class="highlighter-rouge">async_look_my_coroutine</code> it will suspend the task when <code class="highlighter-rouge">yield from entity.async_turn_on()</code> is called. At that point a new task will be scheduled to execute <code class="highlighter-rouge">entity.async_turn_on()</code>. When that job has been executed, <code class="highlighter-rouge">async_look_my_coroutine</code> will resume.</p>
