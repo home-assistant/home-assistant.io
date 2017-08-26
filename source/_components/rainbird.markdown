@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "RainBird"
+title: "Rain Bird"
 description: "Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant."
 date: 2017-08-25 12:00
 sidebar: true
@@ -13,9 +13,9 @@ ha_release: 0.50
 ha_iot_class: "Local Polling"
 ---
 
-This `Rain Bird` components alows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` components allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
-To add the component to home assistant, add the following to your `configuration.yaml` file:
+To add the component to Home Assistant, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -34,10 +34,10 @@ The active zone (station) will be represented as a number in **rainbird.activest
 - *[0-9]* Active zone (station)
 - *-1* Error in communication with LNK WiFi module
 
-You can then create UI elements with your own service calls to the **rainbird** service. 
+You can then create UI elements with your own service calls to the `rainbird` service. 
 
 **stop_irrigation** has no parameters and will stop any running irrigation
 **start_irrigation** takes 2 parameters. To start the sprinkers in zone 2 for the duration of 10 minutes: { "station":2, "duration": 10 }
 
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
-The poll interval is set to 30 seconds.
+The polling interval is set to 30 seconds.
