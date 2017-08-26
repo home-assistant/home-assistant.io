@@ -46,6 +46,8 @@ What's not available?
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
 
+Please check the instructions in this [section](/xiaomi/#retrieving-the-access-token) to get the API token to use with your platforms.
+
 To enable Xiaomi gateway in your installation, add the following to your `configuration.yaml` file:
 
 ### {% linkable_title One Gateway %}
@@ -127,7 +129,7 @@ Automation example
       gw_mac: xxxxxxxxxxxx
 ```
 
-### {% linkable_title Retrieving Access Token %}
+### {% linkable_title Retrieving the Access Token %}
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various `xiaomi` platforms.
 
