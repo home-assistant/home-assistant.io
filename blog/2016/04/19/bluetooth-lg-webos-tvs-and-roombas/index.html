@@ -6,24 +6,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Thank You - Home Assistant</title>
+    <title>0.18: Bluetooth, LG WebOS TVs and Roombas. - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome.">
+    <meta name="description" content="Home Assistant 0.18 has arrived.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2016/12/19/thank-you/">
+    <link rel="canonical" href="/blog/2016/04/19/bluetooth-lg-webos-tvs-and-roombas/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Thank You">
+    <meta property="og:title" content="0.18: Bluetooth, LG WebOS TVs and Roombas.">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2016/12/19/thank-you/">
+    <meta property="og:url" content="/blog/2016/04/19/bluetooth-lg-webos-tvs-and-roombas/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome.">
-    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta property="og:description" content="Home Assistant 0.18 has arrived.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2016-04-release-18/social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Thank You">
-    <meta name="twitter:description" content="Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:title" content="0.18: Bluetooth, LG WebOS TVs and Roombas.">
+    <meta name="twitter:description" content="Home Assistant 0.18 has arrived.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2016-04-release-18/social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
@@ -70,15 +70,15 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">Thank You</h1>
+  <h1 class="title indent">0.18: Bluetooth, LG WebOS TVs and Roombas.</h1>
   <div class="meta clearfix">
-    <time datetime="2016-12-19T05:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 19, 2016</time>
+    <time datetime="2016-04-19T23:10:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 21, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>Community</li>
+        <li>Release-Notes</li>
     </ul>
   </span>
       <a class='comments'
@@ -86,15 +86,45 @@
          >Comments</a>
   </div>
 </header>
-  <p>A year ago <a href="https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/">Home Assistant 0.10</a> landed. Last weekend we released 0.35. Doing 25 releases in a year is a big accomplishment by the community and each release has moved us forwards leaps and bounds. In this year alone we have seen 2800 pull requests on the main repo alone, that’s more than 7 a day!</p>
-<p>One of the things that Jon Walker, the founder of the company I work for (<a href="http://www.appfolioinc.com/">AppFolio</a>), has taught me is that the biggest advantage that you can create for yourself compared to your competitors is to release more often. Everytime you release you are able to get the new features into the hands of the users and developers. The faster people start using it, the faster you get feedback on the good and bad parts and thus the faster can you evolve.</p>
-<p>That’s why I structured Home Assistant around a two week release cycle. It makes sure that features get out fast and it also forces us to not accumulate a backlog of things to document or test properly. Every two weeks we can start fresh. This makes it easy for new people to start contributing because it’s clear when things go out and people are not afraid to miss a release.</p>
-<p>However, being on a two week release cycle also means that the community has to rally each two weeks to make sure everything is ready to go. A lot of people are involved in making sure that all pieces are in place, to all of those: thank you! Thank you for all the time and effort you put in to make Home Assistant the best home automation software out there.</p>
-<p>Another big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. Making quality software is not a small feat and all of you can be proud of yourself.</p>
-<p>Also a big thanks for the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thanks <a href="https://GitHub.com">GitHub</a>, <a href="https://Travis-ci.org">TravisCI</a>, <a href="https://CloudFlare.com">CloudFlare</a> and <a href="https://Discourse.com">Discourse</a>!</p>
-<p>And finally thank you community for being so helpful and awesome 🙇.</p>
-<p>We’re taking a well deserved break and we will be back again in 2017 with more awesomeness. Happy holidays!</p>
-<p>– Paulus</p>
+  <p>It’s time for 0.18. This release cycle is 2 days shorter than usual as I’ll be travelling to Europe. This also means that it can take some more time before you get feedback on PRs.</p>
+<p>Since the last release we have moved all Home Assistant source code etc into it’s own <a href="https://github.com/home-assistant">organisation on GitHub</a>. We’re growing up! This sadly did cause us to have to move all Docker images. Check the breaking changes section for more info.</p>
+<p><a href="/demo/"><img src="/images/blog/2016-04-release-18/media_player.png" style="box-shadow: none; border: 0;" /></a></p>
+<p><img src="/images/supported_brands/bluetooth.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/webos.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/rss.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/eq3.gif" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/thinkingcleaner.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="100" /></p>
+<ul>
+  <li>Media Player: redesign in the UI! (<a href="https://github.com/DesignFirst/">@DesignFirst</a>, <a href="https://github.com/balloob/">@balloob</a>)</li>
+  <li>New component: <a href="/components/zeroconf/">Zeroconf</a> for Home Assistant discovery (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Garage door: <a href="/components/garage_door.mqtt/">MQTT</a> now supported (<a href="https://github.com/joelash/">@joelash</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.homematic/">Homematic platform</a> now supports Max! devices (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
+  <li>New component Thinkingcleaner (<a href="/components/switch.thinkingcleaner/">switch</a>/<a href="/components/sensor.thinkingcleaner/">sensor</a>) to integrate your Roomba into Home Assistant (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
+  <li>New component: <a href="/components/upnp/">upnp</a> to automatically open a upnp port on your router for Home Assistant (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.eq3btsmart/">EQ3 Bluetooth Smart Thermostats</a> now supported (<a href="https://github.com/bimbar/">@bimbar</a>)</li>
+  <li>New component <a href="/components/feedreader/">Feedreader</a> will track RSS feeds (<a href="https://github.com/shaftoe/">@shaftoe</a>)</li>
+  <li>Device Tracker: <a href="/components/device_tracker.bluetooth_tracker/">Bluetooth tracking platform</a> added (<a href="https://github.com/vmulpuru/">@vmulpuru</a>)</li>
+  <li>Media Player: <a href="/components/media_player.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
+  <li>Notify: <a href="/components/notify.webostv/">LG WebOS TVs</a> now supported (<a href="https://github.com/TheRealLink/">@TheRealLink</a>)</li>
+  <li>HTTP: Use constant time comparison for auth (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
+  <li>Config and service validations (<a href="https://github.com/jaharkes/">@jaharkes</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>)</li>
+  <li>MySensors: Entity IDs will more clearly differentiate between node ID and child ID (<a href="https://github.com/oeysteinhansen/">@oeysteinhansen</a>)</li>
+  <li>MySensors: Add support for <a href="/components/mysensors/">ethernet gateway</a> (<a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>)</li>
+  <li>Media player: <a href="/components/media_player.plex/">Plex</a> will now monitor the server and add clients as they pop up (<a href="https://github.com/infamy/">@infamy</a>)</li>
+  <li>Core: We now use iso8601 for datetimes (<a href="https://github.com/balloob/">@balloob</a>).</li>
+  <li>Media Player: <a href="/components/media_player.mpd/">MPD</a> now supports service to play playlists (<a href="https://github.com/Cinntax/">@Cinntax</a>)</li>
+  <li>Z-Wave should be a little bit more stable (<a href="https://github.com/Turbokongen/">@Turbokongen</a>)</li>
+  <li>Media Player: <a href="/components/media_player.sonos/">Sonos</a> will now only add visible devices (<a href="https://github.com/jpmossin/">@jpmossin</a>)</li>
+  <li>Light: <a href="/components/light.wink/">Wink</a> will now allow controlling the colors (<a href="https://github.com/bradsk88/">@bradsk88</a>)</li>
+</ul>
+<h3>Breaking changes</h3>
+<ul>
+  <li>We have migrated our datetime format to be iso8601. This will only impact you if you are consuming the date times from the API directly. You can ignore this if you are just using Home Assistant via configuration and the frontend.</li>
+  <li>The constant <code class="highlighter-rouge">TEMP_CELCIUS</code> is now correctly called <code class="highlighter-rouge">TEMP_CELSIUS</code>. Old one is deprecated and will eventually be removed.</li>
+  <li>The location of the Docker image has changed. There was no possibility for us to keep maintaining the old image (as it was bound to the GitHub repo under my name) or to make a redirect. So if you are using the Home Assistant Docker image,  change it to run <code class="highlighter-rouge">homeassistant/home-assistant:latest</code> for the latest release and <code class="highlighter-rouge">homeassistant/home-assistant:dev</code> for the latest dev version.</li>
+  <li>MySensors received two big changes that will cause you to update your configs. See <a href="/components/mysensors/">component page</a> for new example config.
+    <ol>
+      <li>All MySensors entity IDs are different! There was an error in the naming that caused MySensors to append node ID and child ID instead of separating them with an underscore. This has been fixed but will cause all your MySensors entity IDs to change. This is a one time breaking change.</li>
+      <li>The second change is that we now support the TCP ethernet gateway. This is causing a slight change to the config format: you have to change <code class="highlighter-rouge">port:</code> under <code class="highlighter-rouge">gateways</code> to <code class="highlighter-rouge">device:</code>.</li>
+    </ol>
+  </li>
+</ul>
 </article>
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
@@ -124,10 +154,10 @@
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2016/12/19/thank-you/"
-     data-counturl="https://home-assistant.io/blog/2016/12/19/thank-you/" >Tweet</a>
+     data-url="/blog/2016/04/19/bluetooth-lg-webos-tvs-and-roombas/"
+     data-counturl="/blog/2016/04/19/bluetooth-lg-webos-tvs-and-roombas/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2016/12/19/thank-you/"
+         data-href="/blog/2016/04/19/bluetooth-lg-webos-tvs-and-roombas/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -186,8 +216,8 @@
 <script>
   var disqus_shortname = 'home-assistant';
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2016/12/19/thank-you/';
-    var disqus_url = 'https://home-assistant.io/blog/2016/12/19/thank-you/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/04/19/bluetooth-lg-webos-tvs-and-roombas/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/04/19/bluetooth-lg-webos-tvs-and-roombas/';
     var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

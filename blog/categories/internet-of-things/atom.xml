@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Internet-of-Things | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/internet-of-things/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-26T12:50:28+00:00</updated>
+  <updated>2017-08-26T17:19:49+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -76,7 +76,7 @@ However what really differentiates this system is the availability of all the ch
 Remotes are [a very important aspect of home automation][perfect]. The electricity has to be always on for the bulbs to function so you’ll need Zigbee switches and remotes to control your lights. The fact that they are so cheap will really help with adoption.
 
 <p class='img'>
-<img src='https://home-assistant.io/images/blog/2017-04-tradfri/prices.png' />
+<img src='/images/blog/2017-04-tradfri/prices.png' />
 Prices of the various available dimming kits.
 </p>
 
@@ -85,7 +85,7 @@ Prices of the various available dimming kits.
 The lights and gateway are all made with a simple design and will easily blend into your home.  They did sneak in some great and useful things. You can slide the cover off the gateway and open it up. Inside is a mini case for the actual electronics but mainly it’s just empty space so you can roll up any excess network and usb cable from the hub inside!
 
 <p class='img'>
-<img src='https://home-assistant.io/images/blog/2017-04-tradfri/gateway.jpg' />
+<img src='/images/blog/2017-04-tradfri/gateway.jpg' />
 The cables you don't need can be hidden in the gateway.
 </p>
 
@@ -108,7 +108,7 @@ Once IKEA Trådfri got released, our community, lead by [Patrik], got quickly or
 The initial version of our integration will not yet stream events from the gateway. We’re still working on figuring out that part of the API.
 
 <p class='img'>
-<img src='https://home-assistant.io/images/blog/2017-04-tradfri/discovery.png' />
+<img src='/images/blog/2017-04-tradfri/discovery.png' />
 After automatic discovery, Home Assistant will ask the user to finish pairing with the gateway.
 </p>
 
@@ -150,9 +150,9 @@ As it currently stands, this is going to be the perfect companion hardware to wo
   
   <entry>
     <title type="html"><![CDATA[Your hub should be local and open]]></title>
-    <link href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"/>
+    <link href="https://home-assistant.io/blog/2016/04/04/your-hub-should-be-local-and-open/"/>
     <updated>2016-04-05T04:11:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open</id>
+    <id>https://home-assistant.io/blog/2016/04/04/your-hub-should-be-local-and-open</id>
     <content type="html"><![CDATA[Today the news spread that Google will be [shutting down the Revolv hubs][medium-revolv]. And shutting down here doesn't mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as [ninjasphere]: open it all up and let people decide on the fate of their _own_ hub.
 
 I've said it [before][perfect-cloud] but I'll repeat it again:
@@ -174,9 +174,9 @@ Unless you can afford losing a product here and there, be cautious when buying I
   
   <entry>
     <title type="html"><![CDATA[Classifying the Internet of Things]]></title>
-    <link href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/"/>
+    <link href="https://home-assistant.io/blog/2016/02/11/classifying-the-internet-of-things/"/>
     <updated>2016-02-12T06:31:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things</id>
+    <id>https://home-assistant.io/blog/2016/02/11/classifying-the-internet-of-things</id>
     <content type="html"><![CDATA[The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.
 
 Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.

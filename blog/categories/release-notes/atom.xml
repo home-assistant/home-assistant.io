@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-26T12:50:28+00:00</updated>
+  <updated>2017-08-26T17:19:49+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -18,7 +18,7 @@
     <link href="https://home-assistant.io/blog/2017/08/26/release-0-52/"/>
     <updated>2017-08-26T00:11:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/08/26/release-0-52</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant.io/components/#version/0.52'><img src='https://home-assistant.io/images/blog/2017-08-0.52/components.png' style='border: 0;box-shadow: none;'></a>
+    <content type="html"><![CDATA[<a href='/components/#version/0.52'><img src='/images/blog/2017-08-0.52/components.png' style='border: 0;box-shadow: none;'></a>
 
 Although the summer is in full progress, the development hasn't stalled. This release brings bug fixes, clean ups and another 8 new integrations. On top of that we are also introducing a new [script editor](/docs/scripts/editor/)!
 
@@ -389,7 +389,7 @@ usps:
     <link href="https://home-assistant.io/blog/2017/08/12/release-51/"/>
     <updated>2017-08-12T00:11:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/08/12/release-51</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant.io/components/#version/0.51'><img src='https://home-assistant.io/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
+    <content type="html"><![CDATA[<a href='/components/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
 
 <p class='note warning'>This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.</p>
 
@@ -850,7 +850,7 @@ vacuum:
     <link href="https://home-assistant.io/blog/2017/07/29/release-50/"/>
     <updated>2017-07-29T00:11:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/07/29/release-50</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant.io/components/#version/0.50'><img src='https://home-assistant.io/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
+    <content type="html"><![CDATA[<a href='/components/#version/0.50'><img src='/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
 
 Last Wednesday we released [Hass.io](https://home-assistant.io/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
 
@@ -1269,7 +1269,7 @@ conversation:
     <link href="https://home-assistant.io/blog/2017/07/15/release-49/"/>
     <updated>2017-07-15T00:02:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/07/15/release-49</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant.io/components/#version/0.49'><img src='https://home-assistant.io/images/blog/2017-07-0.49/components.png' style='border: 0;box-shadow: none;'></a>
+    <content type="html"><![CDATA[<a href='/components/#version/0.49'><img src='/images/blog/2017-07-0.49/components.png' style='border: 0;box-shadow: none;'></a>
 
 # <a class='title-link' name='we-have-themes-' href='#we-have-themes-'></a> WE HAVE THEMES 🎨👩‍🎨 
 
@@ -1287,7 +1287,7 @@ frontend:
 Once a theme is defined, use the new frontend service `frontend.set_theme` to activate it. More information in [the docs][frontend docs].
 
 <p class='img'>
-<img src='https://home-assistant.io/images/blog/2017-07-0.49/green-theme.png' alt='Screenshot of a green dashboard'>
+<img src='/images/blog/2017-07-0.49/green-theme.png' alt='Screenshot of a green dashboard'>
 Screenshot of a green dashboard
 </p>
 
@@ -1771,7 +1771,7 @@ amcrest:
     <link href="https://home-assistant.io/blog/2017/07/02/release-48/"/>
     <updated>2017-07-02T00:02:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/07/02/release-48</id>
-    <content type="html"><![CDATA[<a href='https://home-assistant.io/components/#version/0.48'><img src='https://home-assistant.io/images/blog/2017-07-0.48/components.png' style='border: 0;box-shadow: none;'></a>
+    <content type="html"><![CDATA[<a href='/components/#version/0.48'><img src='/images/blog/2017-07-0.48/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for a great new release!
 

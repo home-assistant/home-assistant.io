@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-26T12:50:28+00:00</updated>
+  <updated>2017-08-26T17:19:49+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -189,7 +189,7 @@ The first thing to do is to measure. The Home Assistant front end is a mobile we
 
 <p class='img'>
   <img
-    src='https://home-assistant.io/images/blog/2016-08-optimizing-web-app/performance-timeline-0.18.2.png'
+    src='/images/blog/2016-08-optimizing-web-app/performance-timeline-0.18.2.png'
     alt='Timeline of loading the front end in Home Assistant 0.18.2' />
 </p>
 
@@ -197,10 +197,10 @@ Although the app takes 6500 milliseconds to load on my phone, it would perform w
 
 <p class='img'>
   <img
-    src='https://home-assistant.io/images/blog/2016-08-optimizing-web-app/performance-diagram.png'
+    src='/images/blog/2016-08-optimizing-web-app/performance-diagram.png'
     alt='diagram showing old and new loading times next to one another' />
   <img
-    src='https://home-assistant.io/images/blog/2016-08-optimizing-web-app/performance-timeline-0.26.png'
+    src='/images/blog/2016-08-optimizing-web-app/performance-timeline-0.26.png'
     alt='Timeline of loading the front end in Home Assistant 0.26' />
 </p>
 
@@ -222,7 +222,7 @@ As you can see in the timelines, we were able to get rid of most of the blocking
 
 <p class='img'>
   <img
-    src='https://home-assistant.io/images/blog/2016-08-optimizing-web-app/timeline-no-more-es2015.png'
+    src='/images/blog/2016-08-optimizing-web-app/timeline-no-more-es2015.png'
     alt='Timeline of loading the front end before and after the optimization' />
 </p>
 
@@ -238,7 +238,7 @@ To accomplish this I extracted the application core out of the main bundle. In t
 
 <p class='img'>
   <img
-    src='https://home-assistant.io/images/blog/2016-08-optimizing-web-app/timeline-corejs.png'
+    src='/images/blog/2016-08-optimizing-web-app/timeline-corejs.png'
     alt='Timeline of loading the front end before and after the optimization' />
 </p>
 

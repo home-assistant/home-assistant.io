@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Organisation | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/organisation/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-26T12:50:28+00:00</updated>
+  <updated>2017-08-26T17:19:49+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -116,9 +116,9 @@ We hope you understand that our desire with these changes is only to help protec
   
   <entry>
     <title type="html"><![CDATA[Explaining the Updater]]></title>
-    <link href="https://home-assistant.io/blog/2016/10/25/explaining-the-updater/"/>
+    <link href="https://home-assistant.io/blog/2016/10/24/explaining-the-updater/"/>
     <updated>2016-10-25T04:30:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/10/25/explaining-the-updater</id>
+    <id>https://home-assistant.io/blog/2016/10/24/explaining-the-updater</id>
     <content type="html"><![CDATA[On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
 
 <!--more-->
@@ -170,9 +170,9 @@ The source code of our updater AWS Lambda function is now available [here][sourc
   
   <entry>
     <title type="html"><![CDATA[To Infinity and Beyond 🚀]]></title>
-    <link href="https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond/"/>
+    <link href="https://home-assistant.io/blog/2016/04/18/to-infinity-and-beyond/"/>
     <updated>2016-04-19T05:44:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/04/19/to-infinity-and-beyond</id>
+    <id>https://home-assistant.io/blog/2016/04/18/to-infinity-and-beyond</id>
     <content type="html"><![CDATA[After 2.5 years I think we can proudly say: Home Assistant is a success. I write _we_ because Home Assistant is no longer a one-person side project. It has become the side project of many people who spend countless hours on making Home Assistant the best home automation software out there. To acknowledge this we migrated the repositories from being under my name to be under our own [organisation on GitHub][gh-ha].
 
 On our journey we've reached many noteworthy milestones:

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: User-Stories | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/user-stories/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-26T12:50:28+00:00</updated>
+  <updated>2017-08-26T17:19:49+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -25,7 +25,7 @@ Today I'll show you how I used Home Assistant, a NodeMCU (ESP8266), and a couple
 We have an older washer and dryer which doesn't have any form of notification when cycles complete.  Home Assistant was the obvious solution, I just needed to create sensors for the washer and dryer.  I tried using sound sensors but found them unreliable.  I ended up using an accelerometer attached to the back of each appliance.  I also added magnetic reed switches on the doors of the washer and dryer to detect whether they're open or closed.  I connected the accelerometers and reed switches to an NodeMCU which will relay the data to my MQTT broker.
 
 <p class='img'>
-  <img src='https://home-assistant.io/images/blog/2016-07-laundry-automation/block-diagram.png' />
+  <img src='/images/blog/2016-07-laundry-automation/block-diagram.png' />
   Block diagram of schematic
 </p>
 
@@ -34,22 +34,22 @@ We have an older washer and dryer which doesn't have any form of notification wh
 After taking some sample data from the accelerometers while each appliance was in operation, I decided to plot the data to help determine the proper thresholds of when the devices were running or off.  I had to do this in order to get precise ranges so the dryer sensor wouldn't get tripped by the washer or vice versa.  In the plot below you can see the acceleration in each direction for the accelerometer connected to the dryer.   It's easy to see when the dryer is in operation here.  I used the same technique for the washer's accelerometer.
 
 <p class='img'>
-  <img src='https://home-assistant.io/images/blog/2016-07-laundry-automation/data-graph.png' />
+  <img src='/images/blog/2016-07-laundry-automation/data-graph.png' />
   Graph showing the accelerometer data
 </p>
 
 Next it was just a matter of integrating everything with Home Assistant.  I was able to use the [MQTT component](/components/mqtt/) to read the washer and dryer states from the Moteino and display it in Home Assistant.
 
 <p class='img'>
-  <img src='https://home-assistant.io/images/blog/2016-07-laundry-automation/screenshot-ha.png' />
+  <img src='/images/blog/2016-07-laundry-automation/screenshot-ha.png' />
   Status of the dryer and washer in Home Assistant
 </p>
 
 Next I wrote [scripts](/components/script/) that are run whenever the washer or dryer completes a load.  This is triggered by the [automation component](/getting-started/automation/).  When the laundry is complete I have the lights in the house turn red and [notify me via Join](/components/notify.joaoapps_join/).  Once the door is opened and laundry emptied another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.
 
 <p class='img'>
-  <a href='https://home-assistant.io/images/blog/2016-07-laundry-automation/protoboard.jpg'>
-    <img src='https://home-assistant.io/images/blog/2016-07-laundry-automation/protoboard.jpg' />
+  <a href='/images/blog/2016-07-laundry-automation/protoboard.jpg'>
+    <img src='/images/blog/2016-07-laundry-automation/protoboard.jpg' />
   </a>
   NodeMCU connected to MPU-6050 accelerometer.
 </p>
@@ -138,8 +138,8 @@ As an avid user of Home Assistant, I decided it would be the perfect application
 After taking some sample data from the accelerometers while each appliance was in operation, I decided to plot the data to help determine the proper thresholds of when the devices were running or off.  I had to do this in order to get precise ranges so the dryer sensor wouldn't get tripped by the washer or vice versa.  In the plot below you can see the acceleration in the x direction for the accelerometer connected to the washing machine.   It's easy to see when the washing machine is in operation here.  I used the same technique for the dryer's accelerometer.
 
 <p class='img'>
-  <a href='https://home-assistant.io/images/blog/2015-08-laundry-automation/data-graph.png'>
-    <img src='https://home-assistant.io/images/blog/2015-08-laundry-automation/data-graph.png' />
+  <a href='/images/blog/2015-08-laundry-automation/data-graph.png'>
+    <img src='/images/blog/2015-08-laundry-automation/data-graph.png' />
   </a>
   Graph showing the accelerometer data
 </p>
@@ -149,15 +149,15 @@ After taking some sample data from the accelerometers while each appliance was i
 Next it was just a matter of integrating everything with Home Assistant.  I was able to use the [MQTT component](/components/mqtt/) to read the washer and dryer states from the Moteino and display it in Home Assistant.
 
 <p class='img'>
-  <img src='https://home-assistant.io/images/blog/2015-08-laundry-automation/screenshot-ha.png' />
+  <img src='/images/blog/2015-08-laundry-automation/screenshot-ha.png' />
   Status of the dryer and washer in Home Assistant
 </p>
 
 Next I wrote [scripts](/components/script/) that are run whenever the washer or dryer completes a load.  This is triggered by the [automation component](/getting-started/automation/).  When the laundry is complete I have the lights in the house turn red and [notify me via PushBullet](/components/notify.pushbullet/).  Once the laundry is taken care of another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.
 
 <p class='img'>
-  <a href='https://home-assistant.io/images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg'>
-    <img src='https://home-assistant.io/images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg' />
+  <a href='/images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg'>
+    <img src='/images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg' />
   </a>
   Top left: reed switch. Bottom left: moteino. Right: Accelerometer.
 </p>

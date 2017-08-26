@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Describes all there is to know about configuration packages in Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/docs/configuration/packages/">
+    <link rel="canonical" href="/docs/configuration/packages/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Packages">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/docs/configuration/packages/">
+    <meta property="og:url" content="/docs/configuration/packages/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Describes all there is to know about configuration packages in Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -122,10 +122,10 @@ light:
   <li>
     <p>Components where entities are identified by a key that will represent the entity_id (<code class="highlighter-rouge"><span class="p">{</span><span class="err">key:</span><span class="w"> </span><span class="err">config</span><span class="p">}</span></code>) need to have unique ‘keys’ between packages and the main configuration file.</p>
     <p>For example if we have the following in the main config. You are not allowed to re-use “my_input” again for <code class="highlighter-rouge">input_boolean</code> in a package:</p>
-    <p><code class="highlighter-rouge">yaml
- input_boolean:
-   my_input:
-</code></p>
+    <div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="s">input_boolean</span><span class="pi">:</span>
+   <span class="s">my_input</span><span class="pi">:</span>
+</code></pre>
+    </div>
   </li>
   <li>Any component that is not a platform [2], or dictionaries with Entity ID keys [3] cannot be merged and can only occur once between all packages and the main configuration.</li>
 </ol>

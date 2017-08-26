@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Video | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/video/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-26T12:50:28+00:00</updated>
+  <updated>2017-08-26T17:19:49+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[It's been already almost two weeks ago that a few of the Home Assistant developers headed towards Portland for [PyCon 2016] - the conference about everything Python. We were there to learn all the nifty tricks to make our code better but most of all, to talk Home Automation.
 
 <p class='img'>
-  <img src='https://home-assistant.io/images/blog/2016-06-pycon/crew.jpg' alt='Home Assistant developers' />
+  <img src='/images/blog/2016-06-pycon/crew.jpg' alt='Home Assistant developers' />
   Couple of Home Assistant devs. Left to right: [Paulus (@balloob)], [Alex (@infamy)], [Ryan (@rmkraus)].
 </p>
 
@@ -45,7 +45,7 @@ We've had such positive reception on our open spaces that [Jonathan Baginski][@j
 After the conference part of PyCon was over we spent one extra day to host a Home Assistant sprint. This allowed us to help people get started with hacking on Home Assistant which lead to some great contributions.
 
 <p class='img'>
-  <img src='https://home-assistant.io/images/blog/2016-06-pycon/sprint.jpg' alt='Home Assistant sprint group photo' />
+  <img src='/images/blog/2016-06-pycon/sprint.jpg' alt='Home Assistant sprint group photo' />
   Home Assistant sprint group photo.
 </p>
 
