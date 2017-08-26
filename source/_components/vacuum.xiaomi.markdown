@@ -20,6 +20,12 @@ Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `tu
 
 Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
 
+Before you begin you need to install `libffi-dev` by running the command below. This is needed for `python-mirobi` to be installed correctly. 
+
+```bash
+apt-get install libffi-dev
+```
+
 <p class='note warning'>
 If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.</p>
 
@@ -61,8 +67,8 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 1. Setup iOS device with the Mi-Home app.
 2. Create an unencrypted backup of the device using iTunes.
 3. Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/
-4. Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer
-5. Open the file extracted using notepad. You will then see the list of all the device in your account with their token.
+4. Extract this file: **`/raw data/com.xiami.mihome/1234567_mihome.sqlite`** to your computer, where _1234567_ is any string of numbers.
+5. Open the sqlite DB with a tool like SQLite Manager extension for FireFox, DB Browser, etc. You will then see the list of all the devices in your account with their token. The token you need is in the column **`ZToken`** and looks like **`123a1234567b12345c1d123456789e12`**.
 
 ## {% linkable_title Configuration %}
 
