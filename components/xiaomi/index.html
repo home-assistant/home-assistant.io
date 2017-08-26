@@ -107,7 +107,7 @@
 </ul>
 <p>Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a></p>
 <p>To enable Xioami gateway in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<p>One Gateway</p>
+<h3><a class="title-link" name="one-gateway" href="#one-gateway"></a> One Gateway</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># You can leave mac empty if you only have one gateway.</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -115,7 +115,7 @@
      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>Multiple Gateways</p>
+<h3><a class="title-link" name="multiple-gateways" href="#multiple-gateways"></a> Multiple Gateways</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -125,8 +125,8 @@
       <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>Search for gateways on specific interface</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
+<h3><a class="title-link" name="search-for-gateways-on-specific-interface" href="#search-for-gateways-on-specific-interface"></a> Search for gateways on specific interface</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters MAC can be obtained from the gateway.</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">interface</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.0.1'</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -179,8 +179,8 @@
 </div>
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
 <p><strong>Connection problem</strong></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>2017-08-20 16:51:19 ERROR (SyncWorker_0) [homeassistant.components.xiaomi] No gateway discovered
-2017-08-20 16:51:20 ERROR (MainThread) [homeassistant.setup] Setup failed for xiaomi: Component failed to initialize.
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>2017-08-20 16:51:19 ERROR <span class="o">(</span>SyncWorker_0<span class="o">)</span> <span class="o">[</span>homeassistant.components.xiaomi] No gateway discovered
+2017-08-20 16:51:20 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.setup] Setup failed <span class="k">for </span>xiaomi: Component failed to initialize.
 </code></pre>
 </div>
 <p>That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.</p>
