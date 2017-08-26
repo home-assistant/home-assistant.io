@@ -129,7 +129,7 @@ Automation example
 
 ### {% linkable_title Retrieving Access Token %}
 
-Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
+Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various `xiaomi` platforms.
 
 Before you begin you need to install `libffi-dev` by running the command below. This is needed for `python-mirobi` to be installed correctly.
 
