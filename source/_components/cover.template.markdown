@@ -50,7 +50,7 @@ Configuration variables:
   - **friendly_name** (*Optional*): Name to use in the frontend.
   - **entity_id** (*Optional*): Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update it's state.
 
-## {% linkable_Optitmistic Mode %}
+## {% linkable_title Optitmistic Mode %}
 
 In optmistic mode, the cover position state is maintained internally.  This mode is automatically enabled if neither `value_template` or `position_template` are sepcified.  Note that this is unlikely to be very reliable without some feedback mechanism, since there is otherwise no way to know if the cover is moving properly.  The cover can be forced into optimistic mode by using the `optimistic` attribute.  There is an equivalent mode for tilt-position that is enabled when `tilt_template` is not specified or when the `tilt-optimistic` attribute is used.
 
