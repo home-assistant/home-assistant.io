@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-26T06:04:39+00:00</updated>
+  <updated>2017-08-26T06:33:29+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[0.51: Massive history speed up, finished automation editor and official vacuum cleaner support]]></title>
+    <title type="html"><![CDATA[0.52: Scripts editor, Nello.io locks, HipChat and Abode Home Security]]></title>
     <link href="https://home-assistant.io/blog/2017/08/26/release-0-52/"/>
     <updated>2017-08-26T00:11:05+00:00</updated>
     <id>https://home-assistant.io/blog/2017/08/26/release-0-52</id>
