@@ -35,8 +35,6 @@ category_dir: blog/categories
 markdown: kramdown
 timezone: UTC
 
-# highlighter: coderay
-
 kramdown:
   input: GFM
   auto_ids:       false
