@@ -10,6 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Vacuum
 ha_release: 0.51
+ha_iot_class: "Local Polling"
 ---
 
 The `xiaomi` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
@@ -20,7 +21,7 @@ Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `tu
 
 Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.
 
-Before you begin you need to install `libffi-dev` by running the command below. This is needed for `python-mirobi` to be installed correctly. 
+Before you begin you need to install `libffi-dev` by running the command below. This is needed for `python-mirobi` to be installed correctly.
 
 ```bash
 apt-get install libffi-dev
@@ -61,6 +62,17 @@ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
 9. Unzip the ".tar" file.
 10. Open the SQLite DB miio2.db with a tool like SQLite Manager extension for FireFox.
 11. Get the token from "devicerecord" table.
+
+
+### Linux and Android (rooted!)
+
+1. Configure the light with the Mi-Home app.
+2. Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.
+3. Get ADB f.e. `apt-get install android-tools-adb`
+4. `adb devices` should list your device
+5. `adb root` (does work for development builds only: ones with ro.debuggable=1)
+6. `adb shell`
+7. `echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db` returns a list of all registered devices including ip address and token.
 
 
 ### macOS and iOS
