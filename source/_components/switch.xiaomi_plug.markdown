@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `xiaomi_plug` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug or Xiaomi Smart Power Strip.
 
-Current supported features are `on`, `off`. If the device provides the current load it will be reported.
+Currently, the supported features are `on`, `off`. If the device provides the current load, it will be reported.
 
 Please follow the instructions on [Retrieving the Access Token](/xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
