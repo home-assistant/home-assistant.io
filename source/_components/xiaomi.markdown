@@ -46,6 +46,9 @@ What's not available?
 
 Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
 
+
+
+
 To enable Xiaomi gateway in your installation, add the following to your `configuration.yaml` file:
 
 ### {% linkable_title One Gateway %}
@@ -84,7 +87,7 @@ xiaomi:
 Configuration variables:
 
 - **mac** (*Optional*): The MAC of your gateway. Required if you have more than one.
-- **key** (*Optional*): The key of your gateway. Required if you also want to control lights and switches; sensors and binary sensors will still work.
+- **key** (*Optional*): The key of your gateway. Required if you also want to control lights and switches. Sensors and binary sensors will still work.
 - **discovery_retry** (*Optional*): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.
 - **interface** (*Optional*): Which network interface to use. Defaults to any.
 
@@ -95,7 +98,7 @@ The gateway provides two services: `xiaomi.play_ringtone` and `xiaomi.stop_ringt
 - alarm ringtones [0-8]
 - doorbell ring [10-13]
 - alarm clock [20-29]
-- custom ringtones (uploaded by mi home app) starting from 10001
+- custom ringtones (uploaded by the Mi Home app) starting from 10001
 
 Automation example
 
@@ -127,7 +130,7 @@ Automation example
       gw_mac: xxxxxxxxxxxx
 ```
 
-### {% linkable_title Troubleshooting  %}
+### {% linkable_title Troubleshooting %}
 
 **Connection problem**
 
@@ -138,7 +141,7 @@ Automation example
 
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
 - Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832
-- Turn off the firewall on the HA computer 
-- Try to leave the mac address blank. 
+- Turn off the firewall on the system where Home Assistant is running 
+- Try to leave the MAC address `mac:` blank. 
 - Try to set `discovery_retry: 10`
 - Try to disable and then enable LAN access
