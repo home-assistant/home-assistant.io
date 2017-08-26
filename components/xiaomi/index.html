@@ -178,8 +178,22 @@
       <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
+<p><strong>Connection problem</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>2017-08-20 16:51:19 ERROR <span class="o">(</span>SyncWorker_0<span class="o">)</span> <span class="o">[</span>homeassistant.components.xiaomi] No gateway discovered
+2017-08-20 16:51:20 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.setup] Setup failed <span class="k">for </span>xiaomi: Component failed to initialize.
+</code></pre>
+</div>
+<p>That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.</p>
+<ul>
+  <li>Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832</li>
+  <li>Turn off the firewall on the system where Home Assistant is running</li>
+  <li>Try to leave the MAC address <code class="highlighter-rouge">mac:</code> blank.</li>
+  <li>Try to set <code class="highlighter-rouge">discovery_retry: 10</code></li>
+  <li>Try to disable and then enable LAN access</li>
+</ul>
 <h3><a class="title-link" name="retrieving-the-access-token" href="#retrieving-the-access-token"></a> Retrieving the Access Token</h3>
-<p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various <code class="highlighter-rouge">xiaomi</code> platforms.</p>
+<p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various <code class="highlighter-rouge">xiaomi_*</code> platforms.</p>
 <p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-mirobi</code> to be installed correctly.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev
 </code></pre>
@@ -238,20 +252,6 @@
   <li>Extract this file: <strong><code class="highlighter-rouge">/raw data/com.xiami.mihome/1234567_mihome.sqlite</code></strong> to your computer, where <code class="highlighter-rouge">_1234567_</code> is any string of numbers.</li>
   <li>Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column <strong><code class="highlighter-rouge">ZToken</code></strong> and looks like <strong><code class="highlighter-rouge">123a1234567b12345c1d123456789e12</code></strong>.</li>
 </ol>
-<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
-<p><strong>Connection problem</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>2017-08-20 16:51:19 ERROR <span class="o">(</span>SyncWorker_0<span class="o">)</span> <span class="o">[</span>homeassistant.components.xiaomi] No gateway discovered
-2017-08-20 16:51:20 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.setup] Setup failed <span class="k">for </span>xiaomi: Component failed to initialize.
-</code></pre>
-</div>
-<p>That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.</p>
-<ul>
-  <li>Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832</li>
-  <li>Turn off the firewall on the system where Home Assistant is running</li>
-  <li>Try to leave the MAC address <code class="highlighter-rouge">mac:</code> blank.</li>
-  <li>Try to set <code class="highlighter-rouge">discovery_retry: 10</code></li>
-  <li>Try to disable and then enable LAN access</li>
-</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
