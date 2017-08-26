@@ -87,6 +87,10 @@ This section is not for users. Use the <a href="/addons/ssh/">SSH add-on</a> to 
 <p class="note">
 Make sure when you are copying the public key to the root of the /boot partition of the SD card that you rename the file correctly with no <code class="highlighter-rouge">.pub</code> file extension.
 </p>
+<p>You should then be able to SSH into your Hass.io device. On mac/linux, use:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ssh root@hassio.local -p 22222
+</code></pre>
+</div>
 <h2><a class="title-link" name="checking-the-logs" href="#checking-the-logs"></a> Checking the logs</h2>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Logs from the supervisor service on the Host OS</span>
 journalctl -f -u resin-supervisor.service

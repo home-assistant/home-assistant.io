@@ -82,7 +82,7 @@
     <span class="s">covers</span><span class="pi">:</span>
       <span class="s">garage_door</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Garage</span><span class="nv"> </span><span class="s">Door"</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{is_state('sensor.garage_door</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0'}}"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">'{{is_state('sensor.garage_door</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0'}}'"</span>
         <span class="s">open_cover</span><span class="pi">:</span>
           <span class="s">service</span><span class="pi">:</span> <span class="s">script.open_garage_door</span>
         <span class="s">close_cover</span><span class="pi">:</span>
@@ -117,7 +117,8 @@
 <p>In this section you will find some real life examples of how to use this cover.</p>
 <h3><a class="title-link" name="garage-door" href="#garage-door"></a> Garage Door</h3>
 <p>This example converts a garage door with a controllable switch and position sensor into a cover.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="s">cover</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">covers</span><span class="pi">:</span>
       <span class="s">garage_door</span><span class="pi">:</span>
@@ -133,7 +134,107 @@
           <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
           <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
         <span class="s">icon_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">is_state('sensor.garage_door',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">%}mdi:garage-open{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:garage{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="multi-covers" href="#multi-covers"></a> Multi Covers</h3>
+<p>This example allows you to control two or more covers at once.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">all_covers</span><span class="pi">:</span>
+      <span class="s">assume_state</span><span class="pi">:</span> <span class="s">true</span>
 
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">covers</span><span class="pi">:</span>
+      <span class="s">all_covers</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">All</span><span class="nv"> </span><span class="s">Covers'</span>
+        <span class="s">open_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_open</span>
+        <span class="s">close_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_close</span>
+        <span class="s">stop_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_stop</span>
+        <span class="s">set_cover_position</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_set_position</span>
+          <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">position</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">position</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{% if is_state('sensor.all_covers', 'open') %}</span>
+            <span class="no">open</span>
+          <span class="no">{% else %}</span>
+            <span class="no">closed</span>
+          <span class="no">{% endif %}</span>
+
+        <span class="s">icon_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{% if is_state('sensor.all_covers', 'open') %}</span>
+            <span class="no">mdi:window-open</span>
+          <span class="no">{% else %}</span>
+            <span class="no">mdi:window-closed</span>
+          <span class="no">{% endif %}</span>
+
+        <span class="s">entity_id</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">cover.bedroom</span>
+          <span class="pi">-</span> <span class="s">cover.livingroom</span>
+
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">all_covers</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{% if is_state('cover.bedroom', 'open') %}</span>
+            <span class="no">open</span>
+          <span class="no">{% elif is_state('cover.livingroom', 'open') %}</span>
+            <span class="no">open</span>
+          <span class="no">{% else %}</span>
+            <span class="no">closed</span>
+          <span class="no">{% endif %}</span>
+
+        <span class="s">entity_id</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">cover.bedroom</span>
+          <span class="pi">-</span> <span class="s">cover.livingroom</span>
+
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">cover_all_open</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.open_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.open_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+  <span class="s">cover_all_stop</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.stop_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.stop_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+  <span class="s">cover_all_close</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.close_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.close_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+  <span class="s">cover_all_set_position</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">position</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">position</span><span class="nv"> </span><span class="s">}}"</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">position</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">position</span><span class="nv"> </span><span class="s">}}"</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Close</span><span class="nv"> </span><span class="s">covers</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">night'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+        <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">+00:30:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.all_covers</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">position</span><span class="pi">:</span> <span class="s">25</span>
 </code></pre>
 </div>
 </article>
