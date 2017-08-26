@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: bluesound.png
 ha_category: Media Player
-featured: true
+featured: false
 ha_release: 0.51
 ha_iot_class: "Local Polling"
 ---
