@@ -35,8 +35,6 @@ category_dir: blog/categories
 markdown: kramdown
 timezone: UTC
 
-# highlighter: coderay
-
 kramdown:
   input: GFM
   auto_ids:       false
@@ -48,10 +46,9 @@ kramdown:
 
 highlighter: rouge
 
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-time-to-read
-  - octopress-filters
   - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index
