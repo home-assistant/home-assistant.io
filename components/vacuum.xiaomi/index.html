@@ -76,79 +76,19 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">xiaomi</code> vacuum platform allows you to control the state of your <a href="http://www.mi.com/roomrobot/">Xiaomi Mi Robot Vacuum</a>.</p>
 <p>Current supported features are <code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">turn_off</code> (stops goes to dock), <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">clean_spot</code>, <code class="highlighter-rouge">set_fanspeed</code> and even remote control your robot.</p>
-<h2><a class="title-link" name="getting-started" href="#getting-started"></a> Getting started</h2>
-<p>Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.</p>
-<p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-mirobi</code> to be installed correctly.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev
-</code></pre>
-</div>
-<p>If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
-<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
-</code></pre>
-</div>
-<p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
-<h3><a class="title-link" name="windows-and-android" href="#windows-and-android"></a> Windows and Android</h3>
-<ol>
-  <li>Configure the robot with the Mi-Home app.</li>
-  <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
-  <li>Get ADB tool for Windows: https://developer.android.com/studio/releases/platform-tools.html</li>
-  <li>Create a backup of the application com.xiaomi.smarthome:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb backup -noapk com.xiaomi.smarthome -f backup.ab
-</code></pre>
-    </div>
-  </li>
-  <li>If you have this message: “More than one device or emulator”, use this command to list all devices:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb devices
-</code></pre>
-    </div>
-    <p>and execute this command:</p>
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab <span class="c"># (with DEVICEID the device id from the previous command)</span>
-</code></pre>
-    </div>
-  </li>
-  <li>On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.</li>
-  <li>Get ADB Backup Extractor: https://sourceforge.net/projects/adbextractor/</li>
-  <li>Extract All files from the backup:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Unzip the “.tar” file.</li>
-  <li>Open the SQLite DB <code class="highlighter-rouge">miio2.db</code> with a tool like SQLite Manager extension for FireFox.</li>
-  <li>Get the token from “devicerecord” table.</li>
-</ol>
-<h3><a class="title-link" name="linux-and-android-rooted" href="#linux-and-android-rooted"></a> Linux and Android (rooted!)</h3>
-<ol>
-  <li>Configure the light with the Mi-Home app.</li>
-  <li>Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.</li>
-  <li>Get ADB f.e. <code class="highlighter-rouge">apt-get install android-tools-adb</code></li>
-  <li><code class="highlighter-rouge">adb devices</code> should list your device</li>
-  <li><code class="highlighter-rouge">adb root</code> (does work for development builds only: ones with <code class="highlighter-rouge">ro.debuggable=1</code>)</li>
-  <li><code class="highlighter-rouge">adb shell</code></li>
-  <li><code class="highlighter-rouge">echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db</code> returns a list of all registered devices including ip address and token.</li>
-</ol>
-<h3><a class="title-link" name="macos-and-ios" href="#macos-and-ios"></a> macOS and iOS</h3>
-<ol>
-  <li>Setup iOS device with the Mi-Home app.</li>
-  <li>Create an unencrypted backup of the device using iTunes.</li>
-  <li>Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/</li>
-  <li>Extract this file: <strong><code class="highlighter-rouge">/raw data/com.xiami.mihome/1234567_mihome.sqlite</code></strong> to your computer, where <em>1234567</em> is any string of numbers.</li>
-  <li>Open the sqlite DB with a tool like SQLite Manager extension for FireFox, DB Browser, etc. You will then see the list of all the devices in your account with their token. The token you need is in the column <strong><code class="highlighter-rouge">ZToken</code></strong> and looks like <strong><code class="highlighter-rouge">123a1234567b12345c1d123456789e12</code></strong>.</li>
-</ol>
-<h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
+<p>Please follow the instructions on <a href="/xiaomi/#retrieving-the-access-token">Retrieving the Access Token</a> to get the API token to use in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 <p>To add a vacuum to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">vacuum</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
-    <span class="s">token</span><span class="pi">:</span> <span class="s">your-token-here</span>
+    <span class="s">token</span><span class="pi">:</span> <span class="s">YOUR_TOKEN</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP of your robot.</li>
-  <li><strong>token</strong> (<em>Required</em>): The token of your robot. Go to Getting started section to read more about how to get it.</li>
+  <li><strong>token</strong> (<em>Required</em>): The API token of your robot.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of your robot.</li>
 </ul>
 <h3><a class="title-link" name="platform-services" href="#platform-services"></a> Platform services</h3>

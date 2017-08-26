@@ -106,6 +106,7 @@
   <li>Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure</li>
 </ul>
 <p>Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a></p>
+<p>Please check the instructions in this <a href="/xiaomi/#retrieving-the-access-token">section</a> to get the API token to use with your platforms.</p>
 <p>To enable Xiaomi gateway in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <h3><a class="title-link" name="one-gateway" href="#one-gateway"></a> One Gateway</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># You can leave mac empty if you only have one gateway.</span>
@@ -177,7 +178,7 @@
       <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="retrieving-access-token" href="#retrieving-access-token"></a> Retrieving Access Token</h3>
+<h3><a class="title-link" name="retrieving-the-access-token" href="#retrieving-the-access-token"></a> Retrieving the Access Token</h3>
 <p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various <code class="highlighter-rouge">xiaomi</code> platforms.</p>
 <p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-mirobi</code> to be installed correctly.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev
