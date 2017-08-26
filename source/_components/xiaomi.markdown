@@ -34,7 +34,6 @@ The `xiaomi` platform allows you to integrate the following [Xiaomi](http://www.
 - Intelligent Curtain
 - Battery
 
-
 What's not available?
 
 - Gateway Radio
@@ -45,12 +44,11 @@ What's not available?
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
-
 Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
 
 To enable Xioami gateway in your installation, add the following to your `configuration.yaml` file:
 
-One Gateway
+### {% linkable_title One Gateway %}
 
 ```yaml
 # You can leave mac empty if you only have one gateway.
@@ -60,8 +58,7 @@ xiaomi:
      key: xxxxxxxxxxxxxxxx
 ```
 
-
-Multiple Gateways
+### {% linkable_title Multiple Gateways %}
 
 ```yaml
 # 12 characters mac can be obtained from the gateway.
@@ -73,19 +70,16 @@ xiaomi:
       key: xxxxxxxxxxxxxxxx
 ```
 
-
-
-Search for gateways on specific interface
+### {% linkable_title Search for gateways on specific interface %}
 
 ```yaml
-# 12 characters mac can be obtained from the gateway.
+# 12 characters MAC can be obtained from the gateway.
 xiaomi:
   interface: '192.168.0.1'
   gateways:
     - mac: xxxxxxxxxxxx
       key: xxxxxxxxxxxxxxxx
 ```
-
 
 Configuration variables:
 
@@ -133,12 +127,11 @@ Automation example
       gw_mac: xxxxxxxxxxxx
 ```
 
-
 ### {% linkable_title Troubleshooting  %}
 
 **Connection problem**
 
-```
+```bash
 2017-08-20 16:51:19 ERROR (SyncWorker_0) [homeassistant.components.xiaomi] No gateway discovered
 2017-08-20 16:51:20 ERROR (MainThread) [homeassistant.setup] Setup failed for xiaomi: Component failed to initialize.
 ```
