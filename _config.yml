@@ -48,10 +48,9 @@ kramdown:
 
 highlighter: rouge
 
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-time-to-read
-  - octopress-filters
   - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index
