@@ -88,6 +88,7 @@
   <li><strong>province</strong> (<em>Optional</em>): Province code according to <a href="https://pypi.python.org/pypi/holidays/0.8.1">holidays</a> notation. Defaults to None.</li>
   <li><strong>workdays</strong> (<em>Optional</em>): List of workdays. Defaults to <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>.</li>
   <li><strong>excludes</strong> (<em>Optional</em>): List of workday excludes. Defaults to <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>, <code class="highlighter-rouge">holiday</code>.</li>
+  <li><strong>days_offset</strong> (<em>Optional</em>): Set days offset. Defaults to <code class="highlighter-rouge">0</code>.</li>
 </ul>
 <p>Days are specified as follows: <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>, <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>. The keyword <code class="highlighter-rouge">holiday</code> is used for public holidays identified by the holidays module.</p>
 <p class="note warning">
@@ -130,6 +131,9 @@ If you use the sensor for Canada (<code class="highlighter-rouge">CA</code>) wit
     <div class='section'>
     <h1 class="title delta">Category Binary Sensor</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/binary_sensor.abode/'>Abode Binary Sensor</a>
+        </li>
         <li>
             <a href='/components/binary_sensor.alarmdecoder/'>AlarmDecoder Binary Sensor</a>
         </li>

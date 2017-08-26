@@ -75,16 +75,14 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">automatic</code> platform offers presence detection by retrieving your car’s information from the <a href="http://automatic.com/">Automatic</a> cloud service.</p>
-<p>To use Automatic with Home Assistant, first you must <a href="https://developer.automatic.com/">create a free development account</a>. Automatic will generate a Client ID and Secret for you to use in your Home Assistant configuration. You will also need to update your Event Delivery preferences to ensure Home Assistant can receive updates. On the developer page, under App Settings / Event Delivery, select “Websocket” for Event Delivery Preference.</p>
-<p>Home Assistant will also take advantage of <code class="highlighter-rouge">scope:current_location</code> if available. This will allow Home Assistant to receive periodic location updates during a trip. In order to use this functionality, you must request the scope for your application from Automatic. Once <code class="highlighter-rouge">scope:current_location</code> is available, Home Assistant will automatically make use of it after the next restart.</p>
+<p>To use Automatic with Home Assistant, first you must <a href="https://developer.automatic.com/">create a free development account</a>. Automatic will generate a Client ID and Secret for you to use in your Home Assistant configuration. You will need to update your Event Delivery preferences to ensure Home Assistant can receive updates. On the developer page, under App Settings / Event Delivery, select “Websocket” for Event Delivery Preference. Next, specify the OAuth Redirect URL in the developer page. This should be configured to <code class="highlighter-rouge">&lt;home-assistant-url&gt;/api/automatic/callback</code>. (Example: <code class="highlighter-rouge">http://hassio.local:8123/api/automatic/callback</code>) Note that this URL only needs to be accessible from the browser you use to perform the authentication.</p>
+<p>Home Assistant can also take advantage of <code class="highlighter-rouge">scope:current_location</code> if available. This will allow Home Assistant to receive periodic location updates during a trip. In order to use this functionality, you must request the scope for your application from Automatic. Once <code class="highlighter-rouge">scope:current_location</code> is available, change <code class="highlighter-rouge">current_location</code> to <code class="highlighter-rouge">true</code> in your configuration.yaml.</p>
 <p>Once your developer account is created, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">automatic</span>
     <span class="s">client_id</span><span class="pi">:</span> <span class="s">1234567</span>
     <span class="s">secret</span><span class="pi">:</span> <span class="s">0987654321</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">your@email.com</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">your_password</span>
     <span class="s">devices</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">2007 Honda Element</span>
       <span class="pi">-</span> <span class="s">2004 Subaru Impreza</span>
@@ -94,8 +92,7 @@
 <ul>
   <li><strong>client_id</strong> (<em>Required</em>): The OAuth client id (get from https://developer.automatic.com/).</li>
   <li><strong>secret</strong> (<em>Required</em>): The OAuth client secret (get from https://developer.automatic.com/).</li>
-  <li><strong>username</strong> (<em>Required</em>): The username associated with your ODB reader.</li>
-  <li><strong>password</strong> (<em>Required</em>): The password for your given ODB reader account.</li>
+  <li><strong>current_location</strong> (<em>Optional</em>): Set to <code class="highlighter-rouge">true</code> if you have requested <code class="highlighter-rouge">scope:current_location</code> for your account. Home Assistant will then be able to receive periodic location updates during trips.</li>
   <li><strong>devices</strong> (<em>Optional</em>): The list of vehicle display names you wish to track. If not provided, all vehicles will be tracked.</li>
 </ul>
 <p>Home Assistant will also fire events when an update is received from Automatic. These can be used to trigger automations, as shown in the example below. A list of available event types can be found in the <a href="https://developer.automatic.com/api-reference/#real-time-events">Automatic Real-Time Events documentation</a>.</p>

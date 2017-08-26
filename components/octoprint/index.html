@@ -79,14 +79,17 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">octoprint</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">YOUR_OCTOPRINT_HOST</span>
   <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
+  <span class="s">bed</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="s">number_of_tools</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): IP address or hostname of Octoprint host.</li>
   <li><strong>api_key</strong> (<em>Required</em>): The retrieved api key.</li>
+  <li><strong>bed</strong> (<em>Optional</em>): If the printer has a heated bed.</li>
+  <li><strong>number_of_tools</strong> (<em>Optional</em>): Number of temperature adjustable tools. i.e. nozzle.</li>
 </ul>
-<p><strong>NOTE</strong> If your 3D printer isn’t connected to the OctoPrint server during the startup of Home Assistant this component will fail to load.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -118,6 +121,9 @@
     <ul class='divided'>
         <li>
             <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/abode/'>Abode Home Security</a>
         </li>
         <li>
             <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
@@ -274,6 +280,9 @@
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>
+        </li>
+        <li>
+            <a href='/components/usps/'>USPS</a>
         </li>
         <li>
             <a href='/components/velbus/'>Velbus</a>

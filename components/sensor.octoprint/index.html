@@ -96,10 +96,13 @@ You must have the <a href="/components/octoprint/">OctoPrint component</a> confi
     <ul>
       <li><strong>Current State</strong>: Text of current state)</li>
       <li><strong>Temperatures</strong>:  Temperatures of all available tools, eg. <code class="highlighter-rouge">print</code>, <code class="highlighter-rouge">head</code>, <code class="highlighter-rouge">print bed</code>, etc. These will be displayed as <code class="highlighter-rouge">tool0</code>, <code class="highlighter-rouge">tool1</code>, or <code class="highlighter-rouge">toolN</code> please refer to your OctoPrint frontend to associate the tool number with an actual device.</li>
-      <li><strong>Job Percentage</strong>:</li>
+      <li><strong>Job Percentage</strong>: Percentage of the job.</li>
     </ul>
   </li>
 </ul>
+<p class="note">
+If you are tracking temperature it is recommended to set <code class="highlighter-rouge">bed</code> and/or <code class="highlighter-rouge">number_of_tools</code> in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -383,6 +386,9 @@ You must have the <a href="/components/octoprint/">OctoPrint component</a> confi
         </li>
         <li>
             <a href='/components/sensor.verisure/'>Verisure Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.version/'>Version Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>

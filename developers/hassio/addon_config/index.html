@@ -86,11 +86,18 @@
 <p>When developing your script:</p>
 <ul>
   <li><code class="highlighter-rouge">/data</code> is a volume for persistent storage.</li>
-  <li><code class="highlighter-rouge">/data/options.json</code> contains the user configuration. You can use <code class="highlighter-rouge">jq</code> inside your shell script to parse this data.</li>
+  <li><code class="highlighter-rouge">/data/options.json</code> contains the user configuration. You can use <code class="highlighter-rouge">jq</code> inside your shell script to parse this data. However you might have to install <code class="highlighter-rouge">jq</code> as a separate package in your container (see <code class="highlighter-rouge">Dockerfile</code> below).</li>
 </ul>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'{ "target": "beer" }'</span> | jq -r <span class="s2">".target"</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">CONFIG_PATH</span><span class="o">=</span>/data/options.json
+
+<span class="nv">TARGET</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s2">".target"</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
 </code></pre>
 </div>
+<p>So if your <code class="highlighter-rouge">options</code>contain</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beer"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>then there will be a variable <code class="highlighter-rouge">TARGET</code>containing <code class="highlighter-rouge">beer</code> in the environment of your bash file afterwards.</p>
 <h2><a class="title-link" name="add-on-docker-file" href="#add-on-docker-file"></a> Add-on Docker file</h2>
 <p>All add-ons are based on Alpine Linux 3.6. Hass.io will automatically substitute the right base image based on the machine architecture. Add <code class="highlighter-rouge">tzdata</code> if you need run in correct timezone, but that is already add in our base images.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>FROM %%BASE_IMAGE%%

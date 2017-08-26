@@ -78,6 +78,10 @@
 <p>Current supported features are <code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">turn_off</code> (stops goes to dock), <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">clean_spot</code>, <code class="highlighter-rouge">set_fanspeed</code> and even remote control your robot.</p>
 <h2><a class="title-link" name="getting-started" href="#getting-started"></a> Getting started</h2>
 <p>Follow the pairing process using your phone and Mi-Home app. From here you will be able to retrieve the token from a SQLite file inside your phone.</p>
+<p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-mirobi</code> to be installed correctly.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt-get install libffi-dev
+</code></pre>
+</div>
 <p class="note warning">
 If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
@@ -120,8 +124,8 @@ If your Home Assistant installation is running in a <a href="/docs/installation/
   <li>Setup iOS device with the Mi-Home app.</li>
   <li>Create an unencrypted backup of the device using iTunes.</li>
   <li>Install iBackup Viewer from here: http://www.imactools.com/iphonebackupviewer/</li>
-  <li>Extract this file /raw data/com.xiami.mihome/_mihome.sqlite to your computer</li>
-  <li>Open the file extracted using notepad. You will then see the list of all the device in your account with their token.</li>
+  <li>Extract this file: <strong><code class="highlighter-rouge">/raw data/com.xiami.mihome/1234567_mihome.sqlite</code></strong> to your computer, where <em>1234567</em> is any string of numbers.</li>
+  <li>Open the sqlite DB with a tool like SQLite Manager extension for FireFox, DB Browser, etc. You will then see the list of all the devices in your account with their token. The token you need is in the column <strong><code class="highlighter-rouge">ZToken</code></strong> and looks like <strong><code class="highlighter-rouge">123a1234567b12345c1d123456789e12</code></strong>.</li>
 </ol>
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>

@@ -107,25 +107,45 @@
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): One or more conditions to display in the frontend.
     <ul>
       <li><strong>stationname</strong>: The name of the selected meteo-station.</li>
-      <li><strong>symbol</strong>: A symbol for the current weather.</li>
+      <li><strong>conditioncode</strong>: A symbol and a unique code identifying the current weather condition ([a..z]).</li>
+      <li><strong>condition</strong>: A symbol and the current weather condition (clear, cloudy, fog, rainy, snowy, lightning).</li>
+      <li><strong>conditiondetailed</strong>: A symbol and detailed current weather condition (clear, partlycloudy, cloudy, partlycloudy-fog, partlycloudy-light-rain, partlycloudy-rain, light-rain, rainy, snowy-rainy, partlycloudy-light-snow, partlycloudy-snow, light-snow, snowy, partlycloudy-lightning, lightning).</li>
+      <li><strong>conditionexact</strong>: A symbol with the full current weather condition (in English).</li>
+      <li><strong>symbol</strong>: A symbol for the current weather with the full current condition (in Dutch).</li>
       <li><strong>humidity</strong>: The relative humidity (%).</li>
-      <li><strong>temperature</strong>: The current temperature (in C).</li>
-      <li><strong>groundtemperature</strong>: The current ground temperature (in C).</li>
-      <li><strong>windspeed</strong>: The wind speed in m/s.</li>
-      <li><strong>windforce</strong>: The wind speed/force in Bft.</li>
+      <li><strong>temperature</strong>: The current temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>groundtemperature</strong>: The current ground temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>windspeed</strong>: The wind speed in <a href="https://en.wikipedia.org/wiki/M/s">m/s</a>.</li>
+      <li><strong>windforce</strong>: The wind speed/force in <a href="https://en.wikipedia.org/wiki/Beaufort_scale">Bft</a>.</li>
       <li><strong>winddirection</strong>: Where the wind is coming from: N (North),Z (south), NO (Noth-East), etc.</li>
       <li><strong>windazimuth</strong>: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.</li>
-      <li><strong>pressure</strong>: The sea-level air pressure in hPa.</li>
-      <li><strong>visibility</strong>: Visibility in meters (m).</li>
-      <li><strong>windgust</strong>: The windspeed of wind gusts (m/s).</li>
+      <li><strong>pressure</strong>: The sea-level air pressure in <a href="https://en.wikipedia.org/wiki/Hectopascal">hPa</a>.</li>
+      <li><strong>visibility</strong>: Visibility in meters (<a href="https://en.wikipedia.org/wiki/Metre">m</a>).</li>
+      <li><strong>windgust</strong>: The windspeed of wind gusts (<a href="https://en.wikipedia.org/wiki/M/s">m/s</a>).</li>
       <li><strong>precipitation</strong>: The amount of precipitation/rain in mm/h.</li>
       <li><strong>precipitation_forecast_average</strong>: The average expected precipitation/rain in mm/h within the given timeframe.</li>
       <li><strong>precipitation_forecast_total</strong>: The total expected precipitation/rain in mm within the given timeframe. The total expected rain in the configured timeframe will be equal to <em>precipitation_forecast_total</em>/<em>timeframe</em> mm/min. So, with timeframe configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If timeframe is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.</li>
-      <li><strong>irradiance</strong>: Sun intensity in Watt per square meter (W/m2).</li>
+      <li><strong>irradiance</strong>: Sun intensity in Watt per square meter (<a href="https://en.wikipedia.org/wiki/W/m2">W/m2</a>).</li>
+      <li><strong>temperature_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>mintemp_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted minimum temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>rainchance_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted chance for rain (%).</li>
+      <li><strong>sunchance_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted chance for sun (%).</li>
+      <li><strong>rain_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted amount of rain in <a href="https://en.wikipedia.org/wiki/Millimetre">mm</a>.</li>
+      <li><strong>snow_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted amount of snow in <a href="https://en.wikipedia.org/wiki/Centimetre">cm</a>.</li>
+      <li><strong>windforce_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The expected windforce in <a href="https://en.wikipedia.org/wiki/Beaufort_scale">Bft</a>.</li>
+      <li><strong>conditioncode_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and condition code of the expected condition.</li>
+      <li><strong>condition_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and expected condition.</li>
+      <li><strong>conditiondetailed_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and detailed expected condition.</li>
+      <li><strong>conditionexact_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and full expected condition (in English).</li>
+      <li><strong>symbol_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and full expected condition (in Dutch).</li>
     </ul>
   </li>
 </ul>
-<p>Full configuration example where location is manually specified:</p>
+<h2>Daily forecasts</h2>
+<p>Conditions above marked with <a name="1d">[1d]</a> are daily forecasts. To get forecast for different day, replace the number
+in <code class="highlighter-rouge">_1d</code> part of the sensor name. Valid values are from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">5</code>.</p>
+<h2>Configuration examples</h2>
+<p>Full configuration example (excluding forecasted conditions) where location is manually specified:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">buienradar</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">volkel'</span>
@@ -134,6 +154,10 @@
     <span class="s">longitude</span><span class="pi">:</span> <span class="s">5.70</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">stationname</span>
+      <span class="pi">-</span> <span class="s">conditioncode</span>
+      <span class="pi">-</span> <span class="s">condition</span>
+      <span class="pi">-</span> <span class="s">conditiondetailed</span>
+      <span class="pi">-</span> <span class="s">conditionexact</span>
       <span class="pi">-</span> <span class="s">symbol</span>
       <span class="pi">-</span> <span class="s">humidity</span>
       <span class="pi">-</span> <span class="s">temperature</span>
@@ -149,6 +173,45 @@
       <span class="pi">-</span> <span class="s">irradiance</span>
       <span class="pi">-</span> <span class="s">precipitation_forecast_average</span>
       <span class="pi">-</span> <span class="s">precipitation_forecast_total</span>
+</code></pre>
+</div>
+<p>Configuration example with current condition and (some) forecasted values:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Weather prediction</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">buienradar</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="c1"># current condition:</span>
+      <span class="pi">-</span> <span class="s">condition</span>
+      <span class="pi">-</span> <span class="s">conditioncode</span>
+      <span class="pi">-</span> <span class="s">conditiondetailed</span>
+      <span class="pi">-</span> <span class="s">conditionexact</span>
+      <span class="pi">-</span> <span class="s">symbol</span>
+      <span class="c1"># conditions for forecasted data:</span>
+      <span class="pi">-</span> <span class="s">symbol_1d</span>
+      <span class="pi">-</span> <span class="s">symbol_2d</span>
+      <span class="pi">-</span> <span class="s">symbol_3d</span>
+      <span class="pi">-</span> <span class="s">symbol_4d</span>
+      <span class="pi">-</span> <span class="s">symbol_5d</span>
+      <span class="pi">-</span> <span class="s">temperature_1d</span>
+      <span class="pi">-</span> <span class="s">temperature_2d</span>
+      <span class="pi">-</span> <span class="s">temperature_3d</span>
+      <span class="pi">-</span> <span class="s">temperature_4d</span>
+      <span class="pi">-</span> <span class="s">temperature_5d</span>
+      <span class="pi">-</span> <span class="s">rainchance_1d</span>
+      <span class="pi">-</span> <span class="s">rainchance_2d</span>
+      <span class="pi">-</span> <span class="s">rainchance_3d</span>
+      <span class="pi">-</span> <span class="s">rainchance_4d</span>
+      <span class="pi">-</span> <span class="s">rainchance_5d</span>
+      <span class="pi">-</span> <span class="s">sunchance_1d</span>
+      <span class="pi">-</span> <span class="s">sunchance_2d</span>
+      <span class="pi">-</span> <span class="s">sunchance_3d</span>
+      <span class="pi">-</span> <span class="s">sunchance_4d</span>
+      <span class="pi">-</span> <span class="s">sunchance_5d</span>
+      <span class="pi">-</span> <span class="s">rain_1d</span>
+      <span class="pi">-</span> <span class="s">rain_2d</span>
+      <span class="pi">-</span> <span class="s">rain_3d</span>
+      <span class="pi">-</span> <span class="s">rain_4d</span>
+      <span class="pi">-</span> <span class="s">rain_5d</span>
 </code></pre>
 </div>
 <p><a href="https://www.buienradar.nl/overbuienradar/gratis-weerdata">Usage statement:</a></p>
@@ -228,6 +291,9 @@
         </li>
         <li>
             <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
+        </li>
+        <li>
+            <a href='/components/sensor.worldtidesinfo/'>World Tides</a>
         </li>
         <li>
             <a href='/components/sensor.yr/'>YR</a>

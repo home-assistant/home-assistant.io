@@ -74,26 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">usps</code> platform allows one to track deliveries and inbound mail from the <a href="https://www.usps.com/">US Postal Service (USPS)</a>.
-In addition to having a USPS account, you will need to complete the “Opt-In” process by clicking “Get Started Now” on <a href="https://my.usps.com/mobileWeb/pages/intro/start.action">this page</a>. You must also “Opt-In” to <a href="https://informeddelivery.usps.com/box/pages/intro/start.action">Informed Delivery</a> to see inbound mail.</p>
-<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">usps</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
-</code></pre>
-</div>
-<p>You will see two new sensors, one for packages and one for mail.</p>
-<p>Configuration options for the USPS Sensor:</p>
-<ul>
-  <li><strong>username</strong> (<em>Required</em>): The username to access the MyUSPS service.</li>
-  <li><strong>password</strong> (<em>Required</em>): The password for the given username.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Prefix for sensor names (defaults to “USPS”)</li>
-</ul>
-<p class="note warning">
-The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
-</p>
+  <p>The <code class="highlighter-rouge">usps</code> sensor component allows you to view statistics on incoming mail and packages made available through USPS via the Informed Delivery service.  You must “Opt-In” to <a href="https://informeddelivery.usps.com/box/pages/intro/start.action">Informed Delivery</a> to see mail images. This works in concert with <a href="/components/camera.usps">USPS camera</a>.</p>
+<p>To enable this sensor in your installation, set up the <a href="/components/usps">USPS component</a> with your username and password.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -108,6 +90,17 @@ The USPS sensor logs into the MyUSPS website to scrape package data. It does not
     </div>
     <div class='section'>
     Introduced in release: 0.36
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/usps/'>
+          USPS
+        </a></li>
+        <li><a href='/components/camera.usps/'>
+          USPS Camera
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
     <h1 class="title delta">Category Sensor</h1>
@@ -366,6 +359,9 @@ The USPS sensor logs into the MyUSPS website to scrape package data. It does not
         </li>
         <li>
             <a href='/components/sensor.verisure/'>Verisure Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.version/'>Version Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>

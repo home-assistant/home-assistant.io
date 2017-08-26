@@ -79,6 +79,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">fitbit</span>
+    <span class="s">clock_format</span><span class="pi">:</span> <span class="s">12H</span>
     <span class="s">monitored_resources</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s2">"</span><span class="s">body/weight"</span>
 </code></pre>
@@ -89,6 +90,7 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>monitored_resources</strong> (<em>Optional</em>): Resource to monitor. Defaults to <code class="highlighter-rouge">activities/steps</code>.</li>
+  <li><strong>clock_format</strong> (<em>Optional</em>): Format to use for <code class="highlighter-rouge">sleep/startTime</code> resource. Accepts <code class="highlighter-rouge">12H</code> or <code class="highlighter-rouge">24H</code>. Defaults to <code class="highlighter-rouge">24H</code>.</li>
 </ul>
 <p>Below is the list of resources that you can add to <code class="highlighter-rouge">monitored_resources</code>. One sensor is exposed for every resource.</p>
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>activities/activityCalories
@@ -147,6 +149,9 @@ sleep/timeInBed
     <ul class='divided'>
         <li>
             Fitbit
+        </li>
+        <li>
+            <a href='/components/sensor.london_air/'>London Air Quality</a>
         </li>
         <li>
             <a href='/components/sensor.waqi/'>World Air Quality Index</a>

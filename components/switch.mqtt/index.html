@@ -90,9 +90,11 @@
   <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
   <li><strong>state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive state updates.</li>
   <li><strong>command_topic</strong> (<em>Required</em>): The MQTT topic to publish commands to change the switch state.</li>
-  <li><strong>availability_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive availability (online/offline) updates. The payload is the same for the command_topic.</li>
+  <li><strong>availability_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive availability (online/offline) updates.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
+  <li><strong>payload_available</strong> (<em>Optional</em>): The payload that represents the available state, e.g. ‘online’. Default is “ON”.</li>
+  <li><strong>payload_not_available</strong> (<em>Optional</em>): The payload that represents the unavailable state, e.g. ‘offline’. Default is “OFF”.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is <code class="highlighter-rouge">true</code> if no <code class="highlighter-rouge">state_topic</code> defined, else <code class="highlighter-rouge">false</code>.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>

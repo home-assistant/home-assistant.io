@@ -81,7 +81,7 @@ a <a href="http://www.rainmachine.com/">RainMachine smart Wi-Fi sprinkler contro
 (i.e., through RainMachine’s cloud API) access; the route you choose will
 dictate what your configuration should look like.</p>
 <p>For local access, specify the IP address/hostname of your RainMachine unit
-and your RainMachine password:</p>
+, your RainMachine password, and optionally, the device’s HTTP port:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">rainmachine</span>
   <span class="s">ip_address</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
@@ -97,11 +97,16 @@ and your RainMachine password:</p>
 </div>
 <p>Configuration Variables:</p>
 <ul>
-  <li><strong>ip_address</strong> (<em>Optional</em>): The IP address of your RainMachine unit</li>
-  <li><strong>email</strong> (<em>Optional</em>): Your RainMachine username/email</li>
-  <li><strong>password</strong> (<em>Required</em>): Your RainMachine password</li>
-  <li><strong>zone_run_time</strong> (<em>Optional</em>): The number of seconds that a zone should run when
-turned on; defaults to 600 (10 minutes)</li>
+  <li><strong>ip_address</strong> (<em>Optional</em>): the IP address of your RainMachine unit; cannot be
+used with the <code class="highlighter-rouge">email</code> parameter</li>
+  <li><strong>email</strong> (<em>Optional</em>): your RainMachine username/email; cannot be used with the
+<code class="highlighter-rouge">ip_address</code> parameter</li>
+  <li><strong>password</strong> (<em>Required</em>): your RainMachine password</li>
+  <li><strong>port</strong> (<em>Optional</em>): the TCP port used by your unit for the REST API (default: 8080)</li>
+  <li><strong>ssl</strong> (<em>Optional</em>): whether communication with the local device should occur
+over HTTPS (default: true)</li>
+  <li><strong>zone_run_time</strong> (<em>Optional</em>): the number of seconds that a zone should run when
+turned on (default: 600)</li>
 </ul>
 <h2><a class="title-link" name="controlling-your-device" href="#controlling-your-device"></a> Controlling Your Device</h2>
 <p>After Home Assistant loads, you will see new switches for every enabled program

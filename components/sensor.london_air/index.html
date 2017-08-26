@@ -1,0 +1,214 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>London Air Quality - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Display the current status of London air quality by area and pollution type.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.london_air/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="London Air Quality">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.london_air/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Display the current status of London air quality by area and pollution type.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="London Air Quality">
+    <meta name="twitter:description" content="Display the current status of London air quality by area and pollution type.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      London Air Quality
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">london_air</code> component <a href="http://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json">queries</a> the London air quality <a href="https://www.londonair.org.uk/LondonAir/API/">data feed</a> provided by Kings College London. A single sensor will be added for each <code class="highlighter-rouge">location</code> (<a href="https://en.wikipedia.org/wiki/List_of_London_boroughs">local authority district or borough</a>) specified in the configuration file. The state of each sensor is the overall air quality in that borough. Note that only 28 of the 32 boroughs have data available.</p>
+<p>Boroughs can have multiple monitoring sites at different geographical positions within the borough, and each of those sites can monitor up to six different kinds of pollutant. The pollutants are described <a href="http://api.erg.kcl.ac.uk/AirQuality/Information/Species/Json">here</a> and are Carbon Monoxide (<a href="http://www.londonair.org.uk/LondonAir/guide/WhatIsCO.aspx">CO2</a>), Nitrogen Dioxide (<a href="http://www.londonair.org.uk/LondonAir/guide/WhatIsNO2.aspx">NO2</a>), Ozone (<a href="http://www.londonair.org.uk/LondonAir/guide/WhatIsO3.aspx">O3</a>), Sulphur Dioxide (<a href="http://www.londonair.org.uk/LondonAir/guide/WhatIsSO2.aspx">SO2</a>), PM2.5 &amp; PM10 <a href="http://www.londonair.org.uk/LondonAir/guide/WhatIsPM.aspx">particulates</a>. The <code class="highlighter-rouge">latitude</code> and <code class="highlighter-rouge">longitude</code> of each site is accessible through a <code class="highlighter-rouge">data</code> attribute of the sensor, as are details about the pollutants monitored at that site. The <code class="highlighter-rouge">sites</code> attribute of a sensor displays how many monitoring sites that sensor covers. The <code class="highlighter-rouge">updated</code> attribute of a sensor states when the data was last published. Nominally data is published hourly, but in my experience this can vary. To limit the number of requests made by the sensor, a single API request is made every 30 minutes.</p>
+<p>To add sensors to Home-assistant for all possible areas/boroughs add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for a single sensor</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">london_air</span>
+    <span class="s">locations</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">Barking and Dagenham</span>
+      <span class="pi">-</span> <span class="s">Bexley</span>
+      <span class="pi">-</span> <span class="s">Brent</span>
+      <span class="pi">-</span> <span class="s">Camden</span>
+      <span class="pi">-</span> <span class="s">City of London</span>
+      <span class="pi">-</span> <span class="s">Croydon</span>
+      <span class="pi">-</span> <span class="s">Ealing</span>
+      <span class="pi">-</span> <span class="s">Enfield</span>
+      <span class="pi">-</span> <span class="s">Greenwich</span>
+      <span class="pi">-</span> <span class="s">Hackney</span>
+      <span class="pi">-</span> <span class="s">Hammersmith and Fulham</span>
+      <span class="pi">-</span> <span class="s">Haringey</span>
+      <span class="pi">-</span> <span class="s">Harrow</span>
+      <span class="pi">-</span> <span class="s">Havering</span>
+      <span class="pi">-</span> <span class="s">Hillingdon</span>
+      <span class="pi">-</span> <span class="s">Islington</span>
+      <span class="pi">-</span> <span class="s">Kensington and Chelsea</span>
+      <span class="pi">-</span> <span class="s">Kingston</span>
+      <span class="pi">-</span> <span class="s">Lambeth</span>
+      <span class="pi">-</span> <span class="s">Lewisham</span>
+      <span class="pi">-</span> <span class="s">Merton</span>
+      <span class="pi">-</span> <span class="s">Redbridge</span>
+      <span class="pi">-</span> <span class="s">Richmond</span>
+      <span class="pi">-</span> <span class="s">Southwark</span>
+      <span class="pi">-</span> <span class="s">Sutton</span>
+      <span class="pi">-</span> <span class="s">Tower Hamlets</span>
+      <span class="pi">-</span> <span class="s">Wandsworth</span>
+      <span class="pi">-</span> <span class="s">Westminster</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>locations</strong> array (<em>Required</em>): At least one entry required.</li>
+</ul>
+<p>To explore the data available within the <code class="highlighter-rouge">data</code> attribute of a sensor use the <code class="highlighter-rouge">dev-template</code> tool on the Home-assistant frontend. <code class="highlighter-rouge">data</code> contains a list of monitored sites, where the number of monitored sites are given by the <code class="highlighter-rouge">sites</code> attribute. If a sensor has four sites, access the fourth site by indexing the list of sites using data[3]. Each site is a dictionary with multiple fields, with entries for the <code class="highlighter-rouge">latitude</code> and <code class="highlighter-rouge">longitude</code> of that site, a <code class="highlighter-rouge">pollution_status</code>, <code class="highlighter-rouge">site_code</code>, <code class="highlighter-rouge">site_name</code> and <code class="highlighter-rouge">site_type</code>. The field <code class="highlighter-rouge">number_of_pollutants</code> states how many pollutants are monitored (of the possible six) and the field <code class="highlighter-rouge">pollutants</code> returns a list with data for each pollutant. To access the first pollutant in the list for site zero use <code class="highlighter-rouge">attributes.data[0].pollutants[0]</code>. Each entry in <code class="highlighter-rouge">pollutants</code> is a dictionary with fields for the pollutant <code class="highlighter-rouge">code</code>, <code class="highlighter-rouge">description</code>, <code class="highlighter-rouge">index</code>, <code class="highlighter-rouge">quality</code> and a <code class="highlighter-rouge">summary</code>. <a href="https://home-assistant.io/components/sensor.template/">Template sensors</a> can then be added to display these attributes, for example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example template sensors</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+  <span class="s">sensors</span><span class="pi">:</span>
+    <span class="s">updated</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Updated'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.merton.attributes.updated}}'</span>
+    <span class="s">merton_pm10</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Merton</span><span class="nv"> </span><span class="s">PM10'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.merton.attributes.data[0].pollutants[0].summary}}'</span>
+    <span class="s">westminster_s02</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Westminster</span><span class="nv"> </span><span class="s">S02'</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{states.sensor.westminster.attributes.data[0].pollutants[3].summary}}'</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.london_air.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/waqi.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.52
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Health</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/sensor.fitbit/'>Fitbit</a>
+        </li>
+        <li>
+            London Air Quality
+        </li>
+        <li>
+            <a href='/components/sensor.waqi/'>World Air Quality Index</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

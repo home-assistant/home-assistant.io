@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">snmp</code> sensor platform simple displays the information which are available through the <a href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol">Simple Network Management Protocol (SNMP)</a>. SNMP uses a tree-like hierarchy where each node is an object.</p>
+  <p>The <code class="highlighter-rouge">snmp</code> sensor platform displays information available through the <a href="https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol">Simple Network Management Protocol (SNMP)</a>. SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems, and printers.</p>
 <p>To enable this sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -86,24 +86,45 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address of your host, eg. <code class="highlighter-rouge">192.168.1.32</code>.</li>
-  <li><strong>port</strong> (<em>Option</em>): The SNMP port of your host. Defaults to <code class="highlighter-rouge">161</code>.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the SNMP sensor.</li>
-  <li><strong>community</strong> (<em>Optional</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
   <li><strong>baseoid</strong> (<em>Required</em>): The OID where the information is located. It’s advised to use the numerical notation.</li>
+  <li><strong>port</strong> (<em>Option</em>): The SNMP port of your host. Defaults to <code class="highlighter-rouge">161</code>.</li>
+  <li><strong>community</strong> (<em>Optional</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
+  <li><strong>version</strong> (<em>Optional</em>) version of SNMP protocol, <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">2c</code>. Defaults to <code class="highlighter-rouge">1</code>. Version <code class="highlighter-rouge">2c</code> is needed to read data from 64-bit counters.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the SNMP sensor.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of the sensor, if any.</li>
-  <li><strong>version</strong> (<em>Optional</em>) version of SNMP protocol, <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">2c</code> defaults to <code class="highlighter-rouge">1</code>. Version <code class="highlighter-rouge">2c</code> is needed to read data from 64-bit counters.</li>
+  <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to parse the value.</li>
+  <li><strong>accept_errors</strong> (<em>Optional</em>): Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant. Defaults to <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>default_value</strong> (<em>Optional</em>): Determines what value the sensor should take if <code class="highlighter-rouge">accept_errors</code> is set and the host is unreachable or not responding. If not set, the sensor will have value <code class="highlighter-rouge">unknown</code> in case of errors.</li>
 </ul>
-<p>The OIDs may vary on different system because they are vendor-specific. Beside the device’s manual is the <a href="http://www.oid-info.com/">OID Repository</a> a good place to start if you are looking for OIDs. The following OIDs are for the load of a Linux systems.</p>
+<h2><a class="title-link" name="finding-oids" href="#finding-oids"></a> Finding OIDs</h2>
+<p>OIDs may vary on different systems because they are vendor-specific. Beside the device’s manual, the <a href="http://www.oid-info.com/">OID Repository</a> is a good place to start if you are looking for OIDs. As an example, the following OIDs are for the load of a Linux systems.</p>
 <ul>
-  <li>1 minute Load: 1.3.6.1.4.1.2021.10.1.3.1</li>
-  <li>5 minute Load: 1.3.6.1.4.1.2021.10.1.3.2</li>
-  <li>15 minute Load: 1.3.6.1.4.1.2021.10.1.3.3</li>
+  <li>1 minute Load: <code class="highlighter-rouge">1.3.6.1.4.1.2021.10.1.3.1</code></li>
+  <li>5 minute Load: <code class="highlighter-rouge">1.3.6.1.4.1.2021.10.1.3.2</code></li>
+  <li>15 minute Load: <code class="highlighter-rouge">1.3.6.1.4.1.2021.10.1.3.3</code></li>
 </ul>
 <p>There is a large amount of tools available to work with SNMP. <code class="highlighter-rouge">snmpwalk</code> let you easily retrieve the value of a OID.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>snmpwalk -Os -c public -v 2c 192.168.1.32 1.3.6.1.4.1.2021.10.1.3.1
 laLoad.1 <span class="o">=</span> STRING: 0.19
 </code></pre>
 </div>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3><a class="title-link" name="printer-uptime-minutes" href="#printer-uptime-minutes"></a> Printer uptime minutes</h3>
+<p>According to the most common SNMP standard, the uptime of a device is accessible under OID <code class="highlighter-rouge">1.3.6.1.2.1.1.3.0</code>. The value represented using a format called <code class="highlighter-rouge">TimeTicks</code>, in units of hundredth of a second.</p>
+<p>To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">snmp</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Printer</span><span class="nv"> </span><span class="s">uptime'</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.2.21</span>
+    <span class="s">baseoid</span><span class="pi">:</span> <span class="s">1.3.6.1.2.1.1.3.0</span>
+    <span class="s">accept_errors</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">minutes'</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{((value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int)</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">6000)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int}}'</span>
+</code></pre>
+</div>
+<p>The <code class="highlighter-rouge">accept_errors</code> option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a <code class="highlighter-rouge">-</code> instead of a minute count.</p>
+<p>The <code class="highlighter-rouge">value_template</code> option converts the original value to minutes.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
