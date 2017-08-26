@@ -46,7 +46,7 @@ What's not available?
 
 Follow the setup process using your phone and Mi Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
 
-To enable Xioami gateway in your installation, add the following to your `configuration.yaml` file:
+To enable Xiaomi gateway in your installation, add the following to your `configuration.yaml` file:
 
 ### {% linkable_title One Gateway %}
 
