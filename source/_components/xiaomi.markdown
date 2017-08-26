@@ -129,9 +129,25 @@ Automation example
       gw_mac: xxxxxxxxxxxx
 ```
 
+### {% linkable_title Troubleshooting %}
+
+**Connection problem**
+
+```bash
+2017-08-20 16:51:19 ERROR (SyncWorker_0) [homeassistant.components.xiaomi] No gateway discovered
+2017-08-20 16:51:20 ERROR (MainThread) [homeassistant.setup] Setup failed for xiaomi: Component failed to initialize.
+```
+
+That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
+- Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832
+- Turn off the firewall on the system where Home Assistant is running 
+- Try to leave the MAC address `mac:` blank. 
+- Try to set `discovery_retry: 10`
+- Try to disable and then enable LAN access
+
 ### {% linkable_title Retrieving the Access Token %}
 
-Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various `xiaomi` platforms.
+Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various `xiaomi_*` platforms.
 
 Before you begin you need to install `libffi-dev` by running the command below. This is needed for `python-mirobi` to be installed correctly.
 
@@ -193,18 +209,3 @@ $ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar 
 4. Extract this file: **`/raw data/com.xiami.mihome/1234567_mihome.sqlite`** to your computer, where `_1234567_` is any string of numbers.
 5. Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column **`ZToken`** and looks like **`123a1234567b12345c1d123456789e12`**.
 
-### {% linkable_title Troubleshooting %}
-
-**Connection problem**
-
-```bash
-2017-08-20 16:51:19 ERROR (SyncWorker_0) [homeassistant.components.xiaomi] No gateway discovered
-2017-08-20 16:51:20 ERROR (MainThread) [homeassistant.setup] Setup failed for xiaomi: Component failed to initialize.
-```
-
-That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
-- Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832
-- Turn off the firewall on the system where Home Assistant is running 
-- Try to leave the MAC address `mac:` blank. 
-- Try to set `discovery_retry: 10`
-- Try to disable and then enable LAN access
