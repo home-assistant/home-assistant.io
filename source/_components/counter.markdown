@@ -32,6 +32,8 @@ Configuration variables:
   - **step** (*Optional*): Step value for the slider. Defaults to 1.
   - **icon** (*Optional*): Icon for entry.
 
+Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+
 ## {% linkable_title Services %}
 
 ### {% linkable_title Media control services %}
@@ -43,7 +45,7 @@ Increments the counter with 1 or the given value for the steps.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of entity to take the action, e.g. `counter.count0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
 #### {% linkable_title Service `counter/decrement` %}
 
@@ -51,7 +53,7 @@ Decrements the counter with 1 or the given value for the steps.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of entity to take the action, e.g. `counter.count0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
 #### {% linkable_title Service `counter/reset` %}
 
@@ -59,7 +61,7 @@ With this service the counter is reset to its initial value.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of entity to take the action, e.g. `counter.count0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
 
 ### {% linkable_title Use the service %}
