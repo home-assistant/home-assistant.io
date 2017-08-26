@@ -14,7 +14,7 @@ ha_release: 0.13
 
 The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
-To enable this platform, add the following lines to your `configuration.yaml`:
+To enable this platform in your installation, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,11 +35,11 @@ input_select:
 
 Configuration variables:
 
-- **[alias]** (*Required*): Alias for the input.
-- **name** (*Optional*): Friendly name of the input.
-- **options** array: List of options to choose from
-- **initial** (*Optional*): Initial value when Home Assistant starts.
-- **icon** (*Optional*): Icon for entry.
+- **[alias]** array (*Required*): Alias for the input. Multiple entries are allowed..
+  - **name** (*Optional*): Friendly name of the input.
+  - **options** array  (*Required*): List of options to choose from.
+  - **initial** (*Optional*): Initial value when Home Assistant starts.
+  - **icon** (*Optional*): Icon for entry.
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 

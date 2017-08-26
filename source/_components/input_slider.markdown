@@ -14,6 +14,8 @@ ha_release: 0.16
 
 The `input_slider` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the slider generate state events. These state events can be utilized as `automation` triggers as well. 
 
+To enable this input sliders in your installation, add the following lines to your `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entry
 input_slider:
@@ -27,12 +29,12 @@ input_slider:
 
 Configuration variables:
 
-- **[alias]** (*Required*): Alias for the slider input.
-- **min** (*Required*): Minimum value for the slider.
-- **max** (*Required*): Maximum value for the slider.
-- **name** (*Optional*): Friendly name of the slider input.
-- **initial** (*Optional*): Initial value when Home Assistant starts.
-- **step** (*Optional*): Step value for the slider.
+- **[alias]** (*Required*): Alias for the slider input. Multiple entries are allowed.
+  - **min** (*Required*): Minimum value for the slider.
+  - **max** (*Required*): Maximum value for the slider.
+  - **name** (*Optional*): Friendly name of the slider input.
+  - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to 0.
+  - **step** (*Optional*): Step value for the slider. Defaults to 1.
 
 ## {% linkable_title Automation Examples %}
 
