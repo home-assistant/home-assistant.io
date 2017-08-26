@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `xiaomi_philipslight` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp and Xiaomi Philips LED Ceiling Lamp.
 
-Current supported features are `on`, `off`, `set_cct` (colortemp) , `set_bright` (brightness).
+Currently, the supported features are `on`, `off`, `set_cct` (colortemp) , `set_bright` (brightness).
 
 Please follow the instructions on [Retrieving the Access Token](/xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
