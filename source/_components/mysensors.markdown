@@ -61,7 +61,7 @@ Configuration variables:
 - **optimistic** (*Optional*): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
 - **retain** (*Optional*): Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway. Default is true.
 - **nodes** (*Optional*): Nodes that need a custom name.
-  - **name** (*Optional*): The name the node will be renamed to. This nodename becomes part of the entity_id.
+  - **name** (*Optional*): The name the node will be renamed to. This nodename becomes part of the entity_id. Default the entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
 
 <p class='note'>
 Not all features of MySensors 2.0 are yet supported by Home Assistant. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
