@@ -23,10 +23,6 @@ To enable the Mycroft AI notification in your installation, add the following to
 # Example configuration.yaml entry
 notify:
   - platform: mycroft
-    mycroft_ip: MYCROFT_IP_ADDRESS
 ```
-
-Configuration variables:
-- **mycroft_ip** (*Required*): Your mycroft ip address, IE 0.0.0.0
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
