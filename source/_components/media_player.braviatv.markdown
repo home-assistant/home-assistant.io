@@ -33,44 +33,43 @@ Configuration variables:
 - **host** (*Required*): The IP of the Sony Bravia TV, eg. 192.168.0.10
 - **name** (*Optional*): The name to use on the frontend.
 
-You are also able to configure the TV manually by placing a `bravia.conf` file in your `.homeassistant` config directory with the following information - please update the details to match your setup:
+You are also able to configure the TV manually by placing a `bravia.conf` file in your [configuration directory](/docs/configuration/) with the following information - please update the details to match your setup:
 
 ```json
 {"192.168.0.10": {"pin": "7745", "mac": "ac:1e:0a:e1:0c:01"}}
 ```
 
-## For TVs older than 2013.
+## {% linkable_title For TVs older than 2013 %}
 
-Users of TVs older than 2013 still have several options for controlling their TV via Home Assistant.
+Users of TVs older than 2013 have another option for controlling their TV via Home Assistant.
 
-Unfortunately depending on desired goal, the outcome may have some undesired trade off.
-
-#### Using HDMI-CEC ####
+### {% linkable_title Using HDMI-CEC %}
 
 If you have a Raspberry Pi connected to your TV:
 
-```json
-- platform: command_line
-  switches:
-    tv_rpi:
-      command_on: ssh root@[IP] "echo 'on 0' | cec-client -s"
-      command_off: ssh root@[IP] "echo 'standby 0' | cec-client -s"
-      command_state: ssh root@[IP] "echo 'pow 0' | cec-client -s |grep 'power status:'"
-      value_template: '{{ value == "power status: on" }}'
+```yaml
+switch:
+  - platform: command_line
+    switches:
+      tv_rpi:
+        command_on: ssh root@[IP] "echo 'on 0' | cec-client -s"
+        command_off: ssh root@[IP] "echo 'standby 0' | cec-client -s"
+        command_state: ssh root@[IP] "echo 'pow 0' | cec-client -s |grep 'power status:'"
+        value_template: {% raw %}'{{ value == "power status: on" }}{% endraw %}'
 ```
 
-Using cec-client seems like a great method to turn your TV off/on, however the trade off is if you're using Kodi, it will no longer be able to control your TV using the TV Remote. 
+Using `cec-client` is a great method to turn your TV off/on, however the trade off is if you're using Kodi, it will no longer be able to control your TV using the TV Remote. 
 
-This is because only one process can control the CEC functionality within the Raspberry Pi at a time, and running the above commands terminates the functionality inside libCEC within Kodi. Kodi must be restarted for TV remove functionality to work again.
+This is because only one process can control the CEC functionality within the Raspberry Pi at a time and running the above commands terminates the functionality inside libCEC within Kodi. Kodi must be restarted for TV remove functionality to work again.
 
 **Workaround:**
 
 If your desire is only to turn on your TV, the following "workaround" may be desirable:
 
-Change the 'on' command to a restart for Kodi - this doesn't reboot the Kodi device.
+Change the 'on' command to a restart for Kodi. This doesn't reboot the Kodi device.
 
 Restarting Kodi will trigger a HDMI-CEC event to bring the TV out of standby. The following can replace your TV 'on' command.
 
-```json
+```yaml
 command_on: ssh root@[IP] "systemctl restart kodi"
 ```
