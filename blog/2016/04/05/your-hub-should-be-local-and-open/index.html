@@ -6,23 +6,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Updated documentation - Home Assistant</title>
+    <title>Your hub should be local and open - Home Assistant</title>
     <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="We have reorganised our documentation which should make it easier to get started and develop for Home Assistant.">
+    <meta name="description" content="Running a hub that depends on the cloud is a risk that can cost you your home automation.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="/blog/2016/04/16/updated-documentation/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Updated documentation">
+    <meta property="og:title" content="Your hub should be local and open">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="/blog/2016/04/16/updated-documentation/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="We have reorganised our documentation which should make it easier to get started and develop for Home Assistant.">
+    <meta property="og:description" content="Running a hub that depends on the cloud is a risk that can cost you your home automation.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Updated documentation">
-    <meta name="twitter:description" content="We have reorganised our documentation which should make it easier to get started and develop for Home Assistant.">
+    <meta name="twitter:title" content="Your hub should be local and open">
+    <meta name="twitter:description" content="Running a hub that depends on the cloud is a risk that can cost you your home automation.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,15 +70,15 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">Updated documentation</h1>
+  <h1 class="title indent">Your hub should be local and open</h1>
   <div class="meta clearfix">
-    <time datetime="2016-04-16T23:09:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 17, 2016</time>
+    <time datetime="2016-04-05T21:11:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 5, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
     <span><i class='icon-time'></i> 1 minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>Website</li>
+        <li>Internet-of-Things</li>
     </ul>
   </span>
       <a class='comments'
@@ -86,11 +86,13 @@
          >Comments</a>
   </div>
 </header>
-  <p>One of the main complaints that we receive is something along the lines “I read that X is possible yet I am unable to find it on the website.”. This post is to announce that we have taken the first steps to improve it by revamping the <a href="/getting-started/">getting started</a> and <a href="/developers/">developers</a> sections. It’s still a work in progress but we now have a solid foundation to build on for the future 👍.</p>
-<p>Our documentation has been going through various phases. Initially it was just the README in our GitHub repository. I discovered Jekyll and GitHub pages in December 2014 and created home-assistant.io. I more or less broke the README in 5 pages and <a href="/blog/2014/12/18/website-launched/">called it a website</a>. Back then we had a whopping <a href="https://github.com/home-assistant/home-assistant.io/blob/86bb2df430ce267ab2123d51592d3f068ae509b5/source/components/index.markdown">11 components</a>.</p>
-<p>As Home Assistant grew, so did our documentation. <a href="https://github.com/fabaff">Fabian Affolter</a> does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that’s quite a feat given our <a href="https://home-assistant.io/blog/categories/release-notes/">frequent releases</a>! But despite all the efforts, the documentation outgrew our existing documentation organisation.</p>
-<p>Today it has been almost 1.5 years since we started the website. We now have <a href="/components/">264 components and platforms</a> under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.</p>
-<p>Finally, if you see some content that could use more clarifcation or is outdated, don’t hesitate to use the ‘Edit in GitHub’ link that is present on each page.</p>
+  <p>Today the news spread that Google will be <a href="https://medium.com/@arlogilbert/the-time-that-tony-fadell-sold-me-a-container-of-hummus-cb0941c762c1#.rmppks86a">shutting down the Revolv hubs</a>. And shutting down here doesn’t mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as <a href="https://discuss.ninjablocks.com/t/ninja-blocks-whats-been-happening-whats-happening-next/3608">ninjasphere</a>: open it all up and let people decide on the fate of their <em>own</em> hub.</p>
+<p>I’ve said it <a href="/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud">before</a> but I’ll repeat it again:</p>
+<blockquote>
+  <p>The cloud should be treated as an extension to your smart home instead of running it.</p>
+</blockquote>
+<p>Your hub should not be affected when your internet breaks down or the company that sold you your hub goes out of business. It should work locally so that it can continue to work even long after the vendor goes out of business or decides to kill it. Preferably, your hub should also be open so that the community can take over development after the vendor stops caring.</p>
+<p>Unless you can afford losing a product here and there, be cautious when buying IoT products that depend on the cloud from companies that are not well established. The chances are high that they go bankrupt or get acquired and closed. This however is easier said than done as <a href="http://www.gartner.com/newsroom/id/2869521">Gartner</a> predicts that by 2017, 50 percent of IoT solutions will originate in startups that are less than three years old.</p>
 </article>
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
@@ -120,10 +122,10 @@
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="/blog/2016/04/16/updated-documentation/"
-     data-counturl="/blog/2016/04/16/updated-documentation/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"
+     data-counturl="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="/blog/2016/04/16/updated-documentation/"
+         data-href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -182,8 +184,8 @@
 <script>
   var disqus_shortname = 'home-assistant';
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2016/04/16/updated-documentation/';
-    var disqus_url = 'https://home-assistant.io/blog/2016/04/16/updated-documentation/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/';
+    var disqus_url = 'https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/';
     var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

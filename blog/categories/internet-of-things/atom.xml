@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Internet-of-Things | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/internet-of-things/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-08-27T19:41:09+00:00</updated>
+  <updated>2017-08-27T21:44:19+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -150,9 +150,9 @@ As it currently stands, this is going to be the perfect companion hardware to wo
   
   <entry>
     <title type="html"><![CDATA[Your hub should be local and open]]></title>
-    <link href="https://home-assistant.io/blog/2016/04/04/your-hub-should-be-local-and-open/"/>
-    <updated>2016-04-05T04:11:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/04/04/your-hub-should-be-local-and-open</id>
+    <link href="https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open/"/>
+    <updated>2016-04-05T21:11:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/04/05/your-hub-should-be-local-and-open</id>
     <content type="html"><![CDATA[Today the news spread that Google will be [shutting down the Revolv hubs][medium-revolv]. And shutting down here doesn't mean they stop selling or supporting them - no, they are sending an update to each hub to turn your perfectly fine home automation hub into a useless piece of plastic. The fact that this seemed like a good idea by Google astonishes me. If anything, they should have gone the same route as [ninjasphere]: open it all up and let people decide on the fate of their _own_ hub.
 
 I've said it [before][perfect-cloud] but I'll repeat it again:
@@ -174,9 +174,9 @@ Unless you can afford losing a product here and there, be cautious when buying I
   
   <entry>
     <title type="html"><![CDATA[Classifying the Internet of Things]]></title>
-    <link href="https://home-assistant.io/blog/2016/02/11/classifying-the-internet-of-things/"/>
-    <updated>2016-02-12T06:31:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2016/02/11/classifying-the-internet-of-things</id>
+    <link href="https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/"/>
+    <updated>2016-02-12T22:31:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things</id>
     <content type="html"><![CDATA[The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.
 
 Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.
