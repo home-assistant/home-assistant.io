@@ -32,13 +32,13 @@ The `xiaomi` platform allows you to integrate the following [Xiaomi](http://www.
 - Smoke Detector (reports alarm and density)
 - Gateway (Light, Illumination Sensor, Ringtone play)
 - Intelligent Curtain
+- Water Leak Sensor
 - Battery
 
 What's not available?
 
 - Gateway Radio
 - Gateway Button
-- Water Sensor
 - Aqara Air Conditioning Companion
 - Aqara Intelligent Air Conditioner Controller Hub
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
