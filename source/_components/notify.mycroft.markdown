@@ -2,7 +2,7 @@
 layout: page
 title: "Mycroft AI"
 description: "Instructions how to add Mycroft AI notifications to Home Assistant."
-date: 2017-08-26 17:00
+date: 2017-08-26 17:00 UTC
 sidebar: true
 comments: false
 sharing: true
