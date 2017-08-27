@@ -25,7 +25,7 @@ mycroft:
 
 The `mycroft` notification platform allows you to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
 
-To use this notification platform you simply need to input into the configuration your mycroft instance IP.  This can be a mark 1 or a picroft, etc.  You will input this IP in the settings below.
+To use this notification platform you simply need to input into the configuration that mycroft is your notification platform like seen below.
 
 
 To enable the Mycroft AI notification in your installation, add the following to your `configuration.yaml` file:
