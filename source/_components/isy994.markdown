@@ -88,7 +88,7 @@ A device is created by creating a directory, with the name for the device, under
  * *HA.lock* will create a lock
  * *HA.switch* will create a switch
 
-A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored.
+A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored. The *status* program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the *action* program.
 
 <p class='img'>
   <img src='{{site_root}}/images/isy994/isy994_CoverExample.png' />
