@@ -12,4 +12,4 @@ ha_category: Notifications
 ha_release: "0.53"
 ---
 
-Please see the main [Mycroft Component](/_components/mycroft)
+Please see the main [Mycroft Component](/components/mycroft)
