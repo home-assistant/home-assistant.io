@@ -25,15 +25,7 @@ mycroft:
 
 The `mycroft` notification platform allows you to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
 
-To use this notification platform you simply need to input into the configuration that mycroft is your notification platform like seen below.
+To use this notification platform you simply need to input into the configuration that mycroft is your notification platform like seen above.
 
-
-To enable the Mycroft AI notification in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: mycroft
-```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
