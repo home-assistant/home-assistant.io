@@ -80,7 +80,7 @@ When themes are enabled in the `configuration.yaml` file, a new option will show
 
 ## {% linkable_title Loading extra HTML %}
 
-Starting with version 0.53 you can specify extra html files to load:
+Starting with version 0.53 you can specify extra HTML files to load.
 
 Example:
 
