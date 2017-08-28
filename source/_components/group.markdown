@@ -58,7 +58,7 @@ Configuration variables:
 
 - **view** (*Optional*): If yes then the entry will be shown as a view (tab) at the top.
 - **name** (*Optional*): Name of the group.
-- **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If it's not a view, then the icon shows when this group is used in another group.
+- **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the fronted and the name will be displayed as the mouse-over text.  If it's not a view, then the icon shows when this group is used in another group.
 - **control** (*Optional*): Set value to `hidden`. If hidden then the group switch will be hidden.
 - **entities** (*Required*): array or comma delimited string, list of entities to group.
 
