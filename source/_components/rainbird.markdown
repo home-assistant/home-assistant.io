@@ -39,5 +39,7 @@ You can then create UI elements with your own service calls to the `rainbird` se
 **stop_irrigation** has no parameters and will stop any running irrigation
 **start_irrigation** takes 2 parameters. To start the sprinkers in zone 2 for the duration of 10 minutes: { "station":2, "duration": 10 }
 
+Add switches for every zone to the configuration by visiting the [Rain Bird Switch page](/components/switch.rainbird/)
+
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
 The polling interval is set to 30 seconds.
