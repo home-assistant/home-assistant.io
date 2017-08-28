@@ -18,7 +18,7 @@ There is currently support for climate, covers, lights, locks, sensors, switches
 
 As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed.
 
-There is one dependency you will need to have installed ahead of time:
+There is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
