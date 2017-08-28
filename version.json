@@ -1,15 +1,15 @@
 {
-  "current_version": "0.52.0",
-  "release_date": "2017-08-26T00:00:00+00:00",
+  "current_version": "0.52.1",
+  "release_date": "2017-08-28T00:00:00+00:00",
   "release_notes": "https://home-assistant.io/blog/2017/08/26/release-0-52/",
   "release_notes_path": "/blog/2017/08/26/release-0-52/",
   "release_title": "0.52: Scripts editor, Nello.io locks, HipChat and Abode Home Security",
   "release_description": "The summer is not holding development back at all. A brand new release including bug fixes and goodies.",
-  "patch_version_notes": "#",
+  "patch_version_notes": "#release-0521---august-28",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
     "minor": 52,
-    "patch": 0
+    "patch": 1
   }
 }
