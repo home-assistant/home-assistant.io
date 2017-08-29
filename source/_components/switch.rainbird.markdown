@@ -34,7 +34,7 @@ switch:
 
 Configuration variables:
 
-- **zone** (*Required*): Station zone identifier. Wich zone / valve to start.
+- **zone** (*Required*): Station zone identifier.
 - **friendly_name** (*Optional*): Just a friendly name for the station.
 - **trigger_time** (*Required*): The default duration to sprinkle the zone.
 - **scan_interval** (*Optional*): How fast to refresh the switch.
