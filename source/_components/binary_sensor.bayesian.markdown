@@ -10,7 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Binary Sensor
 ha_iot_class: "Local Polling"
-ha_release: 0.52
+ha_release: 0.53
 ---
 
 
@@ -80,12 +80,14 @@ Configuration variables:
 - **prior** (*Required*): The prior probability of the event.  At any point in
 time (ignoring all external influences) how likely is this event to occur?
 - **observations** (*Required*): The observations which should influence the
-likelihood that the given event has occurred. These are modeled after the
-`state` and `numeric_state` triggers for automations, but also require
-`prob_given_true` (the probability of the observation occurring, given the event
-is true).  In addition, the optional `prob_given_false` (the probability of the
-observation occurring, givent the event is false) can be set.  If this argument
-is not passed, it will default to `1 - prob_given_true`.
+likelihood that the given event has occurred. The only supported observation
+platforms are `state` and `numeric_state`, which are modeled after their
+corresponding triggers for automations.  In addition to the automation syntax,
+the observations also require `prob_given_true` (the probability of the
+observation occurring, given the event is true).  The optional
+`prob_given_false` (the probability of the observation occurring, given the
+event is false) can be set as well.  If `prob_given_false` is not set, it will
+default to `1 - prob_given_true`.
 - **probability_threshold** (*Optional*): The probability at which the sensor
 should trigger to `on`.
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to
