@@ -208,4 +208,4 @@ $ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar 
 3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
 4. Extract this file: **`/raw data/com.xiami.mihome/1234567_mihome.sqlite`** to your computer, where `_1234567_` is any string of numbers.
 5. Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column **`ZToken`** and looks like **`123a1234567b12345c1d123456789e12`**.
-
+(Location of SQLite files directly on iOS devices **/private/var/mobile/Containers/Data/Application/A80CE9E4-AD2E-4649-8C28-801C96B16BD7/Documents/**)
