@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tesla"
-description: "Instructions for how to integrate Tesla into Home Assistant."
+description: "Instructions on for how to integrate Tesla into Home Assistant."
 date: 2017-08-02 12:20
 sidebar: true
 comments: false
@@ -14,6 +14,6 @@ ha_release: 0.53
 
 The `Tesla` platform allows you to get data about the location of your [Tesla](https://www.tesla.com/) car within Home Assistant.
 
-They will be automatically discovered if the Tesla component is loaded.
+The device tracker platform will be automatically configured if Tesla component is configured.
 
 For more configuration information see the [Tesla component](/components/tesla/) documentation.

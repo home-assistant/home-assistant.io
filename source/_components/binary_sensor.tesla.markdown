@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tesla Binary Sensor"
-description: "Instructions how to integrate Tesla binary sensors into Home Assistant."
+description: "Instructions on how to integrate Tesla binary sensors into Home Assistant."
 date: 2017-08-30 12:29
 sidebar: true
 comments: false

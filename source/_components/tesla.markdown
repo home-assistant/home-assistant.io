@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tesla"
-description: "Instructions for how to integrate Tesla car into Home Assistant."
+description: "Instructions on how to integrate Tesla car into Home Assistant."
 date: 2017-08-28 17:00
 sidebar: true
 comments: false

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Tesla HVAC"
-description: "Instructions how to integrate Tesla climate system (HVAC) into Home Assistant."
+description: "Instructions on how to integrate Tesla climate system (HVAC) into Home Assistant."
 date: 2017-08-30 12:20
 sidebar: true
 comments: false
@@ -15,6 +15,6 @@ ha_release: 0.53
 
 The `Tesla` climate platform allows you to control your [Tesla](https://www.tesla.com/) climate from within Home Assistant.
 
-They will be automatically discovered if the Tesla component is loaded.
+The climate platform will be automatically configured if Tesla component is configured.
 
 For more configuration information see the [Tesla component](/components/tesla/) documentation.
