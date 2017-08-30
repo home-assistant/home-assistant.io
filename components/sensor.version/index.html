@@ -105,7 +105,7 @@
     <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cat</span><span class="nv"> </span><span class="s">/home/homeassistant/.homeassistant/.HA_VERSION"</span>
 </code></pre>
 </div>
-<p>You might think that a <a href="/components/sensor.rest/"><code class="highlighter-rouge">rest</code> sensor</a> could work to but it will not as Home Assistant is not ready when the sensor get initialized.</p>
+<p>You might think that a <a href="/components/sensor.rest/"><code class="highlighter-rouge">rest</code> sensor</a> could work, too, but it will not as Home Assistant is not ready when the sensor get initialized.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:8123/api/config</span>
