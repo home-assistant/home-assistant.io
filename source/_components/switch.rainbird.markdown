@@ -44,4 +44,3 @@ Configuration variables:
 - **scan_interval** (*Optional*): How fast to refresh the switch.
 
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
-The polling interval is set to 30 seconds.
