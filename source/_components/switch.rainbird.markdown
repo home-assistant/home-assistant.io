@@ -20,6 +20,8 @@ To enable stations as switches inside Home Assistant, add the following to your 
 ```yaml
 switch:
     platform: rainbird
+    host: '1.1.1.1'
+    password: 'secretpassword'
     sprinkler_1:
       zone: 1
       friendly_name: "Front sprinklers"
@@ -34,7 +36,12 @@ switch:
 
 Configuration variables:
 
+- **stickip** (*Required*): The IP address of your LNK WiFi Module.
+- **password** (*Required*): The password for accessing the module.
 - **zone** (*Required*): Station zone identifier.
 - **friendly_name** (*Optional*): Just a friendly name for the station.
 - **trigger_time** (*Required*): The default duration to sprinkle the zone.
 - **scan_interval** (*Optional*): How fast to refresh the switch.
+
+Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
+The polling interval is set to 30 seconds.
