@@ -14,14 +14,14 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `Tesla` platform offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and offers presence detection as well as sensors such as charger state and temperature.
+The `Tesla` platform offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
 
-This platform provides next components:
+This platform provides the following components:
  - Binary sensors - such as parking and charger connection.
  - Sensors - such as Battery level, Inside/Outside temperature.
  - Device tracker - to track location of your car
- - Lock - Door lock. Allow you to control Tesla's door lock
- - Climate - HVAC control. Allow you to control (turn on/off, set target tempearature) your Tesla's HVAC system.
+ - Lock - Door lock. Enables you to control Tesla's door lock
+ - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
 
 To use Tesla in your installation, add the following to your `configuration.yaml` file:
 
@@ -36,4 +36,4 @@ Configuration variables:
 
 - **username** (*Required*): The email address associated with your Tesla account.
 - **password** (*Required*): The password for your given Tesla account.
-- **scan_interval** (*Optional*): API polling interval. Please do not set this interval to value less than 300, because of a possibility of a ban. (defaults to 300)
+- **scan_interval** (*Optional*): API polling interval. Minimal value can't be less then 300. (Defaults 300)
