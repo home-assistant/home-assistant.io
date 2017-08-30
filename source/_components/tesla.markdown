@@ -28,13 +28,12 @@ To use Tesla in your installation, add the following to your `configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 tesla:
-  email: email
+  username: email
   password: password
 ```
 
 Configuration variables:
 
-- **email** (*Required*): The email address associated with your Tesla account.
+- **username** (*Required*): The email address associated with your Tesla account.
 - **password** (*Required*): The password for your given Tesla account.
-- **update_interval** (*Optional*): API polling interval. Please do not set this interval to value less than 300, because of a possibility of a ban. (defaults to 300)
-
+- **scan_interval** (*Optional*): API polling interval. Please do not set this interval to value less than 300, because of a possibility of a ban. (defaults to 300)

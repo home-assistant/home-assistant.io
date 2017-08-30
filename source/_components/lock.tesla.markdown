@@ -2,7 +2,7 @@
 layout: page
 title: "Tesla Lock"
 description: "Instructions how to integrate Tesla door lock into Home Assistant."
-date: 2016-06-29 15:00
+date: 2017-08-30 12:20
 sidebar: true
 comments: false
 sharing: true

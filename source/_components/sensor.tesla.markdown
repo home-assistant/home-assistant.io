@@ -2,7 +2,7 @@
 layout: page
 title: "Tesla Sensor"
 description: "Instructions how to integrate Tesla sensors into Home Assistant."
-date: 2015-10-20 21:00
+date: 2017-08-30 12:21
 sidebar: true
 comments: false
 sharing: true

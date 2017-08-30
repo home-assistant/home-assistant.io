@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "Tesla HVAC"
-description: "Instructions how to integrate Tesla climate systemc (HVAC) into Home Assistant."
-date: 2016-09-19 21:00
+description: "Instructions how to integrate Tesla climate system (HVAC) into Home Assistant."
+date: 2017-08-30 12:20
 sidebar: true
 comments: false
 sharing: true
