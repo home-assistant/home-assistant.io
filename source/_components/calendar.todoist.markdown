@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Todoist"
-description: "Instructions how to integrate Todoist into Home Assistant."
+description: "Instructions on how to integrate Todoist into Home Assistant."
 date: 2017-08-31 2:22
 sidebar: true
 comments: false
@@ -37,7 +37,7 @@ Configuration variables:
 - **custom_projects** (*Optional*): Details on any "custom" binary sensor projects you want to create.
   - **name** (*Required*): The name of your custom project. Only required if you specify that you want to create a custom project.
   - **due_date_days** (*Optional*): Only include tasks due within this many days. If you don't have any tasks with a due date set, this returns nothing.
-  - **labels** (*Optional*): Any labels you want to filter for. All tasks in this sensor will include this label.
+  - **labels** (*Optional*): Only include tasks with at least one of these labels (i.e., this works as an `or` statement)..
   - **include_projects** (*Optional*): Only include tasks in these projects. Tasks in all other projects will be ignored.
 
 
@@ -73,7 +73,7 @@ As you can see, there are 4 custom projects here:
 
 - A project containing *all* the tasks on this account due within the next week.
 
-- A projct containing everything with the label "Homework", taking only 2 projects into account.
+- A project containing everything with the label "Homework", taking only 2 projects into account.
 
 You can mix-and-match these attributes to create all sorts of custom projects. You can even use [IFTTT](https://ifttt.com/todoist) to create a task with a certain label, then have Home Assistant do some kind of automation when a task with that label comes due.
 
@@ -109,7 +109,7 @@ Home Assistant does its best to determine what task in each project is "most" im
 
 ### {% linkable_title Services %}
 
-Todoist also comes with access to a service, `todoist.new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank and the task will go to your "Inbox" project.
+Todoist also comes with access to a service, `todoist.new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your "Inbox" project.
 
 Here's an example JSON payload:
 
@@ -129,7 +129,7 @@ Here's an example JSON payload:
 
 - **labels** (*Optional*): Any labels you want to add to the task, separated by commas.
 
-- **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important and 4 means most important.
+- **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
 
 - **due_date** (*Optional*): When the task should be due, in YYYY-MM-DD format.
 
