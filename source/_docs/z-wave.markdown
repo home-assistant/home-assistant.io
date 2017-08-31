@@ -190,14 +190,14 @@ automation
       - event_type: zwave.scene_activated
         platform: event
         event_data:
-          entity_id: light.diningroomcans_level
+          entity_id: zwave.diningroomcans_level
           scene_id: 1
           scene_data: 3
 ```
 
 The *object_id* and *scene_id* of all triggered events can be seen in the console output.
 
-For more information on HomeSeer devices and similar devices, please see the [device specific page](https://home-assistant.io/docs/z-wave/device-specific/#aeon-minimote)
+For more information on HomeSeer devices and similar devices, please see the [device specific page](https://home-assistant.io/docs/z-wave/device-specific/#homeseer-switches).
 
 ### {% linkable_title Services %}
 
