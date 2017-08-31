@@ -14,9 +14,9 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `Tesla` platform offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
+The `Tesla` component offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
 
-This platform provides the following components:
+This component provides the following platforms:
  - Binary sensors - such as parking and charger connection.
  - Sensors - such as Battery level, Inside/Outside temperature.
  - Device tracker - to track location of your car
