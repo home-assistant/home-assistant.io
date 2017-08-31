@@ -190,7 +190,7 @@ automation
       - event_type: zwave.scene_activated
         platform: event
         event_data:
-          entity_id: zwave.diningroomcans_level
+          entity_id: zwave.dining_room_cans
           scene_id: 1
           scene_data: 3
 ```
