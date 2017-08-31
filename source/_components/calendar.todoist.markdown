@@ -66,6 +66,7 @@ calendar:
 (See [here](https://home-assistant.io/docs/configuration/secrets/) for more details about what that `!secret` does -- it's not exclusive to Todoist, and can help keep your API keys and passwords a little safer!)
 
 As you can see, there are 4 custom projects here:
+
 - A project containing *all* of the tasks on this account.
 
 - A project containing *all* the tasks on this account that are due today.
@@ -105,3 +106,31 @@ Home Assistant does its best to determine what task in each project is "most" im
 - **overdue**: Whether the reported task is past its due date.
 
 - **due_today**: Whether the reported task is due today.
+
+### {% linkable_title Services %}
+
+Todoist also comes with access to a service, `todoist.new_task`. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank and the task will go to your "Inbox" project.
+
+Here's an example JSON payload:
+
+```json
+{
+    "content": "Pick up the mail",
+    "project": "Errands",
+    "labels":"Homework,School",
+    "priority":3,
+    "due_date":"2017-09-01"
+}
+```
+
+- **content** (*Required*): The name of the task you want to create.
+
+- **project** (*Optional*): The project to put the task in.
+
+- **labels** (*Optional*): Any labels you want to add to the task, separated by commas.
+
+- **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important and 4 means most important.
+
+- **due_date** (*Optional*): When the task should be due, in YYYY-MM-DD format.
+
+Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.
