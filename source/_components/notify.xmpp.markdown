@@ -34,6 +34,7 @@ Configuration variables:
 - **password** (*Required*): The password for your given Jabber account.
 - **recipient** (*Required*): The Jabber ID (JID) that will receive the messages.
 - **tls** (*Optional*): Allow to disable TLS. Defaults to `true`.
+- **verify** (*Optional*): Allow to disable SSL certificate validity check (eg. self-signed certificate). Defaults to `true`.
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 
