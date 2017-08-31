@@ -180,48 +180,24 @@ automation:
         scene_id: 11
 ```
 
-Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  This does support the OpenZwave CentralScene handler.  This is an example of double clicking the on/up button:
+Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  These devices will also send `scene_data` to differentiate the events.  This is an example of double clicking the on/up button:
 
 ```yaml
 # Example configuration.yaml automation entry
 automation
   - alias: 'Dining room dimmer - double tap up'
     trigger:
-      - event_data:
+      - event_type: zwave.scene_activated
+        platform: event
+        event_data:
           entity_id: light.diningroomcans_level
           scene_id: 1
           scene_data: 3
-        event_type: zwave.scene_activated
-        platform: event
-    action:
-        service: homeassistant.turn_on
-        entity_id: group.kitchen
 ```
-
-For the HomeSeer devices specifically, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
-
-```xml
-			<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
-				<Instance index="1" />
-                <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
-        		<Value type="int" genre="user" instance="1" index="1" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
-        		<Value type="int" genre="user" instance="1" index="2" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
-			</CommandClass>
-```
-
-Below is a table of the action/scenes for the HomeSeer devices (as a reference for other similar devices):
-
-**Action**|**scene\_id**|**scene\_data**
-:-----:|:-----:|:-----:
-Single tap on|1|0
-Single tap off|2|0
-Double tap on|1|3
-Double tap off|2|3
-Triple tap on|1|4
-Triple tap off|2|4
-Tap and hold on|1|2
 
 The *object_id* and *scene_id* of all triggered events can be seen in the console output.
+
+For more information on HomeSeer devices and similar devices, please see the [device specific page](https://home-assistant.io/docs/z-wave/device-specific/#aeon-minimote)
 
 ### {% linkable_title Services %}
 
