@@ -180,7 +180,7 @@ automation:
         scene_id: 11
 ```
 
-Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  This is an example of double clicking the on/up button:
+Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  This does support the OpenZwave CentralScene handler.  This is an example of double clicking the on/up button:
 
 ```yaml
 # Example configuration.yaml automation entry
