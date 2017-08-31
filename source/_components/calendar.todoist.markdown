@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Todoist Tasks"
+title: "Todoist"
 description: "Instructions how to integrate Todoist into Home Assistant."
 date: 2017-08-31 2:22
 sidebar: true
@@ -28,7 +28,7 @@ To integrate Todoist in Home Assistant, add the following section to your `confi
 # Example configuration.yaml entry
 calendar:
   - platform: todoist
-    token: *API_token_created_from_steps_above*
+    token: API_token_created_from_steps_above
 ```
 
 Configuration variables:
@@ -66,7 +66,6 @@ calendar:
 (See [here](https://home-assistant.io/docs/configuration/secrets/) for more details about what that `!secret` does -- it's not exclusive to Todoist, and can help keep your API keys and passwords a little safer!)
 
 As you can see, there are 4 custom projects here:
-
 - A project containing *all* of the tasks on this account.
 
 - A project containing *all* the tasks on this account that are due today.
