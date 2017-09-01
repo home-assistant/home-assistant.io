@@ -85,14 +85,14 @@ action:
 - **file** (*Required*): File to send with Pushbullet.
 
 
-### {% linkable_title File url support %}
+### {% linkable_title File URL support %}
 
 ```yaml
 action:
   service: notify.NOTIFIER_NAME
   data:
     title: Send file
-    message: This is a file url
+    message: This is a file URL
     data:
       file_url:  https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_960_720.jpg
 ```
