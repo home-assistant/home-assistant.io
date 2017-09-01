@@ -115,3 +115,29 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
        entity_id: zwave.aeon_labs_minimote_1
        scene_id: 8
 ```
+
+
+##### {% linkable_title HomeSeer Switches %}
+
+For the HomeSeer devices specifically, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+			<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+				<Instance index="1" />
+                <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="2" />
+        		<Value type="int" genre="user" instance="1" index="1" label="Top Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        		<Value type="int" genre="user" instance="1" index="2" label="Bottom Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+			</CommandClass>
+```
+
+Below is a table of the action/scenes for the HomeSeer devices (as a reference for other similar devices):
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Single tap on|1|0
+Single tap off|2|0
+Double tap on|1|3
+Double tap off|2|3
+Triple tap on|1|4
+Triple tap off|2|4
+Tap and hold on|1|2
