@@ -159,6 +159,19 @@
 <ul>
   <li><strong>file</strong> (<em>Required</em>): File to send with Pushbullet.</li>
 </ul>
+<h3><a class="title-link" name="file-url-support" href="#file-url-support"></a> File URL support</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">notify.NOTIFIER_NAME</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">title</span><span class="pi">:</span> <span class="s">Send file</span>
+    <span class="s">message</span><span class="pi">:</span> <span class="s">This is a file URL</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">file_url</span><span class="pi">:</span>  <span class="s">https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_960_720.jpg</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>file_url</strong> (<em>Required</em>): File to send with Pushbullet.</li>
+</ul>
 <p class="note">
 Don’t forget to <a href="/docs/configuration/basic/">whitelist external directories</a>, so Home Assistant has access to them.
 </p>
