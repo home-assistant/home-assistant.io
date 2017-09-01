@@ -21,9 +21,6 @@ The `mopar` sensor provides the following for owners of FCA vehicles with a uCon
 
 Be sure you have a [mopar.com](http://mopar.com) account with your vehicle(s) registered by VIN. You must also have a current uConnect subscription.
 
-
-## Configuration
-
 To enable this sensor, add the following lines to your `configuration.yaml`.
 
 ```yaml
@@ -36,18 +33,18 @@ sensor:
 
 Configuration options for the Mopar sensor:
 
-- **username** (*Required*): mopar.com username
-- **password** (*Required*): mopar.com password
-- **pin** (*Required*): uConnect pin
+- **username** (*Required*): Your mopar.com username.
+- **password** (*Required*): Your mopar.com password.
+- **pin** (*Required*): Your uConnect pin.
 
-## Service
+## {% linkable_title Service %}
 
 Call the `mopar.remote_command` service to perform a remote command on your vehicle.
 
-- **vehicle_index** (*Required*): `vehicle_index` attribute found on sensor
-- **command** (*Required*): one of `lock/unlock/engineon/engineoff/horn`
+- **vehicle_index** (*Required*): `vehicle_index` attribute found on sensor.
+- **command** (*Required*): One of `lock/unlock/engineon/engineoff/horn`.
 
-### Example
+Example data:
 
 ```json
 {
