@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: geofency.png
 ha_category: Presence Detection
-ha_release: 0.52
+ha_release: 0.53
 ---
 
 This platform allows you to detect presence using [Geofency](http://www.geofency.com/). Geofency is a [paid app](https://itunes.apple.com/app/id615538630) for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.
