@@ -101,6 +101,10 @@ An easy script to generate a random key:
 cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g'
 ```
 
+### {% linkable_title Battery Powered Devices %}
+
+Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
+
 ### {% linkable_title Events %}
 
 #### {% linkable_title zwave.network_complete %}
