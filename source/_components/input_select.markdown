@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
-ha_release: 0.52
+ha_release: 0.13
 ---
 
 The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
@@ -37,7 +37,7 @@ Configuration variables:
 
 - **[alias]** array (*Required*): Alias for the input. Multiple entries are allowed..
   - **name** (*Optional*): Friendly name of the input.
-  - **options** array  (*Required*): List of options to choose from.
+  - **options** array (*Required*): List of options to choose from.
   - **initial** (*Optional*): Initial value when Home Assistant starts.
   - **icon** (*Optional*): Icon for entry.
 
@@ -71,7 +71,7 @@ automation:
           option: Paulus
 ```
 
-To dynamically set the `input_select` options you can call `input_select.set_options`. The following example can be used in an automation:
+To dynamically set the `input_select` options you can call `input_select.set_options`. The following example can be used in an automation rule:
 
 ```yaml
 # Example configuration.yaml entry
