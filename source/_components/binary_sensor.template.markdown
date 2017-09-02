@@ -32,6 +32,7 @@ Configuration variables:
   - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
   - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
+  - **update_interval** (*Optional*): Defines a time interval after which the sensor's template will be re-evaluated, even if none of the entities have changed their state.
 
 ## {% linkable_title Examples %}
 
@@ -145,4 +146,18 @@ binary_sensor:
           - binary_sensor.living_room_139
           - binary_sensor.porch_ms6_1_129
           - binary_sensor.family_room_144
+```
+
+### {% linkable_title Detect broken components %}
+
+This example shows how to use a template binary sensor to detect when an entity has not been updated for a certain time. In combination with the alert component, this can be useful to alert you when some entity has stopped sending updates for some reason.
+
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      datastream_broken:
+        value_template: {% raw %}"{{ as_timestamp(now()) - as_timestamp(states.sensor.some_mqtt_sensor.last_changed) > 600"{% endraw %}
+        update_interval:
+          minutes: 1
 ```
