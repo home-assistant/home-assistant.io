@@ -145,6 +145,8 @@ Some Z-Wave controllers, like Aeotec ZW090 Z-Stick Gen5, have ability to add dev
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'0-9A-F'</span> | fold -w 32 | head -n 1 | sed -e <span class="s1">'s/\(..\)/0x\1, /g'</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="battery-powered-devices" href="#battery-powered-devices"></a> Battery Powered Devices</h3>
+<p>Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.</p>
 <h3><a class="title-link" name="events" href="#events"></a> Events</h3>
 <h4><a class="title-link" name="zwavenetwork_complete" href="#zwavenetwork_complete"></a> zwave.network_complete</h4>
 <p>Home Assistant will trigger an event when the Z-Wave network is complete, meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery-powered devices on the network.</p>
