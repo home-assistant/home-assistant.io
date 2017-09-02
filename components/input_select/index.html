@@ -97,7 +97,7 @@
   <li><strong>[alias]</strong> array (<em>Required</em>): Alias for the input. Multiple entries are allowed..
     <ul>
       <li><strong>name</strong> (<em>Optional</em>): Friendly name of the input.</li>
-      <li><strong>options</strong> array  (<em>Required</em>): List of options to choose from.</li>
+      <li><strong>options</strong> array (<em>Required</em>): List of options to choose from.</li>
       <li><strong>initial</strong> (<em>Optional</em>): Initial value when Home Assistant starts.</li>
       <li><strong>icon</strong> (<em>Optional</em>): Icon for entry.</li>
     </ul>
@@ -126,6 +126,20 @@ Because YAML defines <a href="http://yaml.org/type/bool.html">booleans</a> as eq
         <span class="s">data</span><span class="pi">:</span>
           <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_select.who_cooks</span>
           <span class="s">option</span><span class="pi">:</span> <span class="s">Paulus</span>
+</code></pre>
+</div>
+<p>To dynamically set the <code class="highlighter-rouge">input_select</code> options you can call <code class="highlighter-rouge">input_select.set_options</code>. The following example can be used in an automation rule:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">example automation</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">MY_CUSTOM_EVENT</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_select.set_options</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_select.who_cooks</span>
+          <span class="s">options</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">Item</span><span class="nv"> </span><span class="s">A"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">Item</span><span class="nv"> </span><span class="s">B"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">Item</span><span class="nv"> </span><span class="s">C"</span><span class="pi">]</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="scenes" href="#scenes"></a> Scenes</h3>
