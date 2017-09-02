@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
-ha_release: 0.13
+ha_release: 0.52
 ---
 
 The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
@@ -69,6 +69,22 @@ automation:
         data:
           entity_id: input_select.who_cooks
           option: Paulus
+```
+
+To dynamically set the `input_select` options you can call `input_select.set_options`. The following example can be used in an automation:
+
+```yaml
+# Example configuration.yaml entry
+automation:
+  - alias: example automation
+    trigger:
+      platform: event
+      event_type: MY_CUSTOM_EVENT
+    action:
+      - service: input_select.set_options
+        data:
+          entity_id: input_select.who_cooks
+          options: ["Item A", "Item B", "Item C"]
 ```
 
 ### {% linkable_title Scenes %}
