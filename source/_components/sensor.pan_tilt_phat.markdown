@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pan-tilt HAT"
-description: "Instructions on add the Pimoroni Pan-Tilt hat to Home Assistant."
+description: "Instructions on adding the Pimoroni Pan-Tilt hat to Home Assistant."
 date: 2017-08-29 19:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.53
 ha_iot_class: "Local Push"
 ---
 
-The `pan_tilt_phat` platform allows you to control a [Pimoroni Pan-Tilt hat](https://shop.pimoroni.com/products/pan-tilt-hat) mounted on the raspberry-pi running Home Assistant. The platform [imports](https://pypi.python.org/pypi/pantilthat/0.0.4) the [pantilthat](https://github.com/pimoroni/pantilt-hat) package by Pimoroni. The hat consists of two servos which can pan and tilt a mounted camera with 180 degrees of motion (+/- 90 degrees) along each axis (vvertical and horizontal). This documentation assumes you have a [raspberry pi camera](https://home-assistant.io/components/camera.rpi_camera/) mounted on the hat, although other brands of camera could be used with some modification to the mounting. The platform adds a sensor which displays the current pan angle (there is currently a bug in the tilt angle)). The platform provides services for setting the angle of each servo, and a service to home the servos to zero degrees on both axis.
+The `pan_tilt_phat` platform allows you to control a [Pimoroni Pan-Tilt hat](https://shop.pimoroni.com/products/pan-tilt-hat) mounted on the raspberry-pi running Home Assistant. The platform [imports](https://pypi.python.org/pypi/pantilthat/0.0.4) the [pantilthat](https://github.com/pimoroni/pantilt-hat) package by Pimoroni. The hat consists of two servos which can pan and tilt a mounted camera with 180 degrees of motion (+/- 90 degrees) along each axis (vertical and horizontal). This documentation assumes you have a [raspberry pi camera](https://home-assistant.io/components/camera.rpi_camera/) mounted on the hat, although other camera brands could be used with some modification to the mounting. The platform adds a sensor which displays the current pan angle (there is currently a bug in the tilt angle)). The platform provides services for setting the angle of each servo, and a service to home the servos to zero degrees on both axes.
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
