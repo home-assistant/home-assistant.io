@@ -40,7 +40,7 @@ Configuration variables:
 
 - **switches** array (*Required*): List of your switches.
   - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **value_template** (*Required*): Defines a [template](/topics/templating/) to set the state of the switch.
+  - **value_template** (*Optional*): Defines a [template](/topics/templating/) to set the state of the switch.
   - **turn_on** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned on.
   - **turn_off** (*Required*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
   - **entity_id** (*Optional*): Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the switch will try to update it's state.
@@ -50,6 +50,8 @@ Configuration variables:
 
 If you are using the state of a platform that takes extra time to load, the template switch may get an 'unknown' state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ states.switch.source.state }}`{% endraw %} with this equivalent that returns true/false and never gives an unknown result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
+If a value_template is not supplied, then the switch internally tracks the state based on `turn_on` and `turn_off` calls. In this case the `assumed_state` is set to true. This configuration is useful in order to create a switch entity that targets arbitrary scripts.
 
 ## {% linkable_title Examples %}
 
