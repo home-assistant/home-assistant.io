@@ -90,6 +90,9 @@
 </code></pre>
 </div>
 <p>Create an <code class="highlighter-rouge">/etc/rc.local</code> file to enable Home Assistant to start when the jail starts. The command in <code class="highlighter-rouge">/etc/rc.local</code> can also be run in a terminal session but Home Assistant will exit when that session is closed.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># cd / &amp;&amp; mkdir /home &amp;&amp; /home/.homeassistant/</span>
+</code></pre>
+</div>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># /usr/local/bin/hass --open-ui --config /home/.homeassistant/ &amp;</span>
 </code></pre>
 </div>
