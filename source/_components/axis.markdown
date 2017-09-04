@@ -57,6 +57,7 @@ Configuration variables:
 - **username** (*Optional*): The username to your Axis device. Default 'root'.
 - **password** (*Optional*): The password to your Axis device. Default 'pass'.
 - **trigger_time** (*Optional*): Minimum time (in seconds) a sensor should keep its positive value. Default 0.
+- **http_port** (*Optional*): Configure port web server of device is accessible from. Default 80.
 - **location** (*Optional*): Physical location of your Axis device. Default not set.
 - **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
   - **camera**: Stream MJPEG video to Home Assistant.
