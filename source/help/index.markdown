@@ -46,8 +46,12 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Control home automation hardware with Home Assistant](http://www.linux-magazine.com/Issues/2017/203/Home-Assistant) - August 2017
+- [Smart Home Home Assistant KNX Alexa Sprachsteuerung](http://onesmarthome.de/smart-home-home-assistant-knx-alexa-sprachsteuerung/) - August 2017
 - [Episode #122: Home Assistant: Pythonic Home Automation](https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation) - July 2017
+- [Smart Home Home Assistant Konfiguration mit YAML](http://onesmarthome.de/smart-home-home-assistant-konfiguration/) - July 2017
 - [Why can't we have the Internet of Nice Things?](https://opensource.com/article/17/7/home-automation-primer) - July 2017
+- [Smart Home Home Assistant Raspberry Pi Installation Hassbian](http://onesmarthome.de/smart-home-home-assistant-raspberry-pi-installation-hassbian/) - July 2017
 - [Integrating Snips with Home Assistant](https://medium.com/snips-ai/integrating-snips-with-home-assistant-314723645c77) - June 2017
 - [Jupiter Broadcasting - No Privacy Compromise Home Automation](http://www.jupiterbroadcasting.com/115566/no-privacy-compromise-home-automation/) - June 2017
 - [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs﻿) - May 2017

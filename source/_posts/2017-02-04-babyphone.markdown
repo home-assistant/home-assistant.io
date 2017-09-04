@@ -2,8 +2,8 @@
 layout: post
 title: "Smart Baby Monitor"
 description: "How to build your own smart baby monitor"
-date: 2017-02-04 00:00:00 +0100
-date_formatted: "February 4, 2017"
+date: 2017-02-03 01:00:00 UTC
+date_formatted: "February 3, 2017"
 author: Pascal Vizeli
 comments: true
 categories: How-To

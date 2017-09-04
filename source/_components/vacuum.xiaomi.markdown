@@ -17,7 +17,7 @@ The `xiaomi` vacuum platform allows you to control the state of your [Xiaomi Mi 
 
 Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `turn_off` (stops goes to dock), `locate`, `clean_spot`, `set_fanspeed` and even remote control your robot.
 
-Please follow the instructions on [Retrieving the Access Token](/xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/components/xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a vacuum to your installation, add the following to your `configuration.yaml` file:
 
