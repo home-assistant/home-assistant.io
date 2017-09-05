@@ -19,6 +19,8 @@ For example, on Android, the app "Simple RSS Widget" can be used to display temp
 ```yaml
 # Example configuration.yml entry
 rss_feed_template:
+  # Accessible on <home assistant url>/api/rss_template/garden
+  # Example: https://localhost:8123/api/rss_template/garden
   garden:
     requires_api_password: False
     title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%m', True) }}{% endraw %}"
