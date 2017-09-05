@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
-ha_release: 0.54
+ha_release: 0.53
 ---
 
 The `input_text` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. 
