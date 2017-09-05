@@ -114,7 +114,7 @@ script:
         - service: light.turn_on
           data_template:
             entity_id: light.YOURLIGHT
-            brightness: >
+            brightness: >-
               {% set current = states.light.YOURLIGHT.attributes.brightness|int %}
               {% set step = states.input_slider.light_step.state|int %}
               {% set next = current + step %}
@@ -140,7 +140,7 @@ script:
         - service: light.turn_on
           data_template:
             entity_id: light.YOURLIGHT
-            brightness: >
+            brightness: >-
               {% set current = states.light.YOURLIGHT.attributes.brightness|int %}
               {% set step = states.input_slider.light_step.state|int %}
               {% set next = current - step %}
