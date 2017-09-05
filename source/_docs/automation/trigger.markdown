@@ -69,7 +69,7 @@ automation:
     above: 17
     below: 25
 
-    # If given, will trigger when state has been the to state for X time.
+    # If given, will trigger when condition has been for X time.
     for:
       hours: 1
       minutes: 10
