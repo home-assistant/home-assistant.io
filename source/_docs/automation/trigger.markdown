@@ -68,6 +68,12 @@ automation:
     # At least one of the following required
     above: 17
     below: 25
+
+    # If given, will trigger when state has been the to state for X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
 ```
 
 <p class='note'>
