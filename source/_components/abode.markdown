@@ -27,6 +27,8 @@ There is currently support for the following device types within Home Assistant:
 - [Light](/components/light.abode/): Reports on `Dimmer` lights and can be used to dim, change color, or turn the light on and off.
 - [Switch](/components/switch.abode/): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
 
+## {% linkable_title Configuration %}
+
 To use Abode devices in your installation, add the following `abode` section to your `configuration.yaml` file:
 
 ```yaml
