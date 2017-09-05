@@ -27,7 +27,7 @@ automation:
           entity_id: zwave.YOURCONTROLLER
     action:
       - service: script.turn_on
-        data_template:
+        data:
           entity_id: script.light_bright
 
   - alias: 'Stop the bright just there'
@@ -40,10 +40,10 @@ automation:
           entity_id: zwave.YOURCONTROLLER
     action:
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_bright
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_bright_pause
 
   - alias: 'Make the lights go dim'
@@ -56,7 +56,7 @@ automation:
           entity_id: zwave.YOURCONTROLLER
     action:
       - service: script.turn_on
-        data_template:
+        data:
           entity_id: script.light_dim
 
   - alias: 'Stop the dim just there'
@@ -69,10 +69,10 @@ automation:
           entity_id: zwave.YOURCONTROLLER
     action:
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_dim
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_dim_pause
 ```
 
@@ -115,11 +115,11 @@ script:
           data_template:
             entity_id: light.YOURLIGHT
             brightness: >
-              {% set current = states.light.YOURLIGHT.attributes.brightness | int %}
-              {% set step = states.input_slider.light_step.state | int %}
+              {% set current = states.light.YOURLIGHT.attributes.brightness|int %}
+              {% set step = states.input_slider.light_step.state|int %}
               {% set next = current + step %}
-              {% if next > states.input_slider.light_maximum.state | int %}
-                {% set next = states.input_slider.light_maximum.state | int %}
+              {% if next > states.input_slider.light_maximum.state|int %}
+                {% set next = states.input_slider.light_maximum.state|int %}
               {% endif %}
               {{ next }}
 
@@ -141,11 +141,11 @@ script:
           data_template:
             entity_id: light.YOURLIGHT
             brightness: >
-              {% set current = states.light.YOURLIGHT.attributes.brightness | int %}
-              {% set step = states.input_slider.light_step.state |int %}
+              {% set current = states.light.YOURLIGHT.attributes.brightness|int %}
+              {% set step = states.input_slider.light_step.state|int %}
               {% set next = current - step %}
-              {% if next < states.input_slider.light_minimum.state | int %}
-                {% set next = states.input_slider.light_minimum.state | int %}
+              {% if next < states.input_slider.light_minimum.state|int %}
+                {% set next = states.input_slider.light_minimum.state|int %}
               {% endif %}
               {{ next }}
 
