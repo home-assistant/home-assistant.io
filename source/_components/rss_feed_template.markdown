@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RSS feed template"
-description: "Instructions how to setup an RSS feed for sensor information and other."
+description: "Use this component to generate RSS feeds showing your latest data."
 date: 2017-04-11 20:42
 sidebar: true
 comments: false
