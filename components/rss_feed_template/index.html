@@ -78,6 +78,8 @@
 <p>For example, on Android, the app “Simple RSS Widget” can be used to display temperatures on the home screen.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
 <span class="s">rss_feed_template</span><span class="pi">:</span>
+  <span class="c1"># Accessible on &lt;home assistant url&gt;/api/rss_template/garden</span>
+  <span class="c1"># Example: https://localhost:8123/api/rss_template/garden</span>
   <span class="s">garden</span><span class="pi">:</span>
     <span class="s">requires_api_password</span><span class="pi">:</span> <span class="s">False</span>
     <span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Garden</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">as_timestamp(now())|timestamp_custom('%H:%m',</span><span class="nv"> </span><span class="s">True)</span><span class="nv"> </span><span class="s">}}"</span>
