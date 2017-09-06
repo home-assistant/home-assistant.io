@@ -10,9 +10,9 @@ footer: true
 ha_category: Automation Examples
 ---
 
-This requires both a a dimmable light, and a Z-Wave remote control that sends one scene when a button is held, and another when released. This ensures that the scripts (which follow) are stopped, avoiding the risks of a script that never ends.
+This requires both a dimmable light, and a Z-Wave remote control that sends one scene when a button is held, and another when released. This ensures that the scripts (which follow) are stopped, avoiding the risks of a script that never ends.
 
-In the following automation, replace `zwave.YOUR_REMOTE` with the actual entity ID of your controller. For the controller this was written for scene ID 13 was sent when the up button was held, and 15 when released. Similarly scene 14 when the down button was held, and 16 when released. You'll need to use the scene IDs that are sent by your remote if different.
+In the following automation, replace `zwave.YOUR_REMOTE` with the actual entity ID of your controller. For the controller this was written for scene ID 13 was sent when the up button was held, and 15 when released. Similarly, scene 14 when the down button was held, and 16 when released. You'll need to use the scene IDs that are sent by your remote if different.
 
 ```yaml
 automation: 
@@ -76,7 +76,7 @@ automation:
           entity_id: script.light_dim_pause
 ```
 
-There are 2 variables that control the speed of the change for the scripts below. The first is the `step` - small steps create a smooth transition. The second is the delay, larger delays will create a slower transition.
+There are 2 variables that control the speed of the change for the scripts below. The first is the `step`, small steps create a smooth transition. The second is the delay, larger delays will create a slower transition.
 
 To allow flexibility, an [Input Slider](/components/input_slider/) is used for the step (at the time of writing this, it's not possible to template the delay when the delay uses milliseconds). Two additional [Input Sliders](/components/input_slider/) are used to set the minimum and maximum brightness, so that it's easy to tune that (or manage it through an automation).
 
