@@ -51,6 +51,9 @@ climate:
 * **setpoint_address**: KNX group address for basis setpoint
 
 * **operation_mode_address** (*Optional*) KNX address for operation mode (Frost protection/night/comfort).
+* **operation_mode_state_address** (*Optional*) Explicit KNX address for reading operation mode
+* **controller_status_address** (*Optional*) KNX address for HVAC controller status (in accordance with KNX AN 097/07 rev 3)
+* **controller_status_state_address** (*Optional*) Explicit KNX address for reading HVAC controller status
 
 * **operation_mode_frost_protection_address** (*Optional*) KNX address for switching on/off frost/heat protection mode.
 * **operation_mode_night_address** (*Optional*) KNX address for switching on/off night nmode.
