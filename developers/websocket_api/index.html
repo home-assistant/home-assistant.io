@@ -85,11 +85,14 @@
 <ol>
   <li>Client connects</li>
   <li>Authentication phase starts
-a. If no further authentication necessary for the user: go to 3
-b. Server sends <code class="highlighter-rouge">auth_required</code> message
-c. Client sends <code class="highlighter-rouge">auth</code> message
-d. If <code class="highlighter-rouge">auth</code> message correct: go to 3.
-e. Server sends <code class="highlighter-rouge">auth_invalid</code>. Go to 6.</li>
+    <ul>
+      <li>If no further authentication necessary for the user: go to 3</li>
+      <li>Server sends <code class="highlighter-rouge">auth_required</code> message</li>
+      <li>Client sends <code class="highlighter-rouge">auth</code> message</li>
+      <li>If <code class="highlighter-rouge">auth</code> message correct: go to 3.</li>
+      <li>Server sends <code class="highlighter-rouge">auth_invalid</code>. Go to 6.</li>
+    </ul>
+  </li>
   <li>Send <code class="highlighter-rouge">auth_ok</code> message</li>
   <li>Authentication phase ends.</li>
   <li>Command phase starts.
