@@ -18,10 +18,11 @@ ha_iot_class: "Local Polling"
 Limitations:
 - Configuring weekly schedules is not possible.
 - Implementation is based on the reverse engineered [MAX! protocol](https://github.com/Bouni/max-cube-protocol).
+- Radiator valves only report the current room temperature shortly after the actuator has moved. Ordinarily, they will report 0 temperature.
 
 Supported Devices:
 - MAX! Radiator Thermostat (tested)
-- MAX! Radiator Thermostat+
+- MAX! Radiator Thermostat+ (tested)
 - MAX! Window Sensor (tested)
 - MAX! Wall Thermostat (tested)
 
@@ -35,3 +36,4 @@ maxcube:
 Configuration variables:
 - **host** (*Required*): The IP address of the eQ-3 MAX! Cube to use.
 - **port** (*Optional*): The UDP port number. Defaults to `62910`.
+- **trv_on_off** (*Optional*): Reports the state of TRVs as being either on or off based on actuator position, rather than their configured state.
