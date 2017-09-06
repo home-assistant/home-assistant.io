@@ -104,7 +104,7 @@ input_slider:
     step: 1
 ```
 
-Now the scripts. There are 2 pairs of scripts. The first steps the light brighter to the maximum, and the second provides the delay. These call each other until both are stopped. The second pair do the same for dimming.
+Now the scripts. There are 2 pairs of scripts. The first steps the light brighter to the maximum and the second provides the delay. These call each other until both are stopped. The second pair does the same for dimming.
 
 ```yaml
 # Replace YOURLIGHT with the actual light entity
