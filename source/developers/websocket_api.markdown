@@ -21,11 +21,11 @@ Connect your websocket implementation to `ws://localhost:8123/api/websocket`.
 
  1. Client connects
  2. Authentication phase starts
-    a. If no further authentication necessary for the user: go to 3
-    b. Server sends `auth_required` message
-    c. Client sends `auth` message
-    d. If `auth` message correct: go to 3.
-    e. Server sends `auth_invalid`. Go to 6.
+    - If no further authentication necessary for the user: go to 3
+    - Server sends `auth_required` message
+    - Client sends `auth` message
+    - If `auth` message correct: go to 3.
+    - Server sends `auth_invalid`. Go to 6.
  3. Send `auth_ok` message
  4. Authentication phase ends.
  5. Command phase starts.
