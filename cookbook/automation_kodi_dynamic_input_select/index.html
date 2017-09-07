@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This requires a <a href="/components/mediaplayer.kodi/">Kodi</a> media player, and consists of commands that perform queries in the Kodi library, and a selection box (<code class="highlighter-rouge">input_select</code>) that shows the available options. By clicking the commands, the selection box is updated, and when selecting an option, Kodi plays the media.</p>
+  <p>This requires a <a href="/components/media_player.kodi/">Kodi</a> media player, and consists of commands that perform queries in the Kodi library, and a selection box (<code class="highlighter-rouge">input_select</code>) that shows the available options. By clicking the commands, the selection box is updated, and when selecting an option, Kodi plays the media.</p>
 <p>Option filling is done in an <a href="https://home-assistant.io/docs/ecosystem/appdaemon/tutorial/">AppDaemon</a> app, which listens for events that are triggered with the results of the Kodi JSONRPC API queries when scripts run. This application also listens to the selection box and calls the play media service with the corresponding parameters.</p>
 <p>The media player yaml config:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
