@@ -84,6 +84,7 @@ Polly is a paid service via Amazon Web Services.  There is a <a href="https://aw
     <span class="s">aws_secret_access_key</span><span class="pi">:</span> <span class="s">AWS_SECRET_ACCESS_KEY</span>
     <span class="s">profile_name</span><span class="pi">:</span> <span class="s">AWS_PROFILE</span>
     <span class="s">region_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">us-east-1'</span>
+    <span class="s">voice</span><span class="pi">:</span> <span class="s">Joanna</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -109,7 +110,7 @@ Polly is a paid service via Amazon Web Services.  There is a <a href="https://aw
     <tr>
       <td><code class="highlighter-rouge">profile_name</code></td>
       <td>Optional</td>
-      <td>A credentials profile name. For more information, please see the [boto3</td>
+      <td>A credentials profile name. For more information, please see the <a href="http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file">boto3 Documentation</a> for more information.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">region_name</code></td>
@@ -122,14 +123,24 @@ Polly is a paid service via Amazon Web Services.  There is a <a href="https://aw
       <td>Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</td>
     </tr>
     <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
       <td><code class="highlighter-rouge">text_type</code></td>
       <td>text/ssml</td>
-      <td>text or ssml: Specify wherever to use text (default) or ssml markup</td>
+      <td>text or ssml: Specify wherever to use text (default) or ssml markup by default.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">voice</code></td>
+      <td>Optional</td>
+      <td>Voice name to be used. See the <a href="http://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Amazon Documentation</a> for available voices.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">output_format</code></td>
+      <td>mp3/ogg_vorbis/pcm</td>
+      <td>Override the default output format, defaults to MP3.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sample_rate</code></td>
+      <td>8000/16000/22050</td>
+      <td>Override the default sample rate, defaults to 22050 for MP3 and Ogg Vorbis, 16000 for pcm.</td>
     </tr>
   </tbody>
 </table>
