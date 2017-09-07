@@ -33,12 +33,12 @@ cover:
       travelling_time_up: 61
 ```
 
-- **name** (*Optional*): A name for this devices used within Home Assistant.
-- **move_long_address**: KNX group address for moving cover full up or down.
-- **move_short_address**: (*Optional*) KNX group address for moving cover short time up or down.
-- **position_address**: (*Optional*) KNX group address for moving cover to dedicated position.
-- **position_state_address**: (*Optional*) Separate KNX group address for requesting the current position of cover.
-- **angle_address**: (*Optional*) KNX group address for moving cover to dedicated angle.
+- **name** (*Optional*): A name for this device used within Home Assistant.
+- **move_long_address**: KNX group address for moving the cover full up or down.
+- **move_short_address**: (*Optional*) KNX group address for moving the cover short time up or down.
+- **position_address**: (*Optional*) KNX group address for moving the cover to the dedicated position.
+- **position_state_address**: (*Optional*) Separate KNX group address for requesting the current position of the cover.
+- **angle_address**: (*Optional*) KNX group address for moving the cover to the dedicated angle.
 - **angle_state_address**: (*Optional*) Separate KNX group address for requesting the current angle of cover.
 - **travelling_time_down**: (*Optional*) Time cover needs to travel down in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.
 - **travelling_time_up**: (*Optional*) Time cover needs to travel up in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.

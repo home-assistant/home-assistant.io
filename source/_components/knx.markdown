@@ -18,7 +18,7 @@ Overview
 
 The [KNX](http://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
-The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this it will send and receive commands to and from other devices to the KNX bus.
+The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
 
 There is currently support for the following device types within Home Assistant:
  
@@ -47,7 +47,7 @@ knx:
 ```
 * **config_file**: (*Optional*) path for xknx configuration file.
 
-If the autodetection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
+If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
 
 ```yaml 
 knx:
@@ -56,11 +56,11 @@ knx:
     port: 3671
     local_ip: '192.168.2.109'
 ```
-* **host**: Host of KNX/IP tunneling device
-* **port**: Port of KNX/IP tunneling device
-* **local_ip**: IP of local interface
+* **host**: Host of the KNX/IP tunneling device
+* **port**: Port of the KNX/IP tunneling device
+* **local_ip**: IP of the local interface
 
-Explicit connction to a KNX/IP routing device:
+Explicit connection to a KNX/IP routing device:
 
 ```yaml
 knx:
@@ -77,7 +77,7 @@ knx:
 ```
 
 * **fire_event** (Optional) if set to True, platform will write all received KNX messages to event bus
-* **fire_event_filter** If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of pattterns for filtering KNX addresses. Only telegrams which match this pattern are send to the HASS event bus. 
+* **fire_event_filter** If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HASS event bus. 
 
 
 
@@ -92,7 +92,7 @@ Service: send
 Service Data: {"address": "1/0/15", "payload": 0}
 ```
 
-* **address** : KNX group addresss
+* **address** : KNX group address
 * **payload** : payload, either an integer or an array of integers
 
 

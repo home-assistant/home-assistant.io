@@ -45,7 +45,7 @@ climate:
 ```
 
 
-* **name** (*Optional*): A name for this devices used within Home Assistant.
+* **name** (*Optional*): A name for this device used within Home Assistant.
 * **temperature_address**: KNX group address for reading current room temperature from KNX bus.
 * **target_temperature_address**: KNX group address for reading current target temperature from KNX bus.
 * **setpoint_address**: KNX group address for basis setpoint

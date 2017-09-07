@@ -26,5 +26,5 @@ notify:
       address: '5/1/10'
 ```
 
-* **name** (*Optional*): A name for this devices used within Home Assistant.
-* **address**: KNX group address of notification
+* **name** (*Optional*): A name for this device used within Home Assistant.
+* **address**: KNX group address of the notification

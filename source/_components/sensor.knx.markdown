@@ -43,8 +43,8 @@ sensor:
     address: 1/0/1
 ```
 
-* **name** (*Optional*): A name for this devices used within Home Assistant.
-* **address**: KNX group address of sensor
+* **name** (*Optional*): A name for this device used within Home Assistant.
+* **address**: KNX group address of the sensor
 * **type**: (Optional) "percent", "temperature", "illuminance", "speed_ms", "current"
 
 

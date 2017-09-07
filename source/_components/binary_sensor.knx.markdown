@@ -26,12 +26,12 @@ binary_sensor:
       #significant_bit: 2
 ```
 
-* **name** (*Optional*): A name for this devices used within Home Assistant.
-* **address**: KNX group address of binary sensor
+* **name** (*Optional*): A name for this device used within Home Assistant.
+* **address**: KNX group address of the binary sensor
 * **device_class**: (Optional) HASS device class e.g. "motion"
 * **significant_bit**: (Optional) Specify which significant bit of the KNX value should be used. Default is 1.
 
-You can also attach actions to binary sensors (e.g. to switch on a light when a switch was pressed). In this example I switch on one light when the button was pressed once and two others when the button was pressed a second time.
+You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
 
 ```yaml
 binary_sensor:
@@ -53,8 +53,8 @@ binary_sensor:
               service: homeassistant.turn_on
 ```
 
-- **name** (*Optional*): A name for this devices used within Home Assistant.
-- **counter**: (*Optional*) Set to 2 if your only want the action to be executed if the button was pressed twice. To 3 for 3 times button pressed. Defaults to 1.
+- **name** (*Optional*): A name for this device used within Home Assistant.
+- **counter**: (*Optional*) Set to 2 if your only want the action to be executed if the button was pressed twice. To 3 for three times button pressed. Defaults to 1.
 - **hook**: (Optional): Indicates if the automation should be executed on what state of the binary sensor. Values: "on" or "off". Defaults to "on".
 - **action**: Specify a list of actions analog to the [HASS automation rules](https://home-assistant.io/docs/automation/action/).
 
