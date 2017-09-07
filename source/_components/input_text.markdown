@@ -27,10 +27,6 @@ input_text:
   text3:
     name: Text 3
     pattern: '[a-fA-F0-9]*'
-  test4:
-    name: Text 4
-    initial: Can't Touch This
-    disabled: true
 ```
 
 Configuration variables:
@@ -41,4 +37,3 @@ Configuration variables:
 - **name** (*Optional*): Friendly name of the text input.
 - **initial** (*Optional*): Initial value when Home Assistant starts. Default is empty string.
 - **pattern** (*Optional*): Regex pattern for client side validation. Default is empty string, which is treated same as `.*`.
-- **disabled** (*Optional*): If set to true, disables making changes from the UI (but not by automations / REST / etc), displaying the value grayed out to indicate it is read-only in the UI. Default is false.
