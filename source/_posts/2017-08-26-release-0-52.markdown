@@ -48,6 +48,17 @@ script: !include scripts.yaml
 - Add support for Prowl notifications. ([@mbrrg] - [#9028]) ([notify.prowl docs]) (new-platform)
 - Add worldtidesinfo sensor component ([@aetolus] - [#8860]) ([sensor.worldtidesinfo docs]) (new-platform)
 
+## {% linkable_title Release 0.52.1 - August 28 %}
+
+- Close stream request once we end up with proxy ([@foxel] - [#9110])
+- Fix issue #9116 in pushbullet ([@danielhiversen] - [#9128]) ([notify.pushbullet docs])
+- bug fix pushbullet ([@danielhiversen] - [#9139]) ([notify.pushbullet docs])
+- Fix import for foscam ([@sdague] - [#9140]) ([camera.foscam docs])
+- Bump aioautomatic to prevent leaking exceptions ([@armills] - [#9148]) ([device_tracker.automatic docs])
+- Wrap state when iterating a domain in templates ([@balloob] - [#9157])
+- Prevent iCloud exceptions in logfile ([@mjj4791] - [#9179]) ([device_tracker.icloud docs])
+- bump ecobee version to fix issue 9190 ([@nkgilley] - [#9191]) ([ecobee docs]) ([climate.ecobee docs])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -374,3 +385,16 @@ usps:
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
+[#9110]: https://github.com/home-assistant/home-assistant/pull/9110
+[#9128]: https://github.com/home-assistant/home-assistant/pull/9128
+[#9139]: https://github.com/home-assistant/home-assistant/pull/9139
+[#9140]: https://github.com/home-assistant/home-assistant/pull/9140
+[#9148]: https://github.com/home-assistant/home-assistant/pull/9148
+[#9157]: https://github.com/home-assistant/home-assistant/pull/9157
+[#9179]: https://github.com/home-assistant/home-assistant/pull/9179
+[#9191]: https://github.com/home-assistant/home-assistant/pull/9191
+[@foxel]: https://github.com/foxel
+[@sdague]: https://github.com/sdague
+[camera.foscam docs]: https://home-assistant.io/components/camera.foscam/
+[climate.ecobee docs]: https://home-assistant.io/components/climate.ecobee/
+[device_tracker.icloud docs]: https://home-assistant.io/components/device_tracker.icloud/

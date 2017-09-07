@@ -24,7 +24,7 @@ cover:
     covers:
       garage_door:
         friendly_name: "Garage Door"
-        value_template: "{% raw %}{{is_state('sensor.garage_door > 0'}}{% endraw %}"
+        value_template: "{% raw %}'{{is_state('sensor.garage_door > 0'}}'{% endraw %}"
         open_cover:
           service: script.open_garage_door
         close_cover:
@@ -63,12 +63,13 @@ In this section you will find some real life examples of how to use this cover.
 This example converts a garage door with a controllable switch and position sensor into a cover.
 
 ```yaml
+{% raw %}
 cover:
   - platform: template
     covers:
       garage_door:
         friendly_name: 'Garage Door'
-        value_template: "{% raw %}{{ sensor.garage_door }}{% endraw %}"
+        value_template: "{{ sensor.garage_door }}"
         open_cover:
           service: switch.turn_on
           entity_id: switch.garage_door
@@ -78,6 +79,109 @@ cover:
         stop_cover:
           service: switch.turn_on
           entity_id: switch.garage_door
-        icon_template: "{% raw %}{% if not is_state('sensor.garage_door', 'on') %}mdi:garage-open{% else %}mdi:garage{% endif %}{% endraw %}"
+        icon_template: "{% if not is_state('sensor.garage_door', 'on') %}mdi:garage-open{% else %}mdi:garage{% endif %}"{% endraw %}
+```
 
+### {% linkable_title Multi Covers %}
+
+This example allows you to control two or more covers at once.
+
+```yaml
+{% raw %}
+homeassistant:
+  customize:
+    all_covers:
+      assume_state: true
+
+cover:
+  - platform: template
+    covers:
+      all_covers:
+        friendly_name: 'All Covers'
+        open_cover:
+          service: script.cover_all_open
+        close_cover:
+          service: script.cover_all_close
+        stop_cover:
+          service: script.cover_all_stop
+        set_cover_position:
+          service: script.cover_all_set_position
+          data_template:
+          position: "{{ position }}"
+        value_template: >
+          {% if is_state('sensor.all_covers', 'open') %}
+            open
+          {% else %}
+            closed
+          {% endif %}
+
+        icon_template: >
+          {% if is_state('sensor.all_covers', 'open') %}
+            mdi:window-open
+          {% else %}
+            mdi:window-closed
+          {% endif %}
+
+        entity_id:
+          - cover.bedroom
+          - cover.livingroom
+
+sensor:
+  - platform: template
+    sensors:
+      all_covers:
+        value_template: >
+          {% if is_state('cover.bedroom', 'open') %}
+            open
+          {% elif is_state('cover.livingroom', 'open') %}
+            open
+          {% else %}
+            closed
+          {% endif %}
+
+        entity_id:
+          - cover.bedroom
+          - cover.livingroom
+
+script:
+  cover_all_open:
+    sequence:
+      - service: cover.open_cover
+        entity_id: cover.bedroom
+      - service: cover.open_cover
+        entity_id: cover.livingroom
+  cover_all_stop:
+    sequence:
+      - service: cover.stop_cover
+        entity_id: cover.bedroom
+      - service: cover.stop_cover
+        entity_id: cover.livingroom
+  cover_all_close:
+    sequence:
+      - service: cover.close_cover
+        entity_id: cover.bedroom
+      - service: cover.close_cover
+        entity_id: cover.livingroom
+  cover_all_set_position:
+    sequence:
+      - service: cover.set_cover_position
+        entity_id: cover.bedroom
+        data_template:
+          position: "{{ position }}"
+      - service: cover.set_cover_position
+        entity_id: cover.livingroom
+        data_template:
+          position: "{{ position }}"
+
+automation:
+  - alias: 'Close covers at night'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '+00:30:00'
+    action:
+      service: cover.set_cover_position
+      entity_id: cover.all_covers
+      data_template:
+        position: 25{% endraw %}
 ```

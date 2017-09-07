@@ -2,7 +2,7 @@
 layout: post
 title: "Thank You"
 description: "Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome."
-date: 2016-12-18 21:04:05 -0800
+date: 2016-12-19 21:04:05 UTC
 date_formatted: "December 19, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
