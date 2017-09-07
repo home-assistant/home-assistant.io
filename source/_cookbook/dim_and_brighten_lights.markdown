@@ -118,8 +118,8 @@ script:
               {% raw %}{% set current = states.light.YOUR_LIGHT.attributes.brightness|default(0)|int %}
               {% set step = states('input_slider.light_step')|int %}
               {% set next = current + step %}
-              {% if next > states('input_slider.light_maximum)|int %}
-                {% set next = states('input_slider.light_maximum)|int %}
+              {% if next > states('input_slider.light_maximum')|int %}
+                {% set next = states('input_slider.light_maximum')|int %}
               {% endif %}
               {{ next }}{% endraw %}
 
@@ -161,4 +161,3 @@ script:
           data:
             entity_id: script.light_dim
 ```
-
