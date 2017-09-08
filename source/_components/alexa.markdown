@@ -33,7 +33,12 @@ The built-in Alexa component allows you to integrate Home Assistant into Alexa/A
 
 ### {% linkable_title Requirements %}
 
-Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
+Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. Using the hassio letsencrypt and duckdns add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
+
+ Additionally, note that at the time of this writing, your Alexa skill endpoint *must* accept requests over port 443 (Home Assistant default to 8123). There are two ways you can handle this:
+  1. In your router, forward external 443 to your home assistant serving port (defaulted to 8143)
+  OR
+  2. Change your Home Assistant serving port to 443 this is done under the http section as the server_port attribute in your configuration file (see [https://home-assistant.io/components/http/](https://home-assistant.io/components/http/) )
 
 [blog-lets-encrypt]: https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
@@ -94,6 +99,12 @@ This means that we can now ask Alexa things like:
 ## {% linkable_title Configuring Home Assistant %}
 
 When activated, the Alexa component will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
+
+You also need to make sure alexa is enabled in your configuration file. This is easy enough and accomplished by adding:
+
+> alexa:
+
+to your configuration.yaml file.
 
 ### {% linkable_title Working With Scenes %}
 
