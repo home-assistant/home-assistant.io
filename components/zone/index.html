@@ -75,27 +75,25 @@
   </header>
   <hr class="divider">
   <p>Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a <a href="/getting-started/automation-trigger/#zone-trigger">trigger</a> or <a href="/getting-started/automation-condition/#zone-condition">condition</a> inside automation setups.</p>
-<p>Zones support the usual method to specify multiple zones, use keys <code class="highlighter-rouge">zone:</code>, <code class="highlighter-rouge">zone 2:</code> etc.</p>
+<p>The Zone component uses YAML sequences to configure multiple zones:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">zone</span><span class="pi">:</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">School</span>
-  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8773367</span>
-  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2494053</span>
-  <span class="s">radius</span><span class="pi">:</span> <span class="s">250</span>
-  <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:school</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">School</span>
+    <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8773367</span>
+    <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2494053</span>
+    <span class="s">radius</span><span class="pi">:</span> <span class="s">250</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:school</span>
 
-<span class="s">zone 2</span><span class="pi">:</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Work</span>
-  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8753367</span>
-  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2474053</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Work</span>
+    <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8753367</span>
+    <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2474053</span>
 
-<span class="c1"># This will override the default home zone</span>
-<span class="s">zone 3</span><span class="pi">:</span>
-  <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
-  <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8793367</span>
-  <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2474053</span>
-  <span class="s">radius</span><span class="pi">:</span> <span class="s">100</span>
-  <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:account-multiple</span>
+  <span class="c1"># This will override the default home zone</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Home</span>
+    <span class="s">latitude</span><span class="pi">:</span> <span class="s">32.8793367</span>
+    <span class="s">longitude</span><span class="pi">:</span> <span class="s">-117.2474053</span>
+    <span class="s">radius</span><span class="pi">:</span> <span class="s">100</span>
+    <span class="s">icon</span><span class="pi">:</span> <span class="s">mdi:account-multiple</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -107,7 +105,7 @@
   <li><strong>icon</strong> (<em>Optional</em>): Optional icon to show instead of name.</li>
   <li><strong>passive</strong> (<em>Optional</em>): Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name. Defaults to false.</li>
 </ul>
-<p>To find your latitude/longitude of a certain place you can use for example <a href="https://www.google.nl/maps/">Google Maps</a> or <a href="https://www.bing.com/maps">Bing Maps</a>. Just right click and copy the coordinates from there (Bing) or click on the “What is here?” (Google)</p>
+<p>To find the latitude/longitude of a certain place you can use <a href="https://www.google.com/maps/">Google Maps</a> or <a href="https://www.bing.com/maps">Bing Maps</a>. Just right click and copy the coordinates from there (Bing) or click on the “What is here?” (Google)</p>
 <h4><a class="title-link" name="home-zone" href="#home-zone"></a> Home zone</h4>
 <p>If no configuration is given, the <code class="highlighter-rouge">zone</code> component will create a zone for home. This zone will use location provided in the <code class="highlighter-rouge">configuration.yaml</code> file and have a radius of 100 meters. To override this, create a zone configuration and name it <strong>‘Home’</strong>.</p>
 <p class="note">
