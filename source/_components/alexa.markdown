@@ -33,7 +33,13 @@ The built-in Alexa component allows you to integrate Home Assistant into Alexa/A
 
 ### {% linkable_title Requirements %}
 
-Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
+Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. When running Hass.io, using the [Let's Encrypt](/addons/lets_encrypt/) the and [Duck DNS](/addons/duckdns/) add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
+
+Additionally, note that at the time of this writing, your Alexa skill endpoint *must* accept requests over port 443 (Home Assistant default to 8123). There are two ways you can handle this:
+
+  1. In your router, forward external 443 to your Home Assistant serving port (defaults to 8123)
+  OR
+  2. Change your Home Assistant serving port to 443 this is done in the [`http`](/components/http/) section with the the `server_port` entry in your `configuration.yaml` file
 
 [blog-lets-encrypt]: https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/
 
@@ -48,7 +54,7 @@ To get started with Alexa skills:
    - Version: 1.0
    - Endpoint:
      - https
-     - https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD
+     - `https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD`
 
 You can use this [specially sized Home Assistant logo][large-icon] as the large icon and [this one][small-icon] as the small one.
 
@@ -95,6 +101,12 @@ This means that we can now ask Alexa things like:
 
 When activated, the Alexa component will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
 
+To enable Alex add the following entry to your `configuration.yaml` file:
+
+```yaml
+alexa:
+```
+
 ### {% linkable_title Working With Scenes %}
 
 One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.
@@ -120,6 +132,7 @@ Then create a custom slot type called `Scenes` listing every scene you want to c
 <img src='/images/components/alexa/scene_slot.png' />
 Custom slot type for scene support.
 </p>
+
 The names must exactly match the scene names (minus underscores - amazon discards them anyway and we later map them back in with the template).
 
 Add a sample utterance:
