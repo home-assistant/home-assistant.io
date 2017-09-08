@@ -87,7 +87,13 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
-<p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using <a href="https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230">this AWS Lambda proxy for Alexa skills</a>.</p>
+<p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. When running Hass.io, using the <a href="/addons/lets_encrypt/">Let’s Encrypt</a> the and <a href="/addons/duckdns/">Duck DNS</a> add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using <a href="https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230">this AWS Lambda proxy for Alexa skills</a>.</p>
+<p>Additionally, note that at the time of this writing, your Alexa skill endpoint <em>must</em> accept requests over port 443 (Home Assistant default to 8123). There are two ways you can handle this:</p>
+<ol>
+  <li>In your router, forward external 443 to your Home Assistant serving port (defaults to 8123)
+  OR</li>
+  <li>Change your Home Assistant serving port to 443 this is done in the <a href="/components/http/"><code class="highlighter-rouge">http</code></a> section with the the <code class="highlighter-rouge">server_port</code> entry in your <code class="highlighter-rouge">configuration.yaml</code> file</li>
+</ol>
 <p>To get started with Alexa skills:</p>
 <ul>
   <li>Log in to <a href="https://developer.amazon.com">Amazon developer console</a></li>
@@ -101,7 +107,7 @@
       <li>Endpoint:
         <ul>
           <li>https</li>
-          <li>https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD</li>
+          <li><code class="highlighter-rouge">https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD</code></li>
         </ul>
       </li>
     </ul>
@@ -144,6 +150,10 @@ WhereAreWeIntent where we are
 </ul>
 <h2><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h2>
 <p>When activated, the Alexa component will have Home Assistant’s native intent support handle the incoming intents. If you want to run actions based on intents, use the <a href="/components/intent_script"><code class="highlighter-rouge">intent_script</code></a> component.</p>
+<p>To enable Alex add the following entry to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">alexa</span><span class="pi">:</span>
+</code></pre>
+</div>
 <h3><a class="title-link" name="working-with-scenes" href="#working-with-scenes"></a> Working With Scenes</h3>
 <p>One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.</p>
 <p>First, we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
