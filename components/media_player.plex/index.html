@@ -75,7 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">plex</code> platform allows you to connect a <a href="https://plex.tv">Plex Media Server</a> to Home Assistant. It will allow you to control media playback and see the current playing item.</p>
-<h2>Setup</h2>
+<h2><a class="title-link" name="setup" href="#setup"></a> Setup</h2>
 <p>The preferred way to setup the Plex platform is by enabling the <a href="/components/discovery/">discovery component</a> which requires GDM enabled on your Plex server.</p>
 <p>If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. Press “CONFIGURE” to do it.</p>
 <p class="img">
@@ -100,10 +100,10 @@
   <li><strong>IP_ADDRESS</strong> (<em>Required</em>): IP address of the Plex Media Server.</li>
   <li><strong>PORT</strong> (<em>Required</em>): Port where Plex is listening. Default is 32400.</li>
   <li><strong>TOKEN</strong> (<em>Optional</em>): Only if authentication is required. Set to <code class="highlighter-rouge">null</code> (without quotes) otherwise.</li>
-  <li><strong>ssl</strong> (<em>Optional</em>): Whether to use SSL or not. <em>(Boolean)</em></li>
-  <li><strong>verify</strong> (<em>Optional</em>): Whether to allow invalid or self-signed SSL certificates or not. <em>(Boolean)</em></li>
+  <li><strong>ssl</strong> (<em>Optional</em>): Whether to use SSL/TLS or not. Defaults to <code class="highlighter-rouge">False</code> if not present.</li>
+  <li><strong>verify</strong> (<em>Optional</em>): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to <code class="highlighter-rouge">False</code>. Defaults to <code class="highlighter-rouge">True</code> if not present.</li>
 </ul>
-<h2>Customization</h2>
+<h2><a class="title-link" name="customization" href="#customization"></a> Customization</h2>
 <p>You can customize the Plex component by adding any of the variables below to your configuration:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
@@ -293,7 +293,7 @@
     </tr>
   </tbody>
 </table>
-<h3>Notes</h3>
+<h3><a class="title-link" name="notes" href="#notes"></a> Notes</h3>
 <ul>
   <li>At this moment, the Plex platform only supports one Plex Media Server.</li>
   <li>

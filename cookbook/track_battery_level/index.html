@@ -91,10 +91,10 @@
 </div>
 <p>The <code class="highlighter-rouge">else</code> part is used to have the sensor keep it’s last state if the newest <a href="/components/device_tracker.icloud/">iCloud</a> update doesn’t have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.</p>
 <h3><a class="title-link" name="android-and-ios-devices" href="#android-and-ios-devices"></a> Android and iOS Devices</h3>
-<p>While running the <a href="/components/device_tracker.owntracks/">Owntracks</a> device tracker you can retrieve the battery level with a MQTT sensor.</p>
+<p>While running the <a href="/components/device_tracker.owntracks/">Owntracks</a> device tracker you can retrieve the battery level with a MQTT sensor. Replace username with your MQTT username (for the embedded MQTT it’s simply homeassistant), and deviceid with the set Device ID in Owntracks.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/tablet/tablet"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/username/deviceid"</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Battery</span><span class="nv"> </span><span class="s">Tablet"</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.batt</span><span class="nv"> </span><span class="s">}}'</span>
