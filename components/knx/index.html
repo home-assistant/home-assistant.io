@@ -74,7 +74,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p><a href="http://www.knx.org">KNX/EIB</a> integration for Home Assistant allows you to connect to a KNX bus. The component requires a local KNX/IP interface like the <a href="http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en">Weinzierl 730</a>. Through this it will send and receive commands to and from other devices to the KNX bus.</p>
+  <h2>Overview</h2>
+<p>The <a href="http://www.knx.org">KNX</a> integration for Home Assistant allows you to connect to a KNX/IP devices.</p>
+<p>The component requires a local KNX/IP interface like the <a href="http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en">Weinzierl 730</a>. Through this, it will send and receive commands to and from other devices to the KNX bus.</p>
 <p>There is currently support for the following device types within Home Assistant:</p>
 <ul>
   <li><a href="/components/binary_sensor.knx">Binary Sensor</a></li>
@@ -83,16 +85,67 @@
   <li><a href="/components/switch.knx">Switch</a></li>
   <li><a href="/components/light.knx">Light</a></li>
   <li><a href="/components/climate.knx">Thermostat</a></li>
+  <li><a href="/components/notify.knx">Notify</a></li>
 </ul>
-<p>A <code class="highlighter-rouge">knx</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">knx</span><span class="pi">:</span>
+<h2>Configuration</h2>
+<p>To use your KNX in your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">knx</span><span class="pi">:</span>
+</code></pre>
+</div>
+<p>Optional, recommended for large KNX installations (&gt;100 devices) and/or if you want to use the XKNX abstraction also for other scripted tools outside HASS:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">knx</span><span class="pi">:</span>
+  <span class="s">config_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/path/to/xknx.yaml'</span>
 </code></pre>
 </div>
 <ul>
-  <li><strong>host</strong> (<em>Optional</em>): The IP address of the KNX/IP interface to use. It defaults to <code class="highlighter-rouge">0.0.0.0</code> which will start discovery for your KNX/IP gateway.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The UDP port number. Defaults to <code class="highlighter-rouge">3671</code>.</li>
+  <li><strong>config_file</strong>: (<em>Optional</em>) path for xknx configuration file.</li>
 </ul>
+<p>If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">knx</span><span class="pi">:</span>
+  <span class="s">tunneling</span><span class="pi">:</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.2.23'</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">3671</span>
+    <span class="s">local_ip</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.2.109'</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>host</strong>: Host of the KNX/IP tunneling device</li>
+  <li><strong>port</strong>: Port of the KNX/IP tunneling device</li>
+  <li><strong>local_ip</strong>: IP of the local interface</li>
+</ul>
+<p>Explicit connection to a KNX/IP routing device:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">knx</span><span class="pi">:</span>
+  <span class="s">config_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/path/to/xknx.yaml'</span>
+  <span class="s">routing</span><span class="pi">:</span>
+     <span class="s">local_ip</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.2.109'</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>local_ip</strong>: local ip of interface (which should be used for multicasting)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">knx</span><span class="pi">:</span>
+    <span class="s">fire_event</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">fire_event_filter</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">1/0/*"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">6/2,3,4-6/*"</span><span class="pi">]</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>fire_event</strong> (Optional) if set to True, platform will write all received KNX messages to event bus</li>
+  <li><strong>fire_event_filter</strong> If <code class="highlighter-rouge">fire_event</code> is set <code class="highlighter-rouge">fire_event_filter</code> has to be specified. <code class="highlighter-rouge">fire_event_filter</code> defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HASS event bus.</li>
+</ul>
+<h2>Service</h2>
+<p>In order to directly interact with the KNX bus, you can now use the following service:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Domain: knx
+Service: send 
+Service Data: {"address": "1/0/15", "payload": 0}
+</code></pre>
+</div>
+<ul>
+  <li><strong>address</strong> : KNX group address</li>
+  <li><strong>payload</strong> : payload, either an integer or an array of integers</li>
+</ul>
+<h2>Known issues:</h2>
+<p>Due to lame multicast support the routing abstraction and the gateway scanner
+only work with python &gt;=3.5.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -114,20 +167,23 @@
         <li><a href='/components/binary_sensor.knx/'>
           KNX Binary Sensor
         </a></li>
+        <li><a href='/components/climate.knx/'>
+          KNX Climate
+        </a></li>
         <li><a href='/components/cover.knx/'>
           KNX Cover
         </a></li>
         <li><a href='/components/light.knx/'>
           KNX Light
         </a></li>
+        <li><a href='/components/notify.knx/'>
+          KNX Notify
+        </a></li>
         <li><a href='/components/sensor.knx/'>
           KNX Sensor
         </a></li>
         <li><a href='/components/switch.knx/'>
           KNX Switch
-        </a></li>
-        <li><a href='/components/climate.knx/'>
-          KNX Thermostat
         </a></li>
     </ul>
     </div>
@@ -292,6 +348,9 @@
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

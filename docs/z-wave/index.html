@@ -206,7 +206,21 @@ Some Z-Wave controllers, like Aeotec ZW090 Z-Stick Gen5, have ability to add dev
         <span class="s">scene_id</span><span class="pi">:</span> <span class="s">11</span>
 </code></pre>
 </div>
+<p>Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  These devices will also send <code class="highlighter-rouge">scene_data</code> to differentiate the events.  This is an example of double clicking the on/up button:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
+<span class="s">automation</span>
+  <span class="s">- alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Dining</span><span class="nv"> </span><span class="s">room</span><span class="nv"> </span><span class="s">dimmer</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">double</span><span class="nv"> </span><span class="s">tap</span><span class="nv"> </span><span class="s">up'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.dining_room_cans</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">1</span>
+          <span class="s">scene_data</span><span class="pi">:</span> <span class="s">3</span>
+</code></pre>
+</div>
 <p>The <em>object_id</em> and <em>scene_id</em> of all triggered events can be seen in the console output.</p>
+<p>For more information on HomeSeer devices and similar devices, please see the <a href="https://home-assistant.io/docs/z-wave/device-specific/#homeseer-switches">device specific page</a>.</p>
 <h3><a class="title-link" name="services" href="#services"></a> Services</h3>
 <p>The <code class="highlighter-rouge">zwave</code> component exposes multiple services to help maintain the network.</p>
 <table>

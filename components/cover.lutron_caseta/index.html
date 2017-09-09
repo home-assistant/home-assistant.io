@@ -74,14 +74,10 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>To get your Lutron Caseta covers (Serena Shades) working with Home Assistant, first follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
-<p>You also need to configure Lutron Caseta as a cover platform in your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">cover</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">lutron_caseta</span>
-</code></pre>
-</div>
-<p>Your Lutron Caseta shades will be pulled into Home Assistant with the names they were assigned in the Lutron Caseta app.</p>
+  <p>To get Lutron Caseta roller and honeycomb shades working with Home Assistant, first follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+<p>After setup, shades will appear in Home Assistant using an <code class="highlighter-rouge">entity_id</code> based on the name used in the Lutron mobile app. For example, a shade called ‘Living Room Window’ will appear in Home Assistant as <code class="highlighter-rouge">cover.living_room_window</code>.</p>
+<p>For more information on working with shades in Home Assistant, see the <a href="/components/cover/">Covers component</a>.</p>
+<p>Available services: <code class="highlighter-rouge">cover.open_cover</code>, <code class="highlighter-rouge">cover.close_cover</code> and <code class="highlighter-rouge">cover.set_cover_position</code>. Cover <code class="highlighter-rouge">position</code> ranges from <code class="highlighter-rouge">0</code> for fully closed to <code class="highlighter-rouge">100</code> for fully open.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -121,6 +117,9 @@
     <div class='section'>
     <h1 class="title delta">Category Cover</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/cover.abode/'>Abode Cover</a>
+        </li>
         <li>
             <a href='/components/cover.command_line/'>Command Line Cover</a>
         </li>

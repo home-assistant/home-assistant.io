@@ -92,6 +92,7 @@
   <li><strong>password</strong> (<em>Required</em>): The password for your given Jabber account.</li>
   <li><strong>recipient</strong> (<em>Required</em>): The Jabber ID (JID) that will receive the messages.</li>
   <li><strong>tls</strong> (<em>Optional</em>): Allow to disable TLS. Defaults to <code class="highlighter-rouge">true</code>.</li>
+  <li><strong>verify</strong> (<em>Optional</em>): Allow disabling SSL certificate validity check (e.g., self-signed certificate). Defaults to <code class="highlighter-rouge">true</code>.</li>
 </ul>
 <p>All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.</p>
 <p>To use notifications, please see the <a href="/getting-started/automation/">getting started with automation page</a>.</p>
@@ -197,6 +198,9 @@
         </li>
         <li>
             <a href='/components/notify.mysensors/'>MySensors Notify</a>
+        </li>
+        <li>
+            <a href='/components/notify.mycroft/'>Mycroft AI</a>
         </li>
         <li>
             <a href='/components/notify.nfandroidtv/'>Notifications for Android TV / FireTV</a>

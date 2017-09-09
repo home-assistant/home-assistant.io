@@ -108,7 +108,7 @@ Include conf/extra/hass.conf
 </div>
 <p>If you don’t want HTTPS, you can change <code class="highlighter-rouge">&lt;VirtualHost *:443&gt;</code> to <code class="highlighter-rouge">&lt;VirtualHost *:80&gt;</code> or better consider redirecting all HTTP to HTTPS.</p>
 <p class="note">
-In case you are getting occasional HTTP 504 error messages (“Gateway Timeout”) when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
+In case you are getting occasional HTTP 504 error messages (“Gateway Timeout”) or HTTP 502 messages (“Bad Gateway”) when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
 </p>
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;VirtualHost *:443&gt;
   [...]

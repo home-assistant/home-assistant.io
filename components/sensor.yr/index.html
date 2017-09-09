@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">yr</code> platform uses <a href="http://www.yr.no/">YR.no</a> as an source for current meteorological data for your location. The 
+  <p>The <code class="highlighter-rouge">yr</code> platform uses <a href="http://www.yr.no/">YR.no</a> as an source for current meteorological data for your location. The
 weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.</p>
 <p>To add YR to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -85,6 +85,7 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
 <p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): Additional name for the sensors. Default to platform name.</li>
+  <li><strong>forecast</strong> integer (<em>Optional</em>): If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.</li>
   <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Conditions to display in the frontend.
     <ul>
       <li><strong>symbol</strong>: A symbol for the current weather.</li>
@@ -108,6 +109,7 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yr</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Weather</span>
+    <span class="s">forecast</span><span class="pi">:</span> <span class="s">24</span>
     <span class="s">monitored_conditions</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">temperature</span>
       <span class="pi">-</span> <span class="s">symbol</span>
@@ -153,6 +155,9 @@ weather forecast is delivered by the Norwegian Meteorological Institute and the 
         </li>
         <li>
             <a href='/components/weather.buienradar/'>Buienradar Weather</a>
+        </li>
+        <li>
+            <a href='/components/sensor.dwdwarnapp/'>DWD Warn Weather</a>
         </li>
         <li>
             <a href='/components/sensor.darksky/'>Dark Sky</a>

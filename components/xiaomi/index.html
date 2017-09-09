@@ -93,13 +93,13 @@
   <li>Smoke Detector (reports alarm and density)</li>
   <li>Gateway (Light, Illumination Sensor, Ringtone play)</li>
   <li>Intelligent Curtain</li>
+  <li>Water Leak Sensor</li>
   <li>Battery</li>
 </ul>
 <p>What’s not available?</p>
 <ul>
   <li>Gateway Radio</li>
   <li>Gateway Button</li>
-  <li>Water Sensor</li>
   <li>Aqara Air Conditioning Companion</li>
   <li>Aqara Intelligent Air Conditioner Controller Hub</li>
   <li>Decoupled mode of the Aqara Wall Switches (Single &amp; Double)</li>
@@ -250,7 +250,8 @@
   <li>Create an unencrypted backup of the device using iTunes.</li>
   <li>Install <a href="http://www.imactools.com/iphonebackupviewer/">iBackup Viewer</a>.</li>
   <li>Extract this file: <strong><code class="highlighter-rouge">/raw data/com.xiami.mihome/1234567_mihome.sqlite</code></strong> to your computer, where <code class="highlighter-rouge">_1234567_</code> is any string of numbers.</li>
-  <li>Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column <strong><code class="highlighter-rouge">ZToken</code></strong> and looks like <strong><code class="highlighter-rouge">123a1234567b12345c1d123456789e12</code></strong>.</li>
+  <li>Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column <strong><code class="highlighter-rouge">ZToken</code></strong> and looks like <strong><code class="highlighter-rouge">123a1234567b12345c1d123456789e12</code></strong>.
+(Location of SQLite files directly on iOS devices <strong>/private/var/mobile/Containers/Data/Application/A80CE9E4-AD2E-4649-8C28-801C96B16BD7/Documents/</strong>)</li>
 </ol>
 </article>
         </div>
@@ -454,6 +455,9 @@
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

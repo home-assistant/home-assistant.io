@@ -104,6 +104,7 @@
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
   <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.</li>
   <li><strong>retain</strong> (<em>Optional</em>): If the published message should have the retain flag on or not.</li>
+  <li><strong>rgb_command_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to compose message which will be sent to <code class="highlighter-rouge">rgb_command_topic</code>. Available variables: <code class="highlighter-rouge">red</code>, <code class="highlighter-rouge">green</code> and <code class="highlighter-rouge">blue</code>.</li>
   <li><strong>rgb_command_topic</strong> (<em>Optional</em>): The MQTT topic to publish commands to change the light’s RGB state.</li>
   <li><strong>rgb_state_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive RGB state updates.</li>
   <li><strong>rgb_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the RGB value.</li>
@@ -415,6 +416,9 @@
         </li>
         <li>
             <a href='/components/light.xiaomi/'>Xiaomi Light</a>
+        </li>
+        <li>
+            <a href='/components/light.xiaomi_philipslight/'>Xiaomi Philips Light</a>
         </li>
         <li>
             <a href='/components/light.yeelightsunflower/'>Yeelight Sunflower Bulb</a>

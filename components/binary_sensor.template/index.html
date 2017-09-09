@@ -93,6 +93,8 @@
       <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
       <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
       <li><strong>entity_id</strong> (<em>Optional</em>): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it’s state.</li>
+      <li><strong>on_delay</strong> (<em>Optional</em>): The amount of time the template state must be met before this sensor will switch to on.</li>
+      <li><strong>off_delay</strong> (<em>Optional</em>): The amount of time the template state must be not met before this sensor will switch to off.</li>
     </ul>
   </li>
 </ul>
@@ -146,6 +148,17 @@ sensor far more efficient.</p>
           <span class="no">- sensor.bedroom_co_status</span>
           <span class="no">- sensor.kitchen_co_status</span>
           <span class="no">- sensor.wardrobe_co_status</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="washing-machine-running" href="#washing-machine-running"></a> Washing Machine Running</h3>
+<p>This example creates a washing machine “load running” sensor by monitoring an energy meter connected to the washer. During the washer’s operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing <code class="highlighter-rouge">off_delay</code>, we can have this sensor only turn off if there has been no washer activity for 5 minutes.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Determine when the washing machine has a load running.</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Washing Machine</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">sensor.washing_machine_power</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">off_delay</span><span class="pi">:</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="is-anyone-home" href="#is-anyone-home"></a> Is anyone home?</h3>
@@ -229,6 +242,9 @@ and z-wave multisensor presence sensors.</p>
         </li>
         <li>
             <a href='/components/binary_sensor.axis/'>Axis Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bayesian/'>Bayesian Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
@@ -346,6 +362,9 @@ and z-wave multisensor presence sensors.</p>
         </li>
         <li>
             Template Binary Sensor
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tesla/'>Tesla Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a>

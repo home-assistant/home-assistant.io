@@ -74,7 +74,11 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>To get your Lutron Caseta lights working with Home Assistant, follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+  <p>To get Lutron Caseta lights working with Home Assistant, follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+<p>After setup, dimmable lights including wall and plug-in dimmers will appear in Home Assistant using an <code class="highlighter-rouge">entity_id</code> based on the name used in the Lutron mobile app. For example, a light called ‘Bedroom Lamp’ will appear in Home Assistant as <code class="highlighter-rouge">light.bedroom_lamp</code>.</p>
+<p>For non-dimmable lights or switched loads, see <a href="/components/switch.lutron_caseta/">Lutron Caseta Switch</a>.</p>
+<p>For more information on working with lights in Home Assistant, see the <a href="/components/light/">Lights component</a>.</p>
+<p>Available services: <code class="highlighter-rouge">light.turn_on</code>, <code class="highlighter-rouge">light.turn_off</code> and <code class="highlighter-rouge">light.toggle</code>. The <code class="highlighter-rouge">light.turn_on</code> service supports attributes <code class="highlighter-rouge">brightness</code> and <code class="highlighter-rouge">brightness_pct</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -242,6 +246,9 @@
         </li>
         <li>
             <a href='/components/light.xiaomi/'>Xiaomi Light</a>
+        </li>
+        <li>
+            <a href='/components/light.xiaomi_philipslight/'>Xiaomi Philips Light</a>
         </li>
         <li>
             <a href='/components/light.yeelightsunflower/'>Yeelight Sunflower Bulb</a>

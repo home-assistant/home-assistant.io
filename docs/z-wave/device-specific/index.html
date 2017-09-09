@@ -169,6 +169,63 @@ Make sure you copy the newly saved <code class="highlighter-rouge">zwcfg_[home_i
        <span class="s">scene_id</span><span class="pi">:</span> <span class="s">8</span>
 </code></pre>
 </div>
+<h5><a class="title-link" name="homeseer-switches" href="#homeseer-switches"></a> HomeSeer Switches</h5>
+<p>For the HomeSeer devices specifically, you may need to update the <code class="highlighter-rouge">COMMAND_CLASS_CENTRAL_SCENE</code> for each node in your <code class="highlighter-rouge">zwcfg</code> file with the following:</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>			<span class="nt">&lt;CommandClass</span> <span class="na">id=</span><span class="s">"91"</span> <span class="na">name=</span><span class="s">"COMMAND_CLASS_CENTRAL_SCENE"</span> <span class="na">version=</span><span class="s">"1"</span> <span class="na">request_flags=</span><span class="s">"4"</span> <span class="na">innif=</span><span class="s">"true"</span> <span class="na">scenecount=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;Instance</span> <span class="na">index=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"system"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"0"</span> <span class="na">label=</span><span class="s">"Scene Count"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"true"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"2"</span> <span class="nt">/&gt;</span>
+        		<span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"user"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"1"</span> <span class="na">label=</span><span class="s">"Top Button Scene"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"false"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+        		<span class="nt">&lt;Value</span> <span class="na">type=</span><span class="s">"int"</span> <span class="na">genre=</span><span class="s">"user"</span> <span class="na">instance=</span><span class="s">"1"</span> <span class="na">index=</span><span class="s">"2"</span> <span class="na">label=</span><span class="s">"Bottom Button Scene"</span> <span class="na">units=</span><span class="s">""</span> <span class="na">read_only=</span><span class="s">"false"</span> <span class="na">write_only=</span><span class="s">"false"</span> <span class="na">verify_changes=</span><span class="s">"false"</span> <span class="na">poll_intensity=</span><span class="s">"0"</span> <span class="na">min=</span><span class="s">"-2147483648"</span> <span class="na">max=</span><span class="s">"2147483647"</span> <span class="na">value=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+			<span class="nt">&lt;/CommandClass&gt;</span>
+</code></pre>
+</div>
+<p>Below is a table of the action/scenes for the HomeSeer devices (as a reference for other similar devices):</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Action</strong></th>
+      <th style="text-align: center"><strong>scene_id</strong></th>
+      <th style="text-align: center"><strong>scene_data</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Single tap on</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Single tap off</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Double tap on</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Double tap off</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Triple tap on</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Triple tap off</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Tap and hold on</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">2</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

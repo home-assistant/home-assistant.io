@@ -80,49 +80,50 @@ Support for these components is provided by the Home Assistant community.
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
     <div class="filter-button-group">
-      <a href='#all' class="btn">All (791)</a>
+      <a href='#all' class="btn">All (814)</a>
       <a href='#featured' class="btn featured">Featured</a>
-      <a href='#version/0.52' class="btn added_in_current_version">Added in 0.52 (11)</a>
-      <a href='#version/0.51' class="btn added_one_version_ago">Added in 0.51 (11)</a>
-      <a href='#version/0.50' class="btn added_two_versions_ago">Added in 0.50 (16)</a>
+      <a href='#version/0.53' class="btn added_in_current_version">Added in 0.53 (18)</a>
+      <a href='#version/0.52' class="btn added_one_version_ago">Added in 0.52 (14)</a>
+      <a href='#version/0.51' class="btn added_two_versions_ago">Added in 0.51 (12)</a>
     <a href='#alarm' class="btn">Alarm (16)</a>
-    <a href='#automation' class="btn">Automation (16)</a>
-    <a href='#binary-sensor' class="btn">Binary Sensor (57)</a>
+    <a href='#automation' class="btn">Automation (18)</a>
+    <a href='#binary-sensor' class="btn">Binary Sensor (59)</a>
     <a href='#calendar' class="btn">Calendar (3)</a>
     <a href='#camera' class="btn">Camera (23)</a>
-    <a href='#climate' class="btn">Climate (22)</a>
-    <a href='#cover' class="btn">Cover (19)</a>
+    <a href='#climate' class="btn">Climate (23)</a>
+    <a href='#cover' class="btn">Cover (20)</a>
     <a href='#diy' class="btn">DIY (14)</a>
     <a href='#downloading' class="btn">Downloading (5)</a>
     <a href='#energy' class="btn">Energy (11)</a>
     <a href='#fan' class="btn">Fan (9)</a>
     <a href='#finance' class="btn">Finance (9)</a>
     <a href='#front-end' class="btn">Front end (5)</a>
-    <a href='#health' class="btn">Health (3)</a>
+    <a href='#health' class="btn">Health (4)</a>
     <a href='#history' class="btn">History (14)</a>
-    <a href='#hub' class="btn">Hub (67)</a>
+    <a href='#hub' class="btn">Hub (68)</a>
     <a href='#image-processing' class="btn">Image Processing (8)</a>
     <a href='#intent' class="btn">Intent (2)</a>
-    <a href='#light' class="btn">Light (51)</a>
-    <a href='#lock' class="btn">Lock (10)</a>
+    <a href='#light' class="btn">Light (52)</a>
+    <a href='#lock' class="btn">Lock (12)</a>
     <a href='#mailbox' class="btn">Mailbox (1)</a>
-    <a href='#media-player' class="btn">Media Player (49)</a>
-    <a href='#notifications' class="btn">Notifications (48)</a>
+    <a href='#media-player' class="btn">Media Player (50)</a>
+    <a href='#notifications' class="btn">Notifications (49)</a>
+    <a href='#notify' class="btn">Notify (1)</a>
     <a href='#organization' class="btn">Organization (3)</a>
-    <a href='#presence-detection' class="btn">Presence Detection (40)</a>
+    <a href='#presence-detection' class="btn">Presence Detection (42)</a>
     <a href='#remote' class="btn">Remote (4)</a>
     <a href='#scene' class="btn">Scene (5)</a>
-    <a href='#sensor' class="btn">Sensor (95)</a>
+    <a href='#sensor' class="btn">Sensor (99)</a>
     <a href='#social' class="btn">Social (5)</a>
-    <a href='#switch' class="btn">Switch (61)</a>
+    <a href='#switch' class="btn">Switch (62)</a>
     <a href='#system-monitor' class="btn">System Monitor (25)</a>
     <a href='#telegram-chatbot' class="btn">Telegram chatbot (3)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (6)</a>
     <a href='#transport' class="btn">Transport (13)</a>
     <a href='#utility' class="btn">Utility (3)</a>
     <a href='#vacuum' class="btn">Vacuum (3)</a>
-    <a href='#voice' class="btn">Voice (4)</a>
-    <a href='#weather' class="btn">Weather (22)</a>
+    <a href='#voice' class="btn">Voice (5)</a>
+    <a href='#weather' class="btn">Weather (23)</a>
       <a href='#other' class="btn">Other</a>
     </div>
   </div>
@@ -165,10 +166,14 @@ var allComponents = [
 {url:"/components/notify.aws_sns/", title:"AWS SNS", cat:"notifications", featured: false, v: "0.20", logo: "aws_sns.png"},
 {url:"/components/notify.aws_sqs/", title:"AWS SQS", cat:"notifications", featured: false, v: "0.20", logo: "aws_sqs.png"},
 {url:"/components/alarm_control_panel.abode/", title:"Abode Alarm Control Panel", cat:"alarm", featured: false, v: "0.52", logo: "abode.jpg"},
-{url:"/components/binary_sensor.abode/", title:"Abode Binary Sensor", cat:"binary-sensor", featured: false, v: "0.52", logo: "alarmdecoder.png"},
+{url:"/components/binary_sensor.abode/", title:"Abode Binary Sensor", cat:"binary-sensor", featured: false, v: "0.52", logo: "abode.jpg"},
+{url:"/components/cover.abode/", title:"Abode Cover", cat:"cover", featured: false, v: "0.52", logo: "abode.jpg"},
 {url:"/components/abode/", title:"Abode Home Security", cat:"hub", featured: false, v: "0.52", logo: "abode.jpg"},
+{url:"/components/lock.abode/", title:"Abode Lock", cat:"lock", featured: false, v: "0.52", logo: "abode.jpg"},
+{url:"/components/switch.abode/", title:"Abode Switch", cat:"switch", featured: false, v: "0.52", logo: "abode.jpg"},
 {url:"/components/switch.acer_projector/", title:"Acer Projector Switch", cat:"switch", featured: false, v: "0.19", logo: "acer.png"},
 {url:"/components/device_tracker.actiontec/", title:"Actiontec", cat:"presence-detection", featured: false, v: "0.0", logo: "actiontec.png"},
+{url:"/components/sensor.airvisual/", title:"AirVisual", cat:"health", featured: false, v: "0.53", logo: "airvisual.jpg"},
 {url:"/components/alarm_control_panel.alarmdotcom/", title:"Alarm.com Alarm Control Panel", cat:"alarm", featured: false, v: "0.11", logo: "alarmdotcom.png"},
 {url:"/components/alarmdecoder/", title:"AlarmDecoder Alarm", cat:"hub", featured: false, v: "0.43", logo: "alarmdecoder.png"},
 {url:"/components/alarm_control_panel.alarmdecoder/", title:"AlarmDecoder Alarm Control Panel", cat:"alarm", featured: false, v: "0.43", logo: "alarmdecoder.png"},
@@ -210,6 +215,7 @@ var allComponents = [
 {url:"/components/weather.bom/", title:"BOM Australia", cat:"weather", featured: false, v: "0.36", logo: "bom.png"},
 {url:"/components/sensor.bom/", title:"BOM Australia Sensor", cat:"weather", featured: false, v: "0.29", logo: "bom.png"},
 {url:"/components/device_tracker.bt_home_hub_5/", title:"BT Home Hub 5", cat:"presence-detection", featured: false, v: "0.0", logo: "bt.png"},
+{url:"/components/binary_sensor.bayesian/", title:"Bayesian Binary Sensor", cat:"binary-sensor", featured: false, v: "0.53", logo: "home-assistant.png"},
 {url:"/components/device_tracker.bbox/", title:"Bbox", cat:"presence-detection", featured: false, v: "0.31", logo: "bbox.png"},
 {url:"/components/sensor.bbox/", title:"Bbox Sensor", cat:"sensor", featured: false, v: "0.31", logo: "bbox.png"},
 {url:"/components/bbb_gpio/", title:"BeagleBone Black GPIO", cat:"diy", featured: false, v: "0.36", logo: "beaglebone-black.png"},
@@ -259,6 +265,7 @@ var allComponents = [
 {url:"/components/config/", title:"Config", cat:"front-end", featured: false, v: "0.39", logo: "home-assistant.png"},
 {url:"/components/configurator/", title:"Configurator", cat:"other", featured: false, v: "0.0", logo: "home-assistant.png"},
 {url:"/components/conversation/", title:"Conversation", cat:"voice", featured: false, v: "0.0", logo: "home-assistant.png"},
+{url:"/components/counter/", title:"Counter", cat:"automation", featured: false, v: "0.53", logo: "home-assistant.png"},
 {url:"/components/sensor.crimereports/", title:"Crime Reports", cat:"sensor", featured: false, v: "0.42", logo: "crimereports.png"},
 {url:"/components/sensor.currencylayer/", title:"Currencylayer", cat:"finance", featured: false, v: "0.32", logo: "currencylayer.png"},
 {url:"/components/switch.dlink/", title:"D-Link Switch", cat:"switch", featured: false, v: "0.14", logo: "dlink.png"},
@@ -267,6 +274,7 @@ var allComponents = [
 {url:"/components/sensor.dnsip/", title:"DNS IP", cat:"sensor", featured: false, v: "0.40", logo: "home-assistant.png"},
 {url:"/components/sensor.dsmr/", title:"DSMR/Slimme meter", cat:"energy", featured: false, v: "0.34", logo: "netbeheernederland.jpg"},
 {url:"/components/sensor.dte_energy_bridge/", title:"DTE Energy Bridge", cat:"energy", featured: false, v: "0.21", logo: "dte_energy.png"},
+{url:"/components/sensor.dwdwarnapp/", title:"DWD Warn Weather", cat:"weather", featured: false, v: "0.51", logo: ""},
 {url:"/components/sensor.darksky/", title:"Dark Sky", cat:"weather", featured: true, v: "0.3", logo: "dark_sky.png"},
 {url:"/components/datadog/", title:"Datadog", cat:"history", featured: false, v: "0.45", logo: "datadog.png"},
 {url:"/components/light.decora/", title:"Decora", cat:"light", featured: false, v: "0.37", logo: "leviton.png"},
@@ -358,6 +366,7 @@ var allComponents = [
 {url:"/components/camera.generic/", title:"Generic IP Camera", cat:"camera", featured: false, v: "0.7", logo: "camcorder.png"},
 {url:"/components/camera.mjpeg/", title:"Generic MJPEG IP Camera", cat:"camera", featured: false, v: "0.7", logo: "camcorder.png"},
 {url:"/components/climate.generic_thermostat/", title:"Generic Thermostat", cat:"climate", featured: false, v: "0.7", logo: "heat-control.png"},
+{url:"/components/device_tracker.geofency/", title:"Geofency", cat:"presence-detection", featured: false, v: "0.53", logo: "geofency.png"},
 {url:"/components/sensor.gitter/", title:"Gitter Sensor", cat:"sensor", featured: false, v: "0.47", logo: "gitter.png"},
 {url:"/components/sensor.glances/", title:"Glances", cat:"system-monitor", featured: false, v: "0.7", logo: "glances.png"},
 {url:"/components/calendar.google/", title:"Google Calendar Event", cat:"calendar", featured: false, v: "0.33", logo: "google_calendar.png"},
@@ -415,6 +424,7 @@ var allComponents = [
 {url:"/components/input_boolean/", title:"Input Boolean", cat:"automation", featured: false, v: "0.0", logo: "home-assistant.png"},
 {url:"/components/input_select/", title:"Input Select", cat:"automation", featured: false, v: "0.13", logo: "home-assistant.png"},
 {url:"/components/input_slider/", title:"Input Slider", cat:"automation", featured: false, v: "0.16", logo: "home-assistant.png"},
+{url:"/components/input_text/", title:"Input Text", cat:"automation", featured: false, v: "0.53", logo: "home-assistant.png"},
 {url:"/components/notify.instapush/", title:"Instapush", cat:"notifications", featured: false, v: "0.7", logo: "instapush.png"},
 {url:"/components/fan.insteon_local/", title:"Insteon (Local) Fan", cat:"fan", featured: false, v: "0.0", logo: "insteon.png"},
 {url:"/components/light.insteon_local/", title:"Insteon (Local) Light", cat:"light", featured: false, v: "0.0", logo: "insteon.png"},
@@ -438,11 +448,12 @@ var allComponents = [
 {url:"/components/sensor.juicenet/", title:"Juicenet Sensor", cat:"sensor", featured: false, v: "0.47", logo: "juicenet.png"},
 {url:"/components/knx/", title:"KNX", cat:"hub", featured: false, v: "0.24", logo: "knx.png"},
 {url:"/components/binary_sensor.knx/", title:"KNX Binary Sensor", cat:"binary-sensor", featured: false, v: "0.24", logo: "knx.png"},
+{url:"/components/climate.knx/", title:"KNX Climate", cat:"climate", featured: false, v: "0.25", logo: "knx.png"},
 {url:"/components/cover.knx/", title:"KNX Cover", cat:"cover", featured: false, v: "0.48", logo: "knx.png"},
 {url:"/components/light.knx/", title:"KNX Light", cat:"light", featured: false, v: "0.44", logo: "knx.png"},
+{url:"/components/notify.knx/", title:"KNX Notify", cat:"notify", featured: false, v: "0.53", logo: "knx.png"},
 {url:"/components/sensor.knx/", title:"KNX Sensor", cat:"sensor", featured: false, v: "0.29", logo: "knx.png"},
 {url:"/components/switch.knx/", title:"KNX Switch", cat:"switch", featured: false, v: "0.24", logo: "knx.png"},
-{url:"/components/climate.knx/", title:"KNX Thermostat", cat:"climate", featured: false, v: "0.25", logo: "knx.png"},
 {url:"/components/sensor.kwb/", title:"KWB Easyfire Sensor", cat:"sensor", featured: false, v: "0.4", logo: "kwb.png"},
 {url:"/components/switch.kankun/", title:"Kankun SP3 Wifi Switch", cat:"switch", featured: false, v: "0.36", logo: ""},
 {url:"/components/keyboard/", title:"Keyboard", cat:"automation", featured: false, v: "0.7", logo: "keyboard.png"},
@@ -535,6 +546,7 @@ var allComponents = [
 {url:"/components/switch.modbus/", title:"Modbus Switch", cat:"switch", featured: false, v: "0.7", logo: "modbus.png"},
 {url:"/components/sensor.mold_indicator/", title:"Mold Indicator", cat:"sensor", featured: false, v: "0.20", logo: "home-assistant.png"},
 {url:"/components/sensor.moon/", title:"Moon Sensor", cat:"weather", featured: false, v: "0.38", logo: "home-assistant.png"},
+{url:"/components/sensor.mopar/", title:"Mopar", cat:"sensor", featured: false, v: "0.53", logo: "mopar.png"},
 {url:"/components/media_player.mpd/", title:"Music Player Daemon (MPD)", cat:"media-player", featured: false, v: "0.7", logo: "mpd.png"},
 {url:"/components/cover.myq/", title:"MyQ Cover", cat:"cover", featured: false, v: "0.39", logo: "myq.png"},
 {url:"/components/mysensors/", title:"MySensors", cat:"hub", featured: true, v: "0.0", logo: "mysensors.png"},
@@ -546,6 +558,8 @@ var allComponents = [
 {url:"/components/notify.mysensors/", title:"MySensors Notify", cat:"notifications", featured: false, v: "0.36", logo: "mysensors.png"},
 {url:"/components/sensor.mysensors/", title:"MySensors Sensor", cat:"sensor", featured: false, v: "0.0", logo: "mysensors.png"},
 {url:"/components/switch.mysensors/", title:"MySensors Switch", cat:"switch", featured: false, v: "0.0", logo: "mysensors.png"},
+{url:"/components/mycroft/", title:"Mycroft", cat:"voice", featured: false, v: "0.53", logo: "mycroft.png"},
+{url:"/components/notify.mycroft/", title:"Mycroft AI", cat:"notifications", featured: false, v: "0.53", logo: "mycroft.png"},
 {url:"/components/media_player.nad/", title:"NAD", cat:"media-player", featured: false, v: "0.36", logo: "nad.png"},
 {url:"/components/media_player.nadtcp/", title:"NAD tcp", cat:"media-player", featured: false, v: "0.47", logo: "nad.png"},
 {url:"/components/sensor.nut/", title:"NUT Sensor", cat:"system-monitor", featured: false, v: "0.0", logo: "nut.png"},
@@ -702,6 +716,7 @@ var allComponents = [
 {url:"/components/scene/", title:"Scenes", cat:"organization", featured: false, v: "0.0", logo: "home-assistant.png"},
 {url:"/components/sensor.scrape/", title:"Scrape Sensor", cat:"sensor", featured: false, v: "0.31", logo: "home-assistant.png"},
 {url:"/components/script/", title:"Scripts", cat:"automation", featured: false, v: "0.0", logo: "home-assistant.png"},
+{url:"/components/sensor.season/", title:"Season Sensor", cat:"sensor", featured: false, v: "0.53", logo: ""},
 {url:"/components/notify.sendgrid/", title:"SendGrid", cat:"notifications", featured: false, v: "0.0", logo: "sendgrid.png"},
 {url:"/components/sensor.sensehat/", title:"Sense HAT", cat:"sensor", featured: false, v: "0.35", logo: "sense-hat.png"},
 {url:"/components/light.sensehat/", title:"Sense HAT Light", cat:"light", featured: false, v: "0.0", logo: "sense-hat.png"},
@@ -753,6 +768,7 @@ var allComponents = [
 {url:"/components/tado/", title:"Tado", cat:"hub", featured: false, v: "0.41", logo: "tado.png"},
 {url:"/components/sensor.tado/", title:"Tado Sensor", cat:"sensor", featured: false, v: "0.41", logo: "tado.png"},
 {url:"/components/climate.tado/", title:"Tado Thermostat", cat:"climate", featured: false, v: "0.41", logo: "tado.png"},
+{url:"/components/sensor.tank_utility/", title:"Tank Utility Sensor", cat:"sensor", featured: false, v: "0.53", logo: "tank_utility.png"},
 {url:"/components/binary_sensor.tapsaff/", title:"Taps Aff", cat:"weather", featured: false, v: "0.47", logo: "tapsaff.png"},
 {url:"/components/notify.telegram/", title:"Telegram", cat:"notifications", featured: false, v: "0.7", logo: "telegram.png"},
 {url:"/components/telegram_bot.broadcast/", title:"Telegram broadcast", cat:"telegram-chatbot", featured: false, v: "0.48", logo: "telegram.png"},
@@ -772,6 +788,12 @@ var allComponents = [
 {url:"/components/light.template/", title:"Template Light", cat:"light", featured: false, v: "0.46", logo: "home-assistant.png"},
 {url:"/components/sensor.template/", title:"Template Sensor", cat:"sensor", featured: false, v: "0.12", logo: "home-assistant.png"},
 {url:"/components/switch.template/", title:"Template switch", cat:"switch", featured: false, v: "0.13", logo: "home-assistant.png"},
+{url:"/components/device_tracker.tesla/", title:"Tesla", cat:"presence-detection", featured: false, v: "0.53", logo: "tesla.png"},
+{url:"/components/tesla/", title:"Tesla", cat:"hub", featured: false, v: "0.53", logo: "tesla.png"},
+{url:"/components/binary_sensor.tesla/", title:"Tesla Binary Sensor", cat:"binary-sensor", featured: false, v: "0.53", logo: "tesla.png"},
+{url:"/components/climate.tesla/", title:"Tesla HVAC", cat:"climate", featured: false, v: "0.53", logo: "tesla.png"},
+{url:"/components/lock.tesla/", title:"Tesla Lock", cat:"lock", featured: false, v: "0.53", logo: "tesla.png"},
+{url:"/components/sensor.tesla/", title:"Tesla Sensor", cat:"sensor", featured: false, v: "0.53", logo: "tesla.png"},
 {url:"/components/thingspeak/", title:"ThingSpeak", cat:"history", featured: false, v: "0.32", logo: "thingspeak.png"},
 {url:"/components/switch.thinkingcleaner/", title:"Thinking Cleaner Switch", cat:"switch", featured: false, v: "0.18", logo: "thinkingcleaner.png"},
 {url:"/components/sensor.thinkingcleaner/", title:"Thinking Cleaner sensor", cat:"sensor", featured: false, v: "0.18", logo: "thinkingcleaner.png"},
@@ -861,6 +883,7 @@ var allComponents = [
 {url:"/components/xiaomi/", title:"Xiaomi Gateway", cat:"hub", featured: false, v: "0.50", logo: "xiaomi.png"},
 {url:"/components/light.xiaomi/", title:"Xiaomi Light", cat:"light", featured: false, v: "0.50", logo: "xiaomi.png"},
 {url:"/components/vacuum.xiaomi/", title:"Xiaomi Mi Robot Vacuum", cat:"vacuum", featured: false, v: "0.51", logo: "xiaomi.png"},
+{url:"/components/light.xiaomi_philipslight/", title:"Xiaomi Philips Light", cat:"light", featured: false, v: "0.0", logo: "philips.png"},
 {url:"/components/device_tracker.xiaomi/", title:"Xiaomi Router", cat:"presence-detection", featured: false, v: "0.36", logo: "xiaomi.png"},
 {url:"/components/sensor.xiaomi/", title:"Xiaomi Sensor", cat:"sensor", featured: false, v: "0.50", logo: "xiaomi.png"},
 {url:"/components/switch.xiaomi/", title:"Xiaomi Switch", cat:"switch", featured: false, v: "0.50", logo: "xiaomi.png"},
@@ -868,6 +891,7 @@ var allComponents = [
 {url:"/components/sensor.yahoo_finance/", title:"Yahoo Finance", cat:"finance", featured: false, v: "0.29", logo: "yahoo_finance.png"},
 {url:"/components/weather.yweather/", title:"Yahoo Weather", cat:"weather", featured: false, v: "0.47", logo: "yahooweather.png"},
 {url:"/components/sensor.yweather/", title:"Yahoo Weather Sensor", cat:"weather", featured: false, v: "0.24", logo: "yahooweather.png"},
+{url:"/components/media_player.yamaha_musiccast/", title:"Yamaha MusicCast Receivers", cat:"media-player", featured: false, v: "0.53", logo: "yamaha.png"},
 {url:"/components/media_player.yamaha/", title:"Yamaha Network Receivers", cat:"media-player", featured: false, v: "0.16", logo: "yamaha.png"},
 {url:"/components/tts.yandextts/", title:"Yandex TTS", cat:"text-to-speech", featured: false, v: "0.36", logo: "yandex.png"},
 {url:"/components/light.yeelightsunflower/", title:"Yeelight Sunflower Bulb", cat:"light", featured: false, v: "0.39", logo: "yeelight.png"},
@@ -1078,9 +1102,13 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/notify.aws_sqs/'>AWS SQS</a></li>
       <li><a href='/components/alarm_control_panel.abode/'>Abode Alarm Control Panel</a></li>
       <li><a href='/components/binary_sensor.abode/'>Abode Binary Sensor</a></li>
+      <li><a href='/components/cover.abode/'>Abode Cover</a></li>
       <li><a href='/components/abode/'>Abode Home Security</a></li>
+      <li><a href='/components/lock.abode/'>Abode Lock</a></li>
+      <li><a href='/components/switch.abode/'>Abode Switch</a></li>
       <li><a href='/components/switch.acer_projector/'>Acer Projector Switch</a></li>
       <li><a href='/components/device_tracker.actiontec/'>Actiontec</a></li>
+      <li><a href='/components/sensor.airvisual/'>AirVisual</a></li>
       <li><a href='/components/alarm_control_panel.alarmdotcom/'>Alarm.com Alarm Control Panel</a></li>
       <li><a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a></li>
       <li><a href='/components/alarm_control_panel.alarmdecoder/'>AlarmDecoder Alarm Control Panel</a></li>
@@ -1122,6 +1150,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/weather.bom/'>BOM Australia</a></li>
       <li><a href='/components/sensor.bom/'>BOM Australia Sensor</a></li>
       <li><a href='/components/device_tracker.bt_home_hub_5/'>BT Home Hub 5</a></li>
+      <li><a href='/components/binary_sensor.bayesian/'>Bayesian Binary Sensor</a></li>
       <li><a href='/components/device_tracker.bbox/'>Bbox</a></li>
       <li><a href='/components/sensor.bbox/'>Bbox Sensor</a></li>
       <li><a href='/components/bbb_gpio/'>BeagleBone Black GPIO</a></li>
@@ -1171,6 +1200,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/config/'>Config</a></li>
       <li><a href='/components/configurator/'>Configurator</a></li>
       <li><a href='/components/conversation/'>Conversation</a></li>
+      <li><a href='/components/counter/'>Counter</a></li>
       <li><a href='/components/sensor.crimereports/'>Crime Reports</a></li>
       <li><a href='/components/sensor.currencylayer/'>Currencylayer</a></li>
       <li><a href='/components/switch.dlink/'>D-Link Switch</a></li>
@@ -1179,6 +1209,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.dnsip/'>DNS IP</a></li>
       <li><a href='/components/sensor.dsmr/'>DSMR/Slimme meter</a></li>
       <li><a href='/components/sensor.dte_energy_bridge/'>DTE Energy Bridge</a></li>
+      <li><a href='/components/sensor.dwdwarnapp/'>DWD Warn Weather</a></li>
       <li><a href='/components/sensor.darksky/'>Dark Sky</a></li>
       <li><a href='/components/datadog/'>Datadog</a></li>
       <li><a href='/components/light.decora/'>Decora</a></li>
@@ -1270,6 +1301,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/camera.generic/'>Generic IP Camera</a></li>
       <li><a href='/components/camera.mjpeg/'>Generic MJPEG IP Camera</a></li>
       <li><a href='/components/climate.generic_thermostat/'>Generic Thermostat</a></li>
+      <li><a href='/components/device_tracker.geofency/'>Geofency</a></li>
       <li><a href='/components/sensor.gitter/'>Gitter Sensor</a></li>
       <li><a href='/components/sensor.glances/'>Glances</a></li>
       <li><a href='/components/calendar.google/'>Google Calendar Event</a></li>
@@ -1327,6 +1359,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/input_boolean/'>Input Boolean</a></li>
       <li><a href='/components/input_select/'>Input Select</a></li>
       <li><a href='/components/input_slider/'>Input Slider</a></li>
+      <li><a href='/components/input_text/'>Input Text</a></li>
       <li><a href='/components/notify.instapush/'>Instapush</a></li>
       <li><a href='/components/fan.insteon_local/'>Insteon (Local) Fan</a></li>
       <li><a href='/components/light.insteon_local/'>Insteon (Local) Light</a></li>
@@ -1350,11 +1383,12 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.juicenet/'>Juicenet Sensor</a></li>
       <li><a href='/components/knx/'>KNX</a></li>
       <li><a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a></li>
+      <li><a href='/components/climate.knx/'>KNX Climate</a></li>
       <li><a href='/components/cover.knx/'>KNX Cover</a></li>
       <li><a href='/components/light.knx/'>KNX Light</a></li>
+      <li><a href='/components/notify.knx/'>KNX Notify</a></li>
       <li><a href='/components/sensor.knx/'>KNX Sensor</a></li>
       <li><a href='/components/switch.knx/'>KNX Switch</a></li>
-      <li><a href='/components/climate.knx/'>KNX Thermostat</a></li>
       <li><a href='/components/sensor.kwb/'>KWB Easyfire Sensor</a></li>
       <li><a href='/components/switch.kankun/'>Kankun SP3 Wifi Switch</a></li>
       <li><a href='/components/keyboard/'>Keyboard</a></li>
@@ -1447,6 +1481,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/switch.modbus/'>Modbus Switch</a></li>
       <li><a href='/components/sensor.mold_indicator/'>Mold Indicator</a></li>
       <li><a href='/components/sensor.moon/'>Moon Sensor</a></li>
+      <li><a href='/components/sensor.mopar/'>Mopar</a></li>
       <li><a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a></li>
       <li><a href='/components/cover.myq/'>MyQ Cover</a></li>
       <li><a href='/components/mysensors/'>MySensors</a></li>
@@ -1458,6 +1493,8 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/notify.mysensors/'>MySensors Notify</a></li>
       <li><a href='/components/sensor.mysensors/'>MySensors Sensor</a></li>
       <li><a href='/components/switch.mysensors/'>MySensors Switch</a></li>
+      <li><a href='/components/mycroft/'>Mycroft</a></li>
+      <li><a href='/components/notify.mycroft/'>Mycroft AI</a></li>
       <li><a href='/components/media_player.nad/'>NAD</a></li>
       <li><a href='/components/media_player.nadtcp/'>NAD tcp</a></li>
       <li><a href='/components/sensor.nut/'>NUT Sensor</a></li>
@@ -1614,6 +1651,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/scene/'>Scenes</a></li>
       <li><a href='/components/sensor.scrape/'>Scrape Sensor</a></li>
       <li><a href='/components/script/'>Scripts</a></li>
+      <li><a href='/components/sensor.season/'>Season Sensor</a></li>
       <li><a href='/components/notify.sendgrid/'>SendGrid</a></li>
       <li><a href='/components/sensor.sensehat/'>Sense HAT</a></li>
       <li><a href='/components/light.sensehat/'>Sense HAT Light</a></li>
@@ -1665,6 +1703,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/tado/'>Tado</a></li>
       <li><a href='/components/sensor.tado/'>Tado Sensor</a></li>
       <li><a href='/components/climate.tado/'>Tado Thermostat</a></li>
+      <li><a href='/components/sensor.tank_utility/'>Tank Utility Sensor</a></li>
       <li><a href='/components/binary_sensor.tapsaff/'>Taps Aff</a></li>
       <li><a href='/components/notify.telegram/'>Telegram</a></li>
       <li><a href='/components/telegram_bot.broadcast/'>Telegram broadcast</a></li>
@@ -1684,6 +1723,12 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/light.template/'>Template Light</a></li>
       <li><a href='/components/sensor.template/'>Template Sensor</a></li>
       <li><a href='/components/switch.template/'>Template switch</a></li>
+      <li><a href='/components/device_tracker.tesla/'>Tesla</a></li>
+      <li><a href='/components/tesla/'>Tesla</a></li>
+      <li><a href='/components/binary_sensor.tesla/'>Tesla Binary Sensor</a></li>
+      <li><a href='/components/climate.tesla/'>Tesla HVAC</a></li>
+      <li><a href='/components/lock.tesla/'>Tesla Lock</a></li>
+      <li><a href='/components/sensor.tesla/'>Tesla Sensor</a></li>
       <li><a href='/components/thingspeak/'>ThingSpeak</a></li>
       <li><a href='/components/switch.thinkingcleaner/'>Thinking Cleaner Switch</a></li>
       <li><a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a></li>
@@ -1773,6 +1818,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/xiaomi/'>Xiaomi Gateway</a></li>
       <li><a href='/components/light.xiaomi/'>Xiaomi Light</a></li>
       <li><a href='/components/vacuum.xiaomi/'>Xiaomi Mi Robot Vacuum</a></li>
+      <li><a href='/components/light.xiaomi_philipslight/'>Xiaomi Philips Light</a></li>
       <li><a href='/components/device_tracker.xiaomi/'>Xiaomi Router</a></li>
       <li><a href='/components/sensor.xiaomi/'>Xiaomi Sensor</a></li>
       <li><a href='/components/switch.xiaomi/'>Xiaomi Switch</a></li>
@@ -1780,6 +1826,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.yahoo_finance/'>Yahoo Finance</a></li>
       <li><a href='/components/weather.yweather/'>Yahoo Weather</a></li>
       <li><a href='/components/sensor.yweather/'>Yahoo Weather Sensor</a></li>
+      <li><a href='/components/media_player.yamaha_musiccast/'>Yamaha MusicCast Receivers</a></li>
       <li><a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a></li>
       <li><a href='/components/tts.yandextts/'>Yandex TTS</a></li>
       <li><a href='/components/light.yeelightsunflower/'>Yeelight Sunflower Bulb</a></li>

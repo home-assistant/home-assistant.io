@@ -78,10 +78,12 @@
 <p>Please visit the <a href="https://goabode.com/">Abode website</a> for further information about Abode Security.</p>
 <p>There is currently support for the following device types within Home Assistant:</p>
 <ul>
-  <li><a href="/components/binary_sensor.abode/">Binary Sensor</a>: Reports on <code class="highlighter-rouge">Door Contacts</code> (open or close) and <code class="highlighter-rouge">Motion Camera</code> (motion detected or not)</li>
   <li><a href="/components/alarm_control_panel.abode/">Alarm Control Panel</a>: Reports on current alarm status and can be used to arm/disarm the system</li>
+  <li><a href="/components/binary_sensor.abode/">Binary Sensor</a>: Reports on <code class="highlighter-rouge">Door Contacts</code> (open or closed), <code class="highlighter-rouge">Motion Camera</code> (motion detected or not), <code class="highlighter-rouge">Water Sensors</code> (detected or not), <code class="highlighter-rouge">Keypad</code> (online or not), <code class="highlighter-rouge">Glass Break</code> (online or not), <code class="highlighter-rouge">Status Display</code> (online or not)</li>
+  <li><a href="/components/cover.abode/">Cover</a>: Reports on <code class="highlighter-rouge">Secure Barriers</code> (open or closed) and can be used to open/close the cover</li>
+  <li><a href="/components/cover.abode/">Lock</a>: Reports on <code class="highlighter-rouge">Door Locks</code> (locked or unlocked) and can be used to lock/unlock the door</li>
+  <li><a href="/components/switch.abode/">Switch</a>: Reports on <code class="highlighter-rouge">Power Switch Sensors</code> (on or off) and can be used to turn the power switch sensor on/off</li>
 </ul>
-<p>The component currently polls every 30 seconds, so device status may not be immediately reflected in Home Assistant.</p>
 <p>An <code class="highlighter-rouge">abode</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">abode</span><span class="pi">:</span>
@@ -104,7 +106,7 @@
       <img src='/images/supported_brands/abode.jpg' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Push
     </div>
     <div class='section'>
     Introduced in release: 0.52
@@ -117,6 +119,15 @@
         </a></li>
         <li><a href='/components/binary_sensor.abode/'>
           Abode Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.abode/'>
+          Abode Cover
+        </a></li>
+        <li><a href='/components/lock.abode/'>
+          Abode Lock
+        </a></li>
+        <li><a href='/components/switch.abode/'>
+          Abode Switch
         </a></li>
     </ul>
     </div>
@@ -281,6 +292,9 @@
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

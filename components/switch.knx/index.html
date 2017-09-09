@@ -75,20 +75,21 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">knx</code> switch component is used as in interface to switching actuators.</p>
+<p>The <code class="highlighter-rouge">knx</code> component must be configured correctly, see <a href="/components/knx">KNX Component</a>.</p>
 <p>To use your KNX switch in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">switch</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">KNX Switch</span>
-    <span class="s">address</span><span class="pi">:</span> <span class="s">0/0/1</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen.Coffee</span>
+    <span class="s">address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1/1/6'</span>
 </code></pre>
 </div>
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): A name for this devices used within Home assistant</li>
-  <li><strong>address</strong> (<em>Required</em>): The KNX group address that is used to turn on/off this actuator channel</li>
-  <li><strong>state_address</strong> (<em>Optional</em>): Some KNX devices can change their state internally without any messages on the KXN bus, e.g. if you configure a timer on a channel. The optional <code class="highlighter-rouge">state_address</code> can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
-For switching actuators that are only controlled by a single group address and can’t change their state internally, you don’t have to configure the state address.</li>
+  <li><strong>name</strong> (<em>Optional</em>): A name for this device used within Home Assistant.</li>
+  <li><strong>address</strong>: KNX group address for switching the switch on/off</li>
+  <li><strong>state_address</strong>: (<em>Optional</em>) separate KNX group address for retrieving the switch state.</li>
 </ul>
+<p>Some KNX devices can change their state internally without any messages on the KXN bus, e.g., if you configure a timer on a channel. The optional <code class="highlighter-rouge">state_address</code> can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
+For switching actuators that are only controlled by a single group address and can’t change their state internally, you don’t have to configure the state address.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -117,17 +118,20 @@ For switching actuators that are only controlled by a single group address and c
         <li><a href='/components/binary_sensor.knx/'>
           KNX Binary Sensor
         </a></li>
+        <li><a href='/components/climate.knx/'>
+          KNX Climate
+        </a></li>
         <li><a href='/components/cover.knx/'>
           KNX Cover
         </a></li>
         <li><a href='/components/light.knx/'>
           KNX Light
         </a></li>
+        <li><a href='/components/notify.knx/'>
+          KNX Notify
+        </a></li>
         <li><a href='/components/sensor.knx/'>
           KNX Sensor
-        </a></li>
-        <li><a href='/components/climate.knx/'>
-          KNX Thermostat
         </a></li>
     </ul>
     </div>
@@ -139,6 +143,9 @@ For switching actuators that are only controlled by a single group address and c
         </li>
         <li>
             <a href='/components/switch.fritzdect/'>AVM FRITZ!DECT Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.abode/'>Abode Switch</a>
         </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>

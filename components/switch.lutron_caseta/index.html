@@ -74,7 +74,11 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>To get your Lutron Caseta switches working with Home Assistant, follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+  <p>To get Lutron Caseta switches working with Home Assistant, follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+<p>After setup, switches will appear in Home Assistant using an <code class="highlighter-rouge">entity_id</code> based on the name used in the Lutron mobile app. For example, a light switch called ‘Master Bathroom Vanity’ will appear in Home Assistant as <code class="highlighter-rouge">switch.master_bathroom_vanity</code>.</p>
+<p>For dimmable lights including wall and plug-in dimmers, see <a href="/components/light.lutron_caseta/">Lutron Caseta Light</a>.</p>
+<p>For more information on working with switches in Home Assistant, see the <a href="/components/switch/">Switches component</a>.</p>
+<p>Available services: <code class="highlighter-rouge">switch.turn_on</code> and <code class="highlighter-rouge">switch.turn_off</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -116,6 +120,9 @@
         </li>
         <li>
             <a href='/components/switch.fritzdect/'>AVM FRITZ!DECT Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.abode/'>Abode Switch</a>
         </li>
         <li>
             <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>

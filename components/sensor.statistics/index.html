@@ -83,6 +83,8 @@
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.cpu</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">statistics</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.movement</span>
+    <span class="s">max_age</span><span class="pi">:</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">30</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -90,6 +92,7 @@
   <li><strong>entity_id</strong> (<em>Required</em>): The entity to monitor. Only <a href="/components/sensor/">sensors</a> and <a href="/components/binary_sensor/">binary sensor</a>.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the sensor to use in the frontend. Defaults to <code class="highlighter-rouge">Stats</code>.</li>
   <li><strong>sampling_size</strong> (<em>Optional</em>): Size of the sampling. If the limit is reached then the values are rotated. Defaults to <code class="highlighter-rouge">20</code>.</li>
+  <li><strong>max_age</strong> (<em>Optional</em>): Maximum age of measurements. Setting this to a time interval will cause older values to be discarded.</li>
 </ul>
 <p class="img">
   <img src="/images/screenshots/stats-sensor.png" />
@@ -260,6 +263,9 @@
             <a href='/components/sensor.mold_indicator/'>Mold Indicator</a>
         </li>
         <li>
+            <a href='/components/sensor.mopar/'>Mopar</a>
+        </li>
+        <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
         </li>
         <li>
@@ -317,6 +323,9 @@
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.season/'>Season Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.sensehat/'>Sense HAT</a>
         </li>
         <li>
@@ -344,6 +353,9 @@
             <a href='/components/sensor.tado/'>Tado Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.tank_utility/'>Tank Utility Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
         </li>
         <li>
@@ -351,6 +363,9 @@
         </li>
         <li>
             <a href='/components/sensor.template/'>Template Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tesla/'>Tesla Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>

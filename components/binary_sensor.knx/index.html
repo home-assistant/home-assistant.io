@@ -74,7 +74,48 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>To get your KNX binary sensors working with Home Assistant, follow the instructions for the <a href="/components/knx/">KNX component</a>.</p>
+  <p>The <code class="highlighter-rouge">knx</code> sensor platform allows you to monitor <a href="http://www.knx.org">KNX</a> binary sensors.</p>
+<p>The <code class="highlighter-rouge">knx</code> component must be configured correctly, see <a href="/components/knx">KNX Component</a>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Entrance.Motion.Sensor"</span>
+      <span class="s">address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">6/0/2'</span>
+      <span class="s">device_class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">motion'</span>
+      <span class="c1">#significant_bit: 2</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>name</strong> (<em>Optional</em>): A name for this device used within Home Assistant.</li>
+  <li><strong>address</strong>: KNX group address of the binary sensor</li>
+  <li><strong>device_class</strong>: (Optional) HASS device class e.g. “motion”</li>
+  <li><strong>significant_bit</strong>: (Optional) Specify which significant bit of the KNX value should be used. Default is 1.</li>
+</ul>
+<p>You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s">Livingroom.3Switch3</span>
+      <span class="s">address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/0/26'</span>
+      <span class="s">automation</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">counter</span><span class="pi">:</span> <span class="s">1</span>
+          <span class="s">hook</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+          <span class="s">action</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.hue_color_lamp_1</span>
+              <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+        <span class="pi">-</span> <span class="s">counter</span><span class="pi">:</span> <span class="s">2</span>
+          <span class="s">hook</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+          <span class="s">action</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.hue_bloom_1</span>
+              <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+            <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.hue_bloom_2</span>
+              <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>name</strong> (<em>Optional</em>): A name for this device used within Home Assistant.</li>
+  <li><strong>counter</strong>: (<em>Optional</em>) Set to 2 if your only want the action to be executed if the button was pressed twice. To 3 for three times button pressed. Defaults to 1.</li>
+  <li><strong>hook</strong>: (Optional): Indicates if the automation should be executed on what state of the binary sensor. Values: “on” or “off”. Defaults to “on”.</li>
+  <li><strong>action</strong>: Specify a list of actions analog to the <a href="https://home-assistant.io/docs/automation/action/">HASS automation rules</a>.</li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -100,20 +141,23 @@
         <li><a href='/components/knx/'>
           KNX
         </a></li>
+        <li><a href='/components/climate.knx/'>
+          KNX Climate
+        </a></li>
         <li><a href='/components/cover.knx/'>
           KNX Cover
         </a></li>
         <li><a href='/components/light.knx/'>
           KNX Light
         </a></li>
+        <li><a href='/components/notify.knx/'>
+          KNX Notify
+        </a></li>
         <li><a href='/components/sensor.knx/'>
           KNX Sensor
         </a></li>
         <li><a href='/components/switch.knx/'>
           KNX Switch
-        </a></li>
-        <li><a href='/components/climate.knx/'>
-          KNX Thermostat
         </a></li>
     </ul>
     </div>
@@ -134,6 +178,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.axis/'>Axis Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bayesian/'>Bayesian Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
@@ -251,6 +298,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tesla/'>Tesla Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a>

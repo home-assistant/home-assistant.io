@@ -74,8 +74,11 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The Lutron Caseta scene platform allows you to control your <a href="http://www.casetawireless.com/Pages/Caseta.aspx">Lutron Caseta</a> SmartBridge Scenes.</p>
-<p>The requirement is that you have setup the <a href="/components/lutron_caseta/">Lutron Caseta</a> component.</p>
+  <p>To get Lutron Caseta Scenes working with Home Assistant, follow the instructions for the general <a href="/components/lutron_caseta/">Lutron Caseta component</a>.</p>
+<p>The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes that are created in the Lutron mobile app.</p>
+<p>After setup, scenes will appear in Home Assistant using an <code class="highlighter-rouge">entity_id</code> based on the name used in the Lutron mobile app. For example, a scene called ‘Entertain’ will appear in Home Assistant as <code class="highlighter-rouge">scene.entertain</code>.</p>
+<p>For more information on working with scenes in Home Assistant, see the <a href="/components/scene/">Scenes component</a>.</p>
+<p>Available services: <code class="highlighter-rouge">scene.turn_on</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
