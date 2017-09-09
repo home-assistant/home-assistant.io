@@ -125,7 +125,7 @@ in the `_1h_` part of the sensor name with `1` to `36`. E.g. `weather_24h` will 
 ```yaml
 sensor:
   - platform: wunderground
-  - api_key: your_api_key
+    api_key: your_api_key
     monitored_conditions:
       - weather_1d_metric
       - weather_1n_metric

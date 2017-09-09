@@ -34,4 +34,7 @@ Configuration variables:
 - **password** (*Required*): The password for your given admin account.
 - **port** (*Optional*): The port your router communicates with (defaults to 5000, but 80 is also known to be used on some models)
 
+List of models that are known to use port 80:
+- Nighthawk X4S - AC2600 (R7800)
+
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

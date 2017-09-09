@@ -23,12 +23,14 @@ To get started with the OctoPrint API, please follow the directions on their [si
 octoprint:
   host: YOUR_OCTOPRINT_HOST
   api_key: YOUR_API_KEY
+  bed: false
+  number_of_tools: 1
 ```
 
 Configuration variables:
 
 - **host** (*Required*): IP address or hostname of Octoprint host.
 - **api_key** (*Required*): The retrieved api key.
+- **bed** (*Optional*): If the printer has a heated bed.
+- **number_of_tools** (*Optional*): Number of temperature adjustable tools. i.e. nozzle.
 
-
-**NOTE** If your 3D printer isn't connected to the OctoPrint server during the startup of Home Assistant this component will fail to load.

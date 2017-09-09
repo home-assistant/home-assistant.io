@@ -39,7 +39,8 @@ This page describes the steps for publishing a new Home Assistant release. Those
 3. Update `config.yml` with link to the new release blog post and version number (at the bottom of the file).
 4. Merge `current` into release branch (`$ git checkout release-0-40 && git merge current`) to make the PR mergeable.
 5. Merge pull request (blog post, updated frontpage, and all new documentation) to `current`. DO NOT SQUASH!
-6. Merge `current` into `next`.
+6. Run `credits_generator`.
+7. Merge `current` into `next`.
 
 ### {% linkable_title Docker Hub %}
 

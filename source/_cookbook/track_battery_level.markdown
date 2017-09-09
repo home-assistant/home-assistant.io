@@ -32,12 +32,12 @@ The `else` part is used to have the sensor keep it's last state if the newest [i
 
 ### {% linkable_title Android and iOS Devices %}
 
-While running the [Owntracks](/components/device_tracker.owntracks/) device tracker you can retrieve the battery level with a MQTT sensor.
+While running the [Owntracks](/components/device_tracker.owntracks/) device tracker you can retrieve the battery level with a MQTT sensor. Replace username with your MQTT username (for the embedded MQTT it's simply homeassistant), and deviceid with the set Device ID in Owntracks.
 
 ```yaml
 sensor:
   - platform: mqtt
-    state_topic: "owntracks/tablet/tablet"
+    state_topic: "owntracks/username/deviceid"
     name: "Battery Tablet"
     unit_of_measurement: "%"
     value_template: {% raw %}'{{ value_json.batt }}'{% endraw %}

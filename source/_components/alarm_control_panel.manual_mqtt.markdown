@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Alarm
-ha_release: "0.50"
+ha_release: 0.50
 ---
 
 This platform extends the [manual alarm](/components/alarm_control_panel.manual/) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
@@ -51,7 +51,7 @@ All configuration variables from the base manual alarm platform are available:
 Additionally, the following MQTT configuration variables are also available:
 
 - **state_topic** (*Required*): The MQTT topic HA will publish state updates to.
-- **command_topic** (*Required*): The MQTT topic HA will subscribe to to receive commands from a remote device to change the alarm state.
+- **command_topic** (*Required*): The MQTT topic HA will subscribe to, to receive commands from a remote device to change the alarm state.
 - **qos** (*Optional*): The maximum QoS level for subscribing and publishing to MQTT messages. Default is 0.
 - **payload_disarm** (*Optional*): The payload to disarm this Alarm Panel. Default is "DISARM".
 - **payload_arm_home** (*Optional*): The payload to set armed-home mode on this Alarm Panel. Default is "ARM_HOME".

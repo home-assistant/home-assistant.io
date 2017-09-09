@@ -63,7 +63,7 @@ While you are developing, you need to have Rollup running to have changes you ma
 
 ```bash
 $ cd homeassistant/components/frontend/www_static/home-assistant-polymer
-$ npm run js_dev
+$ npm run dev
 ```
 
 The source code for the frontend can be found in two different directories:

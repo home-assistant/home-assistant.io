@@ -67,10 +67,10 @@ sensor:
         value_template: {% raw %}'{{ states.cover.garage_door.state }}'{% endraw %}
       garage_door_time_in_state:
         friendly_name: 'Since'
-        value_template: {% raw %}'{{ states.cover.garage_door.attributes["time in state"] }}'{% endraw %}
+        value_template: {% raw %}'{{ states.cover.garage_door.attributes.time_in_state }}'{% endraw %}
       garage_door_wifi_signal_strength:
         friendly_name: 'WiFi strength'
-        value_template: {% raw %}'{{ states.cover.garage_door.attributes["wifi signal strength (dB)"] }}'{% endraw %}
+        value_template: {% raw %}'{{ states.cover.garage_door.attributes.wifi_signal_strength }}'{% endraw %}
         unit_of_measurement: 'dB'
 
 group:

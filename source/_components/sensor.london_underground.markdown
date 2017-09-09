@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "London Undergound"
+title: "London Underground"
 description: "Display the current status of London underground & overground lines within Home Assistant."
 date: 2017-07-15 18:45
 sidebar: true

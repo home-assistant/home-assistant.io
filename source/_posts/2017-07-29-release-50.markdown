@@ -66,6 +66,22 @@ A new version of the manual alarm component is now available with full MQTT cont
 - Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
 - Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
 
+## {% linkable_title Release 0.50.2 - July 31 %}
+
+Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
+
+- Fix TP-Link light brightness issue #8744. ([@gollo] - [#8755])
+- Fix typo in script error ([@n8henrie] - [#8754])
+- Fix tradfri error spam ([@MartinHjelmare] - [#8738]) ([light.tradfri docs])
+- Media Player - Pioneer: Supress exception if host is not available (fixes #8684) ([@fabaff] - [#8732]) ([media_player.pioneer docs])
+- Telegram Bot: Retry set_webhook up to three times, reduce timeout to 5s again ([@azogue] - [#8716]) ([telegram_bot.webhooks docs])
+- Fixed sensor issue with Google Wifi routers in bridge mode ([@fronzbot] - [#8710]) ([sensor.google_wifi docs])
+- Fix alexa cards ([@balloob] - [#8708]) ([alexa docs])
+- Fix Kodi reconnection after websocket disconnect ([@armills] - [#8704]) ([media_player.kodi docs])
+- Move I/O outside of properties for light/tplink platform ([@gollo] - [#8699]) ([light.tplink docs]) (new-platform)
+- Correctly discover GE Fan Controllers ([@armills] - [#8682]) ([zwave docs])
+- Fix Z-Wave barrier discovery for new API ([@armills] - [#8706]) ([zwave docs]) ([cover.zwave docs])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -390,4 +406,19 @@ conversation:
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
-
+[#8682]: https://github.com/home-assistant/home-assistant/pull/8682
+[#8699]: https://github.com/home-assistant/home-assistant/pull/8699
+[#8704]: https://github.com/home-assistant/home-assistant/pull/8704
+[#8706]: https://github.com/home-assistant/home-assistant/pull/8706
+[#8708]: https://github.com/home-assistant/home-assistant/pull/8708
+[#8710]: https://github.com/home-assistant/home-assistant/pull/8710
+[#8716]: https://github.com/home-assistant/home-assistant/pull/8716
+[#8732]: https://github.com/home-assistant/home-assistant/pull/8732
+[#8738]: https://github.com/home-assistant/home-assistant/pull/8738
+[#8754]: https://github.com/home-assistant/home-assistant/pull/8754
+[#8755]: https://github.com/home-assistant/home-assistant/pull/8755
+[@n8henrie]: https://github.com/n8henrie
+[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
+[media_player.pioneer docs]: https://home-assistant.io/components/media_player.pioneer/
+[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
+[zwave docs]: https://home-assistant.io/components/zwave/

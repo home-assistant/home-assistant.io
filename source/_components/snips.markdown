@@ -104,11 +104,12 @@ In Home Assistant, we trigger actions based on intents produced by Snips using t
 
 ```yaml
 snips:
-  intents:
-    ActivateLightColor:
-      action:
-        - service: light.turn_on
-          data_template:
-            entity_id: light.{% raw %}{{ objectLocation | replace(" ","_") }}{% endraw %}
-            color_name: {% raw %}{{ objectColor }}{% endraw %}
+
+intent_script:
+  ActivateLightColor:
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.{% raw %}{{ objectLocation | replace(" ","_") }}{% endraw %}
+          color_name: {% raw %}{{ objectColor }}{% endraw %}
 ```

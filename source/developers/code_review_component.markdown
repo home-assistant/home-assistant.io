@@ -19,6 +19,7 @@ Not all existing platforms follow the requirements in this checklist. This canno
 
  1. Requirement version pinned: `REQUIREMENTS = ['phue==0.8.1']`
  2. We no longer want requirements hosted on GitHub. Please upload to PyPi.
+ 3. Requirements should only be imported inside functions. This is necessary because requirements are installed on the fly.
 
 ### {% linkable_title Configuration %}
 
