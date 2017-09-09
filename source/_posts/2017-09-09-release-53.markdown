@@ -66,7 +66,7 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 - Tesla platform ([@zabuldon] - [#9211]) ([tesla docs]) ([binary_sensor.tesla docs]) ([climate.tesla docs]) ([device_tracker.tesla docs]) ([lock.tesla docs]) ([sensor.tesla docs]) (new-platform)
 - mopar sensor ([@happyleavesaoc] - [#9136]) ([sensor.mopar docs]) (new-platform)
 - Add Geofency device tracker ([@gunnarhelgason] - [#9106]) ([device_tracker.geofency docs]) (new-platform)
-- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwd_warnapp docs]) (new-platform)
+- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwdwarnapp docs]) (new-platform)
 - Add input_text component ([@BioSehnsucht] - [#9112]) ([input_text docs]) (new-platform)
 - Introducing a media_player component for Yamaha Multicast devices ([@jalmeroth] - [#9258]) ([media_player.yamaha_musiccast docs]) (new-platform)
 - Stable and asynchronous KNX library. ([@Julius2342] - [#8725]) ([knx docs]) ([binary_sensor.knx docs]) ([climate.knx docs]) ([cover.knx docs]) ([light.knx docs]) ([sensor.knx docs]) ([switch.knx docs]) (new-platform)
@@ -176,7 +176,7 @@ frontend:
 - Update jinja to 2.9.6 ([@pvizeli] - [#9306])
 - Ensure display-name does not exceed 12 characters for CecAdapter. ([@gollo] - [#9268]) ([hdmi_cec docs])
 - Expose hue group 0 ([@filcole] - [#8663]) ([light.hue docs])
-- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwd_warnapp docs]) (new-platform)
+- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwdwarnapp docs]) (new-platform)
 - Add input_text component ([@BioSehnsucht] - [#9112]) ([input_text docs]) (new-platform)
 - Introducing a media_player component for Yamaha Multicast devices ([@jalmeroth] - [#9258]) ([media_player.yamaha_musiccast docs]) (new-platform)
 - Handle the case where no registration number is available (instead display VIN (vehicle identification number)). ([@molobrakos] - [#9073]) ([volvooncall docs]) ([device_tracker.volvooncall docs])
@@ -415,7 +415,7 @@ frontend:
 [sensor.airvisual docs]: https://home-assistant.io/components/sensor.airvisual/
 [sensor.buienradar docs]: https://home-assistant.io/components/sensor.buienradar/
 [sensor.dht docs]: https://home-assistant.io/components/sensor.dht/
-[sensor.dwd_warnapp docs]: https://home-assistant.io/components/sensor.dwd_warnapp/
+[sensor.dwdwarnapp docs]: https://home-assistant.io/components/sensor.dwdwarnapp/
 [sensor.fitbit docs]: https://home-assistant.io/components/sensor.fitbit/
 [sensor.homematic docs]: https://home-assistant.io/components/sensor.homematic/
 [sensor.mopar docs]: https://home-assistant.io/components/sensor.mopar/
