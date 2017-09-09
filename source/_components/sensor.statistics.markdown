@@ -27,6 +27,8 @@ sensor:
     entity_id: sensor.cpu
   - platform: statistics
     entity_id: binary_sensor.movement
+    max_age:
+      minutes: 30
 ```
 
 Configuration variables:
@@ -34,6 +36,7 @@ Configuration variables:
 - **entity_id** (*Required*): The entity to monitor. Only [sensors](/components/sensor/) and [binary sensor](/components/binary_sensor/).
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Stats`.
 - **sampling_size** (*Optional*): Size of the sampling. If the limit is reached then the values are rotated. Defaults to `20`.
+- **max_age** (*Optional*): Maximum age of measurements. Setting this to a time interval will cause older values to be discarded.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/stats-sensor.png' />

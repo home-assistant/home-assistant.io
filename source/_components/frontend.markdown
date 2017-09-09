@@ -18,7 +18,7 @@ This offers the official frontend to control Home Assistant.
 frontend:
 ```
 
-### {% linkable_title Themes %}
+## {% linkable_title Themes %}
 
 Starting with version 0.49 you can define themes:
 
@@ -76,3 +76,20 @@ automation:
 ### {% linkable_title Manual Theme Selection %}
 
 When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under `configuration.yaml` called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
+
+
+## {% linkable_title Loading extra HTML %}
+
+Starting with version 0.53 you can specify extra HTML files to load.
+
+Example:
+
+```yaml
+# Example configuration.yaml entry
+frontend:
+  extra_html_url:
+    - https://example.com/file1.html
+    - /file2.html
+```
+
+Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels)

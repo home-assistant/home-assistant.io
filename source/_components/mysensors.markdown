@@ -26,6 +26,11 @@ mysensors:
     - device: '/dev/ttyUSB0'
       persistence_file: 'path/mysensors.json'
       baud_rate: 38400
+      nodes:
+        1: 
+          name: 'kitchen'
+        3: 
+          name: 'living_room'
     - device: '/dev/ttyACM0'
       persistence_file: 'path/mysensors2.json'
       baud_rate: 115200
@@ -55,6 +60,8 @@ Configuration variables:
 - **version** (*Optional*): Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0. Default is 1.4.
 - **optimistic** (*Optional*): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
 - **retain** (*Optional*): Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway. Default is true.
+- **nodes** (*Optional*): Nodes that need a custom name.
+  - **name** (*Optional*): The name the node will be renamed to. This nodename becomes part of the entity_id. Default the entity_id is [sketch_name]\_[node_id]\_[child_id] and when this name is set, the entity_id becomes [name]\_[child_id].
 
 <p class='note'>
 Not all features of MySensors 2.0 are yet supported by Home Assistant. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.

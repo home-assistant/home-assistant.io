@@ -184,7 +184,24 @@ automation:
         scene_id: 11
 ```
 
+Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  These devices will also send `scene_data` to differentiate the events.  This is an example of double clicking the on/up button:
+
+```yaml
+# Example configuration.yaml automation entry
+automation
+  - alias: 'Dining room dimmer - double tap up'
+    trigger:
+      - event_type: zwave.scene_activated
+        platform: event
+        event_data:
+          entity_id: zwave.dining_room_cans
+          scene_id: 1
+          scene_data: 3
+```
+
 The *object_id* and *scene_id* of all triggered events can be seen in the console output.
+
+For more information on HomeSeer devices and similar devices, please see the [device specific page](https://home-assistant.io/docs/z-wave/device-specific/#homeseer-switches).
 
 ### {% linkable_title Services %}
 
