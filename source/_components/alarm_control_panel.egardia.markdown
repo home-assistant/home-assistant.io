@@ -43,7 +43,7 @@ You can change this, however, using the following procedure. This is a more adva
 
 1. Log in into your alarm system's control panel. You will need to access http://[ip of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.
 2. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. Also, update the port number 85 or to anything you like. The provided software that you will set up in the next steps runs on port 85 by default. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'.
-3. On your Home Assistant machine run `$ sudo python3 egardiaserver.py`. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. **Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).**
+3. On your Home Assistant machine run `$ sudo python3 egardiaserver.py`. Refer to the [python-egardia repository](https://github.com/jeroenterheerdt/python-egardia) for detailed documentation on parameters. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. **Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).**
 4. Once you have the codes, update your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
@@ -62,9 +62,24 @@ alarm_control_panel:
       standby: XXXXXXXXXXXXXXXX
 ```
   Note that you can have more than one code for triggered since every sensor generates its own code. arm, disarm, armhome and standby will all be one code.
-5. Start the `egardiaserver.py` script on boot of your Home Assistant machine, for example by adding the following to your `/etc/rc.local`:
+5. Start the `egardiaserver.py` script on boot of your Home Assistant machine, for example by using systemd. To use this method, create a shell script named `egardiaserver.sh` that contains the following:
 ```bash
- python3 [path/to/]egardiaserver.py &
+source /srv/homeassistant/homeassistant_venv/bin/activate
+python3 /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/pythonegardia/egardiaserver.py -host [YOURHOST] -password '[YOURPASSWORD]' -ssl True > /tmp/egardiaserver.log 2>&1
 ```
- **Do not forget the trailing & here; otherwise you will be having a hard time logging back into the machine.**
+
+Mark it as executable (`$ chmod +x`) and run `sudo nano /lib/systemd/system/egardiaserver.service`. Enter the following into the `egardiaserver.service` file:
+```bash
+[Unit]
+Description=Egardia Server Service
+
+[Service]
+ExecStart=/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/pythonegardia/egardiaserver.sh
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
+Alias=egardiaserver.service
+```
+Save and then run `sudo systemctl enable egardiaserver.service` and `sudo systemctl start egardiaserver.service`.
 6. Test your setup and enjoy. The component will update if the alarm status changes, including triggers. You can use this to build your own automations and send notifications as you wish.
