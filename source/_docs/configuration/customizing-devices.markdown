@@ -67,6 +67,7 @@ homeassistant:
 | `assumed_state` | For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
 | `device_class` | Sets the class of the device, changing the device state and icon that is displayed on the UI (see below).
 | `initial_state` | Sets the initial state for automations. `on` or `off`.
+| `unit_of_measurement` | Defines the units of measurement, if any.
 
 ### {% linkable_title Device Class %}
 

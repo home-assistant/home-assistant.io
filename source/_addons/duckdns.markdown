@@ -15,7 +15,7 @@ featured: true
 ```json
 {
   "token": "sdfj-2131023-dslfjsd-12321",
-  "domains": ["my-first-accound.duckdns.org", "my-second-account.duckdns.org"]
+  "domains": ["my-first-account.duckdns.org", "my-second-account.duckdns.org"]
 }
 ```
 

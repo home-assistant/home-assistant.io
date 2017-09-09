@@ -18,11 +18,14 @@ This offers the official frontend to control Home Assistant.
 frontend:
 ```
 
-#### Themes
+### {% linkable_title Themes %}
+
 Starting with version 0.49 you can define themes:
 
 Example:
+
 ```yaml
+# Example configuration.yaml entry
 frontend:
   themes:
     happy:
@@ -31,8 +34,45 @@ frontend:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.html](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html)
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.html](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html).
 
 There are 2 themes-related services:
- - `frontend.reload_themes` - reloads theme configuration from yaml.
- - `frontend.set_theme(name)` - sets backend-preferred theme name. 
+
+ - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
+ - `frontend.set_theme(name)`: sets backend-preferred theme name. 
+
+Example in automation:
+
+Set a theme at the startup of Home Assistant:
+
+```yaml
+automation:
+  - alias: 'Set theme at startup'
+    initial_state: 'on'
+    trigger:
+     - platform: homeassistant
+       event: start
+    action:
+      service: frontend.set_theme
+      data:
+        name: happy
+```
+
+To enable "night mode": 
+
+```yaml
+automation:
+  - alias: 'Set dark theme for the night'
+    initial_state: True
+    trigger:
+      - platform: time
+        at: '21:00'
+    action:
+      - service: frontend.set_theme
+        data:
+          name: darkred
+```
+
+### {% linkable_title Manual Theme Selection %}
+
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under `configuration.yaml` called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.

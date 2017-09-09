@@ -55,14 +55,14 @@ You will notice that the output from the service is not just a single value (it 
 ```yaml
 sensor:
 # Example configuration.yaml entry
-  platform: tcp
-  name: Central Heating Pressure
-  host: 10.0.0.127
-  port: 8888
-  timeout: 5
-  payload: "r WaterPressure\n"
-  value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
-  unit_of_measurement: Bar
+  - platform: tcp
+    name: Central Heating Pressure
+    host: 10.0.0.127
+    port: 8888
+    timeout: 5
+    payload: "r WaterPressure\n"
+    value_template: "{% raw %}{{ value.split(';')[0] }}{% endraw %}"
+    unit_of_measurement: Bar
 ```
 
 ### {% linkable_title hddtemp %}
@@ -89,12 +89,12 @@ The entry for the `configuration.yaml` file for a `hddtemp` sensor could look li
 ```yaml
 sensor:
 # Example configuration.yaml entry
-  platform: tcp
-  name: HDD temperature
-  host: 127.0.0.1
-  port: 7634
-  timeout: 5
-  payload: "\n"
-  value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
-  unit_of_measurement: "°C"
+  - platform: tcp
+    name: HDD temperature
+    host: 127.0.0.1
+    port: 7634
+    timeout: 5
+    payload: "\n"
+    value_template: "{% raw %}{{ value.split('|')[3] }}{% endraw %}"
+    unit_of_measurement: "°C"
 ```

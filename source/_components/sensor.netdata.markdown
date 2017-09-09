@@ -41,4 +41,6 @@ Configuration variables:
   - 'system_load': System Load 15 min
   - 'system_io_in': System I/O In
   - 'system_io_out': System I/O Out
-
+  - 'ipv4_in': Amount of inbound IPv4 packets per second
+  - 'ipv4_out': Amount of outbound IPv4 packets per second
+  - 'disk_free': Free disk space

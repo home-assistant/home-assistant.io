@@ -34,11 +34,17 @@ Configuration variables:
 A simple way to generate a `token` for a new sensor is to run this snippet of python code in your Home Assistant virtual environment:
 
 ```shell
-$ pip install pyotp
-$ python -c 'import pyotp; print("Token: " + pyotp.random_base32())'
+$ pip3 install pyotp
+$ python3 -c 'import pyotp; print("Token:", pyotp.random_base32())'
 Token: IHEDPEBEVA2WVHB7
 ```
 
+To run in a Docker container:
+
+```shell
+$ docker exec -it home-assistant python -c 'import pyotp; print("Token:", pyotp.random_base32())'
+Token: IHEDPEBEVA2WVHB7
+```
 Copy and paste the token into your Home Assistant configuration and add it to your OTP generator. Verify that they generate the same code.
 
 <p class='note warning'>

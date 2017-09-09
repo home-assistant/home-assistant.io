@@ -13,34 +13,32 @@ ha_release: 0.47
 ---
 
 
-This `radarr` sensor platform pulls data from a given Radarr instance.
+This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
 
-To use your [Radarr](https://radarr.video/) sensor in your installation, add the following to your `configuration.yaml` file:
+To use your Radarr sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
-    host: IP_ADDRESS
-    port: PORT
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): Your Radarr API key, found in Settings > General in the Radarr Web UI.
-- **monitored_conditions** array (*Required*): Conditions to display on the frontend.
+- **host** (*Optional*): The host Radarr is running on. Defaults to `localhost`.
+- **port** (*Optional*): The port Radarr is running on. Defaults to 7878.
+- **urlbase** (*Optional*): The base URL Radarr is running under. Defaults to `/`.
+- **monitored_conditions** array (*Optional*): Conditions to display on the frontend. Defaults to `movies`.
   - **movies**: The number of movies in Radarr.
   - **upcoming**: The number of upcoming movie releases (physical and in cinemas).
   - **commands**: The number of commands being run.
-  - **diskspace**: Available disk space.
-  - **status**: System status information
-- **host** (*Optional*): The host Radarr is running on (Default: localhost).
-- **port** (*Optional*): The port Radarr is running on (Default: 7878).
-- **urlbase** (*Optional*): The base URL Radarr is running under (Default: /).
-- **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only (Default: 1).
+  - **diskspace**: The available disk space.
+  - **status**: The current system status information.
+- **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only.  Defaults to 1.
 - **include_paths** (*Optional*): Array of filepaths to include when calculating diskspace. Leave blank to include all.
-- **unit**: (*Optional*): The unit to display disk space in (Default: GB).
+- **unit**: (*Optional*): The unit to display disk space in. Defaults to GB.
 - **ssl**:  boolean (*Optional*): Whether or not to use SSL for Radarr.
 
 ## {% linkable_title Examples %}

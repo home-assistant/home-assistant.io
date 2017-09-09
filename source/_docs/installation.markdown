@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/installation/
 ---
 
-Home Assistant provides multiple ways to be installed. A requirement is that you have [Python](https://www.python.org/downloads/) installed. For Windows we require at least **Python 3.5** and for other operating systems at least **Python 3.4.2**.
+Home Assistant provides multiple ways to be installed. A requirement is that you have [Python](https://www.python.org/downloads/) installed. For Windows, we require at least **Python 3.5** and for other operating systems at least **Python 3.4.2**.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/docs/hassbian/installation/'>
@@ -23,7 +23,7 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     <div class='img-container'>
       <img src='/images/supported_brands/raspberry-pi.png' />
     </div>
-    <div class='title'>Rasbian</div>
+    <div class='title'>Raspbian</div>
   </a>
   <a class='option-card' href='/docs/installation/archlinux/'>
     <div class='img-container'>

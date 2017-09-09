@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /getting-started/hassbian-customization/
+redirect_from: /docs/hassbian/customization/
 ---
 
 To allow you to customize your installation further, we have included a tool called `hassbian-config`. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation.

@@ -32,7 +32,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `entity_id`            |      yes | Target a specific media player. Defaults to all. |
-| `volume_level`         |       no | Float for volume level                         |
+| `volume_level`         |       no | Float for volume level                           |
 
 #### {% linkable_title Service `media_player/media_seek` %}
 
@@ -62,4 +62,6 @@ Currently only supports Spotify.
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Target a specific media player. For example `media_player.spotify`|
-| `shuffle`               |       no | `true`/`false` for enabling/disabling shuffle            |
+| `shuffle`              |       no | `true`/`false` for enabling/disabling shuffle            |
+
+

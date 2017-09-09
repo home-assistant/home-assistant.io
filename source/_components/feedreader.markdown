@@ -52,14 +52,13 @@ automation:
       service: persistent_notification.create
       data_template:
         title: "New HA Podcast available"
-        message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
-        notification_id: "{{ trigger.event.data.title }}"{% endraw %}
+        message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"{% endraw %}
+        notification_id: {% raw %}"{{ trigger.event.data.title }}"{% endraw %}
 ```
 
-*Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
+Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
 For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
-For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/hasspodcast.yaml). 
 
 ```python
 EVENT_FEEDREADER = "feedreader"
@@ -67,3 +66,5 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 ```
 
 To get started developing custom components, please refer to the [developers](/developers) documentation
+
+For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/packages/hasspodcast.yaml).

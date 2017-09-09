@@ -27,6 +27,7 @@ sensor:
 
 Configuration variables:
 
+- **name** (*Optional*): Additional name for the sensors. Default to platform name.
 - **forecast** integer (*Optional*): If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.
 - **monitored_conditions** array (*Optional*): Conditions to display in the frontend.
   - **symbol**: A symbol for the current weather.
@@ -49,6 +50,7 @@ A full configuration example can be found below:
 # Example configuration.yaml entry
 sensor:
   - platform: yr
+    name: Weather
     forecast: 24
     monitored_conditions:
       - temperature

@@ -33,6 +33,7 @@ sensor:
       - wind_direction
       - wind_gust
       - visibility
+      - visibility_distance
       - uv
       - precipitation
       - humidity

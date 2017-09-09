@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 
 The `plex` platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item.
 
-## Setup
+## {% linkable_title Setup %}
 
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server.
 
@@ -52,11 +52,13 @@ In case [discovery](/components/discovery/) does not work (GDM disabled or non-l
 - **IP_ADDRESS** (*Required*): IP address of the Plex Media Server.
 - **PORT** (*Required*): Port where Plex is listening. Default is 32400.
 - **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
-- **ssl** (*Optional*): Whether to use SSL or not. _(Boolean)_
-- **verify** (*Optional*): Whether to allow invalid or self-signed SSL certificates or not. _(Boolean)_
+- **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `False` if not present.
+- **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `False`. Defaults to `True` if not present.
 
-## Customization
+## {% linkable_title Customization %}
+
 You can customize the Plex component by adding any of the variables below to your configuration:
+
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -124,7 +126,8 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Plex Web                         | None                                                                                                                                                            |
 | Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
-### Notes
+### {% linkable_title Notes %}
+
 * At this moment, the Plex platform only supports one Plex Media Server.
 * It is possible to get errors that look like the following.
 

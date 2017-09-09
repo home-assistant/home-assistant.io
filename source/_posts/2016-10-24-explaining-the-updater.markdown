@@ -2,8 +2,8 @@
 layout: post
 title: "Explaining the Updater"
 description: "An update to the recent updater component changes"
-date: 2016-10-24 21:30:00 -0700
-date_formatted: "October 24, 2016"
+date: 2016-10-25 21:30:00 UTC
+date_formatted: "October 25, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
