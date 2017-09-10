@@ -38,7 +38,6 @@ Hass.io dashboard and upgrade notification under hamburger -> hass.io menu
 Hass.io upgrade process from ssh command line
 </p>
 
-
 [Google Assistant]: /addons/google_assistant/
 [Snips.ai]: /addons/snips/
 [Let's Encrypt]: /addons/lets_encrypt/
