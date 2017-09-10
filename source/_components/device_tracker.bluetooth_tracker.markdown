@@ -16,7 +16,7 @@ ha_release: 0.18
 This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device mac addresses in `known_devices.yaml`.
 
 <p class='note'>
-If you are using [Hass.io](/hassio/) you will need to enable the Bluetooth BCM43xx (/addons/bluetooth_bcm43xx/) addon.
+[Hass.io](/hassio/) only supports bluetooth on Raspberry Pi 3 via the Bluetooth BCM43xx (/addons/bluetooth_bcm43xx/) addon. [Hass.io](/hassio/) doesn't support external bluetooth dongles.
 </p>
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
