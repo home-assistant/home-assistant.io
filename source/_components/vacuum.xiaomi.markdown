@@ -86,7 +86,7 @@ Use this call to enter the remote control mode, make one move, and stop and exit
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum and Xiaomi Philips Light. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars) which can be obtained easily via a hidden menu item at the Mi-Home app.
 </p>
 
-Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various `xiaomi_*` platforms.
+Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
 
 Before you begin you need to install `libffi-dev` and `libssl-dev` by running the command below. This is needed for `python-mirobo` to be installed correctly.
 
