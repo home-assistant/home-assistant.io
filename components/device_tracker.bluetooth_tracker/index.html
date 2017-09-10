@@ -74,9 +74,9 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This tracker discovers new devices on boot and tracks bluetooth devices periodically based on interval_seconds value. It is not required to pair the devices with each other! Devices discovered are stored with ‘bt_’ as the prefix for device mac addresses in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
+  <p>This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on <code class="highlighter-rouge">interval_seconds</code> value. It is not required to pair the devices with each other! Devices discovered are stored with ‘bt_’ as the prefix for device MAC addresses in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
 <p class="note">
-If you are using <a href="/hassio/">Hass.io</a> you will need to enable the Bluetooth BCM43xx (/addons/bluetooth_bcm43xx/) addon.
+<a href="/hassio/">Hass.io</a> only supports bluetooth on Raspberry Pi 3 via the Bluetooth BCM43xx (/addons/bluetooth_bcm43xx/) addon. <a href="/hassio/">Hass.io</a> doesn’t support external Bluetooth dongles.
 </p>
 <p>To use the Bluetooth tracker in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -84,7 +84,7 @@ If you are using <a href="/hassio/">Hass.io</a> you will need to enable the Blue
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bluetooth_tracker</span>
 </code></pre>
 </div>
-<p>In some cases it can be that your device is not discovered. In that case let your phone scan for BT devices while you restart Home Assistant. Just hit <code class="highlighter-rouge">Scan</code> on your phone all the time until Home Assistant is fully restarted and the device should appear in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
+<p>In some cases it can be that your device is not discovered. In that case let your phone scan for Bluetooth devices while you restart Home Assistant. Just hit <code class="highlighter-rouge">Scan</code> on your phone all the time until Home Assistant is fully restarted and the device should appear in <code class="highlighter-rouge">known_devices.yaml</code>.</p>
 <p>For additional configuration variables check the <a href="/components/device_tracker/">Device tracker page</a>.</p>
 </article>
         </div>

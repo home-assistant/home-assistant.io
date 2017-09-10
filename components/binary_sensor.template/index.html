@@ -156,7 +156,7 @@ sensor far more efficient.</p>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Washing Machine</span>
-    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">sensor.washing_machine_power</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.washing_machine_power.state</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">}}'</span>
     <span class="s">off_delay</span><span class="pi">:</span>
       <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
@@ -164,7 +164,7 @@ sensor far more efficient.</p>
 <h3><a class="title-link" name="is-anyone-home" href="#is-anyone-home"></a> Is anyone home?</h3>
 <p>This example is determining if anyone is home based on the combination
 of device tracking and motion sensors. It’s extremely useful if you
-have kids / baby sitter / grand parrents who might still be in your
+have kids/baby sitter/ grand parents who might still be in your
 house that aren’t represented by a trackable device in home
 assistant. This is providing a composite of wifi based device tracking
 and z-wave multisensor presence sensors.</p>
