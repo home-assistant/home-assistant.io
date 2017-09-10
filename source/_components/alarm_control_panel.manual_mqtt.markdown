@@ -21,12 +21,14 @@ The component will accept the following commands from your Alarm Panel via the `
 - `DISARM`
 - `ARM_HOME`
 - `ARM_AWAY`
+- `ARM_NIGHT`
 
 When the state of the manual alarm changes, Home Assistant will publish one of the following states to the `state_topic`:
 
 - 'disarmed'
 - 'armed_home'
 - 'armed_away'
+- 'armed_night'
 - 'pending'
 - 'triggered'
 
@@ -56,6 +58,7 @@ Additionally, the following MQTT configuration variables are also available:
 - **payload_disarm** (*Optional*): The payload to disarm this Alarm Panel. Default is "DISARM".
 - **payload_arm_home** (*Optional*): The payload to set armed-home mode on this Alarm Panel. Default is "ARM_HOME".
 - **payload_arm_away** (*Optional*): The payload to set armed-away mode on this Alarm Panel. Default is "ARM_AWAY".
+- **payload_arm_night** (*Optional*): The payload to set armed-night mode on this Alarm Panel. Default is "ARM_NIGHT".
 
 ## {% linkable_title Examples %}
 
@@ -70,11 +73,13 @@ To change the state of the alarm, publish one of the following messages to the `
  - `DISARM`
  - `ARM_HOME`
  - `ARM_AWAY`
+ - `ARM_NIGHT`
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
  - `disarmed`
  - `armed_home`
  - `armed_away`
+ - `armed_night`
  - `pending`
  - `triggered`
