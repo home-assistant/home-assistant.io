@@ -140,8 +140,8 @@ Automation example
 
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
 - Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832
-- Turn off the firewall on the system where Home Assistant is running 
+- Turn off the firewall on the system where Home Assistant is running.
 - Try to leave the MAC address `mac:` blank. 
-- Try to set `discovery_retry: 10`
-- Try to disable and then enable LAN access
-
+- Try to set `discovery_retry: 10`.
+- Try to disable and then enable LAN access.
+- Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
