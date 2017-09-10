@@ -108,7 +108,7 @@ This example creates a washing machine "load running" sensor by monitoring an en
 binary_sensor:
   - platform: template
     name: Washing Machine
-    value_template: {% raw %}'{{ sensor.washing_machine_power > 0 }}'{% endraw %}
+    value_template: {% raw %}'{{ states.sensor.washing_machine_power.state > 0 }}'{% endraw %}
     off_delay:
       minutes: 5
 ```
@@ -117,7 +117,7 @@ binary_sensor:
 
 This example is determining if anyone is home based on the combination
 of device tracking and motion sensors. It's extremely useful if you
-have kids / baby sitter / grand parrents who might still be in your
+have kids/baby sitter/ grand parents who might still be in your
 house that aren't represented by a trackable device in home
 assistant. This is providing a composite of wifi based device tracking
 and z-wave multisensor presence sensors.
