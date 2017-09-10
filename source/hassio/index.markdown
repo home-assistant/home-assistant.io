@@ -30,8 +30,14 @@ The advantages of using Hass.io:
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
-Hass.io dashboard
+Hass.io dashboard and upgrade notification under hamburger -> hass.io menu
 </p>
+
+<p class='img'>
+<img src='/images/hassio/screenshots/ssh-upgrade.png'>
+Hass.io upgrade process from ssh command line
+</p>
+
 
 [Google Assistant]: /addons/google_assistant/
 [Snips.ai]: /addons/snips/
