@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `xiaomi` light platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) lights.
+The `xiaomi` light platform allows you to control the internal light of the xiaomi gatway. The component will be loaded automatically and provides a device called `light.gateway_light_28ffffffffff`.
 
 The requirement is that you have setup [Xiaomi](/components/xiaomi/).
 
