@@ -13,7 +13,7 @@ ha_release: 0.49
 ---
 
 
-The `media_extractor` component gets an stream URL and send it to a media player entity. This component can extract entity specific streams if configured accordingly.
+The `media_extractor` component gets a stream URL and sends it to a media player entity. This component can extract entity specific streams if configured accordingly.
 
 <p class='note'>
 Media extractor doesn't transcode streams, it just tries to find stream that match requested query.
