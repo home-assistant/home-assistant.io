@@ -13,7 +13,7 @@ ha_release: 0.51
 ha_iot_class: "Cloud Polling"
 ---
 
-The `dwdwarnapp` sensor platform uses the [Deutsche Wetter Dienst (DWD)](http://www.dwd.de) as a source for current and advance warnings.
+The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](http://www.dwd.de) as a source for current and advance warnings.
 
 - A name is optional but if multiple regions are used a name will be required.
 - The sensor checks for new data every 15 minutes.
@@ -23,7 +23,7 @@ To add the DWD WarnApp sensor to your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: dwdwarnapp
+  - platform: dwd_weather_warnings
     region_name: Hansestadt Hamburg
 ```
 
