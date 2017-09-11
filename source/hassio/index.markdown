@@ -13,10 +13,6 @@ Hass.io turns your Raspberry Pi (or another device) into the ultimate home autom
 
 [Go to the installation instructions &raquo;][install]
 
- <p class='note'>
-Home Assistant updates take time to roll into the Hass.io builds.  Therefore there is often a slight delay between the availability of a Home Assistant update and an update being available in Hass.io, be patient. See: [Upgrading](#upgrading)
- </p>
-
 The advantages of using Hass.io:
 
  - Free and open source
