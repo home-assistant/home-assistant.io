@@ -14,6 +14,10 @@ redirect_from: /getting-started/updating/
 The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [HASSbian](/docs/hassbian/common-tasks/#update-home-assistant), [Raspberry Pi All-In-One Installer](/docs/installation/raspberry-pi-all-in-one/#upgrading), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
 </p>
 
+<p class='note warning'>
+Hass.io users can update Home Assistant via the ‘Hass.io' page in the UI.  However please note that Home Assistant updates take time to roll into the Hass.io builds.  Therefore there is often a slight delay between the availability of a Home Assistant update and an update being available in Hass.io, be patient.  When a Hass.io update is available it will be shown as available on the ‘Hass.io' page in your UI.  If you would prefer not to be notified of the general updates in the UI you can disable the ‘updater’ component in your configuration.
+</p>
+
 The default way to update Home Assistant to the latest release, when available, is:
 
 ```bash
