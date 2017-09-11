@@ -42,4 +42,4 @@ Configuration variables:
     - **command_off** (*Required*): Command to turn device off.
     - **command_state** (*Required*): Command to determine the state of the switch. If not defined the switch will assume successful state changes.
     - **value_template** (*Required*): The template evaluating to `true` will indicate the switch is on.
-    - **friendly_name** (*Optional*): The name used to display the switch in the frontend.
+    - **name** (*Optional*): The name used to display the switch in the frontend.
