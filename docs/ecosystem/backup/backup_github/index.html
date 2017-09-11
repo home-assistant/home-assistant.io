@@ -106,34 +106,14 @@ This will not create a full backup of your Home Assistant files or your OS. In a
 Before creating and pushing your Home Assistant configuration to GitHub, please make sure to follow the <code class="highlighter-rouge">secrets.yaml</code> best practice mentioned above and scrub your configuration for any passwords or sensitive information.
 </p>
 <p>Creating a <code class="highlighter-rouge">.gitignore</code> file in your repository will tell git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your <code class="highlighter-rouge">secrets.yaml</code> file, device configuration files, and the Home Assistant database/directory structure.  The <code class="highlighter-rouge">.gitignore</code> file should be placed in your Home Assistant directory.</p>
-<p>Here is a sane example, but yours should be based on the files in your structure:</p>
+<p>Here is an example that will include your <code class="highlighter-rouge">.gitignore</code> file, a <code class="highlighter-rouge">scenes</code> directory, and all .yaml files except for <code class="highlighter-rouge">secrets.yaml</code> and <code class="highlighter-rouge">known_devices.yaml</code>. All other files will be excluded.</p>
 <p><code class="highlighter-rouge">.gitignore</code></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">*</span>.pid
-<span class="k">*</span>.xml
-<span class="k">*</span>.csr
-<span class="k">*</span>.crt
-<span class="k">*</span>.key
-www
-OZW_Log.txt
-home-assistant.log
-home-assistant_v2.db
-<span class="k">*</span>.db-journal
-lib
-deps
-tts
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">*</span>
+!<span class="k">*</span>.yaml
+!scenes
+!.gitignore
 secrets.yaml
 known_devices.yaml
-<span class="k">*</span>.conf
-plex.conf
-phue.conf
-harmony_media_room.conf
-pyozw.sqlite
-.<span class="k">*</span>
-!/.gitignore
-!/.travis.yml
-html5_push_registrations.conf
-ip_bans.yaml
-/icloud/<span class="k">*</span>
 </code></pre>
 </div>
 <p>More information on the layout of the file can be found in the <a href="https://git-scm.com/docs/gitignore">.gitignore manual</a>.</p>

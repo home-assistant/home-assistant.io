@@ -86,7 +86,7 @@
 </div>
 <p>For some exceptional devices, the <code class="highlighter-rouge">/dev/ttyAMA0</code> will not be detected by udev and are therefor not mapped with docker.
 So you need explicit set this device for mapping to Home-Assistant. Execute this command on ssh add-on:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s1">'{"devices": ["ttyAMA0"]}'</span> http://172.17.0.2/homeassistant/options
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s1">'{"devices": ["ttyAMA0"]}'</span> http://hassio/homeassistant/options
 </code></pre>
 </div>
 <p>After that, you need change <code class="highlighter-rouge">usb_path</code> to <code class="highlighter-rouge">/dev/ttyAMA0</code>.</p>
