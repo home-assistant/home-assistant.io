@@ -3,17 +3,17 @@
 [![Krihelimeter](http://www.krihelinator.xyz/badge/home-assistant/home-assistant.github.io)](http://www.krihelinator.xyz)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Home Assistant website 
+# Home Assistant 中文站网站 
 
-This is the source for the [Home-Assistant.io website](https://home-assistant.io).
+ [Home-Assistant-中文站](https://home-assistant-china.github.io/)资源文件.
 
-## Setup
+## 设置
 
-Setting up to contribute to documentation and the process for submitting pull requests is [explained here](https://home-assistant.io/developers/website/).
+提交文档以及Pull Request请查阅[详细文档](https://home-assistant-china.github.io/developers/website/)。
 
-## Site preview
+## 预览
 
-In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the command as follows:
+使用以下命令来生成网站本地预览[http://127.0.0.1:4000](http://127.0.0.1:4000) :
 
 ```bash
 $ rake preview
