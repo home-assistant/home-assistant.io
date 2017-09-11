@@ -25,7 +25,7 @@ mqtt_statestream:
 
 Configuration variables:
 
-- **base_topic** (*Required*): Base topic used to generate the actual topic used to publish
+- **base_topic** (*Required*): Base topic used to generate the actual topic used to publish.
 
 ## Operation
 
