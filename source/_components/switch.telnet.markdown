@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Switch
-ha_release: 0.51
+ha_release: 0.54
 ha_iot_class: "Local Polling"
 ---
 
