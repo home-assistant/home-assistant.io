@@ -10,7 +10,7 @@ footer: true
 logo: todoist.png
 ha_category: Calendar
 ha_iot_class: "Cloud Polling"
-ha_release: 0.53
+ha_release: 0.54
 ---
 
 
