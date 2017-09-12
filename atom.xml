@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-09-11T19:03:20+00:00</updated>
+  <updated>2017-09-12T06:00:37+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -24,7 +24,7 @@
 
 <p>9 days away from our 4th birthday, we’ve just accomplished a couple of great milestones that I would love to share with you. We’ve hit over 8000 stars 🌟  on GitHub and starting this release we now ship over 800 platforms and components!</p>
 
-<h2>Customize editor</h2>
+<h2><a class="title-link" name="customize-editor" href="#customize-editor"></a> Customize editor</h2>
 
 <p>Another step in making Home Assistant configurable via the frontend has been contributed by @andrey-git: a customization editor! You are now able to inspect all (possible) customizations of an entity and update them with just a few taps. Want to change the name or icon of an entity? All possible in mere seconds.</p>
 
@@ -45,15 +45,15 @@ Screenshot of the new customize editor.
 </code></pre>
 </div>
 
-<h2>Tesla</h2>
+<h2><a class="title-link" name="tesla" href="#tesla"></a> Tesla</h2>
 
 <p>Thanks to the contribution by @zabuldon, you will now be able to control your Tesla car from Home Assistant. You’re able to check the temperature inside and outside your car, control your AC and unlock the car.</p>
 
-<h2>Input text</h2>
+<h2><a class="title-link" name="input-text" href="#input-text"></a> Input text</h2>
 
 <p>This release introduces a new input component: <code class="highlighter-rouge">input_text</code> contributed by @BioSehnsucht. With this component you will be able to set free form from the UI and then let that be used by your automations or templates.</p>
 
-<h2>KNX</h2>
+<h2><a class="title-link" name="knx" href="#knx"></a> KNX</h2>
 
 <p>This release ships a new KNX implementation thanks to @Julius2342. It will instantly show all changed states of KNX devices within Home Assistant. Additionally it brings support for HVAC devices and notification services. It also adds a service for direct communication with the KNX bus. You can connect to KNX/IP routing and tunnelling devices. In the background it uses asyncio communication. Check the climate integration in action <a href="https://www.youtube.com/watch?v=JI0VJzlGpx4">here</a> and see the lights in action below:</p>
 
@@ -61,7 +61,7 @@ Screenshot of the new customize editor.
   <iframe src="https://www.youtube.com/embed/Fe3yaflU2XM" frameborder="0" allowfullscreen=""></iframe>
 </div>
 
-<h2>New Platforms</h2>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
 
 <ul>
   <li>Xiaomi Philips Lights integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9087">#9087</a>) (<a href="https://home-assistant.io/components/light.xiaomi_philipslight/">light.xiaomi_philipslight docs</a>) (new-platform)</li>
@@ -81,6 +81,15 @@ Screenshot of the new customize editor.
   <li>Adds the AirVisual air quality sensor platform (<a href="https://github.com/bachya">@bachya</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9320">#9320</a>) (<a href="https://home-assistant.io/components/sensor.airvisual/">sensor.airvisual docs</a>) (new-platform)</li>
 </ul>
 
+<h2><a class="title-link" name="release-0531---september-12" href="#release-0531---september-12"></a> Release 0.53.1 - September 12</h2>
+
+<ul>
+  <li>Fix Twitter notifications with certain media such as small images (<a href="https://github.com/MikeChristianson">@MikeChristianson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9354">#9354</a>) (<a href="https://home-assistant.io/components/notify.twitter/">notify.twitter docs</a>)</li>
+  <li>Added additional string check in Wunderground sensor (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9380">#9380</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
+  <li>Fixing foscam library dependency/requirements (<a href="https://github.com/viswa-swami">@viswa-swami</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9387">#9387</a>) (<a href="https://home-assistant.io/components/camera.foscam/">camera.foscam docs</a>)</li>
+  <li>Fixes for customize editor (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+</ul>
+
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
 <p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
 
@@ -89,7 +98,7 @@ Screenshot of the new customize editor.
 
 <!--more-->
 
-<h2>Breaking Changes</h2>
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking Changes</h2>
 
 <ul>
   <li>The new customize editor is using the file <code class="highlighter-rouge">customize.yaml</code> in your config folder. If you are using this file today for other config, make sure to rename it before using the new customize UI editor. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9134">#9134</a>) (<a href="https://home-assistant.io/components/config/">config docs</a>) (breaking change) (new-platform)</li>
@@ -113,7 +122,7 @@ Screenshot of the new customize editor.
   <li>Switch - Dlink: Remove spaces and capital letters from attribute names for consistency (<a href="https://github.com/emlt">@emlt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9277">#9277</a>) (<a href="https://home-assistant.io/components/switch.dlink/">switch.dlink docs</a>) (breaking change)</li>
 </ul>
 
-<h2>All changes</h2>
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
 
 <ul>
   <li>Xiaomi Philips Lights integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9087">#9087</a>) (<a href="https://home-assistant.io/components/light.xiaomi_philipslight/">light.xiaomi_philipslight docs</a>) (new-platform)</li>
