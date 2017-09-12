@@ -17,7 +17,7 @@ The Home Assistant community has been super busy in the last two weeks to bring 
 
 9 days away from our 4th birthday, we've just accomplished a couple of great milestones that I would love to share with you. We've hit over 8000 stars 🌟  on GitHub and starting this release we now ship over 800 platforms and components!
 
-## Customize editor
+## {% linkable_title Customize editor %}
 
 Another step in making Home Assistant configurable via the frontend has been contributed by @andrey-git: a customization editor! You are now able to inspect all (possible) customizations of an entity and update them with just a few taps. Want to change the name or icon of an entity? All possible in mere seconds.
 
@@ -38,15 +38,15 @@ homeassistant:
 config:
 ```
 
-## Tesla
+## {% linkable_title Tesla %}
 
 Thanks to the contribution by @zabuldon, you will now be able to control your Tesla car from Home Assistant. You're able to check the temperature inside and outside your car, control your AC and unlock the car.
 
-## Input text
+## {% linkable_title Input text %}
 
 This release introduces a new input component: `input_text` contributed by @BioSehnsucht. With this component you will be able to set free form from the UI and then let that be used by your automations or templates.
 
-## KNX
+## {% linkable_title KNX %}
 
 This release ships a new KNX implementation thanks to @Julius2342. It will instantly show all changed states of KNX devices within Home Assistant. Additionally it brings support for HVAC devices and notification services. It also adds a service for direct communication with the KNX bus. You can connect to KNX/IP routing and tunnelling devices. In the background it uses asyncio communication. Check the climate integration in action [here](https://www.youtube.com/watch?v=JI0VJzlGpx4) and see the lights in action below:
 
@@ -54,7 +54,7 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 <iframe src="https://www.youtube.com/embed/Fe3yaflU2XM" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## New Platforms
+## {% linkable_title New Platforms %}
 
 - Xiaomi Philips Lights integration ([@syssi] - [#9087]) ([light.xiaomi_philipslight docs]) (new-platform)
 - Mycroft notify/component ([@btotharye] - [#9173]) ([mycroft docs]) ([notify.mycroft docs]) (new-platform)
@@ -80,7 +80,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## {% linkable_title Breaking Changes %}
 
 - The new customize editor is using the file `customize.yaml` in your config folder. If you are using this file today for other config, make sure to rename it before using the new customize UI editor. ([@andrey-git] - [#9134]) ([config docs]) (breaking change) (new-platform)
 - The frontend component now supports loading custom html files when Home Assistant front end starts  ([@andrey-git] - [#9150]) (breaking change). It could be Javascript, CSS or custom Web Components. Along there was a breaking change in the way Custom UI is used:
@@ -97,7 +97,7 @@ frontend:
 - The Homematic `delay` option has been dropped because it is no longer necessary ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
 - Switch - Dlink: Remove spaces and capital letters from attribute names for consistency ([@emlt] - [#9277]) ([switch.dlink docs]) (breaking change)
 
-## All changes
+## {% linkable_title All changes %}
 
 - Xiaomi Philips Lights integration ([@syssi] - [#9087]) ([light.xiaomi_philipslight docs]) (new-platform)
 - Backend changes for customize config panel. ([@andrey-git] - [#9134]) ([config docs]) (breaking change)
