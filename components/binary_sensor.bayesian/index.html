@@ -74,11 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">bayesian</code> binary sensor platform observes the state from multiple sensors and uses Bayes’ rule to estimate the probability that an event has occurred
-given the state of the observed sensors. If the estimated posterior probability is above the <code class="highlighter-rouge">probabiliy_threshold</code>, the value of the sensor is <code class="highlighter-rouge">on</code>.
-Otherwise, the sensor is <code class="highlighter-rouge">off</code>.</p>
-<p>This allows for the detection of complex events that may not be readily observable, i.e., cooking, showering, in bed, the start of a morning routine, etc. It
-can also be used to gain greater confidence about events that <em>are</em> directly observable, but for which the sensors can be unreliable, i.e., presence.</p>
+  <p>The <code class="highlighter-rouge">bayesian</code> binary sensor platform observes the state from multiple sensors and uses Bayes’ rule to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the <code class="highlighter-rouge">probability_threshold</code>, the sensor is <code class="highlighter-rouge">on</code> otherwise it is <code class="highlighter-rouge">off</code>.</p>
+<p>This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that <em>are</em> directly observable, but for which the sensors can be unreliable, e.g., presence.</p>
 <p>To enable the Bayesian sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
