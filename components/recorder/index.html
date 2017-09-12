@@ -84,7 +84,7 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>purge_days</strong> (<em>Optional</em>): Delete events and states older than x days.</li>
+  <li><strong>purge_days</strong> (<em>Optional</em>): Delete events and states older than x days. The purge task runs every 2 days, starting from when Home Assistant is started if you restart your instance more frequently than the purge will never take place.</li>
   <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should be excluded from recordings.
     <ul>
       <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from recordings.</li>
