@@ -139,12 +139,3 @@ $ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar 
 5. `adb root` (does work for development builds only: ones with `ro.debuggable=1`)
 6. `adb shell`
 7. `echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db` returns a list of all registered devices including IP address and token.
-
-#### {% linkable_title macOS and iOS %}
-
-1. Setup iOS device with the Mi-Home app.
-2. Create an unencrypted backup of the device using iTunes.
-3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
-4. Extract this file: **`/raw data/com.xiami.mihome/1234567_mihome.sqlite`** to your computer, where `_1234567_` is any string of numbers.
-5. Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column **`ZToken`** and looks like **`123a1234567b12345c1d123456789e12`**.
-(Location of SQLite files directly on iOS devices **/private/var/mobile/Containers/Data/Application/A80CE9E4-AD2E-4649-8C28-801C96B16BD7/Documents/**)
