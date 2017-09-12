@@ -104,69 +104,77 @@ You should see communication from the node with lines starting with <code class=
 Make sure you copy the newly saved <code class="highlighter-rouge">zwcfg_[home_id].xml</code>into your Home Assistant configuration directory.</p>
 <h5><a class="title-link" name="aeon-minimote" href="#aeon-minimote"></a> Aeon Minimote</h5>
 <p>Here’s a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into <code class="highlighter-rouge">automation.yaml</code>.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 1 Pressed</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">1</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_1_pressed</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">Pressed'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">1</span>
 
- <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 1 Held</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_1_held</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">Held'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">2</span>
 
- <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 2 Pressed</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">3</span>
+  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_2_pressed</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Pressed'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">3</span>
 
- <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 2 Held</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">4</span>
+  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_2_held</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">Held'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">4</span>
 
- <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 3 Pressed</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_3_pressed</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">Pressed'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">5</span>
 
- <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 3 Held</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">6</span>
+  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_3_held</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">Held'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">6</span>
 
- <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 4 Pressed</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">entity_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">7</span>
+  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_4_pressed</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">4</span><span class="nv"> </span><span class="s">Pressed'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">7</span>
 
- <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button 4 Held</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">scene_id</span><span class="pi">:</span> <span class="s">8</span>
+  <span class="pi">-</span> <span class="s">id</span><span class="pi">:</span> <span class="s">mini_4_held</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Minimote</span><span class="nv"> </span><span class="s">Button</span><span class="nv"> </span><span class="s">4</span><span class="nv"> </span><span class="s">Held'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+        <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
+        <span class="s">event_data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
+          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">8</span>
 </code></pre>
 </div>
 <h5><a class="title-link" name="homeseer-switches" href="#homeseer-switches"></a> HomeSeer Switches</h5>
