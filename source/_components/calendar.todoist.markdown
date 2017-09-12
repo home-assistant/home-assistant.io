@@ -119,7 +119,7 @@ Here's an example JSON payload:
     "project": "Errands",
     "labels":"Homework,School",
     "priority":3,
-    "due_date":"2017-09-01"
+    "due_date":"2017-09-12 14:00"
 }
 ```
 
@@ -131,6 +131,6 @@ Here's an example JSON payload:
 
 - **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
 
-- **due_date** (*Optional*): When the task should be due, in YYYY-MM-DD format.
+- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format.
 
 Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.
