@@ -155,8 +155,9 @@ The `schema` looks like `options` but describes how we should validate the user 
 We support:
 - str
 - bool
-- int
-- float
+- int / int(min,) / int(,max) / int(min,max)
+- float / float(min,) / float(,max) / float(min,max)
 - email
 - url
 - port
+- match(REGEX)
