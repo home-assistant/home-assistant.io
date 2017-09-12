@@ -72,6 +72,13 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 - Stable and asynchronous KNX library. ([@Julius2342] - [#8725]) ([knx docs]) ([binary_sensor.knx docs]) ([climate.knx docs]) ([cover.knx docs]) ([light.knx docs]) ([sensor.knx docs]) ([switch.knx docs]) (new-platform)
 - Adds the AirVisual air quality sensor platform ([@bachya] - [#9320]) ([sensor.airvisual docs]) (new-platform)
 
+## {% linkable_title Release 0.53.1 - September 12 %}
+
+- Fix Twitter notifications with certain media such as small images ([@MikeChristianson] - [#9354]) ([notify.twitter docs])
+- Added additional string check in Wunderground sensor ([@arsaboo] - [#9380]) ([sensor.wunderground docs])
+- Fixing foscam library dependency/requirements ([@viswa-swami] - [#9387]) ([camera.foscam docs])
+- Fixes for customize editor ([@andrey-git])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -381,7 +388,6 @@ frontend:
 [image_processing.dlib_face_detect docs]: https://home-assistant.io/components/image_processing.dlib_face_detect/
 [image_processing.dlib_face_identify docs]: https://home-assistant.io/components/image_processing.dlib_face_identify/
 [input_text docs]: https://home-assistant.io/components/input_text/
-[input_text docs]: https://home-assistant.io/components/input_text/
 [insteon_plm docs]: https://home-assistant.io/components/insteon_plm/
 [light.homematic docs]: https://home-assistant.io/components/light.homematic/
 [light.hue docs]: https://home-assistant.io/components/light.hue/
@@ -390,7 +396,6 @@ frontend:
 [light.xiaomi_philipslight docs]: https://home-assistant.io/components/light.xiaomi_philipslight/
 [light.rfxtrx docs]: https://home-assistant.io/components/light.rfxtrx/
 [light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[light.xiaomi_philipslight docs]: https://home-assistant.io/components/light.xiaomi_philipslight/
 [light.knx docs]: https://home-assistant.io/components/light.knx/
 [light.zha docs]: https://home-assistant.io/components/light.zha/
 [lock.abode docs]: https://home-assistant.io/components/lock.abode/
@@ -449,3 +454,9 @@ frontend:
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
+[#9354]: https://github.com/home-assistant/home-assistant/pull/9354
+[#9380]: https://github.com/home-assistant/home-assistant/pull/9380
+[#9387]: https://github.com/home-assistant/home-assistant/pull/9387
+[@viswa-swami]: https://github.com/viswa-swami
+[camera.foscam docs]: https://home-assistant.io/components/camera.foscam/
+[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
