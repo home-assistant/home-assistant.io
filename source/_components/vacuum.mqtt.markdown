@@ -77,6 +77,54 @@ Advanced Configuration variables:
 - **fan_speed_list** (*Optional*): List of possible fan speeds for the vacuum. Defaults to `min`, `medium`, `high`, `max`].
 - **send_command_topic** (*Optional*): The MQTT topic to publish custom commands to the vacuum. Defaults to `vacuum/send_command`.
 
+### {% linkable_title Default MQTT Protocol %}
+
+The default configuration for this component expects an MQTT protocol like the following.
+
+#### Basic Commands
+
+MQTT topic: `vacuum/command`
+
+Possible MQTT payloads:
+- `turn_on` - Begin cleaning
+- `turn_off` - Turn the Vacuum off
+- `return_to_base` - Return to base/dock
+- `stop` - Stop the Vacuum
+- `clean_spot` - Initialize a spot cleaning cycle
+- `locate` - Locate the vacuum (typically by playing a song)
+- `start_pause` - Toggle the vacuum between cleaning and stopping
+
+#### Set Fan Speed
+
+MQTT topic: `vacuum/set_fan_speed`
+
+Possible MQTT payloads:
+- `min` - Minimum fan speed
+- `medium` - Medium fan speed
+- `high` - High fan speed
+- `max` - Max fan speed
+
+#### Send Custom Command
+
+MQTT topic: `vacuum/send_command`
+
+MQTT payload for `send_command` can be an arbitrary value handled by the vacuum's MQTT-enabled firmware.
+
+#### Status/Sensor Updates
+
+MQTT topic: `vacuum/state`
+
+MQTT payload:
+```json
+{
+    "battery_level": 61,
+    "docked": true,
+    "cleaning": false,
+    "charging": true,
+    "fan_speed": "off"
+}
+```
+
 ### {% linkable_title Retrofitting a non-wifi Roomba with an ESP8266 %}
 
 - [This repo](https://github.com/johnboiles/esp-roomba-mqtt) has MQTT client firmware for retrofitting your old Roomba.
