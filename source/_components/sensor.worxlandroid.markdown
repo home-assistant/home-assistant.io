@@ -13,14 +13,14 @@ logo: home-assistant.png
 ha_iot_class: "Local Polling"
 ---
 
-The `worx-landroid` sensor platform allows you to get the current state, battery level and error status Worx Landroid WG796E.1 or WG797E.
+The `worxlandroid` sensor platform allows you to get the current state, battery level and error status Worx Landroid WG796E.1 or WG797E.
 
 To use your Worx Landroid mower in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: worx-landroid
+  platform: worxlandroid
   host: 192.168.0.10
   pin: 1234
 ```
