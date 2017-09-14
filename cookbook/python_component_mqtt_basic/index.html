@@ -106,7 +106,7 @@ This example requires you to have the <a href="/components/mqtt/">MQTT component
     <span class="c"># Subscribe our listener to a topic.</span>
     <span class="n">mqtt</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">hass</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">message_received</span><span class="p">)</span>
 
-    <span class="c"># Set the intial state</span>
+    <span class="c"># Set the initial state.</span>
     <span class="n">hass</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="nb">set</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="s">'No messages'</span><span class="p">)</span>
 
     <span class="c"># Service to publish a message on MQTT.</span>
