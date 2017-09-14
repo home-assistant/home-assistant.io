@@ -46,7 +46,7 @@ def setup(hass, config):
     # Subscribe our listener to a topic.
     mqtt.subscribe(hass, topic, message_received)
 
-    # Set the intial state
+    # Set the initial state.
     hass.states.set(entity_id, 'No messages')
 
     # Service to publish a message on MQTT.
