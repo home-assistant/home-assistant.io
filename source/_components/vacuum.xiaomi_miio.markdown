@@ -13,7 +13,7 @@ ha_release: 0.51
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
+The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
 
 Current supported features are `turn_on`, `pause`, `stop`, `return_to_home`, `turn_off` (stops goes to dock), `locate`, `clean_spot`, `set_fanspeed` and even remote control your robot.
 
@@ -24,7 +24,7 @@ To add a vacuum to your installation, add the following to your `configuration.y
 ```yaml
 # Example configuration.yaml entry
 vacuum:
-  - platform: xiaomi
+  - platform: xiaomi_miio
     host: 192.168.1.2
     token: YOUR_TOKEN
 ```

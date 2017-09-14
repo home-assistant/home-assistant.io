@@ -13,7 +13,7 @@ ha_version: 0.53
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi_philipslight` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp and Xiaomi Philips LED Ceiling Lamp.
+The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp and Xiaomi Philips LED Ceiling Lamp.
 
 Currently, the supported features are `on`, `off`, `set_cct` (colortemp) , `set_bright` (brightness).
 
@@ -24,7 +24,7 @@ To add a Xiaomi Philips Light to your installation, add the following to your co
 ```yaml
 # Example configuration.yaml entries
 light:
-  - platform: xiaomi_philipslight
+  - platform: xiaomi_miio
     name: Xiaomi Philips Smart LED Ball
     host: 192.168.130.67
     token: YOUR_TOKEN
