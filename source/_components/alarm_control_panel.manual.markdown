@@ -19,14 +19,6 @@ This platform enables you to set manual alarms in Home Assistant.
 # Example configuration.yaml entry
 alarm_control_panel:
   - platform: manual
-    name: Home Alarm
-    code: 1234
-    pending_time: 30
-    armed_home:
-      pending_time: 0
-    triggered:
-      pending_time: 20
-    trigger_time: 4 
 ```
 
 Configuration variables:
@@ -39,7 +31,22 @@ Configuration variables:
 - **armed_home|armed_away|armed_night|triggered** (*Optional*): State specific settings
   - **pending_time**: State specific pending time override.
 
-In the config example above, armed_home state will have no pending time and triggered state will have pending time of 20 second whereas armed_away state will have a default pending time of 30 seconds.
+In the config example below, armed_home state will have no pending time and triggered state will have pending time of 20 second whereas armed_away state will have a default pending time of 30 seconds.
+
+```yaml
+# Example configuration.yaml entry
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: 1234
+    pending_time: 30
+    armed_home:
+      pending_time: 0
+    triggered:
+      pending_time: 20
+    trigger_time: 4 
+```
+
 
 ## {% linkable_title Examples %}
 
