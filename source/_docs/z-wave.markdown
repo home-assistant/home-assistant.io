@@ -14,6 +14,9 @@ redirect_from: /getting-started/z-wave/
 
 There is currently support for climate, covers, lights, locks, sensors, switches, and thermostats. All will be picked up automatically after configuring this platform.
 
+Before configuring the Z-Wave setup, please take a moment and read the following article to understand the most common pitfalls of Z-Wave networks. 
+https://drzwave.blog/2017/01/20/seven-habits-of-highly-effective-z-wave-networks-for-consumers/
+
 ### {% linkable_title Installation %}
 
 As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed.
