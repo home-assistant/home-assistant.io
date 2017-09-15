@@ -51,69 +51,77 @@ Make sure you copy the newly saved `zwcfg_[home_id].xml`into your Home Assistant
 Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
 
 ```yaml
- - alias: Minimote Button 1 Pressed
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 1
+  - id: mini_1_pressed
+    alias: 'Minimote Button 1 Pressed'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 1
 
- - alias: Minimote Button 1 Held
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 2
+  - id: mini_1_held
+    alias: 'Minimote Button 1 Held'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 2
 
- - alias: Minimote Button 2 Pressed
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 3
+  - id: mini_2_pressed
+    alias: 'Minimote Button 2 Pressed'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 3
 
- - alias: Minimote Button 2 Held
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 4
+  - id: mini_2_held
+    alias: 'Minimote Button 2 Held'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 4
 
- - alias: Minimote Button 3 Pressed
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 5
+  - id: mini_3_pressed
+    alias: 'Minimote Button 3 Pressed'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 5
 
- - alias: Minimote Button 3 Held
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 6
+  - id: mini_3_held
+    alias: 'Minimote Button 3 Held'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 6
 
- - alias: Minimote Button 4 Pressed
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     entity_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 7
+  - id: mini_4_pressed
+    alias: 'Minimote Button 4 Pressed'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 7
 
- - alias: Minimote Button 4 Held
-   trigger:
-     platform: event
-     event_type: zwave.scene_activated
-     event_data:
-       entity_id: zwave.aeon_labs_minimote_1
-       scene_id: 8
+  - id: mini_4_held
+    alias: 'Minimote Button 4 Held'
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.aeon_labs_minimote_1
+          scene_id: 8
 ```
 
 
