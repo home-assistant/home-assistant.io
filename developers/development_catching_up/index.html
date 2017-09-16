@@ -87,6 +87,11 @@
   <li>Continue rebase: <code class="highlighter-rouge">git rebase --continue</code></li>
   <li>Repeat until you’ve resolved all conflicts</li>
 </ol>
+<p>After rebasing your branch, you will have rewritten history relative to your GitHub fork’s branch. When you go to push you will see an error that your history has diverged from the original branch. In order to get your GitHub fork up-to-date with your local branch, you will need to force push, using the following command:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Run this from your feature branch</span>
+<span class="gp">$ </span>git push origin --force
+</code></pre>
+</div>
 <p>Other workflows are covered in detail in the <a href="https://help.github.com/articles/fork-a-repo/">Github documentation</a>. Add an additional <code class="highlighter-rouge">remote</code> after you clone your fork.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git remote add upstream https://github.com/home-assistant/home-assistant.git
 </code></pre>
