@@ -20,7 +20,7 @@ To enable MQTT Statestream in Home Assistant, add the following section to your 
 ```yaml
 # Example configuration.yaml entry
 mqtt_statestream:
-  base_topic: homeassistant/states
+  base_topic: homeassistant
 ```
 
 Configuration variables:
@@ -32,6 +32,6 @@ Configuration variables:
 When any Home Assistant entity changes, this component will publish that change to MQTT.
 
 The topic for each entity is different, so you can easily subscribe other systems to just the entities you are interested in.
-The topic will be in the form `base_topic/domain/entity`.
+The topic will be in the form `base_topic/domain/entity/state`.
 
-For example, with the example configuration above, if an entity called 'light.master_bedroom_dimmer' is turned on, this component will publish `on` to `homeassistant/states/light/master_bedroom_dimmer`.
+For example, with the example configuration above, if an entity called 'light.master_bedroom_dimmer' is turned on, this component will publish `on` to `homeassistant/light/master_bedroom_dimmer/state`.
