@@ -16,6 +16,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 Supported by MQTT discovery:
 
 - [Binary sensors](/components/binary_sensor.mqtt/)
+- [Fans](/components/fan.mqtt/)
 - [Lights](/components/light.mqtt/)
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
