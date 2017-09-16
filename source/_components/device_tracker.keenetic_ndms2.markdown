@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: keenetic.png
 ha_category: Presence Detection
-ha_release: 0.53
+ha_release: 0.54
 ---
 
 This component offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)
