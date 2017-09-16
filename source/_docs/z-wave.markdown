@@ -18,7 +18,7 @@ There is currently support for climate, covers, lights, locks, sensors, switches
 
 As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed.
 
-There is one dependency you will need to have installed ahead of time:
+There is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
@@ -100,6 +100,10 @@ An easy script to generate a random key:
 ```bash
 cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g'
 ```
+
+### {% linkable_title Battery Powered Devices %}
+
+Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
 
 ### {% linkable_title Events %}
 

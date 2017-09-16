@@ -2,7 +2,7 @@
 layout: post
 title: "Classifying the Internet of Things"
 description: ""
-date: 2016-02-11 22:31:00 -0800
+date: 2016-02-12 22:31:00 UTC
 date_formatted: "February 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob

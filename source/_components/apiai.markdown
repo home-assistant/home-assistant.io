@@ -70,7 +70,7 @@ apiai:
 
 intent_script:
   Temperature:
-    speech: 
+    speech:
       text: The temperature at home is {{ states('sensor.home_temp') }} degrees
   LocateIntent:
     speech:

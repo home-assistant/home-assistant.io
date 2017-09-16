@@ -13,29 +13,27 @@ ha_category: Organization
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
 
-Zones support the usual method to specify multiple zones, use keys `zone:`, `zone 2:` etc.
+The Zone component uses YAML sequences to configure multiple zones:
 
 ```yaml
 # Example configuration.yaml entry
 zone:
-  name: School
-  latitude: 32.8773367
-  longitude: -117.2494053
-  radius: 250
-  icon: mdi:school
+  - name: School
+    latitude: 32.8773367
+    longitude: -117.2494053
+    radius: 250
+    icon: mdi:school
 
-zone 2:
-  name: Work
-  latitude: 32.8753367
-  longitude: -117.2474053
+  - name: Work
+    latitude: 32.8753367
+    longitude: -117.2474053
 
-# This will override the default home zone
-zone 3:
-  name: Home
-  latitude: 32.8793367
-  longitude: -117.2474053
-  radius: 100
-  icon: mdi:account-multiple
+  # This will override the default home zone
+  - name: Home
+    latitude: 32.8793367
+    longitude: -117.2474053
+    radius: 100
+    icon: mdi:account-multiple
 ```
 
 Configuration variables:
@@ -47,7 +45,7 @@ Configuration variables:
 - **icon** (*Optional*): Optional icon to show instead of name.
 - **passive** (*Optional*): Optional boolean to only use the zone for automation and hide it from the UI and not use the zone for device tracker name. Defaults to false.
 
-To find your latitude/longitude of a certain place you can use for example [Google Maps](https://www.google.nl/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
+To find the latitude/longitude of a certain place you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
 
 #### {% linkable_title Home zone %}
 
