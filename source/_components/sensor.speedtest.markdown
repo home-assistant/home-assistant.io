@@ -90,6 +90,24 @@ sensor:
       - upload
 ```
 
+### {% linkable_title Using as a trigger for another action %}
+
+```yaml
+# Example configuration.yaml entry
+ - alias: 'Internet Speed Glow Connect Great' 
+    trigger: 
+      platform: template
+      value_template: '{{ states.sensor.speedtest_download.state|float > 10}}' 
+    action:      
+      service: shell_command.green
+  - alias: 'Internet Speed Glow Connect Poor' 
+    trigger: 
+      platform: template
+      value_template: '{{ states.sensor.speedtest_download.state| float < 10 }}' 
+    action:      
+      service: shell_command.red
+```
+
 ## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
