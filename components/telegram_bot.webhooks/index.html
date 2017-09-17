@@ -99,7 +99,7 @@
   <li><strong>parse_mode</strong> (<em>Optional</em>): Default parser for messages if not explicit in message data: ‘html’ or ‘markdown’. Default is ‘markdown’.</li>
   <li><strong>proxy_url</strong> (<em>Optional</em>): Proxy url if working behind one (<code class="highlighter-rouge">socks5://proxy_ip:proxy_port</code>)</li>
   <li><strong>proxy_params</strong> (<em>Optional</em>): Proxy configuration parameters, as dict, if working behind a proxy (<code class="highlighter-rouge">username</code>, <code class="highlighter-rouge">password</code>, etc.)</li>
-  <li><strong>url</strong> (<em>Optional</em>): Allow to overwrite the <code class="highlighter-rouge">base_url</code> from http component for diferent configs.</li>
+  <li><strong>url</strong> (<em>Optional</em>): Allow to overwrite the <code class="highlighter-rouge">base_url</code> from the <a href="/components/http/"><code class="highlighter-rouge">http</code></a> component for different configurations (<code class="highlighter-rouge">https://&lt;public_url&gt;:&lt;port&gt;</code>).</li>
 </ul>
 <p>To get your <code class="highlighter-rouge">chat_id</code> and <code class="highlighter-rouge">api_key</code> follow the instructions <a href="/components/notify.telegram">here</a>. As well as authorising the chat, if you have added your bot to a group you will also need to authorise any user that will be interacting with the webhook. When an unauthorised user tries to interact with the webhook Home Assistant will raise an error (“Incoming message is not allowed”), you can easily obtain the the users id by looking in the “from” section of this error message.</p>
 <p>Full configuration sample:</p>
