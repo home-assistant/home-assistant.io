@@ -9,7 +9,6 @@ comments: true
 categories: Technology
 ---
 
-### Hassbian 1.3 - A bit of a stretch
 This new release finally brings us the release of Hassbian based on the release of Raspbian Stretch. The most significant change with this is that we now run Home Assistant on Python 3.5.
 Other than that the changes are mostly to our tool `hassbian-config`.
 
