@@ -32,5 +32,5 @@ To get started with the new image, check out the installation instructions on th
 [ludeeus]: http://github.com/ludeeus
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[install]: /getting-started/installation-raspberry-pi-image/
+[install]: https://home-assistant.io/docs/installation/hassbian/installation/
 [discord-hassbian]: https://discord.gg/RkajcgS
