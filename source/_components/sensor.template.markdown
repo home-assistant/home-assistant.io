@@ -37,7 +37,7 @@ Configuration variables:
   - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
   - **value_template** (*Required*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the event bus.
   - **icon_template** (*Optional*): Defines a [template](/topics/templating/) for the icon of the sensor.
-  - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
+  - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
 
 
 ## {% linkable_title Examples %}
