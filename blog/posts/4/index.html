@@ -70,6 +70,45 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/">IKEA Trådfri: Internet of Things done right</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-04-17T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 17, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> nine minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Internet-of-Things</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Last month IKEA released a new home automation lineup called <a href="http://www.ikea.com/us/en/catalog/categories/departments/lighting/36812/">Trådfri</a>. It consists of white bulbs, dimming remotes, color temperature remotes and motion sensors. After almost two weeks of research, we have come to the conclusion that this is going to be the perfect companion hardware to work with Home Assistant. Here is the gist of our breakdown:</p>
+<ul>
+  <li><strong>Works out of the box.</strong> You can get started by just buying the already paired light and remote. You only need to buy the gateway if you want to set time-based rules for your lights or use your phone as a remote.</li>
+  <li><strong>Local only hub.</strong> No cloud that gathers data about how you live your life and it will keep working even if IKEA stops supporting it.</li>
+  <li><strong>Based on open standards.</strong> It uses Zigbee between devices and CoAP/dTLS to talk to the gateway. This means that you are not locked into a single vendor. You can pair it with Philips Hue bulbs and other compatible vendors.</li>
+  <li><strong>Affordable.</strong> Lights start at $12 standalone and $20 if bundled with a remote (USA prices).</li>
+  <li><strong>Useful design.</strong> The gateway has built-in space to hide excess cables and remotes come with magnetic holders for on the wall.</li>
+  <li><strong>Able to subscribe to changes (local push).</strong> Automations will be able to instantly respond to changes to device states by subscribing to the gateway for changes.</li>
+  <li><strong>Full integration in Home Assistant 0.43 (scheduled for release April 22).</strong> Our community built a standalone library <a href="https://github.com/ggravlingen/pytradfri">pytradfri</a> and we use it in Home Assistant. Home Assistant will automatically discover gateways on your network and guide the user to set them up.</li>
+  <li><strong>Downside: no integration with other systems yet.</strong> There are rumors that Homekit support will land in October and I expect both Google Home and Amazon Echo to eventually add support. Use Home Assistant to connect them all in the meanwhile.</li>
+  <li><strong>Semi-downside: you can’t control your lights remotely.</strong> Because it’s local only, you won’t be able to control your lights remotely unless via a third-party integration.</li>
+</ul>
+<p>Full breakdown available after clicking read more.</p>
+<p><em>(Note: we are not affiliated with IKEA nor do we receive commission for sales. We are just big fans of their new line up!)</em></p>
+      <a class="btn pull-right" href="/blog/2017/04/17/ikea-tradfri-internet-of-things-done-right/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/04/15/ios/">1 year and 22 days ago I had an idea...</a>
   </h1>
   <div class="meta clearfix">
@@ -504,53 +543,6 @@ Screenshot of all the different functionality the IP webcam integration offers.
 <h2>Speed improvements</h2>
 <p>And a final shout out to <a href="https://github.com/pvizeli">Pascal</a>. He keeps improving the performance of components and platforms all over Home Assistant.</p>
       <a class="btn pull-right" href="/blog/2017/02/25/config-panel-and-state-restoration/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/">Home Assistant t-shirts have arrived!</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-02-22T00:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 22, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Merchandise</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p class="img">
-  <img src="/images/blog/2017-02-shirts/beard.png" />
-  Cool dude with beard and tattoo wearing <a href="https://teespring.com/home-assistant-shirt">the new blue Home Assistant shirt</a>.
-</p>
-<p>What time is it? Yep, t-shirt time. Today we’re launching the first two Home Assistant designs. We have a blue t-shirt (<a href="https://teespring.com/hass-blue-shirt-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/home-assistant-shirt">🇺🇸 US</a>) as pictured above and a design for on black/gray shirts (<a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>) as pictured below.</p>
-<ul>
-  <li><a href="https://teespring.com/stores/home-assistant-us-store">Visit the 🇺🇸 US store</a></li>
-  <li><a href="https://teespring.com/stores/home-assistant-eu-store">Visit the 🇪🇺 EU store</a></li>
-</ul>
-<p><a href="https://www.eff.org"><img src="/images/supported_brands/eff.png" style="width: 150px; float: right; box-shadow: none; border: 0; margin-left: 15px;" /></a></p>
-<p>And because we love the internet and all the things that it has brought us, <strong>we will start with having 100% of the profit from the sales be donated to the <a href="https://www.eff.org">Electronic Frontier Foundation</a></strong>. If you buy a shirt you will hit two birds with one stone (figuratively): you get to wear a kick-ass Home Assistant t-shirt and you help fund defending civil liberties in the digital world.</p>
-<p>The EFF is a nonprofit organization that aims to protect the rights of technology users. You might however be more familiar with one of their projects: <a href="https://letsencrypt.org">Let’s Encrypt</a>. <a href="https://www.eff.org/issues">Read more about what the EFF does.</a></p>
-<p>So, what are you waiting for? Get yourself a shirt! <a href="https://teespring.com/stores/home-assistant-eu-store">🇪🇺 EU store</a> – <a href="https://teespring.com/stores/home-assistant-us-store">🇺🇸 US store</a></p>
-<p class="img">
-  <img src="/images/blog/2017-02-shirts/family.png" />
-  Family of 4 on a bench wearing the new black Home Assistant shirt. <a href="https://teespring.com/hass-shirt-black-eu-2">🇪🇺 EU</a> – <a href="https://teespring.com/hass-shirt-black">🇺🇸 US</a>
-</p>
-<p>We are using <a href="https://teespring.com">Teespring.com</a> to manage all the sales, production and distribution of the shirts and they will also donate our profits to the EFF. It’s also how we got all these amazing stockphotos. Some extra things to note about our teespring shop:</p>
-<ul>
-  <li>Teespring shows that there is a number of days left until the end of the campaign for the shirts. Don’t worry about that, it should automatically relaunch.</li>
-</ul>
-<p>More photos after the click.</p>
-      <a class="btn pull-right" href="/blog/2017/02/22/home-assistant-tshirts-have-arrived/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

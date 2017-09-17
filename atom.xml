@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-09-16T21:58:50+00:00</updated>
+  <updated>2017-09-17T12:43:46+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hassbian 1.3 - A bit of a stretch]]></title>
+    <link href="https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/"/>
+    <updated>2017-09-16T15:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch</id>
+    <content type="html"><![CDATA[<h3>Hassbian 1.3 - A bit of a stretch</h3>
+<p>This new release finally brings us the release of Hassbian based on the release of Raspbian Stretch. The most significant change with this is that we now run Home Assistant on Python 3.5.
+Other than that the changes are mostly to our tool <code class="highlighter-rouge">hassbian-config</code>.</p>
+
+<h3><a class="title-link" name="hassbian-config" href="#hassbian-config"></a> Hassbian-config</h3>
+
+<p>To allow you to customize your installation further, we have made a few additions to our tool called <code class="highlighter-rouge">hassbian-config</code>. Majority of these changes where contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</p>
+
+<h4><a class="title-link" name="upgrade-scripts" href="#upgrade-scripts"></a> Upgrade scripts</h4>
+
+<p><a href="http://github.com/ludeeus">@Ludeeus</a> contributed the possibility to run upgrade scripts to the <code class="highlighter-rouge">hassbian-config</code> tool.</p>
+
+<ul>
+  <li>Upgrade Hassbian: Upgrades packages of the base operating system. Contributed by <a href="http://github.com/landrash">@Landrash</a>.</li>
+  <li>Upgrade Hassbian-script: Downloads and upgrades the latest release of Hassbian-scripts. Contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</li>
+  <li>Upgrade Home-assistant: Upgrades the Home Assistant installation to the latest release. Contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</li>
+</ul>
+
+<p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/RkajcgS">Discord chat server</a>.</p>
+
+<p>To get started with the new image, check out the installation instructions on the <a href="/getting-started/installation-raspberry-pi-image/">installing Hassbian page</a>.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[0.53: Tesla, Customize editor, and super fast KNX rewrite]]></title>
@@ -2282,21 +2312,6 @@ If you have a security key set in your Open Z-Wave <code class="highlighter-roug
   <li>Fix automation failing to setup if no automations specified (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7647">#7647</a>) ([automation.<strong>init</strong> docs])</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant at PyCon US 2017]]></title>
-    <link href="https://home-assistant.io/blog/2017/05/19/home-assistant-at-pycon-us-2017/"/>
-    <updated>2017-05-19T00:00:01+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/05/19/home-assistant-at-pycon-us-2017</id>
-    <content type="html"><![CDATA[<p>In just 12 hours PyCon US 2017 starts. This is an exciting conference because there will be a bunch of Home Assistant developers and users there being able to meet in person.</p>
-
-<p>Just like last year, we’ll be hosting a <a href="https://us.pycon.org/2017/events/open-spaces/">Home Assistant Open Space</a>. Please stop by to ask any questions you have to the available developers. <del>We haven’t reserved a slot yet but will do so tomorrow. We’ll update this post and announce it on social media as we know time and location.</del> <strong>First open-space will be Friday at 4pm in room B112.</strong></p>
-
-<p>We will also be taken part in the <a href="https://us.pycon.org/2017/community/sprints/">development sprints</a> from Monday-Wednesday. You only need to bring a laptop. We’ll help you get set up with a dev environment and you can be coding on top of Home Assistant in no time. <del>Exact location inside the conference center to be announced.</del> <strong>We are sitting in room A108.</strong></p>
-
-<p>On a final note, the Home Assistant community is very very active so don’t take it personal if we don’t remember your name, issue or contribution.</p>
 ]]></content>
   </entry>
   
