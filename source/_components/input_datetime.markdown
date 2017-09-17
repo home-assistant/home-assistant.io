@@ -39,7 +39,12 @@ Configuration variables:
   - **name** (*Optional*): Friendly name of the datetime input.
   - **has_time** (*Optional*): Set to `true` if this input should have time. Defaults to `false`.
   - **has_date** (*Optional*): Set to `true` if this input should have a date. Defaults to `false`.
+  - **initial** (*Optional*): Set the initial value of this input. Defaults to '1970-01-01 00:00'.
 
-## {% linkable_title Automation Examples %}
+A datetime input entity's state exports several attributes that can be useful in automations and templates:
 
-TBD
+- **has_time**: `true` if this entity has time.
+- **has_date**: `true` if this entity has a date.
+- **year**, **month**, **day** (Only available if *has_date* is true): The year, month and day of the date.
+- **hour**, **minute**, **second** (Only available if *has_time* is true): The hour, minute and second of the time.
+- **timestamp**: A timestamp representing the time held in the input. If *has_date* is true, this is the UNIX timestamp of the date / time held by the input. Otherwise (i.e., if only *has_time* is true) the number of seconds since midnight representing the time held by the input.
