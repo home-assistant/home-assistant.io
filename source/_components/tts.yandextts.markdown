@@ -32,7 +32,7 @@ Configuration variables:
 - **emotion** (*Optional*): Speaker emotional intonation. Default is `neutral`. Also supported are `good` (freindly) and `evil` (angry)
 - **speed** (*Optional*): Speech speed. Default value is `1`. Highest speed is `3` and lowest `0,1`
 
-See on api [documentation](https://tech.yandex.com/speechkit/cloud/doc/guide/concepts/tts-http-request-docpage/) for details. N.B. english version of documentation is outdated. So you could request api key [here](https://tech.yandex.com/speechkit/cloud/) by email or [here](https://developer.tech.yandex.ru/) by web
+Please check the [API documentation](https://tech.yandex.com/speechkit/cloud/doc/guide/concepts/tts-http-request-docpage/) for details. It seems that the English version of documentation is outdated. You could request an API key [by email](https://tech.yandex.com/speechkit/cloud/) or [online](https://developer.tech.yandex.ru/).
 
 A full configuration sample:
 
