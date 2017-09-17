@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-09-17T17:38:18+00:00</updated>
+  <updated>2017-09-17T20:55:25+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -37,7 +37,7 @@ Other than that the changes are mostly to our tool <code class="highlighter-roug
 
 <p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/RkajcgS">Discord chat server</a>.</p>
 
-<p>To get started with the new image, check out the installation instructions on the <a href="/getting-started/installation-raspberry-pi-image/">installing Hassbian page</a>.</p>
+<p>To get started with the new image, check out the installation instructions on the <a href="https://home-assistant.io/docs/installation/hassbian/installation/">installing Hassbian page</a>.</p>
 
 ]]></content>
   </entry>
