@@ -28,15 +28,15 @@ If you are going to use this certificate with the iOS app, you need to ensure yo
 $ openssl req -sha256 -newkey rsa:4096 -nodes -keyout key.pem -x509 -days 730 -out certificate.pem
 ```
 
-For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. At the end you will have two files called `privkey.pem` and `fullchain.pem`. The key and the certificate.
+For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. At the end you will have two files called `privkey.pem` and `certificate.pem`. The key and the certificate.
 
 Update the `http:` entry in your `configuration.yaml` file and let it point to your created files. 
 
 ```yaml
 http:
   api_password: YOUR_SECRET_PASSWORD
-  ssl_certificate: /home/fab/.homeassistant/fullchain.pem
-  ssl_key: /home/fab/.homeassistant/privkey.pem
+  ssl_certificate: /home/your_user/.homeassistant/certificate.pem
+  ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```
 
 A tutorial "[Working with SSL Certificates, Private Keys and CSRs](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs)" could give you some insight about special cases.
