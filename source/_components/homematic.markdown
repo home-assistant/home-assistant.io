@@ -37,7 +37,6 @@ Configuration variables (global):
 - **hosts** (*Required*): Configuration for each host to integrate into Home Assistant.
 - **local_ip** (*Optional*): IP of device running Home Assistant. Override autodetected value for exotic network setups.
 - **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
-- **delay** (*Optional*): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
 
 Configuration variables (host):
 
@@ -55,7 +54,6 @@ Configuration variables (host):
 
 ```yaml
 homematic:
-  delay: 1.0
   hosts:
     rf:
       ip: 127.0.0.1
