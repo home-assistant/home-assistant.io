@@ -104,7 +104,7 @@ automation:
   - alias: 'Internet Speed Glow Connect Poor' 
     trigger: 
       platform: template
-      value_template: '{% raw %} {{ states.sensor.speedtest_download.state| float < 10 }} {% raw %}' 
+      value_template: '{% raw %} {{ states.sensor.speedtest_download.state| float < 10 }} {% endraw %}' 
     action:      
       service: shell_command.red
 ```
