@@ -43,6 +43,6 @@ http:
   ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```
 
-A restart of HASS is required for the changes to take effect.
+A restart of Home Assistant is required for the changes to take effect.
 
 A tutorial "[Working with SSL Certificates, Private Keys and CSRs](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs)" could give you some insight about special cases.
