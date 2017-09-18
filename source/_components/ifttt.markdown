@@ -52,7 +52,7 @@ When your screen looks like this, click the 'call service' button.
 
 ### {% linkable_title Setting up a recipe %}
 
-Press the *New applet* button and search for *Maker* .
+Press the *New applet* button and search for *Webhooks*.
 
 <p class='img'>
 <img src='/images/components/ifttt/setup_service.png' />
