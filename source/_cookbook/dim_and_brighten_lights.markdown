@@ -124,11 +124,11 @@ script:
               {{ next }}{% endraw %}
 
         - service_template: >
-            {% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int < states('input_slider.light_maximum')|int %}
+            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int < states('input_slider.light_maximum')|int %}
               script.turn_on
             {% else %}
               script.turn_off
-            {% endif %}
+            {% endif %}{% endraw %}
           data:
             entity_id: script.light_bright_pause
         
@@ -155,11 +155,11 @@ script:
               {{ next }}{% endraw %}
 
         - service_template: >
-            {% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int > states('input_slider.light_minimum')|int %}
+            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int > states('input_slider.light_minimum')|int %}
               script.turn_on
             {% else %}
               script.turn_off
-            {% endif %}
+            {% endif %}{% endraw %}
           data:
             entity_id: script.light_dim_pause
         
