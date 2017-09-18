@@ -56,7 +56,7 @@ Press the *New applet* button and search for *Webhooks*.
 
 <p class='img'>
 <img src='/images/components/ifttt/setup_service.png' />
-Choose "Maker" as service.
+Choose "Webhooks" as service.
 </p>
 
 <p class='img'>
