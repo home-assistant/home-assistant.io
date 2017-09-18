@@ -135,5 +135,5 @@ The following devices are known to work with the rfxtrx binary sensor component.
   - Chuango PIR-700.
 
 - Door / window sensors:
-  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a temper switch.
+  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a tamper switch.
   - Nexa LMST-606.
