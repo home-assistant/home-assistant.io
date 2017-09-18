@@ -13,7 +13,7 @@ ha_release: 0.12
 ha_iot_class: "Local Polling"
 ---
 
-[ZigBee](http://www.zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilise modules such as the [XBee](http://www.digi.com/lp/xbee) as wireless General Purpose Input/Output (GPIO) devices. The component requires a local ZigBee device to be connected over a serial port. Through this it will send and receive commands to and from other devices on the ZigBee mesh network.
+[ZigBee](http://www.zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](http://www.digi.com/lp/xbee) as wireless General Purpose Input/Output (GPIO) devices. The component requires a local ZigBee device to be connected to a serial port. Through this it will send and receive commands to and from other devices on the ZigBee mesh network.
 
 There is currently support for the following device types within Home Assistant:
 

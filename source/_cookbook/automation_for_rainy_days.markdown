@@ -22,10 +22,10 @@ automation:
         entity_id: sensor.precip_intensity
         to: 'rain'
     condition:
-      - platform: state
+      - condition: state
         entity_id: group.all_devices
         state: 'home'
-      - platform: time
+      - condition: time
         after: '14:00'
         before: '23:00'
     action:

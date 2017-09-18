@@ -47,6 +47,7 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
+- **rgb_command_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`.
 - **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
 - **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
 - **rgb_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value.

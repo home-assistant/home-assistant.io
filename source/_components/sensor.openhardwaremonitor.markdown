@@ -30,3 +30,7 @@ Configuration variables:
 - **host** (*Required*): The IP address or hostname of your Open Hardware Monitor.
 - **port** (*Optional*): The port of your Open Hardware Monitor API. Default to 8085.
 
+<p class='note'>
+OpenHardwareMonitor must be running on the host, with "Remote web server" active.
+You also need to open an inbound port for (TPC 8085) in the advanced firewall settings.
+</p>

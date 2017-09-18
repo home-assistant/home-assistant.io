@@ -21,6 +21,7 @@ Enable the sensor by adding the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: fitbit
+    clock_format: 12H
     monitored_resources:
       - "body/weight"
 ```
@@ -34,6 +35,7 @@ The unit system that the sensor will use is based on the country you set in your
 Configuration variables:
 
 - **monitored_resources** (*Optional*): Resource to monitor. Defaults to `activities/steps`.
+- **clock_format** (*Optional*): Format to use for `sleep/startTime` resource. Accepts `12H` or `24H`. Defaults to `24H`.
 
 Below is the list of resources that you can add to `monitored_resources`. One sensor is exposed for every resource.
 
@@ -63,6 +65,7 @@ activities/tracker/steps
 body/bmi
 body/fat
 body/weight
+devices/battery
 sleep/awakeningsCount
 sleep/efficiency
 sleep/minutesAfterWakeup

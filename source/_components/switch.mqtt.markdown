@@ -35,8 +35,11 @@ Configuration variables:
 - **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
 - **state_topic** (*Optional*): The MQTT topic subscribed to receive state updates.
 - **command_topic** (*Required*): The MQTT topic to publish commands to change the switch state.
+- **availability_topic** (*Optional*): The MQTT topic subscribed to receive availability (online/offline) updates.
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
+- **payload_available** (*Optional*): The payload that represents the available state, e.g. 'online'. Default is "ON".
+- **payload_not_available** (*Optional*): The payload that represents the unavailable state, e.g. 'offline'. Default is "OFF".
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no `state_topic` defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
@@ -61,6 +64,7 @@ switch:
     name: "Bedroom Switch"
     state_topic: "home/bedroom/switch1"
     command_topic: "home/bedroom/switch1/set"
+    availability_topic: "home/bedroom/switch1/available"
     payload_on: "ON"
     payload_off: "OFF"
     optimistic: false

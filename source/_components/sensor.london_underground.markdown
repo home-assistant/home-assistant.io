@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "London Undergound"
+title: "London Underground"
 description: "Display the current status of London underground & overground lines within Home Assistant."
-date: 2017-07-30 18:45
+date: 2017-07-15 18:45
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: train.png
+logo: london_underground.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
 ha_release: 0.49

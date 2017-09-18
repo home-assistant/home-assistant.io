@@ -42,4 +42,4 @@ Configuration variables:
  - **usb_path** (*Required*): Path to the serial device for the radio.
  - **database_path** (*Required*): Path to the database which will keep persistent network data.
 
-To add new devices to the network, call the `permit` service on the `zha` domain, and then follow the device instructions.
+To add new devices to the network, call the `permit` service on the `zha` domain, and then follow the device instructions for doing a scan or factory reset. In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)

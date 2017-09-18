@@ -26,11 +26,19 @@ As with every Docker container, you will need a script to run when the container
 When developing your script:
 
  - `/data` is a volume for persistent storage.
- - `/data/options.json` contains the user configuration. You can use `jq` inside your shell script to parse this data.
+ - `/data/options.json` contains the user configuration. You can use `jq` inside your shell script to parse this data. However you might have to install `jq` as a separate package in your container (see `Dockerfile` below).
 
 ```bash
-echo '{ "target": "beer" }' | jq -r ".target"
+CONFIG_PATH=/data/options.json
+
+TARGET=$(jq --raw-output ".target" $CONFIG_PATH)
 ```
+
+So if your `options`contain
+```json
+{ "target": "beer" }
+```
+then there will be a variable `TARGET`containing `beer` in the environment of your bash file afterwards.
 
 ## {% linkable_title Add-on Docker file %}
 
@@ -64,6 +72,8 @@ It is possible to use own base image with follow schema:
 #aarch64:FROM...
 ```
 
+Or if you not want to do a multi arch build/support you can also use a simle docker `FROM`.
+
 ## {% linkable_title Add-on config %}
 
 The config for an add-on is stored in `config.json`.
@@ -76,7 +86,7 @@ The config for an add-on is stored in `config.json`.
   "description": "long descripton",
   "arch": ["amd64"],
   "url": "website with more information about add-on (ie a forum thread for support)",
-  "startup": "before",
+  "startup": "application",
   "boot": "auto",
   "ports": {
     "123/tcp": 123
@@ -97,13 +107,16 @@ The config for an add-on is stored in `config.json`.
 | arch | no | List of supported arch: `armhf`, `aarch64`, `amd64`, `i386`. Default all.
 | url | no | Homepage of the addon. Here you can explain the add-ons and options.
 | startup | yes | `initialize` will start addon on setup of hassio. `system` is for things like database and base not on other things. `services` will start before homeassistant. `application` is after homeassistant will start or `once` for application they don't run as deamon.
+| webui | no | A URL for webinterface of this add-on. Like `http://[HOST]:[PORT:2839]/dashboard`, the port need the internal port, we replace it later with the effective port.
 | boot | yes | `auto` by system and manual or only `manual`
 | ports | no | Network ports to expose from the container. Format is `"container-port/type": host-port`.
 | host_network | no | If that is True, the add-on run on host network.
-| devices | no | Device list to map into add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`. i.e. `/dev/ttyAMA0:/dev/ttyAMA0:rwm` 
-| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`
+| devices | no | Device list to map into add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`. i.e. `/dev/ttyAMA0:/dev/ttyAMA0:rwm`
+| hassio_api | no | This add-on can access to hass.io REST API. It set the host alias `hassio`.
+| privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`
 | map | no | List of maps for additional hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Default it map it `ro`, you can change that if you add a ":rw" at the end of name.
 | environment | no | A dict of environment variable to run add-on.
+| audio | no | Mark this add-on to use internal audio system. Environment is `ALSA_INPUT` and `ALSA_OUTPUT` to access the internal information for alsa.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
 | image | no | For use dockerhub.

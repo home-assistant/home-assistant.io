@@ -56,7 +56,7 @@ def async_setup_platform(hass, config, async_add_entities,
     # Setup your platform inside of the event loop
 ```
 
-The only difference with the original parameters is that the add_entities function has been replaced by the async friendly callback `async_add_entities`.
+The only difference with the original parameters is that the `add_entities` function has been replaced by the async friendly callback `async_add_entities`.
 
 ## {% linkable_title Implementing an async entity %}
 

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 ---
 
 [Duck DNS](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.
@@ -14,7 +15,7 @@ footer: true
 ```json
 {
   "token": "sdfj-2131023-dslfjsd-12321",
-  "domains": ["my-first-accound.duckdns.org", "my-second-account.duckdns.org"]
+  "domains": ["my-first-account.duckdns.org", "my-second-account.duckdns.org"]
 }
 ```
 

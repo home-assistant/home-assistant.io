@@ -26,4 +26,6 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Wink Relay load controlling switches
 - Rachio sprinkler controller (No Wink hub required)
 - iHome smart plug (No Wink hub required)
+- Wink switch groups (User created groups of switches)
+
 
