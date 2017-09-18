@@ -78,15 +78,22 @@
   <p>If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. <a href="/blog/2015/12/13/setup-encryption-using-lets-encrypt/">Let’s encrypt</a> will only work if you have a DNS entry and remote access is allowed. The solution is to use a self-signed certificate. As you most likely don’t have a certification authority (CA) your browser will conplain about the security. If you have a CA then this will not be an issue.</p>
 <p>To create locally a certificate you need the <a href="https://www.openssl.org/">OpenSSL</a> command-line tool.</p>
 <p>Change to your Home Assistant <a href="/getting-started/configuration/">configuration directory</a> like <code class="highlighter-rouge">~/.homeassistant</code>. This will make it easier to backup your certificate and the key. Run the command shown below.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>openssl req -new -x509 -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -days 730 -out fullchain.pem
+<p>The certificate <strong>must</strong> be <code class="highlighter-rouge">.pem</code> extension.</p>
+<p>If you are going to use this certificate with the iOS app, you need to ensure you complete <strong>all</strong> fields during the cetificate creation process, then:</p>
+<ul>
+  <li>Send <strong>only</strong> <code class="highlighter-rouge">certificate.pem</code> file to the iOS device using airdrop or other transfer method.</li>
+  <li>Open the <code class="highlighter-rouge">.pem</code> file on the iOS device, follow the prompts to trust and install it.</li>
+  <li>If you are using iOS 10.3 or newer then <a href="https://support.apple.com/en-us/HT204477">additioal steps</a> are needed.</li>
+</ul>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>openssl req -sha256 -newkey rsa:4096 -nodes -keyout key.pem -x509 -days 730 -out certificate.pem
 </code></pre>
 </div>
-<p>For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. At the end you will have two files called <code class="highlighter-rouge">privkey.pem</code> and <code class="highlighter-rouge">fullchain.pem</code>. The key and the certificate.</p>
+<p>For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. At the end you will have two files called <code class="highlighter-rouge">privkey.pem</code> and <code class="highlighter-rouge">certificate.pem</code>. The key and the certificate.</p>
 <p>Update the <code class="highlighter-rouge">http:</code> entry in your <code class="highlighter-rouge">configuration.yaml</code> file and let it point to your created files.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
   <span class="s">api_password</span><span class="pi">:</span> <span class="s">YOUR_SECRET_PASSWORD</span>
-  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/home/fab/.homeassistant/fullchain.pem</span>
-  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/home/fab/.homeassistant/privkey.pem</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/home/your_user/.homeassistant/certificate.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/home/your_user/.homeassistant/privkey.pem</span>
 </code></pre>
 </div>
 <p>A tutorial “<a href="https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs">Working with SSL Certificates, Private Keys and CSRs</a>” could give you some insight about special cases.</p>
