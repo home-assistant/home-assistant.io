@@ -90,20 +90,21 @@ sensor:
       - upload
 ```
 
-### {% linkable_title Using as a trigger for another action %}
+### {% linkable_title Using as a trigger in an automation %}
 
 ```yaml
 # Example configuration.yaml entry
+automation:
  - alias: 'Internet Speed Glow Connect Great' 
     trigger: 
       platform: template
-      value_template: '{{ states.sensor.speedtest_download.state|float > 10}}' 
+      value_template: '{% raw %} {{ states.sensor.speedtest_download.state|float > 10}} {% endraw %}' 
     action:      
       service: shell_command.green
   - alias: 'Internet Speed Glow Connect Poor' 
     trigger: 
       platform: template
-      value_template: '{{ states.sensor.speedtest_download.state| float < 10 }}' 
+      value_template: '{% raw %} {{ states.sensor.speedtest_download.state| float < 10 }} {% raw %}' 
     action:      
       service: shell_command.red
 ```
