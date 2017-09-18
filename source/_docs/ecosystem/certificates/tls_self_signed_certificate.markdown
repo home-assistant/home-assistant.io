@@ -16,19 +16,16 @@ To create locally a certificate you need the [OpenSSL](https://www.openssl.org/)
 
 Change to your Home Assistant [configuration directory](/getting-started/configuration/) like `~/.homeassistant`. This will make it easier to backup your certificate and the key. Run the command shown below. 
 
-**Notes:** 
+The certificate **must** be `.pem` extension.
 
-The certificate **must** be `.pem` extension for HASS to like it.
+If you are going to use this certificate with the iOS app, you need to ensure you complete **all** fields during the cetificate creation process, then:
 
-If you are going to use this certificate with the ios app, you need to ensure you complete **all** fields during the cetificate creation process, then 
-* Send **only** `certificate.pem` file to the ios device using airdrop or other transfer method.
-* Open the `.pem` file on the ios device, follow the prompts to trust and install it.
-* If iOS 10.3 or newer you need addital steps
-  * Goto `Settings > General > About > Certificate Trust Settings` and enable the cert for your domain using the toggle switch
-  * https://support.apple.com/en-us/HT204477
+* Send **only** `certificate.pem` file to the iOS device using airdrop or other transfer method.
+* Open the `.pem` file on the iOS device, follow the prompts to trust and install it.
+* If you are using iOS 10.3 or newer then [additioal steps](https://support.apple.com/en-us/HT204477) are needed.
 
 ```bash
-openssl req -sha256 -newkey rsa:4096 -nodes -keyout key.pem -x509 -days 730 -out certificate.pem
+$ openssl req -sha256 -newkey rsa:4096 -nodes -keyout key.pem -x509 -days 730 -out certificate.pem
 ```
 
 For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process. At the end you will have two files called `privkey.pem` and `fullchain.pem`. The key and the certificate.
