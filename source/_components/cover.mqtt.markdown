@@ -49,7 +49,7 @@ Configuration variables:
 - **payload_available** (*Optional*): The payload that represents the online state. Default is `online`.
 - **payload_not_available** (*Optional*): The payload that represents the offline state. Default is `offline`.
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is `true` if no state topic defined, else `false`.
-- **qos** (*Optional*): The maximum QoS level to be used when receiving and publishing messages.
+- **qos** (*Optional*): The maximum QoS level to be used when receiving and publishing messages. Default is `0`.
 - **retain** (*Optional*): Defines if published messages should have the retain flag set. Default is `false`.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 - **set_position_topic** (*Optional*): The MQTT topic to publish position commands to.
