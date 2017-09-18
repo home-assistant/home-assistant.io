@@ -127,7 +127,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="complex-alert-criteria" href="#complex-alert-criteria"></a> Complex Alert Criteria</h3>
-<p>By design, the <code class="highlighter-rouge">alert</code> component only handles very simple criteria for firing. That is, is only checks if a single entity’s state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a <code class="highlighter-rouge">Template Binary Sensor</code>. The following example does that.</p>
+<p>By design, the <code class="highlighter-rouge">alert</code> component only handles very simple criteria for firing. That is, it only checks if a single entity’s state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a <code class="highlighter-rouge">Template Binary Sensor</code>. The following example does that.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
