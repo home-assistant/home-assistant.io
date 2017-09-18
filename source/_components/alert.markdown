@@ -75,7 +75,7 @@ freshwater_temp_alert:
 
 ### {% linkable_title Complex Alert Criteria %}
 
-By design, the `alert` component only handles very simple criteria for firing. That is, is only checks if a single entity's state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
+By design, the `alert` component only handles very simple criteria for firing. That is, it only checks if a single entity's state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
 
 ```yaml
 binary_sensor:
