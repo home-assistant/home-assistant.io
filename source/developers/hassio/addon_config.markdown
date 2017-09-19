@@ -67,6 +67,16 @@ LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64
 
 It is possible to use own base image with `build.json` or if you not want to do a multi arch build/support you can also use a simle docker `FROM`.
 
+## {% linkable_title Build Args %}
+
+We support follow build args default:
+
+| ARG | Description |
+|-----|-------------|
+| BUILD_FROM | Hold image for dynamic builds or buildings over our systems.
+| BUILD_VERSION | Add-on version (read from `config.json`).
+| BUILD_ARCH | Hold current build arch inside.
+
 ## {% linkable_title Add-on config %}
 
 The config for an add-on is stored in `config.json`.
