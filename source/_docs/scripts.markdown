@@ -71,9 +71,9 @@ delay:
 ```
 
 ```yaml
-# Waits however many minutes input_slider.minute_delay is set to
+# Waits however many minutes input_number.minute_delay is set to
 # Valid formats include HH:MM and HH:MM:SS
-delay: {% raw %}'00:{{ states.input_slider.minute_delay.state | int }}:00'{% endraw %}
+delay: {% raw %}'00:{{ states.input_number.minute_delay.state | int }}:00'{% endraw %}
 ```
 ### {% linkable_title Wait %}
 
