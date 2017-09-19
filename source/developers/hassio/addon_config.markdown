@@ -158,3 +158,25 @@ We support:
 - url
 - port
 - match(REGEX)
+
+## {% linkable_title Add-on config %}
+
+Additional build options for an add-on is stored in `build.json`. This file will be read from our build systems.
+
+```json
+{
+  "build_from": {
+    "armhf": "homeassistant/armhf-base:latest"
+  },
+  "squash": false,
+  "args": {
+    "my_build_arg": "xy"
+  }
+}
+```
+
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| build_from | no | A dict with key as hardware architecture and the base docker images as value.
+| squash | no | Default `False`. Be carfully with this option, you can not use the image for caching stuff after that!
+| args | no | Allow to set additional docker build args as dict.
