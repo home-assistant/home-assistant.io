@@ -34,6 +34,11 @@ Step 3 in the link above, shows the path to the private key file `id_rsa` for yo
 Make sure when you are copying the public key to the root of the /boot partition of the SD card that you rename the file correctly with no `.pub` file extension.
 </p> 
 
+You should then be able to SSH into your Hass.io device. On mac/linux, use:
+```
+ssh root@hassio.local -p 22222
+```
+
 ## {% linkable_title Checking the logs %}
 
 ```bash

@@ -18,7 +18,7 @@ There is currently support for climate, covers, lights, locks, sensors, switches
 
 As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed.
 
-There is one dependency you will need to have installed ahead of time:
+There is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
@@ -101,6 +101,10 @@ An easy script to generate a random key:
 cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g'
 ```
 
+### {% linkable_title Battery Powered Devices %}
+
+Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
+
 ### {% linkable_title Events %}
 
 #### {% linkable_title zwave.network_complete %}
@@ -180,7 +184,24 @@ automation:
         scene_id: 11
 ```
 
+Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  These devices will also send `scene_data` to differentiate the events.  This is an example of double clicking the on/up button:
+
+```yaml
+# Example configuration.yaml automation entry
+automation
+  - alias: 'Dining room dimmer - double tap up'
+    trigger:
+      - event_type: zwave.scene_activated
+        platform: event
+        event_data:
+          entity_id: zwave.dining_room_cans
+          scene_id: 1
+          scene_data: 3
+```
+
 The *object_id* and *scene_id* of all triggered events can be seen in the console output.
+
+For more information on HomeSeer devices and similar devices, please see the [device specific page](https://home-assistant.io/docs/z-wave/device-specific/#homeseer-switches).
 
 ### {% linkable_title Services %}
 

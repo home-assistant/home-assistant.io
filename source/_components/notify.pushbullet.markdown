@@ -84,6 +84,21 @@ action:
 
 - **file** (*Required*): File to send with Pushbullet.
 
+
+### {% linkable_title File URL support %}
+
+```yaml
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    title: Send file
+    message: This is a file URL
+    data:
+      file_url:  https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_960_720.jpg
+```
+
+- **file_url** (*Required*): File to send with Pushbullet.
+
 <p class='note'>
 Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
 </p>

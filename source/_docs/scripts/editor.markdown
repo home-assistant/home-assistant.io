@@ -25,4 +25,4 @@ The script editor reads and writes to the file `scripts.yaml` in your [configura
 script: !include scripts.yaml
 ```
 
-The conten that was under `script:` should now be moved to `scripts.yaml` to be editable.
+The content that was under `script:` should now be moved to `scripts.yaml` to be editable.

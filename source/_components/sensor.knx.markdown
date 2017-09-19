@@ -17,23 +17,20 @@ The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensor
 
 The `knx` component must be configured correctly, see [KNX Component](/components/knx).
 
-There is currently support for the following KNX data point types:
-
-| Condition           | KNX Datapoint Type  | Unit of measurement | Data type                      |
-| :-------------------|:--------------------|:--------------------|:-------------------------------|
-| Temperature         | 9.001               | °C                  | 2 Byte Float                   |
-| Speed (Wind speed)  | 9.005               | m/s                 | 2 Byte Float                   |
-| Illuminance (Lux)   | 9.004               | Lux                 | 2 Byte Float                   |
-| Percentage          | 5.001               | %                   | 1 Byte Scaled Unsigned Integer |
-
-To use your KNX sensor in your installation, add the following to your `configuration.yaml` file:
+To use your KNX sensor in your installation, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: knx
-    type: temperature
-    address: 1/0/3
+    name: Heating.Valve1
+    address: '2/0/0'
+    type: 'percent'
+
+  - platform: knx
+    name: Kitchen.Temperature
+    address: '6/2/1'
+    type: 'temperature'
 
   - platform: knx
     name: Wind speed
@@ -44,18 +41,11 @@ sensor:
     name: Lux
     type: illuminance
     address: 1/0/1
-
-  - platform: knx
-    name: percent
-    type: percentage
-    address: 1/0/4
 ```
 
-Configuration variables:
+* **name** (*Optional*): A name for this device used within Home Assistant.
+* **address**: KNX group address of the sensor
+* **type**: (Optional) "percent", "temperature", "illuminance", "speed_ms", "current"
 
-- **type** (*Required*): The type of the sensor. See table above for available options.
-- **address** (*Required*): The address of the sensor on the bus.
-- **name** (*Optional*): The name to use in the frontend.
-- **minimum** (*Optional*): Minimum sensor value - defaults to a hardcoded default value.
-- **maximum** (*Optional*): Maximum sensor value - defaults to a hardcoded default value.
+
 

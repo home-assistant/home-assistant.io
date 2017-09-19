@@ -33,7 +33,7 @@ Steps we will take:
  - 2 - Set up port forwarding without TLS/SSL and test connection
  - 3 - Set up a DuckDNS account
  - 4 - Obtain a TLS/SSL certificate from Let's Encrypt
- - 5 - Check the incoming conection
+ - 5 - Check the incoming connection
  - 6 - Clean up port forwards
  - 7 - Set up a sensor to monitor the expiry date of the certificate
  - 8 - Set up an automatic renewal of the TLS/SSL certificate
@@ -290,7 +290,7 @@ $ sudo chmod 755 /etc/letsencrypt/archive/
 
 Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now ready to be used with Home Assistant. Move to step 5 to put it all together
 
-### {% linkable_title 5 - Check the incoming conection %}
+### {% linkable_title 5 - Check the incoming connection %}
 
 <p class='note'>
 Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to your `homeassistant` folder:

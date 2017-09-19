@@ -29,7 +29,9 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **name** (*Optional*): Name of the REST switch.
-  - **method** (*Optional*): HTTP method to use (`post` or `put`). Defaults to `post`.
+- **method** (*Optional*): HTTP method to use (`post` or `put`). Defaults to `post`.
+- **username** (*Optional*): The username for accessing the REST endpoint.
+- **password** (*Optional*): The password for accessing the REST endpoint.
 - **body_on** (*Optional*): The body of the POST request that commands the switch to become enabled. Default is "ON". This value can be a [template](/topics/templating/).
 - **body_off** (*Optional*): The body of the POST request that commands the switch to become disabled. Default is "OFF". This value can also be a [template](/topics/templating/).
 - **is_on_template** (*Optional*): A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is equivalent to `'{% raw %}{{ value_json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches .

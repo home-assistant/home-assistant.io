@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RSS feed template"
-description: "Instructions how to setup an RSS feed for sensor information and other."
+description: "Use this component to generate RSS feeds showing your latest data."
 date: 2017-04-11 20:42
 sidebar: true
 comments: false
@@ -19,9 +19,11 @@ For example, on Android, the app "Simple RSS Widget" can be used to display temp
 ```yaml
 # Example configuration.yml entry
 rss_feed_template:
+  # Accessible on <home assistant url>/api/rss_template/garden
+  # Example: https://localhost:8123/api/rss_template/garden
   garden:
     requires_api_password: False
-    title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%m', True) }}{% endraw %}"
+    title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}{% endraw %}"
     items:
     - title: "Outside temperature"
       description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states.sensor.temp_outside.state}} °C{% endif %}{% endraw %}"

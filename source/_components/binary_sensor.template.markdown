@@ -32,6 +32,8 @@ Configuration variables:
   - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
   - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
   - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
+  - **on_delay** (*Optional*): The amount of time the template state must be met before this sensor will switch to on.
+  - **off_delay** (*Optional*): The amount of time the template state must be not met before this sensor will switch to off.
 
 ## {% linkable_title Examples %}
 
@@ -96,18 +98,19 @@ binary_sensor:
           - sensor.kitchen_co_status
           - sensor.wardrobe_co_status
 ```
-### {% linkable_title Change the icon %}
 
-This example shows how to change the icon based on the day/night cycle.
+### {% linkable_title Washing Machine Running %}
+
+This example creates a washing machine "load running" sensor by monitoring an energy meter connected to the washer. During the washer's operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing `off_delay`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
 
 ```yaml
-sensor:
+# Determine when the washing machine has a load running.
+binary_sensor:
   - platform: template
-    sensors:
-      day_night:
-        friendly_name: 'Day/Night'
-        value_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}Day{% else %}Night{% endif %}'{% endraw %}
-        icon_template: {% raw %}'{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'{% endraw %}
+    name: Washing Machine
+    value_template: {% raw %}'{{ sensor.washing_machine_power > 0 }}'{% endraw %}
+    off_delay:
+      minutes: 5
 ```
 
 ### {% linkable_title Is anyone home? %}
