@@ -137,6 +137,23 @@
       <span class="pi">-</span> <span class="s">upload</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="using-as-a-trigger-in-an-automation" href="#using-as-a-trigger-in-an-automation"></a> Using as a trigger in an automation</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">automation</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Internet</span><span class="nv"> </span><span class="s">Speed</span><span class="nv"> </span><span class="s">Glow</span><span class="nv"> </span><span class="s">Connect</span><span class="nv"> </span><span class="s">Great'</span> 
+    <span class="s">trigger</span><span class="pi">:</span> 
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.speedtest_download.state|float</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">10}}'</span>
+    <span class="s">action</span><span class="pi">:</span>      
+      <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.green</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Internet</span><span class="nv"> </span><span class="s">Speed</span><span class="nv"> </span><span class="s">Glow</span><span class="nv"> </span><span class="s">Connect</span><span class="nv"> </span><span class="s">Poor'</span> 
+    <span class="s">trigger</span><span class="pi">:</span> 
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+      <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.speedtest_download.state|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">}}'</span> 
+    <span class="s">action</span><span class="pi">:</span>      
+      <span class="s">service</span><span class="pi">:</span> <span class="s">shell_command.red</span>
+</code></pre>
+</div>
 <h2><a class="title-link" name="notes" href="#notes"></a> Notes</h2>
 <ul>
   <li>When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.</li>

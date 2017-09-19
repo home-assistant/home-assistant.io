@@ -74,13 +74,13 @@
     </h1>
   </header>
   <hr class="divider">
-  <p><a href="https://ifttt.com">IFTTT</a> is a web service that allows users to create chains of simple conditional statements, so called “Applets”. With the IFTTT component you can trigger applets through the <strong>“Maker”</strong> channel. See the <a href="/blog/2015/09/13/home-assistant-meets-ifttt/">announcement blog post</a> for examples how to use it.</p>
+  <p><a href="https://ifttt.com">IFTTT</a> is a web service that allows users to create chains of simple conditional statements, so called “Applets”. With the IFTTT component you can trigger applets through the <strong>“Webhooks”</strong> service (which was previously the <strong>“Maker”</strong> channel). See the <a href="/blog/2015/09/13/home-assistant-meets-ifttt/">announcement blog post</a> for examples how to use it.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">ifttt</span><span class="pi">:</span>
-  <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxx-x-xxxxxxxxxxxxx</span>
+  <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p><code class="highlighter-rouge">key</code> is your API key which can be obtained by viewing the <strong>Settings</strong> of the <a href="https://ifttt.com/services/maker_webhooks/settings">Maker Channel</a>. It’s the last part of the URL (e.g. https://maker.ifttt.com/use/MYAPIKEY) you will find under <strong>Settings</strong> &gt; <strong>Account Info</strong>.</p>
+<p><code class="highlighter-rouge">key</code> is your API key which can be obtained by viewing the <strong>Settings</strong> of the <a href="https://ifttt.com/services/maker_webhooks/settings">Webhooks applet</a>. It’s the last part of the URL (e.g. https://maker.ifttt.com/use/MYAPIKEY) you will find under <strong>My Applets</strong> &gt; <strong>Webhooks</strong> &gt; <strong>Settings</strong>.</p>
 <p class="img">
 <img src="/images/components/ifttt/finding_key.png" />
 Property screen of the Maker Channel
@@ -90,7 +90,7 @@ Property screen of the Maker Channel
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
 </p>
 <h3><a class="title-link" name="testing-your-trigger" href="#testing-your-trigger"></a> Testing your trigger</h3>
-<p>You can use the <strong>Developer tools</strong> to test your <a href="https://ifttt.com/maker">Maker Channel</a> trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the <strong>Call Service</strong> screen. Fill in the following values:</p>
+<p>You can use the <strong>Developer tools</strong> to test your <a href="https://ifttt.com/maker_webhooks">Webhooks</a> trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the <strong>Call Service</strong> screen. Fill in the following values:</p>
 <table>
   <thead>
     <tr>
