@@ -67,7 +67,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 ```
 
 
-The `load_platform` method allows the platforms to be loaded with the need for any additional platform entries in your `configuration.yaml` file, which normally would have been:
+The `load_platform` method allows the platforms to be loaded without the need for any additional platform entries in your `configuration.yaml` file, which normally would have been:
 
 ```yaml
 #light:
