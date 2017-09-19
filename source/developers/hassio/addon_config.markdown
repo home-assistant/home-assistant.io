@@ -67,7 +67,7 @@ LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64
 
 It is possible to use own base image with `build.json` or if you not want to do a multi arch build/support you can also use a simle docker `FROM`.
 
-## {% linkable_title Build Args %}
+### {% linkable_title Build Args %}
 
 We support follow build args default:
 
@@ -169,7 +169,7 @@ We support:
 - port
 - match(REGEX)
 
-## {% linkable_title Add-on config %}
+## {% linkable_title Add-on extended build %}
 
 Additional build options for an add-on is stored in `build.json`. This file will be read from our build systems.
 
