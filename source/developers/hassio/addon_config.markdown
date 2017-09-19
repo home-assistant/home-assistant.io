@@ -31,7 +31,7 @@ When developing your script:
 ```bash
 CONFIG_PATH=/data/options.json
 
-TARGET=$(jq --raw-output ".target" $CONFIG_PATH)
+TARGET="$(jq --raw-output '.target' $CONFIG_PATH)"
 ```
 
 So if your `options`contain
@@ -45,7 +45,8 @@ then there will be a variable `TARGET`containing `beer` in the environment of yo
 All add-ons are based on Alpine Linux 3.6. Hass.io will automatically substitute the right base image based on the machine architecture. Add `tzdata` if you need run in correct timezone, but that is already add in our base images.
 
 ```
-FROM %%BASE_IMAGE%%
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
@@ -64,15 +65,7 @@ If you don't use local build on device or our build script, make sure that the D
 LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 ```
 
-It is possible to use own base image with follow schema:
-```
-#amd64:FROM...
-#i386:FROM...
-#armhf:FROM...
-#aarch64:FROM...
-```
-
-Or if you not want to do a multi arch build/support you can also use a simle docker `FROM`.
+It is possible to use own base image with `build.json` or if you not want to do a multi arch build/support you can also use a simle docker `FROM`.
 
 ## {% linkable_title Add-on config %}
 
@@ -135,7 +128,9 @@ The `options` dict contains all available options and their default value. Set t
     { "username": "cheep", "password": "654321" }
   ],
   "random": ["haha", "hihi", "huhu", "hghg"],
-  "link": "http://blebla.com/"
+  "link": "http://blebla.com/",
+  "size": 15,
+  "count": 1.2
 }
 ```
 
@@ -147,8 +142,10 @@ The `schema` looks like `options` but describes how we should validate the user 
   "logins": [
     { "username": "str", "password": "str" }
   ],
-  "random": ["str"],
-  "link": "url"
+  "random": ["match(^\w*$)"],
+  "link": "url",
+  "size": "int(5,20)",
+  "count": "float"
 }
 ```
 
