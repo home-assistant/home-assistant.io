@@ -44,6 +44,7 @@ Configuration variables:
 - **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
+- **scan_interval** (*Optional*): The poll interval in seconds. Default is a request every `60` seconds.
 - **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `True`.
 - **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
 - **username** (*Optional*): The username for accessing the REST endpoint.
