@@ -28,6 +28,7 @@ recorder:
 Configuration variables:
 
 - **purge_days** (*Optional*): Delete events and states older than x days. The purge task runs every 2 days, starting from when Home Assistant is started if you restart your instance more frequently than the purge will never take place.
+- **purge_disable_timer** (*Optional*): Disable default purge timer (every 2 days). Default: False. You can then start purge task by [service](#service) call.
 - **exclude** (*Optional*): Configure which components should be excluded from recordings.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
@@ -84,6 +85,17 @@ recorder:
 ```
 
 If you only want to hide events from e.g. your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+
+### {% linkable_title Service `purge` %}
+
+Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `purge_days` variable setting.
+
+Automation [action](https://home-assistant.io/getting-started/automation-action/) example:
+
+```yaml
+action:
+  service: recorder.purge
+```
 
 ## Custom database engines
 
