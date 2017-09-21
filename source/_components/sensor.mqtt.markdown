@@ -32,7 +32,7 @@ Configuration variables:
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
 - **expire_after** (*Optional*): Defines the number of seconds after the value expires if it's not updated. Default is 0 (=never expire).
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 ## {% linkable_title Examples %}
 

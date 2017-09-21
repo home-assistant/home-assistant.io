@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The binary sensor has support for GET and POST requests.
 
-The JSON messages can contain different values like `1`, `"1"`, `TRUE`, `true`, `on`, or `open`. If the value is nested then use a [template](/topics/templating/).
+The JSON messages can contain different values like `1`, `"1"`, `TRUE`, `true`, `on`, or `open`. If the value is nested then use a [template](/docs/configuration/templating/#processing-incoming-data).
 
 ```json
 {
@@ -53,7 +53,7 @@ Configuration variables:
 - **method** (*Optional*): The method of the request. Default is GET.
 - **name** (*Optional*): Name of the REST binary sensor.
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Usually formed as a dictionary.
 - **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to True.
 - **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.

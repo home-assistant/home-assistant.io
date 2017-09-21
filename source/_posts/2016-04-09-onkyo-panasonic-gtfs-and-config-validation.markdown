@@ -2,7 +2,7 @@
 layout: post
 title: "0.17: Onkyo, Panasonic, GTFS and config validation"
 description: "Home Assistant 0.17 has arrived."
-date: 2016-04-08 23:10:00 -0700
+date: 2016-04-09 23:10:00 UTC
 date_formatted: "April 9, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob

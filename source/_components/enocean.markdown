@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "EnOcean"
-description: "Connect EnOcean devices to home-assistant"
+description: "Connect EnOcean devices to Home Assistant"
 date: 2016-05-25 23:39
 sidebar: true
 comments: false
@@ -10,6 +10,7 @@ footer: true
 logo: enocean.png
 ha_category: Hub
 ha_release: 0.21
+ha_iot_class: "Local Push"
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are unnecessary.

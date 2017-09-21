@@ -9,9 +9,11 @@ sharing: true
 footer: true
 ---
 
-In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
+See the [developer documentation][devdocs] for a full overview of the documentation. The rest of this page will contain examples on how to use it.
 
-Note: This page is not full documentation for this API, but a collection of examples showing its use.
+[devdocs]: https://dev-docs.home-assistant.io/en/master/api/homeassistant.html#module-homeassistant.remote
+
+In the package [`homeassistant.remote`](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py) a Python API on top of the [HTTP API](/developers/api/) can be found.
 
 A simple way to get all current entities is to visit the "Set State" page in the "Developer Tools". For the examples below just choose one from the available entries. Here the sensor `sensor.office_temperature` and the switch `switch.livingroom_pin_2` are used.
 
@@ -22,17 +24,6 @@ import homeassistant.remote as remote
 
 api = remote.API('127.0.0.1', 'password')
 print(remote.validate_api(api))
-```
-
-Here's another way to use the `homeassistant.remote` package:
-
-```python
-import homeassistant.remote as remote
-
-api = remote.API('127.0.0.1', 'password')
-hass = remote.HomeAssistant(api)
-hass.start()
-living_room = hass.states.get('group.living_room')
 ```
 
 ### {% linkable_title Get configuration %}
@@ -81,7 +72,7 @@ import homeassistant.remote as remote
 
 api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 office_temperature = remote.get_state(api, 'sensor.office_temperature')
-print('{} is {} {}.'.format(office_temperature.attributes['friendly_name'],
+print('{} is {} {}.'.format(office_temperature.name,
                             office_temperature.state,
                             office_temperature.attributes['unit_of_measurement']
                             )
@@ -101,7 +92,7 @@ import homeassistant.remote as remote
 
 api = remote.API('127.0.0.1', 'YOUR_PASSWORD')
 switch_livingroom = remote.get_state(api, 'switch.livingroom_pin_2')
-print('{} is {}.'.format(switch_livingroom.attributes['friendly_name'],
+print('{} is {}.'.format(switch_livingroom.name,
                          switch_livingroom.state
                          )
       )
@@ -193,5 +184,3 @@ data = {"title":"Test", "message":"A simple test message from HA."}
 
 remote.call_service(api, domain, 'jabber', data)
 ```
-
-For more details, please check the source of [homeassistant.remote](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/remote.py).

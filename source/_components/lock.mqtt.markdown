@@ -40,7 +40,7 @@ Configuration variables:
 - **optimistic** (*Optional*): Flag that defines if lock works in optimistic mode. Default is `true` if no `state_topic` defined, else `false`.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 <p class='note warning'>
 Make sure that your topic match exact. `some-topic/` and `some-topic` are different topics.
@@ -57,16 +57,16 @@ The example below shows a full configuration for a MQTT lock.
 ```yaml
 # Example configuration.yml entry
 lock:
-  platform: mqtt
-  name: Frontdoor 
-  state_topic: "home-assistant/frontdoor/"
-  command_topic: "home-assistant/frontdoor/set"
-  payload_lock: "LOCK"
-  payload_unlock: "UNLOCK"
-  optimistic: false
-  qos: 1
-  retain: true
-  value_template: '{% raw %}{{ value.x }}{% endraw %}'
+  - platform: mqtt
+    name: Frontdoor 
+    state_topic: "home-assistant/frontdoor/"
+    command_topic: "home-assistant/frontdoor/set"
+    payload_lock: "LOCK"
+    payload_unlock: "UNLOCK"
+    optimistic: false
+    qos: 1
+    retain: true
+    value_template: '{% raw %}{{ value.x }}{% endraw %}'
 ```
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something. 

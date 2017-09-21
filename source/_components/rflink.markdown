@@ -117,7 +117,7 @@ If you find a device is recognized differently, with different protocols or the 
 ### {% linkable_title Technical overview %}
 
 - The`rflink` Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the RFLink gateway.
-- This component uses this callback to distribute 'rflink packet events' over the HASS bus which can be subscribed to by entities/platform implementations.
+- This component uses this callback to distribute 'rflink packet events' over Home Assistant's bus which can be subscribed to by entities/platform implementations.
 - The platform implementions take care of creating new devices (if enabled) for unsees incoming packet id's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entitiy logic is maintained in this main component.
 
@@ -135,7 +135,7 @@ logger:
 
 This will give you output looking like this:
 
-```
+```bash
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: 20;00;Nod
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: o RadioFrequencyLink - R
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] received data: FLink Gateway V1.1 - R45

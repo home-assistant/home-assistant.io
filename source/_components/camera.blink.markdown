@@ -10,6 +10,7 @@ footer: true
 logo: blink.png
 ha_category: Camera
 ha_release: "0.40"
+ha_iot_class: "Cloud Polling"
 ---
 
 <p class='note'>

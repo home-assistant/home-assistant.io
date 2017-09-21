@@ -19,7 +19,7 @@ The Wink climate platform allows you to get data from your [Wink](http://www.win
 The requirement is that you have setup [Wink](/components/wink/).
 
 
-### Supported climate devices:
+### {% linkable_title Supported climate devices %}
 
 - Nest (No wink hub required)
 - Ecobee (No wink hub required)

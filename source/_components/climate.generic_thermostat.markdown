@@ -10,6 +10,7 @@ footer: true
 logo: heat-control.png
 ha_category: Climate
 ha_release: pre 0.7
+ha_iot_class: "Local Polling"
 ---
 
 

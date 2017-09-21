@@ -136,7 +136,7 @@ We are working on a better solution for 0.35.
 
 ### {% linkable_title If you need help... %}
 
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://gitter.im/home-assistant/home-assistant). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
 
 ### {% linkable_title Reporting Issues %}
 

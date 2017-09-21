@@ -10,6 +10,7 @@ footer: true
 logo: ring.png
 ha_category: Sensor
 ha_release: "0.40"
+ha_iot_class: "Cloud Polling"
 ---
 
 To get your [Ring.com](https://ring.com/) binary sensors working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring).
@@ -30,9 +31,6 @@ sensor:
 
 Configuration variables:
 
-- **username** (*Required*): The username for accessing your Ring account.
-- **password** (*Required*): The password for accessing your Ring account.
-- **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. The default is 30 seconds.
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **battery**: Return the battery level from device
   - **last_activity**: Return the timestamp from the last event captured (ding/motion/on_demand) by the Ring doorbell camera

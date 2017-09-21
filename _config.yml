@@ -35,8 +35,6 @@ category_dir: blog/categories
 markdown: kramdown
 timezone: UTC
 
-# highlighter: coderay
-
 kramdown:
   input: GFM
   auto_ids:       false
@@ -48,10 +46,9 @@ kramdown:
 
 highlighter: rouge
 
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-time-to-read
-  - octopress-filters
   - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index
@@ -74,6 +71,10 @@ collections:
   cookbook:
     output: true
   docs:
+    output: true
+  addons:
+    output: true
+  faq:
     output: true
 
 # ----------------------- #
@@ -138,10 +139,12 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 43
+current_minor_version: 53
 current_patch_version: 0
-date_released: 2017-04-22
+date_released: 2017-09-9
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
-patch_version_notes: ""
+# Major release:
+patch_version_notes: "#"
+# Minor release (Example #release-0431---april-25):

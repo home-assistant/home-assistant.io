@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "FRITZ!Box"
+title: "FRITZ!Box Call Monitor"
 description: "Instructions how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant."
 date: 2016-08-13 15:00
 sidebar: true
@@ -55,4 +55,31 @@ sensor:
       - '+49'
       - '+4989'
       - '089'
+```
+
+### {% linkable_title Send notifications on state change %}
+
+This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
+
+```yaml
+# Example configuration.yml entry.
+automation:
+  - alias: "Notify about phone state"
+    trigger:
+      - platform: state
+        entity_id: sensor.phone
+    action:
+      - service: notify.notify
+        data:
+          title: "Phone"
+          message: >-
+            {% raw %}{% if is_state("sensor.phone", "idle") %}
+              Phone is idle
+            {% elif is_state("sensor.phone", "dialing") %}
+              Calling {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
+            {% elif is_state("sensor.phone", "ringing") %}
+              Incoming call from {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
+            {% else %}
+              Talking to {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
+            {% endif %}{% endraw %}
 ```

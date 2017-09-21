@@ -10,7 +10,7 @@ footer: true
 is_homepage: true
 hide_github_edit: true
 body_id: components-page
-regenerate: true
+regenerate: false
 ---
 
 {% assign count = site.components | size %}
@@ -36,9 +36,9 @@ Support for these components is provided by the Home Assistant community.
     <div class="filter-button-group">
       <a href='#all' class="btn">All ({{tot}})</a>
       <a href='#featured' class="btn featured">Featured</a>
-      <a href='#added_in_current_version' class="btn added_in_current_version">Added in {{ current_version }} ({{ current_version_components_count }})</a>
-      <a href='#added_one_version_ago' class="btn added_one_version_ago">Added in {{ added_one_ago_version }} ({{ one_ago_version_components_count }})</a>
-      <a href='#added_two_versions_ago' class="btn added_two_versions_ago">Added in {{ added_two_ago_version }} ({{ two_ago_version_components_count }})</a>
+      <a href='#version/{{ current_version }}' class="btn added_in_current_version">Added in {{ current_version }} ({{ current_version_components_count }})</a>
+      <a href='#version/{{ added_one_ago_version }}' class="btn added_one_version_ago">Added in {{ added_one_ago_version }} ({{ one_ago_version_components_count }})</a>
+      <a href='#version/{{ added_two_ago_version }}' class="btn added_two_versions_ago">Added in {{ added_two_ago_version }} ({{ two_ago_version_components_count }})</a>
 
 {% for category in categories %}
   {% if category and category != 'Other' %}
@@ -87,16 +87,14 @@ Support for these components is provided by the Home Assistant community.
 {% endraw %}
 
 <script type="text/javascript">
-var current_minor_version = {{site.current_minor_version}};
-var added_one_ago_minor_version = {{added_one_ago_minor_version}};
-var added_two_ago_minor_version = {{added_two_ago_minor_version}};
 // This object contains all components we have
 var allComponents = [
   {% for component in components %}
     {% if component.ha_category %}
 {% assign sliced_version = component.ha_release | split: '.' %}
 {% assign minor_version = sliced_version[1]|plus: 0 %}
-{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{component.ha_category | slugify}}", featured: {% if component.featured %}true{% else %}false{% endif %}, v: {{minor_version}}, logo: "{{component.logo}}"},
+{% assign major_version = sliced_version[0]|plus: 0 %}
+{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{component.ha_category | slugify}}", featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
     {% endif %}
   {% endfor %}
   false
@@ -114,24 +112,24 @@ allComponents.pop(); // remove placeholder element at the end
       allComponents[i].titleLC = allComponents[i].title.toLowerCase();
       allComponents[i].catLC = allComponents[i].cat.toLowerCase();
     }
-    
+
     // sort the components alphabetically
     allComponents.sort(function(a, b){
       return a.titleLC.localeCompare(b.titleLC);
     });
-    
+
     if (location.hash !== '' && location.hash.indexOf('#search/') === 0) {
       // set default value in search from URL
       jQuery('.component-search input').val(decodeURIComponent(location.hash).substring(8));
     }
-    
+
     // add focus to the search field - even on IE
     setTimeout(function () {
       jQuery('.component-search input').focus();
     }, 1);
   }
   init();
-  
+
   /**
    * filter all components, based on the location's hash and render them into the component box
    */
@@ -171,26 +169,22 @@ allComponents.pop(); // remove placeholder element at the end
 
       } else if(hash === '#featured' || hash === '') {
         // only show those with featured = true
-        filter = function(comp) { 
+        filter = function(comp) {
           return comp.featured;
         };
 
-      } else if(hash === '#added_in_current_version' || hash === '#added_one_version_ago' || hash === '#added_two_versions_ago') {
+      } else if(hash.indexOf('#version/') === 0) {
         // compare against a version
-        search = current_minor_version;
-        if (hash === '#added_one_version_ago') {
-          search = added_one_ago_minor_version;
-        } else if (hash === '#added_two_versions_ago') {
-          search = added_two_ago_minor_version;
-        }
-        filter = function(comp) { 
+        search = decodeURIComponent(hash).substring(9).toLowerCase();
+        filter = function(comp) {
+          // compare version string against version js
           return comp.v === search;
         };
 
       } else {
         // regular filter categories
         search = hash.substring(1);
-        filter = function(comp) { 
+        filter = function(comp) {
           return comp.catLC === search;
         };
       }
@@ -210,7 +204,7 @@ allComponents.pop(); // remove placeholder element at the end
   }
 
   /**
-   * update the browser location hash. This enables users to use the browser-history 
+   * update the browser location hash. This enables users to use the browser-history
    */
   function updateHash(newHash) {
     if ('replaceState' in history) {
@@ -263,3 +257,13 @@ allComponents.pop(); // remove placeholder element at the end
   applyFilter();
 })();
 </script>
+
+<noscript>
+  <ul>
+  {% for component in components %}
+    {% if component.ha_category %}
+      <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</noscript>

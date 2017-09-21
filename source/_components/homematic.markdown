@@ -41,10 +41,10 @@ Configuration variables (global):
 
 Configuration variables (host):
 
-- **ip** (*Required*): IP of CCU/Homegear
-- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server (default is 2001, use 2000 for wired and 2010 for IP)
-- **callback_ip** (*Optional*): Set this, if HASS is reachable under a different IP from the CCU (NAT, Docker etc.)
-- **callback_port** (*Optional*): Set this, if HASS is reachable under a different port from the CCU (NAT, Docker etc.)
+- **ip** (*Required*): IP address of CCU/Homegear device.
+- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Default is 2001, use 2000 for wired and 2010 for IP.
+- **callback_ip** (*Optional*): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
+- **callback_port** (*Optional*): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
 - **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
 - **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
@@ -87,8 +87,8 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 
 ### {% linkable_title Multiple hosts %}
 
-In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.  
-Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.  
+In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
+Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
 This does *not* affect the entites in Home Assistant. They all use their own connection and work as expected.
 
 ### {% linkable_title Reading attributes of entities %}
@@ -107,7 +107,7 @@ sensor:
 
 ### {% linkable_title Variables %}
 
-It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables.   
+It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables.
 The states of the variables are available through the attributes of your hub entity (e.g. `homematic.rf`). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.
 
@@ -184,10 +184,9 @@ action:
     value: true
 ```
 
-
 #### {% linkable_title Advanced examples %}
 
-If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.  
+If you are familiar with the internals of HomeMatic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
 Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above `rf`, `wired` and `ip` would be valid values.
 
 Manually turn on a switch actor

@@ -10,6 +10,7 @@ footer: true
 logo: nest.png
 ha_category: Binary Sensor
 ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 

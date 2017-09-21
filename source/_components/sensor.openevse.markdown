@@ -10,6 +10,7 @@ footer: true
 logo: openevse.png
 ha_category: Sensor
 ha_release: "0.38"
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -28,7 +29,6 @@ sensor:
 
 Configuration variables:
 
-- **api_key** (*Required*): Your Sonarr API key, found in Settings > General in the Sonarr Web UI.
 - **host** (*Required*): The IP address or hostname of your charger
 - **monitored_variables** array (*Required*): Conditions to display on the frontend.
   - **status**: The status of the charger (i.e., "Connected", "Charging", etc.)

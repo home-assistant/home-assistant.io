@@ -20,12 +20,12 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.precip_intensity
-        state: 'rain'
+        to: 'rain'
     condition:
-      - platform: state
+      - condition: state
         entity_id: group.all_devices
         state: 'home'
-      - platform: time
+      - condition: time
         after: '14:00'
         before: '23:00'
     action:
@@ -40,7 +40,7 @@ And then of course turn off the lamp when it stops raining but only if it's with
     trigger:
       - platform: state
         entity_id: sensor.precip_intensity
-        state: 'None'
+        to: 'None'
     condition:
       - condition: sun
         after: 'sunset'

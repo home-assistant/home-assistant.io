@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Sensor
+ha_iot_class: "Local Polling"
+ha_release: 0.32
 ---
 
 
@@ -19,13 +21,10 @@ To add this platform to your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: mfi
-  host: IP_ADDRESS
-  port: PORT
-  username: USERNAME
-  password: PASSWORD
-  ssl: true
-  verify_ssl: true
+  - platform: mfi
+    host: IP_ADDRESS
+    username: USERNAME
+    password: PASSWORD
 ```
 
 Configuration variables:

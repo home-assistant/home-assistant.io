@@ -10,6 +10,7 @@ footer: true
 logo: metoffice.jpg
 ha_category: Weather
 ha_release: 0.42
+ha_iot_class: "Cloud Polling"
 ---
 
 The `metoffice` sensor platform uses the Met Office's [DataPoint API][datapoint] for weather data.
@@ -32,6 +33,7 @@ sensor:
       - wind_direction
       - wind_gust
       - visibility
+      - visibility_distance
       - uv
       - precipitation
       - humidity

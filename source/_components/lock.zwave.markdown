@@ -10,6 +10,7 @@ footer: true
 logo: z-wave.png
 ha_category: Lock
 ha_release: 0.19
+ha_iot_class: "Local Push"
 ---
 
 To get your Z-Wave locks working with Home Assistant, follow the instructions for the general [Z-Wave component](/components/zwave/).

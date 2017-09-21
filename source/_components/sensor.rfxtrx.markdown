@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: rfxtrx.png
 ha_category: Sensor
+ha_iot_class: "Local Polling"
 ---
 
 The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.

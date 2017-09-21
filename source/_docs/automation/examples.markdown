@@ -26,7 +26,7 @@ automation:
         offset: '-01:00:00'
       - platform: state
         entity_id: group.all_devices
-        state: 'home'
+        to: 'home'
     condition:
       # Prefix the first line of each condition configuration
       # with a '-'' to enter multiple
@@ -45,7 +45,7 @@ automation:
     trigger:
       platform: state
       entity_id: group.all_devices
-      state: 'not_home'
+      to: 'not_home'
     action:
       service: light.turn_off
       entity_id: group.all_lights

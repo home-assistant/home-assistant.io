@@ -10,6 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: Light
 ha_release: 0.37
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -20,5 +21,5 @@ To add piglow to your installation, add the following to your `configuration.yam
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: piglow
+  - platform: piglow
 ```

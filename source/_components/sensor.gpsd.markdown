@@ -33,7 +33,6 @@ Jul 16 09:30:33 laptop019 gpsdctl[5305]: reached a running gpsd
 To check if your setup is working, connect to port 2947 on the host where `gpsd` is running with `telnet`. This may need adjustments to your firewall.
 
 ```bash
-
 $ telnet localhost 2947
 Trying 127.0.0.1...
 Connected to localhost.

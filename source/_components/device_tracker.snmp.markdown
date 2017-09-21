@@ -16,20 +16,23 @@ ha_release: 0.7.5
 A lot WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of insances and metrics, like network interfaces, disks, and wifi registrations.
 
 <p class='note warning'>
-This device tracker needs SNMP to be enabled on the router.
+This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </p>
 
 OID examples:
 
-- Mikrotik: `1.3.6.1.4.1.14988.1.1.1.2.1.1` (confirmed, unknown RouterOS version/model)
-- Mikrotik: `1.3.6.1.2.1.4.22.1.2` (confirmed, RouterOS 6.x on RB2011)
-- Aruba: `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2` (untested)
-- BiPAC 7800DXL: `1.3.6.1.2.1.17.7.1.2.2.1.1` (confirmed on firmware 2.32e)
-- OpenWrt: `1.3.6.1.2.1.4.22.1.2` (tested on Chaos Calmer 15.05 firmware, need to install snmpd package)
-- pfSense: `1.3.6.1.2.1.4.22.1.2` (tested on 2.2.4-RELEASE, need to enable SNMP service)
-- TPLink: `1.3.6.1.2.1.3.1.1.2.19.1` (Archer VR2600v, need to enable SNMP service)
-- EdgeRouter `1.3.6.1.2.1.4.22.1.2` (EdgeRouter Lite v1.9.0, need to enable SNMP service)
-- Ruckus: `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` (Ruckus ZoneDirector, tested on 9.13.3)
+| Brand | Device/Firmware | OID |
+|---|---|---|---|
+| Mikrotik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
+| Mikrotik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
+| Aruba | (untested) | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.2` |
+| pfSense | 2.2.4  | `1.3.6.1.2.1.4.22.1.2` |
+| BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
+| OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
+| TP-Link | Archer VR2600v |  `1.3.6.1.2.1.3.1.1.2.19.1` |
+| TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
+| EdgeRouter | Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
+| Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
 
 To use the SNMP version 1 platform in your installation, add the following to your `configuration.yaml` file:
 

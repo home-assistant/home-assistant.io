@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Sensor
 ha_release: 0.33
+ha_iot_class: "Local Push"
 ---
 
 The `api_stream` sensor platform shows how many clients are connected to the stream API 

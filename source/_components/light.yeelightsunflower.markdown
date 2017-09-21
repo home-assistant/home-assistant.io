@@ -7,8 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: yeelight.png
 ha_category: Light
 ha_release: 0.39
+ha_iot_class: "Local Polling"
 ---
 
 The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.

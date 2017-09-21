@@ -12,12 +12,8 @@ redirect_from: /topics/templating/
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of the following things:
 
-- [Home Assistant architecture], especially states.
-- [State object]
-
-
-[Home Assistant architecture]: /developers/architecture/
-[State object]: /topics/state_object/
+- [Home Assistant architecture](/developers/architecture/), especially states.
+- [State object](/topics/state_object/)
 
 Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:
 
@@ -88,6 +84,16 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - Filter `min` will obtain the smallest item in a sequence.
 
 [strp-format]: https://docs.python.org/3.4/library/datetime.html#strftime-and-strptime-behavior
+
+<p class='note'>
+If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
+</p>
+
+## {% linkable_title Home Assistant template extensions %}
+
+In templates, besides the normal [state object methods and properties](/topics/state_object/), there are also some extra things available:
+
+- `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
 ## {% linkable_title Examples %}
 
@@ -190,6 +196,45 @@ It depends per component or platform, but it is common to be able to define a te
 | `value`      | The incoming value.                    |
 | `value_json` | The incoming value parsed as JSON.     |
 
+This means that if the incoming values looks like the sample below:
+
+```json
+{
+  "on": "true",
+  "temp": 21
+}
+```
+
+The template for `on` would be:
+
+```yaml
+'{% raw %}{{value_json.on}}{% endraw %}'
+```
+
+Nested JSON in a response is supported as well
+
+```json
+{
+  "sensor": {
+    "type": "air",
+    "id": "12345"
+  },
+  "values": {
+    "temp": 26.09,
+    "hum": 56.73,
+  }
+}
+```
+
+Just use the "Square bracket notation" to get the value.
+
+```yaml
+'{% raw %}{{ value_json["values"]["temp"] }}{% endraw %}'
+```
+
+
+The following overview contains a couple of options to get the needed values:
+
 ```text
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
@@ -208,7 +253,19 @@ It depends per component or platform, but it is common to be able to define a te
 {% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
 {% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
+```
 
-# Square bracket notation
-{% raw %}{{ value_json["001"] }}{% endraw %}
+To evaluate a response, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your output into "Template", and check the result.
+
+```yaml
+{% raw %}
+{% set value_json=
+    {"name":"Outside",
+	 "device":"weather-ha",
+     "data":
+	    {"temp":"24C",
+		 "hum":"35%"
+		 }	}%}
+
+{{value_json.data.hum[:-1]}}{% endraw %}
 ```

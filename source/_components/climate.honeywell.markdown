@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: honeywell.png
 ha_category: Climate
+ha_release: pre 0.7
+ha_iot_class: "Cloud Polling" 
 ---
 
 
@@ -18,10 +20,10 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 climate:
-  platform: honeywell
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  scan_interval: 600
+  - platform: honeywell
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    scan_interval: 600
 ```
 <p class='note'>
 Scan interval is expressed in seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.

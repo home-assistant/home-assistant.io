@@ -21,4 +21,4 @@ In this example, the device ID is `robbiet480_7plus`, so the notify service to u
 {"devices":{"robbiet480_7plus":{"app":{"bundleIdentifer":"io.robbie.HomeAssistant","versionNumber":1,"buildNumber":53},"pushSounds":[],"permissions":["location"],"deviceId":"robbiet480_7plus","device":{"type":"iPhone 7 Plus","systemName":"iOS","systemVersion":"10.3","permanentID":"AB9F02FE-6AC6-47B8-ADEB-5DD87B489156","localizedModel":"iPhone","name":"Robbie's iPhone 7 Plus","model":"iPhone"},"battery":{"state":"Full","level":100},"pushToken":"SECRET","pushId":"SECRET"}}}
 ```
 
-You can find more information in the [Basic Notifications](https://home-assistant.io/docs/ecosystem/ios/notifications/basic/) documentation.
+You can find more information in the [Basic Notifications](https://home-assistant.io/docs/ecosystem/ios/notifications/basic/) documentation and the [Actionable Notifications](https://home-assistant.io/docs/ecosystem/ios/notifications/actions/) documentation.

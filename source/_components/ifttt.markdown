@@ -10,6 +10,7 @@ footer: true
 logo: ifttt.png
 ha_category: Automation
 featured: true
+ha_iot_class: "Cloud Push"
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so called "Applets". With the IFTTT component you can trigger applets through the **"Maker"** channel. See the [announcement blog post](/blog/2015/09/13/home-assistant-meets-ifttt/) for examples how to use it.
@@ -20,7 +21,8 @@ ifttt:
   key: xxxxx-x-xxxxxxxxxxxxx
 ```
 
-`key` is your API key which can be obtained by viewing the **Settings** of the [Maker Channel](https://ifttt.com/maker). It's the last part of the URL.
+`key` is your API key which can be obtained by viewing the **Settings** of the [Maker Channel](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g. https://maker.ifttt.com/use/MYAPIKEY) you will find under **Settings** > **Account Info**.
+
 
 <p class='img'>
 <img src='/images/components/ifttt/finding_key.png' />
@@ -67,8 +69,8 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 automation:
   alias: Startup Notification
   trigger:
-    platform: event
-    event_type: homeassistant_start
+    platform: homeassistant
+    event: start
   action:
     service: ifttt.trigger
     data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
@@ -81,8 +83,8 @@ IFTTT can also be used in scripts and with `data_template`.  Here is the above a
 automation:
   alias: Startup Notification
   trigger:
-    platform: event
-    event_type: homeassistant_start
+    platform: homeassistant
+    event: start
   action:
     service: script.ifttt_notify
     data_template:

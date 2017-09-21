@@ -10,6 +10,7 @@ footer: true
 logo: insteon.png
 ha_category: Light
 ha_release: 0.21
+ha_iot_class: "Local Push"
 ---
 
 The `insteon_hub` light component lets you control your lights connected to an [Insteon Hub](http://www.insteon.com/insteon-hub/) with Home Assistant.

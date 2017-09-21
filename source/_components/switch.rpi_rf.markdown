@@ -10,6 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: Switch
 ha_release: 0.19
+ha_iot_class: "Assumed state"
 ---
 
 
@@ -23,21 +24,21 @@ To enable, add the following to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: rpi_rf
-  gpio: 17
-  switches:
-    bedroom_light:
-      code_on: 1234567
-      code_off: 1234568
-    ambilight:
-      pulselength: 200
-      code_on: 987654
-      code_off: 133742
-    living_room_light:
-      protocol: 5
-      code_on: 654321,565874,233555,149874
-      code_off: 654320,565873,233554,149873
-      signal_repetitions: 15
+  - platform: rpi_rf
+    gpio: 17
+    switches:
+      bedroom_light:
+        code_on: 1234567
+        code_off: 1234568
+      ambilight:
+        pulselength: 200
+        code_on: 987654
+        code_off: 133742
+      living_room_light:
+        protocol: 5
+        code_on: 654321,565874,233555,149874
+        code_off: 654320,565873,233554,149873
+        signal_repetitions: 15
 ```
 
 Configuration variables:

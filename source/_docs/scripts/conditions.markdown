@@ -68,9 +68,9 @@ condition:
 
 ### {% linkable_title Numeric state condition %}
 
-This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches all of the above or below thresholds.
+This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches the thresholds.
 
-For above, the condition passes if `value >= above`. For below, the condition passes if `value <= below`. If both `below` and `above` are specified, both tests have to pass.
+If both `below` and `above` are specified, both tests have to pass.
 
 You can optionally use a `value_template` to process the value of the state before testing it.
 

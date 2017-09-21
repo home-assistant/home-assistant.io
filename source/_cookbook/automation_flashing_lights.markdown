@@ -23,7 +23,7 @@ automation:
   trigger:
     platform: state
     entity_id: binary_sensor.PIR1
-    state: 'on'
+    to: 'on'
   condition:
     - condition: state
       entity_id: switch.AlmAct1
@@ -41,7 +41,7 @@ automation:
   trigger:
     platform: state
     entity_id: switch.AlmSnd1
-    state: 'on'
+    to: 'on'
   action:
     service: script.turn_on
     entity_id: script.flash_room1
@@ -50,11 +50,11 @@ automation:
   trigger:
     platform: state
     entity_id: switch.REL1
-    state: 'off'
+    to: 'off'
   condition:
     condition: state
     entity_id: switch.AlmSnd1
-    state: 'off'
+    to: 'off'
   action:
     service: script.turn_off
     entity_id: script.flash_room1

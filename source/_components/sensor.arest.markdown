@@ -39,12 +39,12 @@ Configuration variables:
   - **[variable]** (*Required*): Name of the variable to monitor.
     - **name** (*Optional*): The name to use for the frontend.
     - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-    - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+    - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 - **pins** array (*Optional*): List of pins to monitor. Analog pins need a leading **A** for the pin number.
   - **[pin]** (*Required*): Pin number to use.
     - **name** (*Required*): The name of the variable you wish to monitor.
     - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-    - **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract a value from the payload.
+    - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 The variables in the `monitored_variables` array must be available in the response of the device. As a starting point you could use the one of the example sketches (eg.  [Ethernet](https://raw.githubusercontent.com/marcoschwartz/aREST/master/examples/Ethernet/Ethernet.ino) for an Arduino with Ethernet shield). In those sketches are two variables (`temperature` and `humidity`) available which will act as endpoints. 
 

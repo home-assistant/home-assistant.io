@@ -37,14 +37,17 @@ Configuration variables:
 The discovery topic need to follow a specific format:
 
 ```text
-<discovery_prefix>/<component>/<object_id>/<>
+<discovery_prefix>/<component>/[<node_id>/]<object_id>/<>
 ```
 
 - `<component>`: One of the supported components, eg. `binary_sensor`.
+- `<node_id>`: (*Optional*) id of the node providing the topic.
 - `<object_id>`: The ID of the device. This will become the `entity_id` in Home Assistant.
 - `<>`: The topic `config` or `state` which defines the current action.
 
 The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+
+The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
 ### {% linkable_title Examples %}
 

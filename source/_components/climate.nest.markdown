@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: nest.png
 ha_category: Climate
+ha_iot_class: "Cloud Polling"
 ---
 
 

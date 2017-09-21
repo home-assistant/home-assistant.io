@@ -10,9 +10,10 @@ footer: true
 logo: hyperion.png
 ha_category: Light
 ha_release: 0.7.6
+ha_iot_class: "Local Polling"
 ---
 
-This platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
+The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
 
 To use your Hyperion light in your installation, add the following to your `configuration.yaml` file:
 

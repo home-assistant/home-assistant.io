@@ -31,7 +31,7 @@ Configuration variables:
 
 - **host** (*Required*): The IP or hostname of the Nuki bridge.
 - **port** (*Optional*): The port on which the Nuki bridge is listening on. Defaults to `8080`.
-- **token** (*Optional*): The token that was defined when setting up the bridge.
+- **token** (*Required*): The token that was defined when setting up the bridge.
 
 ## {% linkable_title Full configuration %}
 
@@ -45,3 +45,23 @@ lock:
     port: 8080
     token: fe2345ef
 ```
+
+## {% linkable_title Services %}
+
+### {% linkable_title Service `nuki_unlatch` %}
+
+This will unlatch the door, ie. open it (provided this works with your type of door).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
+
+### {% linkable_title Service `nuki_lock_n_go` %}
+
+This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
+See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more details about this feature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
+| `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.

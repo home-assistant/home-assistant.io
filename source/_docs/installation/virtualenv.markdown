@@ -19,8 +19,8 @@ Virtualenvs are pretty easy to setup. This example will walk through one method 
 ```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-$ sudo apt-get install python-pip python3-dev
-$ sudo pip install --upgrade virtualenv
+$ sudo apt-get install python3-pip python3-dev
+$ sudo pip3 install --upgrade virtualenv
 ```
 
 ### {% linkable_title Step 1: Create a Home Assistant user & group %}
@@ -63,7 +63,7 @@ The `su` command means 'switch' user. We use the '-s' flag because the `homeassi
 
 All this step does is stick a Python environment in the directory we're using. That's it. It's just a directory. There's nothing special about it, and it is entirely self-contained.
 
-It will include a `bin` directory, which will contain all the executables used in the virtualenv (including hass itself). It also includes a script called `activate` which we will use to activate the virtualenv.
+It will include a `bin` directory, which will contain all the executables used in the virtualenv (including Home Assistant itself). It also includes a script called `activate` which we will use to activate the virtualenv.
 
 ```bash
 $ virtualenv -p python3 /srv/homeassistant
@@ -104,31 +104,3 @@ Upgrading Home Assistant is simple, just repeat steps 3, 5 and 6.
 ### {% linkable_title Starting Home Assistant on boot %}
 
 The [autostart instructions](/getting-started/autostart/) will work just fine, just be sure to replace `/usr/bin/hass` with `/srv/homeassistant/bin/hass` and specify the `homeassistant` user where appropriate.
-
-### {% linkable_title Installing python-openzwave in a virtualenv %}
-
-If you want to use Z-Wave devices, you will need to install `python-openzwave` in your virtualenv. This requires a small tweak to the instructions in [the Z-Wave Getting Started documentation](/getting-started/z-wave/)
-
-Install the dependencies as normal (Note: you will need to do this as your normal user, since `homeassistant` isn't a sudoer).
-
-```bash
-$ sudo apt-get install cython3 libudev-dev python3-sphinx python3-setuptools git
-```
-
-Then, activate your virtualenv (steps 3 and 5 above) and upgrade cython.
-
-```bash
-(homeassistant)$ pip3 install --upgrade cython==0.24.1
-```
-
-Finally, get and install `python-openzwave`.
-
-```bash
-(homeassistant)$ mkdir /srv/homeassistant/src
-(homeassistant)$ cd /srv/homeassistant/src
-(homeassistant)$ git clone https://github.com/OpenZWave/python-openzwave.git
-(homeassistant)$ cd python-openzwave
-(homeassistant)$ git checkout python3
-(homeassistant)$ PYTHON_EXEC=`which python3` make build
-(homeassistant)$ PYTHON_EXEC=`which python3` make install
-```

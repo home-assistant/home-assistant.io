@@ -10,6 +10,7 @@ footer: true
 logo: nest.png
 ha_category: Sensor
 ha_release: pre 0.7
+ha_iot_class: "Cloud Polling"
 ---
 
 
@@ -46,6 +47,6 @@ The following conditions are available by device:
 - Nest Protect:
   - co\_status
   - smoke\_status
-  - batter\_health
+  - battery\_health
 - Nest Camera: none
 

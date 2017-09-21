@@ -13,11 +13,11 @@ ha_iot_class: "Local Push"
 logo: home-assistant.png
 ---
 
-The `template` platform creates switches that combine components.
+The `template` platform creates switches that combines components.
 
 For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.
 
-This can simplify the gui, and make it easier to write automations. You can mark the components you have combined as `hidden` so they don't appear themselves.
+This can simplify the GUI and make it easier to write automations. You can mark the components you have combined as `hidden` so they don't appear themselves.
 
 To enable Template switches in your installation, add the following to your `configuration.yaml` file:
 
@@ -48,8 +48,8 @@ Configuration variables:
 
 ## {% linkable_title Considerations %}
 
-If you are using the state of a platform that takes extra time to load, the template switch may get an 'unknown' state during startup. This results in error messages in your log file until that platform has completed loading. If you use is_state() function in your template, you can avoid this situation. For example, you would replace {% raw %}'{{ states.switch.source.state }}'{% endraw %} with this equivalent that returns true/false and never gives an unknown result:
-{% raw %}'{{ is_state('switch.source', 'on') }}'{% endraw %}
+If you are using the state of a platform that takes extra time to load, the template switch may get an 'unknown' state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ states.switch.source.state }}`{% endraw %} with this equivalent that returns true/false and never gives an unknown result:
+{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
 ## {% linkable_title Examples %}
 
@@ -110,4 +110,21 @@ switch:
           service: switch.turn_on
           entity_id: switch.skylight_close
 ```
+### {% linkable_title Change the icon %}
 
+This example shows how to change the icon based on the day/night cycle.
+
+```yaml
+switch:
+  - platform: template
+    switches:
+      garage:
+        value_template: {% raw %}"{{ is_state(cover.garage_door', 'on') }}"{% endraw %}
+        turn_on:
+          service: cover.open_cover
+          entity_id: cover.garage_door
+        turn_off:
+          service: cover.close_cover
+          entity_id: cover.garage_door
+        icon_template: {% raw %}"{% if is_state('cover.garage_door', 'open') %}mdi:garage-open{% else %}mdi:garage{% endif %}"{% endraw %}        
+```

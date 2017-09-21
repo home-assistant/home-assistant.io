@@ -24,9 +24,27 @@ data:
     push:
       category: map
     action_data:
-      latitude: 40.785091
-      longitude: -73.968285
+      latitude: "40.785091"
+      longitude: "-73.968285"
 ```
+
+## Showing a second pin
+
+You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second green.
+
+- **second_latitude**: The latitude of the second pin. **Must be a string!**
+- **second_longitude**: The longitude of the second pin. **Must be a string!**
+- **shows_line_between_points**: A Boolean value indicating whether a line should be drawn between the first and second pin.
+
+## Extra configuration
+
+You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean values unless otherwise noted:
+
+- **shows_compass**: A Boolean indicating whether the map displays a compass control.
+- **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
+- **shows_scale**: A Boolean indicating whether the map shows scale information.
+- **shows_traffic**: A Boolean value indicating whether the map displays traffic information.
+- **shows_user_location**: A Boolean value indicating whether the map should try to display the user’s location.
 
 <p class='img'>
   <img src='/images/ios/map.png' />
@@ -60,3 +78,7 @@ data:
 # Combining with actionable notifications
 
 As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](/ecosystem/ios/notifications/actions/) to add actions to the content extension.
+
+# Troubleshooting
+
+If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.

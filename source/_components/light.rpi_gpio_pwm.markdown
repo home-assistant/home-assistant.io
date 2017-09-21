@@ -16,6 +16,8 @@ logo: raspberry-pi.png
 
 The `rpi_gpio_pwm` platform allows to control multiple lights using pulse-width modulation, for example led strips. It supports one-color, RGB and RGBW LEDs driven by GPIOs of a Raspberry Pi or a PCA9685 controller.
 
+For controlling the GPIOs, the platform connects to the [pigpio-daemon](http://abyz.co.uk/rpi/pigpio/pigpiod.html), which must be running. On Raspbian Jessie 2016-05-10 or newer the `pigpio` library is already included. On other operating systems it needs to be installed first (see [installation instructions](https://github.com/soldag/python-pwmled#installation)). 
+
 To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml

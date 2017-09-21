@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: foscam.png
 ha_category: Camera
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -19,10 +20,10 @@ To enable your Foscam IP camera in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 camera:
-  platform: foscam
-  ip: IP_ADDRESS
-  username: USERNAME
-  password: PASSWORD
+  - platform: foscam
+    ip: IP_ADDRESS
+    username: USERNAME
+    password: PASSWORD
 ```
 
 Configuration variables:

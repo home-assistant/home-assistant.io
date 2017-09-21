@@ -21,7 +21,7 @@ automation:
     platform: sun
     event: sunset
   action:
-    service: homeassistant.turn_on
+    service: light.turn_on
     entity_id:
       - light.kitchen
       - light.living_room

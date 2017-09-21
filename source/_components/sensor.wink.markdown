@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: wink.png
 ha_category: Sensor
+ha_iot_class: "Cloud Polling"
+ha_release: pre 0.7
 ---
 
 

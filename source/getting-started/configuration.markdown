@@ -13,14 +13,14 @@ When launched for the first time, Home Assistant will write a default configurat
 
 The `configuration.yaml` is written in [YAML](/docs/configuration/yaml/), stored in [`.homeassistant`](/docs/configuration/), and can be modified with a text editor.
 
-See the [components overview page](/components/) to find sample entries for your devices and services. For a sensor that is showing [random values](/components/sensor.random/), the entry would looks like the sample below:
+See the [components overview page](/components/) to find sample entries for your devices and services. For a sensor that is showing [random values](/components/sensor.random/), the entry would look like the sample below:
 
 ```yaml
 sensor:
   - platform: random
 ```
 
-The [Setting up devices part](/docs/configuration/devices/) contains of the documentation additional details about adding device and services and [customization](/docs/configuration/customizing-devices/).
+The [Setting up devices part](/docs/configuration/devices/) contains the additional documentation details about adding devices and services and [customization](/docs/configuration/customizing-devices/).
 
 For further details about configuration, please take a look at the [configuration documentation](/docs/configuration/).
 

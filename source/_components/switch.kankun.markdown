@@ -25,9 +25,9 @@ To enable it, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 switch:
   platform: kankun
-    switches:
-      bedroom_heating:
-        host: hostname_or_ipaddr
+  switches:
+    bedroom_heating:
+      host: hostname_or_ipaddr
 ```
 
 Configuration variables:

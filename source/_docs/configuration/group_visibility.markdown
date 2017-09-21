@@ -103,6 +103,10 @@ sensor:
     name: Occasion
     command: "python3 occasion.py"
 ```
+<p class='note'>
+If you are using docker to run home assistant then the occasion.py script will be placed under /config. Your command should instead be: command: "python3 /command/occasion.py"
+</p>
+
 
 To simplify things, we create a Home Assistant script that changes the visibility of a group, but also verifies that an entity is in a specific state:
 
@@ -124,8 +128,8 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.occasion
-      - platform: event
-        event_type: homeassistant_start
+      - platform: homeassistant
+        event: start
     action:
       service: script.group_visibility
       data:
@@ -169,8 +173,8 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.occasion
-      - platform: event
-        event_type: homeassistant_start
+      - platform: homeassistant
+        event: start
     action:
       service: script.group_visibility
       data:

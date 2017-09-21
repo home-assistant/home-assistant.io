@@ -23,7 +23,7 @@ automation:
     to: 'on'
   action:
     service: homeassistant.turn_on
-    entity_id: light.kitchen
+    entity_id: light.kitchen_light
 
 - alias: Turn off kitchen light 10 minutes after last movement
   trigger:

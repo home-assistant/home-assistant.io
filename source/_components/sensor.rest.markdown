@@ -10,6 +10,7 @@ footer: true
 logo: restful.png
 ha_category: Sensor
 ha_release: 0.7.4
+ha_iot_class: "Local Polling"
 ---
 
 
@@ -39,7 +40,7 @@ Configuration variables:
 
 - **resource** (*Required*): The resource or endpoint that contains the value.
 - **method** (*Optional*): The method of the request. Default is `GET`.
-- **value_template** (*Optional*): Defines a [template](/topics/templating/) to extract the value.
+- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
 - **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
 - **name** (*Optional*): Name of the REST sensor.
 - **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
@@ -93,7 +94,7 @@ sensor:
     unit_of_measurement: MB
 ```
 
-### {% linkable_title Value for other Home Assistant instance %}
+### {% linkable_title Value from another Home Assistant instance %}
 
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 

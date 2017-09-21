@@ -148,7 +148,7 @@ automation:
 #      zone: zone.barracuda_sj
 #      event: enter
 #    - platform: time
-#      after: '07:15'
+#      at: '07:15'
 #      before: '09:00'
 #  action:
 #    service: ifttt.trigger

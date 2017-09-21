@@ -23,4 +23,5 @@ light:
 Configuration variables:
 
 - **host** (*Required*): IP address of the Osram Lightify bridge, eg. `192.168.1.50`.
+- **allow_lightify_groups** (*Optional*): (true/false) Edit this to stop homeassistant from importing the lightify groups.
 
