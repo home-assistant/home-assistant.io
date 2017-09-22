@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: satel.jpg
 ha_category: Hub
-ha_release: 0.53
+ha_release: 0.54
 ha_iot_class: "Local Push"
 ---
 
