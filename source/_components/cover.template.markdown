@@ -39,6 +39,7 @@ cover:
 {% endraw %}
 
 {% configuration %}
+
   covers:
     description: List of your covers.
     required: true
@@ -49,7 +50,7 @@ cover:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update it's state.
+        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update its state.
         required: false
         type: [string, list]
       value_template:

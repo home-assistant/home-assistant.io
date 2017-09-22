@@ -308,23 +308,32 @@ article.post, article.page, article.listing {
 
   h2 {
     font-size: 1.5em;
-    margin: 1.5em 0 1rem;
+    margin-top: 2em;
 
-    border: 0;
-    border-top: 1px solid $primary-color;
-    padding-top: 1.4rem;
+    // Future re-design
+    // margin: 1.5em 0 1rem;
+    //
+    // border: 0;
+    // border-top: 1px solid $primary-color;
+    // padding-top: 1.4rem;
   }
 
   h3 {
     text-transform: uppercase;
     letter-spacing: 0.125rem;
     font-size: 1.2rem;
-    margin: 2em 0 1rem;
+    margin-top: 2em;
+
+    // Future re-design
+    // margin: 2em 0 1rem;
   }
 
   h4 {
     font-size: 1.1rem;
-    margin: 1.5em 0 1rem;
+    margin-top: 2em;
+
+    // Future re-design
+    // margin: 1.5em 0 1rem;
   }
 }
 
@@ -453,11 +462,12 @@ twitterwidget {
 
 // Configuration variables
 div.config-vars {
-  h3 {
-    border: 0;
-    border-top: 1px solid $primary-color;
-    padding-top: 1.4rem;
-  }
+  // Future re-design
+  // h3 {
+  //   border: 0;
+  //   border-top: 1px solid $primary-color;
+  //   padding-top: 1.4rem;
+  // }
 
   dl {
     margin-bottom: 1.5em;
@@ -480,6 +490,10 @@ div.config-vars {
         span.type,
         span.required {
           font-style: italic;
+
+          &::after {
+            content: " "
+          }
         }
       }
 
@@ -490,4 +504,3 @@ div.config-vars {
     }
   }
 }
-

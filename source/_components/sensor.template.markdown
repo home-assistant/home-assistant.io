@@ -33,24 +33,10 @@ sensor:
       sunrise:
         value_template: "{{ states.sun.sun.attributes.next_rising }}"
 ```
-<<<<<<< HEAD
-<<<<<<< 3f4a820ec20667e8ce00c7b6458382a75ca45868
-
-Configuration variables:
-
-- **sensors** array (*Required*): List of your sensors.
-  - **friendly_name** (*Optional*): Name to use in the Frontend.
-  - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-  - **value_template** (*Required*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the event bus.
-  - **icon_template** (*Optional*): Defines a [template](/topics/templating/) for the icon of the sensor.
-  - **entity_id** (*Optional*): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
-
-=======
-=======
->>>>>>> refs/remotes/origin/config-vars
 {% endraw %}
 
 {% configuration %}
+
   sensors:
     description: List of your sensors.
     required: true
@@ -63,7 +49,7 @@ Configuration variables:
       entity_id:
         description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
         required: false
-        type: [string, list]
+        type: string, list
       unit_of_measurement:
         description: Defines the units of measurement of the sensor, if any.
         required: false
@@ -89,10 +75,6 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
-<<<<<<< HEAD
->>>>>>> Add Jekyll plugin for configuration variables
-=======
->>>>>>> refs/remotes/origin/config-vars
 
 ## {% linkable_title Examples %}
 
@@ -158,15 +140,9 @@ sensor:
 
 The [Template Binary Sensor](/components/binary_sensor.template/) is the one in
 similar cases if you prefer to see an icon instead of text.
-<<<<<<< HEAD
 
 ### {% linkable_title Multiline Example With an `if` Test %}
 
-=======
-
-### {% linkable_title Multiline Example With an `if` Test %}
-
->>>>>>> refs/remotes/origin/config-vars
 This example shows a multiple line template with an `if` test. It looks at a
 sensing switch and shows `on`/`off` in the frontend.
 

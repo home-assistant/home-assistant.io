@@ -34,6 +34,7 @@ binary_sensor:
 {% endraw %}
 
 {% configuration %}
+
   sensors:
     description: List of your sensors.
     required: true
@@ -44,13 +45,14 @@ binary_sensor:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it's state.
+        description: Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.
         required: false
-        type: [string, list]
+        type: string, list
       device_class:
         description: The type/class of the sensor to set the icon in the frontend.
         required: false
         type: device_class
+        default: None
       value_template:
         description: Defines a template to set the state of the sensor.
         required: true

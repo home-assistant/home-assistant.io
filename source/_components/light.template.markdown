@@ -42,6 +42,7 @@ light:
 {% endraw %}
 
 {% configuration %}
+
   switches:
     description: List of your lights.
     required: true
@@ -52,7 +53,7 @@ light:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the light will try to update it's state.
+        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the light will try to update its state.
         required: false
         type: [string, list]
       value_template:
