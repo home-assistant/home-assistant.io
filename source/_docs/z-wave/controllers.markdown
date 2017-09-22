@@ -7,16 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /getting-started/z-wave-controllers/
 ---
 
-Z-Wave is a popular home automation protocol that is not always straightforward to setup. This page will try to help you make sense of it all.
-
-<p class='note'>
-Upon first run, the `zwave` component will take time to initialize entities and entities may appear with incomplete names. Running a network heal may expedite this process.
-</p>
-
 ## {% linkable_title Supported Z-Wave USB Sticks & Hardware Modules %}
+
+[supported Z-Wave USB stick or module](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List)
 
 | Device                  | Works on Linux | Works on Windows | Works on OSX |
 |-------------------------|----------------|------------------|--------------|
@@ -32,3 +27,17 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 
  - [Vera](/components/vera/)
  - [Wink](/components/wink/)
+
+## {% linkable_title Controller Notes }
+
+### {% linkable_title Aoetec Stick }
+
+By default this will turn on "disco lights", which you can turn off by following the details in the [settings page](z-wave/settings)
+
+### {% linkable_title Razberry Board }
+
+You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`, then rebooting:
+
+```
+dtoverlay=pi3-disable-bt
+```

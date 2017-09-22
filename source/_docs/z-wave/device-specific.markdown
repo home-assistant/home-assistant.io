@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave Device Specific Settings"
-description: "Extended instructions how to setup Z-Wave."
+description: "Notes for specific Z-Wave devices."
 date: 2016-03-24 08:49 -0700
 sidebar: true
 comments: false
@@ -15,38 +15,33 @@ redirect_from: /getting-started/z-wave-device-specific/
 In order for Home Assistant to recognize the sensor properly, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
 These devices will either show as a binary sensor or a sensor called `Alarm xxxx` and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.
 
-As of version 0.30 you can set the settings of a Z-Wave device through the dev_service page of Home Assistant with the service: `zwave/set_config_parameter`.
-
-The following parameters can be entered:
-- **node_id** (*Required*): The node_id of the device that you are going to set a parameter to.
-- **parameter** (*Required*): The index number of the parameter to be set. Refer to device manual or zwcfg_[home_id].xml
-- **value** (*Required*): The value to set the parameter to. Refer to device manual or zwcfg_[home_id].xml
-- **size** (*Optional*): The size of the value. It is normally not needed to specify this parameter, but in some cases it's needed. Check OZW.log for details on this.
-
-You should check OZW.log to see if your new setting has been set.
-
-Example entry in dev-service, setting binary reports for an Aeotec Multisensor 6:
-
-
-```yaml
-# Example entry in dev-service
-{
-"node_id": 42,
-"parameter": 5,
-"value": 2
-}
-```
+You can set the settings of the Z-Wave device through the Z-Wave control panel.
 
 ## {% linkable_title Locks and other secure devices %}
 
-These devices require a network key to be set for the Z-Wave network before they are paired. This key is set in OpenZWave's `options.xml` which is located in OpenZWave's directory. This should also be the same directory as `config_path:` in your `configuration.yaml`. If it's not, make sure you have the same values in all the files you are using.
-The option is commented out by default in `options.xml` and is a default key. Make your own unique key. The key is in Hexadecimals.
-It is best to pair these devices in OpenZWave Control Panel or another Z-Wave tool that can show you logs while pairing. Home Assistant stores logs from Z-Wave in `OZW.log` in the Home Assistant config directory.
-You should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired successfully with a secure connection. If you use OpenZWave Control Panel to pair, test the device before you save the configuration.
-Make sure you copy the newly saved `zwcfg_[home_id].xml`into your Home Assistant configuration directory.
+These devices require a network key to be set for the Z-Wave network before they are paired, using the **Add Node Secure** option.
 
+Home Assistant stores logs from Z-Wave in `OZW.log` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired successfully with a secure connection.
 
-##### {% linkable_title Aeon Minimote %}
+### {% linkable_title Aeotec Z-Stick %}
+
+It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don't like this behaviour it can be turned off.
+
+Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.
+
+Turn off "Disco lights":
+
+```bash
+$ echo -e -n "\x01\x08\x00\xF2\x51\x01\x00\x05\x01\x51" > /dev/serial/by-id/usb-0658_0200-if00
+```
+
+Turn on "Disco lights":
+
+```bash
+$ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
+```
+
+### {% linkable_title Aeon Minimote %}
 
 Here's a handy configuration for the Aeon Labs Minimote that defines all possible button presses. Put it into `automation.yaml`.
 
@@ -116,8 +111,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
        scene_id: 8
 ```
 
-
-##### {% linkable_title HomeSeer Switches %}
+### {% linkable_title HomeSeer Switches %}
 
 For the HomeSeer devices specifically, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
