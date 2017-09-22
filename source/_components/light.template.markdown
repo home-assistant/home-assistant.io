@@ -42,7 +42,6 @@ light:
 {% endraw %}
 
 {% configuration %}
-
   switches:
     description: List of your lights.
     required: true

@@ -36,7 +36,6 @@ sensor:
 {% endraw %}
 
 {% configuration %}
-
   sensors:
     description: List of your sensors.
     required: true

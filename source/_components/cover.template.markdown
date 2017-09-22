@@ -39,7 +39,6 @@ cover:
 {% endraw %}
 
 {% configuration %}
-
   covers:
     description: List of your covers.
     required: true

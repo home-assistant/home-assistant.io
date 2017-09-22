@@ -46,7 +46,6 @@ switch:
 {% endraw %}
 
 {% configuration %}
-
   switches:
     description: List of your switches.
     required: true
