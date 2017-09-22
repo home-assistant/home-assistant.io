@@ -27,6 +27,7 @@ plant:
       conductivity: sensor.my_sensor_conductivity
       brightness: sensor.my_sensor_brightness
     min_moisture: 20
+    group_name: my_plant_group
 ```
 
 Configuration variables:
@@ -47,6 +48,7 @@ Configuration variables:
   - **max_temperature** (*Optional*): Maximum temperature before triggering a problem.
   - **min_brightness** (*Optional*): Minimum brightness before triggering a problem.
   - **max_brightness** (*Optional*): Maximum brightness before triggering a problem.
+  - **group_name** (*Optional*): If a group name is set, a new group in the UI will be created, that will containt the plant component and all of the sensores configured above.
 
 ## {% linkable_title Examples %}
 ### Using plain MQTT sensor to get the data
