@@ -14,9 +14,9 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `xiaomi` binary sensor platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) binary sensors.
+The `xiaomi aqara` binary sensor platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) binary sensors.
 
-The requirement is that you have setup the [`xiaomi` component](/components/xiaomi/).
+The requirement is that you have setup the [`xiaomi aqara` component](/components/xiaomi_aqara/).
 
 
 ### {% linkable_title Type of sensors supported %}
@@ -118,7 +118,7 @@ The requirement is that you have setup the [`xiaomi` component](/components/xiao
       data:
         title: Fire alarm!
         message: Fire/Smoke detected!
-    - service: xiaomi.play_ringtone
+    - service: xiaomi_aqara.play_ringtone
       data:
         gw_mac: xxxxxxxxxxxx
         ringtone_id: 2
@@ -174,7 +174,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
   action:
-    service: xiaomi.play_ringtone
+    service: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
       ringtone_id: 8
