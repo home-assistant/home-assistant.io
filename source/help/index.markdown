@@ -29,8 +29,9 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, talks, workshops and alike %}
 
-- [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org)- July 2017
-- [Home Automation with Home Assistant](https://github.com/jjmontesl/talk-hass-pydaygalicia2017) at [PyDay Galicia 2017](https://pyday2017.python-vigo.es/gl/)- June 2017
+- [Open Source Heimautomation mit Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-maker-faire-zurich) at [Mini Maker Faire Zurich 2017](https://www.makerfairezurich.ch/en/) - September 2017
+- [Why we can't have the Internet of Nice Things: A home automation primer](https://www.openwest.org/custom/description.php?id=92) at [OpenWest 2017](https://www.openwest.org) - July 2017
+- [Home Automation with Home Assistant](https://github.com/jjmontesl/talk-hass-pydaygalicia2017) at [PyDay Galicia 2017](https://pyday2017.python-vigo.es/gl/) - June 2017
 - [Home Automation with Python](https://www.youtube.com/watch?v=KNFZSSCPUyM) at [GLT 2017](https://glt17.linuxtage.at) - April 2017
 - [Home Assistant workshop](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2017-clt-workshop) at [CLT 2017](https://chemnitzer.linux-tage.de/2017/de/) - March 2017
 - [Home Assistant - Erweiterungen (Platforms/Components)](https://github.com/home-assistant/home-assistant-assets/tree/master/german/2016-puzzle) at [Puzzle ITC](https://www.puzzle.ch/de/) - December 2016
@@ -68,10 +69,6 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Episode 105 - DIY Home Automation Roundup](https://www.hometech.fm/shows/105) by [HomeTech.fm](https://www.hometech.fm/) - April 2016
 - [5 open source home automation tools](https://opensource.com/life/16/3/5-open-source-home-automation-tools) by [opensource.com](https://opensource.com) - March 2016
 - [Home Assistant – Open Source Python Home Automation Platform](http://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
-
-### {% linkable_title Site Search %}
-
-There is not currently a site search for Home-Assistant.io but it's in the works. For now, you can use this [Google link](https://cse.google.com/cse/publicurl?cx=005053695590750500199:dtrfi8yigbi) which will narrow your search to this specific site.
 
 ### {% linkable_title Roadmap %}
 

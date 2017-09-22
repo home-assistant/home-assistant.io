@@ -14,12 +14,9 @@ ha_release: 0.53
 ---
 
 
-The `bayesian` binary sensor platform observes the state from multiple sensors and uses Bayes' rule to estimate the probability that an event has occurred
-given the state of the observed sensors. If the estimated posterior probability is above the `probabiliy_threshold`, the value of the sensor is `on`.
-Otherwise, the sensor is `off`.
+The `bayesian` binary sensor platform observes the state from multiple sensors and uses Bayes' rule to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on` otherwise it is `off`.
 
-This allows for the detection of complex events that may not be readily observable, i.e., cooking, showering, in bed, the start of a morning routine, etc. It
-can also be used to gain greater confidence about events that _are_ directly observable, but for which the sensors can be unreliable, i.e., presence.
+This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that _are_ directly observable, but for which the sensors can be unreliable, e.g., presence.
 
 To enable the Bayesian sensor, add the following lines to your `configuration.yaml`:
 
@@ -39,7 +36,7 @@ binary_sensor:
 Configuration variables:
 
 - **prior** (*Required*): The prior probability of the event. At any point in time (ignoring all external influences) how likely is this event to occur?
-- **observations** array (*Required*): The observations which should influence the likelihood that the given event has occurred. 
+- **observations** array (*Required*): The observations which should influence the likelihood that the given event has occurred.
   - **entity_id** (*Required*): Name of the entity to monitor.
   - **prob_given_true** (*Required*): The probability of the observation occurring, given the event is `true`.
   - **prob_given_false** (*Optional*): The probability of the observation occurring, given the event is `false` can be set as well.  If `prob_given_false` is not set, it will default to `1 - prob_given_true`.
@@ -77,4 +74,3 @@ binary_sensor:
       platform: 'state'
       to_state: 'below_horizon'
 ```
-

@@ -55,11 +55,14 @@ Valid values for ignore are:
 
  * `apple_tv`: Apple TV
  * `axis`: Axis Communications security devices
+ * `bluesound`
  * `bose_soundtouch`: Bose Soundtouch speakers
  * `denonavr`: Denon Network Receivers
  * `directv`: DirecTV
  * `flux_led`: Flux Led/MagicLight
+ * `frontier_silicon`
  * `google_cast`: Google Chromecast
+ * `harmony`: Harmony Hub
  * `ikea_tradfri`: IKEA Trådfri
  * `logitech_mediaserver`: Logitech media server - Squeezebox player
  * `openhome`: Linn/Openhome
@@ -67,11 +70,12 @@ Valid values for ignore are:
  * `philips_hue`: Philips Hue
  * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
+ * `sabnzbd`
  * `samsung_tv`: Samsung TV
  * `sonos`: Sonos Speakers
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight Sunflower Bulb
-
+ 
 <p class='note'>
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.

@@ -23,6 +23,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 
 - Kwikset
 - Schlage
+- August (No Wink hub required) (August Connect required)
 - Generic Z-wave
 
 <p class='note'>

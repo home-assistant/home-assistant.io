@@ -17,7 +17,7 @@ The Home Assistant community has been super busy in the last two weeks to bring 
 
 9 days away from our 4th birthday, we've just accomplished a couple of great milestones that I would love to share with you. We've hit over 8000 stars 🌟  on GitHub and starting this release we now ship over 800 platforms and components!
 
-## Customize editor
+## {% linkable_title Customize editor %}
 
 Another step in making Home Assistant configurable via the frontend has been contributed by @andrey-git: a customization editor! You are now able to inspect all (possible) customizations of an entity and update them with just a few taps. Want to change the name or icon of an entity? All possible in mere seconds.
 
@@ -38,15 +38,15 @@ homeassistant:
 config:
 ```
 
-## Tesla
+## {% linkable_title Tesla %}
 
 Thanks to the contribution by @zabuldon, you will now be able to control your Tesla car from Home Assistant. You're able to check the temperature inside and outside your car, control your AC and unlock the car.
 
-## Input text
+## {% linkable_title Input text %}
 
 This release introduces a new input component: `input_text` contributed by @BioSehnsucht. With this component you will be able to set free form from the UI and then let that be used by your automations or templates.
 
-## KNX
+## {% linkable_title KNX %}
 
 This release ships a new KNX implementation thanks to @Julius2342. It will instantly show all changed states of KNX devices within Home Assistant. Additionally it brings support for HVAC devices and notification services. It also adds a service for direct communication with the KNX bus. You can connect to KNX/IP routing and tunnelling devices. In the background it uses asyncio communication. Check the climate integration in action [here](https://www.youtube.com/watch?v=JI0VJzlGpx4) and see the lights in action below:
 
@@ -54,7 +54,7 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 <iframe src="https://www.youtube.com/embed/Fe3yaflU2XM" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## New Platforms
+## {% linkable_title New Platforms %}
 
 - Xiaomi Philips Lights integration ([@syssi] - [#9087]) ([light.xiaomi_philipslight docs]) (new-platform)
 - Mycroft notify/component ([@btotharye] - [#9173]) ([mycroft docs]) ([notify.mycroft docs]) (new-platform)
@@ -66,11 +66,18 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 - Tesla platform ([@zabuldon] - [#9211]) ([tesla docs]) ([binary_sensor.tesla docs]) ([climate.tesla docs]) ([device_tracker.tesla docs]) ([lock.tesla docs]) ([sensor.tesla docs]) (new-platform)
 - mopar sensor ([@happyleavesaoc] - [#9136]) ([sensor.mopar docs]) (new-platform)
 - Add Geofency device tracker ([@gunnarhelgason] - [#9106]) ([device_tracker.geofency docs]) (new-platform)
-- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwd_warnapp docs]) (new-platform)
+- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwdwarnapp docs]) (new-platform)
 - Add input_text component ([@BioSehnsucht] - [#9112]) ([input_text docs]) (new-platform)
 - Introducing a media_player component for Yamaha Multicast devices ([@jalmeroth] - [#9258]) ([media_player.yamaha_musiccast docs]) (new-platform)
 - Stable and asynchronous KNX library. ([@Julius2342] - [#8725]) ([knx docs]) ([binary_sensor.knx docs]) ([climate.knx docs]) ([cover.knx docs]) ([light.knx docs]) ([sensor.knx docs]) ([switch.knx docs]) (new-platform)
 - Adds the AirVisual air quality sensor platform ([@bachya] - [#9320]) ([sensor.airvisual docs]) (new-platform)
+
+## {% linkable_title Release 0.53.1 - September 12 %}
+
+- Fix Twitter notifications with certain media such as small images ([@MikeChristianson] - [#9354]) ([notify.twitter docs])
+- Added additional string check in Wunderground sensor ([@arsaboo] - [#9380]) ([sensor.wunderground docs])
+- Fixing foscam library dependency/requirements ([@viswa-swami] - [#9387]) ([camera.foscam docs])
+- Fixes for customize editor ([@andrey-git])
 
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -80,7 +87,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## {% linkable_title Breaking Changes %}
 
 - The new customize editor is using the file `customize.yaml` in your config folder. If you are using this file today for other config, make sure to rename it before using the new customize UI editor. ([@andrey-git] - [#9134]) ([config docs]) (breaking change) (new-platform)
 - The frontend component now supports loading custom html files when Home Assistant front end starts  ([@andrey-git] - [#9150]) (breaking change). It could be Javascript, CSS or custom Web Components. Along there was a breaking change in the way Custom UI is used:
@@ -97,7 +104,7 @@ frontend:
 - The Homematic `delay` option has been dropped because it is no longer necessary ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
 - Switch - Dlink: Remove spaces and capital letters from attribute names for consistency ([@emlt] - [#9277]) ([switch.dlink docs]) (breaking change)
 
-## All changes
+## {% linkable_title All changes %}
 
 - Xiaomi Philips Lights integration ([@syssi] - [#9087]) ([light.xiaomi_philipslight docs]) (new-platform)
 - Backend changes for customize config panel. ([@andrey-git] - [#9134]) ([config docs]) (breaking change)
@@ -176,7 +183,7 @@ frontend:
 - Update jinja to 2.9.6 ([@pvizeli] - [#9306])
 - Ensure display-name does not exceed 12 characters for CecAdapter. ([@gollo] - [#9268]) ([hdmi_cec docs])
 - Expose hue group 0 ([@filcole] - [#8663]) ([light.hue docs])
-- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwd_warnapp docs]) (new-platform)
+- Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwdwarnapp docs]) (new-platform)
 - Add input_text component ([@BioSehnsucht] - [#9112]) ([input_text docs]) (new-platform)
 - Introducing a media_player component for Yamaha Multicast devices ([@jalmeroth] - [#9258]) ([media_player.yamaha_musiccast docs]) (new-platform)
 - Handle the case where no registration number is available (instead display VIN (vehicle identification number)). ([@molobrakos] - [#9073]) ([volvooncall docs]) ([device_tracker.volvooncall docs])
@@ -381,7 +388,6 @@ frontend:
 [image_processing.dlib_face_detect docs]: https://home-assistant.io/components/image_processing.dlib_face_detect/
 [image_processing.dlib_face_identify docs]: https://home-assistant.io/components/image_processing.dlib_face_identify/
 [input_text docs]: https://home-assistant.io/components/input_text/
-[input_text docs]: https://home-assistant.io/components/input_text/
 [insteon_plm docs]: https://home-assistant.io/components/insteon_plm/
 [light.homematic docs]: https://home-assistant.io/components/light.homematic/
 [light.hue docs]: https://home-assistant.io/components/light.hue/
@@ -390,7 +396,6 @@ frontend:
 [light.xiaomi_philipslight docs]: https://home-assistant.io/components/light.xiaomi_philipslight/
 [light.rfxtrx docs]: https://home-assistant.io/components/light.rfxtrx/
 [light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
-[light.xiaomi_philipslight docs]: https://home-assistant.io/components/light.xiaomi_philipslight/
 [light.knx docs]: https://home-assistant.io/components/light.knx/
 [light.zha docs]: https://home-assistant.io/components/light.zha/
 [lock.abode docs]: https://home-assistant.io/components/lock.abode/
@@ -415,7 +420,7 @@ frontend:
 [sensor.airvisual docs]: https://home-assistant.io/components/sensor.airvisual/
 [sensor.buienradar docs]: https://home-assistant.io/components/sensor.buienradar/
 [sensor.dht docs]: https://home-assistant.io/components/sensor.dht/
-[sensor.dwd_warnapp docs]: https://home-assistant.io/components/sensor.dwd_warnapp/
+[sensor.dwdwarnapp docs]: https://home-assistant.io/components/sensor.dwdwarnapp/
 [sensor.fitbit docs]: https://home-assistant.io/components/sensor.fitbit/
 [sensor.homematic docs]: https://home-assistant.io/components/sensor.homematic/
 [sensor.mopar docs]: https://home-assistant.io/components/sensor.mopar/
@@ -449,3 +454,9 @@ frontend:
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
+[#9354]: https://github.com/home-assistant/home-assistant/pull/9354
+[#9380]: https://github.com/home-assistant/home-assistant/pull/9380
+[#9387]: https://github.com/home-assistant/home-assistant/pull/9387
+[@viswa-swami]: https://github.com/viswa-swami
+[camera.foscam docs]: https://home-assistant.io/components/camera.foscam/
+[sensor.wunderground docs]: https://home-assistant.io/components/sensor.wunderground/
