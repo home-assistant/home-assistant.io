@@ -33,7 +33,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-{% configuration %}
+{% configuration binary_sensor.template %}
   sensors:
     description: List of your sensors.
     required: true
