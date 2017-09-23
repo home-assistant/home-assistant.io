@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
 ha_category: Switch
 ha_release: 0.54
 ha_iot_class: "Local Polling"
@@ -29,7 +28,7 @@ switch:
       command_on: "PWR ON"
       command_off: "PWR OFF"
       command_state: "PWR?"
-      value_template: '{{ value == "PWR=01" }}'
+      value_template: '{% raw %}{{ value == "PWR=01" }}{% endraw %}'
 ```
 
 Configuration variables:
