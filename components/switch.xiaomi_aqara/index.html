@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Xiaomi Philips Light - Home Assistant</title>
+    <title>Xiaomi Switch - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate your Xiaomi Philips Lights within Home Assistant.">
+    <meta name="description" content="Instructions how to setup the Xiaomi switch within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/light.xiaomi_philipslight/">
+    <link rel="canonical" href="https://home-assistant.io/components/switch.xiaomi_aqara/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Xiaomi Philips Light">
+    <meta property="og:title" content="Xiaomi Switch">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/light.xiaomi_philipslight/">
+    <meta property="og:url" content="https://home-assistant.io/components/switch.xiaomi_aqara/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate your Xiaomi Philips Lights within Home Assistant.">
+    <meta property="og:description" content="Instructions how to setup the Xiaomi switch within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Xiaomi Philips Light">
-    <meta name="twitter:description" content="Instructions how to integrate your Xiaomi Philips Lights within Home Assistant.">
+    <meta name="twitter:title" content="Xiaomi Switch">
+    <meta name="twitter:description" content="Instructions how to setup the Xiaomi switch within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,202 +70,245 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Xiaomi Philips Light
+      Xiaomi Switch
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi_philipslight</code> platform allows you to control the state of your Xiaomi Philips LED Ball Lamp and Xiaomi Philips LED Ceiling Lamp.</p>
-<p>Currently, the supported features are <code class="highlighter-rouge">on</code>, <code class="highlighter-rouge">off</code>, <code class="highlighter-rouge">set_cct</code> (colortemp) , <code class="highlighter-rouge">set_bright</code> (brightness).</p>
-<p>Please follow the instructions on <a href="/components/vacuum.xiaomi/#retrieving-the-access-token">Retrieving the Access Token</a> to get the API token to use in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
-<p>To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entries</span>
-<span class="s">light</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_philipslight</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Xiaomi Philips Smart LED Ball</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.130.67</span>
-    <span class="s">token</span><span class="pi">:</span> <span class="s">YOUR_TOKEN</span>
-</code></pre>
-</div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP of your light.</li>
-  <li><strong>token</strong> (<em>Required</em>): The API token of your light.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of your light.</li>
-</ul>
+  <p>The <code class="highlighter-rouge">xiaomi aqara</code> switch platform allows you to get data from your <a href="http://www.mi.com/en/">Xiaomi aqara</a> switches.</p>
+<p>The requirement is that you have setup <a href="/components/xiaomi_aqara/">Xiaomi aqara</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/light.xiaomi_philipslight.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/switch.xiaomi_aqara.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/philips.png' />
+      <img src='/images/supported_brands/xiaomi.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+    Introduced in release: 0.50
     </div>
     <div class='section'>
       This is a platform for
-      <a href='/components/light/'>the Lights component</a>.
+      <a href='/components/switch/'>the Switches component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/binary_sensor.xiaomi_aqara/'>
+          Xiaomi Binary Sensor
+        </a></li>
+        <li><a href='/components/cover.xiaomi_aqara/'>
+          Xiaomi Cover
+        </a></li>
+        <li><a href='/components/xiaomi_aqara/'>
+          Xiaomi Gateway
+        </a></li>
+        <li><a href='/components/light.xiaomi_aqara/'>
+          Xiaomi Light
+        </a></li>
+        <li><a href='/components/sensor.xiaomi_aqara/'>
+          Xiaomi Sensor
+        </a></li>
+    </ul>
     </div>
     <div class='section'>
-    <h1 class="title delta">Category Light</h1>
+    <h1 class="title delta">Category Switch</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/light.avion/'>Avi-on</a>
+            <a href='/components/switch.anel_pwrctrl/'>ANEL PwrCtrl Switch</a>
         </li>
         <li>
-            <a href='/components/light.wemo/'>Belkin WeMo Lights</a>
+            <a href='/components/switch.fritzdect/'>AVM FRITZ!DECT Switch</a>
         </li>
         <li>
-            <a href='/components/light.blinksticklight/'>Blinkstick</a>
+            <a href='/components/switch.abode/'>Abode Switch</a>
         </li>
         <li>
-            <a href='/components/light.blinkt/'>Blinkt!</a>
+            <a href='/components/switch.acer_projector/'>Acer Projector Switch</a>
         </li>
         <li>
-            <a href='/components/light.decora/'>Decora</a>
+            <a href='/components/switch.android_ip_webcam/'>Android IP Webcam Settings</a>
         </li>
         <li>
-            <a href='/components/light.decora_wifi/'>Decora Wi-Fi</a>
+            <a href='/components/switch.bbb_gpio/'>BeagleBone Black GPIO Switch</a>
         </li>
         <li>
-            <a href='/components/light.enocean/'>EnOcean Light</a>
+            <a href='/components/switch.wemo/'>Belkin WeMo Switch</a>
         </li>
         <li>
-            <a href='/components/light.flux_led/'>Flux Led/MagicLight</a>
+            <a href='/components/switch.broadlink/'>Broadlink RM Switch</a>
         </li>
         <li>
-            <a href='/components/light.homematic/'>Homematic Light</a>
+            <a href='/components/switch.command_line/'>Command line Switch</a>
         </li>
         <li>
-            <a href='/components/light.hyperion/'>Hyperion</a>
+            <a href='/components/switch.dlink/'>D-Link Switch</a>
         </li>
         <li>
-            <a href='/components/light.tradfri/'>IKEA Trådfri lights</a>
+            <a href='/components/switch.digitalloggers/'>Digital Loggers Switch</a>
         </li>
         <li>
-            <a href='/components/light.isy994/'>ISY994 Light</a>
+            <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
         </li>
         <li>
-            <a href='/components/light.insteon_local/'>Insteon (Local) Light</a>
+            <a href='/components/switch.doorbird/'>DoorBird Switch</a>
         </li>
         <li>
-            <a href='/components/light.insteon_hub/'>Insteon Hub Light</a>
+            <a href='/components/switch.edimax/'>Edimax Switch</a>
         </li>
         <li>
-            <a href='/components/light.insteon_plm/'>Insteon PLM Light</a>
+            <a href='/components/switch.enocean/'>EnOcean Switch</a>
         </li>
         <li>
-            <a href='/components/light.knx/'>KNX Light</a>
+            <a href='/components/switch.hikvision/'>Hikvision Camera Switch</a>
         </li>
         <li>
-            <a href='/components/light.lifx/'>LIFX</a>
+            <a href='/components/switch.homematic/'>Homematic Switch</a>
         </li>
         <li>
-            <a href='/components/light.limitlessled/'>LimitlessLED</a>
+            <a href='/components/switch.hook/'>Hook Switch</a>
         </li>
         <li>
-            <a href='/components/light.litejet/'>LiteJet Light</a>
+            <a href='/components/switch.isy994/'>ISY994 Switch</a>
         </li>
         <li>
-            <a href='/components/light.lutron_caseta/'>Lutron Caseta Light</a>
+            <a href='/components/switch.insteon_local/'>Insteon (Local) Switch</a>
         </li>
         <li>
-            <a href='/components/light.lutron/'>Lutron Light</a>
+            <a href='/components/switch.insteon_plm/'>Insteon PLM Switch</a>
         </li>
         <li>
-            <a href='/components/light.mqtt_json/'>MQTT JSON Light</a>
+            <a href='/components/switch.knx/'>KNX Switch</a>
         </li>
         <li>
-            <a href='/components/light.mqtt/'>MQTT Light</a>
+            <a href='/components/switch.kankun/'>Kankun SP3 Wifi Switch</a>
         </li>
         <li>
-            <a href='/components/light.mqtt_template/'>MQTT Template Light</a>
+            <a href='/components/switch.litejet/'>LiteJet Switch</a>
         </li>
         <li>
-            <a href='/components/light.mochad/'>Mochad Light</a>
+            <a href='/components/switch.lutron_caseta/'>Lutron Caseta Switch</a>
         </li>
         <li>
-            <a href='/components/light.mysensors/'>MySensors Light</a>
+            <a href='/components/switch.mqtt/'>MQTT Switch</a>
         </li>
         <li>
-            <a href='/components/light.osramlightify/'>Osram Lightify</a>
+            <a href='/components/switch.mochad/'>Mochad Switch</a>
         </li>
         <li>
-            <a href='/components/light.rpi_gpio_pwm/'>PWM LED</a>
+            <a href='/components/switch.modbus/'>Modbus Switch</a>
         </li>
         <li>
-            <a href='/components/light.hue/'>Philips Hue</a>
+            <a href='/components/switch.mysensors/'>MySensors Switch</a>
         </li>
         <li>
-            <a href='/components/light.piglow/'>Piglow</a>
+            <a href='/components/switch.neato/'>Neato Robotics Switch</a>
         </li>
         <li>
-            <a href='/components/light.qwikswitch/'>QwikSwitch Light</a>
+            <a href='/components/switch.netio/'>Netio Switch</a>
         </li>
         <li>
-            <a href='/components/light.rflink/'>RFLink Light</a>
+            <a href='/components/switch.orvibo/'>Orvibo Switch</a>
         </li>
         <li>
-            <a href='/components/light.rfxtrx/'>RFXtrx Light</a>
+            <a href='/components/switch.rpi_pfio/'>PiFace Digital I/O Switch</a>
         </li>
         <li>
-            <a href='/components/light.scsgate/'>SCSGate Light</a>
+            <a href='/components/switch.pilight/'>Pilight Switch</a>
         </li>
         <li>
-            <a href='/components/light.sensehat/'>Sense HAT Light</a>
+            <a href='/components/switch.pulseaudio_loopback/'>PulseAudio Loopback Switch</a>
         </li>
         <li>
-            <a href='/components/light.tplink/'>TPLink Bulb</a>
+            <a href='/components/switch.qwikswitch/'>QwikSwitch Switch</a>
         </li>
         <li>
-            <a href='/components/light.tellstick/'>TellStick Light</a>
+            <a href='/components/switch.rest/'>RESTful Switch</a>
         </li>
         <li>
-            <a href='/components/light.template/'>Template Light</a>
+            <a href='/components/switch.rflink/'>RFLink Switch</a>
         </li>
         <li>
-            <a href='/components/light.tikteck/'>Tikteck</a>
+            <a href='/components/switch.rfxtrx/'>RFXtrx Switch</a>
         </li>
         <li>
-            <a href='/components/light.velbus/'>Velbus lights</a>
+            <a href='/components/switch.rachio/'>Rachio Switch</a>
         </li>
         <li>
-            <a href='/components/light.vera/'>Vera Light</a>
+            <a href='/components/switch.rainmachine/'>RainMachine Switch</a>
         </li>
         <li>
-            <a href='/components/light.wink/'>Wink Light</a>
+            <a href='/components/switch.rpi_gpio/'>Raspberry PI GPIO Switch</a>
         </li>
         <li>
-            <a href='/components/light.x10/'>X10</a>
+            <a href='/components/switch.rpi_rf/'>Raspberry Pi RF Switch</a>
         </li>
         <li>
-            <a href='/components/light.xiaomi/'>Xiaomi Light</a>
+            <a href='/components/switch.raspihats/'>Raspihats Switch</a>
         </li>
         <li>
-            Xiaomi Philips Light
+            <a href='/components/switch.scsgate/'>SCSGate Switch</a>
         </li>
         <li>
-            <a href='/components/light.yeelightsunflower/'>Yeelight Sunflower Bulb</a>
+            <a href='/components/switch.tplink/'>TPLink Switch</a>
         </li>
         <li>
-            <a href='/components/light.yeelight/'>Yeelight Wifi Bulb</a>
+            <a href='/components/switch.tellstick/'>TellStick Switch</a>
         </li>
         <li>
-            <a href='/components/light.zwave/'>Z-Wave Light</a>
+            <a href='/components/switch.tellduslive/'>Telldus Live Switch</a>
         </li>
         <li>
-            <a href='/components/light.zengge/'>Zengge</a>
+            <a href='/components/switch.telnet/'>Telnet Switch</a>
         </li>
         <li>
-            <a href='/components/light.zha/'>ZigBee Home Automation Light</a>
+            <a href='/components/switch.template/'>Template Switch</a>
         </li>
         <li>
-            <a href='/components/light.zigbee/'>ZigBee Light</a>
+            <a href='/components/switch.thinkingcleaner/'>Thinking Cleaner Switch</a>
         </li>
         <li>
-            <a href='/components/light.mystrom/'>myStrom WiFi Bulb</a>
+            <a href='/components/switch.velbus/'>Velbus Switches</a>
+        </li>
+        <li>
+            <a href='/components/switch.vera/'>Vera Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.verisure/'>Verisure SmartPlug</a>
+        </li>
+        <li>
+            <a href='/components/switch.wake_on_lan/'>Wake on LAN Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.wink/'>Wink Switch</a>
+        </li>
+        <li>
+            Xiaomi Switch
+        </li>
+        <li>
+            <a href='/components/switch.zwave/'>Z-Wave Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.zha/'>ZigBee Home Automation Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.zigbee/'>ZigBee Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.zoneminder/'>ZoneMinder Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.arest/'>aREST Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mfi/'>mFi Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.mystrom/'>myStrom Switch</a>
         </li>
     </ul>
     </div>

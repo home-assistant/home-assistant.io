@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Xiaomi Cover - Home Assistant</title>
+    <title>MQTT Statestream - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to setup the Xiaomi cover within Home Assistant.">
+    <meta name="description" content="Instructions how to setup MQTT Statestream within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/cover.xiaomi/">
+    <link rel="canonical" href="https://home-assistant.io/components/mqtt_statestream/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Xiaomi Cover">
+    <meta property="og:title" content="MQTT Statestream">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/cover.xiaomi/">
+    <meta property="og:url" content="https://home-assistant.io/components/mqtt_statestream/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to setup the Xiaomi cover within Home Assistant.">
+    <meta property="og:description" content="Instructions how to setup MQTT Statestream within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Xiaomi Cover">
-    <meta name="twitter:description" content="Instructions how to setup the Xiaomi cover within Home Assistant.">
+    <meta name="twitter:title" content="MQTT Statestream">
+    <meta name="twitter:description" content="Instructions how to setup MQTT Statestream within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,119 +70,94 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Xiaomi Cover
+      MQTT Statestream
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi</code> cover platform allows you to get data from your <a href="http://www.mi.com/en/">Xiaomi</a> covers.</p>
-<p>The requirement is that you have setup <a href="/components/xiaomi/">Xiaomi</a>.</p>
+  <p>The <code class="highlighter-rouge">mqtt_statestream</code> component publishes state changes in Home Assistant to individual MQTT topics.</p>
+<p>To enable MQTT Statestream in Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">mqtt_statestream</span><span class="pi">:</span>
+  <span class="s">base_topic</span><span class="pi">:</span> <span class="s">homeassistant</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>base_topic</strong> (<em>Required</em>): Base topic used to generate the actual topic used to publish.</li>
+</ul>
+<h2>Operation</h2>
+<p>When any Home Assistant entity changes, this component will publish that change to MQTT.</p>
+<p>The topic for each entity is different, so you can easily subscribe other systems to just the entities you are interested in.
+The topic will be in the form <code class="highlighter-rouge">base_topic/domain/entity/state</code>.</p>
+<p>For example, with the example configuration above, if an entity called ‘light.master_bedroom_dimmer’ is turned on, this component will publish <code class="highlighter-rouge">on</code> to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/state</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/cover.xiaomi.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/mqtt_statestream.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/xiaomi.png' />
+      <img src='/images/supported_brands/mqtt.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: depends
     </div>
     <div class='section'>
-    Introduced in release: 0.50
+    Introduced in release: 0.54
     </div>
     <div class='section'>
-      This is a platform for
-      <a href='/components/cover/'>the Covers component</a>.
-    </div>
-          <div class='section'>
-          <h1 class='title delta'>Related components</h1>
-          <ul class='divided'>
-        <li><a href='/components/binary_sensor.xiaomi/'>
-          Xiaomi Binary Sensor
-        </a></li>
-        <li><a href='/components/xiaomi/'>
-          Xiaomi Gateway
-        </a></li>
-        <li><a href='/components/light.xiaomi/'>
-          Xiaomi Light
-        </a></li>
-        <li><a href='/components/vacuum.xiaomi/'>
-          Xiaomi Mi Robot Vacuum
-        </a></li>
-        <li><a href='/components/device_tracker.xiaomi/'>
-          Xiaomi Router
-        </a></li>
-        <li><a href='/components/sensor.xiaomi/'>
-          Xiaomi Sensor
-        </a></li>
-        <li><a href='/components/switch.xiaomi/'>
-          Xiaomi Switch
-        </a></li>
-    </ul>
-    </div>
-    <div class='section'>
-    <h1 class="title delta">Category Cover</h1>
+    <h1 class="title delta">Category Other</h1>
     <ul class='divided'>
         <li>
-            <a href='/components/cover.abode/'>Abode Cover</a>
+            <a href='/components/asterisk_mbox/'>Asterisk Voicemail</a>
         </li>
         <li>
-            <a href='/components/cover.command_line/'>Command Line Cover</a>
+            <a href='/components/configurator/'>Configurator</a>
         </li>
         <li>
-            <a href='/components/cover.garadget/'>Garadget Cover</a>
+            <a href='/components/demo/'>Demo platforms</a>
         </li>
         <li>
-            <a href='/components/cover.homematic/'>Homematic Cover</a>
+            <a href='/components/discovery/'>Discovery</a>
         </li>
         <li>
-            <a href='/components/cover.isy994/'>ISY994 Cover</a>
+            <a href='/components/feedreader/'>Feedreader</a>
         </li>
         <li>
-            <a href='/components/cover.knx/'>KNX Cover</a>
+            <a href='/components/frontend/'>Frontend</a>
         </li>
         <li>
-            <a href='/components/cover.lutron_caseta/'>Lutron Caseta Cover</a>
+            <a href='/components/http/'>HTTP</a>
         </li>
         <li>
-            <a href='/components/cover.mqtt/'>MQTT Cover</a>
+            <a href='/components/introduction/'>Introduction</a>
         </li>
         <li>
-            <a href='/components/cover.myq/'>MyQ Cover</a>
+            <a href='/components/keyboard_remote/'>Keyboard Remote</a>
         </li>
         <li>
-            <a href='/components/cover.mysensors/'>MySensors Cover</a>
+            <a href='/components/mqtt_eventstream/'>MQTT Eventstream</a>
         </li>
         <li>
-            <a href='/components/cover.opengarage/'>OpenGarage Cover</a>
+            MQTT Statestream
         </li>
         <li>
-            <a href='/components/scene.hunterdouglas_powerview/'>PowerView Scenes</a>
+            <a href='/components/persistent_notification/'>Persistent notification</a>
         </li>
         <li>
-            <a href='/components/cover.rfxtrx/'>RFXtrx Cover</a>
+            <a href='/components/plant/'>Plant monitor</a>
         </li>
         <li>
-            <a href='/components/cover.rpi_gpio/'>Raspberry Pi Cover</a>
+            <a href='/components/sensor.upnp/'>UPNP Sensor</a>
         </li>
         <li>
-            <a href='/components/cover.scsgate/'>SCSGate Cover</a>
+            <a href='/components/upnp/'>UPnP</a>
         </li>
         <li>
-            <a href='/components/cover.template/'>Template Cover</a>
+            <a href='/components/updater/'>Updater</a>
         </li>
         <li>
-            <a href='/components/cover.vera/'>Vera Cover</a>
-        </li>
-        <li>
-            <a href='/components/cover.wink/'>Wink Cover</a>
-        </li>
-        <li>
-            Xiaomi Cover
-        </li>
-        <li>
-            <a href='/components/cover.zwave/'>Z-Wave Cover</a>
+            <a href='/components/zeroconf/'>Zeroconf/Avahi/Bonjour</a>
         </li>
     </ul>
     </div>

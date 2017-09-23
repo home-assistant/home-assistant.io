@@ -75,7 +75,8 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">abode</code> security control panel platform allows you to control your <a href="https://goabode.com/">Abode</a> alarms.</p>
-<p>This component will automatically add <code class="highlighter-rouge">Door Contact</code>, <code class="highlighter-rouge">Motion Camera</code>, <code class="highlighter-rouge">Water Sensor</code>, <code class="highlighter-rouge">Keypad</code>, <code class="highlighter-rouge">Glass Break</code>, and <code class="highlighter-rouge">Status Display</code> binary sensors that are configured in your Abode account.</p>
+<p>This component will add <code class="highlighter-rouge">Door Contacts</code>, <code class="highlighter-rouge">Connectivity</code> sensors (remotes, keypads, and status indicators), <code class="highlighter-rouge">Moisture</code> sensors, and <code class="highlighter-rouge">Motion</code> or <code class="highlighter-rouge">Occupancy</code> sensors.</p>
+<p>This component will also list all Abode <code class="highlighter-rouge">Quick Actions</code> that are set up. You can trigger these quick actions by passing the <code class="highlighter-rouge">entity_id</code> of your quick action binary sensor to the <a href="/components/abode/#trigger_quick_action">trigger_quick_action service</a>.</p>
 <p>The requirement is that you have setup your <a href="/components/abode/">Abode hub</a>.</p>
 </article>
         </div>
@@ -102,11 +103,17 @@
         <li><a href='/components/alarm_control_panel.abode/'>
           Abode Alarm Control Panel
         </a></li>
+        <li><a href='/components/camera.abode/'>
+          Abode Camera
+        </a></li>
         <li><a href='/components/cover.abode/'>
           Abode Cover
         </a></li>
         <li><a href='/components/abode/'>
           Abode Home Security
+        </a></li>
+        <li><a href='/components/light.abode/'>
+          Abode Light
         </a></li>
         <li><a href='/components/lock.abode/'>
           Abode Lock
@@ -151,6 +158,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.concord232/'>Concord232 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.doorbird/'>DoorBird Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
@@ -246,6 +256,9 @@
             <a href='/components/binary_sensor.spc/'>SPC Binary Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.satel_integra/'>Satel Integra Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
         </li>
         <li>
@@ -279,7 +292,7 @@
             <a href='/components/binary_sensor.workday/'>Workday Binary Sensor</a>
         </li>
         <li>
-            <a href='/components/binary_sensor.xiaomi/'>Xiaomi Binary Sensor</a>
+            <a href='/components/binary_sensor.xiaomi_aqara/'>Xiaomi Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>

@@ -75,10 +75,11 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">airvisual</code> sensor platform queries the <a href="https://airvisual.com/">AirVisual</a> API for air quality
-data on the nearest city to a latitude and longitude. The resulting information
-creates sensors for the Air Quality Index (AQI), the human-friendly air quality
-level, and the main pollutant of that area. Sensors that conform to either/both
-the <a href="http://www.clm.com/publication.cfm?ID=366">U.S. and Chinese air quality standards</a> can be created.</p>
+data. Data can be collected via latitude/longitude or by city/state/country.
+The resulting information creates sensors for the Air Quality Index (AQI), the
+human-friendly air quality level, and the main pollutant of that area. Sensors
+that conform to either/both the <a href="http://www.clm.com/publication.cfm?ID=366">U.S. and Chinese air quality standards</a> can be
+created.</p>
 <p>This platform requires an AirVisual API key, which can be obtained <a href="https://airvisual.com/api">here</a>. Note
 that the platform was designed using the “Community” package; the “Startup”
 and “Enterprise” package keys should continue to function, but actual results
@@ -87,9 +88,9 @@ may vary (or not work at all).</p>
 The “Community” API key is limited to 10,000 calls per month. In order to leave
 a buffer, the <code class="highlighter-rouge">airvisual</code> platform queries the API every 10 minutes.
 </p>
-<h2><a class="title-link" name="configuring-the-platform" href="#configuring-the-platform"></a> Configuring the Platform</h2>
-<p>To enable this platform, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>
-file:</p>
+<h2><a class="title-link" name="configuring-the-platform-via-latitudelongitude" href="#configuring-the-platform-via-latitudelongitude"></a> Configuring the Platform via Latitude/Longitude</h2>
+<p>To enable the platform and gather data via latitude/longitude, add the
+following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">airvisual</span>
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">abc123</span>
@@ -107,12 +108,54 @@ file:</p>
   <li><strong>monitored_conditions</strong> (<em>Required</em>): the air quality standard(s) to use
 (<code class="highlighter-rouge">us</code> for U.S., <code class="highlighter-rouge">cn</code> for Chinese)</li>
   <li><strong>latitude</strong> (<em>Optional</em>): the latitude to monitor; if excluded, the latitude
-defined in <code class="highlighter-rouge">configuration.yaml</code> will be used</li>
+defined under the <code class="highlighter-rouge">homeassistant</code> key in <code class="highlighter-rouge">configuration.yaml</code> will be used</li>
   <li><strong>longitude</strong> (<em>Optional</em>): the longitude to monitor; if excluded, the longitude
-defined in <code class="highlighter-rouge">configuration.yaml</code> will be used</li>
+defined under the <code class="highlighter-rouge">homeassistant</code> key in <code class="highlighter-rouge">configuration.yaml</code> will be used</li>
   <li><strong>radius</strong> (<em>Optional</em>): the radius (in meters) around the latitude/longitude to
 search for the nearest city; defaults to <code class="highlighter-rouge">1000</code></li>
 </ul>
+<h2><a class="title-link" name="configuring-the-platform-via-citystatecountry" href="#configuring-the-platform-via-citystatecountry"></a> Configuring the Platform via City/State/Country</h2>
+<p>To enable the platform and gather data via city/state/country, add the
+following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">airvisual</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">abc123</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">us</span>
+      <span class="pi">-</span> <span class="s">cn</span>
+    <span class="s">city</span><span class="pi">:</span> <span class="s">southend-on-sea</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">essex</span>
+    <span class="s">country</span><span class="pi">:</span> <span class="s">uk</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>api_key</strong> (<em>Required</em>): your AirVisual API key</li>
+  <li><strong>monitored_conditions</strong> (<em>Required</em>): the air quality standard(s) to use
+(<code class="highlighter-rouge">us</code> for U.S., <code class="highlighter-rouge">cn</code> for Chinese)</li>
+  <li><strong>city</strong> (<em>Optional</em>): the city to monitor</li>
+  <li><strong>state</strong> (<em>Optional</em>): the state/region to monitor</li>
+  <li><strong>country</strong> (<em>Optional</em>): the country to monitor</li>
+</ul>
+<p>To easily determine the proper values for a particular location, use the
+<a href="https://airvisual.com/world">AirVisual region directory</a>. Once you browse to the particular city you want,
+take note of the breadcrumb title, which is of the form
+<code class="highlighter-rouge">country &gt; state/region &gt; city</code>. Use this information to fill out
+<code class="highlighter-rouge">configuration.yaml</code>.</p>
+<p>For example, Sao Paulo, Brazil shows a breadcrumb title of
+<code class="highlighter-rouge">Brazil &gt; Sao Paulo &gt; Sao Paulo</code> – thus, the proper configuration would look
+like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">airvisual</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">abc123</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">us</span>
+      <span class="pi">-</span> <span class="s">cn</span>
+    <span class="s">city</span><span class="pi">:</span> <span class="s">sao-paulo</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">sao-paulo</span>
+    <span class="s">country</span><span class="pi">:</span> <span class="s">brazil</span>
+</code></pre>
+</div>
 <h2><a class="title-link" name="sensor-types" href="#sensor-types"></a> Sensor Types</h2>
 <p>When configured, the platform will create three sensors for each configured
 air quality standard:</p>

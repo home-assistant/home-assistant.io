@@ -1,0 +1,298 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Todoist - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to integrate Todoist into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/calendar.todoist/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Todoist">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/calendar.todoist/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to integrate Todoist into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Todoist">
+    <meta name="twitter:description" content="Instructions on how to integrate Todoist into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Todoist
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>This platform allows you to connect to your <a href="https://todoist.com">Todoist Projects</a> and generate binary sensors. A different sensor will be created for each individual project, or you can specify “custom” projects which match against criteria you set (more on that below). These sensors will be <code class="highlighter-rouge">on</code> if you have a task due in that project or <code class="highlighter-rouge">off</code> if all the tasks in the project are completed or if the project doesn’t have any tasks at all. All tasks get updated roughly every 15 minutes.</p>
+<h3><a class="title-link" name="prerequisites" href="#prerequisites"></a> Prerequisites</h3>
+<p>You need to determine your Todoist API token. This is fairly simple to do; just go <a href="https://todoist.com/Users/viewPrefs?page=authorizations">to the Integrations section on your Todoist settings page</a> and find the section labeled “API token” at the bottom of the page. Copy that token and use it in your configuration file.</p>
+<h3><a class="title-link" name="basic-setup" href="#basic-setup"></a> Basic Setup</h3>
+<p>To integrate Todoist in Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">calendar</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">todoist</span>
+    <span class="s">token</span><span class="pi">:</span> <span class="s">API_token_created_from_steps_above</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>token</strong> (<em>Required</em>): The API token used to authorize Home Assistant to access your projects.</li>
+  <li><strong>custom_projects</strong> (<em>Optional</em>): Details on any “custom” binary sensor projects you want to create.
+    <ul>
+      <li><strong>name</strong> (<em>Required</em>): The name of your custom project. Only required if you specify that you want to create a custom project.</li>
+      <li><strong>due_date_days</strong> (<em>Optional</em>): Only include tasks due within this many days. If you don’t have any tasks with a due date set, this returns nothing.</li>
+      <li><strong>labels</strong> (<em>Optional</em>): Only include tasks with at least one of these labels (i.e., this works as an <code class="highlighter-rouge">or</code> statement)..</li>
+      <li><strong>include_projects</strong> (<em>Optional</em>): Only include tasks in these projects. Tasks in all other projects will be ignored.</li>
+    </ul>
+  </li>
+</ul>
+<h3><a class="title-link" name="custom-projects" href="#custom-projects"></a> Custom Projects</h3>
+<p>Creating custom projects is super-easy and quite powerful. All you need to run the basic Todoist projects is your API token, but if you wanted, you could go even deeper. Here’s an example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">calendar</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">todoist</span>
+    <span class="s">token</span><span class="pi">:</span> <span class="kt">!secret</span> <span class="s">todoist_token</span>
+    <span class="s">custom_projects</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">All</span><span class="nv"> </span><span class="s">Projects'</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Due</span><span class="nv"> </span><span class="s">Today'</span>
+        <span class="s">due_date_days</span><span class="pi">:</span> <span class="s">0</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Due</span><span class="nv"> </span><span class="s">This</span><span class="nv"> </span><span class="s">Week'</span>
+        <span class="s">due_date_days</span><span class="pi">:</span> <span class="s">7</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Math</span><span class="nv"> </span><span class="s">Homework'</span>
+        <span class="s">labels</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">Homework</span>
+        <span class="s">include_projects</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">Mathematical Structures II</span>
+          <span class="pi">-</span> <span class="s">Calculus II</span>
+</code></pre>
+</div>
+<p>(See <a href="https://home-assistant.io/docs/configuration/secrets/">here</a> for more details about what that <code class="highlighter-rouge">!secret</code> does – it’s not exclusive to Todoist, and can help keep your API keys and passwords a little safer!)</p>
+<p>As you can see, there are 4 custom projects here:</p>
+<ul>
+  <li>
+    <p>A project containing <em>all</em> of the tasks on this account.</p>
+  </li>
+  <li>
+    <p>A project containing <em>all</em> the tasks on this account that are due today.</p>
+  </li>
+  <li>
+    <p>A project containing <em>all</em> the tasks on this account due within the next week.</p>
+  </li>
+  <li>
+    <p>A project containing everything with the label “Homework”, taking only 2 projects into account.</p>
+  </li>
+</ul>
+<p>You can mix-and-match these attributes to create all sorts of custom projects. You can even use <a href="https://ifttt.com/todoist">IFTTT</a> to create a task with a certain label, then have Home Assistant do some kind of automation when a task with that label comes due.</p>
+<p>Home Assistant does its best to determine what task in each project is “most” important, and it’s that task which has its state reported. You can access the other tasks you have due soon via the <code class="highlighter-rouge">all_tasks</code> array (see below).</p>
+<h3><a class="title-link" name="sensor-attributes" href="#sensor-attributes"></a> Sensor attributes</h3>
+<ul>
+  <li>
+    <p><strong>offset_reached</strong>: Not used.</p>
+  </li>
+  <li>
+    <p><strong>all_day</strong>: <code class="highlighter-rouge">True</code> if the reported task doesn’t have a due date. <code class="highlighter-rouge">False</code> if there is a due date set.</p>
+  </li>
+  <li>
+    <p><strong>message</strong>: The title of the “most important” task coming up in this project.</p>
+  </li>
+  <li>
+    <p><strong>description</strong>: A URL pointing to the task on the Todoist website.</p>
+  </li>
+  <li>
+    <p><strong>location</strong>: Not used.</p>
+  </li>
+  <li>
+    <p><strong>start_time</strong>: The last time the Todoist component got updated. Usually within the last 15 minutes.</p>
+  </li>
+  <li>
+    <p><strong>end_time</strong>: When the task is due.</p>
+  </li>
+  <li>
+    <p><strong>all_tasks</strong>: A list of all tasks in this project, sorted from most important to least important.</p>
+  </li>
+  <li>
+    <p><strong>priority</strong>: The priority Todoist reports this task as having. 1 means lowest priority, 4 means highest. Note that this is the <strong>opposite</strong> of how things are displayed in the Todoist app!</p>
+  </li>
+  <li>
+    <p><strong>task_comments</strong>: Any comments added to this task.</p>
+  </li>
+  <li>
+    <p><strong>task_labels</strong>: All labels associated with this task.</p>
+  </li>
+  <li>
+    <p><strong>overdue</strong>: Whether the reported task is past its due date.</p>
+  </li>
+  <li>
+    <p><strong>due_today</strong>: Whether the reported task is due today.</p>
+  </li>
+</ul>
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
+<p>Todoist also comes with access to a service, <code class="highlighter-rouge">todoist.new_task</code>. This service can be used to create a new Todoist task. You can specify labels and a project, or you can leave them blank, and the task will go to your “Inbox” project.</p>
+<p>Here’s an example JSON payload:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pick up the mail"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"project"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Errands"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"labels"</span><span class="p">:</span><span class="s2">"Homework,School"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"priority"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"due_date"</span><span class="p">:</span><span class="s2">"2017-09-12 14:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<ul>
+  <li>
+    <p><strong>content</strong> (<em>Required</em>): The name of the task you want to create.</p>
+  </li>
+  <li>
+    <p><strong>project</strong> (<em>Optional</em>): The project to put the task in.</p>
+  </li>
+  <li>
+    <p><strong>labels</strong> (<em>Optional</em>): Any labels you want to add to the task, separated by commas.</p>
+  </li>
+  <li>
+    <p><strong>priority</strong> (<em>Optional</em>): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.</p>
+  </li>
+  <li>
+    <p><strong>due_date</strong> (<em>Optional</em>): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format.</p>
+  </li>
+</ul>
+<p>Note that there’s (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.</p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/calendar.todoist.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/todoist.png' />
+  </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+    Introduced in release: 0.54
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/calendar/'>the Calendar component</a>.
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Calendar</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/calendar.google/'>Google Calendar Event</a>
+        </li>
+        <li>
+            <a href='/components/sensor.time_date/'>Time & Date</a>
+        </li>
+        <li>
+            Todoist
+        </li>
+        <li>
+            <a href='/components/sensor.worldclock/'>Worldclock</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

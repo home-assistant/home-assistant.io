@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Xiaomi Gateway - Home Assistant</title>
+    <title>Satel Integra Alarm - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta name="description" content="Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/xiaomi/">
+    <link rel="canonical" href="https://home-assistant.io/components/satel_integra/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Xiaomi Gateway">
+    <meta property="og:title" content="Satel Integra Alarm">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/xiaomi/">
+    <meta property="og:url" content="https://home-assistant.io/components/satel_integra/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta property="og:description" content="Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Xiaomi Gateway">
-    <meta name="twitter:description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta name="twitter:title" content="Satel Integra Alarm">
+    <meta name="twitter:description" content="Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,166 +70,89 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Xiaomi Gateway
+      Satel Integra Alarm
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi</code> platform allows you to integrate the following <a href="http://www.mi.com/en/">Xiaomi</a> devices into Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">satel_integra</code> component will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm  is accomplished through a ETHM extension module that must be installed in the alarm.</p>
+<p>There is currently support for the following device types within Home Assistant:</p>
 <ul>
-  <li>Temperature and Humidity Sensor (1st and 2nd generation)</li>
-  <li>Motion Sensor (1st and 2nd generation)</li>
-  <li>Door and Window Sensor (1st and 2nd generation)</li>
-  <li>Button (1st and 2nd generation)</li>
-  <li>Plug aka Socket (ZigBee version, reports power consumed, power load, state and if device in use)</li>
-  <li>Wall Plug (reports power consumed, power load and state)</li>
-  <li>Aqara Wall Switch (Single)</li>
-  <li>Aqara Wall Switch (Double)</li>
-  <li>Aqara Wall Switch LN (Single)</li>
-  <li>Aqara Wall Switch LN (Double)</li>
-  <li>Aqara Wireless Switch (Single)</li>
-  <li>Aqara Wireless Switch (Double)</li>
-  <li>Cube</li>
-  <li>Gas Leak Detector (reports alarm and density)</li>
-  <li>Smoke Detector (reports alarm and density)</li>
-  <li>Gateway (Light, Illumination Sensor, Ringtone play)</li>
-  <li>Intelligent Curtain</li>
-  <li>Water Leak Sensor</li>
-  <li>Battery</li>
+  <li><a href="/components/binary_sensor.satel_integra/">Binary Sensor</a>: Reports on zone statuses</li>
+  <li><a href="/components/alarm_control_panel.satel_integra/">Alarm Control Panel</a>: Reports on alarm status, and can be used to arm/disarm the system</li>
 </ul>
-<p>What’s not available?</p>
-<ul>
-  <li>Gateway Radio</li>
-  <li>Gateway Button</li>
-  <li>Aqara Air Conditioning Companion</li>
-  <li>Aqara Intelligent Air Conditioner Controller Hub</li>
-  <li>Decoupled mode of the Aqara Wall Switches (Single &amp; Double)</li>
-  <li>Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure</li>
-</ul>
-<p>Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a></p>
-<p>To enable Xiaomi gateway in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<h3><a class="title-link" name="one-gateway" href="#one-gateway"></a> One Gateway</h3>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># You can leave mac empty if you only have one gateway.</span>
-<span class="s">xiaomi</span><span class="pi">:</span>
-  <span class="s">gateways</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span>
-     <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
-</code></pre>
-</div>
-<h3><a class="title-link" name="multiple-gateways" href="#multiple-gateways"></a> Multiple Gateways</h3>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters mac can be obtained from the gateway.</span>
-<span class="s">xiaomi</span><span class="pi">:</span>
-  <span class="s">gateways</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
-      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
-    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
-      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
-</code></pre>
-</div>
-<h3><a class="title-link" name="search-for-gateways-on-specific-interface" href="#search-for-gateways-on-specific-interface"></a> Search for gateways on specific interface</h3>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 characters MAC can be obtained from the gateway.</span>
-<span class="s">xiaomi</span><span class="pi">:</span>
-  <span class="s">interface</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.0.1'</span>
-  <span class="s">gateways</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
-      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
+<p>The module communicates via Satel’s open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.</p>
+<p><strong>IMPORTANT:</strong> The library currently doesn’t support encrypted connection to your alarm, so you need <strong>to turn off encryption for integration protocol</strong>. In Polish: “koduj integracje” must be unchecked. You will find this setting in your DLOADX program.</p>
+<p>A <code class="highlighter-rouge">satel_integra</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">satel_integra</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.100</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">7094</span>
+  <span class="s">partition</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="s">arm_home_mode</span><span class="pi">:</span> <span class="s">1</span>
+
+  <span class="s">zones</span><span class="pi">:</span>
+    <span class="s">01</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Bedroom'</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">motion'</span>
+    <span class="s">02</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Hall'</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">motion'</span>
+    <span class="s">30</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Kitchen</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">smoke'</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">smoke'</span>
+    <span class="s">113</span><span class="pi">:</span>
+      <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Entry</span><span class="nv"> </span><span class="s">door'</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">opening'</span>
+
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>mac</strong> (<em>Optional</em>): The MAC of your gateway. Required if you have more than one.</li>
-  <li><strong>key</strong> (<em>Optional</em>): The key of your gateway. Required if you also want to control lights and switches. Sensors and binary sensors will still work.</li>
-  <li><strong>discovery_retry</strong> (<em>Optional</em>): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.</li>
-  <li><strong>interface</strong> (<em>Optional</em>): Which network interface to use. Defaults to any.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address of the Satel Integra ETHM module on your home network, if using socket type. Default: <code class="highlighter-rouge">localhost</code></li>
+  <li><strong>port</strong> (<em>Optional</em>): The port on which the ETHM module listens for clients using integration protocol. Default: <code class="highlighter-rouge">7094</code></li>
+  <li><strong>partition</strong> (<em>Optional</em>): The partition to operate on. Integra can support multiple partitions, this platform only supports one. Default: <code class="highlighter-rouge">1</code></li>
+  <li><strong>arm_home_mode</strong> (<em>Optional</em>): The mode in which arm Satel Integra when ‘arm home’ is used. Possible options are <code class="highlighter-rouge">1</code>,<code class="highlighter-rouge">2</code> or <code class="highlighter-rouge">3</code>, default being <code class="highlighter-rouge">1</code>. For more information on what are the differences between them, please refer to Satel Integra manual.</li>
+  <li><strong>zones</strong> (<em>Optional</em>): This module does not discover currently which zones are actually in use, so it will only monitor the ones defined in the config. For each zone, a proper ID mus be given as well as it’s name (does not need to match the one specified in Satel Integra alarm). For more information on the available zone types, take a look at the <a href="/components/binary_sensor.alarmdecoder/">Binary Sensor</a> docs. <em>Note: If no zones are specified, Home Assistant will not load any binary_sensor components.</em></li>
 </ul>
-<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
-<p>The gateway provides two services: <code class="highlighter-rouge">xiaomi.play_ringtone</code> and <code class="highlighter-rouge">xiaomi.stop_ringtone</code>. To play ringtones by Home Assistant, the version of the gateway firmware must be <code class="highlighter-rouge">1.4.1_145</code> at least. A <code class="highlighter-rouge">ringtone_id</code> and <code class="highlighter-rouge">gw_mac</code> must be supplied. The parameter <code class="highlighter-rouge">ringtone_vol</code> (percent) is optional. Allowed values of the <code class="highlighter-rouge">ringtone_id</code> are:</p>
-<ul>
-  <li>alarm ringtones [0-8]</li>
-  <li>doorbell ring [10-13]</li>
-  <li>alarm clock [20-29]</li>
-  <li>custom ringtones (uploaded by the Mi Home app) starting from 10001</li>
-</ul>
-<p>Automation example</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Let a dog bark on long press</span>
+<p>List of all zone IDs can be taken from DloadX program.</p>
+<p>Having configured the zones, you can use them for automation, such as to react on the movement in your bedroom.
+For example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">alias</span><span class="pi">:</span> <span class="s">Flick the input switch when movement in bedroom detected</span>
   <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-    <span class="s">event_type</span><span class="pi">:</span> <span class="s">click</span>
-    <span class="s">event_data</span><span class="pi">:</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.switch_158d000xxxxxc2</span>
-      <span class="s">click_type</span><span class="pi">:</span> <span class="s">long_click_press</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">binary_sensor.bedroom'</span>
+      <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
   <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi.play_ringtone</span>
-    <span class="s">data</span><span class="pi">:</span>
-      <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
-      <span class="s">ringtone_id</span><span class="pi">:</span> <span class="s">8</span>
-      <span class="s">ringtone_vol</span><span class="pi">:</span> <span class="s">8</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.movement_detected</span>
 
-<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Stop barking immediately on single click</span>
-  <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-    <span class="s">event_type</span><span class="pi">:</span> <span class="s">click</span>
-    <span class="s">event_data</span><span class="pi">:</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.switch_158d000xxxxxc2</span>
-      <span class="s">click_type</span><span class="pi">:</span> <span class="s">single</span>
-  <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi.stop_ringtone</span>
-    <span class="s">data</span><span class="pi">:</span>
-      <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
-<p><strong>Connection problem</strong></p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>2017-08-20 16:51:19 ERROR <span class="o">(</span>SyncWorker_0<span class="o">)</span> <span class="o">[</span>homeassistant.components.xiaomi] No gateway discovered
-2017-08-20 16:51:20 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.setup] Setup failed <span class="k">for </span>xiaomi: Component failed to initialize.
-</code></pre>
-</div>
-<p>That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.</p>
-<ul>
-  <li>Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832</li>
-  <li>Turn off the firewall on the system where Home Assistant is running.</li>
-  <li>Try to leave the MAC address <code class="highlighter-rouge">mac:</code> blank.</li>
-  <li>Try to set <code class="highlighter-rouge">discovery_retry: 10</code>.</li>
-  <li>Try to disable and then enable LAN access.</li>
-  <li>Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.</li>
-</ul>
+<p>Enjoy!</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/xiaomi.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/satel_integra.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
-      <img src='/images/supported_brands/xiaomi.png' />
+      <img src='/images/supported_brands/satel.jpg' />
   </div>
     <div class='section'>
     IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
-    Introduced in release: 0.50
+    Introduced in release: 0.54
     </div>
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
-        <li><a href='/components/binary_sensor.xiaomi/'>
-          Xiaomi Binary Sensor
+        <li><a href='/components/alarm_control_panel.satel_integra/'>
+          Satel Integra Alarm Control Panel
         </a></li>
-        <li><a href='/components/cover.xiaomi/'>
-          Xiaomi Cover
-        </a></li>
-        <li><a href='/components/light.xiaomi/'>
-          Xiaomi Light
-        </a></li>
-        <li><a href='/components/vacuum.xiaomi/'>
-          Xiaomi Mi Robot Vacuum
-        </a></li>
-        <li><a href='/components/device_tracker.xiaomi/'>
-          Xiaomi Router
-        </a></li>
-        <li><a href='/components/sensor.xiaomi/'>
-          Xiaomi Sensor
-        </a></li>
-        <li><a href='/components/switch.xiaomi/'>
-          Xiaomi Switch
+        <li><a href='/components/binary_sensor.satel_integra/'>
+          Satel Integra Binary Sensor
         </a></li>
     </ul>
     </div>
@@ -271,6 +194,9 @@
         </li>
         <li>
             <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/doorbird/'>DoorBird</a>
         </li>
         <li>
             <a href='/components/dyson/'>Dyson</a>
@@ -381,6 +307,9 @@
             <a href='/components/spc/'>SPC</a>
         </li>
         <li>
+            Satel Integra Alarm
+        </li>
+        <li>
             <a href='/components/sleepiq/'>SleepIQ</a>
         </li>
         <li>
@@ -423,7 +352,7 @@
             <a href='/components/wink/'>Wink</a>
         </li>
         <li>
-            Xiaomi Gateway
+            <a href='/components/xiaomi_aqara/'>Xiaomi Gateway</a>
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>

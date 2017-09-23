@@ -78,24 +78,159 @@
 <p>Please visit the <a href="https://goabode.com/">Abode website</a> for further information about Abode Security.</p>
 <p>There is currently support for the following device types within Home Assistant:</p>
 <ul>
-  <li><a href="/components/alarm_control_panel.abode/">Alarm Control Panel</a>: Reports on current alarm status and can be used to arm/disarm the system</li>
-  <li><a href="/components/binary_sensor.abode/">Binary Sensor</a>: Reports on <code class="highlighter-rouge">Door Contacts</code> (open or closed), <code class="highlighter-rouge">Motion Camera</code> (motion detected or not), <code class="highlighter-rouge">Water Sensors</code> (detected or not), <code class="highlighter-rouge">Keypad</code> (online or not), <code class="highlighter-rouge">Glass Break</code> (online or not), <code class="highlighter-rouge">Status Display</code> (online or not)</li>
-  <li><a href="/components/cover.abode/">Cover</a>: Reports on <code class="highlighter-rouge">Secure Barriers</code> (open or closed) and can be used to open/close the cover</li>
-  <li><a href="/components/cover.abode/">Lock</a>: Reports on <code class="highlighter-rouge">Door Locks</code> (locked or unlocked) and can be used to lock/unlock the door</li>
-  <li><a href="/components/switch.abode/">Switch</a>: Reports on <code class="highlighter-rouge">Power Switch Sensors</code> (on or off) and can be used to turn the power switch sensor on/off</li>
+  <li><a href="/components/alarm_control_panel.abode/">Alarm Control Panel</a>: Reports on the current alarm status and can be used to arm and disarm the system.</li>
+  <li><a href="/components/binary_sensor.abode/">Binary Sensor</a>: Reports on <code class="highlighter-rouge">Quick Actions</code>, <code class="highlighter-rouge">Door Contacts</code>, <code class="highlighter-rouge">Connectivity</code> sensors (remotes, keypads, and status indicators), <code class="highlighter-rouge">Moisture</code> sensors, and <code class="highlighter-rouge">Motion</code> or <code class="highlighter-rouge">Occupancy</code> sensors.</li>
+  <li><a href="/components/camera.abode/">Camera</a>: Reports on <code class="highlighter-rouge">Camera</code> devices and will download and show the latest captured still image.</li>
+  <li><a href="/components/cover.abode/">Cover</a>: Reports on <code class="highlighter-rouge">Secure Barriers</code> and can be used to open and close the cover.</li>
+  <li><a href="/components/cover.abode/">Lock</a>: Reports on <code class="highlighter-rouge">Door Locks</code> and can be used to lock and unlock the door.</li>
+  <li><a href="/components/light.abode/">Light</a>: Reports on <code class="highlighter-rouge">Dimmer</code> lights and can be used to dim, change color, or turn the light on and off.</li>
+  <li><a href="/components/switch.abode/">Switch</a>: Reports on <code class="highlighter-rouge">Power Switch</code> devices and can be used to turn the power switch on and off. Also reports on <code class="highlighter-rouge">Automations</code> set up in the Abode system and allows you to activate or deactivate them.</li>
 </ul>
-<p>An <code class="highlighter-rouge">abode</code> section must be present in the <code class="highlighter-rouge">configuration.yaml</code> file and contain the following options as required:</p>
+<h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
+<p>To use Abode devices in your installation, add the following <code class="highlighter-rouge">abode</code> section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">abode</span><span class="pi">:</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">abode_username</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">abode_password</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Abode Alarm System</span>
+  <span class="s">polling</span><span class="pi">:</span> <span class="s">False</span>
+  <span class="s">exclude</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">ZW:0000000034'</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">RF:00000011'</span>
+  <span class="s">lights</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s1">'</span><span class="s">ZW:0000000022'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>username</strong> (<em>Required</em>): Username for the Abode account.</li>
-  <li><strong>password</strong> (<em>Required</em>): Password for Abode account.</li>
+  <li><strong>username</strong> (<em>Required</em>): Username for your Abode account.</li>
+  <li><strong>password</strong> (<em>Required</em>): Password for your Abode account.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name for your alarm controller.</li>
+  <li><strong>polling</strong> (<em>Optional</em>): Enable polling if cloud push updating is less reliable. Will update the devices once every 30 seconds. Defaults to False.</li>
+  <li><strong>exclude</strong> (<em>Optional</em>): A list of devices to exclude from Home Assistant by their Abode <code class="highlighter-rouge">device_id</code>, found within the component attributes.</li>
+  <li><strong>lights</strong> (<em>Optional</em>): A list of switch devices that Home Assistant should treat as lights by the switches Abode <code class="highlighter-rouge">device_id</code>, found within the component attributes.</li>
 </ul>
+<h2><a class="title-link" name="events" href="#events"></a> Events</h2>
+<p>There are a number of events that can be triggered from Abode. They are grouped into the below events:</p>
+<ul>
+  <li><strong>abode_alarm</strong>: Fired when an alarm event is triggered from Abode. This includes Smoke, CO, Panic, and Burglar alarms.</li>
+  <li><strong>abode_alarm_end</strong>: Fired when an alarm end event is triggered from Abode.</li>
+  <li><strong>abode_automation</strong>: Fired when an Automation is triggered from Abode.</li>
+  <li><strong>abode_panel_fault</strong>: Fired when there is a fault with the Abode hub. This includes events like loss of power, low battery, tamper switches, polling failures, and signal interference.</li>
+  <li><strong>abode_panel_restore</strong>: Fired when the panel fault is restored.</li>
+</ul>
+<p>All events have the fields:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">device_id</code></td>
+      <td>The Abode device ID of the event.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">device_name</code></td>
+      <td>The Abode device name of the event.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">device_type</code></td>
+      <td>The Abode device type of the event.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">event_code</code></td>
+      <td>The event code of the event.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">event_name</code></td>
+      <td>The name of the event.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">event_type</code></td>
+      <td>The type of the event.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">event_utc</code></td>
+      <td>The UTC timestamp of the event.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">user_name</code></td>
+      <td>The Abode user that triggered the event, if applicable.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date</code></td>
+      <td>The date of the event in the format <code class="highlighter-rouge">MM/DD/YYYY</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">time</code></td>
+      <td>The time of the event in the format <code class="highlighter-rouge">HH:MM AM</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<p>There is a unique list of known event_codes that can be found <a href="https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt">here</a>.</p>
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+<h3><a class="title-link" name="service-change_setting" href="#service-change_setting"></a> Service <code class="highlighter-rouge">change_setting</code></h3>
+<p>Change settings on your Abode system. For a full list of settings and valid values, consult the <a href="https://github.com/MisterWil/abodepy/blob/master/README.rst#settings">AbodePy settings section</a>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">setting</code></td>
+      <td>No</td>
+      <td>The setting you wish to change.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">value</code></td>
+      <td>No</td>
+      <td>The value you wish to change the setting to.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-capture_image" href="#service-capture_image"></a> Service <code class="highlighter-rouge">capture_image</code></h3>
+<p>Request a new still image from your Abode IR camera.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>No</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of Abode cameras.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-trigger_quick_action" href="#service-trigger_quick_action"></a> Service <code class="highlighter-rouge">trigger_quick_action</code></h3>
+<p>Trigger a quick action automation on your Abode system.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>No</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of binary_sensors that represent your Abode quick actions.</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -120,8 +255,14 @@
         <li><a href='/components/binary_sensor.abode/'>
           Abode Binary Sensor
         </a></li>
+        <li><a href='/components/camera.abode/'>
+          Abode Camera
+        </a></li>
         <li><a href='/components/cover.abode/'>
           Abode Cover
+        </a></li>
+        <li><a href='/components/light.abode/'>
+          Abode Light
         </a></li>
         <li><a href='/components/lock.abode/'>
           Abode Lock
@@ -169,6 +310,9 @@
         </li>
         <li>
             <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/doorbird/'>DoorBird</a>
         </li>
         <li>
             <a href='/components/dyson/'>Dyson</a>
@@ -279,6 +423,9 @@
             <a href='/components/spc/'>SPC</a>
         </li>
         <li>
+            <a href='/components/satel_integra/'>Satel Integra Alarm</a>
+        </li>
+        <li>
             <a href='/components/sleepiq/'>SleepIQ</a>
         </li>
         <li>
@@ -321,7 +468,7 @@
             <a href='/components/wink/'>Wink</a>
         </li>
         <li>
-            <a href='/components/xiaomi/'>Xiaomi Gateway</a>
+            <a href='/components/xiaomi_aqara/'>Xiaomi Gateway</a>
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>

@@ -75,7 +75,8 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">abode</code> security control panel platform allows you to control your <a href="https://goabode.com/">Abode</a> alarms.</p>
-<p>This component will automatically add <code class="highlighter-rouge">Power Switch Sensors</code> configured in your Abode account.</p>
+<p>This component will automatically add <code class="highlighter-rouge">Power Switches</code> configured in your Abode account. You can reclassify switches to show up within Home Assistant as <code class="highlighter-rouge">Lights</code> by listing the Abode device ID in your <a href="/components/abode/#configuration">configuration</a>.</p>
+<p>This component will also list all Abode <code class="highlighter-rouge">Automations</code> that are set up within the Abode system, allowing you to activate and deactivate the automations.</p>
 <p>The requirement is that you have setup your <a href="/components/abode/">Abode hub</a>.</p>
 </article>
         </div>
@@ -105,11 +106,17 @@
         <li><a href='/components/binary_sensor.abode/'>
           Abode Binary Sensor
         </a></li>
+        <li><a href='/components/camera.abode/'>
+          Abode Camera
+        </a></li>
         <li><a href='/components/cover.abode/'>
           Abode Cover
         </a></li>
         <li><a href='/components/abode/'>
           Abode Home Security
+        </a></li>
+        <li><a href='/components/light.abode/'>
+          Abode Light
         </a></li>
         <li><a href='/components/lock.abode/'>
           Abode Lock
@@ -154,6 +161,9 @@
         </li>
         <li>
             <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.doorbird/'>DoorBird Switch</a>
         </li>
         <li>
             <a href='/components/switch.edimax/'>Edimax Switch</a>
@@ -261,6 +271,9 @@
             <a href='/components/switch.tellduslive/'>Telldus Live Switch</a>
         </li>
         <li>
+            <a href='/components/switch.telnet/'>Telnet Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.template/'>Template Switch</a>
         </li>
         <li>
@@ -282,7 +295,7 @@
             <a href='/components/switch.wink/'>Wink Switch</a>
         </li>
         <li>
-            <a href='/components/switch.xiaomi/'>Xiaomi Switch</a>
+            <a href='/components/switch.xiaomi_aqara/'>Xiaomi Switch</a>
         </li>
         <li>
             <a href='/components/switch.zwave/'>Z-Wave Switch</a>

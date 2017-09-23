@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/vacuum.xiaomi/">
+    <link rel="canonical" href="https://home-assistant.io/components/vacuum.xiaomi_miio/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Xiaomi Mi Robot Vacuum">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/vacuum.xiaomi/">
+    <meta property="og:url" content="https://home-assistant.io/components/vacuum.xiaomi_miio/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -74,13 +74,13 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi</code> vacuum platform allows you to control the state of your <a href="http://www.mi.com/roomrobot/">Xiaomi Mi Robot Vacuum</a>.</p>
+  <p>The <code class="highlighter-rouge">xiaomi miio</code> vacuum platform allows you to control the state of your <a href="http://www.mi.com/roomrobot/">Xiaomi Mi Robot Vacuum</a>.</p>
 <p>Current supported features are <code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">turn_off</code> (stops goes to dock), <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">clean_spot</code>, <code class="highlighter-rouge">set_fanspeed</code> and even remote control your robot.</p>
 <p>Please follow the instructions on <a href="/components/vacuum.xiaomi/#retrieving-the-access-token">Retrieving the Access Token</a> to get the API token to use in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 <p>To add a vacuum to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">vacuum</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_miio</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
     <span class="s">token</span><span class="pi">:</span> <span class="s">YOUR_TOKEN</span>
 </code></pre>
@@ -256,7 +256,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/vacuum.xiaomi.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/vacuum.xiaomi_miio.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/xiaomi.png' />
   </div>
@@ -273,26 +273,8 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
-        <li><a href='/components/binary_sensor.xiaomi/'>
-          Xiaomi Binary Sensor
-        </a></li>
-        <li><a href='/components/cover.xiaomi/'>
-          Xiaomi Cover
-        </a></li>
-        <li><a href='/components/xiaomi/'>
-          Xiaomi Gateway
-        </a></li>
-        <li><a href='/components/light.xiaomi/'>
-          Xiaomi Light
-        </a></li>
-        <li><a href='/components/device_tracker.xiaomi/'>
-          Xiaomi Router
-        </a></li>
-        <li><a href='/components/sensor.xiaomi/'>
-          Xiaomi Sensor
-        </a></li>
-        <li><a href='/components/switch.xiaomi/'>
-          Xiaomi Switch
+        <li><a href='/components/light.xiaomi_miio/'>
+          Xiaomi Philips Light
         </a></li>
     </ul>
     </div>
@@ -301,6 +283,9 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
     <ul class='divided'>
         <li>
             <a href='/components/vacuum.dyson/'>Dyson 360 Eye</a>
+        </li>
+        <li>
+            <a href='/components/vacuum.mqtt/'>MQTT Vacuum</a>
         </li>
         <li>
             Xiaomi Mi Robot Vacuum

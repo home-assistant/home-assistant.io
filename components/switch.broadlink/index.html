@@ -89,7 +89,7 @@
   <li><strong>mac</strong> (<em>Required</em>):  Device MAC address.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): Timeout in seconds for the connection to the device.</li>
   <li><strong>friendly_name</strong> (<em>Optional</em>): The name used to display the switch in the frontend.</li>
-  <li><strong>type</strong> (<em>Required for some models</em>): Switch type. Choose one from: <code class="highlighter-rouge">rm</code>, <code class="highlighter-rouge">rm2</code>, <code class="highlighter-rouge">rm_mini</code>, <code class="highlighter-rouge">rm_pro_phicomm</code>, <code class="highlighter-rouge">rm2_home_plus</code>, <code class="highlighter-rouge">rm2_home_plus_gdt</code>, <code class="highlighter-rouge">rm2_pro_plus</code>, <code class="highlighter-rouge">rm2_pro_plus2</code>, <code class="highlighter-rouge">rm2_pro_plus_bl</code>, <code class="highlighter-rouge">rm_mini_shate</code>, <code class="highlighter-rouge">sp1</code>, <code class="highlighter-rouge">sp2</code>, <code class="highlighter-rouge">honeywell_sp2</code>, <code class="highlighter-rouge">sp3</code>, <code class="highlighter-rouge">spmini2</code> or <code class="highlighter-rouge">spminiplus</code>.</li>
+  <li><strong>type</strong> (<em>Required for some models</em>): Switch type. Choose one from: <code class="highlighter-rouge">rm</code>, <code class="highlighter-rouge">rm2</code>, <code class="highlighter-rouge">rm_mini</code>, <code class="highlighter-rouge">rm_pro_phicomm</code>, <code class="highlighter-rouge">rm2_home_plus</code>, <code class="highlighter-rouge">rm2_home_plus_gdt</code>, <code class="highlighter-rouge">rm2_pro_plus</code>, <code class="highlighter-rouge">rm2_pro_plus2</code>, <code class="highlighter-rouge">rm2_pro_plus_bl</code>, <code class="highlighter-rouge">rm_mini_shate</code>, <code class="highlighter-rouge">sp1</code>, <code class="highlighter-rouge">sp2</code>, <code class="highlighter-rouge">honeywell_sp2</code>, <code class="highlighter-rouge">sp3</code>, <code class="highlighter-rouge">spmini2</code>, <code class="highlighter-rouge">spminiplus</code> or <code class="highlighter-rouge">mp1</code>.</li>
   <li><strong>switches</strong> (<em>Optional</em>): The array that contains all switches.
     <ul>
       <li><strong>identifier</strong> (<em>Required</em>): Name of the command switch as slug. Multiple entries are possible.
@@ -99,6 +99,14 @@
           <li><strong>command_off</strong> (<em>Required</em>): Base64 encoded packet from RM device to take for off.</li>
         </ul>
       </li>
+    </ul>
+  </li>
+  <li><strong>slots</strong> (<em>Optional</em>): Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be <code class="highlighter-rouge">switch's friendly_name + 'slot {slot_index}'</code>. e.g ‘MP1 slot 1’
+    <ul>
+      <li><strong>slot_1</strong> (<em>Optional</em>)</li>
+      <li><strong>slot_2</strong> (<em>Optional</em>)</li>
+      <li><strong>slot_3</strong> (<em>Optional</em>)</li>
+      <li><strong>slot_4</strong> (<em>Optional</em>)</li>
     </ul>
   </li>
 </ul>
@@ -157,6 +165,22 @@
     <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
     <span class="s">type</span><span class="pi">:</span>  <span class="s">sp2</span>
     <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Humidifier'</span>
+</code></pre>
+</div>
+<p>Example config for <code class="highlighter-rouge">mp1</code> device:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">broadlink</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
+    <span class="s">mac</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MAC_ADDRESS'</span>
+    <span class="s">type</span><span class="pi">:</span> <span class="s">mp1</span>
+    <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">MP1'</span>
+    <span class="s">slots</span><span class="pi">:</span>
+      <span class="c1"># friendly name of slots - optional</span>
+      <span class="c1"># if not set, slot name will be switch's friendly_name + 'slot {slot_index}'. e.g 'MP1 slot 1'</span>
+      <span class="s">slot_1</span><span class="pi">:</span> <span class="s1">'</span><span class="s">TV</span><span class="nv"> </span><span class="s">slot'</span>
+      <span class="s">slot_2</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Xbox</span><span class="nv"> </span><span class="s">slot'</span>
+      <span class="s">slot_3</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Fan</span><span class="nv"> </span><span class="s">slot'</span>
+      <span class="s">slot_4</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Speaker</span><span class="nv"> </span><span class="s">slot'</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="service-send_packet" href="#service-send_packet"></a> Service <code class="highlighter-rouge">send_packet</code></h3>
@@ -301,6 +325,9 @@ Use <a href="http://tomeko.net/online_tools/hex_to_base64.php?lang=en1">this</a>
             <a href='/components/switch.digital_ocean/'>Digital Ocean Switch</a>
         </li>
         <li>
+            <a href='/components/switch.doorbird/'>DoorBird Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.edimax/'>Edimax Switch</a>
         </li>
         <li>
@@ -406,6 +433,9 @@ Use <a href="http://tomeko.net/online_tools/hex_to_base64.php?lang=en1">this</a>
             <a href='/components/switch.tellduslive/'>Telldus Live Switch</a>
         </li>
         <li>
+            <a href='/components/switch.telnet/'>Telnet Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.template/'>Template Switch</a>
         </li>
         <li>
@@ -427,7 +457,7 @@ Use <a href="http://tomeko.net/online_tools/hex_to_base64.php?lang=en1">this</a>
             <a href='/components/switch.wink/'>Wink Switch</a>
         </li>
         <li>
-            <a href='/components/switch.xiaomi/'>Xiaomi Switch</a>
+            <a href='/components/switch.xiaomi_aqara/'>Xiaomi Switch</a>
         </li>
         <li>
             <a href='/components/switch.zwave/'>Z-Wave Switch</a>

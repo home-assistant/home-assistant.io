@@ -1,15 +1,15 @@
 {
-  "current_version": "0.53.1",
-  "release_date": "2017-09-12T00:00:00+00:00",
-  "release_notes": "https://home-assistant.io/blog/2017/09/09/release-53/",
-  "release_notes_path": "/blog/2017/09/09/release-53/",
-  "release_title": "0.53: Tesla, Customize editor, and super fast KNX rewrite",
-  "release_description": "Also now supports a text input UI component, Mopar and Geofency.",
-  "patch_version_notes": "#release-0531---september-11",
+  "current_version": "0.54.0",
+  "release_date": "2017-09-23T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2017/09/23/release-54/",
+  "release_notes_path": "/blog/2017/09/23/release-54/",
+  "release_title": "0.54: Todoist, DoorBird, Abode cameras",
+  "release_description": "4 years of Home Assistant is celebrated with another great release.",
+  "patch_version_notes": "#",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
-    "minor": 53,
-    "patch": 1
+    "minor": 54,
+    "patch": 0
   }
 }

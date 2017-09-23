@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to setup the Xiaomi binary sensors within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.xiaomi/">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.xiaomi_aqara/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Xiaomi Binary Sensor">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.xiaomi/">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.xiaomi_aqara/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup the Xiaomi binary sensors within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -74,8 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi</code> binary sensor platform allows you to get data from your <a href="http://www.mi.com/en/">Xiaomi</a> binary sensors.</p>
-<p>The requirement is that you have setup the <a href="/components/xiaomi/"><code class="highlighter-rouge">xiaomi</code> component</a>.</p>
+  <p>The <code class="highlighter-rouge">xiaomi aqara</code> binary sensor platform allows you to get data from your <a href="http://www.mi.com/en/">Xiaomi</a> binary sensors.</p>
+<p>The requirement is that you have setup the <a href="/components/xiaomi_aqara/"><code class="highlighter-rouge">xiaomi aqara</code> component</a>.</p>
 <h3><a class="title-link" name="type-of-sensors-supported" href="#type-of-sensors-supported"></a> Type of sensors supported</h3>
 <table>
   <thead>
@@ -275,7 +275,7 @@
       <span class="s">data</span><span class="pi">:</span>
         <span class="s">title</span><span class="pi">:</span> <span class="s">Fire alarm!</span>
         <span class="s">message</span><span class="pi">:</span> <span class="s">Fire/Smoke detected!</span>
-    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi.play_ringtone</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi_aqara.play_ringtone</span>
       <span class="s">data</span><span class="pi">:</span>
         <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
         <span class="s">ringtone_id</span><span class="pi">:</span> <span class="s">2</span>
@@ -326,7 +326,7 @@
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.switch_158d000xxxxxc2</span>
       <span class="s">click_type</span><span class="pi">:</span> <span class="s">long_click_press</span>
   <span class="s">action</span><span class="pi">:</span>
-    <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi.play_ringtone</span>
+    <span class="s">service</span><span class="pi">:</span> <span class="s">xiaomi_aqara.play_ringtone</span>
     <span class="s">data</span><span class="pi">:</span>
       <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
       <span class="s">ringtone_id</span><span class="pi">:</span> <span class="s">8</span>
@@ -460,7 +460,7 @@
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/binary_sensor.xiaomi.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/binary_sensor.xiaomi_aqara.markdown'>Edit this page on GitHub</a></div>
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/xiaomi.png' />
   </div>
@@ -477,25 +477,19 @@
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
-        <li><a href='/components/cover.xiaomi/'>
+        <li><a href='/components/cover.xiaomi_aqara/'>
           Xiaomi Cover
         </a></li>
-        <li><a href='/components/xiaomi/'>
+        <li><a href='/components/xiaomi_aqara/'>
           Xiaomi Gateway
         </a></li>
-        <li><a href='/components/light.xiaomi/'>
+        <li><a href='/components/light.xiaomi_aqara/'>
           Xiaomi Light
         </a></li>
-        <li><a href='/components/vacuum.xiaomi/'>
-          Xiaomi Mi Robot Vacuum
-        </a></li>
-        <li><a href='/components/device_tracker.xiaomi/'>
-          Xiaomi Router
-        </a></li>
-        <li><a href='/components/sensor.xiaomi/'>
+        <li><a href='/components/sensor.xiaomi_aqara/'>
           Xiaomi Sensor
         </a></li>
-        <li><a href='/components/switch.xiaomi/'>
+        <li><a href='/components/switch.xiaomi_aqara/'>
           Xiaomi Switch
         </a></li>
     </ul>
@@ -535,6 +529,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.concord232/'>Concord232 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.doorbird/'>DoorBird Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
@@ -628,6 +625,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.spc/'>SPC Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.satel_integra/'>Satel Integra Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
