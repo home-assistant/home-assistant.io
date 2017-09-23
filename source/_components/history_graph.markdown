@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: History
 logo: home-assistant.png
-ha_release: "0.54"
+ha_release: "0.55"
 ---
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/history_graph.png' />
