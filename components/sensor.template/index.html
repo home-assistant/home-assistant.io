@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Template Sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate Template sensors into Home Assistant.">
+    <meta name="description" content="Instructions how to integrate Template Sensors into Home Assistant.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.template/">
     <meta property="fb:app_id" content="338291289691179">
@@ -16,12 +16,12 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/sensor.template/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Template sensors into Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate Template Sensors into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:title" content="Template Sensor">
-    <meta name="twitter:description" content="Instructions how to integrate Template sensors into Home Assistant.">
+    <meta name="twitter:description" content="Instructions how to integrate Template Sensors into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -74,119 +74,173 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which break out <code class="highlighter-rouge">state_attributes</code> from other entities.</p>
-<p>To enable Template sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which break out <code class="highlighter-rouge">state_attributes</code>
+from other entities.</p>
+<p>To enable Template Sensors in your installation, add the following to your
+<code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">solar_angle</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sun.sun.attributes.elevation</span><span class="nv"> </span><span class="s">}}'</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sun</span><span class="nv"> </span><span class="s">angle'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Sun</span><span class="nv"> </span><span class="s">angle"</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">degrees'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sun.sun.attributes.elevation</span><span class="nv"> </span><span class="s">}}"</span>
+
       <span class="s">sunrise</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sun.sun.attributes.next_rising</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sun.sun.attributes.next_rising</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>sensors</strong> array (<em>Required</em>): List of your sensors.
-    <ul>
-      <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
-      <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
-      <li><strong>value_template</strong> (<em>Required</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract a value from the event bus.</li>
-      <li><strong>icon_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> for the icon of the sensor.</li>
-      <li><strong>entity_id</strong> (<em>Optional</em>): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.</li>
-    </ul>
-  </li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="sensors" href="#sensors"></a> sensors</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">List of your sensors.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="friendly_name" href="#friendly_name"></a> friendly_name</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name to use in the frontend.</span></p>
+        </dd>
+        <dt><a class="title-link" name="entity_id" href="#entity_id"></a> entity_id</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string, list">string | list</span>)</span><span class="required">(Optional)</span><span class="description">Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.</span></p>
+        </dd>
+        <dt><a class="title-link" name="unit_of_measurement" href="#unit_of_measurement"></a> unit_of_measurement</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Defines the units of measurement of the sensor, if any.</span></p>
+        </dd>
+        <dt><a class="title-link" name="value_template" href="#value_template"></a> value_template</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Required)</span><span class="description">Defines a template to get the state of the sensor.</span></p>
+        </dd>
+        <dt><a class="title-link" name="icon_template" href="#icon_template"></a> icon_template</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Optional)</span><span class="description">Defines a template for the icon of the sensor.</span></p>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<h2><a class="title-link" name="considerations" href="#considerations"></a> Considerations</h2>
+<p>If you are using the state of a platform that takes extra time to load, the
+Template Sensor may get an <code class="highlighter-rouge">unknown</code> state during startup. This results
+in error messages in your log file until that platform has completed loading.
+If you use <code class="highlighter-rouge">is_state()</code> function in your template, you can avoid this situation.
+For example, you would replace
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">states.switch.source.state</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">'on'</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>
+with this equivalent that returns <code class="highlighter-rouge">true</code>/<code class="highlighter-rouge">false</code> and never gives an unknown
+result:
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('switch.source',</span><span class="w"> </span><span class="err">'on')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code></p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you find some real life examples of how to use this sensor.</p>
-<h3><a class="title-link" name="sun-angle" href="#sun-angle"></a> Sun angle</h3>
+<h3><a class="title-link" name="sun-angle" href="#sun-angle"></a> Sun Angle</h3>
 <p>This example shows the sun angle in the frontend.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">solar_angle</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">"%+.1f"|format(states.sun.sun.attributes.elevation)</span><span class="nv"> </span><span class="s">}}'</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sun</span><span class="nv"> </span><span class="s">Angle'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Sun</span><span class="nv"> </span><span class="s">Angle"</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">°'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">'%+.1f'|format(states.sun.sun.attributes.elevation)</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="renaming-sensor-output" href="#renaming-sensor-output"></a> Renaming sensor output</h3>
-<p>If you don’t like the wording of a sensor output then the template sensor can help too. Let’s rename the output of the <a href="/components/sun/">Sun component</a> as a simple example:</p>
+<h3><a class="title-link" name="renaming-sensor-output" href="#renaming-sensor-output"></a> Renaming Sensor Output</h3>
+<p>If you don’t like the wording of a sensor output then the Template Sensor can
+help too. Let’s rename the output of the <a href="/components/sun/">Sun component</a> as
+a simple example:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">sun_state</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}up{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}down{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sun</span><span class="nv"> </span><span class="s">state'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Sun</span><span class="nv"> </span><span class="s">State"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('sun.sun', 'above_horizon') %}</span>
+            <span class="no">up</span>
+          <span class="no">{% else %}</span>
+            <span class="no">down</span>
+          <span class="no">{% endif %}</span>
 </code></pre>
 </div>
-<p>Processes monitored by the <a href="/components/sensor.systemmonitor/">System Monitor sensor</a> show <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code> if they are running or not. This example shows how the output of a monitored <code class="highlighter-rouge">glances</code> process can be renamed.</p>
+<p>Processes monitored by the <a href="/components/sensor.systemmonitor/">System Monitor sensor</a>
+show <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code> if they are running or not. This example shows how the
+output of a monitored <code class="highlighter-rouge">glances</code> process can be renamed.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">glances</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sensor.process_glances",</span><span class="nv"> </span><span class="s">"off")</span><span class="nv"> </span><span class="s">%}not</span><span class="nv"> </span><span class="s">running{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}running{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Glances'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Glances"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('sensor.process_glances', 'on') %}</span>
+            <span class="no">running</span>
+          <span class="no">{% else %}</span>
+            <span class="no">not running</span>
+          <span class="no">{% endif %}</span>
 </code></pre>
 </div>
-<p>By comparing the details published on the <a href="/topics/templating/">template</a> page the same can be achieved with a different approach:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%if</span><span class="nv"> </span><span class="s">states.sensor.ENTITY_ID.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">%}running{%elif</span><span class="nv"> </span><span class="s">states.switch.ENTITY_ID.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'off'</span><span class="nv"> </span><span class="s">%}not</span><span class="nv"> </span><span class="s">running{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
-</code></pre>
-</div>
-<p>The <a href="/components/binary_sensor.template/">Binary template sensor</a> is the one in similar cases if you prefer to see an icon instead of text.</p>
-<h3><a class="title-link" name="multiline-example-with-an-if-test" href="#multiline-example-with-an-if-test"></a> Multiline example with an if test</h3>
-<p>This example shows a multiple line template with an if test. It looks at a sensing switch and shows on/off in the frontend.</p>
+<p>The <a href="/components/binary_sensor.template/">Template Binary Sensor</a> is the one in
+similar cases if you prefer to see an icon instead of text.</p>
+<h3><a class="title-link" name="multiline-example-with-an-if-test" href="#multiline-example-with-an-if-test"></a> Multiline Example With an <code class="highlighter-rouge">if</code> Test</h3>
+<p>This example shows a multiple line template with an <code class="highlighter-rouge">if</code> test. It looks at a
+sensing switch and shows <code class="highlighter-rouge">on</code>/<code class="highlighter-rouge">off</code> in the frontend.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">kettle</span><span class="pi">:</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Kettle'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Kettle"</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
-            <span class="no">{%- if is_state("switch.kettle", "off") %}</span>
-                <span class="no">off</span>
-            <span class="no">{%  elif states.switch.kettle.attributes.kwh &lt; 1000 %}</span>
-                <span class="no">standby</span>
-            <span class="no">{% elif is_state("switch.kettle", "on") %}</span>
-                <span class="no">on</span>
-            <span class="no">{% else %}</span>
-                <span class="no">failed</span>
-            <span class="no">{%- endif %}</span>
+          <span class="no">{% if is_state('switch.kettle', 'off') %}</span>
+            <span class="no">off</span>
+          <span class="no">{% elif states.switch.kettle.attributes.kwh|float &lt; 1000 %}</span>
+            <span class="no">standby</span>
+          <span class="no">{% elif is_state('switch.kettle', 'on') %}</span>
+            <span class="no">on</span>
+          <span class="no">{% else %}</span>
+            <span class="no">failed</span>
+          <span class="no">{% endif %}</span>
 
       <span class="s">next_sensor</span><span class="pi">:</span>
-      <span class="pi">[</span><span class="nv">...</span><span class="pi">]</span>
+        <span class="s">...</span>
 </code></pre>
 </div>
-<p class="note">
-Please note the blank line to close the multi-line template.
-</p>
-<h3><a class="title-link" name="change-the-unit-of-measurement" href="#change-the-unit-of-measurement"></a> Change the unit of measurement</h3>
-<p>With a template sensor it’s easy to convert given values into others if the unit of measurement doesn’t fit your needs.</p>
+<h3><a class="title-link" name="change-the-unit-of-measurement" href="#change-the-unit-of-measurement"></a> Change The Unit of Measurement</h3>
+<p>With a Template Sensor it’s easy to convert given values into others if the
+unit of measurement doesn’t fit your needs.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">transmission_down_speed_kbps</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.transmission_down_speed.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">multiply(1024)</span><span class="nv"> </span><span class="s">}}'</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Transmission</span><span class="nv"> </span><span class="s">Down</span><span class="nv"> </span><span class="s">Speed'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Transmission</span><span class="nv"> </span><span class="s">Down</span><span class="nv"> </span><span class="s">Speed"</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">kB/s'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states('sensor.transmission_down_speed')|float</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1024</span><span class="nv"> </span><span class="s">}}"</span>
+
       <span class="s">transmission_up_speed_kbps</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.transmission_up_speed.state</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">multiply(1024)</span><span class="nv"> </span><span class="s">}}'</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Transmission</span><span class="nv"> </span><span class="s">Up</span><span class="nv"> </span><span class="s">Speed'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Transmission</span><span class="nv"> </span><span class="s">Up</span><span class="nv"> </span><span class="s">Speed"</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">kB/s'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states('sensor.transmission_up_speed')|float</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1024</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="change-the-icon" href="#change-the-icon"></a> Change the icon</h3>
+<h3><a class="title-link" name="change-the-icon" href="#change-the-icon"></a> Change The Icon</h3>
 <p>This example shows how to change the icon based on the day/night cycle.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">day_night</span><span class="pi">:</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Day/Night'</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}Day{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}Night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-        <span class="s">icon_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">is_state("sun.sun",</span><span class="nv"> </span><span class="s">"above_horizon")</span><span class="nv"> </span><span class="s">%}mdi:weather-sunny{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:weather-night{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}'</span>
-        
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Day/Night"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('sun.sun', 'above_horizon') %}</span>
+            <span class="no">Day</span>
+          <span class="no">{% else %}</span>
+            <span class="no">Night</span>
+          <span class="no">{% endif %}</span>
+        <span class="no">icon_template: &gt;-</span>
+          <span class="no">{% if is_state('sun.sun', 'above_horizon') %}</span>
+            <span class="no">mdi:weather-sunny</span>
+          <span class="no">{% else %}</span>
+            <span class="no">mdi:weather-night</span>
+          <span class="no">{% endif %}</span>
 </code></pre>
 </div>
 </article>
@@ -217,7 +271,7 @@ Please note the blank line to close the multi-line template.
           Template Light
         </a></li>
         <li><a href='/components/switch.template/'>
-          Template switch
+          Template Switch
         </a></li>
     </ul>
     </div>

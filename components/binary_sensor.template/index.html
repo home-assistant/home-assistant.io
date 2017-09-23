@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Template Binary Sensor - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate Template binary sensors into Home Assistant.">
+    <meta name="description" content="Instructions how to integrate Template Binary Sensors into Home Assistant.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.template/">
     <meta property="fb:app_id" content="338291289691179">
@@ -16,12 +16,12 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.template/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate Template binary sensors into Home Assistant.">
+    <meta property="og:description" content="Instructions how to integrate Template Binary Sensors into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:title" content="Template Binary Sensor">
-    <meta name="twitter:description" content="Instructions how to integrate Template binary sensors into Home Assistant.">
+    <meta name="twitter:description" content="Instructions how to integrate Template Binary Sensors into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -74,125 +74,167 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which breaks out the <code class="highlighter-rouge">state</code> and <code class="highlighter-rouge">state_attributes</code> from other entities. The state of a template binary sensor can only be <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code>.</p>
-<p>To enable template binary sensors in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which breaks out the <code class="highlighter-rouge">state</code> and
+<code class="highlighter-rouge">state_attributes</code> from other entities. The state of a Template Binary Sensor
+can only be <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code>.</p>
+<p>To enable Template Binary Sensors in your installation, add the following to
+your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">sun_up</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sun.sun.attributes.elevation</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0}}'</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sun</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">up'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Sun</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">up"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{{ states.sun.sun.attributes.elevation|float &gt; 0 }}</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>sensors</strong> array (<em>Required</em>): List of your sensors.
-    <ul>
-      <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the Frontend.</li>
-      <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
-      <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to extract a value from the payload.</li>
-      <li><strong>entity_id</strong> (<em>Optional</em>): Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update it’s state.</li>
-      <li><strong>on_delay</strong> (<em>Optional</em>): The amount of time the template state must be met before this sensor will switch to on.</li>
-      <li><strong>off_delay</strong> (<em>Optional</em>): The amount of time the template state must be not met before this sensor will switch to off.</li>
-    </ul>
-  </li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="sensors" href="#sensors"></a> sensors</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">List of your sensors.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="friendly_name" href="#friendly_name"></a> friendly_name</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name to use in the frontend.</span></p>
+        </dd>
+        <dt><a class="title-link" name="entity_id" href="#entity_id"></a> entity_id</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string, list">string | list</span>)</span><span class="required">(Optional)</span><span class="description">Add a list of entity IDs so the sensor only reacts to state changes of these entities. This will reduce the number of times the sensor will try to update its state.</span></p>
+        </dd>
+        <dt><a class="title-link" name="device_class" href="#device_class"></a> device_class</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="device_class"><a href="/components/binary_sensor/#device_class">device_class</a></span>)</span><span class="required">(Optional)</span><span class="description">The type/class of the sensor to set the icon in the frontend.</span></p>
+          <p class="default">Default value: None</p>
+        </dd>
+        <dt><a class="title-link" name="value_template" href="#value_template"></a> value_template</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Required)</span><span class="description">Defines a template to set the state of the sensor.</span></p>
+        </dd>
+        <dt><a class="title-link" name="on_delay" href="#on_delay"></a> on_delay</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>met</em></strong> before this sensor will switch to <code class="highlighter-rouge">on</code>.</span></p>
+        </dd>
+        <dt><a class="title-link" name="off_delay" href="#off_delay"></a> off_delay</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>not met</em></strong> before this sensor will switch to <code class="highlighter-rouge">off</code>.</span></p>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<h2><a class="title-link" name="considerations" href="#considerations"></a> Considerations</h2>
+<p>If you are using the state of a platform that takes extra time to load, the
+Template Binary Sensor may get an <code class="highlighter-rouge">unknown</code> state during startup. This results
+in error messages in your log file until that platform has completed loading.
+If you use <code class="highlighter-rouge">is_state()</code> function in your template, you can avoid this situation.
+For example, you would replace
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">states.switch.source.state</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">'on'</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>
+with this equivalent that returns <code class="highlighter-rouge">true</code>/<code class="highlighter-rouge">false</code> and never gives an unknown
+result:
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('switch.source',</span><span class="w"> </span><span class="err">'on')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code></p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you find some real life examples of how to use this sensor.</p>
-<h3><a class="title-link" name="sensor-threshold" href="#sensor-threshold"></a> Sensor threshold</h3>
-<p>This example indicates true if a sensor is above a given threshold. Assuming a sensor of <code class="highlighter-rouge">furnace</code> that provides a current reading for the fan motor, we can determine if the furnace is running by checking that it is over some threshold:</p>
+<h3><a class="title-link" name="sensor-threshold" href="#sensor-threshold"></a> Sensor Threshold</h3>
+<p>This example indicates true if a sensor is above a given threshold. Assuming a
+sensor of <code class="highlighter-rouge">furnace</code> that provides a current reading for the fan motor, we can
+determine if the furnace is running by checking that it is over some threshold:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">furnace_on</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">states.sensor.furnace.state &gt; 2.5</span> <span class="pi">}}</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">Running'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">Running"</span>
         <span class="s">device_class</span><span class="pi">:</span> <span class="s">heat</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states('sensor.furnace')|float</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">2.5</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="switch-as-sensor" href="#switch-as-sensor"></a> Switch as sensor</h3>
-<p>Some movement sensors and door/window sensors will appear as a switch. By using a template binary sensor, the switch can be displayed as a binary sensors. The original switch can then be hidden by <a href="/getting-started/customizing-devices/">customizing.</a></p>
+<h3><a class="title-link" name="switch-as-sensor" href="#switch-as-sensor"></a> Switch as Sensor</h3>
+<p>Some movement sensors and door/window sensors will appear as a switch. By using
+a Template Binary Sensor, the switch can be displayed as a binary sensors. The
+original switch can then be hidden by
+<a href="/getting-started/customizing-devices/">customizing</a>.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">movement</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.switch.movement.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span>
         <span class="s">device_class</span><span class="pi">:</span> <span class="s">motion</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('switch.movement',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">}}"</span>
       <span class="s">door</span><span class="pi">:</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.switch.door.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span>
         <span class="s">device_class</span><span class="pi">:</span> <span class="s">opening</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('switch.door',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="combining-multiple-sensors-and-using-entity_id" href="#combining-multiple-sensors-and-using-entity_id"></a> Combining multiple sensors, and using entity_id:</h3>
+<h3><a class="title-link" name="combining-multiple-sensors-and-using-entity_id" href="#combining-multiple-sensors-and-using-entity_id"></a> Combining Multiple Sensors, and Using <code class="highlighter-rouge">entity_id</code></h3>
 <p>This example combines multiple CO sensors into a single overall
 status. When using templates with binary sensors, you need to return
-<code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code> explicitly. <code class="highlighter-rouge">entity_id</code> is used to limit which
+<code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> explicitly. <code class="highlighter-rouge">entity_id</code> is used to limit which
 sensors are being monitored to update the state, making computing this
 sensor far more efficient.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">co</span><span class="pi">:</span>
-        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">CO'</span>
-        <span class="s">device_class</span><span class="pi">:</span> <span class="s1">'</span><span class="s">gas'</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CO"</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">gas</span>
+        <span class="s">entity_id</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">sensor.bedroom_co_status</span>
+          <span class="pi">-</span> <span class="s">sensor.kitchen_co_status</span>
+          <span class="pi">-</span> <span class="s">sensor.wardrobe_co_status</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
-          <span class="no">{%- if is_state("sensor.bedroom_co_status", "Ok")</span>
-              <span class="no">and is_state("sensor.kitchen_co_status", "Ok")</span>
-              <span class="no">and is_state("sensor.wardrobe_co_status", "Ok") -%}</span>
-          <span class="no">False</span>
-          <span class="no">{%- else -%}</span>
-          <span class="no">True</span>
-          <span class="no">{%- endif %}</span>
-        <span class="no">entity_id:</span>
-          <span class="no">- sensor.bedroom_co_status</span>
-          <span class="no">- sensor.kitchen_co_status</span>
-          <span class="no">- sensor.wardrobe_co_status</span>
+          <span class="no">{{ is_state('sensor.bedroom_co_status', 'Ok')</span>
+             <span class="no">and is_state('sensor.kitchen_co_status', 'Ok')</span>
+             <span class="no">and is_state('sensor.wardrobe_co_status', 'Ok') }}</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="washing-machine-running" href="#washing-machine-running"></a> Washing Machine Running</h3>
-<p>This example creates a washing machine “load running” sensor by monitoring an energy meter connected to the washer. During the washer’s operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing <code class="highlighter-rouge">off_delay</code>, we can have this sensor only turn off if there has been no washer activity for 5 minutes.</p>
+<p>This example creates a washing machine “load running” sensor by monitoring an
+energy meter connected to the washer. During the washer’s operation, the energy
+meter will fluctuate wildly, hitting zero frequently even before the load is
+finished. By utilizing <code class="highlighter-rouge">off_delay</code>, we can have this sensor only turn off if
+there has been no washer activity for 5 minutes.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Determine when the washing machine has a load running.</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Washing Machine</span>
-    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.sensor.washing_machine_power.state</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0</span><span class="nv"> </span><span class="s">}}'</span>
-    <span class="s">off_delay</span><span class="pi">:</span>
-      <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">washing_machine</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Washing</span><span class="nv"> </span><span class="s">Machine"</span>
+        <span class="s">off_delay</span><span class="pi">:</span>
+          <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{{ states('sensor.washing_machine_power')|float &gt; 0 }}</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="is-anyone-home" href="#is-anyone-home"></a> Is anyone home?</h3>
+<h3><a class="title-link" name="is-anyone-home" href="#is-anyone-home"></a> Is Anyone Home?</h3>
 <p>This example is determining if anyone is home based on the combination
 of device tracking and motion sensors. It’s extremely useful if you
-have kids/baby sitter/ grand parents who might still be in your
+have kids/baby sitter/grand parents who might still be in your
 house that aren’t represented by a trackable device in home
-assistant. This is providing a composite of wifi based device tracking
-and z-wave multisensor presence sensors.</p>
+assistant. This is providing a composite of WiFi based device tracking
+and Z-Wave multisensor presence sensors.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">people_home</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">device_tracker.sean</span>
+          <span class="pi">-</span> <span class="s">device_tracker.susan</span>
+          <span class="pi">-</span> <span class="s">binary_sensor.office_124</span>
+          <span class="pi">-</span> <span class="s">binary_sensor.hallway_134</span>
+          <span class="pi">-</span> <span class="s">binary_sensor.living_room_139</span>
+          <span class="pi">-</span> <span class="s">binary_sensor.porch_ms6_1_129</span>
+          <span class="pi">-</span> <span class="s">binary_sensor.family_room_144</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
-          <span class="no">{%- if is_state("device_tracker.sean", "home")</span>
-          <span class="no">or is_state("device_tracker.susan", "home")</span>
-          <span class="no">or is_state("binary_sensor.office_124", "on")</span>
-          <span class="no">or is_state("binary_sensor.hallway_134", "on")</span>
-          <span class="no">or is_state("binary_sensor.living_room_139", "on")</span>
-          <span class="no">or is_state("binary_sensor.porch_ms6_1_129", "on")</span>
-          <span class="no">or is_state("binary_sensor.family_room_144", "on")</span>
-              <span class="no">-%}</span>
-          <span class="no">True</span>
-          <span class="no">{%- else -%}</span>
-          <span class="no">False</span>
-          <span class="no">{%- endif %}</span>
-        <span class="no">entity_id:</span>
-          <span class="no">- device_tracker.sean</span>
-          <span class="no">- device_tracker.susan</span>
-          <span class="no">- binary_sensor.office_124</span>
-          <span class="no">- binary_sensor.hallway_134</span>
-          <span class="no">- binary_sensor.living_room_139</span>
-          <span class="no">- binary_sensor.porch_ms6_1_129</span>
-          <span class="no">- binary_sensor.family_room_144</span>
+          <span class="no">{{ is_state('device_tracker.sean', 'home')</span>
+             <span class="no">or is_state('device_tracker.susan', 'home')</span>
+             <span class="no">or is_state('binary_sensor.office_124', 'on')</span>
+             <span class="no">or is_state('binary_sensor.hallway_134', 'on')</span>
+             <span class="no">or is_state('binary_sensor.living_room_139', 'on')</span>
+             <span class="no">or is_state('binary_sensor.porch_ms6_1_129', 'on')</span>
+             <span class="no">or is_state('binary_sensor.family_room_144', 'on') }}</span>
 </code></pre>
 </div>
 </article>
@@ -204,6 +246,12 @@ and z-wave multisensor presence sensors.</p>
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/home-assistant.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+    Introduced in release: 0.12
+    </div>
     <div class='section'>
       This is a platform for
       <a href='/components/binary_sensor/'>the Binary Sensor component</a>.
@@ -221,7 +269,7 @@ and z-wave multisensor presence sensors.</p>
           Template Sensor
         </a></li>
         <li><a href='/components/switch.template/'>
-          Template switch
+          Template Switch
         </a></li>
     </ul>
     </div>
