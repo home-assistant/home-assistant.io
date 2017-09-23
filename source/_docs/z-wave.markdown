@@ -86,6 +86,10 @@ $ ls /dev/cu.usbmodem*
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
 </p>
 
+<p class='note'>
+After installing and configuring Z-Wave, Home Assistant will try to install required Python Z-Wave libraries during startup (if they are not already installed). This process might take anywhere between 5 to 25 minutes depending upon various factors. Please be patient, and let it run! This happens only once and the subsequent restarts will have no impact in performance.
+</p>
+
 ### {% linkable_title Adding Devices %}
 
 To add a Z-Wave device to your system, go to the Z-Wave panel in the Home Assistant frontend and click the Add Node button in the Z-Wave Network Management card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device.
