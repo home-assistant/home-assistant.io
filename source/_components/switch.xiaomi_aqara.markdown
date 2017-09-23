@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `xiaomi` switch platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) switches.
+The `xiaomi aqara` switch platform allows you to get data from your [Xiaomi aqara](http://www.mi.com/en/) switches.
 
-The requirement is that you have setup [Xiaomi](/components/xiaomi/).
+The requirement is that you have setup [Xiaomi aqara](/components/xiaomi_aqara/).
 

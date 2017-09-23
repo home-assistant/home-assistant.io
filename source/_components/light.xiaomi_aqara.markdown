@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `xiaomi` light platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) lights.
+The `xiaomi aqara` light platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) lights.
 
-The requirement is that you have setup [Xiaomi](/components/xiaomi/).
+The requirement is that you have setup [Xiaomi aqara](/components/xiaomi_aqara/).
 

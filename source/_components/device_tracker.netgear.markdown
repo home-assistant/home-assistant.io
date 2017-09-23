@@ -36,5 +36,6 @@ Configuration variables:
 
 List of models that are known to use port 80:
 - Nighthawk X4S - AC2600 (R7800)
+- Orbi
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

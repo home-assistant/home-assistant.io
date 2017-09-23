@@ -13,7 +13,7 @@ ha_release: "0.50"
 ha_iot_class: "Local Push"
 ---
 
-The `xiaomi` platform allows you to integrate the following [Xiaomi](http://www.mi.com/en/) devices into Home Assistant.
+The `xiaomi aqara` platform allows you to integrate the following [Xiaomi](http://www.mi.com/en/) devices into Home Assistant.
 
 - Temperature and Humidity Sensor (1st and 2nd generation)
 - Motion Sensor (1st and 2nd generation)
@@ -52,7 +52,7 @@ To enable Xiaomi gateway in your installation, add the following to your `config
 
 ```yaml
 # You can leave mac empty if you only have one gateway.
-xiaomi:
+xiaomi_aqara:
   gateways:
    - mac:
      key: xxxxxxxxxxxxxxxx
@@ -62,7 +62,7 @@ xiaomi:
 
 ```yaml
 # 12 characters mac can be obtained from the gateway.
-xiaomi:
+xiaomi_aqara:
   gateways:
     - mac: xxxxxxxxxxxx
       key: xxxxxxxxxxxxxxxx
@@ -74,7 +74,7 @@ xiaomi:
 
 ```yaml
 # 12 characters MAC can be obtained from the gateway.
-xiaomi:
+xiaomi_aqara:
   interface: '192.168.0.1'
   gateways:
     - mac: xxxxxxxxxxxx
@@ -108,7 +108,7 @@ Automation example
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
   action:
-    service: xiaomi.play_ringtone
+    service: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
       ringtone_id: 8
@@ -122,7 +122,7 @@ Automation example
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
   action:
-    service: xiaomi.stop_ringtone
+    service: xiaomi_aqara.stop_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
 ```
