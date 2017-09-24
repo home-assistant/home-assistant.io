@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rss.png
 ha_category: Sensor
-ha_version: 0.52
+ha_version: 0.55
 ha_iot_class: "Cloud Polling"
 ---
 
