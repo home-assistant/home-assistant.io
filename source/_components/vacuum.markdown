@@ -16,7 +16,7 @@ To use this component in your installation, add a `vacuum` platform to your `con
 ```yaml
 # Example configuration.yaml entry
 vacuum:
-- platform: xiaomi
+- platform: xiaomi_miio
   name: 'name of the robot'
   host: 192.168.1.2
   token: your-token-here
