@@ -74,9 +74,12 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">shodan</code> sensor platform is displaying the total of result of a <a href="https://www.shodan.io/">Shodan</a> query.</p>
-<p>Use “Show API Key” in the upper right corner when you are logged in or got to your “My Account” page to retrieve your API key.</p>
-<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file for a GET request:</p>
+  <p>The <code class="highlighter-rouge">shodan</code> sensor platform is displaying the total of result of a
+<a href="https://www.shodan.io/">Shodan</a> query.</p>
+<p>Use “Show API Key” in the upper right corner when you are logged in or got to
+your “My Account” page to retrieve your API key.</p>
+<p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>
+file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">shodan</span>
@@ -84,12 +87,23 @@
     <span class="s">query</span><span class="pi">:</span> <span class="s1">'</span><span class="s">home-assistant'</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>api_key</strong> (<em>Required</em>): The API key for Shodan.io.</li>
-  <li><strong>query</strong> (<em>Required</em>): The search string.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the Shodan sensor.</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="api_key" href="#api_key"></a> api_key</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The API key for Shodan.io.</span></p>
+    </dd>
+    <dt><a class="title-link" name="query" href="#query"></a> query</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The search string.</span></p>
+    </dd>
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name of the Shodan sensor.</span></p>
+    </dd>
+  </dl>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
