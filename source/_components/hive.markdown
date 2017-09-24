@@ -30,7 +30,36 @@ hive:
 Configuration variables:
 
 - **username** (*Required*): Username from [https://my.hivehome.com](https://my.hivehome.com).
-- **password** (*Required*): Password for [https://my.hivehome.com](https://my.hivehome.com).
+- **password** (*Required*): Password from [https://my.hivehome.com](https://my.hivehome.com).
+- **minutes_between_updates** (*Optional*): The default update frequency is once every 2 minutes, use this to specify a custom minutes between updates.
+- **devices** (*Optional*): Use this to add only devices listed under the optional devices variable.
+
+
+To add all your Hive devices in to your Home Assistant installation, specifying the optional **devices** variable add the following to your 'configuration.yaml' file.  You can remove each of the options in the **devices** variable for the corresponding Hive device you would like not to be added to Home Assistant:
+
+```yaml
+# Example configuration.yaml entry
+hive:
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  minutes_between_updates: 5
+  devices:
+    - hive_heating
+    - hive_hotwater
+    - hive_thermostat_batterylevel
+    - hive_heating_currenttemperature
+    - hive_heating_targettemperature
+    - hive_heating_state
+    - hive_heating_mode
+    - hive_heating_boost
+    - hive_hotwater_mode
+    - hive_hotwater_state
+    - hive_hotwater_boost
+    - hive_active_light
+    - hive_active_sensor
+    - hive_active_light_sensor
+    - hive_active_plug_sensor
+```
 
 
 The Hive Home Assistant platform currently supports the following Hive devices:
