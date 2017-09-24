@@ -209,12 +209,11 @@ there has been no washer activity for 5 minutes.</p>
 </code></pre>
 </div>
 <h3><a class="title-link" name="is-anyone-home" href="#is-anyone-home"></a> Is Anyone Home?</h3>
-<p>This example is determining if anyone is home based on the combination
-of device tracking and motion sensors. It’s extremely useful if you
-have kids/baby sitter/grand parents who might still be in your
-house that aren’t represented by a trackable device in home
-assistant. This is providing a composite of WiFi based device tracking
-and Z-Wave multisensor presence sensors.</p>
+<p>This example is determining if anyone is home based on the combination of device
+tracking and motion sensors. It’s extremely useful if you have kids/baby sitter/
+grand parents who might still be in your house that aren’t represented by a
+trackable device in Home Assistant. This is providing a composite of WiFi based
+device tracking and Z-Wave multisensor presence sensors.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
