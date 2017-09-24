@@ -23,4 +23,5 @@ To get started with the new image, check out the installation instructions on th
 
 [hassio-hardware-image-release]: https://github.com/home-assistant/hassio-build/releases/tag/1.1
 [install]: https://home-assistant.io/hassio/installation/
+[builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
 [discord-hassio]: FIXME
