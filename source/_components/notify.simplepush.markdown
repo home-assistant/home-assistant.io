@@ -40,11 +40,11 @@ notify:
     type: string
   password:
     description: The password of the encryption used by your device.
-    required: false
+    required: inclusive
     type: string
   salt:
     description: The salt used by your device.
-    required: false
+    required: inclusive
     type: string
 {% endconfiguration %}
 
