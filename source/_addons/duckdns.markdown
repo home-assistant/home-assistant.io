@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Duck DNS"
+title: "DuckDNS"
 description: "Automatically update your Duck DNS IP address."
 date: 2017-04-30 13:28
 sidebar: true
@@ -10,7 +10,7 @@ footer: true
 featured: true
 ---
 
-[Duck DNS](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.
+[Duck DNS](https://duckdns.org/) is a free dynamic DNS service. Using this service you can have a custom domainname under duckdns.org point at your home computer.
 
 ```json
 {
