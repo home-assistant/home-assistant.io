@@ -173,12 +173,11 @@ binary_sensor:
 
 ### {% linkable_title Is Anyone Home? %}
 
-This example is determining if anyone is home based on the combination
-of device tracking and motion sensors. It's extremely useful if you
-have kids/baby sitter/grand parents who might still be in your
-house that aren't represented by a trackable device in home
-assistant. This is providing a composite of WiFi based device tracking
-and Z-Wave multisensor presence sensors.
+This example is determining if anyone is home based on the combination of device
+tracking and motion sensors. It's extremely useful if you have kids/baby sitter/
+grand parents who might still be in your house that aren't represented by a
+trackable device in Home Assistant. This is providing a composite of WiFi based
+device tracking and Z-Wave multisensor presence sensors.
 
 {% raw %}
 ```yaml
