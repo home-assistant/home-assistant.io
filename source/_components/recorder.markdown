@@ -2,7 +2,7 @@
 layout: page
 title: "Recorder"
 description: "Instructions how to configure the data recorder for Home Assistant."
-date: 2016-05-21 09:00
+date: 2017-09-24 09:00
 sidebar: true
 comments: false
 sharing: true
@@ -27,8 +27,7 @@ recorder:
 
 Configuration variables:
 
-- **purge_days** (*Optional*): Delete events and states older than x days. The purge task runs every 2 days, starting from when Home Assistant is started if you restart your instance more frequently than the purge will never take place.
-- **purge_disable_timer** (*Optional*): Disable default purge timer (every 2 days). Default: False. You can then start purge task by [service](#service) call.
+- **purge_days** (*Optional*): Enables purge of events and states older than x days by [service](#service) call `recorder.purge`. Purge task is not scheduled by `recorder` component anymore. (post release 0.55) 
 - **exclude** (*Optional*): Configure which components should be excluded from recordings.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
