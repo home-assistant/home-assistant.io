@@ -98,7 +98,6 @@ ios:
             activationMode: 'background'
             authenticationRequired: yes
             destructive: yes
-
 ```
 
 # Troubleshooting
