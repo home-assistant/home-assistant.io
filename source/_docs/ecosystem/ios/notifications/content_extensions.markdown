@@ -79,6 +79,27 @@ data:
 
 As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](/ecosystem/ios/notifications/actions/) to add actions to the content extension.
 
+For example this configuration adds actions to a camera content message.
+
+```yaml
+ios:
+  push:
+    categories:
+      - name: Camera With Actions
+        identifier: 'camera'
+        actions:
+          - identifier: 'OPEN_COVER'
+            title: 'Open Cover'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: no
+          - identifier: 'CLOSE_COVER'
+            title: 'Close Cover'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+```
+
 # Troubleshooting
 
 If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.
