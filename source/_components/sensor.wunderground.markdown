@@ -158,7 +158,7 @@ group:
 ```yaml
 sensor:
   - platform: wunderground
-  - api_key: your_api_key
+    api_key: your_api_key
     monitored_conditions:
       - temp_high_record_c
       - temp_high_1d_c
