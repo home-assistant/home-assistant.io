@@ -51,7 +51,7 @@ Configuration variables:
 - **password** (*Required*): Password for your Abode account.
 - **name** (*Optional*): The name for your alarm controller.
 - **polling** (*Optional*): Enable polling if cloud push updating is less reliable. Will update the devices once every 30 seconds. Defaults to False.
-- **exclude** (*Optional*): A list of devices to exclude from Home Assistant by their Abode `device_id`, found within the component attributes.
+- **exclude** (*Optional*): A list of devices to exclude from Home Assistant by their Abode `device_id` or `automation_id`, found within the component attributes.
 - **lights** (*Optional*): A list of switch devices that Home Assistant should treat as lights by the switches Abode `device_id`, found within the component attributes.
 
 ## {% linkable_title Events %}
