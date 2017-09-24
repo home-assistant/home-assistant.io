@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Xiaomi Gateway - Home Assistant</title>
+    <title>Xiaomi Gateway (Aqara) - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta name="description" content="Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/xiaomi_aqara/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Xiaomi Gateway">
+    <meta property="og:title" content="Xiaomi Gateway (Aqara)">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/xiaomi_aqara/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta property="og:description" content="Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Xiaomi Gateway">
-    <meta name="twitter:description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
+    <meta name="twitter:title" content="Xiaomi Gateway (Aqara)">
+    <meta name="twitter:description" content="Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,17 +70,18 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Xiaomi Gateway
+      Xiaomi Gateway (Aqara)
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi aqara</code> platform allows you to integrate the following <a href="http://www.mi.com/en/">Xiaomi</a> devices into Home Assistant.</p>
+  <p>The <code class="highlighter-rouge">xiaomi_aqara</code> component allows you to integrate <a href="http://www.mi.com/en/">Xiaomi</a> Aqara-compatible devices into Home Assistant.</p>
+<h4><a class="title-link" name="supported-devices" href="#supported-devices"></a> Supported Devices</h4>
 <ul>
   <li>Temperature and Humidity Sensor (1st and 2nd generation)</li>
   <li>Motion Sensor (1st and 2nd generation)</li>
   <li>Door and Window Sensor (1st and 2nd generation)</li>
   <li>Button (1st and 2nd generation)</li>
-  <li>Plug aka Socket (ZigBee version, reports power consumed, power load, state and if device in use)</li>
+  <li>Plug aka Socket (Zigbee version, reports power consumed, power load, state and if device in use)</li>
   <li>Wall Plug (reports power consumed, power load and state)</li>
   <li>Aqara Wall Switch (Single)</li>
   <li>Aqara Wall Switch (Double)</li>
@@ -96,7 +97,7 @@
   <li>Water Leak Sensor</li>
   <li>Battery</li>
 </ul>
-<p>What’s not available?</p>
+<h4><a class="title-link" name="unsupported-devices" href="#unsupported-devices"></a> Unsupported Devices</h4>
 <ul>
   <li>Gateway Radio</li>
   <li>Gateway Button</li>
@@ -105,8 +106,9 @@
   <li>Decoupled mode of the Aqara Wall Switches (Single &amp; Double)</li>
   <li>Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure</li>
 </ul>
-<p>Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a></p>
-<p>To enable Xiaomi gateway in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<h2>Setup</h2>
+<p>Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a>.</p>
+<p>To enable Xiaomi Gateway (Aqara) in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <h3><a class="title-link" name="one-gateway" href="#one-gateway"></a> One Gateway</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># You can leave mac empty if you only have one gateway.</span>
 <span class="s">xiaomi_aqara</span><span class="pi">:</span>
@@ -134,14 +136,30 @@
       <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>mac</strong> (<em>Optional</em>): The MAC of your gateway. Required if you have more than one.</li>
-  <li><strong>key</strong> (<em>Optional</em>): The key of your gateway. Required if you also want to control lights and switches. Sensors and binary sensors will still work.</li>
-  <li><strong>discovery_retry</strong> (<em>Optional</em>): Amount of times Home Assitant should try to reconnect to the Xiaomi Gateway. Default is 3.</li>
-  <li><strong>interface</strong> (<em>Optional</em>): Which network interface to use. Defaults to any.</li>
-</ul>
-<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="mac" href="#mac"></a> mac</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The MAC of your gateway. <em>Optional if only using one gateway.</em></span></p>
+    </dd>
+    <dt><a class="title-link" name="key" href="#key"></a> key</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The key of your gateway. <em>Optional if only using sensors and/or binary sensors.</em></span></p>
+    </dd>
+    <dt><a class="title-link" name="discovery_retry" href="#discovery_retry"></a> discovery_retry</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Number of times that Home Assistant should try to reconnect to the gateway.</span></p>
+      <p class="default">Default value: 3</p>
+    </dd>
+    <dt><a class="title-link" name="interface" href="#interface"></a> interface</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Which network interface to use.</span></p>
+      <p class="default">Default value: any</p>
+    </dd>
+  </dl>
+</div>
+<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
 <p>The gateway provides two services: <code class="highlighter-rouge">xiaomi.play_ringtone</code> and <code class="highlighter-rouge">xiaomi.stop_ringtone</code>. To play ringtones by Home Assistant, the version of the gateway firmware must be <code class="highlighter-rouge">1.4.1_145</code> at least. A <code class="highlighter-rouge">ringtone_id</code> and <code class="highlighter-rouge">gw_mac</code> must be supplied. The parameter <code class="highlighter-rouge">ringtone_vol</code> (percent) is optional. Allowed values of the <code class="highlighter-rouge">ringtone_id</code> are:</p>
 <ul>
   <li>alarm ringtones [0-8]</li>
@@ -149,7 +167,11 @@
   <li>alarm clock [20-29]</li>
   <li>custom ringtones (uploaded by the Mi Home app) starting from 10001</li>
 </ul>
-<p>Automation example</p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3>Long Press on Smart Button</h3>
+<p>This example plays the sound of a dog barking when the button is held down,
+and stops the sound when the button is pressed once.
+<em>Note: The sound will stop playing automatically when it has ended.</em></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Let a dog bark on long press</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
@@ -177,15 +199,15 @@
       <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
-<p><strong>Connection problem</strong></p>
+<h2><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h2>
+<h3><a class="title-link" name="connection-problem" href="#connection-problem"></a> Connection problem</h3>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>2017-08-20 16:51:19 ERROR <span class="o">(</span>SyncWorker_0<span class="o">)</span> <span class="o">[</span>homeassistant.components.xiaomi] No gateway discovered
 2017-08-20 16:51:20 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.setup] Setup failed <span class="k">for </span>xiaomi: Component failed to initialize.
 </code></pre>
 </div>
 <p>That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.</p>
 <ul>
-  <li>Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832</li>
+  <li>Make sure you have <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">enabled LAN access</a>.</li>
   <li>Turn off the firewall on the system where Home Assistant is running.</li>
   <li>Try to leave the MAC address <code class="highlighter-rouge">mac:</code> blank.</li>
   <li>Try to set <code class="highlighter-rouge">discovery_retry: 10</code>.</li>
@@ -423,7 +445,7 @@
             <a href='/components/wink/'>Wink</a>
         </li>
         <li>
-            Xiaomi Gateway
+            Xiaomi Gateway (Aqara)
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>
