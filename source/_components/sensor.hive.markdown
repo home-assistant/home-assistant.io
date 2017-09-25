@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Hive Thermostat"
-description: "Instructions on how to integrate Hive thermostat(s) with Home Assistant."
+title: "Hive Sensor"
+description: "Instructions on how to integrate Hive Sensors with Home Assistant."
 date: 2017-09-24 21:00
 sidebar: true
 comments: false
