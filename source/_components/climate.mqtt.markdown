@@ -29,16 +29,17 @@ climate:
 
 Configuration variables:
 
-- **name** (*Required*): Name of MQTT HVAC. Default is 'MQTT HVAC'
+- **name** (*Required*): Name of MQTT HVAC.
 - **target_sensor** (*Required*): `entity_id` for a temperature sensor, target_sensor.state must be temperature.
-target temperature is 25 and the tolerance is 0.5 the heater will start when the sensor goes below 24.5 and it will stop when the sensor goes above 25.5.
 - **power_command_topic** (*Optional*): The MQTT topic to publish commands to change the power state. This is useful if your device has a separate power toggle in addition to mode.
-- **mode_command_topic** (*Required*): The MQTT topic to publish commands to change the HVAC operation mode state.
+- **mode_command_topic** (*Required*): The MQTT topic to publish commands to change the HVAC operation mode.
 - **temperature_command_topic** (*Required*): The MQTT topic to publish commands to change the target temperature.
 - **fan_mode_command_topic** (*Required*): The MQTT topic to publish commands to change the fan mode.
 - **swing_mode_command_topic** (*Required*): he MQTT topic to publish commands to change the swing mode.
-- **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+- **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0` and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
+
+### {% linkable_title Example %}
 
 A full configuration example looks like the one below.
 
