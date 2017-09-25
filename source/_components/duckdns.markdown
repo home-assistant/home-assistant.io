@@ -13,7 +13,9 @@ featured: false
 ha_release: 0.55
 ---
 
-With the DuckDNS component you can keep your DuckDNS record up to date. DuckDNS is a free dynamic DNS service that allows you to point a subdomain under `duckdns.org` at your computer. To use the component in your installation, add the following to your `configuration.yaml` file:
+With the DuckDNS component you can keep your DuckDNS record up to date. DuckDNS is a free dynamic DNS service that allows you to point a subdomain under `duckdns.org` at your computer.
+
+To use the component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,7 +26,7 @@ duckdns:
 
 {% configuration binary_sensor.template %}
   domain:
-    description: Your duckdns subdomain (without the `.duckdns.org` suffix)
+    description: Your duckdns subdomain (without the `.duckdns.org` suffix).
     required: true
     type: string
   access_token:
