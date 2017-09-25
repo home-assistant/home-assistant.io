@@ -46,9 +46,9 @@ Configuration variables:
   - **max_conductivity** (*Optional*): Maximum conductivity level before triggering a problem. Typical value: 3000
   - **min_temperature** (*Optional*): Minimum temperature before triggering a problem.
   - **max_temperature** (*Optional*): Maximum temperature before triggering a problem.
-  - **min_brightness** (*Optional*): Minimum brightness before triggering a problem. In contrast to the other values this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
+  - **min_brightness** (*Optional*): Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
   - **max_brightness** (*Optional*): Maximum brightness before triggering a problem.
-  - **group_name** (*Optional*): If a group name is set, a new group in the UI will be created, that will containt the plant component and all of the sensores configured above.
+  - **group_name** (*Optional*): If a group name is set, a new group in the UI will be created, that will contain the plant component and all of the sensors configured above.
   - **check_days** (*Optional*): time interval (in days) used when checking **min_brightness**, if not set, the default value is 3
 
 ## {% linkable_title Examples %}
