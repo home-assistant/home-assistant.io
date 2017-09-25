@@ -20,7 +20,7 @@ Home Assistant will automatically discover their presence on your network.
 ## {% linkable_title Dependencies %}
 
 ```bash
-$ sudo apt-get install python3-gi gir1.2-gstreamer-1.0
+$ sudo apt-get install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools python3-gi
 ```
 
 Depending on how you run Home Assistant, you may need to symlink the `gi` module into your environment.
