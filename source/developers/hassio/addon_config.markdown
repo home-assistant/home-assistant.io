@@ -138,7 +138,7 @@ The `options` dictionary contains all available options and their default value.
     { "username": "cheep", "password": "654321" }
   ],
   "random": ["haha", "hihi", "huhu", "hghg"],
-  "link": "http://blebla.com/",
+  "link": "http://example.com/",
   "size": 15,
   "count": 1.2
 }
