@@ -35,6 +35,5 @@ Use our easy OTA updater in UI to update the hardware OS to version 1.1
 [hassio-hardware-image-release]: https://github.com/home-assistant/hassio-build/releases/tag/1.1
 [install]: https://home-assistant.io/hassio/installation/
 [builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
-[discord-hassio]: FIXME
 [frenck]: https://github.com/frenck
 [build-file]: https://home-assistant.io/developers/hassio/addon_config/
