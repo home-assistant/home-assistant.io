@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "New hass.io build system"
-description: "Raspbian Stretch release of the HASSbian Raspberry Pi Image for Home Assistant"
+description: "New build system with docker buildargs for hass.io"
 date: 2017-09-21 16:00:00 +0100
 date_formatted: "September 21, 2017"
 author: Pascal Vizeli
@@ -15,16 +15,26 @@ With hass.io 0.64 and our Hardware image 1.1 we support only the new system for 
 
 Thanks a lot for all the additional feature and things that had grow around hassio from community projects.
 
-# {% linkable_title  %}
+# {% linkable_title What will be new %}
 
-FIXME
+For the end user it change only 1 line in his dockerfile to move from our old template engine to new docker buildargs. We allow now to overwrite the default [build options][build-file] inside our tools with `build.json` file inside add-on project.
 
-To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord-hassio].
+Old:
+```
+FROM %%BASE_IMAGE%%
+```
 
-To get started with the new image, check out the installation instructions on the [installing Hassbian page][install].
+New:
+```
+ARG BUILD_FROM
+FROM $BUILD_FROM
+```
+
+Use our easy OTA updater in UI to update the hardware OS to version 1.1
 
 [hassio-hardware-image-release]: https://github.com/home-assistant/hassio-build/releases/tag/1.1
 [install]: https://home-assistant.io/hassio/installation/
 [builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
 [discord-hassio]: FIXME
-[pascal]: https://github.com/pvizeli
+[frenck]: https://github.com/frenck
+[build-file]: https://home-assistant.io/developers/hassio/addon_config/
