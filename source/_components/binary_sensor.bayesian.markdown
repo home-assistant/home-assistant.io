@@ -41,7 +41,7 @@ Configuration variables:
   - **prob_given_true** (*Required*): The probability of the observation occurring, given the event is `true`.
   - **prob_given_false** (*Optional*): The probability of the observation occurring, given the event is `false` can be set as well.  If `prob_given_false` is not set, it will default to `1 - prob_given_true`.
   - **platform** (*Required*): The only supported observation platforms are `state` and `numeric_state`, which are modeled after their corresponding triggers for automations.
-  - **to_state** (*Required*): THe target start.
+  - **to_state** (*Required*): The target start.
 - **probability_threshold** (*Optional*): The probability at which the sensor should trigger to `on`.
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Bayesian Binary`.
 

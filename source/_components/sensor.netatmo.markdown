@@ -42,7 +42,7 @@ sensor:
 Configuration variables:
 
 - **station** (*Optional*): The name of the weather station. Needed if several stations are associated with the account.
-- **modules** (*Required*): Modules to use. Multiple entries allowed. Please checkthe next section about how to retrieve the module names.
+- **modules** (*Required*): Modules to use. Multiple entries allowed. Please check the next section about how to retrieve the module names.
   - **module_name** array (*Required*): Name of the module.
     - **temperature**: Current temperature.
     - **co2**: CO2 concentration in ppm.

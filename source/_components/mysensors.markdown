@@ -49,9 +49,9 @@ mysensors:
 
 Configuration variables:
 
-- **device** (*Required*): The path to the serial gateway where it is connected to your Home Assistant host, or the address of the tcp ethernet gateway, or `mqtt` to setup the MQTT gateway. Resolving DNS addresses is theoretically supported but not tested.
+- **device** (*Required*): The path to the serial gateway where it is connected to your Home Assistant host, or the address of the TCP Ethernet gateway, or `mqtt` to setup the MQTT gateway. Resolving DNS addresses is theoretically supported but not tested.
 - **baud_rate** (*Optional*): Specifies the baud rate of the connected serial gateway. Default is 115200.
-- **tcp_port** (*Optional*): Specifies the port of the connected tcp ethernet gateway. Default is 5003.
+- **tcp_port** (*Optional*): Specifies the port of the connected TCP Ethernet gateway. Default is 5003.
 - **topic_in_prefix** (*Optional*): Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant. Default is an empty string.
 - **topic_out_prefix** (*Optional*): Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway. Default is an empty string.
 - **debug** (*DEPRECATED*): This option has been deprecated. Please remove this from your config is you have it included. Use the logger component to filter log messages on log level.
@@ -88,7 +88,7 @@ The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway
 
 Present a MySensors sensor or actuator, by following these steps:
 
-1. Connect the serial gateway to your computer or the ethernet or MQTT gateway to your network.
+1. Connect the serial gateway to your computer or the Ethernet or MQTT gateway to your network.
 2. Configure the MySensors component in `configuration.yaml`.
 3. Start hass.
 4. Write and upload your MySensors sketch to the sensor. Make sure you:

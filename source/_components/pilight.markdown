@@ -35,7 +35,7 @@ Configuration variables:
 - **send_delay** (*Optional*): You can define a send delay as a fraction of seconds if you experience transmission problems when you try to switch multiple switches at once. This can happen when you use a [pilight USB Nano](https://github.com/pilight/pilight-usb-nano) as hardware and switches a whole group of multiple switches on or off. Tested values are between 0.3 and 0.8 seconds depending on the hardware.
 - **whitelist** (*Optional*): You can define a whitelist to prevent that too many unwanted RF codes (e.g. the neighbours weather station) are put on your HA event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
 
-In this example only received RF codes using a daycom or intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://www.pilight.org/development/api/).
+In this example only received RF codes using a daycom or Intertechno protocol are put on the event bus and only when the device id is 42. For more possible settings please look at the receiver section of the pilight [API](https://www.pilight.org/development/api/).
 
 A full configuration sample could look like the sample below:
 

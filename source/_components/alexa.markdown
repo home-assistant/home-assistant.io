@@ -33,7 +33,7 @@ The built-in Alexa component allows you to integrate Home Assistant into Alexa/A
 
 ### {% linkable_title Requirements %}
 
-Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. When running Hass.io, using the [Let's Encrypt](/addons/lets_encrypt/) the and [Duck DNS](/addons/duckdns/) add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
+Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are OK because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. When running Hass.io, using the [Let's Encrypt](/addons/lets_encrypt/) the and [Duck DNS](/addons/duckdns/) add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
 
 Additionally, note that at the time of this writing, your Alexa skill endpoint *must* accept requests over port 443 (Home Assistant default to 8123). There are two ways you can handle this:
 
@@ -295,7 +295,7 @@ alexa:
           {% endif %}{% endraw %}
 ```
 
-You can add multiple items for a feed if you want. The Amazon required uid and timestamp will be randomly generated at startup and change at every restart of Home Assistant.
+You can add multiple items for a feed if you want. The Amazon required UID and timestamp will be randomly generated at startup and change at every restart of Home Assistant.
 
 Please refer to the [Amazon documentation][flash-briefing-api-docs] for more information about allowed configuration parameters and formats.
 

@@ -58,9 +58,9 @@ light:
 
 ### {% linkable_title Using Hue Groups in Home Assistant %}
 
-The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be usefull to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaniously.
+The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be useful to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaneously.
 
-These Hue Groups can be a `Luminaire`, `Lightsource`, `LightGroup` or `Room`. The `Luminaire` and `Lightsource` can't be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The `Room` and `LightGroup` can be created manually through the API, or the mobile app. A bulb can only exist in one `Room`, but can exist in multiple `LightGroup`. The `LightGroup` can be usefull to link certain bulbs together since.
+These Hue Groups can be a `Luminaire`, `Lightsource`, `LightGroup` or `Room`. The `Luminaire` and `Lightsource` can't be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The `Room` and `LightGroup` can be created manually through the API, or the mobile app. A bulb can only exist in one `Room`, but can exist in multiple `LightGroup`. The `LightGroup` can be useful to link certain bulbs together since.
 
 The 2nd generation Hue app only allows to create a `Room`. You need to use the first generation app or the API to create a `LightGroup`.
 
@@ -129,4 +129,4 @@ The Hue API doesn't activate scenes directly, only on a Hue Group (typically roo
 
 Neither group names or scene names are guaranteed unique in Hue. If you are getting non deterministic behavior, adjust your Hue scenes via the App to be more identifying.
 
-The Hue hub has limitted spaces for scenes, and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on "Least Recently Used".
+The Hue hub has limited spaces for scenes, and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on "Least Recently Used".

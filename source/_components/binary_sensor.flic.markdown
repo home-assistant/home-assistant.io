@@ -62,7 +62,7 @@ automation:
 Event data:
 
 - **button_name**: The name of the button, that triggered the event.
-- **button_address**: The bluetooth address of the button, that triggered the event.
+- **button_address**: The Bluetooth address of the button, that triggered the event.
 - **click_type**: The type of click. Possible values are `single`, `double` and `hold`.
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
 

@@ -35,7 +35,7 @@ Configuration variables:
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
-For a quick check you can use the commandline tools shipped with `mosquitto` to send MQTT messages. Set the state of a sensor manually:
+For a quick check you can use the command line tools shipped with `mosquitto` to send MQTT messages. Set the state of a sensor manually:
 
 ```bash
 $  mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"

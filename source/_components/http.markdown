@@ -26,7 +26,7 @@ http:
 Configuration variables:
 
 - **api_password** (*Optional*): Protect Home Assistant with a password.
-- **server_host** (*Optional*): Only listen to incoming requests on specific ip/host (default: accept all)
+- **server_host** (*Optional*): Only listen to incoming requests on specific IP/host (default: accept all)
 - **server_port** (*Optional*): Let you set a port to use. Defaults to 8123.
 - **base_url** (*Optional*): The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. Defaults to local IP address. The IOS app finds local installations, if you have an outside URL use this so that you can auto fill when discovered in the app.
 - **development** (*Optional*): Disable caching and load unvulcanized assets. Useful for Frontend development.
@@ -36,7 +36,7 @@ Configuration variables:
 - **use_x_forwarded_for** (*Optional*): Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You should only enable this in a trustworthy network environment, as clients passing that header could easily spoof their source IP address. Defaults to False.
 - **trusted_networks** (*Optional*): List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant. It should be noted that if you use a reverse proxy, all requests to home assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario this option should be used with extreme care.
 - **ip_ban_enabled** (*Optional*): Flag indicating whether additional IP filtering is enabled. Defaults to False.
-- **login_attempts_threshold** (*Optional*): Number of failed login attemt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. Defaults to -1, meaning that no new automatic bans will be added.
+- **login_attempts_threshold** (*Optional*): Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is True. Defaults to -1, meaning that no new automatic bans will be added.
 
 The sample below shows a configuration entry with possible values: 
 
@@ -74,7 +74,7 @@ All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent 
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the `.homeassistant` configuration path. The static files in `.homeassistant/www/` can be accessed by the following URL `http://your.domain:8123/local/`.
 
-If you want to apply additional IP filtering, and automatically ban bruteforce attempts, set `ip_ban_enabled` to `True` and select number of attempts. After first ban file `ip_bans.yaml` will be created in the root configuration folder. It will have IP address and time in UTC when it was added: 
+If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `True` and select number of attempts. After first ban file `ip_bans.yaml` will be created in the root configuration folder. It will have IP address and time in UTC when it was added: 
 
 ```yaml
 127.0.0.1:

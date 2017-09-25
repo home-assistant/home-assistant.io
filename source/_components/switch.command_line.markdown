@@ -48,7 +48,7 @@ In this section you find some real life examples of how to use this switch.
 
 ### {% linkable_title aREST device %}
 
-The example below is doing the same as the [aREST switch](/components/switch.arest/). The commandline tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
+The example below is doing the same as the [aREST switch](/components/switch.arest/). The command line tool [`curl`](http://curl.haxx.se/) is used to toggle a pin which is controllable through REST.
 
 ```yaml
 # Example configuration.yaml entry

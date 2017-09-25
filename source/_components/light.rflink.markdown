@@ -80,7 +80,7 @@ light:
         name: Bedroom Lamp
 ```
 
-Any on/off command from any allias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
+Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
 ### {% linkable_title Light types %}
 

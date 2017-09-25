@@ -14,7 +14,7 @@ ha_release: 0.24
 ---
 
 
-The `netio` switch platform allows you to control your [Netio](http://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through ethernet and/or WiFi that reports consumptions (Netio4all).
+The `netio` switch platform allows you to control your [Netio](http://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through Ethernet and/or WiFi that reports consumptions (Netio4all).
 
 To use Netio devices in your installation, add the following to your `configuration.yaml` file:
 
