@@ -65,7 +65,7 @@ If you don't use local build on device or our build script, make sure that the D
 LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 ```
 
-It is possible to use own base image with `build.json` or if you not want to do a multi arch build/support you can also use a simle docker `FROM`.
+It is possible to use own base image with `build.json` or if you not want support for automatic multi arch building you can also use a simple docker `FROM`.
 
 ### {% linkable_title Build Args %}
 
