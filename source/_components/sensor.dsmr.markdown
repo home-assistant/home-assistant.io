@@ -49,11 +49,20 @@ sensor:
   - platform: dsmr
 ```
 
-Configuration variables:
-
-- **port** string (*Optional*): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).
-- **host** string (*Optional*): Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).
-- **dsmr_version** string (*Optional*): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).
+{% configuration %}
+  port:
+    description: Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).
+    required: false
+    type: string
+  host:
+    description: Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).
+    required: false
+    type: string
+  name:
+    description: Version of DSMR used by meter, choices: 2.2, 4. Defaults to 2.2.
+    required: false
+    type: string
+{% endconfiguration %}
 
 Full configuration examples can be found below:
 
@@ -95,6 +104,7 @@ group:
 ```
 
 Optional configuration example for ser2net:
+
 ```sh
 # Example /etc/ser2net.conf for proxying USB/serial connections to DSMRv4 smart meters
 2001:raw:600:/dev/ttyUSB0:115200 NONE 1STOPBIT 8DATABITS XONXOFF LOCAL -RTSCTS
@@ -111,3 +121,14 @@ and after that you need to reboot!
 ```
 $ sudo reboot
 ```
+
+### {% linkable_title Technical overview %}
+
+DSMR is a standard to which Dutch smartmeters must comply. It specifies that the smartmeter must send out a 'telegram' every 10 seconds over a serial port.
+
+The contents of this telegram differ between version but they generally consist of lines with 'obis' (Object Identification System, a numerical ID for a value) followed with the value and unit.
+
+This module sets up a asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this component are create during bootstrap.
+
+Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
+
