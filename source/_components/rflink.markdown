@@ -88,23 +88,18 @@ rflink:
 ### {% linkable_title Adding devices Automatically %}
 
 In order to have your devices being detected and added automatically, you need to add the following to the configuration.
-When pressing the button on the physical remote, rflink detects the signal and the device should be added automatically to Home Assistant.
+When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml
 light:
   - platform: rflink
     automatic_add: true
-
-
 switch:
   - platform: rflink
     automatic_add: true
-
-
 sensor:
   - platform: rflink
     automatic_add: true
-
 ```
 
 ### {% linkable_title Ignoring devices %}
