@@ -25,11 +25,10 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: dte_energy_bridge
     ip: 192.168.1.11
-    version: 2  # adjust to match your hardware version
 ```
 
 Configuration variables:
 
 - **ip** (*Required*): The IP address of your bridge.
 - **name** (*Optional*): Name to use in the frontend.
-- **version** (*Optional*): Hardware version of the sensor, defaults to 1.
+- **version** (*Optional*): Hardware version of the sensor. Defaults to 1.
