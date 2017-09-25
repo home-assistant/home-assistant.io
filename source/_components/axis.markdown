@@ -37,6 +37,16 @@ Raspberry Pi All-In-One Installer:
 $ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
 ```
 
+[Virtualenv](https://home-assistant.io/docs/installation/virtualenv/) installation:
+
+```bash
+$ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.5/site-packages
+```
+
+<p class='note'>
+  Adjust "python3.5" in command above to match your version as stored in "/srv/homeassistant/lib/pythonX.X"
+</p>
+
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
 ```yaml
