@@ -56,11 +56,11 @@ binary_sensor:
         description: Defines a template to set the state of the sensor.
         required: true
         type: template
-      on_delay:
+      delay_on:
         description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
         required: false
         type: time
-      off_delay:
+      delay_off:
         description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`.
         required: false
         type: time
@@ -164,7 +164,7 @@ binary_sensor:
     sensors:
       washing_machine:
         friendly_name: "Washing Machine"
-        off_delay:
+        delay_off:
           minutes: 5
         value_template: >-
           {{ states('sensor.washing_machine_power')|float > 0 }}
