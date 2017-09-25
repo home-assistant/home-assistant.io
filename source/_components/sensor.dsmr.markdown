@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "DSMR/Slimme meter"
+title: "DSMR or Slimme meter"
 description: "Instructions how to integrate DSMR Smartmeter within Home Assistant."
 date: 2016-11-12 12:00
 sidebar: true
@@ -15,11 +15,9 @@ ha_iot_class: "Local Push"
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
 
-Currently support DSMR V2.2 and V4 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
-
-For official information about DSMR refer to: [DSMR Document](http://www.netbeheernederland.nl/themas/hotspot/hotspot-documenten/?dossierid=11010056&title=Slimme%20meter&onderdeel=Documenten)
-
-For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
+- Currently support DSMR V2.2 and V4 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
+- For official information about DSMR refer to: [DSMR Document](http://www.netbeheernederland.nl/themas/hotspot/hotspot-documenten/?dossierid=11010056&title=Slimme%20meter&onderdeel=Documenten)
+- For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
 <p class='img'>
 <img src='/images/screenshots/dsmr.png' />
@@ -33,13 +31,13 @@ This component is known to work for:
 - Kaifa E0026
 - Kamstrup 382JxC (DSMR 2.2)
 
-,USB serial converters:
+USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
 - https://sites.google.com/site/nta8130p1smartmeter/webshop
 - https://www.sossolutions.nl/slimme-meter-kabel
 
-And Serial to network proxies:
+Serial to network proxies:
 
 - ser2net - http://ser2net.sourceforge.net/
 
