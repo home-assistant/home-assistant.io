@@ -9,7 +9,9 @@ comments: true
 categories: Technology
 ---
 
-Since docker 17.05 it support native a dynamic build envorment. That allow to write standard Dockerfiles that run out of the box. There we replace our own Template like Dockerfiles.
+Since docker 17.05 it support native a dynamic build envorment. That allow to write standard Dockerfiles that run out of the box. That will be replace our own Template Dockerfiles system now.
+
+With hass.io 0.64 and our Hardware image 1.1 we support only the new system for build on device feature. We update also our build-scripts and replace that with a [builder docker engine][builder].
 
 FIXME
 
