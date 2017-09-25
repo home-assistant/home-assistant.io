@@ -8,18 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: hive.png
-ha_category: Climate
+ha_category: Light
 ha_release: 0.55
 ha_iot_class: "Cloud Polling"
 ---
 
 
-The 'hive' climate component integrates your Hive thermostat and hot water in to Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
+The 'hive' light component integrates your Hive lights in to Home Assistant, enabling control of various settings, depending on model light.
 
-The Hive climate component supports the following Hive products:
-- **Hive Active Heating**
-- **Hive Multizone**
-- **Hot water control**
+The Hive light component supports the following Hive products:
+- **Hive Active Light Dimmable**
+- **Hive Active Light Cool to Warm White**
+- **Hive Active Light Colour Changing**
 
 
 <p class='note'>
