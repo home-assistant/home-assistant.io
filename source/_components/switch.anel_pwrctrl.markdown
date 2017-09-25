@@ -40,4 +40,4 @@ Configuration variables:
 - **username** (*Required*): The username for your device.
 - **password** (*Required*): The password for your device.
 
-<p class="note">If no **host** is given the platform will try to autodiscover all devices on the network, that are listening on the given **port_recv**.</p>
+<p class="note">If no **host** is given the platform will try to auto-discover all devices on the network, that are listening on the given **port_recv**.</p>

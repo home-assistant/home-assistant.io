@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX Cover"
-description: "Instructions on how to integrate KXN covers with Home Assistant."
+description: "Instructions on how to integrate KNX covers with Home Assistant."
 date: 2017-06-18 12:00
 sidebar: true
 comments: false

@@ -55,7 +55,7 @@ Configuration variables:
 - **tilt_max** (*Optional*): The maximum tilt value. Default is `100`
 - **tilt_closed_value** (*Optional*): The value that will be sent on a `close_cover_tilt` command. Default is `0`
 - **tilt_opened_value** (*Optional*): The value that will be sent on an `open_cover_tilt` command. Default is `100`
-- **tilt_status_optimistic** (*Optional*): Flag that determines if tilt works in optimistic mode. Default is `true` if `tilt_status_topic` is not deinfed, else `false`
+- **tilt_status_optimistic** (*Optional*): Flag that determines if tilt works in optimistic mode. Default is `true` if `tilt_status_topic` is not defined, else `false`
 - **tilt_invert_state** (*Optional*): Flag that determines if open/close are flipped; higher values toward closed and lower values toward open. Default is `False`
 
 ## {% linkable_title Examples %}

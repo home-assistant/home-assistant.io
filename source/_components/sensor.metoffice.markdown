@@ -47,7 +47,7 @@ Configuration variables:
 
 <p class='note'>
 This sensor is an alternative to the [`metoffice`](/components/weather.metoffice/) weather platform.
-The weather platform is easier to configure but less customisable.
+The weather platform is easier to configure but less customizable.
 </p>
 
 [datapoint]: http://www.metoffice.gov.uk/datapoint

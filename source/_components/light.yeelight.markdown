@@ -48,7 +48,7 @@ Per default the bulb limits the amount of requests per minute to 60, a limitatio
 <p class='note'>
 Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
 In the bulb property, you have to enable "Developer Mode"  Developer mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
-Determine your bulb ip (using router, software, ping ...)
+Determine your bulb IP (using router, software, ping ...)
 </p>
 
 <p class='note warning'>

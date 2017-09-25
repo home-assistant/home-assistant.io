@@ -22,7 +22,7 @@ For this to work, you need to install a modified lib-coap library.
 This component does **not** work on Windows, as the modified lib-coap doesn't exists for Windows.
 </p>
 <p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
 Linux:

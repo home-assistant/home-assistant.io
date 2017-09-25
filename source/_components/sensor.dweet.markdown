@@ -34,7 +34,7 @@ Configuration variables:
 
 ### {% linkable_title Full configuration sample %}
 
-A ful configuration entry could look like the sample below.
+A full configuration entry could look like the sample below.
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +48,7 @@ sensor:
 
 ### {% linkable_title Interacting with Dweet.io %}
 
-You can easily send dweets from the commandline to test your sensor with `curl`.
+You can easily send dweets from the command-line to test your sensor with `curl`.
 
 ```bash
 $ curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor

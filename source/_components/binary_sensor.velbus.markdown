@@ -37,6 +37,6 @@ Configuration variables:
   - **name** (*Required*): Name of the binary sensor.
   - **module** (*Required*): The hexadecimal module address
   - **channel** (*Required*): The channel number in the module.
-  - **is_pushbutton** (*Optional*): Booelan to indicate if a wall switch is a push button or not (default: false)
+  - **is_pushbutton** (*Optional*): Boolean to indicate if a wall switch is a push button or not (default: false)
 
 For hub configuration, see [the Velbus component](/components/velbus/).

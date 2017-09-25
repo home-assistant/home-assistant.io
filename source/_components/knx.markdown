@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX"
-description: "Instructions on how to integrate KXN components with Home Assistant."
+description: "Instructions on how to integrate KNX components with Home Assistant."
 date: 2016-06-08 12:00
 sidebar: true
 comments: false

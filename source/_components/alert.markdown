@@ -75,7 +75,7 @@ freshwater_temp_alert:
 
 ### {% linkable_title Complex Alert Criteria %}
 
-By design, the `alert` component only handles very simple criteria for firing. That is, it only checks if a single entity's state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
+By design, the `alert` component only handles very simple criteria for firing. That is, it only checks if a single entity's state is equal to a value. At some point, it may be desirable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a `Template Binary Sensor`. The following example does that.
 
 ```yaml
 binary_sensor:
@@ -99,7 +99,7 @@ This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 
 ### {% linkable_title Dynamic Notification Delay Times %}
 
-It may be desireable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the `repeat` configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.
+It may be desirable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the `repeat` configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.
 
 ```yaml
 # Example configuration.yaml entry

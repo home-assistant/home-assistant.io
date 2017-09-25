@@ -28,7 +28,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Wink light groups (User created groups of lights)
 
 <p class='note'>
-The above devices are confimed to work, but others may work as well.
+The above devices are confirmed to work, but others may work as well.
 </p>
 
 
