@@ -38,7 +38,7 @@ Configuration variables:
 - **availability_topic** (*Optional*): The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor availability state will always be `available`. If `availability_topic` is defined, the binary sensor availability state will be `unavailable` by default.
 - **payload_available** (*Optional*): The payload that represents the online state. Default is `online`.
 - **payload_not_available** (*Optional*): The payload that represents the offline state. Default is `offline`.
-- **qos** (*Optional*): The maximum QoS level to be used when receiving and publishing messages. Default is `0`.
+- **qos** (*Optional*): The maximum QoS level to be used when receiving messages. Default is `0`.
 - **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
