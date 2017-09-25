@@ -77,7 +77,7 @@
   <p><a href="https://www.axis.com/">Axis Communications</a> devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.</p>
 <p>Home Assistant will automatically discover their presence on your network.</p>
 <h2><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h2>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-gi gir1.2-gstreamer-1.0
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools python3-gi
 </code></pre>
 </div>
 <p>Depending on how you run Home Assistant, you may need to symlink the <code class="highlighter-rouge">gi</code> module into your environment.</p>
