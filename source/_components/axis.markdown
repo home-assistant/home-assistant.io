@@ -44,7 +44,7 @@ $ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.5/site-
 ```
 
 <p class='note'>
-  Adjust "python3.5" in command above to match your as version as stored in "/srv/homeassistant/lib/pythonX.X"
+  Adjust "python3.5" in command above to match your version as stored in "/srv/homeassistant/lib/pythonX.X"
 </p>
 
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
