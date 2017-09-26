@@ -17,10 +17,12 @@ The `emulated_hue` component provides a virtual Philips Hue bridge, written enti
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no set up cost outside of configuration changes.
 The virtual bridge has the ability to turn entities on or off, or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
-**Note:** A physical Hue Bridge is required for the lights to function - this virtual bridge will not replace a physical bridge
+<p class='note'>
+A physical Hue Bridge is required for the lights to function - this virtual bridge will not replace a physical bridge.
+</p>
 
 <p class='note'>
-  It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
+It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
 </p>
 
 ### {% linkable_title Configuration %}
