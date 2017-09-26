@@ -192,7 +192,7 @@ Make the daemon file executable:
 # chmod 777 /volume1/homeassistant/hass-daemon
 ```
 
-Update your firewall (if it is turned on on the Synology device):
+Update your firewall (if it is turned on the Synology device):
 
  - Go to your Synology control panel
  - Go to security 

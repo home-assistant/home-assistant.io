@@ -61,7 +61,7 @@ device_tracker:
 Configuration variables:
 
 - **host** (*Required*): The IP address of the router, eg. 192.168.1.1.
-- **community** (*Required*): The SNMP community which is set for the device. Most devices have a default community set to to `public` with read-only permission (which is sufficient).
+- **community** (*Required*): The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
 - **baseoid** (*Required*): The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.
 - **authkey** (*Inclusive*): Authentication key for SNMPv3. Variable privkey must also be set.
 - **privkey** (*Inclusive*): Privacy key SNMPv3. Variable authkey must also be set.

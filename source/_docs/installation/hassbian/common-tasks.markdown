@@ -25,7 +25,7 @@ Windows users start [Putty][ssh-putty], enter the IP address of the Raspberry Pi
 Optionally, starting with Windows 10 anniversary update, you can use the built-in '[Bash on Windows][bash-windows]' to use SSH if you have enabled Developer mode and have installed the "Windows Subsystem for Linux (beta)" feature.
 
 ### {% linkable_title Start/Stop/Restart Home Assistant %}
-Log in as the `pi` account account and execute the following commands:
+Log in as the `pi` account and execute the following commands:
 
 ```bash
 $ sudo systemctl stop home-assistant@homeassistant.service 

@@ -43,7 +43,7 @@ switch:
 Configuration variables:
 
 - **resource** (*Required*): IP address and schema of the device that is exposing an aREST API, eg. http://192.168.1.10 (no-trailing slash)
-- **name** (*Optional*): Let you overwrite the the name of the device. By default *name* from the device is used.
+- **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
 - **pins** array (*Optional*): An array with all used pins.
   - **name** (*Required*): The name of the pin to use in the frontend.
 
