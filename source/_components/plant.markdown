@@ -54,7 +54,7 @@ This is a practical example that uses a multiple of `MQTT sensors` to supply the
 Another good source of this data would be the [Mi Flora](https://home-assistant.io/components/sensor.miflora/) component. 
 
 
-If the sensor data within the the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
+If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
 ## Data Source
 
