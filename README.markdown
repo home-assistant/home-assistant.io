@@ -3,7 +3,7 @@
 [![Krihelimeter](http://www.krihelinator.xyz/badge/home-assistant/home-assistant.github.io)](http://www.krihelinator.xyz)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Home Assistant website 
+# Home Assistant website
 
 This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
@@ -16,5 +16,19 @@ Setting up to contribute to documentation and the process for submitting pull re
 In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the command as follows:
 
 ```bash
-$ rake preview
+bundle exec rake preview
+```
+
+## Speeding up site generation
+
+Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
+
+```bash
+bundle exec rake isolate[filename-of-blogpost]
+```
+
+When you're done working on the site, run the following command to move the posts back again:
+
+```bash
+bundle exec rake integrate
 ```
