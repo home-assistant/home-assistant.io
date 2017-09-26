@@ -300,6 +300,10 @@ Some Z-Wave controllers, like Aeotec ZW090 Z-Stick Gen5, have ability to add dev
       <td>Lets the user set a config parameter to a node. NOTE: Use string for list values. For all others use integer.</td>
     </tr>
     <tr>
+      <td>set_poll_intensity</td>
+      <td>Lets the user set the polling intensity of a value. Changes the polling intensity without the need of a restart. This does not persist over restarts. To keep the setting over restarts, use the Z-Wave entity-card to set the config also.</td>
+    </tr>
+    <tr>
       <td>soft_reset</td>
       <td>Tells the controller to do a “soft reset.” This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command.</td>
     </tr>
