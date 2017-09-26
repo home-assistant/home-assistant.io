@@ -33,8 +33,9 @@ More information and a standalone version for regular Home Assistant installatio
 {
   "homeassistant_api": "http://homeassistant:8123/api",
   "homeassistant_password": "",
-  "credentials": "admin:secret",
-  "certfile": "fullchain.pem",
+  "username": "admin",
+  "password": "secret",
+  "certfile": "fullchain.pem",
   "keyfile": "privkey.pem",
   "ssl": false,
   "allowed_networks": ["192.168.0.0/16"],
@@ -45,7 +46,8 @@ More information and a standalone version for regular Home Assistant installatio
 
 - **homeassistant_api** (*Optional*): The configurator fetches some data from your running Home Assistant instance. If the API is not available through the default URL, modify this variable to fix this.
 - **homeassistant_password** (*Optional*): If you plan on using API functions, you have to set your API password. Calling services of Home Assistant is prohibited without authentication.
-- **credentials** (*Optional*): Set credentials in the form of `"username:password"` so access to your configuration is protected.
+- **username** (*Optional*): Set a username to access your configuration is protected.
+- **password** (*Required*): Set a password for access.
 - **ssl** (*Optional*): Enable or Disable SSL for the editor.
 - **allowed_networks** (*Optional*): Limit access to the configurator by adding allowed IP addresses / networks to the list.
 - **banned_ips** (*Optional*): List of statically banned IP addresses.
