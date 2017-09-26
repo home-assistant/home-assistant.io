@@ -33,14 +33,20 @@ Configuration variables:
 - **target_sensor** (*Optional*): `entity_id` for a temperature sensor, target_sensor.state must be temperature.
 - **current_temperature_topic** (*Optional*): The MQTT topic on which to listen for the current temperature
 - **power_command_topic** (*Optional*): The MQTT topic to publish commands to change the power state. This is useful if your device has a separate power toggle in addition to mode.
-- **mode_command_topic** (*Required*): The MQTT topic to publish commands to change the HVAC operation mode.
-- **temperature_command_topic** (*Required*): The MQTT topic to publish commands to change the target temperature.
-- **fan_mode_command_topic** (*Required*): The MQTT topic to publish commands to change the fan mode.
-- **swing_mode_command_topic** (*Required*): he MQTT topic to publish commands to change the swing mode.
+- **mode_command_topic** (*Optional*): The MQTT topic to publish commands to change the HVAC operation mode.
+- **temperature_command_topic** (*Optional*): The MQTT topic to publish commands to change the target temperature.
+- **fan_mode_command_topic** (*Optional*): The MQTT topic to publish commands to change the fan mode.
+- **swing_mode_command_topic** (*Optional*): The MQTT topic to publish commands to change the swing mode.
+- **away_mode_command_topic** (*Optional*): The MQTT topic to publish commands to change the away mode.
+- **hold_command_topic** (*Optional*): The MQTT topic to publish commands to change the hold mode.
+- **aux_command_topic** (*Optional*): The MQTT topic to publish commands to switch auxillary heat.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0` and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
 - **send_if_off** (*Optional*): Set to `false` to suppress sending of all MQTT messages when the current mode is `Off`. Defaults to `true`.
 - **initial** (*Optional*): Set the initial target temperature. Defaults to 21 degrees.
+- **payload_on** (*Optional*): For MQTT topics that control an `on` / `off` value (e.g., `aux_command_topic`), set the value that should be sent for `on`. Defaults to 'ON'.
+- **payload_off** (*Optional*): For MQTT topics that control an `on` / `off` value (e.g., `aux_command_topic`), set the value that should be sent for `off`. Defaults to 'OFF'.
+
 
 **Note**: Event though `target_sensor` as well as `current_temperature_topic` are both technically optional, you need to specify at least one of both.
 
