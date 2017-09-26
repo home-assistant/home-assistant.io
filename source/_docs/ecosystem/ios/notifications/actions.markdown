@@ -50,12 +50,12 @@ When sending a notification:
 ## {% linkable_title Category parameters %}
 
 - **name** (*Required*): A friendly name for this category.
-- **identifier** (*Required*): A unique identifier for the category. Must be uppercase and have no special characters or spaces.
+- **identifier** (*Required*): A unique identifier for the category. Since version 0.54, these must be lowercase. In versions prior to 0.54 these must be uppercase. They must not contain special characters or spaces, but may contain underscores.
 - **action** (*Required*): A list of actions.
 
 ## {% linkable_title Action parameters %}
 
-- **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
+- **identifier** (*Required*): A unique identifier for this action. Must be uppercase for versions of homeassistant both pre- and post- version 0.54 and must also not contain any special characters or spaces, but may contain underscores. Only needs to be unique to the category, not unique globally.
 - **title** (*Required*): The text to display on the button. Keep it short.
 - **activationMode** (*Optional*): The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`.
 - **authenticationRequired** (*Optional*): If a truthy value (`true`, `True`, `yes`, etc.) the user must unlock the device before the action is performed.
@@ -71,7 +71,7 @@ ios:
   push:
     categories:
       - name: Alarm
-        identifier: 'ALARM'
+        identifier: 'alarm'
         actions:
           - identifier: 'SOUND_ALARM'
             title: 'Sound Alarm'
@@ -105,7 +105,7 @@ automation:
           push:
             badge: 5
             sound: <SOUND FILE HERE>
-            category: "ALARM" # Needs to match the top level identifier you used in the ios configuration
+            category: "alarm" # Needs to match the top level identifier you used in the ios configuration
           action_data: # Anything passed in action_data will get echoed back to Home Assistant.
             entity_id: light.test
             my_custom_data: foo_bar
