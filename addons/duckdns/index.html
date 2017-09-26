@@ -80,7 +80,7 @@
   </span><span class="nt">"lets_encrypt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"accept_terms"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
- </span><span class="err"> </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sdfj-2131023-dslfjsd-12321"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sdfj-2131023-dslfjsd-12321"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"my-domain.duckdns.org"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -92,6 +92,13 @@
   <li><strong>seconds</strong> (<em>Optional</em>): Seconds between updates to Duck DNS.</li>
   <li><strong>lets_encrypt.accept_terms</strong> (<em>Optional</em>): If you accept the <a href="https://letsencrypt.org/repository/">Let’s Encrypt Subscriber Agreement</a>, it will generate &amp; update Let’s Enrypt certificates for your DuckDNS domain.</li>
 </ul>
+<h2><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h2>
+<p>Use the following configuration in Home Assistant to use the generated certificate:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/ssl/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/ssl/privkey.pem</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
