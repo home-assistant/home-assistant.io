@@ -94,7 +94,8 @@ Once you SSH into your Hass.io box, you have access to your add-ons in “/addon
   <li>Inside that directory create three files.</li>
 </ul>
 <p><code class="highlighter-rouge">Dockerfile</code>:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>FROM %%BASE_IMAGE%%
+<div class="highlighter-rouge"><pre class="highlight"><code>ARG BUILD_FROM
+FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 

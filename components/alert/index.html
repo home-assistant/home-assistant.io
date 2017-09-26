@@ -127,7 +127,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="complex-alert-criteria" href="#complex-alert-criteria"></a> Complex Alert Criteria</h3>
-<p>By design, the <code class="highlighter-rouge">alert</code> component only handles very simple criteria for firing. That is, it only checks if a single entity’s state is equal to a value. At some point, it may be desireable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a <code class="highlighter-rouge">Template Binary Sensor</code>. The following example does that.</p>
+<p>By design, the <code class="highlighter-rouge">alert</code> component only handles very simple criteria for firing. That is, it only checks if a single entity’s state is equal to a value. At some point, it may be desirable to have an alert with a more complex criteria. Possibly, when a battery percentage falls below a threshold. Maybe you want to disable the alert on certain days. Maybe the alert firing should depend on more than one input. For all of these situations, it is best to use the alert in conjunction with a <code class="highlighter-rouge">Template Binary Sensor</code>. The following example does that.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">sensors</span><span class="pi">:</span>
@@ -147,7 +147,7 @@
 </div>
 <p>This example will begin firing as soon as the entity <code class="highlighter-rouge">sensor.motion</code>’s <code class="highlighter-rouge">battery</code> attribute falls below 15. It will continue to fire until the battery attribute raises above 15 or the alert is acknowledged on the frontend.</p>
 <h3><a class="title-link" name="dynamic-notification-delay-times" href="#dynamic-notification-delay-times"></a> Dynamic Notification Delay Times</h3>
-<p>It may be desireable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the <code class="highlighter-rouge">repeat</code> configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.</p>
+<p>It may be desirable to have the delays between alert notifications dynamically change as the alert continues to fire. This can be done by setting the <code class="highlighter-rouge">repeat</code> configuration key to a list of numbers rather than a single number. Altering the first example would look like the following.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alert</span><span class="pi">:</span>
   <span class="s">garage_door</span><span class="pi">:</span>

@@ -93,7 +93,7 @@
   <li><strong>api_key</strong> (<em>Required</em>): The Slack API token to use for sending Slack messages.</li>
   <li><strong>default_channel</strong> (<em>Required</em>): The default channel to post to if no channel is explicitly specified when sending the notification message.</li>
   <li><strong>username</strong> (<em>Optional</em>): Setting username will allow Home Assistant to post to Slack using the username specified. By default not setting this will post to Slack using the user account or botname that you generated the api_key as.</li>
-  <li><strong>icon</strong> (<em>Optional</em>): Use one of the Slack emoji’s as an Icon for the supplied username.  Slack uses the standard emoji sets used <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/">here</a>.</li>
+  <li><strong>icon</strong> (<em>Optional</em>): Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/">here</a>.</li>
 </ul>
 <h3><a class="title-link" name="slack-service-data" href="#slack-service-data"></a> Slack service data</h3>
 <p>The following attributes can be placed <code class="highlighter-rouge">data</code> for extended functionality.</p>
@@ -236,6 +236,9 @@
         </li>
         <li>
             <a href='/components/notify.joaoapps_join/'>Join Notify</a>
+        </li>
+        <li>
+            <a href='/components/notify.knx/'>KNX Notify</a>
         </li>
         <li>
             <a href='/components/notify.kodi/'>Kodi</a>

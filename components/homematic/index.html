@@ -89,7 +89,7 @@ You can manually rename the created entities by using Home Assistants <a href="h
 <p>Configuration variables (global):</p>
 <ul>
   <li><strong>hosts</strong> (<em>Required</em>): Configuration for each host to integrate into Home Assistant.</li>
-  <li><strong>local_ip</strong> (<em>Optional</em>): IP of device running Home Assistant. Override autodetected value for exotic network setups.</li>
+  <li><strong>local_ip</strong> (<em>Optional</em>): IP of device running Home Assistant. Override auto-detected value for exotic network setups.</li>
   <li><strong>local_port</strong> (<em>Optional</em>): Port for connection with Home Assistant. By default it is randomly assigned.</li>
 </ul>
 <p>Configuration variables (host):</p>
@@ -136,7 +136,7 @@ You can manually rename the created entities by using Home Assistants <a href="h
 <h3><a class="title-link" name="multiple-hosts" href="#multiple-hosts"></a> Multiple hosts</h3>
 <p>In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
-This does <em>not</em> affect the entites in Home Assistant. They all use their own connection and work as expected.</p>
+This does <em>not</em> affect the entities in Home Assistant. They all use their own connection and work as expected.</p>
 <h3><a class="title-link" name="reading-attributes-of-entities" href="#reading-attributes-of-entities"></a> Reading attributes of entities</h3>
 <p>Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the <a href="https://home-assistant.io/components/sensor.template/">template sensor</a> component. Here’s an example of a template sensor that exposes the valve state of a thermostat.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>

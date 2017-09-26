@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Local add-on testing - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to test your add-on locally.">
+    <meta name="description" content="Instructions on how to test your add-on locally.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/developers/hassio/addon_testing/">
     <meta property="fb:app_id" content="338291289691179">
@@ -16,12 +16,12 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/developers/hassio/addon_testing/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Instructions how to test your add-on locally.">
+    <meta property="og:description" content="Instructions on how to test your add-on locally.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:title" content="Local add-on testing">
-    <meta name="twitter:description" content="Instructions how to test your add-on locally.">
+    <meta name="twitter:description" content="Instructions on how to test your add-on locally.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -76,19 +76,19 @@
   <hr class="divider">
   <p>The fastest way to develop add-ons is by adding them to your local add-on repository. To access your local add-on repository, install either the <a href="/addons/samba/">Samba add-on</a> or <a href="/addons/ssh/">SSH add-on</a>.</p>
 <p>Right now add-ons will work with images that are stored on Docker Hub (using <code class="highlighter-rouge">image</code> from add-on config). Without <code class="highlighter-rouge">image</code> inside local add-ons repository it to be built on the device.</p>
-<h2><a class="title-link" name="local-run" href="#local-run"></a> Local run</h2>
-<p>You can build an try the addon on your developer machine also. Move all addon stuff into a temp folder. Replace in the Dockerfile <code class="highlighter-rouge">%%BASE_IMAGE%%</code> with:</p>
+<h2><a class="title-link" name="local-build" href="#local-build"></a> Local build</h2>
+<p>You can build an try the addon on your developer machine also. Move all addon stuff into a temp folder. If you use <code class="highlighter-rouge">FROM $BUILD_FROM</code> you need set a base image with build args. Normally you can use follow base images:</p>
 <ul>
   <li>armhf: <code class="highlighter-rouge">homeassistant/armhf-base:latest</code></li>
   <li>aarch64: <code class="highlighter-rouge">homeassistant/aarch64-base:latest</code></li>
   <li>amd64: <code class="highlighter-rouge">homeassistant/amd64-base:latest</code></li>
   <li>i386: <code class="highlighter-rouge">homeassistant/i386-base:latest</code></li>
 </ul>
-<p>Add also a <code class="highlighter-rouge">LABEL io.hass.version="xy"</code> into your dockerfile.
-Use <code class="highlighter-rouge">docker</code> to build the test addon: <code class="highlighter-rouge">docker build -t local/my-test-addon .</code></p>
+<p>Use <code class="highlighter-rouge">docker</code> to build the test addon: <code class="highlighter-rouge">docker build --build-arg BUILD_FROM="homeassistant/amd64-base:latest" -t local/my-test-addon .</code></p>
+<h2><a class="title-link" name="local-run" href="#local-run"></a> Local run</h2>
 <p>Create a new folder for data and add a test <em>options.json</em> file. After that you can run your add-on with: <code class="highlighter-rouge">docker run --rm -v /tmp/my_test_data:/data -p PORT_STUFF_IF_NEEDED local/my-test-addon</code></p>
 <h2><a class="title-link" name="logs" href="#logs"></a> Logs</h2>
-<p>All stdout and stderr is redirected to the Docker logs. The logs can be fetched from the add-on page inside the Hass.io panel in Home Assistant.</p>
+<p>All stdout and stderr are redirected to the Docker logs. The logs can be fetched from the add-on page inside the Hass.io panel in Home Assistant.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

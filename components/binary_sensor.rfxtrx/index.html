@@ -84,7 +84,7 @@
   <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">True</span>
 </code></pre>
 </div>
-<p>Open your local home-assistant web UI and go to the “states” page. Then make sure to trigger your sensor. You should see a new entity appear in the <em>Current entites</em> list, starting with “binary_sensor.” and some hexadecimal digits. Those hexadecimal digits are your device id.</p>
+<p>Open your local home-assistant web UI and go to the “states” page. Then make sure to trigger your sensor. You should see a new entity appear in the <em>Current entities</em> list, starting with “binary_sensor.” and some hexadecimal digits. Those hexadecimal digits are your device id.</p>
 <p>For example: “binary_sensor.0913000022670e013b70”. Here your device id is <code class="highlighter-rouge">0913000022670e013b70</code>. Then you should update your configuration to:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
@@ -120,7 +120,7 @@
 </code></pre>
 </div>
 <h2>Options for PT-2262 devices under the Lighting4 protocol</h2>
-<p>When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For sur cases, the following options are available in order to circumvent the problem:</p>
+<p>When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:</p>
 <ul>
   <li><strong>data_bits</strong> (<em>Optional</em>): Defines how many bits are used for commands inside the data packets sent by the device.</li>
   <li><strong>command_on</strong> (<em>Optional</em>): Defines the data bits value that is sent by the device upon an ‘On’ command.</li>

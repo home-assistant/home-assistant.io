@@ -93,7 +93,7 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
   <li><strong>api_key</strong> (<em>Required</em>): The API key for Weather Underground. See above for details.</li>
   <li><strong>pws_id</strong> (<em>Optional</em>): You can enter a Personal Weather Station ID. The current list of Wunderground PWS stations is available <a href="https://www.wunderground.com/weatherstation/ListStations.asp">here</a>. If you do not enter a PWS ID, the current location information (latitude and longitude) from your <code class="highlighter-rouge">configuration.yaml</code> will be used to display weather conditions.</li>
   <li><strong>lang</strong> (<em>Optional</em>): Specify the language that the API returns. The current list of all Wunderground language codes is available <a href="https://www.wunderground.com/weather/api/d/docs?d=language-support">here</a>. If not specified, it defaults to English (EN).</li>
-  <li><strong>latitude</strong> (<em>Optional</em>): Latitude coordinate to monitor weather of (required if <strong>longitude</strong> is specificed). Defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code>.</li>
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude coordinate to monitor weather of (required if <strong>longitude</strong> is specified). Defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code>.</li>
   <li><strong>longitude</strong> (<em>Optional</em>): Longitude coordinate to monitor weather of (required if <strong>latitude</strong> is specified). Defaults to coordinates defined in your <code class="highlighter-rouge">configuration.yaml</code>.</li>
   <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend. The following conditions can be monitored.
     <ul>
@@ -113,22 +113,22 @@ Obtain a WUnderground API key <a href="https://www.wunderground.com/weather/api"
       <li><strong>precip_today_in</strong>: Total precipitation in inches</li>
       <li><strong>precip_today_metric</strong>: Total precipitation in metric units</li>
       <li><strong>precip_today_string</strong>: Text summary of precipitation today</li>
-      <li><strong>precip_1d_mm</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted precipitation intensity in milimeters</li>
+      <li><strong>precip_1d_mm</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted precipitation intensity in millimeters</li>
       <li><strong>precip_1d_in</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted precipitation intensity in inches</li>
       <li><strong>precip_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Forecasted precipitation probability in %</li>
       <li><strong>pressure_in</strong>: Atmospheric air pressure in inches</li>
       <li><strong>pressure_mb</strong>: Atmospheric air pressure in millibars</li>
-      <li><strong>pressure_trend</strong>: Atmospheric air presure trend signal (+/-)</li>
+      <li><strong>pressure_trend</strong>: Atmospheric air pressure trend signal (+/-)</li>
       <li><strong>relative_humidity</strong>: Relative humidity</li>
       <li><strong>station_id</strong>: Your personal weather station (PWS) ID</li>
       <li><strong>solarradiation</strong>: Current levels of solar radiation</li>
-      <li><strong>temperature_string</strong>: Temperature text combinding Fahrenheit and Celsius</li>
+      <li><strong>temperature_string</strong>: Temperature text combining Fahrenheit and Celsius</li>
       <li><strong>temp_c</strong>: Current temperature in Celsius</li>
       <li><strong>temp_f</strong>: Current temperature in Fahrenheit</li>
-      <li><strong>temp_high_record_c</strong>: Maximum temperature meassured in Celsius</li>
-      <li><strong>temp_high_record_f</strong>: Maximum temperature meassured in Fahrenheit</li>
-      <li><strong>temp_low_record_c</strong>: Minimal temperature meassured in Celsius</li>
-      <li><strong>temp_low_record_f</strong>: Minimal temperature meassured in Fahrenheit</li>
+      <li><strong>temp_high_record_c</strong>: Maximum temperature measured in Celsius</li>
+      <li><strong>temp_high_record_f</strong>: Maximum temperature measured in Fahrenheit</li>
+      <li><strong>temp_low_record_c</strong>: Minimal temperature measured in Celsius</li>
+      <li><strong>temp_low_record_f</strong>: Minimal temperature measured in Fahrenheit</li>
       <li><strong>temp_high_avg_c</strong>: Average high for today in Celsius</li>
       <li><strong>temp_high_avg_f</strong>: Average high for today in Fahrenheit</li>
       <li><strong>temp_low_avg_c</strong>: Average low for today in Celsius</li>

@@ -95,7 +95,7 @@ C4:D3:8C:12:4C:57 Flower mate
 </div>
 <ul>
   <li><strong>mac</strong> (<em>Required</em>): The MAC address of your sensor.</li>
-  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): The paramaters that should be monitored (defaults to monitoring all parameters).
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): The parameters that should be monitored (defaults to monitoring all parameters).
     <ul>
       <li><strong>moisture</strong>: Moisture in the soil.</li>
       <li><strong>light</strong>: Brightness at the sensor’s location.</li>
@@ -110,7 +110,7 @@ C4:D3:8C:12:4C:57 Flower mate
   <li><strong>timeout</strong> (<em>Optional</em>): Define the timeout value in seconds when polling (defaults to 10 if not defined)</li>
   <li><strong>retries</strong> (<em>Optional</em>): Define the number of retries when polling (defaults to 2 if not defined)</li>
   <li><strong>cache_value</strong> (<em>Optional</em>): Define cache expiration value in seconds (defaults to 1200 if not defined)</li>
-  <li><strong>adapter</strong> (<em>Optional</em>): Define the bluetooth adapter to use (defaults to hci0). Run <code class="highlighter-rouge">hciconfig</code> to get a list of available adapters.</li>
+  <li><strong>adapter</strong> (<em>Optional</em>): Define the Bluetooth adapter to use (defaults to hci0). Run <code class="highlighter-rouge">hciconfig</code> to get a list of available adapters.</li>
 </ul>
 <p>Note that by default the sensor is only polled once every 15 minutes. This means with the <code class="highlighter-rouge">median: 3</code> setting will take as least 30 minutes before the sensor will report a value after a Home Assistant restart. As the values usually change very slowly, this isn’t a big problem. 
 Reducing polling intervals will have a negative effect on the battery life.</p>

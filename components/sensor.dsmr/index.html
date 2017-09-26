@@ -6,13 +6,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>DSMR/Slimme meter - Home Assistant</title>
+    <title>DSMR or Slimme meter - Home Assistant</title>
     <meta name="author" content="Home Assistant">
     <meta name="description" content="Instructions how to integrate DSMR Smartmeter within Home Assistant.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/components/sensor.dsmr/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="DSMR/Slimme meter">
+    <meta property="og:title" content="DSMR or Slimme meter">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/components/sensor.dsmr/">
     <meta property="og:type" content="article">
@@ -20,7 +20,7 @@
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="DSMR/Slimme meter">
+    <meta name="twitter:title" content="DSMR or Slimme meter">
     <meta name="twitter:description" content="Instructions how to integrate DSMR Smartmeter within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -70,14 +70,16 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      DSMR/Slimme meter
+      DSMR or Slimme meter
     </h1>
   </header>
   <hr class="divider">
   <p>A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as ‘Slimme meter’ or ‘P1 poort’.</p>
-<p>Currently support DSMR V2.2 and V4 through the <a href="https://github.com/ndokter/dsmr_parser">dsmr_parser</a> module by Nigel Dokter.</p>
-<p>For official information about DSMR refer to: <a href="http://www.netbeheernederland.nl/themas/hotspot/hotspot-documenten/?dossierid=11010056&amp;title=Slimme%20meter&amp;onderdeel=Documenten">DSMR Document</a></p>
-<p>For unofficial hardware connection examples refer to: <a href="http://domoticx.com/p1-poort-slimme-meter-hardware/">Domoticx</a></p>
+<ul>
+  <li>Currently support DSMR V2.2 and V4 through the <a href="https://github.com/ndokter/dsmr_parser">dsmr_parser</a> module by Nigel Dokter.</li>
+  <li>For official information about DSMR refer to: <a href="http://www.netbeheernederland.nl/themas/hotspot/hotspot-documenten/?dossierid=11010056&amp;title=Slimme%20meter&amp;onderdeel=Documenten">DSMR Document</a></li>
+  <li>For unofficial hardware connection examples refer to: <a href="http://domoticx.com/p1-poort-slimme-meter-hardware/">Domoticx</a></li>
+</ul>
 <p class="img">
 <img src="/images/screenshots/dsmr.png" />
 </p>
@@ -89,13 +91,13 @@
   <li>Kaifa E0026</li>
   <li>Kamstrup 382JxC (DSMR 2.2)</li>
 </ul>
-<p>,USB serial converters:</p>
+<p>USB serial converters:</p>
 <ul>
   <li>Cheap (Banggood/ebay) Generic PL2303</li>
   <li>https://sites.google.com/site/nta8130p1smartmeter/webshop</li>
   <li>https://www.sossolutions.nl/slimme-meter-kabel</li>
 </ul>
-<p>And Serial to network proxies:</p>
+<p>Serial to network proxies:</p>
 <ul>
   <li>ser2net - http://ser2net.sourceforge.net/</li>
 </ul>
@@ -104,12 +106,23 @@
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">dsmr</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>port</strong> string (<em>Optional</em>): Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).</li>
-  <li><strong>host</strong> string (<em>Optional</em>): Host to which Smartmeter is connected (default: ‘’ (connected via serial or USB, see <strong>port</strong>)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).</li>
-  <li><strong>dsmr_version</strong> string (<em>Optional</em>): Version of DSMR used by meter, choices: 2.2, 4 (default: 2.2).</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="port" href="#port"></a> port</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).</span></p>
+    </dd>
+    <dt><a class="title-link" name="host" href="#host"></a> host</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Host to which Smartmeter is connected (default: ‘’ (connected via serial or USB, see <strong>port</strong>)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).</span></p>
+    </dd>
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Version of DSMR used by meter, choices: 2.2, 4. Defaults to 2.2.</span></p>
+    </dd>
+  </dl>
+</div>
 <p>Full configuration examples can be found below:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for USB/serial connected Smartmeter</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -159,6 +172,11 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>$ sudo reboot
 </code></pre>
 </div>
+<h3><a class="title-link" name="technical-overview" href="#technical-overview"></a> Technical overview</h3>
+<p>DSMR is a standard to which Dutch smartmeters must comply. It specifies that the smartmeter must send out a ‘telegram’ every 10 seconds over a serial port.</p>
+<p>The contents of this telegram differ between version but they generally consist of lines with ‘obis’ (Object Identification System, a numerical ID for a value) followed with the value and unit.</p>
+<p>This module sets up a asynchronous reading loop using the <code class="highlighter-rouge">dsmr_parser</code> module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of <code class="highlighter-rouge">obis</code>/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the <code class="highlighter-rouge">obis</code> are know for each DSMR version the Entities for this component are create during bootstrap.</p>
+<p>Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -181,7 +199,7 @@
             <a href='/components/sensor.comed_hourly_pricing/'>ComEd Hourly Pricing</a>
         </li>
         <li>
-            DSMR/Slimme meter
+            DSMR or Slimme meter
         </li>
         <li>
             <a href='/components/sensor.dte_energy_bridge/'>DTE Energy Bridge</a>

@@ -94,11 +94,11 @@
     <ul>
       <li><strong>sensors</strong> (<em>Required</em>):
         <ul>
-          <li><strong>moisture</strong> (<em>Optional</em>): Moisture of the plant. Meassured in %. Can have a min and max value set optionally.</li>
-          <li><strong>battery</strong> (<em>Optional</em>): Battery level of the plant sensor. Meassured in %. Can only have a min level set optionally.</li>
-          <li><strong>temperature:</strong> (<em>Optional</em>): Temperaure of the plant. Meassured in degrees Celcius. Can have a min and max value set optionally.</li>
-          <li><strong>conductivity:</strong> (<em>Optional</em>): Conductivity of the plant. Meassured in µS/cm. Can have a min and max value set optionally.</li>
-          <li><strong>brightness:</strong> (<em>Optional</em>): Light exposure of the plant. Meassured in Lux. Can have a min and max value set optionally.</li>
+          <li><strong>moisture</strong> (<em>Optional</em>): Moisture of the plant. Measured in %. Can have a min and max value set optionally.</li>
+          <li><strong>battery</strong> (<em>Optional</em>): Battery level of the plant sensor. Measured in %. Can only have a min level set optionally.</li>
+          <li><strong>temperature:</strong> (<em>Optional</em>): Temperature of the plant. Measured in degrees Celsius. Can have a min and max value set optionally.</li>
+          <li><strong>conductivity:</strong> (<em>Optional</em>): Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.</li>
+          <li><strong>brightness:</strong> (<em>Optional</em>): Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.</li>
         </ul>
       </li>
       <li><strong>min_moisture</strong> (<em>Optional</em>): Minimum moisture level before triggering a problem. Typical value: 20</li>
@@ -115,7 +115,7 @@
 </ul>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <h3>Using plain MQTT sensor to get the data</h3>
-<p>This is a practial example that uses a multiple of <code class="highlighter-rouge">MQTT sensors</code> to supply the readings used by the <code class="highlighter-rouge">plant</code> sensor.
+<p>This is a practical example that uses a multiple of <code class="highlighter-rouge">MQTT sensors</code> to supply the readings used by the <code class="highlighter-rouge">plant</code> sensor.
 Another good source of this data would be the <a href="https://home-assistant.io/components/sensor.miflora/">Mi Flora</a> component.</p>
 <p>If the sensor data within the the min/max values the status will be <code class="highlighter-rouge">ok</code>, if not the status will be <code class="highlighter-rouge">problem</code>. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.</p>
 <h2>Data Source</h2>

@@ -115,11 +115,11 @@ your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
         <dd>
           <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Required)</span><span class="description">Defines a template to set the state of the sensor.</span></p>
         </dd>
-        <dt><a class="title-link" name="on_delay" href="#on_delay"></a> on_delay</dt>
+        <dt><a class="title-link" name="delay_on" href="#delay_on"></a> delay_on</dt>
         <dd>
           <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>met</em></strong> before this sensor will switch to <code class="highlighter-rouge">on</code>.</span></p>
         </dd>
-        <dt><a class="title-link" name="off_delay" href="#off_delay"></a> off_delay</dt>
+        <dt><a class="title-link" name="delay_off" href="#delay_off"></a> delay_off</dt>
         <dd>
           <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>not met</em></strong> before this sensor will switch to <code class="highlighter-rouge">off</code>.</span></p>
         </dd>
@@ -202,7 +202,7 @@ there has been no washer activity for 5 minutes.</p>
     <span class="s">sensors</span><span class="pi">:</span>
       <span class="s">washing_machine</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Washing</span><span class="nv"> </span><span class="s">Machine"</span>
-        <span class="s">off_delay</span><span class="pi">:</span>
+        <span class="s">delay_off</span><span class="pi">:</span>
           <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
         <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
           <span class="no">{{ states('sensor.washing_machine_power')|float &gt; 0 }}</span>

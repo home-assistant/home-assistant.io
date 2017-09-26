@@ -86,21 +86,22 @@
 <p>When developing your script:</p>
 <ul>
   <li><code class="highlighter-rouge">/data</code> is a volume for persistent storage.</li>
-  <li><code class="highlighter-rouge">/data/options.json</code> contains the user configuration. You can use <code class="highlighter-rouge">jq</code> inside your shell script to parse this data. However you might have to install <code class="highlighter-rouge">jq</code> as a separate package in your container (see <code class="highlighter-rouge">Dockerfile</code> below).</li>
+  <li><code class="highlighter-rouge">/data/options.json</code> contains the user configuration. You can use <code class="highlighter-rouge">jq</code> inside your shell script to parse this data. However, you might have to install <code class="highlighter-rouge">jq</code> as a separate package in your container (see <code class="highlighter-rouge">Dockerfile</code> below).</li>
 </ul>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">CONFIG_PATH</span><span class="o">=</span>/data/options.json
 
-<span class="nv">TARGET</span><span class="o">=</span><span class="k">$(</span>jq --raw-output <span class="s2">".target"</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span>
+<span class="nv">TARGET</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>jq --raw-output <span class="s1">'.target'</span> <span class="nv">$CONFIG_PATH</span><span class="k">)</span><span class="s2">"</span>
 </code></pre>
 </div>
-<p>So if your <code class="highlighter-rouge">options</code>contain</p>
+<p>So if your <code class="highlighter-rouge">options</code> contain</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beer"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p>then there will be a variable <code class="highlighter-rouge">TARGET</code>containing <code class="highlighter-rouge">beer</code> in the environment of your bash file afterwards.</p>
+<p>then there will be a variable <code class="highlighter-rouge">TARGET</code> containing <code class="highlighter-rouge">beer</code> in the environment of your bash file afterwards.</p>
 <h2><a class="title-link" name="add-on-docker-file" href="#add-on-docker-file"></a> Add-on Docker file</h2>
-<p>All add-ons are based on Alpine Linux 3.6. Hass.io will automatically substitute the right base image based on the machine architecture. Add <code class="highlighter-rouge">tzdata</code> if you need run in correct timezone, but that is already add in our base images.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>FROM %%BASE_IMAGE%%
+<p>All add-ons are based on Alpine Linux 3.6. Hass.io will automatically substitute the right base image based on the machine architecture. Add <code class="highlighter-rouge">tzdata</code> if you need run in a different timezone. <code class="highlighter-rouge">tzdata</code> Is is already added to our base images.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>ARG BUILD_FROM
+FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
@@ -118,14 +119,31 @@ CMD [ "/run.sh" ]
 <div class="highlighter-rouge"><pre class="highlight"><code>LABEL io.hass.version="VERSION" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
 </code></pre>
 </div>
-<p>It is possible to use own base image with follow schema:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>#amd64:FROM...
-#i386:FROM...
-#armhf:FROM...
-#aarch64:FROM...
-</code></pre>
-</div>
-<p>Or if you not want to do a multi arch build/support you can also use a simle docker <code class="highlighter-rouge">FROM</code>.</p>
+<p>It is possible to use own base image with <code class="highlighter-rouge">build.json</code> or if you do not need support for automatic multi-arch building you can also use a simple docker <code class="highlighter-rouge">FROM</code>.</p>
+<h3><a class="title-link" name="build-args" href="#build-args"></a> Build Args</h3>
+<p>We support the following build arguments by default:</p>
+<table>
+  <thead>
+    <tr>
+      <th>ARG</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BUILD_FROM</td>
+      <td>Hold image for dynamic builds or buildings over our systems.</td>
+    </tr>
+    <tr>
+      <td>BUILD_VERSION</td>
+      <td>Add-on version (read from <code class="highlighter-rouge">config.json</code>).</td>
+    </tr>
+    <tr>
+      <td>BUILD_ARCH</td>
+      <td>Hold current build arch inside.</td>
+    </tr>
+  </tbody>
+</table>
 <h2><a class="title-link" name="add-on-config" href="#add-on-config"></a> Add-on config</h2>
 <p>The config for an add-on is stored in <code class="highlighter-rouge">config.json</code>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -189,12 +207,12 @@ CMD [ "/run.sh" ]
     <tr>
       <td>startup</td>
       <td>yes</td>
-      <td><code class="highlighter-rouge">initialize</code> will start addon on setup of hassio. <code class="highlighter-rouge">system</code> is for things like database and base not on other things. <code class="highlighter-rouge">services</code> will start before homeassistant. <code class="highlighter-rouge">application</code> is after homeassistant will start or <code class="highlighter-rouge">once</code> for application they don’t run as deamon.</td>
+      <td><code class="highlighter-rouge">initialize</code> will start addon on setup of Hass.io. <code class="highlighter-rouge">system</code> is for things like databases and not dependent on other things. <code class="highlighter-rouge">services</code> will start before Home Assistant, while <code class="highlighter-rouge">application</code> is started afterwards. Finally <code class="highlighter-rouge">once</code> is for applications that don’t run as a daemon.</td>
     </tr>
     <tr>
       <td>webui</td>
       <td>no</td>
-      <td>A URL for webinterface of this add-on. Like <code class="highlighter-rouge">http://[HOST]:[PORT:2839]/dashboard</code>, the port need the internal port, we replace it later with the effective port.</td>
+      <td>A URL for web interface of this add-on. Like <code class="highlighter-rouge">http://[HOST]:[PORT:2839]/dashboard</code>, the port needs the internal port, which will be replaced with the effective port.</td>
     </tr>
     <tr>
       <td>boot</td>
@@ -214,12 +232,12 @@ CMD [ "/run.sh" ]
     <tr>
       <td>devices</td>
       <td>no</td>
-      <td>Device list to map into add-on. Format is: <code class="highlighter-rouge">&lt;path_on_host&gt;:&lt;path_in_container&gt;:&lt;cgroup_permissions&gt;</code>. i.e. <code class="highlighter-rouge">/dev/ttyAMA0:/dev/ttyAMA0:rwm</code></td>
+      <td>Device list to map into the add-on. Format is: <code class="highlighter-rouge">&lt;path_on_host&gt;:&lt;path_in_container&gt;:&lt;cgroup_permissions&gt;</code>. i.e. <code class="highlighter-rouge">/dev/ttyAMA0:/dev/ttyAMA0:rwm</code></td>
     </tr>
     <tr>
       <td>hassio_api</td>
       <td>no</td>
-      <td>This add-on can access to hass.io REST API. It set the host alias <code class="highlighter-rouge">hassio</code>.</td>
+      <td>This add-on can access to Hass.io REST API. It set the host alias <code class="highlighter-rouge">hassio</code>.</td>
     </tr>
     <tr>
       <td>privileged</td>
@@ -229,7 +247,7 @@ CMD [ "/run.sh" ]
     <tr>
       <td>map</td>
       <td>no</td>
-      <td>List of maps for additional hass.io folders. Possible values: <code class="highlighter-rouge">config</code>, <code class="highlighter-rouge">ssl</code>, <code class="highlighter-rouge">addons</code>, <code class="highlighter-rouge">backup</code>, <code class="highlighter-rouge">share</code>. Default it map it <code class="highlighter-rouge">ro</code>, you can change that if you add a “:rw” at the end of name.</td>
+      <td>List of maps for additional Hass.io folders. Possible values: <code class="highlighter-rouge">config</code>, <code class="highlighter-rouge">ssl</code>, <code class="highlighter-rouge">addons</code>, <code class="highlighter-rouge">backup</code>, <code class="highlighter-rouge">share</code>. Defaults to <code class="highlighter-rouge">ro</code>, which you can change by adding <code class="highlighter-rouge">:rw</code> to the end of the name.</td>
     </tr>
     <tr>
       <td>environment</td>
@@ -239,7 +257,7 @@ CMD [ "/run.sh" ]
     <tr>
       <td>audio</td>
       <td>no</td>
-      <td>Mark this add-on to use internal audio system. Environment is <code class="highlighter-rouge">ALSA_INPUT</code> and <code class="highlighter-rouge">ALSA_OUTPUT</code> to access the internal information for alsa.</td>
+      <td>Mark this add-on to use internal an audio system. The available environment variables are <code class="highlighter-rouge">ALSA_INPUT</code> and <code class="highlighter-rouge">ALSA_OUTPUT</code> which provide internal information to access alsa.</td>
     </tr>
     <tr>
       <td>options</td>
@@ -254,7 +272,7 @@ CMD [ "/run.sh" ]
     <tr>
       <td>image</td>
       <td>no</td>
-      <td>For use dockerhub.</td>
+      <td>For use with Docker Hub.</td>
     </tr>
     <tr>
       <td>timeout</td>
@@ -269,7 +287,7 @@ CMD [ "/run.sh" ]
   </tbody>
 </table>
 <h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
-<p>The <code class="highlighter-rouge">options</code> dict contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start. Only non-nested arrays and dictorys are supported.</p>
+<p>The <code class="highlighter-rouge">options</code> dictionary contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start. Only non-nested arrays and dictionaries are supported.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom things"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -277,7 +295,9 @@ CMD [ "/run.sh" ]
     </span><span class="p">{</span><span class="w"> </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cheep"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"654321"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"random"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"haha"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hihi"</span><span class="p">,</span><span class="w"> </span><span class="s2">"huhu"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hghg"</span><span class="p">],</span><span class="w">
-  </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://blebla.com/"</span><span class="w">
+  </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -287,8 +307,10 @@ CMD [ "/run.sh" ]
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w"> </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"random"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"str"</span><span class="p">],</span><span class="w">
-  </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="w">
+  </span><span class="nt">"random"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"match(^\w*$)"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int(5,20)"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -303,6 +325,45 @@ CMD [ "/run.sh" ]
   <li>port</li>
   <li>match(REGEX)</li>
 </ul>
+<h2><a class="title-link" name="add-on-extended-build" href="#add-on-extended-build"></a> Add-on extended build</h2>
+<p>Additional build options for an add-on is stored in <code class="highlighter-rouge">build.json</code>. This file will be read from our build systems.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"build_from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"armhf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant/armhf-base:latest"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"squash"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"my_build_arg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xy"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>build_from</td>
+      <td>no</td>
+      <td>A dictionary with the hardware architecture as the key and the base Docker image as value.</td>
+    </tr>
+    <tr>
+      <td>squash</td>
+      <td>no</td>
+      <td>Default <code class="highlighter-rouge">False</code>. Be carfully with this option, you can not use the image for caching stuff after that!</td>
+    </tr>
+    <tr>
+      <td>args</td>
+      <td>no</td>
+      <td>Allow to set additional Docker build arguments as a dictionary.</td>
+    </tr>
+  </tbody>
+</table>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
