@@ -6,7 +6,7 @@ date: 2017-09-25 21:25
 ---
 
 
-This platform allows you to connect to your [Outlook Calendars](https://outlook.live.com/owa/?path=/calendar) and generate binary sensors. The sensors created can trigger based on any event on the calendar or only for matching events. When you first setup this component it will generate a new configuration file *google_calendars.yaml* that will contain information about all of the calendars you can see.
+This platform allows you to connect to your [Outlook Calendars](https://outlook.live.com/owa/?path=/calendar) and generate binary sensors. The sensors created can trigger based on any event on the calendar or only for matching events. When you first setup this component it will generate a new configuration file *outlook_calendars.yaml* that will contain information about all of the calendars you can see.
 
 ### {% linkable_title Prerequisites %}
 
@@ -20,7 +20,7 @@ Generate a Client ID and Client Secret on [Microsoft Application Registration Po
 
 ### {% linkable_title Basic Setup %}
 
-To integrate Google Calendar in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate Outlook Calendar in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
