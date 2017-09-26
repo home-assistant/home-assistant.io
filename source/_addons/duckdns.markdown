@@ -17,7 +17,7 @@ featured: true
   "lets_encrypt": {
     "accept_terms": true
   },
-  "token": "sdfj-2131023-dslfjsd-12321",
+  "token": "sdfj-2131023-dslfjsd-12321",
   "domains": ["my-domain.duckdns.org"]
 }
 ```
@@ -30,3 +30,13 @@ Configuration variables:
 - **lets_encrypt.accept_terms** (*Optional*): If you accept the [Let's Encrypt Subscriber Agreement][le], it will generate & update Let's Enrypt certificates for your DuckDNS domain.
 
 [le]: https://letsencrypt.org/repository/
+
+## {% linkable_title Home Assistant configuration %}
+
+Use the following configuration in Home Assistant to use the generated certificate:
+
+```yaml
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+```
