@@ -163,7 +163,7 @@ This device tracker needs SNMP to be enabled on the router. It could be that you
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address of the router, eg. 192.168.1.1.</li>
-  <li><strong>community</strong> (<em>Required</em>): The SNMP community which is set for the device. Most devices have a default community set to to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
+  <li><strong>community</strong> (<em>Required</em>): The SNMP community which is set for the device. Most devices have a default community set to <code class="highlighter-rouge">public</code> with read-only permission (which is sufficient).</li>
   <li><strong>baseoid</strong> (<em>Required</em>): The OID prefix where wireless client registrations can be found, usually vendor specific. It’s advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.</li>
   <li><strong>authkey</strong> (<em>Inclusive</em>): Authentication key for SNMPv3. Variable privkey must also be set.</li>
   <li><strong>privkey</strong> (<em>Inclusive</em>): Privacy key SNMPv3. Variable authkey must also be set.</li>

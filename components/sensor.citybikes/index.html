@@ -86,8 +86,8 @@
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): The base name of this group of monitored stations. The entity ID of every monitored station in this group will be prefixed with this base name, in addition to the network ID.</li>
   <li><strong>network</strong> (<em>Optional</em>):  The name of the bike sharing system to poll. Defaults to the system that operates in the monitored location.</li>
-  <li><strong>latitude</strong> (<em>Optional</em>):  Latitude of the location, around which bike stations are monitored. Defaults to the latitude in your your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
-  <li><strong>longitude</strong> (<em>Optional</em>):  Longitude of the location, around which bike stations are monitored. Defaults to the longitude in your your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><strong>latitude</strong> (<em>Optional</em>):  Latitude of the location, around which bike stations are monitored. Defaults to the latitude in your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>):  Longitude of the location, around which bike stations are monitored. Defaults to the longitude in your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
   <li><strong>radius</strong> (<em>Optional</em>):  The radius (in meters or feet, depending on the Home Assistant configuration) around the monitored location. Only stations closer than this distance will be monitored.</li>
   <li><strong>stations</strong> array (<em>Optional</em>): A list of specific stations to monitor. The list should contain station <code class="highlighter-rouge">ID</code>s or <code class="highlighter-rouge">UID</code>s, which can be obtained from the CityBikes API.</li>
 </ul>

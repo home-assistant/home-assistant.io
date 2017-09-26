@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Internet-of-Things | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/internet-of-things/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-09-26T16:07:55+00:00</updated>
+  <updated>2017-09-26T18:31:09+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -254,7 +254,7 @@ Advantages:
 
 Disadvantages:
 
- - Home automation will assume the wrong state if the the command is not received correctly or if the device is controlled in any other way outside of the home automation system.
+ - Home automation will assume the wrong state if the command is not received correctly or if the device is controlled in any other way outside of the home automation system.
 
 ### <a class='title-link' name='polling-the-cloud' href='#polling-the-cloud'></a> Polling the cloud 
 These are devices that will only report their state to their own cloud backend. The cloud backend will allow reading the state but will not notify when a new state has arrived. This requires the home automation to check frequently if the state has been updated.
