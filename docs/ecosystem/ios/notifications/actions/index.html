@@ -112,7 +112,7 @@
 <h2><a class="title-link" name="category-parameters" href="#category-parameters"></a> Category parameters</h2>
 <ul>
   <li><strong>name</strong> (<em>Required</em>): A friendly name for this category.</li>
-  <li><strong>identifier</strong> (<em>Required</em>): A unique identifier for the category. Must be uppercase and have no special characters or spaces.</li>
+  <li><strong>identifier</strong> (<em>Required</em>): A unique identifier for the category. Must be lowercase and have no special characters or spaces.</li>
   <li><strong>action</strong> (<em>Required</em>): A list of actions.</li>
 </ul>
 <h2><a class="title-link" name="action-parameters" href="#action-parameters"></a> Action parameters</h2>
@@ -131,7 +131,7 @@
   <span class="s">push</span><span class="pi">:</span>
     <span class="s">categories</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Alarm</span>
-        <span class="s">identifier</span><span class="pi">:</span> <span class="s1">'</span><span class="s">ALARM'</span>
+        <span class="s">identifier</span><span class="pi">:</span> <span class="s1">'</span><span class="s">alarm'</span>
         <span class="s">actions</span><span class="pi">:</span>
           <span class="pi">-</span> <span class="s">identifier</span><span class="pi">:</span> <span class="s1">'</span><span class="s">SOUND_ALARM'</span>
             <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Sound</span><span class="nv"> </span><span class="s">Alarm'</span>
@@ -163,7 +163,7 @@
           <span class="s">push</span><span class="pi">:</span>
             <span class="s">badge</span><span class="pi">:</span> <span class="s">5</span>
             <span class="s">sound</span><span class="pi">:</span> <span class="s">&lt;SOUND FILE HERE&gt;</span>
-            <span class="s">category</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ALARM"</span> <span class="c1"># Needs to match the top level identifier you used in the ios configuration</span>
+            <span class="s">category</span><span class="pi">:</span> <span class="s2">"</span><span class="s">alarm"</span> <span class="c1"># Needs to match the top level identifier you used in the ios configuration</span>
           <span class="s">action_data</span><span class="pi">:</span> <span class="c1"># Anything passed in action_data will get echoed back to Home Assistant.</span>
             <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.test</span>
             <span class="s">my_custom_data</span><span class="pi">:</span> <span class="s">foo_bar</span>
