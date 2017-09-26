@@ -49,15 +49,15 @@ sensor:
 
 {% configuration %}
   port:
-    description: Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001).
+    description: "Serial port to which Smartmeter is connected (default: /dev/ttyUSB0 (connected to USB port)). For remote (i.e. ser2net) connections, use TCP port number to connect to (i.e. 2001)."
     required: false
     type: string
   host:
-    description: Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13).
+    description: "Host to which Smartmeter is connected (default: '' (connected via serial or USB, see **port**)). For remote connections, use IP address of host to connect to (i.e. 192.168.1.13)."
     required: false
     type: string
   name:
-    description: Version of DSMR used by meter, choices: 2.2, 4. Defaults to 2.2.
+    description: "Version of DSMR used by meter, choices: 2.2, 4. Defaults to 2.2."
     required: false
     type: string
 {% endconfiguration %}
