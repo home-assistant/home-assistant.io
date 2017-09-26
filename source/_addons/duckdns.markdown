@@ -15,10 +15,10 @@ featured: true
 ```json
 {
   "lets_encrypt": {
-    "accept_terms": false
+    "accept_terms": true
   },
   "token": "sdfj-2131023-dslfjsd-12321",
-  "domains": ["my-first-account.duckdns.org", "my-second-account.duckdns.org"]
+  "domains": ["my-domain.duckdns.org"]
 }
 ```
 
@@ -27,4 +27,6 @@ Configuration variables:
 - **token** (*Required*): Your Duck DNS API key.
 - **domains** (*Required*): A list of domains to update DNS.
 - **seconds** (*Optional*): Seconds between updates to Duck DNS.
-- **lets_encrypt.accept_terms** (*Optional*): If that will be enabled, it generate & update let's enrypt certificate
+- **lets_encrypt.accept_terms** (*Optional*): If you accept the [Let's Encrypt Subscriber Agreement][le], it will generate & update Let's Enrypt certificates for your DuckDNS domain.
+
+[le]: https://letsencrypt.org/repository/

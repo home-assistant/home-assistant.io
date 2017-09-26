@@ -1,18 +1,25 @@
 ---
 layout: page
-title: "Configurator"
+title: "HASS Configurator"
 description: "Browser-based configuration file editor for Home Assistant."
 date: 2017-09-25 14:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
+og_image: /images/hassio/screenshots/addon-hass-configurator.png
 ---
 
-As long as a fully featured configuration GUI for Home Assistant is still under development, you can use this add-on to add a browser based file-editor to your Hass.IO installation. By default it will listen on port `3218` of the host Hass.IO is running on.  
-More information and a standalone version for regular Home Assistant installations can be found in the original repository at https://github.com/danielperna84/hass-configurator.
+As long as a fully featured configuration GUI for Home Assistant is still under development, you can use this add-on to add a browser based file-editor to your Hass.IO installation. By default it will listen on port `3218` of the host Hass.IO is running on.
 
-![Screenshot](https://github.com/danielperna84/hass-configurator/blob/master/hass-poc-configurator.png)
+More information and a standalone version for regular Home Assistant installations can be found in the [GitHub repository][code].
+
+[code]: https://github.com/danielperna84/hass-configurator
+
+<p class='img'>
+<img src='/images/hassio/screenshots/addon-hass-configurator.png'>
+Screenshot of the HASS Configurator.
+</p>
 
 ### {% linkable_title Feature list %}
 
@@ -25,7 +32,7 @@ More information and a standalone version for regular Home Assistant installatio
 - Optional authentication and IP filtering for added security.
 - Direct links to Home Assistant documentation and icons.
 - Execute shell commands within the add-on container.
-- Modified editor settings can be saved using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+- Editor settings are saved in your browser.
 
 ### {% linkable_title Add-on Configuration %}
 
@@ -34,8 +41,8 @@ More information and a standalone version for regular Home Assistant installatio
   "homeassistant_api": "http://homeassistant:8123/api",
   "homeassistant_password": "",
   "username": "admin",
-  "password": "secret",
-  "certfile": "fullchain.pem",
+  "password": "secret",
+  "certfile": "fullchain.pem",
   "keyfile": "privkey.pem",
   "ssl": false,
   "allowed_networks": ["192.168.0.0/16"],
@@ -53,8 +60,10 @@ More information and a standalone version for regular Home Assistant installatio
 - **banned_ips** (*Optional*): List of statically banned IP addresses.
 - **ignore_pattern** (*Optional*): Files and folders to ignore in the UI.
 
-### {% Embedding into Home-Assistant %}
-Home Assistant has the [panel_iframe](https://home-assistant.io/components/panel_iframe/) component. With this it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration within the Home Assistant frontend.  
+### {% linkable_title Embedding into Home-Assistant %}
+
+Using the Home Assistant component [panel_iframe](https://home-assistant.io/components/panel_iframe/) it is possible to embed the configurator directly into Home Assistant, allowing you to modify your configuration within the Home Assistant frontend.
+
 An example configuration would look like this:
 
 ```yaml
@@ -65,6 +74,6 @@ panel_iframe:
     url: http://hassio.local:3218
 ```
 
-<p class='note'>
+<p class='note warning'>
 Be careful when setting up port forwarding to the configurator while embedding into Home Assistant. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!
 </p>
