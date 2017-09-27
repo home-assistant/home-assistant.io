@@ -15,7 +15,7 @@ When Let's Encrypt launched we were estatic: finally an easy and free way for ou
 
 Thanks to a [blog post][splitbrain] by Andreas Gohr I realized that DuckDNS supports setting TXT records, making it compatible with the DNS-01 challenge of Let's Encrypt. The DNS-01 challenge is using the DNS record of the domain instead of interacting with the server. This means that it's not needed for the user to open any ports!
 
-I have worked together with [Pascal Vizeli][pvizeli] on updating the DuckDNS add-on for Hass.io and today we're proud to announce it now includes automatic generation and updating of Let's Encrypt certificates for your DuckDNS domain. The only thing that you have to add to your DuckDNS configuration is that you accept their [terms of service][terms] and point Home Assistant at the generated certificates and you're good to go. No other work is required.
+I have worked together with [Pascal Vizeli][pvizeli] on updating the DuckDNS add-on for Hass.io and today we're proud to announce it now includes automatic generation and updating of Let's Encrypt certificates for your DuckDNS domain. The only thing that you have to add to your DuckDNS configuration is that you accept the Let's Encrypt [terms of service][terms] and point Home Assistant at the generated certificates and you're good to go. No other work is required.
 
 To get started today, start with making sure that you have [Hass.io installed][hassio]. After that, go to the Hass.io panel in Home Assistant, open the add-on store, scroll down to DuckDNS and install it. In the DuckDNS settings change "accept_terms" to true and start it.
 
