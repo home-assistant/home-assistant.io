@@ -14,7 +14,7 @@ ha_release: 0.34
 ---
 
 
-The `threshold` binary sensor platform is consuming the state from another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of this sensor change..
+The `threshold` binary sensor platform is consuming the state from another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of the sensor is changed.
 
 It's an alternative to the template binary sensor's `value_template:` to get the abnormal/too high/too low states.
 
@@ -29,6 +29,7 @@ To enable the threshold sensor, add the following lines to your `configuration.y
 binary_sensor:
   - platform: threshold
     threshold: 15
+    hysteresis: 0.5
     type: lower
     entity_id: sensor.random
 ```
@@ -36,7 +37,7 @@ binary_sensor:
 Configuration variables:
 
 - **entity_id** (*Required*): The entity to monitor. Only [sensors](/components/sensor/) are supported.
-- **threshold** (*Required*): The value which is the threshold.
+- **threshold** (*Required*): The threshold which the observed value is compared against.
 - **type** (*Required*): `lower` if the value needs to be below the threshold or `upper` if higher.
+- **hysteresis** (*Optional*): The distance the observed value must be from the threshold before the state is changed.
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Stats`.
-
