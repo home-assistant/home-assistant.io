@@ -12,7 +12,7 @@ ha_category: Automation
 ha_release: 0.16
 ---
 
-The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, a numeric input box, or both. Changes to the slider and/or numeric input box generate state events. These state events can be utilized as `automation` triggers as well. 
+The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
 To enable this input number in your installation, add the following lines to your `configuration.yaml`:
 
@@ -32,13 +32,6 @@ input_number:
     max: 35
     step: 1
     mode: box
-  both1:
-    name: Slider with Numeric Input Box
-    initial: 30
-    min: -20
-    max: 35
-    step: 1
-    mode: both
 ```
 
 Configuration variables:
@@ -49,7 +42,7 @@ Configuration variables:
   - **name** (*Optional*): Friendly name of the input.
   - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to 0.
   - **step** (*Optional*): Step value for the slider. Defaults to 1.
-  - **mode** (*Optional*): Can specify `both`, `box`, or `slider`. Defaults to `slider`.
+  - **mode** (*Optional*): Can specify `box`, or `slider`. Defaults to `slider`.
 
 ## {% linkable_title Automation Examples %}
 
