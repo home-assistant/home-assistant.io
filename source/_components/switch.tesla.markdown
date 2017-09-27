@@ -15,6 +15,6 @@ ha_release: 0.54
 
 The `Tesla` platform allows you to control your [Tesla](https://www.tesla.com/) charger (enable/disable charging) from within Home Assistant.
 
-The lock platform will be automatically configured if Tesla component is configured.
+The switch platform will be automatically configured if Tesla component is configured.
 
 For more configuration information see the [Tesla component](/components/tesla/) documentation.
