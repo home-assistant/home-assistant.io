@@ -35,7 +35,19 @@ If you enjoy the free service provided by DuckDNS and Let's Encrypt, consider do
  - [Become a Patreon of DuckDNS](https://www.patreon.com/user?u=3209735)
  - [Donate to Let's Encrypt](https://letsencrypt.org/donate/)
 
+More information:
+
+ - [Hass.io][hassio]
+ - [Installing Hass.io][hassio-install]
+ - [DuckDNS add-on][addon-duckdns]
+ - [DuckDNS][duckdns]
+ - [Let's Encrypt][le]
+
 [splitbrain]: https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt
 [terms]: https://letsencrypt.org/repository/
 [pvizeli]: https://github.com/pvizeli
 [hassio]: /hassio/
+[hassio-install]: /hassio/installation/
+[addon-duckdns]: /addons/duckdns/
+[duckdns]: http://www.duckdns.org/
+[le]: https://letsencrypt.org/
