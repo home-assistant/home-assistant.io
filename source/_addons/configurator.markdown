@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+featured: true
 og_image: /images/hassio/screenshots/addon-hass-configurator.png
 ---
 
