@@ -70,6 +70,54 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/07/25/introducing-hassio/">Introducing Hass.io</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-07-25T00:02:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 25, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Announcements</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/07/25/introducing-hassio/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><strong>TL;DR:</strong> Today we’re introducing <a href="/hassio">Hass.io</a>. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a> including <a href="/addons/google_assistant/">Google Assistant</a> and <a href="/addons/lets_encrypt/">Let’s Encrypt</a>.</p>
+<hr />
+<p>Home Assistant is 2 months away from being 4 years old. In that time the Internet of Things has really taken off and we’ve seen many new devices and services. We saw the introduction of voice assistants like Google Home and new standards like Apple HomeKit.</p>
+<p>Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. All these moving parts caused our users to spend a lot of time maintaining their systems and applications instead of automating their homes.</p>
+<p>So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user’s privacy.</p>
+<p>And this is how <a href="https://github.com/pvizeli/">Pascal Vizeli</a> came up with Hass.io, an operating system based on <a href="https://resinos.io/">ResinOS</a> and <a href="https://www.docker.com/">Docker</a>. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a>.</p>
+<p class="img">
+<img src="/images/hassio/screenshots/dashboard.png" />
+Hass.io dashboard
+</p>
+<p>To install add-ons, a user can browse the built-in add-on store and install, configure and update any available application. Want to turn your device into a Google Assistant or make your configuration accessible via Samba/Windows networking? Both are a couple of clicks away! (<a href="https://youtu.be/NfyavpAg4as">Video demo - 38s, no audio</a>)</p>
+<p>At launch we have included a couple of <a href="/addons/">built-in add-ons</a> like <a href="/addons/google_assistant/">Google Assistant</a>, <a href="/addons/lets_encrypt/">Let’s Encrypt</a> and <a href="/addons/duckdns/">Duck DNS</a>. Besides our internal add-ons, it is also possible to create and share your own add-on repositories. During our beta period we’ve already seen some great add-ons being shared: <a href="https://community.home-assistant.io/t/repository-homebridge-add-on/18569">Homebridge</a>, <a href="https://community.home-assistant.io/t/repository-bestlibre-addons-repository/18037">InfluxDB</a>, <a href="https://community.home-assistant.io/t/repository-hass-configurator/17838">HASS Configurator</a> and <a href="https://community.home-assistant.io/t/repository-few-addons/20659">AppDaemon</a>.</p>
+<p>As we strongly believe in the openness of technology, we are releasing Hass.io as <a href="https://github.com/home-assistant/hassio">open source</a> under the Apache 2.0 license. That way any user can make sure that the code that runs in their homes is secure and safe.</p>
+<ul>
+  <li><a href="/hassio">Learn more about Hass.io</a></li>
+  <li><a href="/hassio/installation">Install Hass.io</a></li>
+  <li><a href="/addons/">Available add-ons</a></li>
+</ul>
+<p><em>Some frequently asked questions are answered below in the read more section.</em></p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<p>Hass.io has been built by <a href="https://github.com/pvizeli/">Pascal Vizeli</a>, the UI has been made by <a href="https://github.com/balloob/">Paulus Schoutsen</a> and <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a> made the introduction video. Big thanks to <a href="https://resin.io">Resin.io</a> for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️</p>
+      <a class="btn pull-right" href="/blog/2017/07/25/introducing-hassio/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/07/17/hasspodcast-ep-4/">Home Assistant Podcast #4</a>
   </h1>
   <div class="meta clearfix">
@@ -464,76 +512,6 @@ Screenshot of a green dashboard
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/LQbOtUmITv8" frameborder="0" allowfullscreen=""></iframe>
 </div>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/06/04/release-46/">0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-06-04T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 4, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 10 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/06/04/release-46/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.46"><img src="/images/blog/2017-06-0.46/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p>It’s time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.</p>
-<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h2>
-<ul>
-  <li>Template light (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7657">#7657</a>) (<a href="https://home-assistant.io/components/light.template/">light.template docs</a>) (new-platform)</li>
-  <li>Support for GE Zwave fan controller (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7767">#7767</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (<a href="https://home-assistant.io/components/fan.zwave/">fan.zwave docs</a>) (new-platform)</li>
-  <li>Rachio (Sprinklers) (<a href="https://github.com/Klikini">@Klikini</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7600">#7600</a>) (<a href="https://home-assistant.io/components/switch.rachio/">switch.rachio docs</a>) (new-platform)</li>
-  <li>Introduced support to Netgear Arlo Cameras (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7826">#7826</a>) (<a href="https://home-assistant.io/components/arlo/">arlo docs</a>) (<a href="https://home-assistant.io/components/camera.arlo/">camera.arlo docs</a>) (<a href="https://home-assistant.io/components/sensor.arlo/">sensor.arlo docs</a>) (new-platform)</li>
-</ul>
-<h2><a class="title-link" name="release-0461---june-9" href="#release-0461---june-9"></a> Release 0.46.1 - June 9</h2>
-<ul>
-  <li>Support for renaming ZWave values (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7780">#7780</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>)</li>
-  <li>Dsmr5 revert (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7900">#7900</a>) (<a href="https://home-assistant.io/components/sensor.dsmr/">sensor.dsmr docs</a>)</li>
-  <li>Fix typos in Wunderground component (Percipitation -&gt; Precipitation) (<a href="https://github.com/mje-nz">@mje-nz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7901">#7901</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
-  <li>Mqtt cover: Making command topic optional and add ability to set up/down position including ability to template the value (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7841">#7841</a>) (<a href="https://home-assistant.io/components/cover.mqtt/">cover.mqtt docs</a>)</li>
-  <li>Media Player - OpenHome: Fixed metadata issue (<a href="https://github.com/bazwilliams">@bazwilliams</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7932">#7932</a>) (<a href="https://home-assistant.io/components/media_player.openhome/">media_player.openhome docs</a>)</li>
-  <li>Sensor - MetOffice: Fix last updated date (<a href="https://github.com/cyberjacob">@cyberjacob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7965">#7965</a>) (<a href="https://home-assistant.io/components/sensor.metoffice/">sensor.metoffice docs</a>)</li>
-  <li>Prevent Roku doing I/O in event loop (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7969">#7969</a>) (<a href="https://home-assistant.io/components/media_player.roku/">media_player.roku docs</a>)</li>
-</ul>
-<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
-<ul>
-  <li>The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use <code class="highlighter-rouge">scan_interval</code> instead of <code class="highlighter-rouge">update_interval</code>  (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7655">#7655</a>) (<a href="https://home-assistant.io/components/sensor.usps/">sensor.usps docs</a>) (breaking change)</li>
-  <li>Automation state trigger: From/to checks will now ignore state changes that are just attribute changess (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7651">#7651</a>) (<a href="https://home-assistant.io/docs/automation/trigger/#state-trigger">automation.state docs</a>) (breaking change)</li>
-  <li>Redesign monitored variables for hp_ilo sensor. <code class="highlighter-rouge">monitored_variables</code> is now a list of <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">sensor_type</code> values (<a href="https://github.com/Juggels">@Juggels</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7534">#7534</a>) (<a href="https://home-assistant.io/components/sensor.hp_ilo/">sensor.hp_ilo docs</a>) (breaking change)</li>
-</ul>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hp_ilo</span>
-    <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS or HOSTNAME</span>
-    <span class="s">username</span><span class="pi">:</span> <span class="s">USERNAME</span>
-    <span class="s">password</span><span class="pi">:</span> <span class="s">PASSWORD</span>
-    <span class="s">monitored_variables</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">SENSOR NAME</span>
-        <span class="s">sensor_type</span><span class="pi">:</span> <span class="s">SENSOR TYPE</span>
-</code></pre>
-</div>
-<ul>
-  <li>Automation - time: The <code class="highlighter-rouge">after</code> keyword for time triggers (not conditions) has been deprecated in favor of the <code class="highlighter-rouge">at</code> keyword. This resembles better what it does (old one still works, gives a warning) (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7846">#7846</a>) (<a href="https://home-assistant.io/docs/automation/trigger/#time-trigger">automation.time docs</a>) (breaking change)</li>
-  <li>Automation - numeric_state: <code class="highlighter-rouge">above</code> and <code class="highlighter-rouge">below</code> will no longer trigger if it is equal. (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7857">#7857</a>) (breaking change)</li>
-  <li>Broadlink switches: Entity ids will change for switches that don’t have a default name set. In this case the object_id is now used. (<a href="https://github.com/abmantis">@abmantis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7845">#7845</a>) (<a href="https://home-assistant.io/components/switch.broadlink/">switch.broadlink docs</a>) (breaking change)</li>
-  <li>Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both <code class="highlighter-rouge">xy_color</code> and <code class="highlighter-rouge">rgb_color</code>. (<a href="https://github.com/amelchio">@amelchio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7765">#7765</a>) (breaking change)</li>
-</ul>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-      <a class="btn pull-right" href="/blog/2017/06/04/release-46/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

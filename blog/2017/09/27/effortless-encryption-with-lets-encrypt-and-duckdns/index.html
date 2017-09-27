@@ -6,23 +6,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hassbian 1.3 - A bit of a stretch - Home Assistant</title>
-    <meta name="author" content="Fredrik Lindqvist">
-    <meta name="description" content="Raspbian Stretch release of the HASSbian Raspberry Pi Image for Home Assistant">
+    <title>Effortless encryption with Let's Encrypt and DuckDNS - Home Assistant</title>
+    <meta name="author" content="Paulus Schoutsen">
+    <meta name="description" content="Get Home Assistant encrypted in less than 5 minutes.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Hassbian 1.3 - A bit of a stretch">
+    <meta property="og:title" content="Effortless encryption with Let's Encrypt and DuckDNS">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Raspbian Stretch release of the HASSbian Raspberry Pi Image for Home Assistant">
-    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta property="og:description" content="Get Home Assistant encrypted in less than 5 minutes.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Hassbian 1.3 - A bit of a stretch">
-    <meta name="twitter:description" content="Raspbian Stretch release of the HASSbian Raspberry Pi Image for Home Assistant">
-    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:creator" content="@balloob">
+    <meta name="twitter:title" content="Effortless encryption with Let's Encrypt and DuckDNS">
+    <meta name="twitter:description" content="Get Home Assistant encrypted in less than 5 minutes.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2015-12-lets-encrypt/letsencrypt-secured-fb.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
@@ -69,15 +70,15 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">Hassbian 1.3 - A bit of a stretch</h1>
+  <h1 class="title indent">Effortless encryption with Let's Encrypt and DuckDNS</h1>
   <div class="meta clearfix">
-    <time datetime="2017-09-16T16:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 16, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
+    <time datetime="2017-09-27T00:05:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 27, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
     <span><i class='icon-time'></i> 1 minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>Technology</li>
+        <li>How-To</li>
     </ul>
   </span>
       <a class='comments'
@@ -85,19 +86,23 @@
          >Comments</a>
   </div>
 </header>
-  <p>This new release finally brings us the release of Hassbian based on the release of Raspbian Stretch. The most significant change with this is that we now run Home Assistant on Python 3.5.
-Other than that the changes are mostly to our tool <code class="highlighter-rouge">hassbian-config</code>.</p>
-<h3><a class="title-link" name="hassbian-config" href="#hassbian-config"></a> Hassbian-config</h3>
-<p>To allow you to customize your installation further, we have made a few additions to our tool called <code class="highlighter-rouge">hassbian-config</code>. Majority of these changes where contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</p>
-<h4><a class="title-link" name="upgrade-scripts" href="#upgrade-scripts"></a> Upgrade scripts</h4>
-<p><a href="http://github.com/ludeeus">@Ludeeus</a> contributed the possibility to run upgrade scripts to the <code class="highlighter-rouge">hassbian-config</code> tool.</p>
+  <p>When Let’s Encrypt launched we were estatic: finally an easy and free way for our users to securely access their homes remotely. Let’s Encrypt signifianctly lowered the bar to get and renew SSL certificates. However, this process could still be quite an obstacle for our users. It required opening ports on the router and remembering to renew the certificate every so often.</p>
+<p>Thanks to a <a href="https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt">blog post</a> by Andreas Gohr I realized that DuckDNS supports setting TXT records, making it compatible with the DNS-01 challenge of Let’s Encrypt. The DNS-01 challenge is using the DNS record of the domain instead of interacting with the server. This means that it’s not needed for the user to open any ports!</p>
+<p>I have worked together with <a href="https://github.com/pvizeli">Pascal Vizeli</a> on updating the DuckDNS add-on for Hass.io and today we’re proud to announce it now includes automatic generation and updating of Let’s Encrypt certificates for your DuckDNS domain. The only thing that you have to add to your DuckDNS configuration is that you accept their <a href="https://letsencrypt.org/repository/">terms of service</a> and point Home Assistant at the generated certificates and you’re good to go. No other work is required.</p>
+<p>To get started today, start with making sure that you have <a href="/hassio/">Hass.io installed</a>. After that, go to the Hass.io panel in Home Assistant, open the add-on store, scroll down to DuckDNS and install it. In the DuckDNS settings change “accept_terms” to true and start it.</p>
+<p>Next up is to configure Home Assistant with the config below and restart it. You’re now good to go! Make sure to use the right protocol when browsing to your instance: <code class="highlighter-rouge">https://&lt;your_domain&gt;.duckdns.org</code>. Happy secure controlling your house!</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for the HTTP component</span>
+<span class="s">http</span><span class="pi">:</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/ssl/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/ssl/privkey.pem</span>
+</code></pre>
+</div>
+<p>If you’re not using Hass.io, check out the <a href="https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt">blog post</a> by Andreas for instructions.</p>
+<p>If you enjoy the free service provided by DuckDNS and Let’s Encrypt, consider donating to their cause:</p>
 <ul>
-  <li>Upgrade Hassbian: Upgrades packages of the base operating system. Contributed by <a href="http://github.com/landrash">@Landrash</a>.</li>
-  <li>Upgrade Hassbian-script: Downloads and upgrades the latest release of Hassbian-scripts. Contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</li>
-  <li>Upgrade Home-assistant: Upgrades the Home Assistant installation to the latest release. Contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</li>
+  <li><a href="https://www.patreon.com/user?u=3209735">Become a Patreon of DuckDNS</a></li>
+  <li><a href="https://letsencrypt.org/donate/">Donate to Let’s Encrypt</a></li>
 </ul>
-<p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/RkajcgS">Discord chat server</a>.</p>
-<p>To get started with the new image, check out the installation instructions on the <a href="https://home-assistant.io/docs/installation/hassbian/installation/">installing Hassbian page</a>.</p>
 </article>
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
@@ -127,10 +132,10 @@ Other than that the changes are mostly to our tool <code class="highlighter-roug
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/"
-     data-counturl="https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/"
+     data-counturl="https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/"
+         data-href="https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -140,13 +145,13 @@ Other than that the changes are mostly to our tool <code class="highlighter-roug
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
         <li class="post">
-          <a href="/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/">Effortless encryption with Let's Encrypt and DuckDNS</a>
-        </li>
-        <li class="post">
           <a href="/blog/2017/09/26/new-hassio-build-system/">Improved Hass.io build system</a>
         </li>
         <li class="post">
           <a href="/blog/2017/09/23/release-54/">0.54: Todoist, DoorBird, Abode cameras</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/">Hassbian 1.3 - A bit of a stretch</a>
         </li>
         <li class="post">
           <a href="/blog/2017/09/09/release-53/">0.53: Tesla, Customize editor, and super fast KNX rewrite</a>
@@ -186,8 +191,8 @@ Other than that the changes are mostly to our tool <code class="highlighter-roug
 <script>
   var disqus_shortname = 'home-assistant';
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/';
-    var disqus_url = 'https://home-assistant.io/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/';
     var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
