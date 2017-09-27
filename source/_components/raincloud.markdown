@@ -29,6 +29,5 @@ Configuration variables:
 - **username** (*Required*): The username for accessing your Melnor RainCloud account.
 - **password** (*Required*): The password for accessing your Melnor RainCloud account.
 - **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. Defaults to 20seconds.
-- **watering_minutes** (*Optional*): Value in minutes to watering your garden via frontend. Defaults to 15.
 
 Finish its configuration by visiting the [Raincloud binary sensor](/components/binary_sensor.raincloud/), [Raincloud sensor](/components/sensor.raincloud/) and [Raincloud switch](/components/switch.raincloud/) documentation.
