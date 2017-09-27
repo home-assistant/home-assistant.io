@@ -109,7 +109,7 @@ xiaomi_aqara:
 
 ### {% linkable_title Services %}
 
-The gateway provides two services: `xiaomi.play_ringtone` and `xiaomi.stop_ringtone`. To play ringtones by Home Assistant, the version of the gateway firmware must be `1.4.1_145` at least. A `ringtone_id` and `gw_mac` must be supplied. The parameter `ringtone_vol` (percent) is optional. Allowed values of the `ringtone_id` are:
+The gateway provides two services: `xiaomi_aqara.play_ringtone` and `xiaomi_aqara.stop_ringtone`. To play ringtones by Home Assistant, the version of the gateway firmware must be `1.4.1_145` at least. A `ringtone_id` and `gw_mac` must be supplied. The parameter `ringtone_vol` (percent) is optional. Allowed values of the `ringtone_id` are:
 
 - alarm ringtones [0-8]
 - doorbell ring [10-13]
