@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: raincloud.jpg
 ha_category: Hub
-ha_release: 0.54
+ha_release: 0.55
 ---
 
 The `raincloud` component allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
