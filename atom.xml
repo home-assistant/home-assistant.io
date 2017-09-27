@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-09-27T05:03:53+00:00</updated>
+  <updated>2017-09-27T05:23:50+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -22,7 +22,7 @@
 
 <p>Thanks to a <a href="https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt">blog post</a> by Andreas Gohr I realized that DuckDNS supports setting TXT records, making it compatible with the DNS-01 challenge of Let’s Encrypt. The DNS-01 challenge is using the DNS record of the domain instead of interacting with the server. This means that it’s not needed for the user to open any ports!</p>
 
-<p>I have worked together with <a href="https://github.com/pvizeli">Pascal Vizeli</a> on updating the DuckDNS add-on for Hass.io and today we’re proud to announce it now includes automatic generation and updating of Let’s Encrypt certificates for your DuckDNS domain. The only thing that you have to add to your DuckDNS configuration is that you accept their <a href="https://letsencrypt.org/repository/">terms of service</a> and point Home Assistant at the generated certificates and you’re good to go. No other work is required.</p>
+<p>I have worked together with <a href="https://github.com/pvizeli">Pascal Vizeli</a> on updating the DuckDNS add-on for Hass.io and today we’re proud to announce it now includes automatic generation and updating of Let’s Encrypt certificates for your DuckDNS domain. The only thing that you have to add to your DuckDNS configuration is that you accept the Let’s Encrypt <a href="https://letsencrypt.org/repository/">terms of service</a> and point Home Assistant at the generated certificates and you’re good to go. No other work is required.</p>
 
 <p>To get started today, start with making sure that you have <a href="/hassio/">Hass.io installed</a>. After that, go to the Hass.io panel in Home Assistant, open the add-on store, scroll down to DuckDNS and install it. In the DuckDNS settings change “accept_terms” to true and start it.</p>
 
@@ -42,6 +42,16 @@
 <ul>
   <li><a href="https://www.patreon.com/user?u=3209735">Become a Patreon of DuckDNS</a></li>
   <li><a href="https://letsencrypt.org/donate/">Donate to Let’s Encrypt</a></li>
+</ul>
+
+<p>More information:</p>
+
+<ul>
+  <li><a href="/hassio/">Hass.io</a></li>
+  <li><a href="/hassio/installation/">Installing Hass.io</a></li>
+  <li><a href="/addons/duckdns/">DuckDNS add-on</a></li>
+  <li><a href="http://www.duckdns.org/">DuckDNS</a></li>
+  <li><a href="https://letsencrypt.org/">Let’s Encrypt</a></li>
 </ul>
 
 ]]></content>
