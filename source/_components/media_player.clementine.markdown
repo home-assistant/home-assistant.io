@@ -40,3 +40,4 @@ You can configure this through Clementine  `Tools > Preferences > Network remote
 configuration menu. Enable `Use network remote control` and configure the other options
 for your use case.
 
+This component does not implement the play_media service so you cannot add tracks to the playlist.
