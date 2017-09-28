@@ -56,7 +56,7 @@ Configuration example that uses the USB microphone and use the built-in headset 
 {
   "mic": "1,0",
   "speaker": "0,0",
-  "client_secrets": "google_assistant.json",
+  "client_secrets": "google_assistant.json"
 }
 ```
 
