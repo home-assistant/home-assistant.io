@@ -9,18 +9,19 @@ sharing: true
 footer: true
 ---
 
-To ensure that the documentation for Home Assistant is consistent and easy to
-follow for both novice and expert users, we ask that you follow a very strict
-set of standards for developing the documentation.
+To ensure that the documentation for Home Assistant is consistent and easy to follow for both novice and expert users, we ask that you follow a very strict set of standards for developing the documentation.
 
 ## {% linkable_title General Documentation %}
 
+* The language of the documentation should be American-English.
+* Don't put two spaces after a period and avoid the "Oxford comma".
+* Be objective and not gender favoring, polarizing, race related or religion inconsiderate.
 * The case of brand names, services, protocols, components, and platforms must match its respective counterpart.
-  * Z-Wave (**not** Zwave, Z-wave, Z Wave, or ZWave)
+  * Z-Wave (**not** Zwave, Z-wave, Z Wave or ZWave)
   * Zigbee (**not** ZigBee)
-  * iCloud (**not** Icloud, icloud, or ICloud)
-  * Pushover (**not** PushOver, pushover, or push over)
-  * OwnTracks (**not** Owntracks, ownTracks, owntracks, or own tracks)
+  * iCloud (**not** Icloud, icloud or ICloud)
+  * Pushover (**not** PushOver, pushover or push over)
+  * OwnTracks (**not** Owntracks, ownTracks, owntracks or own tracks)
   * Input Select (**not** input select or Input select)
 * All headings should use the {% raw %}`{% linkable_title %}`{% endraw %} tag.
 
