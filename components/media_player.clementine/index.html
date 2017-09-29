@@ -75,8 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">clementine</code> platform allows you to control a <a href="https://www.clementine-player.org">Clementine Music Player</a>.</p>
-<p>To add a Clementine Player to your Home Assistant installation, add the following to
-your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To add a Clementine Player to your Home Assistant installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">clementine</span>
@@ -90,11 +89,9 @@ your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
   <li><strong>access_token</strong> (<em>Optional</em>): The authorization code needed to connect.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the Clementine player. The default is “Clementine Remote”.</li>
 </ul>
-<p>Remember that Clementine must be configured to accept connections through its
-network remote control protocol.</p>
-<p>You can configure this through Clementine  <code class="highlighter-rouge">Tools &gt; Preferences &gt; Network remote control</code>
-configuration menu. Enable <code class="highlighter-rouge">Use network remote control</code> and configure the other options
-for your use case.</p>
+<p>Remember that Clementine must be configured to accept connections through its network remote control protocol.</p>
+<p>You can configure this through Clementine  <code class="highlighter-rouge">Tools &gt; Preferences &gt; Network remote control</code> configuration menu. Enable <code class="highlighter-rouge">Use network remote control</code> and configure the other options for your use case.</p>
+<p>This component does not implement the <code class="highlighter-rouge">play_media</code> service so you cannot add tracks to the playlist.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

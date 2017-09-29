@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-09-29T06:40:01+00:00</updated>
+  <updated>2017-09-29T10:26:00+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
+    <link href="https://home-assistant.io/blog/2017/09/29/hacktoberfest/"/>
+    <updated>2017-09-29T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/09/29/hacktoberfest</id>
+    <content type="html"><![CDATA[<p>For the second year in a row, Home Assistant will be participating in <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>. Hacktoberfest is an event organized by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features, and documentation enhancements and that you, a current or future contributor, will help us fix them. If you submit four pull-requests during October, you will have earned yourself a limited edition Hacktoberfest T-shirt!</p>
+
+<p>Why contribute to Home Assistant?</p>
+
+<ul>
+  <li>Written in Python 3 with 94% test coverage</li>
+  <li>Active and helpful community</li>
+  <li>Friendly to new contributors</li>
+</ul>
+
+<p>Resources to get started:</p>
+
+<ul>
+  <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
+  <li><a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">List of entry-level issues for Home Assistant</a></li>
+  <li><a href="/developers/development_environment/">Instructions to setup your development environment</a></li>
+  <li><a href="https://discord.gg/8X8DTH4">Home Assistant Development Chat</a></li>
+  <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
+  <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
+</ul>
+
+<p>Are you not a programmer but still want to contribute to Home Assistant? Check out our <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">list of entry-level issues for the Home Assistant website</a>.</p>
+
+<p>Our participation for <a href="https://home-assistant.io/blog/2016/11/05/hacktoberfest-influxdb-weather/#hacktoberfest">Hacktoberfest 2016</a> was a huge success. Join us to repeat it this year.</p>
+
+<p><a href="https://hacktoberfest.digitalocean.com/"><img src="/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Effortless encryption with Let's Encrypt and DuckDNS]]></title>
@@ -2144,20 +2179,6 @@ trigger:
 <p>With the release of 0.47, this feature will be opt-in. Setting <code class="highlighter-rouge">new_entity_ids: true</code> under <code class="highlighter-rouge">zwave:</code> in your configuration.yaml will enable the new generation. After 0.48 this feature will become opt-out. From 0.48 onward, unless you’ve declared <code class="highlighter-rouge">new_entity_ids: false</code> you will switch to the new entity_id generation. At an undecided point in the future, the old entity_id generation will be removed completely.</p>
 
 <p>I’m sure all ZWave users understand that the current entity_ids aren’t easy to use. They’re annoying to type in configuration.yaml, and break if a node needs to be re-included to the network. We know that breaking changes are painful, and so we’re doing what we can to roll this change out as smoothly as possible. The end result should be a dramatic simplification of most ZWave configurations. We hope that this change will ultimately make ZWave much easier to work with, and bring ZWave configuration just a little closer to the rest of the Home Assistant platforms.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Linux Action Show special about Home Assistant]]></title>
-    <link href="https://home-assistant.io/blog/2017/06/10/interview-with-jupiter-broadcasting/"/>
-    <updated>2017-06-10T01:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/06/10/interview-with-jupiter-broadcasting</id>
-    <content type="html"><![CDATA[<p>Our founder Paulus Schoutsen is interviewed by Chris Fisher for a Linux Action Show special about home automation, <a href="https://community.home-assistant.io/t/introducing-hass-io/17296/48">Hass.io</a> and the new <a href="https://hasspodcast.io/">Home Assistant podcast</a>.</p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/LQbOtUmITv8" frameborder="0" allowfullscreen=""></iframe>
-</div>
 
 ]]></content>
   </entry>

@@ -70,6 +70,34 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/06/10/interview-with-jupiter-broadcasting/">Linux Action Show special about Home Assistant</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-06-10T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 10, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Media</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/06/10/interview-with-jupiter-broadcasting/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Our founder Paulus Schoutsen is interviewed by Chris Fisher for a Linux Action Show special about home automation, <a href="https://community.home-assistant.io/t/introducing-hass-io/17296/48">Hass.io</a> and the new <a href="https://hasspodcast.io/">Home Assistant podcast</a>.</p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/LQbOtUmITv8" frameborder="0" allowfullscreen=""></iframe>
+</div>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/06/04/release-46/">0.46: Rachio sprinklers, Netgear Arlo cameras and Z-Wave fans</a>
   </h1>
   <div class="meta clearfix">
@@ -490,57 +518,6 @@ $ sudo systemctl start install_homeassistant.service
 <p>Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspberry Pi Zero W in 30 minutes.</p>
 <p>To try it out, go to <a href="http://hassbian:8123">http://hassbian:8123</a> or <a href="http://hassbian.local:8123">http://hassbian.local:8123</a> if you’re using Mac.</p>
 <p>For further details about HASSbian, take a look at the <a href="https://home-assistant.io/docs/hassbian/">documentation</a>.</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/04/30/hassbian-1.21-its-about-time/">HASSbian 1.21 - It's about time isn't it</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-04-30T15:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 30, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Technology</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/04/30/hassbian-1.21-its-about-time/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <h3>Hassbian 1.21 - It’s about time isn’t it</h3>
-<p>Since I, the developer of HASSbian, have been moving, started a new job and so on I’ve had few moments over for HASSbian development. The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I’ll do my best to release more often. There’s no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the <a href="https://github.com/home-assistant/hassbian-scripts/releases/latest">hassbian-config</a> package. For more information have a look at the <a href="https://github.com/home-assistant/hassbian-scripts/">hassbian-config</a> page.</p>
-<h3>Hassbian 1.22 - Sins of last night</h3>
-<p>Development is sometimes fast and joyful but mistakes are made at times.</p>
-<p>With the release of 1.21 a small problem with the OpenZWave build script wasn’t corrected even tough it was a known bug. Problem is simple as it’s only a problem with the symlink created for to the configuration folder for OpenZWave. This has been fixed and we bring some new things since they where ready anyway. The list below has been augmented with the updated information.</p>
-<h3><a class="title-link" name="hassbian-config" href="#hassbian-config"></a> Hassbian-config</h3>
-<p>To allow you to customize your installation further, we have included a tool called <code class="highlighter-rouge">hassbian-config</code>. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation. This replaces the <code class="highlighter-rouge">hassbian-scripts</code> functionality from 1.1.</p>
-<ul>
-  <li>Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component thats used with Amazon Echo, Google Home and Mycroft.ai.</li>
-  <li>Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.</li>
-  <li>Install Libcec. Adds local <a href="/components/hdmi_cec/">HDMI CEC support</a>.</li>
-  <li>Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.</li>
-  <li>Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.</li>
-  <li>Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it’s usage is not recommended if you share your network with others.</li>
-  <li>Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.</li>
-  <li>Install Tradfri. Installs dependencies for using IKEA Trådfri.</li>
-</ul>
-<h3><a class="title-link" name="spring-cleaning" href="#spring-cleaning"></a> Spring cleaning</h3>
-<p>With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.</p>
-<ul>
-  <li>Replaced the <code class="highlighter-rouge">hassbian-scripts</code> folder with <code class="highlighter-rouge">hassbian-config</code>.</li>
-  <li>Update <code class="highlighter-rouge">pi-gen</code>. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.</li>
-  <li>Added libtool and autoconf package. Dependencies for some of the pip packages.</li>
-  <li>Pi ZeroW should now work with the image.</li>
-</ul>
-<p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/8X8DTH4">Discord chat server</a>.</p>
-<p>To get started with the new image, check out the installation instructions in the <a href="/getting-started/installation-raspberry-pi-image/">getting started section</a>.</p>
   </div>
   </article>
   <hr>
