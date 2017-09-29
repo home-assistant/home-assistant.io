@@ -257,7 +257,12 @@ CMD [ "/run.sh" ]
     <tr>
       <td>audio</td>
       <td>no</td>
-      <td>Mark this add-on to use internal an audio system. The available environment variables are <code class="highlighter-rouge">ALSA_INPUT</code> and <code class="highlighter-rouge">ALSA_OUTPUT</code> which provide internal information to access alsa.</td>
+      <td>Boolean. Mark this add-on to use internal an audio system. The available environment variables are <code class="highlighter-rouge">ALSA_INPUT</code> and <code class="highlighter-rouge">ALSA_OUTPUT</code> which provide internal information to access alsa.</td>
+    </tr>
+    <tr>
+      <td>gpio</td>
+      <td>no</td>
+      <td>Boolean. If this is set to True, <code class="highlighter-rouge">/sys/class/gpio</code> will map into add-on for access to GPIO interface from kernel. Some library need also <code class="highlighter-rouge">/dev/mem</code> and <code class="highlighter-rouge">SYS_RAWIO</code> for read/write access to this device.</td>
     </tr>
     <tr>
       <td>options</td>
