@@ -4,14 +4,14 @@ title: "Participating in Hacktoberfest"
 description: "Home Assistant will be participating in Hacktoberfest to help people to get started with open-source."
 date: 2017-09-29 08:00:00 +0000
 date_formatted: "September 29, 2017"
-author: FAbian Affolter
+author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: Community
 og_image: /images/blog/2017-09-hacktoberfest/hacktoberfest-2017.png
 ---
 
-Home Assistant will join this year for [Hacktoberfest], an event organised by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features, and documentation enhancements and that you, a current or future contributor, will fix them. If you submit four pull-requests during the month of October you will have earned yourself a limited edition Hacktoberfest T-shirt!
+For the second year in a row, Home Assistant will be participating in [Hacktoberfest]. Hacktoberfest is an event organized by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features, and documentation enhancements and that you, a current or future contributor, will help us fix them. If you submit four pull-requests during October, you will have earned yourself a limited edition Hacktoberfest T-shirt!
 
 Why contribute to Home Assistant?
 
@@ -30,7 +30,7 @@ Resources to get started:
 
 Are you not a programmer but still want to contribute to Home Assistant? Check out our [list of entry-level issues for the Home Assistant website][issues-doc].
 
-Our participation for the [Hacktoberfest 2016][hackt-2016] was a huge success. Joun us to repeat t 
+Our participation for [Hacktoberfest 2016][hackt-2016] was a huge success. Join us to repeat it this year.
 
 [![Hacktober fest logo][logo]][Hacktoberfest]
 
