@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: owntracks.png
 ha_category: Presence Detection
-featured: true
+featured: false
 ha_release: 0.7.4
 ---
 
