@@ -11,14 +11,19 @@ footer: true
 
 ## {% linkable_title Supported Z-Wave USB Sticks & Hardware Modules %}
 
-[supported Z-Wave USB stick or module](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List)
+You need to have a [supported Z-Wave USB stick or module](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List) installed.
 
 | Device                  | Works on Linux | Works on Windows | Works on OSX |
 |-------------------------|----------------|------------------|--------------|
+| Aeotec Z-Stick          |   &#10003;     |                  |              |
 | Aeotec Z-Stick Series 2 |   &#10003;     |                  |              |
 | Aeotec Z-Stick Series 5 |   &#10003;     |                  |   &#10003;   |
 | Pine64 Z-Wave Module    |   &#10003;     |                  |              |
 | Razberry GPIO Module    |   &#10003;     |                  |              |
+| Seluxit ViaSens 100     |                |                  |              |
+| Sigma Designs UZB Stick |                |                  |              |
+| Tricklestar             |                |                  |              |
+| Vision USB Stick        |                |                  |              |
 | ZWave.me UZB1           |   &#10003;     |                  |              |
 
 ## {% linkable_title Stick Alternatives %}
@@ -32,12 +37,8 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 
 ### {% linkable_title Aoetec Stick }
 
-By default this will turn on "disco lights", which you can turn off by following the details in the [settings page](z-wave/settings)
+By default this will turn on "disco lights", which you can turn off by following the instructions in the [device specific page](/docs/z-wave/device-specific/#aeon-z-stick)
 
 ### {% linkable_title Razberry Board }
 
-You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`, then rebooting:
-
-```
-dtoverlay=pi3-disable-bt
-```
+You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by following the instructions in the [device specific page](/docs/z-wave/device-specific/#razberry-board)

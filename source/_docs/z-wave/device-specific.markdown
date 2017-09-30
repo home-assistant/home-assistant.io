@@ -10,18 +10,22 @@ footer: true
 redirect_from: /getting-started/z-wave-device-specific/
 ---
 
-## {% linkable_title Motion or alarm sensors %}
+## {% linkable_title Device Categories %}
+
+### {% linkable_title Motion or alarm sensors %}
 
 In order for Home Assistant to recognize the sensor properly, you will need to change its configuration from `Basic Set (default)` to `Binary Sensor report` or `Alarm report`.
 These devices will either show as a binary sensor or a sensor called `Alarm xxxx` and will report a numeric value. Test to see what value is what. Sometimes this is noted in the device manual.
 
 You can set the settings of the Z-Wave device through the Z-Wave control panel.
 
-## {% linkable_title Locks and other secure devices %}
+### {% linkable_title Locks and other secure devices %}
 
 These devices require a network key to be set for the Z-Wave network before they are paired, using the **Add Node Secure** option.
 
 Home Assistant stores logs from Z-Wave in `OZW.log` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired successfully with a secure connection.
+
+### {% linkable_title Specific Devices %}
 
 ### {% linkable_title Aeotec Z-Stick %}
 
@@ -39,6 +43,14 @@ Turn on "Disco lights":
 
 ```bash
 $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
+```
+
+### {% linkable_title Razberry Board %}
+
+You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`, then rebooting:
+
+```
+dtoverlay=pi3-disable-bt
 ```
 
 ### {% linkable_title Aeon Minimote %}

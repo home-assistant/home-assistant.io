@@ -64,7 +64,7 @@ Example:
      platform: event
      event_type: zwave.node_event
      event_data:
-       entity_id: zwave.aeon_labs_minimote_1
+       entity_id: zwave.aeon_labs_minimote
        basic_level: 255
 ```
 
@@ -82,7 +82,7 @@ automation:
       platform: event
       event_type: zwave.scene_activated
       event_data:
-        entity_id: zwave.zwaveme_zme_wallcs_secure_wall_controller_8
+        entity_id: zwave.zwaveme_zme_wallcs_secure_wall_controller
         scene_id: 11
 ```
 
@@ -103,4 +103,4 @@ automation
 
 The *object_id* and *scene_id* of all triggered events can be seen in the console output.
 
-For more information on HomeSeer devices and similar devices, please see the [device specific page](https://home-assistant.io/docs/z-wave/device-specific/#homeseer-switches).
+For more information on HomeSeer devices and similar devices, please see the [device specific page](/docs/z-wave/device-specific/#homeseer-switches).

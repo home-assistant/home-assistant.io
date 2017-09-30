@@ -34,6 +34,10 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 * **Rename Node** sets a node's name
 
+<p class='note'>
+Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
+</p>
+
 #### {% linkable_title Entities of this node %}
 
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
@@ -41,7 +45,7 @@ This is a dropdown where you can select all the entities of this node. Once sele
 * **Refresh Entity** to refresh just that entity's values
 * **Entity Attributes** to display the attributes of that entity (eg it's friendly name, the ID of the node, etc)
 
-Here you can mark a device as requiring polling (before 0.54 this was displayed at the top), so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/polling/), since excessive polling can break your Z-Wave network.
+Here you can mark a device as requiring polling (before 0.55 this was displayed at the top), so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/polling/), since excessive polling can break your Z-Wave network.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
 
@@ -81,7 +85,7 @@ This will display the Z-Wave related information about the node:
 
 ### {% linkable_title Node Values %}
 
-Allows you to rename the entities of the node. For example, maybe for the sensor `front_door`, you want to rename the value `seismic_intensity` to `shake`. The `entity_id` for that sensor will then change from `sensor.front_door_seismic_intensity` to `sensor.front_door_shake`
+Allows you to rename the entities of the node. For example, maybe for the sensor `front_door`, you want to rename the value `seismic_intensity` to `shake`. The `entity_id` for that sensor will then change from `sensor.front_door_seismic_intensity` to `sensor.front_door_shake`.
 
 ### {% linkable_title Node group associations %}
 
