@@ -2,7 +2,7 @@
 layout: page
 title: "The Things Network"
 description: "Instructions for how to integrate The Things Network within Home Assistant."
-date: 2017-09-30 00:80
+date: 2017-09-30 08:00
 sidebar: true
 comments: false
 sharing: true
