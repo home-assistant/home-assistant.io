@@ -24,13 +24,13 @@ It uses a sensor under the hood to obtain the current temperature.
 climate:
   - platform: mqtt
     name: Study
-    target_sensor: sensor.study_temperature
+    current_temperature_topic: /sensors/hvac_study/current_temp
+    temperature_command_topic: /sensors/hvac_study/target_temp
 ```
 
 Configuration variables *except* for MQTT topics:
 
 - **name** (*Required*): Name of MQTT HVAC.
-- **target_sensor** (*Optional*): `entity_id` for a temperature sensor, target_sensor.state must be temperature.
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is `0` and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
 - **send_if_off** (*Optional*): Set to `false` to suppress sending of all MQTT messages when the current mode is `Off`. Defaults to `true`.
@@ -56,8 +56,6 @@ Configuration of the MQTT topics:
 - **hold_state_topic** (*Optional*): The MQTT topic to subscribe for changes of the HVAC hold mode. If this is not set, the hold mode works in optimistic mode (see below).
 - **aux_command_topic** (*Optional*): The MQTT topic to publish commands to switch auxiliary heat.
 - **aux_state_topic** (*Optional*): The MQTT topic to subscribe for changes of the auxiliary heat mode. If this is not set, the auxiliary heat mode works in optimistic mode (see below).
-
-**Note**: Event though `target_sensor` as well as `current_temperature_topic` are both technically optional, you need to specify at least one of both.
 
 #### Optimistic mode
 
