@@ -23,7 +23,7 @@ To test your changes locally, you need to install **Ruby** and its dependencies 
 - Install `bundler`, a dependency manager for Ruby: `$ gem install bundler`
 - In your home-assistant.github.io root directory, run `$ bundle` to install the gems you need.
 
-Short cut for Fedora: `$ sudo dnf -y install gcc-c++ ruby ruby-devel rubygem-bundler && bundle`
+Short cut for Fedora: `$ sudo dnf -y install gcc-c++ ruby ruby-devel rubygem-bundler rubygem-json && bundle`
 
 Then you can work on the documentation:
 
@@ -73,20 +73,42 @@ A couple of points to remember:
 - Document the needed steps to retrieve API keys or access token for the third party service or device if needed.
 - Keep the configuration sample minimal by only adding the `Required` options. Full configuration details with further explanations should go into a seperate section.
 - The description of all the configuration variables should contains information about the used defaults.
-- If you're adding a new component, for the `ha_release` part of the header, just increment off the current release. If the current release is 0.37, make `ha_release` 0.38.
+- If you're adding a new component, for the `ha_release` part of the header, just increment of the current release. If the current release is 0.37, make `ha_release` 0.38. If it's 0.30 or 0.40 please quote it with `" "`.
+
+### {% linkable_title Configuration variables %}
+
+The ***Configuration Variables*** section must use the {% raw %}`{% configuration %} ... {% endconfiguration %}`{% endraw %} tag.
+
+
+```text
+{% raw %}
+{% configuration %}
+  api_key:
+    description: The API key to access the service.
+    required: true
+    type: string
+  name:
+    description: Name to use in the frontend.
+    required: false
+    type: string
+{% endconfiguration %}
+{% endraw %}
+```
+
+- **`description:`**: That the variable is about.
+- **`required:`**: If the variable is required.
+```text
+required: true            #=> Required
+required: false           #=> Optional
+required: inclusive       #=> Inclusive
+required: exclusive       #=> Exclusive
+required: any string here #=> Any string here
+```
+- **`type:`**: The type of the variable. Allowed entries: `string`, `int` or `map`. For multiple possibilities use `[string, int]`. If you use `map` then you need to define `keys:` (see the [`template` sensor](/components/sensor.template/) for an example).
 
 ### {% linkable_title Embedding Code %}
 
-You can use the default markdown syntax to generate syntax highlighted code. For inline code wrap your code in \`. For multi-line, syntax wrap your code as shown below.
-
-```text
-{% raw %} ```yaml
- sensor:
-   platform: template
- ```{% endraw %}
-```
-
-Note that you can replace `yaml` next to \`\`\` with the language that is within the block.
+You can use the [default markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) to generate syntax highlighted code. For inline code wrap your code in {% raw %}`{% endraw %}. 
 
 When you're writing code that is to be executed on the terminal, prefix it with `$`.
 
@@ -109,7 +131,7 @@ The direct usage of HTML is supported but not recommended. The note boxes are an
 ### {% linkable_title Redirects %}
 If you rename or move an existing platform or component, create the redirect. Add the old location of the page to the header of the new one.
 
-```test
+```text
 ---
 ...
 redirect_from: /getting-started/android/
