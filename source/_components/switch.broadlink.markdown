@@ -184,7 +184,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
   3. `sudo python setup.py install`
 
 7. Test the codes
-Use the `sendcode` script you have already downloded to test the codes you got from the device.
+Use the `sendcode` script you have already downloaded to test the codes you got from the device.
 You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
 When run the script, you know the code works when get message .
 Code sent...

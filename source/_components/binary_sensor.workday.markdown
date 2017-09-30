@@ -18,7 +18,7 @@ The `workday` binary sensor indicates, whether the current day is a workday or n
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuation.yaml entry
+# Example configuration.yaml entry
 binary_sensor:
   - platform: workday
     country: DE

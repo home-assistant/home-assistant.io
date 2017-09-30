@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pushbullet Mirrors"
-description: "Instructions how to read user pushes in Home Assitant"
+description: "Instructions how to read user pushes in Home Assistant"
 date: 2017-04-20 16:44
 sidebar: true
 comments: false

@@ -47,7 +47,7 @@ For more information, visit the [serial api] of MySensors.
 #define SN "GPS Sensor"
 #define SV "1.0"
 
-// GPS position send interval (in millisectonds)
+// GPS position send interval (in milliseconds)
 #define GPS_SEND_INTERVAL 30000
 // The child id used for the gps sensor
 #define CHILD_ID_GPS 1

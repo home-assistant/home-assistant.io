@@ -14,9 +14,9 @@ ha_release: 0.38
 
 The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-The 433 Mhz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
+The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
-RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. Their website provides details for various RF transmitter, receiver and transceiver modules for 433Mhz, 868Mhz and 2.4 Ghz [here.](http://www.nemcon.nl/blog2/wiring)
+RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. Their website provides details for various RF transmitter, receiver and transceiver modules for 433MHz, 868MHz and 2.4 GHz [here.](http://www.nemcon.nl/blog2/wiring)
 
  <p class='note'>
  Note: Versions later than R44 adds support for Ikea Ansluta, Philips Living Colors Gen1, MySensors devices.
@@ -40,7 +40,7 @@ Configuration variables:
 
 - **port** (*Required*): The path to RFLink USB/serial device or TCP port in TCP mode.
 - **host** (*Optional*): Switches to TCP mode, connects to host instead of to USB/serial.
-- **wait_for_ack** (*Optional*): Wait for RFLink to ackowledge commands sent before sending new command (slower but more reliable). Defaults to `True`
+- **wait_for_ack** (*Optional*): Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable). Defaults to `True`
 - **ignore_devices** (*Optional*): List of devices id's to ignore. Supports wildcards (*) at the end.
 - **reconnect_interval** (*Optional*): Time in seconds between reconnect attempts.
 
@@ -104,7 +104,7 @@ sensor:
 
 ### {% linkable_title Ignoring devices %}
 
-RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 Mhz technology.
+RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
 
 For example:
 
@@ -129,14 +129,14 @@ Even though a lot of devices are supported by RFLink, not all have been tested/i
 
 ### {% linkable_title Device Incorrectly Identified %}
 
-If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFlink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.nemcon.nl/blog2/faq#RFFind)
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.nemcon.nl/blog2/faq#RFFind)
 
 ### {% linkable_title Technical overview %}
 
 - The`rflink` Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the RFLink gateway.
 - This component uses this callback to distribute 'rflink packet events' over Home Assistant's bus which can be subscribed to by entities/platform implementations.
-- The platform implementions take care of creating new devices (if enabled) for unsees incoming packet id's.
-- Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entitiy logic is maintained in this main component.
+- The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet id's.
+- Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
 
 ### {% linkable_title Debug logging %}
 

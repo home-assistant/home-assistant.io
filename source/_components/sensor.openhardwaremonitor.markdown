@@ -32,5 +32,5 @@ Configuration variables:
 
 <p class='note'>
 OpenHardwareMonitor must be running on the host, with "Remote web server" active.
-You also need to open an inbound port for (TPC 8085) in the advanced firewall settings.
+You also need to open an inbound port for (TCP 8085) in the advanced firewall settings.
 </p>

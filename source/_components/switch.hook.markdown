@@ -16,7 +16,7 @@ The `hook` component allows you to control the [Hook Smart Home Hub](http://www.
 
 Hook allows you to control cheap mains electrical outlets, like these ones at [Amazon](https://www.amazon.com/Etekcity-Wireless-Electrical-Household-Appliances/dp/B00DQELHBS). 
 
-In short, Hook is an RF to Wi-Fi bridge, controlling devices that recieve commands at 315MHz and 433MHz. Unfortunately, this does not allow Hook to determine if the command was successful, so the state is assumed.
+In short, Hook is an RF to Wi-Fi bridge, controlling devices that receive commands at 315MHz and 433MHz. Unfortunately, this does not allow Hook to determine if the command was successful, so the state is assumed.
 
 Hook provides a simple [REST API](https://app.swaggerhub.com/api/rahilj/GetHook_RestAPI/v1). This Home Assistant component reads in devices that have been set up in the official app.
 

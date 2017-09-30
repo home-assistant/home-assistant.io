@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. Please do not confuse those with with Home Assistant's [script](/docs/scripts/) feature.
+The command-line and the frontend which simplify common tasks, are helping with migrations, and ensure that Home Assistant runs properly. Please do not confuse those with Home Assistant's [script](/docs/scripts/) feature.
 
 ### {% linkable_title Configuration check %}
 

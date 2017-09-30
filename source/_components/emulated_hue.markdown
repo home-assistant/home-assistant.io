@@ -18,7 +18,11 @@ entities. The driving use case behind this functionality is to allow Home Assist
 The virtual bridge has the ability to turn entities on or off, or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
 <p class='note'>
-  It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
+A physical Hue Bridge is required for the lights to function - this virtual bridge will not replace a physical bridge.
+</p>
+
+<p class='note'>
+It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
 </p>
 
 ### {% linkable_title Configuration %}
