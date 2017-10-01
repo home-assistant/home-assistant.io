@@ -94,6 +94,15 @@
 <p class="note">
 There is a <a href="https://github.com/shazow/urllib3/issues/800" target="_blank">known issue in urllib3</a> that you will get error messages in your logs like <code>[StartBoundaryNotFoundDefect(), MultipartInvariantViolationDefect()], unparsed data: ''</code> but the component still works fine. You can ignore the messages. 
 </p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<p>Example of using a DCS-930L Wireless N Network Camera from D-Link:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mjpeg</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Livingroom Camera</span>
+    <span class="s">still_image_url</span><span class="pi">:</span> <span class="s">http://IP/image.jpg</span>
+    <span class="s">mjpeg_url</span><span class="pi">:</span> <span class="s">http://IP/video/mjpg.cgi</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

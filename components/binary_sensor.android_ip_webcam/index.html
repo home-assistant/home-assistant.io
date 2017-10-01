@@ -76,6 +76,16 @@
   <hr class="divider">
   <p>The <code class="highlighter-rouge">android_ip_webcam</code> binary sensor platform lets you observe the motion state of <a href="https://play.google.com/store/apps/details?id=com.pas.webcam">Android IP webcam</a> sensors through Home Assistant.</p>
 <p>Devices will be configured automatically. Please refer to the <a href="/components/android_ip_webcam/">component</a> configuration on how to setup.</p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<p>You can also setup the binary motion sensor with the following script:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen Motion</span>
+    <span class="s">sensor_class</span><span class="pi">:</span> <span class="s">motion</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP:8080/sensors.json?sense=motion_active</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.motion_active.data[0][1][0]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(0)</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
