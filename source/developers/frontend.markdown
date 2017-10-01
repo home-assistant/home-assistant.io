@@ -39,7 +39,7 @@ Next, development dependencies need to be installed to bootstrap the frontend de
 $ script/bootstrap_frontend
 ```
 
-This script will use yarn and bower to install all the necessary dependencies necessary for development.
+This script will use yarn and bower to install all the necessary dependencies necessary for development in
 
 `home-assistant/homeassistant/components/frontend/www_static/home-assistant-polymer`. 
 
