@@ -32,5 +32,6 @@ To view the available packages run `hassbian-config show` and `sudo hassbian-con
 - Upgrade HASSbian-scripts from dev branch. 
 
 For more information about this tool have a look at the [hassbian-scripts repository][hassbian-repo].
+
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [cec]: /components/hdmi_cec/
