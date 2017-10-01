@@ -112,7 +112,7 @@ For MariaDB you may have to install a few dependencies. On the python side we us
 $ sudo apt-get install mariadb-server libmariadbclient-dev
 $ pip3 install mysqlclient
 ```
-If you are in a virtual environment, don't forget to activate it before installing the pymysql package.
+If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` package.
 
 ```bash
 pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
@@ -133,7 +133,7 @@ For MySQL you may have to install a few dependencies. You can choose between `py
 $ sudo apt-get install libmysqlclient-dev
 $ pip3 install mysqlclient
 ```
-If you are in a virtual environment, don't forget to activate it before installing the pymysql package.
+If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` package.
 
 ```bash
 pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
