@@ -24,22 +24,22 @@ http:
   development: 1
 ```
 
-Node.js is required to setup the frontend development environment. The preferred method of installing node.js is [nvm](https://github.com/creationix/nvm). Install nvm using the instructions in the [README](https://github.com/creationix/nvm#install-script), and install the correct node.js by running the following command from the `home-assistant-polymer` directory:
+Node.js is required to setup the frontend development environment. The preferred method of installing node.js is [nvm](https://github.com/creationix/nvm). Install nvm using the instructions in the [README](https://github.com/creationix/nvm#install-script), and install the correct node.js by running the following command from the `home-assistant` directory:
 
 ```bash
-$ cd homeassistant/components/frontend/www_static/home-assistant-polymer
-$ nvm install < .nvmrc
+$ git submodule update --init
+$ nvm install $(<homeassistant/components/frontend/www_static/home-assistant-polymer/.nvmrc)
 ```
 
 [Yarn](https://yarnpkg.com/en/) is used as the package manager for node modules. [Install yarn using the instructions here.](https://yarnpkg.com/en/docs/install)
 
-Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running from the `home-assistant` directory:
+Next, development dependencies need to be installed to bootstrap the frontend development environment by running from the `home-assistant` directory:
 
 ```bash
 $ script/bootstrap_frontend
 ```
 
-This script will update the git submodule for the polymer project in 
+This script will use yarn and bower to install all the necessary dependencies necessary for development.
 
 `home-assistant/homeassistant/components/frontend/www_static/home-assistant-polymer`. 
 
@@ -63,7 +63,7 @@ While you are developing, you need to have Rollup running to have changes you ma
 
 ```bash
 $ cd homeassistant/components/frontend/www_static/home-assistant-polymer
-$ npm run dev
+$ yarn run dev
 ```
 
 The source code for the frontend can be found in two different directories:
