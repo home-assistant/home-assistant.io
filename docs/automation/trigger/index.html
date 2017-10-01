@@ -111,7 +111,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="numeric-state-trigger" href="#numeric-state-trigger"></a> Numeric state trigger</h3>
-<p>On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.</p>
+<p>On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below a threshold, or from below to above the given threshold.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">numeric_state</span>
