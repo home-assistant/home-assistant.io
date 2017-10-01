@@ -18,4 +18,4 @@ The `android_ip_webcam` sensor platform lets you observe states of [Android IP w
 
 Devices will be configured automatically. Please refer to the [component](/components/android_ip_webcam/) configuration on how to setup.
 
-You can setup your own sensors by examining the json file from the webcam server: http://IP:8080/sensors.json
+You can setup your own sensors by examining the JSON file from the webcam server: http://IP:8080/sensors.json
