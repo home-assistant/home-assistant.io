@@ -36,6 +36,10 @@ To get the current state of the `homeassistant.service` replace `stop` with `sta
 
 ### {% linkable_title Update Home Assistant %}
 
+<p class='note'>
+You can aslo so the atomated way with "hassbian-config" by running "sudo hassbian-config upgrade home-assistant"
+</p>
+
 Log in as the `pi` account and execute the following commands:
 
 ```bash
