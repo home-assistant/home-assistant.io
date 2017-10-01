@@ -106,7 +106,7 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### {% linkable_title MariaDB %}
 
-For MariaDB you may have to install a few dependencies. On the python side we use the `mysqlclient`. `:
+For MariaDB you may have to install a few dependencies. On the python side we use the `mysqlclient`.
 
 ```bash
 $ sudo apt-get install mariadb-server libmariadbclient-dev
