@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-01T10:28:40+00:00</updated>
+  <updated>2017-10-01T13:42:25+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -14,32 +14,17 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Hass Podcast Ep9]]></title>
+    <title type="html"><![CDATA[Home Assistant Podcast #9]]></title>
     <link href="https://home-assistant.io/blog/2017/10/01/hass-podcast-ep9/"/>
-    <updated>2017-10-01T00:00:00+00:00</updated>
+    <updated>2017-10-01T00:01:00+00:00</updated>
     <id>https://home-assistant.io/blog/2017/10/01/hass-podcast-ep9</id>
-    <content type="html"><![CDATA[<p>+—
- +layout: post
- +title: “Home Assistant Podcast #9”
- +description: “Dale (dale3h) joins Rohan and Dan to talk about Dale’s involvement in the project as a community 
- leader and his contributions. Dale and Rohan also cover off the 0.54 release.”
- +date: 2017-10-01 00:01:00 +0000
- +date_formatted: “October 1, 2017”
- +author: Dan Faulknor
- +author_twitter: dangeek
- +comments: true
- +categories: Media
- +og_image: /images/hasspodcast.jpg
- +—
- +
- +Dale (<a href="https://github.com/dale3h">dale3h</a>) joins Rohan and Dan to talk about Dale’s involvement in the project as a community 
- leader and his contributions. Dale and Rohan also cover off the 0.54 release.
- +
- +Show notes available on the <a href="https://hasspodcast.io/ha009/">Home Assistant Podcast Website</a>.
- +
- +[Listen online][episode]
- +
- +[episode]: https://hasspodcast.io/ha009/</p>
+    <content type="html"><![CDATA[<p>Dale (<a href="https://github.com/dale3h">dale3h</a>) joins Rohan and Dan to talk about Dale’s involvement in the project as a community 
+ leader and his contributions. Dale and Rohan also cover off the 0.54 release.</p>
+
+<p>Show notes available on the <a href="https://hasspodcast.io/ha009/">Home Assistant Podcast Website</a>.</p>
+
+<p><a href="https://hasspodcast.io/ha009/">Listen online</a></p>
+
 ]]></content>
   </entry>
   
