@@ -170,27 +170,33 @@ This example allows you to control two or more covers at once.
 ```yaml
 homeassistant:
   customize:
-    all_covers:
+    cover_group:
       assume_state: true
 
 cover:
   - platform: template
     covers:
-      all_covers:
-        friendly_name: "All Covers"
+      cover_group:
+        friendly_name: "Cover Group"
         open_cover:
-          service: script.cover_all_open
+          service: script.cover_group
+          data:
+            modus: 'open'
         close_cover:
-          service: script.cover_all_close
+          service: script.cover_group
+          data:
+            modus: 'close'
         stop_cover:
-          service: script.cover_all_stop
+          service: script.cover_group
+          data:
+            modus: 'stop'
         set_cover_position:
-          service: script.cover_all_set_position
+          service: script.cover_group_position
           data_template:
-            position: "{{ position }}"
-        value_template: "{{ is_state('sensor.all_covers', 'open') }}"
+            position: "{{position}}"
+        value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
-          {% if is_state('sensor.all_covers', 'open') %}
+          {% if is_state('sensor.cover_group', 'open') %}
             mdi:window-open
           {% else %}
             mdi:window-closed
@@ -202,7 +208,7 @@ cover:
 sensor:
   - platform: template
     sensors:
-      all_covers:
+      cover_group:
         value_template: >-
           {% if is_state('cover.bedroom', 'open') %}
             open
@@ -216,35 +222,21 @@ sensor:
           - cover.livingroom
 
 script:
-  cover_all_open:
+  cover_group:
     sequence:
-      - service: cover.open_cover
+      - service_template: "cover.{{modus}}_cover"
         data:
           entity_id:
             - cover.bedroom
             - cover.livingroom
-  cover_all_stop:
-    sequence:
-      - service: cover.stop_cover
-        data:
-          entity_id:
-            - cover.bedroom
-            - cover.livingroom
-  cover_all_close:
-    sequence:
-      - service: cover.close_cover
-        data:
-          entity_id:
-            - cover.bedroom
-            - cover.livingroom
-  cover_all_set_position:
+  cover_group_position:
     sequence:
       - service: cover.set_cover_position
         data_template:
           entity_id:
             - cover.bedroom
             - cover.livingroom
-          position: "{{ position }}"
+          position: "{{position}}"
 
 automation:
   - alias: "Close covers at night"
@@ -255,7 +247,7 @@ automation:
     action:
       - service: cover.set_cover_position
         data:
-          entity_id: cover.all_covers
+          entity_id: cover.cover_group
           position: 25
 ```
 {% endraw %}
