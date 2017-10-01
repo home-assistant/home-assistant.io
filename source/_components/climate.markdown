@@ -226,8 +226,8 @@ automation:
 
 The step for the setpoint can be adjusted (default to 0,5 increments) by adding the following line into configuration
 
-'''yaml
+```yaml
 customize:
   - entity_id
       target_temp_step: 1
-'''
+```
