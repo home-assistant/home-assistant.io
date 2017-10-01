@@ -120,12 +120,13 @@
   <li>JU7500 - Unable to see state and unable to control</li>
   <li>JS9000 - State is always “on” and unable to control (but port 8001 <em>is</em> open)</li>
   <li>JS9500 - State is always “on” and unable to control (but port 8001 <em>is</em> open)</li>
+  <li>MU6170UXZG (port set to 8001, <code class="highlighter-rouge">pip3 install websocket-client</code> must be executed, turning on works, status not working reliably, turning off is not permanent (it comes back on).)</li>
 </ul>
 <p>If your model is not on the list then give it a test, if everything works correctly then add it to the list on <a href="https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown">GitHub</a>.
 The first letter (U, P, L, H &amp; K) represent the screen type, e.g. LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia &amp; Australia. The two numbers following that represent the screen size.
 If you add your model remember to remove these before adding them to the list.</p>
 <p>Currently the ability to select a source is not implemented.</p>
-<p>There’s currently a <a href="https://github.com/home-assistant/home-assistant/issues/2098">known issue</a> with some TVs receiving a <em>Key press UP</em> that can interrupt certain applications.</p>
+<p>There’s currently a <a href="https://github.com/home-assistant/home-assistant/issues/2098">known issue</a> with some TVs receiving a <em>Key press UP</em> that can interrupt certain applications. This should be fixed as of March 2017.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

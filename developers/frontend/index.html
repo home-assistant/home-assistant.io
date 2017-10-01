@@ -84,17 +84,17 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
   <span class="s">development</span><span class="pi">:</span> <span class="s">1</span>
 </code></pre>
 </div>
-<p>Node.js is required to setup the frontend development environment. The preferred method of installing node.js is <a href="https://github.com/creationix/nvm">nvm</a>. Install nvm using the instructions in the <a href="https://github.com/creationix/nvm#install-script">README</a>, and install the correct node.js by running the following command from the <code class="highlighter-rouge">home-assistant-polymer</code> directory:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
-<span class="gp">$ </span>nvm install &lt; .nvmrc
+<p>Node.js is required to setup the frontend development environment. The preferred method of installing node.js is <a href="https://github.com/creationix/nvm">nvm</a>. Install nvm using the instructions in the <a href="https://github.com/creationix/nvm#install-script">README</a>, and install the correct node.js by running the following command from the <code class="highlighter-rouge">home-assistant</code> directory:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git submodule update --init
+<span class="gp">$ </span>nvm install <span class="k">$(</span>&lt;homeassistant/components/frontend/www_static/home-assistant-polymer/.nvmrc<span class="k">)</span>
 </code></pre>
 </div>
 <p><a href="https://yarnpkg.com/en/">Yarn</a> is used as the package manager for node modules. <a href="https://yarnpkg.com/en/docs/install">Install yarn using the instructions here.</a></p>
-<p>Next step is to get the frontend code. When you clone the Home Assistant repository, the frontend repository is not cloned by default. You can setup the frontend development environment by running from the <code class="highlighter-rouge">home-assistant</code> directory:</p>
+<p>Next, development dependencies need to be installed to bootstrap the frontend development environment by running from the <code class="highlighter-rouge">home-assistant</code> directory:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/bootstrap_frontend
 </code></pre>
 </div>
-<p>This script will update the git submodule for the polymer project in</p>
+<p>This script will use yarn and bower to install all the necessary dependencies necessary for development.</p>
 <p><code class="highlighter-rouge">home-assistant/homeassistant/components/frontend/www_static/home-assistant-polymer</code>.</p>
 <p>If you’re planning on issuing a PR back to the Home Assistant codebase you need to fork the polymer project and add your fork as a remote.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
@@ -109,7 +109,7 @@ Do not use development mode in production. Home Assistant uses aggressive cachin
 <h2><a class="title-link" name="development" href="#development"></a> Development</h2>
 <p>While you are developing, you need to have Rollup running to have changes you make to the JavaScript app-core made available.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
-<span class="gp">$ </span>npm run dev
+<span class="gp">$ </span>yarn run dev
 </code></pre>
 </div>
 <p>The source code for the frontend can be found in two different directories:</p>
