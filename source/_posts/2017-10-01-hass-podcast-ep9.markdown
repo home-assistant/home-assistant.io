@@ -12,10 +12,10 @@
  +og_image: /images/hasspodcast.jpg
  +---
  +
- +Dale (dale3h) joins Rohan and Dan to talk about Dale’s involvement in the project as a community 
+ +Dale ([dale3h](https://github.com/dale3h)) joins Rohan and Dan to talk about Dale’s involvement in the project as a community 
  leader and his contributions. Dale and Rohan also cover off the 0.54 release.
  +
- +Show notes available on the [Home Assistant Podcast Website](https://hasspodcast.io/ha009/)
+ +Show notes available on the [Home Assistant Podcast Website](https://hasspodcast.io/ha009/).
  +
  +[Listen online][episode]
  +
