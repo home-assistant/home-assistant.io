@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Hass.io is a managed environment, which means that you can install applications that can be embedded into Home Assistant using the `command_line` sensor/switch.
+Hass.io is a managed environment, which means that you can't install applications that can be embedded into Home Assistant using the `command_line` sensor/switch.
 
 There are two options if you need to run a script to read data from a sensor or send commands to other devices on Hass.io.
 
