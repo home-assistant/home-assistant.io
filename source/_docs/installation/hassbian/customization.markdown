@@ -22,7 +22,7 @@ To view the available packages run `hassbian-config show` and `sudo hassbian-con
  - Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it's usage is not recommended if you share your network with others.
  - Install Tradfri. Installs dependencies for using IKEA Trådfri.
  - Install Duck DNS auto renewal. This script adds an cron job to auto update you the WAN IP address for the defined domain. Before running this script you should already have an Duck DNS account, during the installation you will be asked to supply your domain name and the token for your account.
- - Install an web terminal for easy access to ssh in an web browser. This script installs an web terminal called 'shellinabox' to you system that give you SHH access in you web browser.
+ - Install an web terminal for easy access to ssh in an web browser. This script installs an web terminal called 'shellinabox' to you system that give you SSH access in you web browser.
 
 #### Upgrade scripts
 To view the available packages run `hassbian-config show` and `sudo hassbian-config upgrade PACKAGENAME`.
