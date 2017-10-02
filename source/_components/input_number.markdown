@@ -146,7 +146,7 @@ input_number:
     topic: "setTemperature"
    # entity_id: input_number.target_temp
   action:
-     service: input_number.select_value
+     service: input_number.set_value
      data_template:
       entity_id: input_number.target_temp
       value: '{{ trigger.payload}}'
