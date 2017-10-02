@@ -16,6 +16,8 @@ ha_release: 0.34
 
 The `threshold` binary sensor platform observes the state of another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of the threshold sensor is changed.
 
+If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not `lower` or `upper` with respect to the threshold.
+
 It's an alternative to the template binary sensor's `value_template:` to get the abnormal/too high/too low states.
 
 ```yaml
