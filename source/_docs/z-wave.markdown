@@ -39,16 +39,16 @@ Configuration variables:
 - **usb_path** (*Optional*): The port where your device is connected to your Home Assistant host.
 - **network_key** (*Optional*): The 16-byte network key in the form `"0x01,0x02..."` used in order to connect securely to compatible devices.
 - **config_path** (*Optional*): The path to the Python OpenZWave configuration files. Defaults to the 'config' that is installed by python-openzwave
-- **autoheal** (*Optional*): Allows disabling auto Z-Wave heal at midnight. Defaults to True.
+- **autoheal** (*Optional*): (*True/False*) Allows disabling auto Z-Wave heal at midnight. Defaults to True.
 - **polling_interval** (*Optional*): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
 - **device_config** (*Optional*): This attribute contains node-specific override values. (For releases prior to 0.39 this variable is called **customize**) See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format:
   - **polling_intensity** (*Optional*): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
   - **ignored** (*Optional*): Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
-  - **refresh_value** (*Optional*): Enable refreshing of the node value. Only the light component uses this. Defaults to False.
+  - **refresh_value** (*Optional*): (*True/False*) Enable refreshing of the node value. Only the light component uses this. Defaults to False.
   - **delay** (*Optional*): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.
-  - **invert_openclose_buttons** (*Optional*): Inverts function of the open and close buttons for the cover domain. Defaults to `False`.
-- **debug** (*Optional*): Print verbose z-wave info to log. Defaults to `False`.
-- **new_entity_ids** (*Optional*): Switch to new entity_id generation. Defaults to `True`.
+  - **invert_openclose_buttons** (*Optional*): (*True/False*) Inverts function of the open and close buttons for the cover domain. Defaults to `False`.
+- **debug** (*Optional*): (*True/False*) Print verbose z-wave info to log. Defaults to `False`.
+- **new_entity_ids** (*Optional*): (*True/False*) Switch to new entity_id generation. Defaults to `True`.
 
 To find the path of your Z-Wave USB stick or module, run:
 
