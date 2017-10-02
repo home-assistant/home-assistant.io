@@ -2,12 +2,12 @@
 layout: page
 title: "Monoprice 6-Zone Amplifier"
 description: "Instructions on how to integrate Monoprice 6-Zone Home Audio Controller into Home Assistant."
-date: 2017-10-22 22:00
+date: 2017-10-02 11:45
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: russound.png
+logo: mp-logo.svg
 ha_category: Media Player
 ha_release: 0.25
 ha_iot_class: "Local Polling"
