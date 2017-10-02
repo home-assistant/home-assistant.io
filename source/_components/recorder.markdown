@@ -90,6 +90,8 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 | Database engine | `db_url`                                                 | 
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:///PATH/TO/DB_NAME`                              |
+| MariaDB         | `mysql://SERVER_IP/DB_NAME`                              |
+| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME`                |
 | MySQL           | `mysql://SERVER_IP/DB_NAME`                              |
 | MySQL           | `mysql://user:password@SERVER_IP/DB_NAME`                |
 | MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME`                      |
@@ -102,7 +104,14 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details which should help you to get it working.
 
-### {% linkable_title MySQL %}
+### {% linkable_title MariDB and MySQL %}
+
+For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
+
+```bash
+$ sudo apt-get install libmariadbclient-dev
+$ pip3 install mysqlclient
+```
 
 For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
@@ -110,14 +119,12 @@ For MySQL you may have to install a few dependencies. You can choose between `py
 $ sudo apt-get install libmysqlclient-dev
 $ pip3 install mysqlclient
 ```
-If you are in a virtual environment, don't forget to activate it before installing the pymysql package.
+If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package.
 
 ```bash
-pi@homeassistant:~ $ sudo -i
-root@homeassistant:~# su homeassistant
-homeassistant@homeassistant:/root$ cd /srv/homeassistant/homeassistant_venv/
-homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ source bin/activate
-(homeassistant_venv) homeassistant@homeassistant:/srv/homeassistant/homeassistant_venv$ pip3 install mysqlclient
+pi@homeassistant:~ $ sudo su homeassistant -s /bin/bash  
+homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
+(homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you. 
