@@ -29,7 +29,6 @@ To enable the threshold sensor, add the following lines to your `configuration.y
 binary_sensor:
   - platform: threshold
     threshold: 15
-    hysteresis: 0.5
     type: lower
     entity_id: sensor.random
 ```
