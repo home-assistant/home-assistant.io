@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: mp-logo.svg
+logo: monoprice.svg
 ha_category: Media Player
-ha_release: 0.25
+ha_release: 0.55
 ha_iot_class: "Local Polling"
 ---
 
