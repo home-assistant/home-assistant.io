@@ -212,7 +212,7 @@ CMD [ "/run.sh" ]
     <tr>
       <td>webui</td>
       <td>no</td>
-      <td>A URL for web interface of this add-on. Like <code class="highlighter-rouge">http://[HOST]:[PORT:2839]/dashboard</code>, the port needs the internal port, which will be replaced with the effective port.</td>
+      <td>A URL for web interface of this add-on. Like <code class="highlighter-rouge">http://[HOST]:[PORT:2839]/dashboard</code>, the port needs the internal port, which will be replaced with the effective port. It is also possible to bind the proto part to a config options with: <code class="highlighter-rouge">[PROTO:option_name]://[HOST]:[PORT:2839]/dashboard</code> and he lookup if they is True and going to <code class="highlighter-rouge">https</code>.</td>
     </tr>
     <tr>
       <td>boot</td>
