@@ -25,6 +25,7 @@ sensor:
       - captured_today
       - last_capture
       - total_cameras
+      - battery_level
 ```
 
 Configuration variables:
@@ -33,5 +34,6 @@ Configuration variables:
   - **captured_today**: Return the number of videos captured on the current day.
   - **last_capture**: Return the timestamp from the last video captured by your Arlo camera.
   - **total_cameras**: Return the number of recognized and active cameras linked on your Arlo account.
+  - **battery_level**: Return the battery level of your Arlo camera.
 
 If no **monitored_conditions** are specified, all of above will be enabled by default.
