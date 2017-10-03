@@ -116,11 +116,13 @@ The config for an add-on is stored in `config.json`.
 | host_network | no | If that is True, the add-on run on host network.
 | devices | no | Device list to map into the add-on. Format is: `<path_on_host>:<path_in_container>:<cgroup_permissions>`. i.e. `/dev/ttyAMA0:/dev/ttyAMA0:rwm`
 | hassio_api | no | This add-on can access to Hass.io REST API. It set the host alias `hassio`.
+| homeassistant_api | no | This add-on can access to Hass.io Home-Assistant REST API proxy. Use `http://hassio/homeassistant/api`.
 | privileged | no | Privilege for access to hardware/system. Available access: `NET_ADMIN`, `SYS_ADMIN`, `SYS_RAWIO`
 | map | no | List of maps for additional Hass.io folders. Possible values: `config`, `ssl`, `addons`, `backup`, `share`. Defaults to `ro`, which you can change by adding `:rw` to the end of the name.
 | environment | no | A dict of environment variable to run add-on.
 | audio | no | Boolean. Mark this add-on to use internal an audio system. The available environment variables are `ALSA_INPUT` and `ALSA_OUTPUT` which provide internal information to access alsa.
 | gpio | no | Boolean. If this is set to True, `/sys/class/gpio` will map into add-on for access to GPIO interface from kernel. Some library need also `/dev/mem` and `SYS_RAWIO` for read/write access to this device.
+| stdin | no | Boolean. If that is enable, you can use the STDIN with Hass.io API.
 | options | yes | Default options value of the add-on
 | schema | yes | Schema for options value of the add-on. It can be `False` to disable schema validation and use custom options.
 | image | no | For use with Docker Hub.
