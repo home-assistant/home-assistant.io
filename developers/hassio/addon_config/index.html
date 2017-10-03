@@ -240,6 +240,11 @@ CMD [ "/run.sh" ]
       <td>This add-on can access to Hass.io REST API. It set the host alias <code class="highlighter-rouge">hassio</code>.</td>
     </tr>
     <tr>
+      <td>homeassistant_api</td>
+      <td>no</td>
+      <td>This add-on can access to Hass.io Home-Assistant REST API proxy. Use <code class="highlighter-rouge">http://hassio/homeassistant/api</code>.</td>
+    </tr>
+    <tr>
       <td>privileged</td>
       <td>no</td>
       <td>Privilege for access to hardware/system. Available access: <code class="highlighter-rouge">NET_ADMIN</code>, <code class="highlighter-rouge">SYS_ADMIN</code>, <code class="highlighter-rouge">SYS_RAWIO</code></td>
@@ -263,6 +268,11 @@ CMD [ "/run.sh" ]
       <td>gpio</td>
       <td>no</td>
       <td>Boolean. If this is set to True, <code class="highlighter-rouge">/sys/class/gpio</code> will map into add-on for access to GPIO interface from kernel. Some library need also <code class="highlighter-rouge">/dev/mem</code> and <code class="highlighter-rouge">SYS_RAWIO</code> for read/write access to this device.</td>
+    </tr>
+    <tr>
+      <td>stdin</td>
+      <td>no</td>
+      <td>Boolean. If that is enable, you can use the STDIN with Hass.io API.</td>
     </tr>
     <tr>
       <td>options</td>
