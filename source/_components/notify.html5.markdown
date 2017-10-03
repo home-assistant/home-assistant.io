@@ -42,7 +42,7 @@ Configuration variables:
 ### {% linkable_title Requirements %}
 
 The `html5` platform can only function if all of the following requirements are met:
-(On HASSIO these requirements are already met.)
+(On Hass.io these requirements are already met.)
 
 * You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.
 * Your Home Assistant instance is exposed to the world.
