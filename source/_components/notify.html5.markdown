@@ -33,11 +33,11 @@ Configuration variables:
 
 ### {% linkable_title Getting ready for Chrome %}
 
-- Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
-- Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
-- After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
-- Then, click the cogwheel on top left and select "Project settings".
-- Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
+1. Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
+2. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
+3. After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
+4. Then, click the cogwheel on top left and select "Project settings".
+5. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
 
 
 ### {% linkable_title Requirements %}
@@ -51,6 +51,7 @@ The `html5` platform can only function if all of the following requirements are 
 * You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
 * You are willing to accept the notification permission in your browser.
 
+
 ### {% linkable_title Setting up %}
 
 Assuming you have already added the platform to your configuration:
@@ -61,6 +62,7 @@ Assuming you have already added the platform to your configuration:
 4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 5. Assuming you accept, that's all there is to it!
 6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+
 
 ### {% linkable_title Usage %}
 
