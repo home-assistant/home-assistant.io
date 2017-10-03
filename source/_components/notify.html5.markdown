@@ -39,6 +39,13 @@ Configuration variables:
 4. Then, click the cogwheel on top left and select "Project settings".
 5. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
 
+#### {% linkable_title Verify your domain with HASSIO %}
+
+1. For verifying your domain you need to download a file in step 2.
+2. Create a dictionary named "www" in you HASSIO configuration dictionary.
+3. Place the file (something like this: google*.html) in the "www" directory.
+4. You can open it by going to <yourdomain/local/<exact_file_name>.html
+5. Proceed with step 3.
 
 ### {% linkable_title Requirements %}
 
