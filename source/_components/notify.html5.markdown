@@ -39,10 +39,10 @@ Configuration variables:
 - Then, click the cogwheel on top left and select "Project settings".
 - Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
 
-
 ### {% linkable_title Requirements %}
 
 The `html5` platform can only function if all of the following requirements are met:
+(On Hass.io these requirements are already met.)
 
 * You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.
 * Your Home Assistant instance is exposed to the world.
