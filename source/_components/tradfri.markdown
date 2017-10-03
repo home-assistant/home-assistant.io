@@ -55,7 +55,7 @@ $ make install
 You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
 
 <p class='note'>
-If you see an "Unable to connect" message, restart the gateway and try again.
+If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP to your Trådfri gateway.
 </p>
 
 The gateway can also be manually configured by adding the following lines to your `configuration.yaml` file:
