@@ -28,8 +28,3 @@ sensor:
 Configuration variables:
 
 - **access_token** (*required*): Go to [developer.tibber.com/](https://developer.tibber.com/) to get your API token.
-
-
-
-
-
