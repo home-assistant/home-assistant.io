@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "The Things Network Storage Sensor"
-description: "Instructions how to integrate The Things Network Storage sensors into Home Assistant."
+title: "The Things Network Sensor"
+description: "Instructions how to integrate The Things Network sensors into Home Assistant."
 date: 2017-09-30 08:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.55
 ---
 
-The `thethingsnetwork_storage` sensor platform allows you to get data from a [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/).
+The `thethingsnetwork` sensor platform allows you to get data from a [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/).
 
 This platform requires that the [The Things Network component](/components/thethingsnetwork/) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
 
@@ -59,7 +59,7 @@ To enable this platform, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: thethingsnetwork_data
+  - platform: thethingsnetwork
     device_id: ha-demo
     values:
       sensor_value: unit of measurment
