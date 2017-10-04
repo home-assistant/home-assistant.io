@@ -75,7 +75,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the <a href="/components/binary_sensor.http/">HTTP binary sensor</a> and the <a href="/components/sensor.http/">HTTP sensor</a>.</p>
+  <p>The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the <a href="/components/binary_sensor.http/">HTTP binary sensor</a> and the <a href="/components/sensor.http/">HTTP sensor</a>. The basic idea is that the device itself adds its configuration into your <code class="highlighter-rouge">configuration.yaml</code> automatically. To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.</p>
 <p>Supported by MQTT discovery:</p>
 <ul>
   <li><a href="/components/binary_sensor.mqtt/">Binary sensors</a></li>
@@ -136,6 +136,14 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mosquitto_pub -h 127.0.0.1 -p 1883 -t <span class="s2">"homeassistant/switch/irrigation/set"</span> -m ON
 </code></pre>
 </div>
+<p>Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.</p>
+<ul>
+  <li>Configuration topic no1: <code class="highlighter-rouge">homeassistant/sensor/sensorBedroomT/config</code></li>
+  <li>Configuration payload no1: <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"device_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Temperature"</span><span class="p">,</span><span class="w"> </span><span class="nt">"state_topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant/sensor/sensorBedroom/state"</span><span class="p">,</span><span class="w"> </span><span class="nt">"unit_of_measurement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"°C"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}</span></code></li>
+  <li>Configuration topic no2: <code class="highlighter-rouge">homeassistant/sensor/sensorBedroomH/config</code></li>
+  <li>Configuration payload no2: <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"device_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sensor"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Humidity"</span><span class="p">,</span><span class="w"> </span><span class="nt">"state_topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant/sensor/sensorBedroom/state"</span><span class="p">,</span><span class="w"> </span><span class="nt">"unit_of_measurement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}</span></code></li>
+  <li>Common state payload: <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="nt">"temperature"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.20</span><span class="p">,</span><span class="w"> </span><span class="nt">"humidity"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.70</span><span class="w"> </span><span class="p">}</span></code></li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
