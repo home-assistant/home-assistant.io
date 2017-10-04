@@ -27,7 +27,8 @@ recorder:
 
 Configuration variables:
 
-- **purge_days** (*Optional*): Enables purge of events and states older than x days by [service](#service) call `recorder.purge`. Purge task is not scheduled by `recorder` component anymore. (post release 0.55) 
+- **purge_interval** (*Optional*): (days) Enable scheduled purge of older events and states. The purge task runs every x days, starting from when Home Assistant is started. If you restart your instance more frequently, than the purge will never take place. You can use [service](#service) call `recorder.purge` when needed.
+- **purge_keep_days** (*Required with `purge_interval`*): Specify number of history days to keep in recorder database after purge. 
 - **exclude** (*Optional*): Configure which components should be excluded from recordings.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
@@ -42,7 +43,8 @@ Define domains and entities to `exclude` (aka. blacklist). This is convenient wh
 ```yaml
 # Example configuration.yaml entry with exclude
 recorder:
-  purge_days: 5
+  purge_interval: 2
+  purge_keep_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
   exclude:
     domains:
@@ -87,13 +89,15 @@ If you only want to hide events from e.g. your history, take a look at the [`his
 
 ### {% linkable_title Service `purge` %}
 
-Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `purge_days` variable setting.
+Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `keep_days` service data (*Required*)
 
 Automation [action](https://home-assistant.io/getting-started/automation-action/) example:
 
 ```yaml
 action:
   service: recorder.purge
+  data:
+    keep_days: 5
 ```
 
 ## Custom database engines
