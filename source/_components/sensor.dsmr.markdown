@@ -57,7 +57,7 @@ sensor:
     required: false
     type: string
   name:
-    description: "Version of DSMR used by meter, choices: 2.2, 4. Defaults to 2.2."
+    description: "Version of DSMR used by meter. Choices: 2.2, 4, 5. Defaults to 2.2."
     required: false
     type: string
 {% endconfiguration %}
