@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `Tibber` sensor provides the current electricity price if you are a [Tibber](tibber.com/) customer.
+The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 
 To add Tibber to your installation, add the following to your `configuration.yaml` file:
 
@@ -25,6 +25,9 @@ sensor:
     access_token: d1007ead2dc84a2b82f0de19451c5fb22112f7ae11d19bf2bedb224a003ff74a
 ```
 
-Configuration variables:
-
-- **access_token** (*required*): Go to [developer.tibber.com/](https://developer.tibber.com/) to get your API token.
+{% configuration %}
+  access_token:
+    description: Go to [developer.tibber.com/](https://developer.tibber.com/) to get your API token.
+    required: true
+    type: string
+{% endconfiguration %}
