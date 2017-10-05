@@ -23,14 +23,18 @@ notify:
   name: pushbullet
 ```
 
-- A **component** provides the core logic for some functionality (like `notify` provides sending notifications). 
+- A **component** provides the core logic for some functionality (like `notify` provides sending notifications).
 - A **platform** makes the connection to a specific software or hardware platform (like `pushbullet` works with the service from pushbullet.com).
 
-The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a `-` while mappings have the format `key: value`. If you specify duplicate keys, the last value for a key is used.
+The basics of YAML syntax are block collections and mappings containing
+key-value pairs. Each item in a collection starts with a `-` while mappings have
+the format `key: value`. If you specify duplicate keys, the last value for a key
+is used. This is somewhat similar to a *Hashtable* or more specifically a
+dictionary in `python`. These can be nested as well.
 
 Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested "inside" things that are one level higher. So in the above example, `platform: pushbullet` is a property of (nested inside) the `notify` component.
 Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.
-You can use [YAMLLint](http://www.yamllint.com/) to check if your YAML-syntax is correct before loading it into Home Assistant which will save you some time. 
+You can use [YAMLLint](http://www.yamllint.com/) to check if your YAML-syntax is correct before loading it into Home Assistant which will save you some time.
 *Please pay attention on not putting in private data, as it is a 3rd-party website not maintained by Home Assistant.*
 
 Text following a **#** are comments and are ignored by the system.
@@ -51,7 +55,7 @@ input_select:
     initial: 0
 ```
 
-The following example shows nesting a collection of mappings in a mapping. In Home Assistant, this would create two sensors that each use the MQTT platform but have different values for their `state_topic` (one of the properties used for MQTT sensors). 
+The following example shows nesting a collection of mappings in a mapping. In Home Assistant, this would create two sensors that each use the MQTT platform but have different values for their `state_topic` (one of the properties used for MQTT sensors).
 
 ```yaml
 sensor:
