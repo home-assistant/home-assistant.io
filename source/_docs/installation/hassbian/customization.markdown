@@ -18,7 +18,6 @@ To allow you to customize your installation further, we have included a tool cal
  - Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.
  - Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.
  - Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it's usage is not recommended if you share your network with others.
- - Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.
  - Install Tradfri. Installs dependencies for using IKEA Trådfri.
 
 The tool is available by running `hassbian-config`. To view the available packages run `hassbian-config show` and `sudo hassbian-config install PACKAGENAME`.
