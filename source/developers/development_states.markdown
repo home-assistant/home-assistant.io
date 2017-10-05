@@ -11,7 +11,7 @@ footer: true
 
 Home Assistant keeps track of the states of entities in a state machine. The state machine has very few requirements:
 
- - Each state is related to an entitiy identified by an entity id. This id is made up of a domain and an object id. For example `light.kitchen_ceiling`. You can make up any combination of domain and object id, even overwriting existing states.
+ - Each state is related to an entity identified by an entity id. This id is made up of a domain and an object id. For example `light.kitchen_ceiling`. You can make up any combination of domain and object id, even overwriting existing states.
  - Each state has a primary attribute that describes the state of the entity. In the case of a light this could be for example "on" and "off". You can store anything you want in the state, as long as it's a string (will be converted if it's not).
  - You can store more information about an entity by setting attributes. Attributes is a dictionary that can contain any data that you want. The only requirement is that it's JSON serializable, so you're limited to numbers, strings, dictionaries and lists.
 
