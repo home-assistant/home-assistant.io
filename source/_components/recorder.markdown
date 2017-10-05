@@ -116,11 +116,9 @@ $ pip3 install mysqlclient
 For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
-$ sudo apt-get install libmysqlclient-dev
+$ sudo apt-get install default-libmysqlclient-dev
 $ pip3 install mysqlclient
 ```
-
-NOTE: Raspbian Stretch users will need to install `default-libmysqlclient-dev` instead of `libmysqlclient-dev`.
 
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package.
 
