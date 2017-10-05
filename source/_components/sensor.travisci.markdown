@@ -36,3 +36,4 @@ Configuration variables:
   - **last_build_started_at**: Return the timestamp of when the last test job started.
   - **last_build_state**: Return the state from the latest test job/PR. The conditions can be: 'passed', 'failed' or 'started'.
   - **state**: Return the build test from the branch specified at by **default_branch** parameter.
+- **repository_names:** array (*Optional*): Name from the GitHub repositories to be monitored. If not specified, all GitHub repositories linked to Travis-CI will be enabled by default.
