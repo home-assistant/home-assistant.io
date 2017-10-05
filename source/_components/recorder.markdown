@@ -109,14 +109,14 @@ Not all Python bindings for the chosen database engine can be installed directly
 For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
 
 ```bash
-$ sudo apt-get install libmariadbclient-dev
+$ sudo apt-get install libmariadbclient-dev libssl-dev
 $ pip3 install mysqlclient
 ```
 
 For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
-$ sudo apt-get install default-libmysqlclient-dev
+$ sudo apt-get install default-libmysqlclient-dev libssl-dev
 $ pip3 install mysqlclient
 ```
 
