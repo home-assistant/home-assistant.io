@@ -39,7 +39,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 ### {% linkable_title Media control services %}
 Available services: `increment`, `decrement`, and `reset`.
 
-#### {% linkable_title Service `counter/increment` %}
+#### {% linkable_title Service `counter.increment` %}
 
 Increments the counter with 1 or the given value for the steps.
 
@@ -47,7 +47,7 @@ Increments the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
-#### {% linkable_title Service `counter/decrement` %}
+#### {% linkable_title Service `counter.decrement` %}
 
 Decrements the counter with 1 or the given value for the steps.
 
@@ -55,7 +55,7 @@ Decrements the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.count0`. |
 
-#### {% linkable_title Service `counter/reset` %}
+#### {% linkable_title Service `counter.reset` %}
 
 With this service the counter is reset to its initial value.
 
