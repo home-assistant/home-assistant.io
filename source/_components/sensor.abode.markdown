@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: abode.jpg
-ha_release: 0.55
+ha_release: 0.56
 ha_category: Sensor
 ha_iot_class: "Cloud Push"
 ---
