@@ -24,7 +24,7 @@ switch:
   automatic_add: True
 ```
 
-Launch your homeassistant and go the website.
+Launch your Home Assistant and go the website.
 Push your remote and your device should be added:
 
 <p class='img'>
@@ -62,7 +62,7 @@ If you need to generate codes for switches you can use a template (useful for ex
 ```
 
 - Use this code to add a new switch in your configuration.yaml
-- Launch your homeassistant and go the website.
+- Launch your Home Assistant and go the website.
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
 

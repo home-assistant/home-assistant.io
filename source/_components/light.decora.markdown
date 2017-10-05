@@ -52,5 +52,5 @@ Jun 20 19:41:18 androlapin hass[29588]: OSError: [Errno 8] Exec format error
 1. Go to your `.homeassistant` folder
 2. Then go to `deps/bluepy` subfolder.
 3. Then run `make all`
-4. Restart home assistant
+4. Restart Home Assistant
 </p>

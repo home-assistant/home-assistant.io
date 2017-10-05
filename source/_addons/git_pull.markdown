@@ -13,7 +13,7 @@ Load and update configuration files for Home Assistant from a GIT repository.
 
 ```json
 {
-  "repository": null,
+  "repository": "https://example.com/my_configs",
   "auto_restart": false,
   "repeat": {
     "active": false,

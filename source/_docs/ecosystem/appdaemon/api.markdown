@@ -1552,7 +1552,7 @@ The custom event `MODE_CHANGE` would be subscribed to with:
 self.listen_event(self.mode_event, "MODE_CHANGE")
 ```
 
-Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it's automation component. This can be used to signal from AppDaemon code back to home assistant. Here is a sample automation:
+Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it's automation component. This can be used to signal from AppDaemon code back to Home Assistant. Here is a sample automation:
 
 ```yaml
 automation:
