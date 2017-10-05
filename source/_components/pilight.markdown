@@ -15,9 +15,9 @@ ha_iot_class: "Local Push"
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://wiki.pilight.org/doku.php/protocols) are already available.
 
-This pilight hub connects to the [pilight-daemon](https://wiki.pilight.org/doku.php/pdaemon) via a socket connection to receive and send codes. Thus home assistant does not have to run on the computer in charge of the RF communication. 
+This pilight hub connects to the [pilight-daemon](https://wiki.pilight.org/doku.php/pdaemon) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication. 
 
-The received and supported RF codes are put on the event bus of home assistant and are therefore directly usable by other components (e.g. automation). Additionally a send service is provided to send RF codes.
+The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other components (e.g. automation). Additionally a send service is provided to send RF codes.
 
 To integrate pilight into Home Assistant, add the following section to your `configuration.yaml` file:
 
