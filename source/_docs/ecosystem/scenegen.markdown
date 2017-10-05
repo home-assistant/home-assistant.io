@@ -100,7 +100,7 @@ For a more advanced way to use the output try the following. In configuration.ya
 scene: !include_dir_list scenes
 ```
 
-This will tell home assistant to look in the subdirectory `scenes` for yaml files containing scene information. Each file will be named for the scene it will create and should contain information formatted as above. Then simply run Scenegen and redirect its output to the scenes subdirectory:
+This will tell Home Assistant to look in the subdirectory `scenes` for yaml files containing scene information. Each file will be named for the scene it will create and should contain information formatted as above. Then simply run Scenegen and redirect its output to the scenes subdirectory:
 
 ```
 $ ./scenegen.py https://<some url> -k <some api key> > scenes/my_new_scene.yaml
