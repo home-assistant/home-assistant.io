@@ -29,7 +29,7 @@ The following extras are included on the image:
  - GPIO pins are ready to use.
  - Bluetooth is ready to use (supported models only, no Bluetooth LE).
  - SSH server is enabled.
- - A tool called `hassbian-config`. 
+ - A tool called [`hassbian-config`](https://github.com/home-assistant/hassbian-scripts#hassbian-config-hassbian-config). 
 
 ### {% linkable_title Wireless Network %}
 
