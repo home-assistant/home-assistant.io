@@ -75,11 +75,18 @@
   </header>
   <hr class="divider">
   <p>This is a community curated list of frequently asked questions (FAQ) about the installation, setup, and usage of Home Assistant.</p>
+<h2><a class="title-link" name="common" href="#common"></a> Common</h2>
+<h3><a class="title-link" name="python-2" href="#python-2"></a> Python 2</h3>
+<p>There will be no support for Python 2.x. Python 2 will be EOL in <a href="https://www.python.org/dev/peps/pep-0373/#id2">2020</a> and it doesn’t make any sense to support a release which was planned to be retired in 2015.</p>
 <h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
 <h3><a class="title-link" name="my-component-does-not-show-up" href="#my-component-does-not-show-up"></a> My component does not show up</h3>
 <p>When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the <code class="highlighter-rouge">home-assistant.log</code> file and see if there are any errors related to your component you are trying to set up.</p>
 <p>If you have incorrect entries in your configuration files you can use the <code class="highlighter-rouge">check_config</code> script to assist in identifying them: <code class="highlighter-rouge">hass --script check_config</code>.</p>
+<h3><a class="title-link" name="why-are-you-using-yaml-for-the-configuration-file" href="#why-are-you-using-yaml-for-the-configuration-file"></a> Why are you using YAML for the configuration file?</h3>
+<p>And not JSON or XML for the <a href="/docs/configuration/">configuration file</a>? Because <a href="/docs/configuration/yaml/">YAML</a> can be written by hand, you don’t have to care about commas or tag and it’s a superset of JSON.</p>
 <h2><a class="title-link" name="documentation" href="#documentation"></a> Documentation</h2>
+<h3><a class="title-link" name="documentation-tools" href="#documentation-tools"></a> Documentation tools</h3>
+<p>Why are you not using tools X for the documentation? Because the current solution works for us and we see no additional value in using a seperate publishing platform.</p>
 <h3><a class="title-link" name="missing-documentation" href="#missing-documentation"></a> Missing Documentation</h3>
 <p>Home Assistant is a FAST moving open source project. This means occasionally the official documentation will not be 100% current or complete. Since this is an open source volunteer project, we would encourage anyone who finds gaps in the documentation to click the <code class="highlighter-rouge">edit this page on Github</code> link in the top right and submit any corrections/enhancements they may find useful.</p>
 <p>In the absence of information, many users find it beneficial to look at other people’s configurations to find examples of what they want to accomplish in thier own configurations. The easiest way to find these configurations is through this <a href="https://github.com/search?q=topic%3Ahome-assistant-config&amp;type=Repositories">Github search</a>.</p>
@@ -128,14 +135,22 @@
     <h1 class="title delta">Entries</h1>
     <ul class='divided sidebar-menu'>
       <li>
+        <b>Common</b>
+        <ul>
+<li><a href='/faq#python-2'>Python 2</a></li>
+        </ul>
+      </li>
+      <li>
         <b>Configuration</b>
         <ul>
 <li><a href='/faq#my-component-does-not-show-up'>My component does not show up</a></li>
+<li><a href='/faq#why-are-you-using-yaml-for-the-configuration-file'>Why are you using YAML for the configuration file?</a></li>
         </ul>
       </li>
       <li>
         <b>Documentation</b>
         <ul>
+<li><a href='/faq#documentation-tools'>Documentation tools</a></li>
 <li><a href='/faq#missing-documentation'>Missing Documentation</a></li>
         </ul>
       </li>
