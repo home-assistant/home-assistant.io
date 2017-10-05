@@ -70,7 +70,7 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 
 ```json
 {
-  "entity": "counter.count0"
+  "entity_id": "counter.count0"
 }
 ```
 
