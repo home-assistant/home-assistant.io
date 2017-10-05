@@ -1082,7 +1082,7 @@
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">listen_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mode_event</span><span class="p">,</span> <span class="s">"MODE_CHANGE"</span><span class="p">)</span>
 </code></pre>
 </div>
-<p>Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it’s automation component. This can be used to signal from AppDaemon code back to home assistant. Here is a sample automation:</p>
+<p>Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it’s automation component. This can be used to signal from AppDaemon code back to Home Assistant. Here is a sample automation:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>

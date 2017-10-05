@@ -86,16 +86,16 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>yum install rh-python35
 </code></pre>
 </div>
-<p>Once installed, switch to your homeassistant user (if you’ve set one up), enable the software collection and check that it has set up the new version of Python:</p>
+<p>Once installed, switch to your <code class="highlighter-rouge">homeassistant</code> user (if you’ve set one up), enable the software collection and check that it has set up the new version of Python:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>scl <span class="nb">enable </span>rh-python35 bash
 <span class="gp">$ </span>python --version
 Python 3.5.1
 </code></pre>
 </div>
-<p>You will be in a command shell set up with Python 3.5 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install home assistant following the main <a href="https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv">instructions</a>.</p>
+<p>You will be in a command shell set up with Python 3.5 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install Home Assistant following the main <a href="https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv">instructions</a>.</p>
 <p>You will need to enable the software collection each time you log on before you activate your virtual environment.</p>
 <h3><a class="title-link" name="systemd-with-software-collections" href="#systemd-with-software-collections"></a> Systemd with Software Collections</h3>
-<p>To autostart homeassistant using systemd follow the main <a href="https://home-assistant.io/docs/autostart/systemd/">instructions</a> and adjust the template as follows:</p>
+<p>To autostart Home Assistant using systemd follow the main <a href="https://home-assistant.io/docs/autostart/systemd/">instructions</a> and adjust the template as follows:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
 After=network.target

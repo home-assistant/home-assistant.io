@@ -84,7 +84,7 @@
 </ul>
 <p>This component was developed and tested with a Hama <a href="https://www.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-multiroom-app-steuerung">DIR3110</a> and a Medion <a href="https://www.medion.com/de/shop/internet-dab-radios-medion-kuechen-internetradio-medion-p83302-md-87466-50051273a1.html">MD 87466</a>.</p>
 <h2>Configuration</h2>
-<p>Your Frontier Silicon based device should be automatically discovered by home assistant. The auto-discovery service assumes that the device uses the default PIN code: <em>1234</em>. If you have changed the PIN code, the auto-discovery will fail as home assistant will not be able to connect to the device. You can set the PIN code of your device (depending on manufacturer) under:</p>
+<p>Your Frontier Silicon based device should be automatically discovered by Home Assistant. The auto-discovery service assumes that the device uses the default PIN code: <em>1234</em>. If you have changed the PIN code, the auto-discovery will fail as Home Assistant will not be able to connect to the device. You can set the PIN code of your device (depending on manufacturer) under:</p>
 <p><em>MENU button &gt; Main Menu &gt; System setting &gt; Network &gt; NetRemote PIN setup</em></p>
 <p>If your device was not automatically discovered or you have changed the PIN you can alternatively add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -128,8 +128,8 @@
 is based on <a href="https://github.com/tiwilliam/fsapi">tiwillam</a>’s fsapi project. Special thanks to both developers, this component would have not been possible without their work.</p>
 <h2>Notes and Limitations</h2>
 <p class="note warning">
-The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once home assistant connects to a device all other sessions will be invalidated. This renders the usage of <a href="http://www.frontier-silicon.com/undok">UNDOK</a> almost impossible, as the home assistant component polls the device state every 30 seconds or issues a command by creating a new session. 
-<em>If you want to prevent home assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234</em>
+The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of <a href="http://www.frontier-silicon.com/undok">UNDOK</a> almost impossible, as the Home Assistant component polls the device state every 30 seconds or issues a command by creating a new session. 
+<em>If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234</em>
 </p>
 </article>
         </div>
