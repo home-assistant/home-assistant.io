@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: skybell.png
 ha_category: Sensor
-ha_release: 0.55
+ha_release: 0.56
 ha_iot_class: "Cloud Polling"
 ---
 
