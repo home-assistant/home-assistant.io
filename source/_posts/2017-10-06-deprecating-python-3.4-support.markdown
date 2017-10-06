@@ -16,6 +16,6 @@ Python 3.5 has been released on September 13, 2015. It has since then become the
 
 The jump to Python 3.5 as a minimum version is driven by the Home Assistant core, which is based on asyncio. Starting with Python 3.5, asyncio got improved support in the language with dedicated keywords `async` and `await`. As this is the proper way of doing async in Python, we're seeing a move by async libraries to either only support the new syntax from the beginning or dropping support for the Python 3.4 approach. Not moving along means an increased maintenance burden as we cannot use the latest releases of our libraries. Next to that it will prevent our users from being able to leverage the bug fixes and performance improvements that come with Python 3.5.
 
-If you're running a Debian based system, follow [these instructions][dist-upgrade] to upgrade.
+If you're running Hass.io, you don't have to do anything. Your system will always stay up to date. If you're running a Debian based system (like Hassbian), follow [these instructions][dist-upgrade] to upgrade.
 
 [dist-upgrade]: https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-jessie-to-raspbian-stretch-9
