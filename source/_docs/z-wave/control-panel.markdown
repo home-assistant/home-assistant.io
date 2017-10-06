@@ -97,7 +97,7 @@ There may be multiple groups, that are used for different purposes. The manual o
 
 ### {% linkable_title Node config options %}
 
-You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices, but only applies to battery powered devices.
+You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
