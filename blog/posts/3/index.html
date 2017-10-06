@@ -70,6 +70,88 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/06/17/release-47/">0.47: Python Scripts, Sesame Smart Lock, Gitter, Onvif cameras</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-06-17T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 17, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 16 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/06/17/release-47/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.47"><img src="/images/blog/2017-06-0.47/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>In this release a ton of new stuff! And who doesn’t like new stuff? This release we’re passing the 700 integrations for Home Assistant. As of today <a href="https://home-assistant.io/help/trivia/#first-commit">we’re 1369 days old</a>, which means that roughly every two days a new integration gets added!</p>
+<h2><a class="title-link" name="python-scripts" href="#python-scripts"></a> Python Scripts</h2>
+<p>The biggest change is a new type of script component: <a href="https://home-assistant.io/components/python_script/">Python scripts</a>. This new component will allow you to write scripts to manipulate Home Assistant: call services, set states and fire events. Each Python script is made available as a service. Head over to <a href="https://home-assistant.io/components/python_script/">the docs</a> to see how to get started.</p>
+<h2><a class="title-link" name="updater" href="#updater"></a> Updater</h2>
+<p>The updater has received a new opt-in option to let us know which components you use. This will allow us to focus development efforts on the components that are popular.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">updater</span><span class="pi">:</span>
+  <span class="s">include_used_components</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+<p>And as a reminder. We will never share gathered data in a manner that can be used to identify anyone. We do plan on making aggregate data public soon. This will include total number of users and which hardware/software platform people use to run Home Assistant.</p>
+<h2><a class="title-link" name="z-wave" href="#z-wave"></a> Z-Wave</h2>
+<p>Z-Wave is also getting a big update in this release. The confusing entity_ids will be on their way out. There is a <a href="https://home-assistant.io/blog/2017/06/15/zwave-entity-ids/">zwave blog post</a> that gives more detail, but the upgrade steps will be as follows:</p>
+<ol>
+  <li>Run Home Assistant as normal and the old IDs will still be used.</li>
+  <li>The new entity IDs will be shown in the more-info dialog for each entity. Check to make sure none of them will have conflicts once the new names are applied.</li>
+  <li>Rename entities using the ui card as described in the blog post to avoid conflicts. Restart Home Assistant to observe the changes.</li>
+  <li>Update all places mentioning IDs (groups, automation, customization, etc.) in configuration.yaml.</li>
+  <li>Add <code class="highlighter-rouge">new_entity_ids: true</code> to your zwave config.</li>
+  <li>Restart Home Assistant to run with new IDs.</li>
+  <li>The old entity IDs will be available in the more info dialog to trace down any remaining errors.</li>
+</ol>
+<h2><a class="title-link" name="monkey-patching-python-36" href="#monkey-patching-python-36"></a> Monkey Patching Python 3.6</h2>
+<p>Some people have noticed that running Home Assistant under Python 3.6 can lead to segfaults. It seems to be related to the <a href="https://github.com/home-assistant/home-assistant/issues/3453">earlier segfault issues</a> that we experienced when we released the asyncio-based core. We thought that those issues would have been fixed when <a href="https://bugs.python.org/issue26617">Python bug 26617</a> was resolved. Although we see less reports compared to the old bug, there are still users <a href="https://github.com/home-assistant/home-assistant/issues/7752">experiencing them</a> (<a href="https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009">gdb stacktrace points at <code class="highlighter-rouge">PyObject_GC_Del()</code></a>).</p>
+<p>Since Python 3.6, the Task and Future classes have been moved to C. This gives a nice speed boost but also prevents us from monkey patching the Task class to avoid the segfault. <a href="https://github.com/bbangert">Ben Bangert</a> managed to brew up another monkey patch to stop Python 3.6 from using the C classes, falling back to the Python versions instead. This allows us to apply the original monkey patch again.</p>
+<p>Both monkey patches are now active by default starting version 0.47 to avoid our users experiencing segfaults. This comes at a cost of not being able to benefit from all optimizations that were introduced in Python 3.6.</p>
+<p>To run without the monkey patch, start Home Assistant with <code class="highlighter-rouge">HASS_NO_MONKEY=1 hass</code>. We will further investigate this issue and try to fix it in a future version of Python.</p>
+<h2><a class="title-link" name="release-0471---june-21" href="#release-0471---june-21"></a> Release 0.47.1 - June 21</h2>
+<ul>
+  <li>Fix Vera lights issue #8098 (<a href="https://github.com/tsvi">@tsvi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8101">#8101</a>) (<a href="https://home-assistant.io/components/light.vera/">light.vera docs</a>)</li>
+  <li>Fix Dyson async_add_job (<a href="https://github.com/CharlesBlonde">@CharlesBlonde</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8113">#8113</a>) (<a href="https://home-assistant.io/components/fan.dyson/">fan.dyson docs</a>) (<a href="https://home-assistant.io/components/sensor.dyson/">sensor.dyson docs</a>)</li>
+  <li>Update InfluxDB to handle datetime objects and multiple decimal points (<a href="https://github.com/philhawthorne">@philhawthorne</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8080">#8080</a>) (<a href="https://home-assistant.io/components/influxdb/">influxdb docs</a>)</li>
+  <li>Fixed iTach command parsing with empty data (<a href="https://github.com/alanfischer">@alanfischer</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8104">#8104</a>) (<a href="https://home-assistant.io/components/remote.itach/">remote.itach docs</a>)</li>
+  <li>Allow iteration in python_script (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8134">#8134</a>) (<a href="https://home-assistant.io/components/python_script/">python_script docs</a>)</li>
+</ul>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New platforms</h2>
+<ul>
+  <li>Added a Taps Aff binary sensor (<a href="https://github.com/bazwilliams">@bazwilliams</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7880">#7880</a>) (<a href="https://home-assistant.io/components/binary_sensor.tapsaff/">binary_sensor.tapsaff docs</a>) (new-platform)</li>
+  <li>lock.sesame: New lock platform for Sesame smart locks (<a href="https://github.com/trisk">@trisk</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7873">#7873</a>) (<a href="https://home-assistant.io/components/lock.sesame/">lock.sesame docs</a>) (new-platform)</li>
+  <li>Etherscan.io sensor (<a href="https://github.com/nkgilley">@nkgilley</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7855">#7855</a>) (<a href="https://home-assistant.io/components/sensor.etherscan/">sensor.etherscan docs</a>) (new-platform)</li>
+  <li>blockchain.info sensor (<a href="https://github.com/nkgilley">@nkgilley</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7856">#7856</a>) (<a href="https://home-assistant.io/components/sensor.blockchain/">sensor.blockchain docs</a>) (new-platform)</li>
+  <li>Add Radarr sensor (<a href="https://github.com/tboyce021">@tboyce021</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7318">#7318</a>) (<a href="https://home-assistant.io/components/sensor.radarr/">sensor.radarr docs</a>) (new-platform)</li>
+  <li>Added buienradar sensor and weather (<a href="https://github.com/mjj4791">@mjj4791</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7592">#7592</a>) (<a href="https://home-assistant.io/components/sensor.buienradar/">sensor.buienradar docs</a>) (<a href="https://home-assistant.io/components/weather.buienradar/">weather.buienradar docs</a>) (new-platform)</li>
+  <li>Add support for Vanderbilt SPC alarm panels and attached sensors (<a href="https://github.com/mbrrg">@mbrrg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7663">#7663</a>) (<a href="https://home-assistant.io/components/spc/">spc docs</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.spc/">alarm_control_panel.spc docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.spc/">binary_sensor.spc docs</a>) (new-platform)</li>
+  <li>Add raspihats switch (<a href="https://github.com/florincosta">@florincosta</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7665">#7665</a>) (<a href="https://home-assistant.io/components/switch.raspihats/">switch.raspihats docs</a>) (new-platform)</li>
+  <li>Add juicenet platform (<a href="https://github.com/jesserockz">@jesserockz</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7668">#7668</a>) (<a href="https://home-assistant.io/components/juicenet/">juicenet docs</a>) (<a href="https://home-assistant.io/components/sensor.juicenet/">sensor.juicenet docs</a>) (new-platform)</li>
+  <li>add ripple sensor (<a href="https://github.com/nkgilley">@nkgilley</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7935">#7935</a>) (<a href="https://home-assistant.io/components/sensor.ripple/">sensor.ripple docs</a>) (new-platform)</li>
+  <li>New component: Python Script (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7950">#7950</a>) (<a href="https://home-assistant.io/components/python_script/">python_script docs</a>) (new-platform)</li>
+  <li>Nadtcp component (<a href="https://github.com/mwsluis">@mwsluis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7955">#7955</a>) (<a href="https://home-assistant.io/components/media_player.nadtcp/">media_player.nadtcp docs</a>) (new-platform)</li>
+  <li>Add Gitter.im sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7998">#7998</a>) (<a href="https://home-assistant.io/components/sensor.gitter/">sensor.gitter docs</a>) (new-platform)</li>
+  <li>Update mailgun (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7984">#7984</a>) (<a href="https://home-assistant.io/components/mailgun/">mailgun docs</a>) (<a href="https://home-assistant.io/components/notify.mailgun/">notify.mailgun docs</a>) (breaking change) (new-platform)</li>
+  <li>Add Flexit AC climate platform (<a href="https://github.com/Sabesto">@Sabesto</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7871">#7871</a>) (<a href="https://home-assistant.io/components/climate.flexit/">climate.flexit docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/06/17/release-47/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/06/15/zwave-entity-ids/">ZWave Entity IDs</a>
   </h1>
   <div class="meta clearfix">
@@ -454,35 +536,6 @@ If you have a security key set in your Open Z-Wave <code class="highlighter-roug
   <li>MQTT Cover: Fixed status reporting for range with non-zero base (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a>)</li>
 </ul>
       <a class="btn pull-right" href="/blog/2017/05/06/zigbee-opencv-dlib/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/05/05/podcast-init-interview/">Podcast.__init__ interview with Paulus Schoutsen</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-05-05T02:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 5, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Media</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/05/05/podcast-init-interview/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p class="img">
-<a href="https://www.podcastinit.com/"><img src="/images/blog/2017-05-podcast-init/podcast_init.png" /></a>
-</p>
-<p>Earlier this year I was interviewed by Tobias Macey from <a href="https://www.podcastinit.com/">Podcast.__init__</a> about Python and Home Assistant. Just realized that we never shared this on the blog, oops. Here it is, enjoy!</p>
-<script class="podigee-podcast-player" src="//cdn.podigee.com/podcast-player/javascripts/podigee-podcast-player.js" data-configuration="https://www.podcastinit.com?podigee_player=205" async=""></script>
   </div>
   </article>
   <hr>
