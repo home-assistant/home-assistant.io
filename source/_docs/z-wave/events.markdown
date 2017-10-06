@@ -68,7 +68,7 @@ Example:
        basic_level: 255
 ```
 
-The *object_id* and *basic_level* of all triggered events can be seen in the console output.
+The *entity_id* and *basic_level* of all triggered events can be seen in the console output.
 
 ## {% linkable_title zwave.scene_activated %}
 
@@ -101,6 +101,6 @@ automation
           scene_data: 3
 ```
 
-The *object_id* and *scene_id* of all triggered events can be seen in the console output.
+The *entity_id* and *scene_id* of all triggered events can be seen in the console output.
 
 For more information on HomeSeer devices and similar devices, please see the [device specific page](/docs/z-wave/device-specific/#homeseer-switches).
