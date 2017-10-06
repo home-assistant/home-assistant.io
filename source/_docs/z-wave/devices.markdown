@@ -61,6 +61,8 @@ As long as your device lists Hail or Association in its Controlled Command Class
 
 Where a device doesn't send updates on status changes to the controller, you can work around this by using a thing called Polling. That causes the controller to ask the device to provide an update on all its sensors and states. This will cause a lot of traffic on the network, and if you poll too many devices too quickly, you can effectively break your Z-Wave network. Polling should only be used where there is no other choice, and you should use as large a polling interval as possible. Ideally you should replace the device.
 
+For example, with `polling_interval=60000` (which is the default) if you have 10 devices that are being polled, if a device can receive and acknowledge the poll within one second, then it will take 10 seconds to complete the polling list, which leaves 50 seconds left for normal traffic. The more devices you poll, and the shorter the interval, the less bandwidth that's available for normal traffic.
+
 ## {% linkable_title Central Scene support %}
 
 The Central Scene command class isn't yet supported in OpenZWave (there is [work in progress](https://github.com/OpenZWave/open-zwave/pull/1125) to provide it it), though Home Assistant has introduced some support with [change 9178](https://github.com/home-assistant/home-assistant/pull/9178) which was part of 0.53 and [documented here](/docs/z-wave/device-specific/#homeseer-switches).
