@@ -8,7 +8,7 @@ footer: true
 redirect_from: /getting-started/installation-raspberry-pi-all-in-one/
 ---
 
-The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant) deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the OpenZWave Control Panel.
+The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant) deploys a complete Home Assistant server including support for MQTT with websockets, and Z-Wave.
 
 The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
 
@@ -53,7 +53,6 @@ The All-In-One Installer script will do the following automatically:
 *  Install Home Assistant in a virtualenv
 *  Install Mosquitto with websocket support running on ports 1883 and 9001
 *  Build and Install Python-openzwave in the Home Assistant virtualenv
-*  Build OpenZWave Control Panel in `/srv/homeassistant/src/open-zwave-control-panel`
 *  Add Home Assistant to systemd services to start at boot
 
 ### {% linkable_title Upgrading %}
@@ -86,35 +85,6 @@ After upgrading, you can restart Home Assistant a few different ways:
 *  Change password `sudo mosquitto_passwd /etc/mosquitto/pwfile pi`
 *  Restart mosquitto `sudo systemctl restart mosquitto.service`
 *  Be sure to update your `configuration.yaml` to reflect the new password.
-
-### {% linkable_title Using the OZWCP web application %}
-
-To launch the OpenZWave Control Panel (OZWCP) web application:
-
-*  Make sure Home Assistant is not running! So stop that first
-*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
-*  Change to the OZWCP directory `cd /srv/homeassistant/src/open-zwave-control-panel/`
-*  Launch the control panel `sudo ./ozwcp -p 8888`
-*  Open a web browser to `http://your_pi_ip:8888`
-*  Specify your Z-Wave controller, for example `/dev/ttyACM0` and hit initialize
-
-<p class='note warning'>
-  If OZWCP is running really slow verify that your not running Home Assistant or have another page running OZWCP open or strange errors might occur.
-</p>
-
-<div class='note note'>
-**If you deployed Home Assistant via the AiO installer prior to December 2016**
-*  Make sure Home Assistant is not running! So stop that first
-*  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
-*  Change to the OZWCP directory `cd /srv/hass/src/open-zwave-control-panel/`
-*  Launch the control panel `sudo ./ozwcp -p 8888`
-*  Open a web browser to `http://your_pi_ip:8888`
-*  Specify your Z-Wave controller, for example `/dev/ttyACM0` and hit initialize
-</div>
-
-<p class='note warning'>
-Don't check the USB box regardless of using a USB based device.
-</p>
 
 ### {% linkable_title Using the GPIOs %}
 
