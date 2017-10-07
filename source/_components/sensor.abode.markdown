@@ -13,8 +13,8 @@ ha_category: Sensor
 ha_iot_class: "Cloud Push"
 ---
 
-The `abode` security control panel platform allows you to control your [Abode](https://goabode.com/) alarms.
+The `abode` sensor platform allows you to monitor your [Abode](https://goabode.com/) sensors.
 
-This component will add support for Abode `Temperature`, `Humidity`, and `Light` sensors.
+This platform supports Abode `Temperature`, `Humidity`, and `Light` sensors.
 
 The requirement is that you have setup your [Abode hub](/components/abode/).
