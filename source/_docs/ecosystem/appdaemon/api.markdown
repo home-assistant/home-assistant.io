@@ -160,7 +160,7 @@ For example, the presence callback constraint can be added to an App by adding a
 [some_app]
 module = some_module
 class = SomeClass
-constrain_presence = no one
+constrain_presence = noone
 ```
 
 Now, although the `initialize()` function will be called for MyClass, and it will have a chance to register as many callbacks as it desires, none of the callbacks will execute, in this case, until everyone has left. This could be useful for an interior motion detector App for instance. There are several different types of constraints:
@@ -205,7 +205,7 @@ constrain_input_select = input_select.house_mode,Day,Evening,Night
 
 ### {% linkable_title presence %}
 The presence constraint will constrain based on presence of device trackers. It takes 3 possible values:
-- `no one` - only allow callback execution when no one is home
+- `noone` - only allow callback execution when no one is home
 - `anyone` - only allow callback execution when one or more person is home
 - `everyone` - only allow callback execution when everyone is home
 
@@ -214,7 +214,7 @@ constrain_presence = anyone
 # or
 constrain_presence = someone
 # or
-constrain_presence = no one
+constrain_presence = noone
 ```
 
 ### {% linkable_title time %}
