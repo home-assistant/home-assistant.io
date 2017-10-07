@@ -20,7 +20,7 @@ The jump to Python 3.5 as a minimum version is driven by the Home Assistant core
 If you're running Hass.io, you don't have to do anything. Your system will always stay up to date. 
 
 #### Hassbian
-If you're running Hassbian it's recommended that you make a backup of you config and restore them on a fresh install. Upgrading an existing installation isn't recommended.
+If you're running Hassbian it's recommended that you make a backup of your configuration files and restore them on a fresh install. Upgrading an existing installation isn't recommended.
 
 #### Windows
 If you're on Windows, you're fine as our minimum version for Windows has been 3.5 for a while now.
