@@ -19,7 +19,6 @@ The 'hive' light component integrates your Hive lights in to Home Assistant, ena
 The Hive light component supports the following Hive products:
 - **Hive Active Light Dimmable**
 - **Hive Active Light Cool to Warm White**
-- **Hive Active Light Colour Changing**
 
 
 <p class='note'>
