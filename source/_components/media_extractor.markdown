@@ -41,7 +41,7 @@ media_extractor:
       music: bestaudio[ext=mp3]
 ```
 
-This configuration sets query for all service calls like: ```{"entity_id": "media_player.my_sonos", "media_content_id": "https://soundcloud.com/bruttoband/brutto-11", "media_content_type": "music"}``` to 'bestaudio' with mp3 extention.
+This configuration sets query for all service calls like: ```{"entity_id": "media_player.my_sonos", "media_content_id": "https://soundcloud.com/bruttoband/brutto-11", "media_content_type": "music"}``` to 'bestaudio' with mp3 extension.
 
 Query examples with explanations:
  * **bestvideo** - best video only stream
