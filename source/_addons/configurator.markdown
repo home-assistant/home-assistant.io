@@ -28,7 +28,7 @@ Screenshot of the HASS Configurator.
 - Upload and download files.
 - Stage and commit changes in Git repositories, create and switch between branches, push to remotes.
 - Lists of available triggers, events, entities, conditions and services. Selected element gets inserted into the editor at the last cursor position.
-- Restart Home Assitant directly with the click of a button. Reloading groups, automations etc. can be done as well. An API-password is required.
+- Restart Home Assistant directly with the click of a button. Reloading groups, automations etc. can be done as well. An API-password is required.
 - SSL support.
 - Optional authentication and IP filtering for added security.
 - Direct links to Home Assistant documentation and icons.

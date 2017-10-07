@@ -46,7 +46,7 @@ If HA does not start, check the log file output for errors at `/var/opt/homeassi
 
 ### {% linkable_title Extra: Running commands before hass executes %}
 
-If any commands need to run before executing hass (like loading a virutal environment), put them in PRE_EXEC. This command must end with a semicolon.
+If any commands need to run before executing hass (like loading a virtual environment), put them in PRE_EXEC. This command must end with a semicolon.
 
 ### {% linkable_title Daemon script %}
 
