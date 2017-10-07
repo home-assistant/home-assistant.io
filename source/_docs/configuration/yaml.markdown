@@ -34,8 +34,7 @@ You can use the online service [YAMLLint](http://www.yamllint.com/) to check if 
 
 <p class='note'>
 Please pay attention on not storing private data (passwords, api-keys, etc.)
-directly in that file. Private data can be stored in environmental variables,
-which circumvents this problem of security.
+directly in that file. Private data can be stored in a [seperate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this problem of security.
 </p>
 
 Text following a `#` are comments and are ignored by the system.
