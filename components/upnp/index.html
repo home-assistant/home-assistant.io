@@ -80,16 +80,38 @@
 <p>To integrate this into Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with custom external portal</span>
 <span class="s">upnp</span><span class="pi">:</span>
-  <span class="s">external_port</span><span class="pi">:</span> <span class="s">80</span>
+  <span class="s">ports</span><span class="pi">:</span>
+    <span class="s">hass</span><span class="pi">:</span> <span class="s">8000</span>
+    <span class="s">8080</span><span class="pi">:</span> <span class="s">8080</span>
 </code></pre>
 </div>
 <p>If you which to have the statistics without having port mapping done through IGD, add the option <strong>port_mapping</strong>.</p>
 <p>Configuration variables:</p>
-<ul>
-  <li><strong>external_port</strong> (<em>Optional</em>): Expose Home Assistant to the internet over this TCP port. Defaults to Home Assistant configured port.</li>
-  <li><strong>port_mapping</strong> (<em>Optional</em>): Disables port mapping  maintains the network statistics sensors)</li>
-  <li><strong>unit</strong> (<em>Optional</em>): UPnP sensors unit. Valid units are ‘Bytes’, ‘KBytes’, ‘MBytes’ and ‘GBytes’.</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="ports" href="#ports"></a> ports</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">Map of ports to map from internal to external. Pass ‘hass’ as internal port to use the port Home Assistant runs on.</span></p>
+      <p class="default">Default value: open same port on external router as that HASS runs locally and forwards it.</p>
+    </dd>
+    <dt><a class="title-link" name="port_mapping" href="#port_mapping"></a> port_mapping</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="boolean">boolean</span>)</span><span class="required">(Optional)</span><span class="description">If the component should try to map ports.</span></p>
+      <p class="default">Default value: false</p>
+    </dd>
+    <dt><a class="title-link" name="units" href="#units"></a> units</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Define the units used for the UPNP sensor. Possible values are Bytes, KBytes, MBytes, GBytes.</span></p>
+      <p class="default">Default value: Mbytes</p>
+    </dd>
+    <dt><a class="title-link" name="local_ip" href="#local_ip"></a> local_ip</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The local IP address of the computer running Home Assistant.</span></p>
+      <p class="default">Default value: Try to auto-detect IP of host.</p>
+    </dd>
+  </dl>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
