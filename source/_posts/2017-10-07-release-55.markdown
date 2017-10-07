@@ -343,6 +343,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notify.simplepush docs]: https://home-assistant.io/components/notify.simplepush/
 [raincloud docs]: https://home-assistant.io/components/raincloud/
 [raspihats docs]: https://home-assistant.io/components/raspihats/
+[recorder docs]: https://home-assistant.io/components/recorder/
 [remote.itach docs]: https://home-assistant.io/components/remote.itach/
 [rflink docs]: https://home-assistant.io/components/rflink/
 [sensor.airvisual docs]: https://home-assistant.io/components/sensor.airvisual/
