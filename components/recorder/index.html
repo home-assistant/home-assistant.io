@@ -84,7 +84,8 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>purge_days</strong> (<em>Optional</em>): Delete events and states older than x days. The purge task runs every 2 days, starting from when Home Assistant is started if you restart your instance more frequently than the purge will never take place.</li>
+  <li><strong>purge_interval</strong> (<em>Optional</em>): (days) Enable scheduled purge of older events and states. The purge task runs every x days, starting from when Home Assistant is started. If you restart your instance more frequently, than the purge will never take place. You can use <a href="#service">service</a> call <code class="highlighter-rouge">recorder.purge</code> when needed.</li>
+  <li><strong>purge_keep_days</strong> (<em>Required with <code class="highlighter-rouge">purge_interval</code></em>): Specify number of history days to keep in recorder database after purge.</li>
   <li><strong>exclude</strong> (<em>Optional</em>): Configure which components should be excluded from recordings.
     <ul>
       <li><strong>entities</strong> (<em>Optional</em>): The list of entity ids to be excluded from recordings.</li>
@@ -102,7 +103,8 @@
 <p>Define domains and entities to <code class="highlighter-rouge">exclude</code> (aka. blacklist). This is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually these are entities/domains which do not change (like <code class="highlighter-rouge">weblink</code>) or rarely change (<code class="highlighter-rouge">updater</code> or <code class="highlighter-rouge">automation</code>).</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry with exclude</span>
 <span class="s">recorder</span><span class="pi">:</span>
-  <span class="s">purge_days</span><span class="pi">:</span> <span class="s">5</span>
+  <span class="s">purge_interval</span><span class="pi">:</span> <span class="s">2</span>
+  <span class="s">purge_keep_days</span><span class="pi">:</span> <span class="s">5</span>
   <span class="s">db_url</span><span class="pi">:</span> <span class="s">sqlite:///home/user/.homeassistant/test</span>
   <span class="s">exclude</span><span class="pi">:</span>
     <span class="s">domains</span><span class="pi">:</span>
@@ -140,6 +142,15 @@
 </code></pre>
 </div>
 <p>If you only want to hide events from e.g. your history, take a look at the <a href="/components/history/"><code class="highlighter-rouge">history</code> component</a>. Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the <code class="highlighter-rouge">exclude</code>/<code class="highlighter-rouge">include</code> options of the <code class="highlighter-rouge">recorder</code> component, that they aren’t even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like <code class="highlighter-rouge">sensor.last_boot</code>).</p>
+<h3><a class="title-link" name="service-purge" href="#service-purge"></a> Service <code class="highlighter-rouge">purge</code></h3>
+<p>Call the service <code class="highlighter-rouge">recorder.purge</code> to start purge task, which deletes events and states older than x days, according to <code class="highlighter-rouge">keep_days</code> service data (<em>Required</em>)</p>
+<p>Automation <a href="https://home-assistant.io/getting-started/automation-action/">action</a> example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">action</span><span class="pi">:</span>
+  <span class="s">service</span><span class="pi">:</span> <span class="s">recorder.purge</span>
+  <span class="s">data</span><span class="pi">:</span>
+    <span class="s">keep_days</span><span class="pi">:</span> <span class="s">5</span>
+</code></pre>
+</div>
 <h2>Custom database engines</h2>
 <table>
   <thead>
