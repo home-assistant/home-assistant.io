@@ -92,7 +92,7 @@ This will not create a full backup of your Home Assistant files or your OS. In a
 <ul>
   <li>Extensive use of <a href="https://home-assistant.io/topics/secrets/">secrets.yaml</a> to hide sensitive information like usernames, passwords, device information, and location</li>
   <li>Exclusion of some files, including <code class="highlighter-rouge">secrets.yaml</code> and device-specific information using a <a href="https://git-scm.com/docs/gitignore"><code class="highlighter-rouge">.gitignore</code></a> file</li>
-  <li>Regularly commiting your configuration to GitHub to make sure that your backup is up to date</li>
+  <li>Regularly committing your configuration to GitHub to make sure that your backup is up to date</li>
   <li>Use a README.md to document your configuration and include screenshots of your Home Assistant GUI</li>
 </ul>
 <h3><a class="title-link" name="step-1-installing-and-initializing-git" href="#step-1-installing-and-initializing-git"></a> Step 1: Installing and Initializing Git</h3>
@@ -164,7 +164,7 @@ git push origin master
 <span class="nb">exit</span>
 </code></pre>
 </div>
-<p>Every time you run this script, you will be prompted for a comment to describe the change(s) that you are commiting. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use <a href="https://help.github.com/categories/ssh/">GitHub with ssh</a>).</p>
+<p>Every time you run this script, you will be prompted for a comment to describe the change(s) that you are committing. This comment will be displayed beside each changed file on GitHub and will be stored after each commit.  You will also be asked to enter your GitHub username and password (or ssh key passphrase if you use <a href="https://help.github.com/categories/ssh/">GitHub with ssh</a>).</p>
 <h3><a class="title-link" name="step-7-configuration-file-testing" href="#step-7-configuration-file-testing"></a> Step 7: Configuration file testing</h3>
 <p><a href="https://travis-ci.org">Travis CI</a> is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.</p>
 <ul>
@@ -193,7 +193,7 @@ git push origin master
 </code></pre>
 </div>
 <h3><a class="title-link" name="extra-commands" href="#extra-commands"></a> Extra commands</h3>
-<p>You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not commited yet:</p>
+<p>You can enter these commands to get a list of the files in your local git repository and a status of files that have changed but not committed yet:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git ls-files
 <span class="gp">$ </span>git status
 </code></pre>

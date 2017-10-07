@@ -87,7 +87,7 @@
   </div>
 </header>
   <p>Home Assistant has learned a new trick to get the latest information from the server: streaming updates. No longer will the frontend poll every 30 seconds for updates but instead it will keep a connection open and get the latest changes pushed as soon as they happen.</p>
-<p>A new toggle has been added ot the sidebar to turn streaming updates on and off. This preference will be saved on a per-browser basis using local storage. The toggle will also indicate when there is an error setting up a stream after which it will fall back to use polling.</p>
+<p>A new toggle has been added to the sidebar to turn streaming updates on and off. This preference will be saved on a per-browser basis using local storage. The toggle will also indicate when there is an error setting up a stream after which it will fall back to use polling.</p>
 <p class="img"><img src="/images/screenshots/streaming-updates.png" /></p>
 <a name="read-more"></a>
 <p>Streaming updates has been implemented using the HTML5 <code class="highlighter-rouge">EventSource</code> tag. Implementation is pretty straight forward as all the reconnection logic will be handled by the event source tag. The <a href="https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/api.py#L90">server-side code</a> is 50 lines and the <a href="https://github.com/home-assistant/home-assistant-js/blob/master/src/actions/stream.js">client-side code</a> is 80 lines of code.</p>

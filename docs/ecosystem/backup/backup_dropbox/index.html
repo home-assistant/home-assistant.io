@@ -80,7 +80,7 @@
 <p>You need two parts in order to get it working correctly.</p>
 <p>Become the user that run Home Assistant.</p>
 <ul>
-  <li>A seperate Python script that syncs a specific folder. Which can be found <a href="https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f">here</a></li>
+  <li>A separate Python script that syncs a specific folder. Which can be found <a href="https://gist.github.com/riemers/31e3350041fd3e47e489cbc811209d6f">here</a></li>
   <li>The excellent <a href="https://github.com/andreafabrizi/Dropbox-Uploader/blob/master/dropbox_uploader.sh">dropbox uploader script</a> you can grab the .sh file only.</li>
 </ul>
 <p>Download those files to a folder of your liking, after that edit both files and change paths accordingly.</p>
@@ -99,7 +99,7 @@
 <p>The first time can take a lot of time since it will upload all your files!
 Do note, this will <strong>backup your passwords to Dropbox</strong>.</p>
 <h3><a class="title-link" name="automate-the-backup" href="#automate-the-backup"></a> Automate the backup</h3>
-<p>So you just made a full backup, next time you want it to be done automaticly. Since your database can change and so do other files over time.
+<p>So you just made a full backup, next time you want it to be done automatically. Since your database can change and so do other files over time.
 Add it to your crontab, edit the <strong>path/to</strong> part.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="o">(</span>crontab -l 2&gt;/dev/null; <span class="nb">echo</span> <span class="s2">"0 3 * * * python /path/to/dropbox.py"</span><span class="o">)</span> | crontab -
 </code></pre>

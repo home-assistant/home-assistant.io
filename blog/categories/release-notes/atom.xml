@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-07T22:15:46+00:00</updated>
+  <updated>2017-10-07T22:42:05+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -305,7 +305,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [abode docs]: https://home-assistant.io/components/abode/
 [alarm_control_panel.egardia docs]: https://home-assistant.io/components/alarm_control_panel.egardia/
 [alarm_control_panel.manual_mqtt docs]: https://home-assistant.io/components/alarm_control_panel.manual_mqtt/
-[alexa.smart_home docs]: https://home-assistant.io/components/alexa.smart_home/
+[alexa.smart_home docs]: https://home-assistant.io/components/alexa/
 [apple_tv docs]: https://home-assistant.io/components/apple_tv/
 [arlo docs]: https://home-assistant.io/components/arlo/
 [binary_sensor.raincloud docs]: https://home-assistant.io/components/binary_sensor.raincloud/
@@ -324,9 +324,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [duckdns docs]: https://home-assistant.io/components/duckdns/
 [ecobee docs]: https://home-assistant.io/components/ecobee/
 [emulated_hue docs]: https://home-assistant.io/components/emulated_hue/
-[google docs]: https://home-assistant.io/components/google/
+[google docs]: https://home-assistant.io/components/calendar.google/
 [group docs]: https://home-assistant.io/components/group/
-[hassio docs]: https://home-assistant.io/components/hassio/
+[hassio docs]: https://home-assistant.io/hassio/
 [history docs]: https://home-assistant.io/components/history/
 [homematic docs]: https://home-assistant.io/components/homematic/
 [http docs]: https://home-assistant.io/components/http/
@@ -381,7 +381,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tradfri docs]: https://home-assistant.io/components/tradfri/
 [upnp docs]: https://home-assistant.io/components/upnp/
 [usps docs]: https://home-assistant.io/components/usps/
-[vacuum.xiaomi docs]: https://home-assistant.io/components/vacuum.xiaomi/
+[vacuum.xiaomi docs]: https://home-assistant.io/components/vacuum.xiaomi_miio/
 [wink docs]: https://home-assistant.io/components/wink/
 [zwave docs]: https://home-assistant.io/components/zwave/
 [forum]: https://community.home-assistant.io/
@@ -889,7 +889,7 @@ frontend:
 - Skip automatic events older than latest data ([@armills] - [#9230]) ([device_tracker.automatic docs])
 - title and message was swapped in pushbullet ([@danielhiversen] - [#9241]) ([notify.pushbullet docs])
 - Fix possible KeyError ([@MartinHjelmare] - [#9242]) ([mysensors docs])
-- WIP: Homematic improvments with new hass interfaces ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
+- WIP: Homematic improvements with new hass interfaces ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
 - Add available to sonos ([@pvizeli] - [#9243]) ([media_player.sonos docs])
 - Make sure Ring binary_sensor state will update only if device_id matches ([@tchellomello] - [#9247]) ([binary_sensor.ring docs])
 - Added configurable timeout for receiver HTTP requests | Additional AV… ([@scarface-4711] - [#9244]) ([media_player.denonavr docs])

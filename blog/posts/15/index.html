@@ -202,7 +202,7 @@ The old logo, the new detailed logo and the new simple logo.
 </header>
   <div class="entry-content clearfix">
     <p>Home Assistant has learned a new trick to get the latest information from the server: streaming updates. No longer will the frontend poll every 30 seconds for updates but instead it will keep a connection open and get the latest changes pushed as soon as they happen.</p>
-<p>A new toggle has been added ot the sidebar to turn streaming updates on and off. This preference will be saved on a per-browser basis using local storage. The toggle will also indicate when there is an error setting up a stream after which it will fall back to use polling.</p>
+<p>A new toggle has been added to the sidebar to turn streaming updates on and off. This preference will be saved on a per-browser basis using local storage. The toggle will also indicate when there is an error setting up a stream after which it will fall back to use polling.</p>
 <p class="img"><img src="/images/screenshots/streaming-updates.png" /></p>
       <a class="btn pull-right" href="/blog/2015/02/24/streaming-updates/#read-more">Read on &rarr;</a>
   </div>
@@ -243,7 +243,7 @@ The old logo, the new detailed logo and the new simple logo.
   </a>
 </p>
 <p class="note">
-Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transfered to anyone at any time.
+Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
 </p>
       <a class="btn pull-right" href="/blog/2015/02/08/looking-at-the-past/#read-more">Read on &rarr;</a>
   </div>
@@ -349,7 +349,7 @@ Home Assistant now supports <code class="highlighter-rouge">--open-ui</code> and
 </header>
   <div class="entry-content clearfix">
     <p>Most people do not like configuring things. Things just have to work, out of the box. Reaching this scenario is the goal of what we are about to introduce: our new discovery component.</p>
-<p>The discovery component will scan the WiFi network from time to time for connected zeroconf/mDNS and uPnP devices. The intial introduction is mainly focussed on getting the right architecture in place and discovers Belkin WeMo switches and Google Chromecasts connected to your network. When found, it will load and notify the appropritate component and it will be ready to use within seconds.</p>
+<p>The discovery component will scan the WiFi network from time to time for connected zeroconf/mDNS and uPnP devices. The initial introduction is mainly focussed on getting the right architecture in place and discovers Belkin WeMo switches and Google Chromecasts connected to your network. When found, it will load and notify the appropritate component and it will be ready to use within seconds.</p>
 <p>Most devices still require some sort of interaction from the user after being discovered - be it a button being pressed or some sort of authentication. This is a challenge that will be solved in the future.</p>
 <p>To enable the discovery component, add the following to your <code class="highlighter-rouge">home-assistant.conf</code>:</p>
 <div class="language-conf highlighter-rouge"><pre class="highlight"><code>[<span class="n">discovery</span>]
@@ -414,7 +414,7 @@ Home Assistant now supports <code class="highlighter-rouge">--open-ui</code> and
   <div class="entry-content clearfix">
     <p>The internet has been buzzing over the last year about home automation. A lot of different terms fly around like the internet of things, home automation and the smart home.
 This article will try to explain how they all relate.</p>
-<p>The first thing to introduce is the <strong>Internet of Things</strong> (IoT). This refers to a new generation of devices that cannot only be controlled by humans via buttons or remotes but also provide an interface to communicate with other devices and applications. For example, an IoT-capable coffee machine could receive commands to create different types of coffee and be able to broadcast the amount of water left in its resevoir.</p>
+<p>The first thing to introduce is the <strong>Internet of Things</strong> (IoT). This refers to a new generation of devices that cannot only be controlled by humans via buttons or remotes but also provide an interface to communicate with other devices and applications. For example, an IoT-capable coffee machine could receive commands to create different types of coffee and be able to broadcast the amount of water left in its reservoir.</p>
 <p>There is no widely adopted open standard for smart device communication. This prevents a lot of devices to communicate with one another. And even if they could, most devices are not designed to manage other devices. To solve this we need a device to be able to communicate with and manage all these connected devices. This device is called a <strong>hub</strong>.</p>
 <p>As a bare minimum a hub has to keep track of the state of each device and should be able to control them if possible. For example, it has to know which lights are on or off and offer a way to control the lights. For a sensor it only has to know the value. A hub with these capabilities offers <strong>home control</strong>.</p>
 <p class="img">

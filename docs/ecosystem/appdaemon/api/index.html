@@ -425,7 +425,7 @@
 <p>If <code class="highlighter-rouge">old</code> is supplied as a parameter, callbacks will only be made if the state of the selected attribute (usually <code class="highlighter-rouge">state</code>) in the old state match the value of <code class="highlighter-rouge">old</code>.</p>
 <p>Note: <code class="highlighter-rouge">old</code> and <code class="highlighter-rouge">new</code> can be used singly or together.</p>
 <h5><a class="title-link" name="duration---seconds-optional" href="#duration---seconds-optional"></a> duration =  <seconds> (optional)</seconds></h5>
-<p>If duration is supplied as a parameter, the callback will not fire unless the state listened for is maintained for that number of seconds. This makes the most sense if a specific attribute is specified (or the default os <code class="highlighter-rouge">state</code> is used), an in conjunction with the <code class="highlighter-rouge">old</code> or <code class="highlighter-rouge">new</code> parameters, or both. When the callback is called, it is supplied with the values of <code class="highlighter-rouge">entity</code>, <code class="highlighter-rouge">attr</code>, <code class="highlighter-rouge">old</code> and <code class="highlighter-rouge">new</code> that were current at the time the actual event occured, since the assumption is that none of them have changed in the intervening period.</p>
+<p>If duration is supplied as a parameter, the callback will not fire unless the state listened for is maintained for that number of seconds. This makes the most sense if a specific attribute is specified (or the default os <code class="highlighter-rouge">state</code> is used), an in conjunction with the <code class="highlighter-rouge">old</code> or <code class="highlighter-rouge">new</code> parameters, or both. When the callback is called, it is supplied with the values of <code class="highlighter-rouge">entity</code>, <code class="highlighter-rouge">attr</code>, <code class="highlighter-rouge">old</code> and <code class="highlighter-rouge">new</code> that were current at the time the actual event occurred, since the assumption is that none of them have changed in the intervening period.</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code>  <span class="k">def</span> <span class="nf">my_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="o">&lt;</span><span class="n">do</span> <span class="n">some</span> <span class="n">useful</span> <span class="n">work</span> <span class="n">here</span><span class="o">&gt;</span>
 </code></pre>
@@ -520,7 +520,7 @@
 <h5><a class="title-link" name="delay" href="#delay"></a> delay</h5>
 <p>Delay, in seconds before the callback is invoked.</p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">handle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run_in_c</span><span class="p">)</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">handle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run_in_c</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">"run_in5"</span><span class="p">)</span>
@@ -540,7 +540,7 @@
 <h5><a class="title-link" name="time" href="#time"></a> time</h5>
 <p>A Python <code class="highlighter-rouge">time</code> object that specifies when the callback will occur. If the time specified is in the past, the callback will occur the next day at the specified time.</p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Run at 4pm today, or 4pm tomorrow if it is already after 4pm</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -563,7 +563,7 @@
 <h5><a class="title-link" name="datetime" href="#datetime"></a> datetime</h5>
 <p>A Python <code class="highlighter-rouge">datetime</code> object that specifies when the callback will occur.</p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Run at 4pm today</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -588,7 +588,7 @@
 <h5><a class="title-link" name="time" href="#time"></a> time</h5>
 <p>A Python <code class="highlighter-rouge">time</code> object that specifies when the callback will occur. If the time specified is in the past, the callback will occur the next day at the specified time.</p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Run daily at 7pm</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -611,7 +611,7 @@
 <h5><a class="title-link" name="time" href="#time"></a> time</h5>
 <p>A Python <code class="highlighter-rouge">time</code> object that specifies when the callback will occur, the hour component of the time object is ignored. If the time specified is in the past, the callback will occur the next hour at the specified time. If time is not supplied, the callback will start an hour from the time that <code class="highlighter-rouge">run_hourly()</code> was executed.</p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Run every hour, on the hour</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -634,7 +634,7 @@
 <h5><a class="title-link" name="time" href="#time"></a> time</h5>
 <p>A Python <code class="highlighter-rouge">time</code> object that specifies when the callback will occur, the hour and minute components of the time object are ignored. If the time specified is in the past, the callback will occur the next hour at the specified time. If time is not supplied, the callback will start a minute from the time that <code class="highlighter-rouge">run_minutely()</code> was executed.</p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Run Every Minute on the minute</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -659,7 +659,7 @@
 <h5><a class="title-link" name="repeat" href="#repeat"></a> repeat</h5>
 <p>After the initial callback has occurred, another will occur every <code class="highlighter-rouge">repeat</code> seconds.</p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Run every 17 minutes starting in 2 hours time</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -705,7 +705,7 @@
   <li><code class="highlighter-rouge">random_start</code> - start of range of the random time</li>
   <li><code class="highlighter-rouge">random_end</code> - end of range of the random time</li>
 </ul>
-<p><code class="highlighter-rouge">random_start</code> must always be numerically lower than <code class="highlighter-rouge">random_end</code>, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on whcih scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to <code class="highlighter-rouge">0</code>.</p>
+<p><code class="highlighter-rouge">random_start</code> must always be numerically lower than <code class="highlighter-rouge">random_end</code>, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to <code class="highlighter-rouge">0</code>.</p>
 <p>For example:</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Run a callback in 2 minutes minus a random number of seconds between 0 and 60, e.g. run between 60 and 120 seconds from now</span>
 <span class="bp">self</span><span class="o">.</span><span class="n">handle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_in</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="n">random_start</span> <span class="o">=</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -731,7 +731,7 @@
 <h5><a class="title-link" name="offset--seconds" href="#offset--seconds"></a> offset = <seconds></seconds></h5>
 <p>The time in seconds that the callback should be delayed after sunrise. A negative value will result in the callback occurring before sunrise. This parameter cannot be combined with <code class="highlighter-rouge">random_start</code> or <code class="highlighter-rouge">random_end</code></p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="o">...</span>
@@ -759,7 +759,7 @@
 <h5><a class="title-link" name="offset--seconds" href="#offset--seconds"></a> offset = <seconds></seconds></h5>
 <p>The time in seconds that the callback should be delayed after sunrise. A negative value will result in the callback occurring before sunrise. This parameter cannot be combined with <code class="highlighter-rouge">random_start</code> or <code class="highlighter-rouge">random_end</code></p>
 <h5><a class="title-link" name="kwargs" href="#kwargs"></a> **kwargs</h5>
-<p>Arbitary keyword parameters to be provided to the callback function when it is invoked.</p>
+<p>Arbitrary keyword parameters to be provided to the callback function when it is invoked.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Example using timedelta</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
@@ -903,7 +903,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="select_value" href="#select_value"></a> select_value()</h3>
-<p>This is a convenience function for the <code class="highlighter-rouge">input_slider.select_value</code> function. It is able to set the value of an input_slider in Home Assistant.</p>
+<p>This is a convenience function for the <code class="highlighter-rouge">input_number.select_value</code> function. It is able to set the value of an input_number in Home Assistant.</p>
 <h4><a class="title-link" name="synopsis" href="#synopsis"></a> Synopsis</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">select_value</span><span class="p">(</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </code></pre>
@@ -912,11 +912,11 @@
 <p>None</p>
 <h4><a class="title-link" name="parameters" href="#parameters"></a> Parameters</h4>
 <h5><a class="title-link" name="entity_id" href="#entity_id"></a> entity_id</h5>
-<p>Fully qualified entity_id of the input_slider to be changed, e.g. <code class="highlighter-rouge">input_slider.alarm_hour</code>.</p>
+<p>Fully qualified entity_id of the input_number to be changed, e.g. <code class="highlighter-rouge">input_number.alarm_hour</code>.</p>
 <h5><a class="title-link" name="value" href="#value"></a> value</h5>
-<p>The new value to set the input slider to.</p>
+<p>The new value to set the input number to.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">select_value</span><span class="p">(</span><span class="s">"input_slider.alarm_hour"</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">select_value</span><span class="p">(</span><span class="s">"input_number.alarm_hour"</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="select_option" href="#select_option"></a> select_option()</h3>
@@ -931,7 +931,7 @@
 <h5><a class="title-link" name="entity_id" href="#entity_id"></a> entity_id</h5>
 <p>Fully qualified entity_id of the input_select to be changed, e.g. <code class="highlighter-rouge">input_select.mode</code>.</p>
 <h5><a class="title-link" name="value" href="#value"></a> value</h5>
-<p>The new value to set the input slider to.</p>
+<p>The new value to set the input number to.</p>
 <h4><a class="title-link" name="examples" href="#examples"></a> Examples</h4>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">select_option</span><span class="p">(</span><span class="s">"input_select.mode"</span><span class="p">,</span> <span class="s">"Day"</span><span class="p">)</span>
 </code></pre>

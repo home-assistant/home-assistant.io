@@ -138,8 +138,8 @@
 </code></pre>
 </div>
 <p>There are 2 variables that control the speed of the change for the scripts below. The first is the <code class="highlighter-rouge">step</code>, small steps create a smooth transition. The second is the delay, larger delays will create a slower transition.</p>
-<p>To allow flexibility, an <a href="/components/input_slider/">Input Slider</a> is used for the step (at the time of writing this, it’s not possible to template the delay when the delay uses milliseconds). Two additional <a href="/components/input_slider/">Input Sliders</a> are used to set the minimum and maximum brightness, so that it’s easy to tune that (or manage it through an automation).</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_slider</span><span class="pi">:</span>
+<p>To allow flexibility, an <a href="/components/input_number/">Input Number</a> is used for the step (at the time of writing this, it’s not possible to template the delay when the delay uses milliseconds). Two additional <a href="/components/input_number/">Input Numbers</a> are used to set the minimum and maximum brightness, so that it’s easy to tune that (or manage it through an automation).</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_number</span><span class="pi">:</span>
   <span class="s">light_step</span><span class="pi">:</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Step</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">lights</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">much'</span>
     <span class="s">initial</span><span class="pi">:</span> <span class="s">20</span>
@@ -172,10 +172,10 @@
             <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.YOUR_LIGHT</span>
             <span class="s">brightness</span><span class="pi">:</span> <span class="pi">&gt;-</span>
               <span class="no">{% set current = states.light.YOUR_LIGHT.attributes.brightness|default(0)|int %}</span>
-              <span class="no">{% set step = states('input_slider.light_step')|int %}</span>
+              <span class="no">{% set step = states('input_number.light_step')|int %}</span>
               <span class="no">{% set next = current + step %}</span>
-              <span class="no">{% if next &gt; states('input_slider.light_maximum')|int %}</span>
-                <span class="no">{% set next = states('input_slider.light_maximum')|int %}</span>
+              <span class="no">{% if next &gt; states('input_number.light_maximum')|int %}</span>
+                <span class="no">{% set next = states('input_number.light_maximum')|int %}</span>
               <span class="no">{% endif %}</span>
               <span class="no">{{ next }}</span>
 
@@ -198,10 +198,10 @@
             <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.YOUR_LIGHT</span>
             <span class="s">brightness</span><span class="pi">:</span> <span class="pi">&gt;-</span>
               <span class="no">{% set current = states.light.YOUR_LIGHT.attributes.brightness|default(0)|int %}</span>
-              <span class="no">{% set step = states('input_slider.light_step')|int %}</span>
+              <span class="no">{% set step = states('input_number.light_step')|int %}</span>
               <span class="no">{% set next = current - step %}</span>
-              <span class="no">{% if next &lt; states('input_slider.light_minimum')|int %}</span>
-                <span class="no">{% set next = states('input_slider.light_minimum')|int %}</span>
+              <span class="no">{% if next &lt; states('input_number.light_minimum')|int %}</span>
+                <span class="no">{% set next = states('input_number.light_minimum')|int %}</span>
               <span class="no">{% endif %}</span>
               <span class="no">{{ next }}</span>
 

@@ -88,7 +88,7 @@ Before exposing your Home Assistant instance to the outside world it is ESSENTIA
   <li>You are not currently running anything on port 80 on your network (you’d know if you were).</li>
   <li>If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.</li>
   <li>You understand that this is a ‘guide’ covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is innacurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.</li>
-  <li>Each step presumes you have fully completed the previous step succesfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.</li>
+  <li>Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.</li>
 </ul>
 <p>Steps we will take:</p>
 <ul>
@@ -315,9 +315,9 @@ Protocol - Both
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>https://home-assistant.io/docs/frontend/mobile/
 </code></pre>
 </div>
-<p>All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let’s clean up our port forwards so that we are only exposing the parts of our network that are absolutely neccesary to the outside world.</p>
+<p>All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let’s clean up our port forwards so that we are only exposing the parts of our network that are absolutely necessary to the outside world.</p>
 <h3><a class="title-link" name="6---clean-up-port-forwards" href="#6---clean-up-port-forwards"></a> 6 - Clean up port forwards</h3>
-<p>In step 2 we created a port forwarding rule called <code class="highlighter-rouge">ha_test</code>. This opens port 8123 to the world, and is no longer neccessary.</p>
+<p>In step 2 we created a port forwarding rule called <code class="highlighter-rouge">ha_test</code>. This opens port 8123 to the world, and is no longer necessary.</p>
 <p>Go to your router’s configuration pages and delete the <code class="highlighter-rouge">ha_test</code> rule.</p>
 <p>You should now have two rules in relation to Home Assistant for your port forwards, named:</p>
 <p><code class="highlighter-rouge">ha_ssl</code> and <code class="highlighter-rouge">ha_letsencrypt</code></p>
@@ -345,7 +345,7 @@ Protocol - Both
 </code></pre>
 </div>
 <p class="note">
-In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from <code class="highlighter-rouge">http://prefetch.net/code/ssl-cert-check</code> bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if neccessary and so on.
+In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from <code class="highlighter-rouge">http://prefetch.net/code/ssl-cert-check</code> bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if necessary and so on.
 </p>
 <p>To set up a senor add the following to your <code class="highlighter-rouge">configuration.yaml</code> (remembering to correct the URL for your DuckDNS):</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
@@ -365,7 +365,7 @@ In cases where, for whatever reason, apt-get installing is not appropriate for y
 <p>If you are a TWO-RULE person (from step 6), you can automatically renew your certificate using a <code class="highlighter-rouge">http-01</code> challenge and port 80.</p>
 <p>There are a number of options for automating the renewal process:</p>
 <h4>Option 1:</h4>
-<p>Your certificate can be renewed as a ‘cron job’ - cron jobs are background tasks run by the computer at specified intervals (and are totally independant of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with <code class="highlighter-rouge">crontab</code> when setting up DuckDNS in step 3</p>
+<p>Your certificate can be renewed as a ‘cron job’ - cron jobs are background tasks run by the computer at specified intervals (and are totally independent of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with <code class="highlighter-rouge">crontab</code> when setting up DuckDNS in step 3</p>
 <p>To set a cron job to run the script at regular intervals:</p>
 <ul>
   <li>SSH in to your device running Home Assistant.</li>
