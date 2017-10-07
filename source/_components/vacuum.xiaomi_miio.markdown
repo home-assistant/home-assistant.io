@@ -80,6 +80,26 @@ Use this call to enter the remote control mode, make one move, and stop and exit
 | `rotation`                |       no | Rotation, between -179 degrees and 179 degrees.       |
 | `duration`                |       no | Parameter affecting the duration of the movement.     |
 
+### {% linkable_title Attributes %}
+
+In addition to all [`vacuum` component attributes] (`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, `params`), the `xiaomi` platform introduces specific attributes to get information of the botvac.
+
+These are: `cleaning_time`, `do_not_disturb`, `main_brush_left`, `side_brush_left`, `filter_left`, `cleaning_count`, `total_cleaned_area` and `total_cleaning_time`.
+
+The following table shows the units of measurement for the single attributes.
+
+| Attribute                 | Unit of measurement | Description                                           |
+|---------------------------|---------------------|-------------------------------------------------------|
+| `do_not_disturb`          |                     | DND mode on / off                                     |
+| `cleaning_time`           | minutes             | Last / actual cleaning time in minutes                | 
+| `cleaned_area`            | square meter        | Last / actual cleaned area in square meter            |
+| `main_brush_left`         | hours               | Hours left until a change of the main brush is needed |
+| `side_brush_left`         | hours               | Hours left until a change of the side brush is needed |
+| `filter_left`             | hours               | Hours left until a change of the filter is needed     |
+| `cleaning_count`          |                     | Number of total cleaning passage                      |
+| `total_cleaned_area`      | square meter        | Total cleaned area in square meter                    |
+| `total_cleaning_time`     | minutes             | Total cleaning time in minutes                        |
+
 ### {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>

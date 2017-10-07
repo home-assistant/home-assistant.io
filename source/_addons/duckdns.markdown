@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Duck DNS"
+title: "DuckDNS"
 description: "Automatically update your Duck DNS IP address."
 date: 2017-04-30 13:28
 sidebar: true
