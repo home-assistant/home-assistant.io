@@ -132,7 +132,7 @@ AQI | Status | Description
 201 - 300 | **Very unhealthy** | Health warnings of emergency conditions. The entire population is more likely to be affected
 301+ | **Hazardous** | Health alert: everyone may experience more serious health effects
 
-### Air Polution Level
+### Air Pollution Level
 
 **Description:** This sensor displays the associated `Status` (from the above
 table) for the current AQI.
