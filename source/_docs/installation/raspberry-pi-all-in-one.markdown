@@ -62,7 +62,7 @@ To upgrade the All-In-One setup manually:
 
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to homeassistant user `sudo su -s /bin/bash homeassistant`
-*  Change to virtual enviroment `source /srv/homeassistant/homeassistant_venv/bin/activate`
+*  Change to virtual environment `source /srv/homeassistant/homeassistant_venv/bin/activate`
 *  Update Home Assistant `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
 
@@ -70,7 +70,7 @@ To upgrade the All-In-One setup manually:
 **If you deployed Home Assistant via the AiO installer prior to December 2016**
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to homeassistant user `sudo su -s /bin/bash hass`
-*  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
+*  Change to virtual environment `source /srv/hass/hass_venv/bin/activate`
 *  Update Home Assistant `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
 </div>

@@ -154,7 +154,7 @@ frontend:
 - Skip automatic events older than latest data ([@armills] - [#9230]) ([device_tracker.automatic docs])
 - title and message was swapped in pushbullet ([@danielhiversen] - [#9241]) ([notify.pushbullet docs])
 - Fix possible KeyError ([@MartinHjelmare] - [#9242]) ([mysensors docs])
-- WIP: Homematic improvments with new hass interfaces ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
+- WIP: Homematic improvements with new hass interfaces ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
 - Add available to sonos ([@pvizeli] - [#9243]) ([media_player.sonos docs])
 - Make sure Ring binary_sensor state will update only if device_id matches ([@tchellomello] - [#9247]) ([binary_sensor.ring docs])
 - Added configurable timeout for receiver HTTP requests | Additional AV… ([@scarface-4711] - [#9244]) ([media_player.denonavr docs])

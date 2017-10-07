@@ -32,7 +32,7 @@ $ docker run -ti -p 1883:1883  \
     -v /volume1/data/mosquitto-int/config:/mqtt/config:ro \
     -v /volume1/data/mosquitto-int/log:/mqtt/log \
     -v /volume1/data/mosquitto-int/data/:/mqtt/data/ \
-    --name mosquitto-int -d toke/mosquitto
+    --name mosquitto-int -d took/mosquitto
 ```
 
 #### Docker setup for the mosquitto external instance. With authentication for use with Owntracks.
@@ -43,7 +43,7 @@ $ docker run -ti -p 1884:1883  \
     -v /volume1/data/mosquitto-ext/log:/mqtt/log \
     -v /volume1/data/mosquitto-ext/data/:/mqtt/data/ \
     -v /volume1/data/mosquitto-ext/etc:/etc/mosquitto \
-    --name mosquitto-ext -d toke/mosquitto
+    --name mosquitto-ext -d took/mosquitto
 ```
  
 Here are the config files:

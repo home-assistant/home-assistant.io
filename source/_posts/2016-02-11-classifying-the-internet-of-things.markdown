@@ -143,7 +143,7 @@ Controlling a device can, just like state, be done through cloud and/or local co
 These devices are not able to be controlled. They will only offer state.
 
 ### {% linkable_title Poll State after sending command %}
-These devices will require the state to be polled after sending a command to see if a command was successfull.
+These devices will require the state to be polled after sending a command to see if a command was successful.
 
 Advantages:
 

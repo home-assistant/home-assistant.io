@@ -601,7 +601,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Nick (@quadportnick)](https://github.com/quadportnick "4 total commits to the home-assistant organization, 2 commits to home-assistant, 2 commits to home-assistant.github.io")
 - [Nick Touran (@partofthething)](https://github.com/partofthething "38 total commits to the home-assistant organization, 25 commits to home-assistant, 13 commits to home-assistant.github.io")
 - [Nick Vella (@nvella)](https://github.com/nvella "5 total commits to the home-assistant organization, 4 commits to home-assistant, 1 commit to homebridge-homeassistant")
-- [Nick Waring (@nickwaring)](https://github.com/nickwaring "4 total commits to the home-assistant organization, 2 commits to home-assistant, 2 commits to home-assistant.github.io")
+- [Nick Warning (@nickwaring)](https://github.com/nickwaring "4 total commits to the home-assistant organization, 2 commits to home-assistant, 2 commits to home-assistant.github.io")
 - [Nicolas Graziano (@ngraziano)](https://github.com/ngraziano "3 total commits to the home-assistant organization, 3 commits to home-assistant")
 - [Nicolas Martignoni (@martignoni)](https://github.com/martignoni "1 total commits to the home-assistant organization, 1 commit to pi-gen")
 - [Niklas (@niklaswa)](https://github.com/niklaswa "3 total commits to the home-assistant organization, 3 commits to home-assistant.github.io")

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Set up a [mariadb](https://mariadb.org/) SQL server. It support multible database, users and permission. If you want only connect from inside use `core-mariadb` as host address.
+Set up a [mariadb](https://mariadb.org/) SQL server. It support multiple database, users and permission. If you want only connect from inside use `core-mariadb` as host address.
 
 ```json
 {

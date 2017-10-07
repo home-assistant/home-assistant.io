@@ -160,7 +160,7 @@ For example, the presence callback constraint can be added to an App by adding a
 [some_app]
 module = some_module
 class = SomeClass
-constrain_presence = noone
+constrain_presence = no one
 ```
 
 Now, although the `initialize()` function will be called for MyClass, and it will have a chance to register as many callbacks as it desires, none of the callbacks will execute, in this case, until everyone has left. This could be useful for an interior motion detector App for instance. There are several different types of constraints:
@@ -205,7 +205,7 @@ constrain_input_select = input_select.house_mode,Day,Evening,Night
 
 ### {% linkable_title presence %}
 The presence constraint will constrain based on presence of device trackers. It takes 3 possible values:
-- `noone` - only allow callback execution when no one is home
+- `no one` - only allow callback execution when no one is home
 - `anyone` - only allow callback execution when one or more person is home
 - `everyone` - only allow callback execution when everyone is home
 
@@ -214,7 +214,7 @@ constrain_presence = anyone
 # or
 constrain_presence = someone
 # or
-constrain_presence = noone
+constrain_presence = no one
 ```
 
 ### {% linkable_title time %}
@@ -495,7 +495,7 @@ Note: `old` and `new` can be used singly or together.
 
 ##### {% linkable_title duration =  <seconds> (optional) %}
 
-If duration is supplied as a parameter, the callback will not fire unless the state listened for is maintained for that number of seconds. This makes the most sense if a specific attribute is specified (or the default os `state` is used), an in conjunction with the `old` or `new` parameters, or both. When the callback is called, it is supplied with the values of `entity`, `attr`, `old` and `new` that were current at the time the actual event occured, since the assumption is that none of them have changed in the intervening period.
+If duration is supplied as a parameter, the callback will not fire unless the state listened for is maintained for that number of seconds. This makes the most sense if a specific attribute is specified (or the default os `state` is used), an in conjunction with the `old` or `new` parameters, or both. When the callback is called, it is supplied with the values of `entity`, `attr`, `old` and `new` that were current at the time the actual event occurred, since the assumption is that none of them have changed in the intervening period.
 
 ```python
   def my_callback(self, **kwargs):
@@ -643,7 +643,7 @@ Delay, in seconds before the callback is invoked.
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -677,7 +677,7 @@ A Python `time` object that specifies when the callback will occur. If the time 
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -715,7 +715,7 @@ A Python `datetime` object that specifies when the callback will occur.
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -754,7 +754,7 @@ A Python `time` object that specifies when the callback will occur. If the time 
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -792,7 +792,7 @@ A Python `time` object that specifies when the callback will occur, the hour com
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -829,7 +829,7 @@ A Python `time` object that specifies when the callback will occur, the hour and
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -871,7 +871,7 @@ After the initial callback has occurred, another will occur every `repeat` secon
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -944,7 +944,7 @@ All of the scheduler calls above support 2 additional optional arguments, `rando
 - `random_start` - start of range of the random time
 - `random_end` - end of range of the random time 
 
-`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on whcih scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
+`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
 
 For example:
 
@@ -987,7 +987,7 @@ The time in seconds that the callback should be delayed after sunrise. A negativ
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -1030,7 +1030,7 @@ The time in seconds that the callback should be delayed after sunrise. A negativ
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 

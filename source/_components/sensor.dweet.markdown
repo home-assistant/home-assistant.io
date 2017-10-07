@@ -70,7 +70,7 @@ $ python3
 {'thing': 'ha-sensor', 'created': '2015-12-10T09:46:08.559Z', 'content': {'humiditiy': 81, 'temperature': 23}}
 ```
 
-Recieve the latest dweet.
+Receive the latest dweet.
 
 ```bash
 >>> dweepy.get_latest_dweet_for('ha-sensor')

@@ -73,7 +73,7 @@ Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 - Fix TP-Link light brightness issue #8744. ([@gollo] - [#8755])
 - Fix typo in script error ([@n8henrie] - [#8754])
 - Fix tradfri error spam ([@MartinHjelmare] - [#8738]) ([light.tradfri docs])
-- Media Player - Pioneer: Supress exception if host is not available (fixes #8684) ([@fabaff] - [#8732]) ([media_player.pioneer docs])
+- Media Player - Pioneer: Suppress exception if host is not available (fixes #8684) ([@fabaff] - [#8732]) ([media_player.pioneer docs])
 - Telegram Bot: Retry set_webhook up to three times, reduce timeout to 5s again ([@azogue] - [#8716]) ([telegram_bot.webhooks docs])
 - Fixed sensor issue with Google Wifi routers in bridge mode ([@fronzbot] - [#8710]) ([sensor.google_wifi docs])
 - Fix alexa cards ([@balloob] - [#8708]) ([alexa docs])

@@ -18,7 +18,7 @@ You need the `ffmpeg` binary in your system path. On Debian 8 or Raspbian (Jessi
 </p>
 
 <p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
