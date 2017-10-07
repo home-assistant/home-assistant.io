@@ -74,7 +74,11 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>A sensor platform for the <a href="https://www.dteenergy.com/">DTE</a> Energy Bridge.</p>
+  <p>A sensor platform for the <a href="https://www.dteenergy.com/">DTE</a> Energy Bridge. To find out which version of the DTE Energy Bridge sensor you have, find the status LED on your box.</p>
+<ul>
+  <li>If the status LED is on the top, you have a v1.</li>
+  <li>If the status LED is on the front, you have a v2.</li>
+</ul>
 <p>To enable this sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -86,6 +90,7 @@
 <ul>
   <li><strong>ip</strong> (<em>Required</em>): The IP address of your bridge.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name to use in the frontend.</li>
+  <li><strong>version</strong> (<em>Optional</em>): Hardware version of the sensor. Defaults to 1.</li>
 </ul>
 </article>
         </div>

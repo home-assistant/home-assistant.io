@@ -82,6 +82,9 @@ Log in as the <code class="highlighter-rouge">pi</code> account and execute the 
 </code></pre>
 </div>
 <h4><a class="title-link" name="updating-home-assistant" href="#updating-home-assistant"></a> Updating Home Assistant</h4>
+<p class="note">
+You can also use <code class="highlighter-rouge">hassbian-config</code> to automate the process by running <code class="highlighter-rouge">sudo hassbian-config upgrade home-assistant</code>
+</p>
 <p>To update the Home Assistant installation execute the following command as the <code class="highlighter-rouge">pi</code> user.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl stop home-assistant@homeassistant.service
 <span class="gp">$ </span>sudo su -s /bin/bash homeassistant

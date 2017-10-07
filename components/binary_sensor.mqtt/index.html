@@ -74,8 +74,10 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">mqtt</code> binary sensor platform uses the MQTT message payload as the sensor value. If messages in this <code class="highlighter-rouge">state_topic</code> are published with <em>RETAIN</em> flag, the sensor will receive an instant update with the last known value. Otherwise, the initial state will be off.</p>
-<p>To use your MQTT binary sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> binary sensor platform uses an MQTT message payload to set the binary sensor to one of two states: <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code>.</p>
+<p>The binary sensor state will be updated only after a new message is published on <code class="highlighter-rouge">state_topic</code> matching <code class="highlighter-rouge">payload_on</code> or <code class="highlighter-rouge">payload_off</code>. If these messages are published with the <code class="highlighter-rouge">retain</code> flag set, the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be <code class="highlighter-rouge">unknown</code>.</p>
+<p>The <code class="highlighter-rouge">mqtt</code> binary sensor platform optionally supports an <code class="highlighter-rouge">availability_topic</code> to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT cover device goes offline (i.e. publishes <code class="highlighter-rouge">payload_not_available</code> to <code class="highlighter-rouge">availability_topic</code>), Home Assistant will display the binary sensor as <code class="highlighter-rouge">unavailable</code>. If these messages are published with the <code class="highlighter-rouge">retain</code> flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the <code class="highlighter-rouge">retain</code> flag is not set, Home Assistant will display the binary sensor as <code class="highlighter-rouge">unavailable</code> when Home Assistant starts up. If no <code class="highlighter-rouge">availability_topic</code> is defined, Home Assistant will consider the MQTT device to be available.</p>
+<p>To use an MQTT binary sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
@@ -84,27 +86,33 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the binary sensor. Default is <code class="highlighter-rouge">MQTT Binary Sensor</code>.</li>
   <li><strong>state_topic</strong> (<em>Required</em>): The MQTT topic subscribed to receive sensor values.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of the sensor. Default is ‘MQTT Sensor’.</li>
-  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level of the state topic. Default is 0.</li>
-  <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents on state. Default is “ON”.</li>
-  <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents  state. Default is “OFF”.</li>
+  <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents the on state. Default is <code class="highlighter-rouge">ON</code>.</li>
+  <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents the off state. Default is <code class="highlighter-rouge">OFF</code>.</li>
+  <li><strong>availability_topic</strong> (<em>Optional</em>): The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If <code class="highlighter-rouge">availability_topic</code> is not defined, the binary sensor availability state will always be <code class="highlighter-rouge">available</code>. If <code class="highlighter-rouge">availability_topic</code> is defined, the binary sensor availability state will be <code class="highlighter-rouge">unavailable</code> by default.</li>
+  <li><strong>payload_available</strong> (<em>Optional</em>): The payload that represents the online state. Default is <code class="highlighter-rouge">online</code>.</li>
+  <li><strong>payload_not_available</strong> (<em>Optional</em>): The payload that represents the offline state. Default is <code class="highlighter-rouge">offline</code>.</li>
+  <li><strong>qos</strong> (<em>Optional</em>): The maximum QoS level to be used when receiving messages. Default is <code class="highlighter-rouge">0</code>.</li>
   <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type/class</a> of the sensor to set the icon in the frontend.</li>
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract a value from the payload.</li>
 </ul>
-<p>For a quick check you can use the command line tools shipped with <code class="highlighter-rouge">mosquitto</code> to send MQTT messages. Set the state of a sensor manually:</p>
+<p>To test, you can use the command line tool <code class="highlighter-rouge">mosquitto_pub</code> shipped with <code class="highlighter-rouge">mosquitto</code> or the <code class="highlighter-rouge">mosquitto-clients</code> package to send MQTT messages. To set the state of the binary sensor manually:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m <span class="s2">"OFF"</span>
 </code></pre>
 </div>
-<p>An extended configuration for the same sensor could look like this if you want/need to be more specific.</p>
+<p>The example below shows a full configuration for a binary sensor:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Window</span><span class="nv"> </span><span class="s">Contact</span><span class="nv"> </span><span class="s">Sensor"</span>
     <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/contact"</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Windows</span><span class="nv"> </span><span class="s">contact"</span>
+    <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
+    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+    <span class="s">availability_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">home-assistant/window/availability"</span>
+    <span class="s">payload_available</span><span class="pi">:</span> <span class="s2">"</span><span class="s">online"</span>
+    <span class="s">payload_not_available</span><span class="pi">:</span> <span class="s2">"</span><span class="s">offline"</span>
     <span class="s">qos</span><span class="pi">:</span> <span class="s">0</span>
-    <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">1"</span>
-    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0"</span>
     <span class="s">device_class</span><span class="pi">:</span> <span class="s">opening</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value.x</span><span class="nv"> </span><span class="s">}}'</span>
 </code></pre>
@@ -148,6 +156,9 @@
         </a></li>
         <li><a href='/components/fan.mqtt/'>
           MQTT Fan
+        </a></li>
+        <li><a href='/components/climate.mqtt/'>
+          MQTT HVAC
         </a></li>
         <li><a href='/components/light.mqtt/'>
           MQTT Light
@@ -255,6 +266,9 @@
         </li>
         <li>
             MQTT Binary Sensor
+        </li>
+        <li>
+            <a href='/components/binary_sensor.raincloud/'>Melnor Raincloud Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>

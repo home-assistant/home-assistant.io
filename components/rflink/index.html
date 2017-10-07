@@ -129,6 +129,20 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
   <span class="s">port</span><span class="pi">:</span> <span class="s">1234</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="adding-devices-automatically" href="#adding-devices-automatically"></a> Adding devices Automatically</h3>
+<p>In order to have your devices being detected and added automatically, you need to add the following to the configuration.
+When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
+    <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
+    <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rflink</span>
+    <span class="s">automatic_add</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
 <h3><a class="title-link" name="ignoring-devices" href="#ignoring-devices"></a> Ignoring devices</h3>
 <p>RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.</p>
 <p>For example:</p>
@@ -304,6 +318,9 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
             <a href='/components/mqtt/'>MQTT</a>
         </li>
         <li>
+            <a href='/components/raincloud/'>Melnor Raincloud</a>
+        </li>
+        <li>
             <a href='/components/microsoft_face/'>Microsoft Face</a>
         </li>
         <li>
@@ -371,6 +388,9 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
         </li>
         <li>
             <a href='/components/tesla/'>Tesla</a>
+        </li>
+        <li>
+            <a href='/components/thethingsnetwork/'>The Things Network</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

@@ -86,10 +86,10 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP address of your router, e.g. <code class="highlighter-rouge">192.168.1.1</code>.</li>
-  <li><strong>username</strong> (<em>Required</em>): The username of an user with administrative privileges, usually <code class="highlighter-rouge">admin</code>.</li>
+  <li><strong>host</strong> (<em>Optional</em>): The IP address of your router, e.g. <code class="highlighter-rouge">192.168.1.1</code>. If not provided <code class="highlighter-rouge">routerlogin.net</code> will be used.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username of an user with administrative privileges. If not provided <code class="highlighter-rouge">admin</code> will be used.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port your router communicates with (defaults to <code class="highlighter-rouge">5000</code>, but <code class="highlighter-rouge">80</code> is also known to be used on some models).</li>
   <li><strong>password</strong> (<em>Required</em>): The password for your given admin account.</li>
-  <li><strong>port</strong> (<em>Optional</em>): The port your router communicates with (defaults to 5000, but 80 is also known to be used on some models)</li>
 </ul>
 <p>List of models that are known to use port 80:</p>
 <ul>
@@ -199,6 +199,9 @@
         </li>
         <li>
             <a href='/components/device_tracker.ubus/'>OpenWRT (ubus)</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.owntracks_http/'>OwnTracks (via HTTP)</a>
         </li>
         <li>
             <a href='/components/device_tracker.owntracks/'>Owntracks</a>

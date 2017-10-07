@@ -83,11 +83,31 @@
     <span class="s">device_key</span><span class="pi">:</span> <span class="s">ABCDE</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
-  <li><strong>device_key</strong> (<em>Required</em>): The device key of your device.</li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</span></p>
+    </dd>
+    <dt><a class="title-link" name="device_key" href="#device_key"></a> device_key</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The device key of your device.</span></p>
+    </dd>
+    <dt><a class="title-link" name="event" href="#event"></a> event</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The event for the events.</span></p>
+    </dd>
+    <dt><a class="title-link" name="password" href="#password"></a> password</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Inclusive)</span><span class="description">The password of the encryption used by your device.</span></p>
+    </dd>
+    <dt><a class="title-link" name="salt" href="#salt"></a> salt</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Inclusive)</span><span class="description">The salt used by your device.</span></p>
+    </dd>
+  </dl>
+</div>
 <p>To test if the service works, just send a message with <code class="highlighter-rouge">curl</code> from the command-line.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl <span class="s1">'https://api.simplepush.io/send/device_key/title/message'</span>
 </code></pre>

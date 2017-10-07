@@ -85,7 +85,7 @@
 <p>This method will require you to setup a developer account with Wink. This process can take a few days to get approved but is the recommended form of authentication. If you would like to use Wink in Home Assistant while you wait, you can use the email and password authentication below.</p>
 <p>This form of authentication doesn’t require any settings in the configuration.yaml other than <code class="highlighter-rouge">wink:</code> this is because you will be guided through setup via the configurator on the frontend.</p>
 <p class="note">
-When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly. 
+When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
 </p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
 </code></pre>
@@ -142,10 +142,85 @@ Error sending local control request. Sending request online
 <h3><a class="title-link" name="service-refresh_state_from_wink" href="#service-refresh_state_from_wink"></a> Service <code class="highlighter-rouge">refresh_state_from_wink</code></h3>
 <p>The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn’t pushed device states can be out of sync.</p>
 <p>You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If <code class="highlighter-rouge">local_control</code> is set to <code class="highlighter-rouge">True</code> states will be pulled from the devices controlling hub, not the online API.</p>
-<h3><a class="title-link" name="service-add_new_devices" href="#service-add_new_devices"></a> Service <code class="highlighter-rouge">add_new_devices</code></h3>
+<h3><a class="title-link" name="service-pull_newly_added_devices_from_wink" href="#service-pull_newly_added_devices_from_wink"></a> Service <code class="highlighter-rouge">pull_newly_added_devices_from_wink</code></h3>
 <p>You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.</p>
+<h3><a class="title-link" name="service-delete_wink_device" href="#service-delete_wink_device"></a> Service <code class="highlighter-rouge">delete_wink_device</code></h3>
+<p>You can use the service wink/delete_wink_device to remove/unpair a device from Wink.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>String that points at the <code class="highlighter-rouge">entity_id</code> of device to delete.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-pair_new_device" href="#service-pair_new_device"></a> Service <code class="highlighter-rouge">pair_new_device</code></h3>
+<p>You can use the service wink/pair_new_device to pair a new device to your Wink hub/relay</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">hub_name</code></td>
+      <td>no</td>
+      <td>The name of the hub to pair a new device to.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pairing_mode</code></td>
+      <td>no</td>
+      <td>One of the following [zigbee, zwave, zwave_exclusion, zwave_network_rediscovery, lutron, bluetooth, kidde]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">kidde_radio_code</code></td>
+      <td>conditional</td>
+      <td>A string of 8 1s and 0s one for each dip switch on the kidde device left –&gt; right = 1 –&gt; 8 (Required if pairing_mode = kidde)</td>
+    </tr>
+  </tbody>
+</table>
 <p class="note">
-The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s). 
+Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
+</p>
+<h3><a class="title-link" name="service-rename_wink_device" href="#service-rename_wink_device"></a> Service <code class="highlighter-rouge">rename_wink_device</code></h3>
+<p>You can use the service wink/rename_wink_device to change the name of a device.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>String that points at the <code class="highlighter-rouge">entity_id</code> of device to rename.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>no</td>
+      <td>The name to change it to.</td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">
+Home Assistant entity_ids for Wink devices are based on the Wink device’s name. Calling this service will not change the entity_id of the deivce until Home Assistant is restarted.
+</p>
+<p class="note">
+The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
 </p>
 </article>
         </div>
@@ -171,6 +246,9 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
         <li><a href='/components/binary_sensor.wink/'>
           Wink Binary Sensor
         </a></li>
+        <li><a href='/components/climate.wink/'>
+          Wink Climate
+        </a></li>
         <li><a href='/components/cover.wink/'>
           Wink Cover
         </a></li>
@@ -191,9 +269,6 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
         </a></li>
         <li><a href='/components/switch.wink/'>
           Wink Switch
-        </a></li>
-        <li><a href='/components/climate.wink/'>
-          Wink Thermostat
         </a></li>
     </ul>
     </div>
@@ -300,6 +375,9 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
             <a href='/components/mqtt/'>MQTT</a>
         </li>
         <li>
+            <a href='/components/raincloud/'>Melnor Raincloud</a>
+        </li>
+        <li>
             <a href='/components/microsoft_face/'>Microsoft Face</a>
         </li>
         <li>
@@ -367,6 +445,9 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
         </li>
         <li>
             <a href='/components/tesla/'>Tesla</a>
+        </li>
+        <li>
+            <a href='/components/thethingsnetwork/'>The Things Network</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

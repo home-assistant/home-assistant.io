@@ -103,9 +103,9 @@ If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sens
 </code></pre>
 </div>
 <p>If you are running into trouble with this sensor, please refer to the <a href="/components/ffmpeg/#troubleshooting">troubleshooting section</a>.</p>
-<h4><a class="title-link" name="tipps" href="#tipps"></a> Tipps</h4>
+<h4><a class="title-link" name="tips" href="#tips"></a> Tips</h4>
 <ul>
-  <li>Use motion only in a customer area with <a href="https://ffmpeg.org/ffmpeg-filters.html#crop">crop filter</a>:</li>
+  <li>Use motion only in a custom area with <a href="https://ffmpeg.org/ffmpeg-filters.html#crop">crop filter</a>:</li>
 </ul>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">extra_arguments</span><span class="pi">:</span> <span class="s">-filter:v "crop=100:100:12:34"</span>
 </code></pre>
@@ -212,6 +212,9 @@ If the <code class="highlighter-rouge">ffmpeg</code> process is broken, the sens
         </li>
         <li>
             <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.raincloud/'>Melnor Raincloud Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>

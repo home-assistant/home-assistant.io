@@ -196,6 +196,66 @@
     </tr>
   </tbody>
 </table>
+<h3><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h3>
+<p>In addition to all [<code class="highlighter-rouge">vacuum</code> component attributes] (<code class="highlighter-rouge">battery_icon</code>, <code class="highlighter-rouge">cleaned_area</code>, <code class="highlighter-rouge">fan_speed</code>, <code class="highlighter-rouge">fan_speed_list</code>, <code class="highlighter-rouge">status</code>, <code class="highlighter-rouge">params</code>), the <code class="highlighter-rouge">xiaomi</code> platform introduces specific attributes to get information of the botvac.</p>
+<p>These are: <code class="highlighter-rouge">cleaning_time</code>, <code class="highlighter-rouge">do_not_disturb</code>, <code class="highlighter-rouge">main_brush_left</code>, <code class="highlighter-rouge">side_brush_left</code>, <code class="highlighter-rouge">filter_left</code>, <code class="highlighter-rouge">cleaning_count</code>, <code class="highlighter-rouge">total_cleaned_area</code> and <code class="highlighter-rouge">total_cleaning_time</code>.</p>
+<p>The following table shows the units of measurement for the single attributes.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Unit of measurement</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">do_not_disturb</code></td>
+      <td> </td>
+      <td>DND mode on / off</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cleaning_time</code></td>
+      <td>minutes</td>
+      <td>Last / actual cleaning time in minutes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cleaned_area</code></td>
+      <td>square meter</td>
+      <td>Last / actual cleaned area in square meter</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">main_brush_left</code></td>
+      <td>hours</td>
+      <td>Hours left until a change of the main brush is needed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">side_brush_left</code></td>
+      <td>hours</td>
+      <td>Hours left until a change of the side brush is needed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filter_left</code></td>
+      <td>hours</td>
+      <td>Hours left until a change of the filter is needed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cleaning_count</code></td>
+      <td> </td>
+      <td>Number of total cleaning passage</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">total_cleaned_area</code></td>
+      <td>square meter</td>
+      <td>Total cleaned area in square meter</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">total_cleaning_time</code></td>
+      <td>minutes</td>
+      <td>Total cleaning time in minutes</td>
+    </tr>
+  </tbody>
+</table>
 <h3><a class="title-link" name="retrieving-the-access-token" href="#retrieving-the-access-token"></a> Retrieving the Access Token</h3>
 <p class="note">
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum and Xiaomi Philips Light. The Xiaomi Gateway uses another security method and requires a <code class="highlighter-rouge">key</code> (16 alphanumeric chars) which can be obtained easily via a hidden menu item at the Mi-Home app.

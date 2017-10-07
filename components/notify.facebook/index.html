@@ -106,6 +106,49 @@ The phone number used in <strong>target</strong> should be registered with Faceb
           <span class="pi">-</span> <span class="s">+919784516314</span>
 </code></pre>
 </div>
+<p>You can also send messages to users that do not have stored their phone number with Facebook, but this requires a bit more work. The Messenger platform uses page specific user IDs instead of a global user ID. You will need to enable a webhook for the “messages” event in Facebook’s developer console. Once a user writes a message to a page, that webhook will then receive the user’s page specifc ID as part of the webhook’s payload. Below is a simple PHP script that reacts to the message “get my id” and sends a reply containing the user’s ID:</p>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$access_token</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="nv">$verify_token</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'hub_challenge'</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="nv">$challenge</span>        <span class="o">=</span> <span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'hub_challenge'</span><span class="p">];</span>
+    <span class="nv">$hub_verify_token</span> <span class="o">=</span> <span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">'hub_verify_token'</span><span class="p">];</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$hub_verify_token</span> <span class="o">===</span> <span class="nv">$verify_token</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="nv">$challenge</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$input</span>   <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="s1">'php://input'</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nv">$sender</span>  <span class="o">=</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'entry'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'messaging'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'sender'</span><span class="p">][</span><span class="s1">'id'</span><span class="p">];</span>
+<span class="nv">$message</span> <span class="o">=</span> <span class="nv">$input</span><span class="p">[</span><span class="s1">'entry'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'messaging'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'message'</span><span class="p">][</span><span class="s1">'text'</span><span class="p">];</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">preg_match</span><span class="p">(</span><span class="s1">'/get my id/'</span><span class="p">,</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$message</span><span class="p">)))</span> <span class="p">{</span>
+    <span class="nv">$url</span>      <span class="o">=</span> <span class="s1">'https://graph.facebook.com/v2.10/me/messages?access_token='</span> <span class="o">.</span> <span class="nv">$access_token</span><span class="p">;</span>
+    <span class="nv">$ch</span>       <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
+    <span class="nv">$jsonData</span> <span class="o">=</span> <span class="s1">'{
+        "recipient":{
+            "id":"'</span> <span class="o">.</span> <span class="nv">$sender</span> <span class="o">.</span> <span class="s1">'"
+        },
+        "message":{
+            "text":"Your ID: '</span> <span class="o">.</span> <span class="nv">$sender</span> <span class="o">.</span> <span class="s1">'"
+        }
+      }'</span><span class="p">;</span>
+
+    <span class="nv">$jsonDataEncoded</span> <span class="o">=</span> <span class="nv">$jsonData</span><span class="p">;</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$jsonDataEncoded</span><span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Content-Type: application/json'</span><span class="p">]);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$input</span><span class="p">[</span><span class="s1">'entry'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'messaging'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'message'</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
 <h3><a class="title-link" name="rich-messages" href="#rich-messages"></a> Rich messages</h3>
 <p>You could also send rich messing (cards, buttons, images, videos, etc). <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference">Info</a> to which types or messages and how to build them.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example script with a notification entry with rich message</span>

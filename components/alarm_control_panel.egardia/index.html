@@ -112,14 +112,14 @@ You can change this, however, using the following procedure. This is a more adva
  <span class="s">report_server_enabled</span><span class="pi">:</span> <span class="s">True</span>
  <span class="s">report_server_port</span><span class="pi">:</span> <span class="s">PORT_OF_EGARDIASERVER (85 as per the instructions above)</span>
  <span class="s">report_server_codes</span><span class="pi">:</span>
-   <span class="s">arm</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
-   <span class="s">disarm</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
+   <span class="s">arm</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX</span>
+   <span class="s">disarm</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX</span>
    <span class="s">armhome</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
    <span class="s">triggered</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX, XXXXXXXXXXXXXXXX</span>
-   <span class="s">standby</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
+   <span class="s">ignore</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
 </code></pre>
     </div>
-    <p>Note that you can have more than one code for triggered since every sensor generates its own code. arm, disarm, armhome and standby will all be one code.</p>
+    <p>Note that for triggered, arm and disarm multiple codes can be entered since each sensor triggers with a different code and each user of the system has its own arm and disarm codes. Also note that your system will do regular system checks which will be reported as well. Since Home Assistant provides no way of handling them properly, you can enter those codes as ignore (again, multiple codes can be used here). The egardia component will ignore these codes and continue returning the old status if it receives any of the codes that are listed as ignore. This is useful for example when you have armed your alarm at night: normally a system check will occur at least once during the night and if that code is not specified anywhere Home Assistant will set the status of the alarm to its default, which is unarmed. This is in fact wrong. Listing the code as ignore changes this behavior and Home Assistant will continue to show the status the alarm is in (disarm, arm, armhome, triggered) even when system checks occur.</p>
   </li>
   <li>Start the <code class="highlighter-rouge">egardiaserver.py</code> script on boot of your Home Assistant machine, for example by using systemd. To use this method, create a shell script named <code class="highlighter-rouge">egardiaserver.sh</code> that contains the following:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> /srv/homeassistant/homeassistant_venv/bin/activate

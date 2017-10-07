@@ -80,17 +80,17 @@ Support for these components is provided by the Home Assistant community.
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
     <div class="filter-button-group">
-      <a href='#all' class="btn">All (829)</a>
+      <a href='#all' class="btn">All (842)</a>
       <a href='#featured' class="btn featured">Featured</a>
-      <a href='#version/0.54' class="btn added_in_current_version">Added in 0.54 (15)</a>
-      <a href='#version/0.53' class="btn added_one_version_ago">Added in 0.53 (18)</a>
-      <a href='#version/0.52' class="btn added_two_versions_ago">Added in 0.52 (14)</a>
+      <a href='#version/0.55' class="btn added_in_current_version">Added in 0.55 (12)</a>
+      <a href='#version/0.54' class="btn added_one_version_ago">Added in 0.54 (15)</a>
+      <a href='#version/0.53' class="btn added_two_versions_ago">Added in 0.53 (18)</a>
     <a href='#alarm' class="btn">Alarm (17)</a>
-    <a href='#automation' class="btn">Automation (18)</a>
-    <a href='#binary-sensor' class="btn">Binary Sensor (61)</a>
+    <a href='#automation' class="btn">Automation (19)</a>
+    <a href='#binary-sensor' class="btn">Binary Sensor (62)</a>
     <a href='#calendar' class="btn">Calendar (4)</a>
     <a href='#camera' class="btn">Camera (25)</a>
-    <a href='#climate' class="btn">Climate (23)</a>
+    <a href='#climate' class="btn">Climate (24)</a>
     <a href='#cover' class="btn">Cover (20)</a>
     <a href='#diy' class="btn">DIY (15)</a>
     <a href='#downloading' class="btn">Downloading (5)</a>
@@ -99,8 +99,8 @@ Support for these components is provided by the Home Assistant community.
     <a href='#finance' class="btn">Finance (9)</a>
     <a href='#front-end' class="btn">Front end (5)</a>
     <a href='#health' class="btn">Health (4)</a>
-    <a href='#history' class="btn">History (14)</a>
-    <a href='#hub' class="btn">Hub (70)</a>
+    <a href='#history' class="btn">History (15)</a>
+    <a href='#hub' class="btn">Hub (72)</a>
     <a href='#image-processing' class="btn">Image Processing (8)</a>
     <a href='#intent' class="btn">Intent (2)</a>
     <a href='#light' class="btn">Light (53)</a>
@@ -109,17 +109,17 @@ Support for these components is provided by the Home Assistant community.
     <a href='#media-player' class="btn">Media Player (50)</a>
     <a href='#notifications' class="btn">Notifications (50)</a>
     <a href='#organization' class="btn">Organization (3)</a>
-    <a href='#presence-detection' class="btn">Presence Detection (43)</a>
+    <a href='#presence-detection' class="btn">Presence Detection (44)</a>
     <a href='#remote' class="btn">Remote (4)</a>
     <a href='#scene' class="btn">Scene (5)</a>
-    <a href='#sensor' class="btn">Sensor (98)</a>
+    <a href='#sensor' class="btn">Sensor (102)</a>
     <a href='#social' class="btn">Social (5)</a>
-    <a href='#switch' class="btn">Switch (64)</a>
+    <a href='#switch' class="btn">Switch (65)</a>
     <a href='#system-monitor' class="btn">System Monitor (26)</a>
     <a href='#telegram-chatbot' class="btn">Telegram chatbot (3)</a>
     <a href='#text-to-speech' class="btn">Text-to-speech (6)</a>
     <a href='#transport' class="btn">Transport (13)</a>
-    <a href='#utility' class="btn">Utility (3)</a>
+    <a href='#utility' class="btn">Utility (4)</a>
     <a href='#vacuum' class="btn">Vacuum (4)</a>
     <a href='#voice' class="btn">Voice (5)</a>
     <a href='#weather' class="btn">Weather (23)</a>
@@ -301,6 +301,7 @@ var allComponents = [
 {url:"/components/sensor.dovado/", title:"Dovado", cat:"system-monitor", featured: false, v: "0.32", logo: "dovado.png"},
 {url:"/components/downloader/", title:"Downloader", cat:"downloading", featured: false, v: "0.7", logo: "home-assistant.png"},
 {url:"/components/sensor.dublin_bus_transport/", title:"Dublin Bus Transport", cat:"transport", featured: false, v: "0.36", logo: "dublin_bus.jpg"},
+{url:"/components/duckdns/", title:"DuckDNS", cat:"utility", featured: false, v: "0.55", logo: "duckdns.png"},
 {url:"/components/media_player.dunehd/", title:"DuneHD media players", cat:"media-player", featured: false, v: "0.34", logo: "dunehd.png"},
 {url:"/components/sensor.dweet/", title:"Dweet.io", cat:"sensor", featured: false, v: "0.10", logo: "dweet.png"},
 {url:"/components/dweet/", title:"Dweet.io", cat:"history", featured: false, v: "0.19", logo: "dweet.png"},
@@ -371,6 +372,7 @@ var allComponents = [
 {url:"/components/camera.generic/", title:"Generic IP Camera", cat:"camera", featured: false, v: "0.7", logo: "camcorder.png"},
 {url:"/components/camera.mjpeg/", title:"Generic MJPEG IP Camera", cat:"camera", featured: false, v: "0.7", logo: "camcorder.png"},
 {url:"/components/climate.generic_thermostat/", title:"Generic Thermostat", cat:"climate", featured: false, v: "0.7", logo: "heat-control.png"},
+{url:"/components/sensor.geo_rss_events/", title:"GeoRSS Events Sensor", cat:"sensor", featured: false, v: "0.0", logo: "rss.png"},
 {url:"/components/device_tracker.geofency/", title:"Geofency", cat:"presence-detection", featured: false, v: "0.53", logo: "geofency.png"},
 {url:"/components/sensor.gitter/", title:"Gitter Sensor", cat:"sensor", featured: false, v: "0.47", logo: "gitter.png"},
 {url:"/components/sensor.glances/", title:"Glances", cat:"system-monitor", featured: false, v: "0.7", logo: "glances.png"},
@@ -397,6 +399,7 @@ var allComponents = [
 {url:"/components/switch.hikvision/", title:"Hikvision Camera Switch", cat:"switch", featured: false, v: "0.7", logo: "hikvision.png"},
 {url:"/components/notify.hipchat/", title:"HipChat", cat:"notifications", featured: false, v: "0.52", logo: "hipchat.png"},
 {url:"/components/history/", title:"History", cat:"history", featured: false, v: "0.7", logo: "home-assistant.png"},
+{url:"/components/history_graph/", title:"History Graph", cat:"history", featured: false, v: "0.55", logo: "home-assistant.png"},
 {url:"/components/sensor.history_stats/", title:"History Statistics Sensor", cat:"sensor", featured: false, v: "0.39", logo: "home-assistant.png"},
 {url:"/components/homematic/", title:"Homematic", cat:"hub", featured: false, v: "0.0", logo: "homematic.png"},
 {url:"/components/binary_sensor.homematic/", title:"Homematic Binary Sensor", cat:"binary-sensor", featured: false, v: "0.23", logo: "homematic.png"},
@@ -427,6 +430,7 @@ var allComponents = [
 {url:"/components/influxdb/", title:"InfluxDB", cat:"history", featured: false, v: "0.9", logo: "influxdb.png"},
 {url:"/components/sensor.influxdb/", title:"InfluxDB Sensor", cat:"sensor", featured: false, v: "0.32", logo: "influxdb.png"},
 {url:"/components/input_boolean/", title:"Input Boolean", cat:"automation", featured: false, v: "0.0", logo: "home-assistant.png"},
+{url:"/components/input_datetime/", title:"Input Datetime", cat:"automation", featured: false, v: "0.55", logo: "home-assistant.png"},
 {url:"/components/input_select/", title:"Input Select", cat:"automation", featured: false, v: "0.13", logo: "home-assistant.png"},
 {url:"/components/input_slider/", title:"Input Slider", cat:"automation", featured: false, v: "0.16", logo: "home-assistant.png"},
 {url:"/components/input_text/", title:"Input Text", cat:"automation", featured: false, v: "0.53", logo: "home-assistant.png"},
@@ -517,6 +521,7 @@ var allComponents = [
 {url:"/components/device_tracker.mqtt/", title:"MQTT Device Tracker", cat:"presence-detection", featured: false, v: "0.0", logo: "mqtt.png"},
 {url:"/components/mqtt_eventstream/", title:"MQTT Eventstream", cat:"other", featured: false, v: "0.11", logo: "mqtt.png"},
 {url:"/components/fan.mqtt/", title:"MQTT Fan", cat:"fan", featured: false, v: "0.27", logo: "mqtt.png"},
+{url:"/components/climate.mqtt/", title:"MQTT HVAC", cat:"climate", featured: false, v: "0.55", logo: "heat-control.png"},
 {url:"/components/light.mqtt_json/", title:"MQTT JSON Light", cat:"light", featured: false, v: "0.26", logo: "mqtt.png"},
 {url:"/components/light.mqtt/", title:"MQTT Light", cat:"light", featured: false, v: "0.0", logo: "mqtt.png"},
 {url:"/components/lock.mqtt/", title:"MQTT Lock", cat:"lock", featured: false, v: "0.15", logo: "mqtt.png"},
@@ -536,6 +541,10 @@ var allComponents = [
 {url:"/components/tts.marytts/", title:"MaryTTS", cat:"text-to-speech", featured: false, v: "0.43", logo: "marytts.png"},
 {url:"/components/notify.matrix/", title:"Matrix", cat:"notifications", featured: false, v: "0.32", logo: "matrix.png"},
 {url:"/components/media_extractor/", title:"Media Extractor", cat:"media-player", featured: false, v: "0.49", logo: "home-assistant.png"},
+{url:"/components/raincloud/", title:"Melnor Raincloud", cat:"hub", featured: false, v: "0.55", logo: "raincloud.jpg"},
+{url:"/components/binary_sensor.raincloud/", title:"Melnor Raincloud Binary Sensor", cat:"binary-sensor", featured: false, v: "0.55", logo: "raincloud.jpg"},
+{url:"/components/sensor.raincloud/", title:"Melnor Raincloud Sensor", cat:"sensor", featured: false, v: "0.55", logo: "raincloud.jpg"},
+{url:"/components/switch.raincloud/", title:"Melnor Raincloud Switch", cat:"switch", featured: false, v: "0.55", logo: "raincloud.jpg"},
 {url:"/components/notify.message_bird/", title:"MessageBird", cat:"notifications", featured: false, v: "0.16", logo: "message_bird.png"},
 {url:"/components/weather.metoffice/", title:"Met Office", cat:"weather", featured: false, v: "0.42", logo: "metoffice.jpg"},
 {url:"/components/sensor.metoffice/", title:"Met Office Sensor", cat:"weather", featured: false, v: "0.42", logo: "metoffice.jpg"},
@@ -624,7 +633,8 @@ var allComponents = [
 {url:"/components/media_player.liveboxplaytv/", title:"Orange Livebox Play TV", cat:"media-player", featured: false, v: "0.38", logo: "orange.png"},
 {url:"/components/switch.orvibo/", title:"Orvibo Switch", cat:"switch", featured: false, v: "0.0", logo: "orvibo.png"},
 {url:"/components/light.osramlightify/", title:"Osram Lightify", cat:"light", featured: false, v: "0.21", logo: "osramlightify.png"},
-{url:"/components/device_tracker.owntracks/", title:"Owntracks", cat:"presence-detection", featured: true, v: "0.7", logo: "owntracks.png"},
+{url:"/components/device_tracker.owntracks_http/", title:"OwnTracks (via HTTP)", cat:"presence-detection", featured: true, v: "0.55", logo: "owntracks.png"},
+{url:"/components/device_tracker.owntracks/", title:"Owntracks", cat:"presence-detection", featured: false, v: "0.7", logo: "owntracks.png"},
 {url:"/components/sensor.pvoutput/", title:"PVOutput Sensor", cat:"energy", featured: false, v: "0.33", logo: "pvoutput.png"},
 {url:"/components/light.rpi_gpio_pwm/", title:"PWM LED", cat:"light", featured: false, v: "0.43", logo: "raspberry-pi.png"},
 {url:"/components/media_player.panasonic_viera/", title:"Panasonic Viera TV", cat:"media-player", featured: false, v: "0.17", logo: "panasonic.png"},
@@ -806,11 +816,14 @@ var allComponents = [
 {url:"/components/climate.tesla/", title:"Tesla HVAC", cat:"climate", featured: false, v: "0.53", logo: "tesla.png"},
 {url:"/components/lock.tesla/", title:"Tesla Lock", cat:"lock", featured: false, v: "0.53", logo: "tesla.png"},
 {url:"/components/sensor.tesla/", title:"Tesla Sensor", cat:"sensor", featured: false, v: "0.53", logo: "tesla.png"},
+{url:"/components/thethingsnetwork/", title:"The Things Network", cat:"hub", featured: false, v: "0.55", logo: "thethingsnetwork.png"},
+{url:"/components/sensor.thethingsnetwork/", title:"The Things Network Sensor", cat:"sensor", featured: false, v: "0.55", logo: "thethingsnetwork.png"},
 {url:"/components/thingspeak/", title:"ThingSpeak", cat:"history", featured: false, v: "0.32", logo: "thingspeak.png"},
 {url:"/components/switch.thinkingcleaner/", title:"Thinking Cleaner Switch", cat:"switch", featured: false, v: "0.18", logo: "thinkingcleaner.png"},
 {url:"/components/sensor.thinkingcleaner/", title:"Thinking Cleaner sensor", cat:"sensor", featured: false, v: "0.18", logo: "thinkingcleaner.png"},
 {url:"/components/device_tracker.thomson/", title:"Thomson", cat:"presence-detection", featured: false, v: "0.0", logo: "technicolor.png"},
 {url:"/components/binary_sensor.threshold/", title:"Threshold Binary Sensor", cat:"binary-sensor", featured: false, v: "0.34", logo: "home-assistant.png"},
+{url:"/components/sensor.tibber/", title:"Tibber", cat:"sensor", featured: false, v: "0.55", logo: "tibber.png"},
 {url:"/components/light.tikteck/", title:"Tikteck", cat:"light", featured: false, v: "0.36", logo: ""},
 {url:"/components/sensor.time_date/", title:"Time & Date", cat:"calendar", featured: false, v: "0.7", logo: "home-assistant.png"},
 {url:"/components/calendar.todoist/", title:"Todoist", cat:"calendar", featured: false, v: "0.54", logo: "todoist.png"},
@@ -877,6 +890,7 @@ var allComponents = [
 {url:"/components/wink/", title:"Wink", cat:"hub", featured: true, v: "0.7", logo: "wink.png"},
 {url:"/components/alarm_control_panel.wink/", title:"Wink Alarm", cat:"alarm", featured: false, v: "0.37", logo: "wink.png"},
 {url:"/components/binary_sensor.wink/", title:"Wink Binary Sensor", cat:"binary-sensor", featured: false, v: "0.14", logo: "wink.png"},
+{url:"/components/climate.wink/", title:"Wink Climate", cat:"climate", featured: false, v: "0.32", logo: "wink.png"},
 {url:"/components/cover.wink/", title:"Wink Cover", cat:"cover", featured: false, v: "0.13", logo: "wink.png"},
 {url:"/components/fan.wink/", title:"Wink Fan", cat:"fan", featured: false, v: "0.36", logo: "wink.png"},
 {url:"/components/light.wink/", title:"Wink Light", cat:"light", featured: false, v: "0.7", logo: "wink.png"},
@@ -884,7 +898,6 @@ var allComponents = [
 {url:"/components/scene.wink/", title:"Wink Scene", cat:"scene", featured: false, v: "0.41", logo: "wink.png"},
 {url:"/components/sensor.wink/", title:"Wink Sensor", cat:"sensor", featured: false, v: "0.7", logo: "wink.png"},
 {url:"/components/switch.wink/", title:"Wink Switch", cat:"switch", featured: false, v: "0.7", logo: "wink.png"},
-{url:"/components/climate.wink/", title:"Wink Thermostat", cat:"climate", featured: false, v: "0.32", logo: "wink.png"},
 {url:"/components/binary_sensor.workday/", title:"Workday Binary Sensor", cat:"binary-sensor", featured: false, v: "0.41", logo: "home-assistant.png"},
 {url:"/components/sensor.waqi/", title:"World Air Quality Index", cat:"health", featured: false, v: "0.34", logo: "waqi.png"},
 {url:"/components/sensor.worldtidesinfo/", title:"World Tides", cat:"weather", featured: false, v: "0.52", logo: "worldtidesinfo.png"},
@@ -1251,6 +1264,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/sensor.dovado/'>Dovado</a></li>
       <li><a href='/components/downloader/'>Downloader</a></li>
       <li><a href='/components/sensor.dublin_bus_transport/'>Dublin Bus Transport</a></li>
+      <li><a href='/components/duckdns/'>DuckDNS</a></li>
       <li><a href='/components/media_player.dunehd/'>DuneHD media players</a></li>
       <li><a href='/components/sensor.dweet/'>Dweet.io</a></li>
       <li><a href='/components/dweet/'>Dweet.io</a></li>
@@ -1321,6 +1335,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/camera.generic/'>Generic IP Camera</a></li>
       <li><a href='/components/camera.mjpeg/'>Generic MJPEG IP Camera</a></li>
       <li><a href='/components/climate.generic_thermostat/'>Generic Thermostat</a></li>
+      <li><a href='/components/sensor.geo_rss_events/'>GeoRSS Events Sensor</a></li>
       <li><a href='/components/device_tracker.geofency/'>Geofency</a></li>
       <li><a href='/components/sensor.gitter/'>Gitter Sensor</a></li>
       <li><a href='/components/sensor.glances/'>Glances</a></li>
@@ -1347,6 +1362,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/switch.hikvision/'>Hikvision Camera Switch</a></li>
       <li><a href='/components/notify.hipchat/'>HipChat</a></li>
       <li><a href='/components/history/'>History</a></li>
+      <li><a href='/components/history_graph/'>History Graph</a></li>
       <li><a href='/components/sensor.history_stats/'>History Statistics Sensor</a></li>
       <li><a href='/components/homematic/'>Homematic</a></li>
       <li><a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a></li>
@@ -1377,6 +1393,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/influxdb/'>InfluxDB</a></li>
       <li><a href='/components/sensor.influxdb/'>InfluxDB Sensor</a></li>
       <li><a href='/components/input_boolean/'>Input Boolean</a></li>
+      <li><a href='/components/input_datetime/'>Input Datetime</a></li>
       <li><a href='/components/input_select/'>Input Select</a></li>
       <li><a href='/components/input_slider/'>Input Slider</a></li>
       <li><a href='/components/input_text/'>Input Text</a></li>
@@ -1467,6 +1484,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/device_tracker.mqtt/'>MQTT Device Tracker</a></li>
       <li><a href='/components/mqtt_eventstream/'>MQTT Eventstream</a></li>
       <li><a href='/components/fan.mqtt/'>MQTT Fan</a></li>
+      <li><a href='/components/climate.mqtt/'>MQTT HVAC</a></li>
       <li><a href='/components/light.mqtt_json/'>MQTT JSON Light</a></li>
       <li><a href='/components/light.mqtt/'>MQTT Light</a></li>
       <li><a href='/components/lock.mqtt/'>MQTT Lock</a></li>
@@ -1486,6 +1504,10 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/tts.marytts/'>MaryTTS</a></li>
       <li><a href='/components/notify.matrix/'>Matrix</a></li>
       <li><a href='/components/media_extractor/'>Media Extractor</a></li>
+      <li><a href='/components/raincloud/'>Melnor Raincloud</a></li>
+      <li><a href='/components/binary_sensor.raincloud/'>Melnor Raincloud Binary Sensor</a></li>
+      <li><a href='/components/sensor.raincloud/'>Melnor Raincloud Sensor</a></li>
+      <li><a href='/components/switch.raincloud/'>Melnor Raincloud Switch</a></li>
       <li><a href='/components/notify.message_bird/'>MessageBird</a></li>
       <li><a href='/components/weather.metoffice/'>Met Office</a></li>
       <li><a href='/components/sensor.metoffice/'>Met Office Sensor</a></li>
@@ -1574,6 +1596,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/media_player.liveboxplaytv/'>Orange Livebox Play TV</a></li>
       <li><a href='/components/switch.orvibo/'>Orvibo Switch</a></li>
       <li><a href='/components/light.osramlightify/'>Osram Lightify</a></li>
+      <li><a href='/components/device_tracker.owntracks_http/'>OwnTracks (via HTTP)</a></li>
       <li><a href='/components/device_tracker.owntracks/'>Owntracks</a></li>
       <li><a href='/components/sensor.pvoutput/'>PVOutput Sensor</a></li>
       <li><a href='/components/light.rpi_gpio_pwm/'>PWM LED</a></li>
@@ -1756,11 +1779,14 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/climate.tesla/'>Tesla HVAC</a></li>
       <li><a href='/components/lock.tesla/'>Tesla Lock</a></li>
       <li><a href='/components/sensor.tesla/'>Tesla Sensor</a></li>
+      <li><a href='/components/thethingsnetwork/'>The Things Network</a></li>
+      <li><a href='/components/sensor.thethingsnetwork/'>The Things Network Sensor</a></li>
       <li><a href='/components/thingspeak/'>ThingSpeak</a></li>
       <li><a href='/components/switch.thinkingcleaner/'>Thinking Cleaner Switch</a></li>
       <li><a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a></li>
       <li><a href='/components/device_tracker.thomson/'>Thomson</a></li>
       <li><a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a></li>
+      <li><a href='/components/sensor.tibber/'>Tibber</a></li>
       <li><a href='/components/light.tikteck/'>Tikteck</a></li>
       <li><a href='/components/sensor.time_date/'>Time & Date</a></li>
       <li><a href='/components/calendar.todoist/'>Todoist</a></li>
@@ -1827,6 +1853,7 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/wink/'>Wink</a></li>
       <li><a href='/components/alarm_control_panel.wink/'>Wink Alarm</a></li>
       <li><a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a></li>
+      <li><a href='/components/climate.wink/'>Wink Climate</a></li>
       <li><a href='/components/cover.wink/'>Wink Cover</a></li>
       <li><a href='/components/fan.wink/'>Wink Fan</a></li>
       <li><a href='/components/light.wink/'>Wink Light</a></li>
@@ -1834,7 +1861,6 @@ allComponents.pop(); // remove placeholder element at the end
       <li><a href='/components/scene.wink/'>Wink Scene</a></li>
       <li><a href='/components/sensor.wink/'>Wink Sensor</a></li>
       <li><a href='/components/switch.wink/'>Wink Switch</a></li>
-      <li><a href='/components/climate.wink/'>Wink Thermostat</a></li>
       <li><a href='/components/binary_sensor.workday/'>Workday Binary Sensor</a></li>
       <li><a href='/components/sensor.waqi/'>World Air Quality Index</a></li>
       <li><a href='/components/sensor.worldtidesinfo/'>World Tides</a></li>

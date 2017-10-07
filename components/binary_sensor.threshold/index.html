@@ -74,7 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">threshold</code> binary sensor platform is consuming the state from another sensor. If the value is below (<code class="highlighter-rouge">lower</code>) or higher (<code class="highlighter-rouge">upper</code>) than the given threshold then state of this sensor change..</p>
+  <p>The <code class="highlighter-rouge">threshold</code> binary sensor platform observes the state of another sensor. If the value is below (<code class="highlighter-rouge">lower</code>) or higher (<code class="highlighter-rouge">upper</code>) than the given threshold then state of the threshold sensor is changed.</p>
+<p>If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not <code class="highlighter-rouge">lower</code> or <code class="highlighter-rouge">upper</code> with respect to the threshold.</p>
 <p>It’s an alternative to the template binary sensor’s <code class="highlighter-rouge">value_template:</code> to get the abnormal/too high/too low states.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">{{</span> <span class="nv">states.sensor.furnace.state &gt; 2.5</span> <span class="pi">}}</span>
 </code></pre>
@@ -91,8 +92,9 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>entity_id</strong> (<em>Required</em>): The entity to monitor. Only <a href="/components/sensor/">sensors</a> are supported.</li>
-  <li><strong>threshold</strong> (<em>Required</em>): The value which is the threshold.</li>
+  <li><strong>threshold</strong> (<em>Required</em>): The threshold which the observed value is compared against.</li>
   <li><strong>type</strong> (<em>Required</em>): <code class="highlighter-rouge">lower</code> if the value needs to be below the threshold or <code class="highlighter-rouge">upper</code> if higher.</li>
+  <li><strong>hysteresis</strong> (<em>Optional</em>): The distance the observed value must be from the threshold before the state is changed. Defaults to <code class="highlighter-rouge">0.0</code></li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the sensor to use in the frontend. Defaults to <code class="highlighter-rouge">Stats</code>.</li>
 </ul>
 </article>
@@ -200,6 +202,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.raincloud/'>Melnor Raincloud Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>

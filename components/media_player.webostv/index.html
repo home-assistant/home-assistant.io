@@ -85,7 +85,7 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Optional</em>): The IP of the LG webOS Smart TV, e.g. <code class="highlighter-rouge">192.168.0.10</code>.</li>
-  <li><strong>mac</strong> (<em>Optional</em>): The MAC address of the TV, e.g. <code class="highlighter-rouge">C8:08:E9:99:99:1A</code>.</li>
+  <li><strong>turn_on_action</strong> (<em>Optional</em>): Defines an <a href="/docs/automation/action/">action</a> to turn the TV on.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name you would like to give to the LG webOS Smart TV.</li>
   <li><strong>timeout</strong> (<em>Optional</em>): The timeout for connections to the TV in seconds.</li>
   <li><strong>filename</strong> (<em>Optional</em>): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant’s config directory. It defaults to <code class="highlighter-rouge">webostv.conf</code>.</li>
@@ -96,16 +96,19 @@
   </li>
 </ul>
 <p>If you do not specify <code class="highlighter-rouge">host:</code>, all LG webOS Smart TVs within your network will be auto-discovered if they use the default name setting of <code class="highlighter-rouge">[LG] webOS TV</code>.
-Home Assistant is able to turn on a LG webOS Smart TV if you specify its MAC address with <code class="highlighter-rouge">mac:</code>. Some models require the <strong>Mobile TV On</strong> setting and/or a wired network connection to use Wake-on-LAN.</p>
+Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.</p>
 <p>A full configuration example will look like the sample below:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
-    <span class="s">mac</span><span class="pi">:</span> <span class="s">C8:08:E9:99:99:1A</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
     <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
     <span class="s">filename</span><span class="pi">:</span> <span class="s">webostv.conf</span>
+    <span class="s">turn_on_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">persistent_notification.create</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Turn</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">action"</span>
     <span class="s">customize</span><span class="pi">:</span>
       <span class="s">sources</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="s">livetv</span>

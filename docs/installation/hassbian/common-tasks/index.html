@@ -92,6 +92,9 @@ Linux and Mac OS users execute the following command in a terminal.</p>
 <p>Replace <code class="highlighter-rouge">stop</code> with <code class="highlighter-rouge">start</code> or <code class="highlighter-rouge">restart</code> to get the desired functionality.
 To get the current state of the <code class="highlighter-rouge">homeassistant.service</code> replace <code class="highlighter-rouge">stop</code> with <code class="highlighter-rouge">status</code>.</p>
 <h3><a class="title-link" name="update-home-assistant" href="#update-home-assistant"></a> Update Home Assistant</h3>
+<p class="note">
+You can also use <code class="highlighter-rouge">hassbian-config</code> to automate the process by running <code class="highlighter-rouge">sudo hassbian-config upgrade home-assistant</code>
+</p>
 <p>Log in as the <code class="highlighter-rouge">pi</code> account and execute the following commands:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl stop home-assistant@homeassistant.service 
 <span class="gp">$ </span>sudo su -s /bin/bash homeassistant

@@ -79,17 +79,25 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">mqtt_statestream</span><span class="pi">:</span>
   <span class="s">base_topic</span><span class="pi">:</span> <span class="s">homeassistant</span>
+  <span class="s">publish_attributes</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">publish_timestamps</span><span class="pi">:</span> <span class="s">true</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>base_topic</strong> (<em>Required</em>): Base topic used to generate the actual topic used to publish.</li>
+  <li><strong>publish_attributes</strong> (<em>Optional</em>): Publish attributes of the entity as well as the state.
+Default is false.</li>
+  <li><strong>publish_timestamps</strong> (<em>Optional</em>): Publish the last_changed and last_updated timestamps for the entity.
+Default is false.</li>
 </ul>
 <h2>Operation</h2>
 <p>When any Home Assistant entity changes, this component will publish that change to MQTT.</p>
 <p>The topic for each entity is different, so you can easily subscribe other systems to just the entities you are interested in.
 The topic will be in the form <code class="highlighter-rouge">base_topic/domain/entity/state</code>.</p>
 <p>For example, with the example configuration above, if an entity called ‘light.master_bedroom_dimmer’ is turned on, this component will publish <code class="highlighter-rouge">on</code> to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/state</code>.</p>
+<p>If that entity also has an attribute called <code class="highlighter-rouge">brightness</code>, the component will also publish the value of that attribute to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/brightness</code>.</p>
+<p>The last_updated and last_changed values for the entity will be published to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/last_updated</code> and <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/last_changed</code>, respectively.  The timestamps are in ISO 8601 format - for example, <code class="highlighter-rouge">2017-10-01T23:20:30.920969+00:00</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
