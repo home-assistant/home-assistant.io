@@ -9,13 +9,13 @@ sharing: true
 footer: true
 logo: travisci.svg
 ha_category: Sensor
-ha_release: "0.55"
+ha_release: "0.56"
 ha_iot_class: "Cloud Polling"
 ---
 
-With this component, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.
+With this sensor platform, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.
 
-To enable this component, please add the following to your `configuration.yaml` file:
+To enable this platform, please add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
