@@ -30,11 +30,10 @@ The basics of YAML syntax are block collections and mappings containing key-valu
 
 Note that indentation (just like in Python) is an important part of specifying relationships using YAML. Things that are indented are nested "inside" things that are one level higher. So in the above example, `platform: pushbullet` is a property of (nested inside) the `notify` component.
 Getting the right indentation can be tricky if you're not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.
-You can use the online service [YAMLLint](http://www.yamllint.com/) to check if your YAML-syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a 3rd-party service and is not maintained by the Home Assistant community.
+You can use the online service [YAMLLint](http://www.yamllint.com/) to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a thrid-party service and is not maintained by the Home Assistant community.
 
 <p class='note'>
-Please pay attention on not storing private data (passwords, api-keys, etc.)
-directly in that file. Private data can be stored in a [seperate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this problem of security.
+Please pay attention on not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in a [seperate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this problem of security.
 </p>
 
 Text following a `#` are comments and are ignored by the system.
