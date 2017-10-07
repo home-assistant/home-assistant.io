@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Input Slider"
-description: "Instructions how to integrate the Input Slider component into Home Assistant."
-date: 2016-03-15 06:00
+title: "Input Number"
+description: "Instructions how to integrate the Input Number component into Home Assistant."
+date: 2017-09-19 03:30
 sidebar: true
 comments: false
 sharing: true
@@ -12,40 +12,48 @@ ha_category: Automation
 ha_release: 0.16
 ---
 
-The `input_slider` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the slider generate state events. These state events can be utilized as `automation` triggers as well. 
+The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
-To enable this input sliders in your installation, add the following lines to your `configuration.yaml`:
+To enable this input number in your installation, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-input_slider:
+input_number:
   slider1:
-    name: Slider 1
+    name: Slider
     initial: 30
     min: -20
     max: 35
     step: 1
+  box1:
+    name: Numeric Input Box
+    initial: 30
+    min: -20
+    max: 35
+    step: 1
+    mode: box
 ```
 
 Configuration variables:
 
-- **[alias]** (*Required*): Alias for the slider input. Multiple entries are allowed.
-  - **min** (*Required*): Minimum value for the slider.
-  - **max** (*Required*): Maximum value for the slider.
-  - **name** (*Optional*): Friendly name of the slider input.
+- **[alias]** (*Required*): Alias for the input. Multiple entries are allowed.
+  - **min** (*Required*): Minimum value.
+  - **max** (*Required*): Maximum value.
+  - **name** (*Optional*): Friendly name of the input.
   - **initial** (*Optional*): Initial value when Home Assistant starts. Defaults to 0.
   - **step** (*Optional*): Step value for the slider. Defaults to 1.
+  - **mode** (*Optional*): Can specify `box`, or `slider`. Defaults to `slider`.
 
 ## {% linkable_title Automation Examples %}
 
-Here's an example of `input_slider` being used as a trigger in an automation.
+Here's an example of `input_number` being used as a trigger in an automation.
 
 ```yaml
 {% raw %}
-# Example configuration.yaml entry using 'input_slider' as a trigger in an automation
+# Example configuration.yaml entry using 'input_number' as a trigger in an automation
 
-# Define input_slider
-input_slider:
+# Define input_number
+input_number:
   bedroom_brightness:
     name: Brightness
     initial: 254
@@ -58,7 +66,7 @@ automation:
   - alias: Bedroom Light - Adjust Brightness
     trigger:
       platform: state
-      entity_id: input_slider.bedroom_brightness
+      entity_id: input_number.bedroom_brightness
     action:
       - service: light.turn_on
 # Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
@@ -68,11 +76,11 @@ automation:
 {% endraw %}
 ```
 
-Another code example using `input_slider`, this time being used in an action in an automation.
+Another code example using `input_number`, this time being used in an action in an automation.
 
 ```yaml
 {% raw %}
-# Example configuration.yaml entry using 'input_slider' in an action in an automation
+# Example configuration.yaml entry using 'input_number' in an action in an automation
 
 # Define 'input_select'
 input_select:
@@ -87,8 +95,8 @@ input_select:
       - 'OFF'
     initial: 'Select'
     
-# Define input_slider
-input_slider:
+# Define input_number
+input_number:
   bedroom_brightness:
     name: Brightness
     initial: 254
@@ -108,19 +116,19 @@ automation:
 # Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
         data_template:
           entity_id: light.bedroom
-          brightness: '{{ states.input_slider.bedroom_brightness.state | int }}'
+          brightness: '{{ states.input_number.bedroom_brightness.state | int }}'
 {% endraw %}
 ```
 
 
-Example of `input_slider` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
+Example of `input_number` being used in a bidirectional manner, both being set by and controlled by an MQTT action in an automation.
 
 ```yaml
 {% raw %}
-# Example configuration.yaml entry using 'input_slider' in an action in an automation
+# Example configuration.yaml entry using 'input_number' in an action in an automation
    
-# Define input_slider
-input_slider:
+# Define input_number
+input_number:
   target_temp:
     name: Target Heater Temperature Slider
     min: 1
@@ -136,11 +144,11 @@ input_slider:
   trigger:
     platform: mqtt
     topic: "setTemperature"
-   # entity_id: input_slider.target_temp
+   # entity_id: input_number.target_temp
   action:
-     service: input_slider.select_value
+     service: input_number.set_value
      data_template:
-      entity_id: input_slider.target_temp
+      entity_id: input_number.target_temp
       value: '{{ trigger.payload}}'
 
  # This automation script runs when the target temperature slider is moved.
@@ -148,12 +156,12 @@ input_slider:
 - alias: Temp slider moved
   trigger:
     platform: state
-    entity_id: input_slider.target_temp
+    entity_id: input_number.target_temp
   action:
     service: mqtt.publish
     data_template:
       topic: "setTemperature"
       retain: true
-      payload: '{{ states.input_slider.target_temp.state | int }}'
+      payload: '{{ states.input_number.target_temp.state | int }}'
 {% endraw %}
 ```

@@ -1257,7 +1257,7 @@ self.toggle("light.office_1", color_name = "green")
 
 ### {% linkable_title select_value() %}
 
-This is a convenience function for the `input_slider.select_value` function. It is able to set the value of an input_slider in Home Assistant.
+This is a convenience function for the `input_number.select_value` function. It is able to set the value of an input_number in Home Assistant.
 
 #### {% linkable_title Synopsis %}
 
@@ -1273,16 +1273,16 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the input_slider to be changed, e.g. `input_slider.alarm_hour`.
+Fully qualified entity_id of the input_number to be changed, e.g. `input_number.alarm_hour`.
 
 ##### {% linkable_title value %}
 
-The new value to set the input slider to.
+The new value to set the input number to.
 
 #### {% linkable_title Examples %}
 
 ```python
-self.select_value("input_slider.alarm_hour", 6)
+self.select_value("input_number.alarm_hour", 6)
 ```
 
 ### {% linkable_title select_option() %}
@@ -1307,7 +1307,7 @@ Fully qualified entity_id of the input_select to be changed, e.g. `input_select.
 
 ##### {% linkable_title value %}
 
-The new value to set the input slider to.
+The new value to set the input number to.
 
 #### {% linkable_title Examples %}
 
