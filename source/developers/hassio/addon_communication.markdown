@@ -24,6 +24,8 @@ A Add-on can speak to [Home-Assistant API][hass-api] with our internal proxy. Th
 
 It is also possible to speak direct to Home-Assistant instance with name `homeassistant` over our internal Network. But you need know the running config.
 
+We have severals services for Hass.io inside Home-Assistant to execute some task. So you can also use `hassio.addon_stdin` to send data over STDIN to a add-on.
+
 ## {% linkable_title Hass.io API %}
 
 To call to our [Hass.io API][hassio-api] add `hassio_api: true` to `config.json`. Now you can use the API over this url: `http://hassio/`.
