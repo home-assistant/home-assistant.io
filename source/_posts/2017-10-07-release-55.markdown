@@ -58,7 +58,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - New Wink services: pair new device, rename, delete and add new lock key code. All device attributes that are multi-words are now separated by  "_" and no longer " ". ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
 - TP-Link Switch: Attribute names now uses underscores and unnecessary capitalization was removed. ([@djchen] - [#9607]) ([switch.tplink docs]) (breaking change)
 - Renamed `input_slider` to `input_number` which has now a numeric text box option. ([@BioSehnsucht] - [#9494]) ([demo docs]) ([input_number docs]) (breaking change)
-- Recorder: Add new purge service and interval. ([@milanvo] - [#9523]) (breaking change)
+- Recorder: Add new purge service and interval. ([@milanvo] - [#9523]) ([recorder docs]) (breaking change)
 - OpenCV image processing: Typo in classifier was fixed. ([@arsaboo] - [#9697]) ([image_processing.opencv docs]) (breaking change)
 - Tradfri Lights: Async support with resource observation. ([@lwis] - [#7815]) ([tradfri docs]) ([light.tradfri docs]) (breaking change)
 
