@@ -26,6 +26,7 @@ It is also possible to speak direct to Home-Assistant instance with name `homeas
 
 ## {% linkable_title Hass.io API %}
 
+To call to our [Hass.io API][hassio-api] add `hassio_api: true` to `config.json`. Now you can use the API over this url: `http://hassio/`.
 
 [hass-api]: https://home-assistant.io/developers/rest_api/
 [hassio-api]: https://github.com/home-assistant/hassio/blob/master/API.md
