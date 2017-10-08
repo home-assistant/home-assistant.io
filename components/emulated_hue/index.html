@@ -153,7 +153,7 @@ It is recommended to assign a static IP address to the computer running Home Ass
   <span class="s">customize</span><span class="pi">:</span>
     <span class="s">light.bedroom_light</span><span class="pi">:</span>
       <span class="c1"># Don't allow light.bedroom_light to be controlled by the emulated Hue bridge</span>
-      <span class="s">emulated_hue</span><span class="pi">:</span> <span class="s">false</span>
+      <span class="s">emulated_hue_hidden</span><span class="pi">:</span> <span class="s">false</span>
     <span class="s">light.office_light</span><span class="pi">:</span>
       <span class="c1"># Address light.office_light as "back office light"</span>
       <span class="s">emulated_hue_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">back</span><span class="nv"> </span><span class="s">office</span><span class="nv"> </span><span class="s">light"</span>
@@ -161,7 +161,7 @@ It is recommended to assign a static IP address to the computer running Home Ass
 </div>
 <p>The following are attributes that can be applied in the <code class="highlighter-rouge">customize</code> section:</p>
 <ul>
-  <li><strong>emulated_hue</strong> (<em>Optional</em>): Whether or not the entity should be exposed by the emulated Hue bridge. The default value for this attribute is controlled by the <code class="highlighter-rouge">expose_by_default</code> option.</li>
+  <li><strong>emulated_hue_hidden</strong> (<em>Optional</em>): Whether or not the entity should be exposed by the emulated Hue bridge. The default value for this attribute is controlled by the <code class="highlighter-rouge">expose_by_default</code> option.</li>
   <li><strong>emulated_hue_name</strong> (<em>Optional</em>): The name that the emulated Hue will use. The default for this is the entity’s friendly name.</li>
 </ul>
 <h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
