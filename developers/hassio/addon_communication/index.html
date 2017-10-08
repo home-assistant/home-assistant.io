@@ -81,6 +81,7 @@
 <h2><a class="title-link" name="home-assistant" href="#home-assistant"></a> Home-Assistant</h2>
 <p>A Add-on can speak to <a href="https://home-assistant.io/developers/rest_api/">Home-Assistant API</a> with our internal proxy. That make it very easy to speak to this API without you need know the password, port or any other information for the Home-Assistant instance. Use this url: <code class="highlighter-rouge">http://hassio/homeassistant/api</code> and they will internal redirected to the right place. As next add <code class="highlighter-rouge">homeassistant_api: true</code> to <code class="highlighter-rouge">config.json</code>.</p>
 <p>It is also possible to speak direct to Home-Assistant instance with name <code class="highlighter-rouge">homeassistant</code> over our internal Network. But you need know the running config.</p>
+<p>We have severals services for Hass.io inside Home-Assistant to execute some task. So you can also use <code class="highlighter-rouge">hassio.addon_stdin</code> to send data over STDIN to a add-on.</p>
 <h2><a class="title-link" name="hassio-api" href="#hassio-api"></a> Hass.io API</h2>
 <p>To call to our <a href="https://github.com/home-assistant/hassio/blob/master/API.md">Hass.io API</a> add <code class="highlighter-rouge">hassio_api: true</code> to <code class="highlighter-rouge">config.json</code>. Now you can use the API over this url: <code class="highlighter-rouge">http://hassio/</code>.</p>
 </article>
