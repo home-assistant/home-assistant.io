@@ -41,14 +41,23 @@ media_extractor:
       music: bestaudio[ext=mp3]
 ```
 
-This configuration sets query for all service calls like: ```{"entity_id": "media_player.my_sonos", "media_content_id": "https://soundcloud.com/bruttoband/brutto-11", "media_content_type": "music"}``` to 'bestaudio' with mp3 extension.
+This configuration sets query for all service calls like to 'bestaudio' with the mp3 extension:
+
+```json
+{
+  "entity_id": "media_player.my_sonos",
+  "media_content_id": "https://soundcloud.com/bruttoband/brutto-11",
+  "media_content_type": "music"
+}
+```
 
 Query examples with explanations:
- * **bestvideo** - best video only stream
- * **best** - best video + audio stream
- * **bestaudio[ext=m4a]** - best audio stream with m4a extension
- * **worst** - worst video + audio stream
- * **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio** - best m4a audio, otherwise best ogg audio and only then any best audio
+
+ * **bestvideo**: Best video only stream
+ * **best**: Best video + audio stream
+ * **bestaudio[ext=m4a]**: Best audio stream with m4a extension
+ * **worst**: Worst video + audio stream
+ * **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
 
 More info about queries [here](https://github.com/rg3/youtube-dl#format-selection)
 
