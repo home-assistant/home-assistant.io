@@ -79,13 +79,13 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ps -p 1 -o <span class="nv">comm</span><span class="o">=</span>
 </code></pre>
 </div>
-<p>If the preceding command returns the string <code class="highlighter-rouge">systemd</code>, you are likely using <code class="highlighter-rouge">systemd</code>.</p>
-<p>If you want Home Assistant to be launched automatically, an extra step is needed to setup <code class="highlighter-rouge">systemd</code>. A service file is needed to control Home Assistant with <code class="highlighter-rouge">systemd</code>. The template below should be created using a text editor. Note, root permissions via <code class="highlighter-rouge">sudo</code> will likely be needed. The following should be noted to modify the template:</p>
+<p>If the preceding command returns the string <code class="highlighter-rouge">systemd</code>, continue with the instructions below.</p>
+<p>A service file is needed to control Home Assistant with <code class="highlighter-rouge">systemd</code>. The template below should be created using a text editor. Note, root permissions via <code class="highlighter-rouge">sudo</code> will likely be needed. The following should be noted to modify the template:</p>
 <ul>
   <li><code class="highlighter-rouge">ExecStart</code> contains the path to <code class="highlighter-rouge">hass</code> and this may vary. Check with <code class="highlighter-rouge">whereis hass</code> for the location.</li>
-  <li>If running Home Assistant in a Python virtual environment or a Docker container, please skip to section below.</li>
   <li>For most systems, the file is <code class="highlighter-rouge">/etc/systemd/system/home-assistant@[your user].service</code> with [your user] replaced by the user account that Home Assistant will run as - normally <code class="highlighter-rouge">homeassistant</code>.  In particular, this is the case for Ubuntu 16.04.</li>
   <li>If unfamiliar with command-line text editors, <code class="highlighter-rouge">sudo nano -w [filename]</code> can be used with <code class="highlighter-rouge">[filename]</code> replaced with the full path to the file.  Ex. <code class="highlighter-rouge">sudo nano -w /etc/systemd/system/home-assistant@[your user].service</code>.  After text entered, press CTRL-X then press Y to save and exit.</li>
+  <li>If you’re running Home Assistant in a Python virtual environment or a Docker container, please skip to the appropriate template listed below.</li>
 </ul>
 <div class="highlighter-rouge"><pre class="highlight"><code>[Unit]
 Description=Home Assistant
@@ -133,6 +133,7 @@ ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
 WantedBy=multi-user.target
 </code></pre>
 </div>
+<h3>Next Steps</h3>
 <p>You need to reload <code class="highlighter-rouge">systemd</code> to make the daemon aware of the new configuration.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo systemctl --system daemon-reload
 </code></pre>
