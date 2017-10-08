@@ -63,7 +63,7 @@ More info about queries [here](https://github.com/rg3/youtube-dl#format-selectio
 
 ### {% linkable_title Use the service %}
 
-Go to the "Developer Tools," then to "Call Service," and choose `media_extractor/play_media` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE."
+Use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose `media_extractor` from the dropdown menu **Domain** and `play_media` from **Service**, enter something like the JSON sample from above into the **Service Data** field, and hit **CALL SERVICE**.
 
 This will download the file from the given URL.
 
