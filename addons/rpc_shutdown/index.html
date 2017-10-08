@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hass.io Add-ons - Home Assistant</title>
+    <title>RPC Shutdown - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="List of the built-in add-ons of Hass.io.">
+    <meta name="description" content="Simple way for remote windows shutdowns.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/addons/">
+    <link rel="canonical" href="https://home-assistant.io/addons/rpc_shutdown/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Hass.io Add-ons">
+    <meta property="og:title" content="RPC Shutdown">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/addons/">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="List of the built-in add-ons of Hass.io.">
+    <meta property="og:url" content="https://home-assistant.io/addons/rpc_shutdown/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Simple way for remote windows shutdowns.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Hass.io Add-ons">
-    <meta name="twitter:description" content="List of the built-in add-ons of Hass.io.">
+    <meta name="twitter:title" content="RPC Shutdown">
+    <meta name="twitter:description" content="Simple way for remote windows shutdowns.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -68,87 +68,39 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/addons/index.html'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_addons/rpc_shutdown.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Hass.io Add-ons
+      RPC Shutdown
     </h1>
   </header>
   <hr class="divider">
-  <p>Add-ons for Hass.io allows the user to extend the functionality around Home Assistant. This can be running an application that Home Assistant can integrate with (like an MQTT broker) or to share the configuration via Samba for easy editing from other computers. Add-ons can be configured via the Hass.io panel in Home Assistant.</p>
-<p>
-  Check the Hass.io forums for <a href='https://community.home-assistant.io/tags/hassio-repository'>add-on repositories managed by the community</a>.
-</p>
-<h3><a class='title-link' name='featured-add-ons' href='#featured-add-ons'></a> Featured add-ons </h3>
+  <p>Allow to shutdown a computer with a service call from Home-Assistant.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"computers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"alias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-pc"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user%password"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 <ul>
-  <li>
-    <a href='/addons/duckdns/'>DuckDNS</a><br>
-    Automatically update your Duck DNS IP address.
-  </li>
-  <li>
-    <a href='/addons/google_assistant/'>Google Assistant</a><br>
-    Enhance your Hass.io installation with Google Assistant.
-  </li>
-  <li>
-    <a href='/addons/configurator/'>HASS Configurator</a><br>
-    Browser-based configuration file editor for Home Assistant.
-  </li>
-  <li>
-    <a href='/addons/lets_encrypt/'>Let's Encrypt</a><br>
-    Automatically manage your SSL certificate using Let's Encrypt.
-  </li>
-  <li>
-    <a href='/addons/mosquitto/'>Mosquitto MQTT broker</a><br>
-    Fast and reliable MQTT broker.
-  </li>
-  <li>
-    <a href='/addons/ssh/'>SSH Server</a><br>
-    Allow logging in remotely to Hass.io using SSH.
-  </li>
-  <li>
-    <a href='/addons/samba/'>Samba</a><br>
-    Manage your Home Assistant and custom addons over Samba.
-  </li>
+  <li><strong>computers</strong> (<em>Required</em>): A list of computer object to shutdown from Home-Assistant.</li>
+  <li><strong>computers/alias</strong> (<em>Required</em>): Set a alias for this record and that is the name for the input.</li>
+  <li><strong>computers/address</strong> (<em>Required</em>): IP address or netbios name of the computer for shutdown.</li>
+  <li><strong>computers/credentials</strong> (<em>Required</em>): Credentials for logging into computer. Use a <code class="highlighter-rouge">%</code> as delimiter of username and password.</li>
 </ul>
-<h3><a class='title-link' name='other-add-ons' href='#other-add-ons'></a> Other add-ons </h3>
-<ul>
-  <li>
-    <a href='/addons/bluetooth_bcm43xx/'>Bluetooth BCM43xx</a><br>
-    Activate the BCM43xx Bluetooth chipset on a Raspberry Pi 3.
-  </li>
-  <li>
-    <a href='/addons/check_config/'>Check Home Assistant configuration</a><br>
-    Check your current Home Assistant configuration against a new version.
-  </li>
-  <li>
-    <a href='/addons/dhcp_server/'>DHCP server</a><br>
-    A simple DHCP server.
-  </li>
-  <li>
-    <a href='/addons/dnsmasq/'>Dnsmasq</a><br>
-    A simple DNS server.
-  </li>
-  <li>
-    <a href='/addons/git_pull/'>GIT pull</a><br>
-    Load and update configuration files for Home Assistant from a GIT repository.
-  </li>
-  <li>
-    <a href='/addons/mariadb/'>MariaDB</a><br>
-    MariaDB Server is one of the most popular database servers in the world.
-  </li>
-  <li>
-    <a href='/addons/nginx_proxy/'>NGINX SSL proxy</a><br>
-    NGINX Home Assistant SSL proxy.
-  </li>
-  <li>
-    <a href='/addons/rpc_shutdown/'>RPC Shutdown</a><br>
-    Simple way for remote windows shutdowns.
-  </li>
-  <li>
-    <a href='/addons/snips/'>Snips.ai</a><br>
-    Enhance your Hass.io installation with a local voice assistant.
-  </li>
-</ul>
+<h2><a class="title-link" name="home-assistant" href="#home-assistant"></a> Home Assistant</h2>
+<p>Use the following inside Home Assistant service call to use it:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">hassio.addon_stdin</span>
+<span class="s">data</span><span class="pi">:</span>
+  <span class="s">addon</span><span class="pi">:</span> <span class="s">core_rpc_shutdown</span>
+  <span class="s">input</span><span class="pi">:</span> <span class="s">test-pc</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -161,7 +113,7 @@
         <a  href='/hassio/'>Hass.io </a>
         <ul>
           <li><a  href='/hassio/installation/'>Installation </a></li>
-          <li><a class='active' href='/addons/'>Available add-ons </a></li>
+          <li><a  href='/addons/'>Available add-ons </a></li>
           <li><a  href='/hassio/installing_third_party_addons/'>Installing third-party add-ons </a></li>
         </ul>
       </li>
