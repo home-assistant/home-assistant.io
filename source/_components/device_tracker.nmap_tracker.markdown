@@ -13,15 +13,19 @@ featured: false
 ---
 
 
-As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
+As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using [Nmap](https://nmap.org). The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
-If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
+If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`.
 
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
-Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds.
+Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used
+100 ports, with a host timeout of 5 seconds. Unfortunately Nmap is not the most
+reliable device tracker, as it only scans the network for available devices.
+Modern mobile devices switch the Wifi off when they are not used. As soon as
+this happens, they are not discoverable on the network anymore.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -34,10 +38,10 @@ device_tracker:
 
 Configuration variables:
 
-- **hosts** (*Required*): The network address to scan (in any supported NMap format). Mixing subnets and IPs is possible.
+- **hosts** (*Required*): The IP address range to scan (in any supported Nmap format). Mixing subnets and addresses is possible, as described in the [Nmap documentation](https://nmap.org/book/man-target-specification.html).
 - **home_interval** (*Optional*): The number of minutes nmap will not scan this device, assuming it is home, in order to preserve the device battery.
 - **exclude** (*Optional*): Hosts not to include in nmap scanning. Scanning the host where Home Assistant is running can cause problems (websocket error), so excluding that host is a good idea.
-- **scan_options** (*Optional*): Configurable scan options for nmap. Default to `-F --host-timeout 5s`
+- **scan_options** (*Optional*): Configurable scan options for nmap. Defaults to `-F --host-timeout 5s`
 
 
 A full example for the `nmap` tracker could look like the following sample:
