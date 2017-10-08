@@ -96,7 +96,7 @@ homeassistant:
   customize:
     light.bedroom_light:
       # Don't allow light.bedroom_light to be controlled by the emulated Hue bridge
-      emulated_hue: false
+      emulated_hue_hidden: false
     light.office_light:
       # Address light.office_light as "back office light"
       emulated_hue_name: "back office light"
@@ -104,7 +104,7 @@ homeassistant:
 
 The following are attributes that can be applied in the `customize` section:
 
-- **emulated_hue** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. The default value for this attribute is controlled by the `expose_by_default` option.
+- **emulated_hue_hidden** (*Optional*): Whether or not the entity should be exposed by the emulated Hue bridge. The default value for this attribute is controlled by the `expose_by_default` option.
 - **emulated_hue_name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
 
 ### {% linkable_title Troubleshooting %}
