@@ -14,44 +14,42 @@ ha_iot_class: "Local Polling"
 ha_release: 0.43
 ---
 
-The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network. 
+The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network.
 
-For this to work, you need to install a modified lib-coap library.
+For this to work, you need to install `aiocoap` and `tinydtls`.
 
-<p class='note warning'>
-This component does **not** work on Windows, as the modified lib-coap doesn't exists for Windows.
-</p>
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
-Linux:
+Installation script:
 
 ```bash
-$ sudo apt-get install libtool
-$ sudo apt-get install autoconf
+#!/bin/sh
+# Installs a modified coap client with support for dtls for use with IKEA Tradfri
 
-$ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
-$ cd libcoap
-$ ./autogen.sh
-$ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
-$ make
-$ sudo make install
+# Stop on errors
+set -e
+
+python3 -m pip install cython
+
+cd /usr/src/app/
+mkdir -p build && cd build
+
+git clone --depth 1 https://git.fslab.de/jkonra2m/tinydtls
+cd tinydtls
+autoreconf
+./configure --with-ecc --without-debug
+cd cython
+python3 setup.py install
+
+cd ../..
+git clone https://github.com/chrysn/aiocoap
+cd aiocoap
+git reset --hard 3286f48f0b949901c8b5c04c0719dc54ab63d431
+python3 -m pip install .
 ```
 
-macOS:
-
-```bash
-$ brew install libtool
-$ brew install autoconf
-$ brew install automake
-$ git clone --depth 1 --recursive -b dtls https://github.com/home-assistant/libcoap.git
-$ cd libcoap
-$ ./autogen.sh
-$ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
-$ make
-$ make install
-```
 You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
 
 <p class='note'>
