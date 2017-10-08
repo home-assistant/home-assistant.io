@@ -13,15 +13,19 @@ featured: false
 ---
 
 
-As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
+As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using [Nmap](https://nmap.org). The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
-If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`. 
+If you're on Debian or Ubuntu, you might have to install the packages for `arp` and `nmap`. Do so by running `$ sudo apt-get install net-tools nmap`. On a Fedora host run `$ sudo dnf -y install nmap`.
 
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
-Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used 100 ports, with a host timeout of 5 seconds.
+Host detection is done via Nmap's "fast scan" (`-F`) of the most frequently used
+100 ports, with a host timeout of 5 seconds. Unfortunately Nmap is not the most
+reliable device tracker, as it only scans the network for available devices.
+Modern mobile devices switch the Wifi off when they are not used. As soon as
+this happens, they are not discoverable on the network anymore.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
