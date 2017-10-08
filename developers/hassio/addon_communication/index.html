@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Developing an add-on - Home Assistant</title>
+    <title>Add-On Communication - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Steps on how-to create an add-on for Hass.io.">
+    <meta name="description" content="Describe internal communication Hass.io.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/hassio/addon_development/">
+    <link rel="canonical" href="https://home-assistant.io/developers/hassio/addon_communication/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Developing an add-on">
+    <meta property="og:title" content="Add-On Communication">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/hassio/addon_development/">
+    <meta property="og:url" content="https://home-assistant.io/developers/hassio/addon_communication/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Steps on how-to create an add-on for Hass.io.">
+    <meta property="og:description" content="Describe internal communication Hass.io.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Developing an add-on">
-    <meta name="twitter:description" content="Steps on how-to create an add-on for Hass.io.">
+    <meta name="twitter:title" content="Add-On Communication">
+    <meta name="twitter:description" content="Describe internal communication Hass.io.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,26 +70,24 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Developing an add-on
+      Add-On Communication
     </h1>
   </header>
   <hr class="divider">
-  <p>Add-ons for Hass.io allows the user to extend the functionality around Home Assistant. This can be running an application that Home Assistant can integrate with (like an MQTT broker) or to share the configuration via Samba for easy editing from other computers. Add-ons can be configured via the Hass.io panel in Home Assistant.</p>
-<p>Under the hood, add-ons are Docker images published in <a href="https://hub.docker.com/">Docker Hub</a>. Developers can create <a href="https://github.com">GitHub</a> repositories that contain multiple references to add-ons for easy sharing with the community.</p>
-<ol>
-  <li><a href="/developers/hassio/addon_tutorial/">Tutorial: Making your first add-on</a></li>
-  <li><a href="/developers/hassio/addon_config/">Configuration</a></li>
-  <li><a href="/developers/hassio/addon_communication/">Communication</a></li>
-  <li><a href="/developers/hassio/addon_testing/">Local Testing</a></li>
-  <li><a href="/developers/hassio/addon_publishing/">Publishing</a></li>
-  <li><a href="/developers/hassio/addon_repository/">Repositories</a></li>
-</ol>
+  <p>It exists diferent ways to communication between add-ons or home-assistant inside Home-Assistant.</p>
+<h2><a class="title-link" name="network" href="#network"></a> Network</h2>
+<p>We use a internal network. That allow to speak with every add-on or from Home-Assistant to add-on by name or alias. Only the a add-on they run on Host network are a bit limited. They can speak with all internal add-ons over there name but all other add-on can’t speak with the add-on name to this add-on, but alias work wheel. So use the name/alias to communicate inside Hass.io</p>
+<p>i.e. use <code class="highlighter-rouge">hassio</code> to speak with internal API.</p>
+<h2><a class="title-link" name="home-assistant" href="#home-assistant"></a> Home-Assistant</h2>
+<p>A Add-on can speak to <a href="https://home-assistant.io/developers/rest_api/">Home-Assistant API</a> with our internal proxy. That make it very easy to speak to this API without you need know the password, port or any other information for the Home-Assistant instance. Use this url: <code class="highlighter-rouge">http://hassio/homeassistant/api</code> and they will internal redirected to the right place. As next add <code class="highlighter-rouge">homeassistant_api: true</code> to <code class="highlighter-rouge">config.json</code>.</p>
+<p>It is also possible to speak direct to Home-Assistant instance with name <code class="highlighter-rouge">homeassistant</code> over our internal Network. But you need know the running config.</p>
+<h2><a class="title-link" name="hassio-api" href="#hassio-api"></a> Hass.io API</h2>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/hassio/addon_development.markdown'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/hassio/addon_communication.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -176,7 +174,7 @@
         </ul>
       </li>
       <li>
-        <a class='active' href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
+        <a  href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
         <ul>
           <li><a  href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
           <li><a  href='/developers/hassio/addon_config/'>Configuration </a></li>
