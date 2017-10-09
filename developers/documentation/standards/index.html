@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>CLA Login - Home Assistant</title>
+    <title>Documentation Standards - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="The Home Assistant contributor license agreement (CLA) signature page">
+    <meta name="description" content="Standards for the creation and maintenance of documentation for Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/cla_sign_start/">
+    <link rel="canonical" href="https://home-assistant.io/developers/documentation/standards/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="CLA Login">
+    <meta property="og:title" content="Documentation Standards">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/cla_sign_start/">
+    <meta property="og:url" content="https://home-assistant.io/developers/documentation/standards/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="The Home Assistant contributor license agreement (CLA) signature page">
+    <meta property="og:description" content="Standards for the creation and maintenance of documentation for Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="CLA Login">
-    <meta name="twitter:description" content="The Home Assistant contributor license agreement (CLA) signature page">
+    <meta name="twitter:title" content="Documentation Standards">
+    <meta name="twitter:description" content="Standards for the creation and maintenance of documentation for Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,31 +70,79 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      CLA Login
+      Documentation Standards
     </h1>
   </header>
   <hr class="divider">
-  <p style="text-align: center">Please wait while we begin the signature process...</p>
-<br>
-<div id="spinner"></div>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js" integrity="sha256-PieqE0QdEDMppwXrTzSZQr6tWFX3W5KkyRVyF1zN3eg=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  var spinner = new Spinner().spin(document.getElementById('spinner'));
-  var redirect = window.location.href.match(/\?pr=(.*)/);
-  if(redirect && redirect.length > 0) {
-    localStorage.setItem("pr", redirect[1]);
-  }
-  window.location = "https://github.com/login/oauth/authorize?client_id=44151bab2be25f885aa7&response_type=code&scope=user%3Aemail&redirect_uri=https%3A%2F%2Fhome-assistant.io%2Fdevelopers%2Fcla_sign%2F"
-});
-</script>
+  <p>To ensure that the documentation for Home Assistant is consistent and easy to follow for both novice and expert users, we ask that you follow a very strict set of standards for developing the documentation.</p>
+<h2><a class="title-link" name="general-documentation" href="#general-documentation"></a> General Documentation</h2>
+<ul>
+  <li>The language of the documentation should be American-English.</li>
+  <li>Don’t put two spaces after a period and avoid the “Oxford comma”.</li>
+  <li>Be objective and not gender favoring, polarizing, race related or religion inconsiderate.</li>
+  <li>The case of brand names, services, protocols, components, and platforms must match its respective counterpart. E.g. “Z-Wave” <strong>not</strong> “Zwave”, “Z-wave”, “Z Wave” or “ZWave”. Also, “Input Select” <strong>not</strong> “input select” or “Input select”.</li>
+  <li>All headings should use the <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">linkable_title</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag.</li>
+</ul>
+<h2><a class="title-link" name="component-and-platform-pages" href="#component-and-platform-pages"></a> Component and Platform Pages</h2>
+<ul>
+  <li>The <strong>Configuration Variables</strong> section must use the <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">configuration</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag.</li>
+  <li>Configuration variables must document the requirement status.</li>
+  <li>Configuration variables must document the default value, if any.</li>
+  <li>Configuration variables must document the accepted value types.
+    <ul>
+      <li>Use <code class="highlighter-rouge">[string, int]</code> for configuration variables that accept multiple types.</li>
+    </ul>
+  </li>
+  <li>Use YAML sequence syntax in the sample code if it is supported.</li>
+  <li>All examples should be formatted to be included in <code class="highlighter-rouge">configuration.yaml</code> unless explicitly stated.</li>
+  <li>Component and platform names should be a link to their respective documentation pages.</li>
+</ul>
+<h2><a class="title-link" name="templates" href="#templates"></a> Templates</h2>
+<ul>
+  <li>All examples containing Jinja2 templates should be wrapped <strong>outside</strong> of the code markdown with the <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">raw</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag.</li>
+  <li>Do not use <code class="highlighter-rouge">states.switch.source.state</code> in templates. Instead use <code class="highlighter-rouge">states()</code> and <code class="highlighter-rouge">is_state()</code>.</li>
+  <li>Use double quotes (<code class="highlighter-rouge">"</code>) for:
+    <ul>
+      <li><code class="highlighter-rouge">friendly_name</code></li>
+      <li>Single-line templates:
+        <ul>
+          <li><code class="highlighter-rouge">value_template</code></li>
+          <li><code class="highlighter-rouge">level_template</code></li>
+          <li><code class="highlighter-rouge">icon_template</code></li>
+          <li>Children of <code class="highlighter-rouge">data_template</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Use single quotes (<code class="highlighter-rouge">'</code>) for:
+    <ul>
+      <li>Strings inside of templates:
+        <ul>
+          <li>States</li>
+          <li>Entity IDs</li>
+        </ul>
+      </li>
+      <li><code class="highlighter-rouge">unit_of_measurement</code></li>
+    </ul>
+  </li>
+  <li>No whitespace around pipe character (<code class="highlighter-rouge">|</code>) for Jinja2 filters.</li>
+  <li>Single whitespace after Jinja2 opening delimiters (<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span></code>).</li>
+  <li>Single whitespace before Jinja2 closing delimiters (<code class="highlighter-rouge">}}</code>).</li>
+  <li>Do not quote values for:
+    <ul>
+      <li><code class="highlighter-rouge">device_class</code></li>
+      <li><code class="highlighter-rouge">platform</code></li>
+      <li><code class="highlighter-rouge">condition</code></li>
+      <li><code class="highlighter-rouge">service</code></li>
+    </ul>
+  </li>
+</ul>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/cla_sign_start.html'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/documentation/standards.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -204,7 +252,7 @@ $(document).ready(function(){
       <li>
         <a  href='/developers/documentation/'>Website/Documentation </a>
         <ul>
-          <li><a  href='/developers/documentation/standards/'>Standards </a></li>
+          <li><a class='active' href='/developers/documentation/standards/'>Standards </a></li>
           <li><a  href='/developers/documentation/create_page/'>Create a new page </a></li>
         </ul>
       </li>

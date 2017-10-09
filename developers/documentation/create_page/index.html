@@ -6,22 +6,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>CLA Login - Home Assistant</title>
+    <title>Create a new page - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="The Home Assistant contributor license agreement (CLA) signature page">
+    <meta name="description" content="Create a new page for the documentation">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/developers/cla_sign_start/">
+    <link rel="canonical" href="https://home-assistant.io/developers/documentation/create_page/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="CLA Login">
+    <meta property="og:title" content="Create a new page">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/developers/cla_sign_start/">
+    <meta property="og:url" content="https://home-assistant.io/developers/documentation/create_page/">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="The Home Assistant contributor license agreement (CLA) signature page">
+    <meta property="og:description" content="Create a new page for the documentation">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="CLA Login">
-    <meta name="twitter:description" content="The Home Assistant contributor license agreement (CLA) signature page">
+    <meta name="twitter:title" content="Create a new page">
+    <meta name="twitter:description" content="Create a new page for the documentation">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,31 +70,121 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      CLA Login
+      Create a new page
     </h1>
   </header>
   <hr class="divider">
-  <p style="text-align: center">Please wait while we begin the signature process...</p>
-<br>
-<div id="spinner"></div>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js" integrity="sha256-PieqE0QdEDMppwXrTzSZQr6tWFX3W5KkyRVyF1zN3eg=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  var spinner = new Spinner().spin(document.getElementById('spinner'));
-  var redirect = window.location.href.match(/\?pr=(.*)/);
-  if(redirect && redirect.length > 0) {
-    localStorage.setItem("pr", redirect[1]);
-  }
-  window.location = "https://github.com/login/oauth/authorize?client_id=44151bab2be25f885aa7&response_type=code&scope=user%3Aemail&redirect_uri=https%3A%2F%2Fhome-assistant.io%2Fdevelopers%2Fcla_sign%2F"
-});
-</script>
+  <p>For a platform or component page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">Component overview</a> and the <a href="/cookbook/">Examples section</a> are generated automatically, so there is no need to add a link to those pages.</p>
+<p>Please honor the <a href="/developers/documentation/standards/">Standards</a> we have for the documentation.</p>
+<p>If you start from scratch with a page, you need to add a header. Different sections of the documentation may need different headers.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>---
+layout: page
+title: "Awesome Sensor"
+description: "home-assistant.io web presence"
+date: 2015-06-17 08:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_release: "0.38"
+ha_category: Sensor
+---
+
+Content...Written in markdown. 
+
+### {% linkable_title Linkable Header %}
+...
+</code></pre>
+</div>
+<p>There are <a href="https://jekyllrb.com/docs/variables/">pre-definied variables</a> available but usually, it’s not necessary to use them when writing documentation.</p>
+<p>A couple of points to remember:</p>
+<ul>
+  <li>Document the needed steps to retrieve API keys or access token for the third party service or device if needed.</li>
+  <li>If you’re adding a new component, for the <code class="highlighter-rouge">ha_release</code> part of the header, just increment of the current release. If the current release is 0.37, make <code class="highlighter-rouge">ha_release</code> 0.38. If it’s 0.30 or 0.40 please quote it with <code class="highlighter-rouge">" "</code>.</li>
+  <li><code class="highlighter-rouge">ha_category:</code> is needed to list the platform or component in the appropriate category on the website.</li>
+</ul>
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+<p>Every platform page should contain a configuration sample. This sample must contain only the <strong>required</strong> variables to make it easy to copy and paste it for users into their <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+<p>The <strong>Configuration Variables</strong> section must use the <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">configuration</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endconfiguration</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>
+{% configuration %}
+  api_key:
+    description: The API key to access the service.
+    required: true
+    type: string
+  name:
+    description: Name to use in the frontend.
+    required: false
+    type: string
+{% endconfiguration %}
+
+</code></pre>
+</div>
+<ul>
+  <li><strong><code class="highlighter-rouge">description:</code></strong>: That the variable is about.</li>
+  <li><strong><code class="highlighter-rouge">required:</code></strong>: If the variable is required.
+    <div class="language-text highlighter-rouge"><pre class="highlight"><code>required: true            #=&gt; Required
+required: false           #=&gt; Optional
+required: inclusive       #=&gt; Inclusive
+required: exclusive       #=&gt; Exclusive
+required: any string here #=&gt; Any string here
+</code></pre>
+    </div>
+  </li>
+  <li><strong><code class="highlighter-rouge">type:</code></strong>: The type of the variable. Allowed entries: <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">int</code> or <code class="highlighter-rouge">map</code>. For multiple possibilities use <code class="highlighter-rouge">[string, int]</code>. If you use <code class="highlighter-rouge">map</code> then you need to define <code class="highlighter-rouge">keys:</code> (see the <a href="/components/sensor.template/"><code class="highlighter-rouge">template</code> sensor</a> for an example).</li>
+</ul>
+<h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
+<p>You can use the <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code">default markdown syntax</a> to generate syntax highlighted code. For inline code wrap your code in `.</p>
+<p>When you’re writing code that is to be executed on the terminal, prefix it with <code class="highlighter-rouge">$</code>.</p>
+<h3><a class="title-link" name="templates" href="#templates"></a> Templates</h3>
+<p>For the <a href="/topics/templating/">configuration templating</a> is <a href="http://jinja.pocoo.org/">Jinja</a> used. Check the <a href="/developers/documentation/standards/">Documentation Standards</a> for further details.</p>
+<p>If you are don’t escape templates then they will be rendered and appear blank on the website.</p>
+<h3><a class="title-link" name="html" href="#html"></a> HTML</h3>
+<p>The direct usage of HTML is supported but not recommended. The note boxes are an exception.</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'note warning'</span><span class="nt">&gt;</span>
+  You need to enable telnet on your router. 
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="redirects" href="#redirects"></a> Redirects</h3>
+<p>If you rename or move an existing platform or component, create the redirect. Add the old location of the page to the header of the new one.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>---
+...
+redirect_from: /getting-started/android/
+---
+</code></pre>
+</div>
+<h3><a class="title-link" name="images-icons-and-logos" href="#images-icons-and-logos"></a> Images, icons, and logos</h3>
+<p>The images which are displayed on the pages are stored in various directories according to their purpose. If you want to use a logo and placed <code class="highlighter-rouge">logo:</code> in the file header then this image should be stored in <code class="highlighter-rouge">source/images/supported_brands</code>. The background must be transparent.</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">logos</td>
+      <td style="text-align: left">source/images/supported_brands</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blog</td>
+      <td style="text-align: left">source/images/blog</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">screenshots</td>
+      <td style="text-align: left">source/images/components</td>
+    </tr>
+  </tbody>
+</table>
+<p>Not everything (product, component, etc.) should have a logo. To show something for internal parts of Home Assistant we are using the <a href="https://materialdesignicons.com/">Material Design Icons</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
           <div class="grid">
     <section class="aside-module grid__item one-whole lap-one-half">
-  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/cla_sign_start.html'>Edit this page on GitHub</a></div>
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/documentation/create_page.markdown'>Edit this page on GitHub</a></div>
   <div class='section'>
     <h1 class="title delta">Development Guide</h1>
     <ul class='divided sidebar-menu'>
@@ -205,7 +295,7 @@ $(document).ready(function(){
         <a  href='/developers/documentation/'>Website/Documentation </a>
         <ul>
           <li><a  href='/developers/documentation/standards/'>Standards </a></li>
-          <li><a  href='/developers/documentation/create_page/'>Create a new page </a></li>
+          <li><a class='active' href='/developers/documentation/create_page/'>Create a new page </a></li>
         </ul>
       </li>
       <li><a  href='/developers/helpers/'>Online helpers </a></li>
