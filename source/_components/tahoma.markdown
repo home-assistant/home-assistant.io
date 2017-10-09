@@ -13,9 +13,9 @@ ha_release: 0.41
 ---
 
 
-The `tahoma` component platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds actually covers and the sun sensor from tahoma plattform.
+The `Tahoma` component platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds actually covers and the sun sensor from tahoma plattform.
 
-To use your tahoma devices in your installation, add the following to your `configuration.yaml` file:
+To use your Tahoma devices in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
