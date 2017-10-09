@@ -12,17 +12,18 @@ ha_category: Cover
 ha_release: 0.55
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+
+The `rflink` cover platform supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [rflink hub](/components/rflink/).
+
 After configuring the RFLink hub covers will be automatically discovered and added. Except the Somfy RTS devices.
 
-### {% setting up a Somfy RTS device%}
+### {% linkable_title Setting up a Somfy RTS device %}
 
-You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows Only)
+You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows only).
 
-Press the Learn button on the original Somfy remote
-enter the following code within 3 seconds. Your blinds will go up and down shortly 
+Press the Learn button on the original Somfy remote enter the following code within 3 seconds. Your blinds will go up and down shortly:
 
 ````
 10;RTS;02FFFF;0412;3;PAIR;
@@ -53,7 +54,7 @@ RTS Record: 14 Address: FFFFFF RC: FFFF
 RTS Record: 15 Address: FFFFFF RC: FFFF
 ````
 
-After configuring the RFLink Somfy RTS you have to add the cover to the configuration like any other RFlink device.
+After configuring the RFLink Somfy RTS you have to add the cover to the `configuration.yaml` file like any other RFlink device.
 
 RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`. 
 
@@ -63,16 +64,16 @@ Assigning a name to a cover:
 
 ```yaml
 # Example configuration.yaml entry
-- platform: rflink
-  devices:
-    RTS_0100F2_0:
-      name: SunShade
-    bofumotor_455201_0f:
-      name: Sovrumsgardin
+cover:
+  - platform: rflink
+    devices:
+      RTS_0100F2_0:
+        name: SunShade
+      bofumotor_455201_0f:
+        name: Sovrumsgardin
 ```
 
-
-### Configuration variables:
+Configuration variables:
 
 - **automatic_add** (*Optional*): Automatically add new/unconfigured devices to Home Assistant if detected (default: True).
 - **devices**  (*Optional*): A list of devices with their name to use in the frontend.
@@ -80,7 +81,7 @@ Assigning a name to a cover:
   - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
   - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
 
-### Device configuration variables:
+Device configuration variables:
 
 - **name** (*Optional*): Name for the device, defaults to Rflink ID.
 - **aliases** (*Optional*): Alternative Rflink ID's this device is known by.

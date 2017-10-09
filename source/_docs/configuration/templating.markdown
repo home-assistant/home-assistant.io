@@ -51,7 +51,7 @@ script:
           {% endif %}{% endraw %}
 ```
 
-[Jinja2](http://jinja.pocoo.org/) supports a width variety of operations:
+[Jinja2](http://jinja.pocoo.org/) supports a wide variety of operations:
 
 - [Mathematical operation](http://jinja.pocoo.org/docs/dev/templates/#math)
 - [Comparisons](http://jinja.pocoo.org/docs/dev/templates/#comparisons)
