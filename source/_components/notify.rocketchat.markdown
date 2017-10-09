@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: rocketchat.png
 ha_category: Notifications
-ha_release: 0.55
+ha_release: 0.56
 ---
 
 
-The `Rocket.Chat` platform allows you to send messages to your  [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
+The `rocketchat` platform allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
 
 To add Rocket.Chat to your installation, add the following to your `configuration.yaml` file:
 
