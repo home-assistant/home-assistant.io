@@ -26,7 +26,6 @@ modbus:
   type: tcp
   host: IP_ADDRESS
   port: 2020
-  timeout: 0.5
 ```
 
 Configuration variables:
@@ -34,7 +33,7 @@ Configuration variables:
 - **type** (*Required*): Type of the connection to Modbus.
 - **host** (*Required*): The IP address of your Modbus device, eg. 192.168.1.1.
 - **port** (*Required*): The port for the communication.
-- **timeout** (*Optional*): Timeout for slave response in seconds.
+- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
 
 For a serial connection:
 
@@ -48,7 +47,6 @@ modbus:
   stopbits: 1
   bytesize: 8
   parity: N
-  timeout: 1
 ```
 
 Configuration variables:
@@ -60,7 +58,7 @@ Configuration variables:
 - **stopbits** (*Required*): The stopbits for the serial connection.
 - **bytesize** (*Required*): The bytesize for the serial connection.
 - **parity** (*Required*): The parity for the serial connection.
-- **timeout** (*Optional*): Timeout for slave response in seconds.
+- **timeout** (*Optional*): Timeout for slave response in seconds. (default: 3)
 
 ### {% linkable_title Services %}
 
