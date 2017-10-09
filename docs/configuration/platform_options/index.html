@@ -75,7 +75,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Any component that is based on the entity component allows various extra options to be set per platform.</p>
+  <p>Some components or platforms (those that are based on the <a href="https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/entity.py">entity</a> class) allows various extra options to be set.</p>
 <h3><a class="title-link" name="entity-namespace" href="#entity-namespace"></a> Entity namespace</h3>
 <p>By setting an entity namespace, all entities will be prefixed with that namespace. That way <code class="highlighter-rouge">light.bathroom</code> can become <code class="highlighter-rouge">light.holiday_house_bathroom</code>.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -85,7 +85,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="scan-interval" href="#scan-interval"></a> Scan Interval</h3>
-<p>Platforms that require polling will be polled in an interval specified by the main component. For example a light will check every 30 seconds for a changed state. It is possible to overwrite this scan interval for any platform that is being polled by specifying a <code class="highlighter-rouge">scan_interval</code> config key. In the example below we setup the Philips Hue lights but tell Home Assistant to poll the devices every 10 seconds instead of the default 30 seconds.</p>
+<p>Platforms that require polling will be polled in an interval specified by the main component. For example a light will check every 30 seconds for a changed state. It is possible to overwrite this scan interval for any platform that is being polled by specifying a <code class="highlighter-rouge">scan_interval</code> configuration key. In the example below we setup the Philips Hue lights but tell Home Assistant to poll the devices every 10 seconds instead of the default 30 seconds.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry to poll Hue lights every 10 seconds.</span>
 <span class="s">light</span><span class="pi">:</span>
   <span class="s">platform</span><span class="pi">:</span> <span class="s">hue</span>
