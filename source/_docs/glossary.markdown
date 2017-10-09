@@ -14,7 +14,7 @@ footer: true
 <ul>
 {% for entry in entries %}
   <li>
-      <b>{{ entry.topic }}</b>: {{ entry.description }}
+      <b>{{ entry.topic }}</b>: {{ entry.description | markdownify }}
   </li>
 {% endfor %}
 </ul>
