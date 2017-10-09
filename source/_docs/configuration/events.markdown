@@ -68,11 +68,11 @@ Field | Description
 
 
 ### {% linkable_title Event `platform_discovered` %}
-Event `platform_discovered` is fired when a new platform has been discovered by the discovery component.
+Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/components/discovery/) component.
 
 Field | Description
 ----- | -----------
-`service` | The service that is discovered. Example: `zwave`.
+`service` | The platform that is discovered. Example: `zwave`.
 `discovered` | Dictionary containing discovery information. Example: `{ "host": "192.168.1.10", "port": 8889}`.
 
 
