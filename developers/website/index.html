@@ -129,7 +129,8 @@ Content...Written in markdown.
   <li>The description of all the configuration variables should contains information about the used defaults.</li>
   <li>If you’re adding a new component, for the <code class="highlighter-rouge">ha_release</code> part of the header, just increment of the current release. If the current release is 0.37, make <code class="highlighter-rouge">ha_release</code> 0.38. If it’s 0.30 or 0.40 please quote it with <code class="highlighter-rouge">" "</code>.</li>
 </ul>
-<h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration variables</h3>
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+<p>Every platform page should contain a configuration sample. This sample must contain only the <strong>required</strong> variables to make it easy to copy and paste it for users into their <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 <p>The <strong><em>Configuration Variables</em></strong> section must use the <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">configuration</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endconfiguration</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag.</p>
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>
 {% configuration %}
