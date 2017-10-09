@@ -16,26 +16,23 @@ To ensure that the documentation for Home Assistant is consistent and easy to fo
 * The language of the documentation should be American-English.
 * Don't put two spaces after a period and avoid the "Oxford comma".
 * Be objective and not gender favoring, polarizing, race related or religion inconsiderate.
-* The case of brand names, services, protocols, components, and platforms must match its respective counterpart.
-  * Z-Wave (**not** Zwave, Z-wave, Z Wave or ZWave)
-  * Zigbee (**not** ZigBee)
-  * iCloud (**not** Icloud, icloud or ICloud)
-  * Pushover (**not** PushOver, pushover or push over)
-  * OwnTracks (**not** Owntracks, ownTracks, owntracks or own tracks)
-  * Input Select (**not** input select or Input select)
+* The case of brand names, services, protocols, components, and platforms must match its respective counterpart. E.g. Z-Wave **not** "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, Input Select **not** "input select" or "Input select".
 * All headings should use the {% raw %}`{% linkable_title %}`{% endraw %} tag.
 
 ## {% linkable_title Component and Platform Pages %}
 
-* The ***Configuration Variables*** section must use the {% raw %}`{% configuration %}`{% endraw %} tag.
+* The **Configuration Variables** section must use the {% raw %}`{% configuration %}`{% endraw %} tag.
 * Configuration variables must document the requirement status.
 * Configuration variables must document the default value, if any.
 * Configuration variables must document the accepted value types.
   * Use `[string, int]` for configuration variables that accept multiple types.
 * Use YAML sequence syntax in the sample code if it is supported.
 * All examples should be formatted to be included in `configuration.yaml` unless explicitly stated.
-* All examples containing Jinja2 templates should be wrapped ***outside*** of the code markdown with {% raw %}`{% raw %}`{% endraw %} tag.
 * Component and platform names should be a link to their respective documentation pages.
+
+## {% linkable_title Templates %}
+
+* All examples containing Jinja2 templates should be wrapped **outside** of the code markdown with the {% raw %}`{% raw %}`{% endraw %} tag.
 * Do not use `states.switch.source.state` in templates. Instead use `states()` and `is_state()`.
 * Use double quotes (`"`) for:
   * `friendly_name`
@@ -57,3 +54,4 @@ To ensure that the documentation for Home Assistant is consistent and easy to fo
   * `platform`
   * `condition`
   * `service`
+
