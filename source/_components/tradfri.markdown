@@ -23,9 +23,11 @@ This component does **not** work on Windows, as the modified lib-coap doesn't ex
 
 **NOTE:** If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 
+**NOTE:** Newer versions of tradfri has [async support](https://github.com/ggravlingen/pytradfri/pull/34), which as of [version 2.2.2](https://github.com/ggravlingen/pytradfri/releases/tag/2.2.2) requires installing [tinydtls and aiocoap](https://github.com/ggravlingen/pytradfri#1-installation) from source. Additionally aiocoap itself is in turn [dependent on python >= 3.4.4](https://github.com/chrysn/aiocoap#dependencies)
 
 Linux:
 
+Synchronous [version](https://github.com/ggravlingen/pytradfri/blob/master/script/install-coap-client.sh):
 ```bash
 $ sudo apt-get install libtool
 $ sudo apt-get install autoconf
@@ -36,6 +38,26 @@ $ ./autogen.sh
 $ ./configure --disable-documentation --disable-shared --without-debug CFLAGS="-D COAP_DEBUG_FD=stderr"
 $ make
 $ sudo make install
+```
+Asynchrounous [version](https://github.com/ggravlingen/pytradfri/blob/master/script/install-aiocoap.sh):
+```bash
+# dependencies
+python3 -m pip install --upgrade pip setuptools cython
+
+# tinydtls
+git clone --depth 1 https://git.fslab.de/jkonra2m/tinydtls.git
+cd tinydtls
+autoreconf
+./configure --with-ecc --without-debug
+cd cython
+python3 setup.py install
+
+# aiocoap
+cd ../..
+git clone https://github.com/chrysn/aiocoap
+cd aiocoap
+git reset --hard 3286f48f0b949901c8b5c04c0719dc54ab63d431
+python3 -m pip install .
 ```
 
 macOS:
