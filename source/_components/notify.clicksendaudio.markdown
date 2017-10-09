@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "ClickSend"
+title: "ClickSend text-to-speech"
 description: "Instructions on how to add ClickSend text-to-speech (TTS) notifications to Home Assistant."
-date: 2017-10-04 00:00
+date: 2017-10-09 00:00
 sidebar: true
 comments: false
 sharing: true
