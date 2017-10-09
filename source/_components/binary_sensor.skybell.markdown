@@ -31,4 +31,3 @@ Configuration variables:
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **button**: Return a boolean value when the doorbell button was pressed.
   - **motion**: Return a boolean value when movement was detected by the Skybell doorbell.
-  
