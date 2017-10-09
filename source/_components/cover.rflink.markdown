@@ -18,7 +18,7 @@ First, you have to set up your [rflink hub](/components/rflink/).
 
 After configuring the RFLink hub covers will be automatically discovered and added. Except the Somfy RTS devices.
 
-### {% setting up a Somfy RTS device%}
+### {% linkable_title Setting up a Somfy RTS device %}
 
 You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows only).
 
