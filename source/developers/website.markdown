@@ -75,7 +75,9 @@ A couple of points to remember:
 - The description of all the configuration variables should contains information about the used defaults.
 - If you're adding a new component, for the `ha_release` part of the header, just increment of the current release. If the current release is 0.37, make `ha_release` 0.38. If it's 0.30 or 0.40 please quote it with `" "`.
 
-### {% linkable_title Configuration variables %}
+### {% linkable_title Configuration %}
+
+Every platform page should contain a configuration sample. This sample must contain only the **required** variables to make it easy to copy and paste it for users into their `configuration.yaml` file.
 
 The ***Configuration Variables*** section must use the {% raw %}`{% configuration %} ... {% endconfiguration %}`{% endraw %} tag.
 
