@@ -11,7 +11,7 @@ footer: true
 
 For a platform or component page, the fastest way is to make a copy of an existing page and edit it. The [Component overview](/components/) and the [Examples section](/cookbook/) are generated automatically, so there is no need to add a link to those pages.
 
-Please honor the Standards we have for the documentation.
+Please honor the [Standards](/developers/documentation/standards/) we have for the documentation.
 
 If you start from scratch with a page, you need to add a header. Different sections of the documentation may need different headers.
 
@@ -84,7 +84,7 @@ When you're writing code that is to be executed on the terminal, prefix it with 
 
 ### {% linkable_title Templates %}
 
-For the [configuration templating](/topics/templating/) is [Jinja](http://jinja.pocoo.org/) used. Check the Documentation Standards  for further details.
+For the [configuration templating](/topics/templating/) is [Jinja](http://jinja.pocoo.org/) used. Check the [Documentation Standards](/developers/documentation/standards/) for further details.
 
 If you are don't escape templates then they will be rendered and appear blank on the website.
 
