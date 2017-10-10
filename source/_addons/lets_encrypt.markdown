@@ -36,6 +36,9 @@ Use the following configuration in Home Assistant to use the generated certifica
 
 ```yaml
 http:
+  base_url: https://my-domain.tld:8123
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 ```
+
+If you use a other port as `8123` or a SSL proxy, change the port number.
