@@ -85,9 +85,9 @@
 <h2><a class="title-link" name="configuring-owntracks-to-submit-data-via-http" href="#configuring-owntracks-to-submit-data-via-http"></a> Configuring OwnTracks to submit data via HTTP</h2>
 <p>Open OwnTracks and go to Connection preferences:</p>
 <ul>
-  <li>Mode: Private HTTP</li>
+  <li>Mode: Select <strong>Private HTTP</strong></li>
   <li>Host: [Home Assistant URL]:[port]/api/owntracks/[your name]/[device name]</li>
-  <li>Identification: turn authentication on, username <code class="highlighter-rouge">homeassistant</code> and password is your API password that you use to login to Home Assistant.</li>
+  <li>Identification: Turn <strong>Authentication</strong> on, username <code class="highlighter-rouge">homeassistant</code> and password is your API password that you use to login to Home Assistant.</li>
 </ul>
 <p>Host example: If I host my Home Assistant at <code class="highlighter-rouge">https://example.duckdns.org</code>, my name is Paulus and my phone is a Pixel I would set the host to be <code class="highlighter-rouge">https://example.duckdns.org/api/owntracks/paulus/pixel</code>. This will result in an entity with an ID of <code class="highlighter-rouge">device_tracker.paulus_pixel</code>. You can pick any name for the user and the device.</p>
 </article>
