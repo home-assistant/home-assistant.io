@@ -57,7 +57,7 @@ Configuration variables:
   - **precision** (*Optional*): Number of valid decimals, default 0
   - **data_type** (*Optional*): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int
 
-It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform option](/docs/configuration/platform_options/#scan-interval) documentation.
+It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
 
 ### {% linkable_title Full example %}
 
