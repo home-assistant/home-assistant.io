@@ -86,7 +86,7 @@
 <p>Open OwnTracks and go to Connection preferences:</p>
 <ul>
   <li>Mode: Private HTTP</li>
-  <li>Host: <Home Assistant="" url="">/api/owntracks/<your name="">/<device name=""></device></your></Home></li>
+  <li>Host: [Home Assistant URL]:[port]/api/owntracks/[your name]/[device name]</li>
   <li>Identification: turn authentication on, username <code class="highlighter-rouge">homeassistant</code> and password is your API password that you use to login to Home Assistant.</li>
 </ul>
 <p>Host example: If I host my Home Assistant at <code class="highlighter-rouge">https://example.duckdns.org</code>, my name is Paulus and my phone is a Pixel I would set the host to be <code class="highlighter-rouge">https://example.duckdns.org/api/owntracks/paulus/pixel</code>. This will result in an entity with an ID of <code class="highlighter-rouge">device_tracker.paulus_pixel</code>. You can pick any name for the user and the device.</p>
