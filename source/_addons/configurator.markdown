@@ -39,8 +39,6 @@ Screenshot of the HASS Configurator.
 
 ```json
 {
-  "homeassistant_api": "http://homeassistant:8123/api",
-  "homeassistant_password": "",
   "username": "admin",
   "password": "secret",
   "certfile": "fullchain.pem",
@@ -52,8 +50,6 @@ Screenshot of the HASS Configurator.
 }
 ```
 
-- **homeassistant_api** (*Optional*): The configurator fetches some data from your running Home Assistant instance. If the API is not available through the default URL, modify this variable to fix this.
-- **homeassistant_password** (*Optional*): If you plan on using API functions, you have to set your API password. Calling services of Home Assistant is prohibited without authentication.
 - **username** (*Optional*): Set a username to access your configuration is protected.
 - **password** (*Required*): Set a password for access.
 - **ssl** (*Optional*): Enable or Disable SSL for the editor.
