@@ -96,8 +96,6 @@ Screenshot of the HASS Configurator.
 </ul>
 <h3><a class="title-link" name="add-on-configuration" href="#add-on-configuration"></a> Add-on Configuration</h3>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"homeassistant_api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://homeassistant:8123/api"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"homeassistant_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secret"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"certfile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fullchain.pem"</span><span class="p">,</span><span class="w">
@@ -110,8 +108,6 @@ Screenshot of the HASS Configurator.
 </span></code></pre>
 </div>
 <ul>
-  <li><strong>homeassistant_api</strong> (<em>Optional</em>): The configurator fetches some data from your running Home Assistant instance. If the API is not available through the default URL, modify this variable to fix this.</li>
-  <li><strong>homeassistant_password</strong> (<em>Optional</em>): If you plan on using API functions, you have to set your API password. Calling services of Home Assistant is prohibited without authentication.</li>
   <li><strong>username</strong> (<em>Optional</em>): Set a username to access your configuration is protected.</li>
   <li><strong>password</strong> (<em>Required</em>): Set a password for access.</li>
   <li><strong>ssl</strong> (<em>Optional</em>): Enable or Disable SSL for the editor.</li>
