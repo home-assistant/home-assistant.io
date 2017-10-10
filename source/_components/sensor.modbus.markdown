@@ -57,15 +57,26 @@ Configuration variables:
   - **precision** (*Optional*): Number of valid decimals, default 0
   - **data_type** (*Optional*): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int
 
-**Note:** is possible to change the default 30s scan interval for sersor update as shown in [Platform component](https://home-assistant.io/docs/configuration/platform_options/) documentation.
+It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform option](/docs/configuration/platform_options/#scan-interval) documentation.
 
-Example for 10s scan interval:
+### {% linkable_title Full example %}
+
+Example a tmeperature sensor with a 10 seconds scan interval:
 
 ```yaml
 sensor:
-  platform: modbus
-  scan_interval: 10
+- platform: modbus
+  scan_interval: 5
   registers:
+    - name: Room_1
+      slave: 10
+      register: 0
+      register_type: holding
+      update_interval: 2.5
+      unit_of_measurement: °C
+      count: 1
+      scale: 0.1
+      offset: 0
+      precision: 1
+      data_type: int
 ```
-
-A more complex example can be found in [Issue#9047](https://github.com/home-assistant/home-assistant/issues/9047).
