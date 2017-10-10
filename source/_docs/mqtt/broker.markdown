@@ -51,7 +51,7 @@ mqtt:
 
 ### {% linkable_title Run your own %}
 
-This is the most private option, since unlike the embedded broker it will support TLS (encryption), but requires a bit more work. There are multiple free and open-source brokers to pick from: eg. [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
+Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: eg. [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
 
 ```yaml
 # Example configuration.yaml entry
