@@ -56,3 +56,16 @@ Configuration variables:
   - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0
   - **precision** (*Optional*): Number of valid decimals, default 0
   - **data_type** (*Optional*): Response representation (int, float). If float selected, value will be converted to IEEE 754 floating point format. default int
+
+**Note:** is possible to change the default 30s scan interval for sersor update as shown in [Platform component](https://home-assistant.io/docs/configuration/platform_options/) documentation.
+
+Example for 10s scan interval:
+
+```yaml
+sensor:
+  platform: modbus
+  scan_interval: 10
+  registers:
+```
+
+A more complex example can be found in [Issue#9047](https://github.com/home-assistant/home-assistant/issues/9047).
