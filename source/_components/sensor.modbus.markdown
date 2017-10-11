@@ -61,12 +61,12 @@ It's possible to change the default 30 seconds scan interval for the sensor upda
 
 ### {% linkable_title Full example %}
 
-Example a tmeperature sensor with a 10 seconds scan interval:
+Example a temperature sensor with a 10 seconds scan interval:
 
 ```yaml
 sensor:
 - platform: modbus
-  scan_interval: 5
+  scan_interval: 10
   registers:
     - name: Room_1
       slave: 10
