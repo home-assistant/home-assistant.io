@@ -33,23 +33,32 @@ Configuration variables:
 
 ### {% linkable_title Getting ready for Chrome %}
 
-- Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
-- Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
-- After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
-- Then, click the cogwheel on top left and select "Project settings".
-- Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
+1. Create new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
+2. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain.
+3. After that, go to [https://console.firebase.google.com](https://console.firebase.google.com) and select import Google project, select the project you created.
+4. Then, click the cogwheel on top left and select "Project settings".
+5. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
+
+#### {% linkable_title Verify your domain with Hass.io %}
+
+1. For verifying your domain you need to download a file in step 2.
+2. Create a dictionary named "www" in you Hass.io configuration dictionary.
+3. Place the file (something like this: google*.html) in the "www" directory.
+4. You can open it by going to **https://yourdomain/local/exact_file_name.html**
+5. Proceed with step 3.
 
 ### {% linkable_title Requirements %}
 
 The `html5` platform can only function if all of the following requirements are met:
 (On Hass.io these requirements are already met.)
 
-* You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.
+* You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
 * Your Home Assistant instance is exposed to the world.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
 * `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).
 * You have configured SSL for your Home Assistant. It doesn't need to be configured in Home Assistant though, i.e. you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
 * You are willing to accept the notification permission in your browser.
+
 
 ### {% linkable_title Setting up %}
 
@@ -61,6 +70,7 @@ Assuming you have already added the platform to your configuration:
 4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 5. Assuming you accept, that's all there is to it!
 6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+
 
 ### {% linkable_title Usage %}
 
