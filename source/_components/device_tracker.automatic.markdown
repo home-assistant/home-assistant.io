@@ -51,6 +51,8 @@ automation:
         event_type: automatic_update
         event_data:
           type: "ignition:on"
+          vehicle:
+            id: "C_1234567890abcdefc"
     action:
       - service: light.turn_off
 ```

@@ -39,19 +39,20 @@ Configuration variables:
 4. Then, click the cogwheel on top left and select "Project settings".
 5. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID'.
 
-#### {% linkable_title Verify your domain with HASSIO %}
+#### {% linkable_title Verify your domain with Hass.io %}
 
 1. For verifying your domain you need to download a file in step 2.
-2. Create a dictionary named "www" in you HASSIO configuration dictionary.
+2. Create a dictionary named "www" in you Hass.io configuration dictionary.
 3. Place the file (something like this: google*.html) in the "www" directory.
-4. You can open it by going to <yourdomain/local/<exact_file_name>.html
+4. You can open it by going to **https://yourdomain/local/exact_file_name.html**
 5. Proceed with step 3.
 
 ### {% linkable_title Requirements %}
 
 The `html5` platform can only function if all of the following requirements are met:
+(On Hass.io these requirements are already met.)
 
-* You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.
+* You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
 * Your Home Assistant instance is exposed to the world.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
 * `pywebpush` must be installed. `libffi-dev`, `libpython-dev`, and `libssl-dev` must be installed prior to `pywebpush` (i.e. `pywebpush` probably won't automatically install).

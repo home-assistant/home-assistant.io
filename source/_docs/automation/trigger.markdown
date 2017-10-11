@@ -56,7 +56,7 @@ automation:
 ```
 
 ### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
+On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below a threshold, or from below to above the given threshold.
 
 ```yaml
 automation:

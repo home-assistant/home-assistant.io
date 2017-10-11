@@ -27,8 +27,8 @@ Event `state_changed` is fired when a state changes. Both `old_state` and `new_s
 Field | Description
 ----- | -----------
 `entity_id` | Entity ID of the changed entity. Example: `light.kitchen`
-`old_state` | The previous state of the entity before it changed. This field is ommitted if the entity is new.
-`new_state` | The new state of the entity. This field is ommitted if the entity is removed from the state machine.
+`old_state` | The previous state of the entity before it changed. This field is omitted if the entity is new.
+`new_state` | The new state of the entity. This field is omitted if the entity is removed from the state machine.
 
 
 ### {% linkable_title Event `time_changed` %}
@@ -68,11 +68,11 @@ Field | Description
 
 
 ### {% linkable_title Event `platform_discovered` %}
-Event `platform_discovered` is fired when a new platform has been discovered by the discovery component.
+Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/components/discovery/) component.
 
 Field | Description
 ----- | -----------
-`service` | The service that is discovered. Example: `zwave`.
+`service` | The platform that is discovered. Example: `zwave`.
 `discovered` | Dictionary containing discovery information. Example: `{ "host": "192.168.1.10", "port": 8889}`.
 
 

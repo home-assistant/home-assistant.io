@@ -183,7 +183,7 @@ Sending a heartbeat from the MySensors device to Home Assistant activates the Sm
 
 ### {% linkable_title Message validation %}
 
-Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from home assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
+Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 
 If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` component and the `mysensors` package.
 ```yaml

@@ -25,7 +25,7 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Window/Door sensors
 - Motion sensors
 - Ring Door bells (No hub required)
-- Liquid presense sensors
+- Liquid presence sensors
 - Z-wave lock key codes
 - Lutron connected bulb remote buttons
 - Wink Relay buttons and presence detection

@@ -39,11 +39,11 @@ automation:
   - alias: run_set_ac
     trigger:
       platform: state
-      entity_id: input_slider.ac_temperature
+      entity_id: input_number.ac_temperature
     action:
       service: shell_command.set_ac_to_slider
 
-input_slider:
+input_number:
   ac_temperature:
     name: A/C Setting
     initial: 24
@@ -53,6 +53,6 @@ input_slider:
     
 {% raw %}
 shell_command:
-  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_slider.ac_temperature.state }}_AUTO'
+  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_number.ac_temperature.state }}_AUTO'
 {% endraw %}
 ```

@@ -24,7 +24,7 @@ This guide was added by mf_social on 16/03/2017 and was valid at the time of wri
  * You are not currently running anything on port 80 on your network (you'd know if you were).
  * If you are not using Home Assistant on a Debian/Raspian/Hassbian system you will be able to convert any of the terminology I use in to the correct syntax for your system.
  * You understand that this is a 'guide' covering the general application of these things to the general masses and there are things outside of the scope of it, and it does not cover every eventuality (although I have made some notes where people may stumble). Also, I have used some turns of phrase to make it easier to understand for the novice reader which people of advanced knowledge may say is innacurate.  My goal here is to get you through this guide with a satisfactory outcome and have a decent understanding of what you are doing and why, not to teach you advanced internet communication protocols.
- * Each step presumes you have fully completed the previous step succesfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
+ * Each step presumes you have fully completed the previous step successfully, so if you did an earlier step following a different guide, please ensure that you have not missed anything out that may affect the step you have jumped to, and ensure that you adapt any commands to take in to account different file placements from other guides.
  
 Steps we will take:
  
@@ -358,11 +358,11 @@ If you were previously using a webapp on your phone/tablet to access your Home A
 https://home-assistant.io/docs/frontend/mobile/
 ```
 
-All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely neccesary to the outside world.
+All done? Accessing your Home Assistant from across the world with your DuckDNS URL and a lovely secure logo on your browser? Ace! Now let's clean up our port forwards so that we are only exposing the parts of our network that are absolutely necessary to the outside world.
 
 ### {% linkable_title 6 - Clean up port forwards %}
 
-In step 2 we created a port forwarding rule called `ha_test`. This opens port 8123 to the world, and is no longer neccessary.
+In step 2 we created a port forwarding rule called `ha_test`. This opens port 8123 to the world, and is no longer necessary.
 
 Go to your router's configuration pages and delete the `ha_test` rule.
 
@@ -402,7 +402,7 @@ $ sudo apt-get install ssl-cert-check
 ```
 
 <p class='note'>
-In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from `http://prefetch.net/code/ssl-cert-check` bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if neccessary and so on.
+In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from `http://prefetch.net/code/ssl-cert-check` bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if necessary and so on.
 </p>
 
 To set up a senor add the following to your `configuration.yaml` (remembering to correct the URL for your DuckDNS):
@@ -433,7 +433,7 @@ If you are a TWO-RULE person (from step 6), you can automatically renew your cer
 There are a number of options for automating the renewal process:
  
 #### Option 1:
-Your certificate can be renewed as a 'cron job' - cron jobs are background tasks run by the computer at specified intervals (and are totally independant of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with `crontab` when setting up DuckDNS in step 3
+Your certificate can be renewed as a 'cron job' - cron jobs are background tasks run by the computer at specified intervals (and are totally independent of Home Assistant). Defining cron is outside of the scope of this guide but you will have had dealings with `crontab` when setting up DuckDNS in step 3
  
 To set a cron job to run the script at regular intervals:
  

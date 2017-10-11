@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: openhardwaremonitor.png
-ha_category: Sensor
+ha_category: System Monitor
 ha_release: 0.48
 ha_iot_class: "Local Polling"
 ---
@@ -25,10 +25,16 @@ sensor:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address or hostname of your Open Hardware Monitor.
-- **port** (*Optional*): The port of your Open Hardware Monitor API. Default to 8085.
+{% configuration %}
+  host:
+    description: The IP address or hostname of the system where Open Hardware Monitor is running.
+    required: true
+    type: string
+  port:
+    description: The port of your Open Hardware Monitor API. Defaults to 8085.
+    required: false
+    type: int
+{% endconfiguration %}
 
 <p class='note'>
 OpenHardwareMonitor must be running on the host, with "Remote web server" active.

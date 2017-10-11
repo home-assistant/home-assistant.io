@@ -16,14 +16,14 @@ Newer linux distributions are trending towards using `systemd` for managing daem
 $ ps -p 1 -o comm=
 ```
 
-If the preceding command returns the string `systemd`, you are likely using `systemd`.
+If the preceding command returns the string `systemd`, continue with the instructions below.
 
-If you want Home Assistant to be launched automatically, an extra step is needed to setup `systemd`. A service file is needed to control Home Assistant with `systemd`. The template below should be created using a text editor. Note, root permissions via `sudo` will likely be needed. The following should be noted to modify the template:
+A service file is needed to control Home Assistant with `systemd`. The template below should be created using a text editor. Note, root permissions via `sudo` will likely be needed. The following should be noted to modify the template:
 
 - `ExecStart` contains the path to `hass` and this may vary. Check with `whereis hass` for the location.
-- If running Home Assistant in a Python virtual environment or a Docker container, please skip to section below.
 - For most systems, the file is `/etc/systemd/system/home-assistant@[your user].service` with [your user] replaced by the user account that Home Assistant will run as - normally `homeassistant`.  In particular, this is the case for Ubuntu 16.04. 
 - If unfamiliar with command-line text editors, `sudo nano -w [filename]` can be used with `[filename]` replaced with the full path to the file.  Ex. `sudo nano -w /etc/systemd/system/home-assistant@[your user].service`.  After text entered, press CTRL-X then press Y to save and exit.
+- If you're running Home Assistant in a Python virtual environment or a Docker container, please skip to the appropriate template listed below.
 
 ```
 [Unit]
@@ -77,6 +77,8 @@ ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
 [Install]
 WantedBy=multi-user.target
 ```
+
+### Next Steps
 
 You need to reload `systemd` to make the daemon aware of the new configuration. 
 
