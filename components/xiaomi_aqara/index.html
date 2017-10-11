@@ -141,11 +141,11 @@
   <dl class="">
     <dt><a class="title-link" name="mac" href="#mac"></a> mac</dt>
     <dd>
-      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The MAC of your gateway. <em>Optional if only using one gateway.</em></span></p>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The MAC address of your gateway. <em>Optional if only using one gateway.</em></span></p>
     </dd>
     <dt><a class="title-link" name="key" href="#key"></a> key</dt>
     <dd>
-      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The key of your gateway. <em>Optional if only using sensors and/or binary sensors.</em></span></p>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The key of your gateway. <em>Optional if only using sensors and/or binary sensors.</em></span></p>
     </dd>
     <dt><a class="title-link" name="discovery_retry" href="#discovery_retry"></a> discovery_retry</dt>
     <dd>
@@ -156,6 +156,10 @@
     <dd>
       <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Which network interface to use.</span></p>
       <p class="default">Default value: any</p>
+    </dd>
+    <dt><a class="title-link" name="host" href="#host"></a> host</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The host / ip address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.</span></p>
     </dd>
   </dl>
 </div>
