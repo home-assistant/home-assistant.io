@@ -80,7 +80,7 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logger</span><span class="pi">:</span>
   <span class="s">default</span><span class="pi">:</span> <span class="s">critical</span>
   <span class="s">logs</span><span class="pi">:</span>
-    <span class="s">homeassistant.components.http</span><span class="pi">:</span> <span class="s">warning</span>
+    <span class="s">homeassistant.components.http.ban</span><span class="pi">:</span> <span class="s">warning</span>
 </code></pre>
 </div>
 <p>Next we will be creating these three files :</p>
@@ -99,12 +99,9 @@ logtarget = SYSLOG
 before = common.conf
 
 [Definition]
-failregex = ^%(__prefix_line)s.*Login attempt or request with an invalid password from &lt;HOST&gt;.*$
+failregex = ^%(__prefix_line)s.*Login attempt or request with invalid authentication from &lt;HOST&gt;.*$
 
 ignoreregex =
-
-[Init]
-datepattern = ^%%y-%%m-%%d %%H:%%M:%%S
 </code></pre>
 </div>
 <p>Contents of <code class="highlighter-rouge">/etc/fail2ban/jail.local</code> (Note that you’ll need to change the <code class="highlighter-rouge">logpath</code> to match your logfile which will be different from the path listed.):</p>
@@ -112,7 +109,7 @@ datepattern = ^%%y-%%m-%%d %%H:%%M:%%S
 enabled = true
 filter = hass
 action = iptables-allports[name=HASS]
-logpath = /opt/hass-prod-cfg/home-assistant.log
+logpath = /home/homeassistant/.homeassistant/home-assistant.log
 maxretry = 5
 </code></pre>
 </div>

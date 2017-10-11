@@ -95,10 +95,12 @@ This add-on need port 80/443 to verify the certificate request, please stop all 
 <h2><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h2>
 <p>Use the following configuration in Home Assistant to use the generated certificate:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
+  <span class="s">base_url</span><span class="pi">:</span> <span class="s">https://my-domain.tld:8123</span>
   <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/ssl/fullchain.pem</span>
   <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/ssl/privkey.pem</span>
 </code></pre>
 </div>
+<p>If you use a other port as <code class="highlighter-rouge">8123</code> or a SSL proxy, change the port number.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
