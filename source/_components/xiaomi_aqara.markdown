@@ -88,12 +88,12 @@ xiaomi_aqara:
 
 {% configuration %}
   mac:
-    description: The MAC of your gateway. *Optional if only using one gateway.*
-    required: true
+    description: The MAC address of your gateway. *Optional if only using one gateway.*
+    required: false
     type: string
   key:
     description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
-    required: true
+    required: false
     type: string
   discovery_retry:
     description: Number of times that Home Assistant should try to reconnect to the gateway.
@@ -105,6 +105,10 @@ xiaomi_aqara:
     required: false
     type: string
     default: any
+  host:
+    description: The host / ip address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
+    required: false
+    type: string    
 {% endconfiguration %}
 
 ### {% linkable_title Services %}
