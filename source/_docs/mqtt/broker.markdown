@@ -19,12 +19,13 @@ Home Assistant contains an embedded MQTT broker. If no broker configuration is g
 
 | Setting        | Value |
 | -------------- | ----- |
-| Host           | localhost
-| Port           | 1883
-| Protocol       | 3.1.1
-| User           | homeassistant
-| Password       | Your API [password](/components/http/)
-| Websocket port | 8080
+| Host           | localhost |
+| Port           | 1883 |
+| Protocol       | 3.1.1 |
+| User           | homeassistant |
+| Password       | Your API [password](/components/http/) |
+| Websocket port | 8080 |
+
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,8 +60,6 @@ mqtt:
   broker: 192.168.1.100
 ```
 
-Configuration variables:
-
 {% configuration %}
 broker:
   required: false
@@ -88,7 +87,7 @@ password:
   type: string
 protocol:
   required: false
-  description: Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1.
+  description: "Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1."
   type: string
 certificate:
   required: false
@@ -100,7 +99,7 @@ tls_insecure:
   type: boolean
 tls_version:
   required: false
-  description: TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`.
+  description: "TLS/SSL protocol version to use. Available options are: `auto`, `1.0`, `1.1`, `1.2`. Defaults to `auto`."
   type: string
 {% endconfiguration %}
 
