@@ -24,9 +24,11 @@ Install the command-line tool using pip (or you can choose to download it manual
 
 ```bash
 $ pip3 install git+https://github.com/vkorn/pyvizio.git@master
+```
+or
+```bash
 $ pip3 install -I .
 ```
-
 Make sure that your TV is on before continuing.
 
 If you don't know IP address of your TV run following command:
