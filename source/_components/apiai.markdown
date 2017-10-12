@@ -17,7 +17,7 @@ This component is designed to be used with the "webhook" integration in [dialogf
 
 Dialogflow requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. Dialogflow will return fallback answers if your server does not answer, or takes too long (more than 5 seconds).
 
-Dialogflow could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. [See here](https://dialogflow.com/docs/integrations/) the complete list.
+Dialogflow could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. See the complete list [here](https://dialogflow.com/docs/integrations/).
 
 Using Dialogflow will be easy to create conversations like:
 
