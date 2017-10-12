@@ -13,7 +13,7 @@ If you would like to use your own [State card](/developers/frontend_add_card/) w
 
 Put the element source file and its dependencies in `www/custom_ui/` directory under your Home Assistant [configuration](/docs/configuration/) directory.
 
-For example if creating a state card for the `light` domain named `state-card-my-custom-light` put `state-card-my-custom-light` in `www/custom_ui/`.
+For example if creating a state card for the `light` domain named `state-card-my-custom-light` put `state-card-my-custom-light.html` in `www/custom_ui/`.
 
 That file should implement `<state-card-my-custom-light>` tag with Polymer.
 
