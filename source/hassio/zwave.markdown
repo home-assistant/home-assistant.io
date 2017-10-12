@@ -26,6 +26,13 @@ So you need explicit set this device for mapping to Home-Assistant. Execute this
 ```bash
 $ curl -d '{"devices": ["ttyAMA0"]}' http://hassio/homeassistant/options
 ```
+<p class='note'>
+  if you have set dns localname "hassio.example.local" or "hassio" is resolving to a local address use the below command instead :
+ ```bash
+$ curl -d ‘{“devices”: [“ttyAMA0”]}’ http://172.17.0.2/homeassistant/options
+```
+</p>
+
 After that, you need change `usb_path` to `/dev/ttyAMA0`.
 
 ### HUSBZB-1:
