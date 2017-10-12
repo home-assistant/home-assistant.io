@@ -94,8 +94,7 @@ When using `wait_template` within an automation `trigger.entity_id` is supported
 
 {% raw %}
 ```yaml
-# Important: Note the whitespace before and after `trigger.entity_id`.
-wait_template: "{{ is_state( trigger.entity_id , 'on') }}"
+wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
 ```
 {% endraw %}
 
@@ -109,8 +108,7 @@ data_template:
   dummy: "{{ input_boolean.switch }}"
 
 # Inside the script
-# Important: Note the whitespace before and after `dummy`.
-wait_template: "{{ is_state( dummy , 'off') }}"
+wait_template: "{{ is_state(dummy, 'off') }}"
 ```
 {% endraw %}
 
