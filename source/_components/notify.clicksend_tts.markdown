@@ -13,7 +13,7 @@ ha_release: 0.55
 ---
 
 
-The `clicksendtts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
+The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
 
 Go to your [ClickSend Dashboard](https://dashboard.clicksend.com) section and create your new project. After creating your project, you should now be able to obtain your `username` and `api_key`.
 
@@ -21,7 +21,7 @@ To add ClickSend text-to-speech to your installation, add the following to your 
 
 ```yaml
 notify:
-  - platform: clicksendtts
+  - platform: clicksend_tts
     name: ClickSend
     username: CLICKSEND_USERNAME
     api_key: CLICKSEND_API_KEY
