@@ -10,6 +10,7 @@ footer: true
 logo: namecheap.png
 ha_category: Utility
 featured: false
+ha_release: 0.56
 ---
 
 With the namecheapDNS component you can automatically update your dynamic DNS entry.
@@ -28,7 +29,7 @@ namecheapdns:
   access_token: 0123_Dynamic_DNS_Password
 ```
 
-{% configuration binary_sensor.template %}
+{% configuration %}
   host:
     description: The host part or "subdomain" part you want to update (If you want your domain leave the @ sign)
     required: true
