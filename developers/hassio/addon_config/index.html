@@ -302,7 +302,7 @@ CMD [ "/run.sh" ]
   </tbody>
 </table>
 <h3><a class="title-link" name="options--schema" href="#options--schema"></a> Options / Schema</h3>
-<p>The <code class="highlighter-rouge">options</code> dictionary contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start. Only non-nested arrays and dictionaries are supported.</p>
+<p>The <code class="highlighter-rouge">options</code> dictionary contains all available options and their default value. Set the default value to <code class="highlighter-rouge">null</code> if the value is required to be given by the user before the add-on can start, and it show it inside default values. Only nested arrays and dictionaries are supported with a deep of two size. If you want make a option optional, put <code class="highlighter-rouge">?</code> to the end of data type, otherwise it will be a required value.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom things"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -325,7 +325,8 @@ CMD [ "/run.sh" ]
   </span><span class="nt">"random"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"match(^\w*$)"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int(5,20)"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"not_need"</span><span class="p">:</span><span class="w"> </span><span class="s2">"str?"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
