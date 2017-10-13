@@ -131,7 +131,7 @@ The config for an add-on is stored in `config.json`.
 
 ### {% linkable_title Options / Schema %}
 
-The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start. Only non-nested arrays and dictionaries are supported.
+The `options` dictionary contains all available options and their default value. Set the default value to `null` if the value is required to be given by the user before the add-on can start. Only nested arrays and dictionaries are supported with a deep of two size. If you want make a option optional, put `?` to the end of data type.
 
 ```json
 {
@@ -158,7 +158,8 @@ The `schema` looks like `options` but describes how we should validate the user 
   "random": ["match(^\w*$)"],
   "link": "url",
   "size": "int(5,20)",
-  "count": "float"
+  "count": "float",
+  "not_need": "str?"
 }
 ```
 
