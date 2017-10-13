@@ -46,5 +46,5 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own) add the follow
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  broker: core-mqtt
+  broker: core-mosquitto
 ```
