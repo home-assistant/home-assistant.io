@@ -39,12 +39,7 @@ Example entry in dev-service, setting binary reports for an Aeotec Multisensor 6
 
 ## {% linkable_title Locks and other secure devices %}
 
-These devices require a network key to be set for the Z-Wave network before they are paired. This key is set in OpenZWave's `options.xml` which is located in OpenZWave's directory. This should also be the same directory as `config_path:` in your `configuration.yaml`. If it's not, make sure you have the same values in all the files you are using.
-The option is commented out by default in `options.xml` and is a default key. Make your own unique key. The key is in Hexadecimals.
-It is best to pair these devices in OpenZWave Control Panel or another Z-Wave tool that can show you logs while pairing. Home Assistant stores logs from Z-Wave in `OZW.log` in the Home Assistant config directory.
-You should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired successfully with a secure connection. If you use OpenZWave Control Panel to pair, test the device before you save the configuration.
-Make sure you copy the newly saved `zwcfg_[home_id].xml`into your Home Assistant configuration directory.
-
+All locks and some security sensors require a network key to be set for the Z-Wave network before they are paired. See [Adding Security Devices](/docs/z-wave/#adding-security-devices) for details on how to include this key in `configuration.yaml`. After the network key is set up, make sure to use 'Add Node Secure' on the Z-Wave Configuration page when including the device into the Z-Wave network.
 
 ##### {% linkable_title Aeon Minimote %}
 
