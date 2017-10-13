@@ -168,6 +168,7 @@ and stops the sound when the button is pressed once.
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
 - Make sure you have [enabled LAN access](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832).
 - Turn off the firewall on the system where Home Assistant is running.
+- Ensure your router supports multicast as this is a requirement of the Xiaomi GW
 - Try to leave the MAC address `mac:` blank.
 - Try to set `discovery_retry: 10`.
 - Try to disable and then enable LAN access.
