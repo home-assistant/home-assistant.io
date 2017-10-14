@@ -10,6 +10,7 @@ footer: true
 logo: clicksend.png
 ha_category: Notifications
 ha_release: 0.55
+redirect_from: /components/notify.clicksendaudio/
 ---
 
 
