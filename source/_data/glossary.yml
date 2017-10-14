@@ -14,4 +14,6 @@
   description: "Often used abbreviation for Home Assistant."
 - topic: Discovery
   description: The automatic setup of zeroconf/mDNS and uPnP devices after they are discovered.
+  -topic: ifttt
+  description if this then that 
 
