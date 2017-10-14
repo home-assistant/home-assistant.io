@@ -12,7 +12,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.56
 ---
 
-The `http_rgb` light platform lets you control lights that use a simple [HTTP API protocol](https://github.com/robhowlett/http_rgb/README.md).
+The `http_rgb` light platform lets you control lights that use a simple [HTTP API protocol](https://github.com/robhowlett/http_rgb/blob/master/README.md#protocol).
 
 To enable `http_rgb` in your installation, add the following to your `configuration.yaml` file:
 
