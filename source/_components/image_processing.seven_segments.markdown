@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Seven segments display"
-description: "Instructions how to use OCR for seven segemnts displays into Home Assistant."
+description: "Instructions how to use OCR for seven segments displays into Home Assistant."
 date: 2017-05-18 08:00
 sidebar: true
 comments: false
@@ -18,7 +18,7 @@ ha_iot_class: "Local Polling"
 The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/components/camera/).
 
 <p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
 `ssocr` needs to be available on your system. Check the installation instruction below:
@@ -34,7 +34,7 @@ $ sudo make PREFIX=/usr install # On most systems
 $ make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
 ```
 
-To enable the OCR of a seven segement display in your installation, add the following to your `configuration.yaml` file:
+To enable the OCR of a seven segment display in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,7 +98,7 @@ sensor:
   - platform: template
     sensors:
       power_meter:
-        value_template: '{{ states.image_processing.sevensegement_ocr_seven_segments.state }}'
+        value_template: '{{ states.image_processing.sevensegment_ocr_seven_segments.state }}'
         friendly_name: 'Ampere'
         unit_of_measurement: 'A'
 ```

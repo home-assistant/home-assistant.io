@@ -202,11 +202,11 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 #### {% linkable_title GET /api/history/period/&lt;timestamp> %}
 Returns an array of state changes in the past. Each object contains further details for the entities.
 
-The `<timestamp>` is optional and defaults to 1 day before the time of the request. It determines the beginning of the period.
+The `<timestamp>` (`YYYY-MM-DDThh:mm:ssTZD`) is optional and defaults to 1 day before the time of the request. It determines the beginning of the period.
 
 You can pass the following optional GET parameters:
   - `filter_entity_id=<entity_id>` to filter on a single entity
-  - `end_time=<timestamp>` to choose the end of the period (defaults to 1 day)
+  - `end_time=<timestamp>` to choose the end of the period in URL encoded format (defaults to 1 day).
 
 ```json
 [
@@ -227,8 +227,8 @@ You can pass the following optional GET parameters:
                 "unit_of_measurement": "\u00b0C"
             },
             "entity_id": "sensor.weather_temperature",
-            "last_changed": "2016-02-06T22:15:00+00:00"",
-            "last_updated": "2016-02-06T22:15:00+00:00"",
+            "last_changed": "2016-02-06T22:15:00+00:00",
+            "last_updated": "2016-02-06T22:15:00+00:00",
             "state": "-1.9"
         },
     ]
@@ -247,6 +247,12 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
        -H "Content-Type: application/json" \
        http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00?filter_entity_id=sensor.temperature
+```
+
+```bash
+$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+       -H "Content-Type: application/json" \
+       http://localhost:8123/api/history/period/2016-12-29T00:00:00+02:00?end_time=2016-12-31T00%3A00%3A00%2B02%3A00
 ```
 
 #### {% linkable_title GET /api/states %}

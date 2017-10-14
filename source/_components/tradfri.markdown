@@ -22,7 +22,7 @@ For this to work, you need to install a modified lib-coap library.
 This component does **not** work on Windows, as the modified lib-coap doesn't exists for Windows.
 </p>
 <p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fullfilled.
+If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
 Linux:
@@ -55,7 +55,7 @@ $ make install
 You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
 
 <p class='note'>
-If you see an "Unable to connect" message, restart the gateway and try again.
+If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP to your Trådfri gateway.
 </p>
 
 The gateway can also be manually configured by adding the following lines to your `configuration.yaml` file:
@@ -71,4 +71,4 @@ Configuration variables:
 
  - **host** (*Required*): The IP address or hostname of your Trådfri gateway.
  - **api_key** (*Required*): Can be found listed as Security Key on the back of the Trådfri gateway.
- - **allow_tradfri_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Tradfri bridge.
+ - **allow_tradfri_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Trådfri bridge.

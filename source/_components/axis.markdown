@@ -20,7 +20,7 @@ Home Assistant will automatically discover their presence on your network.
 ## {% linkable_title Dependencies %}
 
 ```bash
-$ sudo apt-get install python3-gi gir1.2-gstreamer-1.0
+$ sudo apt-get install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools python3-gi
 ```
 
 Depending on how you run Home Assistant, you may need to symlink the `gi` module into your environment.
@@ -36,6 +36,16 @@ Raspberry Pi All-In-One Installer:
 ```bash
 $ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
 ```
+
+[Virtualenv](https://home-assistant.io/docs/installation/virtualenv/) installation:
+
+```bash
+$ ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.5/site-packages
+```
+
+<p class='note'>
+  Adjust "python3.5" in command above to match your version as stored in "/srv/homeassistant/lib/pythonX.X"
+</p>
 
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
@@ -57,7 +67,7 @@ Configuration variables:
 - **username** (*Optional*): The username to your Axis device. Default 'root'.
 - **password** (*Optional*): The password to your Axis device. Default 'pass'.
 - **trigger_time** (*Optional*): Minimum time (in seconds) a sensor should keep its positive value. Default 0.
-- **http_port** (*Optional*): Configure port web server of device is accessible from. Default 80.
+- **port** (*Optional*): Configure port web server of device is accessible from. Default 80.
 - **location** (*Optional*): Physical location of your Axis device. Default not set.
 - **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
   - **camera**: Stream MJPEG video to Home Assistant.

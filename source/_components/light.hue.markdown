@@ -16,11 +16,11 @@ ha_release: pre 0.7
 
 Philips Hue support is integrated into Home Assistant as a light platform. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).
 
-Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the entities list ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue hub in home assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
+Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the entities list ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue hub in Home Assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the IP Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with Home Assistant again. To avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.
 
-Restarting Home Assistant once more should result in the Hue lights listed as "light" entities. Add these light entities to configuration.yaml and restart home assistant once more to complete the installation.
+Restarting Home Assistant once more should result in the Hue lights listed as "light" entities. Add these light entities to configuration.yaml and restart Home Assistant once more to complete the installation.
 
 If you want to enable the component without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
 
@@ -58,9 +58,9 @@ light:
 
 ### {% linkable_title Using Hue Groups in Home Assistant %}
 
-The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be usefull to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaniously.
+The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be useful to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaneously.
 
-These Hue Groups can be a `Luminaire`, `Lightsource`, `LightGroup` or `Room`. The `Luminaire` and `Lightsource` can't be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The `Room` and `LightGroup` can be created manually through the API, or the mobile app. A bulb can only exist in one `Room`, but can exist in multiple `LightGroup`. The `LightGroup` can be usefull to link certain bulbs together since.
+These Hue Groups can be a `Luminaire`, `Lightsource`, `LightGroup` or `Room`. The `Luminaire` and `Lightsource` can't be created manually since the Hue bridge manages these automatically based on the discovered bulbs. The `Room` and `LightGroup` can be created manually through the API, or the mobile app. A bulb can only exist in one `Room`, but can exist in multiple `LightGroup`. The `LightGroup` can be useful to link certain bulbs together since.
 
 The 2nd generation Hue app only allows to create a `Room`. You need to use the first generation app or the API to create a `LightGroup`.
 
@@ -129,4 +129,4 @@ The Hue API doesn't activate scenes directly, only on a Hue Group (typically roo
 
 Neither group names or scene names are guaranteed unique in Hue. If you are getting non deterministic behavior, adjust your Hue scenes via the App to be more identifying.
 
-The Hue hub has limitted spaces for scenes, and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on "Least Recently Used".
+The Hue hub has limited spaces for scenes, and will delete scenes if new ones get created that would overflow that space. The API docs say this is based on "Least Recently Used".

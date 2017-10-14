@@ -45,6 +45,7 @@ sensor:
     latitude: 42.81212
     longitude: 108.12422
     radius: 500
+    show_on_map: false
 ```
 
 Configuration variables:
@@ -58,6 +59,8 @@ defined under the `homeassistant` key in `configuration.yaml` will be used
 defined under the `homeassistant` key in `configuration.yaml` will be used
 - **radius** (*Optional*): the radius (in meters) around the latitude/longitude to
 search for the nearest city; defaults to `1000`
+- **show_on_map** (*Optional*): whether to show a marker on the map at the specified
+location; defaults to `true`
 
 ## {% linkable_title Configuring the Platform via City/State/Country %}
 
@@ -74,6 +77,7 @@ sensor:
     city: southend-on-sea
     state: essex
     country: uk
+    show_on_map: false
 ```
 
 Configuration variables:
@@ -84,6 +88,8 @@ Configuration variables:
 - **city** (*Optional*): the city to monitor
 - **state** (*Optional*): the state/region to monitor
 - **country** (*Optional*): the country to monitor
+- **show_on_map** (*Optional*): whether to show a marker on the map at the specified
+location; defaults to `true`
 
 To easily determine the proper values for a particular location, use the
 [AirVisual region directory](https://airvisual.com/world). Once you browse to the particular city you want,
@@ -132,7 +138,7 @@ AQI | Status | Description
 201 - 300 | **Very unhealthy** | Health warnings of emergency conditions. The entire population is more likely to be affected
 301+ | **Hazardous** | Health alert: everyone may experience more serious health effects
 
-### Air Polution Level
+### Air Pollution Level
 
 **Description:** This sensor displays the associated `Status` (from the above
 table) for the current AQI.

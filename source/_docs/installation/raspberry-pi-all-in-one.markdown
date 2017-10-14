@@ -13,7 +13,7 @@ The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric
 The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
 
 <p class='note'>
-Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images. Adding an empty file called `ssh` to `/boot/` or the FAT32 partition will enable it. More information is on the Raspberry Pi Foundation [Blog](https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel).
+Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images. Adding an empty file called `ssh` to `/boot/` on the FAT32 partition will enable it. More information is on the Raspberry Pi Foundation [Blog](https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel).
 </p>
 
 Irrespective of whether you use SSH to connect to the Pi from another computer or not, you need SSH to install Home Assistant. So go ahead and enable SSH.
@@ -62,7 +62,7 @@ To upgrade the All-In-One setup manually:
 
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to homeassistant user `sudo su -s /bin/bash homeassistant`
-*  Change to virtual enviroment `source /srv/homeassistant/homeassistant_venv/bin/activate`
+*  Change to virtual environment `source /srv/homeassistant/homeassistant_venv/bin/activate`
 *  Update Home Assistant `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
 
@@ -70,7 +70,7 @@ To upgrade the All-In-One setup manually:
 **If you deployed Home Assistant via the AiO installer prior to December 2016**
 *  Login to Raspberry Pi `ssh pi@your_raspberry_pi_ip`
 *  Change to homeassistant user `sudo su -s /bin/bash hass`
-*  Change to virtual enviroment `source /srv/hass/hass_venv/bin/activate`
+*  Change to virtual environment `source /srv/hass/hass_venv/bin/activate`
 *  Update Home Assistant `pip3 install --upgrade homeassistant`
 *  Type `exit` to logout the hass user and return to the `pi` user.
 </div>

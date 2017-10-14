@@ -14,9 +14,10 @@ featured: false
 ---
 
 
-The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](http://www.homematic.com/) component provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.  
+If you are using Homegear with paired [Intertechno](http://intertechno.at/) devices, uni-directional communication is possible as well.
 
-Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010.
+Device support is available for most of the wired and wireless devices, as well as a few IP devices. If you have a setup with mixed protocols, you have to configure additional hosts with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`.
 
 If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g. HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
@@ -35,14 +36,13 @@ homematic:
 Configuration variables (global):
 
 - **hosts** (*Required*): Configuration for each host to integrate into Home Assistant.
-- **local_ip** (*Optional*): IP of device running Home Assistant. Override autodetected value for exotic network setups.
+- **local_ip** (*Optional*): IP of device running Home Assistant. Override auto-detected value for exotic network setups.
 - **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
-- **delay** (*Optional*): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.
 
 Configuration variables (host):
 
 - **ip** (*Required*): IP address of CCU/Homegear device.
-- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Default is 2001, use 2000 for wired and 2010 for IP.
+- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292.
 - **callback_ip** (*Optional*): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
 - **callback_port** (*Optional*): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
 - **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
@@ -50,12 +50,12 @@ Configuration variables (host):
 - **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
 - **primary** (*Optional*): Set to `true` when using multiple hosts and this host should provide the services and variables.
 - **variables** (*Optional*): Set to `true` if you want to use CCU2/Homegear variables. Should only be enabled for the primary host. When using a CCU credentials are required.
+- **path** (*Optional*): Set to `/groups` when using port 9292.
 
 #### Example configuration with multiple protocols and some other options set:
 
 ```yaml
 homematic:
-  delay: 1.0
   hosts:
     rf:
       ip: 127.0.0.1
@@ -73,6 +73,13 @@ homematic:
     ip:
       ip: 127.0.0.1
       port: 2010
+    groups:
+      ip: 127.0.0.1
+      port: 9292
+      resolvenames: json
+      username: Admin
+      password: secret
+      path: /groups
 ```
 
 ### {% linkable_title The `resolvenames` option %}
@@ -89,7 +96,7 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 
 In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
-This does *not* affect the entites in Home Assistant. They all use their own connection and work as expected.
+This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
 ### {% linkable_title Reading attributes of entities %}
 

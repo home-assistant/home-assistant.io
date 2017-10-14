@@ -78,9 +78,9 @@ sensor:
 The pycrypto library needs to be available on your platform. On a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed first.
 </p>
 
-The quickest way around this is to use a pre-built binary, e.g. from https://github.com/sfbahr/PyCrypto-Wheels
+The quickest way around this is to use a pre-built binary, e.g. from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
 
-Be sure to get the correct 64 or 32-bit binary for your system, the full commandline will look something like the sample below for a 64-bit system:
+Be sure to get the correct 64 or 32-bit binary for your system, the full command line will look something like the sample below for a 64-bit system:
 
 ```bash
 pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCrypto-Wheels/raw/master/pycrypto-2.6.1-cp35-none-win_amd64.whl pycrypto

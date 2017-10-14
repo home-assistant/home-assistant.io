@@ -34,7 +34,7 @@ Configuration variables:
   - **lines** (*Optional*): One or more line numbers, e.g. 'U2' or ['U2','U8','N41']
   - **products** (*Optional*): One or more modes of transport, defaults to all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']. 
   - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
-  - **name** (*Optional*): You can customise the name of the sensor, which defaults to the station name.
+  - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.
 ## {% linkable_title Examples %}
 
 ### {% linkable_title Full configuration %}

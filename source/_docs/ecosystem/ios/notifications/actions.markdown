@@ -50,7 +50,7 @@ When sending a notification:
 ## {% linkable_title Category parameters %}
 
 - **name** (*Required*): A friendly name for this category.
-- **identifier** (*Required*): A unique identifier for the category. Must be uppercase and have no special characters or spaces.
+- **identifier** (*Required*): A unique identifier for the category. Must be lowercase and have no special characters or spaces.
 - **action** (*Required*): A list of actions.
 
 ## {% linkable_title Action parameters %}
@@ -71,7 +71,7 @@ ios:
   push:
     categories:
       - name: Alarm
-        identifier: 'ALARM'
+        identifier: 'alarm'
         actions:
           - identifier: 'SOUND_ALARM'
             title: 'Sound Alarm'
@@ -105,7 +105,7 @@ automation:
           push:
             badge: 5
             sound: <SOUND FILE HERE>
-            category: "ALARM" # Needs to match the top level identifier you used in the ios configuration
+            category: "alarm" # Needs to match the top level identifier you used in the ios configuration
           action_data: # Anything passed in action_data will get echoed back to Home Assistant.
             entity_id: light.test
             my_custom_data: foo_bar

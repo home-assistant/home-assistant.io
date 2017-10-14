@@ -25,5 +25,9 @@ All information about how the seasons work was taken from Wikipedia:
 # Example configuration.yaml entry
 sensor:
   - platform: season
-    type: astronomical (optional, will default to astronomical)
+    type: astronomical
 ```
+
+Configuration variables:
+
+- **type** (*Optional*): Type of season definition. Options are `meteorological` or `astronomical`. Default is `astronomical`.

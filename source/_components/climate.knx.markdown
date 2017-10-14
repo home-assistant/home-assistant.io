@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX Climate"
-description: "Instructions on how to integrate KXN thermostats with Home Assistant."
+description: "Instructions on how to integrate KNX thermostats with Home Assistant."
 date: 2016-06-24 12:00
 sidebar: true
 comments: false
@@ -56,7 +56,7 @@ climate:
 * **controller_status_state_address** (*Optional*) Explicit KNX address for reading HVAC controller status
 
 * **operation_mode_frost_protection_address** (*Optional*) KNX address for switching on/off frost/heat protection mode.
-* **operation_mode_night_address** (*Optional*) KNX address for switching on/off night nmode.
+* **operation_mode_night_address** (*Optional*) KNX address for switching on/off night mode.
 * **operation_mode_comfort_address** (*Optional*) KNX address for switching on/off comfort mode.
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` was specified.

@@ -25,7 +25,7 @@ binary_sensor:
   automatic_add: True
 ```
 
-Open your local home-assistant web UI and go to the "states" page. Then make sure to trigger your sensor. You should see a new entity appear in the *Current entites* list, starting with "binary_sensor." and some hexadecimal digits. Those hexadecimal digits are your device id.
+Open your local home-assistant web UI and go to the "states" page. Then make sure to trigger your sensor. You should see a new entity appear in the *Current entities* list, starting with "binary_sensor." and some hexadecimal digits. Those hexadecimal digits are your device id.
 
 For example: "binary_sensor.0913000022670e013b70". Here your device id is `0913000022670e013b70`. Then you should update your configuration to:
 
@@ -70,7 +70,7 @@ binary_sensor:
 
 ## Options for PT-2262 devices under the Lighting4 protocol
 
-When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For sur cases, the following options are available in order to circumvent the problem:
+When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the fields lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:
 
 - **data_bits** (*Optional*): Defines how many bits are used for commands inside the data packets sent by the device.
 - **command_on** (*Optional*): Defines the data bits value that is sent by the device upon an 'On' command.

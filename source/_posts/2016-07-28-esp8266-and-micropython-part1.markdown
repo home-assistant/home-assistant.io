@@ -41,7 +41,7 @@ Leaving...
 
 Now reset the device. You should then be able to use the [REPL (Read Evaluate Print Loop)](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#getting-a-micropython-repl-prompt). On Linux there is `minicom` or `picocom`, on a Mac you can use `screen` (eg. `screen /dev/tty.SLAB_USBtoUART 115200`), and on Windows there is Putty to open a serial connection and get the REPL prompt.
 
-The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is neccessary if your want to use the command-line tool `webrepl_cli.py` which is mentionend later in this post.
+The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html#webrepl-a-prompt-over-wifi) work over a wireless connection and allows easy access to a prompt in your browser. An instance of the WebREPL client is hosted at [http://micropython.org/webrepl](http://micropython.org/webrepl). Alternatively, you can create a local clone of their [GitHub repository](https://github.com/micropython/webrepl). This is necessary if your want to use the command-line tool `webrepl_cli.py` which is mentionend later in this post.
 
 ```bash
 $ sudo minicom -D /dev/ttyUSB0

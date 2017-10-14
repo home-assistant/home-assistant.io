@@ -29,9 +29,9 @@ sensor:
 
 Configuration variables:
 
-- **indoor_temp_sensor** (*Required*): The enditiy ID of the indoor temperature sensor.
-- **indoor_humidity_sensor** (*Required*): The enditiy ID of the indoor humidity sensor.
-- **outdoor_temp_sensor** (*Required*): The enditiy ID of the outdoor temperature sensor.
+- **indoor_temp_sensor** (*Required*): The entity ID of the indoor temperature sensor.
+- **indoor_humidity_sensor** (*Required*): The entity ID of the indoor humidity sensor.
+- **outdoor_temp_sensor** (*Required*): The entity ID of the outdoor temperature sensor.
 - **calibration_factor** (*Required*): Needs to be calibrated to the critical point in the room.
 
 In this case, the weather forecast temperature sensor is used for the outside temperature.

@@ -122,7 +122,7 @@ Configuration variables:
 - **inline_keyboard** (*Optional*): List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data.
 
 <p class='note'>
-Since Homeassistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
+Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
 
 ```yaml
 configuration.yaml
