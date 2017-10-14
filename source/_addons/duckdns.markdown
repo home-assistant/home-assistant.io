@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DuckDNS"
-description: "Automatically update your Duck DNS IP address."
+description: "Automatically update your Duck DNS IP address with integrated HTTPS support via Let's Encrypt."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
