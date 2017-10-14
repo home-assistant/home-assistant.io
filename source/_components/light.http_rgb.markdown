@@ -9,10 +9,10 @@ sharing: true
 footer: true
 ha_category: Light
 ha_iot_class: "Local Polling"
-ha_release: 0.55
+ha_release: 0.56
 ---
 
-The `http_rgb` light platform lets you control lights that use a simple [HTTP API protocol](git@github.com:robhowlett/http-rgb).
+The `http_rgb` light platform lets you control lights that use a simple [HTTP API protocol](https://github.com/robhowlett/http_rgb/README.md).
 
 To enable `http_rgb` in your installation, add the following to your `configuration.yaml` file:
 
@@ -23,7 +23,13 @@ light:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the device the Hyperion service is running on.
-- **name** (*Optional*): The name of the device used in the frontend.
+{% configuration %}
+  host:
+    description: The IP address of the device you're controlling.
+    required: true
+    type: string
+  name:
+    description: Name to use in the frontend.
+    required: false
+    type: string
+{% endconfiguration %}
