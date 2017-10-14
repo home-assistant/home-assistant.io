@@ -14,4 +14,5 @@
   description: "Often used abbreviation for Home Assistant."
 - topic: Discovery
   description: The automatic setup of zeroconf/mDNS and uPnP devices after they are discovered.
-
+- topic: Groups
+  description: "Groups are a way to organize your entities into a group."
