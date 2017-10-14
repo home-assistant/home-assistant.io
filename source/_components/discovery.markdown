@@ -27,7 +27,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * DirecTV
  * Apple TV
  * Yeelight Sunflower Bulb
- * Flux Led/MagicLight
  * Linn / Openhome
  * Denon Network Receivers
  * Bose Soundtouch speakers
@@ -59,7 +58,6 @@ Valid values for ignore are:
  * `bose_soundtouch`: Bose Soundtouch speakers
  * `denonavr`: Denon Network Receivers
  * `directv`: DirecTV
- * `flux_led`: Flux Led/MagicLight
  * `frontier_silicon`
  * `google_cast`: Google Chromecast
  * `harmony`: Harmony Hub
