@@ -43,6 +43,16 @@ This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor p
 - Updating clicksendaudio component based on feedback ([@jeroenterheerdt] - [#9692]) ([notify.clicksendaudio docs]) (new-platform)
 - Support for The Things Network ([@fabaff] - [#9627]) ([thethingsnetwork docs]) ([sensor.thethingsnetwork docs]) (new-platform)
 
+## {% linkable_title 0.55.1 - October 15 %}
+
+- Fix for TypeError in synology camera ([@snjoetw] - [#9754]) ([camera.synology docs])
+- missing is_closed ( rflink cover fix ) ([@passie] - [#9776]) ([cover.rflink docs])
+- [light.tradfri] Fix transition time ([@lwis] - [#9785]) ([light.tradfri docs])
+- OwnTracks: Fix handler is None checking ([@balloob] - [#9794]) ([device_tracker.owntracks docs])
+- Changed yaml.load into yaml.safe_load ([@GenericStudent] - [#9841]) ([google docs])
+- Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
+- Livebox Play TV bug: fix #9839 ([@pschmitt] - [#9880]) ([media_player.liveboxplaytv docs])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -381,3 +391,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
 [history_graph docs]: https://home-assistant.io/components/history_graph/
+[#9754]: https://github.com/home-assistant/home-assistant/pull/9754
+[#9776]: https://github.com/home-assistant/home-assistant/pull/9776
+[#9785]: https://github.com/home-assistant/home-assistant/pull/9785
+[#9794]: https://github.com/home-assistant/home-assistant/pull/9794
+[#9841]: https://github.com/home-assistant/home-assistant/pull/9841
+[#9842]: https://github.com/home-assistant/home-assistant/pull/9842
+[#9880]: https://github.com/home-assistant/home-assistant/pull/9880
+[@GenericStudent]: https://github.com/GenericStudent
+[@balloob]: https://github.com/balloob
+[@lwis]: https://github.com/lwis
+[@passie]: https://github.com/passie
+[@pschmitt]: https://github.com/pschmitt
+[@snjoetw]: https://github.com/snjoetw
+[camera.synology docs]: https://home-assistant.io/components/camera.synology/
+[cover.rflink docs]: https://home-assistant.io/components/cover.rflink/
+[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
+[google docs]: https://home-assistant.io/components/google/
+[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
+[media_player.liveboxplaytv docs]: https://home-assistant.io/components/media_player.liveboxplaytv/
