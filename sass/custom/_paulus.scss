@@ -23,13 +23,14 @@ $primary-color: #049cdb;
     float: right;
 
     .algolia-autocomplete {
-      width: calc(100% - 58px);
+      width: calc(100% - 64px);
       margin: 0 10px;
     }
 
     input {
       border: 0;
       width: 100%;
+      outline: none;
     }
   }
 }

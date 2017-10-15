@@ -101,7 +101,7 @@ This means that we can now ask Alexa things like:
 
 When activated, the Alexa component will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
 
-To enable Alex add the following entry to your `configuration.yaml` file:
+To enable Alexa add the following entry to your `configuration.yaml` file:
 
 ```yaml
 alexa:
