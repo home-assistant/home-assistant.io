@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
-ha_release: 0.16
+ha_release: 0.55
 redirect_from: /components/input_slider/
 ---
 
