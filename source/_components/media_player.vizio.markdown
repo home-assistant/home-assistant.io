@@ -20,10 +20,15 @@ The `vizio` component will allow you to control [SmartCast](https://www.vizio.co
 
 Before adding your TV to Home Assistant you'll need to pair it manually. To do so follow these steps:
 
-Install the command-line tool using pip (or you can choose to download it manually):
+Install the command-line tool using `pip` (or you can choose to download it manually):
 
 ```bash
 $ pip3 install git+https://github.com/vkorn/pyvizio.git@master
+```
+
+or
+
+```bash
 $ pip3 install -I .
 ```
 

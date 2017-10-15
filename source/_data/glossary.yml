@@ -30,13 +30,10 @@
   description: "Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended"
 - topic: Cookbook
   description: "Home Assistant configuration examples of the community"
-- topic: HADashboard
-  description: "A modular, skannable dashboard for Home Assistant, optimized for distance viewing."
 - topic: Packages
   description: "Packages allow to bundle different component configuations together."
 - topic: Customizing
   description: "Customization allows overwriting default parameter of the devices in the configuration."
 - topic: Zones
   description: "Area used for presence detection."
-- topic: Trigger
-  description: "A trigger starts the processing of an automation rule."
+
