@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-15T20:33:05+00:00</updated>
+  <updated>2017-10-15T20:46:47+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Templates, dates and times]]></title>
+    <link href="https://home-assistant.io/blog/2017/10/15/templating-date-time/"/>
+    <updated>2017-10-15T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/10/15/templating-date-time</id>
+    <content type="html"><![CDATA[This [Pull Request](https://github.com/home-assistant/home-assistant/pull/9868) shows in a clear way what happens if the documentation is not as good as it should be. In short, it's about [Templating](/docs/configuration/templating/) and how people start to think about creative ways to solve it if it's not documented. Let's assume that we want the current year. There are a couple of options available to do that:
+
+- Query [JSON Test](http://date.jsontest.com/) with a [`rest` sensor](/components/sensor.rest/) and a `value_template:`.
+- Use a [`time_date` sensor ](/components/sensor.time_date/) and a template `{{ strptime(states('sensor.date'), '%Y-%m-%d').year }}`.
+- Write a script in language X and use it with the [`command` sensor](/components/sensor.command_line/) or use `date +"%Y"` as a `command:`.
+
+<!--more-->
+
+We want it simpler, right? [Templating](/docs/configuration/templating/) offers `now()` and `utcnow()`. We will stick with `now()` in this blog post but it applies to `utcnow()` as well. Our documentation said:
+
+<blockquote>
+  `now()` will be rendered as current time in your time zone.
+</blockquote>
+
+Hmmm, ...OK, that's a start. How to get the year? `{{ now() }}` gives you `2017-10-14 20:27:23.700401+02:00` which is far more than we are looking for. As an user you don't want to dive into the code but there would you find the solution. You will get a [Python `datetime` object](https://docs.python.org/3.6/library/datetime.html#datetime.datetime) from `{{ now() }}`. This means that you can access more than you think in a template: 
+
+- For the time: `now().microsecond`, `now().second`, `now().minute` and `now().hour`
+- For the date: `now().day`, `now().month` and `now().year`
+- Misc: `now().weekday()` and `now().isoweekday()`
+
+For the year it would be: `{{ now().year }}`. I guess that there are rare use cases for `now().resolution`, `now().min` and `now().max` too.
+
+[Hacktoberfest](/blog/2017/09/29/hacktoberfest/) is still running. Working on the documentation is pretty easy. If you know a nice [trick](/cookbook/), want to help improving the page of a platform or just fix typo then please do. Our [Website/Documentation section](/developers/documentation/) contains some requirements which are defined in the [Documentation Standards](/developers/documentation/standards/) and the "[Create a page](/developers/documentation/create_page/)" documentation for other useful details.
+
+Thanks to [Egor Tsinko](https://github.com/etsinko) for bringing this issue to our attention.
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
@@ -169,30 +203,6 @@ I just gave a talk on how you can run Python to automate your home (yes with Hom
 </div>
 
 [MicroPython]: https://micropython.org
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hardware Contest 2017]]></title>
-    <link href="https://home-assistant.io/blog/2017/04/24/hardware-contest-2017/"/>
-    <updated>2017-04-24T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/04/24/hardware-contest-2017</id>
-    <content type="html"><![CDATA[We have four submissions for our [Hardware Contest 2017][hardware].
-
-- [Part of IoT-course](https://community.home-assistant.io/t/entry-for-hardware-contest-part-of-iot-course/14827)
-- [Automating a nursing home!](https://community.home-assistant.io/t/entry-automating-a-nursing-home/14872)
-- [Dedicated hardware for coding, testing, building, and contributing to Home Assistant](https://community.home-assistant.io/t/entry-dedicated-hardware-for-coding-testing-building-and-contributing-to-home-assistant/15515)
-- [HassIO - Home Assistant hub for dummies](https://community.home-assistant.io/t/entry-hassio-home-assistant-hub-for-dummies/16037)
-
-The voting is now open. To keep things simple are we using the voting feature of the [forum]. Vote for your choices.
-
-End of the voting period: April, 30 2017 - 23.59 UTC
-
-[hardware]: https://home-assistant.io/blog/2017/04/01/thomas-krenn-award/
-[award]: https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/
-[forum]: https://community.home-assistant.io/c/contest-2017
-[twitter]: https://twitter.com/home_assistant
-
 ]]></content>
   </entry>
   
