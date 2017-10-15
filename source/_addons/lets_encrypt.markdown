@@ -17,7 +17,7 @@ You should not use this if you are also using the [DuckDNS add-on]. The DuckDNS 
 Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This will create a certificate on the first run and will auto-renew if the certificate is within 30 days of expiration.
 
 <p class='note warning'>
-This add-on uses ports 80/443 to verify the certificate request. You will need to stop all other add-ons that also use these ports.
+This add-on uses ports 80/443 to verify the certificate request. You will need to stop all other add-ons that also use these ports. If you don't need a port (like with https you don't need port 80) you can remove this from network config.
 </p>
 
 ```json
