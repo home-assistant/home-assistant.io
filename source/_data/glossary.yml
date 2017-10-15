@@ -15,4 +15,10 @@
 - topic: Discovery
   description: The automatic setup of zeroconf/mDNS and uPnP devices after they are discovered.
 - topic: Groups
-  description: "Groups are a way to organize your entities into a group."
+  description: "Groups are a way to organize your entities into a single unit."
+- topic: Automation
+  description: "Capability to call a service based on a simple or complex trigger. Automation allows a condition such as sunset to cause an event, such as a light turning on."
+- topic: Trigger
+  description: "Values or conditions of a platform that are defined to cause an automation to run."
+- topic: Template
+  description: "An automation definition can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
