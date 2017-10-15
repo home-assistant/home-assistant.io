@@ -16,40 +16,6 @@ ha_release: 0.43
 
 The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network.
 
-For this to work, you need to install `aiocoap` and `tinydtls`.
-
-<p class='note'>
-If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
-</p>
-
-Installation script:
-
-```bash
-#!/bin/sh
-# Installs a modified coap client with support for dtls for use with IKEA Tradfri
-
-# Stop on errors
-set -e
-
-python3 -m pip install cython
-
-cd /usr/src/app/
-mkdir -p build && cd build
-
-git clone --depth 1 https://git.fslab.de/jkonra2m/tinydtls
-cd tinydtls
-autoreconf
-./configure --with-ecc --without-debug
-cd cython
-python3 setup.py install
-
-cd ../..
-git clone https://github.com/chrysn/aiocoap
-cd aiocoap
-git reset --hard 3286f48f0b949901c8b5c04c0719dc54ab63d431
-python3 -m pip install .
-```
-
 You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
 
 <p class='note'>
