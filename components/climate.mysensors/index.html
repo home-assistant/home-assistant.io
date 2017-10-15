@@ -176,6 +176,8 @@ new DaikinHeatpumpIR()
 <span class="n">MyMessage</span> <span class="n">msgHVACSpeed</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_SPEED</span><span class="p">);</span>
 <span class="n">MyMessage</span> <span class="n">msgHVACFlowState</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">V_HVAC_FLOW_STATE</span><span class="p">);</span>
 
+<span class="kt">bool</span> <span class="n">initialValueSent</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
 <span class="kt">void</span> <span class="nf">presentation</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">sendSketchInfo</span><span class="p">(</span><span class="s">"Heatpump"</span><span class="p">,</span> <span class="s">"2.1"</span><span class="p">);</span>
   <span class="n">present</span><span class="p">(</span><span class="n">CHILD_ID_HVAC</span><span class="p">,</span> <span class="n">S_HVAC</span><span class="p">,</span> <span class="s">"Thermostat"</span><span class="p">);</span>
@@ -186,7 +188,14 @@ new DaikinHeatpumpIR()
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// put your main code here, to run repeatedly:
-</span><span class="p">}</span>
+</span>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">initialValueSent</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">msgHVACSetPointC</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">msgHVACSpeed</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"Auto"</span><span class="p">));</span>
+    <span class="n">send</span><span class="p">(</span><span class="n">msgHVACFlowState</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">"Off"</span><span class="p">));</span>
+
+    <span class="n">initialValueSent</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">receive</span><span class="p">(</span><span class="k">const</span> <span class="n">MyMessage</span> <span class="o">&amp;</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">isAck</span><span class="p">())</span> <span class="p">{</span>
