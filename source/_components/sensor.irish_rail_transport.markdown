@@ -25,13 +25,8 @@ To activate the sensor add the data to your `configuration.yaml` file as shown i
 sensor:
   - platform: irish_rail_transport
     station: "Tara Street"
-    direction: Southbound
-    destination: Greystones
-    stops_at: "Dun Laoghaire"
     name: "To Greystones"
 ```
-
-The above example will show the next 2 `Southbound` trains that leave `Tara Street` station, going to `Greystones` via `Dun Laoghaire`:
 
 Configuration variables:
 
@@ -41,4 +36,17 @@ Configuration variables:
 - **stops_at** (*Optional*): An optional filter based on the name of a station that the train stops at.
 - **name** (*Optional*): A friendly name for this sensor.
 
-Using the `stops_at` option will cause an extra request per train found. Therefore, if you are looking at a busy station, it is recommended that you also use at least one other filter.
+Using the `stops_at` option will cause an extra request per train found. Therefore, if you are looking at a busy station, it is recommended that you also use at least one other filter. For example:
+
+```yaml
+# Example full configuration.yaml entry
+sensor:
+  - platform: irish_rail_transport
+    station: "Tara Street"
+    direction: Southbound
+    destination: Greystones
+    stops_at: "Dun Laoghaire"
+    name: "To Greystones"
+```
+
+The above example will show the next 2 `Southbound` trains that leave `Tara Street` station, going to `Greystones` via `Dun Laoghaire`:
