@@ -21,4 +21,4 @@
 - topic: Trigger
   description: "Values or conditions of a platform that are defined to cause an automation to run."
 - topic: Template
-  description: "An automation definition can include variables for the service or data from the trigger values.  This allows automations to generate dynamic actions."
+  description: "An automation definition can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
