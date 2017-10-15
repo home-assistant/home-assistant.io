@@ -74,7 +74,7 @@
   <div class="meta clearfix">
     <time datetime="2017-10-07T10:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 7, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> 11 minutes reading time</span>
+    <span><i class='icon-time'></i> 12 minutes reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
@@ -110,6 +110,16 @@
   <li>Add Tibber sensor (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9661">#9661</a>) (<a href="https://home-assistant.io/components/sensor.tibber/">sensor.tibber docs</a>) (new-platform)</li>
   <li>Updating clicksendaudio component based on feedback (<a href="https://github.com/jeroenterheerdt">@jeroenterheerdt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9692">#9692</a>) (<a href="https://home-assistant.io/components/notify.clicksendaudio/">notify.clicksendaudio docs</a>) (new-platform)</li>
   <li>Support for The Things Network (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9627">#9627</a>) (<a href="https://home-assistant.io/components/thethingsnetwork/">thethingsnetwork docs</a>) (<a href="https://home-assistant.io/components/sensor.thethingsnetwork/">sensor.thethingsnetwork docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="0551---october-15" href="#0551---october-15"></a> 0.55.1 - October 15</h2>
+<ul>
+  <li>Fix for TypeError in synology camera (<a href="https://github.com/snjoetw">@snjoetw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9754">#9754</a>) (<a href="https://home-assistant.io/components/camera.synology/">camera.synology docs</a>)</li>
+  <li>missing is_closed ( rflink cover fix ) (<a href="https://github.com/passie">@passie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9776">#9776</a>) (<a href="https://home-assistant.io/components/cover.rflink/">cover.rflink docs</a>)</li>
+  <li>[light.tradfri] Fix transition time (<a href="https://github.com/lwis">@lwis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9785">#9785</a>) (<a href="https://home-assistant.io/components/light.tradfri/">light.tradfri docs</a>)</li>
+  <li>OwnTracks: Fix handler is None checking (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9794">#9794</a>) (<a href="https://home-assistant.io/components/device_tracker.owntracks/">device_tracker.owntracks docs</a>)</li>
+  <li>Changed yaml.load into yaml.safe_load (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9841">#9841</a>) (<a href="https://home-assistant.io/components/google/">google docs</a>)</li>
+  <li>Bugfix/9811 jinja autoescape (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9842">#9842</a>)</li>
+  <li>Livebox Play TV bug: fix #9839 (<a href="https://github.com/pschmitt">@pschmitt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9880">#9880</a>) (<a href="https://home-assistant.io/components/media_player.liveboxplaytv/">media_player.liveboxplaytv docs</a>)</li>
 </ul>
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
 <p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
@@ -196,7 +206,7 @@
   <li>Upgrade googlemaps to 2.5.1 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9653">#9653</a>) (<a href="https://home-assistant.io/components/sensor.google_travel_time/">sensor.google_travel_time docs</a>)</li>
   <li>mqtt_statestream: Add options to publish attributes/timestamps (<a href="https://github.com/mw-white">@mw-white</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9645">#9645</a>) (<a href="https://home-assistant.io/components/mqtt_statestream/">mqtt_statestream docs</a>)</li>
   <li>Fixed bugs related to exception handling in pythonegardia. Updating package requirement accordingly (<a href="https://github.com/jeroenterheerdt">@jeroenterheerdt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9663">#9663</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.egardia/">alarm_control_panel.egardia docs</a>)</li>
-  <li>Update google-api-python-client to 1.6.4 (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9658">#9658</a>) (<a href="https://home-assistant.io/components/calendar.google/">google docs</a>)</li>
+  <li>Update google-api-python-client to 1.6.4 (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9658">#9658</a>) (<a href="https://home-assistant.io/components/google/">google docs</a>)</li>
   <li>Bump abode to 0.11.9 (<a href="https://github.com/MisterWil">@MisterWil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9660">#9660</a>) (<a href="https://home-assistant.io/components/abode/">abode docs</a>)</li>
   <li>Unit tests to improve core coverage (<a href="https://github.com/armills">@armills</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9659">#9659</a>)</li>
   <li>Upgrade pyitachip2ir to 0.0.7 (<a href="https://github.com/alanfischer">@alanfischer</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9669">#9669</a>) (<a href="https://home-assistant.io/components/remote.itach/">remote.itach docs</a>)</li>
@@ -205,7 +215,7 @@
   <li>Properly handle an invalid end_time (<a href="https://github.com/alanfischer">@alanfischer</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9675">#9675</a>) (<a href="https://home-assistant.io/components/history/">history docs</a>)</li>
   <li>Support new feature to push API data to hassio (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9679">#9679</a>) (<a href="https://home-assistant.io/hassio/">hassio docs</a>)</li>
   <li>Adding ignore capability to Egardia component (<a href="https://github.com/jeroenterheerdt">@jeroenterheerdt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9676">#9676</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.egardia/">alarm_control_panel.egardia docs</a>)</li>
-  <li>Fix Google Calendar/oauth2client warning (<a href="https://github.com/mbrrg">@mbrrg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9677">#9677</a>) (<a href="https://home-assistant.io/components/calendar.google/">google docs</a>)</li>
+  <li>Fix Google Calendar/oauth2client warning (<a href="https://github.com/mbrrg">@mbrrg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9677">#9677</a>) (<a href="https://home-assistant.io/components/google/">google docs</a>)</li>
   <li>Implement DSMR5 support. (<a href="https://github.com/aequitas">@aequitas</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9686">#9686</a>) (<a href="https://home-assistant.io/components/sensor.dsmr/">sensor.dsmr docs</a>)</li>
   <li>Add Tibber sensor (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9661">#9661</a>) (<a href="https://home-assistant.io/components/sensor.tibber/">sensor.tibber docs</a>) (new-platform)</li>
   <li>Add recorder purge service, rework purge timer (<a href="https://github.com/milanvo">@milanvo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9523">#9523</a>) (breaking change)</li>
