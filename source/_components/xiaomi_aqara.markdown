@@ -158,6 +158,10 @@ and stops the sound when the button is pressed once.
 
 ## {% linkable_title Troubleshooting %}
 
+### {% linkable_title Initial setup problem %}
+
+If you run into trouble initializing the gateway with your app, try another smartphone. I had trouble with the OnePlus 3, but it worked with a Nexus 5.
+
 ### {% linkable_title Connection problem %}
 
 ```bash
