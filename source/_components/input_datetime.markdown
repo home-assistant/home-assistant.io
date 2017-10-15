@@ -11,8 +11,9 @@ logo: home-assistant.png
 ha_category: Automation
 ha_release: 0.55
 ---
+This component is a work in progress. The frontend is not yet implemented
 
-The `input_datetime` component allows the user to define date and time values that can be controlled via the frontend and can be used within automations and templates.
+<del>The `input_datetime` component allows the user to define date and time values that can be controlled via the frontend and</del> can be used within automations and templates.
 
 To add three datetime inputs to your installation, one with both date and time, and one with date or time each, add the following lines to your `configuration.yaml`:
 
