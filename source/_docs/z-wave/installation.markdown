@@ -131,7 +131,7 @@ The output from `ls -ltr` above contains the following information
 The device type is `c` (character special) and permissions are `rw-rw----`, meaning only the owner and group can read and write to it, there is only `1` link to the file, it is owned by `root` and can be accessed by the group `dialout`, it has a major device number of `204`, and a minor device number of `64`, the device was connected at `10:25` on `21 September`, and the device is `/dev/ttyUSB0`.
 </p>
 
-#### {% linkable_title Creating a Persistent Device Path }
+#### {% linkable_title Creating a Persistent Device Path %}
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
 
