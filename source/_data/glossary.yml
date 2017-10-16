@@ -22,3 +22,18 @@
   description: "Values or conditions of a platform that are defined to cause an automation to run."
 - topic: Template
   description: "An automation definition can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
+- topic: hassio
+  description: "An operating system to manage Home Assistant easily using various HASS.io add-ons"
+- topic: HADashboard
+  description: "HADashboard is a modular, skinnable dashboard for Home Assistant that is intended to be wall mounted, and is optimized for distance viewing."
+- topic: Hass.io
+  description: "Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended"
+- topic: Cookbook
+  description: "Home Assistant configuration examples of the community"
+- topic: Packages
+  description: "Packages allow to bundle different component configuations together."
+- topic: Customizing
+  description: "Customization allows overwriting default parameter of the devices in the configuration."
+- topic: Zones
+  description: "Area used for presence detection."
+
