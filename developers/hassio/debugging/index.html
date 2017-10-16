@@ -83,9 +83,9 @@ This section is not for users. Use the <a href="/addons/ssh/">SSH add-on</a> to 
 <p>Windows instructions how to generate and use private/public keys with Putty are <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-putty-on-digitalocean-droplets-windows-users">here</a>. Instead of the droplet instructions, add the public key as per above instructions.</p>
 <p>Alternative instructions, for Mac, Windows and Linux can be found <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-mac">here</a>.</p>
 <p>Follow steps 1-4 under ‘Generating a new SSH key’ (The other sections are not applicable to Hass.io and can be ignored.)</p>
-<p>Step 3 in the link above, shows the path to the private key file <code class="highlighter-rouge">id_rsa</code> for your chosen operating system. Your public key, <code class="highlighter-rouge">id_rsa.pub</code>, is saved in the same folder. Next, copy your public key file to the root of your SD card.</p>
+<p>Step 3 in the link above, shows the path to the private key file <code class="highlighter-rouge">id_rsa</code> for your chosen operating system. Your public key, <code class="highlighter-rouge">id_rsa.pub</code>, is saved in the same folder. Next, copy your public key file to the root of your SD card as <code class="highlighter-rouge">authorized_keys</code>.</p>
 <p class="note">
-Make sure when you are copying the public key to the root of the /boot partition of the SD card that you rename the file correctly with no <code class="highlighter-rouge">.pub</code> file extension.
+Make sure when you are copying the public key to the root of the /resin-boot partition of the SD card that you rename the file correctly to <code class="highlighter-rouge">authorized_keys</code> with no <code class="highlighter-rouge">.pub</code> file extension.
 </p>
 <p>You should then be able to SSH into your Hass.io device. On mac/linux, use:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>ssh root@hassio.local -p 22222
