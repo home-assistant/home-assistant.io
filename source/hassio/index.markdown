@@ -30,12 +30,12 @@ The advantages of using Hass.io:
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
-Hass.io dashboard and upgrade notification under hamburger -> hass.io menu
+Hass.io dashboard with upgrade notification (under the hamburger menu -> Hass.io)
 </p>
 
 <p class='img'>
 <img src='/images/hassio/screenshots/ssh-upgrade.png'>
-Hass.io upgrade process from ssh command line
+Hass.io upgrade process from the SSH command line
 </p>
 
 [Google Assistant]: /addons/google_assistant/
