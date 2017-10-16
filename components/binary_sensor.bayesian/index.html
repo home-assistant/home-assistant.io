@@ -97,8 +97,8 @@
       <li><strong>entity_id</strong> (<em>Required</em>): Name of the entity to monitor.</li>
       <li><strong>prob_given_true</strong> (<em>Required</em>): The probability of the observation occurring, given the event is <code class="highlighter-rouge">true</code>.</li>
       <li><strong>prob_given_false</strong> (<em>Optional</em>): The probability of the observation occurring, given the event is <code class="highlighter-rouge">false</code> can be set as well.  If <code class="highlighter-rouge">prob_given_false</code> is not set, it will default to <code class="highlighter-rouge">1 - prob_given_true</code>.</li>
-      <li><strong>platform</strong> (<em>Required</em>): The only supported observation platforms are <code class="highlighter-rouge">state</code> and <code class="highlighter-rouge">numeric_state</code>, which are modeled after their corresponding triggers for automations.</li>
-      <li><strong>to_state</strong> (<em>Required</em>): The target start.</li>
+      <li><strong>platform</strong> (<em>Required</em>): The only supported observation platforms are <code class="highlighter-rouge">state</code> and <code class="highlighter-rouge">numeric_state</code>, which are modeled after their corresponding triggers for automations, requiring <code class="highlighter-rouge">before</code> and/or <code class="highlighter-rouge">after</code> instead of <code class="highlighter-rouge">to_state</code>.</li>
+      <li><strong>to_state</strong> (<em>Required</em>): The target state.</li>
     </ul>
   </li>
   <li><strong>probability_threshold</strong> (<em>Optional</em>): The probability at which the sensor should trigger to <code class="highlighter-rouge">on</code>.</li>
@@ -130,6 +130,19 @@
       <span class="s">prob_given_true</span><span class="pi">:</span> <span class="s">0.7</span>
       <span class="s">platform</span><span class="pi">:</span> <span class="s1">'</span><span class="s">state'</span>
       <span class="s">to_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">below_horizon'</span>
+</code></pre>
+</div>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Heat</span><span class="nv"> </span><span class="s">On'</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s1">'</span><span class="s">bayesian'</span>
+  <span class="s">prior</span><span class="pi">:</span> <span class="s">0.2</span>
+  <span class="s">probability_threshold</span><span class="pi">:</span> <span class="s">0.9</span>
+  <span class="s">observations</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">sensor.outside_air_temperature_fahrenheit'</span>
+      <span class="s">prob_given_true</span><span class="pi">:</span> <span class="s">0.95</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s1">'</span><span class="s">numeric_state'</span>
+      <span class="s">below</span><span class="pi">:</span> <span class="s">50</span>
 </code></pre>
 </div>
 </article>
