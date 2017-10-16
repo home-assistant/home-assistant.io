@@ -22,6 +22,10 @@
   description: "Values or conditions of a platform that are defined to cause an automation to run."
 - topic: Template
   description: "An automation definition can include variables for the service or data from the trigger values. This allows automations to generate dynamic actions."
+- topic: Script
+  description: "A component that allows users to specify a sequence of actions to be executed by Home Assistant when turned on"
+- topic: Scene
+  description: "You can create scenes that capture the states you want certain entities to be. For example a scene can specify that light A should be turned on and light B should be bright red." 
 - topic: hassio
   description: "An operating system to manage Home Assistant easily using various HASS.io add-ons"
 - topic: HADashboard
@@ -36,4 +40,3 @@
   description: "Customization allows overwriting default parameter of the devices in the configuration."
 - topic: Zones
   description: "Area used for presence detection."
-
