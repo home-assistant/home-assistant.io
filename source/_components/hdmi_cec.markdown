@@ -235,7 +235,7 @@ Toggle mute:
 {"mute": ""}
 ```
 
-value is ignores.
+value is ignored.
 
 
 ## {% linkable_title Useful References %}
