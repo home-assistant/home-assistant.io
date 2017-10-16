@@ -36,7 +36,7 @@ The cabling is easy.
 | VCC    | 5V        |
 | VOUT   | P4        |
 
-There are other boards with the same size available. Like those with the far more powerful Mega32U4 chip. But it would work with boards from the Arduino family as well if you adjust the code provided below.
+There are other boards with the same size available. Like those with the far more powerful Mega32U4 chip. However, it would work with boards from the Arduino family as well if you adjust the code provided below.
 
 The sketch is pretty simple. We are going to send the readings to a virtual [serial output](https://digistump.com/wiki/digispark/tutorials/digicdc) every 5 seconds. No logic needed. A little plus is that the onboard LED is blinking as an indicator that the board is working. [Upload](https://digistump.com/wiki/digispark) the code to your Digispark board. Keep in mind that the upload process is different than with Arduino or ESP8266 boards.
 
@@ -67,7 +67,7 @@ void loop() {
 
 To make it work with other boards simply use [`Serial.begin(115200);`](https://www.arduino.cc/en/Reference/Serial) and [`Serial.println(reading);`](https://www.arduino.cc/en/Serial/Println).
 
-If you connect with a tool like `minicom` to your system's serial port `/dev/ttyACM0` then you will get the data. To use the sensor with Home Assistant the [`serial`](/components/sensor.serial/) sensor platform needs to be set up. 
+If you connect with a tool like `minicom` to your system's serial port `/dev/ttyACM0`, then you will get the data. To use the sensor with Home Assistant the [`serial`](/components/sensor.serial/) sensor platform needs to be set up. 
 
 ```yaml
 sensor:
