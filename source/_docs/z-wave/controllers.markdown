@@ -33,12 +33,12 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
  - [Vera](/components/vera/)
  - [Wink](/components/wink/)
 
-## {% linkable_title Controller Notes }
+## {% linkable_title Controller Notes %}
 
-### {% linkable_title Aoetec Stick }
+### {% linkable_title Aoetec Stick %}
 
 By default this will turn on "disco lights", which you can turn off by following the instructions in the [device specific page](/docs/z-wave/device-specific/#aeon-z-stick)
 
-### {% linkable_title Razberry Board }
+### {% linkable_title Razberry Board %}
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by following the instructions in the [device specific page](/docs/z-wave/device-specific/#razberry-board)
