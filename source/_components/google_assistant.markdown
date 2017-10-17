@@ -22,15 +22,15 @@ The Google Assistant component requires a bit more setup than most due to the wa
 # Example configuration.yaml entry
 google_assistant:
   project_id: someproject-2d0b8
-  client_id: [long random string]
-  access_token: [different long random string]
+  client_id: [long url safe random string]
+  access_token: [a different long url safe random string]
   exposed_domains:
     - switch
     - light
     - group
 ```
 
-*Note:* It's very important that you use something very long strings for `client_id` and `access_token`. Those are essentially credentials to your Home Assistant instance.
+*Note:* It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially credentials to your Home Assistant instance.
 
 *Configuration Variables:*
 * *expose_by_default* (Optional): Expose devices in all supported domains by default.
@@ -61,7 +61,8 @@ homeassistant:
 ### {% linkable_title Setup %}
 
 1. Install the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) (you'll use this later)
-2. Create a new file named `project.json` and replace the hostname with your hostname in the URL. Note: This must be an HTTPS URL to work.
+2. Create a new file named `project.json` and replace the `[YOUR HOME ASSISTANT URL]` below with the URL you use to access Home Assistant.
+   Note: This must be an HTTPS URL to work.
 
 ```json
 {
@@ -77,7 +78,7 @@ homeassistant:
     "automation" :
     {
       "name": "automation",
-      "url": "https://example.com/api/google_assistant"
+      "url": "https://[YOUR HOME ASSISTANT URL]/api/google_assistant"
     }
   }
 }
@@ -92,8 +93,8 @@ homeassistant:
 5. You'll need to fill out most of the information on that page but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
-	2. Client ID: Make up a random-ish or hard to guess string
-	3. Authorization URL (replace example.com): `https://example.com/api/google_assistant/auth`
+	2. Client ID: Should be the same as `client_id` from your hass config above
+	3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth`
 	4. Configure your client. Add scopes for `email` and `name`
 	5. Testing instructions: doesn't matter since you won't submit this app
 7. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work) so just close that window.
