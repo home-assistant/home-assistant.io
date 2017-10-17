@@ -34,7 +34,12 @@ Hass.io users can update Home Assistant via the 'Hass.io' page in the UI. Howeve
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
-Hass.io dashboard
+Hass.io dashboard with upgrade notification (under the hamburger menu -> Hass.io)
+</p>
+
+<p class='img'>
+<img src='/images/hassio/screenshots/ssh-upgrade.png'>
+Hass.io upgrade process from the SSH command line
 </p>
 
 [Google Assistant]: /addons/google_assistant/
