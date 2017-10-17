@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Hitron CODA Routers"
-description: "Instructions how to integrate Hitron CODA Routers into Home Assistant."
+description: "Instructions on how to integrate Hitron CODA Routers into Home Assistant."
 date: 2017-10-03 15:40
 sidebar: true
 comments: false
@@ -28,8 +28,8 @@ device_tracker:
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.0.1.
-- **username** (*Required*): The username to login into the router (user should have read access to web interface of the router). Usually "cusadmin".
+- **host** (*Required*): The IP address of your router, e.g., 192.168.0.1.
+- **username** (*Required*): The username to login into the router (user should have read access to the web interface of the router). Usually "cusadmin".
 - **password** (*Required*): The password for the specified username. Usually your WiFi password.
 
 
