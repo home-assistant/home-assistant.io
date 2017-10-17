@@ -25,6 +25,7 @@ Field | Description
 `state.name` | Name of the entity. Based on `friendly_name` attribute with fall back to object ID. Example: `Kitchen Ceiling`.
 `state.last_updated` | Time the state was written to the state machine. Note that writing the exact same state including attributes will not result in this field being updated. Example: `14:10:03 13-03-2016`.
 `state.last_changed` | Time the state changed. This is not updated when there are only updated attributes. Example: `14:10:03 13-03-2016`.
+`state.last_seen`  | Time the state last received an update.  This *is* updated even if the new state and attributes are identical to the previous state.  Example: `15:44:06 15-10-2017`.  
 `state.attributes` | A dictionary with extra attributes related to the current state.
 
 The attributes of an entity are optional. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each component will also have it's own attributes to represent extra state data about the entity. For example, the light component has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.
