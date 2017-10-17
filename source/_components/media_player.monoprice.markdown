@@ -13,7 +13,7 @@ ha_release: 0.56
 ha_iot_class: "Local Polling"
 ---
 
-The `monoprice` platform allows you to control [Monoprice 6-Zone Amplifier](https://www.monoprice.com/product?p_id=10761) using serial connection.
+The `monoprice` platform allows you to control [Monoprice 6-Zone Amplifier](https://www.monoprice.com/product?p_id=10761) using a serial connection.
 
 To add a Monoprice device to your installation, add the following to your `configuration.yaml` file:
 
