@@ -62,7 +62,7 @@ Additionally, the following MQTT configuration variables are also available:
 - **payload_arm_away** (*Optional*): The payload to set armed-away mode on this Alarm Panel. Default is "ARM_AWAY".
 - **payload_arm_night** (*Optional*): The payload to set armed-night mode on this Alarm Panel. Default is "ARM_NIGHT".
 
-In the config example below, armed_home state will have no pending time and triggered state will have pending time of 20 second whereas armed_away state will have a default pending time of 30 seconds.
+In the config example below, armed_home state will have no pending time and triggered state will have a pending time of 20 seconds whereas armed_away state will have a default pending time of 30 seconds.
 
 ```yaml
 # Example configuration.yaml entry
