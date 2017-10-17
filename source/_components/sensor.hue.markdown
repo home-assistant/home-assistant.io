@@ -16,7 +16,7 @@ ha_release: 0.55
 
 The `hue` sensor will display the states of Hue sensors registered to your Hue hub. The component supports [SML](https://www.philips.co.uk/c-p/8718696595190/hue-motion-sensor) motion sensors, [RWL](http://www2.meethue.com/en-us/p/hue-dimmer-switch/046677458140) dimmer and [ZPG](https://www.philips.co.uk/c-p/8718696498026/hue-tap-switch) TAP remotes. Additionally if you have configured a Geofence in the Hue app, the state will be reported. The properties of these sensors are described in detail on the [Hue Developers website](https://developers.meethue.com/documentation/supported-sensors).
 
-The RWL dimmer remote has a total of 8 possible state, corresponding to the remote having 4 buttons, where each button can be short pressed (clicked) and long pressed (when holding the button for 2 sec you will see the LED blink twice). The ZPG (or Tap) remote has 4 buttons.
+The RWL dimmer remote has a total of 8 possible states, corresponding to the remote having 4 buttons, where each button can be short pressed (clicked) and long pressed (when holding the button for 2 sec you will see the LED blink twice). The ZPG (or Tap) remote has 4 buttons.
 
 The SML detects motion using a PIR but also has sensors for temperature and light level. The state of the sensor indicates whether motion is detected, whilst temperature and light level data are recorded in the sensor attributes.
 
