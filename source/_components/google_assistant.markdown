@@ -36,8 +36,8 @@ google_assistant:
 * *expose_by_default* (Optional): Expose devices in all supported domains by default.
 * *project_id* (Required): Project ID from the Google Developer console (looks like `words-2ab12`)
 * *client_id* (Required): A long random url safe string (no spaces or special characters) that will be used for Implicit OAuth.
-* *access_token* (Required): Another long random url safe string.
-* *exposed domains* (Optional): An array of Home Assistant domains to expose to Google Assistant.
+* *access_token* (Required): Another different long random url safe string.
+* *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant.
 
 You can also customize your devices similar to other components by adding keys to entities:
 
