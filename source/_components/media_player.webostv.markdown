@@ -28,7 +28,7 @@ media_player:
 Configuration variables:
 
 - **host** (*Optional*): The IP of the LG webOS Smart TV, e.g. `192.168.0.10`.
-- **mac** (*Optional*): The MAC address of the TV, e.g. `C8:08:E9:99:99:1A`.
+- **turn_on_action** (*Optional*): Defines an [action](/docs/automation/action/) to turn the TV on.
 - **name** (*Optional*): The name you would like to give to the LG webOS Smart TV.
 - **timeout** (*Optional*): The timeout for connections to the TV in seconds.
 - **filename** (*Optional*): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. It defaults to `webostv.conf`.
@@ -36,7 +36,7 @@ Configuration variables:
   - ***sources** array (*Optional*): List of hardware inputs.
 
 If you do not specify `host:`, all LG webOS Smart TVs within your network will be auto-discovered if they use the default name setting of `[LG] webOS TV`.
-Home Assistant is able to turn on a LG webOS Smart TV if you specify its MAC address with `mac:`. Some models require the **Mobile TV On** setting and/or a wired network connection to use Wake-on-LAN.
+Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
 A full configuration example will look like the sample below:
 
@@ -45,10 +45,13 @@ A full configuration example will look like the sample below:
 media_player:
   - platform: webostv
     host: 192.168.0.10
-    mac: C8:08:E9:99:99:1A
     name: Living Room TV
     timeout: 5
     filename: webostv.conf
+    turn_on_action:
+      service: persistent_notification.create
+      data:
+        message: "Turn on action"
     customize:
       sources:
         - livetv

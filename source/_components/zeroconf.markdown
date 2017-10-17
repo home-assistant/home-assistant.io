@@ -21,7 +21,7 @@ To integrate this into Home Assistant, add the following section to your `config
 zeroconf:
 ```
 
-The registration will include metadata about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance. The examples below show two ways to retrieve the details for testing. 
+The registration will include meta-data about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance. The examples below show two ways to retrieve the details for testing. 
 
 ```bash
 $ avahi-browse -alr

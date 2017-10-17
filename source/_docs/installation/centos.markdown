@@ -27,7 +27,7 @@ Then install the Python 3.5 package:
 $ yum install rh-python35
 ```
 
-Once installed, switch to your homeassistant user (if you've set one up), enable the software collection and check that it has set up the new version of Python:
+Once installed, switch to your `homeassistant` user (if you've set one up), enable the software collection and check that it has set up the new version of Python:
 
 ```bash
 $ scl enable rh-python35 bash
@@ -35,13 +35,13 @@ $ python --version
 Python 3.5.1
 ```
 
-You will be in a command shell set up with Python 3.5 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install home assistant following the main [instructions](https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv).
+You will be in a command shell set up with Python 3.5 as your default version. The virtualenv and pip commands will be correct for this version, so you can now create a virtual environment and install Home Assistant following the main [instructions](https://home-assistant.io/docs/installation/virtualenv/#step-4-set-up-the-virtualenv).
 
 You will need to enable the software collection each time you log on before you activate your virtual environment.
 
 ### {% linkable_title Systemd with Software Collections %}
 
-To autostart homeassistant using systemd follow the main [instructions](https://home-assistant.io/docs/autostart/systemd/) and adjust the template as follows:
+To autostart Home Assistant using systemd follow the main [instructions](https://home-assistant.io/docs/autostart/systemd/) and adjust the template as follows:
 
 ```
 [Unit]

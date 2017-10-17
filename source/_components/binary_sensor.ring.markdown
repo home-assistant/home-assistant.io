@@ -29,6 +29,6 @@ Configuration variables:
 
 - **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
   - **ding**: Return a boolean value when the doorbell button was pressed.
-  - **motion**: Return a boolean value when a moviment was detected by the Ring doorbell.
+  - **motion**: Return a boolean value when a movement was detected by the Ring doorbell.
 
 Currently only doorbells are supported by this sensor.

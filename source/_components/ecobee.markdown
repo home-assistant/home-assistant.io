@@ -42,7 +42,7 @@ The PIN can be found from the Home Assistant portal on the Ecobee card or from t
 
 - If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this you can temporarily comment out the `default_view` section or add the `configurator.ecobee` component to your `default_view` and restart Home Assistant. 
  
-Once you enter the PIN on the ecobee site, wait approximately 5 minutes and then click on the **I have authorized the app** link at the bottom of the ecobee popup window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full ecobee card with all of the sensors populated or see the list of sensors in the developer tools. Now you can re-enable your `default_view` (if you had to disable it) and add the ecobee sensors to a group and/or view.
+Once you enter the PIN on the ecobee site, wait approximately 5 minutes and then click on the **I have authorized the app** link at the bottom of the ecobee pop-up window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full ecobee card with all of the sensors populated or see the list of sensors in the developer tools. Now you can re-enable your `default_view` (if you had to disable it) and add the ecobee sensors to a group and/or view.
 
 To set it up, add the following information to your `configuration.yaml` file:
 

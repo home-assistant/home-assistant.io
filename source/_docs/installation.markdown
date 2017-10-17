@@ -99,5 +99,5 @@ For more details about `hass`, please refer to the [tools section](/docs/tools/h
 
 If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
 
-It may be needed that you install additional library depending on the platforms/components you want to use.
+You may need to install additional libraries depending on the platforms/components you want to use.
 

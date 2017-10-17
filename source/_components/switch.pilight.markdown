@@ -55,7 +55,7 @@ Variables for the different codes (`on_code` and `off_code`):
 - **'off'** (*Optional*): `1` or `0`
 - **'on'** (*Optional*): `1` or `0`
 
-For possible code entries look at the [pilight API](https://www.pilight.org/development/api/). All commands allowed by [pilight-send](https://wiki.pilight.org/doku.php/psend) can be used. Which means that if for a certain protocol there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occuring.
+For possible code entries look at the [pilight API](https://www.pilight.org/development/api/). All commands allowed by [pilight-send](https://wiki.pilight.org/doku.php/psend) can be used. Which means that if for a certain protocol there are different parameters used, you should be able to replace the variables above by the proper ones required by the specific protocol. When using the `elro_800_switch` or `mumbi` protocol for example, you will have to replace the variable `unit` with `unitcode` or there will be errors occurring.
 
 Variables for the different receive codes (`on_code_receive` and `off_code_receive`):
 

@@ -14,7 +14,7 @@ Interacts with media players on your network. Please check the sidebar for a ful
 ## {% linkable_title Services %}
 
 ### {% linkable_title Media control services %}
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `media_play_pause`, `play_media`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |

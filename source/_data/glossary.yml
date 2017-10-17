@@ -1,0 +1,17 @@
+- topic: Platform
+  description: A platform makes the connection to a specific software or hardware platform. The `pushbullet` platform works with the service from pushbullet.com.
+- topic: Component
+  description: "The components provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
+- topic: Service
+  description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
+- topic: Event
+  description: When somethings happen.
+- topic: Entity
+  description: An entity is the representation of a single device, unit or web service.
+- topic: Device
+  description: "Usually this is a physical unit which can do or observe something."
+- topic: hass
+  description: "Often used abbreviation for Home Assistant."
+- topic: Discovery
+  description: The automatic setup of zeroconf/mDNS and uPnP devices after they are discovered.
+

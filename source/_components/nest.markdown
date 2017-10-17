@@ -25,7 +25,7 @@ The Nest component is the main component to integrate all [Nest](https://nest.co
 5. Click "[Create New Product](https://developers.nest.com/products/new)"
 6. Fill in details:
   - Product name must be unique. We recommend [email] - Home Assistant.
-  - The description, users, urls can all be anything you want.
+  - The description, users, URLs can all be anything you want.
   - Leave the "Redirect URI" Field blank
 7. For permissions check every box and if it's an option select the read/write option.
   - The description requires a specific format to be accepted.

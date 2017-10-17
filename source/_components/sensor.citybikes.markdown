@@ -28,8 +28,8 @@ Configuration options:
 
 - **name** (*Optional*): The base name of this group of monitored stations. The entity ID of every monitored station in this group will be prefixed with this base name, in addition to the network ID.
 - **network** (*Optional*):  The name of the bike sharing system to poll. Defaults to the system that operates in the monitored location.
-- **latitude** (*Optional*):  Latitude of the location, around which bike stations are monitored. Defaults to the latitude in your your `configuration.yaml` file.
-- **longitude** (*Optional*):  Longitude of the location, around which bike stations are monitored. Defaults to the longitude in your your `configuration.yaml` file.
+- **latitude** (*Optional*):  Latitude of the location, around which bike stations are monitored. Defaults to the latitude in your `configuration.yaml` file.
+- **longitude** (*Optional*):  Longitude of the location, around which bike stations are monitored. Defaults to the longitude in your `configuration.yaml` file.
 - **radius** (*Optional*):  The radius (in meters or feet, depending on the Home Assistant configuration) around the monitored location. Only stations closer than this distance will be monitored.
 - **stations** array (*Optional*): A list of specific stations to monitor. The list should contain station `ID`s or `UID`s, which can be obtained from the CityBikes API.
 

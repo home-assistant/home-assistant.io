@@ -16,7 +16,7 @@ The `ciscospark` notification platform allows you to deliver notifications from 
 
 To use this notification platform you need to get a developer token. To obtain a token visit [Spark for Developers](https://developer.ciscospark.com/index.html)
 
-At this time you also need to specify the `Cisco Spark` `roomid`. The `roomid` can also be found at [Spark for Developers](https://developer.ciscospark.com/index.html). Just look in the Doumentation under Rooms. 
+At this time you also need to specify the `Cisco Spark` `roomid`. The `roomid` can also be found at [Spark for Developers](https://developer.ciscospark.com/index.html). Just look in the Documentation under Rooms. 
 
 To enable the Cisco Spark notification in your installation, add the following to your `configuration.yaml` file:
 

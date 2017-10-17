@@ -146,7 +146,7 @@ automation:
     action:
       service: remote.send_command
       data_template:
-      # using a data template to have if brances for relavant device
+      # using a data template to have if brances for relevant device
         # Always the same entity_id - the harmony hub
         entity_id: remote.bedroom
         # Always the same command - the Pause key

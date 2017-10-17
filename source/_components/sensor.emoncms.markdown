@@ -92,7 +92,7 @@ sensor:
       - 120
     sensor_names:
       5: "feed 1"
-      48: "kwh feed"
+      48: "kWh feed"
       61: "amp feed"
       110: "watt feed"
 ```

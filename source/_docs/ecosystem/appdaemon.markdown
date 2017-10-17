@@ -24,7 +24,7 @@ AppDaemon is not meant to replace Home Assistant Automations and Scripts, rather
 - Durable variables and state - Variables can be kept between events to keep track of things like the number of times a motion sensor has been activated, or how long it has been since a door opened.
 - All the power of Python - use any of Python's libraries, create your own modules, share variables, refactor and re-use code, create a single App to do everything, or multiple Apps for individual tasks - nothing is off limits!
 
-It is in fact a testament to Home Assistant's open nature that a component like `AppDaemon` can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant's underlying design is that it makes no assumptions whatsoever about what it is controlling, reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for `AppDaemon` - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner. The bulk of the work after that was adding additonal functions to make things that were already possible easier.
+It is in fact a testament to Home Assistant's open nature that a component like `AppDaemon` can be integrated so neatly and closely that it acts in all ways like an extension of the system, not a second class citizen. Part of the strength of Home Assistant's underlying design is that it makes no assumptions whatsoever about what it is controlling, reacting to, or reporting state on. This is made achievable in part by the great flexibility of Python as a programming environment for Home Assistant, and carrying that forward has enabled me to use the same philosophy for `AppDaemon` - it took surprisingly little code to be able to respond to basic events and call services in a completely open ended manner. The bulk of the work after that was adding additional functions to make things that were already possible easier.
 
 # How it Works
 
@@ -35,7 +35,7 @@ The best way to show what AppDaemon does is through a few simple examples.
 Let's start with a simple App to turn a light on every night at sunset and off every morning at sunrise. Every App when first started will have its `initialize()` function called, which gives it a chance to register a callback for AppDaemons's scheduler for a specific time. In this case, we are using `run_at_sunrise()` and `run_at_sunset()` to register two separate callbacks. The argument `0` is the number of seconds offset from sunrise or sunset and can be negative or positive. For complex intervals, it can be convenient to use Python's `datetime.timedelta` class for calculations. When sunrise or sunset occurs, the appropriate callback function, `sunrise_cb()` or `sunset_cb()`, is called, which then makes a call to Home Assistant to turn the porch light on or off by activating a scene. The variables `args["on_scene"]` and `args["off_scene"]` are passed through from the configuration of this particular App, and the same code could be reused to activate completely different scenes in a different version of the App.
 
 ```python
-import homeassistant.appapi as appapi
+import appdaemon.appapi as appapi
 
 class OutsideLights(appapi.AppDaemon):
 

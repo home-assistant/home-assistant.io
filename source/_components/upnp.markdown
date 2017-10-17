@@ -23,13 +23,34 @@ To integrate this into Home Assistant, add the following section to your `config
 ```yaml
 # Example configuration.yaml entry with custom external portal
 upnp:
-  external_port: 80
+  ports:
+    hass: 8000
+    8080: 8080
 ```
 
 If you which to have the statistics without having port mapping done through IGD, add the option **port_mapping**.
 
 Configuration variables:
 
-- **external_port** (*Optional*): Expose Home Assistant to the internet over this TCP port. Defaults to Home Assistant configured port.
-- **port_mapping** (*Optional*): Disables port mapping  maintains the network statistics sensors)
-- **unit** (*Optional*): UPnP sensors unit. Valid units are 'Bytes', 'KBytes', 'MBytes' and 'GBytes'.
+{% configuration binary_sensor.template %}
+  ports:
+    description: Map of ports to map from internal to external. Pass 'hass' as internal port to use the port Home Assistant runs on.
+    required: false
+    type: map
+    default: open same port on external router as that HASS runs locally and forwards it.
+  port_mapping:
+    description: If the component should try to map ports.
+    required: false
+    type: boolean
+    default: false
+  units:
+    description: Define the units used for the UPNP sensor. Possible values are Bytes, KBytes, MBytes, GBytes.
+    required: false
+    type: string
+    default: Mbytes
+  local_ip:
+    description: The local IP address of the computer running Home Assistant.
+    required: false
+    type: string
+    default: Try to auto-detect IP of host.
+{% endconfiguration %}

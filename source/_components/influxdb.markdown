@@ -109,10 +109,10 @@ optional arguments:
 
 If you want to import all the recorded data from your recorder database you can use the data import script.
 It will read all your state_change events from the database and add them as data-points to the InfluxDB.
-You can specify the source database either by pointing the `--config` option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with `--uri`.
+You can specify the source database either by pointing the `--config` option to the config directory which includes the default SQLite database or by giving a sqlalchemy connection URI with `--uri`.
 The writing to InfluxDB is done in batches that can be changed with `--step`.
 
-You can control, which data is imported by using the commandline options `--exclude_entities` and `--exclude_domains`.
+You can control, which data is imported by using the command line options `--exclude_entities` and `--exclude_domains`.
 Both get a comma separated list of either entity-ids or domain names that are excluded from the import.
 
 To test what gets imported you can use the `--simulate` option, which disables the actual write to the InfluxDB instance.

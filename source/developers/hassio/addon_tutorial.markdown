@@ -41,7 +41,8 @@ Once you have located your add-on directory, it's time to get started!
 
 `Dockerfile`:
 ```
-FROM %%BASE_IMAGE%%
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 

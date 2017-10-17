@@ -29,8 +29,8 @@ Under the **Logging Preferences** header:
 
 Under the **Realtime Web Upload** header:
 
-- Check **Upload to webserver**.
-- Enter `http://HOST:PORT/api/torque?api_password=YOUR_PASSWORD` as the **Webserver URL**, where `HOST` and `PORT` are your externally accessible Home Assistant HTTP host and port and YOUR_PASSWORD is your Home Assistant's [API password](/components/http/). It highly recommended that you protect your Home Assistant instance with [SSL/TSL](/docs/ecosystem/certificates/).
+- Check **Upload to web-server**.
+- Enter `http://HOST:PORT/api/torque?api_password=YOUR_PASSWORD` as the **Web-server URL**, where `HOST` and `PORT` are your externally accessible Home Assistant HTTP host and port and YOUR_PASSWORD is your Home Assistant's [API password](/components/http/). It highly recommended that you protect your Home Assistant instance with [SSL/TSL](/docs/ecosystem/certificates/).
 - Enter an email address in **User Email Address**.
 - Optionally set the **Web Logging Interval**. The 2-second default may quickly fill up the Home Assistant history database.
 
