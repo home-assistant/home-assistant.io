@@ -42,7 +42,7 @@ device.
 Some alternative Yi firmwares enable an experimental RTSP server, which will
 allow you to connect to your camera via other Home Assistant camera platforms.
 However, this RTSP server disables the ability to use the supremely-useful Yi
-Home app. In order to maintain both Home Assistant compability _and_ the native
+Home app. In order to maintain both Home Assistant compatibility _and_ the native
 app, this platform retrieves videos via FTP.
 </p>
 
@@ -83,7 +83,7 @@ Any option supported by the `ffmpeg` client can be utilized via the
 `ffmpeg_arguments` configuration parameter.
 
 One particularly useful adjustment deals with video size. Since Yi videos are
-fairly large (especially on the 1080p cameras), the following configuation will
+fairly large (especially on the 1080p cameras), the following configuration will
 bring them down to a manageable size:
 
 ```yaml
