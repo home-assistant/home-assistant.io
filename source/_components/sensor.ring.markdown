@@ -21,6 +21,7 @@ Once you have enabled the [Ring component](/components/ring), add the following 
 # Example configuration.yaml entry
 sensor:
   - platform: ring
+    clock_format: 12H
     monitored_conditions:
       - battery
       - last_activity
@@ -31,7 +32,8 @@ sensor:
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
+- **clock_format** (*Optional*): Format to use for `last_activity`, `last_ding`, and `last_motion` conditions. Accepts `12H` or `24H`. Defaults to `24H`.
+- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored. Defaults to `last_ding`.
   - **battery**: Return the battery level from device
   - **last_activity**: Return the timestamp from the last event captured (ding/motion/on_demand) by the Ring doorbell camera
   - **last_ding**: Return the timestamp from the last time the Ring doorbell button was pressed
