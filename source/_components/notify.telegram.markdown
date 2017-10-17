@@ -28,8 +28,30 @@ The quickest way to retrieve your `chat_id` is visiting [https://api.telegram.or
 The result set will include your chat ID as `id` in the `from` section:
 
 ```json
-{"ok":true,"result":[{"update_id":254199982,
-"message":{"message_id":27,"from":{"id":123456789,"first_name":"YOUR_FIRST_NAME YOUR_NICK_NAME","last_name":"YOUR_LAST_NAME","username":"YOUR_NICK_NAME"},"chat":{"id":123456789,"first_name":"YOUR_FIRST_NAME YOUR_NICK_NAME","last_name":"YOUR_LAST_NAME","username":"YOUR_NICK_NAME","type":"private"},"date":1678292650,"text":"test"}}]}
+{
+	"ok": true,
+	"result": [{
+		"update_id": 254199982,
+		"message": {
+			"message_id": 27,
+			"from": {
+				"id": 123456789,
+				"first_name": "YOUR_FIRST_NAME YOUR_NICK_NAME",
+				"last_name": "YOUR_LAST_NAME",
+				"username": "YOUR_NICK_NAME"
+			},
+			"chat": {
+				"id": 123456789,
+				"first_name": "YOUR_FIRST_NAME YOUR_NICK_NAME",
+				"last_name": "YOUR_LAST_NAME",
+				"username": "YOUR_NICK_NAME",
+				"type": "private"
+			},
+			"date": 1678292650,
+			"text": "test"
+		}
+	}]
+}
 ```
 
 Another way to get your chat ID directly is described below. Start your Python interpreter from the command-line:
