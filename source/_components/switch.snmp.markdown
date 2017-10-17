@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SNMP"
-description: "Instructions how to integrate SNMP switches into Home Assistant."
+description: "Instructions on how to integrate SNMP switches into Home Assistant."
 date: 2017-10-12 08:00
 sidebar: true
 comments: false
@@ -15,7 +15,7 @@ ha_release: "0.56"
 
 The `SNMP` switch platform allows you to control SNMP-enabled equipment.
 
-Currently only SNMP OIDs that accept Integer values are supported. SNMP v1 and v2c are supported. SNMP v3 is **not** supported.
+Currently, only SNMP OIDs that accept Integer values are supported. SNMP v1 and v2c are supported. SNMP v3 is **not** supported.
 
 To use an SNMP switch in your installation:
 
