@@ -130,6 +130,12 @@ The other properties (like name) are specified using mappings. Note that the sec
   <span class="s">api_password</span><span class="pi">:</span> <span class="kt">!env_var</span> <span class="s">PASSWORD default_password</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="including-separate-files" href="#including-separate-files"></a> Including Separate Files</h3>
+<p>To improve readability, you can source out certain domains from you main configuration file with the <code class="highlighter-rouge">!include</code>-Syntax.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">lights</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">lights.yaml</span>
+</code></pre>
+</div>
+<p>More information about this feature can also be found at <a href="/docs/configuration/splitting_configuration/">splitting configuration</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
