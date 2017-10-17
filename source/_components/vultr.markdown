@@ -9,7 +9,7 @@ sharing: true
 footer: true
 featured: true
 ha_category: Hub
-ha_release: ""
+ha_release: "0.56"
 logo: vultr.png
 ha_iot_class: "Cloud Polling"
 ---
