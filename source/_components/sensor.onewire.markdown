@@ -33,17 +33,17 @@ In order ot setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/con
 #### Interface adapter setup
 When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](http://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond a directory, where owfs device tree has been mounted.
 
-
 <p class='note warning'>
 This component has been modified to work with devices with multiple sensors which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
 If you wish to maintain continuity it can be resolved in the database by renaming the old devices to the new names.
 
-Connect to your database using the instructions from [home-assistant.io/docs/backend/database/](https://home-assistant.io/docs/backend/database/).  
-Check the names of sensors:
+Connect to your database using the instructions from [home-assistant.io/docs/backend/database/](https://home-assistant.io/docs/backend/database/). Check the names of sensors:
+
 ```sql
 SELECT entity_id, COUNT(*) as count FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 10;
 ```
 Alter the names of sensors using the following examples:
+
 ```sql
 UPDATE states SET entity_id='sensor.<sensor_name>_temperature' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%\u00b0C%';
 UPDATE states SET entity_id='sensor.<sensor_name>_pressure' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%mb%';
@@ -52,7 +52,7 @@ UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE
 Remember to replace `<sensor_name>` with the actual name of the sensor as seen in the `SELECT` query.
 </p>
 
-#### Home-assistant setup
+#### Home Assistant setup
 
 To enable One wire sensors in your installation, add the following to your `configuration.yaml` file:
 
