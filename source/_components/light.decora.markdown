@@ -33,7 +33,7 @@ Configuration variables:
 - **devices** array (*Required*): A list of lights to use.
   - **[mac address]** (*Required*): The bluetooth address of the switch.
     - **name** (*Optional*): The custom name to use in the frontend.
-    - **api_key** (*Required*): The API key to acces the device.
+    - **api_key** (*Required*): The API key to access the device.
 
 <p class='note'>
 If you get an error looking like this:

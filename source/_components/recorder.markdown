@@ -2,7 +2,7 @@
 layout: page
 title: "Recorder"
 description: "Instructions how to configure the data recorder for Home Assistant."
-date: 2016-05-21 09:00
+date: 2017-09-24 09:00
 sidebar: true
 comments: false
 sharing: true
@@ -27,7 +27,8 @@ recorder:
 
 Configuration variables:
 
-- **purge_days** (*Optional*): Delete events and states older than x days. The purge task runs every 2 days, starting from when Home Assistant is started if you restart your instance more frequently than the purge will never take place.
+- **purge_interval** (*Optional*): (days) Enable scheduled purge of older events and states. The purge task runs every x days, starting from when Home Assistant is started. If you restart your instance more frequently, than the purge will never take place. You can use [service](#service) call `recorder.purge` when needed.
+- **purge_keep_days** (*Required with `purge_interval`*): Specify number of history days to keep in recorder database after purge. 
 - **exclude** (*Optional*): Configure which components should be excluded from recordings.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
   - **domains** (*Optional*): The list of domains to be excluded from recordings.
@@ -42,7 +43,8 @@ Define domains and entities to `exclude` (aka. blacklist). This is convenient wh
 ```yaml
 # Example configuration.yaml entry with exclude
 recorder:
-  purge_days: 5
+  purge_interval: 2
+  purge_keep_days: 5
   db_url: sqlite:///home/user/.homeassistant/test
   exclude:
     domains:
@@ -85,6 +87,19 @@ recorder:
 
 If you only want to hide events from e.g. your history, take a look at the [`history` component](/components/history/). Same goes for logbook. But if you have privacy concerns about certain events or neither want them in history or logbook, you should use the `exclude`/`include` options of the `recorder` component, that they aren't even in your database. That way you can save storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
+### {% linkable_title Service `purge` %}
+
+Call the service `recorder.purge` to start purge task, which deletes events and states older than x days, according to `keep_days` service data (*Required*)
+
+Automation [action](https://home-assistant.io/getting-started/automation-action/) example:
+
+```yaml
+action:
+  service: recorder.purge
+  data:
+    keep_days: 5
+```
+
 ## Custom database engines
 
 | Database engine | `db_url`                                                 | 
@@ -109,14 +124,14 @@ Not all Python bindings for the chosen database engine can be installed directly
 For MariaDB you may have to install a few dependencies. On the Python side we use the `mysqlclient`:
 
 ```bash
-$ sudo apt-get install libmariadbclient-dev
+$ sudo apt-get install libmariadbclient-dev libssl-dev
 $ pip3 install mysqlclient
 ```
 
 For MySQL you may have to install a few dependencies. You can choose between `pymysql` and `mysqlclient`:
 
 ```bash
-$ sudo apt-get install default-libmysqlclient-dev
+$ sudo apt-get install default-libmysqlclient-dev libssl-dev
 $ pip3 install mysqlclient
 ```
 

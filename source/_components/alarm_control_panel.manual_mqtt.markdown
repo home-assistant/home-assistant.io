@@ -21,12 +21,14 @@ The component will accept the following commands from your Alarm Panel via the `
 - `DISARM`
 - `ARM_HOME`
 - `ARM_AWAY`
+- `ARM_NIGHT`
 
 When the state of the manual alarm changes, Home Assistant will publish one of the following states to the `state_topic`:
 
 - 'disarmed'
 - 'armed_home'
 - 'armed_away'
+- 'armed_night'
 - 'pending'
 - 'triggered'
 
@@ -47,6 +49,8 @@ All configuration variables from the base manual alarm platform are available:
 - **pending_time** (*Optional*): The time in seconds of the pending time before arming the alarm. Default is 60 seconds.
 - **trigger_time** (*Optional*): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.
 - **disarm_after_trigger** (*Optional*): If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
+- **armed_home|armed_away|armed_night|triggered** (*Optional*): State specific settings
+  - **pending_time**: State specific pending time override.
 
 Additionally, the following MQTT configuration variables are also available:
 
@@ -56,6 +60,23 @@ Additionally, the following MQTT configuration variables are also available:
 - **payload_disarm** (*Optional*): The payload to disarm this Alarm Panel. Default is "DISARM".
 - **payload_arm_home** (*Optional*): The payload to set armed-home mode on this Alarm Panel. Default is "ARM_HOME".
 - **payload_arm_away** (*Optional*): The payload to set armed-away mode on this Alarm Panel. Default is "ARM_AWAY".
+- **payload_arm_night** (*Optional*): The payload to set armed-night mode on this Alarm Panel. Default is "ARM_NIGHT".
+
+In the config example below, armed_home state will have no pending time and triggered state will have a pending time of 20 seconds whereas armed_away state will have a default pending time of 30 seconds.
+
+```yaml
+# Example configuration.yaml entry
+alarm_control_panel:
+  - platform: manual_mqtt
+    state_topic: home/alarm
+    command_topic: home/alarm/set
+    pending_time: 30
+    armed_home:
+      pending_time: 0
+    triggered:
+      pending_time: 20
+    trigger_time: 4 
+```
 
 ## {% linkable_title Examples %}
 
@@ -70,11 +91,13 @@ To change the state of the alarm, publish one of the following messages to the `
  - `DISARM`
  - `ARM_HOME`
  - `ARM_AWAY`
+ - `ARM_NIGHT`
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
  - `disarmed`
  - `armed_home`
  - `armed_away`
+ - `armed_night`
  - `pending`
  - `triggered`

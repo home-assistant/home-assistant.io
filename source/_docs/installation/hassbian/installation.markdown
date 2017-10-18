@@ -14,12 +14,14 @@ The easiest way to install Home Assistant on your Raspberry Pi is by using HASSb
 
  1. [Download the Hassbian image][image-download] (364 MB)
  2. Use [Etcher][etcher] to flash the image to your SD card
- 3. Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your wireless network (details below).
+ 3. Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your wireless network settings **before proceeding to step 4**.
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.
 
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).  Additional information is available in this [video](https://www.youtube.com/watch?v=tCGlQSsQ-Mc).
 
-After initial boot an installer will run in the background and takes around 15 minutes to complete, after it has finished you can reach Home Assistant in your browser at [http://hassbian.local:8123]. If you want to login via SSH, the default username is `pi` and password is `raspberry` (please change this by running `passwd`). The Home Assistant configuration is located at `/home/homeassistant/.homeassistant/`.
+After initial boot an installer will run in the background and takes around 15 minutes to complete, after it has finished, you will be prompted to login: `hassbian login:`. Installation is complete at this point. The default username is `pi` and the password is `raspberry`.
+
+Open a browser on a device that's connected to the same WiFi network as your Raspberry Pi and point it to Home Assistant at [http://hassbian.local:8123]. If you want to login via SSH, the default username is `pi` and password is `raspberry` (please change this by running `passwd`). The Home Assistant configuration is located at `/home/homeassistant/.homeassistant/`.
 
 If you find that the web page is not reachable after 30 minutes or so, check that you have files in `/home/homeassistant/.homeassistant/`, if there are no files in this location then run the installer manually using this command: `sudo systemctl start install_homeassistant.service`.
 
@@ -45,6 +47,7 @@ network={
     psk="YOUR_PASSWORD"
 }
 ```
+You may need to adjust the country code depending upon where you are. A list of codes can be found [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
 ### {% linkable_title Technical Details %}
 

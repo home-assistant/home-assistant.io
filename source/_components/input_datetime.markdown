@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
-ha_release: TODO
+ha_release: 0.55
 ---
 
 The `input_datetime` component allows the user to define date and time values that can be controlled via the frontend and can be used within automations and templates.

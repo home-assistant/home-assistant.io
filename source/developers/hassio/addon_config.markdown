@@ -86,7 +86,7 @@ The config for an add-on is stored in `config.json`.
   "name": "xy",
   "version": "1.2",
   "slug": "folder",
-  "description": "long descripton",
+  "description": "long description",
   "arch": ["amd64"],
   "url": "website with more information about add-on (ie a forum thread for support)",
   "startup": "application",

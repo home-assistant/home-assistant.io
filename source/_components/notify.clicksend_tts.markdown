@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "ClickSend"
+title: "ClickSend text-to-speech"
 description: "Instructions on how to add ClickSend text-to-speech (TTS) notifications to Home Assistant."
 date: 2017-10-04 00:00
 sidebar: true
@@ -10,10 +10,11 @@ footer: true
 logo: clicksend.png
 ha_category: Notifications
 ha_release: 0.55
+redirect_from: /components/notify.clicksendaudio/
 ---
 
 
-The `clicksendaudio` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
+The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
 
 Go to your [ClickSend Dashboard](https://dashboard.clicksend.com) section and create your new project. After creating your project, you should now be able to obtain your `username` and `api_key`.
 
@@ -21,7 +22,7 @@ To add ClickSend to your installation, add the following to your Home Assistant 
 
 ```yaml
 notify:
-  - platform: clicksend
+  - platform: clicksend_tts
     name: ClickSend
     username: CLICKSEND_USERNAME
     api_key: CLICKSEND_API_KEY

@@ -77,7 +77,7 @@ delay: {% raw %}'00:{{ states.input_number.minute_delay.state | int }}:00'{% end
 ```
 ### {% linkable_title Wait %}
 
-Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). The Timeout has same syntax as `delay`.  If you set a Timeout for 1 minute and the condition is not satified within that minute, the script will continue.
+Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
 ```yaml
 # wait until media player have stop the playing
