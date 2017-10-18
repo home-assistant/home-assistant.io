@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Allow to shutdown a computer with a service call from Home-Assistant.
+Allow to shutdown a Windows computer with a service call from Home Assistant.
 
 ```json
 {
