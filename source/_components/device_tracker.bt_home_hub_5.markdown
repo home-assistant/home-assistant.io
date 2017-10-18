@@ -21,10 +21,13 @@ To use a BT Home Hub 5 router in your installation, add the following to your `c
 device_tracker:
   - platform: bt_home_hub_5
     host: 192.168.1.254
+    password: ADMINPASSWORD
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of your router, e.g. 192.168.1.254.
+- **host** (*Optional*): The IP address of your router, defaults to 192.168.1.254.
+- **password** (*Optional*): The admin password (*not* the WiFi password) of your router. If not given, will fall back to unauthenticated device
+  tracking, which may truncate long device names.
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
