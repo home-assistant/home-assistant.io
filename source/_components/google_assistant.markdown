@@ -22,21 +22,21 @@ The Google Assistant component requires a bit more setup than most due to the wa
 # Example configuration.yaml entry
 google_assistant:
   project_id: someproject-2d0b8
-  client_id: [long url safe random string]
-  access_token: [a different long url safe random string]
+  client_id: [long URL safe random string]
+  access_token: [a different long URL safe random string]
   exposed_domains:
     - switch
     - light
     - group
 ```
 
-*Note:* It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially credentials to your Home Assistant instance.
+*Note:* It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance.
 
 *Configuration Variables:*
 * *expose_by_default* (Optional): Expose devices in all supported domains by default.
 * *project_id* (Required): Project ID from the Google Developer console (looks like `words-2ab12`)
-* *client_id* (Required): A long random url safe string (no spaces or special characters) that will be used for Implicit OAuth.
-* *access_token* (Required): Another different long random url safe string.
+* *client_id* (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
+* *access_token* (Required): Another different long random URL safe string.
 * *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant.
 
 You can also customize your devices similar to other components by adding keys to entities:
@@ -90,7 +90,7 @@ homeassistant:
 	3. Copy the command that looks like:
 	`gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
 4. Replace `PACKAGE_NAME` with `project.json` and run that command from the same directory you saved `project.json` in. It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` Go there.
-5. You'll need to fill out most of the information on that page but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
+5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
 	2. Client ID: Should be the same as `client_id` from your hass config above
@@ -99,4 +99,4 @@ homeassistant:
 	5. Testing instructions: doesn't matter since you won't submit this app
 7. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work) so just close that window.
 8. Open the Google Assistant app and go into `Settings > Home Control`
-9. Click the `+` sign and near the bottom you should have `[test] your app name`. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.
+9. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.
