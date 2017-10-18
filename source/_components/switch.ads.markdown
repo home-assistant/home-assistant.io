@@ -12,7 +12,8 @@ ha_release: 0.21
 ha_iot_class: "Local Push"
 ---
 
-An ADS switch accesses a boolean variable of the connected ADS device.
+An ADS switch accesses a boolean variable on the connected ADS device. The
+variable is identified by its name.
 
 To use your ADS device, you first have to set up your [ADS
 hub](/components/ads/) and then add the following to your `configuration.yaml`
