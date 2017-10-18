@@ -6,24 +6,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home Assistant goes geo with OwnTracks - Home Assistant</title>
-    <meta name="author" content="Paulus Schoutsen">
-    <meta name="description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
+    <title>Home Assistant Podcast #10 - Home Assistant</title>
+    <meta name="author" content="Phil Hawthorne">
+    <meta name="description" content="0.55 and bye bye Python 3.4">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Home Assistant goes geo with OwnTracks">
+    <meta property="og:title" content="Home Assistant Podcast #10">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
-    <meta property="og:image" content="https://home-assistant.io/images/screenshots/map.png">
+    <meta property="og:description" content="0.55 and bye bye Python 3.4">
+    <meta property="og:image" content="https://home-assistant.io/images/hasspodcast.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:creator" content="@balloob">
-    <meta name="twitter:title" content="Home Assistant goes geo with OwnTracks">
-    <meta name="twitter:description" content="Home Assistant 0.7.4 has been released with support for OwnTracks and geofencing.">
-    <meta name="twitter:image" content="https://home-assistant.io/images/screenshots/map.png">
+    <meta name="twitter:creator" content="@philhawthorne">
+    <meta name="twitter:title" content="Home Assistant Podcast #10">
+    <meta name="twitter:description" content="0.55 and bye bye Python 3.4">
+    <meta name="twitter:image" content="https://home-assistant.io/images/hasspodcast.jpg">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
@@ -70,15 +70,15 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">Home Assistant goes geo with OwnTracks</h1>
+  <h1 class="title indent">Home Assistant Podcast #10</h1>
   <div class="meta clearfix">
-    <time datetime="2015-10-05T21:49:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 5, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <time datetime="2017-10-18T00:01:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 18, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Phil Hawthorne</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>Release-Notes</li>
+        <li>Media</li>
     </ul>
   </span>
       <a class='comments'
@@ -86,31 +86,8 @@
          >Comments</a>
   </div>
 </header>
-  <p>A few weeks have past and it is time again for another release: version 0.7.4. This time we’re very glad to be able to introduce brand new integration with OwnTracks to allow tracking of people on a map. The geo support consists of three different parts:</p>
-<ul>
-  <li><a href="/components/device_tracker.owntracks/">OwnTracks platform for the device tracker</a> to get locations for devices</li>
-  <li>Brand new <a href="/components/zone/">zone component</a> to define zones to identify locations and <a href="/getting-started/automation-trigger/#zone-trigger">trigger automation</a></li>
-  <li>A map in the UI to see all this (<a href="/demo/">see it in action in the demo</a>)</li>
-</ul>
-<p>We have added a new <a href="/getting-started/presence-detection/">getting started section</a> to get up and running.</p>
-<p class="img">
-<img src="/images/screenshots/map.png" />
-Map in Home Assistant showing two people and three zones (home, school, work)
-</p>
-<p>Ofcourse more things happened in the last three weeks. I’m moving away from my usual long post to a short summary of highlights:</p>
-<p><a href="/components/media_player.plex/">
-<img src="/images/supported_brands/plex.png" style="border:none; box-shadow: none; float: right;" height="50" />
-</a></p>
-<ul>
-  <li>Sensor: <a href="/components/sensor.rest/">rest platform</a> added (<a href="https://github.com/fabaff">@fabaff</a>)</li>
-  <li>Alarm Control Panel: <a href="/components/alarm_control_panel.mqtt/">MQTT platform</a> added (<a href="https://github.com/sfam">@sfam</a>)</li>
-  <li>Media Player: <a href="/components/media_player.plex/">Plex platform</a> added (<a href="https://github.com/miniconfig, [@adrienbrault](https://github.com/adrienbrault)">@miniconfig</a></li>
-  <li>Dev Tools: services can now show description of fields (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>MQTT: Support for certificates and improved error reporting (<a href="https://github.com/balloob">@balloob</a>)</li>
-  <li>Light: <a href="/components/light.limitlessled/">limitlessled platform</a> extended with white light support (<a href="https://github.com/auchter">@auchter</a>)</li>
-  <li>Fuzzy matching for scenes (<a href="https://github.com/pavoni">@pavoni</a>)</li>
-  <li>Scene support for media player (<a href="https://github.com/maddox">@maddox</a>)</li>
-</ul>
+  <p>Show notes available on the <a href="https://hasspodcast.io/HA010/">Home Assistant Podcast Website</a></p>
+<p><a href="https://hasspodcast.io/ha010/">Listen online</a></p>
 </article>
 <section id="disqus">
   <h3 class="indent title">Comments</h3>
@@ -140,10 +117,10 @@ Map in Home Assistant showing two people and three zones (home, school, work)
      class="twitter-share-button"
      data-via="home_assistant"
      data-related="home_assistant"
-     data-url="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/"
-     data-counturl="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/" >Tweet</a>
+     data-url="https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/"
+     data-counturl="https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/" >Tweet</a>
     <div class="fb-share-button" style='top: -6px;'
-         data-href="https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/"
+         data-href="https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/"
          data-layout="button_count">
     </div>
   <div class="g-plusone" data-size="standard"></div>
@@ -152,9 +129,6 @@ Map in Home Assistant showing two people and three zones (home, school, work)
       <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Recent Posts</h1>
   <ul class="divided">
-        <li class="post">
-          <a href="/blog/2017/10/18/hasspodcast-ep-10/">Home Assistant Podcast #10</a>
-        </li>
         <li class="post">
           <a href="/blog/2017/10/15/templating-date-time/">Templates, dates and times</a>
         </li>
@@ -202,8 +176,8 @@ Map in Home Assistant showing two people and three zones (home, school, work)
 <script>
   var disqus_shortname = 'home-assistant';
     // var disqus_developer = 1;
-    var disqus_identifier = 'https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/';
-    var disqus_url = 'https://home-assistant.io/blog/2015/10/05/home-assistant-goes-geo-with-owntracks/';
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/';
     var disqus_script = 'embed.js';
   (function () {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

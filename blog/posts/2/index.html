@@ -70,6 +70,88 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/09/09/release-53/">0.53: Tesla, Customize editor, and super fast KNX rewrite</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-09-09T00:11:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 9, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 13 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/09/09/release-53/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.53"><img src="/images/blog/2017-09-0.53/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>The Home Assistant community has been super busy in the last two weeks to bring you this amazing release. 60 different contributors have done over a 100 PRs filled with new features, bug fixes and performance improvements.</p>
+<p>9 days away from our 4th birthday, we’ve just accomplished a couple of great milestones that I would love to share with you. We’ve hit over 8000 stars 🌟  on GitHub and starting this release we now ship over 800 platforms and components!</p>
+<h2><a class="title-link" name="customize-editor" href="#customize-editor"></a> Customize editor</h2>
+<p>Another step in making Home Assistant configurable via the frontend has been contributed by @andrey-git: a customization editor! You are now able to inspect all (possible) customizations of an entity and update them with just a few taps. Want to change the name or icon of an entity? All possible in mere seconds.</p>
+<p class="img">
+<img src="/images/blog/2017-09-0.53/customize-editor.png" />
+Screenshot of the new customize editor.
+</p>
+<p>New Home Assistant configurations will be created correctly automatically. If you are an existing user, make sure you have the config screen enabled and that you include customizations from <code class="highlighter-rouge">customize.yaml</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="c1"># Include the customizations.</span>
+  <span class="s">customize</span><span class="pi">:</span> <span class="kt">!include</span> <span class="s">customize.yaml</span>
+
+<span class="c1"># Enable the config screen</span>
+<span class="s">config</span><span class="pi">:</span>
+</code></pre>
+</div>
+<h2><a class="title-link" name="tesla" href="#tesla"></a> Tesla</h2>
+<p>Thanks to the contribution by @zabuldon, you will now be able to control your Tesla car from Home Assistant. You’re able to check the temperature inside and outside your car, control your AC and unlock the car.</p>
+<h2><a class="title-link" name="input-text" href="#input-text"></a> Input text</h2>
+<p>This release introduces a new input component: <code class="highlighter-rouge">input_text</code> contributed by @BioSehnsucht. With this component you will be able to set free form from the UI and then let that be used by your automations or templates.</p>
+<h2><a class="title-link" name="knx" href="#knx"></a> KNX</h2>
+<p>This release ships a new KNX implementation thanks to @Julius2342. It will instantly show all changed states of KNX devices within Home Assistant. Additionally it brings support for HVAC devices and notification services. It also adds a service for direct communication with the KNX bus. You can connect to KNX/IP routing and tunnelling devices. In the background it uses asyncio communication. Check the climate integration in action <a href="https://www.youtube.com/watch?v=JI0VJzlGpx4">here</a> and see the lights in action below:</p>
+<div class="videoWrapper">
+  <iframe src="https://www.youtube.com/embed/Fe3yaflU2XM" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
+<ul>
+  <li>Xiaomi Philips Lights integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9087">#9087</a>) (<a href="https://home-assistant.io/components/light.xiaomi_philipslight/">light.xiaomi_philipslight docs</a>) (new-platform)</li>
+  <li>Mycroft notify/component (<a href="https://github.com/btotharye">@btotharye</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9173">#9173</a>) (<a href="https://home-assistant.io/components/mycroft/">mycroft docs</a>) (<a href="https://home-assistant.io/components/notify.mycroft/">notify.mycroft docs</a>) (new-platform)</li>
+  <li>Add counter component (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9146">#9146</a>) (<a href="https://home-assistant.io/components/counter/">counter docs</a>) (new-platform)</li>
+  <li>Support for season sensor (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8958">#8958</a>) (<a href="https://home-assistant.io/components/sensor.season/">sensor.season docs</a>) (new-platform)</li>
+  <li>Abode push events and lock, cover, and switch components (<a href="https://github.com/1091741+MisterWil">@1091741+MisterWil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9095">#9095</a>) (<a href="https://home-assistant.io/components/abode/">abode docs</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.abode/">alarm_control_panel.abode docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.abode/">binary_sensor.abode docs</a>) (<a href="https://home-assistant.io/components/cover.abode/">cover.abode docs</a>) (<a href="https://home-assistant.io/components/lock.abode/">lock.abode docs</a>) (<a href="https://home-assistant.io/components/switch.abode/">switch.abode docs</a>) (new-platform)</li>
+  <li>Bayesian Binary Sensor (<a href="https://github.com/jlmcgehee21">@jlmcgehee21</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8810">#8810</a>) (<a href="https://home-assistant.io/components/binary_sensor.bayesian/">binary_sensor.bayesian docs</a>) (new-platform)</li>
+  <li>Add Tank Utility sensor (<a href="https://github.com/krismolendyke">@krismolendyke</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9132">#9132</a>) (<a href="https://home-assistant.io/components/sensor.tank_utility/">sensor.tank_utility docs</a>) (new-platform)</li>
+  <li>Tesla platform (<a href="https://github.com/zabuldon">@zabuldon</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9211">#9211</a>) (<a href="https://home-assistant.io/components/tesla/">tesla docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.tesla/">binary_sensor.tesla docs</a>) (<a href="https://home-assistant.io/components/climate.tesla/">climate.tesla docs</a>) (<a href="https://home-assistant.io/components/device_tracker.tesla/">device_tracker.tesla docs</a>) (<a href="https://home-assistant.io/components/lock.tesla/">lock.tesla docs</a>) (<a href="https://home-assistant.io/components/sensor.tesla/">sensor.tesla docs</a>) (new-platform)</li>
+  <li>mopar sensor (<a href="https://github.com/happyleavesaoc">@happyleavesaoc</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9136">#9136</a>) (<a href="https://home-assistant.io/components/sensor.mopar/">sensor.mopar docs</a>) (new-platform)</li>
+  <li>Add Geofency device tracker (<a href="https://github.com/gunnarhelgason">@gunnarhelgason</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9106">#9106</a>) (<a href="https://home-assistant.io/components/device_tracker.geofency/">device_tracker.geofency docs</a>) (new-platform)</li>
+  <li>Added DWD WarnApp Sensor (<a href="https://github.com/runningman84">@runningman84</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8657">#8657</a>) (<a href="https://home-assistant.io/components/sensor.dwdwarnapp/">sensor.dwdwarnapp docs</a>) (new-platform)</li>
+  <li>Add input_text component (<a href="https://github.com/BioSehnsucht">@BioSehnsucht</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9112">#9112</a>) (<a href="https://home-assistant.io/components/input_text/">input_text docs</a>) (new-platform)</li>
+  <li>Introducing a media_player component for Yamaha Multicast devices (<a href="https://github.com/jalmeroth">@jalmeroth</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9258">#9258</a>) (<a href="https://home-assistant.io/components/media_player.yamaha_musiccast/">media_player.yamaha_musiccast docs</a>) (new-platform)</li>
+  <li>Stable and asynchronous KNX library. (<a href="https://github.com/Julius2342">@Julius2342</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8725">#8725</a>) (<a href="https://home-assistant.io/components/knx/">knx docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.knx/">binary_sensor.knx docs</a>) (<a href="https://home-assistant.io/components/climate.knx/">climate.knx docs</a>) (<a href="https://home-assistant.io/components/cover.knx/">cover.knx docs</a>) (<a href="https://home-assistant.io/components/light.knx/">light.knx docs</a>) (<a href="https://home-assistant.io/components/sensor.knx/">sensor.knx docs</a>) (<a href="https://home-assistant.io/components/switch.knx/">switch.knx docs</a>) (new-platform)</li>
+  <li>Adds the AirVisual air quality sensor platform (<a href="https://github.com/bachya">@bachya</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9320">#9320</a>) (<a href="https://home-assistant.io/components/sensor.airvisual/">sensor.airvisual docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="release-0531---september-12" href="#release-0531---september-12"></a> Release 0.53.1 - September 12</h2>
+<ul>
+  <li>Fix Twitter notifications with certain media such as small images (<a href="https://github.com/MikeChristianson">@MikeChristianson</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9354">#9354</a>) (<a href="https://home-assistant.io/components/notify.twitter/">notify.twitter docs</a>)</li>
+  <li>Added additional string check in Wunderground sensor (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9380">#9380</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
+  <li>Fixing foscam library dependency/requirements (<a href="https://github.com/viswa-swami">@viswa-swami</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9387">#9387</a>) (<a href="https://home-assistant.io/components/camera.foscam/">camera.foscam docs</a>)</li>
+  <li>Fixes for customize editor (<a href="https://github.com/andrey-git">@andrey-git</a>)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/09/09/release-53/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/08/26/release-0-52/">0.52: Scripts editor, Nello.io locks, HipChat and Abode Home Security</a>
   </h1>
   <div class="meta clearfix">
@@ -526,33 +608,6 @@ Screenshot of a green dashboard
   <div class="entry-content clearfix">
     <p>The third episode of the Home Assistant Podcast is out. Paulus joins to talk about some stats and the release of 0.47 and Petar tells all about his Floorplan project for Home Assistant.</p>
 <p><a href="https://hasspodcast.io/ha003/">Listen online</a></p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/07/03/home-assistant-is-moving-to-discord/">Home Assistant is moving to Discord</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-07-03T23:28:01+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 3, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Dale Higgs</span>
-    <span><i class='icon-time'></i> four minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Community</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/07/03/home-assistant-is-moving-to-discord/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Communities grow, things change. We understand that some people don’t like change, and that is why we are trying to make our chat transition from Gitter to <a href="https://discord.gg/c5DvZ4e">Discord</a> as smooth as possible for everyone. Join us now with <a href="https://discord.gg/c5DvZ4e">just a click</a>!</p>
-<p>Click <code class="highlighter-rouge">Read on →</code> to find out more about why we’re moving.</p>
-      <a class="btn pull-right" href="/blog/2017/07/03/home-assistant-is-moving-to-discord/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

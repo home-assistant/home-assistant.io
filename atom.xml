@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-18T06:38:39+00:00</updated>
+  <updated>2017-10-18T19:47:44+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Podcast #10]]></title>
+    <link href="https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10/"/>
+    <updated>2017-10-18T00:01:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/10/18/hasspodcast-ep-10</id>
+    <content type="html"><![CDATA[<p>Show notes available on the <a href="https://hasspodcast.io/HA010/">Home Assistant Podcast Website</a></p>
+
+<p><a href="https://hasspodcast.io/ha010/">Listen online</a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Templates, dates and times]]></title>
@@ -1733,96 +1745,6 @@ Screenshot of a green dashboard
     <content type="html"><![CDATA[<p>The third episode of the Home Assistant Podcast is out. Paulus joins to talk about some stats and the release of 0.47 and Petar tells all about his Floorplan project for Home Assistant.</p>
 
 <p><a href="https://hasspodcast.io/ha003/">Listen online</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant is moving to Discord]]></title>
-    <link href="https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord/"/>
-    <updated>2017-07-03T23:28:01+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/07/03/home-assistant-is-moving-to-discord</id>
-    <content type="html"><![CDATA[<p>Communities grow, things change. We understand that some people don’t like change, and that is why we are trying to make our chat transition from Gitter to <a href="https://discord.gg/c5DvZ4e">Discord</a> as smooth as possible for everyone. Join us now with <a href="https://discord.gg/c5DvZ4e">just a click</a>!</p>
-
-<p>Click <code class="highlighter-rouge">Read on →</code> to find out more about why we’re moving.</p>
-
-<!--more-->
-
-<h3><a class="title-link" name="easy-to-join" href="#easy-to-join"></a> Easy to join</h3>
-
-<p>Discord is a very easy platform to join. New users can immediately jump into the conversations without first having to create an account. Just provide your name and you’re in!</p>
-
-<p>This is incredibly valuable for us and will make Home Assistant even more accessible than before.</p>
-
-<h3><a class="title-link" name="great-apps" href="#great-apps"></a> Great apps</h3>
-
-<p>One of our least favorite things about Gitter is the quality of apps that they provide for iOS and Android devices. Discord, on the other hand, has the fastest and most feature-rich mobile apps that we’ve tried! For those of you who like to post pictures to the chatrooms directly from your phone…now you can. It doesn’t stop there; they also provide well-polished clients for Windows, macOS and even Linux. If you’re more of a browser-based chat client person, their web client will be perfect for you.</p>
-
-<h3><a class="title-link" name="moderation-tools" href="#moderation-tools"></a> Moderation tools</h3>
-
-<p>We have been quite lucky so far as to not have much inappropriate behavior (spammers, trolls, etc) in our chatrooms. However, as our community continues to grow, this common issue might come up. Discord has the features that will help us shut this behavior down before it gets out of hand.</p>
-
-<h3><a class="title-link" name="great-multiple-server-support" href="#great-multiple-server-support"></a> Great multiple server support</h3>
-
-<p>Do you already have a Discord account? Great! You can use that account to <a href="https://discord.gg/c5DvZ4e">join in on the conversation</a> now. One Discord account works with every Discord server. It is extremely easy to switch between servers or join new ones. Discord messages also work across servers, so your personal conversations are not scoped to a single server.</p>
-
-<h3><a class="title-link" name="its-hosted" href="#its-hosted"></a> It’s hosted</h3>
-
-<p>We are big fans of self-hosted apps and services, but everyone knows they require a fair amount of maintenance and attention to keep them running smoothly. Discord is hosted on its own servers, so it’s better to let them maintain the service while we keep busy improving Home Assistant to bring you new and exciting features!</p>
-
-<h3><a class="title-link" name="plenty-of-features" href="#plenty-of-features"></a> Plenty of features</h3>
-
-<p>Syntax highlighting, voice chats, ability to search chatrooms, private messaging, and even custom emoji! Discord has a great set of features that will keep us all happy for a long time to come. (Pssst…after you join our server, check out the <code class="highlighter-rouge">:ponder:</code> emoji!)</p>
-
-<h2><a class="title-link" name="join-us" href="#join-us"></a> Join us!</h2>
-
-<p>Are you convinced and ready to make the switch? Join us, we’re just <a href="https://discord.gg/c5DvZ4e">one click away</a>!</p>
-
-<p>Not convinced? Please take a moment to reach out to us in the comments below to provide your feedback on this change so that we can help make the switch easier for you and everyone else.</p>
-
-<h2><a class="title-link" name="the-fine-print" href="#the-fine-print"></a> The fine print…</h2>
-
-<p>In the process of switching chat platforms we have decided to create what we feel is a very fair set of rules for our chat community. As growth continues, these rules might change. Also be sure to check the <a href="https://discord.gg/c5DvZ4e">#welcome-rules</a> channel for the most up-to-date rules for our chat server.</p>
-
-<h3><a class="title-link" name="the-rules" href="#the-rules"></a> The rules…</h3>
-
-<h4><a class="title-link" name="rules" href="#rules"></a> Rules:</h4>
-
-<p>Please carefully read through these rules <strong>before engaging in conversation.</strong></p>
-
-<ol>
-  <li>
-    <p><strong>New members: Welcome!</strong> Start by reading over the <a href="https://home-assistant.io/faq/">FAQ</a>. Feel free to introduce yourself, as we are all friends here!</p>
-  </li>
-  <li>
-    <p>If you have a question, please check the <a href="https://home-assistant.io/faq/">FAQ</a> and <a href="https://home-assistant.io/docs/">relevant documentation</a> before posting.</p>
-  </li>
-  <li>
-    <p>Do not insult, belittle, or abuse your fellow community members. Any reports of abuse will not be taken lightly and <strong>will lead to a ban.</strong></p>
-  </li>
-  <li>
-    <p>Our moderators are kind enough to volunteer their time to help keep this a great community for everyone. Any inappropriate or unconstructive comments toward or about them <strong>will result in a ban.</strong></p>
-  </li>
-  <li>
-    <p><a href="https://discord.gg/8X8DTH4">#devs</a> is for <strong>development discussion only</strong>. <a href="https://discord.gg/pywKZRT">#general</a> is for common discussion, support questions, and lending help to others. Please use the appropriate channel as it pertains to the nature of your discussion.</p>
-  </li>
-  <li>
-    <p>Spam will not be tolerated, including but not limited to: self-promotion, flooding, codewalls (longer than 15 lines) and unapproved bots.</p>
-  </li>
-</ol>
-
-<p>These rules are not to be interpreted how you like, there are no “loopholes.” Anyone claiming not to be breaking the rules due to it “not being in the rules” will result in the according consequence. If you are unsure about something, please ask either myself (@dale3h) or the community.</p>
-
-<p>If you have any issues with anything or anyone on the server please PM me (@dale3h) with any relevant details. <strong>I cannot help anyone if I am unaware of any issues.</strong></p>
-
-<h4><a class="title-link" name="infractions-and-bans" href="#infractions-and-bans"></a> Infractions and Bans:</h4>
-
-<p>Bans <strong>will be issued</strong> after one serious infraction or failing to acknowledge warnings of minor infractions. This is non-negotiable.</p>
-
-<p>Sincerely,</p>
-
-<p><strong>Dale Higgs</strong><br />
-Community Leader, Home Assistant</p>
 
 ]]></content>
   </entry>
