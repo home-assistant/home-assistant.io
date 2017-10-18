@@ -88,12 +88,21 @@
 <ul>
   <li><strong>ports</strong> array (<em>Required</em>): Array of used ports.
     <ul>
-      <li><strong>port: name</strong> (<em>Required</em>): Port numbers and corresponding names.</li>
+      <li><strong>port: name</strong> (<em>Required</em>): Port numbers and corresponding names (GPIO #).</li>
     </ul>
   </li>
   <li><strong>invert_logic</strong> (<em>Optional</em>): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).</li>
 </ul>
 <p>For more details about the GPIO layout, visit the Wikipedia <a href="https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector">article</a> about the Raspberry Pi.</p>
+<p>A common question is what does Port refer to, this number is the actual GPIO # not the pin #.
+For example, if you have a relay connected to pin 11 its GPIO # is 17.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rpi_gpio</span>
+    <span class="s">ports</span><span class="pi">:</span>
+      <span class="s">17</span><span class="pi">:</span> <span class="s">Speaker Relay</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
