@@ -21,7 +21,7 @@ api.ai could be integrated with many popular messaging, virtual assistant and Io
 
 Using Api.ai will be easy to create conversations like:
 
- > User: Which is the temperature at home?
+ > User: What is the temperature at home?
  >
  > Bot: The temperature is 34 degrees
 
