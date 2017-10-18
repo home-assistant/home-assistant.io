@@ -98,7 +98,7 @@ wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
 ```
 {% endraw %}
 
-It is also possible to use dummy variables, e.g. in scripts, when using `wait_template`.
+It is also possible to use dummy variables, e.g., in scripts, when using `wait_template`.
 
 {% raw %}
 ```yaml
