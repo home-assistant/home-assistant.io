@@ -86,7 +86,7 @@ http:
 
 ### {% linkable_title Including Separate Files %}
 
-To improve readability, you can source out certain domains from you main configuration file with the `!include`-Syntax.
+To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
 
 ```yaml
 lights: !include lights.yaml
