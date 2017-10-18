@@ -36,12 +36,12 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 ## {% linkable_title Services %}
 
-### {% linkable_title Media control services %}
+### {% linkable_title counter component services %}
 Available services: `increment`, `decrement`, and `reset`.
 
 #### {% linkable_title Service `counter.increment` %}
 
-Increments the counter with 1 or the given value for the steps.
+Increments the counter value by 1.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -49,7 +49,7 @@ Increments the counter with 1 or the given value for the steps.
 
 #### {% linkable_title Service `counter.decrement` %}
 
-Decrements the counter with 1 or the given value for the steps.
+Decrements the counter value by 1.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -57,7 +57,7 @@ Decrements the counter with 1 or the given value for the steps.
 
 #### {% linkable_title Service `counter.reset` %}
 
-With this service the counter is reset to its initial value.
+Resets the counter value to its initial value, which is 0.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
