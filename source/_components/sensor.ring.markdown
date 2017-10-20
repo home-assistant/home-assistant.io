@@ -21,12 +21,6 @@ Once you have enabled the [Ring component](/components/ring), add the following 
 # Example configuration.yaml entry
 sensor:
   - platform: ring
-    monitored_conditions:
-      - battery
-      - last_activity
-      - last_ding
-      - last_motion
-      - volume
 ```
 
 Configuration variables:

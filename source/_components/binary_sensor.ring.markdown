@@ -21,9 +21,6 @@ Once you have enabled the [Ring component](/components/ring), add the following 
 # Example configuration.yaml entry
 binary_sensor:
   - platform: ring
-    monitored_conditions:
-      - ding
-      - motion
 ```
 
 Configuration variables:
