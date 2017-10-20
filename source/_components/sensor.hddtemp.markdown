@@ -35,5 +35,5 @@ Configuration variables:
 - **name** (*Optional*): Friendly name to use for the frontend. Default to "HD Temperature".
 - **host** (*Optional*): Host where `hddtemp` is running. Default to `localhost`.
 - **port** (*Optional*): Port that is used by `hddtemp` . Default to `7634`.
-- **disks** (*Required*): Disk to be monitored. Example: `/dev/sda1` 
+- **disks** (*Optional*): Disk to be monitored. Example: `/dev/sda1` 
 
