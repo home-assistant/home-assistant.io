@@ -23,6 +23,11 @@ There is one dependency you will need to have installed ahead of time (included 
 ```bash
 $ sudo apt-get install libudev-dev
 ```
+When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python you have installed. 
+
+```bash
+sudo /Applications/Python\ x.x/Install\ Certificates.command
+```
 
 ### {% linkable_title Configuration %}
 
