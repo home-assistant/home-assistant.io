@@ -83,3 +83,13 @@ If an environment variable is not set, you can fallback to a default value.
 http:
   api_password: !env_var PASSWORD default_password
 ```
+
+### {% linkable_title Including Separate Files %}
+
+To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
+
+```yaml
+lights: !include lights.yaml
+```
+
+More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).

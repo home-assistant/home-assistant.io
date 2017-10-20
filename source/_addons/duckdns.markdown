@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DuckDNS"
-description: "Automatically update your Duck DNS IP address."
+description: "Automatically update your Duck DNS IP address with integrated HTTPS support via Let's Encrypt."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -37,6 +37,9 @@ Use the following configuration in Home Assistant to use the generated certifica
 
 ```yaml
 http:
+  base_url: https://my-domain.duckdns.org:8123
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 ```
+
+If you use a other port as `8123` or a SSL proxy, change the port number.

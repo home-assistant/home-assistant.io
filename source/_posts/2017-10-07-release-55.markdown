@@ -43,6 +43,16 @@ This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor p
 - Updating clicksendaudio component based on feedback ([@jeroenterheerdt] - [#9692]) ([notify.clicksendaudio docs]) (new-platform)
 - Support for The Things Network ([@fabaff] - [#9627]) ([thethingsnetwork docs]) ([sensor.thethingsnetwork docs]) (new-platform)
 
+## {% linkable_title 0.55.1 - October 15 %}
+
+- Fix for TypeError in synology camera ([@snjoetw] - [#9754]) ([camera.synology docs])
+- missing is_closed ( rflink cover fix ) ([@passie] - [#9776]) ([cover.rflink docs])
+- [light.tradfri] Fix transition time ([@lwis] - [#9785]) ([light.tradfri docs])
+- OwnTracks: Fix handler is None checking ([@balloob] - [#9794]) ([device_tracker.owntracks docs])
+- Changed yaml.load into yaml.safe_load ([@GenericStudent] - [#9841]) ([google docs])
+- Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
+- Livebox Play TV bug: fix #9839 ([@pschmitt] - [#9880]) ([media_player.liveboxplaytv docs])
+
 ## {% linkable_title If you need help... %}
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
@@ -58,7 +68,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - New Wink services: pair new device, rename, delete and add new lock key code. All device attributes that are multi-words are now separated by  "_" and no longer " ". ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
 - TP-Link Switch: Attribute names now uses underscores and unnecessary capitalization was removed. ([@djchen] - [#9607]) ([switch.tplink docs]) (breaking change)
 - Renamed `input_slider` to `input_number` which has now a numeric text box option. ([@BioSehnsucht] - [#9494]) ([demo docs]) ([input_number docs]) (breaking change)
-- Recorder: Add new purge service and interval. ([@milanvo] - [#9523]) ([recorder docs]) (breaking change)
+- Recorder: Add new purge service and interval. The recorder component no longer accepts a `purge_days` parameter. If you are using `purge_days` you must use `purge_interval` and `purge_keep_days`. ([@milanvo] - [#9523]) ([recorder docs]) (breaking change)
 - OpenCV image processing: Typo in classifier was fixed. ([@arsaboo] - [#9697]) ([image_processing.opencv docs]) (breaking change)
 - Tradfri Lights: Async support with resource observation. ([@lwis] - [#7815]) ([tradfri docs]) ([light.tradfri docs]) (breaking change)
 
@@ -381,3 +391,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
 [history_graph docs]: https://home-assistant.io/components/history_graph/
+[#9754]: https://github.com/home-assistant/home-assistant/pull/9754
+[#9776]: https://github.com/home-assistant/home-assistant/pull/9776
+[#9785]: https://github.com/home-assistant/home-assistant/pull/9785
+[#9794]: https://github.com/home-assistant/home-assistant/pull/9794
+[#9841]: https://github.com/home-assistant/home-assistant/pull/9841
+[#9842]: https://github.com/home-assistant/home-assistant/pull/9842
+[#9880]: https://github.com/home-assistant/home-assistant/pull/9880
+[@GenericStudent]: https://github.com/GenericStudent
+[@balloob]: https://github.com/balloob
+[@lwis]: https://github.com/lwis
+[@passie]: https://github.com/passie
+[@pschmitt]: https://github.com/pschmitt
+[@snjoetw]: https://github.com/snjoetw
+[camera.synology docs]: https://home-assistant.io/components/camera.synology/
+[cover.rflink docs]: https://home-assistant.io/components/cover.rflink/
+[device_tracker.owntracks docs]: https://home-assistant.io/components/device_tracker.owntracks/
+[google docs]: https://home-assistant.io/components/google/
+[light.tradfri docs]: https://home-assistant.io/components/light.tradfri/
+[media_player.liveboxplaytv docs]: https://home-assistant.io/components/media_player.liveboxplaytv/

@@ -9,6 +9,10 @@ sharing: true
 footer: true
 ---
 
+<p class='note'>
+If you are using Hass.io, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
+</p>
+
 <p class=' note warning'>
 Before exposing your Home Assistant instance to the outside world it is ESSENTIAL that you have set a password following the advice on the [http](https://home-assistant.io/docs/configuration/basic/) page.
 </p>

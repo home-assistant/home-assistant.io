@@ -40,8 +40,8 @@ Configuration variables:
   - **entity_id** (*Required*): Name of the entity to monitor.
   - **prob_given_true** (*Required*): The probability of the observation occurring, given the event is `true`.
   - **prob_given_false** (*Optional*): The probability of the observation occurring, given the event is `false` can be set as well.  If `prob_given_false` is not set, it will default to `1 - prob_given_true`.
-  - **platform** (*Required*): The only supported observation platforms are `state` and `numeric_state`, which are modeled after their corresponding triggers for automations.
-  - **to_state** (*Required*): The target start.
+  - **platform** (*Required*): The only supported observation platforms are `state` and `numeric_state`, which are modeled after their corresponding triggers for automations, requiring `before` and/or `after` instead of `to_state`.
+  - **to_state** (*Required*): The target state.
 - **probability_threshold** (*Optional*): The probability at which the sensor should trigger to `on`.
 - **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Bayesian Binary`.
 
@@ -73,4 +73,17 @@ binary_sensor:
       prob_given_true: 0.7
       platform: 'state'
       to_state: 'below_horizon'
+```
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  name: 'Heat On'
+  platform: 'bayesian'
+  prior: 0.2
+  probability_threshold: 0.9
+  observations:
+    - entity_id: 'sensor.outside_air_temperature_fahrenheit'
+      prob_given_true: 0.95
+      platform: 'numeric_state'
+      below: 50
 ```

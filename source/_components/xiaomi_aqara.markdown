@@ -59,8 +59,8 @@ To enable {{ page.title }} in your installation, add the following to your `conf
 # You can leave mac empty if you only have one gateway.
 xiaomi_aqara:
   gateways:
-   - mac:
-     key: xxxxxxxxxxxxxxxx
+    - mac:
+      key: xxxxxxxxxxxxxxxx
 ```
 
 ### {% linkable_title Multiple Gateways %}
@@ -88,12 +88,12 @@ xiaomi_aqara:
 
 {% configuration %}
   mac:
-    description: The MAC of your gateway. *Optional if only using one gateway.*
-    required: true
+    description: The MAC address of your gateway. *Optional if only using one gateway.*
+    required: false
     type: string
   key:
     description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
-    required: true
+    required: false
     type: string
   discovery_retry:
     description: Number of times that Home Assistant should try to reconnect to the gateway.
@@ -105,6 +105,10 @@ xiaomi_aqara:
     required: false
     type: string
     default: any
+  host:
+    description: The host / ip address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
+    required: false
+    type: string    
 {% endconfiguration %}
 
 ### {% linkable_title Services %}
@@ -154,6 +158,10 @@ and stops the sound when the button is pressed once.
 
 ## {% linkable_title Troubleshooting %}
 
+### {% linkable_title Initial setup problem %}
+
+If you run into trouble initializing the gateway with your app, try another smartphone. I had trouble with the OnePlus 3, but it worked with a Nexus 5.
+
 ### {% linkable_title Connection problem %}
 
 ```bash
@@ -164,6 +172,7 @@ and stops the sound when the button is pressed once.
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
 - Make sure you have [enabled LAN access](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832).
 - Turn off the firewall on the system where Home Assistant is running.
+- Ensure your router supports multicast as this is a requirement of the Xiaomi GW
 - Try to leave the MAC address `mac:` blank.
 - Try to set `discovery_retry: 10`.
 - Try to disable and then enable LAN access.

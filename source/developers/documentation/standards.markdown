@@ -55,3 +55,15 @@ To ensure that the documentation for Home Assistant is consistent and easy to fo
   * `condition`
   * `service`
 
+## {% linkable_title Renaming Pages %}
+
+It can happen that a component or platform is renamed, in this case the documentation needs to be updated as well. If you rename a page, add  `redirect_from:` to the file header and let it point to the old location/name of the page. Please consider to add details, like release number or old component/platform name, to the page in a [note](/developers/documentation/create_page/#html).
+
+```text
+---
+...
+redirect_from: /getting-started/android/
+---
+```
+
+Adding a redirect also applies if you move content around in the [documention](/docs/).
