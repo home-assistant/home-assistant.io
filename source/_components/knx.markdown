@@ -79,7 +79,7 @@ knx:
 * **fire_event** (Optional) if set to True, platform will write all received KNX messages to event bus
 * **fire_event_filter** If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HASS event bus. 
 
-
+* **state_updater** (Optional) The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behaviour.
 
 Service
 -------
