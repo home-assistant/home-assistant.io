@@ -28,38 +28,38 @@ The `hello.html` contains the needed building blocks to create the elements insi
 </dom-module>
 
 <script>
-Polymer({
-  is: 'ha-panel-hello',
-  properties: {
-    // Home Assistant object
-    hass: {
-      type: Object,
-    },
-    // If should render in narrow mode
-    narrow: {
-      type: Boolean,
-      value: false,
-    },
-    // If sidebar is currently shown
-    showMenu: {
-      type: Boolean,
-      value: false,
-    },
-    // Home Assistant panel info
-    // panel.config contains config passed to register_panel serverside
-    panel: {
-      type: Object,
-    },
-    who: {
-      type: String,
-      computed: 'computeWho(panel)',
-    }
-  },
+class HaPanelHello extends Polymer.Element {
+  static get is() { return 'ha-panel-hello'; }
+  
+  static get properties() {
+    return {
+      // Home Assistant object
+      hass: Object,
+      // If should render in narrow mode
+      narrow: {
+        type: Boolean,
+        value: false,
+      },
+      // If sidebar is currently shown
+      showMenu: {
+        type: Boolean,
+        value: false,
+      },
+      // Home Assistant panel info
+      // panel.config contains config passed to register_panel serverside
+      panel: Object,
+      who: {
+        type: String,
+        computed: 'computeWho(panel)',
+      },
+    };
+  }
 
-  computeWho: function (panel) {
+  computeWho(panel) {
     return panel && panel.config && panel.config.who ? panel.config.who : 'World';
-  },
-});
+  }
+}
+customElements.define(HaPanelHello.is, HaPanelHello);
 </script>
 ```
 
