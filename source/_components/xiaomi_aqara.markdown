@@ -59,8 +59,8 @@ To enable {{ page.title }} in your installation, add the following to your `conf
 # You can leave mac empty if you only have one gateway.
 xiaomi_aqara:
   gateways:
-   - mac:
-     key: xxxxxxxxxxxxxxxx
+    - mac:
+      key: xxxxxxxxxxxxxxxx
 ```
 
 ### {% linkable_title Multiple Gateways %}
