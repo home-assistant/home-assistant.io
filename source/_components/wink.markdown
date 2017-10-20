@@ -145,3 +145,153 @@ Home Assistant entity_ids for Wink devices are based on the Wink device's name. 
 The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
 </p>
 
+
+### Custom Wink devices and their services
+
+- GoControl siren and strobe
+- Dome siren/chime/strobe
+
+
+### {% linkable_title Service `set_siren_auto_shutoff` %}
+
+You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shuting off.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `auto_shutoff` | no | Int. One of [None, -1, 30, 60, 120] (None and -1 are forever. Use None for gocontrol, and -1 for Dome)
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren.
+
+Example:
+
+```yaml
+script:
+  set_all_sirens_to_one_minute_auto_shutoff:
+    sequence:
+      - service: wink.set_siren_auto_shutoff
+        data:
+          auto_shutoff: 60
+```
+
+<p class='note'>
+The following services only work with the Dome siren/chime.
+</p>
+
+### {% linkable_title Service `set_chime_volume` %}
+
+You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `volume` | no | String. One of ["low", "medium", "high"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  set_chime_volume_to_low_for_all_chimes
+    sequence:
+      - service: wink.set_chime_volume
+        data:
+          volume: "low"
+```
+
+### {% linkable_title Service `set_siren_volume` %}
+
+You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `volume` | no | String. One of ["low", "medium", "high"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  set_siren_volume_to_low_for_all_sirens
+    sequence:
+      - service: wink.set_siren_volume
+        data:
+          volume: "low"
+```
+
+### {% linkable_title Service `enable_chime` %}
+
+You can use the service wink/enable_chime to set the tone and enable the chime on your Dome siren/chime.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `tone` | no | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep", "inactive"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  execute_doorbell
+    sequence:
+      - service: wink.enable_chime
+        data:
+          tone: "doorbell"
+```
+
+### {% linkable_title Service `set_siren_tone` %}
+
+You can use the service wink/set_siren_tone to set the tone on your Dome siren. This tone will be used the next time the siren is executed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `tone` | no | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  set_siren_to_alert:
+    sequence:
+      - service: wink.set_siren_tone
+        data:
+          tone: "alert"
+```
+
+### {% linkable_title Service `set_siren_strobe_enabled` %}
+
+You can use the service wink/set_siren_strobe_enabled to enable or disable the strobe when the siren is executed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `enabled` | no | Boolean. True or False.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  disable_siren_strobe:
+    sequence:
+      - service: wink.set_siren_strobe_enabled
+        data:
+          enabled: False
+```
+
+### {% linkable_title Service `set_chime_strobe_enabled` %}
+
+You can use the service wink/set_chime_strobe_enabled to enable or disable the strobe when the chime is executed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `enabled` | no | Boolean. True or False.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of chime/chime.
+
+Example:
+
+```yaml
+script:
+  disable_chime_strobe:
+    sequence:
+      - service: wink.set_chime_strobe_enabled
+        data:
+          enabled: False
+```
