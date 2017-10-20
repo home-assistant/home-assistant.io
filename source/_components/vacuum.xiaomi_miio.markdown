@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Xiaomi Mi Robot Vacuum"
-description: "Instructions how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant."
+description: "Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant."
 date: 2017-05-05 18:11
 sidebar: true
 comments: false
@@ -18,15 +18,15 @@ The `xiaomi miio` vacuum platform allows you to control the state of your
 
 Currently supported features are:
 
-* `turn_on`
-* `pause`
-* `stop`
-* `return_to_home`
-* `turn_off` (stop all activity and return to dock)
-* `locate`
-* `clean_spot`
-* `set_fanspeed`
-* remote control of your robot.
+- `turn_on`
+- `pause`
+- `stop`
+- `return_to_home`
+- `turn_off` (stop all activity and return to dock)
+- `locate`
+- `clean_spot`
+- `set_fanspeed`
+- remote control of your robot.
 
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
@@ -55,10 +55,10 @@ In addition to [all of the services provided by the `vacuum` component]
 `set_fanspeed` and `send_command`), the `xiaomi` platform introduces specific
 services to access the remote control mode of the robot. These are:
 
-* `xiaomi_remote_control_start`
-* `xiaomi_remote_control_stop`
-* `xiaomi_remote_control_move`
-* `xiaomi_remote_control_move_step`
+- `xiaomi_remote_control_start`
+- `xiaomi_remote_control_stop`
+- `xiaomi_remote_control_move`
+- `xiaomi_remote_control_move_step`
 
 ### {% linkable_title Service `vacuum/xiaomi_remote_control_start` %}
 
@@ -107,14 +107,14 @@ In addition to [all of the attributes provided by the `vacuum` component](https:
 (`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, `status`, and 
 `params`), the `xiaomi` platform introduces specific attributes. These are:
 
-* `cleaning_time`
-* `do_not_disturb`
-* `main_brush_left`
-* `side_brush_left`
-* `filter_left`
-* `cleaning_count`
-* `total_cleaned_area`
-* `total_cleaning_time`
+- `cleaning_time`
+- `do_not_disturb`
+- `main_brush_left`
+- `side_brush_left`
+- `filter_left`
+- `cleaning_count`
+- `total_cleaned_area`
+- `total_cleaning_time`
 
 The following table shows the units of measurement for each attribute:
 
