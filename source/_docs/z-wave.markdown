@@ -31,3 +31,4 @@ There are 2 basic things you'll need to use Z-Wave, a Z-Wave [controller](/docs/
 ### {% linkable_title Regional differences %}
 
 There are 12 different regions for Z-Wave devices, which relates to the frequency the devices use. There is overlap between the regions, but you should ensure that you buy devices for your region. Wikipedia has a list of the [frequencies used](https://en.wikipedia.org/wiki/Z-Wave#Radio_frequencies).
+
