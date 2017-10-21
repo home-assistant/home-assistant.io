@@ -30,6 +30,7 @@ Configuration variables:
 
 - **resource** (*Required*): The URL to the website that contains the value.
 - **select** (*Required*): Defines the HTML tag to search for. Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details.
+- **attribute** (*optional*): Get value of an attribute on the selected tag.
 - **name** (*Optional*): Name of the sensor.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
 
@@ -67,11 +68,11 @@ sensor:
 
 ### {% linkable_title Get a value out of a tag %}
 
-The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](http://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany. 
+The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](http://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.
 
 ```yaml
-sensor:
 # Example configuration.yaml entry
+sensor:
   - platform: scrape
     resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
@@ -84,11 +85,24 @@ sensor:
 If you make heavy use of the [IFTTT](/components/ifttt/) web service for your automations and are curious about the [status of IFTTT](http://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
 
 ```yaml
-sensor:
 # Example configuration.yaml entry
+sensor:
   - platform: scrape
     resource: http://status.ifttt.com/
     name: IFTTT status
     select: '.component-status'
 ```
 
+### {% linkable_title Get the latest podcast episode file URL %}
+
+If you want to get the file URL for the latest episode of your [favourite podcast](https://hasspodcast.io/), so you can pass it on to a compatible media player.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: scrape
+    resource: https://hasspodcast.io/feed/podcast
+    name: Home Assistant Podcast
+    select: 'enclosure:nth-of-type(1)'
+    attribute: url
+```
