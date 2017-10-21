@@ -26,6 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Lock](/components/cover.abode/): Reports on `Door Locks` and can be used to lock and unlock the door.
 - [Light](/components/light.abode/): Reports on `Dimmer` lights and can be used to dim, change color, or turn the light on and off.
 - [Switch](/components/switch.abode/): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
+- [Sensor](/components/sensor.abode/): Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
 ## {% linkable_title Configuration %}
 
