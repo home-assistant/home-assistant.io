@@ -60,7 +60,7 @@ Configuration variables:
 
 ## {% linkable_title Platform Services %}
 
-### Service airpurifier/set_buzzer_on
+### Service fan/xiaomi_miio_set_buzzer_on
 
 Turn the buzzer on.
 
@@ -68,7 +68,7 @@ Turn the buzzer on.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
 
-### Service airpurifier/set_buzzer_off
+### Service fan/xiaomi_miio_set_buzzer_off
 
 Turn the buzzer off.
 
@@ -76,7 +76,7 @@ Turn the buzzer off.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
 
-### Service airpurifier/set_led_on
+### Service fan/xiaomi_miio_set_led_on
 
 Turn the led on.
 
@@ -84,7 +84,7 @@ Turn the led on.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
 
-### Service airpurifier/set_led_off
+### Service fan/xiaomi_miio_set_led_off
 
 Turn the led off.
 
@@ -92,7 +92,7 @@ Turn the led off.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
 
-### Service airpurifier/set_led_brightness
+### Service fan/xiaomi_miio_set_led_brightness
 
 Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
@@ -101,7 +101,7 @@ Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 | `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
 | `brightness`              |       no | Brightness, between 0 and 2.                          |
 
-### Service airpurifier/set_favorite_level
+### Service fan/xiaomi_miio_set_favorite_level
 
 Set the favorite level of the operation mode "favorite".
 
