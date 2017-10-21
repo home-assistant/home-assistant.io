@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Arlo">
     <meta name="twitter:description" content="Instructions on how to integrate your Netgear Arlo cameras within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -88,7 +88,7 @@
   <li><strong>password</strong> (<em>Required</em>): The password for accessing your Arlo account.</li>
 </ul>
 <p>It is recommended to create a dedicated user on Arlo website to be used within Home Assistant and then share your Arlo cameras.</p>
-<p>Finish its configuration by visiting the <a href="/components/sensor.arlo/">Arlo sensor page</a> or <a href="/components/camera.arlo/">Arlo camera page</a>.</p>
+<p>Finish its configuration by visiting the <a href="/components/sensor.arlo/">Arlo sensor page</a> or <a href="/components/camera.arlo/">Arlo camera page</a> or <a href="/components/alarm_control_panel.arlo/">Arlo control panel page</a>.</p>
 <p>The Arlo component also provides a service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#automation.yaml</span>
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Enable Arlo upton HA start'</span>
@@ -121,6 +121,9 @@
           <ul class='divided'>
         <li><a href='/components/camera.arlo/'>
           Arlo Camera
+        </a></li>
+        <li><a href='/components/alarm_control_panel.arlo/'>
+          Arlo Control Panel
         </a></li>
         <li><a href='/components/sensor.arlo/'>
           Arlo Sensor
@@ -284,6 +287,9 @@
             <a href='/components/satel_integra/'>Satel Integra Alarm</a>
         </li>
         <li>
+            <a href='/components/skybell/'>Skybell</a>
+        </li>
+        <li>
             <a href='/components/sleepiq/'>SleepIQ</a>
         </li>
         <li>
@@ -303,6 +309,9 @@
         </li>
         <li>
             <a href='/components/thethingsnetwork/'>The Things Network</a>
+        </li>
+        <li>
+            <a href='/components/toon/'>Toon</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

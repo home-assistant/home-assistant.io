@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Home Assistant">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -67,6 +67,68 @@
     <div class="grid-wrapper">
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/10/21/release-56/">0.56: Skybell, Google Actions, Travis CI and Toon</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-10-21T10:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 21, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> 14 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/10/21/release-56/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.56"><img src="/images/blog/2017-10-0.56/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>We reached another milestone aka number: 10000. GitHub is assigning numbers to pull requests and issues and the “10000” is a <a href="https://github.com/home-assistant/home-assistant/pull/10000">PR</a>. Our ratio is around 1/3 issues and 2/3 pull requests. To be more precise: 64% pull requests and 36% issues.</p>
+<p>If you haven’t noticed, there is now a <a href="https://home-assistant.io/docs/glossary/">glossary</a> that collects some Home Assistant relevant terms. Talking about the documentation: <a href="https://github.com/DubhAd">@DubhAd</a> rewrote large parts of the <a href="https://home-assistant.io/docs/z-wave/">Z-Wave section</a>. More structure to get started and to find details during the setup and the configuration.</p>
+<h2><a class="title-link" name="google-assistant--google-home-integration" href="#google-assistant--google-home-integration"></a> Google Assistant / Google Home integration</h2>
+<p>This release includes a new component to integrate Home Assistant with Google Assistant by <a href="https://github.com/philk">Phil Kates</a>. We integrate via the Smart Home API, this means that you will be able to control your devices in Home Assistant via any device that has Google Assistant. Learn more in <a href="https://home-assistant.io/components/googleactions/">the documentation</a>.</p>
+<h2><a class="title-link" name="hacktoberfest" href="#hacktoberfest"></a> Hacktoberfest</h2>
+<p><a href="https://home-assistant.io/blog/2017/09/29/hacktoberfest/">Hacktoberfest</a> is still on and so far we have received a lot improvements. We can’t make any promises to review everything by the end of October, but we are trying to make sure that you will get your t-shirt.</p>
+<h2><a class="title-link" name="map" href="#map"></a> Map</h2>
+<p>The <a href="https://home-assistant.io/components/map/">map</a> is now its own component. Similar to <a href="https://home-assistant.io/components/config/">configuration (<code class="highlighter-rouge">config:</code>)</a>, it will not show up without adding it to your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">map</span><span class="pi">:</span>
+</code></pre>
+</div>
+<h2><a class="title-link" name="travis-ci" href="#travis-ci"></a> Travis CI</h2>
+<p>Why not observe your <a href="https://travis-ci.org">Travis CI</a> jobs with Home Assistant? <a href="https://github.com/tchellomello">@tchellomello</a> created a <a href="https://home-assistant.io/components/sensor.travisci/">Travis CI</a> sensor which allows one to check on the current state of Travis jobs. Now you can make sure that the <a href="https://home-assistant.io/blog/2017/01/28/face-coffee-wink/#first-coffee-maker-supported">coffee</a> is ready when the build passed.</p>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
+<ul>
+  <li>Add Arlo alarm control panel component (<a href="https://github.com/vickyg3">@vickyg3</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9711">#9711</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.arlo/">alarm_control_panel.arlo docs</a>) (new-platform)</li>
+  <li>Abode Temp, Humidity, and Light Sensor (<a href="https://github.com/MisterWil">@MisterWil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9709">#9709</a>) (<a href="https://home-assistant.io/components/abode/">abode docs</a>) (<a href="https://home-assistant.io/components/sensor.abode/">sensor.abode docs</a>) (new-platform)</li>
+  <li>Introducing support to Travis-CI (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9701">#9701</a>) (<a href="https://home-assistant.io/components/sensor.travisci/">sensor.travisci docs</a>) (new-platform)</li>
+  <li>Skybell (<a href="https://github.com/MisterWil">@MisterWil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9681">#9681</a>) (<a href="https://home-assistant.io/components/skybell/">skybell docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.skybell/">binary_sensor.skybell docs</a>) (<a href="https://home-assistant.io/components/camera.skybell/">camera.skybell docs</a>) (<a href="https://home-assistant.io/components/light.skybell/">light.skybell docs</a>) (<a href="https://home-assistant.io/components/sensor.skybell/">sensor.skybell docs</a>) (<a href="https://home-assistant.io/components/switch.skybell/">switch.skybell docs</a>) (new-platform)</li>
+  <li>Xiaomi Smart WiFi Socket and Smart Power Strip integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9138">#9138</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_plug/">switch.xiaomi_plug docs</a>) (new-platform)</li>
+  <li>Add notification platform for Rocket.Chat (<a href="https://github.com/webworxshop">@webworxshop</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9553">#9553</a>) (<a href="https://home-assistant.io/components/notify.rocketchat/">notify.rocketchat docs</a>) (new-platform)</li>
+  <li>Tesla bug fixes. (<a href="https://github.com/zabuldon">@zabuldon</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9774">#9774</a>) (<a href="https://home-assistant.io/components/tesla/">tesla docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.tesla/">binary_sensor.tesla docs</a>) (<a href="https://home-assistant.io/components/climate.tesla/">climate.tesla docs</a>) (<a href="https://home-assistant.io/components/lock.tesla/">lock.tesla docs</a>) (<a href="https://home-assistant.io/components/sensor.tesla/">sensor.tesla docs</a>) (<a href="https://home-assistant.io/components/switch.tesla/">switch.tesla docs</a>) (new-platform)</li>
+  <li>Split map panel out into its own component (<a href="https://github.com/cgarwood">@cgarwood</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9814">#9814</a>) (<a href="https://home-assistant.io/components/map/">map docs</a>) (breaking change) (new-platform)</li>
+  <li>Support for Yi cameras (<a href="https://github.com/bachya">@bachya</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9787">#9787</a>) (<a href="https://home-assistant.io/components/camera.yi/">camera.yi docs</a>) (new-platform)</li>
+  <li>Add namecheap DNS component (<a href="https://github.com/Munsio">@Munsio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9821">#9821</a>) (<a href="https://home-assistant.io/components/namecheapdns/">namecheapdns docs</a>) (new-platform)</li>
+  <li>Uptime sensor (<a href="https://github.com/fronzbot">@fronzbot</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9856">#9856</a>) (<a href="https://home-assistant.io/components/sensor.uptime/">sensor.uptime docs</a>) (new-platform)</li>
+  <li>Cloud connection via aiohttp (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9860">#9860</a>) (new-platform)</li>
+  <li>Google Actions for Assistant (<a href="https://github.com/philk">@philk</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9632">#9632</a>) (<a href="https://home-assistant.io/components/googleactions/">googleactions docs</a>) (<a href="https://home-assistant.io/components/http/">http docs</a>) (new-platform)</li>
+  <li>A new platform for controlling Monoprice 6-Zone amplifier (<a href="https://github.com/etsinko">@etsinko</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9662">#9662</a>) (<a href="https://home-assistant.io/components/media_player.monoprice/">media_player.monoprice docs</a>) (new-platform)</li>
+  <li>Add serial sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9861">#9861</a>) (<a href="https://home-assistant.io/components/sensor.serial/">sensor.serial docs</a>) (new-platform)</li>
+  <li>Add Toon support (<a href="https://github.com/Boltgolt">@Boltgolt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9483">#9483</a>) (<a href="https://home-assistant.io/components/toon/">toon docs</a>) (<a href="https://home-assistant.io/components/climate.toon/">climate.toon docs</a>) (<a href="https://home-assistant.io/components/sensor.toon/">sensor.toon docs</a>) (<a href="https://home-assistant.io/components/switch.toon/">switch.toon docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/10/21/release-56/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
   <article class="listing">
     <header>
   <h1 class="beta">
@@ -148,9 +210,9 @@
     <p><a href="/components/#version/0.55"><img src="/images/blog/2017-10-0.55/components.png" style="border: 0;box-shadow: none;" /></a></p>
 <p>Beside the improved Wink support which was contributed by <a href="https://github.com/w1ll1am23">@w1ll1am23</a>, ships this release a wide variety of new components and platforms. The <code class="highlighter-rouge">input_slider</code> components has received a makeover by <a href="https://github.com/BioSehnsucht">@BioSehnsucht</a> and is now <a href="https://home-assistant.io/components/input_number/"><code class="highlighter-rouge">input_number</code></a>. <a href="https://github.com/tinloaf">@tinloaf</a> added a feature that allows you to enter dates: <a href="https://home-assistant.io/components/input_datetime/"><code class="highlighter-rouge">input_datetime</code></a>. Both will help you to improve your automation rules.</p>
 <h2><a class="title-link" name="duckdns" href="#duckdns"></a> DuckDNS</h2>
-<p>Using Home Assistant with <a href="http://www.duckdns.org">DuckDNS</a> for Dynamic DNS (DDNS or DynDNS) is an <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">old story</a>. DuckDNS  is also integrated in <a href="https://home-assistant.io/addons/duckdns/">Hass.io</a>. 0.55 ships a component for no Hass.io users to get a similar feature.</p>
+<p>Using Home Assistant with <a href="http://www.duckdns.org">DuckDNS</a> for Dynamic DNS (DDNS or DynDNS) is an <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">old story</a>. DuckDNS  is also integrated in <a href="https://home-assistant.io/addons/duckdns/">Hass.io</a>. 0.55 ships a component for non Hass.io users to get a similar feature.</p>
 <h2><a class="title-link" name="recorder" href="#recorder"></a> Recorder</h2>
-<p>The purging of data was <a href="https://home-assistant.io/components/recorder/">improved</a>. With <code class="highlighter-rouge">purge_interval</code> you can schedule regular purges of older events and states. In combination you can specify with <code class="highlighter-rouge">purge_keep_days</code> the amount of days you want to keep. The new service <code class="highlighter-rouge">recorder.purge</code> allow to handle this task when needed.</p>
+<p>The purging of data was <a href="https://home-assistant.io/components/recorder/">improved</a>. With <code class="highlighter-rouge">purge_interval</code> you can schedule regular purges of older events and states. In combination you can specify with <code class="highlighter-rouge">purge_keep_days</code> the amount of days you want to keep. The new service <code class="highlighter-rouge">recorder.purge</code> allows you to handle this task when needed.</p>
 <h2><a class="title-link" name="owntracks" href="#owntracks"></a> Owntracks</h2>
 <p><a href="http://owntracks.org/">Owntracks</a> is an easy way to track your devices. For some times we have the device tracker which depends on <a href="https://home-assistant.io/components/device_tracker.owntracks/">MQTT</a> but thanks to a new feature in Owntracks we can now offer support for HTTP. The <a href="https://home-assistant.io/components/device_tracker.owntracks_http/">new platform</a> doesn’t require a MQTT broker but sends messages directly as HTTP requests to Home Assistant.</p>
 <h2><a class="title-link" name="tibber" href="#tibber"></a> Tibber</h2>
@@ -219,7 +281,7 @@
 <h4>Windows</h4>
 <p>If you’re on Windows, you’re fine as our minimum version for Windows has been 3.5 for a while now.</p>
 <h4>Other Debian based systems</h4>
-<p>If you’re running a Debian based system , follow <a href="https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-jessie-to-raspbian-stretch-9">these instructions</a> to upgrade.</p>
+<p>If you’re running a Debian based system, follow <a href="https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-jessie-to-raspbian-stretch-9">these instructions</a> to upgrade.</p>
   </div>
   </article>
   <hr>
@@ -432,43 +494,6 @@ FROM $BUILD_FROM
 <h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
 <p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
       <a class="btn pull-right" href="/blog/2017/09/23/release-54/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/">Hassbian 1.3 - A bit of a stretch</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-09-16T15:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 16, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Technology</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/09/16/hassbian-1.3-a-bit-of-a-stretch/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>This new release finally brings us the release of Hassbian based on the release of Raspbian Stretch. The most significant change with this is that we now run Home Assistant on Python 3.5.
-Other than that the changes are mostly to our tool <code class="highlighter-rouge">hassbian-config</code>.</p>
-<h3><a class="title-link" name="hassbian-config" href="#hassbian-config"></a> Hassbian-config</h3>
-<p>To allow you to customize your installation further, we have made a few additions to our tool called <code class="highlighter-rouge">hassbian-config</code>. Majority of these changes where contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</p>
-<h4><a class="title-link" name="upgrade-scripts" href="#upgrade-scripts"></a> Upgrade scripts</h4>
-<p><a href="http://github.com/ludeeus">@Ludeeus</a> contributed the possibility to run upgrade scripts to the <code class="highlighter-rouge">hassbian-config</code> tool.</p>
-<ul>
-  <li>Upgrade Hassbian: Upgrades packages of the base operating system. Contributed by <a href="http://github.com/landrash">@Landrash</a>.</li>
-  <li>Upgrade Hassbian-script: Downloads and upgrades the latest release of Hassbian-scripts. Contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</li>
-  <li>Upgrade Home-assistant: Upgrades the Home Assistant installation to the latest release. Contributed by <a href="http://github.com/ludeeus">@Ludeeus</a>.</li>
-</ul>
-<p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/RkajcgS">Discord chat server</a>.</p>
-<p>To get started with the new image, check out the installation instructions on the <a href="https://home-assistant.io/docs/installation/hassbian/installation/">installing Hassbian page</a>.</p>
   </div>
   </article>
   <hr>

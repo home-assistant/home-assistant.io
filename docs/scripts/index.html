@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Script Syntax">
     <meta name="twitter:description" content="Documention for the Home Assistant Script Syntax.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -135,6 +135,20 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># wait until a valve is &lt; 10 or abort after 1 minutes.</span>
 <span class="s">wait_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.climate.kitchen.attributes.valve</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">}}"</span>
 <span class="s">timeout</span><span class="pi">:</span> <span class="s">00:01:00</span>
+</code></pre>
+</div>
+<p>When using <code class="highlighter-rouge">wait_template</code> within an automation <code class="highlighter-rouge">trigger.entity_id</code> is supported for <code class="highlighter-rouge">state</code>, <code class="highlighter-rouge">numeric_state</code> and <code class="highlighter-rouge">template</code> triggers, see also <a href="/docs/automation/templating/#available-trigger-data">Available-Trigger-Data</a>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wait_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state(trigger.entity_id,</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">}}"</span>
+</code></pre>
+</div>
+<p>It is also possible to use dummy variables, e.g., in scripts, when using <code class="highlighter-rouge">wait_template</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Service call, e.g. from an automation.</span>
+<span class="s">service</span><span class="pi">:</span> <span class="s">script.do_something</span>
+<span class="s">data_template</span><span class="pi">:</span>
+  <span class="s">dummy</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">input_boolean.switch</span><span class="nv"> </span><span class="s">}}"</span>
+
+<span class="c1"># Inside the script</span>
+<span class="s">wait_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state(dummy,</span><span class="nv"> </span><span class="s">'off')</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="fire-an-event" href="#fire-an-event"></a> Fire an Event</h3>

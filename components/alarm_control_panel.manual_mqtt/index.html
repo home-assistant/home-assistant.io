@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Manual Alarm Control Panel with MQTT Support">
     <meta name="twitter:description" content="Instructions how to integrate manual alarms into Home Assistant with MQTT support.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -81,12 +81,14 @@
   <li><code class="highlighter-rouge">DISARM</code></li>
   <li><code class="highlighter-rouge">ARM_HOME</code></li>
   <li><code class="highlighter-rouge">ARM_AWAY</code></li>
+  <li><code class="highlighter-rouge">ARM_NIGHT</code></li>
 </ul>
 <p>When the state of the manual alarm changes, Home Assistant will publish one of the following states to the <code class="highlighter-rouge">state_topic</code>:</p>
 <ul>
   <li>‘disarmed’</li>
   <li>‘armed_home’</li>
   <li>‘armed_away’</li>
+  <li>‘armed_night’</li>
   <li>‘pending’</li>
   <li>‘triggered’</li>
 </ul>
@@ -105,6 +107,21 @@
   <li><strong>pending_time</strong> (<em>Optional</em>): The time in seconds of the pending time before arming the alarm. Default is 60 seconds.</li>
   <li><strong>trigger_time</strong> (<em>Optional</em>): The time in seconds of the trigger time in which the alarm is firing. Default is 120 seconds.</li>
   <li><strong>disarm_after_trigger</strong> (<em>Optional</em>): If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>**armed_home</td>
+          <td>armed_away</td>
+          <td>armed_night</td>
+          <td>triggered** (<em>Optional</em>): State specific settings</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><strong>pending_time</strong>: State specific pending time override.</li>
+    </ul>
+  </li>
 </ul>
 <p>Additionally, the following MQTT configuration variables are also available:</p>
 <ul>
@@ -114,7 +131,22 @@
   <li><strong>payload_disarm</strong> (<em>Optional</em>): The payload to disarm this Alarm Panel. Default is “DISARM”.</li>
   <li><strong>payload_arm_home</strong> (<em>Optional</em>): The payload to set armed-home mode on this Alarm Panel. Default is “ARM_HOME”.</li>
   <li><strong>payload_arm_away</strong> (<em>Optional</em>): The payload to set armed-away mode on this Alarm Panel. Default is “ARM_AWAY”.</li>
+  <li><strong>payload_arm_night</strong> (<em>Optional</em>): The payload to set armed-night mode on this Alarm Panel. Default is “ARM_NIGHT”.</li>
 </ul>
+<p>In the config example below, armed_home state will have no pending time and triggered state will have a pending time of 20 seconds whereas armed_away state will have a default pending time of 30 seconds.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">alarm_control_panel</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">manual_mqtt</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">home/alarm</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s">home/alarm/set</span>
+    <span class="s">pending_time</span><span class="pi">:</span> <span class="s">30</span>
+    <span class="s">armed_home</span><span class="pi">:</span>
+      <span class="s">pending_time</span><span class="pi">:</span> <span class="s">0</span>
+    <span class="s">triggered</span><span class="pi">:</span>
+      <span class="s">pending_time</span><span class="pi">:</span> <span class="s">20</span>
+    <span class="s">trigger_time</span><span class="pi">:</span> <span class="s">4</span> 
+</code></pre>
+</div>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>Refer to the <a href="/components/alarm_control_panel.manual/#examples">Manual Alarm Control page</a> for some real life examples of how to use this panel.</p>
 <h2><a class="title-link" name="mqtt-control" href="#mqtt-control"></a> MQTT Control</h2>
@@ -124,12 +156,14 @@
   <li><code class="highlighter-rouge">DISARM</code></li>
   <li><code class="highlighter-rouge">ARM_HOME</code></li>
   <li><code class="highlighter-rouge">ARM_AWAY</code></li>
+  <li><code class="highlighter-rouge">ARM_NIGHT</code></li>
 </ul>
 <p>To receive state updates from HA, subscribe to the <code class="highlighter-rouge">state_topic</code>. Home Assistant will publish a new message whenever the state changes:</p>
 <ul>
   <li><code class="highlighter-rouge">disarmed</code></li>
   <li><code class="highlighter-rouge">armed_home</code></li>
   <li><code class="highlighter-rouge">armed_away</code></li>
+  <li><code class="highlighter-rouge">armed_night</code></li>
   <li><code class="highlighter-rouge">pending</code></li>
   <li><code class="highlighter-rouge">triggered</code></li>
 </ul>
@@ -160,6 +194,9 @@
         </li>
         <li>
             <a href='/components/alarm_control_panel.alarmdecoder/'>AlarmDecoder Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.arlo/'>Arlo Control Panel</a>
         </li>
         <li>
             <a href='/components/alarm_control_panel.concord232/'>Concord232 Alarm Control Panel</a>

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Z-Wave - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    <meta name="description" content="Using Z-Wave with Home Assistant.">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/docs/z-wave/">
     <meta property="fb:app_id" content="338291289691179">
@@ -16,14 +16,14 @@
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/docs/z-wave/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    <meta property="og:description" content="Using Z-Wave with Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:title" content="Z-Wave">
-    <meta name="twitter:description" content="Instructions how to integrate your existing Z-Wave within Home Assistant.">
+    <meta name="twitter:description" content="Using Z-Wave with Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -75,273 +75,17 @@
     </h1>
   </header>
   <hr class="divider">
-  <p><a href="http://www.z-wave.com/">Z-Wave</a> integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a <a href="https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List">supported Z-Wave USB stick or module</a> to be plugged into the host.</p>
+  <p><a href="http://www.z-wave.com/">Z-Wave</a> integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a <a href="/docs/z-wave/controllers/">supported Z-Wave USB stick or module</a>) to be plugged into the host.</p>
 <p>There is currently support for climate, covers, lights, locks, sensors, switches, and thermostats. All will be picked up automatically after configuring this platform.</p>
 <p>Before configuring the Z-Wave setup, please take a moment and read <a href="https://drzwave.blog/2017/01/20/seven-habits-of-highly-effective-z-wave-networks-for-consumers/">this article</a> to understand the most common pitfalls of Z-Wave networks.</p>
-<h3><a class="title-link" name="installation" href="#installation"></a> Installation</h3>
-<p>There is one dependency you will need to have installed ahead of time (included in <code class="highlighter-rouge">systemd-devel</code> on Fedora/RHEL systems):</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libudev-dev
-</code></pre>
-</div>
-<p>When installing on macOS you may have to also run the command below ahead of time, replace “x.x” with the version of Python you have installed.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo /Applications/Python<span class="se">\ </span>x.x/Install<span class="se">\ </span>Certificates.command
-</code></pre>
-</div>
-<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">zwave</span><span class="pi">:</span>
-  <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>
-</code></pre>
-</div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>usb_path</strong> (<em>Optional</em>): The port where your device is connected to your Home Assistant host.</li>
-  <li><strong>network_key</strong> (<em>Optional</em>): The 16-byte network key in the form <code class="highlighter-rouge">"0x01,0x02..."</code> used in order to connect securely to compatible devices.</li>
-  <li><strong>config_path</strong> (<em>Optional</em>): The path to the Python OpenZWave configuration files. Defaults to the ‘config’ that is installed by python-openzwave</li>
-  <li><strong>autoheal</strong> (<em>Optional</em>): Allows disabling auto Z-Wave heal at midnight. Defaults to True.</li>
-  <li><strong>polling_interval</strong> (<em>Optional</em>): The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.</li>
-  <li><strong>device_config</strong> (<em>Optional</em>): This attribute contains node-specific override values:
-    <ul>
-      <li><strong>polling_intensity</strong> (<em>Optional</em>): Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.</li>
-      <li><strong>ignored</strong> (<em>Optional</em>): Ignore this entity completely. It won’t be shown in the Web Interface and no events are generated for it.</li>
-      <li><strong>refresh_value</strong> (<em>Optional</em>): Enable refreshing of the node value. Only the light component uses this. Defaults to False.</li>
-      <li><strong>delay</strong> (<em>Optional</em>): Specify the delay for refreshing of node value. Only the light component uses this. Defaults to 2 seconds.</li>
-      <li><strong>invert_openclose_buttons</strong> (<em>Optional</em>): Inverts function of the open and close buttons for the cover domain. Defaults to <code class="highlighter-rouge">False</code>.</li>
-    </ul>
-  </li>
-  <li><strong>debug</strong> (<em>Optional</em>): Print verbose z-wave info to log. Defaults to <code class="highlighter-rouge">False</code>.</li>
-  <li><strong>new_entity_ids</strong> (<em>Optional</em>): Switch to new entity_id generation. Defaults to <code class="highlighter-rouge">True</code>.</li>
-</ul>
-<p>To find the path of your Z-Wave USB stick or module, run:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyUSB<span class="k">*</span>
-</code></pre>
-</div>
-<p>Or, if there is no result, try to find detailed USB connection info with:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>dmesg | grep USB
-</code></pre>
-</div>
-<p>Or, on some other systems (such as Raspberry Pi), use:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyACM<span class="k">*</span>
-
-<span class="c"># If Home Assistant (`hass`) runs with another user (e.g. *homeassistant* on Hassbian) give access to the stick with:</span>
-<span class="gp">$ </span>sudo usermod -a -G dialout homeassistant
-</code></pre>
-</div>
-<p>Or, on some other systems (such as Pine 64), use:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/ttyS<span class="k">*</span>
-</code></pre>
-</div>
-<p>Or, on macOS, use:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls /dev/cu.usbmodem<span class="k">*</span>
-</code></pre>
-</div>
-<p class="note">
-Depending on what’s plugged into your USB ports, the name found above may change. You can lock in a name, such as <code class="highlighter-rouge">/dev/zwave</code>, by following <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">these instructions</a>.
-</p>
-<p class="note">
-After installing and configuring Z-Wave, Home Assistant will try to install required Python Z-Wave libraries during startup (if they are not already installed). This process might take anywhere between 5 to 25 minutes depending upon various factors. Please be patient, and let it run! This happens only once and the subsequent restarts will have no impact in performance.
-</p>
-<h3><a class="title-link" name="adding-devices" href="#adding-devices"></a> Adding Devices</h3>
-<p>To add a Z-Wave device to your system, go to the Z-Wave panel in the Home Assistant frontend and click the Add Node button in the Z-Wave Network Management card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device.</p>
-<p class="note">
-Some Z-Wave controllers, like Aeotec ZW090 Z-Stick Gen5, have ability to add devices to the network using their own contol buttons. This method should be avoided as it is prone to errors. Devices added to the Z-Wave network using this method may not function well.
-</p>
-<h3><a class="title-link" name="adding-security-devices" href="#adding-security-devices"></a> Adding Security Devices</h3>
-<p>Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices.</p>
-<p>An easy script to generate a random key:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'0-9A-F'</span> | fold -w 32 | head -n 1 | sed -e <span class="s1">'s/\(..\)/0x\1, /g'</span>
-</code></pre>
-</div>
-<h3><a class="title-link" name="battery-powered-devices" href="#battery-powered-devices"></a> Battery Powered Devices</h3>
-<p>Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.</p>
-<h3><a class="title-link" name="events" href="#events"></a> Events</h3>
-<h4><a class="title-link" name="zwavenetwork_complete" href="#zwavenetwork_complete"></a> zwave.network_complete</h4>
-<p>Home Assistant will trigger an event when the Z-Wave network is complete, meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery-powered devices on the network.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is complete</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_complete</span>
-</code></pre>
-</div>
-<h4><a class="title-link" name="zwavenetwork_ready" href="#zwavenetwork_ready"></a> zwave.network_ready</h4>
-<p>Home Assistant will trigger an event when the Z-Wave network is ready for use. Between <code class="highlighter-rouge">zwave.network_start</code> and <code class="highlighter-rouge">zwave.network_ready</code> Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered, all awake nodes have been queried and sleeping nodes will be queried when they awake.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is ready</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_ready</span>
-</code></pre>
-</div>
-<h4><a class="title-link" name="zwavenetwork_start" href="#zwavenetwork_start"></a> zwave.network_start</h4>
-<p>Home Assistant will trigger an event when the Z-Wave network is set up to be started.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is starting</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_start</span>
-</code></pre>
-</div>
-<h4><a class="title-link" name="zwavenetwork_stop" href="#zwavenetwork_stop"></a> zwave.network_stop</h4>
-<p>Home Assistant will trigger an event when the Z-Wave network is stopping.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Z-Wave network is stopping</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.network_stop</span>
-</code></pre>
-</div>
-<h4><a class="title-link" name="zwavenode_event" href="#zwavenode_event"></a> zwave.node_event</h4>
-<p>Home Assistant will trigger an event when command_class_basic changes value on a node. This can be virtually anything, so tests have to be made to determine what value equals what. You can use this for automations.</p>
-<p>Example:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code> <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Minimote Button Pressed</span>
-   <span class="s">trigger</span><span class="pi">:</span>
-     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-     <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.node_event</span>
-     <span class="s">event_data</span><span class="pi">:</span>
-       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.aeon_labs_minimote_1</span>
-       <span class="s">basic_level</span><span class="pi">:</span> <span class="s">255</span>
-</code></pre>
-</div>
-<p>The <em>object_id</em> and <em>basic_level</em> of all triggered events can be seen in the console output.</p>
-<h4><a class="title-link" name="zwavescene_activated" href="#zwavescene_activated"></a> zwave.scene_activated</h4>
-<p>Some devices can also trigger scene activation events, which can be used in automation scripts (for example, the press of a button on a wall switch):</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
-<span class="s">automation</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on Desk light</span>
-    <span class="s">trigger</span><span class="pi">:</span>
-      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-      <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-      <span class="s">event_data</span><span class="pi">:</span>
-        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.zwaveme_zme_wallcs_secure_wall_controller_8</span>
-        <span class="s">scene_id</span><span class="pi">:</span> <span class="s">11</span>
-</code></pre>
-</div>
-<p>Some devices (like the HomeSeer wall switches) allow you to do things like double, and triple click the up and down buttons and fire an event.  These devices will also send <code class="highlighter-rouge">scene_data</code> to differentiate the events.  This is an example of double clicking the on/up button:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
-<span class="s">automation</span>
-  <span class="s">- alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Dining</span><span class="nv"> </span><span class="s">room</span><span class="nv"> </span><span class="s">dimmer</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">double</span><span class="nv"> </span><span class="s">tap</span><span class="nv"> </span><span class="s">up'</span>
-    <span class="s">trigger</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">event_type</span><span class="pi">:</span> <span class="s">zwave.scene_activated</span>
-        <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
-        <span class="s">event_data</span><span class="pi">:</span>
-          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">zwave.dining_room_cans</span>
-          <span class="s">scene_id</span><span class="pi">:</span> <span class="s">1</span>
-          <span class="s">scene_data</span><span class="pi">:</span> <span class="s">3</span>
-</code></pre>
-</div>
-<p>The <em>object_id</em> and <em>scene_id</em> of all triggered events can be seen in the console output.</p>
-<p>For more information on HomeSeer devices and similar devices, please see the <a href="https://home-assistant.io/docs/z-wave/device-specific/#homeseer-switches">device specific page</a>.</p>
-<h3><a class="title-link" name="services" href="#services"></a> Services</h3>
-<p>The <code class="highlighter-rouge">zwave</code> component exposes multiple services to help maintain the network.</p>
-<table>
-  <thead>
-    <tr>
-      <th>Service</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>add_node</td>
-      <td>Put the Z-Wave controller in inclusion mode. Allows one to add a new device to the Z-Wave network.</td>
-    </tr>
-    <tr>
-      <td>add_node_secure</td>
-      <td>Put the Z-Wave controller in secure inclusion mode. Allows one to add a new device with secure communications to the Z-Wave network.</td>
-    </tr>
-    <tr>
-      <td>cancel_command</td>
-      <td>Cancels a running Z-Wave command. If you have started a add_node or remove_node command, and decide you are not going to do it, then this must be used to stop the inclusion/exclusion command.</td>
-    </tr>
-    <tr>
-      <td>change_association</td>
-      <td>Add or remove an association in the Z-Wave network</td>
-    </tr>
-    <tr>
-      <td>heal_network</td>
-      <td>Tells the controller to “heal” the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.</td>
-    </tr>
-    <tr>
-      <td>print_config_parameter</td>
-      <td>Prints Z-Wave node’s config parameter value to the log.</td>
-    </tr>
-    <tr>
-      <td>print_node</td>
-      <td>Print all state of Z-Wave node.</td>
-    </tr>
-    <tr>
-      <td>refresh_entity</td>
-      <td>Refresh Z-Wave entity by refreshing dependent values.</td>
-    </tr>
-    <tr>
-      <td>refresh_node</td>
-      <td>Refresh Z-Wave node.</td>
-    </tr>
-    <tr>
-      <td>remove_node</td>
-      <td>Put the Z-Wave controller in exclusion mode. Allows one to remove a device from the Z-Wave network.</td>
-    </tr>
-    <tr>
-      <td>rename_node</td>
-      <td>Sets a node’s name. Requires a <code class="highlighter-rouge">node_id</code> and <code class="highlighter-rouge">name</code> field.</td>
-    </tr>
-    <tr>
-      <td>rename_value</td>
-      <td>Sets a value’s name. Requires a <code class="highlighter-rouge">node_id</code>, <code class="highlighter-rouge">value_id</code>, and <code class="highlighter-rouge">name</code> field.</td>
-    </tr>
-    <tr>
-      <td>remove_failed_node</td>
-      <td>Remove a failed node from the network. The Node should be on the controller’s Failed Node List, otherwise this command will fail.</td>
-    </tr>
-    <tr>
-      <td>replace_failed_node</td>
-      <td>Replace a failed device with another. If the node is not in the controller’s Failed Node List, or the node responds, this command will fail.</td>
-    </tr>
-    <tr>
-      <td>reset_node_meters</td>
-      <td>Reset a node’s meter values. Only works if the node supports this.</td>
-    </tr>
-    <tr>
-      <td>set_config_parameter</td>
-      <td>Lets the user set a config parameter to a node. NOTE: Use the parameter option’s <code class="highlighter-rouge">label</code> string as the <code class="highlighter-rouge">value</code> for list parameters (e.g. <code class="highlighter-rouge">"value": "Off"</code>). For all other parameters use the relevant integer <code class="highlighter-rouge">value</code> (e.g. <code class="highlighter-rouge">"value": 1</code>).</td>
-    </tr>
-    <tr>
-      <td>set_poll_intensity</td>
-      <td>Lets the user set the polling intensity of a value. Changes the polling intensity without the need of a restart. This does not persist over restarts. To keep the setting over restarts, use the Z-Wave entity-card to set the config also.</td>
-    </tr>
-    <tr>
-      <td>soft_reset</td>
-      <td>Tells the controller to do a “soft reset.” This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command.</td>
-    </tr>
-    <tr>
-      <td>start_network</td>
-      <td>Starts the Z-Wave network.</td>
-    </tr>
-    <tr>
-      <td>stop_network</td>
-      <td>Stops the Z-Wave network.</td>
-    </tr>
-    <tr>
-      <td>test_network</td>
-      <td>Tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead.”</td>
-    </tr>
-  </tbody>
-</table>
-<p>The <code class="highlighter-rouge">soft_reset</code> and <code class="highlighter-rouge">heal_network</code> commands can be used as part of an automation script to help keep a Z-Wave network running reliably as shown in the example below. By default, Home Assistant will run a <code class="highlighter-rouge">heal_network</code> at midnight. This is a configuration option for the <code class="highlighter-rouge">zwave</code> component. The option defaults to <code class="highlighter-rouge">true</code> but can be disabled by setting <code class="highlighter-rouge">autoheal</code> to false. Using the <code class="highlighter-rouge">soft_reset</code> function with some Z-Wave controllers can cause the Z-Wave network to hang. If you’re having issues with your Z-Wave network, try disabling this automation.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml automation entry</span>
-<span class="s">automation</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">soft reset at 2:30am</span>
-    <span class="s">trigger</span><span class="pi">:</span>
-      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-      <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:30:00'</span>
-    <span class="s">action</span><span class="pi">:</span>
-      <span class="s">service</span><span class="pi">:</span> <span class="s">zwave.soft_reset</span>
-
-  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">heal at 2:31am</span>
-    <span class="s">trigger</span><span class="pi">:</span>
-      <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
-      <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2:31:00'</span>
-    <span class="s">action</span><span class="pi">:</span>
-      <span class="s">service</span><span class="pi">:</span> <span class="s">zwave.heal_network</span>
-</code></pre>
-</div>
+<h2><a class="title-link" name="what-is-z-wave" href="#what-is-z-wave"></a> What is Z-Wave</h2>
+<p>Z-Wave is a wireless communication protocol designed for home automation. It uses a low power, and low bandwidth, mesh network that allows devices that aren’t within direct range of each other to communicate indirectly, via other nodes. Any device that’s permanently powered (not battery powered) will help build the mesh, if you don’t have enough powered devices, or you locate these poorly, your mesh will be unreliable.</p>
+<p>There is a limit of 232 devices in a single Z-Wave network. If you need more devices then you could set up a second Home Assistant system with its own Z-Wave network and connect these with the <a href="/components/mqtt_eventstream/">MQTT Eventstream</a> or <a href="/components/mqtt_statestream">MQTT Statestream</a> components.</p>
+<p>The Z-Wave standard was improved with Z-Wave Plus, and if you only use Z-Wave plus devices then you will gain the full benefits.</p>
+<h2><a class="title-link" name="what-do-you-need-to-use-z-wave" href="#what-do-you-need-to-use-z-wave"></a> What do you need to use Z-Wave</h2>
+<p>There are 2 basic things you’ll need to use Z-Wave, a Z-Wave <a href="/docs/z-wave/controllers/">controller</a> and one or more <a href="/docs/z-wave/devices/">devices</a>.</p>
+<h3><a class="title-link" name="regional-differences" href="#regional-differences"></a> Regional differences</h3>
+<p>There are 12 different regions for Z-Wave devices, which relates to the frequency the devices use. There is overlap between the regions, but you should ensure that you buy devices for your region. Wikipedia has a list of the <a href="https://en.wikipedia.org/wiki/Z-Wave#Radio_frequencies">frequencies used</a>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Statistics Sensor">
     <meta name="twitter:description" content="Instructions how to integrate statistical sensors into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -75,9 +75,13 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">statistics</code> sensor platform is consuming the state from other sensors. Beside the maximal and the minimal value also the total, the mean, the median, the variance, and the standard deviation are as attributes available. If it’s a binary sensor then only the state changes are counted.</p>
-<p>It can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation.</p>
+<p>If you are running the <a href="/components/recorder/">recorder</a> component, on startup the data is read from the database. So after a restart of the platform, you will immediately have data available. If you’re using the <a href="/components/history/">history</a> component, this will automatically also start the recoder component on startup.
+If you are <em>not</em> running the <code class="highlighter-rouge">recorder</code> component, it can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation.</p>
 <p>To enable the statistics sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># enable the recorder component (optional)</span>
+<span class="s">recorder</span><span class="pi">:</span>
+
+<span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">statistics</span>
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.cpu</span>
@@ -120,6 +124,9 @@
         </li>
         <li>
             <a href='/components/sensor.arwn/'>ARWN Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.abode/'>Abode Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.alarmdecoder/'>AlarmDecoder Sensor</a>
@@ -332,7 +339,13 @@
             <a href='/components/sensor.sensehat/'>Sense HAT</a>
         </li>
         <li>
+            <a href='/components/sensor.serial/'>Serial Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.shodan/'>Shodan Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.skybell/'>Skybell Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.sleepiq/'>SleepIQ Sensor</a>
@@ -380,10 +393,19 @@
             <a href='/components/sensor.tibber/'>Tibber</a>
         </li>
         <li>
+            <a href='/components/sensor.toon/'>Toon</a>
+        </li>
+        <li>
+            <a href='/components/sensor.travisci/'>Travis-CI Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.ups/'>UPS Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.usps/'>USPS Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.uptime/'>Uptime Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.vera/'>Vera Sensor</a>

@@ -6,24 +6,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Z-Wave Settings - Home Assistant</title>
+    <title>Z-Wave Control Panel - Home Assistant</title>
     <meta name="author" content="Home Assistant">
-    <meta name="description" content="Extended instructions how to setup Z-Wave.">
+    <meta name="description" content="How to use the Z-Wave control panel.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://home-assistant.io/docs/z-wave/settings/">
+    <link rel="canonical" href="https://home-assistant.io/docs/z-wave/control-panel/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="Z-Wave Settings">
+    <meta property="og:title" content="Z-Wave Control Panel">
     <meta property="og:site_name" content="Home Assistant">
-    <meta property="og:url" content="https://home-assistant.io/docs/z-wave/settings/">
+    <meta property="og:url" content="https://home-assistant.io/docs/z-wave/control-panel/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Extended instructions how to setup Z-Wave.">
+    <meta property="og:description" content="How to use the Z-Wave control panel.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
-    <meta name="twitter:title" content="Z-Wave Settings">
-    <meta name="twitter:description" content="Extended instructions how to setup Z-Wave.">
+    <meta name="twitter:title" content="Z-Wave Control Panel">
+    <meta name="twitter:description" content="How to use the Z-Wave control panel.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -68,25 +68,93 @@
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="page">
-    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/z-wave/settings.markdown'>Edit this page on GitHub</a></div>
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/z-wave/control-panel.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Z-Wave Settings
+      Z-Wave Control Panel
     </h1>
   </header>
   <hr class="divider">
-  <p>You may wish to modify the Z-Wave settings in your <code class="highlighter-rouge">ozw*.xml</code> file (stored in the <code class="highlighter-rouge">.homeassistant</code> configuration directory), or certain situations/devices may require it (i.e. Aeon Multisensor 6). To do this, utilize <a href="https://github.com/OpenZWave/open-zwave-control-panel">Open-Zwave Control Panel</a>. Alternatively, use <a href="https://www.domoticz.com/">Domoticz</a>, which incorporates the Open-Zwave Control Panel project into an easy to use Raspberry Pi image.</p>
-<p>The reasoning for using these tools is that your Z-Wave controller stores the values and data that are used to control the network. The XML file in the <code class="highlighter-rouge">.homeassistant</code> configuration directory acts as a settings/values cache for the Z-Wave network, so modifying it directly won’t change the network values. The <a href="https://github.com/OpenZWave/open-zwave-control-panel">Open-Zwave Control Panel</a> writes values directly to the network and will provide you with an updated <code class="highlighter-rouge">.xml</code> file to overwrite in your <code class="highlighter-rouge">.homeassistant</code> configuration directory. This is the most foolproof way to make modifications to your Z-Wave devices.</p>
-<p>It’s totally normal for your Z-Wave stick (Aeon Aeotec Z-Stick Gen5 for example) to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system. If you don’t like this behaviour it can be turned off.</p>
-<p>Use the following example commands from a terminal session on your Pi where your Z-Wave stick is connected.</p>
-<p>Turn off “Disco lights”:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> -e -n <span class="s2">"</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">08</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">F2</span><span class="se">\x</span><span class="s2">51</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">05</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">51"</span> &gt; /dev/serial/by-id/usb-0658_0200-if00
-</code></pre>
-</div>
-<p>Turn on “Disco lights”:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">echo</span> -e -n <span class="s2">"</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">08</span><span class="se">\x</span><span class="s2">00</span><span class="se">\x</span><span class="s2">F2</span><span class="se">\x</span><span class="s2">51</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">05</span><span class="se">\x</span><span class="s2">01</span><span class="se">\x</span><span class="s2">50"</span> &gt; /dev/serial/by-id/usb-0658_0200-if00
-</code></pre>
-</div>
+  <h2><a class="title-link" name="z-wave-network-management" href="#z-wave-network-management"></a> Z-Wave Network Management</h2>
+<p>Here is where you <a href="/docs/z-wave/adding/">include and exclude</a> Z-Wave devices from your network.</p>
+<ul>
+  <li><strong>Add Node</strong> puts the controller into inclusion mode, so you can include (add) a device to your Z-Wave network</li>
+  <li><strong>Add Node Secure</strong> puts the controller into secure inclusion mode (this requires that you’ve created a <a href="/docs/z-wave/adding#sdding-security-devices">security key</a>)</li>
+  <li><strong>Remove Node</strong> puts the controller into exclusion mdoe, so you can exclude (remove) a device. Note that you can exclude a non-secure device that’s been added to another network</li>
+  <li>
+    <p><strong>Cancel Command</strong> cancels any of the above</p>
+  </li>
+  <li><strong>Heal Network</strong> tells the controller to “heal” the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.</li>
+  <li><strong>Start Network</strong> starts the Z-Wave network</li>
+  <li><strong>Stop Network</strong> stops the Z-Wave network</li>
+  <li><strong>Soft Reset</strong> tells the controller to do a “soft reset.” This is not supposed to lose any data, but different controllers can behave differently to a “soft reset” command, and may cause the Z-Wave network to hang.</li>
+  <li><strong>Test Network</strong> tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked “presumed dead”.</li>
+</ul>
+<h2><a class="title-link" name="z-wave-node-management" href="#z-wave-node-management"></a> Z-Wave Node Management</h2>
+<ul>
+  <li><strong>Refresh Node</strong> refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.</li>
+  <li><strong>Remove Failed Node</strong> will remove a failed node from the network. The node needs to be on the controller’s Failed Node List (marked as <code class="highlighter-rouge">is_failed: true</code>), otherwise this command will fail.</li>
+  <li><strong>Replace Failed Node</strong> will replace a failed device with another. If the node is not in the controller’s Failed Node List, or the node responds, this command will fail.</li>
+  <li>
+    <p><strong>Print Node</strong> prints all state of Z-Wave node to the console log</p>
+  </li>
+  <li><strong>Rename Node</strong> sets a node’s name</li>
+</ul>
+<p class="note">
+Battery powered devices need to be awake before you can use the Z-Wave control panel to update their settings. How to wake your device is device specific, and some devices will stay awake for only a couple of seconds. Please refer to the manual of your device for more details.
+</p>
+<h4><a class="title-link" name="entities-of-this-node" href="#entities-of-this-node"></a> Entities of this node</h4>
+<p>This is a dropdown where you can select all the entities of this node. Once selected you can then use:</p>
+<ul>
+  <li><strong>Refresh Entity</strong> to refresh just that entity’s values</li>
+  <li><strong>Entity Attributes</strong> to display the attributes of that entity (eg it’s friendly name, the ID of the node, etc)</li>
+</ul>
+<p>Here you can mark a device as requiring polling (before 0.55 this was displayed at the top), so the controller is aware of changes because the device doesn’t send updates itself. Do see the information on <a href="/docs/z-wave/polling/">polling here</a>, since excessive polling can break your Z-Wave network.</p>
+<p>You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don’t want it to appear in Home Assistant, or if you’ve got a device that’s failed and you’re unable to exclude it.</p>
+<h3><a class="title-link" name="node-information" href="#node-information"></a> Node Information</h3>
+<p>This will display the Z-Wave related information about the node:</p>
+<ul>
+  <li><strong>averageRequestRTT</strong> The average Round Trip Time (RTT) of requests sent to the node, in milliseconds. A value of 250, for example, is a quarter of a second.</li>
+  <li><strong>averageResponseRTT</strong> The average Round Trip Time of responses to requests</li>
+  <li><strong>battery_level</strong> <em>Battery powered devices only</em> - the battery level, which may be rounded to the nearest 10</li>
+  <li><strong>capabilities</strong> A comma separated list of the capabilities of the device</li>
+  <li><strong>friendly_name</strong> The name you specified to be displayed</li>
+  <li><strong>is_awake</strong> Whether the device is awake or not</li>
+  <li><strong>is_failed</strong> Whether the device has been marked as failed. The controller won’t try to contact failed devices.</li>
+  <li><strong>is_info_received</strong> True once the controller has received the node information from the node.</li>
+  <li><strong>is_ready</strong> When you start the network (or Home Assistant) it will take a short while before all devices are ready, this shows which aren’t yet ready.</li>
+  <li><strong>is_zwave_plus</strong> True for any Z-Wave Plus devices (note that controllers always report <em>false</em>, regardless of whether they are Plus devices or not)</li>
+  <li><strong>lastRequestRTT</strong> The Round Trip Time of the last request</li>
+  <li><strong>lastResponseRTT</strong> The Round Trip Time of the response to the last request</li>
+  <li><strong>manufacturer_name</strong> The name of the manufacturer, as supplied by OpenZWave</li>
+  <li><strong>max_baud_rate</strong> The maximum bandwidth the device supports, most modern devices will support 40,000 or higher</li>
+  <li><strong>new_entity_id</strong> In 0.47, Home Assistant introduced a new naming convention for entities, this shows the new naming convention</li>
+  <li><strong>node_id</strong> The unique node ID of this node</li>
+  <li><strong>node_name</strong> The base name of this node, this is used to build the entity ID of all entities of this node</li>
+  <li><strong>old_entity_id</strong> If <code class="highlighter-rouge">new_entity_ids: false</code> has been configured, then this is the entity_id that will be used. Support for this will be removed in the future</li>
+  <li><strong>product_name</strong> The product name of the device, as supplied by OpenZWave</li>
+  <li><strong>query_stage</strong> The query stage for this device (see <a href="/docs/z-wave/query-stage/">here</a> for details)</li>
+  <li><strong>receivedCnt</strong> The number of messages received from the device</li>
+  <li><strong>receivedDups</strong> The number of duplicate messages received from the device</li>
+  <li><strong>receivedTS</strong> The date and time the last message was received from the devices</li>
+  <li><strong>receivedUnsolicited</strong> How many unsolicited messages were received</li>
+  <li><strong>retries</strong> How many retries have been made to send messages to this node</li>
+  <li><strong>sentCnt</strong> How many messages have been sent to the node</li>
+  <li><strong>sentFailed</strong> How many messages that were sent weren’t acknowledged</li>
+  <li><strong>sentTS</strong> The date and time the last message was sent to the ndoe</li>
+  <li><strong>wake_up_interval</strong> <em>Battery powered devices only</em> - the wakeup interval of the device, in seconds</li>
+</ul>
+<h3><a class="title-link" name="node-values" href="#node-values"></a> Node Values</h3>
+<p>Allows you to rename the entities of the node. For example, maybe for the sensor <code class="highlighter-rouge">front_door</code>, you want to rename the value <code class="highlighter-rouge">seismic_intensity</code> to <code class="highlighter-rouge">shake</code>. The <code class="highlighter-rouge">entity_id</code> for that sensor will then change from <code class="highlighter-rouge">sensor.front_door_seismic_intensity</code> to <code class="highlighter-rouge">sensor.front_door_shake</code>.</p>
+<h3><a class="title-link" name="node-group-associations" href="#node-group-associations"></a> Node group associations</h3>
+<p>Where the device supports the <em>Association</em> command class, this will allow you to associate the device with another. OpenZWave will automatically associate the device with the controller, to provide instant updates when the device doesn’t support the <em>Hail</em> command class.</p>
+<p>You can use this to enable one device to directly control another. This is primarily useful for remote controls that operate lights or switches, or where you want to have multiple devices operate as one.</p>
+<p>There may be multiple groups, that are used for different purposes. The manual of your device will explain what each group is for.</p>
+<h3><a class="title-link" name="node-config-options" href="#node-config-options"></a> Node config options</h3>
+<p>You can set the <em>wakeup</em> interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.</p>
+<p>Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select <strong>Set Config Parameter</strong> to updated it. Battery powered devices will be updated the next time they wake.</p>
+<h2><a class="title-link" name="ozw-log" href="#ozw-log"></a> OZW Log</h2>
+<p>Select <strong>Refresh</strong> to display the log if you need it to check activities.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -187,7 +255,7 @@
         <b><a  href='/docs/z-wave/'>Z-Wave </a></b>
         <ul>
           <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
-          <li><a class='active' href='/docs/z-wave/settings/'>Modifying Settings </a></li>
+          <li><a  href='/docs/z-wave/settings/'>Modifying Settings </a></li>
           <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a></li>
         </ul>
       </li>

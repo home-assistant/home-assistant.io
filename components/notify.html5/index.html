@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Push Notifications">
     <meta name="twitter:description" content="Instructions how to use the HTML5 push notifications platform from Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -91,18 +91,26 @@
   <li><strong>gcm_sender_id</strong> (<em>Required if pushing to Chrome</em>): The sender ID provided to you by Google for Google Cloud Messaging (GCM). Required to push to Chrome.</li>
 </ul>
 <h3><a class="title-link" name="getting-ready-for-chrome" href="#getting-ready-for-chrome"></a> Getting ready for Chrome</h3>
-<ul>
+<ol>
   <li>Create new project at <a href="https://console.cloud.google.com/home/dashboard">https://console.cloud.google.com/home/dashboard</a>.</li>
   <li>Go to <a href="https://console.cloud.google.com/apis/credentials/domainverification">https://console.cloud.google.com/apis/credentials/domainverification</a> and verify your domain.</li>
   <li>After that, go to <a href="https://console.firebase.google.com">https://console.firebase.google.com</a> and select import Google project, select the project you created.</li>
   <li>Then, click the cogwheel on top left and select “Project settings”.</li>
   <li>Select ‘Cloud Messaging’ tab, listed beneath Project Credentials will be your 152 character ‘Server Key’ and 12 digit ID ‘Sender ID’.</li>
-</ul>
+</ol>
+<h4><a class="title-link" name="verify-your-domain-with-hassio" href="#verify-your-domain-with-hassio"></a> Verify your domain with Hass.io</h4>
+<ol>
+  <li>For verifying your domain you need to download a file in step 2.</li>
+  <li>Create a dictionary named “www” in you Hass.io configuration dictionary.</li>
+  <li>Place the file (something like this: google*.html) in the “www” directory.</li>
+  <li>You can open it by going to <strong>https://yourdomain/local/exact_file_name.html</strong></li>
+  <li>Proceed with step 3.</li>
+</ol>
 <h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
 <p>The <code class="highlighter-rouge">html5</code> platform can only function if all of the following requirements are met:
 (On Hass.io these requirements are already met.)</p>
 <ul>
-  <li>You are using Chrome and/or Firefox on any desktop platform, ChromeOS, or Android.</li>
+  <li>You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.</li>
   <li>Your Home Assistant instance is exposed to the world.</li>
   <li>If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.</li>
   <li><code class="highlighter-rouge">pywebpush</code> must be installed. <code class="highlighter-rouge">libffi-dev</code>, <code class="highlighter-rouge">libpython-dev</code>, and <code class="highlighter-rouge">libssl-dev</code> must be installed prior to <code class="highlighter-rouge">pywebpush</code> (i.e. <code class="highlighter-rouge">pywebpush</code> probably won’t automatically install).</li>
@@ -143,7 +151,7 @@
 </span></code></pre>
 </div>
 <h4><a class="title-link" name="data" href="#data"></a> Data</h4>
-<p>Any parameters that you pass in the notify payload that aren’t valid for use in the HTML5 notification (<code class="highlighter-rouge">actions</code>, <code class="highlighter-rouge">badge</code>, <code class="highlighter-rouge">body</code>, <code class="highlighter-rouge">dir</code>, <code class="highlighter-rouge">icon</code>, <code class="highlighter-rouge">lang</code>, <code class="highlighter-rouge">renotify</code>, <code class="highlighter-rouge">requireInteraction</code>, <code class="highlighter-rouge">tag</code>, <code class="highlighter-rouge">timestamp</code>, <code class="highlighter-rouge">vibrate</code>) will be sent back to you in the <a href="#automating-notification-events">callback events</a>.</p>
+<p>Any parameters that you pass in the notify payload that aren’t valid for use in the HTML5 notification (<code class="highlighter-rouge">actions</code>, <code class="highlighter-rouge">badge</code>, <code class="highlighter-rouge">body</code>, <code class="highlighter-rouge">dir</code>, <code class="highlighter-rouge">icon</code>, <code class="highlighter-rouge">image</code>, <code class="highlighter-rouge">lang</code>, <code class="highlighter-rouge">renotify</code>, <code class="highlighter-rouge">requireInteraction</code>, <code class="highlighter-rouge">tag</code>, <code class="highlighter-rouge">timestamp</code>, <code class="highlighter-rouge">vibrate</code>) will be sent back to you in the <a href="#automating-notification-events">callback events</a>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Front door"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The front door is open"</span><span class="p">,</span><span class="w">
@@ -226,7 +234,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">data</code></td>
-      <td>The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (<code class="highlighter-rouge">actions</code>, <code class="highlighter-rouge">badge</code>, <code class="highlighter-rouge">body</code>, <code class="highlighter-rouge">dir</code>, <code class="highlighter-rouge">icon</code>, <code class="highlighter-rouge">lang</code>, <code class="highlighter-rouge">renotify</code>, <code class="highlighter-rouge">requireInteraction</code>, <code class="highlighter-rouge">tag</code>, <code class="highlighter-rouge">timestamp</code>, <code class="highlighter-rouge">vibrate</code>).</td>
+      <td>The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (<code class="highlighter-rouge">actions</code>, <code class="highlighter-rouge">badge</code>, <code class="highlighter-rouge">body</code>, <code class="highlighter-rouge">dir</code>, <code class="highlighter-rouge">icon</code>, <code class="highlighter-rouge">image</code>, <code class="highlighter-rouge">lang</code>, <code class="highlighter-rouge">renotify</code>, <code class="highlighter-rouge">requireInteraction</code>, <code class="highlighter-rouge">tag</code>, <code class="highlighter-rouge">timestamp</code>, <code class="highlighter-rouge">vibrate</code>).</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">tag</code></td>
@@ -329,10 +337,13 @@
             <a href='/components/notify.ciscospark/'>Cisco Spark</a>
         </li>
         <li>
-            <a href='/components/notify.clicksendaudio/'>ClickSend</a>
+            <a href='/components/notify.clicksend/'>ClickSend SMS</a>
         </li>
         <li>
-            <a href='/components/notify.clicksend/'>ClickSend SMS</a>
+            <a href='/components/notify.clicksend_tts/'>ClickSend text-to-speech</a>
+        </li>
+        <li>
+            <a href='/components/notify.clickatell/'>Clikatell SMS</a>
         </li>
         <li>
             <a href='/components/notify.command_line/'>Command line Notify</a>
@@ -435,6 +446,9 @@
         </li>
         <li>
             <a href='/components/notify.rest/'>REST</a>
+        </li>
+        <li>
+            <a href='/components/notify.rocketchat/'>Rocket.Chat</a>
         </li>
         <li>
             <a href='/components/notify.smtp/'>SMTP</a>

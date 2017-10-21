@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Automatic">
     <meta name="twitter:description" content="Instructions for how to integrate Automatic ODB readers into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -103,6 +103,8 @@
         <span class="s">event_type</span><span class="pi">:</span> <span class="s">automatic_update</span>
         <span class="s">event_data</span><span class="pi">:</span>
           <span class="s">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ignition:on"</span>
+          <span class="s">vehicle</span><span class="pi">:</span>
+            <span class="s">id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">C_1234567890abcdefc"</span>
     <span class="s">action</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_off</span>
 </code></pre>

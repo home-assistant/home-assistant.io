@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="YAML">
     <meta name="twitter:description" content="Details about YAML to configure Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -88,14 +88,14 @@ The following example entry specifies that you want to use the <a href="/compone
   <li>A <strong>component</strong> provides the core logic for some functionality (like <code class="highlighter-rouge">notify</code> provides sending notifications).</li>
   <li>A <strong>platform</strong> makes the connection to a specific software or hardware platform (like <code class="highlighter-rouge">pushbullet</code> works with the service from pushbullet.com).</li>
 </ul>
-<p>The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a <code class="highlighter-rouge">-</code> while mappings have the format <code class="highlighter-rouge">key: value</code>. If you specify duplicate keys, the last value for a key is used.</p>
+<p>The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a <code class="highlighter-rouge">-</code> while mappings have the format <code class="highlighter-rouge">key: value</code>. If you specify duplicate keys, the last value for a key is used. This is somewhat similar to a Hashtable or more specifically a dictionary in Python. These can be nested as well.</p>
 <p>Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested “inside” things that are one level higher. So in the above example, <code class="highlighter-rouge">platform: pushbullet</code> is a property of (nested inside) the <code class="highlighter-rouge">notify</code> component.</p>
 <p>Getting the right indentation can be tricky if you’re not using an editor with a fixed width font. Tabs are not allowed to be used for indentation. Convention is to use 2 spaces for each level of indentation.</p>
-<p>You can use the online service <a href="http://www.yamllint.com/">YAMLLint</a> to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a thrid-party service and is not maintained by the Home Assistant community.</p>
+<p>You can use the online service <a href="http://www.yamllint.com/">YAMLLint</a> to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a third-party service and is not maintained by the Home Assistant community.</p>
 <p class="note">
 Please pay attention on not storing private data (passwords, API keys, etc.) directly in your <code class="highlighter-rouge">configuration.yaml</code> file. Private data can be stored in a <a href="/docs/configuration/secrets/">separate file</a> or in <a href="/docs/configuration/yaml/#using-environment-variables">environmental variables</a>, which circumvents this problem of security.
 </p>
-<p>Text following a <strong>#</strong> are comments and are ignored by the system.</p>
+<p>Text following a <code class="highlighter-rouge">#</code> are comments and are ignored by the system.</p>
 <p>The next example shows an <a href="/components/input_select">input_select</a> component that uses a block collection for the options values.
 The other properties (like name) are specified using mappings. Note that the second line just has <code class="highlighter-rouge">threat:</code> with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_select</span><span class="pi">:</span>

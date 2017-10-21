@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Wink">
     <meta name="twitter:description" content="Instructions how to setup the Wink hub within Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -222,6 +222,238 @@ Home Assistant entity_ids for Wink devices are based on the Wink device’s name
 <p class="note">
 The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
 </p>
+<h3>Custom Wink devices and their services</h3>
+<ul>
+  <li>GoControl siren and strobe</li>
+  <li>Dome siren/chime/strobe</li>
+</ul>
+<h3><a class="title-link" name="service-set_siren_auto_shutoff" href="#service-set_siren_auto_shutoff"></a> Service <code class="highlighter-rouge">set_siren_auto_shutoff</code></h3>
+<p>You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shuting off.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">auto_shutoff</code></td>
+      <td>no</td>
+      <td>Int. One of [None, -1, 30, 60, 120] (None and -1 are forever. Use None for gocontrol, and -1 for Dome)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_all_sirens_to_one_minute_auto_shutoff</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_auto_shutoff</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">auto_shutoff</span><span class="pi">:</span> <span class="s">60</span>
+</code></pre>
+</div>
+<p class="note">
+The following services only work with the Dome siren/chime.
+</p>
+<h3><a class="title-link" name="service-set_chime_volume" href="#service-set_chime_volume"></a> Service <code class="highlighter-rouge">set_chime_volume</code></h3>
+<p>You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">volume</code></td>
+      <td>no</td>
+      <td>String. One of [“low”, “medium”, “high”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_chime_volume_to_low_for_all_chimes</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_chime_volume</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">volume</span><span class="pi">:</span> <span class="s2">"</span><span class="s">low"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_siren_volume" href="#service-set_siren_volume"></a> Service <code class="highlighter-rouge">set_siren_volume</code></h3>
+<p>You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">volume</code></td>
+      <td>no</td>
+      <td>String. One of [“low”, “medium”, “high”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_siren_volume_to_low_for_all_sirens</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_volume</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">volume</span><span class="pi">:</span> <span class="s2">"</span><span class="s">low"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-enable_chime" href="#service-enable_chime"></a> Service <code class="highlighter-rouge">enable_chime</code></h3>
+<p>You can use the service wink/enable_chime to set the tone and enable the chime on your Dome siren/chime.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">tone</code></td>
+      <td>no</td>
+      <td>String. One of [“doorbell”, “fur_elise”, “doorbell_extended”, “alert”, “william_tell”, “rondo_alla_turca”, “police_siren”, “evacuation”, “beep_beep”, “beep”, “inactive”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">execute_doorbell</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.enable_chime</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">tone</span><span class="pi">:</span> <span class="s2">"</span><span class="s">doorbell"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_siren_tone" href="#service-set_siren_tone"></a> Service <code class="highlighter-rouge">set_siren_tone</code></h3>
+<p>You can use the service wink/set_siren_tone to set the tone on your Dome siren. This tone will be used the next time the siren is executed.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">tone</code></td>
+      <td>no</td>
+      <td>String. One of [“doorbell”, “fur_elise”, “doorbell_extended”, “alert”, “william_tell”, “rondo_alla_turca”, “police_siren”, “evacuation”, “beep_beep”, “beep”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_siren_to_alert</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_tone</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">tone</span><span class="pi">:</span> <span class="s2">"</span><span class="s">alert"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_siren_strobe_enabled" href="#service-set_siren_strobe_enabled"></a> Service <code class="highlighter-rouge">set_siren_strobe_enabled</code></h3>
+<p>You can use the service wink/set_siren_strobe_enabled to enable or disable the strobe when the siren is executed.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>no</td>
+      <td>Boolean. True or False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">disable_siren_strobe</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_strobe_enabled</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">enabled</span><span class="pi">:</span> <span class="s">False</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_chime_strobe_enabled" href="#service-set_chime_strobe_enabled"></a> Service <code class="highlighter-rouge">set_chime_strobe_enabled</code></h3>
+<p>You can use the service wink/set_chime_strobe_enabled to enable or disable the strobe when the chime is executed.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>no</td>
+      <td>Boolean. True or False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of chime/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">disable_chime_strobe</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_chime_strobe_enabled</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">enabled</span><span class="pi">:</span> <span class="s">False</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -429,6 +661,9 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
             <a href='/components/satel_integra/'>Satel Integra Alarm</a>
         </li>
         <li>
+            <a href='/components/skybell/'>Skybell</a>
+        </li>
+        <li>
             <a href='/components/sleepiq/'>SleepIQ</a>
         </li>
         <li>
@@ -448,6 +683,9 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
         </li>
         <li>
             <a href='/components/thethingsnetwork/'>The Things Network</a>
+        </li>
+        <li>
+            <a href='/components/toon/'>Toon</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

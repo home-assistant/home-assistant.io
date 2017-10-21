@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Egardia / Woonveilig Alarm Control Panel">
     <meta name="twitter:description" content="Instructions how to integrate Egardia / Woonveilig into Home Assistant.">
     <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
@@ -101,7 +101,7 @@ You can change this, however, using the following procedure. This is a more adva
 <ol>
   <li>Log in into your alarm system’s control panel. You will need to access http://[IP of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.</li>
   <li>Once logged in, go to <em>System Settings</em>, <em>Report</em> and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. Also, update the port number 85 or to anything you like. The provided software that you will set up in the next steps runs on port 85 by default. <strong>Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia’s / Woonveilig services.</strong> Maybe, that is just what you want. Make sure to save your settings by selecting ‘OK’.</li>
-  <li>On your Home Assistant machine run <code class="highlighter-rouge">$ sudo python3 egardiaserver.py</code>. Refer to the <a href="https://github.com/jeroenterheerdt/python-egardia">python-egardia repository</a> for detailed documentation on parameters. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) as well as trigger the alarm in all ways possible to get 100% coverage. <strong>Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).</strong></li>
+  <li>On your Home Assistant machine run <code class="highlighter-rouge">$ sudo python3 egardiaserver.py</code>. Refer to the <a href="https://github.com/jeroenterheerdt/python-egardia">python-egardia repository</a> for detailed documentation on parameters. This will receive status codes from your alarm control panel and display them. You will need the codes to include in your configuration.yaml. Make sure to change the status of your alarm to all states (disarm, arm, armhome) by all means possible (all users, remotes, web login, app) as well as trigger the alarm in all ways possible to get 100% coverage. <strong>Before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).</strong></li>
   <li>Once you have the codes, update your <code class="highlighter-rouge">configuration.yaml</code>:
     <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">alarm_control_panel</span><span class="pi">:</span>
@@ -119,21 +119,22 @@ You can change this, however, using the following procedure. This is a more adva
    <span class="s">ignore</span><span class="pi">:</span> <span class="s">XXXXXXXXXXXXXXXX</span>
 </code></pre>
     </div>
-    <p>Note that for triggered, arm and disarm multiple codes can be entered since each sensor triggers with a different code and each user of the system has its own arm and disarm codes. Also note that your system will do regular system checks which will be reported as well. Since Home Assistant provides no way of handling them properly, you can enter those codes as ignore (again, multiple codes can be used here). The egardia component will ignore these codes and continue returning the old status if it receives any of the codes that are listed as ignore. This is useful for example when you have armed your alarm at night: normally a system check will occur at least once during the night and if that code is not specified anywhere Home Assistant will set the status of the alarm to its default, which is unarmed. This is in fact wrong. Listing the code as ignore changes this behavior and Home Assistant will continue to show the status the alarm is in (disarm, arm, armhome, triggered) even when system checks occur.</p>
-  </li>
-  <li>Start the <code class="highlighter-rouge">egardiaserver.py</code> script on boot of your Home Assistant machine, for example by using systemd. To use this method, create a shell script named <code class="highlighter-rouge">egardiaserver.sh</code> that contains the following:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">source</span> /srv/homeassistant/homeassistant_venv/bin/activate
-python3 /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/pythonegardia/egardiaserver.py -host <span class="o">[</span>YOURHOST] -password <span class="s1">'[YOURPASSWORD]'</span> -ssl True &gt; /tmp/egardiaserver.log 2&gt;&amp;1
-</code></pre>
-    </div>
   </li>
 </ol>
+<p>Note that for triggered, arm and disarm multiple codes can be entered since each sensor triggers with a different code and each user of the system has its own arm and disarm codes. Also note that your system will do regular system checks which will be reported as well. Since Home Assistant provides no way of handling them properly, you can enter those codes as ignore (again, multiple codes can be used here). The egardia component will ignore these codes and continue returning the old status if it receives any of the codes that are listed as ignore. This is useful for example when you have armed your alarm at night: normally a system check will occur at least once during the night and if that code is not specified anywhere Home Assistant will set the status of the alarm to its default, which is unarmed. This is in fact wrong. Listing the code as ignore changes this behavior and Home Assistant will continue to show the status the alarm is in (disarm, arm, armhome, triggered) even when system checks occur.</p>
+<ol>
+  <li>Start the <code class="highlighter-rouge">egardiaserver.py</code> script on boot of your Home Assistant machine, for example by using <code class="highlighter-rouge">systemctl</code> by <code class="highlighter-rouge">systemd</code>. To use this method, create a shell script named <code class="highlighter-rouge">egardiaserver.sh</code> that contains something like the following:</li>
+</ol>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+<span class="gp">$ </span>python3 /srv/homeassistant/lib/python3.5/site-packages/pythonegardia/egardiaserver.py -host <span class="o">[</span>YOURHOST] -password <span class="s1">'[YOURPASSWORD]'</span> -ssl True &gt; /tmp/egardiaserver.log 2&gt;&amp;1
+</code></pre>
+</div>
 <p>Mark it as executable (<code class="highlighter-rouge">$ chmod +x</code>) and run <code class="highlighter-rouge">sudo nano /lib/systemd/system/egardiaserver.service</code>. Enter the following into the <code class="highlighter-rouge">egardiaserver.service</code> file:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>Unit]
 <span class="nv">Description</span><span class="o">=</span>Egardia Server Service
 
 <span class="o">[</span>Service]
-<span class="nv">ExecStart</span><span class="o">=</span>/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/pythonegardia/egardiaserver.sh
+<span class="nv">ExecStart</span><span class="o">=</span>/bin/bash /srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/pythonegardia/egardiaserver.sh
 <span class="nv">StandardOutput</span><span class="o">=</span>journal+console
 
 <span class="o">[</span>Install]
@@ -172,6 +173,9 @@ python3 /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/python
         </li>
         <li>
             <a href='/components/alarm_control_panel.alarmdecoder/'>AlarmDecoder Alarm Control Panel</a>
+        </li>
+        <li>
+            <a href='/components/alarm_control_panel.arlo/'>Arlo Control Panel</a>
         </li>
         <li>
             <a href='/components/alarm_control_panel.concord232/'>Concord232 Alarm Control Panel</a>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technology | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/technology/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-21T21:10:30+00:00</updated>
+  <updated>2017-10-21T23:25:10+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -34,7 +34,7 @@ If you're running Hassbian it's recommended that you make a backup of your confi
 If you're on Windows, you're fine as our minimum version for Windows has been 3.5 for a while now.
 
 #### Other Debian based systems
-If you're running a Debian based system , follow [these instructions][dist-upgrade] to upgrade.
+If you're running a Debian based system, follow [these instructions][dist-upgrade] to upgrade.
 
 [dist-upgrade]: https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-jessie-to-raspbian-stretch-9
 ]]></content>
