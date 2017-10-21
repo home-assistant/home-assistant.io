@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ha_release: 0.38
 ---
+
 If you would like to use your own [State card](/developers/frontend_add_card/) without merging your code into [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer/) you can create your own implementation.
 
 Put the element source file and its dependencies in `www/custom_ui/` directory under your Home Assistant [configuration](/docs/configuration/) directory.
@@ -21,11 +22,13 @@ In `state-card-my-custom-light.html` you should use `<link rel="import">` to imp
 Do not import any dependencies used by the Home Assistant UI.
 Importing those will work in `development: 1` mode, but will fail in production mode.
 
-1) In the `customize:` section of the `configuration.yaml` file put `custom_ui_state_card: state-card-my-custom-light`.
-2) In the `frontend` section use `extra_html_url` to specify the URL to load.
+1. In the `customize:` section of the `configuration.yaml` file put `custom_ui_state_card: state-card-my-custom-light`.
+2. In the `frontend` section use `extra_html_url` to specify the URL to load.
 
 Example:
+
 `configuration.yaml`:
+
 ```yaml
 homeassistant:
   customize:
@@ -38,6 +41,7 @@ frontend:
 ```
 
 `www\custom_ui\state-card-my-custom-light.html`:
+
 ```javascript
 <dom-module id='state-card-my-custom-light'>
   <template>
@@ -73,6 +77,5 @@ class StateCardMyCustomLight extends Polymer.Element {
 customElements.define(StateCardMyCustomLight.is, StateCardMyCustomLight);
 </script>
 ```
-
 
 For more possibilities, see the [Custom UI section](/cookbook/#user-interface) on our Examples page.
