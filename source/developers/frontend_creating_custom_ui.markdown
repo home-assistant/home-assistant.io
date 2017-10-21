@@ -61,7 +61,7 @@ class StateCardMyCustomLight extends Polymer.Element {
         type: Boolean,
         value: false,
       },
-      // includes state, config and more information of your entity
+      // includes state, config and more information of the entity
       stateObj: Object,
     };
   }
