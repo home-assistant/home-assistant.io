@@ -28,7 +28,7 @@ Create or pick a user that the Home Assistant daemon will run under. Update scri
 
 ### {% linkable_title 3. Change hass executable if required. %}
 
-Some installation environments may require a change in the home-assistant executable `hass`. Update script to set `HASS_BIN` to the appropriate `hass` executable path.
+Some installation environments may require a change in the Home Assistant executable `hass`. Update script to set `HASS_BIN` to the appropriate `hass` executable path.
 
 ### {% linkable_title 4. Register the daemon with Linux %}
 
