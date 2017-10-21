@@ -23,7 +23,7 @@ http:
   api_password: YOUR_PASSWORD
 ```
 
-Those entries need to be replaced with `!secret` and a identifier.
+Those entries need to be replaced with `!secret` and an identifier.
 
 ```yaml
 http:
