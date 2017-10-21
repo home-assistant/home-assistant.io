@@ -84,15 +84,17 @@
 </div>
 <h3><a class="title-link" name="2-select-a-user" href="#2-select-a-user"></a> 2. Select a user.</h3>
 <p>Create or pick a user that the Home Assistant daemon will run under. Update script to set <code class="highlighter-rouge">RUN_AS</code> to the username that should be used to execute hass.</p>
-<h3><a class="title-link" name="3-register-the-daemon-with-linux" href="#3-register-the-daemon-with-linux"></a> 3. Register the daemon with Linux</h3>
+<h3><a class="title-link" name="3-change-hass-executable-if-required" href="#3-change-hass-executable-if-required"></a> 3. Change hass executable if required.</h3>
+<p>Some installation environments may require a change in the Home Assistant executable <code class="highlighter-rouge">hass</code>. Update script to set <code class="highlighter-rouge">HASS_BIN</code> to the appropriate <code class="highlighter-rouge">hass</code> executable path.</p>
+<h3><a class="title-link" name="4-register-the-daemon-with-linux" href="#4-register-the-daemon-with-linux"></a> 4. Register the daemon with Linux</h3>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo update-rc.d hass-daemon defaults
 </code></pre>
 </div>
-<h3><a class="title-link" name="4-install-this-service" href="#4-install-this-service"></a> 4. Install this service</h3>
+<h3><a class="title-link" name="5-install-this-service" href="#5-install-this-service"></a> 5. Install this service</h3>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo service hass-daemon install
 </code></pre>
 </div>
-<h3><a class="title-link" name="5-restart-machine" href="#5-restart-machine"></a> 5. Restart Machine</h3>
+<h3><a class="title-link" name="6-restart-machine" href="#6-restart-machine"></a> 6. Restart Machine</h3>
 <p>That’s it. Restart your machine and Home Assistant should start automatically.</p>
 <p>If HA does not start, check the log file output for errors at <code class="highlighter-rouge">/var/opt/homeassistant/home-assistant.log</code></p>
 <h3><a class="title-link" name="extra-running-commands-before-hass-executes" href="#extra-running-commands-before-hass-executes"></a> Extra: Running commands before hass executes</h3>
@@ -111,6 +113,8 @@
 <span class="c"># /etc/init.d Service Script for Home Assistant</span>
 <span class="c"># Created with: https://gist.github.com/naholyr/4275302#file-new-service-sh</span>
 <span class="nv">PRE_EXEC</span><span class="o">=</span><span class="s2">""</span>
+<span class="c"># Typically /usr/bin/hass</span>
+<span class="nv">HASS_BIN</span><span class="o">=</span><span class="s2">"hass"</span>
 <span class="nv">RUN_AS</span><span class="o">=</span><span class="s2">"USER"</span>
 <span class="nv">PID_FILE</span><span class="o">=</span><span class="s2">"/var/run/hass.pid"</span>
 <span class="nv">CONFIG_DIR</span><span class="o">=</span><span class="s2">"/var/opt/homeassistant"</span>
@@ -123,7 +127,7 @@ start() {
     return 1
   fi
   echo 'Starting service…' &gt;&amp;2
-  local CMD="</span><span class="nv">$PRE_EXEC</span> hass <span class="nv">$FLAGS</span> <span class="nv">$REDIRECT</span>;<span class="s2">"
+  local CMD="</span><span class="nv">$PRE_EXEC</span> <span class="nv">$HASS_BIN</span> <span class="nv">$FLAGS</span> <span class="nv">$REDIRECT</span>;<span class="s2">"
   su -c "</span><span class="nv">$CMD</span><span class="s2">" </span><span class="nv">$RUN_AS</span><span class="s2">
   echo 'Service started' &gt;&amp;2
 }

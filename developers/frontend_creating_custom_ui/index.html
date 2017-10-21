@@ -81,9 +81,12 @@
 <p>In <code class="highlighter-rouge">state-card-my-custom-light.html</code> you should use <code class="highlighter-rouge">&lt;link rel="import"&gt;</code> to import all the dependencies <strong>not</strong> used by Home Assistant’s UI.
 Do not import any dependencies used by the Home Assistant UI.
 Importing those will work in <code class="highlighter-rouge">development: 1</code> mode, but will fail in production mode.</p>
-<p>1) In the <code class="highlighter-rouge">customize:</code> section of the <code class="highlighter-rouge">configuration.yaml</code> file put <code class="highlighter-rouge">custom_ui_state_card: state-card-my-custom-light</code>.
-2) In the <code class="highlighter-rouge">frontend</code> section use <code class="highlighter-rouge">extra_html_url</code> to specify the URL to load.</p>
-<p>For example:</p>
+<ol>
+  <li>In the <code class="highlighter-rouge">customize:</code> section of the <code class="highlighter-rouge">configuration.yaml</code> file put <code class="highlighter-rouge">custom_ui_state_card: state-card-my-custom-light</code>.</li>
+  <li>In the <code class="highlighter-rouge">frontend</code> section use <code class="highlighter-rouge">extra_html_url</code> to specify the URL to load.</li>
+</ol>
+<p>Example:</p>
+<p><code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
   <span class="s">customize</span><span class="pi">:</span>
     <span class="s">light.bedroom</span><span class="pi">:</span>
@@ -93,6 +96,42 @@ Importing those will work in <code class="highlighter-rouge">development: 1</cod
   <span class="s">extra_html_url</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">/local/custom_ui/state-card-my-custom-light.html</span>
 </code></pre>
+</div>
+<p><code class="highlighter-rouge">www\custom_ui\state-card-my-custom-light.html</code>:</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">dom</span><span class="o">-</span><span class="nx">module</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'state-card-my-custom-light'</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="sr">/style</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">textarea</span><span class="o">&gt;</span><span class="p">[[</span><span class="nx">_toStr</span><span class="p">(</span><span class="nx">StateObj</span><span class="p">)]]</span><span class="o">&lt;</span><span class="sr">/textarea</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/dom-module</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="kr">class</span> <span class="nx">StateCardMyCustomLight</span> <span class="kr">extends</span> <span class="nx">Polymer</span><span class="p">.</span><span class="nx">Element</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">get</span> <span class="nx">is</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'state-card-my-custom-light'</span><span class="p">;</span> <span class="p">}</span>
+  
+  <span class="kr">static</span> <span class="nx">get</span> <span class="nx">properties</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="c1">// Home Assistant object</span>
+      <span class="na">hass</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
+      <span class="c1">// inDialog is true if shown as more-info-card</span>
+      <span class="na">inDialog</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="c1">// includes state, config and more information of the entity</span>
+      <span class="na">stateObj</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">_toStr</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">customElements</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="nx">StateCardMyCustomLight</span><span class="p">.</span><span class="nx">is</span><span class="p">,</span> <span class="nx">StateCardMyCustomLight</span><span class="p">);</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre>
 </div>
 <p>For more possibilities, see the <a href="/cookbook/#user-interface">Custom UI section</a> on our Examples page.</p>
 </article>

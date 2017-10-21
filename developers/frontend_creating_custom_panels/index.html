@@ -89,38 +89,38 @@
 </span><span class="o">&lt;</span><span class="sr">/dom-module</span><span class="err">&gt;
 </span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-<span class="nx">Polymer</span><span class="p">({</span>
-  <span class="na">is</span><span class="p">:</span> <span class="s1">'ha-panel-hello'</span><span class="p">,</span>
-  <span class="na">properties</span><span class="p">:</span> <span class="p">{</span>
-    <span class="c1">// Home Assistant object</span>
-    <span class="na">hass</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">type</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="c1">// If should render in narrow mode</span>
-    <span class="na">narrow</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">type</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-      <span class="na">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="c1">// If sidebar is currently shown</span>
-    <span class="na">showMenu</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">type</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
-      <span class="na">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="c1">// Home Assistant panel info</span>
-    <span class="c1">// panel.config contains config passed to register_panel serverside</span>
-    <span class="na">panel</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">type</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="na">who</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="na">computed</span><span class="p">:</span> <span class="s1">'computeWho(panel)'</span><span class="p">,</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
+<span class="kr">class</span> <span class="nx">HaPanelHello</span> <span class="kr">extends</span> <span class="nx">Polymer</span><span class="p">.</span><span class="nx">Element</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">get</span> <span class="nx">is</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'ha-panel-hello'</span><span class="p">;</span> <span class="p">}</span>
+  
+  <span class="kr">static</span> <span class="nx">get</span> <span class="nx">properties</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="c1">// Home Assistant object</span>
+      <span class="na">hass</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
+      <span class="c1">// If should render in narrow mode</span>
+      <span class="na">narrow</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="c1">// If sidebar is currently shown</span>
+      <span class="na">showMenu</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="p">},</span>
+      <span class="c1">// Home Assistant panel info</span>
+      <span class="c1">// panel.config contains config passed to register_panel serverside</span>
+      <span class="na">panel</span><span class="p">:</span> <span class="nb">Object</span><span class="p">,</span>
+      <span class="na">who</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+        <span class="na">computed</span><span class="p">:</span> <span class="s1">'computeWho(panel)'</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
 
-  <span class="na">computeWho</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">panel</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">computeWho</span><span class="p">(</span><span class="nx">panel</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">panel</span> <span class="o">&amp;&amp;</span> <span class="nx">panel</span><span class="p">.</span><span class="nx">config</span> <span class="o">&amp;&amp;</span> <span class="nx">panel</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">who</span> <span class="p">?</span> <span class="nx">panel</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">who</span> <span class="p">:</span> <span class="s1">'World'</span><span class="p">;</span>
-  <span class="p">},</span>
-<span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">customElements</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="nx">HaPanelHello</span><span class="p">.</span><span class="nx">is</span><span class="p">,</span> <span class="nx">HaPanelHello</span><span class="p">);</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span></code></pre>
 </div>
