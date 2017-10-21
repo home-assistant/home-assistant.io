@@ -33,7 +33,7 @@ automation:
 
 ### {% linkable_title Home Assistant trigger %}
 
-Use this platform to trigger when Home Assistant starts up and shuts down.
+Triggers when Home Assistant starts up or shuts down.
 
 ```yaml
 automation:
@@ -56,7 +56,7 @@ automation:
 ```
 
 ### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below a threshold, or from below to above the given threshold.
+Triggers when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below or from below to above the given threshold.
 
 ```yaml
 automation:
@@ -83,7 +83,7 @@ In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
 
 ### {% linkable_title State trigger %}
 
-Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.
+Triggers when the state of a given entity changes. If only entity_id is given trigger will activate for all state changes, even if only state attributes change.
 
 ```yaml
 automation:
@@ -107,7 +107,7 @@ automation:
 </p>
 
 ### {% linkable_title Sun trigger %}
-Trigger when the sun is setting or rising. An optional time offset can be given to have it trigger for example 45 minutes before sunset, when dusk is setting in.
+Triggers when the sun is setting or rising. An optional time offset can be given to have it trigger a set time before or after the sun event (i.e. 45 minutes before sunset, when dusk is setting in).
 
 ```yaml
 automation:
