@@ -9,7 +9,9 @@ sharing: true
 footer: true
 ---
 
-Setup a SSL proxy with NGINX and redirect port 80 to 443. Make sure you have generated a certificate before you start this add-on. Remove any SSL and port details in your configuration.yaml to avoid a HTTP 502 error.
+Setup a SSL proxy with NGINX and redirect port 80 to 443. Make sure you have generated a certificate before you start this add-on. 
+
+In configuration.yaml remove `ssl_certificate` and `ssl_key` in `http` and don't enter the port in the `base_url` to avoid a HTTP 502 error.
 
 
 ```json
