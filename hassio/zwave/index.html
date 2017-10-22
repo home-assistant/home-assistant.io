@@ -80,16 +80,15 @@
   <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyACM0</span>
 </code></pre>
 </div>
-<p>If you need GPIO on raspberry-pi3 for you Z-Wave module add follow line into <code class="highlighter-rouge">config.txt</code>:</p>
+<p>If you need GPIO on raspberry-pi3 for your Z-Wave module, add the following line into <code class="highlighter-rouge">config.txt</code>:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>dtoverlay=pi3-miniuart-bt
 </code></pre>
 </div>
-<p>For some exceptional devices, the <code class="highlighter-rouge">/dev/ttyAMA0</code> will not be detected by udev and are therefor not mapped with docker.
-So you need explicit set this device for mapping to Home-Assistant. Execute this command on ssh add-on:</p>
+<p>For some devices the <code class="highlighter-rouge">/dev/ttyAMA0</code> device is not detected by udev and is therefore not mapped by Docker. To explicitly set this device for mapping to Home-Assistant, execute the following command using the ssh add-on:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>curl -d <span class="s1">'{"devices": ["ttyAMA0"]}'</span> http://hassio/homeassistant/options
 </code></pre>
 </div>
-<p>After that, you need change <code class="highlighter-rouge">usb_path</code> to <code class="highlighter-rouge">/dev/ttyAMA0</code>.</p>
+<p>After that, you need to change <code class="highlighter-rouge">usb_path</code> to <code class="highlighter-rouge">/dev/ttyAMA0</code>.</p>
 <h3>HUSBZB-1:</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">zwave</span><span class="pi">:</span>
   <span class="s">usb_path</span><span class="pi">:</span> <span class="s">/dev/ttyUSB0</span>

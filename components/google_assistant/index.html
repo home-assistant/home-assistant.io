@@ -88,7 +88,8 @@
     <span class="pi">-</span> <span class="s">group</span>
 </code></pre>
 </div>
-<p><em>Note:</em> It’s very important that you use very long strings for <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">access_token</code>. Those are essentially the credentials to your Home Assistant instance.</p>
+<p><em>Note:</em> It’s very important that you use very long strings for <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">access_token</code>. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:</p>
+<p><code class="highlighter-rouge">cat /dev/urandom|fold -w 120|head -n 1|base64 -w 0|tr -dc '0-9A-Za-z'|cut -c -80</code></p>
 <p><em>Configuration Variables:</em></p>
 <ul>
   <li><em>expose_by_default</em> (Optional): Expose devices in all supported domains by default.</li>

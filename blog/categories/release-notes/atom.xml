@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-22T16:02:42+00:00</updated>
+  <updated>2017-10-22T21:01:46+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -59,6 +59,11 @@ Why not observe your [Travis CI](https://travis-ci.org) jobs with Home Assistant
 - A new platform for controlling Monoprice 6-Zone amplifier ([@etsinko] - [#9662]) ([media_player.monoprice docs]) (new-platform)
 - Add serial sensor ([@fabaff] - [#9861]) ([sensor.serial docs]) (new-platform)
 - Add Toon support ([@Boltgolt] - [#9483]) ([toon docs]) ([climate.toon docs]) ([sensor.toon docs]) ([switch.toon docs]) (new-platform)
+
+## <a class='title-link' name='0561---october-22' href='#0561---october-22'></a> 0.56.1 - October 22 
+
+- Fix device update / entity_id with names ([@pvizeli] - [#10029])
+- fix temperature/humidity sensors valid values ([@bieniu] - [#10024]) ([sensor.xiaomi_aqara docs])
 
 ## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 
@@ -535,7 +540,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wink docs]: https://home-assistant.io/components/wink/
 [xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
 [zha docs]: https://home-assistant.io/components/zha/
-
+[#10024]: https://github.com/home-assistant/home-assistant/pull/10024
+[#10029]: https://github.com/home-assistant/home-assistant/pull/10029
+[@bieniu]: https://github.com/bieniu
 ]]></content>
   </entry>
   

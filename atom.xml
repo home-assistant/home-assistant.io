@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-22T16:02:42+00:00</updated>
+  <updated>2017-10-22T21:01:46+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -59,6 +59,13 @@
   <li>A new platform for controlling Monoprice 6-Zone amplifier (<a href="https://github.com/etsinko">@etsinko</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9662">#9662</a>) (<a href="https://home-assistant.io/components/media_player.monoprice/">media_player.monoprice docs</a>) (new-platform)</li>
   <li>Add serial sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9861">#9861</a>) (<a href="https://home-assistant.io/components/sensor.serial/">sensor.serial docs</a>) (new-platform)</li>
   <li>Add Toon support (<a href="https://github.com/Boltgolt">@Boltgolt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9483">#9483</a>) (<a href="https://home-assistant.io/components/toon/">toon docs</a>) (<a href="https://home-assistant.io/components/climate.toon/">climate.toon docs</a>) (<a href="https://home-assistant.io/components/sensor.toon/">sensor.toon docs</a>) (<a href="https://home-assistant.io/components/switch.toon/">switch.toon docs</a>) (new-platform)</li>
+</ul>
+
+<h2><a class="title-link" name="0561---october-22" href="#0561---october-22"></a> 0.56.1 - October 22</h2>
+
+<ul>
+  <li>Fix device update / entity_id with names (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10029">#10029</a>)</li>
+  <li>fix temperature/humidity sensors valid values (<a href="https://github.com/bieniu">@bieniu</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10024">#10024</a>) (<a href="https://home-assistant.io/components/sensor.xiaomi_aqara/">sensor.xiaomi_aqara docs</a>)</li>
 </ul>
 
 <h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
