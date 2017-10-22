@@ -53,6 +53,11 @@ Why not observe your [Travis CI](https://travis-ci.org) jobs with Home Assistant
 - Add serial sensor ([@fabaff] - [#9861]) ([sensor.serial docs]) (new-platform)
 - Add Toon support ([@Boltgolt] - [#9483]) ([toon docs]) ([climate.toon docs]) ([sensor.toon docs]) ([switch.toon docs]) (new-platform)
 
+## {% linkable_title 0.56.1 - October 22 %}
+
+- Fix device update / entity_id with names ([@pvizeli] - [#10029])
+- fix temperature/humidity sensors valid values ([@bieniu] - [#10024]) ([sensor.xiaomi_aqara docs])
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -528,4 +533,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wink docs]: https://home-assistant.io/components/wink/
 [xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
 [zha docs]: https://home-assistant.io/components/zha/
-
+[#10024]: https://github.com/home-assistant/home-assistant/pull/10024
+[#10029]: https://github.com/home-assistant/home-assistant/pull/10029
+[@bieniu]: https://github.com/bieniu
