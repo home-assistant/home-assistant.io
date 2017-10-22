@@ -6,23 +6,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>0.56: Skybell, Google Actions, Travis CI and Toon - Home Assistant</title>
+    <title>0.56: Skybell, Google Assistant, Travis CI and Toon - Home Assistant</title>
     <meta name="author" content="Fabian Affolter">
-    <meta name="description" content="Support for Tibber and the Things Network a long with new Owntracks and DuckDNS features">
+    <meta name="description" content="Support for Skybell, Toon, Travis CI and Google Assistant">
     <meta name="viewport" content="width=device-width">
     <link rel="canonical" href="https://home-assistant.io/blog/2017/10/21/release-56/">
     <meta property="fb:app_id" content="338291289691179">
-    <meta property="og:title" content="0.56: Skybell, Google Actions, Travis CI and Toon">
+    <meta property="og:title" content="0.56: Skybell, Google Assistant, Travis CI and Toon">
     <meta property="og:site_name" content="Home Assistant">
     <meta property="og:url" content="https://home-assistant.io/blog/2017/10/21/release-56/">
     <meta property="og:type" content="article">
-    <meta property="og:description" content="Support for Tibber and the Things Network a long with new Owntracks and DuckDNS features">
+    <meta property="og:description" content="Support for Skybell, Toon, Travis CI and Google Assistant">
     <meta property="og:image" content="https://home-assistant.io/images/blog/2017-10-0.56/components.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@home_assistant">
     <meta name="twitter:creator" content="@fabaff">
-    <meta name="twitter:title" content="0.56: Skybell, Google Actions, Travis CI and Toon">
-    <meta name="twitter:description" content="Support for Tibber and the Things Network a long with new Owntracks and DuckDNS features">
+    <meta name="twitter:title" content="0.56: Skybell, Google Assistant, Travis CI and Toon">
+    <meta name="twitter:description" content="Support for Skybell, Toon, Travis CI and Google Assistant">
     <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-10-0.56/components.png">
     <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
     <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
@@ -70,7 +70,7 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
           <article class="post">
   <header>
-  <h1 class="title indent">0.56: Skybell, Google Actions, Travis CI and Toon</h1>
+  <h1 class="title indent">0.56: Skybell, Google Assistant, Travis CI and Toon</h1>
   <div class="meta clearfix">
     <time datetime="2017-10-21T10:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 21, 2017</time>
     <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
@@ -90,7 +90,7 @@
 <p>We reached another milestone aka number: 10000. GitHub is assigning numbers to pull requests and issues and the “10000” is a <a href="https://github.com/home-assistant/home-assistant/pull/10000">PR</a>. Our ratio is around 1/3 issues and 2/3 pull requests. To be more precise: 64% pull requests and 36% issues.</p>
 <p>If you haven’t noticed, there is now a <a href="https://home-assistant.io/docs/glossary/">glossary</a> that collects some Home Assistant relevant terms. Talking about the documentation: <a href="https://github.com/DubhAd">@DubhAd</a> rewrote large parts of the <a href="https://home-assistant.io/docs/z-wave/">Z-Wave section</a>. More structure to get started and to find details during the setup and the configuration.</p>
 <h2><a class="title-link" name="google-assistant--google-home-integration" href="#google-assistant--google-home-integration"></a> Google Assistant / Google Home integration</h2>
-<p>This release includes a new component to integrate Home Assistant with Google Assistant by <a href="https://github.com/philk">Phil Kates</a>. We integrate via the Smart Home API, this means that you will be able to control your devices in Home Assistant via any device that has Google Assistant. Learn more in <a href="https://home-assistant.io/components/googleactions/">the documentation</a>.</p>
+<p>This release includes a new component to integrate Home Assistant with Google Assistant by <a href="https://github.com/philk">Phil Kates</a>. We integrate via the Smart Home API, this means that you will be able to control your devices in Home Assistant via any device that has Google Assistant. Learn more in <a href="https://home-assistant.io/components/google_assistant/">the documentation</a>.</p>
 <h2><a class="title-link" name="hacktoberfest" href="#hacktoberfest"></a> Hacktoberfest</h2>
 <p><a href="https://home-assistant.io/blog/2017/09/29/hacktoberfest/">Hacktoberfest</a> is still on and so far we have received a lot improvements. We can’t make any promises to review everything by the end of October, but we are trying to make sure that you will get your t-shirt.</p>
 <h2><a class="title-link" name="map" href="#map"></a> Map</h2>
@@ -106,7 +106,7 @@
   <li>Abode Temp, Humidity, and Light Sensor (<a href="https://github.com/MisterWil">@MisterWil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9709">#9709</a>) (<a href="https://home-assistant.io/components/abode/">abode docs</a>) (<a href="https://home-assistant.io/components/sensor.abode/">sensor.abode docs</a>) (new-platform)</li>
   <li>Introducing support to Travis-CI (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9701">#9701</a>) (<a href="https://home-assistant.io/components/sensor.travisci/">sensor.travisci docs</a>) (new-platform)</li>
   <li>Skybell (<a href="https://github.com/MisterWil">@MisterWil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9681">#9681</a>) (<a href="https://home-assistant.io/components/skybell/">skybell docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.skybell/">binary_sensor.skybell docs</a>) (<a href="https://home-assistant.io/components/camera.skybell/">camera.skybell docs</a>) (<a href="https://home-assistant.io/components/light.skybell/">light.skybell docs</a>) (<a href="https://home-assistant.io/components/sensor.skybell/">sensor.skybell docs</a>) (<a href="https://home-assistant.io/components/switch.skybell/">switch.skybell docs</a>) (new-platform)</li>
-  <li>Xiaomi Smart WiFi Socket and Smart Power Strip integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9138">#9138</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_plug/">switch.xiaomi_plug docs</a>) (new-platform)</li>
+  <li>Xiaomi Smart WiFi Socket and Smart Power Strip integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9138">#9138</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_miio/">switch.xiaomi_miio docs</a>) (new-platform)</li>
   <li>Add notification platform for Rocket.Chat (<a href="https://github.com/webworxshop">@webworxshop</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9553">#9553</a>) (<a href="https://home-assistant.io/components/notify.rocketchat/">notify.rocketchat docs</a>) (new-platform)</li>
   <li>Tesla bug fixes. (<a href="https://github.com/zabuldon">@zabuldon</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9774">#9774</a>) (<a href="https://home-assistant.io/components/tesla/">tesla docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.tesla/">binary_sensor.tesla docs</a>) (<a href="https://home-assistant.io/components/climate.tesla/">climate.tesla docs</a>) (<a href="https://home-assistant.io/components/lock.tesla/">lock.tesla docs</a>) (<a href="https://home-assistant.io/components/sensor.tesla/">sensor.tesla docs</a>) (<a href="https://home-assistant.io/components/switch.tesla/">switch.tesla docs</a>) (new-platform)</li>
   <li>Split map panel out into its own component (<a href="https://github.com/cgarwood">@cgarwood</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9814">#9814</a>) (<a href="https://home-assistant.io/components/map/">map docs</a>) (breaking change) (new-platform)</li>
@@ -114,7 +114,7 @@
   <li>Add namecheap DNS component (<a href="https://github.com/Munsio">@Munsio</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9821">#9821</a>) (<a href="https://home-assistant.io/components/namecheapdns/">namecheapdns docs</a>) (new-platform)</li>
   <li>Uptime sensor (<a href="https://github.com/fronzbot">@fronzbot</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9856">#9856</a>) (<a href="https://home-assistant.io/components/sensor.uptime/">sensor.uptime docs</a>) (new-platform)</li>
   <li>Cloud connection via aiohttp (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9860">#9860</a>) (new-platform)</li>
-  <li>Google Actions for Assistant (<a href="https://github.com/philk">@philk</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9632">#9632</a>) (<a href="https://home-assistant.io/components/googleactions/">googleactions docs</a>) (<a href="https://home-assistant.io/components/http/">http docs</a>) (new-platform)</li>
+  <li>Google Actions for Assistant (<a href="https://github.com/philk">@philk</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9632">#9632</a>) (<a href="https://home-assistant.io/components/google_assistant/">google_assistant docs</a>) (<a href="https://home-assistant.io/components/http/">http docs</a>) (new-platform)</li>
   <li>A new platform for controlling Monoprice 6-Zone amplifier (<a href="https://github.com/etsinko">@etsinko</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9662">#9662</a>) (<a href="https://home-assistant.io/components/media_player.monoprice/">media_player.monoprice docs</a>) (new-platform)</li>
   <li>Add serial sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9861">#9861</a>) (<a href="https://home-assistant.io/components/sensor.serial/">sensor.serial docs</a>) (new-platform)</li>
   <li>Add Toon support (<a href="https://github.com/Boltgolt">@Boltgolt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9483">#9483</a>) (<a href="https://home-assistant.io/components/toon/">toon docs</a>) (<a href="https://home-assistant.io/components/climate.toon/">climate.toon docs</a>) (<a href="https://home-assistant.io/components/sensor.toon/">sensor.toon docs</a>) (<a href="https://home-assistant.io/components/switch.toon/">switch.toon docs</a>) (new-platform)</li>
@@ -168,7 +168,7 @@
   <li>Match test requirements by full package name. (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9764">#9764</a>)</li>
   <li>yeelight: implement min_mireds and max_mireds, fixes #9509 (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9763">#9763</a>) (<a href="https://home-assistant.io/components/light.yeelight/">light.yeelight docs</a>)</li>
   <li>Bump raincloudy version 0.0.3 (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9767">#9767</a>) (<a href="https://home-assistant.io/components/raincloud/">raincloud docs</a>) (<a href="https://home-assistant.io/components/sensor.raincloud/">sensor.raincloud docs</a>)</li>
-  <li>Xiaomi Smart WiFi Socket and Smart Power Strip integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9138">#9138</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_plug/">switch.xiaomi_plug docs</a>) (new-platform)</li>
+  <li>Xiaomi Smart WiFi Socket and Smart Power Strip integration (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9138">#9138</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_miio/">switch.xiaomi_miio docs</a>) (new-platform)</li>
   <li>fix for LocationParseError in netgear platform (<a href="https://github.com/etsinko">@etsinko</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9683">#9683</a>) (<a href="https://home-assistant.io/components/device_tracker/">device_tracker docs</a>) (<a href="https://home-assistant.io/components/device_tracker.netgear/">device_tracker.netgear docs</a>)</li>
   <li>Expose time module in Python Scripts (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9736">#9736</a>) (<a href="https://home-assistant.io/components/python_script/">python_script docs</a>)</li>
   <li>Add notification platform for Rocket.Chat. (<a href="https://github.com/webworxshop">@webworxshop</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9553">#9553</a>) (<a href="https://home-assistant.io/components/notify.rocketchat/">notify.rocketchat docs</a>) (new-platform)</li>
@@ -244,7 +244,7 @@
   <li>Update xiaomi_aqara.py (<a href="https://github.com/danielhiversen">@danielhiversen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9920">#9920</a>) (<a href="https://home-assistant.io/components/sensor.xiaomi_aqara/">sensor.xiaomi_aqara docs</a>)</li>
   <li>Fix the resource naming in the UI (<a href="https://github.com/cgtobi">@cgtobi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9927">#9927</a>) (<a href="https://home-assistant.io/components/sensor.glances/">sensor.glances docs</a>)</li>
   <li>Add transmission sensor: number of active torrents (<a href="https://github.com/mclem">@mclem</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9914">#9914</a>) (<a href="https://home-assistant.io/components/sensor.transmission/">sensor.transmission docs</a>)</li>
-  <li>Google Actions for Assistant (<a href="https://github.com/philk">@philk</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9632">#9632</a>) (<a href="https://home-assistant.io/components/googleactions/">googleactions docs</a>) (<a href="https://home-assistant.io/components/http/">http docs</a>) (new-platform)</li>
+  <li>Google Actions for Assistant (<a href="https://github.com/philk">@philk</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9632">#9632</a>) (<a href="https://home-assistant.io/components/google_assistant/">google_assistant docs</a>) (<a href="https://home-assistant.io/components/http/">http docs</a>) (new-platform)</li>
   <li>Allow flexible relayer url (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9939">#9939</a>) (<a href="https://home-assistant.io/components/cloud.iot/">cloud.iot docs</a>)</li>
   <li>update async_timeout from v1.4.0 tp v2.0.0 (<a href="https://github.com/TopdRob">@TopdRob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9938">#9938</a>)</li>
   <li>Bump py-synology to 0.1.5 (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9932">#9932</a>) (<a href="https://home-assistant.io/components/camera.synology/">camera.synology docs</a>)</li>
