@@ -58,6 +58,7 @@ To enable {{ page.title }} in your installation, add the following to your `conf
 ```yaml
 # You can leave mac empty if you only have one gateway.
 xiaomi_aqara:
+  discovery_retry: 5
   gateways:
     - mac:
       key: xxxxxxxxxxxxxxxx
