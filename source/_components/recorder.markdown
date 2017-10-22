@@ -53,7 +53,7 @@ recorder:
       - updater
     entities:
       - sun.sun   # Don't record sun data
-      - sensor.last_boot
+      - sensor.last_boot # Comes from component System monitor
       - sensor.date
 ```
 
