@@ -30,7 +30,9 @@ google_assistant:
     - group
 ```
 
-*Note:* It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance.
+*Note:* It's very important that you use very long strings for `client_id` and `access_token`. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
+
+`cat /dev/urandom|fold -w 120|head -n 1|base64 -w 0|tr -dc '0-9A-Za-z'|cut -c -80`
 
 *Configuration Variables:*
 * *expose_by_default* (Optional): Expose devices in all supported domains by default.
