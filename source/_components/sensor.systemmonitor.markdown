@@ -57,6 +57,7 @@ The table contains types and their argument to use in your `configuration.yaml` 
 | ipv6_address        | Interface, eg. `eth0`    |
 | processor_use       |                          |
 | process             | Binary, eg. `octave-cli` |
+| last_boot           |                          |
 | since_last_boot     |                          |
 
 ## {% linkable_title Linux specific %}
