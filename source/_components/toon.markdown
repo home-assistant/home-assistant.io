@@ -2,7 +2,7 @@
 layout: page
 title: "Toon"
 description: "Instructions how to integrate Toon within Home Assistant."
-date: 2017-10-21 12:00
+date: 2017-10-22 12:00
 sidebar: true
 comments: false
 sharing: true
@@ -31,7 +31,6 @@ Configuration variables:
 - **username** (*Required*): Username for Mijn Eneco.
 - **password** (*Required*): Password for Mijn Eneco.
 
-Toon is a smart thermostat delivered by the Eneco power company in The Netherlands. It can measure energy consumption (power and gas), but also the amount of energy generated in case solar panels are connected to it. Toon also acts as a z-wave hub for supported Fibaro devices like the wall plug and the smoke detector. This component uses the [toonlib library](https://github.com/costastf/toonlib) by Costas Tyfoxylos that connects to the unofficial API on [https://toonopafstand.eneco.nl](https://toonopafstand.eneco.nl).
+Toon is a smart thermostat delivered by the Eneco power company in The Netherlands. It can measure energy consumption (power and gas), but also the amount of energy generated in case solar panels are connected to it. Toon also acts as a z-wave hub for supported devices like the wall plug and the smoke detector. This component uses the [toonlib library](https://github.com/costastf/toonlib) by Costas Tyfoxylos that connects to the unofficial API on [https://toonopafstand.eneco.nl](https://toonopafstand.eneco.nl).
 
 The current version of this component supports setting any of the four built-in programs and setting the temperature manually. It polls the Toon API at 30 second intervals so the status is relatively fresh without overloading the API.
-
