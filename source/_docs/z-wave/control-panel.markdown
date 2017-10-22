@@ -10,6 +10,10 @@ footer: true
 redirect_from: /getting-started/z-wave-panel/
 ---
 
+<p class='note'>
+  If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/components/config/).
+</p>
+
 ## {% linkable_title Z-Wave Network Management %}
 
 Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices from your network.
