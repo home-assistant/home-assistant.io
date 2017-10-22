@@ -78,7 +78,7 @@ homeassistant:
     "automation" :
     {
       "name": "automation",
-      "url": "https://[YOUR HOME ASSISTANT URL]/api/google_assistant"
+      "url": "https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth"
     }
   }
 }
