@@ -17,7 +17,7 @@ The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi
 
 Currently, the supported features are `on`, `off`. If the device provides the current load, it will be reported.
 
-Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a plug to your installation, add the following to your `configuration.yaml` file:
 
