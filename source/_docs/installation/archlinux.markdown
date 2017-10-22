@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Installation on ArchLinux"
-description: "Installation of Home Assistant on your ArchLinux computer."
+title: "Installation on Arch Linux"
+description: "Installation of Home Assistant on your Arch Linux computer."
 date: 2017-03-01 07:00
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-[ArchLinux](https://www.archlinux.org/) is a lightweight and flexible Linux distribution. There are official packages optimized for the i686 and x86-64 architectures available.
+[Arch Linux](https://www.archlinux.org/) is a lightweight and flexible Linux distribution. There are official packages optimized for the i686 and x86-64 architectures available.
 
 Install the needed Python packages.
 
