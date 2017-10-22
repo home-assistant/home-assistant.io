@@ -105,6 +105,7 @@
   <li>Once the new product page opens the “Product ID” and “Product Secret” are located on the right side. These will be used as <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">client_secret</code> below.</li>
   <li>Once Home Assistant is started, a configurator will pop up asking you to log into your Nest account and copy a PIN code into Home Assistant.</li>
 </ol>
+<p>Connecting to the Nest Developer API requires outbound port 8553 on your firewall. The configuration will fail if this is not accessible.</p>
 <h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">nest</span><span class="pi">:</span>
