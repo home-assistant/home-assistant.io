@@ -28,7 +28,7 @@ Currently supported features are:
 - `set_fanspeed`
 - remote control of your robot.
 
-Please follow [Retrieving the Access Token](/components/vacuum.xiaomi/#retrieving-the-access-token) to retrieve the API token used in
+Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
 
 ## {% linkable_title Configuring the Platform %}
