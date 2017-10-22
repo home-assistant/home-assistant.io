@@ -13,7 +13,7 @@ ha_release: 0.56
 ha_iot_class: "Cloud Polling"
 ---
 
-To get your [Skybell.com](https://skybell.com/) cameras working within Home Assistant, please follow the instructions for the general [Skybell component](/components/skybell).
+To get your [Skybell.com](https://www.skybell.com/) cameras working within Home Assistant, please follow the instructions for the general [Skybell component](/components/skybell).
 
 Once you have enabled the [Skybell component](/components/skybell), add the following to your `configuration.yaml` file:
 
