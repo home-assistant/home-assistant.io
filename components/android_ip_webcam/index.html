@@ -75,7 +75,7 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">android_ip_webcam</code> component turns an Android phone into a network camera with multiple viewing options.</p>
-<p>It’s setup as an M-JPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.</p>
+<p>It’s setup as an MJPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.</p>
 <p>To set it up, download <a href="https://play.google.com/store/apps/details?id=com.pas.webcam">the IP Webcam app</a>, and add the following information to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">android_ip_webcam</span><span class="pi">:</span>
@@ -105,7 +105,7 @@
   <li>motion</li>
   <li>pressure</li>
 </ul>
-<p>Settings:</p>
+<p>Settings (Switches):</p>
 <ul>
   <li>exposure_lock</li>
   <li>ffc</li>
@@ -117,6 +117,37 @@
   <li>whitebalance_lock</li>
   <li>video_recording</li>
 </ul>
+<h2><a class="title-link" name="full-example" href="#full-example"></a> Full example</h2>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">android_ip_webcam</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.202</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">8000</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">audio_connections</span>
+      <span class="pi">-</span> <span class="s">battery_level</span>
+      <span class="pi">-</span> <span class="s">battery_temp</span>
+      <span class="pi">-</span> <span class="s">battery_voltage</span>
+      <span class="pi">-</span> <span class="s">light</span>
+      <span class="pi">-</span> <span class="s">motion</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">exposure_lock</span>
+      <span class="pi">-</span> <span class="s">ffc</span>
+      <span class="pi">-</span> <span class="s">focus</span>
+      <span class="pi">-</span> <span class="s">gps_active</span>
+      <span class="pi">-</span> <span class="s">night_vision</span>
+      <span class="pi">-</span> <span class="s">overlay</span>
+      <span class="pi">-</span> <span class="s">torch</span>
+      <span class="pi">-</span> <span class="s">whitebalance_lock</span>
+      <span class="pi">-</span> <span class="s">video_recording</span>
+  <span class="pi">-</span> <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.203</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">8000</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">light</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">torch</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
