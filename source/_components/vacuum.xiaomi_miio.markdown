@@ -126,7 +126,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 #### {% linkable_title Windows and Android %}
 
 1. Configure the robot with the Mi-Home app.
-2. Get and extract the MiToolKit.zip(https://github.com/ultrara1n/MiToolkit/releases).
+2. Download and extract the [MiToolKit.zip](https://github.com/ultrara1n/MiToolkit/releases).
 3. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
 4. Change the MiToolKit language to English if you need to.
 5. Click "Extract Token"
