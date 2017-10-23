@@ -40,3 +40,22 @@ automation:
       transition: 5
       brightness: 255
 ```
+
+It is also possible to change the color every fifteen minutes, starting 5 minutes after the hour. That would trigger a change at h:05, h:20, h:35, and h:50.
+
+```yaml
+automation:
+# Changes Hue light every two minutes to random color if input boolean is set to on
+- alias: 'Set LivingColors to random color'
+  trigger:
+    platform: time
+    minutes: '/15+5'
+    seconds: 0
+  action:
+    service: light.turn_on
+    entity_id: light.woonkamer_livingcolors
+    data:
+      effect: random
+      transition: 5
+      brightness: 255
+```
