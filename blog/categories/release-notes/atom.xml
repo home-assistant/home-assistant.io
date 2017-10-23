@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-23T18:25:50+00:00</updated>
+  <updated>2017-10-23T20:11:39+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -364,6 +364,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#9959]: https://github.com/home-assistant/home-assistant/pull/9959
 [#9963]: https://github.com/home-assistant/home-assistant/pull/9963
 [#9997]: https://github.com/home-assistant/home-assistant/pull/9997
+[#10045]: https://github.com/home-assistant/home-assistant/pull/10045
+[#10053]: https://github.com/home-assistant/home-assistant/pull/10053
+[#10060]: https://github.com/home-assistant/home-assistant/pull/10060
 [@Bahnburner]: https://github.com/Bahnburner
 [@Boltgolt]: https://github.com/Boltgolt
 [@ChristianKuehnel]: https://github.com/ChristianKuehnel
