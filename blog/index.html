@@ -70,6 +70,37 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/10/23/simple-analog-sensor/">Serial analog sensor</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-10-23T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 23, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/10/23/simple-analog-sensor/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>This blog post is about building a super simple analog sensor for Home Assistant. The physical sensor will send the data over its virtual serial port as it will be connected over USB. The concept is similar to the <a href="/components/sensor.temper/">TEMPer USB</a> devices. The attatched sensor type to the microcontroller can be any kind of sensor which gives you an analog signal from brightness over soil moisture to temperature.</p>
+<p>The microcontroller will only transfer the voltage of an analog input pin which will be between 0 and 1024. Home Assistant will use the new <a href="/components/sensor.serial/"><code class="highlighter-rouge">serial</code></a> sensor platform to read the data and perform actions to convert the raw reading into a real measurement. This means that you don’t have to adjust the code of your microcontroller if you change the attached sensor type.</p>
+<p class="img">
+  <img src="/images/blog/2017-10-analog-sensor/analog-sensor.png" />
+  The assembled sensor
+</p>
+      <a class="btn pull-right" href="/blog/2017/10/23/simple-analog-sensor/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/10/21/release-56/">0.56: Skybell, Google Assistant, Travis CI and Toon</a>
   </h1>
   <div class="meta clearfix">
@@ -454,51 +485,6 @@ FROM $BUILD_FROM
 <h3><a class="title-link" name="when" href="#when"></a> When</h3>
 <p>The new system will become active with Hass.io 0.64 and Host OS 1.1. Host OS 1.1 is available today. Navigate to Advanced Settings in the Hass.io panel to start the OTA update.</p>
 <p>We have also updated our build scripts and replaced it with a <a href="https://github.com/home-assistant/hassio-build/tree/master/builder">builder docker engine</a>. This builder makes deploying Hass.io components very easy. All basic functionality is supported. If you want more functionality, check out <a href="https://github.com/hassio-addons/build-env">the builder by the Community Hass.io Add-ons project</a>.</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/09/23/release-54/">0.54: Todoist, DoorBird, Abode cameras</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-09-23T00:11:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 23, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 10 minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/09/23/release-54/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><a href="/components/#version/0.54"><img src="/images/blog/2017-09-0.54/components.png" style="border: 0;box-shadow: none;" /></a></p>
-<p>We’re approaching the end of September and that means that it was our birthday! We are now officially 4 years old and are getting more amazing with every release. This release too will include some great new stuff and tons of bugfixes. Included is a bug fix by <a href="https://github.com/fanthos">@fanthos</a> that should fix the frontend in some browsers. If you had issues with your browser before, make sure to check out this release.</p>
-<p>This release we’ve started the work to make our Xiaomi integrations more robust. This meant that we’ve had to rename the components to make it more clear which of the Xiaomi protocols are being used. We have some developers working on making this very affordable home automation solution a first class citizen in the Home Assistant ecosystem, stay tuned for more integrations!</p>
-<p>Another cool thing in this release is the new <a href="/components/mqtt_statestream/"><code class="highlighter-rouge">mqtt_statestream</code></a> component to export state changes to MQTT. Each entity will be exported on their own topic which makes it very easy to subscribe to individual entity updates.</p>
-<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
-<ul>
-  <li>Added mqtt_statestream component (<a href="https://github.com/mw-white">@mw-white</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9286">#9286</a>) (<a href="/components/mqtt_statestream/">mqtt_statestream docs</a>) (new-platform)</li>
-  <li>Add support for Todoist platform (<a href="https://github.com/Jay2645">@Jay2645</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9236">#9236</a>) (<a href="/components/calendar.todoist/">calendar.todoist docs</a>) (new-platform)</li>
-  <li>DoorBird Component (<a href="https://github.com/Klikini">@Klikini</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9281">#9281</a>) (<a href="/components/doorbird/">doorbird docs</a>) (<a href="/components/binary_sensor.doorbird/">binary_sensor.doorbird docs</a>) (<a href="/components/camera.doorbird/">camera.doorbird docs</a>) (<a href="/components/switch.doorbird/">switch.doorbird docs</a>) (new-platform)</li>
-  <li>Basic MQTT vacuum support (<a href="https://github.com/johnboiles">@johnboiles</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9386">#9386</a>) (<a href="/components/vacuum/">vacuum docs</a>) (<a href="/components/vacuum.mqtt/">vacuum.mqtt docs</a>) (new-platform)</li>
-  <li>Added Zyxel Keenetic NDMS2 based routers support for device tracking (<a href="https://github.com/foxel">@foxel</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9315">#9315</a>) (<a href="/components/device_tracker.keenetic_ndms2/">device_tracker.keenetic_ndms2 docs</a>) (new-platform)</li>
-  <li>Telnet switch (<a href="https://github.com/multiholle">@multiholle</a> - <a href="https://github.com/home-assistant/home-assistant/pull/8913">#8913</a>) (<a href="/components/switch.telnet/">switch.telnet docs</a>) (new-platform)</li>
-  <li>Abode services, events, lights, cameras, automations, quick actions. (<a href="https://github.com/MisterWil">@MisterWil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9310">#9310</a>) (<a href="/components/abode/">abode docs</a>) (<a href="/components/alarm_control_panel.abode/">alarm_control_panel.abode docs</a>) (<a href="/components/binary_sensor.abode/">binary_sensor.abode docs</a>) (<a href="/components/camera.abode/">camera.abode docs</a>) (<a href="/components/cover.abode/">cover.abode docs</a>) (<a href="/components/light.abode/">light.abode docs</a>) (<a href="/components/lock.abode/">lock.abode docs</a>) (<a href="/components/switch.abode/">switch.abode docs</a>) (new-platform)</li>
-  <li>Added satel_integra alarm panel and binary sensor platform (<a href="https://github.com/c-soft">@c-soft</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9336">#9336</a>) (<a href="/components/satel_integra/">satel_integra docs</a>) (<a href="/components/alarm_control_panel.satel_integra/">alarm_control_panel.satel_integra docs</a>) (<a href="/components/binary_sensor.satel_integra/">binary_sensor.satel_integra docs</a>) (new-platform)</li>
-  <li>Worx Landroid sensor (<a href="https://github.com/nilzen">@nilzen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9416">#9416</a>) (<a href="/components/sensor.worxlandroid/">sensor.worxlandroid docs</a>) (new-platform)</li>
-</ul>
-<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
-<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
-<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
-<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
-      <a class="btn pull-right" href="/blog/2017/09/23/release-54/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

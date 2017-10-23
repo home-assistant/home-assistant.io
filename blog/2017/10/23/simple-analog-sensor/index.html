@@ -1,0 +1,285 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Serial analog sensor - Home Assistant</title>
+    <meta name="author" content="Fabian Affolter">
+    <meta name="description" content="Using a Digispark with Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Serial analog sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Using a Digispark with Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-10-analog-sensor/analog-sensor.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Serial analog sensor">
+    <meta name="twitter:description" content="Using a Digispark with Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-10-analog-sensor/analog-sensor.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="post">
+  <header>
+  <h1 class="title indent">Serial analog sensor</h1>
+  <div class="meta clearfix">
+    <time datetime="2017-10-23T08:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 23, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> three minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <p>This blog post is about building a super simple analog sensor for Home Assistant. The physical sensor will send the data over its virtual serial port as it will be connected over USB. The concept is similar to the <a href="/components/sensor.temper/">TEMPer USB</a> devices. The attatched sensor type to the microcontroller can be any kind of sensor which gives you an analog signal from brightness over soil moisture to temperature.</p>
+<p>The microcontroller will only transfer the voltage of an analog input pin which will be between 0 and 1024. Home Assistant will use the new <a href="/components/sensor.serial/"><code class="highlighter-rouge">serial</code></a> sensor platform to read the data and perform actions to convert the raw reading into a real measurement. This means that you don’t have to adjust the code of your microcontroller if you change the attached sensor type.</p>
+<p class="img">
+  <img src="/images/blog/2017-10-analog-sensor/analog-sensor.png" />
+  The assembled sensor
+</p>
+<a name="read-more"></a>
+<p>All parts needed in this how-to can be bought for less than 2 Euro or 2 USD from China. I’m going to use the following items which were already available in my craft crate:</p>
+<ul>
+  <li><a href="http://digistump.com/category/1">Digispark USB Development Board</a></li>
+  <li>Temperature sensor <a href="http://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf">TMP36</a> (or any other sensor that gives you an analog signal)</li>
+  <li>Cables (if you don’t want to connect the sensor directly to the board)</li>
+</ul>
+<p>The cabling is easy.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Sensor</th>
+      <th>Digispark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GND</td>
+      <td>GND</td>
+    </tr>
+    <tr>
+      <td>VCC</td>
+      <td>5V</td>
+    </tr>
+    <tr>
+      <td>VOUT</td>
+      <td>P4</td>
+    </tr>
+  </tbody>
+</table>
+<p>There are other boards with the same size available. Like those with the far more powerful Mega32U4 chip. However, it would work with boards from the Arduino family as well if you adjust the code provided below.</p>
+<p>The sketch is pretty simple. We are going to send the readings to a virtual <a href="https://digistump.com/wiki/digispark/tutorials/digicdc">serial output</a> every 5 seconds. No logic needed. A little plus is that the onboard LED is blinking as an indicator that the board is working. <a href="https://digistump.com/wiki/digispark">Upload</a> the code to your Digispark board. Keep in mind that the upload process is different than with Arduino or ESP8266 boards.</p>
+<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;DigiCDC.h&gt;
+</span>
+<span class="cp">#define LED_PIN 1
+#define INPUT_PIN 2  // Physical pin P4 is analog input 2
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">SerialUSB</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">SerialUSB</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">SerialUSB</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">reading</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">INPUT_PIN</span><span class="p">);</span>
+    <span class="n">SerialUSB</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">reading</span><span class="p">);</span>
+
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">SerialUSB</span><span class="p">.</span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>To make it work with other boards simply use <a href="https://www.arduino.cc/en/Reference/Serial"><code class="highlighter-rouge">Serial.begin(115200);</code></a> and <a href="https://www.arduino.cc/en/Serial/Println"><code class="highlighter-rouge">Serial.println(reading);</code></a>.</p>
+<p>If you connect with a tool like <code class="highlighter-rouge">minicom</code> to your system’s serial port <code class="highlighter-rouge">/dev/ttyACM0</code>, then you will get the data. To use the sensor with Home Assistant the <a href="/components/sensor.serial/"><code class="highlighter-rouge">serial</code></a> sensor platform needs to be set up.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">serial</span>
+    <span class="s">port</span><span class="pi">:</span> <span class="s">/dev/ttyACM0</span>
+</code></pre>
+</div>
+<p>The physical sensor reads the current voltage of the pin. A <a href="/components/sensor.template/">template sensor</a> takes the reading and converts it into a measurement. The data sheet of the sensor unit usually contains details about the involved calculations.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">temperature</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Temperature</span>
+        <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">(((states('sensor.serial_sensor')</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">5</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">1024</span><span class="nv"> </span><span class="s">)</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">0.5)</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">round(1)</span><span class="nv"> </span><span class="s">}}"</span>
+</code></pre>
+</div>
+<p>Hide the serial sensor if you don’t want to see the raw data in the frontend and you are done. The whole setup with a Digispark is not very reliable because there is no hardware USB support. As a showcase and if you don’t build your automation rules around it does the sensor what it should for a very small price.</p>
+</article>
+<section id="disqus">
+  <h3 class="indent title">Comments</h3>
+  <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+</section>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/"
+     data-counturl="https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/" >Tweet</a>
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/"
+         data-layout="button_count">
+    </div>
+  <div class="g-plusone" data-size="standard"></div>
+</section>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+        <li class="post">
+          <a href="/blog/2017/10/21/release-56/">0.56: Skybell, Google Assistant, Travis CI and Toon</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/10/18/hasspodcast-ep-10/">Home Assistant Podcast #10</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/10/15/templating-date-time/">Templates, dates and times</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2017/10/07/release-55/">0.55: Tibber, DuckDNS, The Things Network, Owntrack</a>
+        </li>
+  </ul>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<script>
+  var disqus_shortname = 'home-assistant';
+    // var disqus_developer = 1;
+    var disqus_identifier = 'https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/';
+    var disqus_url = 'https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/';
+    var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

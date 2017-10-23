@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-22T21:01:46+00:00</updated>
+  <updated>2017-10-23T07:01:47+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Serial analog sensor]]></title>
+    <link href="https://home-assistant.io/blog/2017/10/23/simple-analog-sensor/"/>
+    <updated>2017-10-23T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/10/23/simple-analog-sensor</id>
+    <content type="html"><![CDATA[This blog post is about building a super simple analog sensor for Home Assistant. The physical sensor will send the data over its virtual serial port as it will be connected over USB. The concept is similar to the [TEMPer USB](/components/sensor.temper/) devices. The attatched sensor type to the microcontroller can be any kind of sensor which gives you an analog signal from brightness over soil moisture to temperature.
+
+The microcontroller will only transfer the voltage of an analog input pin which will be between 0 and 1024. Home Assistant will use the new [`serial`](/components/sensor.serial/) sensor platform to read the data and perform actions to convert the raw reading into a real measurement. This means that you don't have to adjust the code of your microcontroller if you change the attached sensor type.
+
+<p class='img'>
+  <img src='/images/blog/2017-10-analog-sensor/analog-sensor.png' />
+  The assembled sensor
+</p>
+
+<!--more-->
+
+All parts needed in this how-to can be bought for less than 2 Euro or 2 USD from China. I'm going to use the following items which were already available in my craft crate:
+
+- [Digispark USB Development Board](http://digistump.com/category/1)
+- Temperature sensor [TMP36](http://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf) (or any other sensor that gives you an analog signal)
+- Cables (if you don't want to connect the sensor directly to the board)
+
+The cabling is easy.
+
+| Sensor | Digispark |
+|--------|-----------|
+| GND    | GND       |
+| VCC    | 5V        |
+| VOUT   | P4        |
+
+There are other boards with the same size available. Like those with the far more powerful Mega32U4 chip. However, it would work with boards from the Arduino family as well if you adjust the code provided below.
+
+The sketch is pretty simple. We are going to send the readings to a virtual [serial output](https://digistump.com/wiki/digispark/tutorials/digicdc) every 5 seconds. No logic needed. A little plus is that the onboard LED is blinking as an indicator that the board is working. [Upload](https://digistump.com/wiki/digispark) the code to your Digispark board. Keep in mind that the upload process is different than with Arduino or ESP8266 boards.
+
+```cpp
+#include <DigiCDC.h>
+
+#define LED_PIN 1
+#define INPUT_PIN 2  // Physical pin P4 is analog input 2
+
+void setup() {
+  SerialUSB.begin();
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  if (SerialUSB.available()) {
+    digitalWrite(LED_PIN, HIGH);
+    SerialUSB.delay(250);
+
+    int reading = analogRead(INPUT_PIN);
+    SerialUSB.println(reading);
+
+    digitalWrite(LED_PIN, LOW);
+    SerialUSB.delay(5000);
+  }
+}
+```
+
+To make it work with other boards simply use [`Serial.begin(115200);`](https://www.arduino.cc/en/Reference/Serial) and [`Serial.println(reading);`](https://www.arduino.cc/en/Serial/Println).
+
+If you connect with a tool like `minicom` to your system's serial port `/dev/ttyACM0`, then you will get the data. To use the sensor with Home Assistant the [`serial`](/components/sensor.serial/) sensor platform needs to be set up. 
+
+```yaml
+sensor:
+  - platform: serial
+    port: /dev/ttyACM0
+```
+
+The physical sensor reads the current voltage of the pin. A [template sensor](/components/sensor.template/) takes the reading and converts it into a measurement. The data sheet of the sensor unit usually contains details about the involved calculations. 
+
+
+```yaml
+  - platform: template
+    sensors:
+      temperature:
+        friendly_name: Temperature
+        unit_of_measurement: "°C"
+        value_template: "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
+```
+
+
+Hide the serial sensor if you don't want to see the raw data in the frontend and you are done. The whole setup with a Digispark is not very reliable because there is no hardware USB support. As a showcase and if you don't build your automation rules around it does the sensor what it should for a very small price. 
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Effortless encryption with Let's Encrypt and DuckDNS]]></title>
@@ -307,72 +395,6 @@ Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Rasp
     <p class='img'>
       <img src='/images/blog/2017-04-influxdb-grafana/share_dashboard.png' />
     </p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[HTTP to MQTT bridge]]></title>
-    <link href="https://home-assistant.io/blog/2017/03/28/http-to-mqtt-bridge/"/>
-    <updated>2017-03-28T06:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/03/28/http-to-mqtt-bridge</id>
-    <content type="html"><![CDATA[The idea of creating [HTTP to MQTT bridge](https://github.com/petkov/http_to_mqtt) appeared when I was trying to integrate Google Assistant with my Home Assistant after watching [BRUH Automation](https://youtu.be/087tQ7Ly7f4?t=265) video. Right now there is no MQTT service available in [IFTTT](https://ifttt.com/about). Existing integration solution uses [Maker Webhooks](https://ifttt.com/maker_webhooks) which requires that your Home Assistant instance is publicly accessible, which I think brings some security concerns or simply not always possible to set up.
-
-The HTTP to MQTT bridge should fill that gap. The idea is to receive messages using HTTP requests and transfer them to your MQTT broker, which can be contacted by Home Assistant. The HTTP to MQTT bridge is written using Node.js with [Express](https://expressjs.com/) for the server part and [MQTT.js](https://www.npmjs.com/package/mqtt) for the client.
-
-<!--more-->
-
-The app could be hosted on any Node.js hosting. I prefer [Heroku: Cloud Application Platform](https://www.heroku.com/home) for its simplicity.
-
-### <a class='title-link' name='bringing-pieces-together' href='#bringing-pieces-together'></a> Bringing pieces together 
-
-1. Configure the Home Assistant [MQTT trigger](https://home-assistant.io/docs/automation/trigger/#mqtt-trigger).
-1. Configure [CloudMQTT](https://www.cloudmqtt.com/). Check this [video tutorial](https://www.youtube.com/watch?v=VaWdvVVYU3A) for details.
-1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/petkov/http_to_mqtt) HTTP to MQTT bridge app.
-1. Add the [Configuration Variables](https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application) to your Heroku app mentioned here.
-   * AUTH_KEY: Can be any string, eg. `912ec803b2ce49e4a541068d495ab570`.
-   * MQTT_HOST: The host of your MQTT broker, eg. mqtts://k99.cloudmqtt.com:21234.
-   * MQTT_USER: MQTT username
-   * MQTT_PASS: MQTT password
-1. Create an IFTTT applet the same way as described in [BRUH Automation](https://youtu.be/087tQ7Ly7f4?t=265) video.
-1. Configure [Maker Webhooks](https://ifttt.com/maker_webhooks) service with below parameters.
-   * URL: `https://<app_name>.herokuapp.com/post/`
-   * Method: `POST`
-   * Content Type: `application/json`
-   * Body: `{"topic":"<mqtt_topic>","message":"<mqtt_message>","key":"<AUTH_KEY>"}`
-
-### <a class='title-link' name='subscribe-to-latest-version' href='#subscribe-to-latest-version'></a> Subscribe to latest version 
-
-Additionally you can make Heroku to update the HTTP to MQTT bridge app to the latest available version from the GitHub repository automatically. To do this follow the instruction on the [Heroku help page](https://devcenter.heroku.com/articles/github-integration#automatic-deploys).
-
-### <a class='title-link' name='improve-response-time' href='#improve-response-time'></a> Improve response time 
-
-After 30 minutes of inactivity Heroku will put your app into sleep mode. This will result in ~10 seconds response time. To prevent Heroku from putting your app into sleep mode, ping it every 10 minutes. You can do that by sending regular HTTP GET request to http://your_app/keep_alive/. But be careful. Heroku free quota is 550 hours per month. Without sleeping your app will be allowed to run only 22 days a month. Additionally the `keep_alive` method will send a simple MQTT message to prevent the broker from sleeping as well. The topic and message can be configured using Heroku environment variables `KEEP_ALIVE_TOPIC` and `KEEP_ALIVE_MESSAGE` and both are set to "keep_alive" by default.
-
-You can even configure Home Assistant to ping HTTP to MQTT bridge every 10 minutes during daytime. Below is an example of how to do that:
-
-```yaml
-rest_command:
-  http_to_mqtt_keep_alive:
-    url: https://<your_app_address>/keep_alive/
-    method: get
-
-automation:
-  alias: HTTP to MQTT keep alive
-  trigger:
-    platform: time
-    minutes: '/10'
-    seconds: 00
-  condition:
-    condition: time
-    after: '7:30:00'
-    before: '23:59:59'
-  action:
-    service: rest_command.http_to_mqtt_keep_alive
-```
-
-### <a class='title-link' name='thanks' href='#thanks'></a> Thanks 
-
-Special thanks to Ben from [BRUH Automation](https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w/featured) for awesome tutorials which inspired me to do this project.
 ]]></content>
   </entry>
   
