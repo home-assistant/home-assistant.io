@@ -45,7 +45,7 @@ It is also possible to change the color every fifteen minutes, starting 5 minute
 
 ```yaml
 automation:
-# Changes Hue light every two minutes to random color if input boolean is set to on
+# Changes Hue light every fifteen minutes to random color
 - alias: 'Set LivingColors to random color'
   trigger:
     platform: time
