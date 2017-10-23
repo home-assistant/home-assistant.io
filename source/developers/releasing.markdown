@@ -60,6 +60,15 @@ Checkout the `master` branch and run `script/release` to publish the new release
 
 ### {% linkable_title Social media %}
 
-1. Use [hootsuite] to publish a link to the release post on social media.
+1. Use [hootsuite](https://hootsuite.com/dashboard) to publish a link to the release post on social media.
 
-[hootsuite]: https://hootsuite.com/dashboard
+## {% linkable_title Bugfix Release %}
+
+1. Checkout `master` and update it. `git checkout master && git pull --rebase`
+2. Create a new release branch from `master`. `git checkout -b release-0-56-2`
+3. Cherry-pick the PRs which were milestoned.
+4. Update `homeassistant/const.py` with the correct version number (increment `PATCH_VERSION`) and push that commit to release branch.
+5. Create a pull request from the release branch to `master` with the upcoming release number as the title.
+6. Merge pull request (DO NOT SQUASH!). Use `Merge pull request`.
+7. Go to [releases](https://github.com/home-assistant/home-assistant/releases), click `Draft a new release` and tag a new release on the `master` branch. "Tag version" and "Release title" are the version number (`O.x` for major version, `0.x.y` for minor and bug fix releases). Release description is the text from PR. Press "Publish release" to finish the process.
+8. [Publish](/developers/releasing/#python-package-index) the new release on PyPI.
