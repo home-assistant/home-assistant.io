@@ -10,7 +10,7 @@ footer: true
 ha_category: Sensor
 ha_iot_class: "Local Polling"
 logo: fail2ban.png
-ha_release: 0.56
+ha_release: 0.57
 ---
 
 
