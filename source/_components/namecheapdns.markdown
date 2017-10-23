@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.56
 ---
 
-With the namecheapDNS component you can automatically update your dynamic DNS entry.
+With the `namecheapdns` component you can automatically update your dynamic DNS entry at [namecheapdns](https://www.namecheap.com/store/domains/freedns/).
 
 <p class='note warning'>
 Namecheap only supports IPv4 adresses to update.
@@ -24,22 +24,21 @@ To use the component in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 namecheapdns:
-  host: '@'
   domain: example.com
-  access_token: 0123_Dynamic_DNS_Password
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
   host:
-    description: The host part or "subdomain" part you want to update (If you want your domain leave the @ sign)
-    required: true
+    description: The host part or "subdomain" part you want to update.
+    required: false
     type: string
   domain:
     description: Your namecheap TLD (example.com).
     required: true
     type: string
-  access_token:
-    description: The namecheap "Dynamic DNS Password" you can find under the "Advanced DNS" Tab
+  password:
+    description: The namecheap "Dynamic DNS Password" you can find under the "Advanced DNS" tab.
     required: true
     type: string
 {% endconfiguration %}
