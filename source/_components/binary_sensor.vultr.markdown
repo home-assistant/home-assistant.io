@@ -13,7 +13,7 @@ ha_release: "0.56"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `vultr` binary sensor platform allows you to monitor your Vultr subscriptions (virtual private servers).
+The `vultr` binary sensor platform allows you to monitor your Vultr subscriptions (virtual private servers) to see if it is powered on or not.
 
 To use your Vultr subscriptions, you first have to set up your [Vultr hub](/components/vultr/) and then add the following to your `configuration.yaml` file:
 
@@ -21,8 +21,8 @@ To use your Vultr subscriptions, you first have to set up your [Vultr hub](/comp
 binary_sensor:
   - platform: vultr
     subs:
-      - "123456"
-      - "567899"
+      - 123456
+      - 567899
 ```
 
 Configuration variables:

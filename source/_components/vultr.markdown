@@ -7,20 +7,20 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: true
+featured: false
 ha_category: Hub
-ha_release: "0.56"
+ha_release: "0.57"
 logo: vultr.png
 ha_iot_class: "Cloud Polling"
 ---
 
 
-The `vultr` component allows you to access the information about your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+The `vultr` component allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
 
 Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#settingsapi).
 
 <p class='note'>
-Ensure you enable the public IP of Home Assistant under the Access Control heading.
+Ensure you allow the public IP of Home Assistant under the Access Control heading.
 </p>
 
 To integrate your Vultr subscriptions with Home Assistant, add the following section to your `configuration.yaml` file:
