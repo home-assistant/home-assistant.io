@@ -146,5 +146,5 @@ date_released: 2017-10-23
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#release-0562---october-23"
+patch_version_notes: "#0562---october-23"
 # Minor release (Example #release-0431---april-25):
