@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `android_ip_webcam` component turns an Android phone into a network camera with multiple viewing options.
 
-It's setup as an M-JPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
+It's setup as an MJPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
 
 To set it up, download [the IP Webcam app][app], and add the following information to your `configuration.yaml` file:
 
@@ -49,7 +49,7 @@ Sensors:
 - motion
 - pressure
 
-Settings:
+Settings (Switches):
 
 - exposure_lock
 - ffc
@@ -60,5 +60,38 @@ Settings:
 - torch
 - whitebalance_lock
 - video_recording
+
+## {% linkable_title Full example %}
+
+```yaml
+# Example configuration.yaml entry
+android_ip_webcam:
+  - host: 192.168.1.202
+    port: 8000
+    sensors:
+      - audio_connections
+      - battery_level
+      - battery_temp
+      - battery_voltage
+      - light
+      - motion
+      - pressure
+    switches:
+      - exposure_lock
+      - ffc
+      - focus
+      - gps_active
+      - night_vision
+      - overlay
+      - torch
+      - whitebalance_lock
+      - video_recording
+  - host: 192.168.1.203
+    port: 8000
+    sensors:
+      - light
+    switches:
+      - torch
+```
 
 [app]: https://play.google.com/store/apps/details?id=com.pas.webcam
