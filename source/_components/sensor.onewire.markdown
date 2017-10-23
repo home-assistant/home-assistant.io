@@ -37,12 +37,12 @@ When an interface adapter is used, sensors can be accessed on Linux hosts via [o
 This component has been modified to work with devices with multiple sensors which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
 If you wish to maintain continuity it can be resolved in the database by renaming the old devices to the new names.
 
-Connect to your database using the instructions from [home-assistant.io/docs/backend/database/](https://home-assistant.io/docs/backend/database/). Check the names of sensors:
+Connect to your database using the instructions from [home-assistant.io/docs/backend/database/](https://home-assistant.io/docs/backend/database/). Check the names of sensors:  
 
 ```sql
 SELECT entity_id, COUNT(*) as count FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 10;
 ```
-Alter the names of sensors using the following examples:
+Alter the names of sensors using the following examples:  
 
 ```sql
 UPDATE states SET entity_id='sensor.<sensor_name>_temperature' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%\u00b0C%';
