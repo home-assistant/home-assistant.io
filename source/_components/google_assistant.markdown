@@ -62,8 +62,8 @@ homeassistant:
 
 ### {% linkable_title Setup %}
 
-1. Install the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) (you'll use this later)
-2. Create a new file named `project.json` and replace the `[YOUR HOME ASSISTANT URL]` below with the URL you use to access Home Assistant.
+1. Install the [gactions CLI](https://developers.google.com/actions/tools/gactions-cli) (you'll use this later) - you can download this anywhere, just remember where you put it for later (and don't forget to run `chmod +x gactions`)
+2. Create a new file named `project.json` (in the same directory you downloaded `gactions` to) and replace the `[YOUR HOME ASSISTANT URL]` below with the URL you use to access Home Assistant.
    Note: This must be an HTTPS URL to work.
 
 ```json
@@ -91,7 +91,7 @@ homeassistant:
 	2. Go to Build under the Actions SDK box
 	3. Copy the command that looks like:
 	`gactions update --action_package PACKAGE_NAME --project doctest-2d0b8`
-4. Replace `PACKAGE_NAME` with `project.json` and run that command from the same directory you saved `project.json` in. It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` Go there.
+4. Replace `PACKAGE_NAME` with `project.json` and run that command from the same directory you saved `project.json` in (you'll need to put `./` before `gactions` so that it reads `./gactions`). It should output a URL like `https://console.actions.google.com/project/doctest-2d0b8/overview` - go there.
 5. You'll need to fill out most of the information on that page, but none of it really matters since you won't be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
 6. The final item on that page `Account linking` is required for your app to interact with Home Assistant.
 	1. Grant type: `Implicit`
