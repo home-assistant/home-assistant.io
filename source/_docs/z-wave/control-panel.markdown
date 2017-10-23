@@ -20,7 +20,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 
 * **Add Node** puts the controller into inclusion mode, so you can include (add) a device to your Z-Wave network
 * **Add Node Secure** puts the controller into secure inclusion mode (this requires that you've created a [security key](/docs/z-wave/adding#sdding-security-devices))
-* **Remove Node** puts the controller into exclusion mdoe, so you can exclude (remove) a device. Note that you can exclude a non-secure device that's been added to another network
+* **Remove Node** puts the controller into exclusion mode, so you can exclude (remove) a device. Note that you can exclude a non-secure device that's been added to another network
 * **Cancel Command** cancels any of the above
 
 * **Heal Network** tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.
