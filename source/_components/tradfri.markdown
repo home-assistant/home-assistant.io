@@ -19,7 +19,7 @@ The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The ga
 This component requires cython, please ensure it's installed by running the following in your Home Assistant environment (virtualenv, etc);
 
 ```
-$ pip install cython
+$ pip3 install cython
 ```
 
 You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure
