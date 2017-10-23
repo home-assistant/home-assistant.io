@@ -96,11 +96,11 @@ stop on runlevel <span class="o">[</span>06]
 </code></pre>
 </div>
 <p>Register the autostart</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s homeassistant-conf /etc/init/homeassistant-conf
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s homeassistant.conf /etc/init/homeassistant.conf
 </code></pre>
 </div>
 <p>Make the relevant files executable:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod -r 777 /etc/init/homeassistant-conf
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod -r 777 /etc/init/homeassistant.conf
 </code></pre>
 </div>
 <p>That’s it - reboot your NAS and Home Assistant should automatically start</p>
