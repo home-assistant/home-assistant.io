@@ -29,3 +29,4 @@ alarm_control_panel:
 Configuration variables:
 
 - **home_mode_name**: (*Optional*): Arlo base station does not have a built-in home mode. You can map one of your custom modes to home assistant's home mode by setting the name of the custom mode in this configuration variable. The name of the custom mode should match exactly as you set it up in the Arlo app.
+- **away_mode_name**: (*Optional*): Like the home mode, the Arlo base station does not have a built-in away mode, however, you can map a custom mode from the Arlo app to Home Assistant with this variable, just make sure the name matches exactly what you have set up in the Arlo app.
