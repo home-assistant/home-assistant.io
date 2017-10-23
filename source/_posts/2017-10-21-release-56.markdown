@@ -357,6 +357,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#9959]: https://github.com/home-assistant/home-assistant/pull/9959
 [#9963]: https://github.com/home-assistant/home-assistant/pull/9963
 [#9997]: https://github.com/home-assistant/home-assistant/pull/9997
+[#10045]: https://github.com/home-assistant/home-assistant/pull/10045
+[#10053]: https://github.com/home-assistant/home-assistant/pull/10053
+[#10060]: https://github.com/home-assistant/home-assistant/pull/10060
 [@Bahnburner]: https://github.com/Bahnburner
 [@Boltgolt]: https://github.com/Boltgolt
 [@ChristianKuehnel]: https://github.com/ChristianKuehnel
