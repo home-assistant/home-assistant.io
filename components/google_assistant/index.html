@@ -118,8 +118,8 @@
 </ul>
 <h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
 <ol>
-  <li>Install the <a href="https://developers.google.com/actions/tools/gactions-cli">gactions CLI</a> (you’ll use this later)</li>
-  <li>Create a new file named <code class="highlighter-rouge">project.json</code> and replace the <code class="highlighter-rouge">[YOUR HOME ASSISTANT URL]</code> below with the URL you use to access Home Assistant.
+  <li>Install the <a href="https://developers.google.com/actions/tools/gactions-cli">gactions CLI</a> (you’ll use this later) - you can download this anywhere, just remember where you put it for later (and don’t forget to run <code class="highlighter-rouge">chmod +x gactions</code>)</li>
+  <li>Create a new file named <code class="highlighter-rouge">project.json</code> (in the same directory you downloaded <code class="highlighter-rouge">gactions</code> to) and replace the <code class="highlighter-rouge">[YOUR HOME ASSISTANT URL]</code> below with the URL you use to access Home Assistant.
 Note: This must be an HTTPS URL to work.</li>
 </ol>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -150,7 +150,7 @@ Note: This must be an HTTPS URL to work.</li>
  <code class="highlighter-rouge">gactions update --action_package PACKAGE_NAME --project doctest-2d0b8</code></li>
     </ol>
   </li>
-  <li>Replace <code class="highlighter-rouge">PACKAGE_NAME</code> with <code class="highlighter-rouge">project.json</code> and run that command from the same directory you saved <code class="highlighter-rouge">project.json</code> in. It should output a URL like <code class="highlighter-rouge">https://console.actions.google.com/project/doctest-2d0b8/overview</code> Go there.</li>
+  <li>Replace <code class="highlighter-rouge">PACKAGE_NAME</code> with <code class="highlighter-rouge">project.json</code> and run that command from the same directory you saved <code class="highlighter-rouge">project.json</code> in (you’ll need to put <code class="highlighter-rouge">./</code> before <code class="highlighter-rouge">gactions</code> so that it reads <code class="highlighter-rouge">./gactions</code>). It should output a URL like <code class="highlighter-rouge">https://console.actions.google.com/project/doctest-2d0b8/overview</code> - go there.</li>
   <li>You’ll need to fill out most of the information on that page, but none of it really matters since you won’t be addressing the App directly, only through the Smart Home functionality built into Google Assistant.</li>
   <li>The final item on that page <code class="highlighter-rouge">Account linking</code> is required for your app to interact with Home Assistant.
     <ol>
