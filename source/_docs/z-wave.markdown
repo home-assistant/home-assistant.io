@@ -32,3 +32,8 @@ There are 2 basic things you'll need to use Z-Wave, a Z-Wave [controller](/docs/
 
 There are 12 different regions for Z-Wave devices, which relates to the frequency the devices use. There is overlap between the regions, but you should ensure that you buy devices for your region. Wikipedia has a list of the [frequencies used](https://en.wikipedia.org/wiki/Z-Wave#Radio_frequencies).
 
+## {% linkable_title Getting started %}
+
+You'll now need to connect your [controller](/docs/z-wave/controllers/), [configure](/docs/z-wave/installation) the Z-Wave component, then [add some devices](/docs/z-wave/adding) using the [control panel](/docs/z-wave/control-panel). [This explains](/docs/z-wave/devices/) about devices, and how [entities are named](/docs/z-wave/entities).
+
+You can get more information on the [available services](/docs/z-wave/services/) and [events](/docs/z-wave/events/), what the [query stages](/docs/z-wave/query-stage) of battery powered devices are, as well as details on configuring [specific devices](/docs/z-wave/device-specific/).

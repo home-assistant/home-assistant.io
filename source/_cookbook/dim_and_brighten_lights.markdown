@@ -40,7 +40,7 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_bright
       - service: script.turn_off
         data:
@@ -69,7 +69,7 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_dim
       - service: script.turn_off
         data:

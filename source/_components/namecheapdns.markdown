@@ -24,7 +24,7 @@ To use the component in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 namecheapdns:
-  host: @
+  host: '@'
   domain: example.com
   access_token: 0123_Dynamic_DNS_Password
 ```

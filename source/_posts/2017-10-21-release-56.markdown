@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.56: Skybell, Google Actions, Travis CI and Toon"
-description: "Support for Tibber and the Things Network a long with new Owntracks and DuckDNS features"
+title: "0.56: Skybell, Google Assistant, Travis CI and Toon"
+description: "Support for Skybell, Toon, Travis CI and Google Assistant"
 date: 2017-10-21 10:00:00
 date_formatted: "October 21, 2017"
 author: Fabian Affolter
@@ -19,7 +19,7 @@ We reached another milestone aka number: 10000. GitHub is assigning numbers to p
 If you haven't noticed, there is now a [glossary](https://home-assistant.io/docs/glossary/) that collects some Home Assistant relevant terms. Talking about the documentation: [@DubhAd](https://github.com/DubhAd) rewrote large parts of the [Z-Wave section](https://home-assistant.io/docs/z-wave/). More structure to get started and to find details during the setup and the configuration.
 
 ## {% linkable_title Google Assistant / Google Home integration %}
-This release includes a new component to integrate Home Assistant with Google Assistant by [Phil Kates][@philk]. We integrate via the Smart Home API, this means that you will be able to control your devices in Home Assistant via any device that has Google Assistant. Learn more in [the documentation][googleactions docs].
+This release includes a new component to integrate Home Assistant with Google Assistant by [Phil Kates][@philk]. We integrate via the Smart Home API, this means that you will be able to control your devices in Home Assistant via any device that has Google Assistant. Learn more in [the documentation][google_assistant docs].
 
 ## {% linkable_title Hacktoberfest %}
 [Hacktoberfest](https://home-assistant.io/blog/2017/09/29/hacktoberfest/) is still on and so far we have received a lot improvements. We can't make any promises to review everything by the end of October, but we are trying to make sure that you will get your t-shirt.
@@ -40,7 +40,7 @@ Why not observe your [Travis CI](https://travis-ci.org) jobs with Home Assistant
 - Abode Temp, Humidity, and Light Sensor ([@MisterWil] - [#9709]) ([abode docs]) ([sensor.abode docs]) (new-platform)
 - Introducing support to Travis-CI ([@tchellomello] - [#9701]) ([sensor.travisci docs]) (new-platform)
 - Skybell ([@MisterWil] - [#9681]) ([skybell docs]) ([binary_sensor.skybell docs]) ([camera.skybell docs]) ([light.skybell docs]) ([sensor.skybell docs]) ([switch.skybell docs]) (new-platform)
-- Xiaomi Smart WiFi Socket and Smart Power Strip integration ([@syssi] - [#9138]) ([switch.xiaomi_plug docs]) (new-platform)
+- Xiaomi Smart WiFi Socket and Smart Power Strip integration ([@syssi] - [#9138]) ([switch.xiaomi_miio docs]) (new-platform)
 - Add notification platform for Rocket.Chat ([@webworxshop] - [#9553]) ([notify.rocketchat docs]) (new-platform)
 - Tesla bug fixes. ([@zabuldon] - [#9774]) ([tesla docs]) ([binary_sensor.tesla docs]) ([climate.tesla docs]) ([lock.tesla docs]) ([sensor.tesla docs]) ([switch.tesla docs]) (new-platform)
 - Split map panel out into its own component ([@cgarwood] - [#9814]) ([map docs]) (breaking change) (new-platform)
@@ -48,10 +48,15 @@ Why not observe your [Travis CI](https://travis-ci.org) jobs with Home Assistant
 - Add namecheap DNS component ([@Munsio] - [#9821]) ([namecheapdns docs]) (new-platform)
 - Uptime sensor ([@fronzbot] - [#9856]) ([sensor.uptime docs]) (new-platform)
 - Cloud connection via aiohttp ([@balloob] - [#9860]) (new-platform)
-- Google Actions for Assistant ([@philk] - [#9632]) ([googleactions docs]) ([http docs]) (new-platform)
+- Google Actions for Assistant ([@philk] - [#9632]) ([google_assistant docs]) ([http docs]) (new-platform)
 - A new platform for controlling Monoprice 6-Zone amplifier ([@etsinko] - [#9662]) ([media_player.monoprice docs]) (new-platform)
 - Add serial sensor ([@fabaff] - [#9861]) ([sensor.serial docs]) (new-platform)
 - Add Toon support ([@Boltgolt] - [#9483]) ([toon docs]) ([climate.toon docs]) ([sensor.toon docs]) ([switch.toon docs]) (new-platform)
+
+## {% linkable_title 0.56.1 - October 22 %}
+
+- Fix device update / entity_id with names ([@pvizeli] - [#10029])
+- fix temperature/humidity sensors valid values ([@bieniu] - [#10024]) ([sensor.xiaomi_aqara docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -107,7 +112,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Match test requirements by full package name. ([@andrey-git] - [#9764])
 - yeelight: implement min_mireds and max_mireds, fixes #9509 ([@rytilahti] - [#9763]) ([light.yeelight docs])
 - Bump raincloudy version 0.0.3 ([@tchellomello] - [#9767]) ([raincloud docs]) ([sensor.raincloud docs])
-- Xiaomi Smart WiFi Socket and Smart Power Strip integration ([@syssi] - [#9138]) ([switch.xiaomi_plug docs]) (new-platform)
+- Xiaomi Smart WiFi Socket and Smart Power Strip integration ([@syssi] - [#9138]) ([switch.xiaomi_miio docs]) (new-platform)
 - fix for LocationParseError in netgear platform ([@etsinko] - [#9683]) ([device_tracker docs]) ([device_tracker.netgear docs])
 - Expose time module in Python Scripts ([@balloob] - [#9736]) ([python_script docs])
 - Add notification platform for Rocket.Chat. ([@webworxshop] - [#9553]) ([notify.rocketchat docs]) (new-platform)
@@ -183,7 +188,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update xiaomi_aqara.py ([@danielhiversen] - [#9920]) ([sensor.xiaomi_aqara docs])
 - Fix the resource naming in the UI ([@cgtobi] - [#9927]) ([sensor.glances docs])
 - Add transmission sensor: number of active torrents ([@mclem] - [#9914]) ([sensor.transmission docs])
-- Google Actions for Assistant ([@philk] - [#9632]) ([googleactions docs]) ([http docs]) (new-platform)
+- Google Actions for Assistant ([@philk] - [#9632]) ([google_assistant docs]) ([http docs]) (new-platform)
 - Allow flexible relayer url ([@balloob] - [#9939]) ([cloud.iot docs])
 - update async_timeout from v1.4.0 tp v2.0.0 ([@TopdRob] - [#9938])
 - Bump py-synology to 0.1.5 ([@arsaboo] - [#9932]) ([camera.synology docs])
@@ -440,7 +445,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.upc_connect docs]: https://home-assistant.io/components/device_tracker.upc_connect/
 [enocean docs]: https://home-assistant.io/components/enocean/
 [ffmpeg docs]: https://home-assistant.io/components/ffmpeg/
-[googleactions docs]: https://home-assistant.io/components/googleactions/
+[google_assistant docs]: https://home-assistant.io/components/google_assistant/
 [hassio docs]: https://home-assistant.io/components/hassio/
 [homematic docs]: https://home-assistant.io/components/homematic/
 [http docs]: https://home-assistant.io/components/http/
@@ -515,7 +520,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.toon docs]: https://home-assistant.io/components/switch.toon/
 [switch.tplink docs]: https://home-assistant.io/components/switch.tplink/
 [switch.wink docs]: https://home-assistant.io/components/switch.wink/
-[switch.xiaomi_plug docs]: https://home-assistant.io/components/switch.xiaomi_plug/
+[switch.xiaomi_miio docs]: https://home-assistant.io/components/switch.xiaomi_miio/
 [telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
 [tesla docs]: https://home-assistant.io/components/tesla/
 [toon docs]: https://home-assistant.io/components/toon/
@@ -528,4 +533,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wink docs]: https://home-assistant.io/components/wink/
 [xiaomi_aqara docs]: https://home-assistant.io/components/xiaomi_aqara/
 [zha docs]: https://home-assistant.io/components/zha/
-
+[#10024]: https://github.com/home-assistant/home-assistant/pull/10024
+[#10029]: https://github.com/home-assistant/home-assistant/pull/10029
+[@bieniu]: https://github.com/bieniu
