@@ -102,3 +102,8 @@ homeassistant:
 7. Back on the main app draft page. Click `Test Draft`. That will take you to the simulator (which won't work) so just close that window.
 8. Open the Google Assistant app and go into `Settings > Home Control`
 9. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.
+10. If you want to allow other houshold users to control the devices:
+	1. Go to the developer console using address from point 4.
+	2. Under the gear icon, click `Permissions`
+	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
+	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
