@@ -33,6 +33,9 @@ Configuration variables:
 - **attribute** (*optional*): Get value of an attribute on the selected tag.
 - **name** (*Optional*): Name of the sensor.
 - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
+- **authentication** (*Optional*): Type of the HTTP authentication. Either `basic` or `digest`.
+- **username** (*Optional*): The username for accessing the website.
+- **password** (*Optional*): The password for accessing the website.
 
 ## {% linkable_title Examples %}
 
