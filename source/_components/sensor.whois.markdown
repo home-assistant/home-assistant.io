@@ -20,7 +20,7 @@ ha_iot_class: "Cloud Polling"
 # Example configuration.yaml entry
 sensor:
   - platform: whois
-    hostname: example.net
+    domain: example.net
     name: primary
 ```
 
