@@ -58,6 +58,13 @@ Why not observe your [Travis CI](https://travis-ci.org) jobs with Home Assistant
 - Fix device update / entity_id with names ([@pvizeli] - [#10029])
 - fix temperature/humidity sensors valid values ([@bieniu] - [#10024]) ([sensor.xiaomi_aqara docs])
 
+## {% linkable_title 0.56.2 - October 23 %}
+
+- Fix gateway illumination sensor value ([@bieniu] - [#10045]) ([sensor.xiaomi_aqara docs])
+- Fix device update/`entity_id` with names ([@rytilahti] - [#10053]) ([switch.tplink docs])
+- Remove warning component / Update event trigger for UI created ([@pvizeli] - [#10060])
+
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
