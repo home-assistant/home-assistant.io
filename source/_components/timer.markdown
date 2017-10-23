@@ -38,6 +38,9 @@ Configuration variables:
   - **hours** (*Optional*): Initial duration in hours when Home Assistant starts. Defaults to 0.
   - **days** (*Optional*): Initial duration in days when Home Assistant starts. Defaults to 0.
   - **weeks** (*Optional*): Initial duration in weeks when Home Assistant starts. Defaults to 0.
+  - **icon** (*Optional*): Set a custom icon for the state card.
+
+Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
 ## {% linkable_title States %}
 
@@ -60,7 +63,7 @@ Configuration variables:
 
 #### {% linkable_title Service `timer.start` %}
 
-Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). This The different duration types (seconds, minutes etc.) may be combined however you like. A `timer.started` event will be fired.
+Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The different duration types (seconds, minutes etc.) may be combined however you like.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -73,7 +76,7 @@ Starts or restarts a timer with the provided duration. If no duration is given, 
 
 #### {% linkable_title Service `timer.pause` %}
 
-Pause a running timer. This will retain the remaining duration for later continuation. A `timer.paused` event will be fired.
+Pause a running timer. This will retain the remaining duration for later continuation.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -81,7 +84,7 @@ Pause a running timer. This will retain the remaining duration for later continu
 
 #### {% linkable_title Service `timer.cancel` %}
 
-Cancel an active timer. This resets the duration to the last known initial value. A `timer.cancelled` event will be fired.
+Cancel an active timer. This resets the duration to the last known initial value without firing the `timer.finished` event.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -89,7 +92,7 @@ Cancel an active timer. This resets the duration to the last known initial value
 
 #### {% linkable_title Service `timer.finish` %}
 
-Manually finish a running timer. A `timer.finished` event will be fired.
+Manually finish a running timer earlier than scheduled.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
