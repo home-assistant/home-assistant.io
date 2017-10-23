@@ -39,8 +39,6 @@ Configuration variables:
   - **days** (*Optional*): Initial duration in days when Home Assistant starts. Defaults to 0.
   - **weeks** (*Optional*): Initial duration in weeks when Home Assistant starts. Defaults to 0.
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
-
 ## {% linkable_title States %}
 
 | State | Description |
