@@ -5,7 +5,7 @@
   "release_notes_path": "/blog/2017/10/21/release-56/",
   "release_title": "0.56: Skybell, Google Assistant, Travis CI and Toon",
   "release_description": "Support for Skybell, Toon, Travis CI and Google Assistant",
-  "patch_version_notes": "#release-0562---october-23",
+  "patch_version_notes": "#0562---october-23",
   "root_url": "https://home-assistant.io",
   "semantic_version": {
     "major": 0,
