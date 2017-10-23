@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: pyload.png
 ha_category: Downloading
-ha_release: pre 0.7
+ha_release: 0.57
 ha_iot_class: "Local Polling"
 ---
 
