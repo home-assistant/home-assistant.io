@@ -75,7 +75,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Setup a SSL proxy with NGINX and redirect port 80 to 443. Make sure you have generate certificate before you start this add-on.</p>
+  <p>Setup a SSL proxy with NGINX and redirect port 80 to 443. Make sure you have generated a certificate before you start this add-on.</p>
+<p>In the <code class="highlighter-rouge">http</code> section of the <code class="highlighter-rouge">configuration.yaml</code> file remove <code class="highlighter-rouge">ssl_certificate</code> and <code class="highlighter-rouge">ssl_key</code> and don’t enter the port in the <code class="highlighter-rouge">base_url</code> to avoid a HTTP 502 error.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home.example.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">

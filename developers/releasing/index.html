@@ -119,6 +119,17 @@
 <ol>
   <li>Use <a href="https://hootsuite.com/dashboard">hootsuite</a> to publish a link to the release post on social media.</li>
 </ol>
+<h2><a class="title-link" name="bugfix-release" href="#bugfix-release"></a> Bugfix Release</h2>
+<ol>
+  <li>Checkout <code class="highlighter-rouge">master</code> and update it. <code class="highlighter-rouge">git checkout master &amp;&amp; git pull --rebase</code></li>
+  <li>Create a new release branch from <code class="highlighter-rouge">master</code>. <code class="highlighter-rouge">git checkout -b release-0-56-2</code></li>
+  <li>Cherry-pick the PRs which were milestoned.</li>
+  <li>Update <code class="highlighter-rouge">homeassistant/const.py</code> with the correct version number (increment <code class="highlighter-rouge">PATCH_VERSION</code>) and push that commit to release branch.</li>
+  <li>Create a pull request from the release branch to <code class="highlighter-rouge">master</code> with the upcoming release number as the title.</li>
+  <li>Merge pull request (DO NOT SQUASH!). Use <code class="highlighter-rouge">Merge pull request</code>.</li>
+  <li>Go to <a href="https://github.com/home-assistant/home-assistant/releases">releases</a>, click <code class="highlighter-rouge">Draft a new release</code> and tag a new release on the <code class="highlighter-rouge">master</code> branch. “Tag version” and “Release title” are the version number (<code class="highlighter-rouge">O.x</code> for major version, <code class="highlighter-rouge">0.x.y</code> for minor and bug fix releases). Release description is the text from PR. Press “Publish release” to finish the process.</li>
+  <li><a href="/developers/releasing/#python-package-index">Publish</a> the new release on PyPI.</li>
+</ol>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
