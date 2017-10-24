@@ -13,9 +13,9 @@ featured: false
 ha_release: 0.38
 ---
 
-This component is designed to be used with the "webhook" integration in [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, api.ai sends an action and parameters to the webhook.
+This component is designed to be used with the "webhook" integration in [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
 
-Dialogflow requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. api.ai will return fallback answers if your server does not answer, or takes too long (more than 5 seconds).
+Dialogflow requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. Dialogflow will return fallback answers if your server does not answer, or takes too long (more than 5 seconds).
 
 Dialogflow could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. [See here](https://dialogflow.com/docs/integrations/) the complete list.
 
@@ -42,16 +42,16 @@ To use this integration, you should define a conversation (intent) in Dialogflow
 - Select name, language (if you are planning to use it with Google Actions check [here](https://support.google.com/assistant/answer/7108196?hl=en) supported languages) and time zone
 - Click "Save"
 - Go to "Fulfillment" (in the left menu)
-- Enable Webhook and set your Home Assistant URL with the Api.ai endpoint. Eg.: ``https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD``
+- Enable Webhook and set your Home Assistant URL with the Dialogflow endpoint. Eg.: ``https://myhome.duckdns.org/api/apiai?api_password=HA_PASSWORD``
 - Click "Save"
 - Create a new intent
-- Below "User says" write one phrase that you, the user, will tell Api.ai. Eg.: Which is the temperature at home?
+- Below "User says" write one phrase that you, the user, will tell Dialogflow. Eg.: Which is the temperature at home?
 - In "Action" set some key (this will be the bind with Home Assistant configuration), eg.: GetTemperature
 - In "Response" set "Cannot connect to Home Assistant or it is taking to long" (fall back response)
 - At the end of the page, click on "Fulfillment" and check "Use webhook"
 - Click "Save"
 - On the top right, where is written "Try it now...", write, or say, the phrase you have previously defined and hit enter
-- Api.ai has send a request to your Home Assistant server
+- Dialogflow has send a request to your Home Assistant server
 
 Take a look to "Integrations", in the left menu, to configure third parties.
 
@@ -62,7 +62,7 @@ When activated, the Alexa component will have Home Assistant's native intent sup
 
 ## {% linkable_title Examples %}
 
-Download [this zip](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Api.ai agent (Settings -> Export and Import) for examples intents to use with this configuration:
+Download [this zip](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (Settings -> Export and Import) for examples intents to use with this configuration:
 
 ```yaml
 {% raw %}# Example configuration.yaml entry
@@ -112,5 +112,5 @@ intent_script:
 {% endraw %}
 ```
 
-[apiai-web]: https://api.ai/
+[apiai-web]: https://dialogflow.com/
 [templates]: /topics/templating/
