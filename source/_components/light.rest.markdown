@@ -18,12 +18,6 @@ The `rest` light platform allows you to control a given endpoint that supports a
 
 To enable this light, add the following lines to your `configuration.yaml` file:
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: rest
-    resource: http://IP_ADDRESS/ENDPOINT
-```
 
 Configuration variables:
 
