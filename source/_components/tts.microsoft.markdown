@@ -20,26 +20,26 @@ To enable text-to-speech with Microsoft, add the following lines to your `config
 ```yaml
 # Example configuration.yaml entry
 tts:
-  - api_key: [YourAPIKey]
   - platform: microsoft
+    api_key: [YourAPIKey]
 ```
 
 Configuration variables:
 
 - **api_key** (*Required*): Your API key.
 - **language** (*Optional*): The language to use. Defaults to `en-us`. Accepted values are listed in the documentation mentioned below.
-- ** gender** (*Optional*): The gender you would like to use for the voice. Accepted values are `Female` and `Male`. Defaults to `Female`
+- **gender** (*Optional*): The gender you would like to use for the voice. Accepted values are `Female` and `Male`. Defaults to `Female`
 - **type** (*Optional*): The voice type you want to use. Accepted values are listed in the service name mapping [in the documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/Speech/api-reference-rest/bingvoiceoutput). Defaults to `ZiraRUS`
 
 
-A full configuration sample:
+A full configuration sample including optional configuration variables:
 
 ```yaml
 # Example configuration.yaml entry
 tts:
   - platform: microsoft
-  - api_key: XXXXXXXXX
-  - language: en-us
-  - gender: male
-  - type: BenjaminRUS
+    api_key: XXXXXXXXX
+    language: en-us
+    gender: male
+    type: BenjaminRUS
 ```
