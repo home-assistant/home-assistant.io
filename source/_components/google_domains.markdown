@@ -39,7 +39,8 @@ google_domains:
     required: true
     type: string
   timeout
-    description: Timeout (in seconds) for the API calls. Defaults to 10.
+    description: Timeout (in seconds) for the API calls.
     required: false
     type: number
+    default: 10
 {% endconfiguration %}
