@@ -77,18 +77,60 @@ delay: {% raw %}'00:{{ states.input_number.minute_delay.state | int }}:00'{% end
 ```
 ### {% linkable_title Wait %}
 
-Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
+Wait until some things are complete. Using `wait_template` in combination with `look_for` for waiting until a condition is `true` or `false`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). When using `wait_template` in combination with `timeout`, it could additionally be useful to set `follow_up_action` to specify if the script should `continue` or `break` if the condition is true. You can use `follow_up_action` independent from `timeout` as well. It is possible to set a timeout after which the script will abort its execution if the condition is not satisfied. Timeout has the same syntax as `delay`. You can allow to continue the execution after the timeout even if the condition is not satisfied with `timer_end_action` set to `continue`.
 
+{% raw %}
 ```yaml
 # wait until media player have stop the playing
-wait_template: {% raw %}"{{ states.media_player.floor.state == 'stop' }}"{% endraw %}
+wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
+{% endraw %}
 
+{% raw %}
 ```yaml
 # wait until a valve is < 10 or abort after 1 minutes.
-wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve < 10 }}"{% endraw %}
+wait_template: "{{ states.climate.kitchen.attributes.valve < 10 }}"
 timeout: 00:01:00
 ```
+{% endraw %}
+
+# {% linkable_title Example for `look_for` %}
+
+Possible values for `look_for` are `true` and `false`. Default is `true`
+
+{% raw %}
+```yaml
+# wait until condition is false
+wait_template: "{{ is_state('media_player.floor', 'stop') }}"
+look_for: false
+```
+{% endraw %}
+
+# {% linkable_title Example for `follow_up_action` %}
+
+Possible values for `follow_up_action` are `continue` and `break`. Default is `continue`.
+
+{% raw %}
+```yaml
+# break execution of script after condition is true
+wait_template: "{{ is_state('media_player.floor', 'stop') }}"
+follow_up_action: 'break'
+```
+{% endraw %}
+
+# {% linkable_title Example for `timer_end_action` %}
+
+`timer_end_action` requieres that a `timeout` has been set. Possible values are `break` and `continue`. Default is `break`. When set to `continue` the `wait_template` will behave more or less like a delay which can be stopped early.
+
+{% raw %}
+```yaml
+# continue execution of script even if timeout is over and condition not satisfied
+wait_template: "{{ is_state('media_player.floor', 'stop') }}"
+timeout: 5
+timer_end_action: 'continue'
+```
+{% endraw %}
+
 
 When using `wait_template` within an automation `trigger.entity_id` is supported for `state`, `numeric_state` and `template` triggers, see also [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
