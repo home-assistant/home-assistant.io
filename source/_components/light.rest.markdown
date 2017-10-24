@@ -22,7 +22,7 @@ To enable this light, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 light:
   - platform: rest
-    resource: "http://IP_ADDRESS/ENDPOINT"
+    resource: http://IP_ADDRESS/ENDPOINT
 ```
 
 Configuration variables:
@@ -49,71 +49,71 @@ Configuration variables:
     required: false
     type: string
   body_on:
-    description: The body of the POST request that commands the light to become enabled. Default is `{"is_on": true}`. This value can be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to become enabled. Default is {% raw %}`{"is_on": true}`{% endraw %}. This value can be a [template](/topics/templating/).
     required: false
     type: string
   body_off:
-    description: The body of the POST request that commands the light to become disabled. Default is `{"is_on": false}`. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to become disabled. Default is {% raw %}`{"is_on": false}`{% endraw %}. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_brightness:
-    description: The body of the POST request that commands the light to set brightness. Default is `{"brightness": %d}`. `%d` will be replaced with the brightness value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set brightness. Default is {% raw %}`{"brightness": %d}`{% endraw %}. `%d` will be replaced with the brightness value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_color_temp:
-    description: The body of the POST request that commands the light to set color_temp. Default is `{"color_temp": %d}`. `%d` will be replaced with the color_temp value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set color_temp. Default is {% raw %}`{"color_temp": %d}`{% endraw %}. `%d` will be replaced with the color_temp value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_effect:
-    description: The body of the POST request that commands the light to set effect. Default is `{"effect": %s}`. `%s` will be replaced with the effect value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set effect. Default is {% raw %}`{"effect": %s}`{% endraw %}. `%s` will be replaced with the effect value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_rgb_color:
-    description: The body of the POST request that commands the light to set rgb_color. Default is `{"rgb_color": [%d, %d, %d]}`. `%d` will be replaced with the red, green and blue values. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set rgb_color. Default is {% raw %}`{"rgb_color": [%d, %d, %d]}`{% endraw %}. `%d` will be replaced with the red, green and blue values. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_transition:
-    description: The body of the POST request that commands the light to set transition. Default is `{"transition": %d}`. `%d` will be replaced with the transition value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set transition. Default is {% raw %}`{"transition": %d}`{% endraw %}. `%d` will be replaced with the transition value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   is_on_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the light from the value returned by the GET
-     request on the resource URL. This template should compute to a boolean. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.is_on}}`.
+     request on the resource URL. This template should compute to a boolean. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.is_on}}`{% endraw %}.
     required: false
     type: string
   brightness_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the brightness of the light from the value returned by the GET
- request on the resource URL. This template should compute to an integer. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.brightness}}`.
+ request on the resource URL. This template should compute to an integer. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.brightness}}`{% endraw %}.
     required: false
     type: string
   color_temp_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the color_temp of the light from the value returned by the GET
- request on the resource URL. This template should compute to an integer. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.color_temp}}`.
+ request on the resource URL. This template should compute to an integer. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.color_temp}}`{% endraw %}.
     required: false
     type: string
   effect_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the effect of the light from the value returned by the GET
-request on the resource URL. This template should compute to an string. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.effect}}`.
+request on the resource URL. This template should compute to an string. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.effect}}`{% endraw %}.
     required: false
     type: string
   rgb_color_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the rgb_color of the light from the value returned by the GET
-  request on the resource URL. This template should compute to an array of three integers, representing red, green and blue. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.rgb_color}}`.
+  request on the resource URL. This template should compute to an array of three integers, representing red, green and blue. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.rgb_color}}`{% endraw %}.
     required: false
     type: string
   name_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the name of the light from the value returned by the GET
-request on the resource URL. This template should compute to a string. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.name}}`.
+request on the resource URL. This template should compute to a string. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.name}}`{% endraw %}.
     required: false
     type: string
   supported_features_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the supported features of the light from the value returned by the GET
-request on the resource URL. This template should compute to an array of strings. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.supported_features}}`.
+request on the resource URL. This template should compute to an array of strings. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.supported_features}}`{% endraw %}.
     required: false
     type: string
   effect_list_template:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) that determines the effect list of the light from the value returned by the GET
-request on the resource URL. This template should compute to an array of strings. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is `{{value_json.effect_list}}`.
+request on the resource URL. This template should compute to an array of strings. If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is {% raw %}`{{value_json.effect_list}}`{% endraw %}.
     required: false
     type: string
   supported_features:
