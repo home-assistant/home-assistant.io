@@ -30,7 +30,7 @@ sensor:
                 {{ states.sensor.battery_iphone.state }}
             {%- endif %}{% endraw %}
         icon_template: >
-            {% set battery_level = states.sensor.battery_iphone.state|default(0)|int %}
+            {% raw %}{% set battery_level = states.sensor.battery_iphone.state|default(0)|int %}
             {% set battery_round = (battery_level / 10) |int * 10 %}
             {% if battery_round >= 100 %}
               mdi:battery
@@ -38,7 +38,7 @@ sensor:
               mdi:battery-{{ battery_round }}
             {% else %}
               mdi:battery-alert
-            {% endif %}
+            {% endif %}{% endraw %}
 ```
 
 The `else` part is used to have the sensor keep it's last state if the newest [iCloud](/components/device_tracker.icloud/) update doesn't have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.
