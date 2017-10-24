@@ -22,8 +22,10 @@ To enable this light, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 light:
   - platform: rest
-    resource: http://IP_ADDRESS/ENDPOINT
+    resource: "http://IP_ADDRESS/ENDPOINT"
 ```
+
+Configuration variables:
 
 {% configuration %}
   resource:
