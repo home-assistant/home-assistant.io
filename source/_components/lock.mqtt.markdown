@@ -13,9 +13,9 @@ ha_release: 0.15
 ha_iot_class: depends
 ---
 
-The `mqtt` lock platform let you control your MQTT enabled locks.
+The `mqtt` lock platform lets you control your MQTT enabled locks.
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with `RETAIN` flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be false/unlocked.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be `false` / unlocked.
 
 When a `state_topic` is not available, the lock will work in optimistic mode. In this mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from the device (message from `state_topic`).
 
@@ -43,12 +43,12 @@ Configuration variables:
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 <p class='note warning'>
-Make sure that your topic match exact. `some-topic/` and `some-topic` are different topics.
+Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this lock.
+In this section you will find some real life examples of how to use this lock.
 
 ### {% linkable_title Full configuration %}
 
