@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Api.AI"
-description: "Instructions how integrate api.ai with Home Assistant."
+title: "Dialogflow"
+description: "Instructions how integrate Dialogflow with Home Assistant."
 date: 2017-01-27 11:28
 sidebar: true
 comments: false
@@ -13,13 +13,13 @@ featured: false
 ha_release: 0.38
 ---
 
-This component is designed to be used with the "webhook" integration in [api.ai][apiai-web]. When a conversation ends with a user, api.ai sends an action and parameters to the webhook.
+This component is designed to be used with the "webhook" integration in [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, api.ai sends an action and parameters to the webhook.
 
-api.ai requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. api.ai will return fallback answers if your server does not answer, or takes too long (more than 5 seconds).
+Dialogflow requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. api.ai will return fallback answers if your server does not answer, or takes too long (more than 5 seconds).
 
-api.ai could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. [See here](https://docs.api.ai/docs/integrations) the complete list.
+Dialogflow could be integrated with many popular messaging, virtual assistant and IoT platforms, eg.: Google Assistant (Google Actions), Skype, Messenger. [See here](https://dialogflow.com/docs/integrations/) the complete list.
 
-Using Api.ai will be easy to create conversations like:
+Using Dialogflow will be easy to create conversations like:
 
  > User: What is the temperature at home?
  >
@@ -33,11 +33,11 @@ Using Api.ai will be easy to create conversations like:
  >
  > Bot: Turning on kitchen light
 
-To use this integration, you should define a conversation (intent) in Api.ai, configure Home Assistant with the speech to return and, optionally, the action to execute.
+To use this integration, you should define a conversation (intent) in Dialogflow, configure Home Assistant with the speech to return and, optionally, the action to execute.
 
-### {% linkable_title Configuring your api.ai account %}
+### {% linkable_title Configuring your Dialogflow account %}
 
-- [Login][apiai-web] with your Google account.
+- [Login](https://console.dialogflow.com/api-client/#/login) with your Google account.
 - Click on "Create Agent"
 - Select name, language (if you are planning to use it with Google Actions check [here](https://support.google.com/assistant/answer/7108196?hl=en) supported languages) and time zone
 - Click "Save"
