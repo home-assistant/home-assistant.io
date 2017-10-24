@@ -129,11 +129,11 @@ sensor:
         sensor_class: opening
         friendly_name: "Friendly name here"
         value_template: >- 
-          {%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
+          {% raw %}{%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
           open
           {%- else -%}
           closed
-          {%- endif -%}
+          {%- endif -%}{% endraw %}
 ```
 
 ### {% linkable_title Burglar %}
@@ -157,12 +157,12 @@ sensor:
       YOUR_SENSOR:
         sensor_class: motion
         friendly_name: "Friendly name here"
-        value_template: >- 
-          {%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
+        value_template: >-
+          {% raw %}{%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
           on
           {%- else -%}
           off
-          {%- endif -%}
+          {%- endif -%}{% endraw %}
 ```
 
 ### {% linkable_title Source Node ID %}
