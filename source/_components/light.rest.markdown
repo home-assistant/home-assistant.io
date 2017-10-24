@@ -49,31 +49,31 @@ Configuration variables:
     required: false
     type: string
   body_on:
-    description: The body of the POST request that commands the light to become enabled. Default is {% raw %}`{"is_on": true}`{% endraw %}. This value can be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to become enabled. Default is {% raw %}`{\"is_on\": true}`{% endraw %}. This value can be a [template](/topics/templating/).
     required: false
     type: string
   body_off:
-    description: The body of the POST request that commands the light to become disabled. Default is {% raw %}`{"is_on": false}`{% endraw %}. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to become disabled. Default is {% raw %}`{\"is_on\": false}`{% endraw %}. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_brightness:
-    description: The body of the POST request that commands the light to set brightness. Default is {% raw %}`{"brightness": %d}`{% endraw %}. `%d` will be replaced with the brightness value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set brightness. Default is {% raw %}`{\"brightness\": %d}`{% endraw %}. `%d` will be replaced with the brightness value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_color_temp:
-    description: The body of the POST request that commands the light to set color_temp. Default is {% raw %}`{"color_temp": %d}`{% endraw %}. `%d` will be replaced with the color_temp value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set color_temp. Default is {% raw %}`{\"color_temp\": %d}`{% endraw %}. `%d` will be replaced with the color_temp value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_effect:
-    description: The body of the POST request that commands the light to set effect. Default is {% raw %}`{"effect": %s}`{% endraw %}. `%s` will be replaced with the effect value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set effect. Default is {% raw %}`{\"effect\": %s}`{% endraw %}. `%s` will be replaced with the effect value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_rgb_color:
-    description: The body of the POST request that commands the light to set rgb_color. Default is {% raw %}`{"rgb_color": [%d, %d, %d]}`{% endraw %}. `%d` will be replaced with the red, green and blue values. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set rgb_color. Default is {% raw %}`{\"rgb_color\": [%d, %d, %d]}`{% endraw %}. `%d` will be replaced with the red, green and blue values. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   body_transition:
-    description: The body of the POST request that commands the light to set transition. Default is {% raw %}`{"transition": %d}`{% endraw %}. `%d` will be replaced with the transition value. This value can also be a [template](/topics/templating/).
+    description: The body of the POST request that commands the light to set transition. Default is {% raw %}`{\"transition\": %d}`{% endraw %}. `%d` will be replaced with the transition value. This value can also be a [template](/topics/templating/).
     required: false
     type: string
   is_on_template:
