@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Track your battery level with dynamic icons"
+title: "Track your battery level"
 description: "Basic example how to track the battery level of your mobile devices."
 date: 2016-01-29 09:00
 sidebar: true
