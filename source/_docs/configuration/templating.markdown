@@ -68,6 +68,9 @@ Home Assistant adds extensions to allow templates to access all of the current s
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is specified state.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity is specified state.
+- `get_state_changed('device_tracker.paulus')` will return time object of the time the state last changed.
+- `get_state_updated('device_tracker.paulus')` will return time object of the time the state or attributes were last updated.
+- `get_state_attr('device_tracker.pauls', 'battery')` will return value for a specific attribute of an entity.
 - `now()` will be rendered as current time in your time zone.
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
 - `utcnow()` will be rendered as UTC time.
