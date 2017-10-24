@@ -38,4 +38,8 @@ google_domains:
     description: The generated password for this DDNS record.
     required: true
     type: string
+  timeout
+    description: Timeout (in seconds) for the API calls. Defaults to 10s.
+    required: false
+    type: number
 {% endconfiguration %}
