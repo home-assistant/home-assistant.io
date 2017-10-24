@@ -35,33 +35,34 @@ Configuration variables:
 
 The table contains types and their argument to use in your `configuration.yaml` file.
 
-| Type (`type:`)      | Argument (`arg:`)        |
-| :------------------ |:-------------------------|
-| disk_use_percent    | Path, eg. `/`            |
-| disk_use            | Path, eg. `/`            |
-| disk_free           | Path, eg. `/`            |
-| memory_use_percent  |                          |
-| memory_use          |                          |
-| memory_free         |                          |
-| swap_use_percent    |                          |
-| swap_use            |                          |
-| swap_free           |                          |
-| load_1m             |                          |
-| load_5m             |                          |
-| load_15m            |                          |
-| network_in          | Interface, eg. `eth0`    |
-| network_out         | Interface, eg. `eth0`    |
-| packets_in          | Interface, eg. `eth0`    |
-| packets_out         | Interface, eg. `eth0`    |
-| ipv4_address        | Interface, eg. `eth0`    |
-| ipv6_address        | Interface, eg. `eth0`    |
-| processor_use       |                          |
-| process             | Binary, eg. `octave-cli` |
-| last_boot           |                          |
-| since_last_boot     |                          |
+| Type (`type:`)      | Argument (`arg:`)         |
+| :------------------ |:--------------------------|
+| disk_use_percent    | Path, eg. `/`             |
+| disk_use            | Path, eg. `/`             |
+| disk_free           | Path, eg. `/`             |
+| memory_use_percent  |                           |
+| memory_use          |                           |
+| memory_free         |                           |
+| swap_use_percent    |                           |
+| swap_use            |                           |
+| swap_free           |                           |
+| load_1m             |                           |
+| load_5m             |                           |
+| load_15m            |                           |
+| network_in          | Interface, eg. `eth0`     |
+| network_out         | Interface, eg. `eth0`     |
+| packets_in          | Interface, eg. `eth0`     |
+| packets_out         | Interface, eg. `eth0`     |
+| ipv4_address        | Interface, eg. `eth0`     |
+| ipv6_address        | Interface, eg. `eth0`     |
+| processor_use       |                           |
+| process             | Binary, e.g. `octave-cli` |
+| last_boot           |                           |
+| since_last_boot     |                           |
 
-**Note**: Some 'type:' names used in the configuration.yaml differ from the entity names.
-| Type (`type:`)      | Argument (`arg:`)        |
+**Note**: Some `type:` names used in the `configuration.yaml` file differ from the entity names.
+
+| Sensor type         | Entity ID                |
 | :------------------ |:-------------------------|
 | memory_free         | sensor.ram_available     |
 | memory_use_percent  | sensor.ram_used          |
