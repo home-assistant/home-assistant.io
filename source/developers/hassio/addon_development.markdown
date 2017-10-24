@@ -17,6 +17,7 @@ Under the hood, add-ons are Docker images published in [Docker Hub](https://hub.
 <ol>
   <li><a href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on</a></li>
   <li><a href='/developers/hassio/addon_config/'>Configuration</a></li>
+  <li><a href='/developers/hassio/addon_communication/'>Communication</a></li>
   <li><a href='/developers/hassio/addon_testing/'>Local Testing</a></li>
   <li><a href='/developers/hassio/addon_publishing/'>Publishing</a></li>
   <li><a href='/developers/hassio/addon_repository/'>Repositories</a></li>

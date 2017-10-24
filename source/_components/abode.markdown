@@ -26,6 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Lock](/components/cover.abode/): Reports on `Door Locks` and can be used to lock and unlock the door.
 - [Light](/components/light.abode/): Reports on `Dimmer` lights and can be used to dim, change color, or turn the light on and off.
 - [Switch](/components/switch.abode/): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
+- [Sensor](/components/sensor.abode/): Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
 ## {% linkable_title Configuration %}
 
@@ -51,7 +52,7 @@ Configuration variables:
 - **password** (*Required*): Password for your Abode account.
 - **name** (*Optional*): The name for your alarm controller.
 - **polling** (*Optional*): Enable polling if cloud push updating is less reliable. Will update the devices once every 30 seconds. Defaults to False.
-- **exclude** (*Optional*): A list of devices to exclude from Home Assistant by their Abode `device_id`, found within the component attributes.
+- **exclude** (*Optional*): A list of devices to exclude from Home Assistant by their Abode `device_id` or `automation_id`, found within the component attributes.
 - **lights** (*Optional*): A list of switch devices that Home Assistant should treat as lights by the switches Abode `device_id`, found within the component attributes.
 
 ## {% linkable_title Events %}

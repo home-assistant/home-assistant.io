@@ -14,13 +14,17 @@ ha_release: "0.30"
 ---
 
 
-The `statistics` sensor platform is consuming the state from other sensors. Beside the maximal and the minimal value also the total, the mean, the median, the variance, and the standard deviation are as attributes available. If it's a binary sensor then only the state changes are counted.
+The `statistics` sensor platform consumes the state from other sensors. Besides the maximum and the minimum values, the total, mean, median, variance and the standard deviation are also available as attributes. If it's a binary sensor then only state changes are counted.
 
-It can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation.
+If you are running the [recorder](/components/recorder/) component, on startup the data is read from the database. So after a restart of the platform, you will immediately have data available. If you're using the [history](/components/history/) component, this will automatically also start the recoder component on startup.
+If you are *not* running the `recorder` component, it can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation. 
 
 To enable the statistics sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
+# enable the recorder component (optional)
+recorder:
+
 # Example configuration.yaml entry
 sensor:
   - platform: statistics

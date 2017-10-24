@@ -31,7 +31,7 @@ To use the `dweet` component in your installation, add the following to your `co
 dweet:
   name: HAExport
   whitelist:
-    - input_slider.brightness
+    - input_number.brightness
     - input_boolean.notify_home
     - sensor.weather_temperature
     - sensor.cpu

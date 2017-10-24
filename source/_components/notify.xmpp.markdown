@@ -35,6 +35,7 @@ Configuration variables:
 - **recipient** (*Required*): The Jabber ID (JID) that will receive the messages.
 - **tls** (*Optional*): Allow to disable TLS. Defaults to `true`.
 - **verify** (*Optional*): Allow disabling SSL certificate validity check (e.g., self-signed certificate). Defaults to `true`.
+- **room** (*Optional*): Room's name (e.g., example@conference.jabber.org). If set, send a message to chatroom instead of the sender.
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 

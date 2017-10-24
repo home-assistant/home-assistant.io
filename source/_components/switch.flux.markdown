@@ -25,21 +25,10 @@ To use the Flux switch in your installation, add the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: flux
-  lights:
-    - light.desk
-    - light.lamp
-  name: Fluxer
-  start_time: '7:00'
-  stop_time: '23:00'
-  start_colortemp: 4000
-  sunset_colortemp: 3000
-  stop_colortemp: 1900
-  brightness: 200
-  disable_brightness_adjust: True
-  mode: xy
-  transition: 30
-  interval: 60
+  - platform: flux
+    lights:
+      - light.desk
+      - light.lamp
 ```
 
 Configuration variables:
@@ -56,4 +45,26 @@ Configuration variables:
 - **mode** (*Optional*): Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`. Defaults to `xy`.
 - **transition** (*Optional*): Transition time for the light changes (high values may not be supported by all light models). Defaults to 30.
 - **interval** (*Optional*): Frequency at which the lights should be updated. Defaults to 30.
+
+Full example:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: flux
+    lights:
+      - light.desk
+      - light.lamp
+    name: Fluxer
+    start_time: '7:00'
+    stop_time: '23:00'
+    start_colortemp: 4000
+    sunset_colortemp: 3000
+    stop_colortemp: 1900
+    brightness: 200
+    disable_brightness_adjust: True
+    mode: xy
+    transition: 30
+    interval: 60
+```
 

@@ -24,7 +24,7 @@ homeassistant:
 
 The package configuration can include: `switch`, `light`, `automation`, `groups` or the majority of the Home Assistant components. 
 
-It can be specified inline or in a seperate YAML file using `!include`.
+It can be specified inline or in a separate YAML file using `!include`.
 
 Inline example, main `configuration.yaml`:
 

@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
+logo: home-assistant.png
 ha_iot_class: "Local Polling"
 ha_release: 0.53
 ---

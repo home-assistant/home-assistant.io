@@ -34,7 +34,7 @@ This method will require you to setup a developer account with Wink. This proces
 This form of authentication doesn't require any settings in the configuration.yaml other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
 
 <p class='note'>
-When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly. 
+When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
 </p>
 
 ```yaml
@@ -79,7 +79,7 @@ Local control:
 
 - Using local control doesn't appear to make commands any quicker, but does function in an internet/Wink outage.
 
-- Local control is also only available for the Wink hub v1 and v2, not the Wink relay. 
+- Local control is also only available for the Wink hub v1 and v2, not the Wink relay.
 
 - Local control isn't used during start-up of Home Assistant; this means initial setup requires an active internet connection.
 
@@ -98,15 +98,200 @@ Error sending local control request. Sending request online
 
 ### {% linkable_title Service `refresh_state_from_wink` %}
 
-The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync. 
+The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync.
 
 You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `True` states will be pulled from the devices controlling hub, not the online API.
 
-### {% linkable_title Service `add_new_devices` %}
+### {% linkable_title Service `pull_newly_added_devices_from_wink` %}
 
 You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
 
+### {% linkable_title Service `delete_wink_device` %}
+
+You can use the service wink/delete_wink_device to remove/unpair a device from Wink.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String that points at the `entity_id` of device to delete.
+
+### {% linkable_title Service `pair_new_device` %}
+
+You can use the service wink/pair_new_device to pair a new device to your Wink hub/relay
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `hub_name` | no | The name of the hub to pair a new device to.
+| `pairing_mode` | no | One of the following [zigbee, zwave, zwave_exclusion, zwave_network_rediscovery, lutron, bluetooth, kidde]
+| `kidde_radio_code` | conditional | A string of 8 1s and 0s one for each dip switch on the kidde device left --> right = 1 --> 8 (Required if pairing_mode = kidde)
+
 <p class='note'>
-The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s). 
+Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
 </p>
 
+### {% linkable_title Service `rename_wink_device` %}
+
+You can use the service wink/rename_wink_device to change the name of a device.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String that points at the `entity_id` of device to rename.
+| `name` | no | The name to change it to.
+
+<p class='note'>
+Home Assistant entity_ids for Wink devices are based on the Wink device's name. Calling this service will not change the entity_id of the deivce until Home Assistant is restarted.
+</p>
+
+<p class='note'>
+The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
+</p>
+
+
+### Custom Wink devices and their services
+
+- GoControl siren and strobe
+- Dome siren/chime/strobe
+
+
+### {% linkable_title Service `set_siren_auto_shutoff` %}
+
+You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shuting off.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `auto_shutoff` | no | Int. One of [None, -1, 30, 60, 120] (None and -1 are forever. Use None for gocontrol, and -1 for Dome)
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren.
+
+Example:
+
+```yaml
+script:
+  set_all_sirens_to_one_minute_auto_shutoff:
+    sequence:
+      - service: wink.set_siren_auto_shutoff
+        data:
+          auto_shutoff: 60
+```
+
+<p class='note'>
+The following services only work with the Dome siren/chime.
+</p>
+
+### {% linkable_title Service `set_chime_volume` %}
+
+You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `volume` | no | String. One of ["low", "medium", "high"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  set_chime_volume_to_low_for_all_chimes
+    sequence:
+      - service: wink.set_chime_volume
+        data:
+          volume: "low"
+```
+
+### {% linkable_title Service `set_siren_volume` %}
+
+You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `volume` | no | String. One of ["low", "medium", "high"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  set_siren_volume_to_low_for_all_sirens
+    sequence:
+      - service: wink.set_siren_volume
+        data:
+          volume: "low"
+```
+
+### {% linkable_title Service `enable_chime` %}
+
+You can use the service wink/enable_chime to set the tone and enable the chime on your Dome siren/chime.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `tone` | no | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep", "inactive"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  execute_doorbell
+    sequence:
+      - service: wink.enable_chime
+        data:
+          tone: "doorbell"
+```
+
+### {% linkable_title Service `set_siren_tone` %}
+
+You can use the service wink/set_siren_tone to set the tone on your Dome siren. This tone will be used the next time the siren is executed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `tone` | no | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep"]
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  set_siren_to_alert:
+    sequence:
+      - service: wink.set_siren_tone
+        data:
+          tone: "alert"
+```
+
+### {% linkable_title Service `set_siren_strobe_enabled` %}
+
+You can use the service wink/set_siren_strobe_enabled to enable or disable the strobe when the siren is executed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `enabled` | no | Boolean. True or False.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+
+Example:
+
+```yaml
+script:
+  disable_siren_strobe:
+    sequence:
+      - service: wink.set_siren_strobe_enabled
+        data:
+          enabled: False
+```
+
+### {% linkable_title Service `set_chime_strobe_enabled` %}
+
+You can use the service wink/set_chime_strobe_enabled to enable or disable the strobe when the chime is executed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `enabled` | no | Boolean. True or False.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of chime/chime.
+
+Example:
+
+```yaml
+script:
+  disable_chime_strobe:
+    sequence:
+      - service: wink.set_chime_strobe_enabled
+        data:
+          enabled: False
+```

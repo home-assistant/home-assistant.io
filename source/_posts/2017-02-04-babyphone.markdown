@@ -10,7 +10,7 @@ categories: How-To
 og_image: /images/blog/2017-02-babyphone/social.png
 ---
 
-One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that the baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available on the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home Assitant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (eg. Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.
+One of the hardest part of being a parent is keeping a constant eye on the baby to make sure that the baby is doing well. Thus, it is not surprising that baby monitors are one of the fastest growing baby product category. However, many of the baby monitors available on the market are rather dumb and expect the parents to keep looking at the video stream or listen to the audio. This how-to will help you create a smart baby monitor on a budget and integrate it with Home Assistant. Instead of relying on the poor quality baby monitor speakers, we use our existing speakers (eg. Sonos). We can also send notifications (with pictures) to avoid constant monitoring of the feed.
 
 Obviously, you can use the setup as a general purpose surveillance system to monitor noise in the whole house.
 

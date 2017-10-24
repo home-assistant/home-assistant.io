@@ -37,7 +37,7 @@ The app allows you to use your own custom sounds in push notifications. The soun
 2. Go to the device in iTunes.
 3. Select "Apps" on the left sidebar.
 4. Scroll down until you see the section labeled "File Sharing".
-5. Select HomeAssistant.
+5. Select Home Assistant.
 6. Drag and drop properly formatted sounds.
 7. Click Sync in the lower right.
 8. Once sync is complete, disconnect the device from the computer.

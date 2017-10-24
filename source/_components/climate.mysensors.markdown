@@ -98,6 +98,8 @@ MyMessage msgHVACSetPointC(CHILD_ID_HVAC, V_HVAC_SETPOINT_COOL);
 MyMessage msgHVACSpeed(CHILD_ID_HVAC, V_HVAC_SPEED);
 MyMessage msgHVACFlowState(CHILD_ID_HVAC, V_HVAC_FLOW_STATE);
 
+bool initialValueSent = false;
+
 void presentation() {
   sendSketchInfo("Heatpump", "2.1");
   present(CHILD_ID_HVAC, S_HVAC, "Thermostat");
@@ -108,6 +110,13 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  if (!initialValueSent) {
+    send(msgHVACSetPointC.set(20));
+    send(msgHVACSpeed.set("Auto"));
+    send(msgHVACFlowState.set("Off"));
+
+    initialValueSent = true;
+  }
 }
 
 void receive(const MyMessage &message) {
