@@ -88,15 +88,12 @@ This is a work in progress, based upon reports in the forum, the author’s own 
 <ul>
   <li><strong>alarm_type</strong>: Reports the type of the sensor
     <ul>
-      <li><strong>0</strong>: General purpose
-        <ul>
-          <li><strong>1</strong>: Smoke sensor</li>
-          <li><strong>2</strong>: Carbon Monoxide (CO) sensor</li>
-          <li><strong>3</strong>: Carbon Dioxide (CO2) sensor</li>
-          <li><strong>4</strong>: Heat sensor</li>
-          <li><strong>5</strong>: Water leak sensor</li>
-        </ul>
-      </li>
+      <li><strong>0</strong>: General purpose</li>
+      <li><strong>1</strong>: Smoke sensor</li>
+      <li><strong>2</strong>: Carbon Monoxide (CO) sensor</li>
+      <li><strong>3</strong>: Carbon Dioxide (CO2) sensor</li>
+      <li><strong>4</strong>: Heat sensor</li>
+      <li><strong>5</strong>: Water leak sensor</li>
       <li><strong>6</strong>: Access control</li>
     </ul>
   </li>
@@ -192,33 +189,44 @@ This is a work in progress, based upon reports in the forum, the author’s own 
       YOUR_SENSOR:
         sensor_class: opening
         friendly_name: "Friendly name here"
-        value_template: &gt;-closed```
-
-### &lt;a class='title-link' name='burglar' href='#burglar'&gt;&lt;/a&gt; Burglar 
-
-- **burglar**: These *may* vary between brands
-   - **0**: Not active
-	 - **2**: Smoke (?)
-	 - **3**: Tamper
-	 - **8**: Motion
-	 - **22**: Open
-	 - **23**: Closed
-	 - **254**: Deep sleep
-	 - **255**: Case open
-
-If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
-
+        value_template: &gt;- 
+          {%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
+          open
+          {%- else -%}
+          closed
+          {%- endif -%}
 </code></pre>
 </div>
-<p>sensor:</p>
+<h3><a class="title-link" name="burglar" href="#burglar"></a> Burglar</h3>
 <ul>
-  <li>platform: template
-sensors: 
-  YOUR_SENSOR:
-    sensor_class: motion
-    friendly_name: “Friendly name here”
-    value_template: &gt;-off```</li>
+  <li><strong>burglar</strong>: These <em>may</em> vary between brands
+    <ul>
+      <li><strong>0</strong>: Not active</li>
+      <li><strong>2</strong>: Smoke (?)</li>
+      <li><strong>3</strong>: Tamper</li>
+      <li><strong>8</strong>: Motion</li>
+      <li><strong>22</strong>: Open</li>
+      <li><strong>23</strong>: Closed</li>
+      <li><strong>254</strong>: Deep sleep</li>
+      <li><strong>255</strong>: Case open</li>
+    </ul>
+  </li>
 </ul>
+<p>If your device has an <code class="highlighter-rouge">burglar</code> entity, but not a <code class="highlighter-rouge">binary_sensor</code> equivalent, you can use a <a href="omponents/binary_sensor.template/">template binary sensor</a> to create one:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sensor:
+  - platform: template
+    sensors: 
+      YOUR_SENSOR:
+        sensor_class: motion
+        friendly_name: "Friendly name here"
+        value_template: &gt;-
+          {%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
+          on
+          {%- else -%}
+          off
+          {%- endif -%}
+</code></pre>
+</div>
 <h3><a class="title-link" name="source-node-id" href="#source-node-id"></a> Source Node ID</h3>
 <ul>
   <li><strong>sourcenodeid</strong>: Reports the sensor that generated the alarm - this is only valid for Zensor Net based devices</li>
