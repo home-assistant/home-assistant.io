@@ -74,16 +74,16 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">min_max</code> sensor platform is consuming the state from other sensors and determine the minimum, maximum, and the mean of the collected states. The sensor will always show you the highest/lowest value which was received from your all monitored sensors. If you have spikes in your values, it’s recommended filter/equalize your values with a <a href="/components/sensor.statistics/">statistics sensor</a> first.</p>
-<p>It’s an alternative to the <a href="/components/sensor.template/">template sensor</a>’s <code class="highlighter-rouge">value_template:</code> to get the average of multiple sensors.</p>
+  <p>The <code class="highlighter-rouge">min_max</code> sensor platform consumes the state from other sensors to determine the minimum, maximum, and the mean of the collected states. The sensor will always show you the lowest/highest value which was received from all monitored sensors. If you have spikes in your values, it’s recommended to filter/equalize your values with a <a href="/components/sensor.statistics/">statistics sensor</a> first.</p>
+<p>This sensor is an alternative to the <a href="/components/sensor.template/">template sensor</a>’s <code class="highlighter-rouge">value_template:</code> to get the average of multiple sensors.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">{{</span> <span class="nv">((float(states.sensor.kitchen_temperature.state) +</span> 
      <span class="nv">float(states.sensor.living_room_temperature.state) +</span>
      <span class="nv">float(states.sensor.office_temperature.state)) / 3) | round(2)</span>
 <span class="pi">}}</span>
 </code></pre>
 </div>
-<p>Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the <code class="highlighter-rouge">min_max</code> sensor will go to an error state where the value is <code class="highlighter-rouge">UNKNOWN</code> and the unit of measurement is <code class="highlighter-rouge">ERR</code>.</p>
-<p>To enable the minimum/maximum sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<p>Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the <code class="highlighter-rouge">min_max</code> sensor will go to an error state where the value is <code class="highlighter-rouge">UNKNOWN</code> and unit of measurement is <code class="highlighter-rouge">ERR</code>.</p>
+<p>To enable the <code class="highlighter-rouge">min_max</code> sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">min_max</span>
