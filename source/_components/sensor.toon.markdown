@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Toon"
+title: "Toon Sensor"
 description: "Instructions how to integrate Toon Climate devices within Home Assistant."
 date: 2017-10-21 12:00
 sidebar: true
