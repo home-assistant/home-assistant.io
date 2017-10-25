@@ -75,7 +75,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>There is one dependency you will need to have installed ahead of time (included in <code class="highlighter-rouge">systemd-devel</code> on Fedora/RHEL systems):</p>
+  <p>On Linux platforms (other than Hass.io) there is one dependency you will need to have installed ahead of time (included in <code class="highlighter-rouge">systemd-devel</code> on Fedora/RHEL systems):</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libudev-dev
 </code></pre>
 </div>
@@ -166,6 +166,9 @@ The installation of python-openzwave can take half an hour or more on a Raspbery
   </dl>
 </div>
 <h3><a class="title-link" name="finding-the-controller-path-on-linux" href="#finding-the-controller-path-on-linux"></a> Finding the controller path on Linux</h3>
+<p>&lt;p class=’note’
+If you’re using Hass.io please follow <a href="/hassio/zwave/">these setup instructions</a> for finding the controller path.
+&lt;/p&gt;</p>
 <p>To find the path of your Z-Wave USB stick or module, connect it to your system and run:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ls -ltr /dev/tty<span class="k">*</span>|tail -n 1
 </code></pre>
