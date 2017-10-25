@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
-There is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
+On Linux platforms (other than Hass.io) there is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
@@ -103,6 +103,10 @@ device_config:
 {% endconfiguration %}
 
 ### {% linkable_title Finding the controller path on Linux %}
+
+<p class='note'
+If you're using Hass.io please follow [these setup instructions](/hassio/zwave/) for finding the controller path.
+</p>
 
 To find the path of your Z-Wave USB stick or module, connect it to your system and run:
 
