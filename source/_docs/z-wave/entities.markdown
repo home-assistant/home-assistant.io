@@ -122,7 +122,7 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
 If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
 
 ```
-sensor:
+binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
@@ -151,7 +151,7 @@ sensor:
 If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
 
 ```
-sensor:
+binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
