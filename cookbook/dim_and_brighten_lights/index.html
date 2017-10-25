@@ -180,7 +180,7 @@
               <span class="no">{{ next }}</span>
 
         <span class="pi">-</span> <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-            <span class="no">{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int &lt; states('input_slider.light_maximum')|int %}</span>
+            <span class="no">{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int &lt; states('input_number.light_maximum')|int %}</span>
               <span class="no">script.turn_on</span>
             <span class="no">{% else %}</span>
               <span class="no">script.turn_off</span>
@@ -211,7 +211,7 @@
               <span class="no">{{ next }}</span>
 
         <span class="pi">-</span> <span class="s">service_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
-            <span class="no">{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int &gt; states('input_slider.light_minimum')|int %}</span>
+            <span class="no">{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int &gt; states('input_number.light_minimum')|int %}</span>
               <span class="no">script.turn_on</span>
             <span class="no">{% else %}</span>
               <span class="no">script.turn_off</span>
