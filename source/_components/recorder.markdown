@@ -52,8 +52,8 @@ recorder:
       - weblink
       - updater
     entities:
-      - sun.sun   # Don't record sun data
-      - sensor.last_boot
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
 ```
 

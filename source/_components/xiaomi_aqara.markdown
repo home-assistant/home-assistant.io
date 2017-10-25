@@ -178,3 +178,4 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Try to set `discovery_retry: 10`.
 - Try to disable and then enable LAN access.
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
+- If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.

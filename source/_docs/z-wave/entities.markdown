@@ -29,11 +29,11 @@ Devices (usually sensors) that support the Alarm command class will create entit
 
 - **alarm_type**: Reports the type of the sensor
   - **0**: General purpose
-	- **1**: Smoke sensor
-	- **2**: Carbon Monoxide (CO) sensor
-	- **3**: Carbon Dioxide (CO2) sensor
-	- **4**: Heat sensor
-	- **5**: Water leak sensor
+  - **1**: Smoke sensor
+  - **2**: Carbon Monoxide (CO) sensor
+  - **3**: Carbon Dioxide (CO2) sensor
+  - **4**: Heat sensor
+  - **5**: Water leak sensor
   - **6**: Access control
 
 ### {% linkable_title Alarm Level %}
@@ -114,10 +114,10 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
 ### {% linkable_title Access Control %}
 
 - **access_control**: These *may* vary between brands
-	 - **22**: Open
-	 - **23**: Closed
-	 - **254**: Deep sleep
-	 - **255**: Case open
+  - **22**: Open
+  - **23**: Closed
+  - **254**: Deep sleep
+  - **255**: Case open
 
 If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
 
@@ -129,24 +129,24 @@ sensor:
         sensor_class: opening
         friendly_name: "Friendly name here"
         value_template: >- 
-          {%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
+          {% raw %}{%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
           open
           {%- else -%}
           closed
-          {%- endif -%}
+          {%- endif -%}{% endraw %}
 ```
 
 ### {% linkable_title Burglar %}
 
 - **burglar**: These *may* vary between brands
    - **0**: Not active
-	 - **2**: Smoke (?)
-	 - **3**: Tamper
-	 - **8**: Motion
-	 - **22**: Open
-	 - **23**: Closed
-	 - **254**: Deep sleep
-	 - **255**: Case open
+   - **2**: Smoke (?)
+   - **3**: Tamper
+   - **8**: Motion
+   - **22**: Open
+   - **23**: Closed
+   - **254**: Deep sleep
+   - **255**: Case open
 
 If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
 
@@ -157,12 +157,12 @@ sensor:
       YOUR_SENSOR:
         sensor_class: motion
         friendly_name: "Friendly name here"
-        value_template: >- 
-          {%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
+        value_template: >-
+          {% raw %}{%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
           on
           {%- else -%}
           off
-          {%- endif -%}
+          {%- endif -%}{% endraw %}
 ```
 
 ### {% linkable_title Source Node ID %}

@@ -13,13 +13,13 @@ ha_release: 0.7
 ha_iot_class: depends
 ---
 
-The `mqtt` switch platform let you control your MQTT enabled switch.
+The `mqtt` switch platform lets you control your MQTT enabled switches.
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with `RETAIN` flag, the MQTT switch will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT switch will receive an instant state update after subscription, and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
-When a `state_topic` is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from device (message from `state_topic`).
+When a `state_topic` is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from the device (message from `state_topic`).
 
-Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect switch operation.
+Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect switch operation.
 
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
@@ -46,12 +46,12 @@ Configuration variables:
 - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
 
 <p class='note warning'>
-Make sure that your topic match exact. `some-topic/` and `some-topic` are different topics.
+Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you will find some real life examples of how to use this sensor.
 
 ### {% linkable_title Full configuration %}
 
