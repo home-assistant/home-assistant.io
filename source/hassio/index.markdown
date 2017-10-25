@@ -16,7 +16,7 @@ Hass.io turns your Raspberry Pi (or another device) into the ultimate home autom
 The advantages of using Hass.io:
 
  - Free and open source
- - Optimized for embedded device like Raspberry Pi
+ - Optimized for embedded devices like Raspberry Pi
  - 100% local home automation
  - Easy installation and updates (powered by [ResinOS] and [Docker])
  - Management user interface integrated into Home Assistant

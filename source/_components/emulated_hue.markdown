@@ -100,7 +100,7 @@ homeassistant:
   customize:
     light.bedroom_light:
       # Don't allow light.bedroom_light to be controlled by the emulated Hue bridge
-      emulated_hue_hidden: false
+      emulated_hue_hidden: true
     light.office_light:
       # Address light.office_light as "back office light"
       emulated_hue_name: "back office light"
