@@ -124,13 +124,17 @@ After a start or a restart of Home Assistant the component will be visible in th
 <img src='/images/screenshots/create-component01.png' />
 </p>
 
-In order to expose attributes of your component, you will need to define a method called `state_attributes` which will return a dictionary of attributes:
+In order to expose attributes for a platform, you will need to define a property called `device_state_attributes` on the entity class, which will return a dictionary of attributes:
 
 ```
 @property
-def state_attributes(self):
-    """Return the attributes of the entity."""
+def device_state_attributes(self):
+    """Return device specific state attributes."""
     return self._attributes
 ```
+
+<p class='note'>
+Entities also have a similar property `state_attributes`, which normally doesn't need to be defined by new platforms. This property is used by base components to add standard sets of attributes to a state. Example: The light component uses `state_attributes` to add brightness to the state dictionary. If you are designing a new component, you should define `state_attributes` instead.
+</p>
 
 To get your component included in the Home Assistant releases, follow the steps described in the [Submitting improvements](https://home-assistant.io/developers/#submitting-improvements) section. Basically you only need to move your component in the `homeassistant/component/` directory of your fork and create a Pull Request.
