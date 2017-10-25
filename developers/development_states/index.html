@@ -174,13 +174,16 @@ The component will only write a log message. Keep in mind for later that you hav
 <p class="img">
 <img src="/images/screenshots/create-component01.png" />
 </p>
-<p>In order to expose attributes of your component, you will need to define a method called <code class="highlighter-rouge">state_attributes</code> which will return a dictionary of attributes:</p>
+<p>In order to expose attributes for a platform, you will need to define a property called <code class="highlighter-rouge">device_state_attributes</code> on the entity class, which will return a dictionary of attributes:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span>
-<span class="n">def</span> <span class="n">state_attributes</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
-    <span class="s">"""Return the attributes of the entity."""</span>
+<span class="n">def</span> <span class="n">device_state_attributes</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+    <span class="s">"""Return device specific state attributes."""</span>
     <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_attributes</span>
 </code></pre>
 </div>
+<p class="note">
+Entities also have a similar property <code class="highlighter-rouge">state_attributes</code>, which normally doesn’t need to be defined by new platforms. This property is used by base components to add standard sets of attributes to a state. Example: The light component uses <code class="highlighter-rouge">state_attributes</code> to add brightness to the state dictionary. If you are designing a new component, you should define <code class="highlighter-rouge">state_attributes</code> instead.
+</p>
 <p>To get your component included in the Home Assistant releases, follow the steps described in the <a href="https://home-assistant.io/developers/#submitting-improvements">Submitting improvements</a> section. Basically you only need to move your component in the <code class="highlighter-rouge">homeassistant/component/</code> directory of your fork and create a Pull Request.</p>
 </article>
         </div>
