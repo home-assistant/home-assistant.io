@@ -1,18 +1,18 @@
 - topic: Platform
-  description: [Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications.
+  description: "[Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications."
 - topic: Component
   description: "[Components](/docs/configuration/platform_options/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
 - topic: Event
-  description: An [event](/docs/configuration/events/) is when something happens.
+  description: "An [event](/docs/configuration/events/) is when something happens."
   description: When something happens.
 - topic: Entity
   description: An [entity](/docs/configuration/platform_options/) is the representation of a single device, unit or web service.
 - topic: Device
   description: "A device is usually a physical unit which can do or observe something."
 - topic: hass
-  description: "HASS is often used as an abbreviation for Home Assistant."
+  description: "HASS or hass is often used as an abbreviation for Home Assistant."
 - topic: Discovery
   description: Discovery is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered.
 - topic: Groups
