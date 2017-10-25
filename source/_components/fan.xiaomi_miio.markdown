@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: xiaomi.png
 ha_category: Switch
-ha_version: 0.56
+ha_version: 0.57
 ha_iot_class: "Local Polling"
 ---
 
