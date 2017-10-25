@@ -2,13 +2,14 @@
 layout: page
 title: "ADS Sensor"
 description: "Instructions how to integrate ADS numeric values into Home Assistant."
-date: 2017-10-18 12:00
+date: 2017-10-25 10:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Sensor
-ha_release: 0.21
+ha_release: 0.56
 ha_iot_class: "Local Push"
 ---
 
@@ -35,9 +36,8 @@ Configuration variables:
 Possible values are: *int, uint, byte*.
 - **name** (*Optional*): An identifier for the sensor
 - **use_notify** (*Optional*): Enable device notifications. Default: yes.
-- **poll_interval** (*Optional*): If device notifications are disabled polling
-is used. This parameter defines the pollint interval in milliseconds. Defaults
-to 1000.
+- **poll_interval** (*Optional*): Sets the polling interval in milliseconds.
+Only used if *use_notify* is *False*. Default: 1000
 - **factor** (*Optional*): Use a factor that divides the stored value before
 displaying in Home Assistant. Default: 1.
 

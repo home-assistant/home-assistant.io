@@ -2,13 +2,14 @@
 layout: page
 title: "ADS Light"
 description: "Instruction on how to set up ADS lights within Home Assistant."
-date: 2017-10-18 10:00
+date: 2017-10-25 10:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Light
-ha_release: 0.21
+ha_release: 0.56
 ha_iot_class: "Local Push"
 ---
 

@@ -2,13 +2,14 @@
 layout: page
 title: "ADS Binary Sensor"
 description: "Instructions on how to set up ADS binary sensors within Home Assistant."
-date: 2017-10-18 10:30
+date: 2017-10-25 10:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category: Binary Sensor
-ha_release: 0.21
+ha_release: 0.56
 ha_iot_class: "Local Push"
 ---
 
