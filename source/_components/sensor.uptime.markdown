@@ -27,4 +27,4 @@ sensor:
 Configuration variables:
 
 - **name** (*Optional*): Name of the sensor. Defaults to `Uptime`.
-- **unit_of_measurement** (*Optional*): Units for uptime measurement in either `days` or `hours`.  Defaults to `days`.
+- **unit_of_measurement** (*Optional*): Units for uptime measurement in either `days`, `hours`, or `minutes`.  Defaults to `days`.

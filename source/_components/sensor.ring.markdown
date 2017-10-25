@@ -21,21 +21,17 @@ Once you have enabled the [Ring component](/components/ring), add the following 
 # Example configuration.yaml entry
 sensor:
   - platform: ring
-    monitored_conditions:
-      - battery
-      - last_activity
-      - last_ding
-      - last_motion
-      - volume
 ```
 
 Configuration variables:
 
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend. The following conditions can be monitored.
+- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
   - **battery**: Return the battery level from device
-  - **last_activity**: Return the timestamp from the last event captured (ding/motion/on_demand) by the Ring doorbell camera
+  - **last_activity**: Return the timestamp from the last event captured (ding/motion/on demand) by the Ring doorbell camera
   - **last_ding**: Return the timestamp from the last time the Ring doorbell button was pressed
   - **last_motion**: Return the timestamp from the last motion event captured by the Ring doorbell camera
-  - **volume**: Return the volume level from the device. Currently supported by external chimes and doorbells.
+  - **volume**: Return the volume level from the device.
+  - **wifi_signal_category**: Return the WiFi signal level from the device.
+  - **wifi_signal_strength**: Return the WiFi signal strength (dBm) from the device.
 
-Currently it supports doorbells and external chimes only.
+Currently it supports doorbell, external chimes and stickup cameras.

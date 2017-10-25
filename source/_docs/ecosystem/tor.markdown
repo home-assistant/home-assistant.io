@@ -88,7 +88,7 @@ Add the authentication cookie to your `torrc` client configuration on your lapto
 HidServAuth abcdef1234567890.onion ABCDEF1122334455667789
 ```
 
-For Tor Browser on Windows, Mac or Linux, you can find the torrc file here: `<tor browser install directory>/Browser/TorBrowser/Data/Tor/torrc-defaults`
+For Tor Browser on Windows, Mac or Linux, you can find the torrc file here: `<tor browser install directory>/Browser/TorBrowser/Data/Tor/torrc`
 
 Once you have added the entry, restart the browser, and then browse to the "dot onion" site address to connect to your Home Assistant instance.
 

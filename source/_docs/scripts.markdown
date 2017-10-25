@@ -90,6 +90,28 @@ wait_template: {% raw %}"{{ states.climate.kitchen.attributes.valve < 10 }}"{% e
 timeout: 00:01:00
 ```
 
+When using `wait_template` within an automation `trigger.entity_id` is supported for `state`, `numeric_state` and `template` triggers, see also [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+
+{% raw %}
+```yaml
+wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
+```
+{% endraw %}
+
+It is also possible to use dummy variables, e.g., in scripts, when using `wait_template`.
+
+{% raw %}
+```yaml
+# Service call, e.g. from an automation.
+service: script.do_something
+data_template:
+  dummy: "{{ input_boolean.switch }}"
+
+# Inside the script
+wait_template: "{{ is_state(dummy, 'off') }}"
+```
+{% endraw %}
+
 ### {% linkable_title Fire an Event %}
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.

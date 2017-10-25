@@ -30,8 +30,20 @@ switch:
 Configuration variables:
 
 - **ports** array (*Required*): Array of used ports.
-  - **port: name** (*Required*): Port numbers and corresponding names.
+  - **port: name** (*Required*): Port numbers and corresponding names (GPIO #).
 - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+
+A common question is what does Port refer to, this number is the actual GPIO # not the pin #.
+For example, if you have a relay connected to pin 11 its GPIO # is 17.
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: rpi_gpio
+    ports:
+      17: Speaker Relay
+```
+
 

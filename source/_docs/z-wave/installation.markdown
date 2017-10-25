@@ -18,6 +18,12 @@ There is one dependency you will need to have installed ahead of time (included 
 $ sudo apt-get install libudev-dev
 ```
 
+When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed. 
+
+```bash
+$ sudo /Applications/Python\ x.x/Install\ Certificates.command
+```
+
 <p class='note'>
 The installation of python-openzwave can take half an hour or more on a Raspbery Pi.
 </p>

@@ -14,7 +14,7 @@ It exists diferent ways to communication between add-ons or home-assistant insid
 
 ## {% linkable_title Network %}
 
-We use a internal network. That allow to speak with every add-on or from Home-Assistant to add-on by name or alias. Only the a add-on they run on Host network are a bit limited. They can speak with all internal add-ons over there name but all other add-on can't speak with the add-on name to this add-on, but alias work wheel. So use the name/alias to communicate inside Hass.io
+We use a internal network. That allow to speak with every add-on or from Home-Assistant to add-on by name or alias. Only the a add-on they run on Host network are a bit limited. They can speak with all internal add-ons over there name but all other add-on can't speak with the add-on name to this add-on, but alias work wheel. So use the name/alias to communicate inside Hass.io. The name have format `{REPO}-{SLUG}` i.e. `local-xy` or `3283fh-myaddon`.
 
 i.e. use `hassio` to speak with internal API.
 
