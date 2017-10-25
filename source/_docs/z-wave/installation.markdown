@@ -10,8 +10,6 @@ footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
-As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed. This also introduced the integrated Z-Wave control panel, removing the need for the OpenZWave control panel.
-
 There is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
