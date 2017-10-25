@@ -6,6 +6,7 @@
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
 - topic: Event
   description: An [event](/docs/configuration/events/) is when something happens.
+  description: When something happens.
 - topic: Entity
   description: An [entity](/docs/configuration/platform_options/) is the representation of a single device, unit or web service.
 - topic: Device
@@ -27,7 +28,7 @@
 - topic: Scene
   description: "Scenes capture the states you want certain entities to be. For example a scene can specify that light A should be turned on and light B should be bright red." 
 - topic: hassio
-  description: "hassio is an operating system that can be used to manage Home Assistant easily using various HASS.io add-ons"
+  description: see Hass.io
 - topic: HADashboard
   description: "[HADashboard](/docs/ecosystem/hadashboard/) is a modular, skinnable dashboard for Home Assistant that is intended to be wall mounted, and is optimized for distance viewing."
 - topic: Hass.io
