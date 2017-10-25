@@ -98,16 +98,6 @@ The direct usage of HTML is supported but not recommended. The note boxes are an
 </p>
 ```
 
-### {% linkable_title Redirects %}
-If you rename or move an existing platform or component, create the redirect. Add the old location of the page to the header of the new one.
-
-```text
----
-...
-redirect_from: /getting-started/android/
----
-```
-
 ### {% linkable_title Images, icons, and logos %}
 
 The images which are displayed on the pages are stored in various directories according to their purpose. If you want to use a logo and placed `logo:` in the file header then this image should be stored in `source/images/supported_brands`. The background must be transparent.

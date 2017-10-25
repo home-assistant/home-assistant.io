@@ -9,9 +9,13 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
-ha_release: 0.16
+ha_release: 0.55
 redirect_from: /components/input_slider/
 ---
+
+<p class='note'>
+Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option.
+</p>
 
 The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
