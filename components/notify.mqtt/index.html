@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The MQTT notification support is different than the other <a href="/components/notify/">notification</a> platforms. It is a service. This means that you don’t have to create a configuration entry but you need to provide more details while calling the service.</p>
+  <p>The MQTT notification support is different than the other <a href="/components/notify/">notification</a> platforms. It is a service. This means that you don’t have to create a configuration entry but you need to provide more details when calling the service.</p>
 <p><strong>Call Service</strong> section from the <strong>Developer Tools</strong> allows you to send MQTT messages. Choose <em>mqtt/publish</em>  from the list of <strong>Available services:</strong> and enter something like the sample below into the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test message from HA"</span><span class="p">,</span><span class="w"> </span><span class="nt">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home/notification"</span><span class="p">,</span><span class="w"> </span><span class="nt">"qos"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"retain"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w">
 </span></code></pre>

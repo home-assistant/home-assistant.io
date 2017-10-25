@@ -74,8 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">mqtt</code> fan platform let you control your MQTT enabled fans.</p>
-<p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with <code class="highlighter-rouge">RETAIN</code> flag, the MQTT fan will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the fan will be <code class="highlighter-rouge">false</code>.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> fan platform lets you control your MQTT enabled fans.</p>
+<p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with a <code class="highlighter-rouge">RETAIN</code> flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be <code class="highlighter-rouge">false</code> / <code class="highlighter-rouge">off</code>.</p>
 <p>When a <code class="highlighter-rouge">state_topic</code> is not available, the fan will work in optimistic mode. In this mode, the fan will immediately change state after every command. Otherwise, the fan will wait for state confirmation from the device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 <p>Optimistic mode can be forced even if a <code class="highlighter-rouge">state_topic</code> is available. Try to enable it if you are experiencing incorrect fan operation.</p>
 <p>To enable MQTT fans in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -111,7 +111,7 @@
   <li><strong>speeds</strong> array (<em>Optional</em>): Valid entries for the list are <code class="highlighter-rouge">off</code>, <code class="highlighter-rouge">low</code>, <code class="highlighter-rouge">medium</code>, and <code class="highlighter-rouge">high</code>.</li>
 </ul>
 <p class="note warning">
-Make sure that your topic is an exact match. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
+Make sure that your topics match exactly. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you find some real life examples of how to use this fan.</p>

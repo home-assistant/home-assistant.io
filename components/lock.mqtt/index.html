@@ -74,8 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">mqtt</code> lock platform let you control your MQTT enabled locks.</p>
-<p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with <code class="highlighter-rouge">RETAIN</code> flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be false/unlocked.</p>
+  <p>The <code class="highlighter-rouge">mqtt</code> lock platform lets you control your MQTT enabled locks.</p>
+<p>In an ideal scenario, the MQTT device will have a <code class="highlighter-rouge">state_topic</code> to publish state changes. If these messages are published with a <code class="highlighter-rouge">RETAIN</code> flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be <code class="highlighter-rouge">false</code> / unlocked.</p>
 <p>When a <code class="highlighter-rouge">state_topic</code> is not available, the lock will work in optimistic mode. In this mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from the device (message from <code class="highlighter-rouge">state_topic</code>).</p>
 <p>Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect lock operation.</p>
 <p>To enable MQTT locks in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
@@ -98,10 +98,10 @@
   <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract a value from the payload.</li>
 </ul>
 <p class="note warning">
-Make sure that your topic match exact. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
+Make sure that your topics match exactly. <code class="highlighter-rouge">some-topic/</code> and <code class="highlighter-rouge">some-topic</code> are different topics.
 </p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
-<p>In this section you find some real life examples of how to use this lock.</p>
+<p>In this section you will find some real life examples of how to use this lock.</p>
 <h3><a class="title-link" name="full-configuration" href="#full-configuration"></a> Full configuration</h3>
 <p>The example below shows a full configuration for a MQTT lock.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
