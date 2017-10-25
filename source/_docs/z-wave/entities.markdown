@@ -126,13 +126,12 @@ binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
-        sensor_class: opening
         friendly_name: "Friendly name here"
         value_template: >- 
           {% raw %}{%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
-          open
+          on
           {%- else -%}
-          closed
+          off
           {%- endif -%}{% endraw %}
 ```
 
@@ -155,7 +154,6 @@ binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
-        sensor_class: motion
         friendly_name: "Friendly name here"
         value_template: >-
           {% raw %}{%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
