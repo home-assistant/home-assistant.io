@@ -13,7 +13,7 @@ ha_release: "0.57"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `vultr` binary sensor platform allows you to monitor your Vultr subscription (virtual private server) to see if it is powered on or not.
+The `vultr` binary sensor platform allows you to monitor your [Vultr](https://www.vultr.com/) subscription to see if it is powered on or not.
 
 To use this binary sensor, you first have to set up your [Vultr hub](/components/vultr/).
 
@@ -21,18 +21,14 @@ To use this binary sensor, you first have to set up your [Vultr hub](/components
 The following examples assume a subscription that has an ID of `123456` and a label of `Web Server`
 </p>
 
-Minimal `configuration.yaml` example:
-
+Minimal `configuration.yaml` (produces `binary_sensor.vultr_web_server`):
 ```yaml
 binary_sensor:
   - platform: vultr
     subscription: 123456
 ```
 
-Creates the binary sensor `binary_sensor.vultr_web_server`.
-
-Full `configuration.yaml` example:
-
+Full `configuration.yaml` (produces `binary_sensor.totally_awesome_server`):
 ```yaml
 binary_sensor:
   - platform: vultr
@@ -40,9 +36,7 @@ binary_sensor:
     subscription: 12345
 ```
 
-Creates the binary sensor `binary_sensor.totally_awesome_server`.
-
 Configuration variables:
 
-- **name** (*Optional*): The name you want to give this binary sensor, defaults to `vultr_{subscription label}`
 - **subscription** (*Required*): The subscription you want to monitor, this can be found in the URL when viewing a server
+- **name** (*Optional*): The name you want to give this binary sensor, defaults to `vultr_{subscription label}`
