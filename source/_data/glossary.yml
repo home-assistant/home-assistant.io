@@ -44,3 +44,5 @@
   description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameter of your devices in the configuration."
 - topic: Zone
   description: "[Zones](/components/zone/) are areas that can be used for presence detection."
+- topic: Frontend
+  description: "The [frontend](/components/frontend/) is a necessary component for the UI, it is also where you can define your themes."
