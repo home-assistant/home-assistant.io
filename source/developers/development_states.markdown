@@ -131,7 +131,7 @@ In order to expose attributes of your component, you will need to define a prope
 def device_state_attributes(self):
     """Return device specific state attributes."""
     return self._attributes
-````
+```
 
 <p class='note'>
 Entities also have a similar property `state_attributes`, which normally doesn't need to be defined by new platforms. This property is used by base components to add standard sets of attributes to a state. Example: The light component uses `state_attributes` to add brightness to the state dictionary.
