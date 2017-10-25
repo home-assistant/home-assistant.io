@@ -76,25 +76,29 @@
   <hr class="divider">
   <p>Home Assistant can discover and automatically configure <a href="https://en.wikipedia.org/wiki/Zero-configuration_networking">zeroconf</a>/<a href="https://en.wikipedia.org/wiki/Multicast_DNS">mDNS</a> and <a href="https://en.wikipedia.org/wiki/Universal_Plug_and_Play">uPnP</a> devices on your network. Currently the <code class="highlighter-rouge">discovery</code> component can detect:</p>
 <ul>
-  <li>Google Chromecast</li>
-  <li>Belkin WeMo switches</li>
-  <li>Philips Hue</li>
-  <li>Netgear routers</li>
-  <li>Plex media server</li>
-  <li>Panasonic Viera</li>
-  <li>Roku media player</li>
-  <li>Sonos Speakers</li>
-  <li>Yamaha media player</li>
-  <li>Logitech media server (Squeezebox)</li>
-  <li>DirecTV</li>
-  <li>Apple TV</li>
-  <li>Yeelight Sunflower Bulb</li>
-  <li>Linn / Openhome</li>
-  <li>Denon Network Receivers</li>
-  <li>Bose Soundtouch speakers</li>
-  <li>Axis Communications security devices</li>
-  <li>IKEA Trådfri (Tradfri)</li>
-  <li>Harmony Hub</li>
+  <li><a href="https://home-assistant.io/components/apple_tv/">Apple TV</a></li>
+  <li><a href="https://home-assistant.io/components/axis/">Axis Communications security devices</a></li>
+  <li><a href="https://home-assistant.io/components/wemo/">Belkin WeMo switches</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.bluesound/">Bluesound speakers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.soundtouch/">Bose Soundtouch speakers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.denonavr/">Denon network receivers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.directv/">DirecTV receivers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.frontier_silicon/">Frontier Silicon internet radios</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.cast/">Google Cast</a></li>
+  <li><a href="https://home-assistant.io/components/tradfri/">IKEA Trådfri (Tradfri)</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.openhome/">Linn / Openhome</a></li>
+  <li><a href="https://home-assistant.io/components/remote.harmony/">Logitech Harmony Hub</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.squeezebox/">Logitech media server (Squeezebox)</a></li>
+  <li><a href="https://home-assistant.io/components/device_tracker.netgear/">Netgear routers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.panasonic_viera/">Panasonic Viera</a></li>
+  <li><a href="https://home-assistant.io/components/light.hue/">Philips Hue</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.plex/">Plex media server</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.roku/">Roku media player</a></li>
+  <li><a href="https://home-assistant.io/components/sensor.sabnzbd/">SABnzbd downloader</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.samsungtv/">Samsung TVs</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.sonos/">Sonos speakers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha media player</a></li>
+  <li><a href="https://home-assistant.io/components/light.yeelightsunflower/">Yeelight Sunflower bulb</a></li>
 </ul>
 <p>It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.</p>
 <p>To load this component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
@@ -113,25 +117,27 @@
 <ul>
   <li><code class="highlighter-rouge">apple_tv</code>: Apple TV</li>
   <li><code class="highlighter-rouge">axis</code>: Axis Communications security devices</li>
-  <li><code class="highlighter-rouge">bluesound</code></li>
+  <li><code class="highlighter-rouge">belkin_wemo</code>: Belkin WeMo switches</li>
+  <li><code class="highlighter-rouge">bluesound</code>: Bluesound speakers</li>
   <li><code class="highlighter-rouge">bose_soundtouch</code>: Bose Soundtouch speakers</li>
-  <li><code class="highlighter-rouge">denonavr</code>: Denon Network Receivers</li>
-  <li><code class="highlighter-rouge">directv</code>: DirecTV</li>
-  <li><code class="highlighter-rouge">frontier_silicon</code></li>
-  <li><code class="highlighter-rouge">google_cast</code>: Google Chromecast</li>
-  <li><code class="highlighter-rouge">harmony</code>: Harmony Hub</li>
-  <li><code class="highlighter-rouge">ikea_tradfri</code>: IKEA Trådfri</li>
-  <li><code class="highlighter-rouge">logitech_mediaserver</code>: Logitech media server - Squeezebox player</li>
-  <li><code class="highlighter-rouge">openhome</code>: Linn/Openhome</li>
+  <li><code class="highlighter-rouge">denonavr</code>: Denon network receivers</li>
+  <li><code class="highlighter-rouge">directv</code>: DirecTV receivers</li>
+  <li><code class="highlighter-rouge">frontier_silicon</code>: Frontier Silicon internet radios</li>
+  <li><code class="highlighter-rouge">google_cast</code>: Google Cast</li>
+  <li><code class="highlighter-rouge">harmony</code>: Logitech Harmony Hub</li>
+  <li><code class="highlighter-rouge">ikea_tradfri</code>: IKEA Trådfri (Tradfri)</li>
+  <li><code class="highlighter-rouge">logitech_mediaserver</code>: Logitech media server (Squeezebox)</li>
+  <li><code class="highlighter-rouge">netgear_router</code>: Netgear routers</li>
+  <li><code class="highlighter-rouge">openhome</code>: Linn / Openhome</li>
   <li><code class="highlighter-rouge">panasonic_viera</code>: Panasonic Viera</li>
   <li><code class="highlighter-rouge">philips_hue</code>: Philips Hue</li>
   <li><code class="highlighter-rouge">plex_mediaserver</code>: Plex media server</li>
   <li><code class="highlighter-rouge">roku</code>: Roku media player</li>
-  <li><code class="highlighter-rouge">sabnzbd</code></li>
-  <li><code class="highlighter-rouge">samsung_tv</code>: Samsung TV</li>
-  <li><code class="highlighter-rouge">sonos</code>: Sonos Speakers</li>
+  <li><code class="highlighter-rouge">sabnzbd</code>: SABnzbd downloader</li>
+  <li><code class="highlighter-rouge">samsung_tv</code>: Samsung TVs</li>
+  <li><code class="highlighter-rouge">sonos</code>: Sonos speakers</li>
   <li><code class="highlighter-rouge">yamaha</code>: Yamaha media player</li>
-  <li><code class="highlighter-rouge">yeelight</code>: Yeelight Sunflower Bulb</li>
+  <li><code class="highlighter-rouge">yeelight</code>: Yeelight Sunflower bulb</li>
 </ul>
 <p class="note">
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
