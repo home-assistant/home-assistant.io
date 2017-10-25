@@ -6,7 +6,7 @@
   description: "[Conditions](/docs/scripts/conditions/) are an optional part of an automation that will prevent an action from firing if they are not met."  
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
-- topic: Action:
+- topic: Action
   description: "[Actions](/docs/automation/action/) are events that fires once all triggers and conditions have been met."
 - topic: Event
   description: "An [event](/docs/configuration/events/) is when something happens."
