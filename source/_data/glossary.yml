@@ -5,7 +5,7 @@
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
 - topic: Event
-  description: When somethings happen.
+  description: When something happens.
 - topic: Entity
   description: An entity is the representation of a single device, unit or web service.
 - topic: Device
