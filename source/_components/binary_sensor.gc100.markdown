@@ -25,5 +25,5 @@ binary_sensor:
 
 Configuration variables:
 
-- **ports** (*Required*): A list of module-address to name mappings in the format '<x>:<y>': <name>, where <x> is module #, <y> is address 
+- **ports** (*Required*): A list of module-address to name mappings in the format 'x:y': name, where x is module #, y is address 
 
