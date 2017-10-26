@@ -1,0 +1,26 @@
+---
+layout: page
+title: "gc100"
+description: "Instructions on how to integrate gc100 with Home Assistant."
+date: 2017-10-26 17:20
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_category: Hub
+ha_release: 0.56.3
+---
+
+[gc100](https://www.globalcache.com/products/gc-100/) can be integrated into Home Assistant.
+
+To enable this device, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+gc100:
+```
+
+Configuration variables:
+
+- **host** (*Required*): The hostname/IP address of your GC100 device.
+- **port** (*Required*): The port on which the GC100 is listening.
