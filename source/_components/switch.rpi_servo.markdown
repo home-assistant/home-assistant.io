@@ -33,10 +33,10 @@ Configuration variables:
 
 - **ports** array (*Required*): Array of used ports.
   - **port: name** (*Required*): Port numbers and corresponding names.
-- **default_position** (*Optional*): The degree to rest the servo at. Use a negative number to dissable, defaults to 90.
+- **default_position** (*Optional*): The degree to rest the servo at. Defaults to 90.
 - **position_on** (*Optional*): The degree to rotate to when the switch is toggled to on. Defaults to 180.
 - **postion_off** (*Optional*): The degree to rotate to when the switch is toggled off. Defaults to 0.
-- **enabled_duration** (*Optional*): How many seconds to activate the servo when turning. Defaults to 1 second.
+- **enabled_duration** (*Optional*): How many seconds to activate the servo when turning. Defaults to 1 second. Set to 0 to dissable the resting position 'default_position', and instead rest in the on and off state.
 
 For an example of how to set up the servo, see the [Raspberry Pi Cookbook](http://razzpisampler.oreilly.com/ch05.html).
 
