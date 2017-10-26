@@ -56,4 +56,4 @@ In the following PR is used for pull request at GitHub
 1. Don't discuss in already merged PRs if a translation is good or bad. Instead open an [issue](https://github.com/home-assistant/home-assistant-polymer/issues) or new PR for discussion or improvements.
 2. Don't add phrases that don't exist in `en.json`.
 3. Translated phrases have to start with capital letter.
-4. Make a note in your PR's description if you translated a phrase with an other word that fits (in your opinion) better. For example instead of translating `States` you have choosen the word for `Overview`
+4. Make a note in your PR's description if you translated a phrase with an other word that fits (in your opinion) better. For example instead of translating `States` you have chosen the word for `Overview`
