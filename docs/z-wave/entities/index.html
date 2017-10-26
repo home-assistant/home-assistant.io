@@ -187,13 +187,12 @@ This is a work in progress, based upon reports in the forum, the author’s own 
   - platform: template
     sensors: 
       YOUR_SENSOR:
-        sensor_class: opening
         friendly_name: "Friendly name here"
         value_template: &gt;- 
           {%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
-          open
+          on
           {%- else -%}
-          closed
+          off
           {%- endif -%}
 </code></pre>
 </div>
@@ -217,7 +216,6 @@ This is a work in progress, based upon reports in the forum, the author’s own 
   - platform: template
     sensors: 
       YOUR_SENSOR:
-        sensor_class: motion
         friendly_name: "Friendly name here"
         value_template: &gt;-
           {%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}

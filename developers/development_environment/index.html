@@ -82,7 +82,7 @@
 </code></pre>
 </div>
 <p>In order to run <code class="highlighter-rouge">script/setup</code> below you will need some more dependencies.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev libudev-dev
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev libudev-dev zlib1g-dev
 </code></pre>
 </div>
 <p class="note">
@@ -108,7 +108,7 @@ Once forked, setup your local copy of the source using the commands:</p>
 <span class="gp">$ </span>git remote add upstream https://github.com/home-assistant/home-assistant.git
 </code></pre>
 </div>
-<h3><a class="title-link" name="setting-up-virtual-environment-optional" href="#setting-up-virtual-environment-optional"></a> Setting up virtual environment (optional)</h3>
+<h3><a class="title-link" name="setting-up-virtual-environment" href="#setting-up-virtual-environment"></a> Setting up virtual environment</h3>
 <p>If you plan on providing isolation to your environment using <a href="https://docs.python.org/3.4/library/venv.html"><code class="highlighter-rouge">venv</code></a>. Within the <code class="highlighter-rouge">home-assistant</code> directory, create and activate your virtual environment.</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python3 -m venv venv
 <span class="gp">$ </span><span class="nb">source </span>venv/bin/activate
