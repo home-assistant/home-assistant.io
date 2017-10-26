@@ -11,7 +11,10 @@ ha_category: Hub
 ha_release: 0.56.3
 ---
 
-[gc100](https://www.globalcache.com/products/gc-100/) can be integrated into Home Assistant.
+[gc100](https://www.globalcache.com/products/gc-100/) can be integrated into Home Assistant. gc100 is a TCP-controllable
+hardware device which has an array of relays, RS232 serial ports, and flexible ports which can be programmed to be either digital inputs or IR blaster outputs. There are a variety of submodels of the gc100 which have different amounts of each I/O type.
+
+Currently, only relays and ports configured to be digital inputs are supported in Home Assistant.
 
 To enable this device, add the following lines to your `configuration.yaml`:
 
