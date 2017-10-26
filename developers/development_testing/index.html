@@ -96,7 +96,7 @@
 </div>
 <h3><a class="title-link" name="testing-outside-of-tox" href="#testing-outside-of-tox"></a> Testing outside of Tox</h3>
 <p>Running tox will invoke the full test suite. Even if you specify which tox target to run, you still run all tests inside that target. That’s not very convenient to quickly iterate on your code! To be able to run the specific test suites without Tox, you’ll need to install the test dependencies into your Python environment:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bash pip3 install -r requirements_test_all.txt
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install -r requirements_test_all.txt
 </code></pre>
 </div>
 <p>Now that you have all test dependencies installed, you can run tests on individual files:</p>
