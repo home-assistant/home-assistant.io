@@ -13,7 +13,7 @@ ha_release: 0.55
 ha_iot_class: "Local Polling"
 ---
 
-The `mqtt` climate platform let you control your MQTT enabled HVAC devices.
+The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 The platform currently works in optimistic mode, which means it does not obtain states from MQTT topics, but it sends and remembers control commands.
 

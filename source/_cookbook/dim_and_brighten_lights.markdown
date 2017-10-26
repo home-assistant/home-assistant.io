@@ -40,7 +40,7 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_bright
       - service: script.turn_off
         data:
@@ -69,7 +69,7 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        data_template:
+        data:
           entity_id: script.light_dim
       - service: script.turn_off
         data:
@@ -124,7 +124,7 @@ script:
               {{ next }}{% endraw %}
 
         - service_template: >
-            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int < states('input_slider.light_maximum')|int %}
+            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int < states('input_number.light_maximum')|int %}
               script.turn_on
             {% else %}
               script.turn_off
@@ -155,7 +155,7 @@ script:
               {{ next }}{% endraw %}
 
         - service_template: >
-            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int > states('input_slider.light_minimum')|int %}
+            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int > states('input_number.light_minimum')|int %}
               script.turn_on
             {% else %}
               script.turn_off

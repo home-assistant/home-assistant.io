@@ -25,7 +25,7 @@ Currently supported features are:
 - `turn_off` (stop all activity and return to dock)
 - `locate`
 - `clean_spot`
-- `set_fanspeed`
+- `set_fan_speed`
 - remote control of your robot.
 
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
@@ -52,7 +52,7 @@ Configuration variables:
 
 In addition to [all of the services provided by the `vacuum` component]
 ]) (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`,
-`set_fanspeed` and `send_command`), the `xiaomi` platform introduces specific
+`set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific
 services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`

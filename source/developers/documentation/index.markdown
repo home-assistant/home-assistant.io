@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect: /developers/website/
+redirect_from: /developers/website/
 ---
 
 The website you are reading now is the home of Home Assistant: [https://home-assistant.io](https://home-assistant.io). This is the place where we provide documentation and additional details about Home Assistant for end users and developers.

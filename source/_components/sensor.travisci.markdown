@@ -21,7 +21,7 @@ To enable this platform, please add the following to your `configuration.yaml` f
 # Example configuration.yaml entry
 sensor:
   - platform: travisci
-    github_token: 123456789
+    api_key: 123456789
 ```
 
 Configuration variables:
