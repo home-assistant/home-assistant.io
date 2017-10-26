@@ -42,8 +42,8 @@ Example for French as used in Canada (`fr-CA.json`):
 }
 ```
 
-### {% linkable_title Special charackters %}
-The most common ones you may need are `\'` for `'` and `\n` for `new line`. Check this [table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Using_special_characters_in_strings) for more special charackters. PS: You don't have to HTML escape your charackters.
+### {% linkable_title Special characters %}
+The most common ones you may need are `\'` for `'` and `\n` for `new line`. Check this [table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Using_special_characters_in_strings) for more special characters. PS: You don't have to HTML escape your characters.
 
 ### {% linkable_title Submit a Translation %}
 In the following PR is used for pull request at GitHub
@@ -56,4 +56,4 @@ In the following PR is used for pull request at GitHub
 1. Don't discuss in already merged PRs if a translation is good or bad. Instead open an [issue](https://github.com/home-assistant/home-assistant-polymer/issues) or new PR for discussion or improvements.
 2. Don't add phrases that don't exist in `en.json`.
 3. Translated phrases have to start with capital letter.
-4. Make a note in your PR's description if you translated a phrase with an other word that fits (in your opinion) better. For example instead of translating "States" you have choosen the word for "Overview"
+4. Make a note in your PR's description if you translated a phrase with an other word that fits (in your opinion) better. For example instead of translating `States` you have choosen the word for `Overview`
