@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Toon Climate"
-description: "Instructions how to integrate Toon Climate devices within Home Assistant."
-date: 2017-10-21 12:00
+title: "Toon Thermostat"
+description: "Instructions how to integrate Toon thermostats within Home Assistant."
+date: 2017-10-22 12:00
 sidebar: true
 comments: false
 sharing: true
@@ -13,6 +13,15 @@ logo: toon.png
 ha_iot_class: "Cloud Polling"
 ---
 
-The `toon` climate platform allows you to interact with your Toon device.
+The `toon` climate platform allows you to interact with your Toon thermostat. For compatibility reasons, the states in Home Assistant are different from the states displayed on your Toon device and are mapped as follows:
 
-The requirement is that you have setup the [`toon`](/components/toon/) component.
+
+| Home Assistant | Toon    |
+|:---------------|:--------|
+| Performance    | Comfort |
+| Heat           | Thuis   |
+| Eco            | Weg     |
+| Cool           | Slapen  |
+
+
+Please refer to the [hub component](/components/toon/) for setup instructions.
