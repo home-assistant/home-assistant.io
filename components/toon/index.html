@@ -88,7 +88,7 @@
   <li><strong>username</strong> (<em>Required</em>): Username for Mijn Eneco.</li>
   <li><strong>password</strong> (<em>Required</em>): Password for Mijn Eneco.</li>
 </ul>
-<p>Toon is a smart thermostat delivered by the Eneco power company in The Netherlands. It can measure energy consumption (power and gas), but also the amount of energy generated in case solar panels are connected to it. Toon also acts as a z-wave hub for supported Fibaro devices like the wall plug and the smoke detector. This component uses the <a href="https://github.com/costastf/toonlib">toonlib library</a> by Costas Tyfoxylos that connects to the unofficial API on <a href="https://toonopafstand.eneco.nl">https://toonopafstand.eneco.nl</a>.</p>
+<p>Toon is a smart thermostat delivered by the Eneco power company in The Netherlands. It can measure energy consumption (power and gas), but also the amount of energy generated in case solar panels are connected to it. Toon also acts as a z-wave hub for supported devices like the wall plug and the smoke detector. This component uses the <a href="https://github.com/costastf/toonlib">toonlib library</a> by Costas Tyfoxylos that connects to the unofficial API on <a href="https://toonopafstand.eneco.nl">https://toonopafstand.eneco.nl</a>.</p>
 <p>The current version of this component supports setting any of the four built-in programs and setting the temperature manually. It polls the Toon API at 30 second intervals so the status is relatively fresh without overloading the API.</p>
 </article>
         </div>
@@ -108,14 +108,14 @@
           <div class='section'>
           <h1 class='title delta'>Related components</h1>
           <ul class='divided'>
-        <li><a href='/components/climate.toon/'>
-          Toon Climate
-        </a></li>
         <li><a href='/components/sensor.toon/'>
           Toon Sensor
         </a></li>
         <li><a href='/components/switch.toon/'>
-          Toon Switch
+          Toon Smart Plugs
+        </a></li>
+        <li><a href='/components/climate.toon/'>
+          Toon Thermostat
         </a></li>
     </ul>
     </div>
