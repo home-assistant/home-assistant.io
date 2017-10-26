@@ -22,8 +22,6 @@ To add the CoinMarketCap sensor to your installation, add the following lines to
 # Example configuration.yaml entry
 sensor:
   - platform: coinmarketcap
-    currency: ethereum
-    display_currency: EUR
 ```
 
 Configuration variables:
