@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: google_domains.png
 ha_category: Utility
-featured: false
 ha_release: 0.57
 ---
 
@@ -38,7 +37,7 @@ google_domains:
     description: The generated password for this DDNS record.
     required: true
     type: string
-  timeout
+  timeout:
     description: Timeout (in seconds) for the API calls.
     required: false
     type: number
