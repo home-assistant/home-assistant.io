@@ -21,11 +21,11 @@ To use the component in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 google_domains:
   domain: subdomain.domain.com
-  username: abc123
-  password: xyz345
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-{% configuration binary_sensor.template %}
+{% configuration %}
   domain:
     description: Your FQDN.
     required: true
