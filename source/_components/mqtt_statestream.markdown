@@ -40,8 +40,10 @@ When any Home Assistant entity changes, this component will publish that change 
 The topic for each entity is different, so you can easily subscribe other systems to just the entities you are interested in.
 The topic will be in the form `base_topic/domain/entity/state`.
 
-For example, with the example configuration above, if an entity called 'light.master_bedroom_dimmer' is turned on, this component will publish `on` to `homeassistant/light/master_bedroom_dimmer/state`.  
+For example, with the example configuration above, if an entity called 'light.master_bedroom_dimmer' is turned on, this component will publish `on` to `homeassistant/light/master_bedroom_dimmer/state`.
 
-If that entity also has an attribute called `brightness`, the component will also publish the value of that attribute to `homeassistant/light/master_bedroom_dimmer/brightness`.  
+If that entity also has an attribute called `brightness`, the component will also publish the value of that attribute to `homeassistant/light/master_bedroom_dimmer/brightness`.
+
+All states and attributes are passed through JSON serialization before publishing. **Please note** that this causes strings to be quoted (e.g., the string 'on' will be published as '"on"'). You can access the JSON deserialized values (as well as unquoted strings) at many places by using `value_json` instead of `value`. 
 
 The last_updated and last_changed values for the entity will be published to `homeassistant/light/master_bedroom_dimmer/last_updated` and `homeassistant/light/master_bedroom_dimmer/last_changed`, respectively.  The timestamps are in ISO 8601 format - for example, `2017-10-01T23:20:30.920969+00:00`.
