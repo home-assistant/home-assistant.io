@@ -22,7 +22,7 @@ $ sudo apt-get install python3-pip python3-dev python3-venv
 
 In order to run `script/setup` below you will need some more dependencies.
 ```bash
-$ sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev libudev-dev
+$ sudo apt-get install libssl-dev libxml2-dev libxslt1-dev libjpeg-dev libffi-dev libudev-dev zlib1g-dev
 ```
 
 <p class='note'>
@@ -60,7 +60,7 @@ $ cd home-assistant
 $ git remote add upstream https://github.com/home-assistant/home-assistant.git
 ```
 
-### {% linkable_title Setting up virtual environment (optional) %} 
+### {% linkable_title Setting up virtual environment %} 
 
 If you plan on providing isolation to your environment using [`venv`](https://docs.python.org/3.4/library/venv.html). Within the `home-assistant` directory, create and activate your virtual environment.
 
