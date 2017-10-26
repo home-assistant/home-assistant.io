@@ -21,13 +21,13 @@ translations/de.json
 ```
 
 Language subtags will inherit from their parent, so `en-US.json` should only contain the entries that will be different from `en.json`. All language tags inherit from `en.json` as the master translation and fallback for incomplete translations.
-You can get the correct tag and native name from the [list of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). If necessary also add the corresponding [country code](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements).
+You can get the correct tag and native name (has to start with capital letter) from the [list of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). If necessary also add the corresponding [country code](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements).
 
 Example for French (`fr.json`):
 ```
 {
   "language": {
-    "fr": "français"
+    "fr": "Français"
   },
   ...
 }
@@ -36,7 +36,7 @@ Example for French as used in Canada (`fr-CA.json`):
 ```
 {
   "language": {
-    "fr-CA": "français (CA)"
+    "fr-CA": "Français (CA)"
   },
   ...
 }
