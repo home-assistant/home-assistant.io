@@ -7,8 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: System Monitor
-ha_release: 0.56.3
+ha_category: Switch
+ha_release: 0.57
 ha_iot_class: "Local Polling"
 ---
 
