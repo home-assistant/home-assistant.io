@@ -21,11 +21,11 @@ To enable this switch, you first have to set up [gc100](/components/gc100/), and
 switch:
   - platform: gc100
     ports:
-      '3:2': Siren
-  
+      - '4:1': Siren
+      - '4:2': Sprinkler
 ```
 
 Configuration variables:
 
-- **ports** (*Required*): A list of module-address to name mappings in the format 'x:y': name, where x is module #, y is address 
+- **ports** (*Required*): A list of module-address to name mappings in the format 'x:y': name, where x is module #, y is address.
 
