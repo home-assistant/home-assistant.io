@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Z-Wave"
-description: "Instructions on how-to use Z-Wave with Hass.io."
+description: "Instructions on how-to enable Z-Wave with Hass.io."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -36,3 +36,7 @@ zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
 ```
+
+## {% linkable_title Further reading %}
+
+For more information on using Z-Wave, see the [main documentation](/docs/z-wave/).
