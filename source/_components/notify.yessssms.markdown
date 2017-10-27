@@ -13,7 +13,7 @@ ha_release: 0.57
 ---
 
 The `yessssms` platform is using the Austrian mobile operator
- [Yesss.at](https://yesss.at) to send SMS via it's web-site.
+ [Yesss.at](https://yesss.at) to send SMS via its web-site.
 
 <p class='note warning'>
 Regular charges apply and a contract or prepaid plan is needed.
