@@ -19,11 +19,11 @@ To enable this sensor, you first have to set up [gc100](/components/gc100/), and
 binary_sensor:
   - platform: gc100
     ports:
-      '3:1': Doorchime
-  
+      - '3:1': Doorchime
+      - '3:2': Garage Obstruction
 ```
 
 Configuration variables:
 
-- **ports** (*Required*): A list of module-address to name mappings in the format 'x:y': name, where x is module #, y is address 
+- **ports** (*Required*): A list of module-address to name mappings in the format 'x:y': name, where x is module #, y is address.
 
