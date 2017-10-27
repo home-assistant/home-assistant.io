@@ -71,10 +71,11 @@ camera:
 
 Configuration variables:
 
+- **name** (*Required*): a human-friendly name for the camera
 - **host** (*Required*): the IP address or hostname of the camera
 - **password** (*Required*): the password to the FTP server on the camera (from above)
+- **path** (*Optional*): the path to the raw MP4 files (default: `/tmp/sd/record`)
 - **username** (*Optional*): the user that can access the FTP server (default: `root`)
-- **name** (*Optional*): a human-friendly name for the camera
 - **ffmpeg_arguments** (*Optional*): extra options to pass to `ffmpeg` (e.g. image quality or video filter options)
 
 ## {% linkable_title Image quality %}
