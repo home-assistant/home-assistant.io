@@ -445,7 +445,7 @@ To set a cron job to run the script at regular intervals:
  * Change to your Home Assistant user (command similar to):
  
 ```bash
-$ su - s /bin/bash hass
+$ sudo su -s /bin/bash hass
 ```
  
  * Open the crontab:
