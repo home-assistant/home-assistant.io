@@ -104,7 +104,7 @@ device_config:
 
 ### {% linkable_title Finding the controller path on Linux %}
 
-<p class='note'
+<p class='note'>
 If you're using Hass.io please follow [these setup instructions](/hassio/zwave/) for finding the controller path.
 </p>
 
