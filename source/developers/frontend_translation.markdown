@@ -25,7 +25,7 @@ translations/zh-Hans-SG.json
 
 Language subtags will inherit from their parent, so `en-US.json` should only contain the entries that will be different from `en.json`. All language tags inherit from `en.json` as master translation and fallback for incomplete translations.
 
-Language tags follow [BCP47](https://tools.ietf.org/html/bcp47). In most cases you only need the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and eventually also the [country code](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements). Also include the native language name (has to start with capital letter) in the file.
+Language tags follow [BCP47](https://tools.ietf.org/html/bcp47). In most cases you only need the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and eventually also the [country code](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements). Also add language tag, native language name (has to start with capital letter) and country code (if used) inside the file.
 
 Example for French (`fr.json`):
 ```
@@ -60,4 +60,5 @@ In the following PR is used for pull request at GitHub.
 #### {% linkable_title Rules for translating %}
 1. Don't discuss in already merged PRs if a translated phrase is appropriate or not. Instead open an [issue](https://github.com/home-assistant/home-assistant-polymer/issues) or new PR for discussion or improvements.
 2. Don't submit incomplete translations (also don't include untranslated or unchanged phrases) or add phrases that don't exist in `en.json`.
-3. Translated phrases have to start with capital letter. (Currently there is no conclusion if every word in a non-sentence has to start with capital letter)
+3. Use the text in value for your translation - not the key. Example: For `"states": "Overview"` translatable `Overview`.
+4. Translated phrases have to start with capital letter. (Currently there is no conclusion if every word in a non-sentence has to start with capital letter)
