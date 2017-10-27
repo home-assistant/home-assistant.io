@@ -42,7 +42,7 @@ $ sudo usermod -G dialout -a homeassistant
 
 ### {% linkable_title Step 2: Create a directory for Home Assistant %}
 
-This can be anywhere you want. As example we put it in `/srv`. You also need to change the ownership of the directory to the user you created above (if you created one).
+This can be anywhere you want.  We chose to put it in `/srv`. You also need to change the ownership of the directory to the user you created above (if you created one).
 
 ```bash
 $ sudo mkdir /srv/homeassistant
