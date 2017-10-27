@@ -127,3 +127,10 @@ Because the log can scroll quite quickly, you can select to view only the error 
 ```bash
 $ sudo journalctl -f -u home-assistant@[your user] | grep -i 'error'
 ```
+
+When working on Home Assitant, you can easily restart the system and then watch the log output by combining the above commands using `&&`
+
+```bash
+$ sudo systemctl restart home-assistant@[your user] && sudo journalctl -f -u home-assistant@[your user]
+```
+
