@@ -60,5 +60,5 @@ In the following PR is used for pull request at GitHub.
 #### {% linkable_title Rules for translating %}
 1. Don't discuss in already merged PRs if a translated phrase is appropriate or not. Instead open an [issue](https://github.com/home-assistant/home-assistant-polymer/issues) or new PR for discussion or improvements.
 2. Don't submit incomplete translations (also don't include untranslated or unchanged phrases) or add phrases that don't exist in `en.json`.
-3. Use the text in value for your translation - not the key. Example: For `"states": "Overview"` translatable `Overview`.
+3. Use the text in value for your translation - not the key. Example: For `"states": "Overview"` translate `Overview`.
 4. Translated phrases have to start with capital letter. (Currently there is no conclusion if every word in a non-sentence has to start with capital letter)
