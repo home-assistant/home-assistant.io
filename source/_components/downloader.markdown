@@ -40,4 +40,5 @@ This will download the file from the given URL.
 | ---------------------- | -------- | ---------------------------------------------- |
 | `url`                  |       no | The url of the file to download.               |
 | `subdir`               |      yes | Download into subdirectory of **download_dir** |
+| `filename`             |      yes | Determine the filename.                        |
 
