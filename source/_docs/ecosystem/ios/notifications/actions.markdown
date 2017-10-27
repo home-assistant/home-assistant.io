@@ -44,16 +44,16 @@ When sending a notification:
 </p>
 
 ## {% linkable_title Definitions %}
-- Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions. A categories parameters include:
-- Action - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports. An actions parameters include:
+- Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
+- Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
 
 ## {% linkable_title Category parameters %}
 
 - **name** (*Required*): A friendly name for this category.
 - **identifier** (*Required*): A unique identifier for the category. Must be lowercase and have no special characters or spaces.
-- **action** (*Required*): A list of actions.
+- **actions** (*Required*): A list of actions.
 
-## {% linkable_title Action parameters %}
+## {% linkable_title Actions parameters %}
 
 - **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
 - **title** (*Required*): The text to display on the button. Keep it short.
