@@ -26,7 +26,7 @@ sensor:
 - platform: nederlandse_spoorwegen
     email: you@example.com
     password: !secret ns_password
-    departures:
+    routes:
       - name: Rotterdam-Amsterdam
         from: Rtd
         to: Asd
@@ -40,8 +40,8 @@ Configuration variables:
 
 - **email** (*Required*): The email address you used to request the API password.
 - **password** (*Required*): The API password provided by the Nederlandse Spoorwegen.
-- **departures** array (*Required*): List of travelling routes.
-  - **name** (*Optional*): Name of the route.
+- **routes** array (*Required*): List of travelling routes.
+  - **name** (*Required*): Name of the route.
   - **from** (*Required*): The start station.
   - **to** (*Required*): Direction of the travelling.
   - **via** (*Optional*): Optional other station you wish to visit in between.
