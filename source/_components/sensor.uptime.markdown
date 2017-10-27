@@ -22,6 +22,9 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: uptime
+    #Optional configuration variables
+    name: Time Online
+    unit_of_measurement: hours
 ```
 
 Configuration variables:
