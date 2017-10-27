@@ -106,16 +106,16 @@
 </p>
 <h2><a class="title-link" name="definitions" href="#definitions"></a> Definitions</h2>
 <ul>
-  <li>Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions. A categories parameters include:</li>
-  <li>Action - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports. An actions parameters include:</li>
+  <li>Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.</li>
+  <li>Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.</li>
 </ul>
 <h2><a class="title-link" name="category-parameters" href="#category-parameters"></a> Category parameters</h2>
 <ul>
   <li><strong>name</strong> (<em>Required</em>): A friendly name for this category.</li>
   <li><strong>identifier</strong> (<em>Required</em>): A unique identifier for the category. Must be lowercase and have no special characters or spaces.</li>
-  <li><strong>action</strong> (<em>Required</em>): A list of actions.</li>
+  <li><strong>actions</strong> (<em>Required</em>): A list of actions.</li>
 </ul>
-<h2><a class="title-link" name="action-parameters" href="#action-parameters"></a> Action parameters</h2>
+<h2><a class="title-link" name="actions-parameters" href="#actions-parameters"></a> Actions parameters</h2>
 <ul>
   <li><strong>identifier</strong> (<em>Required</em>): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.</li>
   <li><strong>title</strong> (<em>Required</em>): The text to display on the button. Keep it short.</li>

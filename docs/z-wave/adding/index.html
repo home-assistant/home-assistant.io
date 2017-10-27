@@ -75,18 +75,19 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>To add (include) a Z-Wave <a href="/docs/z-wave/devices/">device</a> to your system, go to the <a href="/docs/z-wave/control-panel/">Z-Wave control panel</a> in the Home Assistant frontend and click the <strong>Add Node</strong> button in the <em>Z-Wave Network Management</em> card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device.</p>
-<p class="warning">
+  <h2><a class="title-link" name="adding-non-secure-devices" href="#adding-non-secure-devices"></a> Adding Non-Secure Devices</h2>
+<p>To add (include) a non-secure Z-Wave <a href="/docs/z-wave/devices/">device</a> to your system, go to the <a href="/docs/z-wave/control-panel/">Z-Wave control panel</a> in the Home Assistant frontend and click the <strong>Add Node</strong> button in the <em>Z-Wave Network Management</em> card. This will place the controller in inclusion mode, after which you should activate your device to be included by following the instructions provided with the device. Don’t use this for secure devices, since this is likely to limit the features the device supports.</p>
+<p class="note warning">
 Don’t use the OpenZWave control panel (OZWCP), or the physical button on a controller, to add or remove devices. Many devices will only send the information about their capabilities at the time you include them. If you use the OpenZWave control panel, or the button on a device, then Home Assistant won’t have that information. Using the physical button on a controller will also result in a non-security inclusion being performed, which may limit the features the device supports.
 </p>
 <p>When you add a device, it may initially appear without a specific entity ID (eg <code class="highlighter-rouge">zwave.__</code>) and without other identifying information. Running a <em>Heal</em> should help speed this process up, and you’ll need to run a <em>Heal</em> anyway so that all the devices in your Z-Wave network learn about the new device. You <em>might</em> need to restart Home Assistant (not reboot the system) to have the entity ID fully visible.</p>
-<h2><a class="title-link" name="adding-security-devices" href="#adding-security-devices"></a> Adding Security Devices</h2>
-<p>Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices. Some devices only expose their full capabilities when included this way, you should always read the manual for your device to find out the recommended inclusion method.</p>
+<h2><a class="title-link" name="adding-secure-devices" href="#adding-secure-devices"></a> Adding Secure Devices</h2>
+<p>Security Z-Wave devices require a network key before being added to the network using the <strong>Add Secure Node</strong> button in the Z-Wave Network Management card. You must set the <em>network_key</em> configuration variable to use a network key before adding these devices. Some devices only expose their full capabilities when included this way, you should always read the manual for your device to find out the recommended inclusion method.</p>
 <p>An easy script to generate a random key:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat /dev/urandom | tr -dc <span class="s1">'0-9A-F'</span> | fold -w 32 | head -n 1 | sed -e <span class="s1">'s/\(..\)/0x\1, /g'</span> -e <span class="s1">'s/, $//'</span>
 </code></pre>
 </div>
-<p class="warning">
+<p class="note warning">
 Ensure you keep a backup of this key. If you have to rebuild your system and don’t have a backup of this key, you won’t be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 </p>
 <h2><a class="title-link" name="removing-devices" href="#removing-devices"></a> Removing Devices</h2>
