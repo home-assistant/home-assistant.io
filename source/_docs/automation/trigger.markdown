@@ -56,7 +56,7 @@ automation:
 ```
 
 ### {% linkable_title Numeric state trigger %}
-On state change of a specified entity, attempts to parse the state as a number and triggers if value is above and/or below a threshold.
+On state change of a specified entity, attempts to parse the state as a number and triggers once if value is changing from above to below a threshold, or from below to above the given threshold.
 
 ```yaml
 automation:
@@ -68,7 +68,18 @@ automation:
     # At least one of the following required
     above: 17
     below: 25
+
+    # If given, will trigger when condition has been for X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
 ```
+
+<p class='note'>
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+</p>
 
 ### {% linkable_title State trigger %}
 
@@ -93,9 +104,6 @@ automation:
 
 <p class='note warning'>
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
-</p>
-<p class='note warning'>
-  Using `state` as an alias for `to` is deprecated.
 </p>
 
 ### {% linkable_title Sun trigger %}
@@ -189,7 +197,7 @@ automation:
 
 ### {% linkable_title Multiple triggers %}
 
-When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the lines following accordingly. Whenever one of the triggers fires, your rule is executed.
+When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.
 
 ```yaml
 automation:

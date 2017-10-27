@@ -117,7 +117,7 @@ We are working on a better solution for 0.35.
  - Fix InfluxDB without authentication ([@balloob])
  - Fix Kodi without authentication ([@balloob])
  - Fix incorrect caching of /api/error_log ([@armills])
- - Fix incorrect ordering of service calls which could cause delays inbetween turning on multiple entities ([@balloob])
+ - Fix incorrect ordering of service calls which could cause delays between turning on multiple entities ([@balloob])
  - Fix Nest Climate temperature issues ([@technicalpickles])
 
 ### {% linkable_title Release 0.34.5 - December 12 %}

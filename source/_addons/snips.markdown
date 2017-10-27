@@ -17,7 +17,7 @@ Now install and activate the [Samba] add-on so you can upload your training data
 
 Now it's time to start Snips for the first time. When the Snips add-on starts, it will output your audio devices:
 
-```plain
+```text
 **** List of PLAYBACK Hardware Devices ****
 card 0: ALSA [bcm2835 ALSA], device 0: bcm2835 ALSA [bcm2835 ALSA]
   Subdevices: 8/8
@@ -34,9 +34,11 @@ card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 ALSA [bcm2835 IEC958/HDMI]
   Subdevice #0: subdevice #0
 ```
 
-You need to use this information to configure the `mic` and `speaker` configuration options. The format is `<card #>,<device #>`. On a Raspberry Pi 3, `0,0` is the built-in headset port, `0,1` is the HDMI port.
+You need to use this information to point the add-on at the right speakers and microphone. The information describes different cards and devices. On a Raspberry Pi 3, card 0 - device 0 is the built-in headset port, card 0 - device 1 is the HDMI port. In the example above, the USB microphone showed up as card 1 - device 0.
 
-Now that you've found the microphone and speaker addresses, it's time to configure Snips and restart the add-on.
+Find the microphone and speakers that you want to use and note down their device and card number. We will need that to configure the add-on options `mic` (microphone to use) and `speaker` (speaker to use). The format for these options is `<card #>,<device #>`. Change the configuration options and click save.
+
+Now start the add-on.
 
 ### Add-On configuration
 

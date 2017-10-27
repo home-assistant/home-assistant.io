@@ -14,11 +14,11 @@ ha_iot_class: depends
 
 The `mqtt` light platform lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the switch will be false/off.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
-When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from device (message from `state_topic`).
+When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
 
-Optimistic mode can be forced, even if state topic is available. Try to enable it, if experiencing incorrect light operation.
+Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
 ```yaml
 # Example configuration.yml entry
@@ -47,6 +47,7 @@ Configuration variables:
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
 - **qos** (*Optional*): The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
 - **retain** (*Optional*): If the published message should have the retain flag on or not.
+- **rgb_command_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`.
 - **rgb_command_topic** (*Optional*): The MQTT topic to publish commands to change the light's RGB state.
 - **rgb_state_topic** (*Optional*): The MQTT topic subscribed to receive RGB state updates.
 - **rgb_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value.
@@ -60,7 +61,7 @@ Configuration variables:
 - **xy_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the XY value.
 
 <p class='note warning'>
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+  Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
 <p class='note warning'>
@@ -82,7 +83,7 @@ Configuration variables:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you will find some real life examples of how to use this sensor.
 
 ### {% linkable_title Brightness and RGB support %}
 

@@ -12,6 +12,8 @@ redirect_from: /getting-started/browsers/
 
 Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works.
 
+If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extenstion are known to cause issue with the frontend, but it's not possible to test them all. If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time.
+
 We would appreciate if you help to keep this page up-to-date and add feedback.
 
 ## {% linkable_title Microsoft Windows %}
@@ -20,8 +22,8 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | :------------------------ |:---------------|:-----------|:-------------------------|
 | Internet Explorer ([IE])  | 11             | Not supported | Does not support promises. |
 | Microsoft [Edge]          | deli. Win 10   | works | Streaming updates not working. |
-| [Chrome]                  | 50.0.2661.102  | works      |                          |
-| [Firefox]                 | 43.0.1         | works      |                          |
+| [Chrome]                  | 61.0.3163.100  | works      |                          |
+| [Firefox]                 | 56.0           | works      |                          |
 | [Iridium]                 | 48.2           | works      |                          |
 | [Opera]                   | 42.0.2393.351  | works      |                          |
 
@@ -29,15 +31,15 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      |                          |
+| [Safari]              |                | works      | Map is fixed since 0.51. |
 
 ## {% linkable_title Linux %}
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Firefox]             | 49.0           | works      |                          |
+| [Firefox]             | 55.0           | works      |                          |
 | [Midori]              | 0.5.11         | works      |                          |
-| [Chromium]            | 53.0.2785.143  | works      |                          |
+| [Chromium]            | 60.0.3112.90   | works      |                          |
 | [Conkeror]            | 1.0.2          | works      |                          |
 | [Konqueror]           |                | unknown    |                          |
 | [Uzbl]                | 0.9.0          | works      |                          |
@@ -60,9 +62,10 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Can also be added to desktop |
+| [Safari]              |                | works      | Can also be added to desktop. Map is fixed since 0.51. |
 | [Chrome]              |                | works      |                          |
 
+There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble.
 
 [Firefox]: https://www.mozilla.org/en-US/firefox/
 [Midori]: http://midori-browser.org/

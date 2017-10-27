@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "Other"
+ha_category: "Utility"
 ---
 
 The logger component lets you define the level of logging activities in Home Assistant.
@@ -68,8 +68,16 @@ data:
   homeassistant.components.media_player.yamaha: debug
 ```
 
-The log information are stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamically with `tail -f`. If you are a Hassbian user you can use the example below:
+The log information are stored in the [configuration directory](/docs/configuration/) as `home-assistant.log` and you can read it with the command-line tool `cat` or follow it dynamically with `tail -f`. 
+
+If you are a Hassbian user you can use the example below:
 
 ```bash
 $ tail -f /home/homeassistant/.homeassistant/home-assistant.log
+```
+
+If you are a Hass.io user you can use the example below, whenlogged in through the ssh addon:
+
+```bash
+$ tail -f /config/home-assistant.log
 ```

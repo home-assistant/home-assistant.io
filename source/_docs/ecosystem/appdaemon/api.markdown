@@ -495,7 +495,7 @@ Note: `old` and `new` can be used singly or together.
 
 ##### {% linkable_title duration =  <seconds> (optional) %}
 
-If duration is supplied as a parameter, the callback will not fire unless the state listened for is maintained for that number of seconds. This makes the most sense if a specific attribute is specified (or the default os `state` is used), an in conjunction with the `old` or `new` parameters, or both. When the callback is called, it is supplied with the values of `entity`, `attr`, `old` and `new` that were current at the time the actual event occured, since the assumption is that none of them have changed in the intervening period.
+If duration is supplied as a parameter, the callback will not fire unless the state listened for is maintained for that number of seconds. This makes the most sense if a specific attribute is specified (or the default os `state` is used), an in conjunction with the `old` or `new` parameters, or both. When the callback is called, it is supplied with the values of `entity`, `attr`, `old` and `new` that were current at the time the actual event occurred, since the assumption is that none of them have changed in the intervening period.
 
 ```python
   def my_callback(self, **kwargs):
@@ -643,7 +643,7 @@ Delay, in seconds before the callback is invoked.
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -677,7 +677,7 @@ A Python `time` object that specifies when the callback will occur. If the time 
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -715,7 +715,7 @@ A Python `datetime` object that specifies when the callback will occur.
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -754,7 +754,7 @@ A Python `time` object that specifies when the callback will occur. If the time 
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -792,7 +792,7 @@ A Python `time` object that specifies when the callback will occur, the hour com
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -829,7 +829,7 @@ A Python `time` object that specifies when the callback will occur, the hour and
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -871,7 +871,7 @@ After the initial callback has occurred, another will occur every `repeat` secon
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -944,7 +944,7 @@ All of the scheduler calls above support 2 additional optional arguments, `rando
 - `random_start` - start of range of the random time
 - `random_end` - end of range of the random time 
 
-`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on whcih scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
+`random_start` must always be numerically lower than `random_end`, they can be negative to denote a random offset before and event, or positive to denote a random offset after an event. The event would be a an absolute or relative time or sunrise/sunset depending on which scheduler call you use and these values affect the base time by the spcified amount. If not specified, they will default to `0`.
 
 For example:
 
@@ -987,7 +987,7 @@ The time in seconds that the callback should be delayed after sunrise. A negativ
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -1030,7 +1030,7 @@ The time in seconds that the callback should be delayed after sunrise. A negativ
 
 ##### {% linkable_title \*\*kwargs %}
 
-Arbitary keyword parameters to be provided to the callback function when it is invoked.
+Arbitrary keyword parameters to be provided to the callback function when it is invoked.
 
 #### {% linkable_title Examples %}
 
@@ -1257,7 +1257,7 @@ self.toggle("light.office_1", color_name = "green")
 
 ### {% linkable_title select_value() %}
 
-This is a convenience function for the `input_slider.select_value` function. It is able to set the value of an input_slider in Home Assistant.
+This is a convenience function for the `input_number.select_value` function. It is able to set the value of an input_number in Home Assistant.
 
 #### {% linkable_title Synopsis %}
 
@@ -1273,16 +1273,16 @@ None
 
 ##### {% linkable_title entity_id %}
 
-Fully qualified entity_id of the input_slider to be changed, e.g. `input_slider.alarm_hour`.
+Fully qualified entity_id of the input_number to be changed, e.g. `input_number.alarm_hour`.
 
 ##### {% linkable_title value %}
 
-The new value to set the input slider to.
+The new value to set the input number to.
 
 #### {% linkable_title Examples %}
 
 ```python
-self.select_value("input_slider.alarm_hour", 6)
+self.select_value("input_number.alarm_hour", 6)
 ```
 
 ### {% linkable_title select_option() %}
@@ -1307,7 +1307,7 @@ Fully qualified entity_id of the input_select to be changed, e.g. `input_select.
 
 ##### {% linkable_title value %}
 
-The new value to set the input slider to.
+The new value to set the input number to.
 
 #### {% linkable_title Examples %}
 
@@ -1552,7 +1552,7 @@ The custom event `MODE_CHANGE` would be subscribed to with:
 self.listen_event(self.mode_event, "MODE_CHANGE")
 ```
 
-Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it's automation component. This can be used to signal from AppDaemon code back to home assistant. Here is a sample automation:
+Home Assistant can send these events in a variety of other places - within automations, and also directly from Alexa intents. Home Assistant can also listen for custom events with it's automation component. This can be used to signal from AppDaemon code back to Home Assistant. Here is a sample automation:
 
 ```yaml
 automation:

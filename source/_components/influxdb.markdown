@@ -36,6 +36,8 @@ Configuration variables:
 - **verify_ssl** (*Optional*): Verify SSL certificate for https request. Defaults to false.
 - **default_measurement** (*Optional*): Measurement name to use when an entity doesn't have a unit. Defaults to entity id.
 - **override_measurement** (*Optional*): Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+- **component_config**, **component_config_domain**, **component_config_glob** (*Optional*): These attributes contains component-specific override values. See [Customizing devices and services](https://home-assistant.io/getting-started/customizing-devices/) for format.
+  - **override_measurement** (*Optional*): Measurement name to use for this component, takes precedence over the global 'override_measurement' and component-specific 'unit_of_measurement' attribute.
 - **exclude** (*Optional*): Configure which components should be excluded from recording to InfluxDB.
   - **entities** (*Optional*): The list of entity ids to be excluded from recording to InfluxDB.
   - **domains** (*Optional*): The list of domains to be excluded from recording to InfluxDB.
@@ -43,6 +45,7 @@ Configuration variables:
   - **entities** (*Optional*): The list of entity ids to be included from recordings to InfluxDB.
   - **domains** (*Optional*): The list of domains to be included from recordings to InfluxDB.
 - **tags** (*Optional*): Tags to mark the data.
+- **tags_attributes** (*Optional*): The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
 
 ## {% linkable_title Data migration %}
 
@@ -106,10 +109,10 @@ optional arguments:
 
 If you want to import all the recorded data from your recorder database you can use the data import script.
 It will read all your state_change events from the database and add them as data-points to the InfluxDB.
-You can specify the source database either by pointing the `--config` option to the config directory which includes the default sqlite database or by giving a sqlalchemy connection URI with `--uri`.
+You can specify the source database either by pointing the `--config` option to the config directory which includes the default SQLite database or by giving a sqlalchemy connection URI with `--uri`.
 The writing to InfluxDB is done in batches that can be changed with `--step`.
 
-You can control, which data is imported by using the commandline options `--exclude_entities` and `--exclude_domains`.
+You can control, which data is imported by using the command line options `--exclude_entities` and `--exclude_domains`.
 Both get a comma separated list of either entity-ids or domain names that are excluded from the import.
 
 To test what gets imported you can use the `--simulate` option, which disables the actual write to the InfluxDB instance.

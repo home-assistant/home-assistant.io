@@ -36,7 +36,7 @@ If you update the requirements of a component/platform through the `REQUIREMENTS
 $ script/gen_requirements_all.py 
 ```
 
-Start a test run of Home Assistant if that was successful include all files in a Pull Request. Add a short summary of the changes, a sample configuration entry, details about the tests, and other useful information to the description.
+Start a test run of Home Assistant. If that was successful, include all files in a Pull Request. Add a short summary of the changes, a sample configuration entry, details about the tests you performed to ensure the update works, and other useful information to the description.
 
 
 

@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 
 The `plex` platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item.
 
-## Setup
+## {% linkable_title Setup %}
 
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server.
 
@@ -28,6 +28,8 @@ If your Plex server has local authentication enabled or multiple users defined, 
 </p>
 
 If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
+
+If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/plex-token.png' />
@@ -44,15 +46,19 @@ media_player:
 In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `~/.homeassistant/plex.conf` manually.
 
 ```json
-{"IP_ADDRESS:PORT": {"token": "TOKEN"}}
+{"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
 ```
 
-- **IP_ADDRESS** (*Required*): IP address of the Plex Media Server
-- **PORT** (*Required*): Port where Plex is listening. Default is 32400
+- **IP_ADDRESS** (*Required*): IP address of the Plex Media Server.
+- **PORT** (*Required*): Port where Plex is listening. Default is 32400.
 - **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
+- **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `False` if not present.
+- **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `False`. Defaults to `True` if not present.
 
-## Customization
+## {% linkable_title Customization %}
+
 You can customize the Plex component by adding any of the variables below to your configuration:
+
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -120,7 +126,8 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Plex Web                         | None                                                                                                                                                            |
 | Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
-### Notes
+### {% linkable_title Notes %}
+
 * At this moment, the Plex platform only supports one Plex Media Server.
 * It is possible to get errors that look like the following.
 
@@ -129,4 +136,4 @@ Plays a song, playlist, TV episode, or video on a connected client.
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```
 
-  If this occurs, try changing the setting `Secure connections` in your Plex Media Server to `Preferred` (instead of `Required`). The Plex component does not currently support HTTPS.
+  If this occurs, check the setting `Server`>`Network`>`Secure connections` in your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
