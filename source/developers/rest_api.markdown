@@ -111,8 +111,6 @@ Returns the current configuration as JSON.
       "/home/ha/.homeassistant/"
    ]
 }
-
-
 ```
 
 Sample `curl` command:
