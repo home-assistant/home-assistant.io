@@ -19,6 +19,11 @@ The `yessssms` platform is using the Austrian mobile operator
 Regular charges apply and a contract or prepaid plan is needed.
 </p>
 
+<p class='note warning'>
+Do not use this for high frequency notifications. The web-SMS page is rate
+limited and sending more than 45 SMS/h might get you blocked.
+</p>
+
 You can send to any number, but your phone number will appear as sender.
 
 To enable SMS notifications in your installation, add the following to your `configuration.yaml` file:
@@ -40,5 +45,7 @@ Configuration variables:
 - **recipient** (*Required*): This is the phone number you want to send the SMS notification to.
 
 <p class='note warning'>
-Verify that your credentials work on [Yesss.at's website](https://yesss.at)
+Verify that your credentials work on [Yesss.at's website](https://yesss.at).
+Using the wrong credentials three times in a row will get you blocked for
+one hour.
 </p>
