@@ -55,6 +55,7 @@ Currently known supported models:
 - U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - K6500AF (port must be set to 8001)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- KS7502 (port must be set to 8001, and `pip3 install websocket-client` must be executed, turn on doesn't work, turn off works fine)
 - K5600AK (partially supported, turn on works but state is not updated)
 
 Currently tested but not working models:
