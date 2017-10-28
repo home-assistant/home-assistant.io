@@ -8,7 +8,7 @@ author: Fabian Affolter
 author_twitter: fabaff
 comments: true
 categories: How-To
-og_image: /images/blog/2017-10-interactive-demo/demo.png
+og_image: /images/blog/2017-10-interactive-demo/demo-random.png
 ---
 
 If you are planning to host a Home Assistant meetup or doing a talk then you propably want to show Home Assistant to an audience. You could use a Wireless router, bulbs, switches and a single board computer to do a realistic demo. For a workshop this is what I usually do because I think that working with physical hardware is more fun for the participants. The issue is that you need time to setup, power and space. For a talk or in a location where you only have a beamer and a table or a lectern the physical hardware approach is not very convenient.
