@@ -24,6 +24,8 @@ google_assistant:
   project_id: someproject-2d0b8
   client_id: [long URL safe random string]
   access_token: [a different long URL safe random string]
+  agent_user_id: [a string to identify user]
+  homegraph_api_key: [An API Key for Google Homegraph]
   exposed_domains:
     - switch
     - light
@@ -39,6 +41,8 @@ google_assistant:
 * *project_id* (Required): Project ID from the Google Developer console (looks like `words-2ab12`)
 * *client_id* (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
 * *access_token* (Required): Another different long random URL safe string.
+* *agent_user_id* (Optional): A string to identify the user for e.g. email address. If not provided, the component will generate one.
+* *homegraph_api_key* (Optional): An API Key generated for Homegraph API from Google Console. See setup below. If not provided then the request_sync service is not exposed
 * *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant.
 
 You can also customize your devices similar to other components by adding keys to entities:
@@ -107,3 +111,8 @@ homeassistant:
 	2. Under the gear icon, click `Permissions`
 	3. Click `Add`, type the new user's e-mail address and choose `Project -> Editor` role
 	4. Have the new user go to [developer console](https://console.actions.google.com/) and repeat steps starting from point 7.
+11. If you want to use the request_sync service in Home Assistant, then Enable Homegraph API for your project:
+	1. Go to https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview
+	2. Select your project and click Enable Homegraph API
+	3. Go to Credentials and select API Key from Create Credentials
+	4. Note down the generated API Key and use this in the configuration
