@@ -76,103 +76,90 @@
   <hr class="divider">
   <h1>Google Assistant Docs</h1>
 <p>The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.</p>
-<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">google_assistant</span><span class="pi">:</span>
-  <span class="s">project_id</span><span class="pi">:</span> <span class="s">someproject-2d0b8</span>
-  <span class="s">client_id</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">long URL safe random string</span><span class="pi">]</span>
-  <span class="s">access_token</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">a different long URL safe random string</span><span class="pi">]</span>
-  <span class="s">exposed_domains</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">switch</span>
-    <span class="pi">-</span> <span class="s">light</span>
-    <span class="pi">-</span> <span class="s">group</span>
-</code></pre>
-</div>
-<p><em>Note:</em> It’s very important that you use very long strings for <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">access_token</code>. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:</p>
-<p><code class="highlighter-rouge">cat /dev/urandom|fold -w 120|head -n 1|base64 -w 0|tr -dc '0-9A-Za-z'|cut -c -80</code></p>
-<p><em>Configuration Variables:</em></p>
-<ul>
-  <li><em>expose_by_default</em> (Optional): Expose devices in all supported domains by default.</li>
-  <li><em>project_id</em> (Required): Project ID from the Google Developer console (looks like <code class="highlighter-rouge">words-2ab12</code>)</li>
-  <li><em>client_id</em> (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.</li>
-  <li><em>access_token</em> (Required): Another different long random URL safe string.</li>
-  <li><em>exposed_domains</em> (Optional): An array of Home Assistant domains to expose to Google Assistant.</li>
-</ul>
-<p>You can also customize your devices similar to other components by adding keys to entities:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
-  <span class="s">customize</span><span class="pi">:</span>
-    <span class="s">master_bedroom_light</span><span class="pi">:</span>
-      <span class="s">google_assistant</span><span class="pi">:</span> <span class="s">true</span>
-      <span class="s">google_assistant_name</span><span class="pi">:</span> <span class="s">bedroom light</span>
-    <span class="s">bedroom_blinds</span><span class="pi">:</span>
-      <span class="s">aliases</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="s">bedroom shades</span>
-        <span class="pi">-</span> <span class="s">bedroom covers</span>
-</code></pre>
-</div>
-<p><em>Entity Customization Keys:</em></p>
-<ul>
-  <li><em>google_assistant</em>: True exposes entity, false will hide it</li>
-  <li><em>google_assistant_name</em>: Can be used to override the primary name of an entity. By default the <code class="highlighter-rouge">friendly_name</code> of an entity is used.</li>
-  <li><em>aliases</em>: Provides “nicknames” to Google Assistant. These function as alternate names for an entity that Assistant will understand when spoken.</li>
-</ul>
-<h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
-<ol>
-  <li>Install the <a href="https://developers.google.com/actions/tools/gactions-cli">gactions CLI</a> (you’ll use this later) - you can download this anywhere, just remember where you put it for later (and don’t forget to run <code class="highlighter-rouge">chmod +x gactions</code>)</li>
-  <li>Create a new file named <code class="highlighter-rouge">project.json</code> (in the same directory you downloaded <code class="highlighter-rouge">gactions</code> to) and replace the <code class="highlighter-rouge">[YOUR HOME ASSISTANT URL]</code> below with the URL you use to access Home Assistant.
-Note: This must be an HTTPS URL to work.</li>
-</ol>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actions.devices"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"deviceControl"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"fulfillment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"conversationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automation"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}],</span><span class="w">
-  </span><span class="nt">"conversations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"automation"</span><span class="w"> </span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automation"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://[YOUR HOME ASSISTANT URL]/api/google_assistant"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-<ol>
-  <li>Create a new project in the <a href="https://console.actions.google.com/">developer console</a>.
-    <ol>
-      <li>Add/Import project</li>
-      <li>Go to Build under the Actions SDK box</li>
-      <li>Copy the command that looks like:
- <code class="highlighter-rouge">gactions update --action_package PACKAGE_NAME --project doctest-2d0b8</code></li>
-    </ol>
-  </li>
-  <li>Replace <code class="highlighter-rouge">PACKAGE_NAME</code> with <code class="highlighter-rouge">project.json</code> and run that command from the same directory you saved <code class="highlighter-rouge">project.json</code> in (you’ll need to put <code class="highlighter-rouge">./</code> before <code class="highlighter-rouge">gactions</code> so that it reads <code class="highlighter-rouge">./gactions</code>). It should output a URL like <code class="highlighter-rouge">https://console.actions.google.com/project/doctest-2d0b8/overview</code> - go there.</li>
-  <li>You’ll need to fill out most of the information on that page, but none of it really matters since you won’t be addressing the App directly, only through the Smart Home functionality built into Google Assistant.</li>
-  <li>The final item on that page <code class="highlighter-rouge">Account linking</code> is required for your app to interact with Home Assistant.
-    <ol>
-      <li>Grant type: <code class="highlighter-rouge">Implicit</code></li>
-      <li>Client ID: Should be the same as <code class="highlighter-rouge">client_id</code> from your hass config above</li>
-      <li>Authorization URL (replace with your actual URL): <code class="highlighter-rouge">https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth</code></li>
-      <li>Configure your client. Add scopes for <code class="highlighter-rouge">email</code> and <code class="highlighter-rouge">name</code></li>
-      <li>Testing instructions: doesn’t matter since you won’t submit this app</li>
-    </ol>
-  </li>
-  <li>Back on the main app draft page. Click <code class="highlighter-rouge">Test Draft</code>. That will take you to the simulator (which won’t work) so just close that window.</li>
-  <li>Open the Google Assistant app and go into <code class="highlighter-rouge">Settings &gt; Home Control</code></li>
-  <li>Click the <code class="highlighter-rouge">+</code> sign, and near the bottom, you should have <code class="highlighter-rouge">[test] your app name</code>. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.</li>
-  <li>If you want to allow other houshold users to control the devices:
-    <ol>
-      <li>Go to the developer console using address from point 4.</li>
-      <li>Under the gear icon, click <code class="highlighter-rouge">Permissions</code></li>
-      <li>Click <code class="highlighter-rouge">Add</code>, type the new user’s e-mail address and choose <code class="highlighter-rouge">Project -&gt; Editor</code> role</li>
-      <li>Have the new user go to <a href="https://console.actions.google.com/">developer console</a> and repeat steps starting from point 7.</li>
-    </ol>
-  </li>
-</ol>
+<p class="note">
+To use Google Assistant your Home Assistant configuration has to be externally accessible, with a hostname and SSL certificate. If you haven’t already configured that you should do so before continuing.
+&lt;p&gt;
+### <a class="title-link" name="configuration" href="#configuration"></a> Configuration 
+<code class="highlighter-rouge">yaml
+# Example configuration.yaml entry
+google_assistant:
+  project_id: someproject-2d0b8
+  client_id: [long URL safe random string]
+  access_token: [a different long URL safe random string]
+  exposed_domains:
+    - switch
+    - light
+    - group
+</code>
+<em>Note:</em> It’s very important that you use very long strings for <code class="highlighter-rouge">client_id</code> and <code class="highlighter-rouge">access_token</code>. Those are essentially the credentials to your Home Assistant instance. You can generate them with the following command:
+<code class="highlighter-rouge">cat /dev/urandom|fold -w 120|head -n 1|base64 -w 0|tr -dc '0-9A-Za-z'|cut -c -80</code>
+<em>Configuration Variables:</em>
+* <em>expose_by_default</em> (Optional): Expose devices in all supported domains by default.
+* <em>project_id</em> (Required): Project ID from the Google Developer console (looks like <code class="highlighter-rouge">words-2ab12</code>)
+* <em>client_id</em> (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
+* <em>access_token</em> (Required): Another different long random URL safe string.
+* <em>exposed_domains</em> (Optional): An array of Home Assistant domains to expose to Google Assistant.
+You can also customize your devices similar to other components by adding keys to entities:
+<code class="highlighter-rouge">yaml
+homeassistant:
+  customize:
+    master_bedroom_light:
+      google_assistant: true
+      google_assistant_name: bedroom light
+    bedroom_blinds:
+      aliases:
+        - bedroom shades
+        - bedroom covers
+</code>
+<em>Entity Customization Keys:</em>
+* <em>google_assistant</em>: True exposes entity, false will hide it
+* <em>google_assistant_name</em>: Can be used to override the primary name of an entity. By default the <code class="highlighter-rouge">friendly_name</code> of an entity is used.
+* <em>aliases</em>: Provides “nicknames” to Google Assistant. These function as alternate names for an entity that Assistant will understand when spoken.
+### <a class="title-link" name="setup" href="#setup"></a> Setup 
+1. Install the <a href="https://developers.google.com/actions/tools/gactions-cli">gactions CLI</a> (you’ll use this later) - you can download this anywhere, just remember where you put it for later (and don’t forget to run <code class="highlighter-rouge">chmod +x gactions</code>)
+2. Create a new file named <code class="highlighter-rouge">project.json</code> (in the same directory you downloaded <code class="highlighter-rouge">gactions</code> to) and replace the <code class="highlighter-rouge">[YOUR HOME ASSISTANT URL]</code> below with the URL you use to access Home Assistant.
+   Note: This must be an HTTPS URL to work.
+<code class="highlighter-rouge">json
+{
+  "actions": [{
+    "name": "actions.devices",
+    "deviceControl": {
+    },
+    "fulfillment": {
+      "conversationName": "automation"
+    }
+  }],
+  "conversations": {
+    "automation" :
+    {
+      "name": "automation",
+      "url": "https://[YOUR HOME ASSISTANT URL]/api/google_assistant"
+    }
+  }
+}
+</code>
+3. Create a new project in the <a href="https://console.actions.google.com/">developer console</a>.
+	1. Add/Import project
+	2. Go to Build under the Actions SDK box
+	3. Copy the command that looks like:
+	<code class="highlighter-rouge">gactions update --action_package PACKAGE_NAME --project doctest-2d0b8</code>
+4. Replace <code class="highlighter-rouge">PACKAGE_NAME</code> with <code class="highlighter-rouge">project.json</code> and run that command from the same directory you saved <code class="highlighter-rouge">project.json</code> in (you’ll need to put <code class="highlighter-rouge">./</code> before <code class="highlighter-rouge">gactions</code> so that it reads <code class="highlighter-rouge">./gactions</code>). It should output a URL like <code class="highlighter-rouge">https://console.actions.google.com/project/doctest-2d0b8/overview</code> - go there.
+5. You’ll need to fill out most of the information on that page, but none of it really matters since you won’t be addressing the App directly, only through the Smart Home functionality built into Google Assistant.
+6. The final item on that page <code class="highlighter-rouge">Account linking</code> is required for your app to interact with Home Assistant.
+	1. Grant type: <code class="highlighter-rouge">Implicit</code>
+	2. Client ID: Should be the same as <code class="highlighter-rouge">client_id</code> from your hass config above
+	3. Authorization URL (replace with your actual URL): <code class="highlighter-rouge">https://[YOUR HOME ASSISTANT URL]/api/google_assistant/auth</code>
+	4. Configure your client. Add scopes for <code class="highlighter-rouge">email</code> and <code class="highlighter-rouge">name</code>
+	5. Testing instructions: doesn’t matter since you won’t submit this app
+7. Back on the main app draft page. Click <code class="highlighter-rouge">Test Draft</code>. That will take you to the simulator (which won’t work) so just close that window.
+8. Open the Google Assistant app and go into <code class="highlighter-rouge">Settings &gt; Home Control</code>
+9. Click the <code class="highlighter-rouge">+</code> sign, and near the bottom, you should have <code class="highlighter-rouge">[test] your app name</code>. Selecting that should lead to you the screen where you can set rooms for your devices or nicknames for your devices.
+10. If you want to allow other houshold users to control the devices:
+	1. Go to the developer console using address from point 4.
+	2. Under the gear icon, click <code class="highlighter-rouge">Permissions</code>
+	3. Click <code class="highlighter-rouge">Add</code>, type the new user’s e-mail address and choose <code class="highlighter-rouge">Project -&gt; Editor</code> role
+	4. Have the new user go to <a href="https://console.actions.google.com/">developer console</a> and repeat steps starting from point 7.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
