@@ -75,7 +75,7 @@
   </header>
   <hr class="divider">
   <p>Like it how the lights dim up/down at the movies? Do it at home as well!</p>
-<p>This example uses the <a href="https://home-assistant.io/components/media_player/">media player</a>, <a href="https://home-assistant.io/components/light.hue/">Philips Hue</a> (transitions) and the <a href="https://home-assistant.io/components/sun/">sun</a> component. We’ll use actions to detect media player state changes and scenes to control multiple lights, color settings and transition between scenes.</p>
+<p>This example uses the <a href="https://home-assistant.io/components/media_player/">media player</a>, <a href="https://home-assistant.io/components/light/">lights</a> (transitions) and the <a href="https://home-assistant.io/components/sun/">sun</a> component. We’ll use actions to detect media player state changes and <a href="https://home-assistant.io/components/scene/">scenes</a> to control multiple lights and transition between scenes.</p>
 <h4><a class="title-link" name="scenes" href="#scenes"></a> Scenes</h4>
 <p>One scene for normal light, one for when movies are on. A 2 second transition gives a nice ‘feel’ to the switch.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">scene</span><span class="pi">:</span>
@@ -84,25 +84,21 @@
         <span class="s">light.light1</span><span class="pi">:</span>
             <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
             <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
-            <span class="s">brightness</span><span class="pi">:</span> <span class="s">150</span>
-            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.4448</span><span class="pi">,</span> <span class="nv">0.4066</span> <span class="pi">]</span>
+            <span class="s">brightness_pct</span><span class="pi">:</span> <span class="s">60</span>
         <span class="s">light.light2</span><span class="pi">:</span>
             <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
             <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
-            <span class="s">brightness</span><span class="pi">:</span> <span class="s">215</span>
-            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.4448</span><span class="pi">,</span> <span class="nv">0.4066</span> <span class="pi">]</span>
+            <span class="s">brightness_pct</span><span class="pi">:</span> <span class="s">85</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Livingroom dim</span>
     <span class="s">entities</span><span class="pi">:</span>
         <span class="s">light.light1</span><span class="pi">:</span>
             <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
             <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
-            <span class="s">brightness</span><span class="pi">:</span> <span class="s">75</span>
-            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.5926</span><span class="pi">,</span> <span class="nv">0.3814</span> <span class="pi">]</span>
+            <span class="s">brightness_pct</span><span class="pi">:</span> <span class="s">30</span>
         <span class="s">light.light2</span><span class="pi">:</span>
             <span class="s">state</span><span class="pi">:</span> <span class="s">on</span>
             <span class="s">transition</span><span class="pi">:</span> <span class="s">2</span>
-            <span class="s">brightness</span><span class="pi">:</span> <span class="s">145</span>
-            <span class="s">xy_color</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">0.5529</span><span class="pi">,</span> <span class="nv">0.4107</span> <span class="pi">]</span>
+            <span class="s">brightness_pct</span><span class="pi">:</span> <span class="s">55</span>
 </code></pre>
 </div>
 <h4><a class="title-link" name="automation" href="#automation"></a> Automation</h4>
