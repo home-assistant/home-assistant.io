@@ -10,7 +10,7 @@ footer: true
 ha_category: System Monitor
 logo: linode.png
 ha_release: 0.57
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Polling"
 ---
 
 The `linode` binary sensor platform allows you to monitor your Linode nodes.
@@ -25,6 +25,10 @@ binary_sensor:
       - 'myvpsname'
 ```
 
-Configuration variables:
+{% configuration %}
+  nodes:
+    description:  List of VPSs you want to control.
+    required: true
+    type: string
+{% endconfiguration %}
 
-- **nodes** (*Required*): List of VPSs you want to control.
