@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Interactive Demo"
+title: "Home Assistant Demo"
 description: "Showing a demo of Home Assistant to an audience."
 date: 2017-10-28 10:00:00 +0200
 date_formatted: "October 28, 2017"
