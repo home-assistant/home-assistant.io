@@ -12,16 +12,14 @@ ha_category: Notifications
 ha_release: 0.57
 ---
 
-The `yessssms` platform is using the Austrian mobile operator
- [Yesss.at](https://yesss.at) to send SMS via its web-site.
+The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) to send SMS via its web-site.
 
 <p class='note warning'>
 Regular charges apply and a contract or prepaid plan is needed.
 </p>
 
 <p class='note warning'>
-Do not use this for high frequency notifications. The web-SMS page is rate
-limited and sending more than 45 SMS/h might get you blocked.
+Do not use this for high frequency notifications. The web-SMS page is rate limited and sending more than 45 SMS/h might get you blocked.
 </p>
 
 You can send to any number, but your phone number will appear as sender.
@@ -40,12 +38,10 @@ notify:
 
 Configuration variables:
 
-- **username** (*Required*): This is your login name (usually your phone number). Veryfy that you can use your credentials on the yesss.at website.
-- **password** (*Required*): This is the password you use to login to yesss.at.
+- **username** (*Required*): This is your login name (usually your phone number). Veryfy that you can use your credentials on the Yesss.at website.
+- **password** (*Required*): This is the password you use to login to Yesss.at.
 - **recipient** (*Required*): This is the phone number you want to send the SMS notification to.
 
 <p class='note warning'>
-Verify that your credentials work on [Yesss.at's website](https://yesss.at).
-Using the wrong credentials three times in a row will get you blocked for
-one hour.
+Verify that your credentials work on [Yesss.at's website](https://yesss.at). Using the wrong credentials three times in a row will get you blocked for one hour.
 </p>
