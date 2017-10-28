@@ -40,8 +40,8 @@ import appdaemon.appapi as appapi
 class OutsideLights(appapi.AppDaemon):
 
   def initialize(self):
-    self.run_at_sunrise(self.sunrise_cb, 0)
-    self.run_at_sunset(self.sunset_cb, 0)
+    self.run_at_sunrise(self.sunrise_cb)
+    self.run_at_sunset(self.sunset_cb)
     
   def sunrise_cb(self, kwargs):
     self.turn_on(self.args["off_scene"])
