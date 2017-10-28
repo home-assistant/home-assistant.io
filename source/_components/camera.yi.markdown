@@ -52,16 +52,18 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 ```yaml
 camera:
   - platform: yi
+    name: Camera
     host: '192.168.1.100'
     password: my_password_123
 ```
 
 Configuration variables:
 
+- **name** (*Required*): A human-friendly name for the camera.
 - **host** (*Required*): The IP address or hostname of the camera.
 - **password** (*Required*): The password to the FTP server on the camera (from above).
-- **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
-- **name** (*Optional*): A human-friendly name for the camera.
+- **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
+- **username** (*Optional*): The user that can access the FTP server. Ddefaults to `root`.
 - **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g. image quality or video filter options).
 
 ## {% linkable_title Image quality %}
@@ -76,5 +78,6 @@ camera:
     name: My Camera
     host: '192.168.1.100'
     password: my_password_123
+    path: /home/camera/feed
     ffmpeg_arguments: '-vf scale=800:450'
 ```
