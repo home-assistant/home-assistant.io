@@ -155,3 +155,4 @@ Double tap off|2|3
 Triple tap on|1|4
 Triple tap off|2|4
 Tap and hold on|1|2
+Tap and hold off|2|2
