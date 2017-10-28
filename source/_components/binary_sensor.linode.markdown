@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: System Monitor
 logo: linode.png
-ha_release: "0.56"
+ha_release: ".57
 ha_iot_class: "Local Polling"
 ---
 
