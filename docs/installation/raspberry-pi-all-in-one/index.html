@@ -76,7 +76,10 @@
   </header>
   <hr class="divider">
   <p>The <a href="https://github.com/home-assistant/fabric-home-assistant">Raspberry Pi All-In-One Installer</a> deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the OpenZWave Control Panel.</p>
-<p>The only requirement is that you have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> connected to your network.</p>
+<p class="note">
+Please remember to ensure you’re using an <a href="https://www.raspberrypi.org/help/faqs/#powerReqs">appropriate power supply</a> with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer’s handsets.
+</p>
+<p>The only requirement is that you have a Raspberry Pi with a fresh installation of <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> Jessie (Stretch is not supported at this time) connected to your network.</p>
 <p class="note">
 Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images. Adding an empty file called <code class="highlighter-rouge">ssh</code> to <code class="highlighter-rouge">/boot/</code> on the FAT32 partition will enable it. More information is on the Raspberry Pi Foundation <a href="https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel">Blog</a>.
 </p>
@@ -279,7 +282,7 @@ Don’t check the USB box regardless of using a USB based device.
           <li><a  href='/docs/z-wave/control-panel/'>The Z-Wave control panel </a></li>
           <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
           <li><a  href='/docs/z-wave/devices/'>Devices </a> and <a  href='/docs/z-wave/entities/'>Entities </a></li>
-          <li><a  href='/docs/z-wave/query-state/'>Query Stages </a> for devices</li>
+          <li><a  href='/docs/z-wave/query-stage/'>Query Stages </a> for devices</li>
           <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a> configuration</li>
           <li><a  href='/docs/z-wave/events/'>Events </a> and <a  href='/docs/z-wave/services/'>Services </a></li>
         </ul>

@@ -82,6 +82,9 @@
   <li>Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your wireless network settings <strong>before proceeding to step 4</strong>.</li>
   <li>Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 5 minutes.</li>
 </ol>
+<p class="note">
+Please remember to ensure you’re using an <a href="https://www.raspberrypi.org/help/faqs/#powerReqs">appropriate power supply</a> with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer’s handsets.
+</p>
 <p>These instructions are also available as a <a href="https://www.youtube.com/watch?v=iIz6XqDwHEk">video</a>.  Additional information is available in this <a href="https://www.youtube.com/watch?v=tCGlQSsQ-Mc">video</a>.</p>
 <p>After initial boot an installer will run in the background and takes around 15 minutes to complete, after it has finished, you will be prompted to login: <code class="highlighter-rouge">hassbian login:</code>. Installation is complete at this point. The default username is <code class="highlighter-rouge">pi</code> and the password is <code class="highlighter-rouge">raspberry</code>.</p>
 <p>Open a browser on a device that’s connected to the same WiFi network as your Raspberry Pi and point it to Home Assistant at <a href="http://hassbian.local:8123">http://hassbian.local:8123</a>. If you want to login via SSH, the default username is <code class="highlighter-rouge">pi</code> and password is <code class="highlighter-rouge">raspberry</code> (please change this by running <code class="highlighter-rouge">passwd</code>). The Home Assistant configuration is located at <code class="highlighter-rouge">/home/homeassistant/.homeassistant/</code>.</p>
@@ -216,7 +219,7 @@
           <li><a  href='/docs/z-wave/control-panel/'>The Z-Wave control panel </a></li>
           <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
           <li><a  href='/docs/z-wave/devices/'>Devices </a> and <a  href='/docs/z-wave/entities/'>Entities </a></li>
-          <li><a  href='/docs/z-wave/query-state/'>Query Stages </a> for devices</li>
+          <li><a  href='/docs/z-wave/query-stage/'>Query Stages </a> for devices</li>
           <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a> configuration</li>
           <li><a  href='/docs/z-wave/events/'>Events </a> and <a  href='/docs/z-wave/services/'>Services </a></li>
         </ul>
