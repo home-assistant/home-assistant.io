@@ -94,7 +94,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="get-details-about-services-events-and-entitites" href="#get-details-about-services-events-and-entitites"></a> Get details about services, events, and entitites</h3>
-<p>The output from this is similar to the output you’d find via the frontend, using the DevTools console.</p>
+<p>The output from this is similar to the output you’d find via the frontend, using the <a href="/docs/tools/dev-tools/">Developer Tools</a>.</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
@@ -120,12 +120,11 @@
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
-<span class="n">office_temperature</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'sensor.office_temperature'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'{} is {} {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">office_temperature</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-                            <span class="n">office_temperature</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
-                            <span class="n">office_temperature</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'unit_of_measurement'</span><span class="p">]</span>
-                            <span class="p">)</span>
-      <span class="p">)</span>
+<span class="n">office_temp</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'sensor.office_temperature'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{} is {} {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">office_temp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">office_temp</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
+    <span class="n">office_temp</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'unit_of_measurement'</span><span class="p">])</span>
+<span class="p">)</span>
 </code></pre>
 </div>
 <p>This outputs the details which are stored for this entity, ie:</p>
@@ -137,10 +136,9 @@
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
 <span class="n">switch_livingroom</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'switch.livingroom_pin_2'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'{} is {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">switch_livingroom</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-                         <span class="n">switch_livingroom</span><span class="o">.</span><span class="n">state</span>
-                         <span class="p">)</span>
-      <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'{} is {}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">switch_livingroom</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">switch_livingroom</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+<span class="p">)</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="set-the-state-of-an-entity" href="#set-the-state-of-an-entity"></a> Set the state of an entity</h3>
@@ -211,6 +209,49 @@ longer timeout.</p>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"title"</span><span class="p">:</span><span class="s">"Test"</span><span class="p">,</span> <span class="s">"message"</span><span class="p">:</span><span class="s">"A simple test message from HA."</span><span class="p">}</span>
 
 <span class="n">remote</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="s">'jabber'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</code></pre>
+</div>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<p>This section contains a couple of sample scripts.</p>
+<h3><a class="title-link" name="list-all-sensors-and-their-value" href="#list-all-sensors-and-their-value"></a> List all sensors and their value</h3>
+<p>If you want to see, export or list all sensor states then an easy way to do it, is to get all entities and filter for the one you are looking for.</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+<span class="n">entities</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_states</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entities</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">entity</span><span class="o">.</span><span class="n">entity_id</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">'sensor'</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">entity_id</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'{}: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s">'friendly_name'</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">state</span><span class="p">))</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="show-difference-between-last_changed-and-last_updated" href="#show-difference-between-last_changed-and-last_updated"></a> Show difference between <code class="highlighter-rouge">last_changed</code> and <code class="highlighter-rouge">last_updated</code></h3>
+<p>The documentation about the <a href="/docs/configuration/state_object/">State Objects</a> describes the 
+<code class="highlighter-rouge">last_changed</code> and <code class="highlighter-rouge">last_updated</code> fields. This example shows how it works in practice.</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
+<span class="kn">import</span> <span class="nn">homeassistant.remote</span> <span class="kn">as</span> <span class="nn">remote</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="s">'127.0.0.1'</span><span class="p">,</span> <span class="s">'YOUR_PASSWORD'</span><span class="p">)</span>
+
+<span class="n">ACTIONS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Create sensor'</span><span class="p">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="s">'Test'</span><span class="p">],</span>
+    <span class="s">'No new sensor value'</span><span class="p">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="s">'Test'</span><span class="p">],</span>
+    <span class="s">'New sensor value'</span><span class="p">:</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="s">'Test'</span><span class="p">],</span>
+    <span class="s">'Update attribute'</span><span class="p">:</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="s">'Test1'</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">([</span><span class="s">'Action'</span><span class="p">,</span> <span class="s">'Last changed'</span><span class="p">,</span> <span class="s">'Last updated'</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ACTIONS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">remote</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'sensor.test'</span><span class="p">,</span> <span class="n">new_state</span><span class="o">=</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                     <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s">'friendly_name'</span><span class="p">:</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">remote</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">'sensor.test'</span><span class="p">)</span>
+    <span class="n">output</span><span class="o">.</span><span class="n">add_row</span><span class="p">([</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">last_changed</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">last_updated</span><span class="p">])</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 </code></pre>
 </div>
 </article>
