@@ -108,4 +108,4 @@ Set the favorite level of the operation mode "favorite".
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific air purifier. Else targets all.  |
-| `level`                   |       no |  Level, between 0 and 17.                             |
+| `level`                   |       no |  Level, between 0 and 16.                             |
