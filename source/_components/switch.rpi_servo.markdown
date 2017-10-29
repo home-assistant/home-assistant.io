@@ -16,7 +16,7 @@ ha_iot_class: "Local Push"
 
 The `rpi_servo` switch platform allows you to control a servo through the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
-The servo will have a 'default_position' which it will turn from to the 'position_on' when toggled on, and the 'postion_off' when toggled off. It will remain in these positions for 'enabled_duration' before returning to the 'default_position'. Set the default position to a negative value to have the servo rest in the on and off state instead.
+The servo will have a 'default_position' which it will turn from to the 'position_on' when toggled on, and the 'postion_off' when toggled off. It will remain in these positions for 'enabled_duration' before returning to the 'default_position'. Set the duration to zero to have the servo rest in the on and off state instead.
 
 To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
