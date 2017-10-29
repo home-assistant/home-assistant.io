@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-29T11:11:06+00:00</updated>
+  <updated>2017-10-29T13:12:36+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Demo]]></title>
+    <link href="https://home-assistant.io/blog/2017/10/28/demo/"/>
+    <updated>2017-10-28T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/10/28/demo</id>
+    <content type="html"><![CDATA[If you are planning to host a Home Assistant meetup or doing a talk, then you probably want to show Home Assistant to an audience. You could use a Wireless router, bulbs, switches, and a single board computer to do a realistic demo. For a workshop, this is what I usually do because I think that working with physical hardware is more fun for the participants. The issue is that you need time to set up, power and space. For a talk or in a location, where you only have a beamer and a table or a lectern, the physical hardware approach is not very convenient.
+
+The simplest way to show Home Assistant to others is the online demo at [https://home-assistant.io/demo/](https://home-assistant.io/demo/)
+
+<p class='img'>
+  <img src='/images/blog/2017-10-interactive-demo/online-demo.png' />
+  Home Assistant's online demo
+</p>
+
+<!--more-->
+
+## <a class='title-link' name='--demo-mode-and-demo-platform' href='#--demo-mode-and-demo-platform'></a> `--demo-mode` and Demo platform 
+To be safe for your talk, you don't want to depend on an internet connection. The demo mode [`--demo-mode`](/docs/tools/hass/) allows you to run a demo locally including the latest features. Make sure that you have a backup of your configuration.
+
+```bash
+$ hass --demo-mode
+```
+
+If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/components/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
+
+```yaml
+sensor:
+  - platform: demo
+binary_sensor:
+  - platform: demo
+switch:
+  - platform: demo
+```
+
+<p class='img'>
+  <img src='/images/blog/2017-10-interactive-demo/demo-platforms.png' />
+  Home Assistant's demo platforms
+</p>
+
+## <a class='title-link' name='random-platforms' href='#random-platforms'></a> `random` platforms 
+Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/binary_sensor.random.markdown) platform in addition to the already available [`random` sensor](/components/sensor.random/).
+
+By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
+
+```yaml
+sensor:
+  - platform: demo
+    name: Temperature
+    unit_of_measurement: "°C"
+binary_sensor:
+  - platform: random
+    name: Front Door
+  - platform: random
+    name: Back Door
+    scan_interval: 5
+```
+
+<p class='img'>
+  <img src='/images/blog/2017-10-interactive-demo/demo-random.png' />
+  Demo with `random` platforms
+</p>
+
+The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/components/#search/template) platforms or the [`input_*`](/components/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
+
+
+```yaml
+input_boolean:
+  on_off:
+    name: On or off
+binary_sensor:
+  - platform: template
+    sensors:
+      on_tester:
+        value_template: "{{ states.input_boolean.on_off.state == 'on' }}"
+        friendly_name: 'Movement'
+        device_class: motion
+```
+
+
+## <a class='title-link' name='mqtt-discovery' href='#mqtt-discovery'></a> MQTT Discovery 
+This is a section for advanced users as it will require to run a separate script. Instead of adding `demo` platforms to the configuration this setup make use of [MQTT discovery](/docs/mqtt/discovery/) and the [embedded MQTT broker](/docs/mqtt/broker/#embedded-broker). Simply add MQTT to your `configuration.yaml` file with `discovery:`
+
+```yaml
+mqtt:
+  discovery: true
+```
+
+Download the [sample script](https://github.com/home-assistant/home-assistant-dev-helper/blob/master/ha-mqtt-demo.py). It depends on [paho-mqtt](https://pypi.python.org/pypi/paho-mqtt). If you run the script inside your [Home Assistant's virtual environment](/docs/installation/virtualenv/) then you are good to go as the dependency should be present if you have used MQTT before. Otherwise, install it with `$ pip3 install paho-mqtt`. The same applies to the embedded broker.
+
+```bash
+(ha)[ha-demo]$ python3 ha-mqtt-demo.py
+Demo is running... -> CTRL + C to shutdown
+```
+
+It will create sensors, a light, and a switch and update the states as long the script is running. It possible to stop and restart script without losing the entities.
+
+Some users share their slides and other documents in [our assets repository](https://github.com/home-assistant/home-assistant-assets). Also, take a look at that repository if you need a logo for your slides.
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Serial analog sensor]]></title>
@@ -341,60 +442,6 @@ To try it out, go to [http://hassbian:8123](http://hassbian:8123) or [http://has
 
 For further details about HASSbian, take a look at the [documentation](https://home-assistant.io/docs/hassbian/).
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Setting up InfluxDB and Grafana using Docker]]></title>
-    <link href="https://home-assistant.io/blog/2017/04/25/influxdb-grafana-docker/"/>
-    <updated>2017-04-25T08:04:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/04/25/influxdb-grafana-docker</id>
-    <content type="html"><![CDATA[Home Assistant collects volumes of (time series) data that are well suited for some fancy graphs. Although the [History](https://home-assistant.io/components/history/) component provides some nice plots, I am sure you have always wanted those fancy [Grafana](https://grafana.com/) plots. The problem, however, is that low-powered device such as Raspberry Pi that most of us use for our Home Assistant setup are not well suited for such operation.
-
-Instead of running [InfluxDB](https://www.influxdata.com/) and Grafana on a Raspberry Pi or a different system and go through the [classic approach of installing both tools separately](/blog/2015/12/07/influxdb-and-grafana/), you can run them in a Docker container on another machine. For this tutorial, I am using a Synology NAS, but the instructions should apply to other devices that can run Docker. Just follow the steps below:
-
-1.	SSH into your NAS. You may have to run `sudo su` if you are getting permission errors.
-2.	Download the [docker-statsd-influxdb-grafana]( https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/) image using the command:
-`docker pull samuelebistoletti/docker-statsd-influxdb-grafana`
-3.	To start the container for the first-time launch:
-    ```
-    docker run -d \
-      --name docker-statsd-influxdb-grafana \
-      -p 3003:3003 \
-      -p 3004:8083 \
-      -p 8086:8086 \
-      -p 22022:22 \
-      -p 8125:8125/udp \
-      samuelebistoletti/docker-statsd-influxdb-grafana:latest
-    ```
-4.	The image should now be running and both InfluxBD and Grafana should be now up and running.
-5.	You can access InfluxDB at http://NAS_IP_ADDRESS:3004/ and Grafana at http://NAS_IP_ADDRESS:3003/
-6.	Navigate to http://NAS_IP_ADDRESS:3004/ and create the database `home_assistant` using the command `CREATE DATABASE home_assistant`.
-    <p class='img'>
-      <img src='/images/blog/2017-04-influxdb-grafana/create_HA_database.png' />
-    </p>
-7.	Now, you need to configure Home Assistant to use InfluxDB. Since, we did not add any username/password to our database, we can simply add the following to our configuration.yaml (replace the IP address with that of the device running Docker) and restart Home Assistant to setup InfluxDB (you will have to fine tune it based on your preferences):
-    ```
-    influxdb:
-      host: 192.168.2.113
-    ```
-8.	Next, we need to configure Grafana to use InfluxDB. Navigate to http://NAS_IP_ADDRESS:3003/ to access Grafana (login with username and password `root`) and add your first data source. Here’s how you can configure Grafana to use InfluxDB database. Note that 192.168.2.113 is the IP address of my NAS.
-    <p class='img'>
-      <img src='/images/blog/2017-04-influxdb-grafana/add_data_source.png' />
-    </p>
-9.	You should see `Data source is working` if you have configured everything correctly.
-10.	With all that configured, you are now ready for the fun stuff. You can create as many dashboards as you want and then import the same in Home Assistant.
-11.	To add the Grafana dashboard in HA, use the following config:
-    ```
-    panel_iframe:
-      router:
-        title: 'Temperature'
-        url: 'http://192.168.2.113:3003/dashboard/db/temperature?edit&tab=time%20range'
-    ```
-    The URL can be obtained by clicking Share Dashboard link on your dashboard:
-    <p class='img'>
-      <img src='/images/blog/2017-04-influxdb-grafana/share_dashboard.png' />
-    </p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-10-29T11:11:06+00:00</updated>
+  <updated>2017-10-29T13:12:36+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Demo]]></title>
+    <link href="https://home-assistant.io/blog/2017/10/28/demo/"/>
+    <updated>2017-10-28T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/10/28/demo</id>
+    <content type="html"><![CDATA[<p>If you are planning to host a Home Assistant meetup or doing a talk, then you probably want to show Home Assistant to an audience. You could use a Wireless router, bulbs, switches, and a single board computer to do a realistic demo. For a workshop, this is what I usually do because I think that working with physical hardware is more fun for the participants. The issue is that you need time to set up, power and space. For a talk or in a location, where you only have a beamer and a table or a lectern, the physical hardware approach is not very convenient.</p>
+
+<p>The simplest way to show Home Assistant to others is the online demo at <a href="https://home-assistant.io/demo/">https://home-assistant.io/demo/</a></p>
+
+<p class="img">
+  <img src="/images/blog/2017-10-interactive-demo/online-demo.png" />
+  Home Assistant’s online demo
+</p>
+
+<!--more-->
+
+<h2><a class="title-link" name="--demo-mode-and-demo-platform" href="#--demo-mode-and-demo-platform"></a> <code class="highlighter-rouge">--demo-mode</code> and Demo platform</h2>
+<p>To be safe for your talk, you don’t want to depend on an internet connection. The demo mode <a href="/docs/tools/hass/"><code class="highlighter-rouge">--demo-mode</code></a> allows you to run a demo locally including the latest features. Make sure that you have a backup of your configuration.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>hass --demo-mode
+</code></pre>
+</div>
+
+<p>If you already have a <code class="highlighter-rouge">configuration.yaml</code> file in place then you will get a combination of your setup with all available  <a href="/components/demo/"><code class="highlighter-rouge">demo</code></a> platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">demo</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">demo</span>
+<span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">demo</span>
+</code></pre>
+</div>
+
+<p class="img">
+  <img src="/images/blog/2017-10-interactive-demo/demo-platforms.png" />
+  Home Assistant’s demo platforms
+</p>
+
+<h2><a class="title-link" name="random-platforms" href="#random-platforms"></a> <code class="highlighter-rouge">random</code> platforms</h2>
+<p>Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a <a href="https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/binary_sensor.random.markdown"><code class="highlighter-rouge">random</code> binary sensor</a> platform in addition to the already available <a href="/components/sensor.random/"><code class="highlighter-rouge">random</code> sensor</a>.</p>
+
+<p>By adding those platform to your <code class="highlighter-rouge">configuration.yaml</code> file, your demo will become more interactive.</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">demo</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Temperature</span>
+    <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">°C"</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">random</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Front Door</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">random</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Back Door</span>
+    <span class="s">scan_interval</span><span class="pi">:</span> <span class="s">5</span>
+</code></pre>
+</div>
+
+<p class="img">
+  <img src="/images/blog/2017-10-interactive-demo/demo-random.png" />
+  Demo with <code class="highlighter-rouge">random</code> platforms
+</p>
+
+<p>The <code class="highlighter-rouge">random</code> and the <code class="highlighter-rouge">demo</code> platforms can, of course, be used together. With a little work and some of the <a href="/components/#search/template"><code class="highlighter-rouge">template</code></a> platforms or the <a href="/components/#search/input"><code class="highlighter-rouge">input_*</code></a> components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">input_boolean</span><span class="pi">:</span>
+  <span class="s">on_off</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">On or off</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">on_tester</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.input_boolean.on_off.state</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">'on'</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Movement'</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">motion</span>
+</code></pre>
+</div>
+
+<h2><a class="title-link" name="mqtt-discovery" href="#mqtt-discovery"></a> MQTT Discovery</h2>
+<p>This is a section for advanced users as it will require to run a separate script. Instead of adding <code class="highlighter-rouge">demo</code> platforms to the configuration this setup make use of <a href="/docs/mqtt/discovery/">MQTT discovery</a> and the <a href="/docs/mqtt/broker/#embedded-broker">embedded MQTT broker</a>. Simply add MQTT to your <code class="highlighter-rouge">configuration.yaml</code> file with <code class="highlighter-rouge">discovery:</code></p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">mqtt</span><span class="pi">:</span>
+  <span class="s">discovery</span><span class="pi">:</span> <span class="s">true</span>
+</code></pre>
+</div>
+
+<p>Download the <a href="https://github.com/home-assistant/home-assistant-dev-helper/blob/master/ha-mqtt-demo.py">sample script</a>. It depends on <a href="https://pypi.python.org/pypi/paho-mqtt">paho-mqtt</a>. If you run the script inside your <a href="/docs/installation/virtualenv/">Home Assistant’s virtual environment</a> then you are good to go as the dependency should be present if you have used MQTT before. Otherwise, install it with <code class="highlighter-rouge">$ pip3 install paho-mqtt</code>. The same applies to the embedded broker.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">(ha)[ha-demo]$ </span>python3 ha-mqtt-demo.py
+Demo is running... -&gt; CTRL + C to shutdown
+</code></pre>
+</div>
+
+<p>It will create sensors, a light, and a switch and update the states as long the script is running. It possible to stop and restart script without losing the entities.</p>
+
+<p>Some users share their slides and other documents in <a href="https://github.com/home-assistant/home-assistant-assets">our assets repository</a>. Also, take a look at that repository if you need a logo for your slides.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Serial analog sensor]]></title>
@@ -1822,18 +1921,6 @@ Hass.io dashboard
 <h4><a class="title-link" name="is-there-a-roadmap" href="#is-there-a-roadmap"></a> Is there a roadmap?</h4>
 
 <p>We use <a href="https://www.pivotaltracker.com/n/projects/2020851">Pivotal Tracker</a> to track things that are in progress and what we might work on.</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant Podcast #4]]></title>
-    <link href="https://home-assistant.io/blog/2017/07/17/hasspodcast-ep-4/"/>
-    <updated>2017-07-17T00:01:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/07/17/hasspodcast-ep-4</id>
-    <content type="html"><![CDATA[<p>We quickly cover off a few community items including the move to Discord and Carlo talks with Phil about his use of Floorplan.</p>
-
-<p><a href="https://hasspodcast.io/ha004/">Listen online</a></p>
 
 ]]></content>
   </entry>
