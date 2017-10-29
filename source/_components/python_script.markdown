@@ -25,7 +25,9 @@ This component allows you to write Python scripts that are exposed as services i
 
 ## {% linkable_title Writing your first script %}
 
- - Add to `configuration.yaml`: `python_script:`
+ - Add to `configuration.yaml`: 
+   `python_script:`
+   `  python_scripts:`
  - Create folder `<config>/python_scripts`
  - Create a file `hello_world.py` in the folder and give it this content:
 
