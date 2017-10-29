@@ -67,4 +67,4 @@ Choose the protocols to be enabled from the following values (_make sure to keep
 - `visonic`
 - `x10`
 
-Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Categories/Downloads) to see what protocol should be used. Then enable the relevant protocol in your home-assistant configuration.
+Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Categories/Downloads) to see what protocol should be used. Then enable the relevant protocol in your home-assistant configuration.
