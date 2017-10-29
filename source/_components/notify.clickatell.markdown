@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: clickatell.png
 ha_category: Notifications
-ha_release: 0.57
+ha_release: 0.56
 ---
 
 
