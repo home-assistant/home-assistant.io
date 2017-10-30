@@ -109,17 +109,83 @@ xiaomi_aqara:
   host:
     description: The host / ip address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
     required: false
-    type: string    
+    type: string
 {% endconfiguration %}
 
 ### {% linkable_title Services %}
 
-The gateway provides two services: `xiaomi_aqara.play_ringtone` and `xiaomi_aqara.stop_ringtone`. To play ringtones by Home Assistant, the version of the gateway firmware must be `1.4.1_145` at least. A `ringtone_id` and `gw_mac` must be supplied. The parameter `ringtone_vol` (percent) is optional. Allowed values of the `ringtone_id` are:
+The gateway provides the following services:
 
-- alarm ringtones [0-8]
-- doorbell ring [10-13]
-- alarm clock [20-29]
-- custom ringtones (uploaded by the Mi Home app) starting from 10001
+#### Service xiaomi_aqara.play_ringtone
+
+Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+| `ringtone_id`             |       no | One of the allowed ringtone ids                       |
+| `ringtone_vol`            |      yes | The volume in percent                                 |
+
+Allowed values of the `ringtone_id` are:
+
+- Alarms
+  - 0 - Police car 1
+  - 1 - Police car 2
+  - 2 - Accident
+  - 3 - Countdown
+  - 4 - Ghost
+  - 5 - Sniper rifle
+  - 6 - Battle
+  - 7 - Air raid
+  - 8 - Bark
+- Doorbells
+  - 10 - Doorbell
+  - 11 - Knock at a door
+  - 12 - Amuse
+  - 13 - Alarm clock
+- Alarm clock
+  - 20 - MiMix
+  - 21 - Enthusiastic
+  - 22 - GuitarClassic
+  - 23 - IceWorldPiano
+  - 24 - LeisureTime
+  - 25 - ChildHood
+  - 26 - MorningStreamLiet
+  - 27 - MusicBox
+  - 28 - Orange
+  - 29 - Thinker
+- Custom ringtones (uploaded by the Mi Home app) starting from 10001
+
+#### Service xiaomi_aqara.stop_ringtone
+
+Stops a playing ringtone immediately.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+
+#### Service xiaomi_aqara.add_device
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+
+#### Service xiaomi_aqara.add_device
+
+Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+
+#### Service xiaomi_aqara.remove_device
+
+Removes a specific device. The removal is required if a device shall be paired with another gateway.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+| `device_id`               |       no | Hardware address of the device to remove              |
 
 ## {% linkable_title Examples %}
 
