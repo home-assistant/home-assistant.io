@@ -40,7 +40,7 @@ Take a snapshot from a camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
+| `entity_id`            |      no  | Name(s) of entities to create a snopshot from, e.g., `camera.living_room_camera`. |
 | `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
 ### {% linkable_title Test if it works %}
