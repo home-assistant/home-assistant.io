@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "LaCrosseSensor"
+title: "LaCrosse Sensor"
 description: "Instructions how to integrate LaCrosse sensor data received from Jeelink into Home Assistant."
 date: 2017-10-29 15:00
 sidebar: true
@@ -29,22 +29,28 @@ sensor:
   - platform: lacrosse
     device: /dev/ttyUSB0
     baud: 57600
-    kitchen_humidity:
-      friendly_name: Kitchen Humidity
-      type: humidity
-      id: 72
-    kitchen_temperature:
-      friendly_name: Kitchen Temperature
-      type: temperature
-      id: 72
-    kitchen_lacrosse_battery:
-      friendly_name: Kitchen Sensor Battery
-      type: battery
-      id: 72
+    sensors:
+      kitchen_humidity:
+        friendly_name: Kitchen Humidity
+        type: humidity
+        id: 72
+      kitchen_temperature:
+        friendly_name: Kitchen Temperature
+        type: temperature
+        id: 72
+      kitchen_lacrosse_battery:
+        friendly_name: Kitchen Sensor Battery
+        type: battery
+        id: 72
 ```
 
-{% configuration %}
-- **device** (*Optional*): Local serial port where the jeelink is connecte. Defaults to /dev/ttyUSB0.
-- **baud** (*Optional*): Ther serial baudrate. Defaults 56700.
-{% endconfiguration %}
-
+- **device** (*Optional*): Local serial port where the Jeelink is connected. Defaults to `/dev/ttyUSB0`.
+- **baud** (*Optional*): Ther serial baudrate. Defaults to `56700`.
+- **sensors** (*Required*): An array of all sensors.
+    - **name** (*Required*): The name for that sensor.
+    - **friendly_name** (*Required*): The friendly name for the sensor.
+    - **type** (*Required*): The sensor type. Available types are:
+        - 'temperature'
+        - 'humidity'
+        - 'battery'
+     - **id** (*Required*): The LaCrosse sensor ID.
