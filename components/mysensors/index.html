@@ -84,9 +84,9 @@
       <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors.json'</span>
       <span class="s">baud_rate</span><span class="pi">:</span> <span class="s">38400</span>
       <span class="s">nodes</span><span class="pi">:</span>
-        <span class="s">1</span><span class="pi">:</span> 
+        <span class="s">1</span><span class="pi">:</span>
           <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">kitchen'</span>
-        <span class="s">3</span><span class="pi">:</span> 
+        <span class="s">3</span><span class="pi">:</span>
           <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">living_room'</span>
     <span class="pi">-</span> <span class="s">device</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/ttyACM0'</span>
       <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors2.json'</span>
@@ -104,25 +104,84 @@
   <span class="s">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2.0'</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
-<ul>
-  <li><strong>device</strong> (<em>Required</em>): The path to the serial gateway where it is connected to your Home Assistant host, or the address of the TCP Ethernet gateway, or <code class="highlighter-rouge">mqtt</code> to setup the MQTT gateway. Resolving DNS addresses is theoretically supported but not tested.</li>
-  <li><strong>baud_rate</strong> (<em>Optional</em>): Specifies the baud rate of the connected serial gateway. Default is 115200.</li>
-  <li><strong>tcp_port</strong> (<em>Optional</em>): Specifies the port of the connected TCP Ethernet gateway. Default is 5003.</li>
-  <li><strong>topic_in_prefix</strong> (<em>Optional</em>): Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant. Default is an empty string.</li>
-  <li><strong>topic_out_prefix</strong> (<em>Optional</em>): Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway. Default is an empty string.</li>
-  <li><strong>debug</strong> (<em>DEPRECATED</em>): This option has been deprecated. Please remove this from your config is you have it included. Use the logger component to filter log messages on log level.</li>
-  <li><strong>persistence</strong> (<em>Optional</em>): Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts. Default is true.</li>
-  <li><strong>persistence_file</strong> (<em>Optional</em>): The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</li>
-  <li><strong>version</strong> (<em>Optional</em>): Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0. Default is 1.4.</li>
-  <li><strong>optimistic</strong> (<em>Optional</em>): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.</li>
-  <li><strong>retain</strong> (<em>Optional</em>): Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway. Default is true.</li>
-  <li><strong>nodes</strong> (<em>Optional</em>): Nodes that need a custom name.
-    <ul>
-      <li><strong>name</strong> (<em>Optional</em>): The name the node will be renamed to. This nodename becomes part of the entity_id. Default the entity_id is [sketch_name]_[node_id]_[child_id] and when this name is set, the entity_id becomes [name]_[child_id].</li>
-    </ul>
-  </li>
-</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="gateways" href="#gateways"></a> gateways</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">A list of gateways to set up.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="device" href="#device"></a> device</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The path to the serial gateway where it is connected to your Home Assistant host, or the address of the TCP Ethernet gateway, or <code class="highlighter-rouge">mqtt</code> to setup the MQTT gateway. Resolving DNS addresses is theoretically supported but not tested.</span></p>
+        </dd>
+        <dt><a class="title-link" name="baud_rate" href="#baud_rate"></a> baud_rate</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Specifies the baud rate of the connected serial gateway.</span></p>
+          <p class="default">Default value: 115200</p>
+        </dd>
+        <dt><a class="title-link" name="tcp_port" href="#tcp_port"></a> tcp_port</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Specifies the port of the connected TCP Ethernet gateway.</span></p>
+          <p class="default">Default value: 5003</p>
+        </dd>
+        <dt><a class="title-link" name="topic_in_prefix" href="#topic_in_prefix"></a> topic_in_prefix</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant.</span></p>
+          <p class="default">Default value: </p>
+        </dd>
+        <dt><a class="title-link" name="topic_out_prefix" href="#topic_out_prefix"></a> topic_out_prefix</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway.</span></p>
+          <p class="default">Default value: </p>
+        </dd>
+        <dt><a class="title-link" name="nodes" href="#nodes"></a> nodes</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">A mapping of node ids to node settings, eg custom name.</span></p>
+        </dd>
+        <dd>
+          <dl class="nested">
+            <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The name the node will be renamed to. This nodename becomes part of the entity_id. Default entity_id is [sketch_name]_[node_id]_[child_id] and when this name is set, the entity_id becomes [name]_[child_id].</span></p>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt><a class="title-link" name="debug" href="#debug"></a> debug</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">This option has been deprecated. Please remove this from your config if you have it included. Use the <a href="/components/logger/">logger component</a> to filter log messages on log level.</span></p>
+    </dd>
+    <dt><a class="title-link" name="persistence" href="#persistence"></a> persistence</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Enable or disable local persistence of sensor information. If this is disabled, then each sensor will need to send presentation messages after Home Assistant starts.</span></p>
+      <p class="default">Default value: true</p>
+    </dd>
+    <dt><a class="title-link" name="persistence_file" href="#persistence_file"></a> persistence_file</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The path to a file to save sensor information. The file extension determines the file type. Currently supported file types are ‘pickle’ and ‘json’.</span></p>
+      <p class="default">Default value: path/to/config/directory/mysensors.pickle</p>
+    </dd>
+    <dt><a class="title-link" name="version" href="#version"></a> version</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0.</span></p>
+      <p class="default">Default value: 1.4</p>
+    </dd>
+    <dt><a class="title-link" name="optimistic" href="#optimistic"></a> optimistic</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Enable or disable optimistic mode for actuators (switch/light). Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.</span></p>
+      <p class="default">Default value: false</p>
+    </dd>
+    <dt><a class="title-link" name="retain" href="#retain"></a> retain</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway.</span></p>
+      <p class="default">Default value: true</p>
+    </dd>
+  </dl>
+</div>
 <p class="note">
 Not all features of MySensors 2.0 are yet supported by Home Assistant. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under “related components” to see what message types are currently supported.
 </p>
