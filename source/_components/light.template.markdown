@@ -143,3 +143,91 @@ light:
           {% endif %}
 ```
 {% endraw %}
+
+### {% linkable_title Change The Icon %}
+
+This example shows how to change the icon based on the light state.
+
+{% raw %}
+```yaml
+light:
+  - platform: template
+    lights:
+      theater_volume:
+        friendly_name: "Receiver Volume"
+        value_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              off
+            {% else %}
+              on
+            {% endif %}
+          {% else %}
+            off
+          {% endif %}
+        icon_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              mdi:lightbulb-off
+            {% else %}
+              mdi:lightbulb-on
+            {% endif %}
+          {% else %}
+            mdi:lightbulb-off
+          {% endif %}
+        turn_on:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: false
+        turn_off:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: true
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the light state.
+
+{% raw %}
+```yaml
+light:
+  - platform: template
+    lights:
+      theater_volume:
+        friendly_name: "Receiver Volume"
+        value_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              off
+            {% else %}
+              on
+            {% endif %}
+          {% else %}
+            off
+          {% endif %}
+        icon_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              /local/lightbulb-off.png
+            {% else %}
+              /local/lightbulb-on.png
+            {% endif %}
+          {% else %}
+            /local/lightbulb-off.png
+          {% endif %}
+        turn_on:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: false
+        turn_off:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: true
+```
+{% endraw %}
