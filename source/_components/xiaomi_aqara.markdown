@@ -47,7 +47,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
 
-## Setup
+## {% linkable_title Setup %}
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832).
 
@@ -116,7 +116,7 @@ xiaomi_aqara:
 
 The gateway provides the following services:
 
-#### Service xiaomi_aqara.play_ringtone
+#### {% linkable_title Service xiaomi_aqara.play_ringtone %}
 
 Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
@@ -156,7 +156,7 @@ Allowed values of the `ringtone_id` are:
   - 29 - Thinker
 - Custom ringtones (uploaded by the Mi Home app) starting from 10001
 
-#### Service xiaomi_aqara.stop_ringtone
+#### {% linkable_title Service xiaomi_aqara.stop_ringtone %}
 
 Stops a playing ringtone immediately.
 
@@ -164,13 +164,13 @@ Stops a playing ringtone immediately.
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### Service xiaomi_aqara.add_device
+#### {% linkable_title Service xiaomi_aqara.add_device %}
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### Service xiaomi_aqara.add_device
+#### {% linkable_title Service xiaomi_aqara.add_device %}
 
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
@@ -178,7 +178,7 @@ Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new de
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### Service xiaomi_aqara.remove_device
+#### {% linkable_title Service xiaomi_aqara.remove_device %}
 
 Removes a specific device. The removal is required if a device shall be paired with another gateway.
 
@@ -189,10 +189,10 @@ Removes a specific device. The removal is required if a device shall be paired w
 
 ## {% linkable_title Examples %}
 
-### Long Press on Smart Button
+### {% linkable_title Long Press on Smart Button %}
 
-This example plays the sound of a dog barking when the button is held down,
-and stops the sound when the button is pressed once.
+This example plays the sound of a dog barking when the button is held down, and stops the sound when the button is pressed once.
+
 *Note: The sound will stop playing automatically when it has ended.*
 
 ```yaml
