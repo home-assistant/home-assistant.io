@@ -82,7 +82,17 @@
   </span><span class="nt">"repeat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"deployment_key"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="s2">"-----BEGIN RSA PRIVATE KEY-----"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"MIIEowIBAAKCAQEAv3hUrCvqGZKpXQ5ofxTOuH6pYSOZDsCqPqmaGBdUzBFgauQM"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"xDEcoODGHIsWd7t9meAFqUtKXndeiKjfP0MMKsttnDohL1kb9mRvHre4VUqMsT5F"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+</span><span class="s2">"i3RUtnIHxGi1NqknIY56Hwa3id2yk7cEzvQGAAko/t6PCbe20AfmSQczs7wDNtBD"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"HgXRyIqIXHYk2+5w+N2eunURIBqCI9uWYK/r81TMR6V84R+XhtvM"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"-----END RSA PRIVATE KEY-----"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"deployment_key_protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rsa"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -91,6 +101,17 @@
   <li><strong>auto_restart</strong> (<em>Optional</em>): Make a restart of Home-Assistant if the config have change and is valid.</li>
   <li><strong>repeat/active</strong> (<em>Optional</em>): Pull periodic for GIT updates.</li>
   <li><strong>repeat/interval</strong> (<em>Optional</em>): Pull all x seconds and look for changes.</li>
+  <li><strong>deployment_key</strong> (<em>Optional</em>): A private SSH key that will be used for communication during git operations. This key is mandatory for ssh-accessed repositories, which are the ones with the following pattern: <code class="highlighter-rouge">&lt;user&gt;@&lt;host&gt;:&lt;repository path&gt;</code>.</li>
+  <li>
+    <p><strong>deployment_key_protocol</strong> (<em>Optional</em>): The key protocol. Default is “rsa”. Valid protocols are:</p>
+    <ul>
+      <li><strong>dsa</strong></li>
+      <li><strong>ecdsa</strong></li>
+      <li><strong>ed25519</strong></li>
+      <li><strong>rsa</strong></li>
+    </ul>
+    <p>The protocol is typically known by the suffix of the private key –e.g., a key file named <code class="highlighter-rouge">id_rsa</code> will be a private key using “rsa” protocol.</p>
+  </li>
 </ul>
 </article>
         </div>

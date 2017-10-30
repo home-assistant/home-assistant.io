@@ -75,7 +75,11 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">webostv</code> platform allows you to control a <a href="http://www.lg.com/">LG</a> webOS Smart TV.</p>
-<p>When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.</p>
+<h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>
+<p>To begin with enable <em>LG Connect Apps</em> feature in <em>Network</em> settings of the TV <a href="http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others">instructions</a>.</p>
+<p>Once basic configuration is added to your <code class="highlighter-rouge">configuration.yaml</code> <em>Configuration</em> card should prompt on your HA’s States. Follow the instructions and accept pairing request on your TV.</p>
+<p>Pairing information will be saved to the <code class="highlighter-rouge">filename:</code> provided in configuration; this process is IP sensitive, in case the IP address of your TV would change in future.</p>
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
 <p>To add a TV to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
@@ -91,18 +95,17 @@
   <li><strong>filename</strong> (<em>Optional</em>): The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant’s config directory. It defaults to <code class="highlighter-rouge">webostv.conf</code>.</li>
   <li><strong>customize</strong> array (<em>Optional</em>): List of options to customize.
     <ul>
-      <li><em><strong>sources</strong> array (</em>Optional*): List of hardware inputs.</li>
+      <li><em><strong>sources</strong> array (</em>Optional*): List of hardware and webOS App inputs.</li>
     </ul>
   </li>
 </ul>
-<p>If you do not specify <code class="highlighter-rouge">host:</code>, all LG webOS Smart TVs within your network will be auto-discovered if they use the default name setting of <code class="highlighter-rouge">[LG] webOS TV</code>.
-Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.</p>
+<p>If you do not specify <code class="highlighter-rouge">host:</code>, all LG webOS Smart TVs within your network will be auto-discovered.</p>
 <p>A full configuration example will look like the sample below:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Living Room TV</span>  
     <span class="s">timeout</span><span class="pi">:</span> <span class="s">5</span>
     <span class="s">filename</span><span class="pi">:</span> <span class="s">webostv.conf</span>
     <span class="s">turn_on_action</span><span class="pi">:</span>
@@ -117,6 +120,27 @@ Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, 
         <span class="pi">-</span> <span class="s">netflix</span>
 </code></pre>
 </div>
+<p>** avoid using <code class="highlighter-rouge">[ ]</code> in the <code class="highlighter-rouge">name:</code> of your device.</p>
+<p><em>Turn On Action</em></p>
+<p>Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.</p>
+<p>Common for webOS 3.0 and higher would be to use WakeOnLan feature. 
+To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable <em>LG Connect Apps</em> feature in <em>Network</em> settings of the TV <a href="http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others">instructions</a> (or <em>Mobile App</em> in <em>General</em> settings for older models) (*may vary by version).</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">wake_on_lan</span><span class="pi">:</span> <span class="c1"># enables `wake_on_lan` domain</span>
+
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">webostv</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.10</span>
+    <span class="c1">#other settings</span>
+    <span class="s">turn_on_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">wake_on_lan.send_magic_packet</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">mac</span><span class="pi">:</span> <span class="s">B4:E6:2A:1E:11:0F</span>
+</code></pre>
+</div>
+<p>Any other <a href="/docs/automation/action/">actions</a> to power on the device can be configured.</p>
+<p><em>Sources</em></p>
+<p>To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the <strong>Developer Tools</strong> &gt; <strong>States</strong>, find your <code class="highlighter-rouge">media_player.&lt;name&gt;</code> and use the sources listed in <code class="highlighter-rouge">source_list:</code> remembering to split them per line into your <code class="highlighter-rouge">sources:</code> configuration.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
