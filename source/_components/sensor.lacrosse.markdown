@@ -23,6 +23,7 @@ $ sudo pylacrosse -D /dev/ttyUSB0 scan
 
 To setup a lacrosse sensor to your installation, add the following to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -43,14 +44,35 @@ sensor:
         type: battery
         id: 72
 ```
+{% endraw %}
 
-- **device** (*Optional*): Local serial port where the Jeelink is connected. Defaults to `/dev/ttyUSB0`.
-- **baud** (*Optional*): Ther serial baudrate. Defaults to `56700`.
-- **sensors** (*Required*): An array of all sensors.
-    - **name** (*Required*): The name for that sensor.
-    - **friendly_name** (*Required*): The friendly name for the sensor.
-    - **type** (*Required*): The sensor type. Available types are:
-        - 'temperature'
-        - 'humidity'
-        - 'battery'
-     - **id** (*Required*): The LaCrosse sensor ID.
+{% configuration %}
+  device:
+    description: The serial baudrate.
+    required: true
+    type: string
+  baud:
+    description: The serial baudrate.
+    required: true
+  sensors:
+    description: A list of your sensors.
+    required: true
+    type: map
+    name:
+      description: The name of the sensor.
+      required: true
+      type: string
+    friendly_name:
+      description: A friendly name of the sensor.
+     required: true
+     type: string
+    type:
+      description: The type of the sensor.
+      required: true
+      type: string
+    id:
+      description: The LaCrosse Id of the sensor.
+      required: true
+      type: int
+
+{% endconfiguration %}
