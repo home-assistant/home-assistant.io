@@ -214,7 +214,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 1. Configure the robot with the Mi-Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.
-3. Install [iBackup Viewer](Get ADB f.e. `apt-get install android-tools-adb`), open it, and open your backup.
+3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
 6. Search for a file that looks like this: `123456789_mihome.sqlite` – note that `_mihome.sqlite` is *not* the correct file.
