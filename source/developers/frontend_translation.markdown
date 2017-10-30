@@ -29,5 +29,6 @@ Note: Languages that differ from the language of the country of origin need a tr
 Tip: Use `Multilanguage view` (eye-symbol) and hide those languages you don't need.
 
 #### {% linkable_title For maintainers %}
-1. Language tags  have to follow [BCP 47](https://tools.ietf.org/html/bcp47). In most cases that's the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and eventually also the [country code](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements). Examples: `fr`, `fr-CA`, `zh-Hans`
+1. Language tags  have to follow [BCP 47](https://tools.ietf.org/html/bcp47). In most cases that's the [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and eventually also the [country code](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements). Examples: `fr`, `fr-CA`, `zh-Hans`.
+Note: Sometimes you have to change the tag (Language -> Language settings -> custom ISO code). Keep it as short as possible.
 2. Add native name (capitalize) and country code (if used) in `language::name`.  Examples: `Français`, `Français (CA)`
