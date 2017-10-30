@@ -44,8 +44,8 @@ $ sudo pylacrosse -D /dev/ttyUSB0 scan
     required: true
     type: map
     keys:
-      friendly_name:
-        description: A friendly name of the sensor.
+      name:
+        description: The name of the sensor.
         required: true
         type: string
       type:
@@ -72,15 +72,15 @@ sensor:
     baud: 57600
     sensors:
       kitchen_humidity:
-        friendly_name: Kitchen Humidity
+        name: Kitchen Humidity
         type: humidity
         id: 72
       kitchen_temperature:
-        friendly_name: Kitchen Temperature
+        name: Kitchen Temperature
         type: temperature
         id: 72
       kitchen_lacrosse_battery:
-        friendly_name: Kitchen Sensor Battery
+        name: Kitchen Sensor Battery
         type: battery
         id: 72
 ```
