@@ -15,11 +15,51 @@ ha_iot_class: "Local Polling"
 
 The `lacrosse` sensor platform is using the data provided by a [`Jeelink`](https://www.digitalsmarties.net/products/jeelink) USB dongle.
 
+#### {% linkable_title Tested Devices %}
+
+- Technoline TX 29 IT (temperature only)
+- Technoline TX 29 DTH-IT (including humidity)
+
+## Setup
+
 Since the sensor change their ID after each powercycle/battery change you can check what sensor IDs are availble by using the command-line tool `pylacrosse` from the pylacrosse package.
 
 ```bash
 $ sudo pylacrosse -D /dev/ttyUSB0 scan
 ```
+
+{% configuration %}
+  device:
+    description: The serial baudrate.
+    required: true
+    type: string
+    default: /dev/ttyUSB0
+  baud:
+    description: The serial baudrate.
+    required: true
+    type: int
+    default: 57600
+  sensors:
+    description: A list of your sensors.
+    required: true
+    type: map
+    keys:
+      friendly_name:
+        description: A friendly name of the sensor.
+        required: true
+        type: string
+      type:
+        description: The type of the sensor.
+        required: true
+        type: string
+      id:
+        description: The LaCrosse Id of the sensor.
+        required: true
+        type: int
+{% endconfiguration %}
+
+
+## {% linkable_title Examples %}
 
 To setup a lacrosse sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -46,33 +86,3 @@ sensor:
 ```
 {% endraw %}
 
-{% configuration %}
-  device:
-    description: The serial baudrate.
-    required: true
-    type: string
-  baud:
-    description: The serial baudrate.
-    required: true
-  sensors:
-    description: A list of your sensors.
-    required: true
-    type: map
-    name:
-      description: The name of the sensor.
-      required: true
-      type: string
-    friendly_name:
-      description: A friendly name of the sensor.
-     required: true
-     type: string
-    type:
-      description: The type of the sensor.
-      required: true
-      type: string
-    id:
-      description: The LaCrosse Id of the sensor.
-      required: true
-      type: int
-
-{% endconfiguration %}
