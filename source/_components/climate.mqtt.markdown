@@ -70,7 +70,6 @@ A full configuration example looks like the one below.
 climate:
   - platform: mqtt
     name: Study
-    target_sensor: sensor.study_temperature
     modes:
       - off
       - cool
