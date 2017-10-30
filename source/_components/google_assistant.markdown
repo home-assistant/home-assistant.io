@@ -39,7 +39,15 @@ google_assistant:
 * *project_id* (Required): Project ID from the Google Developer console (looks like `words-2ab12`)
 * *client_id* (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
 * *access_token* (Required): Another different long random URL safe string.
-* *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant.
+* *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant. Options include:
+    - `switch`
+    - `light`
+    - `cover`
+    - `media_player`
+    - `group`
+    - `fan`
+    - `scene`
+    - `script`
 
 You can also customize your devices similar to other components by adding keys to entities:
 
