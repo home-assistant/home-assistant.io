@@ -74,7 +74,8 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>This component can expose regular shell commands as services. Services can be called from a <a href="/components/script/">script</a> or in <a href="/getting-started/automation/">automation</a>.</p>
+  <p>This component can expose regular shell commands as services. Services can be called from a <a href="/components/script/">script</a> or in <a href="/getting-started/automation/">automation</a>.
+Shell commands aren’t allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="c1"># Exposes service shell_command.restart_pow</span>
 <span class="s">shell_command</span><span class="pi">:</span>
