@@ -28,6 +28,7 @@ Configuration variables:
 
 - **host** (*Required*): IP address or hostname of the device
 - **port** (*Optional*): UDP Port
+- **interval_seconds** (*Optional*): Polling interval (default: 480 seconds = 8 minutes)
 
 A few notes:
 
