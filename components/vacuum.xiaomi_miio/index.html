@@ -311,32 +311,12 @@ easily via a hidden menu item at the Mi-Home app.
 <p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
 <ol>
   <li>Configure the robot with the Mi-Home app.</li>
+  <li>Download and extract the <a href="https://github.com/ultrara1n/MiToolkit/releases">MiToolKit.zip</a>.</li>
   <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
-  <li>Get and install the <a href="https://developer.android.com/studio/releases/platform-tools.html">ADB tool for Windows</a>.</li>
-  <li>Create a backup of the application <code class="highlighter-rouge">com.xiaomi.smarthome</code>:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb backup -noapk com.xiaomi.smarthome -f backup.ab
-</code></pre>
-    </div>
-  </li>
-  <li>If you have this message: “More than one device or emulator”, use this command to list all devices:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb devices
-</code></pre>
-    </div>
-    <p>and execute this command:</p>
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab <span class="c"># (with DEVICEID the device id from the previous command)</span>
-</code></pre>
-    </div>
-  </li>
-  <li>On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.</li>
-  <li>Get and install <a href="https://sourceforge.net/projects/adbextractor/">ADB Backup Extractor</a>.</li>
-  <li>Extract All files from the backup:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Unzip the “.tar” file.</li>
-  <li>Open the SQLite database <code class="highlighter-rouge">miio2.db</code> with a tool like SQLite Manager extension for FireFox.</li>
-  <li>Get the token from “devicerecord” table.</li>
+  <li>Change the MiToolKit language to English if you need to.</li>
+  <li>Click “Extract Token”</li>
+  <li>On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.</li>
+  <li>Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.</li>
 </ol>
 <h4><a class="title-link" name="linux-and-android-rooted" href="#linux-and-android-rooted"></a> Linux and Android (rooted!)</h4>
 <p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.</p>
