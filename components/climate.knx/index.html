@@ -77,7 +77,8 @@
   <p>The <code class="highlighter-rouge">knx</code> climate platform is used as in interface with KNX thermostats.</p>
 <p>The <code class="highlighter-rouge">knx</code> component must be configured correctly, see <a href="/components/knx">KNX Component</a>.</p>
 <p>To use your KNX thermostats in your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">climate</span><span class="pi">:</span>
    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
      <span class="s">name</span><span class="pi">:</span> <span class="s">HASS-Kitchen.Temperature</span>
      <span class="s">temperature_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">6/2/1'</span>
@@ -87,17 +88,19 @@
 </code></pre>
 </div>
 <p>Alternatively, if your device has dedicated binary group addresses for frost/night/comfort mode:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">climate</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
-     <span class="s">name</span><span class="pi">:</span> <span class="s">HASS-Kitchen.Temperature</span>
-     <span class="s">temperature_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">6/2/1'</span>
-     <span class="s">setpoint_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/2'</span>
-     <span class="s">target_temperature_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/1'</span>
-     <span class="s">operation_mode_frost_protection_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/3'</span>
-     <span class="s">operation_mode_night_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/4'</span>
-     <span class="s">operation_mode_comfort_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/5'</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">climate</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">HASS-Kitchen.Temperature</span>
+    <span class="s">temperature_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">6/2/1'</span>
+    <span class="s">setpoint_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/2'</span>
+    <span class="s">target_temperature_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/1'</span>
+    <span class="s">operation_mode_frost_protection_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/3'</span>
+    <span class="s">operation_mode_night_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/4'</span>
+    <span class="s">operation_mode_comfort_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">5/1/5'</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): A name for this device used within Home Assistant.</li>
   <li><strong>temperature_address</strong>: KNX group address for reading current room temperature from KNX bus.</li>
@@ -105,15 +108,15 @@
   <li>
     <p><strong>setpoint_address</strong>: KNX group address for basis setpoint</p>
   </li>
-  <li><strong>operation_mode_address</strong> (<em>Optional</em>) KNX address for operation mode (Frost protection/night/comfort).</li>
-  <li><strong>operation_mode_state_address</strong> (<em>Optional</em>) Explicit KNX address for reading operation mode</li>
-  <li><strong>controller_status_address</strong> (<em>Optional</em>) KNX address for HVAC controller status (in accordance with KNX AN 097/07 rev 3)</li>
+  <li><strong>operation_mode_address</strong> (<em>Optional</em>): KNX address for operation mode (Frost protection/night/comfort).</li>
+  <li><strong>operation_mode_state_address</strong> (<em>Optional</em>): Explicit KNX address for reading operation mode</li>
+  <li><strong>controller_status_address</strong> (<em>Optional</em>): KNX address for HVAC controller status (in accordance with KNX AN 097/07 rev 3)</li>
   <li>
-    <p><strong>controller_status_state_address</strong> (<em>Optional</em>) Explicit KNX address for reading HVAC controller status</p>
+    <p><strong>controller_status_state_address</strong> (<em>Optional</em>): Explicit KNX address for reading HVAC controller status</p>
   </li>
-  <li><strong>operation_mode_frost_protection_address</strong> (<em>Optional</em>) KNX address for switching on/off frost/heat protection mode.</li>
-  <li><strong>operation_mode_night_address</strong> (<em>Optional</em>) KNX address for switching on/off night mode.</li>
-  <li><strong>operation_mode_comfort_address</strong> (<em>Optional</em>) KNX address for switching on/off comfort mode.</li>
+  <li><strong>operation_mode_frost_protection_address</strong> (<em>Optional</em>): KNX address for switching on/off frost/heat protection mode.</li>
+  <li><strong>operation_mode_night_address</strong> (<em>Optional</em>): KNX address for switching on/off night mode.</li>
+  <li><strong>operation_mode_comfort_address</strong> (<em>Optional</em>): KNX address for switching on/off comfort mode.</li>
 </ul>
 <p><code class="highlighter-rouge">operation_mode_frost_protection_address</code> / <code class="highlighter-rouge">operation_mode_night_address</code> / <code class="highlighter-rouge">operation_mode_comfort_address</code> are not necessary if <code class="highlighter-rouge">operation_mode_address</code> was specified.</p>
 </article>

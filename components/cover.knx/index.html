@@ -79,28 +79,29 @@
 <p>To use your KNX covers in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">cover</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
-      <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Kitchen.Shutter"</span>
-      <span class="s">move_long_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/0'</span>
-      <span class="s">move_short_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/1'</span>
-      <span class="s">position_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/3'</span>
-      <span class="s">position_state_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/2'</span>
-      <span class="s">travelling_time_down</span><span class="pi">:</span> <span class="s">51</span>
-      <span class="s">travelling_time_up</span><span class="pi">:</span> <span class="s">61</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Kitchen.Shutter"</span>
+    <span class="s">move_long_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/0'</span>
+    <span class="s">move_short_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/1'</span>
+    <span class="s">position_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/3'</span>
+    <span class="s">position_state_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3/0/2'</span>
+    <span class="s">travelling_time_down</span><span class="pi">:</span> <span class="s">51</span>
+    <span class="s">travelling_time_up</span><span class="pi">:</span> <span class="s">61</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): A name for this device used within Home Assistant.</li>
   <li><strong>move_long_address</strong>: KNX group address for moving the cover full up or down.</li>
-  <li><strong>move_short_address</strong>: (<em>Optional</em>) KNX group address for moving the cover short time up or down.</li>
-  <li><strong>position_address</strong>: (<em>Optional</em>) KNX group address for moving the cover to the dedicated position.</li>
-  <li><strong>position_state_address</strong>: (<em>Optional</em>) Separate KNX group address for requesting the current position of the cover.</li>
-  <li><strong>angle_address</strong>: (<em>Optional</em>) KNX group address for moving the cover to the dedicated angle.</li>
-  <li><strong>angle_state_address</strong>: (<em>Optional</em>) Separate KNX group address for requesting the current angle of cover.</li>
-  <li><strong>travelling_time_down</strong>: (<em>Optional</em>) Time cover needs to travel down in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.</li>
-  <li><strong>travelling_time_up</strong>: (<em>Optional</em>) Time cover needs to travel up in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.</li>
-  <li><strong>invert_position</strong>: (<em>Optional</em>) Set this to true if your actuator report fully closed as 100%</li>
-  <li><strong>invert_angle</strong>: (<em>Optional</em>) Set this to true if your actuator reports tilt fully closed as 100%</li>
+  <li><strong>move_short_address</strong> (<em>Optional</em>): KNX group address for moving the cover short time up or down.</li>
+  <li><strong>position_address</strong> (<em>Optional</em>): KNX group address for moving the cover to the dedicated position.</li>
+  <li><strong>position_state_address</strong> (<em>Optional</em>): Separate KNX group address for requesting the current position of the cover.</li>
+  <li><strong>angle_address</strong> (<em>Optional</em>): KNX group address for moving the cover to the dedicated angle.</li>
+  <li><strong>angle_state_address</strong> (<em>Optional</em>): Separate KNX group address for requesting the current angle of cover.</li>
+  <li><strong>travelling_time_down</strong> (<em>Optional</em>): Time cover needs to travel down in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.</li>
+  <li><strong>travelling_time_up</strong> (<em>Optional</em>): Time cover needs to travel up in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.</li>
+  <li><strong>invert_position</strong> (<em>Optional</em>): Set this to true if your actuator report fully closed as 100%.</li>
+  <li><strong>invert_angle</strong> (<em>Optional</em>): Set this to true if your actuator reports tilt fully closed as 100%.</li>
 </ul>
 </article>
         </div>

@@ -77,24 +77,21 @@
   <p>The <code class="highlighter-rouge">knx</code> light component is used as in interface to switching/light actuators.</p>
 <p>The <code class="highlighter-rouge">knx</code> component must be configured correctly, see <a href="/components/knx">KNX Component</a>.</p>
 <p>To use your KNX light in your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen-Light-1</span>
     <span class="s">address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1/0/9'</span>
     <span class="s">brightness_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1/0/11'</span>
-
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">knx</span>
-    <span class="s">name</span><span class="pi">:</span> <span class="s">Kitchen-Light-2</span>
-    <span class="s">address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1/0/12'</span>
-    <span class="s">brightness_address</span><span class="pi">:</span> <span class="s1">'</span><span class="s">1/0/14'</span>
 </code></pre>
 </div>
+<p>Configuration variables:</p>
 <ul>
   <li><strong>name</strong> (<em>Optional</em>): A name for this device used within Home Assistant.</li>
-  <li><strong>address</strong>: KNX group address for switching the light on and off</li>
-  <li><strong>brightness_address</strong>: (Optional) KNX group address for dimming light.</li>
-  <li><strong>state_address</strong>: (<em>Optional</em>) separate KNX group address for retrieving the switch state of the light.</li>
-  <li><strong>brightness_state_address</strong>: (<em>Optional</em>) separate KNX group address for retrieving the dimmed state of the light.</li>
+  <li><strong>address</strong>: KNX group address for switching the light on and off.</li>
+  <li><strong>brightness_address</strong> (Optional): KNX group address for dimming light.</li>
+  <li><strong>state_address</strong> (<em>Optional</em>): separate KNX group address for retrieving the switch state of the light.</li>
+  <li><strong>brightness_state_address</strong> (<em>Optional</em>): separate KNX group address for retrieving the dimmed state of the light.</li>
 </ul>
 <p>Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional <code class="highlighter-rouge">state_address</code> can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 For switching/light actuators that are only controlled by a single group address and can’t change their state internally, you don’t have to configure the state address.</p>
