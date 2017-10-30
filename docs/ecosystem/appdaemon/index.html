@@ -97,8 +97,8 @@
 <span class="k">class</span> <span class="nc">OutsideLights</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
 
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunrise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunrise_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunset_cb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunrise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunrise_cb</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">run_at_sunset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sunset_cb</span><span class="p">)</span>
     
   <span class="k">def</span> <span class="nf">sunrise_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s">"off_scene"</span><span class="p">])</span>
