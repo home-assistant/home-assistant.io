@@ -42,7 +42,7 @@ Configuration variables:
 - **effect_value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the effect value.
 - **effect_list** (*Optional*): The list of effects the light supports.
 - **name** (*Optional*): The name of the switch. Default is 'MQTT Switch'.
-- **on_command_type** (*Optional*): Defines when on the payload_on is sent.  Using 'LAST' (the default) will send any style (brightness, color, etc) topics first and then a payload_on to the command_topic.  Using 'FIRST' will send the payload_on and then any style topics.  Using 'BRIGHTNESS' will only send brightness commands instead of the payload_on to turn the light on.
+- **on_command_type** (*Optional*): Defines when on the payload_on is sent.  Using 'last' (the default) will send any style (brightness, color, etc) topics first and then a payload_on to the command_topic.  Using 'first' will send the payload_on and then any style topics.  Using 'brightness' will only send brightness commands instead of the payload_on to turn the light on.
 - **optimistic** (*Optional*): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.
 - **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
 - **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
