@@ -25,7 +25,7 @@ google_assistant:
   client_id: [long URL safe random string]
   access_token: [a different long URL safe random string]
   agent_user_id: [a string to identify user]
-  homegraph_api_key: [An API Key for Google Homegraph]
+  api_key: [an API Key generated for the Google Actions project]
   exposed_domains:
     - switch
     - light
@@ -42,7 +42,7 @@ google_assistant:
 * *client_id* (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.
 * *access_token* (Required): Another different long random URL safe string.
 * *agent_user_id* (Optional): A string to identify the user for e.g. email address. If not provided, the component will generate one.
-* *homegraph_api_key* (Optional): An API Key generated for Homegraph API from Google Console. See setup below. If not provided then the request_sync service is not exposed
+* *api_key* (Optional): An API Key generated for the project from Google Console. See setup below. If not provided then the request_sync service is not exposed
 * *exposed_domains* (Optional): An array of Home Assistant domains to expose to Google Assistant.
 
 You can also customize your devices similar to other components by adding keys to entities:
