@@ -100,8 +100,8 @@ Some components automatically create special groups containing component entitie
 - `group.all_automations`
 
 You can see list of these groups in  **State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
-Default groups appear in the HOME tab, if not overridden by user views and groups. Default groups are hidden by default, so you must [customize](/docs/configuration/customizing-devices/) them
-to be visible in your custom groups and views.
+
+Default groups appear in the HOME tab, if not overridden by user views and groups. Default groups are hidden by default, so you must [customize](/docs/configuration/customizing-devices/) them to be visible in your custom groups and views.
 
 ```yaml
 # Example configuration.yaml to include default groups in custom view
