@@ -145,6 +145,34 @@ Notice in the example below that in order to refer to the group â€œLiving Roomâ€
       <span class="pi">-</span> <span class="s">group.bedroom</span>
 </code></pre>
 </div>
+<h2><a class="title-link" name="default-groups" href="#default-groups"></a> Default groups</h2>
+<p>Some components automatically create special groups containing component entities. These groups are named like <code class="highlighter-rouge">group.all_...</code>, for example:</p>
+<ul>
+  <li><code class="highlighter-rouge">group.all_switches</code></li>
+  <li><code class="highlighter-rouge">group.all_lights</code></li>
+  <li><code class="highlighter-rouge">group.all_devices</code></li>
+  <li><code class="highlighter-rouge">group.all_scripts</code></li>
+  <li><code class="highlighter-rouge">group.all_automations</code></li>
+</ul>
+<p>You can see list of these groups in  <strong>State</strong> <img src="/images/screenshots/developer-tool-states-icon.png" class="no-shadow" height="38" /> page of the <strong>Developer Tools</strong>.</p>
+<p>Default groups appear in the HOME tab, if not overridden by user views and groups. Default groups are hidden by default, so you must <a href="/docs/configuration/customizing-devices/">customize</a> them to be visible in your custom groups and views.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml to include default groups in custom view</span>
+
+<span class="s">customize</span><span class="pi">:</span>
+  <span class="s">group.all_automations</span><span class="pi">:</span>
+    <span class="s">hidden</span><span class="pi">:</span> <span class="s">false</span>
+  <span class="s">group.all_scripts</span><span class="pi">:</span>
+    <span class="s">hidden</span><span class="pi">:</span> <span class="s">false</span>
+
+<span class="s">group</span><span class="pi">:</span>
+  <span class="s">automation_view</span><span class="pi">:</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Automation</span>
+    <span class="s">view</span><span class="pi">:</span> <span class="s">yes</span>
+    <span class="s">entities</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">group.all_automations</span>
+      <span class="pi">-</span> <span class="s">group.all_scripts</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
