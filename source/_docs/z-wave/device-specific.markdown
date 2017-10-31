@@ -23,7 +23,7 @@ You can set the settings of the Z-Wave device through the Z-Wave control panel.
 
 These devices require a network key to be set for the Z-Wave network before they are paired, using the **Add Node Secure** option.
 
-Home Assistant stores logs from Z-Wave in `OZW.log` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW.log` when the device is paired successfully with a secure connection.
+Home Assistant stores logs from Z-Wave in `OZW_log.txt` in the Home Assistant config directory, when you pair a secure device you should see communication from the node with lines starting with `info: NONCES` in `OZW_log.txt` when the device is paired successfully with a secure connection.
 
 ### {% linkable_title Specific Devices %}
 
