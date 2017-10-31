@@ -69,7 +69,7 @@ binary_sensor:
       prob_given_true: 0.5
       platform: 'state'
       to_state: 'on'
-    - entity_id: 'sensor.sun'
+    - entity_id: 'sun.sun'
       prob_given_true: 0.7
       platform: 'state'
       to_state: 'below_horizon'
