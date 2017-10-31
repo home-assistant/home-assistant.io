@@ -131,7 +131,7 @@ light:
 
 ### {% linkable_title Brightness without on commands %}
 
-To enable a light that sends only brightness topics to turn it on, add the following to your `configuration.yaml` file.  The command_topic is only used to send an off command in this case:
+To enable a light that sends only brightness topics to turn it on, add the following to your `configuration.yaml` file. The `command_topic` is only used to send an off command in this case:
 
 ```yaml
 # Example configuration.yml entry
@@ -143,7 +143,7 @@ light:
     payload_off: "OFF"
     brightness_state_topic: 'office/rgb1/light/brightness'
     brightness_command_topic: 'office/rgb1/light/brightness/set'
-    on_command_type: 'BRIGHTNESS'
+    on_command_type: 'brightness'
 ```
 
 
