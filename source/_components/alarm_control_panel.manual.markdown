@@ -79,7 +79,9 @@ automation:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.ha_alarm
 ```
+
 Sending a notification when the alarm is triggered.
+
 ```yaml
 automation:
   - alias: 'Send notification when alarm triggered'
@@ -92,7 +94,9 @@ automation:
         data:
           message: "ALARM! The alarm has been triggered"
 ```
+
 Disarming the alarm when the door is properly unlocked.
+
 ```yaml
 automation:
   - alias: 'Disarm alarm when door unlocked by keypad'
