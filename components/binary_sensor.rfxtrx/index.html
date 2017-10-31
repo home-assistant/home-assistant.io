@@ -100,6 +100,9 @@
   <li><strong>device_class</strong> (<em>Optional</em>): The <a href="/components/binary_sensor/">type or class of the sensor</a> to set the icon in the frontend.</li>
   <li><strong>off_delay</strong> (<em>Optional</em>): For sensors that only sends ‘On’ state updates, this variable sets a delay after which the sensor state will be updated back to ‘Off’.</li>
 </ul>
+<p class="note warning">
+This component and the <a href="/components/switch/rfxtrx/">rfxtrx switch</a> can steal each other’s devices when setting the <code class="highlighter-rouge">automatic_add</code> configuration parameter to <code class="highlighter-rouge">true</code>. Set <code class="highlighter-rouge">automatic_add</code> only when you have some devices to add to your installation, otherwise leave it to <code class="highlighter-rouge">False</code>.
+</p>
 <p>Binary sensors have only two states - “on” and “off”. Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their “on” state:</p>
 <ul>
   <li>Most motion sensors send a signal each time they detect motion. They stay “on” for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep.</li>
@@ -171,8 +174,8 @@ to configure your new devices and leave it off otherwise.</p>
   </li>
   <li>Door / window sensors:
     <ul>
-      <li>Kerui D026 door / window sensor: can trigger on “open” and “close”. Has a temper switch.</li>
-      <li>Nexa LMST-606 Magnetic contact switch.</li>
+      <li>Kerui D026 door / window sensor: can trigger on “open” and “close”. Has a tamper switch.</li>
+      <li>Nexa LMST-606.</li>
     </ul>
   </li>
 </ul>
@@ -397,6 +400,9 @@ to configure your new devices and leave it off otherwise.</p>
         </li>
         <li>
             <a href='/components/binary_sensor.arest/'>aREST Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.gc100/'>gc100 Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.mystrom/'>myStrom Binary Sensor</a>

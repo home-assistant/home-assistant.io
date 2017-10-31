@@ -87,8 +87,12 @@
 <ul>
   <li><strong>resource</strong> (<em>Required</em>): The URL to the website that contains the value.</li>
   <li><strong>select</strong> (<em>Required</em>): Defines the HTML tag to search for. Check Beautifulsoup’s <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors">CSS selectors</a> for details.</li>
+  <li><strong>attribute</strong> (<em>optional</em>): Get value of an attribute on the selected tag.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the sensor.</li>
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the units of measurement of the sensor, if any.</li>
+  <li><strong>authentication</strong> (<em>Optional</em>): Type of the HTTP authentication. Either <code class="highlighter-rouge">basic</code> or <code class="highlighter-rouge">digest</code>.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The username for accessing the website.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The password for accessing the website.</li>
 </ul>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you find some real life examples of how to use this sensor. There is also a <a href="http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/web-scraping.ipynb">Jupyter notebook</a> available for this example to give you a bit more insight.</p>
@@ -116,8 +120,8 @@
 </div>
 <h3><a class="title-link" name="get-a-value-out-of-a-tag" href="#get-a-value-out-of-a-tag"></a> Get a value out of a tag</h3>
 <p>The German <a href="http://www.bfs.de/">Federal Office for Radiation protection (Bundesamt für Strahlenschutz)</a> is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-<span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">scrape</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Coast Ostsee</span>
@@ -127,12 +131,23 @@
 </div>
 <h3><a class="title-link" name="ifttt-status" href="#ifttt-status"></a> IFTTT status</h3>
 <p>If you make heavy use of the <a href="/components/ifttt/">IFTTT</a> web service for your automations and are curious about the <a href="http://status.ifttt.com/">status of IFTTT</a> then you can display the current state of IFTTT in your frontend.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
-<span class="c1"># Example configuration.yaml entry</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">scrape</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://status.ifttt.com/</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">IFTTT status</span>
     <span class="s">select</span><span class="pi">:</span> <span class="s1">'</span><span class="s">.component-status'</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="get-the-latest-podcast-episode-file-url" href="#get-the-latest-podcast-episode-file-url"></a> Get the latest podcast episode file URL</h3>
+<p>If you want to get the file URL for the latest episode of your <a href="https://hasspodcast.io/">favourite podcast</a>, so you can pass it on to a compatible media player.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">scrape</span>
+    <span class="s">resource</span><span class="pi">:</span> <span class="s">https://hasspodcast.io/feed/podcast</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Home Assistant Podcast</span>
+    <span class="s">select</span><span class="pi">:</span> <span class="s1">'</span><span class="s">enclosure:nth-of-type(1)'</span>
+    <span class="s">attribute</span><span class="pi">:</span> <span class="s">url</span>
 </code></pre>
 </div>
 </article>
@@ -230,6 +245,9 @@
         </li>
         <li>
             <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.fail2ban/'>Fail2Ban Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.fedex/'>Fedex Sensor</a>
@@ -358,6 +376,9 @@
             <a href='/components/sensor.radarr/'>Radarr Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.random/'>Random Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.random/'>Random Sensor</a>
         </li>
         <li>
@@ -389,6 +410,9 @@
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sytadin/'>Sytadin Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
@@ -449,6 +473,9 @@
         </li>
         <li>
             <a href='/components/sensor.version/'>Version Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.whois/'>Whois Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>

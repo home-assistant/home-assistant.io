@@ -74,12 +74,12 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">bayesian</code> binary sensor platform observes the state from multiple sensors and uses Bayes’ rule to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the <code class="highlighter-rouge">probability_threshold</code>, the sensor is <code class="highlighter-rouge">on</code> otherwise it is <code class="highlighter-rouge">off</code>.</p>
+  <p>The <code class="highlighter-rouge">bayesian</code> binary sensor platform observes the state from multiple sensors and uses <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes’ rule</a> to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the <code class="highlighter-rouge">probability_threshold</code>, the sensor is <code class="highlighter-rouge">on</code> otherwise it is <code class="highlighter-rouge">off</code>.</p>
 <p>This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that <em>are</em> directly observable, but for which the sensors can be unreliable, e.g., presence.</p>
 <p>To enable the Bayesian sensor, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s1">'</span><span class="s">bayesian'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">bayesian</span>
     <span class="s">prior</span><span class="pi">:</span> <span class="s">0.1</span>
     <span class="s">observations</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">entity_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">switch.kitchen_lights'</span>
@@ -92,6 +92,8 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>prior</strong> (<em>Required</em>): The prior probability of the event. At any point in time (ignoring all external influences) how likely is this event to occur?</li>
+  <li><strong>probability_threshold</strong> (<em>Optional</em>): The probability at which the sensor should trigger to <code class="highlighter-rouge">on</code>.</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the sensor to use in the frontend. Defaults to <code class="highlighter-rouge">Bayesian Binary sensor</code>.</li>
   <li><strong>observations</strong> array (<em>Required</em>): The observations which should influence the likelihood that the given event has occurred.
     <ul>
       <li><strong>entity_id</strong> (<em>Required</em>): Name of the entity to monitor.</li>
@@ -101,8 +103,6 @@
       <li><strong>to_state</strong> (<em>Required</em>): The target state.</li>
     </ul>
   </li>
-  <li><strong>probability_threshold</strong> (<em>Optional</em>): The probability at which the sensor should trigger to <code class="highlighter-rouge">on</code>.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the sensor to use in the frontend. Defaults to <code class="highlighter-rouge">Bayesian Binary</code>.</li>
 </ul>
 <h2><a class="title-link" name="full-examples" href="#full-examples"></a> Full examples</h2>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -352,6 +352,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.arest/'>aREST Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.gc100/'>gc100 Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.mystrom/'>myStrom Binary Sensor</a>

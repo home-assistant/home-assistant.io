@@ -74,16 +74,15 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>With the namecheapDNS component you can automatically update your dynamic DNS entry.</p>
+  <p>With the <code class="highlighter-rouge">namecheapdns</code> component you can automatically update your dynamic DNS entry at <a href="https://www.namecheap.com/store/domains/freedns/">namecheapdns</a>.</p>
 <p class="note warning">
 Namecheap only supports IPv4 adresses to update.
 </p>
 <p>To use the component in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">namecheapdns</span><span class="pi">:</span>
-  <span class="s">host</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@'</span>
   <span class="s">domain</span><span class="pi">:</span> <span class="s">example.com</span>
-  <span class="s">access_token</span><span class="pi">:</span> <span class="s">0123_Dynamic_DNS_Password</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
 <div class="config-vars">
@@ -91,15 +90,15 @@ Namecheap only supports IPv4 adresses to update.
   <dl class="">
     <dt><a class="title-link" name="host" href="#host"></a> host</dt>
     <dd>
-      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The host part or “subdomain” part you want to update (If you want your domain leave the @ sign)</span></p>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The host part or “subdomain” part you want to update.</span></p>
     </dd>
     <dt><a class="title-link" name="domain" href="#domain"></a> domain</dt>
     <dd>
       <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">Your namecheap TLD (example.com).</span></p>
     </dd>
-    <dt><a class="title-link" name="access_token" href="#access_token"></a> access_token</dt>
+    <dt><a class="title-link" name="password" href="#password"></a> password</dt>
     <dd>
-      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The namecheap “Dynamic DNS Password” you can find under the “Advanced DNS” Tab</span></p>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The namecheap “Dynamic DNS Password” you can find under the “Advanced DNS” tab.</span></p>
     </dd>
   </dl>
 </div>
@@ -126,7 +125,13 @@ Namecheap only supports IPv4 adresses to update.
             <a href='/components/duckdns/'>DuckDNS</a>
         </li>
         <li>
+            <a href='/components/google_domains/'>Google Domains</a>
+        </li>
+        <li>
             <a href='/components/logger/'>Logger</a>
+        </li>
+        <li>
+            <a href='/components/no_ip/'>NO-IP.com</a>
         </li>
         <li>
             NamecheapDNS

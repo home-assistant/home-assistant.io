@@ -75,6 +75,75 @@
   </header>
   <hr class="divider">
   <p>The camera component allows you to use IP cameras with Home Assistant. With a little additional work you could use <a href="/blog/2016/06/23/usb-webcams-and-home-assistant/">USB cameras</a> as well.</p>
+<h3><a class="title-link" name="service" href="#service"></a> Service</h3>
+<p>Once loaded, the <code class="highlighter-rouge">camera</code> platform will expose services that can be called to perform various actions.</p>
+<p>Available services: <code class="highlighter-rouge">enable_motion_detection</code>, <code class="highlighter-rouge">disable_motion_detection</code>, and <code class="highlighter-rouge">snapshot</code>.</p>
+<h4><a class="title-link" name="service-enable_motion_detection" href="#service-enable_motion_detection"></a> Service <code class="highlighter-rouge">enable_motion_detection</code></h4>
+<p>Enable the motion detection in a camera.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>Name(s) of entities to enable motion detection, e.g., <code class="highlighter-rouge">camera.living_room_camera</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-disable_motion_detection" href="#service-disable_motion_detection"></a> Service <code class="highlighter-rouge">disable_motion_detection</code></h4>
+<p>Disable the motion detection in a camera.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>Name(s) of entities to disable motion detection, e.g., <code class="highlighter-rouge">camera.living_room_camera</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-snapshot" href="#service-snapshot"></a> Service <code class="highlighter-rouge">snapshot</code></h4>
+<p>Take a snapshot from a camera.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>Name(s) of entities to create a snopshot from, e.g., <code class="highlighter-rouge">camera.living_room_camera</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filename </code></td>
+      <td>no</td>
+      <td>Template of a file name. Variable is <code class="highlighter-rouge">entity_id</code>, e.g., <code class="highlighter-rouge">/tmp/snapshot_{{ entity_id }}</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="test-if-it-works" href="#test-if-it-works"></a> Test if it works</h3>
+<p>A simple way to test if you have set up your <code class="highlighter-rouge">camera</code> platform correctly, is to use <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose your service from the dropdown menu <strong>Service</strong>, enter something like the sample below into the <strong>Service Data</strong> field, and hit <strong>CALL SERVICE</strong>.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"camera.living_room_camera"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -144,6 +213,9 @@
           </a></li>
           <li><a href='/components/camera.rpi_camera/'>
             Raspberry Pi Camera
+          </a></li>
+          <li><a href='/components/camera.ring/'>
+            Ring Binary Camera
           </a></li>
           <li><a href='/components/camera.skybell/'>
             Skybell Camera

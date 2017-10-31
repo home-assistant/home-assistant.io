@@ -97,7 +97,10 @@
   <li><strong>unit_of_measurement</strong> (<em>Optional</em>): Defines the unit of measurement of for all the sensors. default is “W”.</li>
 </ul>
 <h2><a class="title-link" name="default-naming-scheme" href="#default-naming-scheme"></a> Default naming scheme</h2>
-<p>The names of the sensors created by this component, will be a combination of static text, <code class="highlighter-rouge">id</code> from the config and <code class="highlighter-rouge">feedid</code> from the Emoncms feed, unless <code class="highlighter-rouge">sensor_names</code> is used. An example name would be <code class="highlighter-rouge">emoncms1_feedid_10</code>.</p>
+<p>The names of the sensors created by this component will use the feed names defined in EmonCMS if available,
+or the feed ID otherwise, and will be prefixed with “EmonCMS”, e.g. “EmonCMS Total Power” or “EmonCMS Feed 5”.
+If the <code class="highlighter-rouge">id</code> property is anything but <code class="highlighter-rouge">1</code>, the ID will be shown as well, e.g. “EmonCMS 2 Feed 5”.</p>
+<p>If <code class="highlighter-rouge">sensor_names</code> is used, any feeds with defined names will get those names exactly, with no prefix.</p>
 <h3><a class="title-link" name="examples" href="#examples"></a> Examples</h3>
 <p>In this section you find some more examples of how this sensor can be used.</p>
 <p>Display only feeds with their feed IDs specified in <code class="highlighter-rouge">include_only_feed_id</code>.</p>
@@ -278,6 +281,9 @@
             <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.fail2ban/'>Fail2Ban Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.fedex/'>Fedex Sensor</a>
         </li>
         <li>
@@ -404,6 +410,9 @@
             <a href='/components/sensor.radarr/'>Radarr Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.random/'>Random Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.random/'>Random Sensor</a>
         </li>
         <li>
@@ -435,6 +444,9 @@
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sytadin/'>Sytadin Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
@@ -495,6 +507,9 @@
         </li>
         <li>
             <a href='/components/sensor.version/'>Version Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.whois/'>Whois Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>

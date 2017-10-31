@@ -97,6 +97,7 @@ Default is false.</li>
 The topic will be in the form <code class="highlighter-rouge">base_topic/domain/entity/state</code>.</p>
 <p>For example, with the example configuration above, if an entity called ‘light.master_bedroom_dimmer’ is turned on, this component will publish <code class="highlighter-rouge">on</code> to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/state</code>.</p>
 <p>If that entity also has an attribute called <code class="highlighter-rouge">brightness</code>, the component will also publish the value of that attribute to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/brightness</code>.</p>
+<p>All states and attributes are passed through JSON serialization before publishing. <strong>Please note</strong> that this causes strings to be quoted (e.g., the string ‘on’ will be published as ‘“on”’). You can access the JSON deserialized values (as well as unquoted strings) at many places by using <code class="highlighter-rouge">value_json</code> instead of <code class="highlighter-rouge">value</code>.</p>
 <p>The last_updated and last_changed values for the entity will be published to <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/last_updated</code> and <code class="highlighter-rouge">homeassistant/light/master_bedroom_dimmer/last_changed</code>, respectively.  The timestamps are in ISO 8601 format - for example, <code class="highlighter-rouge">2017-10-01T23:20:30.920969+00:00</code>.</p>
 </article>
         </div>

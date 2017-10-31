@@ -74,7 +74,7 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">coinmarketcap</code> sensor platform displays various details about a crypto currency provided by <a href="http://coinmarketcap.com/">CoinMarketCap</a>.</p>
+  <p>The <code class="highlighter-rouge">coinmarketcap</code> sensor platform displays various details about a cryptocurrency provided by <a href="http://coinmarketcap.com/">CoinMarketCap</a>.</p>
 <p>To add the CoinMarketCap sensor to your installation, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
@@ -83,7 +83,8 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>currency</strong> (<em>Optional</em>): The currency to display, eg. <code class="highlighter-rouge">bitcoin</code>, <code class="highlighter-rouge">litecoin</code>, <code class="highlighter-rouge">steem</code>, etc. Default is <code class="highlighter-rouge">bitcoin</code>.</li>
+  <li><strong>currency</strong> (<em>Optional</em>): The cryptocurrency to use, eg. <code class="highlighter-rouge">bitcoin</code>, <code class="highlighter-rouge">litecoin</code>, <code class="highlighter-rouge">steem</code>, etc. Default is <code class="highlighter-rouge">bitcoin</code>.</li>
+  <li><strong>display_currency</strong> (<em>Optional</em>): The currency to display, eg. <code class="highlighter-rouge">USD</code>, <code class="highlighter-rouge">EUR</code>, <code class="highlighter-rouge">GBP</code>, etc. Default is <code class="highlighter-rouge">USD</code>. All supported currencies can be found <a href="https://coinmarketcap.com/api/">here</a>.</li>
 </ul>
 </article>
         </div>

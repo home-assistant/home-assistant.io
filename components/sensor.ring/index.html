@@ -79,27 +79,23 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ring</span>
-    <span class="s">monitored_conditions</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">battery</span>
-      <span class="pi">-</span> <span class="s">last_activity</span>
-      <span class="pi">-</span> <span class="s">last_ding</span>
-      <span class="pi">-</span> <span class="s">last_motion</span>
-      <span class="pi">-</span> <span class="s">volume</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend. The following conditions can be monitored.
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
     <ul>
       <li><strong>battery</strong>: Return the battery level from device</li>
-      <li><strong>last_activity</strong>: Return the timestamp from the last event captured (ding/motion/on_demand) by the Ring doorbell camera</li>
+      <li><strong>last_activity</strong>: Return the timestamp from the last event captured (ding/motion/on demand) by the Ring doorbell camera</li>
       <li><strong>last_ding</strong>: Return the timestamp from the last time the Ring doorbell button was pressed</li>
       <li><strong>last_motion</strong>: Return the timestamp from the last motion event captured by the Ring doorbell camera</li>
-      <li><strong>volume</strong>: Return the volume level from the device. Currently supported by external chimes and doorbells.</li>
+      <li><strong>volume</strong>: Return the volume level from the device.</li>
+      <li><strong>wifi_signal_category</strong>: Return the WiFi signal level from the device.</li>
+      <li><strong>wifi_signal_strength</strong>: Return the WiFi signal strength (dBm) from the device.</li>
     </ul>
   </li>
 </ul>
-<p>Currently it supports doorbells and external chimes only.</p>
+<p>Currently it supports doorbell, external chimes and stickup cameras.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -120,6 +116,9 @@
           <ul class='divided'>
         <li><a href='/components/ring/'>
           Ring
+        </a></li>
+        <li><a href='/components/camera.ring/'>
+          Ring Binary Camera
         </a></li>
         <li><a href='/components/binary_sensor.ring/'>
           Ring Binary Sensor
@@ -206,6 +205,9 @@
         </li>
         <li>
             <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.fail2ban/'>Fail2Ban Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.fedex/'>Fedex Sensor</a>
@@ -334,6 +336,9 @@
             <a href='/components/sensor.radarr/'>Radarr Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.random/'>Random Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.random/'>Random Sensor</a>
         </li>
         <li>
@@ -365,6 +370,9 @@
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sytadin/'>Sytadin Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
@@ -425,6 +433,9 @@
         </li>
         <li>
             <a href='/components/sensor.version/'>Version Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.whois/'>Whois Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>

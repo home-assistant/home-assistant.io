@@ -83,6 +83,8 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">hddtemp</span>
+    <span class="s">disks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">/dev/sda1</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -90,6 +92,7 @@
   <li><strong>name</strong> (<em>Optional</em>): Friendly name to use for the frontend. Default to “HD Temperature”.</li>
   <li><strong>host</strong> (<em>Optional</em>): Host where <code class="highlighter-rouge">hddtemp</code> is running. Default to <code class="highlighter-rouge">localhost</code>.</li>
   <li><strong>port</strong> (<em>Optional</em>): Port that is used by <code class="highlighter-rouge">hddtemp</code> . Default to <code class="highlighter-rouge">7634</code>.</li>
+  <li><strong>disks</strong> (<em>Optional</em>): Disk to be monitored. Example: <code class="highlighter-rouge">/dev/sda1</code></li>
 </ul>
 </article>
         </div>
@@ -149,6 +152,9 @@
         </li>
         <li>
             <a href='/components/sensor.hp_ilo/'>HP ILO</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.linode/'>Linode Binary Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.linux_battery/'>Linux Battery</a>

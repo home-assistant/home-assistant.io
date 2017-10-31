@@ -79,21 +79,18 @@
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">binary_sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">ring</span>
-    <span class="s">monitored_conditions</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">ding</span>
-      <span class="pi">-</span> <span class="s">motion</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>monitored_conditions</strong> array (<em>Required</em>): Conditions to display in the frontend. The following conditions can be monitored.
+  <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
     <ul>
       <li><strong>ding</strong>: Return a boolean value when the doorbell button was pressed.</li>
       <li><strong>motion</strong>: Return a boolean value when a movement was detected by the Ring doorbell.</li>
     </ul>
   </li>
 </ul>
-<p>Currently only doorbells are supported by this sensor.</p>
+<p>Currently it supports doorbell, external chimes and stickup cameras.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -103,6 +100,9 @@
   <div class='brand-logo-container section'>
       <img src='/images/supported_brands/ring.png' />
   </div>
+    <div class='section'>
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
     <div class='section'>
     Introduced in release: 0.42
     </div>
@@ -115,6 +115,9 @@
           <ul class='divided'>
         <li><a href='/components/ring/'>
           Ring
+        </a></li>
+        <li><a href='/components/camera.ring/'>
+          Ring Binary Camera
         </a></li>
         <li><a href='/components/sensor.ring/'>
           Ring Sensor
@@ -309,6 +312,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.arest/'>aREST Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.gc100/'>gc100 Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.mystrom/'>myStrom Binary Sensor</a>

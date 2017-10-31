@@ -99,7 +99,18 @@ To use Google Assistant your Home Assistant configuration has to be externally a
   <li><em>project_id</em> (Required): Project ID from the Google Developer console (looks like <code class="highlighter-rouge">words-2ab12</code>)</li>
   <li><em>client_id</em> (Required): A long random URL safe string (no spaces or special characters) that will be used for Implicit OAuth.</li>
   <li><em>access_token</em> (Required): Another different long random URL safe string.</li>
-  <li><em>exposed_domains</em> (Optional): An array of Home Assistant domains to expose to Google Assistant.</li>
+  <li><em>exposed_domains</em> (Optional): An array of Home Assistant domains to expose to Google Assistant. Options include:
+    <ul>
+      <li><code class="highlighter-rouge">switch</code></li>
+      <li><code class="highlighter-rouge">light</code></li>
+      <li><code class="highlighter-rouge">cover</code></li>
+      <li><code class="highlighter-rouge">media_player</code></li>
+      <li><code class="highlighter-rouge">group</code></li>
+      <li><code class="highlighter-rouge">fan</code></li>
+      <li><code class="highlighter-rouge">scene</code></li>
+      <li><code class="highlighter-rouge">script</code></li>
+    </ul>
+  </li>
 </ul>
 <p>You can also customize your devices similar to other components by adding keys to entities:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
@@ -195,10 +206,10 @@ Note: This must be an HTTPS URL to work.</li>
             <a href='/components/alexa/'>Alexa / Amazon Echo</a>
         </li>
         <li>
-            <a href='/components/apiai/'>Api.AI</a>
+            <a href='/components/conversation/'>Conversation</a>
         </li>
         <li>
-            <a href='/components/conversation/'>Conversation</a>
+            <a href='/components/dialogflow/'>Dialogflow</a>
         </li>
         <li>
             Google Assistant

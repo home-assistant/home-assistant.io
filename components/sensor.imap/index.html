@@ -88,10 +88,11 @@
 <p>Configuration variables:</p>
 <ul>
   <li><strong>server</strong> (<em>Required</em>): The IP address or hostname of the IMAP server.</li>
-  <li><strong>port</strong> (<em>Required</em>): The port where the server is accessible.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The port where the server is accessible.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the IMAP sensor.</li>
   <li><strong>username</strong> (<em>Required</em>): Username for the IMAP server.</li>
   <li><strong>password</strong> (<em>Required</em>): Password for the IMAP server.</li>
+  <li><strong>folder</strong> (<em>Optional</em>): The IMAP folder to watch.</li>
 </ul>
 </article>
         </div>
@@ -103,7 +104,7 @@
       <img src='/images/supported_brands/smtp.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Push
     </div>
     <div class='section'>
     Introduced in release: 0.25
@@ -188,6 +189,9 @@
         </li>
         <li>
             <a href='/components/sensor.envisalink/'>Envisalink Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.fail2ban/'>Fail2Ban Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.fedex/'>Fedex Sensor</a>
@@ -316,6 +320,9 @@
             <a href='/components/sensor.radarr/'>Radarr Sensor</a>
         </li>
         <li>
+            <a href='/components/binary_sensor.random/'>Random Binary Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.random/'>Random Sensor</a>
         </li>
         <li>
@@ -347,6 +354,9 @@
         </li>
         <li>
             <a href='/components/sensor.statistics/'>Statistics Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.sytadin/'>Sytadin Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.tcp/'>TCP Sensor</a>
@@ -407,6 +417,9 @@
         </li>
         <li>
             <a href='/components/sensor.version/'>Version Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.whois/'>Whois Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.wink/'>Wink Sensor</a>

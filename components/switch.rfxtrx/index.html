@@ -105,6 +105,9 @@ Then you should update your configuration to:</p>
   <li><strong>signal_repetitions</strong> (<em>Optional</em>): Because the RFXtrx device sends its actions via radio and from most receivers it’s impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.</li>
   <li><strong>fire_event</strong> (<em>Optional</em>): Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.</li>
 </ul>
+<p class="note warning">
+This component and the <a href="/components/binary_sensor/rfxtrx/">rfxtrx binary sensor</a> can steal each other’s devices when setting the <code class="highlighter-rouge">automatic_add</code> configuration parameter to <code class="highlighter-rouge">true</code>. Set <code class="highlighter-rouge">automatic_add</code> only when you have some devices to add to your installation, otherwise leave it to <code class="highlighter-rouge">False</code>.
+</p>
 <p>Generate codes:</p>
 <p>If you need to generate codes for switches you can use a template (useful for example COCO switches).</p>
 <ul>
@@ -377,6 +380,9 @@ Then you should update your configuration to:</p>
             <a href='/components/switch.scsgate/'>SCSGate Switch</a>
         </li>
         <li>
+            <a href='/components/switch.snmp/'>SNMP Switch</a>
+        </li>
+        <li>
             <a href='/components/switch.skybell/'>Skybell Switch</a>
         </li>
         <li>
@@ -419,6 +425,9 @@ Then you should update your configuration to:</p>
             <a href='/components/switch.wink/'>Wink Switch</a>
         </li>
         <li>
+            <a href='/components/fan.xiaomi_miio/'>Xiaomi Air Purifier 2</a>
+        </li>
+        <li>
             <a href='/components/switch.xiaomi_miio/'>Xiaomi Smart WiFi Socket and Smart Power Strip</a>
         </li>
         <li>
@@ -438,6 +447,9 @@ Then you should update your configuration to:</p>
         </li>
         <li>
             <a href='/components/switch.arest/'>aREST Switch</a>
+        </li>
+        <li>
+            <a href='/components/switch.gc100/'>gc100 Switch</a>
         </li>
         <li>
             <a href='/components/switch.mfi/'>mFi Switch</a>

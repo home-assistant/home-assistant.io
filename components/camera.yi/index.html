@@ -74,32 +74,20 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">yi</code> camera platform allows you to utilize Yi Home Cameras within Home
-Assistant. Specifically, this platform supports the line of Yi Home Cameras
-that are based on the Hi3518e Chipset; these include:</p>
+  <p>The <code class="highlighter-rouge">yi</code> camera platform allows you to utilize <a href="https://www.yitechnology.com/">Yi Home Cameras</a> within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:</p>
 <ul>
   <li>Yi Home 17CN</li>
   <li>Yi 1080p Home</li>
   <li>Yi Dome</li>
   <li>Yi 1080p Dome</li>
 </ul>
-<p>To successfully implement this platform, the Home Assistant host should be
-capable of multiple simultaneous reads; for every concurrent Home Assistant
-user, a connection will be made to the camera every 10 seconds.
-This should normally not be a problem.</p>
+<p>To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.</p>
 <h2><a class="title-link" name="preparing-the-device" href="#preparing-the-device"></a> Preparing the Device</h2>
 <h3><a class="title-link" name="installing-alternative-firmware" href="#installing-alternative-firmware"></a> Installing Alternative Firmware</h3>
-<p>In order to integrate the camera with Home Assitant, it is necessary to install
-a custom firmware on the device. Instructions for doing so can be found via the
-<a href="https://github.com/shadow-1/yi-hack-v3">yi-hack-v3 GitHub project</a>.</p>
-<p>Once installed, please ensure that you have enabled FTP and Telnet on your
-device.</p>
+<p>In order to integrate the camera with Home Assitant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the <a href="https://github.com/shadow-1/yi-hack-v3">yi-hack-v3 GitHub project</a>.</p>
+<p>Once installed, please ensure that you have enabled FTP and Telnet on your device.</p>
 <p class="note warning">
-Some alternative Yi firmwares enable an experimental RTSP server, which will
-allow you to connect to your camera via other Home Assistant camera platforms.
-However, this RTSP server disables the ability to use the supremely-useful Yi
-Home app. In order to maintain both Home Assistant compatibility <em>and</em> the native
-app, this platform retrieves videos via FTP.
+Some alternative Yi firmwares enable an experimental RTSP server, which will allow you to connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Yi Home app. In order to maintain both Home Assistant compatibility <em>and</em> the native app, this platform retrieves videos via FTP.
 </p>
 <h3><a class="title-link" name="changing-the-ftp-password" href="#changing-the-ftp-password"></a> Changing the FTP Password</h3>
 <p>Once the custom firmware is installed, a password must be added to the FTP
@@ -112,33 +100,32 @@ server. To do so:</p>
   <li>Log out of Telnet.</li>
 </ol>
 <h2><a class="title-link" name="configuring-the-platform" href="#configuring-the-platform"></a> Configuring the Platform</h2>
-<p>To enable the platform, add the following lines to your
-<code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>To enable the platform, add the following lines to your<code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yi</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">Camera</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.1.100'</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">my_password_123</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): the IP address or hostname of the camera</li>
-  <li><strong>password</strong> (<em>Required</em>): the password to the FTP server on the camera (from above)</li>
-  <li><strong>username</strong> (<em>Optional</em>): the user that can access the FTP server (default: <code class="highlighter-rouge">root</code>)</li>
-  <li><strong>name</strong> (<em>Optional</em>): a human-friendly name for the camera</li>
-  <li><strong>ffmpeg_arguments</strong> (<em>Optional</em>): extra options to pass to <code class="highlighter-rouge">ffmpeg</code> (e.g. image quality or video filter options)</li>
+  <li><strong>name</strong> (<em>Required</em>): A human-friendly name for the camera.</li>
+  <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of the camera.</li>
+  <li><strong>password</strong> (<em>Required</em>): The password to the FTP server on the camera (from above).</li>
+  <li><strong>path</strong> (<em>Optional</em>): The path to the raw MP4 files. Defaults to <code class="highlighter-rouge">/tmp/sd/record</code>.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The user that can access the FTP server. Ddefaults to <code class="highlighter-rouge">root</code>.</li>
+  <li><strong>ffmpeg_arguments</strong> (<em>Optional</em>): Extra options to pass to <code class="highlighter-rouge">ffmpeg</code> (e.g. image quality or video filter options).</li>
 </ul>
 <h2><a class="title-link" name="image-quality" href="#image-quality"></a> Image quality</h2>
-<p>Any option supported by the <code class="highlighter-rouge">ffmpeg</code> client can be utilized via the
-<code class="highlighter-rouge">ffmpeg_arguments</code> configuration parameter.</p>
-<p>One particularly useful adjustment deals with video size. Since Yi videos are
-fairly large (especially on the 1080p cameras), the following configuration will
-bring them down to a manageable size:</p>
+<p>Any option supported by <a href="/components/camera.ffmpeg/"><code class="highlighter-rouge">ffmpeg</code> camera</a> can be utilized via the <code class="highlighter-rouge">ffmpeg_arguments</code> configuration parameter.</p>
+<p>One particularly useful adjustment deals with video size. Since Yi videos are fairly large (especially on the 1080p cameras), the following configuration will bring them down to a manageable size:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">camera</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">yi</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">My Camera</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.1.100'</span>
     <span class="s">password</span><span class="pi">:</span> <span class="s">my_password_123</span>
+    <span class="s">path</span><span class="pi">:</span> <span class="s">/home/camera/feed</span>
     <span class="s">ffmpeg_arguments</span><span class="pi">:</span> <span class="s1">'</span><span class="s">-vf</span><span class="nv"> </span><span class="s">scale=800:450'</span>
 </code></pre>
 </div>
@@ -226,6 +213,9 @@ bring them down to a manageable size:</p>
         </li>
         <li>
             <a href='/components/camera.rpi_camera/'>Raspberry Pi Camera</a>
+        </li>
+        <li>
+            <a href='/components/camera.ring/'>Ring Binary Camera</a>
         </li>
         <li>
             <a href='/components/camera.skybell/'>Skybell Camera</a>

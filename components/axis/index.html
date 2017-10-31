@@ -76,26 +76,6 @@
   <hr class="divider">
   <p><a href="https://www.axis.com/">Axis Communications</a> devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.</p>
 <p>Home Assistant will automatically discover their presence on your network.</p>
-<h2><a class="title-link" name="dependencies" href="#dependencies"></a> Dependencies</h2>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools python3-gi
-</code></pre>
-</div>
-<p>Depending on how you run Home Assistant, you may need to symlink the <code class="highlighter-rouge">gi</code> module into your environment.</p>
-<p>Hassbian:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.4/site-packages
-</code></pre>
-</div>
-<p>Raspberry Pi All-In-One Installer:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages
-</code></pre>
-</div>
-<p><a href="https://home-assistant.io/docs/installation/virtualenv/">Virtualenv</a> installation:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ln -s /usr/lib/python3/dist-packages/gi /srv/homeassistant/lib/python3.5/site-packages
-</code></pre>
-</div>
-<p class="note">
-  Adjust “python3.5” in command above to match your version as stored in “/srv/homeassistant/lib/pythonX.X”
-</p>
 <p>You can also manually configure your devices by adding the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">axis</span><span class="pi">:</span>
@@ -307,6 +287,9 @@ Any specific levels for triggers needs to be configured on the device.
             <a href='/components/lametric/'>LaMetric</a>
         </li>
         <li>
+            <a href='/components/linode/'>Linode</a>
+        </li>
+        <li>
             <a href='/components/litejet/'>LiteJet</a>
         </li>
         <li>
@@ -359,6 +342,9 @@ Any specific levels for triggers needs to be configured on the device.
         </li>
         <li>
             <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/switch.rainbird/'>Rain Bird Switch</a>
         </li>
         <li>
             <a href='/components/ring/'>Ring</a>
@@ -440,6 +426,9 @@ Any specific levels for triggers needs to be configured on the device.
         </li>
         <li>
             <a href='/components/ecobee/'>ecobee</a>
+        </li>
+        <li>
+            <a href='/components/gc100/'>gc100</a>
         </li>
     </ul>
     </div>
