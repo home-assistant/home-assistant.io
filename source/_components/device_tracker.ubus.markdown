@@ -59,7 +59,6 @@ After this is done, add the following to your `configuration.yaml` file:
 device_tracker:
   - platform: ubus
     host: ROUTER_IP_ADDRESS
-    dhcp_software: ROUTER_DHCP_SOFTWARE
     username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
 ```
@@ -67,14 +66,10 @@ device_tracker:
 Configuration variables:
 
 - **host** (*Required*): The IP address of your router, eg. 192.168.1.1.
-- **dhcp_software** (*Optional*): The DHCP software used in your router (defaults to *dnsmasq*).
 - **username** (*Required*): The username of an user with administrative privileges, usually *root*.
 - **password** (*Required*): The password for your given account.
+- **dhcp_software** (*Optional*): The DHCP software used in your router: `dnsmasq` or `dhcpd`. Defaults to `dnsmasq`.
 
-Supported DHCP softwares:
-
-- dnsmasq (*default*)
-- odhcpd
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
