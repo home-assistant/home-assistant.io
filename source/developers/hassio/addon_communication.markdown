@@ -18,7 +18,7 @@ We use a internal network. That allow to speak with every add-on or from Home As
 
 Use `hassio` to speak with the internal API.
 
-## {% linkable_title Home-Assistant %}
+## {% linkable_title Home Assistant %}
 
 An add-on can speak to the [Home Assistant API][hass-api] with our internal proxy. That makes it very easy to communicate with the API without knowing the password, port or any other information of the Home Assistant instance. Use this URL: `http://hassio/homeassistant/api` and internal communication is redirected to the right place. The next stept is to add `homeassistant_api: true` to `config.json`.
 
