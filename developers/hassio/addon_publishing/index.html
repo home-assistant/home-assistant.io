@@ -84,11 +84,11 @@
 <h2><a class="title-link" name="build-scripts-to-publish-add-ons-to-docker-hub" href="#build-scripts-to-publish-add-ons-to-docker-hub"></a> Build scripts to publish add-ons to Docker Hub</h2>
 <p>All add-ons are simple docker containers. Inside your add-on <code class="highlighter-rouge">config.json</code> you specify the Docker image that will be installed for your add-on:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="err">…</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 
   </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myhub/image-{arch}-addon-name"</span><span class="p">,</span><span class="w">
 
-  </span><span class="err">…</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="err">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -97,11 +97,11 @@
 <h2><a class="title-link" name="custom-add-ons" href="#custom-add-ons"></a> Custom Add-ons</h2>
 <p>You need a Docker Hub account to make your own add-ons. You can build your docker images with docker <code class="highlighter-rouge">build</code> command or use our script that make it simple. Pull our <a href="https://github.com/home-assistant/hassio-build/tree/master/builder">builder docker engine</a> and run one of the following commands.</p>
 <p>For a git repository:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>docker run --rm --privileged -v ~/.docker:/root/.docker homeassistant/amd64-builder --all -t addon-folder -r https://github.com/xy/addons -b branchname
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run --rm --privileged -v ~/.docker:/root/.docker homeassistant/amd64-builder --all -t addon-folder -r https://github.com/xy/addons -b branchname
 </code></pre>
 </div>
 <p>For a local repository:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>docker run --rm --privileged -v ~/.docker:/root/.docker -v /my_addon:/data homeassistant/amd64-builder --all -t /data
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run --rm --privileged -v ~/.docker:/root/.docker -v /my_addon:/data homeassistant/amd64-builder --all -t /data
 </code></pre>
 </div>
 </article>

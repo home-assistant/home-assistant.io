@@ -74,12 +74,12 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Add-ons repository can contain one or more add-ons. Each add-on is stored in it’s own unique folder. For it to be indentified as a repository, a repository contains a configuration file.</p>
-<p><a href="https://github.com/home-assistant/hassio-addons-example">Example add-on repository</a>.</p>
-<h2>Installing a repository</h2>
-<p>A user can add a repository by going to the Hass.io panel in Home Assistant, clicking on the store icon in the top right, copy/paste the URL of your repostory into the repository textarea and click on “Save”.</p>
-<h2>Repository configuration</h2>
-<p>Each repository is required to contain <code class="highlighter-rouge">repository.json</code> at the root of the Git repository.</p>
+  <p>An Add-on repository can contain one or more add-ons. Each add-on is stored in it’s own unique folder. To be indentified as a repository, the repository must contain a configuration file.</p>
+<p>Check the <a href="https://github.com/home-assistant/hassio-addons-example">Example add-on repository</a> for further details.</p>
+<h2><a class="title-link" name="installing-a-repository" href="#installing-a-repository"></a> Installing a repository</h2>
+<p>A user can add a repository by going to the Hass.io panel in Home Assistant, clicking on the store icon in the top right, copy/paste the URL of your repostory into the repository textarea and click on <strong>Save</strong>.</p>
+<h2><a class="title-link" name="repository-configuration" href="#repository-configuration"></a> Repository configuration</h2>
+<p>Each repository is required to contain <code class="highlighter-rouge">repository.json</code> at the root in the git repository.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of repository"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example/addons"</span><span class="p">,</span><span class="w">
