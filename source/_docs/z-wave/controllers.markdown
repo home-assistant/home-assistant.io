@@ -26,7 +26,7 @@ You need to have a [supported Z-Wave USB stick or module](https://github.com/Ope
 | Vision USB Stick        |                |                  |              |
 | ZWave.me UZB1           |   &#10003;     |                  |              |
 
-<p class='note'
+<p class='note'>
   If you're using Hass.io, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 </p>
 
