@@ -39,7 +39,7 @@ As "Service Data" we want a simple text that is shown as part of the notificatio
 }
 ```
 
-Don't forget to save your new automation rule.
+Don't forget to save your new automation rule. In order for your saved automation rule to come into effect you will need to go to the **Configuration** page and click on **Reload Automation**.
 
 ## {% linkable_title Updating your configuration to use the editor %}
 
