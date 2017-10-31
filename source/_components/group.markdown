@@ -89,3 +89,34 @@ Notice in the example below that in order to refer to the group "Living Room", y
       - group.living_room
       - group.bedroom
 ``` 
+
+## {% linkable_title Default groups %}
+
+Some components automatically create special groups containing component entities. These groups are named like `group.all_...`, for example:
+- `group.all_switches`
+- `group.all_lights`
+- `group.all_devices`
+- `group.all_scripts`
+- `group.all_automations`
+
+You can see list of these groups in  **State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
+
+Default groups appear in the HOME tab, if not overridden by user views and groups. Default groups are hidden by default, so you must [customize](/docs/configuration/customizing-devices/) them to be visible in your custom groups and views.
+
+```yaml
+# Example configuration.yaml to include default groups in custom view
+
+customize:
+  group.all_automations:
+    hidden: false
+  group.all_scripts:
+    hidden: false
+
+group:
+  automation_view:
+    name: Automation
+    view: yes
+    entities:
+      - group.all_automations
+      - group.all_scripts
+```
