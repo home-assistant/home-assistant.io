@@ -78,7 +78,7 @@
 <blockquote>
   <p>Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.</p>
 </blockquote>
-<p>Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices (Thermostats, air conditioners, and water heaters), covers, sensors, alarms, and sirens.</p>
+<p>Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices (thermostats, air conditioners, and water heaters), covers, sensors, alarms, and sirens.</p>
 <p>Check the related components pages for actual devices that are supported.</p>
 <h3>Authenticate using <a href="https://developer.wink.com">developer.wink.com</a></h3>
 <p>You need to setup a developer account with Wink. This process can take a few days to get approved.</p>
@@ -97,24 +97,19 @@ When using the configurator make sure the initial setup is performed on the same
 </div>
 <p><del>### Authentication with your Wink email and password.</del></p>
 <p><del>This method pulls a new token on every startup of Home Assistant from this <a href="https://winkbearertoken.appspot.com">URL</a></del></p>
-<p>~~```yaml
-wink:
-  email: YOUR_WINK_EMAIL_ADDRESS
-  password: YOUR_WINK_PASSWORD</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>
-This is no longer working due to a recent change Wink made, and will be removed in the next release of Home Assistant. Please create a [developer.wink.com](https://developer.wink.com) account so you can keep using Wink!
-
-### Full oauth authentication (legacy).
-
-This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existance.
-
-
-```yaml
-wink:
-  email: YOUR_WINK_EMAIL_ADDRESS
-  password: YOUR_WINK_PASSWORD
-  client_id: YOUR_WINK_CLIENT_ID
-  client_secret: YOUR_WINK_CLIENT_SECRET
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
+  <span class="s">email</span><span class="pi">:</span> <span class="s">YOUR_WINK_EMAIL_ADDRESS</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_WINK_PASSWORD</span>
+</code></pre>
+</div>
+<p>This is no longer working due to a recent change Wink made, and will be removed in the next release of Home Assistant. Please create a <a href="https://developer.wink.com">developer.wink.com</a> account so you can keep using Wink!</p>
+<h3>Full oauth authentication (legacy).</h3>
+<p>This should be used for users that obtained their client_id and client_secret via email from Wink support prior to <a href="https://developer.wink.com">developer.wink.com’s</a> existance.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
+  <span class="s">email</span><span class="pi">:</span> <span class="s">YOUR_WINK_EMAIL_ADDRESS</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_WINK_PASSWORD</span>
+  <span class="s">client_id</span><span class="pi">:</span> <span class="s">YOUR_WINK_CLIENT_ID</span>
+  <span class="s">client_secret</span><span class="pi">:</span> <span class="s">YOUR_WINK_CLIENT_SECRET</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
