@@ -18,6 +18,13 @@ This offers the official frontend to control Home Assistant.
 frontend:
 ```
 
+Configuration variables:
+
+- **themes** (*Optional*): Allow to define different themes. See below for further details.
+- **extra_html_url** (*Optional*): List of addtional [resources](/developers/frontend_creating_custom_ui/) to load.
+- **development_repo** (*Optional*): Allow to point to a repository. Useful for Frontend development.
+
+
 ## {% linkable_title Themes %}
 
 Starting with version 0.49 you can define themes:
