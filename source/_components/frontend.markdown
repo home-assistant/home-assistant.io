@@ -38,7 +38,7 @@ frontend:
     required: false
     type: list
   development_repo:
-    description: Allow to point to a directory containing frontend file instead of taking them from a pre-built PyPI package. Useful for Frontend development.
+    description: Allow to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.
     required: false
     type: string
 {% endconfiguration %}
