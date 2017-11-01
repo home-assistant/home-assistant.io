@@ -84,7 +84,7 @@ This is a work in progress, based upon reports in the forum, the author’s own 
 <h2><a class="title-link" name="alarm" href="#alarm"></a> Alarm</h2>
 <p>This is for a single purpose sensor, multi sensors are explained under Multi Sensor.</p>
 <p>Devices (usually sensors) that support the Alarm command class will create entities starting with <code class="highlighter-rouge">sensor</code>, and with some generic suffixes, and a suffix that relates to the supported alarm class. For example, the smoke detector <code class="highlighter-rouge">lounge</code> will have an entity <code class="highlighter-rouge">sensor.lounge_smoke</code>, and possibly also <code class="highlighter-rouge">sensor.lounge_alarm_type</code> and <code class="highlighter-rouge">sensor.lounge_alarm_level</code>. If the device creates a <code class="highlighter-rouge">binary_sensor</code> entity, it is recommended to use that rather then the <code class="highlighter-rouge">sensor</code> entity.</p>
-<h3><a class="title-link" name="alarm-type" href="#alarm-type"></a> Alarm Type</h3>
+<h3><a class="title-link" name="alarm-type-entity" href="#alarm-type-entity"></a> Alarm Type Entity</h3>
 <ul>
   <li><strong>alarm_type</strong>: Reports the type of the sensor
     <ul>
@@ -98,7 +98,7 @@ This is a work in progress, based upon reports in the forum, the author’s own 
     </ul>
   </li>
 </ul>
-<h3><a class="title-link" name="alarm-level" href="#alarm-level"></a> Alarm Level</h3>
+<h3><a class="title-link" name="alarm-level-entity" href="#alarm-level-entity"></a> Alarm Level Entity</h3>
 <p>The meaning of the <code class="highlighter-rouge">alarm_level</code> entity depends on the nature of the alarm sensor</p>
 <h4><a class="title-link" name="smoke-co-and-co2" href="#smoke-co-and-co2"></a> Smoke, CO, and CO2</h4>
 <ul>
@@ -171,7 +171,7 @@ This is a work in progress, based upon reports in the forum, the author’s own 
   <li><strong>1</strong>: Wake up</li>
   <li><strong>254</strong>: Unknown event</li>
 </ul>
-<h3><a class="title-link" name="access-control" href="#access-control"></a> Access Control</h3>
+<h3><a class="title-link" name="access-control-entity" href="#access-control-entity"></a> Access Control Entity</h3>
 <ul>
   <li><strong>access_control</strong>: These <em>may</em> vary between brands
     <ul>
@@ -196,7 +196,7 @@ This is a work in progress, based upon reports in the forum, the author’s own 
           {%- endif -%}
 </code></pre>
 </div>
-<h3><a class="title-link" name="burglar" href="#burglar"></a> Burglar</h3>
+<h3><a class="title-link" name="burglar-entity" href="#burglar-entity"></a> Burglar Entity</h3>
 <ul>
   <li><strong>burglar</strong>: These <em>may</em> vary between brands
     <ul>
@@ -225,7 +225,7 @@ This is a work in progress, based upon reports in the forum, the author’s own 
           {%- endif -%}
 </code></pre>
 </div>
-<h3><a class="title-link" name="source-node-id" href="#source-node-id"></a> Source Node ID</h3>
+<h3><a class="title-link" name="source-node-id-entity" href="#source-node-id-entity"></a> Source Node ID Entity</h3>
 <ul>
   <li><strong>sourcenodeid</strong>: Reports the sensor that generated the alarm - this is only valid for Zensor Net based devices</li>
 </ul>
