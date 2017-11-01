@@ -18,11 +18,30 @@ This offers the official frontend to control Home Assistant.
 frontend:
 ```
 
-Configuration variables:
-
-- **themes** (*Optional*): Allow to define different themes. See below for further details.
-- **extra_html_url** (*Optional*): List of addtional [resources](/developers/frontend_creating_custom_ui/) to load.
-- **development_repo** (*Optional*): Allow to point to a repository. Useful for Frontend development.
+{% configuration %}
+  themes:
+    description: Allow to define different themes. See below for further details.
+    required: false
+    type: map
+    keys:
+      "[identifier]":
+        description: Name to use in the frontend.
+        required: true
+        type: [list, map]
+        keys:
+          "[css-identifier]":
+            description: The CSS identifier.
+            required: true
+            type: [list, string]
+  extra_html_url:
+    description: "List of addtional [resources](/developers/frontend_creating_custom_ui/) to load."
+    required: false
+    type: list
+  development_repo:
+    description: Allow to point to a directory containing frontend file instead of taking them from a pre-built PyPI package. Useful for Frontend development.
+    required: false
+    type: string
+{% endconfiguration %}
 
 
 ## {% linkable_title Themes %}
