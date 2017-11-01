@@ -20,7 +20,7 @@ ha_release: pre 0.7
   Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.
 </blockquote>
 
-Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices (Thermostats, air conditioners, and water heaters), covers, sensors, alarms, and sirens.
+Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices (thermostats, air conditioners, and water heaters), covers, sensors, alarms, and sirens.
 
 Check the related components pages for actual devices that are supported.
 
@@ -49,7 +49,7 @@ wink:
 
 ~~This method pulls a new token on every startup of Home Assistant from this [URL](https://winkbearertoken.appspot.com)~~
 
-~~```yaml
+```yaml
 wink:
   email: YOUR_WINK_EMAIL_ADDRESS
   password: YOUR_WINK_PASSWORD
