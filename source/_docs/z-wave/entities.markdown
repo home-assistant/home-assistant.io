@@ -25,7 +25,7 @@ This is for a single purpose sensor, multi sensors are explained under Multi Sen
 
 Devices (usually sensors) that support the Alarm command class will create entities starting with `sensor`, and with some generic suffixes, and a suffix that relates to the supported alarm class. For example, the smoke detector `lounge` will have an entity `sensor.lounge_smoke`, and possibly also `sensor.lounge_alarm_type` and `sensor.lounge_alarm_level`. If the device creates a `binary_sensor` entity, it is recommended to use that rather then the `sensor` entity.
 
-### {% linkable_title Alarm Type %}
+### {% linkable_title Alarm Type Entity %}
 
 - **alarm_type**: Reports the type of the sensor
   - **0**: General purpose
@@ -36,7 +36,7 @@ Devices (usually sensors) that support the Alarm command class will create entit
   - **5**: Water leak sensor
   - **6**: Access control
 
-### {% linkable_title Alarm Level %}
+### {% linkable_title Alarm Level Entity %}
 
 The meaning of the `alarm_level` entity depends on the nature of the alarm sensor
 
@@ -111,7 +111,7 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
   - **1**: Wake up
   - **254**: Unknown event
 
-### {% linkable_title Access Control %}
+### {% linkable_title Access Control Entity %}
 
 - **access_control**: These *may* vary between brands
   - **22**: Open
@@ -135,7 +135,7 @@ binary_sensor:
           {%- endif -%}{% endraw %}
 ```
 
-### {% linkable_title Burglar %}
+### {% linkable_title Burglar Entity %}
 
 - **burglar**: These *may* vary between brands
    - **0**: Not active
@@ -163,7 +163,7 @@ binary_sensor:
           {%- endif -%}{% endraw %}
 ```
 
-### {% linkable_title Source Node ID %}
+### {% linkable_title Source Node ID Entity %}
 
 - **sourcenodeid**: Reports the sensor that generated the alarm - this is only valid for Zensor Net based devices
 
