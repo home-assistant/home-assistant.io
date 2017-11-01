@@ -115,11 +115,13 @@ Content...Written in markdown.
   name:
     description: Name to use in the frontend.
     required: false
+    default: The default name to use in the frontend.
     type: string
 {% endconfiguration %}
 
 </code></pre>
 </div>
+<p>Available keys:</p>
 <ul>
   <li><strong><code class="highlighter-rouge">description:</code></strong>: That the variable is about.</li>
   <li><strong><code class="highlighter-rouge">required:</code></strong>: If the variable is required.
@@ -132,6 +134,7 @@ required: any string here #=&gt; Any string here
     </div>
   </li>
   <li><strong><code class="highlighter-rouge">type:</code></strong>: The type of the variable. Allowed entries: <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">int</code> or <code class="highlighter-rouge">map</code>. For multiple possibilities use <code class="highlighter-rouge">[string, int]</code>. If you use <code class="highlighter-rouge">map</code> then you need to define <code class="highlighter-rouge">keys:</code> (see the <a href="/components/sensor.template/"><code class="highlighter-rouge">template</code> sensor</a> for an example).</li>
+  <li><strong><code class="highlighter-rouge">default:</code></strong>: The default value for the variable.</li>
 </ul>
 <h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
 <p>You can use the <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code">default markdown syntax</a> to generate syntax highlighted code. For inline code wrap your code in `.</p>
