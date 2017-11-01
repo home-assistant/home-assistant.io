@@ -79,60 +79,59 @@
 Do not use development mode in production. Home Assistant uses aggressive caching to improve the mobile experience. This is disabled during development so that you do not have to restart the server in between changes.
 </p>
 <h2><a class="title-link" name="setting-up-the-environment" href="#setting-up-the-environment"></a> Setting up the environment</h2>
-<p>Home Assistant will by default serve the compiled version of the frontend. As everything is compiled into the file <code class="highlighter-rouge">frontend.html</code> you do not want to work with the compiled version but with the separate files during development. To enable development mode for Home Assistant, update your <code class="highlighter-rouge">configuration.yaml</code> to have these lines:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">http</span><span class="pi">:</span>
-  <span class="s">development</span><span class="pi">:</span> <span class="s">1</span>
+<p class="note">
+All commands below need to be run from inside the home-assistant-polymer repository.
+</p>
+<p>Home Assistant will by default serve the compiled version of the frontend from the hass_frontend Python package. For development you want to work with the unbundled source files which are in the home-assistant-polymer repository.</p>
+<p>First step is to configure Home Assistant to use the development mode for the frontend. Do this by updating the frontend config in your <code class="highlighter-rouge">configuration.yaml</code> and set the path to the polymer repo:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">frontend</span><span class="pi">:</span>
+  <span class="s">development_repo</span><span class="pi">:</span> <span class="s">../home-assistant-polymer</span>
 </code></pre>
 </div>
-<p>Node.js is required to setup the frontend development environment. The preferred method of installing node.js is <a href="https://github.com/creationix/nvm">nvm</a>. Install nvm using the instructions in the <a href="https://github.com/creationix/nvm#install-script">README</a>, and install the correct node.js by running the following command from the <code class="highlighter-rouge">home-assistant</code> directory:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git submodule update --init
-<span class="gp">$ </span>nvm install <span class="k">$(</span>&lt;homeassistant/components/frontend/www_static/home-assistant-polymer/.nvmrc<span class="k">)</span>
+<p>Next step is to git clone the <a href="https://github.com/home-assistant/home-assistant-polymer">home-assistant-polymer repository</a>. You can place the repository anywhere on your system but to keep these instructions simple we’re cloning the home-assistant-polymer repository as a sibling to the Home Assistant repo.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/home-assistant/home-assistant-polymer.git
+<span class="gp">$ </span><span class="nb">cd </span>home-assistant-polymer
+</code></pre>
+</div>
+<p>After cloning, your folder structure should look like this:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>/home-assistant
+/home-assistant-polymer
+</code></pre>
+</div>
+<p>Node.js is required to build the frontend. The preferred method of installing node.js is with <a href="https://github.com/creationix/nvm">nvm</a>. Install nvm using the instructions in the <a href="https://github.com/creationix/nvm#install-script">README</a>, and install the correct node.js by running the following command:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>nvm install
 </code></pre>
 </div>
 <p><a href="https://yarnpkg.com/en/">Yarn</a> is used as the package manager for node modules. <a href="https://yarnpkg.com/en/docs/install">Install yarn using the instructions here.</a></p>
-<p>Next, development dependencies need to be installed to bootstrap the frontend development environment by running from the <code class="highlighter-rouge">home-assistant</code> directory:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>script/bootstrap_frontend
+<p>Next, development dependencies need to be installed to bootstrap the frontend development environment. First activate the right Node version and then download all the needed modules and do a first build:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>nvm use
+<span class="gp">$ </span>script/bootstrap
 </code></pre>
 </div>
-<p>This script will use yarn and bower to install all the necessary dependencies necessary for development in</p>
-<p><code class="highlighter-rouge">home-assistant/homeassistant/components/frontend/www_static/home-assistant-polymer</code>.</p>
-<p>If you’re planning on issuing a PR back to the Home Assistant codebase you need to fork the polymer project and add your fork as a remote.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
-<span class="gp">$ </span>git remote add &lt;remote name&gt; &lt;github URL to your fork&gt;
+<p>This script will use yarn and bower to install all the necessary dependencies necessary for development and do an initial build.</p>
+<h3><a class="title-link" name="creating-pull-requests" href="#creating-pull-requests"></a> Creating pull requests</h3>
+<p>If you’re planning on issuing a PR back to the Home Assistant codebase you need to fork the polymer project and add your fork as a remote to the Home Assistant Polymer repo.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git remote add &lt;remote name&gt; &lt;github URL to your fork&gt;
 </code></pre>
 </div>
 <p>When you’ve made your changes and are ready to push them change to the working directory for the polymer project and then push your changes</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git add -A
+<span class="gp">$ </span>git commit -m <span class="s2">"Added new feature X"</span>
 <span class="gp">$ </span>git push -u &lt;remote name&gt; HEAD
 </code></pre>
 </div>
 <h2><a class="title-link" name="development" href="#development"></a> Development</h2>
-<p>While you are developing, you need to have Rollup running to have changes you make to the JavaScript app-core made available.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>homeassistant/components/frontend/www_static/home-assistant-polymer
-<span class="gp">$ </span>yarn run dev
+<p>While you are developing, you need to have gulp running to watch the source files for changes and build when necessary.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>yarn run dev-watch
 </code></pre>
 </div>
 <p>The source code for the frontend can be found in two different directories:</p>
 <ul>
-  <li>UI: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/src/</code></li>
-  <li>Panels: <code class="highlighter-rouge">homeassistant/components/frontend/www_static/home-assistant-polymer/panels/</code></li>
+  <li>UI: <code class="highlighter-rouge">/home-assistant-polymer/src/</code></li>
+  <li>Panels: <code class="highlighter-rouge">/home-assistant-polymer/panels/</code></li>
 </ul>
 <h1><a class="title-link" name="building-the-polymer-frontend" href="#building-the-polymer-frontend"></a> Building the Polymer frontend</h1>
-<p>Building a new version of the frontend is as simple as running <code class="highlighter-rouge">script/build_frontend</code>. This fires off the following commands:</p>
-<ul>
-  <li><strong>home-assistant-polymer</strong>: Install NPM dependencies.</li>
-  <li><strong>home-assistant-polymer</strong>: start frontend build.
-    <ul>
-      <li>Compile all used JavaScript.</li>
-      <li>Install Bower dependencies.</li>
-      <li>Vulcanize and minify the core and panel sources to build dir.</li>
-    </ul>
-  </li>
-  <li>Copy the webcomponents polyfill <code class="highlighter-rouge">webcomponents-lite.min.js</code> from <strong>home-assistant-polymer</strong> to <code class="highlighter-rouge">components/frontend/www_static/webcomponents-lite.min.js</code>.</li>
-  <li>Copy the final frontend build <code class="highlighter-rouge">frontend.html</code> and panel sources from <strong>home-assistant-polymer</strong> to <code class="highlighter-rouge">components/frontend/www_static/frontend/</code>.</li>
-  <li>Generate MD5 hashes of core and panel sources.</li>
-  <li>Create gzip versions of all the sources.</li>
-</ul>
+<p>Building a new version of the frontend is as simple as running <code class="highlighter-rouge">script/build_frontend</code>.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
