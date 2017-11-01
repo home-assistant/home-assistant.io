@@ -60,10 +60,13 @@ The **Configuration Variables** section must use the {% raw %}`{% configuration 
   name:
     description: Name to use in the frontend.
     required: false
+    default: The default name to use in the frontend.
     type: string
 {% endconfiguration %}
 {% endraw %}
 ```
+
+Available keys:
 
 - **`description:`**: That the variable is about.
 - **`required:`**: If the variable is required.
@@ -75,6 +78,7 @@ required: exclusive       #=> Exclusive
 required: any string here #=> Any string here
 ```
 - **`type:`**: The type of the variable. Allowed entries: `string`, `int` or `map`. For multiple possibilities use `[string, int]`. If you use `map` then you need to define `keys:` (see the [`template` sensor](/components/sensor.template/) for an example).
+- **`default:`**: The default value for the variable.
 
 ### {% linkable_title Embedding Code %}
 
