@@ -20,18 +20,21 @@ ha_release: pre 0.7
   Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.
 </blockquote>
 
-Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices, covers, sensors, and alarms.
+Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices (Thermostats, air conditioners, and water heaters), covers, sensors, alarms, and sirens.
 
 Check the related components pages for actual devices that are supported.
 
-Home Assistant offers multiple ways to authenticate to the Wink API. Each authentication method is described below.
-
 ### Authenticate using [developer.wink.com](https://developer.wink.com)
 
+You need to setup a developer account with Wink. This process can take a few days to get approved.
 
-This method will require you to setup a developer account with Wink. This process can take a few days to get approved but is the recommended form of authentication. If you would like to use Wink in Home Assistant while you wait, you can use the email and password authentication below.
+Wink requests three peices of information from the user when they sign up for a developer account.
 
-This form of authentication doesn't require any settings in the configuration.yaml other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
+1. `Name:` This can be anything, for example "Home Assistant"
+2. `Website:` The external address of your Home Assistant instance. If not externally accessible you can use your email address.
+3. `Redirect URI:` This should be "http://192.168.1.5:8123/auth/wink/callback" replacing the IP with the internal IP of your Home Assistant box.
+
+No settings are required in the configuration.yaml other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
 
 <p class='note'>
 When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
@@ -41,21 +44,22 @@ When using the configurator make sure the initial setup is performed on the same
 wink:
 ```
 
+~~### Authentication with your Wink email and password.~~
 
-### Authentication with your Wink email and password.
 
+~~This method pulls a new token on every startup of Home Assistant from this [URL](https://winkbearertoken.appspot.com)~~
 
-This method pulls a new token on every startup of Home Assistant from this [URL](https://winkbearertoken.appspot.com)
-
-```yaml
+~~```yaml
 wink:
   email: YOUR_WINK_EMAIL_ADDRESS
   password: YOUR_WINK_PASSWORD
 ```
 
+This is no longer working due to a recent change Wink made, and will be removed in the next release of Home Assistant. Please create a [developer.wink.com](https://developer.wink.com) account so you can keep using Wink!
+
 ### Full oauth authentication (legacy).
 
-This should be used for users that obtained their client_id and client_secret via email from Wink support.
+This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existance.
 
 
 ```yaml
@@ -68,11 +72,11 @@ wink:
 
 Configuration variables:
 
-- **email** (*Required for email/password auth or legacy OAuth*): Your Wink login email.
-- **password** (*Required for email/password auth or legacy OAuth*): Your Wink login password.
+- **email** (*Required for legacy OAuth*): Your Wink login email.
+- **password** (*Required for legacy OAuth*): Your Wink login password.
 - **client_id** (*Required for legacy OAuth*): Your provided Wink client_id.
 - **client_secret** (*Required for legacy OAuth*): Your provided Wink client_secret.
-- **local_control** (*Optional*): If set to `True` state changes for lights, locks, and switches will be an issue to the local hub.
+- **local_control** (*Optional*): If set to `True` state changes for lights, locks, and switches will be issued to the local hub.
 
 Local control:
 - Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `False`.
