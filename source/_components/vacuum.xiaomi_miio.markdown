@@ -139,6 +139,29 @@ method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app.
 </p>
 
+#### {% linkable_title Using Nodejs %}
+Follow the pairing process using your phone and Mi-Home app. After the pairing process competed, install Nodejs to your computer [link](https://nodejs.org/en/download/)
+
+After Nodejs installed. Try to install [miio](https://github.com/aholstenson/miio/blob/master/docs/management.md) buy using npm command
+```bash
+$ npm install --save miio
+```
+After the `miio` package installed properly, simply run
+```bash
+$ miio --discover
+```
+
+And it will simply return the list of all miio devices information that connected in the same network
+Example result:
+```
+Device ID: 48765421
+Model info: zhimi.airpurifier.m1 (air-purifier)
+Address: 192.168.100.9 (zhimi-airpurifier-m1_miio48765421)
+Token: token-as-hex-here via auto-token
+Support: At least basic
+```
+
+
 #### {% linkable_title Windows and Android %}
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.
