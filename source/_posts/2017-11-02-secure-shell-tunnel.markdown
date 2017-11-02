@@ -11,7 +11,7 @@ categories: How-To
 og_image: /images/blog/2017-11-ssh/social.png
 ---
 
-Most system engineers are very familiar with [SSH (Secure shell)](https://en.wikipedia.org/wiki/Secure_Shell). This tool which contains a server part and a client part is used to access a remote system in a secure way. It can also help you if your are running Home Assistant but don't want to expose it to the public. On a Linux system SSH is often available by default. If you are using a Windows installation additional steps are required with are not covered here.
+Most system engineers are very familiar with [SSH (Secure shell)](https://en.wikipedia.org/wiki/Secure_Shell). This tool which contains a server part and a client part is used to access a remote system in a secure way. It can also help you if your are running Home Assistant but don't want to expose it to the public. On a Linux system SSH is often available by default. If you are using a Windows installation additional steps are required which are not covered here.
 
 In this blog post we are going to use the tunneling option of SSH to create a secure connection and forward the Home Assistant frontend to a local system. 
 
@@ -61,9 +61,9 @@ Now you are able to use your frontend on your local system: [http://localhost:80
 
 Things to keep in mind:
 
-- You need a public IP address oder hostname (Dynamic DNS will work) if you want to use it from the internet.
+- You need a public IP address or hostname (Dynamic DNS will work) if you want to use it from the internet.
 - You need to setup port forwarding on your router.
 - Don't allow `root` to use SSH. Set `PermitRootLogin no` on the remote system.
 - Your local port must be above 1024. Only `root` is allowed to forward privileged ports which are below 1024.
-- Use SSH keys for authentication instead of passwords to avoid bruteforce attacks.
+- Use [SSH keys for authentication](https://docs-old.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html) instead of passwords to avoid bruteforce attacks.
 
