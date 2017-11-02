@@ -28,7 +28,7 @@ Check the related components pages for actual devices that are supported.
 
 You need to setup a developer account with Wink. This process can take a few days to get approved.
 
-Wink requests three peices of information from the user when they sign up for a developer account.
+Wink requests three pieces of information from the user when they sign up for a developer account.
 
 1. `Name:` This can be anything, for example "Home Assistant"
 2. `Website:` The external address of your Home Assistant instance. If not externally accessible you can use your email address.
