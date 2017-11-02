@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-02T10:43:06+00:00</updated>
+  <updated>2017-11-02T11:02:31+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -37,7 +37,7 @@ First let's have a look at the command we are going to use. Use `man ssh` to get
 ```bash
 $ ssh -L 8000:localhost:8123 user@[IP_ADDRESS_REMOTE]
       |  |    |         |    |    |
-      |  |    |         |    |    |_ IP address or hostname of your public interface.
+      |  |    |         |    |    |_ IP address or hostname of your router.
       |  |    |         |    |_ Username on the remote system.
       |  |    |         |_ Port where the application is running.
       |  |    |_ We want the frontend on this system.
