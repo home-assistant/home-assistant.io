@@ -4,7 +4,7 @@
   <title><![CDATA[Category: How-To | Home Assistant]]></title>
   <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-02T07:33:54+00:00</updated>
+  <updated>2017-11-02T10:43:06+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant and SSH]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/02/secure-shell-tunnel/"/>
+    <updated>2017-11-02T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/02/secure-shell-tunnel</id>
+    <content type="html"><![CDATA[Most system engineers are very familiar with [SSH (Secure shell)](https://en.wikipedia.org/wiki/Secure_Shell). This tool which contains a server part and a client part is used to access a remote system in a secure way. It can also help you if your are running Home Assistant but don't want to expose it to the public. On a Linux system SSH is often available by default. If you are using a Windows installation additional steps are required which are not covered here.
+
+In this blog post we are going to use the tunneling option of SSH to create a secure connection and forward the Home Assistant frontend to a local system. 
+
+<!--more-->
+
+The involved parties are:
+
+- **Remote system**: Where Home Assistant is running, usually in your home network.
+- **Local system**: Where you want to see the frontend.
+
+The prerequirements are that you need to allow the forwarding of port 22 from your router to the system where Home Assistant is running in your network. It might also be needed that you enable the SSH daemon by `$ sudo systemctl start sshd` on the remote system and to adjust the host firewall. If you are running [Hass.io](https://home-assistant.io/hassio/) then enable the [SSH Server add-on](https://home-assistant.io/addons/ssh/). You must also have a public IP address or hostname which can be provided by dynamic DNS (e.g., [NO-IP](https://www.noip.com/) or [DuckDNS](https://www.duckdns.org/)).
+On your local system you need only a SSH client and you need to be in a network where SSH is allowed.
+
+First let's have a look at the command we are going to use. Use `man ssh` to get more information.
+
+```bash
+$ ssh -L 8000:localhost:8123 user@[IP_ADDRESS_REMOTE]
+      |  |    |         |    |    |
+      |  |    |         |    |    |_ IP address or hostname of your public interface.
+      |  |    |         |    |_ Username on the remote system.
+      |  |    |         |_ Port where the application is running.
+      |  |    |_ We want the frontend on this system.
+      |  |_ The port on our local system to use (above 1024).
+      |_ We want to do local port forwarding.
+```
+
+A possible example could look like the command below. 
+
+```bash
+$ ssh -L 8000:localhost:8123 ha@192.168.0.11
+```
+
+The first time you establish the connection you need to accept the fingerprint.
+
+```bash
+The authenticity of host '192.168.0.11 (192.168.0.11)' can't be established.
+ECDSA key fingerprint is SHA256:asdf2faasd4gk45454fadr78wfadfasdfeg4vvvsae33.
+ECDSA key fingerprint is MD5:44:d4:f7:44:d4:aa:b8:de:ef:09:3e:0d:4e:12:11:09.
+Are you sure you want to continue connecting (yes/no)? 
+Warning: Permanently added '192.168.0.162' (ECDSA) to the list of known hosts.
+ha@192.168.0.11's password: 
+Last login: Fri Oct 27 17:50:09 2017
+[ha@home-assistant ~]$ 
+```
+
+Now you are able to use your frontend on your local system: [http://localhost:8000](http://localhost:8000)
+
+Things to keep in mind:
+
+- You need a public IP address or hostname (Dynamic DNS will work) if you want to use it from the internet.
+- You need to setup port forwarding on your router.
+- Don't allow `root` to use SSH. Set `PermitRootLogin no` on the remote system.
+- Your local port must be above 1024. Only `root` is allowed to forward privileged ports which are below 1024.
+- Use [SSH keys for authentication](https://docs-old.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html) instead of passwords to avoid bruteforce attacks.
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant Demo]]></title>
@@ -376,72 +440,6 @@ ha@orangepizero:~$ cd homeassistant && source bin/activate
 </p>
 
 To make it ready for daily usage, don't forget to enable [autostart](/docs/autostart/).
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Home Assistant on a Pi Zero W in 30 minutes]]></title>
-    <link href="https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/"/>
-    <updated>2017-05-01T09:00:00+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes</id>
-    <content type="html"><![CDATA[<p class="img">
-  <img src="/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
-</p>
-
-Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited? 
-
-Today we'll flash the latest HASSbian to a [Raspbery Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).
-**With an added bonus** that besides for an USB cable for power, there's no need for any cables!
-
-What you'll need:
-- a Raspberry Pi Zero W (an amazing tiny computer with built-in wifi)
-- a microSD card
-- some source of USB power
-- Wifi
-- a desktop or laptop
-
-Let's get to it!
-
-First, download the HASSbian 1.21 image from [here](https://github.com/home-assistant/pi-gen/releases/tag/v1.21).
-
-Unzip it.
-
-Flash it to the microSD card. If you need a flash tool, try [Etcher](https://etcher.io/) 
-
-When the flashing finishes, remove it and plug it back in. You should see a drive called "boot". 
-
-Right in there, not in any folders, create a file called `wpa_supplicant.conf`.
-
-The contents of the configuration file should be something like this:
-(You may have to adjust for your configuration, hints [here](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md) )
-
-```
-network={
-    ssid="YOUR_WIFI_NETWORK_NAME_HERE"
-    psk="YOUR_WIFI_PASSWORD_HERE"
-    key_mgmt=WPA-PSK
-}
-```
-
-Next stick your SD card into the Raspberry Pi Zero W, and plug it in.
-
-After about a minute, use your SSH client to connect to HASSbian (or `hassbian.local` from a Mac), with the username `pi`. The default password is `raspberry`.
-
-It's a good idea to change the password. To do so, use the `passwd` command.
-
-Next, type the following two commands into the SSH console:
-
-```
-$ sudo systemctl enable install_homeassistant.service
-$ sudo systemctl start install_homeassistant.service
-```
-
-Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspberry Pi Zero W in 30 minutes.
-
-To try it out, go to [http://hassbian:8123](http://hassbian:8123) or [http://hassbian.local:8123](http://hassbian.local:8123) if you're using Mac.
-
-For further details about HASSbian, take a look at the [documentation](https://home-assistant.io/docs/hassbian/).
-
 ]]></content>
   </entry>
   

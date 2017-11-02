@@ -4,7 +4,7 @@
   <title><![CDATA[Home Assistant]]></title>
   <link href="https://home-assistant.io/atom.xml" rel="self"/>
   <link href="https://home-assistant.io/"/>
-  <updated>2017-11-02T07:33:54+00:00</updated>
+  <updated>2017-11-02T10:43:06+00:00</updated>
   <id>https://home-assistant.io/</id>
   <author>
     <name><![CDATA[Home Assistant]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant and SSH]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/02/secure-shell-tunnel/"/>
+    <updated>2017-11-02T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/02/secure-shell-tunnel</id>
+    <content type="html"><![CDATA[<p>Most system engineers are very familiar with <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH (Secure shell)</a>. This tool which contains a server part and a client part is used to access a remote system in a secure way. It can also help you if your are running Home Assistant but don’t want to expose it to the public. On a Linux system SSH is often available by default. If you are using a Windows installation additional steps are required which are not covered here.</p>
+
+<p>In this blog post we are going to use the tunneling option of SSH to create a secure connection and forward the Home Assistant frontend to a local system.</p>
+
+<!--more-->
+
+<p>The involved parties are:</p>
+
+<ul>
+  <li><strong>Remote system</strong>: Where Home Assistant is running, usually in your home network.</li>
+  <li><strong>Local system</strong>: Where you want to see the frontend.</li>
+</ul>
+
+<p>The prerequirements are that you need to allow the forwarding of port 22 from your router to the system where Home Assistant is running in your network. It might also be needed that you enable the SSH daemon by <code class="highlighter-rouge">$ sudo systemctl start sshd</code> on the remote system and to adjust the host firewall. If you are running <a href="https://home-assistant.io/hassio/">Hass.io</a> then enable the <a href="https://home-assistant.io/addons/ssh/">SSH Server add-on</a>. You must also have a public IP address or hostname which can be provided by dynamic DNS (e.g., <a href="https://www.noip.com/">NO-IP</a> or <a href="https://www.duckdns.org/">DuckDNS</a>).
+On your local system you need only a SSH client and you need to be in a network where SSH is allowed.</p>
+
+<p>First let’s have a look at the command we are going to use. Use <code class="highlighter-rouge">man ssh</code> to get more information.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssh -L 8000:localhost:8123 user@[IP_ADDRESS_REMOTE]
+      |  |    |         |    |    |
+      |  |    |         |    |    |_ IP address or hostname of your public interface.
+      |  |    |         |    |_ Username on the remote system.
+      |  |    |         |_ Port where the application is running.
+      |  |    |_ We want the frontend on this system.
+      |  |_ The port on our <span class="nb">local </span>system to use <span class="o">(</span>above 1024<span class="o">)</span>.
+      |_ We want to <span class="k">do </span><span class="nb">local </span>port forwarding.
+</code></pre>
+</div>
+
+<p>A possible example could look like the command below.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ssh -L 8000:localhost:8123 ha@192.168.0.11
+</code></pre>
+</div>
+
+<p>The first time you establish the connection you need to accept the fingerprint.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>The authenticity of host <span class="s1">'192.168.0.11 (192.168.0.11)'</span> can<span class="s1">'t be established.
+ECDSA key fingerprint is SHA256:asdf2faasd4gk45454fadr78wfadfasdfeg4vvvsae33.
+ECDSA key fingerprint is MD5:44:d4:f7:44:d4:aa:b8:de:ef:09:3e:0d:4e:12:11:09.
+Are you sure you want to continue connecting (yes/no)? 
+Warning: Permanently added '</span>192.168.0.162<span class="s1">' (ECDSA) to the list of known hosts.
+ha@192.168.0.11'</span>s password: 
+Last login: Fri Oct 27 17:50:09 2017
+<span class="o">[</span>ha@home-assistant ~]<span class="nv">$ </span>
+</code></pre>
+</div>
+
+<p>Now you are able to use your frontend on your local system: <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+<p>Things to keep in mind:</p>
+
+<ul>
+  <li>You need a public IP address or hostname (Dynamic DNS will work) if you want to use it from the internet.</li>
+  <li>You need to setup port forwarding on your router.</li>
+  <li>Don’t allow <code class="highlighter-rouge">root</code> to use SSH. Set <code class="highlighter-rouge">PermitRootLogin no</code> on the remote system.</li>
+  <li>Your local port must be above 1024. Only <code class="highlighter-rouge">root</code> is allowed to forward privileged ports which are below 1024.</li>
+  <li>Use <a href="https://docs-old.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html">SSH keys for authentication</a> instead of passwords to avoid bruteforce attacks.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Home Assistant Demo]]></title>
@@ -1851,77 +1919,6 @@ Screenshot of the new customize editor.
 <p><a href="https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation">
   Visit the episode page on Talk Python
 </a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Introducing Hass.io]]></title>
-    <link href="https://home-assistant.io/blog/2017/07/25/introducing-hassio/"/>
-    <updated>2017-07-25T00:02:05+00:00</updated>
-    <id>https://home-assistant.io/blog/2017/07/25/introducing-hassio</id>
-    <content type="html"><![CDATA[<p><strong>TL;DR:</strong> Today we’re introducing <a href="/hassio">Hass.io</a>. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a> including <a href="/addons/google_assistant/">Google Assistant</a> and <a href="/addons/lets_encrypt/">Let’s Encrypt</a>.</p>
-
-<hr />
-
-<p>Home Assistant is 2 months away from being 4 years old. In that time the Internet of Things has really taken off and we’ve seen many new devices and services. We saw the introduction of voice assistants like Google Home and new standards like Apple HomeKit.</p>
-
-<p>Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. All these moving parts caused our users to spend a lot of time maintaining their systems and applications instead of automating their homes.</p>
-
-<p>So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user’s privacy.</p>
-
-<p>And this is how <a href="https://github.com/pvizeli/">Pascal Vizeli</a> came up with Hass.io, an operating system based on <a href="https://resinos.io/">ResinOS</a> and <a href="https://www.docker.com/">Docker</a>. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a>.</p>
-
-<p class="img">
-<img src="/images/hassio/screenshots/dashboard.png" />
-Hass.io dashboard
-</p>
-
-<p>To install add-ons, a user can browse the built-in add-on store and install, configure and update any available application. Want to turn your device into a Google Assistant or make your configuration accessible via Samba/Windows networking? Both are a couple of clicks away! (<a href="https://youtu.be/NfyavpAg4as">Video demo - 38s, no audio</a>)</p>
-
-<p>At launch we have included a couple of <a href="/addons/">built-in add-ons</a> like <a href="/addons/google_assistant/">Google Assistant</a>, <a href="/addons/lets_encrypt/">Let’s Encrypt</a> and <a href="/addons/duckdns/">Duck DNS</a>. Besides our internal add-ons, it is also possible to create and share your own add-on repositories. During our beta period we’ve already seen some great add-ons being shared: <a href="https://community.home-assistant.io/t/repository-homebridge-add-on/18569">Homebridge</a>, <a href="https://community.home-assistant.io/t/repository-bestlibre-addons-repository/18037">InfluxDB</a>, <a href="https://community.home-assistant.io/t/repository-hass-configurator/17838">HASS Configurator</a> and <a href="https://community.home-assistant.io/t/repository-few-addons/20659">AppDaemon</a>.</p>
-
-<p>As we strongly believe in the openness of technology, we are releasing Hass.io as <a href="https://github.com/home-assistant/hassio">open source</a> under the Apache 2.0 license. That way any user can make sure that the code that runs in their homes is secure and safe.</p>
-
-<ul>
-  <li><a href="/hassio">Learn more about Hass.io</a></li>
-  <li><a href="/hassio/installation">Install Hass.io</a></li>
-  <li><a href="/addons/">Available add-ons</a></li>
-</ul>
-
-<p><em>Some frequently asked questions are answered below in the read more section.</em></p>
-
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
-<p>Hass.io has been built by <a href="https://github.com/pvizeli/">Pascal Vizeli</a>, the UI has been made by <a href="https://github.com/balloob/">Paulus Schoutsen</a> and <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a> made the introduction video. Big thanks to <a href="https://resin.io">Resin.io</a> for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️</p>
-
-<!--more-->
-
-<h4><a class="title-link" name="will-hassio-be-the-only-way-to-run-home-assistant" href="#will-hassio-be-the-only-way-to-run-home-assistant"></a> Will Hass.io be the only way to run Home Assistant?</h4>
-
-<p>Hass.io is and will always be optional. You can still run Home Assistant wherever you can run Python.</p>
-
-<h4><a class="title-link" name="which-devices-are-supported-at-launch" href="#which-devices-are-supported-at-launch"></a> Which devices are supported at launch?</h4>
-
-<p>Initially we support the Raspberry Pi 1, 2, 3 and Intel NUC. Advanced users can also <a href="/hassio/installation/#alternative-install-on-generic-linux-server">install Hass.io on a Linux server</a>.</p>
-
-<h4><a class="title-link" name="can-i-install-packages-or-scripts-on-the-machine" href="#can-i-install-packages-or-scripts-on-the-machine"></a> Can I install packages or scripts on the machine?</h4>
-
-<p>No, this is not possible as we’re using stateless Docker containers. To install a package you’ll have to write a local add-on that interacts with Home Assistant. See <a href="/hassio/run_local/">our tutorial</a>.</p>
-
-<h4><a class="title-link" name="can-i-restore-a-snapshot-on-a-different-device" href="#can-i-restore-a-snapshot-on-a-different-device"></a> Can I restore a snapshot on a different device?</h4>
-
-<p>Yes, any Hass.io snapshot can be restored on any device.</p>
-
-<h4><a class="title-link" name="the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login" href="#the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login"></a> The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login?</h4>
-
-<p>This is in the works. We have already implemented <a href="https://github.com/home-assistant/hassio/pull/41">the backend</a> and plan to release the UI soon.</p>
-
-<h4><a class="title-link" name="is-there-a-roadmap" href="#is-there-a-roadmap"></a> Is there a roadmap?</h4>
-
-<p>We use <a href="https://www.pivotaltracker.com/n/projects/2020851">Pivotal Tracker</a> to track things that are in progress and what we might work on.</p>
-
 ]]></content>
   </entry>
   

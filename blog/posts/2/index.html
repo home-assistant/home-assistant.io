@@ -70,6 +70,55 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/">Effortless encryption with Let's Encrypt and DuckDNS</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-09-27T00:05:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 27, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>When Let’s Encrypt launched we were estatic: finally an easy and free way for our users to securely access their homes remotely. Let’s Encrypt signifianctly lowered the bar to get and renew SSL certificates. However, this process could still be quite an obstacle for our users. It required opening ports on the router and remembering to renew the certificate every so often.</p>
+<p>Thanks to a <a href="https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt">blog post</a> by Andreas Gohr I realized that DuckDNS supports setting TXT records, making it compatible with the DNS-01 challenge of Let’s Encrypt. The DNS-01 challenge is using the DNS record of the domain instead of interacting with the server. This means that it’s not needed for the user to open any ports!</p>
+<p>I have worked together with <a href="https://github.com/pvizeli">Pascal Vizeli</a> on updating the DuckDNS add-on for Hass.io and today we’re proud to announce it now includes automatic generation and updating of Let’s Encrypt certificates for your DuckDNS domain. The only thing that you have to add to your DuckDNS configuration is that you accept the Let’s Encrypt <a href="https://letsencrypt.org/repository/">terms of service</a> and point Home Assistant at the generated certificates and you’re good to go. No other work is required.</p>
+<p>To get started today, start with making sure that you have <a href="/hassio/">Hass.io installed</a>. After that, go to the Hass.io panel in Home Assistant, open the add-on store, scroll down to DuckDNS and install it. In the DuckDNS settings change “accept_terms” to true and start it.</p>
+<p>Next up is to configure Home Assistant with the config below and restart it. You’re now good to go! Make sure to use the right protocol when browsing to your instance: <code class="highlighter-rouge">https://&lt;your_domain&gt;.duckdns.org</code>. Happy secure controlling your house!</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry for the HTTP component</span>
+<span class="s">http</span><span class="pi">:</span>
+  <span class="s">ssl_certificate</span><span class="pi">:</span> <span class="s">/ssl/fullchain.pem</span>
+  <span class="s">ssl_key</span><span class="pi">:</span> <span class="s">/ssl/privkey.pem</span>
+</code></pre>
+</div>
+<p>If you’re not using Hass.io, check out the <a href="https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt">blog post</a> by Andreas for instructions.</p>
+<p>If you enjoy the free service provided by DuckDNS and Let’s Encrypt, consider donating to their cause:</p>
+<ul>
+  <li><a href="https://www.patreon.com/user?u=3209735">Become a Patreon of DuckDNS</a></li>
+  <li><a href="https://letsencrypt.org/donate/">Donate to Let’s Encrypt</a></li>
+</ul>
+<p>More information:</p>
+<ul>
+  <li><a href="/hassio/">Hass.io</a></li>
+  <li><a href="/hassio/installation/">Installing Hass.io</a></li>
+  <li><a href="/addons/duckdns/">DuckDNS add-on</a></li>
+  <li><a href="http://www.duckdns.org/">DuckDNS</a></li>
+  <li><a href="https://letsencrypt.org/">Let’s Encrypt</a></li>
+</ul>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/09/26/new-hassio-build-system/">Improved Hass.io build system</a>
   </h1>
   <div class="meta clearfix">
@@ -555,54 +604,6 @@ Screenshot of the new customize editor.
 <p><a href="https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation">
   Visit the episode page on Talk Python
 </a></p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/07/25/introducing-hassio/">Introducing Hass.io</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-07-25T00:02:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 25, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> three minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Announcements</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/07/25/introducing-hassio/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><strong>TL;DR:</strong> Today we’re introducing <a href="/hassio">Hass.io</a>. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a> including <a href="/addons/google_assistant/">Google Assistant</a> and <a href="/addons/lets_encrypt/">Let’s Encrypt</a>.</p>
-<hr />
-<p>Home Assistant is 2 months away from being 4 years old. In that time the Internet of Things has really taken off and we’ve seen many new devices and services. We saw the introduction of voice assistants like Google Home and new standards like Apple HomeKit.</p>
-<p>Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. All these moving parts caused our users to spend a lot of time maintaining their systems and applications instead of automating their homes.</p>
-<p>So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user’s privacy.</p>
-<p>And this is how <a href="https://github.com/pvizeli/">Pascal Vizeli</a> came up with Hass.io, an operating system based on <a href="https://resinos.io/">ResinOS</a> and <a href="https://www.docker.com/">Docker</a>. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using <a href="/addons/">Hass.io add-ons</a>.</p>
-<p class="img">
-<img src="/images/hassio/screenshots/dashboard.png" />
-Hass.io dashboard
-</p>
-<p>To install add-ons, a user can browse the built-in add-on store and install, configure and update any available application. Want to turn your device into a Google Assistant or make your configuration accessible via Samba/Windows networking? Both are a couple of clicks away! (<a href="https://youtu.be/NfyavpAg4as">Video demo - 38s, no audio</a>)</p>
-<p>At launch we have included a couple of <a href="/addons/">built-in add-ons</a> like <a href="/addons/google_assistant/">Google Assistant</a>, <a href="/addons/lets_encrypt/">Let’s Encrypt</a> and <a href="/addons/duckdns/">Duck DNS</a>. Besides our internal add-ons, it is also possible to create and share your own add-on repositories. During our beta period we’ve already seen some great add-ons being shared: <a href="https://community.home-assistant.io/t/repository-homebridge-add-on/18569">Homebridge</a>, <a href="https://community.home-assistant.io/t/repository-bestlibre-addons-repository/18037">InfluxDB</a>, <a href="https://community.home-assistant.io/t/repository-hass-configurator/17838">HASS Configurator</a> and <a href="https://community.home-assistant.io/t/repository-few-addons/20659">AppDaemon</a>.</p>
-<p>As we strongly believe in the openness of technology, we are releasing Hass.io as <a href="https://github.com/home-assistant/hassio">open source</a> under the Apache 2.0 license. That way any user can make sure that the code that runs in their homes is secure and safe.</p>
-<ul>
-  <li><a href="/hassio">Learn more about Hass.io</a></li>
-  <li><a href="/hassio/installation">Install Hass.io</a></li>
-  <li><a href="/addons/">Available add-ons</a></li>
-</ul>
-<p><em>Some frequently asked questions are answered below in the read more section.</em></p>
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen=""></iframe>
-</div>
-<p>Hass.io has been built by <a href="https://github.com/pvizeli/">Pascal Vizeli</a>, the UI has been made by <a href="https://github.com/balloob/">Paulus Schoutsen</a> and <a href="https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w">BRUHAutomation</a> made the introduction video. Big thanks to <a href="https://resin.io">Resin.io</a> for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️</p>
-      <a class="btn pull-right" href="/blog/2017/07/25/introducing-hassio/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>
