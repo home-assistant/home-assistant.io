@@ -30,7 +30,7 @@ First let's have a look at the command we are going to use. Use `man ssh` to get
 ```bash
 $ ssh -L 8000:localhost:8123 user@[IP_ADDRESS_REMOTE]
       |  |    |         |    |    |
-      |  |    |         |    |    |_ IP address or hostname of your public interface.
+      |  |    |         |    |    |_ IP address or hostname of your router.
       |  |    |         |    |_ Username on the remote system.
       |  |    |         |_ Port where the application is running.
       |  |    |_ We want the frontend on this system.
