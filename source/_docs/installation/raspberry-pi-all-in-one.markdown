@@ -10,7 +10,11 @@ redirect_from: /getting-started/installation-raspberry-pi-all-in-one/
 
 The [Raspberry Pi All-In-One Installer](https://github.com/home-assistant/fabric-home-assistant) deploys a complete Home Assistant server including support for MQTT with websockets, Z-Wave, and the OpenZWave Control Panel.
 
-The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) connected to your network.
+<p class='note'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets.
+</p>
+
+The only requirement is that you have a Raspberry Pi with a fresh installation of [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) Jessie (Stretch is not supported at this time) connected to your network.
 
 <p class='note'>
 Note that as of 2016-11-30 SSH is disabled by default in the official Raspbian images. Adding an empty file called `ssh` to `/boot/` on the FAT32 partition will enable it. More information is on the Raspberry Pi Foundation [Blog](https://www.raspberrypi.org/blog/page/2/?fish#a-security-update-for-raspbian-pixel).

@@ -13,7 +13,7 @@ redirect_from: /getting-started/customizing-devices/
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
 <p class='note'>
-Be careful not to forget to place `customize`, `customize_domain`, and `customize_glob` inside `homeassistant:` or it will fail.
+If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
 </p>
 
 ```yaml

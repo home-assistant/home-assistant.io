@@ -16,6 +16,8 @@ On Linux platforms (other than Hass.io) there is one dependency you will need to
 $ sudo apt-get install libudev-dev
 ```
 
+On Python 3.6 you may also have to install libpython3.6-dev, and possibly python3.6-dev.
+
 When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed. 
 
 ```bash
@@ -104,7 +106,7 @@ device_config:
 
 ### {% linkable_title Finding the controller path on Linux %}
 
-<p class='note'
+<p class='note'>
 If you're using Hass.io please follow [these setup instructions](/hassio/zwave/) for finding the controller path.
 </p>
 

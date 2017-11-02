@@ -159,29 +159,12 @@ $ source /srv/homeassistant/bin/activate
 To fetch the token follow these instructions depending on your mobile phone platform.
 
 1. Configure the robot with the Mi-Home app.
-2. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
-3. Get and install the [ADB tool for Windows](https://developer.android.com/studio/releases/platform-tools.html).
-4. Create a backup of the application `com.xiaomi.smarthome`:
-```bash
-$ adb backup -noapk com.xiaomi.smarthome -f backup.ab
-```
-5. If you have this message: "More than one device or emulator", use this command to list all devices:
-```bash
-$ adb devices
-```
-and execute this command:
-```bash
-$ adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab # (with DEVICEID the device id from the previous command)
-```
-6. On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.
-7. Get and install [ADB Backup Extractor](https://sourceforge.net/projects/adbextractor/).
-8. Extract All files from the backup:
-```bash
-$ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
-```
-9. Unzip the ".tar" file.
-10. Open the SQLite database `miio2.db` with a tool like SQLite Manager extension for FireFox.
-11. Get the token from "devicerecord" table.
+2. Download and extract the [MiToolKit.zip](https://github.com/ultrara1n/MiToolkit/releases).
+3. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
+4. Change the MiToolKit language to English if you need to.
+5. Click "Extract Token"
+6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
+8. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
 
 #### {% linkable_title Linux and Android (rooted!) %}
 
@@ -214,7 +197,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 1. Configure the robot with the Mi-Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.
-3. Install [iBackup Viewer](Get ADB f.e. `apt-get install android-tools-adb`), open it, and open your backup.
+3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
 6. Search for a file that looks like this: `123456789_mihome.sqlite` – note that `_mihome.sqlite` is *not* the correct file.

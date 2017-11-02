@@ -18,7 +18,17 @@ Load and update configuration files for Home Assistant from a GIT repository.
   "repeat": {
     "active": false,
     "interval": 300
-  }
+  },
+  "deployment_key": [
+"-----BEGIN RSA PRIVATE KEY-----",
+"MIIEowIBAAKCAQEAv3hUrCvqGZKpXQ5ofxTOuH6pYSOZDsCqPqmaGBdUzBFgauQM",
+"xDEcoODGHIsWd7t9meAFqUtKXndeiKjfP0MMKsttnDohL1kb9mRvHre4VUqMsT5F",
+"...",
+"i3RUtnIHxGi1NqknIY56Hwa3id2yk7cEzvQGAAko/t6PCbe20AfmSQczs7wDNtBD",
+"HgXRyIqIXHYk2+5w+N2eunURIBqCI9uWYK/r81TMR6V84R+XhtvM",
+"-----END RSA PRIVATE KEY-----"
+  ],
+  "deployment_key_protocol": "rsa"
 }
 ```
 
@@ -26,3 +36,12 @@ Load and update configuration files for Home Assistant from a GIT repository.
 - **auto_restart** (*Optional*): Make a restart of Home-Assistant if the config have change and is valid.
 - **repeat/active** (*Optional*): Pull periodic for GIT updates.
 - **repeat/interval** (*Optional*): Pull all x seconds and look for changes.
+- **deployment_key** (*Optional*): A private SSH key that will be used for communication during git operations. This key is mandatory for ssh-accessed repositories, which are the ones with the following pattern: `<user>@<host>:<repository path>`.
+- **deployment_key_protocol** (*Optional*): The key protocol. Default is "rsa". Valid protocols are:
+
+  * **dsa**
+  * **ecdsa**
+  * **ed25519**
+  * **rsa**
+  
+  The protocol is typically known by the suffix of the private key --e.g., a key file named `id_rsa` will be a private key using "rsa" protocol.

@@ -14,8 +14,8 @@
   description: "An [entity](/docs/configuration/platform_options/) is the representation of a single device, unit or web service."
 - topic: Device
   description: "A device is usually a physical unit which can do or observe something."
-- topic: hass
-  description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant as well the command line tool."
+- topic: Hassbian
+  description: "[Hassbian](/docs/installation/hassbian/) is a customized operating system specifically tailored for Raspberry Pi users. It is one of the easiest way of installing and running Home Assistant on a Raspberry Pi."
 - topic: Discovery
   description: "[Discovery](/components/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Group

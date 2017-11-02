@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: apiai.png
+logo: dialogflow.png
 ha_category: Voice
 featured: false
 ha_release: 0.56

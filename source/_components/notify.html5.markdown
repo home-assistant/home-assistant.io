@@ -129,7 +129,7 @@ By default, every notification sent has a randomly generated UUID (v4) set as it
 }
 ```
 
-Example of adding a tag to your configuration. This won't create new notification if there already exists one with the same tag.
+Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
 ```yaml
   - alias: Push/update notification of sensor state with tag
@@ -233,7 +233,7 @@ or
     platform: event
     event_type: html5_notification.clicked
     event_data:
-     action: open_door
+      action: open_door
 ```
 
 #### {% linkable_title closed event %}

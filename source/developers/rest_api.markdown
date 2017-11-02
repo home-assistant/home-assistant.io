@@ -39,7 +39,7 @@ print(response.text)
 ```
 
 <p class='note'>
-You can append `?api_password=YOUR_PASSWORD` to any url to log in automatically.
+You can append `?api_password=YOUR_PASSWORD` to any URL to log in automatically.
 </p>
 
 Successful calls will return status code 200 or 201. Other status codes that can return are:
@@ -73,33 +73,43 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 Returns the current configuration as JSON.
 
 ```json
-{
-    "components": [
-        "recorder",
-        "http",
-        "weather.openweathermap",
-        "api",
-        "websocket_api",
-        "frontend",
-        "sensor.time_date",
-        "sun",
-        "device_tracker",
-        "group",
-        "automation"
-    ],
-    "config_dir": "/home/ha/.homeassistant",
-    "elevation": 590,
-    "latitude": 45.92,
-    "location_name": "Home",
-    "longitude": 6.52,
-    "time_zone": "Europe/Zurich",
-    "unit_system": {
-        "length": "km",
-        "mass": "g",
-        "temperature": "\\u00b0C",
-        "volume": "L"
-    },
-    "version": "0.37.0.dev0"
+{  
+   "components":[  
+      "sensor.cpuspeed",
+      "frontend",
+      "config.core",
+      "http",
+      "map",
+      "api",
+      "sun",
+      "config",
+      "discovery",
+      "conversation",
+      "recorder",
+      "group",
+      "sensor",
+      "websocket_api",
+      "automation",
+      "config.automation",
+      "config.customize"
+   ],
+   "config_dir":"/home/ha/.homeassistant",
+   "elevation":510,
+   "latitude":45.8781529,
+   "location_name":"Home",
+   "longitude":8.458853651,
+   "time_zone":"Europe/Zurich",
+   "unit_system":{  
+      "length":"km",
+      "mass":"g",
+      "temperature":"\u00b0C",
+      "volume":"L"
+   },
+   "version":"0.56.2",
+   "whitelist_external_dirs":[  
+      "/home/ha/.homeassistant/www",
+      "/home/ha/.homeassistant/"
+   ]
 }
 ```
 
@@ -115,10 +125,10 @@ Returns basic information about the Home Assistant instance as JSON.
 
 ```json
 {
-    "base_url": "http://127.0.0.1:8123",
+    "base_url": "http://192.168.0.2:8123",
     "location_name": "Home",
     "requires_api_password": true,
-    "version": "0.20.0.dev0"
+    "version": "0.56.2"
 }
 ```
 

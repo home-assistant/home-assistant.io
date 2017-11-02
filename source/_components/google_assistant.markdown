@@ -16,6 +16,10 @@ ha_release: 0.56
 # Google Assistant Docs
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
+<p class='note'>
+To use Google Assistant your Home Assistant configuration has to be externally accessible, with a hostname and SSL certificate. If you haven't already configured that you should do so before continuing.
+</p>
+
 ### {% linkable_title Configuration %}
 
 ```yaml
