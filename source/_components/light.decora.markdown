@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Decora"
+title: "Leviton Decora"
 description: "Instructions on how to setup Leviton Decora Bluetooth dimmers within Home Assistant."
 date: 2017-01-18 22:45
 sidebar: true
