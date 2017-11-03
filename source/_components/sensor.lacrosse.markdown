@@ -60,7 +60,7 @@ sensor:
         required: false
         type: string
       type:
-        description: The type of the sensor. Options: `battery`, `humidity`, `temperature`
+        description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`"
         required: true
         type: string
       id:
