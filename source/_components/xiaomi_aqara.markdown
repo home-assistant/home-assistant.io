@@ -60,8 +60,7 @@ To enable {{ page.title }} in your installation, add the following to your `conf
 xiaomi_aqara:
   discovery_retry: 5
   gateways:
-    - mac:
-      key: xxxxxxxxxxxxxxxx
+    - key: xxxxxxxxxxxxxxxx
 ```
 
 ### {% linkable_title Multiple Gateways %}
