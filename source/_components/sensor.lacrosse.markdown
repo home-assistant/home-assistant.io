@@ -55,23 +55,18 @@ sensor:
     required: true
     type: map
     keys:
-      sensor_identifier:
-        description: The identifier of the sensor.
+      name:
+        description: The name of the sensor.
+        required: false
+        type: string
+      type:
+        description: The type of the sensor. Options: `battery`, `humidity`, `temperature`
         required: true
-        type: map
-        keys:
-          name:
-            description: The name of the sensor.
-            required: false
-            type: string
-          type:
-            description: The type of the sensor. Options: `battery`, `humidity`, `temperature`
-            required: true
-            type: string
-          id:
-            description: The LaCrosse Id of the sensor.
-            required: true
-            type: int
+        type: string
+      id:
+        description: The LaCrosse Id of the sensor.
+        required: true
+        type: int
 {% endconfiguration %}
 
 
