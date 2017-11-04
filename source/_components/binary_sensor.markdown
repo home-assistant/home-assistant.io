@@ -29,6 +29,6 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **smoke**: `On` means smoke detected
 - **sound**: `On` means sound detected, `Off` means no sound
 - **vibration**: `On` means vibration detected, `Off` means no vibration
-- **plug**: `On` means device is plugged in, `Off` means device is plugged off
+- **plug**: `On` means device is plugged in, `Off` means device is unplugged
 
 For analog sensors please check the [component overview](https://home-assistant.io/components/#sensor).
