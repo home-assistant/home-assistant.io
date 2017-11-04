@@ -144,7 +144,7 @@ Follow the pairing process using your phone and Mi-Home app. After the pairing p
 
 After Nodejs installed. Try to install [miio](https://github.com/aholstenson/miio/blob/master/docs/management.md) buy using npm command
 ```bash
-$ npm install --save miio
+$ npm install -g miio
 ```
 After the `miio` package installed properly, simply run
 ```bash
