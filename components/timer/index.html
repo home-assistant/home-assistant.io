@@ -1,0 +1,334 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Timer - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate timers into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/timer/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Timer">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/timer/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate timers into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Timer">
+    <meta name="twitter:description" content="Instructions how to integrate timers into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Timer
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">timer</code> component aims to simplify automations based on (dynamic) durations.</p>
+<p>When a timer finishes or gets cancelled the corresponding events are fired. This allows you to diffferentiate if a timer has switched from <code class="highlighter-rouge">active</code> to <code class="highlighter-rouge">idle</code> because the given duration has elapsed or it has been cancelled. To control timers in your automations you can use the services mentioned below. When calling the <code class="highlighter-rouge">start</code> service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering any events. This for example makes it easy to create timed lights that get triggered by motion.</p>
+<p class="note warning">
+With the current implementation timers don’t persist over restarts. After a restart they will be idle again, together with their initial configuration.
+</p>
+<p>To add a timer to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">timer</span><span class="pi">:</span>
+  <span class="s">timer</span><span class="pi">:</span>
+    <span class="s">duration</span><span class="pi">:</span> <span class="s1">'</span><span class="s">00:01:00'</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>[alias]</strong> (<em>Required</em>): Alias for the timer. Multiple entries are allowed.
+    <ul>
+      <li><strong>name</strong> (<em>Optional</em>): Friendly name of the timer.</li>
+      <li><strong>duration</strong> (<em>Optional</em>): Initial duration in seconds or <code class="highlighter-rouge">00:00:00</code> when Home Assistant starts. Defaults to 0.</li>
+      <li><strong>icon</strong> (<em>Optional</em>): Set a custom icon for the state card.</li>
+    </ul>
+  </li>
+</ul>
+<p>Pick an icon that you can find on <a href="https://materialdesignicons.com/">materialdesignicons.com</a> to use for your timer and prefix the name with <code class="highlighter-rouge">mdi:</code>. For example <code class="highlighter-rouge">mdi:car</code>, <code class="highlighter-rouge">mdi:ambulance</code>, or  <code class="highlighter-rouge">mdi:motorbike</code>.</p>
+<h2><a class="title-link" name="events" href="#events"></a> Events</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>timer.cancelled</td>
+      <td>Fired when a timer has been cancelled</td>
+    </tr>
+    <tr>
+      <td>timer.finished</td>
+      <td>Fired when a timer has completed</td>
+    </tr>
+  </tbody>
+</table>
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+<h4><a class="title-link" name="service-timerstart" href="#service-timerstart"></a> Service <code class="highlighter-rouge">timer.start</code></h4>
+<p>Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read <code class="highlighter-rouge">01:23:45</code> format.<br />
+If no <code class="highlighter-rouge">entity_id</code> is given all active timers will be started.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Name of the entity to take action, e.g., <code class="highlighter-rouge">timer.timer0</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">duration</code></td>
+      <td>yes</td>
+      <td>Duration in seconds or <code class="highlighter-rouge">00:00:00</code> until the timer finishes.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-timerpause" href="#service-timerpause"></a> Service <code class="highlighter-rouge">timer.pause</code></h4>
+<p>Pause a running timer. This will retain the remaining duration for later continuation. If no <code class="highlighter-rouge">entity_id</code> is given all active timers will be paused.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Name of the entity to take action, e.g., <code class="highlighter-rouge">timer.timer0</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-timercancel" href="#service-timercancel"></a> Service <code class="highlighter-rouge">timer.cancel</code></h4>
+<p>Cancel an active timer. This resets the duration to the last known initial value without firing the <code class="highlighter-rouge">timer.finished</code> event. If no <code class="highlighter-rouge">entity_id</code> is given all active timers will be cancelled.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Name of the entity to take action, e.g., <code class="highlighter-rouge">timer.timer0</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-timerfinish" href="#service-timerfinish"></a> Service <code class="highlighter-rouge">timer.finish</code></h4>
+<p>Manually finish a running timer earlier than scheduled. If no <code class="highlighter-rouge">entity_id</code> is given all active timers will be finished.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Name of the entity to take action, e.g., <code class="highlighter-rouge">timer.timer0</code>.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="use-the-service" href="#use-the-service"></a> Use the service</h3>
+<p>Select <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose <strong>timer</strong> from the list of <strong>Domains</strong>, select the <strong>Service</strong>, enter something like the sample below into the <strong>Service Data</strong> field, and hit <strong>CALL SERVICE</strong>.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timer.timer0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/timer.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/home-assistant.png' />
+  </div>
+    <div class='section'>
+    Introduced in release: 0.57
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Automation</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/alert/'>Alert</a>
+        </li>
+        <li>
+            <a href='/components/automation/'>Automation</a>
+        </li>
+        <li>
+            <a href='/components/counter/'>Counter</a>
+        </li>
+        <li>
+            <a href='/components/switch.flux/'>Flux Light Adjustment</a>
+        </li>
+        <li>
+            <a href='/components/hdmi_cec/'>HDMI CEC</a>
+        </li>
+        <li>
+            <a href='/components/ifttt/'>IFTTT</a>
+        </li>
+        <li>
+            <a href='/components/input_boolean/'>Input Boolean</a>
+        </li>
+        <li>
+            <a href='/components/input_datetime/'>Input Datetime</a>
+        </li>
+        <li>
+            <a href='/components/input_number/'>Input Number</a>
+        </li>
+        <li>
+            <a href='/components/input_select/'>Input Select</a>
+        </li>
+        <li>
+            <a href='/components/input_text/'>Input Text</a>
+        </li>
+        <li>
+            <a href='/components/keyboard/'>Keyboard</a>
+        </li>
+        <li>
+            <a href='/components/lirc/'>LIRC</a>
+        </li>
+        <li>
+            <a href='/components/device_sun_light_trigger/'>Presence based lights</a>
+        </li>
+        <li>
+            <a href='/components/proximity/'>Proximity</a>
+        </li>
+        <li>
+            <a href='/components/python_script/'>Python Scripts</a>
+        </li>
+        <li>
+            <a href='/components/rest_command/'>RESTful Command</a>
+        </li>
+        <li>
+            <a href='/components/script/'>Scripts</a>
+        </li>
+        <li>
+            <a href='/components/shell_command/'>Shell command</a>
+        </li>
+        <li>
+            Timer
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

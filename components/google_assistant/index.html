@@ -122,12 +122,16 @@ To use Google Assistant your Home Assistant configuration has to be externally a
       <span class="s">aliases</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="s">bedroom shades</span>
         <span class="pi">-</span> <span class="s">bedroom covers</span>
+    <span class="s">hallway_ceiling_switch</span><span class="pi">:</span>
+      <span class="s">google_assistant</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">google_assistant_type</span><span class="pi">:</span> <span class="s">light</span>
 </code></pre>
 </div>
 <p><em>Entity Customization Keys:</em></p>
 <ul>
   <li><em>google_assistant</em>: True exposes entity, false will hide it</li>
   <li><em>google_assistant_name</em>: Can be used to override the primary name of an entity. By default the <code class="highlighter-rouge">friendly_name</code> of an entity is used.</li>
+  <li><em>google_assistant_type</em>: Can be used to override the domain/type of an entity. For example a switch can be treated as a light</li>
   <li><em>aliases</em>: Provides “nicknames” to Google Assistant. These function as alternate names for an entity that Assistant will understand when spoken.</li>
 </ul>
 <h3><a class="title-link" name="setup" href="#setup"></a> Setup</h3>

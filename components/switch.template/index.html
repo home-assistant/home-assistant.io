@@ -222,6 +222,29 @@ momentary switches to control a device.</p>
           <span class="no">{% endif %}</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="change-the-entity-picture" href="#change-the-entity-picture"></a> Change The Entity Picture</h3>
+<p>This example shows how to change the entity picture based on the day/night cycle.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">switch</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">switches</span><span class="pi">:</span>
+      <span class="s">garage</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('cover.garage_door',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">turn_on</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">cover.open_cover</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.garage_door</span>
+        <span class="s">turn_off</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">cover.close_cover</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.garage_door</span>
+        <span class="s">entity_picture_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('cover.garage_door', 'open') %}</span>
+            <span class="no">/local/garage-open.png</span>
+          <span class="no">{% else %}</span>
+            <span class="no">/local/garage-closed.png</span>
+          <span class="no">{% endif %}</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

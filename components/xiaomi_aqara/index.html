@@ -106,7 +106,7 @@
   <li>Decoupled mode of the Aqara Wall Switches (Single &amp; Double)</li>
   <li>Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure</li>
 </ul>
-<h2>Setup</h2>
+<h2><a class="title-link" name="setup" href="#setup"></a> Setup</h2>
 <p>Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a>.</p>
 <p>To enable Xiaomi Gateway (Aqara) in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <h3><a class="title-link" name="one-gateway" href="#one-gateway"></a> One Gateway</h3>
@@ -114,8 +114,7 @@
 <span class="s">xiaomi_aqara</span><span class="pi">:</span>
   <span class="s">discovery_retry</span><span class="pi">:</span> <span class="s">5</span>
   <span class="s">gateways</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">mac</span><span class="pi">:</span>
-      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
+    <span class="pi">-</span> <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="multiple-gateways" href="#multiple-gateways"></a> Multiple Gateways</h3>
@@ -165,18 +164,154 @@
   </dl>
 </div>
 <h3><a class="title-link" name="services" href="#services"></a> Services</h3>
-<p>The gateway provides two services: <code class="highlighter-rouge">xiaomi_aqara.play_ringtone</code> and <code class="highlighter-rouge">xiaomi_aqara.stop_ringtone</code>. To play ringtones by Home Assistant, the version of the gateway firmware must be <code class="highlighter-rouge">1.4.1_145</code> at least. A <code class="highlighter-rouge">ringtone_id</code> and <code class="highlighter-rouge">gw_mac</code> must be supplied. The parameter <code class="highlighter-rouge">ringtone_vol</code> (percent) is optional. Allowed values of the <code class="highlighter-rouge">ringtone_id</code> are:</p>
+<p>The gateway provides the following services:</p>
+<h4><a class="title-link" name="service-xiaomi_aqaraplay_ringtone" href="#service-xiaomi_aqaraplay_ringtone"></a> Service xiaomi_aqara.play_ringtone</h4>
+<p>Play a specific ringtone. The version of the gateway firmware must be <code class="highlighter-rouge">1.4.1_145</code> at least. Take a look at the examples below.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">gw_mac</code></td>
+      <td>no</td>
+      <td>MAC address of the Xiaomi Aqara Gateway</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ringtone_id</code></td>
+      <td>no</td>
+      <td>One of the allowed ringtone ids</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ringtone_vol</code></td>
+      <td>yes</td>
+      <td>The volume in percent</td>
+    </tr>
+  </tbody>
+</table>
+<p>Allowed values of the <code class="highlighter-rouge">ringtone_id</code> are:</p>
 <ul>
-  <li>alarm ringtones [0-8]</li>
-  <li>doorbell ring [10-13]</li>
-  <li>alarm clock [20-29]</li>
-  <li>custom ringtones (uploaded by the Mi Home app) starting from 10001</li>
+  <li>Alarms
+    <ul>
+      <li>0 - Police car 1</li>
+      <li>1 - Police car 2</li>
+      <li>2 - Accident</li>
+      <li>3 - Countdown</li>
+      <li>4 - Ghost</li>
+      <li>5 - Sniper rifle</li>
+      <li>6 - Battle</li>
+      <li>7 - Air raid</li>
+      <li>8 - Bark</li>
+    </ul>
+  </li>
+  <li>Doorbells
+    <ul>
+      <li>10 - Doorbell</li>
+      <li>11 - Knock at a door</li>
+      <li>12 - Amuse</li>
+      <li>13 - Alarm clock</li>
+    </ul>
+  </li>
+  <li>Alarm clock
+    <ul>
+      <li>20 - MiMix</li>
+      <li>21 - Enthusiastic</li>
+      <li>22 - GuitarClassic</li>
+      <li>23 - IceWorldPiano</li>
+      <li>24 - LeisureTime</li>
+      <li>25 - ChildHood</li>
+      <li>26 - MorningStreamLiet</li>
+      <li>27 - MusicBox</li>
+      <li>28 - Orange</li>
+      <li>29 - Thinker</li>
+    </ul>
+  </li>
+  <li>Custom ringtones (uploaded by the Mi Home app) starting from 10001</li>
 </ul>
+<h4><a class="title-link" name="service-xiaomi_aqarastop_ringtone" href="#service-xiaomi_aqarastop_ringtone"></a> Service xiaomi_aqara.stop_ringtone</h4>
+<p>Stops a playing ringtone immediately.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">gw_mac</code></td>
+      <td>no</td>
+      <td>MAC address of the Xiaomi Aqara Gateway</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-xiaomi_aqaraadd_device" href="#service-xiaomi_aqaraadd_device"></a> Service xiaomi_aqara.add_device</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">gw_mac</code></td>
+      <td>no</td>
+      <td>MAC address of the Xiaomi Aqara Gateway</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-xiaomi_aqaraadd_device" href="#service-xiaomi_aqaraadd_device"></a> Service xiaomi_aqara.add_device</h4>
+<p>Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">gw_mac</code></td>
+      <td>no</td>
+      <td>MAC address of the Xiaomi Aqara Gateway</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-xiaomi_aqararemove_device" href="#service-xiaomi_aqararemove_device"></a> Service xiaomi_aqara.remove_device</h4>
+<p>Removes a specific device. The removal is required if a device shall be paired with another gateway.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">gw_mac</code></td>
+      <td>no</td>
+      <td>MAC address of the Xiaomi Aqara Gateway</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">device_id</code></td>
+      <td>no</td>
+      <td>Hardware address of the device to remove</td>
+    </tr>
+  </tbody>
+</table>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
-<h3>Long Press on Smart Button</h3>
-<p>This example plays the sound of a dog barking when the button is held down,
-and stops the sound when the button is pressed once.
-<em>Note: The sound will stop playing automatically when it has ended.</em></p>
+<h3><a class="title-link" name="long-press-on-smart-button" href="#long-press-on-smart-button"></a> Long Press on Smart Button</h3>
+<p>This example plays the sound of a dog barking when the button is held down, and stops the sound when the button is pressed once.</p>
+<p><em>Note: The sound will stop playing automatically when it has ended.</em></p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Let a dog bark on long press</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>

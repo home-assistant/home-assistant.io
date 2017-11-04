@@ -135,6 +135,32 @@
     <span class="s">entity_id</span><span class="pi">:</span> <span class="s">alarm_control_panel.ha_alarm</span>
 </code></pre>
 </div>
+<p>Sending a notification when the alarm is triggered.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Send</span><span class="nv"> </span><span class="s">notification</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">triggered'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">alarm_control_panel.ha_alarm</span>
+        <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">triggered'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ALARM!</span><span class="nv"> </span><span class="s">The</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">been</span><span class="nv"> </span><span class="s">triggered"</span>
+</code></pre>
+</div>
+<p>Disarming the alarm when the door is properly unlocked.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Disarm</span><span class="nv"> </span><span class="s">alarm</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">door</span><span class="nv"> </span><span class="s">unlocked</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">keypad'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">sensor.front_door_lock_alarm_type</span>
+        <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">19'</span>
+        <span class="c1"># many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">alarm_control_panel.alarm_disarm</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">alarm_control_panel.house_alarm</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

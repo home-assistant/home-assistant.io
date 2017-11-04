@@ -70,6 +70,88 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/11/04/release-57/">0.57: Translations, Hacktoberfest, Timers</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-11-04T04:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> November 4, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 20 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/11/04/release-57/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p class="img">
+<img src="/images/blog/2017-11-0.57/languages.png" alt="The Home Assistant sidebar in 12 different languages" />
+The Home Assistant sidebar in 12 different languages.
+</p>
+<p>Whaaaaaats up everyone?! 😁 It’s been another crazy 2 weeks here at the virtual Home Assistant headquarters with a ton of great contributions from all over the world. New features, bug fixes, performance improvements. It’s a lot so let’s jump right in.</p>
+<h2><a class="title-link" name="translations" href="#translations"></a> Translations</h2>
+<p>The first great feature, if you haven’t guessed it yet from the screenshot above: we are now able to translate the UI! Currently the translations are limited to the sidebar menu items. Even without a translation tool available, our contributors have jumped in and submitted translations for these menu items in over twenty languages! Home Assistant will automatically pick an available translation based on your browser settings, or a translation can be manually selected in the configuration panel.</p>
+<p>We’re currently working on an integration with the web based translation tool <a href="https://lokalise.co">lokalise.co</a>, to make the translation process accessible to anyone who would like to contribute. Stay tuned for a blog post with more documentation soon.</p>
+<h2><a class="title-link" name="frontend-improvements" href="#frontend-improvements"></a> Frontend improvements</h2>
+<p>As part of getting translations to work, we did a lot of cleanup work on the frontend side. The re-organization should allow us to iterate faster on the frontend. We’ve already seen a lot of clean up as part of this thanks to @armills and @andrey-git for keep raising the quality!</p>
+<h2><a class="title-link" name="hacktoberfest" href="#hacktoberfest"></a> Hacktoberfest</h2>
+<p><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a> 2017 is over! FINALLY. Each year we’re attracting more developers that want to contribute to Home Assistant. This is great but also very exhausting to our code reviewers. I want to give an enormous gigantic huge big shout out to our reviewers @pvizeli, @andrey-git, @armills, @MartinHjelmare, @fabaff. You have all done an amazing job and we couldn’t run Home Assistant without any of you! ❤</p>
+<p>Hacktoberfest is obviously about the people contributing to open source. Big thanks to everyone that has taken the time to learn our code base and make contributions. We hope it was a pleasant experience and show how great open source can be. Hope to see many contributions in the future 👍</p>
+<p>Here are our Hacktoberfest 2017 stats. It’s a miracle everyone is still alive:</p>
+<ul>
+  <li>Main repo: <a href="https://github.com/home-assistant/home-assistant/pulls?utf8=%E2%9C%93&amp;q=merged%3A%3E2017-10-01%20is%3Apr%20label%3AHacktoberfest%20is%3Aclosed%20">273 Pull requests</a> were merged out of 307.</li>
+  <li>Docs repo: <a href="https://github.com/home-assistant/home-assistant.github.io/pulls?page=1&amp;q=merged%3A%3E2017-10-01+is%3Apr+label%3AHacktoberfest+is%3Aclosed&amp;utf8=%E2%9C%93">295 Pull requests</a> merged out of 310.</li>
+  <li>Frontend: <a href="https://github.com/home-assistant/home-assistant-polymer/pulls?utf8=%E2%9C%93&amp;q=merged%3A%3E2017-10-01%20is%3Apr%20label%3AHacktoberfest%20is%3Aclosed%20">57 pull requests</a> merged.</li>
+</ul>
+<p>This means that we processed over 20 Pull requests per day. The result was already visible in 0.56. This release is almost the same. In those releases we were able to add over 40 new integrations.</p>
+<h2><a class="title-link" name="ikea-trdfri" href="#ikea-trdfri"></a> IKEA TRÅDFRI</h2>
+<p>Good news and bad news on this front. The bad news is that IKEA changed the internal API for TRÅDFRI with a firmware update, breaking the Home Assistant integration. The good news is that they were nice enough to <a href="https://twitter.com/home_assistant/status/925373865802502144">email us with instructions on the breaking changes</a>.</p>
+<p>Long time contributor <a href="https://github.com/lwis">@lwis</a> jumped on the case and managed to migrate our integration in Home Assistant in time for this release. Great work!</p>
+<p class="img">
+<img src="/images/blog/2017-11-0.57/pumpkin.jpeg" alt="Pumpkin with Home Assistant logo carved in." />
+@clhett01 made us a pumpkin (<a href="https://twitter.com/clhett01/status/925481848612032512">via Twitter</a>)
+</p>
+<h2><a class="title-link" name="timer" href="#timer"></a> Timer</h2>
+<p>Okay, one more highlight before we’ll let you check out the changelog. Contributor <a href="https://github.com/danielperna84">@danielperna84</a> (famous for creating the <a href="https://home-assistant.io/addons/configurator/">HASS Configurator</a>), had another great component up his sleeve: the Timer component. With the timer component you’ll be able to start countdown timers. A neat tool for your automation toolbox! More info in the <a href="https://home-assistant.io/components/timer/">timer docs</a>.</p>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
+<p><a href="/components/#version/0.57"><img src="/images/blog/2017-11-0.57/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<ul>
+  <li>Introducing Ring Door Bell Camera (including StickUp cameras) and WiFi sensors (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9962">#9962</a>) (<a href="https://home-assistant.io/components/ring/">ring docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.ring/">binary_sensor.ring docs</a>) (<a href="https://home-assistant.io/components/camera.ring/">camera.ring docs</a>) (<a href="https://home-assistant.io/components/sensor.ring/">sensor.ring docs</a>) (new-platform)</li>
+  <li>add irish rail transport sensor (<a href="https://github.com/ttroy50">@ttroy50</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9883">#9883</a>) (<a href="https://home-assistant.io/components/sensor.irish_rail_transport/">sensor.irish_rail_transport docs</a>) (new-platform)</li>
+  <li>Add fail2ban sensor (<a href="https://github.com/fronzbot">@fronzbot</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9975">#9975</a>) (<a href="https://home-assistant.io/components/sensor.fail2ban/">sensor.fail2ban docs</a>) (new-platform)</li>
+  <li>add eph ember controls (<a href="https://github.com/ttroy50">@ttroy50</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9721">#9721</a>) (<a href="https://home-assistant.io/components/climate.ephember/">climate.ephember docs</a>) (new-platform)</li>
+  <li>whois domain lookup sensor (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10000">#10000</a>) (<a href="https://home-assistant.io/components/sensor.whois/">sensor.whois docs</a>) (new-platform)</li>
+  <li>Add Deluge Switch Component (<a href="https://github.com/HydrelioxGitHub">@HydrelioxGitHub</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9979">#9979</a>) (<a href="https://home-assistant.io/components/switch.deluge/">switch.deluge docs</a>) (new-platform)</li>
+  <li>SNMP switch (<a href="https://github.com/kirichkov">@kirichkov</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9840">#9840</a>) (<a href="https://home-assistant.io/components/switch.snmp/">switch.snmp docs</a>) (new-platform)</li>
+  <li>Microsoft tts (<a href="https://github.com/jeroenterheerdt">@jeroenterheerdt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9973">#9973</a>) (<a href="https://home-assistant.io/components/tts.microsoft/">tts.microsoft docs</a>) (new-platform)</li>
+  <li>Telldus Live: Device without methods is a binary sensor (<a href="https://github.com/rasmusbe">@rasmusbe</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10106">#10106</a>) (<a href="https://home-assistant.io/components/tellduslive/">tellduslive docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.tellduslive/">binary_sensor.tellduslive docs</a>) (new-platform)</li>
+  <li>Support for NO-IP (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10155">#10155</a>) (<a href="https://home-assistant.io/components/no_ip/">no_ip docs</a>) (new-platform)</li>
+  <li>Linode (<a href="https://github.com/ryanm101">@ryanm101</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9936">#9936</a>) (<a href="https://home-assistant.io/components/linode/">linode docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.linode/">binary_sensor.linode docs</a>) (new-platform)</li>
+  <li>Nederlandse spoorwegen (<a href="https://github.com/b10m">@b10m</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10136">#10136</a>) (<a href="https://home-assistant.io/components/sensor.nederlandse_spoorwegen/">sensor.nederlandse_spoorwegen docs</a>) (new-platform)</li>
+  <li>added Yesss SMS platform (<a href="https://github.com/flowolf">@flowolf</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10177">#10177</a>) (<a href="https://home-assistant.io/components/notify.yessssms/">notify.yessssms docs</a>) (new-platform)</li>
+  <li>Add Sytadin Traffic component (<a href="https://github.com/gautric">@gautric</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9524">#9524</a>) (<a href="https://home-assistant.io/components/sensor.sytadin/">sensor.sytadin docs</a>) (new-platform)</li>
+  <li>Added new Clickatell SMS messaging Notify Platform (<a href="https://github.com/davlloyd">@davlloyd</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9775">#9775</a>) (<a href="https://home-assistant.io/components/notify.clickatell/">notify.clickatell docs</a>) (new-platform)</li>
+  <li>Add Random binary sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10164">#10164</a>) (<a href="https://home-assistant.io/components/binary_sensor.random/">binary_sensor.random docs</a>) (new-platform)</li>
+  <li>Add gc100 platforms and component (<a href="https://github.com/davegravy">@davegravy</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10159">#10159</a>) (<a href="https://home-assistant.io/components/gc100/">gc100 docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.gc100/">binary_sensor.gc100 docs</a>) (<a href="https://home-assistant.io/components/switch.gc100/">switch.gc100 docs</a>) (new-platform)</li>
+  <li>Timer component (<a href="https://github.com/danielperna84">@danielperna84</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9889">#9889</a>) (<a href="https://home-assistant.io/components/timer/">timer docs</a>) (new-platform)</li>
+  <li>integration with Remember The Milk. (<a href="https://github.com/ChristianKuehnel">@ChristianKuehnel</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9803">#9803</a>) (<a href="https://home-assistant.io/components/remember_the_milk/">remember_the_milk docs</a>) (new-platform)</li>
+  <li>Luftdaten sensor (<a href="https://github.com/lichtteil">@lichtteil</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10274">#10274</a>) (<a href="https://home-assistant.io/components/sensor.luftdaten/">sensor.luftdaten docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+      <a class="btn pull-right" href="/blog/2017/11/04/release-57/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/11/02/secure-shell-tunnel/">Home Assistant and SSH</a>
   </h1>
   <div class="meta clearfix">
@@ -410,49 +492,6 @@
  leader and his contributions. Dale and Rohan also cover off the 0.54 release.</p>
 <p>Show notes available on the <a href="https://hasspodcast.io/ha009/">Home Assistant Podcast Website</a>.</p>
 <p><a href="https://hasspodcast.io/ha009/">Listen online</a></p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/09/29/hacktoberfest/">Participating in Hacktoberfest</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-09-29T08:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 29, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Community</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/09/29/hacktoberfest/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>For the second year in a row, Home Assistant will be participating in <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest</a>. Hacktoberfest is an event organized by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features, and documentation enhancements and that you, a current or future contributor, will help us fix them. If you submit four pull-requests during October, you will have earned yourself a limited edition Hacktoberfest T-shirt!</p>
-<p>Why contribute to Home Assistant?</p>
-<ul>
-  <li>Written in Python 3 with 94% test coverage</li>
-  <li>Active and helpful community</li>
-  <li>Friendly to new contributors</li>
-</ul>
-<p>Resources to get started:</p>
-<ul>
-  <li><a href="https://hacktoberfest.digitalocean.com/sign_up/register">Sign up for Hacktoberfest</a></li>
-  <li><a href="https://github.com/home-assistant/home-assistant/labels/Hacktoberfest">List of entry-level issues for Home Assistant</a></li>
-  <li><a href="/developers/development_environment/">Instructions to setup your development environment</a></li>
-  <li><a href="https://discord.gg/8X8DTH4">Home Assistant Development Chat</a></li>
-  <li><a href="https://community.home-assistant.io/c/development">Home Assistant Development Forums</a></li>
-  <li><a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest website</a></li>
-</ul>
-<p>Are you not a programmer but still want to contribute to Home Assistant? Check out our <a href="https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest">list of entry-level issues for the Home Assistant website</a>.</p>
-<p>Our participation for <a href="https://home-assistant.io/blog/2016/11/05/hacktoberfest-influxdb-weather/#hacktoberfest">Hacktoberfest 2016</a> was a huge success. Join us to repeat it this year.</p>
-<p><a href="https://hacktoberfest.digitalocean.com/"><img src="/images/blog/2016-10-hacktoberfest/hacktoberfest.png" alt="Hacktober fest logo" /></a></p>
   </div>
   </article>
   <hr>

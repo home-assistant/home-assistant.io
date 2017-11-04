@@ -99,6 +99,7 @@
   <li><strong>effect_value_template</strong> (<em>Optional</em>): Defines a <a href="/docs/configuration/templating/#processing-incoming-data">template</a> to extract the effect value.</li>
   <li><strong>effect_list</strong> (<em>Optional</em>): The list of effects the light supports.</li>
   <li><strong>name</strong> (<em>Optional</em>): The name of the switch. Default is ‘MQTT Switch’.</li>
+  <li><strong>on_command_type</strong> (<em>Optional</em>): Defines when on the payload_on is sent. Using <code class="highlighter-rouge">last</code> (the default) will send any style (brightness, color, etc) topics first and then a <code class="highlighter-rouge">payload_on</code> to the <code class="highlighter-rouge">command_topic</code>. Using <code class="highlighter-rouge">first</code> will send the <code class="highlighter-rouge">payload_on</code> and then any style topics. Using <code class="highlighter-rouge">brightness</code> will only send brightness commands instead of the <code class="highlighter-rouge">payload_on</code> to turn the light on.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Flag that defines if switch works in optimistic mode. Default is true if no state topic defined, else false.</li>
   <li><strong>payload_off</strong> (<em>Optional</em>): The payload that represents disabled state. Default is “OFF”.</li>
   <li><strong>payload_on</strong> (<em>Optional</em>): The payload that represents enabled state. Default is “ON”.</li>
@@ -221,6 +222,20 @@
     <span class="s">payload_on</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ON"</span>
     <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
     <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="brightness-without-on-commands" href="#brightness-without-on-commands"></a> Brightness without on commands</h3>
+<p>To enable a light that sends only brightness topics to turn it on, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file. The <code class="highlighter-rouge">command_topic</code> is only used to send an off command in this case:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yml entry</span>
+<span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Brightness</span><span class="nv"> </span><span class="s">light"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">office/light/status"</span>
+    <span class="s">command_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">office/light/switch"</span>
+    <span class="s">payload_off</span><span class="pi">:</span> <span class="s2">"</span><span class="s">OFF"</span>
+    <span class="s">brightness_state_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/rgb1/light/brightness'</span>
+    <span class="s">brightness_command_topic</span><span class="pi">:</span> <span class="s1">'</span><span class="s">office/rgb1/light/brightness/set'</span>
+    <span class="s">on_command_type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">brightness'</span>
 </code></pre>
 </div>
 <h3><a class="title-link" name="implementations" href="#implementations"></a> Implementations</h3>

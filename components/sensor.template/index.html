@@ -118,7 +118,7 @@ from other entities.</p>
         </dd>
         <dt><a class="title-link" name="icon_template" href="#icon_template"></a> icon_template</dt>
         <dd>
-          <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Optional)</span><span class="description">Defines a template for the icon of the sensor.</span></p>
+          <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Optional)</span><span class="description">Defines a template for the entity picture of the sensor.</span></p>
         </dd>
       </dl>
     </dd>
@@ -240,6 +240,27 @@ unit of measurement doesn’t fit your needs.</p>
             <span class="no">mdi:weather-sunny</span>
           <span class="no">{% else %}</span>
             <span class="no">mdi:weather-night</span>
+          <span class="no">{% endif %}</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="change-the-entity-picture" href="#change-the-entity-picture"></a> Change The Entity Picture</h3>
+<p>This example shows how to change the entity picture based on the day/night cycle.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">day_night</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Day/Night"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('sun.sun', 'above_horizon') %}</span>
+            <span class="no">Day</span>
+          <span class="no">{% else %}</span>
+            <span class="no">Night</span>
+          <span class="no">{% endif %}</span>
+        <span class="no">entity_picture_template: &gt;-</span>
+          <span class="no">{% if is_state('sun.sun', 'above_horizon') %}</span>
+            <span class="no">/local/daytime.png</span>
+          <span class="no">{% else %}</span>
+            <span class="no">/local/nighttime.png</span>
           <span class="no">{% endif %}</span>
 </code></pre>
 </div>
@@ -442,9 +463,6 @@ unit of measurement doesn’t fit your needs.</p>
         </li>
         <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.nest/'>Nest Sensor</a>

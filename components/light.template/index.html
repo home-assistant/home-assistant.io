@@ -196,6 +196,84 @@ point percentage value from <code class="highlighter-rouge">0.0</code> to <code 
           <span class="no">{% endif %}</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="change-the-icon" href="#change-the-icon"></a> Change The Icon</h3>
+<p>This example shows how to change the icon based on the light state.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">lights</span><span class="pi">:</span>
+      <span class="s">theater_volume</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Receiver</span><span class="nv"> </span><span class="s">Volume"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('media_player.receiver', 'on') %}</span>
+            <span class="no">{% if states.media_player.receiver.attributes.is_volume_muted %}</span>
+              <span class="no">off</span>
+            <span class="no">{% else %}</span>
+              <span class="no">on</span>
+            <span class="no">{% endif %}</span>
+          <span class="no">{% else %}</span>
+            <span class="no">off</span>
+          <span class="no">{% endif %}</span>
+        <span class="no">icon_template: &gt;-</span>
+          <span class="no">{% if is_state('media_player.receiver', 'on') %}</span>
+            <span class="no">{% if states.media_player.receiver.attributes.is_volume_muted %}</span>
+              <span class="no">mdi:lightbulb-off</span>
+            <span class="no">{% else %}</span>
+              <span class="no">mdi:lightbulb-on</span>
+            <span class="no">{% endif %}</span>
+          <span class="no">{% else %}</span>
+            <span class="no">mdi:lightbulb-off</span>
+          <span class="no">{% endif %}</span>
+        <span class="no">turn_on:</span>
+          <span class="no">service: media_player.volume_mute</span>
+          <span class="no">data:</span>
+            <span class="no">entity_id: media_player.receiver</span>
+            <span class="no">is_volume_muted: false</span>
+        <span class="no">turn_off:</span>
+          <span class="no">service: media_player.volume_mute</span>
+          <span class="no">data:</span>
+            <span class="no">entity_id: media_player.receiver</span>
+            <span class="no">is_volume_muted: true</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="change-the-entity-picture" href="#change-the-entity-picture"></a> Change The Entity Picture</h3>
+<p>This example shows how to change the entity picture based on the light state.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">lights</span><span class="pi">:</span>
+      <span class="s">theater_volume</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Receiver</span><span class="nv"> </span><span class="s">Volume"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('media_player.receiver', 'on') %}</span>
+            <span class="no">{% if states.media_player.receiver.attributes.is_volume_muted %}</span>
+              <span class="no">off</span>
+            <span class="no">{% else %}</span>
+              <span class="no">on</span>
+            <span class="no">{% endif %}</span>
+          <span class="no">{% else %}</span>
+            <span class="no">off</span>
+          <span class="no">{% endif %}</span>
+        <span class="no">icon_template: &gt;-</span>
+          <span class="no">{% if is_state('media_player.receiver', 'on') %}</span>
+            <span class="no">{% if states.media_player.receiver.attributes.is_volume_muted %}</span>
+              <span class="no">/local/lightbulb-off.png</span>
+            <span class="no">{% else %}</span>
+              <span class="no">/local/lightbulb-on.png</span>
+            <span class="no">{% endif %}</span>
+          <span class="no">{% else %}</span>
+            <span class="no">/local/lightbulb-off.png</span>
+          <span class="no">{% endif %}</span>
+        <span class="no">turn_on:</span>
+          <span class="no">service: media_player.volume_mute</span>
+          <span class="no">data:</span>
+            <span class="no">entity_id: media_player.receiver</span>
+            <span class="no">is_volume_muted: false</span>
+        <span class="no">turn_off:</span>
+          <span class="no">service: media_player.volume_mute</span>
+          <span class="no">data:</span>
+            <span class="no">entity_id: media_player.receiver</span>
+            <span class="no">is_volume_muted: true</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

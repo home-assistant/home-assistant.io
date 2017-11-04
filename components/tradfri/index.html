@@ -74,24 +74,25 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">tradfri</code> component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network.</p>
-<p>You will be prompted to configure the gateway through the Home Assistant interface, Enter the security key when prompted and click configure</p>
+  <p>The <code class="highlighter-rouge">tradfri</code> component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network, if <code class="highlighter-rouge">discovery:</code> is present in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+<p>You will be prompted to configure the gateway through the Home Assistant interface. Enter the security key when prompted and click configure.</p>
 <p class="note">
 If you see an “Unable to connect” message, restart the gateway and try again. Don’t forget to assign a permanent IP to your Trådfri gateway.
 </p>
-<p>The gateway can also be manually configured by adding the following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<p>You can add the following to your <code class="highlighter-rouge">configuration.yaml</code> file if you are not using the <a href="/components/discovery/"><code class="highlighter-rouge">discovery:</code></a> component:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">tradfri</span><span class="pi">:</span>
   <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">API_KEY</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>host</strong> (<em>Required</em>): The IP address or hostname of your Trådfri gateway.</li>
-  <li><strong>api_key</strong> (<em>Required</em>): Can be found listed as Security Key on the back of the Trådfri gateway.</li>
-  <li><strong>allow_tradfri_groups</strong> (<em>Optional</em>): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Trådfri bridge.</li>
+  <li><strong>allow_tradfri_groups</strong> (<em>Optional</em>): Enable this to stop Home Assistant from importing the groups defined on the Trådfri bridge. Defaults to <code class="highlighter-rouge">true</code>.</li>
 </ul>
+<p class="note">
+Do not use the <code class="highlighter-rouge">api_key</code> variable. The key is only needed once at initial setup.
+</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

@@ -79,6 +79,39 @@
 <span class="s">frontend</span><span class="pi">:</span>
 </code></pre>
 </div>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="themes" href="#themes"></a> themes</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">Allow to define different themes. See below for further details.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="identifier" href="#identifier"></a> [identifier]</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="list map">list | map</span>)</span><span class="required">(Required)</span><span class="description">Name to use in the frontend.</span></p>
+        </dd>
+        <dd>
+          <dl class="nested">
+            <dt><a class="title-link" name="css-identifier" href="#css-identifier"></a> [css-identifier]</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="list string">list | string</span>)</span><span class="required">(Required)</span><span class="description">The CSS identifier.</span></p>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt><a class="title-link" name="extra_html_url" href="#extra_html_url"></a> extra_html_url</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Optional)</span><span class="description">List of addtional <a href="/developers/frontend_creating_custom_ui/">resources</a> to load.</span></p>
+    </dd>
+    <dt><a class="title-link" name="development_repo" href="#development_repo"></a> development_repo</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Allow to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.</span></p>
+    </dd>
+  </dl>
+</div>
 <h2><a class="title-link" name="themes" href="#themes"></a> Themes</h2>
 <p>Starting with version 0.49 you can define themes:</p>
 <p>Example:</p>

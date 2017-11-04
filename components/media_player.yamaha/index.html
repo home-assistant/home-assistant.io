@@ -92,19 +92,37 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>name</strong> (<em>Optional</em>): Name of the device</li>
+  <li><strong>name</strong> (<em>Optional</em>): Name of the device. This overrides the
+default name (often model number) that is returned by the device.</li>
   <li><strong>host</strong> (<em>Optional</em>): IP address or hostname of the device</li>
   <li><strong>source_ignore</strong> (<em>Optional</em>): List of sources to hide in the front-end</li>
   <li><strong>source_names</strong> (<em>Optional</em>): Mapping of internal AVR source names to custom ones, allowing to rename e.g. <code class="highlighter-rouge">HDMI1</code> to <code class="highlighter-rouge">ChromeCast</code></li>
 </ul>
-<p>A few notes:</p>
+<h3><a class="title-link" name="discovery-notes" href="#discovery-notes"></a> Discovery notes</h3>
 <ul>
-  <li>Not specifying the host variable will result in automatically searching your network for Yamaha Receivers. It will add a media player device for each one.</li>
-  <li>For receivers that support more than one zone, Home Assistant will add one media player per zone supported by the player, named “$name Zone 2” and “$name Zone 3”.</li>
-  <li>In some cases, auto-discovery fails due to a known bug in the receiver’s firmware. It is possible to manually specify the receiver’s IP address or via it’s hostname (if it is discoverable by your DNS) then.</li>
-  <li>Please note: If adding the IP address or hostname manually, you <strong>must</strong> enable network standby on your receiver, or else startup of Home Assistant will hang if you have your receiver switched off.</li>
-  <li>Currently, this component supports powering on/off, mute, volume control and source selection. Playback controls, for instance play and stop are available for sources that supports it.</li>
+  <li>If the <code class="highlighter-rouge">discovery</code> component is enabled, all units on the network
+will be discovered using UPNP.</li>
+  <li>For receivers that support more than one zone, Home Assistant will
+add one media player per zone supported by the player, named “$name
+Zone 2” and “$name Zone 3”.</li>
+  <li>If you specify <code class="highlighter-rouge">host</code> manually, you <strong>must</strong> enable network standby
+on your receiver, or else startup of Home Assistant will hang if you
+have your receiver switched off.</li>
+  <li>In some cases, auto-discovery fails due to a known bug in the
+receiver’s firmware. It is possible to manually specify the
+receiver’s IP address or via it’s hostname (if it is discoverable by
+your DNS) then.</li>
 </ul>
+<h3><a class="title-link" name="supported-operations" href="#supported-operations"></a> Supported operations</h3>
+<ul>
+  <li>Media players created by yamaha support powering on/off, mute,
+volume control and source selection. Playback controls, for instance
+play and stop are available for sources that supports it.</li>
+  <li>The <code class="highlighter-rouge">play_media</code> service is implemented for <code class="highlighter-rouge">NET RADIO</code> source
+only. The <code class="highlighter-rouge">media_id</code> is a <code class="highlighter-rouge">&gt;</code> separted string of the menu path on
+the vtuner service. For instance <code class="highlighter-rouge">Bookmarks&gt;Internet&gt;WAMC 90.3 FM</code>.</li>
+</ul>
+<h3><a class="title-link" name="example-configuration" href="#example-configuration"></a> Example configuration</h3>
 <p>A full configuration example will look like the sample below:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">media_player</span><span class="pi">:</span>
@@ -116,6 +134,33 @@
     <span class="s">source_names</span><span class="pi">:</span>
       <span class="s">HDMI1</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ChromeCast"</span>
       <span class="s">AV4</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Vinyl"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="example-play_media-script" href="#example-play_media-script"></a> Example <code class="highlighter-rouge">play_media</code> script</h3>
+<p>The <code class="highlighter-rouge">play_media</code> function can be used in scripts easily to build media
+player presets. When done in scripts, the sequence will also allow you
+to set volume per source.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example play_media script</span>
+<span class="c1">#</span>
+<span class="c1"># This is for an environment where Zone 2 of the receiver named</span>
+<span class="c1"># `Living Room Stereo` drives outdoor speakers on the porch.</span>
+<span class="s">script</span><span class="pi">:</span>
+ <span class="s">rp_porch</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Radio</span><span class="nv"> </span><span class="s">Paradise</span><span class="nv"> </span><span class="s">Porch"</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.living_room_stereo_zone_2</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.volume_set</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.living_room_stereo_zone_2</span>
+          <span class="s">volume_level</span><span class="pi">:</span> <span class="s">0.48</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.living_room_stereo_zone_2</span>
+          <span class="s">media_content_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">NET</span><span class="nv"> </span><span class="s">RADIO"</span>
+          <span class="s">media_content_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Bookmarks&gt;Internet&gt;Radio</span><span class="nv"> </span><span class="s">Paradise"</span>
+
 </code></pre>
 </div>
 </article>

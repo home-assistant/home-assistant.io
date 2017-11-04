@@ -86,9 +86,9 @@
   <li><strong>name</strong> (<em>Optional</em>): Additional name for the sensors. Default to platform name.</li>
   <li><strong>monitored_conditions</strong> array (<em>Optional</em>): Conditions to display in the frontend. Defaults to <code class="highlighter-rouge">traffic_jam</code>.
     <ul>
-      <li><strong>traffic_jam</strong>: A human-readable text summary.</li>
-      <li><strong>mean_velocity</strong>: The current temperature.</li>
-      <li><strong>congestion</strong>: The wind speed.</li>
+      <li><strong>traffic_jam</strong>: Amount of kilometers in traffic jam (km).</li>
+      <li><strong>mean_velocity</strong>: Mean velocity (km/h).</li>
+      <li><strong>congestion</strong>: Index of congestion (n/a).</li>
     </ul>
   </li>
 </ul>
@@ -275,9 +275,6 @@
         </li>
         <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
-        </li>
-        <li>
-            <a href='/components/sensor.neato/'>Neato Robotics Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.nest/'>Nest Sensor</a>

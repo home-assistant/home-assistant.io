@@ -70,6 +70,35 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2017/07/27/talk-python-podcast/">Talk Python interview with Paulus Schoutsen</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-07-27T02:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> July 27, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Media</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/07/27/talk-python-podcast/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/335038628&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+<p>Join Michael Kennedy at the Talk Python podcast for an hour long interview with Paulus Schoutsen, the founder of Home Assistant, as they discuss the release of Hass.io and the vision for the perfect home automation.</p>
+<p><a href="https://talkpython.fm/episodes/show/122/home-assistant-pythonic-home-automation">
+  Visit the episode page on Talk Python
+</a></p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2017/07/25/introducing-hassio/">Introducing Hass.io</a>
   </h1>
   <div class="meta clearfix">
@@ -484,34 +513,6 @@ Screenshot of a green dashboard
 <p>Now that users are able to control these names, we will be making changes to how the entity_ids are generated for ZWave entities. The ZWave entity_ids are going to switch back to using the standard entity_id generation from Home Assistant core, based on the entity names. Moving forward, if there is a conflict when generating entity_ids, a suffix will be added, and it will be the responsibility of the user to rename their nodes and values to avoid the conflict. This is the same as any other platform in Home Assistant where two devices are discovered with the same name.</p>
 <p>With the release of 0.47, this feature will be opt-in. Setting <code class="highlighter-rouge">new_entity_ids: true</code> under <code class="highlighter-rouge">zwave:</code> in your configuration.yaml will enable the new generation. After 0.48 this feature will become opt-out. From 0.48 onward, unless you’ve declared <code class="highlighter-rouge">new_entity_ids: false</code> you will switch to the new entity_id generation. At an undecided point in the future, the old entity_id generation will be removed completely.</p>
 <p>I’m sure all ZWave users understand that the current entity_ids aren’t easy to use. They’re annoying to type in configuration.yaml, and break if a node needs to be re-included to the network. We know that breaking changes are painful, and so we’re doing what we can to roll this change out as smoothly as possible. The end result should be a dramatic simplification of most ZWave configurations. We hope that this change will ultimately make ZWave much easier to work with, and bring ZWave configuration just a little closer to the rest of the Home Assistant platforms.</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2017/06/10/interview-with-jupiter-broadcasting/">Linux Action Show special about Home Assistant</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2017-06-10T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> June 10, 2017</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> Less than one minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Media</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2017/06/10/interview-with-jupiter-broadcasting/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Our founder Paulus Schoutsen is interviewed by Chris Fisher for a Linux Action Show special about home automation, <a href="https://community.home-assistant.io/t/introducing-hass-io/17296/48">Hass.io</a> and the new <a href="https://hasspodcast.io/">Home Assistant podcast</a>.</p>
-<div class="videoWrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/LQbOtUmITv8" frameborder="0" allowfullscreen=""></iframe>
-</div>
   </div>
   </article>
   <hr>

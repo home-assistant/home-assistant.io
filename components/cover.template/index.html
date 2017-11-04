@@ -297,6 +297,62 @@ sensor into a cover.</p>
           <span class="s">position</span><span class="pi">:</span> <span class="s">25</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="change-the-icon" href="#change-the-icon"></a> Change The Icon</h3>
+<p>This example shows how to change the icon based on the cover state.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">covers</span><span class="pi">:</span>
+      <span class="s">cover_group</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Cover</span><span class="nv"> </span><span class="s">Group"</span>
+        <span class="s">open_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_group</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">modus</span><span class="pi">:</span> <span class="s1">'</span><span class="s">open'</span>
+        <span class="s">close_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_group</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">modus</span><span class="pi">:</span> <span class="s1">'</span><span class="s">close'</span>
+        <span class="s">stop_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_group</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">modus</span><span class="pi">:</span> <span class="s1">'</span><span class="s">stop'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{is_state('sensor.cover_group',</span><span class="nv"> </span><span class="s">'open')}}"</span>
+        <span class="s">icon_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('sensor.cover_group', 'open') %}</span>
+            <span class="no">mdi:window-open</span>
+          <span class="no">{% else %}</span>
+            <span class="no">mdi:window-closed</span>
+          <span class="no">{% endif %}</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="change-the-entity-picture" href="#change-the-entity-picture"></a> Change The Entity Picture</h3>
+<p>This example shows how to change the entity picture based on the cover state.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">covers</span><span class="pi">:</span>
+      <span class="s">cover_group</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Cover</span><span class="nv"> </span><span class="s">Group"</span>
+        <span class="s">open_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_group</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">modus</span><span class="pi">:</span> <span class="s1">'</span><span class="s">open'</span>
+        <span class="s">close_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_group</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">modus</span><span class="pi">:</span> <span class="s1">'</span><span class="s">close'</span>
+        <span class="s">stop_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_group</span>
+          <span class="s">data</span><span class="pi">:</span>
+            <span class="s">modus</span><span class="pi">:</span> <span class="s1">'</span><span class="s">stop'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{is_state('sensor.cover_group',</span><span class="nv"> </span><span class="s">'open')}}"</span>
+        <span class="s">icon_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{% if is_state('sensor.cover_group', 'open') %}</span>
+            <span class="no">/local/cover-open.png</span>
+          <span class="no">{% else %}</span>
+            <span class="no">/local/cover-closed.png</span>
+          <span class="no">{% endif %}</span>
+</code></pre>
+</div>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
