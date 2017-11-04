@@ -27,7 +27,7 @@ recorder:
 
 Configuration variables:
 
-- **purge_interval** (*Optional*): (days) Enable scheduled purge of older events and states. The purge task runs every x days, starting from when Home Assistant is started. If you restart your instance more frequently, than the purge will never take place. You can use [service](#service-purge) call `recorder.purge` when needed.
+- **purge_interval** (*Optional*): (days) Enable scheduled purge of older events and states. The purge task runs every x days from when the `recorder component` is first enabled. If a scheduled purge is missed (e.g. if Home Assistant was not running) then the schedule will resume soon after Home Assistant restarts. You can use [service](#service-purge) call `recorder.purge` when required without impacting the purge schedule.
 - **purge_keep_days** (*Required with `purge_interval`*): Specify number of history days to keep in recorder database after purge. 
 - **exclude** (*Optional*): Configure which components should be excluded from recordings.
   - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
