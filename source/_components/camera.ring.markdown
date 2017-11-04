@@ -47,7 +47,7 @@ action:
   - service: downloader.download_file
     data_template:
       url: "{{ states.camera.front_door.attributes.video_url }}"
-      subdir: "{{'ring_{}'.format(states.camera.front_door.attributes.friendly_name}}"
+      subdir: "{{'ring_{}'.format(states.camera.front_door.attributes.friendly_name)}}"
       filename: "{{states.camera.front_door.attributes.friendly_name}}"
 ```
 
