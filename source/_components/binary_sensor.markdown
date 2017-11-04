@@ -24,11 +24,11 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **moving**: `On` means moving, `Off` means stopped
 - **occupancy**: `On` means occupied, `Off` means not occupied
 - **opening**: `On` means open, `Off` means closed
+- **plug**: `On` means device is plugged in, `Off` means device is unplugged
 - **power**: Power, over-current, etc.
 - **safety**: `On` means unsafe, `Off` means safe
 - **smoke**: `On` means smoke detected
 - **sound**: `On` means sound detected, `Off` means no sound
 - **vibration**: `On` means vibration detected, `Off` means no vibration
-- **plug**: `On` means device is plugged in, `Off` means device is unplugged
 
 For analog sensors please check the [component overview](https://home-assistant.io/components/#sensor).
