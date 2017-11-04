@@ -2,12 +2,12 @@
 layout: page
 title: "Luftdaten Sensor"
 description: "Instructions how to setup Luftdaten sensor in Home Assistant."
-date: 2017-11-01 10:00
+date: 2017-11-01 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
+logo: luftdaten.png
 ha_category: Health
 ha_release: 0.57
 ha_iot_class: "Cloud Polling"
@@ -35,14 +35,46 @@ sensor:
       - humidity
 ```
 
-Configuration variables:
+{% configuration %}
+  sensorid:
+    description: The ID of the sensor.
+    required: true
+    type: string
+  name:
+    description: Name of the sensor to use in the frontend.
+    required: false
+    default: Luftdaten Sensor
+    type: string
+  resource:
+    description:  The URL of the API endpoint. Usually this has not to be changed.
+    required: false
+    default: https://api.luftdaten.info/v1/sensor/
+    type: string
+  verify_ssl:
+    description: Verify SSL connection.
+    required: false
+    default: true
+    type: boolean
+  monitored_conditions:
+    description: A list of conditions you want to monitor.
+    required: true
+    type: list
+    keys:
+      P1:
+        description: Show the particle sensors (particles 10 microns and below).
+        required: false
+        type: string
+      P2:
+        description: Show the particle sensors (particles 2.5 microns and below).
+        required: false
+        type: string
+      temperature:
+        description: Display the temperature from a weather sensor.
+        required: false
+        type: string
+      humidity:
+        description: Display the humidity from a weather sensor.
+        required: false
+        type: string
+{% endconfiguration %}
 
-- **sensorid** (*Required*): The ID of the sensor.
-- **monitored_conditions** (*Required*): A list of conditions you want to monitor. The following conditions can be monitored:
-  - `P1` for particle sensors (particles 10 microns and below).
-  - `P2` for particle sensors (particles 2.5 microns and below).
-  - `temperature` for weather sensors.
-  - `humidity` for weather sensors.
-- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Luftdaten Sensor`.
-- **resource** (*Optional*): The URL of the API endpoint. Usually this has not to be changed. The default is `https://api.luftdaten.info/v1/sensor/`.
-- **verify_ssl** (*Optional*): Verify SSL connection. Defaults to `true`.

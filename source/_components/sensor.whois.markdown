@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
+logo: icann.png
 ha_category: Sensor
 ha_release: "0.57"
 ha_iot_class: "Cloud Polling"
@@ -24,7 +24,15 @@ sensor:
     name: primary
 ```
 
-Configuration variables:
+{% configuration %}
+  domain:
+    description: The domain you want to perform WHOIS lookups against.
+    required: true
+    type: string
+  name:
+    description: Name to use in the frontend.
+    required: false
+    default: Whois
+    type: string
+{% endconfiguration %}
 
-- **domain** (*Required*): The domain you want to perform WHOIS lookups against.
-- **name** (*Optional*): A friendly name to apply to this sensor.
